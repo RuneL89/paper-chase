@@ -1,0 +1,22 @@
+{
+  "command": "status",
+  "timestamp": "2026-07-05T05:53:29.644Z",
+  "workspace": "C:\\Users\\atavi\\Projects\\Wiki v4\\tests\\fixtures\\valid-workspace",
+  "wikiSlugs": [
+    "acme"
+  ],
+  "sourceFiles": [],
+  "chunkBoundaries": [],
+  "pagesGenerated": [
+    {
+      "type": "acme",
+      "count": 0
+    }
+  ],
+  "warnings": [],
+  "errors": [],
+  "status": "success",
+  "cliVersion": "0.0.1",
+  "configVersions": {},
+  "llmCalls": []
+}

@@ -1,0 +1,8 @@
+{
+  "chunking": {
+    "max_chunk_size": 40000
+  },
+  "extraction": {
+    "engine": "pdf-parse"
+  }
+}

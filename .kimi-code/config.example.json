@@ -1,0 +1,9 @@
+{
+  "llm": {
+    "enabled": true,
+    "provider": "kimi",
+    "model": "kimi-k2.7-code",
+    "apiKey": "YOUR_KIMI_API_KEY_HERE",
+    "baseUrl": "https://api.kimi.com/coding"
+  }
+}

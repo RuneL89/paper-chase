@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+
+# Local workspace configuration and logs
+.kimi-code/config.json
+.kimi-code/logs/
+.zcode/
+
+# Local wiki workspaces
+wikis/
+
+# Stray artifacts
+nul
