@@ -1,8 +1,16 @@
 # LLM Wiki CLI — Agent Notes
 
+> **Two meanings of `AGENTS.md`:** this file (`<workspace>/AGENTS.md`) is the workspace-level handbook for *ZCode agents editing the CLI codebase*. Each wiki that the CLI ingests also gets its own `AGENTS.md`, which is a per-wiki **LLM ingestion guide** (not the human contract). When working on source code, this file applies; when working on the wiki format, see the per-wiki `AGENTS.md` concept in `Project Vision/02_WIKI_concept_detailed.md`.
+
 ## Project purpose
 
 Local Node.js/TypeScript CLI that converts collections of PDFs into a **wiki-of-wikis**: each collection is a markdown wiki with its own index, and all wiki indexes roll up into a top-level **index-of-indexes**. Built for research where every claim must be traceable to an exact source location.
+
+## Core philosophy
+
+- **LLM is the programmer; the wiki is the codebase.** The LLM writes all markdown content (synthesized summaries, transcriptions, tables, and connections), while deterministic local code handles extraction, I/O, hashing, validation, and orchestration.
+- **Citation-backed.** Every factual claim on a wiki page must cite an exact PDF and page range via `[^srcN]` markers mapped to YAML `sources`.
+- **Compounding, not ephemeral.** Each ingestion pass enriches existing pages and creates new ones; nothing is lost.
 
 ## Tech stack
 
@@ -122,6 +130,8 @@ Rolling memory is accumulated across PDFs during full ingestion and persisted in
 - **Config precedence:** wiki `config.json` overrides workspace `.kimi-code/config.json` overrides `defaultConfig` in `src/config.ts`.
 - **Status gate:** `ingest` warns if wiki status is not `"ready"`; run `sample` first.
 - **DOX contracts:** `index-of-indexes.md` → `wikis/<slug>/index.md` → `<folder>/index.md`. Folder-level indexes are child contracts that describe the folder's page types and navigation.
+- **Structural-change approval:** creating new folders or changing the wiki's organization requires a human-approved proposal with reason, pros, cons, and required contract updates. New page types inside existing folders do not require approval.
+- **Markdown authorship:** deterministic code must not draft or mutate wiki page bodies; the LLM is the sole author of all markdown content pages.
 
 ## Testing
 
@@ -135,10 +145,26 @@ Rolling memory is accumulated across PDFs during full ingestion and persisted in
 - No raw PDFs are transmitted over the network; only extracted text goes to remote LLMs.
 - Run logs never include API keys or raw content.
 
+## Known gotchas
+
+- **ESM imports:** every import path must end in `.js`, even though the source files are `.ts`. TypeScript resolves these with `NodeNext` module resolution.
+- **No raw PDF bytes to the LLM:** the LLM only ever receives extracted text and metadata. Never pass raw PDF buffers to an LLM call.
+- **`sample` before `ingest`:** `ingest` warns if the wiki status is not `"ready"`. Run `sample` first to generate the folder plan and update the wiki status.
+- **Scanned pages go to `raw/`:** image-only or unparseable pages are preserved as `raw` pages and skipped from normal document chunks.
+- **Kimi `thinking` blocks:** Kimi Code may return `thinking` blocks before the final `text` block. If the CLI appears to get an empty response, use `test-llm --verbose` to inspect the raw LLM output.
+- **Forward slashes in stored paths:** always normalize stored relative paths to forward slashes via `toRelativePath` from `workspace.ts`, even on Windows.
+
 ## Documentation to read before major changes
 
 - `README.md` — user-facing overview, usage, and examples
 - `docs/QUICKSTART.md` — beginner-friendly setup guide
 - `docs/USAGE.md` — detailed command reference
 - `.kimi-code/FRD.md` — product vision, architecture, and requirements
+- `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` — canonical product vision and architecture from recent requirements sessions
+- `Project Vision/02_WIKI_concept_detailed.md` — detailed wiki concept, page types, and `AGENTS.md` ingestion-guide role
+- `Project Vision/03_DOX_concept_detailed.md` — DOX-inspired cascading `index.md` contract hierarchy
+- `Project Vision/04_orchestration_detailed.md` — sampling and ingestion orchestrator flows
+- `Project Vision/05_page_types_specification.md` — frontmatter schemas and content structures for default page types
+- `Project Vision/06_citation_and_provenance.md` — citation format, `sources` frontmatter, and provenance rules
+- `Project Vision/07_validation_and_quality.md` — validation order, Critic, lint, and structural-change approval
 - `plan/SPRINT_INSTRUCTIONS.md` — sprint plans and implementation tracker

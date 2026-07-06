@@ -1,0 +1,145 @@
+# Sprint 3 — Deterministic Provenance Layer: Source, Raw, and Document Pages
+
+| Attribute | Value |
+|---|---|
+| Sprint ID | `sprint-03-deterministic-provenance` |
+| Goal | Implement the deterministic provenance layer: source pages, raw pages, and baseline document pages. This is the fallback that the LLM will later enhance. |
+| Based on | `Project Vision/05_page_types_specification.md` §4, §5, §8; `Project Vision/06_citation_and_provenance.md` §4; `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §2.5, §2.6. |
+| Status | `NOT_STARTED` |
+
+---
+
+## 1. Why This Sprint
+
+Before the LLM writes synthesis, the system must be able to produce the provenance anchors that every citation will rely on. `Project Vision/06` §4 states:
+
+> Every source PDF has a corresponding `source` page. The `source` page is the provenance anchor for all citations to that PDF.
+
+`Project Vision/05` §5 specifies the `source` page frontmatter: `file`, `sha256`, `pages`, `ingested`, `warnings`. §4 specifies `document` pages as containers for raw material. §6 specifies `raw` pages for unparseable fragments.
+
+This sprint also implements the deterministic document-page fallback that the system can use when the LLM fails in later sprints (per `Project Vision/07` §7 Error Handling and Recovery).
+
+---
+
+## 2. Prerequisites
+
+- **Sprint 1 — Foundation** and **Sprint 2 — Extraction & Chunking** must be approved by the user.
+- `init`, extraction, chunking, and incremental state tracking are in place.
+
+---
+
+## 3. Scope
+
+1. Implement `src/writers/source.ts` to write deterministic `source` pages with:
+   - File path and SHA-256.
+   - Page count and metadata.
+   - Warnings (e.g., scanned pages).
+   - Links to derived document and raw pages.
+2. Implement `src/writers/raw.ts` to write deterministic `raw` pages with:
+   - Source PDF and page number.
+   - Reason (scanned/image-only).
+   - Any OCR text or image metadata.
+3. Implement baseline `src/writers/document.ts` to write deterministic document pages that contain:
+   - Frontmatter with `title`, `type: document`, `wiki`, `sources` (file + page range), `tags`, `confidence`.
+   - Extracted text organized by headings.
+   - Tables preserved as markdown tables.
+   - Figure descriptions.
+   - No LLM synthesis yet — this is the fallback when the LLM fails.
+4. Implement `src/writers/index.ts` to write wiki-level `index.md` and `index-of-indexes.md` with counts and links.
+5. Update `src/commands/ingest.ts` to call the writers and produce the deterministic output.
+
+---
+
+## 4. Project Vision References
+
+- `Project Vision/01` §2.5: Source pages.
+- `Project Vision/01` §2.6: Raw pages.
+- `Project Vision/05` §4: The `document` page type.
+- `Project Vision/05` §5: The `source` page type.
+- `Project Vision/05` §8: The `raw` page type.
+- `Project Vision/06` §4: Provenance pages.
+- `Project Vision/07` §7: Fallback to deterministic extraction.
+
+---
+
+## 5. Files to Create or Modify
+
+- `src/writers/source.ts` — source pages.
+- `src/writers/raw.ts` — raw pages.
+- `src/writers/document.ts` — deterministic baseline document pages.
+- `src/writers/index.ts` — wiki-level and top-level index pages.
+- `src/writers/config.ts` — may need updates for config handling.
+- `src/commands/ingest.ts` — wire writers into the ingestion flow.
+- `tests/writers/source.test.ts` — new tests.
+- `tests/writers/raw.test.ts` — new tests.
+- `tests/writers/document.test.ts` — new tests.
+- `tests/writers/index.test.ts` — new tests.
+
+---
+
+## 6. Technical Acceptance Criteria (TAC)
+
+1. `npm run build` succeeds with no TypeScript errors.
+2. `npm run test` passes with new tests covering:
+   - Every source PDF produces a `sources/<slug>.md` with valid frontmatter matching `Project Vision/05` §5.
+   - Every scanned page produces a `raw/<source>-page-<NNN>.md` with valid frontmatter matching `Project Vision/05` §8.
+   - Every chunk produces a `documents/<source>-part-<NNN>.md` with valid frontmatter and extracted text.
+   - The source page SHA-256 matches the file on disk.
+   - All citations in a document page map to a `sources` entry with a valid file and page range.
+   - The wiki-level `index.md` lists the number of sources, document pages, and raw pages.
+3. Deterministic output matches the expected frontmatter schema from `Project Vision/05`.
+
+---
+
+## 7. User Acceptance Criteria (UAT)
+
+1. After `ingest`, `output/sources/` contains one page per PDF with a SHA-256 hash.
+2. Opening a document page shows the extracted text, tables, and figure descriptions from the chunk.
+3. A scanned page is represented in `output/raw/` with a note explaining it could not be parsed.
+4. The wiki-level `index.md` lists the number of sources, document pages, and raw pages.
+5. The top-level `index-of-indexes.md` is created or updated in a multi-wiki workspace.
+
+---
+
+## 8. TDD Red-Green-Refactor-Evaluate Methodology
+
+Follow this exact loop for every feature in this sprint:
+
+1. **RED PHASE** — Write the tests first. Before implementing a feature, write executable tests that assert the TAC. These tests must fail against the current codebase.
+2. **GREEN PHASE** — Implement the minimal code to make the tests pass. After any code change, immediately run `npm run build` and `npm run test`. If compilation or tests fail, enter a Self-Correcting Generator-Critic loop: analyze the error, reason about the fix, apply the fix, and re-run. **Maximum 5 iterations per fix attempt.** If unresolved after 5, stop and ask for human input.
+3. **EVALUATE PHASE** — Run the Evaluator-Optimizer loop against the TAC and UAT. Score each criterion as PASS or FAIL. **Maximum 3 evaluation iterations.** If any criterion fails, revise and re-evaluate. During this phase, use the actual Kimi Code credentials to verify the implemented feature works end-to-end.
+4. **REFACTOR PHASE** — Once all tests pass and all criteria are met, improve code quality while keeping all tests green.
+5. **HUMAN GATE** — Do **not** proceed to Sprint 4 until the user has explicitly approved the UAT.
+
+### Boundedness Rules
+
+- Compile-fix loop: max 5 iterations.
+- Evaluator-optimizer loop: max 3 iterations.
+- TDD loop for a single feature: max 10 iterations.
+- If any loop hits its maximum without success, stop and escalate to the user.
+
+---
+
+## 9. State Accumulation Rule
+
+Preserve all context from Sprints 1 and 2. The `init` command, extraction, chunking, and state tracking must remain functional. Do not start fresh.
+
+---
+
+## 10. Human Gate
+
+After completing this sprint:
+
+1. Update `plan/SPRINT_INSTRUCTIONS.md` status table for Sprint 3 with:
+   - Status: `AWAITING_UAT` or `TECHNICAL_REVIEW`.
+   - Test pass rate.
+   - Acceptance criteria score.
+   - Any blockers.
+2. Present the user with a summary, test results, and UAT checklist.
+3. **Do not start Sprint 4 until the user explicitly approves.**
+
+---
+
+## 11. Next Sprint
+
+After approval, proceed to **Sprint 4 — LLM as Author: `AGENTS.md` & ChunkWriter**: `plan/Plan_implementation/sprint-04-llm-agents-md/instruction.md`.
