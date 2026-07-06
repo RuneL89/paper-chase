@@ -6,14 +6,15 @@ import { extractPdf } from '../extractor/pdf.js';
 import { CLIError } from '../errors.js';
 import { analyzeAndChunk } from '../chunking/chunker.js';
 import { writeChunkingStrategy } from '../chunking/strategy-writer.js';
-import { writeAgentsMd } from '../writers/agents.js';
 import { writeWikiConfig } from '../writers/config.js';
 import { writeDocumentPage } from '../writers/document.js';
 import { writeSourcePage } from '../writers/source.js';
 import { writeRawPage } from '../writers/raw.js';
+import { runSampleOrchestrator } from '../orchestrator/index.js';
 import { buildRunLog, writeRunLog } from '../log.js';
 import { createLLMClient, type LLMCallRecord } from '../llm/client.js';
 import type { ExtractionResult } from '../extractor/types.js';
+import type { OrchestratorResult } from '../orchestrator/types.js';
 
 export async function sampleCommand(
   workspace: string,
@@ -74,8 +75,16 @@ export async function sampleCommand(
     structure,
     strategy,
   );
-  writeAgentsMd(path.join(wikiDir, 'AGENTS.md'), slug, structure);
   writeWikiConfig(workspace, slug, config, structure, strategy);
+
+  const orchestratorResult = await runSampleOrchestrator(
+    workspace,
+    slug,
+    config,
+    result,
+    chunks,
+    llmClient,
+  );
 
   for (const chunk of chunks) {
     writeDocumentPage(
@@ -100,8 +109,8 @@ export async function sampleCommand(
     }
   }
 
-  printSummary(slug, result, chunks, structure);
-  writeSampleRunLog(workspace, slug, result, chunks, llmRecord);
+  printSummary(slug, result, chunks, structure, orchestratorResult.wikiIndexPath, orchestratorResult.folderIndexes);
+  writeSampleRunLog(workspace, slug, result, chunks, orchestratorResult, llmRecord);
   return 0;
 }
 
@@ -121,6 +130,7 @@ function writeSampleRunLog(
   slug: string,
   result: ExtractionResult,
   chunks: { id: string; title: string; pageRange: string; content: string }[],
+  orchestratorResult: OrchestratorResult,
   llmRecord?: LLMCallRecord,
 ): void {
   const log = buildRunLog('sample', workspace, {
@@ -135,9 +145,10 @@ function writeSampleRunLog(
       { type: 'document', count: chunks.length },
       { type: 'source', count: 1 },
       { type: 'raw', count: result.pages.filter((p) => p.isScanned).length },
+      { type: 'index', count: 1 + orchestratorResult.folderIndexes.length },
     ],
     warnings: result.warnings,
-    errors: [],
+    errors: orchestratorResult.critic.issues.map((i) => i.message),
     status: 'success',
     llmCalls: llmRecord ? [llmRecord] : [],
   });
@@ -149,6 +160,8 @@ function printSummary(
   result: ExtractionResult,
   chunks: { title: string; belowMin: boolean }[],
   structure: { scannedPages: number[] },
+  wikiIndexPath: string,
+  folderIndexes: string[],
 ): void {
   console.log(`Sample ingestion complete for wiki "${slug}".`);
   console.log(`Source PDF: ${result.fileName}`);
@@ -164,7 +177,10 @@ function printSummary(
   console.log('');
   console.log('Artifacts created:');
   console.log('  - chunking-strategy.md');
-  console.log('  - AGENTS.md');
+  console.log(`  - ${wikiIndexPath}`);
+  for (const folderIndex of folderIndexes) {
+    console.log(`  - ${folderIndex}`);
+  }
   console.log('  - config.json');
   console.log(`  - ${chunks.length} document page(s) in output/documents/`);
   console.log('  - 1 source page in output/sources/');

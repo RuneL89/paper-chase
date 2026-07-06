@@ -3,6 +3,7 @@ import { discoverWikis } from '../workspace.js';
 import { runIngestion, summarizeWiki, type IngestionResult } from '../ingestion/engine.js';
 import { buildRunLog, writeRunLog } from '../log.js';
 import { writeIndexOfIndexes } from '../writers/index.js';
+import { runWikiOfWikiAgent, type WikiOfWikiSummary } from '../orchestrator/wiki-of-wiki.js';
 
 export async function ingestAllCommand(workspace: string): Promise<number> {
   const wikis = discoverWikis(workspace);
@@ -25,9 +26,10 @@ export async function ingestAllCommand(workspace: string): Promise<number> {
     }
   }
 
-  // Ensure the top-level index-of-indexes reflects the latest state.
-  const wikiSummaries = wikis.map((s) => summarizeWiki(workspace, s));
-  writeIndexOfIndexes(workspace, wikiSummaries);
+  // Ensure the top-level index-of-indexes reflects the latest state with cross-wiki names.
+  const wikiSummaries: WikiOfWikiSummary[] = wikis.map((s) => summarizeWiki(workspace, s));
+  const wikiOfWikiResult = runWikiOfWikiAgent(workspace, wikiSummaries);
+  writeIndexOfIndexes(workspace, wikiOfWikiResult.wikis, wikiOfWikiResult.crossWikiNames);
 
   writeIngestAllLog(workspace, wikis, results, errors, configVersions);
 

@@ -46,7 +46,7 @@ function setupWiki(workspace: string, slug: string): string {
         version: '1.0',
       },
       schema: {
-        agents_md: 'AGENTS.md',
+        wiki_index_md: 'index.md',
         chunking_strategy_md: 'chunking-strategy.md',
       },
       chunking: {
@@ -74,7 +74,7 @@ function setupWiki(workspace: string, slug: string): string {
       },
     }),
   );
-  writeFileSync(path.join(wikiDir, 'AGENTS.md'), `# AGENTS.md — ${slug}\n`);
+  writeFileSync(path.join(wikiDir, 'index.md'), `# ${slug} Wiki\n`);
   return wikiDir;
 }
 
@@ -300,6 +300,37 @@ describe('TAC-005: document pages link to source page and wiki-level index', () 
 
     expect(content).toMatch(/\[\[Source: doc-a\.pdf\]\]/);
     expect(content).toMatch(/\[\[Test Wiki Index\]\]/);
+  });
+});
+
+describe('TAC-005A: ingest creates dynamic folder-level index contracts', () => {
+  let workspace: string;
+  let wikiDir: string;
+
+  beforeAll(async () => {
+    workspace = makeTempWorkspace();
+    wikiDir = setupWiki(workspace, 'acme');
+    await addEntityPdf(wikiDir, 'doc-a.pdf');
+    await addSecondEntityPdf(wikiDir, 'doc-b.pdf');
+  });
+
+  afterAll(() => {
+    rmSync(workspace, { recursive: true, force: true });
+  });
+
+  it('creates folder-level index.md files for populated folders', () => {
+    runCli(['ingest', 'acme'], workspace);
+
+    expect(existsSync(path.join(wikiDir, 'documents', 'index.md'))).toBe(true);
+    expect(existsSync(path.join(wikiDir, 'sources', 'index.md'))).toBe(true);
+    expect(existsSync(path.join(wikiDir, 'entities', 'index.md'))).toBe(true);
+    expect(existsSync(path.join(wikiDir, 'topics', 'index.md'))).toBe(true);
+
+    const folderIndex = readFileSync(path.join(wikiDir, 'documents', 'index.md'), 'utf-8');
+    const parsed = matter(folderIndex);
+    expect(parsed.data.type).toBe('index');
+    expect(parsed.data.title).toBeTruthy();
+    expect(parsed.content).toContain('Parent:');
   });
 });
 

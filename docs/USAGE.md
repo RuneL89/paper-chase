@@ -27,7 +27,7 @@ my-workspace/
     └── acme-annual-reports/
         ├── raw/             # drop PDFs here
         ├── config.json      # created by sample ingestion
-        ├── AGENTS.md        # schema and conventions
+        ├── index.md         # wiki-level schema and conventions
         ├── chunking-strategy.md
         └── output/          # generated wiki pages
             ├── index.md
@@ -78,7 +78,7 @@ npm run dev -- sample acme-annual-reports wikis/acme-annual-reports/raw/acme-202
 After it runs, open these files in your text editor:
 
 - `wikis/acme-annual-reports/chunking-strategy.md` — how the PDF is structured and how it will be split into chunks.
-- `wikis/acme-annual-reports/AGENTS.md` — the page types and conventions for this wiki.
+- `wikis/acme-annual-reports/index.md` — the page types and conventions for this wiki.
 - `wikis/acme-annual-reports/config.json` — the wiki configuration.
 - `wikis/acme-annual-reports/output/documents/` — the generated document page(s).
 
@@ -109,13 +109,19 @@ This processes every PDF in the wiki's `raw/` folder. It will tell you:
 
 ### 6. Explore the wiki
 
-Open the wiki-level index:
+Open the wiki-level contract first:
+
+```
+my-workspace/wikis/acme-annual-reports/index.md
+```
+
+This explains the wiki's page types and conventions. Then open the generated catalog:
 
 ```
 my-workspace/wikis/acme-annual-reports/output/index.md
 ```
 
-From there, follow the `[[...]]` links to source pages, document pages, entity pages, and topic pages.
+From there, follow the `[[...]]` links to source pages, document pages, entity pages, and topic pages. Folder-level indexes such as `output/documents/index.md` and `output/entities/index.md` describe the pages in each folder.
 
 Then open the top-level roadmap:
 
@@ -123,7 +129,7 @@ Then open the top-level roadmap:
 my-workspace/index-of-indexes.md
 ```
 
-This lists every wiki in the workspace and links to each wiki-level index.
+This lists every wiki in the workspace, links to each wiki-level index, and highlights any entity or topic names that appear in multiple wikis.
 
 ### 7. Re-ingest when files change
 

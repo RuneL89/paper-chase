@@ -2,10 +2,13 @@ node_modules/
 dist/
 .env
 
-# Local workspace configuration and logs
-.kimi-code/config.json
-.kimi-code/logs/
+# Local workspace configuration and logs (root only, preserve test fixtures)
+/.kimi-code/config.json
+/.kimi-code/logs/
 .zcode/
+
+# Generated fixture logs during test runs
+tests/fixtures/**/.kimi-code/logs/
 
 # Local wiki workspaces
 wikis/

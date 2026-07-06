@@ -6,26 +6,36 @@ export interface ExtractedTextItem {
   height: number;
   fontName?: string;
   hasEOL?: boolean;
+  fontSize?: number;
 }
 
 export interface ExtractedPage {
   physicalPage: number;
   logicalPage: number;
+  pageLabel?: string;
   text: string;
   items: ExtractedTextItem[];
   isScanned: boolean;
   scanConfidence: 'low' | 'medium' | 'high';
+  imageOpCount: number;
+  estimatedHeadings?: string[];
+  estimatedLists?: string[];
 }
 
 export interface ExtractedTable {
   page: number;
+  logicalPage?: number;
   markdown: string;
   rows: string[][];
+  caption?: string;
+  headerRow?: string[];
 }
 
 export interface ExtractedFigure {
   page: number;
+  logicalPage?: number;
   description: string;
+  caption?: string;
 }
 
 export interface PdfMetadata {
@@ -49,6 +59,9 @@ export interface ExtractionResult {
   figures: ExtractedFigure[];
   warnings: string[];
   ingested: string;
+  hasTables: boolean;
+  hasFigures: boolean;
+  isScanned: boolean;
 }
 
 export interface ExtractionFailure {
@@ -64,4 +77,11 @@ export type ExtractionOutcome = ExtractionResult | ExtractionFailure;
 
 export function isExtractionFailure(outcome: ExtractionOutcome): outcome is ExtractionFailure {
   return 'reason' in outcome;
+}
+
+export interface MultiPageObject {
+  type: 'table' | 'figure' | 'footnote';
+  startPage: number;
+  endPage: number;
+  description: string;
 }

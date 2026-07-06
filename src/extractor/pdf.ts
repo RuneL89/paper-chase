@@ -9,6 +9,8 @@ import type {
   ExtractedTextItem,
   ExtractionResult,
   PdfMetadata,
+  ExtractedFigure,
+  MultiPageObject,
 } from './types.js';
 
 // pdfjs-dist v4 legacy build runs without a worker in Node.js.
@@ -39,6 +41,7 @@ function isTextItem(item: unknown): item is PdfjsTextItem {
 }
 
 function toExtractedItem(item: PdfjsTextItem): ExtractedTextItem {
+  const fontHeight = Math.abs(item.transform[0]) || Math.abs(item.transform[3]) || 0;
   return {
     text: item.str,
     x: item.transform[4] ?? 0,
@@ -47,6 +50,7 @@ function toExtractedItem(item: PdfjsTextItem): ExtractedTextItem {
     height: item.height,
     fontName: item.fontName,
     hasEOL: item.hasEOL,
+    fontSize: fontHeight,
   };
 }
 
@@ -59,9 +63,59 @@ function readingOrder(items: ExtractedTextItem[]): ExtractedTextItem[] {
   });
 }
 
-function detectScanned(items: ExtractedTextItem[], text: string): boolean {
-  // A page with no text items or very little text is likely image-only/scanned.
-  return items.length === 0 || text.trim().length < 10;
+function buildPageText(items: ExtractedTextItem[]): string {
+  // Group items into lines by y-coordinate, then order left-to-right, preserving
+  // whitespace hints from the PDF when available.
+  const lines = new Map<number, ExtractedTextItem[]>();
+  for (const item of items) {
+    const yKey = Math.round(item.y);
+    const row = lines.get(yKey) ?? [];
+    row.push(item);
+    lines.set(yKey, row);
+  }
+
+  const sortedY = Array.from(lines.keys()).sort((a, b) => b - a);
+  const textLines: string[] = [];
+
+  for (const y of sortedY) {
+    const rowItems = lines.get(y)!.sort((a, b) => a.x - b.x);
+    const lineParts: string[] = [];
+    for (const item of rowItems) {
+      lineParts.push(item.text);
+    }
+    textLines.push(lineParts.join(' '));
+  }
+
+  return textLines.join('\n');
+}
+
+async function countImageOperators(page: any): Promise<number> {
+  try {
+    const ops = await page.getOperatorList();
+    let imageCount = 0;
+    for (const fn of ops.fnArray) {
+      // pdfjs-dist operator names for images: paintImageXObject, paintImageMaskXObject, paintInlineImageXObject
+      if (
+        fn === pdfjs.OPS.paintImageXObject ||
+        fn === pdfjs.OPS.paintImageMaskXObject ||
+        fn === pdfjs.OPS.paintInlineImageXObject
+      ) {
+        imageCount++;
+      }
+    }
+    return imageCount;
+  } catch {
+    return 0;
+  }
+}
+
+function detectScanned(items: ExtractedTextItem[], text: string, imageOpCount: number): boolean {
+  const trimmedText = text.trim();
+  const textLength = trimmedText.length;
+  if (items.length === 0 || textLength < 10) return true;
+  // If the page contains many image operators and very little text, treat it as image-dominant.
+  if (imageOpCount >= 3 && textLength < 200) return true;
+  return false;
 }
 
 function normalizeMetadata(metadata: unknown): PdfMetadata {
@@ -82,6 +136,43 @@ function sha256(filePath: string): string {
 
 function roundCoordinate(value: number, precision = 1): number {
   return Math.round(value / precision) * precision;
+}
+
+function extractCaption(text: string, page: number, type: 'table' | 'figure'): string | undefined {
+  const patterns =
+    type === 'table'
+      ? [
+          /Table\s+\d+[^.:\n]*[:.]\s*(.+?)(?:\n|$)/i,
+          /Table\s+\d+\s+(.+?)(?:\n|$)/i,
+        ]
+      : [
+          /Figure\s+\d+[^.:\n]*[:.]\s*(.+?)(?:\n|$)/i,
+          /Fig\.\s+\d+[^.:\n]*[:.]\s*(.+?)(?:\n|$)/i,
+          /Figure\s+\d+\s+(.+?)(?:\n|$)/i,
+        ];
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    if (match && match[1].trim().length > 0) {
+      return match[1].trim();
+    }
+  }
+  return undefined;
+}
+
+function detectFigures(pages: ExtractedPage[]): ExtractedFigure[] {
+  const figures: ExtractedFigure[] = [];
+  for (const page of pages) {
+    const caption = extractCaption(page.text, page.physicalPage, 'figure');
+    if (caption) {
+      figures.push({
+        page: page.physicalPage,
+        logicalPage: page.logicalPage,
+        description: caption,
+        caption,
+      });
+    }
+  }
+  return figures;
 }
 
 function detectTables(pages: ExtractedPage[]): ExtractedTable[] {
@@ -152,15 +243,106 @@ function detectTables(pages: ExtractedPage[]): ExtractedTable[] {
       populatedColumns.map((index) => row[index]),
     );
 
-    const emptyHeader = populatedColumns.map(() => '').join(' | ');
+    const headerRow = filteredRows[0];
+    const bodyRows = filteredRows.slice(1);
     const separator = populatedColumns.map(() => '---').join(' | ');
-    const markdownRows = filteredRows.map((row) => row.join(' | '));
-    const markdown = [emptyHeader, separator, ...markdownRows].join('\n');
+    const markdownRows = bodyRows.map((row) => row.join(' | '));
+    const markdown = [headerRow.join(' | '), separator, ...markdownRows].join('\n');
 
-    tables.push({ page: page.physicalPage, markdown, rows: filteredRows });
+    const caption = extractCaption(page.text, page.physicalPage, 'table');
+
+    tables.push({
+      page: page.physicalPage,
+      logicalPage: page.logicalPage,
+      markdown,
+      rows: filteredRows,
+      caption,
+      headerRow,
+    });
   }
 
   return tables;
+}
+
+function detectHeadings(page: ExtractedPage): string[] {
+  const headings: string[] = [];
+  const items = page.items;
+  if (items.length === 0) return headings;
+
+  const fontSizes = items.map((i) => i.fontSize ?? 0).filter((s) => s > 0);
+  if (fontSizes.length === 0) return headings;
+
+  const avgSize = fontSizes.reduce((a, b) => a + b, 0) / fontSizes.length;
+  const threshold = Math.max(avgSize * 1.3, 11);
+
+  const lines = new Map<number, ExtractedTextItem[]>();
+  for (const item of items) {
+    const yKey = Math.round(item.y);
+    const row = lines.get(yKey) ?? [];
+    row.push(item);
+    lines.set(yKey, row);
+  }
+
+  for (const row of lines.values()) {
+    const sorted = row.sort((a, b) => a.x - b.x);
+    const lineText = sorted.map((i) => i.text).join(' ').trim();
+    if (!lineText) continue;
+    const maxSize = Math.max(...sorted.map((i) => i.fontSize ?? 0));
+    if (maxSize >= threshold && lineText.length <= 120 && !/[.!?]$/.test(lineText)) {
+      headings.push(lineText);
+    }
+  }
+
+  return headings;
+}
+
+function detectLists(page: ExtractedPage): string[] {
+  const lists: string[] = [];
+  const bulletPattern = /^\s*[•\-\*\u2022\u25E6\u25AA]\s+/m;
+  const numberedPattern = /^\s*\d+[.\)]\s+/m;
+  const lines = page.text.split(/\r?\n/);
+  for (const line of lines) {
+    if (bulletPattern.test(line) || numberedPattern.test(line)) {
+      lists.push(line.trim());
+    }
+  }
+  return lists;
+}
+
+function detectMultiPageObjects(pages: ExtractedPage[]): MultiPageObject[] {
+  const objects: MultiPageObject[] = [];
+
+  // Detect multi-page footnotes: consecutive pages with footnote-like markers in the footer.
+  let footnoteStart = 0;
+  for (let i = 0; i < pages.length; i++) {
+    const hasFootnote = /\b(footnote|notes|endnotes)\b/i.test(pages[i].text);
+    if (hasFootnote && footnoteStart === 0) {
+      footnoteStart = pages[i].physicalPage;
+    } else if (!hasFootnote && footnoteStart > 0) {
+      if (pages[i - 1].physicalPage > footnoteStart) {
+        objects.push({
+          type: 'footnote',
+          startPage: footnoteStart,
+          endPage: pages[i - 1].physicalPage,
+          description: 'Multi-page footnote or notes section',
+        });
+      }
+      footnoteStart = 0;
+    }
+  }
+  if (footnoteStart > 0) {
+    const lastPage = pages[pages.length - 1].physicalPage;
+    if (lastPage > footnoteStart) {
+      objects.push({
+        type: 'footnote',
+        startPage: footnoteStart,
+        endPage: lastPage,
+        description: 'Multi-page footnote or notes section',
+      });
+    }
+  }
+
+  return objects;
 }
 
 export async function extractPdf(filePath: string): Promise<ExtractionResult> {
@@ -173,30 +355,60 @@ export async function extractPdf(filePath: string): Promise<ExtractionResult> {
   const metadata = await pdf.getMetadata();
   const numPages = pdf.numPages;
 
+  let pageLabels: string[] = [];
+  try {
+    const labels = (pdf as unknown as { getPageLabels?: () => Promise<string[]> }).getPageLabels
+      ? await (pdf as unknown as { getPageLabels: () => Promise<string[]> }).getPageLabels()
+      : [];
+    pageLabels = labels ?? [];
+  } catch {
+    pageLabels = [];
+  }
+
   const pages: ExtractedPage[] = [];
   for (let i = 1; i <= numPages; i++) {
     const page = await pdf.getPage(i);
     const textContent = await page.getTextContent();
     const items = textContent.items.filter(isTextItem).map(toExtractedItem);
     const sortedItems = readingOrder(items);
-    const text = sortedItems.map((item) => item.text).join('');
-    const isScanned = detectScanned(items, text);
+    const text = buildPageText(sortedItems);
+    const imageOpCount = await countImageOperators(page);
+    const isScanned = detectScanned(items, text, imageOpCount);
+    const scanConfidence: ExtractedPage['scanConfidence'] = isScanned ? 'low' : 'high';
 
-    pages.push({
+    const pageLabel = pageLabels[i - 1];
+
+    const pageObj: ExtractedPage = {
       physicalPage: i,
-      logicalPage: i,
+      logicalPage: pageLabel ? parseInt(pageLabel, 10) || i : i,
+      pageLabel,
       text,
       items: sortedItems,
       isScanned,
-      scanConfidence: isScanned ? 'low' : 'high',
-    });
+      scanConfidence,
+      imageOpCount,
+    };
+
+    pageObj.estimatedHeadings = detectHeadings(pageObj);
+    pageObj.estimatedLists = detectLists(pageObj);
+
+    pages.push(pageObj);
   }
 
   const tables = detectTables(pages);
+  const figures = detectFigures(pages);
+  const multiPageObjects = detectMultiPageObjects(pages);
   const warnings: string[] = [];
   const scannedPages = pages.filter((p) => p.isScanned).map((p) => p.physicalPage);
   if (scannedPages.length > 0) {
     warnings.push(`Pages ${scannedPages.join(', ')} appear to be scanned or image-only.`);
+  }
+  if (multiPageObjects.length > 0) {
+    for (const obj of multiPageObjects) {
+      warnings.push(
+        `Detected multi-page ${obj.type} on pages ${obj.startPage}-${obj.endPage}.`,
+      );
+    }
   }
 
   return {
@@ -209,8 +421,11 @@ export async function extractPdf(filePath: string): Promise<ExtractionResult> {
     metadata: normalizeMetadata(metadata),
     pages,
     tables,
-    figures: [],
+    figures,
     warnings,
     ingested: new Date().toISOString(),
+    hasTables: tables.length > 0,
+    hasFigures: figures.length > 0,
+    isScanned: scannedPages.length > 0,
   };
 }

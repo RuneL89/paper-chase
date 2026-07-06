@@ -44,7 +44,7 @@ function setupWiki(workspace: string, slug: string, title?: string, description?
         version: '1.0',
       },
       schema: {
-        agents_md: 'AGENTS.md',
+        wiki_index_md: 'index.md',
         chunking_strategy_md: 'chunking-strategy.md',
       },
       chunking: {
@@ -72,7 +72,7 @@ function setupWiki(workspace: string, slug: string, title?: string, description?
       },
     }),
   );
-  writeFileSync(path.join(wikiDir, 'AGENTS.md'), `# AGENTS.md — ${slug}\n`);
+  writeFileSync(path.join(wikiDir, 'index.md'), `# ${slug} Wiki\n`);
   return wikiDir;
 }
 
@@ -219,6 +219,37 @@ describe('TAC-003: index-of-indexes lists all wikis', () => {
     expect(content).toContain('globex');
     expect(content).toContain('Annual reports for Acme');
     expect(content).toContain('Filings for Globex');
+    expect(content).toContain('[[Acme Wiki Index]]');
+    expect(content).toContain('[[Globex Wiki Index]]');
+  });
+});
+
+describe('TAC-003A: index-of-indexes surfaces cross-wiki entity/topic names', () => {
+  let workspace: string;
+  let wikiDirA: string;
+  let wikiDirB: string;
+
+  beforeAll(async () => {
+    workspace = makeTempWorkspace();
+    wikiDirA = setupWiki(workspace, 'acme', 'Acme Wiki', 'Annual reports for Acme');
+    wikiDirB = setupWiki(workspace, 'globex', 'Globex Wiki', 'Filings for Globex');
+    await addPdf(wikiDirA, 'doc-a.pdf', 'Doc A', 'Acme Corp reported revenue. Acme Corp is the focus.');
+    await addPdf(wikiDirB, 'doc-b.pdf', 'Doc B', 'Acme Corp acquired Globex. Acme Corp is the buyer.');
+    runCli(['ingest', 'acme'], workspace);
+    runCli(['ingest', 'globex'], workspace);
+  });
+
+  afterAll(() => {
+    rmSync(workspace, { recursive: true, force: true });
+  });
+
+  it('lists a shared entity name with links to each wiki index', () => {
+    const indexPath = path.join(workspace, 'index-of-indexes.md');
+    expect(existsSync(indexPath)).toBe(true);
+    const content = readFileSync(indexPath, 'utf-8');
+
+    expect(content).toContain('## Cross-Wiki Names');
+    expect(content).toContain('Acme Corp');
     expect(content).toContain('[[Acme Wiki Index]]');
     expect(content).toContain('[[Globex Wiki Index]]');
   });

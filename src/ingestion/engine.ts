@@ -7,12 +7,17 @@ import { wikiPath, toRelativePath } from '../workspace.js';
 import { safeExtractPdf } from '../extractor/batch.js';
 import { isExtractionFailure, type ExtractionResult, type ExtractionFailure } from '../extractor/types.js';
 import { analyzeAndChunk } from '../chunking/chunker.js';
+import type { Chunk } from '../chunking/types.js';
 import { writeDocumentPage } from '../writers/document.js';
 import { writeSourcePage } from '../writers/source.js';
 import { writeRawPage, writeFailureRawPage } from '../writers/raw.js';
 import { writeWikiIndex, writeIndexOfIndexes } from '../writers/index.js';
 import { buildRunLog, writeRunLog } from '../log.js';
 import { lintWiki, writeLintReport } from '../lint/index.js';
+import { createLLMClient } from '../llm/client.js';
+import { runIngestOrchestrator, writeIngestContracts, type StructuralProposal } from '../orchestrator/ingest.js';
+import { runWikiOfWikiAgent, type WikiOfWikiSummary } from '../orchestrator/wiki-of-wiki.js';
+import type { OrchestratorMemory, FolderPlan } from '../orchestrator/types.js';
 import {
   extractEntities,
   entityPageTitle,
@@ -54,6 +59,8 @@ export interface IngestionResult {
   removed: string[];
   chunkBoundaries: { source: string; boundary: string; pageRange: string }[];
   lintIssues: number;
+  proposals?: StructuralProposal[];
+  folderIndexes?: string[];
 }
 
 interface ProcessedSource {
@@ -63,7 +70,7 @@ interface ProcessedSource {
   sha256: string;
   mtime: number;
   outcome: ExtractionResult | ExtractionFailure;
-  chunks?: { id: string; title: string; pageRange: string; content: string }[];
+  chunks?: Chunk[];
   documentPageIds?: string[];
   rawPageIds?: string[];
   sourcePageId: string;
@@ -113,6 +120,11 @@ export async function runIngestion(
     chunkBoundaries: [],
     lintIssues: 0,
   };
+
+  const llmClient = createLLMClient(workspace);
+  let memory: OrchestratorMemory | undefined = state.memory;
+  const allProposals: StructuralProposal[] = [];
+  const allFolderPlacements: Map<string, FolderPlan> = new Map();
 
   result.sourceFiles = pdfFiles.length;
   result.sourceFilePaths = pdfFiles.map((f) => toRelativePath(workspace, f));
@@ -207,12 +219,6 @@ export async function runIngestion(
     extractionResult.filePath = relativeFile;
 
     const { chunks } = analyzeAndChunk(extractionResult, config);
-    const chunkData = chunks.map((chunk) => ({
-      id: chunk.id,
-      title: chunk.title,
-      pageRange: chunk.pageRange,
-      content: chunk.content,
-    }));
 
     for (const chunk of chunks) {
       result.chunkBoundaries.push({
@@ -222,6 +228,24 @@ export async function runIngestion(
       });
     }
 
+    // Sprint 8: run the ingest orchestrator for this source, accumulating memory.
+    const orchestratorResult = await runIngestOrchestrator(
+      workspace,
+      slug,
+      config,
+      extractionResult,
+      chunks,
+      llmClient,
+      memory,
+    );
+    memory = orchestratorResult.memory;
+    for (const proposal of orchestratorResult.proposals) {
+      allProposals.push(proposal);
+    }
+    for (const folder of orchestratorResult.folderPlacements) {
+      allFolderPlacements.set(folder.folder, folder);
+    }
+    result.warnings.push(...orchestratorResult.critic.issues.map((i) => i.message));
     const documentPageIds = chunks.map((chunk) => `documents/${chunk.id}.md`);
     const rawPageIds = extractionResult.pages
       .filter((page) => page.isScanned)
@@ -262,7 +286,7 @@ export async function runIngestion(
       sha256,
       mtime: stats.mtimeMs,
       outcome: extractionResult,
-      chunks: chunkData,
+      chunks,
       documentPageIds,
       rawPageIds,
       sourcePageId: `sources/${baseSlug}.md`,
@@ -297,10 +321,9 @@ export async function runIngestion(
 
     for (let i = 0; i < chunks.length; i++) {
       const chunk = chunks[i];
-      const chunkData = buildChunk(chunk, source.relativeFile, extractionResult.ingested);
       writeDocumentPage(
         path.join(wikiDir, config.output.dir, source.documentPageIds![i]),
-        chunkData,
+        chunk,
         config,
         entityTitles,
         topicTitles,
@@ -388,10 +411,26 @@ export async function runIngestion(
     { warnings: result.warnings.length + result.errors.length, errors: result.errors.length },
   );
 
-  // Write top-level index-of-indexes.
+  // Sprint 8: write dynamic folder hierarchy contracts and update rolling memory.
+  const folderPlacements = Array.from(allFolderPlacements.values());
+  result.folderIndexes = writeIngestContracts(
+    workspace,
+    slug,
+    config,
+    memory || createEmptyMemory(),
+    folderPlacements,
+    result.sourceFiles,
+    result.documentPages,
+    result.rawPages,
+    result.warnings,
+  );
+  result.proposals = allProposals;
+
+  // Write top-level index-of-indexes with cross-wiki name surfacing.
   const wikiSlugs = discoverWikisForIndex(workspace);
-  const wikiSummaries = wikiSlugs.map((s) => summarizeWiki(workspace, s));
-  writeIndexOfIndexes(workspace, wikiSummaries);
+  const wikiSummaries: WikiOfWikiSummary[] = wikiSlugs.map((s) => summarizeWiki(workspace, s));
+  const wikiOfWikiResult = runWikiOfWikiAgent(workspace, wikiSummaries);
+  writeIndexOfIndexes(workspace, wikiOfWikiResult.wikis, wikiOfWikiResult.crossWikiNames);
 
   // Run lint and write report.
   const lintResult = lintWiki(workspace, slug, config);
@@ -402,6 +441,7 @@ export async function runIngestion(
   );
 
   state.lastRun = new Date().toISOString();
+  state.memory = memory;
   saveState(stateFile, state);
 
   writeIngestRunLog(workspace, slug, config, result);
@@ -443,28 +483,18 @@ function hashFile(filePath: string): string {
   return createHash('sha256').update(readFileSync(filePath)).digest('hex');
 }
 
-function buildChunk(
-  chunk: { id: string; title: string; pageRange: string; content: string },
-  sourceFile: string,
-  extracted: string,
-): any {
+function createEmptyMemory(): OrchestratorMemory {
   return {
-    id: chunk.id,
-    title: chunk.title,
-    pageRange: chunk.pageRange,
-    boundaryType: 'page',
-    content: chunk.content,
-    sources: [
-      {
-        id: 'src1',
-        file: sourceFile,
-        pages: chunk.pageRange,
-        extracted,
-      },
-    ],
-    tags: ['document'],
-    belowMin: false,
-    charCount: chunk.content.length,
+    rollingSummary: 'No memory accumulated yet.',
+    state: {
+      document: { title: '', totalPages: 0, currentChunk: 0, boundaryType: 'page' },
+      entities: {},
+      topics: {},
+      relationships: [],
+      sources: {},
+      folderHierarchy: {},
+      rawFragments: [],
+    },
   };
 }
 

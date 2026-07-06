@@ -70,19 +70,49 @@ describe('TAC-001: sample command creates required artifacts', () => {
     rmSync(workspace, { recursive: true, force: true });
   });
 
-  it('creates chunking-strategy.md, AGENTS.md, config.json, and a document page', () => {
+  it('creates chunking-strategy.md, index.md, config.json, and a document page', () => {
     runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
 
     const wikiDir = path.join(workspace, 'wikis', 'acme');
     const documentsDir = path.join(wikiDir, 'output', 'documents');
 
     expect(existsSync(path.join(wikiDir, 'chunking-strategy.md'))).toBe(true);
-    expect(existsSync(path.join(wikiDir, 'AGENTS.md'))).toBe(true);
+    expect(existsSync(path.join(wikiDir, 'index.md'))).toBe(true);
     expect(existsSync(path.join(wikiDir, 'config.json'))).toBe(true);
 
     const documentFiles = readdirFiles(documentsDir);
     expect(documentFiles.length).toBeGreaterThan(0);
     expect(documentFiles[0]).toMatch(/\.md$/);
+  });
+});
+
+describe('TAC-001A: sample command creates folder-level index contracts', () => {
+  let workspace: string;
+  let pdfPath: string;
+
+  beforeAll(() => {
+    workspace = makeTempWorkspace();
+    setupWiki(workspace, 'acme');
+    pdfPath = path.join(workspace, 'wikis', 'acme', 'raw', 'five-page.pdf');
+    copyFileSync(FIVE_PAGE_PDF, pdfPath);
+  });
+
+  afterAll(() => {
+    rmSync(workspace, { recursive: true, force: true });
+  });
+
+  it('creates at least one folder-level index.md with type index and parent link', () => {
+    runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
+
+    const wikiDir = path.join(workspace, 'wikis', 'acme');
+    expect(existsSync(path.join(wikiDir, 'documents', 'index.md'))).toBe(true);
+    expect(existsSync(path.join(wikiDir, 'sources', 'index.md'))).toBe(true);
+
+    const folderIndex = readFileSync(path.join(wikiDir, 'documents', 'index.md'), 'utf-8');
+    const parsed = matter(folderIndex);
+    expect(parsed.data.type).toBe('index');
+    expect(parsed.data.title).toBeTruthy();
+    expect(parsed.content).toContain('Parent:');
   });
 });
 
@@ -142,7 +172,7 @@ describe('TAC-003: config.json schema', () => {
     expect(config.wiki.version).toBeTruthy();
 
     expect(config.schema).toBeDefined();
-    expect(config.schema.agents_md).toBeTruthy();
+    expect(config.schema.wiki_index_md).toBeTruthy();
     expect(config.schema.chunking_strategy_md).toBeTruthy();
 
     expect(config.chunking).toBeDefined();

@@ -20,6 +20,12 @@ export function writeChunkingStrategy(
   lines.push(`- **Section headings detected:** ${structure.headings.length}`);
   lines.push(`- **Tables detected:** ${structure.tables.length}`);
   lines.push(`- **Figures detected:** ${structure.figures.length}`);
+  lines.push(`- **Multi-page objects detected:** ${structure.multiPageObjects.length}`);
+  if (structure.multiPageObjects.length > 0) {
+    for (const obj of structure.multiPageObjects) {
+      lines.push(`  - ${obj.type} on pages ${obj.startPage}-${obj.endPage}: ${obj.description}`);
+    }
+  }
   lines.push(`- **Footnote pages:** ${structure.footnotePages.join(', ') || 'none'}`);
   lines.push(`- **Appendix pages:** ${structure.appendixPages.join(', ') || 'none'}`);
   lines.push(`- **Scanned pages:** ${structure.scannedPages.join(', ') || 'none'}`);
@@ -30,14 +36,18 @@ export function writeChunkingStrategy(
   lines.push(`The primary split boundary is **${strategy.splitBoundary}**. `);
   lines.push(`Chunks are built by grouping pages while respecting the maximum chunk size of ${strategy.maxChunkSize} characters. `);
   lines.push('Each chunk starts at a page boundary so that tables, figures, and captions remain intact. ');
-  lines.push('When a section heading is detected, the chunk boundary may align with the heading to preserve context.');
+  lines.push('When a section heading is detected, the chunk boundary may align with the heading to preserve context. ');
+  lines.push('Multi-page tables, figures, and footnotes are kept together in a single chunk.');
   lines.push('');
 
   if (strategy.boundaries.length > 0) {
     lines.push('| Page Range | Boundary Type | Description |');
     lines.push('|------------|---------------|-------------|');
     for (const boundary of strategy.boundaries) {
-      lines.push(`| ${boundary.pageRange} | ${boundary.type} | ${boundary.description} |`);
+      const range = boundary.logicalPageRange
+        ? `${boundary.pageRange} (logical ${boundary.logicalPageRange})`
+        : boundary.pageRange;
+      lines.push(`| ${range} | ${boundary.type} | ${boundary.description} |`);
     }
     lines.push('');
   }
@@ -68,6 +78,9 @@ export function writeChunkingStrategy(
   lines.push('## Concrete Chunk Example');
   lines.push('');
   lines.push(`- **Page range:** ${strategy.example.pageRange}`);
+  if (strategy.example.logicalPageRange) {
+    lines.push(`- **Logical page range:** ${strategy.example.logicalPageRange}`);
+  }
   lines.push(`- **Boundary type:** ${strategy.example.type}`);
   lines.push(`- **Content description:** ${strategy.example.description}`);
   lines.push('');

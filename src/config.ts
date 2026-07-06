@@ -11,7 +11,7 @@ export interface WikiConfig {
 }
 
 export interface SchemaConfig {
-  agents_md: string;
+  wiki_index_md: string;
   chunking_strategy_md: string;
 }
 
@@ -59,7 +59,7 @@ export const defaultConfig: Config = {
     version: '1.0',
   },
   schema: {
-    agents_md: 'AGENTS.md',
+    wiki_index_md: 'index.md',
     chunking_strategy_md: 'chunking-strategy.md',
   },
   chunking: {
@@ -218,9 +218,50 @@ function validateConfig(config: Config): void {
     }
   }
 
+  const errors: string[] = [];
+
+  if (!Number.isInteger(config.chunking.max_chunk_size) || config.chunking.max_chunk_size <= 0) {
+    errors.push('chunking.max_chunk_size must be a positive integer');
+  }
+  if (!Number.isInteger(config.chunking.min_chunk_size) || config.chunking.min_chunk_size < 0) {
+    errors.push('chunking.min_chunk_size must be a non-negative integer');
+  }
+  if (config.chunking.min_chunk_size > config.chunking.max_chunk_size) {
+    errors.push('chunking.min_chunk_size cannot be larger than chunking.max_chunk_size');
+  }
+  const allowedSplitBoundaries = ['page', 'section', 'heading', 'semantic-object', 'table', 'figure'];
+  if (!allowedSplitBoundaries.includes(config.chunking.split_boundary)) {
+    errors.push(`chunking.split_boundary must be one of: ${allowedSplitBoundaries.join(', ')}`);
+  }
+  if (!Array.isArray(config.chunking.never_split) || config.chunking.never_split.some((r) => typeof r !== 'string')) {
+    errors.push('chunking.never_split must be an array of strings');
+  }
+  if (typeof config.chunking.overlap !== 'number' || config.chunking.overlap < 0) {
+    errors.push('chunking.overlap must be a non-negative number');
+  }
+  if (typeof config.extraction.engine !== 'string' || config.extraction.engine.trim() === '') {
+    errors.push('extraction.engine must be a non-empty string');
+  }
+  if (typeof config.extraction.ocr_enabled !== 'boolean') {
+    errors.push('extraction.ocr_enabled must be a boolean');
+  }
+  if (config.extraction.page_range !== null && typeof config.extraction.page_range !== 'string') {
+    errors.push('extraction.page_range must be null or a string');
+  }
+  if (config.extraction.page_range && !/^\d+(?:-\d+)?$/.test(config.extraction.page_range)) {
+    errors.push('extraction.page_range must be a single page number or a range like "1-10"');
+  }
+  if (!Array.isArray(config.output.page_types) || config.output.page_types.some((t) => typeof t !== 'string')) {
+    errors.push('output.page_types must be an array of strings');
+  }
+
   if (missing.length > 0) {
+    errors.push(`Missing required fields: ${missing.join(', ')}`);
+  }
+
+  if (errors.length > 0) {
     throw new CLIError(
-      `Config is missing required fields: ${missing.join(', ')}. ` +
+      `Config validation failed:\n  - ${errors.join('\n  - ')}\n` +
       `Update the wiki config.json or workspace .kimi-code/config.json.`,
     );
   }

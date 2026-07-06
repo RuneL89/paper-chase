@@ -1,6 +1,8 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import path from 'path';
 
+import type { OrchestratorMemory } from '../orchestrator/types.js';
+
 export interface SourceState {
   sha256: string;
   mtime: number;
@@ -16,6 +18,7 @@ export interface IngestionState {
   version: string;
   lastRun: string;
   sources: Record<string, SourceState>;
+  memory?: OrchestratorMemory;
 }
 
 export const STATE_VERSION = '1.0';

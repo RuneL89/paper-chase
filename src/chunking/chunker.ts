@@ -1,7 +1,7 @@
 import path from 'path';
 import type { ExtractionResult, ExtractedPage } from '../extractor/types.js';
 import type { Config } from '../config.js';
-import type { PdfStructure, Chunk, ChunkingStrategy } from './types.js';
+import type { PdfStructure, Chunk, ChunkingStrategy, ChunkBoundary } from './types.js';
 import { analyzePdfStructure } from './analyzer.js';
 
 export function buildChunkingStrategy(
@@ -16,29 +16,40 @@ export function buildChunkingStrategy(
   const neverSplit = [...config.chunking.never_split];
 
   const fallback =
-    'If a page is malformed or unparseable, emit a `raw` page with the original fragment and reason, then continue with the next page boundary.';
+    'If a page is malformed or unparseable, emit a `raw` page with the original fragment and reason, then continue with the next page boundary. Scanned pages are always routed to `raw/` pages, not document chunks.';
 
-  const boundaries: { type: 'page' | 'section' | 'table' | 'figure' | 'heading'; pageRange: string; description: string }[] =
-    [];
+  const boundaries: ChunkBoundary[] = [];
 
   for (let i = 0; i < result.pages.length; i++) {
     const page = result.pages[i];
-    const section = structure.sections.find((s) => s.startPage <= page.physicalPage && s.endPage >= page.physicalPage);
-    const hasTable = structure.tables.some((t) => t.page === page.physicalPage);
-    const hasFigure = structure.figures.some((f) => f.page === page.physicalPage);
+    const section = structure.sections.find(
+      (s) => s.startPage <= page.physicalPage && s.endPage >= page.physicalPage,
+    );
+    const table = structure.tables.find((t) => t.page === page.physicalPage);
+    const figure = structure.figures.find((f) => f.page === page.physicalPage);
+    const multiPageObject = structure.multiPageObjects.find(
+      (o) => o.startPage <= page.physicalPage && o.endPage >= page.physicalPage,
+    );
 
-    let type: 'page' | 'section' | 'table' | 'figure' | 'heading' = 'page';
+    let type: ChunkBoundary['type'] = 'page';
     let description = `Page ${page.physicalPage}`;
 
-    if (section) {
+    if (multiPageObject) {
+      type = multiPageObject.type === 'table' || multiPageObject.type === 'figure' ? multiPageObject.type : 'section';
+      description = multiPageObject.description;
+    } else if (section) {
       type = 'section';
       description = `${section.title} (pages ${section.startPage}-${section.endPage})`;
-    } else if (hasTable) {
+    } else if (table) {
       type = 'table';
-      description = `Table on page ${page.physicalPage}`;
-    } else if (hasFigure) {
+      description = table.caption
+        ? `Table: ${table.caption} (page ${page.physicalPage})`
+        : `Table on page ${page.physicalPage}`;
+    } else if (figure) {
       type = 'figure';
-      description = `Figure on page ${page.physicalPage}`;
+      description = figure.caption
+        ? `Figure: ${figure.caption} (page ${page.physicalPage})`
+        : `Figure on page ${page.physicalPage}`;
     } else if (structure.headings.some((h) => h.startPage === page.physicalPage)) {
       type = 'heading';
       description = `Heading on page ${page.physicalPage}`;
@@ -47,6 +58,7 @@ export function buildChunkingStrategy(
     boundaries.push({
       type,
       pageRange: `${page.physicalPage}-${page.physicalPage}`,
+      logicalPageRange: page.pageLabel ? `${page.pageLabel}-${page.pageLabel}` : undefined,
       description,
     });
   }
@@ -54,7 +66,11 @@ export function buildChunkingStrategy(
   const example =
     boundaries.length > 0
       ? boundaries[0]
-      : { type: 'page' as const, pageRange: '1-1', description: 'First page of the sample document' };
+      : {
+          type: 'page' as const,
+          pageRange: '1-1',
+          description: 'First page of the sample document',
+        };
 
   return {
     splitBoundary,
@@ -69,9 +85,127 @@ export function buildChunkingStrategy(
 }
 
 function chooseSplitBoundary(structure: PdfStructure, config: Config): string {
+  if (structure.multiPageObjects.length > 0) return 'semantic-object';
   if (structure.tables.length > 0) return 'page';
   if (structure.headings.length > 3) return 'section';
   return config.chunking.split_boundary;
+}
+
+function buildPageRangeLabel(pages: ExtractedPage[]): string {
+  if (pages.length === 0) return '';
+  const start = pages[0].physicalPage;
+  const end = pages[pages.length - 1].physicalPage;
+  return start === end ? String(start) : `${start}-${end}`;
+}
+
+function buildLogicalPageRangeLabel(pages: ExtractedPage[]): string | undefined {
+  const labels = pages.map((p) => p.pageLabel).filter((l): l is string => Boolean(l));
+  if (labels.length === 0) return undefined;
+  const start = labels[0];
+  const end = labels[labels.length - 1];
+  return start === end ? start : `${start}-${end}`;
+}
+
+function findMultiPageObjectForPage(
+  page: ExtractedPage,
+  structure: PdfStructure,
+): { type: 'table' | 'figure' | 'footnote'; endPage: number; description: string } | undefined {
+  for (const obj of structure.multiPageObjects) {
+    if (obj.startPage <= page.physicalPage && obj.endPage >= page.physicalPage) {
+      return {
+        type: obj.type,
+        endPage: obj.endPage,
+        description: obj.description,
+      };
+    }
+  }
+  return undefined;
+}
+
+function findBoundaryType(
+  pages: ExtractedPage[],
+  result: ExtractionResult,
+  structure: PdfStructure,
+): Chunk['boundaryType'] {
+  if (pages.length === 0) return 'page';
+
+  // If any page in the group belongs to a multi-page object, the chunk boundary is that object type.
+  for (const page of pages) {
+    const mpo = findMultiPageObjectForPage(page, structure);
+    if (mpo) return mpo.type === 'figure' || mpo.type === 'table' ? mpo.type : 'section';
+  }
+
+  // If the first page starts a section, use section boundary.
+  const firstPage = pages[0];
+  const section = structure.sections.find(
+    (s) => s.startPage === firstPage.physicalPage,
+  );
+  if (section) return 'section';
+
+  // If the group contains a table or figure, prefer that boundary type.
+  if (pages.some((p) => result.tables.some((t) => t.page === p.physicalPage))) {
+    return 'table';
+  }
+  if (pages.some((p) => result.figures.some((f) => f.page === p.physicalPage))) {
+    return 'figure';
+  }
+
+  // If the first page contains a heading, use heading boundary.
+  if (firstPage.estimatedHeadings && firstPage.estimatedHeadings.length > 0) {
+    return 'heading';
+  }
+
+  return 'page';
+}
+
+function buildChunkContent(
+  pages: ExtractedPage[],
+  result: ExtractionResult,
+): string {
+  const contentLines: string[] = [];
+
+  for (const page of pages) {
+    contentLines.push(`## Page ${page.physicalPage}`);
+    if (page.pageLabel) {
+      contentLines.push(`Logical page: ${page.pageLabel}`);
+    }
+    contentLines.push('');
+    contentLines.push(page.text.trim());
+    contentLines.push('');
+
+    const tables = result.tables.filter((t) => t.page === page.physicalPage);
+    for (const table of tables) {
+      contentLines.push(`### Table on page ${page.physicalPage}`);
+      if (table.caption) {
+        contentLines.push(`**Caption:** ${table.caption}`);
+      }
+      contentLines.push('');
+      contentLines.push(table.markdown);
+      contentLines.push('');
+    }
+
+    const figures = result.figures.filter((f) => f.page === page.physicalPage);
+    for (const figure of figures) {
+      contentLines.push(`### Figure on page ${page.physicalPage}`);
+      if (figure.caption) {
+        contentLines.push(`**Caption:** ${figure.caption}`);
+      }
+      contentLines.push('');
+      contentLines.push(figure.description);
+      contentLines.push('');
+    }
+
+    if (page.estimatedLists && page.estimatedLists.length > 0) {
+      contentLines.push('### Lists');
+      contentLines.push('');
+      for (const list of page.estimatedLists) {
+        contentLines.push(list);
+      }
+      contentLines.push('');
+    }
+  }
+
+  return contentLines.join('\n');
 }
 
 export function chunkPages(
@@ -86,39 +220,15 @@ export function chunkPages(
   let currentGroup: ExtractedPage[] = [];
   let currentChars = 0;
   let groupIndex = 1;
+  let activeMultiPageObject: { type: 'table' | 'figure' | 'footnote'; endPage: number; description: string } | undefined;
 
   function flushGroup(): void {
     if (currentGroup.length === 0) return;
 
-    const startPage = currentGroup[0].physicalPage;
-    const endPage = currentGroup[currentGroup.length - 1].physicalPage;
-    const pageRange = startPage === endPage ? String(startPage) : `${startPage}-${endPage}`;
-
-    const contentLines: string[] = [];
-    for (const page of currentGroup) {
-      contentLines.push(`## Page ${page.physicalPage}`);
-      contentLines.push('');
-      contentLines.push(page.text.trim());
-      contentLines.push('');
-
-      const tables = result.tables.filter((t) => t.page === page.physicalPage);
-      for (const table of tables) {
-        contentLines.push(`### Table on page ${page.physicalPage}`);
-        contentLines.push('');
-        contentLines.push(table.markdown);
-        contentLines.push('');
-      }
-
-      const figures = result.figures.filter((f) => f.page === page.physicalPage);
-      for (const figure of figures) {
-        contentLines.push(`### Figure on page ${page.physicalPage}`);
-        contentLines.push('');
-        contentLines.push(figure.description);
-        contentLines.push('');
-      }
-    }
-
-    const content = contentLines.join('\n');
+    const pageRange = buildPageRangeLabel(currentGroup);
+    const logicalPageRange = buildLogicalPageRangeLabel(currentGroup);
+    const boundaryType = findBoundaryType(currentGroup, result, structure);
+    const content = buildChunkContent(currentGroup, result);
     const charCount = content.length;
     const belowMin = charCount < config.chunking.min_chunk_size;
 
@@ -128,13 +238,15 @@ export function chunkPages(
       id: `${baseSlug}-part-${String(groupIndex).padStart(3, '0')}`,
       title: `Part ${groupIndex}: ${baseSlug}`,
       pageRange,
-      boundaryType: 'page',
+      logicalPageRange,
+      boundaryType,
       content,
       sources: [
         {
           id: sourceId,
           file: relativeFile,
           pages: pageRange,
+          logicalPages: logicalPageRange,
           extracted: result.ingested,
         },
       ],
@@ -146,19 +258,42 @@ export function chunkPages(
     currentGroup = [];
     currentChars = 0;
     groupIndex++;
+    activeMultiPageObject = undefined;
   }
 
   for (const page of result.pages) {
     // Scanned pages are not included in document chunks; they are handled as raw pages.
     if (page.isScanned) continue;
 
-    // Start a new chunk if adding this page would exceed the max chunk size and the current group is non-empty.
-    if (currentChars + page.text.length > config.chunking.max_chunk_size && currentGroup.length > 0) {
+    const pageMpo = findMultiPageObjectForPage(page, structure);
+
+    // If we are inside a multi-page object and this page belongs to a different object,
+    // flush the current group so we don't mix objects.
+    if (activeMultiPageObject && (!pageMpo || pageMpo.endPage !== activeMultiPageObject.endPage)) {
+      flushGroup();
+    }
+
+    // Start a new chunk if adding this page would exceed the max chunk size and the current group is non-empty
+    // and we are not forced to keep it with the current group because of a multi-page object.
+    if (
+      currentGroup.length > 0 &&
+      currentChars + page.text.length > config.chunking.max_chunk_size &&
+      !activeMultiPageObject &&
+      !pageMpo
+    ) {
       flushGroup();
     }
 
     currentGroup.push(page);
     currentChars += page.text.length;
+
+    if (pageMpo) {
+      activeMultiPageObject = pageMpo;
+      // If we have collected the whole multi-page object, flush it now.
+      if (page.physicalPage === pageMpo.endPage) {
+        flushGroup();
+      }
+    }
   }
 
   flushGroup();
@@ -166,7 +301,10 @@ export function chunkPages(
   return chunks;
 }
 
-export function analyzeAndChunk(result: ExtractionResult, config: Config): {
+export function analyzeAndChunk(
+  result: ExtractionResult,
+  config: Config,
+): {
   structure: PdfStructure;
   strategy: ChunkingStrategy;
   chunks: Chunk[];
@@ -184,5 +322,6 @@ function inferTags(result: ExtractionResult, structure: PdfStructure): string[] 
   if (structure.tables.length > 0) tags.push('table');
   if (structure.figures.length > 0) tags.push('figure');
   if (result.metadata.title) tags.push('sample');
+  if (structure.multiPageObjects.length > 0) tags.push('multi-page-object');
   return tags;
 }

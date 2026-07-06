@@ -180,7 +180,7 @@ Open the folder `my-wiki-workspace/wikis/acme-reports` in your file explorer. Yo
 
 - `config.json` — settings for this wiki
 - `chunking-strategy.md` — a report explaining how the PDF was split
-- `AGENTS.md` — rules for the wiki pages
+- `index.md` — rules and overview for the wiki
 - `output/documents/...` — one or more pages extracted from the PDF
 - `output/sources/...` — a source page describing the PDF
 - `output/raw/...` — only appears if some pages were scanned images
@@ -244,9 +244,13 @@ Wait for it to finish. It will tell you:
 Open these files in any text editor:
 
 1. `my-wiki-workspace/index-of-indexes.md`
-   - This is the roadmap. It lists all your wikis.
-2. `my-wiki-workspace/wikis/acme-reports/output/index.md`
-   - This is the wiki-level index. It lists all the pages inside this wiki.
+   - This is the roadmap. It lists all your wikis and highlights any entity or topic names that appear in more than one wiki.
+2. `my-wiki-workspace/wikis/acme-reports/index.md`
+   - This is the wiki-level contract. It explains the wiki's structure and conventions.
+3. `my-wiki-workspace/wikis/acme-reports/output/index.md`
+   - This is the generated catalog. It lists all the pages inside this wiki.
+4. `my-wiki-workspace/wikis/acme-reports/documents/index.md` and other folder-level indexes
+   - These are child contracts that describe the pages in each folder.
 
 From the wiki-level index, you can follow `[[Page Title]]` links to:
 

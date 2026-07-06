@@ -2,6 +2,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import type { Config } from '../config.js';
+import type { CrossWikiName } from '../orchestrator/wiki-of-wiki.js';
 
 export interface SourcePageInfo {
   fileName: string;
@@ -106,6 +107,7 @@ export function writeIndexOfIndexes(
     topicCount: number;
     rawCount: number;
   }[],
+  crossWikiNames: CrossWikiName[] = [],
 ): void {
   const filePath = path.join(workspace, 'index-of-indexes.md');
   const frontmatter = {
@@ -148,6 +150,15 @@ export function writeIndexOfIndexes(
     'This workspace contains the following wiki collections:',
     '',
     ...wikis.map((w) => `- **${w.title}**: ${w.description}`),
+    '',
+    '## Cross-Wiki Names',
+    '',
+    ...(crossWikiNames.length > 0
+      ? crossWikiNames.map((n) => {
+          const wikiLinks = n.wikis.map((w) => `[[${w.wikiTitle} Index]]`).join(', ');
+          return `- **${n.name}** (${n.type}) — appears in ${wikiLinks}`;
+        })
+      : ['- No entity or topic names appear in more than one wiki.']),
     '',
   ];
 
