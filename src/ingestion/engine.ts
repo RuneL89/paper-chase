@@ -399,18 +399,6 @@ export async function runIngestion(
   const documentPageInfos = buildDocumentPageInfos(wikiDir, config.output.dir, state, processed);
   const rawPageInfos = buildRawPageInfos(wikiDir, config.output.dir, state, processed);
 
-  const wikiIndexPath = path.join(outputDir, 'index.md');
-  writeWikiIndex(
-    wikiIndexPath,
-    config,
-    sourcePageInfos,
-    documentPageInfos,
-    entityTitles,
-    topicTitles,
-    rawPageInfos,
-    { warnings: result.warnings.length + result.errors.length, errors: result.errors.length },
-  );
-
   // Sprint 8: write dynamic folder hierarchy contracts and update rolling memory.
   const folderPlacements = Array.from(allFolderPlacements.values());
   result.folderIndexes = writeIngestContracts(
@@ -425,6 +413,20 @@ export async function runIngestion(
     result.warnings,
   );
   result.proposals = allProposals;
+
+  // Write the wiki-level index as the final generated page (overwrites the skeleton/contract stub).
+  const wikiIndexPath = path.join(outputDir, 'index.md');
+  writeWikiIndex(
+    wikiIndexPath,
+    config,
+    sourcePageInfos,
+    documentPageInfos,
+    entityTitles,
+    topicTitles,
+    rawPageInfos,
+    { warnings: result.warnings.length + result.errors.length, errors: result.errors.length },
+    folderPlacements.map((f) => ({ folder: f.folder, title: f.title })),
+  );
 
   // Write top-level index-of-indexes with cross-wiki name surfacing.
   const wikiSlugs = discoverWikisForIndex(workspace);
@@ -667,18 +669,21 @@ export function summarizeWiki(
 
   const rawDir = path.join(wikiDir, 'raw');
   const sourceCount = existsSync(rawDir) ? readdirSync(rawDir).filter((f) => f.toLowerCase().endsWith('.pdf')).length : 0;
-  const outputDir = path.join(wikiDir, 'output');
-  const documentCount = existsSync(path.join(outputDir, 'documents'))
-    ? readdirSync(path.join(outputDir, 'documents')).filter((f) => f.endsWith('.md')).length
+  const documentsDir = path.join(wikiDir, 'documents');
+  const entitiesDir = path.join(wikiDir, 'entities');
+  const topicsDir = path.join(wikiDir, 'topics');
+  const rawOutputDir = path.join(wikiDir, 'raw');
+  const documentCount = existsSync(documentsDir)
+    ? readdirSync(documentsDir).filter((f) => f.endsWith('.md') && f !== 'index.md').length
     : 0;
-  const entityCount = existsSync(path.join(outputDir, 'entities'))
-    ? readdirSync(path.join(outputDir, 'entities')).filter((f) => f.endsWith('.md')).length
+  const entityCount = existsSync(entitiesDir)
+    ? readdirSync(entitiesDir).filter((f) => f.endsWith('.md') && f !== 'index.md').length
     : 0;
-  const topicCount = existsSync(path.join(outputDir, 'topics'))
-    ? readdirSync(path.join(outputDir, 'topics')).filter((f) => f.endsWith('.md')).length
+  const topicCount = existsSync(topicsDir)
+    ? readdirSync(topicsDir).filter((f) => f.endsWith('.md') && f !== 'index.md').length
     : 0;
-  const rawCount = existsSync(path.join(outputDir, 'raw'))
-    ? readdirSync(path.join(outputDir, 'raw')).filter((f) => f.endsWith('.md')).length
+  const rawCount = existsSync(rawOutputDir)
+    ? readdirSync(rawOutputDir).filter((f) => f.endsWith('.md') && f !== 'index.md').length
     : 0;
 
   return { slug, title, description, sourceCount, documentCount, entityCount, topicCount, rawCount };

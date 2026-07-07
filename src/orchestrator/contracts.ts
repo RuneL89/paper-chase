@@ -25,10 +25,11 @@ export function writeWikiIndexContract(
 ): void {
   mkdirSync(path.dirname(filePath), { recursive: true });
 
+  const title = `${data.title} Index`;
   const children = data.folders.map((f) => `${f.folder}/index.md`);
 
   const frontmatter = {
-    title: data.title,
+    title,
     type: 'index',
     wiki: data.slug,
     updated: new Date().toISOString(),
@@ -36,7 +37,7 @@ export function writeWikiIndexContract(
   };
 
   const lines = [
-    `# ${data.title}`,
+    `# ${title}`,
     '',
     '## Scope',
     '',
@@ -102,7 +103,7 @@ export function writeFolderIndexContract(
     '',
     '## Navigation',
     '',
-    `- Parent: [[${data.title}]]`,
+    `- Parent: [[${data.title} Index]]`,
     '',
     '## Contract',
     '',

@@ -40,11 +40,11 @@ export function writeSkeletonAgentsMd(
   lines.push('The wiki uses the following default folders:');
   lines.push('');
   lines.push('- `raw/` — source PDFs.');
-  lines.push('- `output/documents/` — document chunk pages.');
-  lines.push('- `output/sources/` — source provenance pages.');
-  lines.push('- `output/entities/` — entity pages (people, organizations, locations, products, etc.).');
-  lines.push('- `output/topics/` — topic pages (recurring themes and concepts).');
-  lines.push('- `output/raw/` — unparseable or scanned fragments.');
+  lines.push('- `documents/` — document chunk pages.');
+  lines.push('- `sources/` — source provenance pages.');
+  lines.push('- `entities/` — entity pages (people, organizations, locations, products, etc.).');
+  lines.push('- `topics/` — topic pages (recurring themes and concepts).');
+  lines.push('- `raw/` — unparseable or scanned fragments.');
   lines.push('');
   lines.push('Additional folders may be proposed by the PagePlanner during sampling or ingestion.');
   lines.push('New folders require a structural-change proposal and human approval.');
@@ -101,7 +101,7 @@ export function writeSkeletonAgentsMd(
   lines.push('');
   lines.push('- YAML frontmatter must be valid and include all required fields for the page type.');
   lines.push('- Every `[^srcN]` citation in the body must map to a `sources` frontmatter entry.');
-  lines.push('- Broken wikilinks are flagged in `output/lint/report.json`.');
+  lines.push('- Broken wikilinks are flagged in `lint/report.json`.');
   lines.push('- Scanned or unparseable pages become `raw` pages with a reason.');
   lines.push('');
 
@@ -161,11 +161,11 @@ export function writeAgentsMd(
   lines.push('');
   lines.push('- Wiki folder: `wikis/' + slug + '`');
   lines.push('- Source PDFs: `wikis/' + slug + '/raw/<pdf-slug>.pdf`');
-  lines.push('- Source pages: `output/sources/<pdf-slug>.md`');
-  lines.push('- Document pages: `output/documents/<pdf-slug>-part-NNN.md`');
-  lines.push('- Topic pages: `output/topics/<topic-slug>.md`');
-  lines.push('- Entity pages: `output/entities/<entity-slug>.md`');
-  lines.push('- Raw pages: `output/raw/<pdf-slug>-page-NNN.md`');
+  lines.push('- Source pages: `sources/<pdf-slug>.md`');
+  lines.push('- Document pages: `documents/<pdf-slug>-part-NNN.md`');
+  lines.push('- Topic pages: `topics/<topic-slug>.md`');
+  lines.push('- Entity pages: `entities/<entity-slug>.md`');
+  lines.push('- Raw pages: `raw/<pdf-slug>-page-NNN.md`');
   lines.push('');
 
   lines.push('## Citation Format');

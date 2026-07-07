@@ -48,9 +48,17 @@ export interface ChunkBoundary {
   pageRange: string;
   logicalPageRange?: string;
   description: string;
+  isScanned: boolean;
+  scanConfidence: 'low' | 'medium' | 'high';
+  imageOpCount: number;
+  hasTable: boolean;
+  hasFigure: boolean;
+  multiPageObject?: 'table' | 'figure' | 'footnote';
 }
 
 export interface ChunkingStrategy {
+  sha256: string;
+  fileName: string;
   splitBoundary: string;
   maxChunkSize: number;
   minChunkSize: number;
@@ -67,6 +75,7 @@ export interface ChunkSource {
   pages: string;
   logicalPages?: string;
   extracted: string;
+  sha256: string;
 }
 
 export interface Chunk {

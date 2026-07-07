@@ -170,11 +170,28 @@ function detectMultiPageObjects(
     }
   }
 
-  // Multi-page tables: tables with same caption or column count on consecutive pages.
-  for (let i = 0; i < tables.length - 1; i++) {
-    const current = tables[i];
-    const next = tables[i + 1];
-    if (next.page === current.page + 1 && next.cols === current.cols) {
+  const continuationPattern = /\(continued\)|continued|cont\.?|continued on next page|continued from previous page/i;
+
+  // Multi-page tables: tables with same caption or column count on consecutive pages,
+  // or with continuation wording in caption or page text.
+  const sortedTables = [...tables].sort((a, b) => a.page - b.page);
+  for (let i = 0; i < sortedTables.length - 1; i++) {
+    const current = sortedTables[i];
+    const next = sortedTables[i + 1];
+    if (next.page !== current.page + 1) continue;
+
+    const sameStructure = next.cols === current.cols && next.rows > 0 && current.rows > 0;
+    const continuedCaption =
+      (current.caption && continuationPattern.test(current.caption)) ||
+      (next.caption && continuationPattern.test(next.caption));
+    const continuedText = pages.some(
+      (p) =>
+        p.physicalPage === current.page || p.physicalPage === next.page
+          ? continuationPattern.test(p.text)
+          : false,
+    );
+
+    if (sameStructure || continuedCaption || continuedText) {
       objects.push({
         type: 'table',
         startPage: current.page,
@@ -186,12 +203,38 @@ function detectMultiPageObjects(
     }
   }
 
-  // Multi-page figures: figure captions that reference "continued" or similar.
+  // Multi-page figures: figure captions that reference "continued" or similar,
+  // or the same figure number appearing on consecutive pages.
+  const sortedFigures = [...figures].sort((a, b) => a.page - b.page);
+  for (let i = 0; i < sortedFigures.length - 1; i++) {
+    const current = sortedFigures[i];
+    const next = sortedFigures[i + 1];
+    if (next.page !== current.page + 1) continue;
+
+    const continuationCaption =
+      current.caption && continuationPattern.test(current.caption);
+    const sameFigureNumber =
+      current.caption &&
+      next.caption &&
+      extractFigureNumber(current.caption) === extractFigureNumber(next.caption);
+
+    if (continuationCaption || sameFigureNumber) {
+      objects.push({
+        type: 'figure',
+        startPage: current.page,
+        endPage: next.page,
+        description: current.caption
+          ? `Multi-page figure: ${current.caption}`
+          : 'Multi-page figure spanning consecutive pages',
+      });
+    }
+  }
+
+  // Also capture single figures that explicitly say "continued" and span the previous page.
   for (const figure of figures) {
     if (!figure.caption) continue;
     const continuationMatch = figure.caption.match(/\(continued\)|continued|cont\./i);
     if (continuationMatch) {
-      // Heuristic: the preceding page likely contains the start of the figure.
       const startPage = Math.max(1, figure.page - 1);
       if (startPage < figure.page) {
         objects.push({
@@ -204,19 +247,28 @@ function detectMultiPageObjects(
     }
   }
 
-  return objects;
+  // Merge adjacent/overlapping objects of the same type.
+  return mergeMultiPageObjects(objects);
 }
 
-function mergeSections(sections: PdfSection[]): PdfSection[] {
-  if (sections.length === 0) return [];
-  const merged: PdfSection[] = [];
-  let current: PdfSection = { ...sections[0] };
+function extractFigureNumber(caption: string): string | undefined {
+  const match = caption.match(/(?:Figure|Fig\.?)\s*(\d+)/i);
+  return match?.[1];
+}
 
-  for (let i = 1; i < sections.length; i++) {
-    const next = sections[i];
-    if (next.startPage === current.endPage + 1) {
-      current.endPage = next.endPage;
-      current.title = `${current.title} / ${next.title}`;
+function mergeMultiPageObjects(objects: MultiPageObject[]): MultiPageObject[] {
+  if (objects.length === 0) return [];
+  const sorted = [...objects].sort((a, b) => a.startPage - b.startPage || a.endPage - b.endPage);
+  const merged: MultiPageObject[] = [];
+  let current: MultiPageObject = { ...sorted[0] };
+
+  for (let i = 1; i < sorted.length; i++) {
+    const next = sorted[i];
+    if (next.type === current.type && next.startPage <= current.endPage + 1) {
+      current.endPage = Math.max(current.endPage, next.endPage);
+      current.description = current.description.includes(next.description)
+        ? current.description
+        : `${current.description}; ${next.description}`;
     } else {
       merged.push(current);
       current = { ...next };
@@ -224,6 +276,12 @@ function mergeSections(sections: PdfSection[]): PdfSection[] {
   }
   merged.push(current);
   return merged;
+}
+
+function mergeSections(sections: PdfSection[]): PdfSection[] {
+  // For page-based chunking, each heading defines its own single-page section.
+  // Do not merge adjacent headings, because chunks are flushed at every page boundary.
+  return sections.map((s) => ({ ...s }));
 }
 
 function buildSummary(details: {

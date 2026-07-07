@@ -16,12 +16,11 @@ export function buildChunkingStrategy(
   const neverSplit = [...config.chunking.never_split];
 
   const fallback =
-    'If a page is malformed or unparseable, emit a `raw` page with the original fragment and reason, then continue with the next page boundary. Scanned pages are always routed to `raw/` pages, not document chunks.';
+    'If a page is malformed or unparseable, emit a `raw` page with the original fragment and reason, then continue with the next page boundary. Scanned pages are always routed to `raw/` pages, not document chunks. Multi-page tables, figures, and footnotes are kept together in a single chunk.';
 
   const boundaries: ChunkBoundary[] = [];
 
-  for (let i = 0; i < result.pages.length; i++) {
-    const page = result.pages[i];
+  for (const page of result.pages) {
     const section = structure.sections.find(
       (s) => s.startPage <= page.physicalPage && s.endPage >= page.physicalPage,
     );
@@ -60,6 +59,12 @@ export function buildChunkingStrategy(
       pageRange: `${page.physicalPage}-${page.physicalPage}`,
       logicalPageRange: page.pageLabel ? `${page.pageLabel}-${page.pageLabel}` : undefined,
       description,
+      isScanned: page.isScanned,
+      scanConfidence: page.scanConfidence,
+      imageOpCount: page.imageOpCount,
+      hasTable: table !== undefined,
+      hasFigure: figure !== undefined,
+      multiPageObject: multiPageObject?.type,
     });
   }
 
@@ -70,9 +75,16 @@ export function buildChunkingStrategy(
           type: 'page' as const,
           pageRange: '1-1',
           description: 'First page of the sample document',
+          isScanned: false,
+          scanConfidence: 'high' as const,
+          imageOpCount: 0,
+          hasTable: false,
+          hasFigure: false,
         };
 
   return {
+    sha256: result.sha256,
+    fileName: result.fileName,
     splitBoundary,
     maxChunkSize,
     minChunkSize,
@@ -86,8 +98,6 @@ export function buildChunkingStrategy(
 
 function chooseSplitBoundary(structure: PdfStructure, config: Config): string {
   if (structure.multiPageObjects.length > 0) return 'semantic-object';
-  if (structure.tables.length > 0) return 'page';
-  if (structure.headings.length > 3) return 'section';
   return config.chunking.split_boundary;
 }
 
@@ -218,7 +228,6 @@ export function chunkPages(
   const relativeFile = result.filePath;
 
   let currentGroup: ExtractedPage[] = [];
-  let currentChars = 0;
   let groupIndex = 1;
   let activeMultiPageObject: { type: 'table' | 'figure' | 'footnote'; endPage: number; description: string } | undefined;
 
@@ -248,6 +257,7 @@ export function chunkPages(
           pages: pageRange,
           logicalPages: logicalPageRange,
           extracted: result.ingested,
+          sha256: result.sha256,
         },
       ],
       tags: inferTags(result, structure),
@@ -256,7 +266,6 @@ export function chunkPages(
     });
 
     currentGroup = [];
-    currentChars = 0;
     groupIndex++;
     activeMultiPageObject = undefined;
   }
@@ -267,32 +276,26 @@ export function chunkPages(
 
     const pageMpo = findMultiPageObjectForPage(page, structure);
 
-    // If we are inside a multi-page object and this page belongs to a different object,
+    // If we are inside a multi-page object and this page no longer belongs to it,
     // flush the current group so we don't mix objects.
     if (activeMultiPageObject && (!pageMpo || pageMpo.endPage !== activeMultiPageObject.endPage)) {
       flushGroup();
     }
 
-    // Start a new chunk if adding this page would exceed the max chunk size and the current group is non-empty
-    // and we are not forced to keep it with the current group because of a multi-page object.
-    if (
-      currentGroup.length > 0 &&
-      currentChars + page.text.length > config.chunking.max_chunk_size &&
-      !activeMultiPageObject &&
-      !pageMpo
-    ) {
-      flushGroup();
-    }
-
-    currentGroup.push(page);
-    currentChars += page.text.length;
-
     if (pageMpo) {
-      activeMultiPageObject = pageMpo;
+      // Start a new group if we are beginning a multi-page object.
+      if (currentGroup.length === 0) {
+        activeMultiPageObject = pageMpo;
+      }
+      currentGroup.push(page);
       // If we have collected the whole multi-page object, flush it now.
       if (page.physicalPage === pageMpo.endPage) {
         flushGroup();
       }
+    } else {
+      // Normal page: create a single-page chunk.
+      currentGroup.push(page);
+      flushGroup();
     }
   }
 

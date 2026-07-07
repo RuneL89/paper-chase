@@ -27,6 +27,11 @@ export interface RawPageInfo {
   sourceFile: string;
 }
 
+export interface FolderIndexRef {
+  folder: string;
+  title: string;
+}
+
 export function writeSkeletonWikiIndex(filePath: string, config: Config): void {
   mkdirSync(path.dirname(filePath), { recursive: true });
 
@@ -76,6 +81,7 @@ export function writeWikiIndex(
   topics: string[],
   rawPages: RawPageInfo[],
   stats: { warnings: number; errors: number },
+  folderPlacements: FolderIndexRef[] = [],
 ): void {
   mkdirSync(path.dirname(filePath), { recursive: true });
 
@@ -87,6 +93,7 @@ export function writeWikiIndex(
     type: 'index',
     wiki: config.wiki.slug,
     sources: sources.map((s) => s.filePath),
+    children: folderPlacements.map((f) => `${f.folder}/index.md`),
   };
 
   const lines: string[] = [
@@ -101,6 +108,12 @@ export function writeWikiIndex(
     `**Raw pages:** ${rawPages.length}`,
     `**Warnings:** ${stats.warnings}`,
     `**Errors:** ${stats.errors}`,
+    '',
+    '## Folders',
+    '',
+    ...(folderPlacements.length > 0
+      ? folderPlacements.map((f) => `- [[${f.title}]] — ${f.folder}/index.md`)
+      : ['- No folder indexes generated.']),
     '',
     '## Sources',
     '',

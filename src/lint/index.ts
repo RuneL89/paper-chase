@@ -28,18 +28,14 @@ const REQUIRED_FRONTMATTER: Record<string, string[]> = {
 
 export function lintWiki(workspace: string, slug: string, config: Config): LintResult {
   const wikiDir = wikiPath(workspace, slug);
-  const outputDir = path.join(wikiDir, config.output.dir);
+  const contentFolders = ['documents', 'sources', 'topics', 'entities', 'raw'];
   const issues: LintIssue[] = [];
 
-  if (!existsSync(outputDir)) {
-    return { issues, brokenLinks: 0, invalidCitations: 0, missingFrontmatter: 0 };
-  }
-
-  const titleMap = buildTitleMap(outputDir);
-  const files = collectMarkdownFiles(outputDir);
+  const titleMap = buildTitleMap(wikiDir, contentFolders);
+  const files = collectMarkdownFiles(wikiDir, contentFolders);
 
   for (const file of files) {
-    const relativeFile = path.relative(outputDir, file);
+    const relativeFile = path.relative(wikiDir, file);
     const content = readFileSync(file, 'utf-8');
     const parsed = matter(content);
 
@@ -67,23 +63,53 @@ export function writeLintReport(workspace: string, slug: string, config: Config,
   return reportPath;
 }
 
-function collectMarkdownFiles(dir: string): string[] {
+function collectMarkdownFiles(wikiDir: string, contentFolders: string[]): string[] {
+  const files: string[] = [];
+  for (const folder of contentFolders) {
+    const fullDir = path.join(wikiDir, folder);
+    if (!existsSync(fullDir)) continue;
+    for (const entry of readdirSync(fullDir)) {
+      const fullPath = path.join(fullDir, entry);
+      const st = statSync(fullPath);
+      if (st.isDirectory()) {
+        files.push(...collectMarkdownFilesRecursive(fullPath));
+      } else if (entry.endsWith('.md') && entry !== 'index.md') {
+        files.push(fullPath);
+      }
+    }
+  }
+  return files;
+}
+
+function collectMarkdownFilesRecursive(dir: string): string[] {
   const files: string[] = [];
   for (const entry of readdirSync(dir)) {
     const fullPath = path.join(dir, entry);
     const st = statSync(fullPath);
     if (st.isDirectory()) {
-      files.push(...collectMarkdownFiles(fullPath));
-    } else if (entry.endsWith('.md')) {
+      files.push(...collectMarkdownFilesRecursive(fullPath));
+    } else if (entry.endsWith('.md') && entry !== 'index.md') {
       files.push(fullPath);
     }
   }
   return files;
 }
 
-function buildTitleMap(outputDir: string): Map<string, string> {
+function buildTitleMap(wikiDir: string, contentFolders: string[]): Map<string, string> {
   const map = new Map<string, string>();
-  for (const file of collectMarkdownFiles(outputDir)) {
+  // Include the wiki-level index so links to it (e.g., [[Wiki Title Index]]) resolve.
+  const wikiIndexPath = path.join(wikiDir, 'index.md');
+  if (existsSync(wikiIndexPath)) {
+    try {
+      const parsed = matter(readFileSync(wikiIndexPath, 'utf-8'));
+      if (parsed.data.title) {
+        map.set(String(parsed.data.title), wikiIndexPath);
+      }
+    } catch {
+      // Ignore malformed wiki-level index.
+    }
+  }
+  for (const file of collectMarkdownFiles(wikiDir, contentFolders)) {
     try {
       const parsed = matter(readFileSync(file, 'utf-8'));
       if (parsed.data.title) {

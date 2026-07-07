@@ -53,7 +53,6 @@ export async function initCommand(options: InitOptions): Promise<number> {
 
   mkdirSync(wikiDir, { recursive: true });
   mkdirSync(path.join(wikiDir, 'raw'), { recursive: true });
-  mkdirSync(path.join(wikiDir, 'output'), { recursive: true });
 
   saveConfig(workspace, slug, config);
   writeSkeletonWikiIndex(path.join(wikiDir, 'index.md'), config);

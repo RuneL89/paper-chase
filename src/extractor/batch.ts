@@ -31,7 +31,7 @@ function writeScannedRawPages(result: ExtractionResult, rawOutputDir?: string): 
     return;
   }
 
-  const outputDir = rawOutputDir ?? path.join(path.dirname(result.filePath), '..', 'output', 'raw');
+  const outputDir = rawOutputDir ?? path.join(path.dirname(result.filePath), '..', 'raw');
   mkdirSync(outputDir, { recursive: true });
 
   const baseSlug = path.basename(result.filePath, path.extname(result.filePath));

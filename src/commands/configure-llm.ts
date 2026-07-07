@@ -13,6 +13,7 @@ interface ConfigureLlmOptions {
   model?: string;
   apiKey?: string;
   baseUrl?: string;
+  interactive?: boolean;
 }
 
 export async function configureLlmCommand(options: ConfigureLlmOptions): Promise<void> {
@@ -21,7 +22,7 @@ export async function configureLlmCommand(options: ConfigureLlmOptions): Promise
     throw new CLIError(`Workspace not found: ${workspace}`, 2);
   }
 
-  const interactive = !options.apiKey && isInteractive();
+  const interactive = options.interactive ?? (!options.apiKey && isInteractive());
 
   let provider = options.provider ?? 'kimi';
   if (!KNOWN_PROVIDERS.includes(provider)) {

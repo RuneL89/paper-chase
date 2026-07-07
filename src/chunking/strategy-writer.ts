@@ -10,6 +10,13 @@ export function writeChunkingStrategy(
 
   lines.push('# Chunking Strategy');
   lines.push('');
+
+  lines.push('## Source Provenance');
+  lines.push('');
+  lines.push(`- **File name:** ${strategy.fileName}`);
+  lines.push(`- **SHA-256:** ${strategy.sha256}`);
+  lines.push('');
+
   lines.push('## Discovered PDF Structure');
   lines.push('');
   lines.push(structure.summary);
@@ -34,20 +41,27 @@ export function writeChunkingStrategy(
   lines.push('## Chosen Chunk Boundaries');
   lines.push('');
   lines.push(`The primary split boundary is **${strategy.splitBoundary}**. `);
-  lines.push(`Chunks are built by grouping pages while respecting the maximum chunk size of ${strategy.maxChunkSize} characters. `);
-  lines.push('Each chunk starts at a page boundary so that tables, figures, and captions remain intact. ');
-  lines.push('When a section heading is detected, the chunk boundary may align with the heading to preserve context. ');
-  lines.push('Multi-page tables, figures, and footnotes are kept together in a single chunk.');
+  lines.push(`Each chunk starts at a page boundary so that pages, tables, figures, and captions remain intact. `);
+  lines.push(`Pages are grouped only when required to preserve a multi-page object (table, figure, or footnote). `);
+  lines.push(`The maximum chunk size is ${strategy.maxChunkSize} characters; a single page is never split even if it exceeds this limit. `);
+  lines.push('When a section heading or table/figure is detected, the chunk boundary is labeled accordingly for traceability. ');
   lines.push('');
 
   if (strategy.boundaries.length > 0) {
-    lines.push('| Page Range | Boundary Type | Description |');
-    lines.push('|------------|---------------|-------------|');
+    lines.push('| Physical Page | Logical Page | Boundary Type | Scanned | Confidence | Image Ops | Table | Figure | Multi-Page Object | Description |');
+    lines.push('|---------------|--------------|---------------|---------|------------|-----------|-------|--------|-------------------|-------------|');
     for (const boundary of strategy.boundaries) {
-      const range = boundary.logicalPageRange
-        ? `${boundary.pageRange} (logical ${boundary.logicalPageRange})`
-        : boundary.pageRange;
-      lines.push(`| ${range} | ${boundary.type} | ${boundary.description} |`);
+      const physicalRange = boundary.pageRange;
+      const logicalRange = boundary.logicalPageRange ?? '—';
+      const type = boundary.type;
+      const scanned = boundary.isScanned ? 'yes' : 'no';
+      const confidence = boundary.scanConfidence;
+      const imageOps = String(boundary.imageOpCount);
+      const table = boundary.hasTable ? 'yes' : 'no';
+      const figure = boundary.hasFigure ? 'yes' : 'no';
+      const mpo = boundary.multiPageObject ?? '—';
+      const description = boundary.description;
+      lines.push(`| ${physicalRange} | ${logicalRange} | ${type} | ${scanned} | ${confidence} | ${imageOps} | ${table} | ${figure} | ${mpo} | ${description} |`);
     }
     lines.push('');
   }
@@ -66,6 +80,7 @@ export function writeChunkingStrategy(
   lines.push(`- **Maximum chunk size:** ${strategy.maxChunkSize} characters`);
   lines.push(`- **Minimum chunk size:** ${strategy.minChunkSize} characters`);
   lines.push(`- **Overlap:** ${strategy.overlap} characters`);
+  lines.push(`- **Preferred chunk size:** one page per chunk, except when a multi-page object forces grouping.`);
   lines.push('');
   lines.push('Any chunk whose extracted content falls below the minimum size is flagged in its YAML frontmatter (`below_min: true`) rather than discarded.');
   lines.push('');

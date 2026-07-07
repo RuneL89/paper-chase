@@ -109,13 +109,20 @@ async function countImageOperators(page: any): Promise<number> {
   }
 }
 
-function detectScanned(items: ExtractedTextItem[], text: string, imageOpCount: number): boolean {
+function detectScanned(items: ExtractedTextItem[], text: string, imageOpCount: number): { isScanned: boolean; scanConfidence: ExtractedPage['scanConfidence'] } {
   const trimmedText = text.trim();
   const textLength = trimmedText.length;
-  if (items.length === 0 || textLength < 10) return true;
-  // If the page contains many image operators and very little text, treat it as image-dominant.
-  if (imageOpCount >= 3 && textLength < 200) return true;
-  return false;
+
+  if (items.length === 0 || textLength < 10) {
+    return { isScanned: true, scanConfidence: 'low' };
+  }
+  if (imageOpCount >= 3 && textLength < 200) {
+    return { isScanned: true, scanConfidence: 'low' };
+  }
+  if (imageOpCount >= 3 && textLength < 500) {
+    return { isScanned: false, scanConfidence: 'medium' };
+  }
+  return { isScanned: false, scanConfidence: 'high' };
 }
 
 function normalizeMetadata(metadata: unknown): PdfMetadata {
@@ -373,8 +380,7 @@ export async function extractPdf(filePath: string): Promise<ExtractionResult> {
     const sortedItems = readingOrder(items);
     const text = buildPageText(sortedItems);
     const imageOpCount = await countImageOperators(page);
-    const isScanned = detectScanned(items, text, imageOpCount);
-    const scanConfidence: ExtractedPage['scanConfidence'] = isScanned ? 'low' : 'high';
+    const { isScanned, scanConfidence } = detectScanned(items, text, imageOpCount);
 
     const pageLabel = pageLabels[i - 1];
 
@@ -417,7 +423,7 @@ export async function extractPdf(filePath: string): Promise<ExtractionResult> {
     sha256: sha256(filePath),
     sizeBytes: statSync(filePath).size,
     physicalPages: numPages,
-    logicalPages: numPages,
+    logicalPages: pageLabels.filter((l) => l && l.trim().length > 0).length || numPages,
     metadata: normalizeMetadata(metadata),
     pages,
     tables,

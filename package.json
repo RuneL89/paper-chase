@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "vitest run",
+    "test": "vitest run --pool=forks --poolOptions.forks.singleFork",
     "dev": "tsx src/cli.ts"
   },
   "dependencies": {

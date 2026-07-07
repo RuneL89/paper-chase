@@ -53,14 +53,13 @@ function gatherWikiStatus(workspace: string, slug: string): WikiStatus {
     ? readdirSync(rawDir).filter((f) => f.toLowerCase().endsWith('.pdf')).length
     : 0;
 
-  const outputDir = path.join(wikiDir, 'output');
-  const documentCount = countMarkdownFiles(outputDir, 'documents');
-  const entityCount = countMarkdownFiles(outputDir, 'entities');
-  const topicCount = countMarkdownFiles(outputDir, 'topics');
-  const rawCount = countMarkdownFiles(outputDir, 'raw');
+  const documentCount = countMarkdownFiles(wikiDir, 'documents');
+  const entityCount = countMarkdownFiles(wikiDir, 'entities');
+  const topicCount = countMarkdownFiles(wikiDir, 'topics');
+  const rawCount = countMarkdownFiles(wikiDir, 'raw');
   const totalGeneratedPages = documentCount + entityCount + topicCount + rawCount;
 
-  const statePath = path.join(outputDir, '.state', 'ingest-state.json');
+  const statePath = path.join(wikiDir, '.state', 'ingest-state.json');
   let lastRun = 'never';
   if (existsSync(statePath)) {
     try {
@@ -72,7 +71,7 @@ function gatherWikiStatus(workspace: string, slug: string): WikiStatus {
   }
 
   const warnings: string[] = [];
-  const lintPath = path.join(outputDir, 'lint', 'report.json');
+  const lintPath = path.join(wikiDir, 'lint', 'report.json');
   if (existsSync(lintPath)) {
     try {
       const report = JSON.parse(readFileSync(lintPath, 'utf-8')) as {
@@ -106,7 +105,7 @@ function countMarkdownFiles(dir: string, subdir: string): number {
   const fullDir = path.join(dir, subdir);
   if (!existsSync(fullDir)) return 0;
   return readdirSync(fullDir).filter(
-    (f) => f.endsWith('.md') && statSync(path.join(fullDir, f)).isFile(),
+    (f) => f.endsWith('.md') && f !== 'index.md' && statSync(path.join(fullDir, f)).isFile(),
   ).length;
 }
 

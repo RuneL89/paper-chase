@@ -39,11 +39,10 @@ export function runWikiOfWikiAgent(
   const namesByType = new Map<string, Map<string, WikiNamePage[]>>();
 
   for (const wiki of slugSummaries) {
-    const outputDir = path.join(workspace, 'wikis', wiki.slug, 'output');
-    if (!existsSync(outputDir)) continue;
+    const wikiDir = path.join(workspace, 'wikis', wiki.slug);
 
     for (const type of ['entity', 'topic'] as const) {
-      const dir = path.join(outputDir, `${type}s`);
+      const dir = path.join(wikiDir, `${type}s`);
       if (!existsSync(dir)) continue;
 
       if (!namesByType.has(type)) {

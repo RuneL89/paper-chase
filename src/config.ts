@@ -87,7 +87,7 @@ export const defaultConfig: Config = {
     page_range: null,
   },
   output: {
-    dir: 'output',
+    dir: '.',
     page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
   },
   ingestion: {
@@ -192,7 +192,10 @@ const requiredPaths: { path: string[]; label: string }[] = [
 ];
 function parseJsonFile(filePath: string): unknown {
   try {
-    return JSON.parse(readFileSync(filePath, 'utf-8'));
+    const raw = readFileSync(filePath, 'utf-8');
+    // Strip UTF-8 BOM if present so PowerShell-written config files parse correctly.
+    const content = raw.startsWith('\uFEFF') ? raw.slice(1) : raw;
+    return JSON.parse(content);
   } catch (err) {
     const reason = err instanceof Error ? err.message : String(err);
     throw new CLIError(`Could not parse config file ${filePath}: ${reason}`);

@@ -182,10 +182,10 @@ function printSummary(
     console.log(`  - ${folderIndex}`);
   }
   console.log('  - config.json');
-  console.log(`  - ${chunks.length} document page(s) in output/documents/`);
-  console.log('  - 1 source page in output/sources/');
+  console.log(`  - ${chunks.length} document page(s) in documents/`);
+  console.log('  - 1 source page in sources/');
   if (result.pages.some((p) => p.isScanned)) {
-    console.log('  - raw page(s) in output/raw/ for scanned pages');
+    console.log('  - raw page(s) in raw/ for scanned pages');
   }
   console.log('');
   console.log('You can review the chunking strategy, then run full ingestion with:');

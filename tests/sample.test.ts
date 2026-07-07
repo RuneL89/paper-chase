@@ -74,7 +74,7 @@ describe('TAC-001: sample command creates required artifacts', () => {
     runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
 
     const wikiDir = path.join(workspace, 'wikis', 'acme');
-    const documentsDir = path.join(wikiDir, 'output', 'documents');
+    const documentsDir = path.join(wikiDir, 'documents');
 
     expect(existsSync(path.join(wikiDir, 'chunking-strategy.md'))).toBe(true);
     expect(existsSync(path.join(wikiDir, 'index.md'))).toBe(true);
@@ -209,7 +209,7 @@ describe('TAC-004: document page frontmatter', () => {
   });
 
   it('has type: document with required frontmatter fields', () => {
-    const documentsDir = path.join(workspace, 'wikis', 'acme', 'output', 'documents');
+    const documentsDir = path.join(workspace, 'wikis', 'acme', 'documents');
     const files = readdirFiles(documentsDir);
     expect(files.length).toBeGreaterThan(0);
 
@@ -241,7 +241,7 @@ describe('TAC-005: citations in document pages', () => {
   });
 
   it('uses inline [^srcN] and maps to sources with file, pages, and extracted timestamp', () => {
-    const documentsDir = path.join(workspace, 'wikis', 'acme', 'output', 'documents');
+    const documentsDir = path.join(workspace, 'wikis', 'acme', 'documents');
     const files = readdirFiles(documentsDir);
     const content = readFileSync(path.join(documentsDir, files[0]), 'utf-8');
     const parsed = matter(content);
@@ -279,7 +279,7 @@ describe('TAC-006: tables and figures are not split arbitrarily', () => {
   });
 
   it('keeps table content on a single page chunk or at a semantic boundary', () => {
-    const documentsDir = path.join(workspace, 'wikis', 'acme', 'output', 'documents');
+    const documentsDir = path.join(workspace, 'wikis', 'acme', 'documents');
     const files = readdirFiles(documentsDir);
     expect(files.length).toBeGreaterThan(0);
 
@@ -309,7 +309,7 @@ describe('TAC-007: small chunks are flagged, not discarded', () => {
   });
 
   it('marks small chunks in metadata rather than dropping them', () => {
-    const documentsDir = path.join(workspace, 'wikis', 'acme', 'output', 'documents');
+    const documentsDir = path.join(workspace, 'wikis', 'acme', 'documents');
     const files = readdirFiles(documentsDir);
     expect(files.length).toBeGreaterThan(0);
 
@@ -347,5 +347,5 @@ function readdirFiles(dir: string): string[] {
   if (!existsSync(dir)) return [];
   return require('fs')
     .readdirSync(dir)
-    .filter((f: string) => !f.startsWith('.'));
+    .filter((f: string) => !f.startsWith('.') && f !== 'index.md');
 }

@@ -62,7 +62,7 @@ function setupWiki(workspace: string, slug: string): string {
         page_range: null,
       },
       output: {
-        dir: 'output',
+        dir: '.',
         page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
       },
       status: 'ready',
@@ -96,7 +96,7 @@ function runCliError(args: string[], cwd: string): { status: number; stderr: str
 }
 
 function readOutputFiles(wikiDir: string, subdir: string): string[] {
-  const fullDir = path.join(wikiDir, 'output', subdir);
+  const fullDir = path.join(wikiDir, subdir);
   if (!existsSync(fullDir)) return [];
   return readdirSync(fullDir).filter((f) => f.endsWith('.md'));
 }
@@ -176,7 +176,7 @@ describe('TAC-001: ingest processes all PDFs and produces document and source pa
     expect(sourceFiles).toContain('doc-b.md');
     expect(documentFiles.length).toBeGreaterThanOrEqual(2);
 
-    const indexPath = path.join(wikiDir, 'output', 'index.md');
+    const indexPath = path.join(wikiDir, 'index.md');
     expect(existsSync(indexPath)).toBe(true);
   });
 });
@@ -201,7 +201,7 @@ describe('TAC-002: entity pages generated for repeated mentions with threshold',
 
     const entityFiles = readOutputFiles(wikiDir, 'entities');
     const titles = entityFiles.map((fileName) => {
-      const content = readFileSync(path.join(wikiDir, 'output', 'entities', fileName), 'utf-8');
+      const content = readFileSync(path.join(wikiDir, 'entities', fileName), 'utf-8');
       return matter(content).data.title as string;
     });
 
@@ -230,7 +230,7 @@ describe('TAC-003: topic pages generated for recurring themes', () => {
 
     const topicFiles = readOutputFiles(wikiDir, 'topics');
     const titles = topicFiles.map((fileName) => {
-      const content = readFileSync(path.join(wikiDir, 'output', 'topics', fileName), 'utf-8');
+      const content = readFileSync(path.join(wikiDir, 'topics', fileName), 'utf-8');
       return matter(content).data.title as string;
     });
 
@@ -259,14 +259,14 @@ describe('TAC-004: wikilinks use [[Page Title]] and lint records unresolved link
     const documentFiles = readOutputFiles(wikiDir, 'documents');
     let hasWikilink = false;
     for (const fileName of documentFiles) {
-      const content = readFileSync(path.join(wikiDir, 'output', 'documents', fileName), 'utf-8');
+      const content = readFileSync(path.join(wikiDir, 'documents', fileName), 'utf-8');
       if (/\[\[.*\]\]/.test(content)) {
         hasWikilink = true;
       }
     }
     expect(hasWikilink).toBe(true);
 
-    const lintPath = path.join(wikiDir, 'output', 'lint', 'wikilinks.json');
+    const lintPath = path.join(wikiDir, 'lint', 'wikilinks.json');
     expect(existsSync(lintPath)).toBe(true);
     const lint = JSON.parse(readFileSync(lintPath, 'utf-8'));
     expect(Array.isArray(lint.issues)).toBe(true);
@@ -294,7 +294,7 @@ describe('TAC-005: document pages link to source page and wiki-level index', () 
     expect(documentFiles.length).toBeGreaterThan(0);
 
     const content = readFileSync(
-      path.join(wikiDir, 'output', 'documents', documentFiles[0]),
+      path.join(wikiDir, 'documents', documentFiles[0]),
       'utf-8',
     );
 
@@ -347,7 +347,7 @@ describe('TAC-006: incremental re-run after adding one PDF updates only affected
 
     // Give the filesystem a moment to ensure any later write would change mtime.
     await new Promise((r) => setTimeout(r, 100));
-    firstDocumentMtimes = readMtimes(path.join(wikiDir, 'output', 'documents'));
+    firstDocumentMtimes = readMtimes(path.join(wikiDir, 'documents'));
 
     await addSecondEntityPdf(wikiDir, 'doc-b.pdf');
   });
@@ -362,7 +362,7 @@ describe('TAC-006: incremental re-run after adding one PDF updates only affected
     const documentFiles = readOutputFiles(wikiDir, 'documents');
     expect(documentFiles.some((f) => f.includes('doc-b'))).toBe(true);
 
-    const secondDocumentMtimes = readMtimes(path.join(wikiDir, 'output', 'documents'));
+    const secondDocumentMtimes = readMtimes(path.join(wikiDir, 'documents'));
     const changed = mtimesChanged(firstDocumentMtimes, secondDocumentMtimes);
     const docAChanged = changed.filter((key) => key.includes('doc-a'));
 
@@ -382,7 +382,7 @@ describe('TAC-007: incremental re-run with no source changes produces no writes'
     runCli(['ingest', 'acme'], workspace);
 
     await new Promise((r) => setTimeout(r, 100));
-    firstMtimes = readMtimes(path.join(wikiDir, 'output'));
+    firstMtimes = readMtimes(wikiDir);
   });
 
   afterAll(() => {
@@ -392,7 +392,7 @@ describe('TAC-007: incremental re-run with no source changes produces no writes'
   it('does not modify any output file when no source PDF has changed', () => {
     runCli(['ingest', 'acme'], workspace);
 
-    const secondMtimes = readMtimes(path.join(wikiDir, 'output'));
+    const secondMtimes = readMtimes(wikiDir);
     const changed = mtimesChanged(firstMtimes, secondMtimes);
 
     expect(changed).toHaveLength(0);

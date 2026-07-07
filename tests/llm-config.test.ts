@@ -59,6 +59,7 @@ describe('configure-llm command', () => {
       configureLlmCommand({
         workspace: tmpDir,
         provider: 'kimi',
+        interactive: false,
       }),
     ).rejects.toBeInstanceOf(CLIError);
   });

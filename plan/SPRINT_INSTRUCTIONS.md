@@ -16,6 +16,23 @@ This file is the anchor for the implementation phase. It records which sprint is
 
 **Rule:** The next sprint must **NEVER** start until **all** Technical Acceptance Criteria (TAC) and **all** User Acceptance Criteria (UAT) for the current sprint have been met, and the user has **explicitly approved** the UAT.
 
+### Pre-Sprint Reading Requirement
+
+Before starting any sprint, the implementer must read the canonical `Project Vision/` documents and the current sprint's instruction file. These documents define the architectural intent, page types, folder conventions, and contract hierarchy that tests alone cannot fully capture.
+
+Required reading before sprint work begins:
+
+- `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` — product purpose and high-level architecture.
+- `Project Vision/02_WIKI_concept_detailed.md` — wiki concept, page types, and the per-wiki `AGENTS.md` ingestion-guide role.
+- `Project Vision/03_DOX_concept_detailed.md` — DOX-inspired cascading `index.md` contract hierarchy and folder co-location rules.
+- `Project Vision/04_orchestration_detailed.md` — sampling and ingestion orchestrator flows.
+- `Project Vision/05_page_types_specification.md` — frontmatter schemas and content structures for default page types.
+- `Project Vision/06_citation_and_provenance.md` — citation format, `sources` frontmatter, and provenance rules.
+- `Project Vision/07_validation_and_quality.md` — validation order, Critic, lint, and structural-change approval.
+- `plan/Plan_implementation/sprint-NN-slug/instruction.md` — the specific sprint's instructions.
+
+**Rule:** If there is a conflict between the sprint instruction file and the Project Vision, the Project Vision is the source of truth. Raise the conflict with the user before implementing.
+
 ### Sprint Execution Order
 
 ```
@@ -159,8 +176,8 @@ This table is updated at the end of every sprint and whenever a sprint's status 
 
 | Sprint | Status | Test Pass Rate | Acceptance Criteria Score | Blockers |
 |---|---|---|---|---|
-| Sprint 1 — Foundation + Test Infrastructure | `AWAITING_UAT` | 90/90 (100%) | TAC: 10/10 PASS; UAT: pending approval | — |
-| Sprint 2 — Extraction & Chunking | `NOT_STARTED` | — | — | — |
+| Sprint 1 — Foundation + Test Infrastructure | `COMPLETE` | 90/90 (100%) | TAC: 10/10 PASS; UAT: approved | — |
+| Sprint 2 — Extraction & Chunking | `COMPLETE` | 106/106 (100%) | TAC: 7/7 PASS; UAT: approved | — |
 | Sprint 3 — Deterministic Provenance Layer + `ingest-all` | `NOT_STARTED` | — | — | — |
 | Sprint 4a — Sampling Strategies & `AGENTS.md` | `NOT_STARTED` | — | — | — |
 | Sprint 4b — LLM-Driven ChunkWriter | `NOT_STARTED` | — | — | — |
@@ -197,7 +214,11 @@ This table is updated at the end of every sprint and whenever a sprint's status 
 | Date | Sprint | Action | Updated By |
 |---|---|---|---|
 | 2026-07-07 | All | Revised plan: split Sprint 4, added test mode, schema validation, selective re-ingestion | ZCode |
-| 2026-07-08 | Sprint 1 | Implemented init command, test provider, schema validator, slug/memory/resilience foundations; awaiting UAT | ZCode |
+| 2026-07-08 | Sprint 1 | Implemented init command, test provider, schema validator, slug/memory/resilience foundations; COMPLETE | ZCode |
+| 2026-07-08 | Sprint 2 | Implemented page-based chunking, SHA-256 state tracking, deterministic chunking-strategy.md, extraction scan confidence; TAC passed, UAT awaiting approval | ZCode |
+| 2026-07-08 | Sprint 2 | **Bug fix:** content pages were written to `output/<folder>/` instead of co-located with their folder-level `index.md` contracts. Fixing so document/source/topic/entity/raw pages live in their respective root folders per the DOX framework. | ZCode |
+| 2026-07-08 | All | Added pre-sprint reading requirement: implementer must read `Project Vision/` files and the sprint instruction file before starting work; Project Vision wins in conflicts. | ZCode |
+| 2026-07-08 | Sprint 2 | UAT approved by user; Sprint 2 marked COMPLETE. Next sprint NOT started. | ZCode |
 
 ---
 

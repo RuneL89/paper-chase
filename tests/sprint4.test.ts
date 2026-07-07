@@ -60,7 +60,7 @@ function setupWiki(workspace: string, slug: string, title?: string, description?
         page_range: null,
       },
       output: {
-        dir: 'output',
+        dir: '.',
         page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
       },
       status: 'ready',
@@ -100,9 +100,9 @@ function runCliError(args: string[], cwd: string): { status: number; stderr: str
 }
 
 function readOutputFiles(wikiDir: string, subdir: string): string[] {
-  const fullDir = path.join(wikiDir, 'output', subdir);
+  const fullDir = path.join(wikiDir, subdir);
   if (!existsSync(fullDir)) return [];
-  return readdirSync(fullDir).filter((f) => f.endsWith('.md'));
+  return readdirSync(fullDir).filter((f) => f.endsWith('.md') && f !== 'index.md');
 }
 
 function latestLogFile(workspace: string): string {
@@ -137,7 +137,7 @@ describe('TAC-001: wiki-level index frontmatter', () => {
   });
 
   it('has required frontmatter title, type, updated, wiki, and sources', () => {
-    const indexPath = path.join(wikiDir, 'output', 'index.md');
+    const indexPath = path.join(wikiDir, 'index.md');
     expect(existsSync(indexPath)).toBe(true);
     const parsed = matter(readFileSync(indexPath, 'utf-8'));
     expect(parsed.data.title).toBeTruthy();
@@ -165,24 +165,24 @@ describe('TAC-002: wiki-level index links to all pages', () => {
   });
 
   it('contains links to every source, document, and raw page', () => {
-    const indexContent = readFileSync(path.join(wikiDir, 'output', 'index.md'), 'utf-8');
+    const indexContent = readFileSync(path.join(wikiDir, 'index.md'), 'utf-8');
 
     const sourceFiles = readOutputFiles(wikiDir, 'sources');
     const documentFiles = readOutputFiles(wikiDir, 'documents');
     const rawFiles = readOutputFiles(wikiDir, 'raw');
 
     for (const file of sourceFiles) {
-      const content = readFileSync(path.join(wikiDir, 'output', 'sources', file), 'utf-8');
+      const content = readFileSync(path.join(wikiDir, 'sources', file), 'utf-8');
       const title = matter(content).data.title;
       expect(indexContent).toContain(`[[${title}]]`);
     }
     for (const file of documentFiles) {
-      const content = readFileSync(path.join(wikiDir, 'output', 'documents', file), 'utf-8');
+      const content = readFileSync(path.join(wikiDir, 'documents', file), 'utf-8');
       const title = matter(content).data.title;
       expect(indexContent).toContain(`[[${title}]]`);
     }
     for (const file of rawFiles) {
-      const content = readFileSync(path.join(wikiDir, 'output', 'raw', file), 'utf-8');
+      const content = readFileSync(path.join(wikiDir, 'raw', file), 'utf-8');
       const title = matter(content).data.title;
       expect(indexContent).toContain(`[[${title}]]`);
     }
@@ -426,7 +426,7 @@ describe('TAC-009: lint checks detect broken links, invalid citations, and missi
   });
 
   it('writes a lint report with issues array and surfaces it in the run log', () => {
-    const lintPath = path.join(wikiDir, 'output', 'lint', 'report.json');
+    const lintPath = path.join(wikiDir, 'lint', 'report.json');
     expect(existsSync(lintPath)).toBe(true);
     const report = JSON.parse(readFileSync(lintPath, 'utf-8'));
     expect(Array.isArray(report.issues)).toBe(true);
