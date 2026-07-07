@@ -27,6 +27,46 @@ export interface RawPageInfo {
   sourceFile: string;
 }
 
+export function writeSkeletonWikiIndex(filePath: string, config: Config): void {
+  mkdirSync(path.dirname(filePath), { recursive: true });
+
+  const now = new Date().toISOString();
+  const frontmatter = {
+    title: config.wiki.title,
+    type: 'index',
+    wiki: config.wiki.slug,
+    updated: now,
+    children: [] as string[],
+  };
+
+  const lines: string[] = [
+    `# ${config.wiki.title}`,
+    '',
+    config.wiki.description || `Wiki for ${config.wiki.title}.`,
+    '',
+    '## Scope',
+    '',
+    config.wiki.description || 'Scope will be refined during sampling.',
+    '',
+    '## Catalog',
+    '',
+    '- No folders or pages have been generated yet.',
+    '',
+    '## Navigation',
+    '',
+    '- Add PDFs to `raw/` and run `sample` to populate the wiki.',
+    '',
+    '## Contract',
+    '',
+    '- Page types: `document`, `source`, `topic`, `entity`, `raw`.',
+    '- Citation format: `[^srcN]` mapped to `sources` frontmatter.',
+    '- Naming convention: `<slug>-part-NNN.md` for document chunks, `<entity-slug>.md` for entities.',
+    '',
+  ];
+
+  writeFileSync(filePath, matter.stringify(lines.join('\n'), frontmatter));
+}
+
 export function writeWikiIndex(
   filePath: string,
   config: Config,

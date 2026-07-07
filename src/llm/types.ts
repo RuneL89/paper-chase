@@ -4,6 +4,11 @@ export interface LLMConfig {
   apiKey?: string;
   baseUrl?: string;
   enabled: boolean;
+  // Retry / resilience configuration
+  maxRetries?: number;
+  baseDelay?: number;
+  concurrency?: number;
+  maxRollingMemoryTokens?: number;
 }
 
 export interface LLMCallRecord {
@@ -31,6 +36,10 @@ export const DEFAULT_LLM_CONFIG: LLMConfig = {
   provider: 'test',
   model: 'local',
   enabled: false,
+  maxRetries: 3,
+  baseDelay: 1000,
+  concurrency: 5,
+  maxRollingMemoryTokens: 8000,
 };
 
 export function estimateCost(provider: string, model: string, tokens: number): number {

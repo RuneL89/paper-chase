@@ -15,8 +15,7 @@ export async function ingestCommand(workspace: string, slug: string): Promise<nu
 
   if (config.status !== 'ready') {
     console.warn(
-      `Wiki "${slug}" is not marked as ready (status: ${config.status}). ` +
-      'Run sample ingestion first.',
+      `Wiki "${slug}" is not ready (status: ${config.status}). Run sample first.`,
     );
   }
 

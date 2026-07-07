@@ -7,6 +7,7 @@ interface WikiStatus {
   slug: string;
   title: string;
   description: string;
+  status: string;
   sourceCount: number;
   documentCount: number;
   entityCount: number;
@@ -35,11 +36,13 @@ function gatherWikiStatus(workspace: string, slug: string): WikiStatus {
   const configPath = path.join(wikiDir, 'config.json');
   let title = slug;
   let description = '';
+  let status = 'unknown';
   if (existsSync(configPath)) {
     try {
       const parsed = JSON.parse(readFileSync(configPath, 'utf-8'));
       title = parsed.wiki?.title || slug;
       description = parsed.wiki?.description || '';
+      status = parsed.status || 'unknown';
     } catch {
       // Ignore config parse errors.
     }
@@ -87,6 +90,7 @@ function gatherWikiStatus(workspace: string, slug: string): WikiStatus {
     slug,
     title,
     description,
+    status,
     sourceCount,
     documentCount,
     entityCount,
@@ -117,6 +121,7 @@ function printStatus(statuses: WikiStatus[]): void {
 
   for (const s of statuses) {
     console.log(`Wiki: ${s.title} (${s.slug})`);
+    console.log(`  Status: ${s.status}`);
     console.log(`  Description: ${s.description || 'No description'}`);
     console.log(`  Sources: ${s.sourceCount}`);
     console.log(`  Generated pages: ${s.totalGeneratedPages} (${s.documentCount} documents, ${s.entityCount} entities, ${s.topicCount} topics, ${s.rawCount} raw)`);

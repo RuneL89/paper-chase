@@ -30,6 +30,18 @@ npm run build                     # compile src/ → dist/ with tsc
 npm run test                      # run Vitest suite
 ```
 
+## CLI commands
+
+```bash
+llm-wiki-cli init <slug> [--title <title>] [--description <description>] [--force]
+llm-wiki-cli sample <slug> <path-to-pdf>
+llm-wiki-cli ingest <slug>
+llm-wiki-cli ingest-all
+llm-wiki-cli status
+llm-wiki-cli configure-llm
+llm-wiki-cli test-llm
+```
+
 ## Workspace layout
 
 A workspace is a directory that contains:

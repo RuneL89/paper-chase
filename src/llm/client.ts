@@ -36,6 +36,10 @@ export function loadLLMConfig(workspace: string): LLMConfig {
       apiKey: llm.apiKey ? String(llm.apiKey) : undefined,
       baseUrl: llm.baseUrl ? String(llm.baseUrl) : undefined,
       enabled: true,
+      maxRetries: typeof llm.maxRetries === 'number' ? llm.maxRetries : DEFAULT_LLM_CONFIG.maxRetries,
+      baseDelay: typeof llm.baseDelay === 'number' ? llm.baseDelay : DEFAULT_LLM_CONFIG.baseDelay,
+      concurrency: typeof llm.concurrency === 'number' ? llm.concurrency : DEFAULT_LLM_CONFIG.concurrency,
+      maxRollingMemoryTokens: typeof llm.maxRollingMemoryTokens === 'number' ? llm.maxRollingMemoryTokens : DEFAULT_LLM_CONFIG.maxRollingMemoryTokens,
     };
   } catch {
     return { ...DEFAULT_LLM_CONFIG };
@@ -117,6 +121,32 @@ export class LLMClient {
     temperature: number,
     verbose: boolean,
   ): Promise<LLMResponse> {
+    const maxRetries = this.config.maxRetries ?? 3;
+    const baseDelay = this.config.baseDelay ?? 1000;
+    let lastError: Error | undefined;
+
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      try {
+        return await this.providerCall(prompt, maxTokens, temperature, verbose);
+      } catch (error) {
+        lastError = error instanceof Error ? error : new Error(String(error));
+        if (attempt === maxRetries) {
+          break;
+        }
+        const delay = this.calculateDelay(attempt, baseDelay, undefined);
+        await this.sleep(delay);
+      }
+    }
+
+    throw lastError ?? new Error('LLM remote call failed after retries');
+  }
+
+  private async providerCall(
+    prompt: string,
+    maxTokens: number,
+    temperature: number,
+    verbose: boolean,
+  ): Promise<LLMResponse> {
     const estimatedTokens = estimateTokens(prompt) + maxTokens;
 
     if (this.config.provider === 'anthropic') {
@@ -128,6 +158,19 @@ export class LLMClient {
     }
 
     return this.openaiCompatibleCall(prompt, maxTokens, temperature, estimatedTokens, verbose);
+  }
+
+  private calculateDelay(attempt: number, baseDelay: number, retryAfter: number | undefined): number {
+    if (retryAfter !== undefined && retryAfter > 0) {
+      return retryAfter * 1000;
+    }
+    const exponential = baseDelay * 2 ** attempt;
+    const jitter = Math.random() * exponential;
+    return Math.min(exponential + jitter, 30000); // cap at 30 seconds
+  }
+
+  private sleep(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   private async openaiCompatibleCall(

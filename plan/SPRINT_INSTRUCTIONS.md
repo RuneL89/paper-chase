@@ -159,7 +159,7 @@ This table is updated at the end of every sprint and whenever a sprint's status 
 
 | Sprint | Status | Test Pass Rate | Acceptance Criteria Score | Blockers |
 |---|---|---|---|---|
-| Sprint 1 — Foundation + Test Infrastructure | `NOT_STARTED` | — | — | — |
+| Sprint 1 — Foundation + Test Infrastructure | `AWAITING_UAT` | 90/90 (100%) | TAC: 10/10 PASS; UAT: pending approval | — |
 | Sprint 2 — Extraction & Chunking | `NOT_STARTED` | — | — | — |
 | Sprint 3 — Deterministic Provenance Layer + `ingest-all` | `NOT_STARTED` | — | — | — |
 | Sprint 4a — Sampling Strategies & `AGENTS.md` | `NOT_STARTED` | — | — | — |
@@ -197,6 +197,7 @@ This table is updated at the end of every sprint and whenever a sprint's status 
 | Date | Sprint | Action | Updated By |
 |---|---|---|---|
 | 2026-07-07 | All | Revised plan: split Sprint 4, added test mode, schema validation, selective re-ingestion | ZCode |
+| 2026-07-08 | Sprint 1 | Implemented init command, test provider, schema validator, slug/memory/resilience foundations; awaiting UAT | ZCode |
 
 ---
 

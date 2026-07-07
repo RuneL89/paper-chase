@@ -2,6 +2,10 @@ import { readFileSync, existsSync, writeFileSync } from 'fs';
 import path from 'path';
 import { CLIError } from './errors.js';
 import { wikiPath } from './workspace.js';
+import type { LLMConfig } from './llm/types.js';
+
+export type WikiStatus = 'initialized' | 'sampled' | 'ready' | 'draft';
+export type RecoveryMode = 'fallback' | 'aggressive' | 'abort';
 
 export interface WikiConfig {
   slug: string;
@@ -41,6 +45,12 @@ export interface IngestionConfig {
   max_topics: number;
 }
 
+export interface ResilienceConfig {
+  recoveryMode: RecoveryMode;
+  circuitBreakerThreshold: number;
+  circuitBreakerWindowMs: number;
+}
+
 export interface Config {
   wiki: WikiConfig;
   schema: SchemaConfig;
@@ -48,7 +58,9 @@ export interface Config {
   extraction: ExtractionConfig;
   output: OutputConfig;
   ingestion: IngestionConfig;
-  status: string;
+  status: WikiStatus;
+  llm?: LLMConfig;
+  resilience: ResilienceConfig;
 }
 
 export const defaultConfig: Config = {
@@ -85,6 +97,20 @@ export const defaultConfig: Config = {
     max_topics: 50,
   },
   status: 'draft',
+  llm: {
+    provider: 'test',
+    model: 'local',
+    enabled: false,
+    maxRetries: 3,
+    baseDelay: 1000,
+    concurrency: 5,
+    maxRollingMemoryTokens: 8000,
+  },
+  resilience: {
+    recoveryMode: 'fallback',
+    circuitBreakerThreshold: 0.3,
+    circuitBreakerWindowMs: 300000,
+  },
 };
 
 export function buildConfig(
@@ -160,6 +186,9 @@ const requiredPaths: { path: string[]; label: string }[] = [
   { path: ['output', 'dir'], label: 'output.dir' },
   { path: ['output', 'page_types'], label: 'output.page_types' },
   { path: ['status'], label: 'status' },
+  { path: ['resilience', 'recoveryMode'], label: 'resilience.recoveryMode' },
+  { path: ['resilience', 'circuitBreakerThreshold'], label: 'resilience.circuitBreakerThreshold' },
+  { path: ['resilience', 'circuitBreakerWindowMs'], label: 'resilience.circuitBreakerWindowMs' },
 ];
 function parseJsonFile(filePath: string): unknown {
   try {
@@ -253,6 +282,42 @@ function validateConfig(config: Config): void {
   }
   if (!Array.isArray(config.output.page_types) || config.output.page_types.some((t) => typeof t !== 'string')) {
     errors.push('output.page_types must be an array of strings');
+  }
+
+  const allowedStatuses: WikiStatus[] = ['initialized', 'sampled', 'ready', 'draft'];
+  if (!allowedStatuses.includes(config.status)) {
+    errors.push(`status must be one of: ${allowedStatuses.join(', ')}`);
+  }
+
+  const allowedRecoveryModes: RecoveryMode[] = ['fallback', 'aggressive', 'abort'];
+  if (!allowedRecoveryModes.includes(config.resilience.recoveryMode)) {
+    errors.push(`resilience.recoveryMode must be one of: ${allowedRecoveryModes.join(', ')}`);
+  }
+  if (typeof config.resilience.circuitBreakerThreshold !== 'number' || config.resilience.circuitBreakerThreshold <= 0 || config.resilience.circuitBreakerThreshold > 1) {
+    errors.push('resilience.circuitBreakerThreshold must be a number between 0 and 1');
+  }
+  if (!Number.isInteger(config.resilience.circuitBreakerWindowMs) || config.resilience.circuitBreakerWindowMs <= 0) {
+    errors.push('resilience.circuitBreakerWindowMs must be a positive integer');
+  }
+
+  if (config.llm && typeof config.llm === 'object') {
+    const llm = config.llm;
+    const allowedProviders = ['openai', 'anthropic', 'openai-compatible', 'kimi', 'test'];
+    if (llm.provider && !allowedProviders.includes(llm.provider)) {
+      errors.push(`llm.provider must be one of: ${allowedProviders.join(', ')}`);
+    }
+    if (llm.maxRetries !== undefined && (!Number.isInteger(llm.maxRetries) || llm.maxRetries < 0)) {
+      errors.push('llm.maxRetries must be a non-negative integer');
+    }
+    if (llm.baseDelay !== undefined && (typeof llm.baseDelay !== 'number' || llm.baseDelay < 0)) {
+      errors.push('llm.baseDelay must be a non-negative number');
+    }
+    if (llm.concurrency !== undefined && (!Number.isInteger(llm.concurrency) || llm.concurrency <= 0)) {
+      errors.push('llm.concurrency must be a positive integer');
+    }
+    if (llm.maxRollingMemoryTokens !== undefined && (!Number.isInteger(llm.maxRollingMemoryTokens) || llm.maxRollingMemoryTokens <= 0)) {
+      errors.push('llm.maxRollingMemoryTokens must be a positive integer');
+    }
   }
 
   if (missing.length > 0) {
