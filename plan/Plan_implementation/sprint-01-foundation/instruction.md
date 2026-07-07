@@ -137,6 +137,14 @@ The following cross-cutting conventions must be decided, documented, and impleme
 
 No deterministic code may draft or mutate markdown bodies; no LLM agent may compute hashes or manage file I/O directly.
 
+### New: Recommended Implementation Phases
+
+Because Sprint 1 introduces seven distinct foundation features, implement them in three verified phases rather than all at once. Each phase must end with `npm run build && npm run test` passing before proceeding.
+
+1. **Phase 1 — CLI and scaffolding:** `init` command, `status` update, and the workspace/wiki folder tree.
+2. **Phase 2 — Test infrastructure:** `test` LLM provider and frontmatter schema validator.
+3. **Phase 3 — Cross-cutting utilities:** slugification/disambiguation, rolling memory format and persistence, LLM retry/resilience config, and authority matrix documentation.
+
 ---
 
 ## 4. Project Vision References
@@ -165,7 +173,6 @@ No deterministic code may draft or mutate markdown bodies; no LLM agent may comp
 - `src/orchestrator/memory.ts` — rolling memory types and persistence contract (or extend `src/orchestrator/types.ts`).
 - `src/llm/client.ts` — add `test` provider and retry/resilience layer.
 - `src/commands/status.ts` — show status field.
-- `src/llm/client.ts` — add `test` provider.
 - `src/validation/schema.ts` — new schema validator.
 - `tests/commands/init.test.ts` — new tests.
 - `tests/validation/schema.test.ts` — new tests.

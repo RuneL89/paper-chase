@@ -99,6 +99,19 @@ The PagePlanner prompt must include the six discovery questions from `Project Vi
 - If two entity slugs have a Levenshtein distance less than 3 (or share a base slug before disambiguation suffix), flag them as potential duplicates in the rolling memory structured state.
 - Do **not** auto-merge; the journalist decides. The final lint report (Sprint 8) surfaces these flags.
 
+### New: Recommended Implementation Phases
+
+Sprint 5 is the most complex sprint because it converts all seven sub-agents to LLM-driven roles. Implement it in three verified phases, with each phase ending in `npm run build && npm run test` passing.
+
+1. **Phase 1 — Extraction agents:** StructureAnalyst, EntityExtractor, and RelationshipExtractor. These have stable inputs (chunk text, entity list) and structured outputs that downstream agents depend on.
+2. **Phase 2 — Planning agents:** EvidenceCollector and PagePlanner. These consume the extraction agents' outputs. PagePlanner is particularly sensitive; include 1–2 few-shot examples of the `discovery` checklist in its prompt.
+3. **Phase 3 — Supporting systems:** Critic (basic form), rolling memory compaction, canonical name resolution, `mentions` count, `related` fields, and duplicate entity flagging.
+
+### New: Prompt Engineering Notes
+
+- Store agent prompts as files in `src/orchestrator/prompts/` rather than hardcoding them as string literals. At the locked temperature of 1.0, prompts are first-class artifacts that will be iterated; versioning them as files makes iteration safer.
+- The PagePlanner prompt should include explicit few-shot examples of the discovery checklist answers to reduce output variance.
+
 ---
 
 ## 4. Project Vision References

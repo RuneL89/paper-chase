@@ -99,6 +99,14 @@ The ChunkWriter prompt must explicitly cover the three special cases from `Proje
 
 The ChunkWriter JSON output must include a `citations` section listing every claim and its source mapping, so the deterministic layer can validate it before writing the page.
 
+### New: Recommended Implementation Phases
+
+Sprint 4b is the pivotal sprint where the LLM becomes the author of content. Implement it in three verified phases. **Do not add new features until the engine refactor is complete and all existing tests pass.**
+
+1. **Phase 1 — Engine refactoring:** Move content-generation logic from `src/ingestion/engine.ts` into `src/orchestrator/ingest.ts` and the writers. No behavior changes. Verify by running the existing test suite.
+2. **Phase 2 — ChunkWriter prompt and parser:** Implement the LLM-driven ChunkWriter, including the JSON response parser, deterministic fallback, and schema validation. Test with the `test` provider before using real LLM calls.
+3. **Phase 3 — Additive features:** Per-chunk state files, `run-manifest.json`, `ingest --resume`, `confidence`/`tags` fields, and the three special citation cases.
+
 ---
 
 ## 4. Project Vision References

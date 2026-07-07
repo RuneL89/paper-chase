@@ -100,6 +100,13 @@ Sprint 3 is the first sprint that writes entity pages. It must use the slugifica
 
 > **Canonical name resolution** (resolving `"J. Smith"` to the same entity as `"John Smith"`) is implemented in Sprint 5; Sprint 3 only handles exact collisions on the canonical slug.
 
+### New: Recommended Implementation Phases
+
+Implement Sprint 3 in two verified phases. Each phase must end with `npm run build && npm run test` passing before proceeding.
+
+1. **Phase 1 — Content writers:** source pages, raw pages, and deterministic document pages. Get the core provenance layer working first.
+2. **Phase 2 — Contracts and aggregation:** index writer (wiki-level and folder-level contracts, `children` field), `ingest-all`, and disambiguation suffix handling.
+
 ---
 
 ## 4. Project Vision References

@@ -136,6 +136,17 @@ Implementation:
 - The file is append-only; deterministic code appends the entry, and the LLM does not rewrite it.
 - The lint report (§3.4) references the latest `log.md` entry for context.
 
+### New: Recommended Implementation Phases
+
+Sprint 8 mixes deterministic validation with the most prompt-sensitive LLM agent in the system. Implement it in two verified phases.
+
+1. **Phase 1 — Deterministic validation layer:** completeness checks, link/citation/schema checks, lint report, and `log.md`. These are algorithmic and should be solid before the LLM Critic is introduced.
+2. **Phase 2 — LLM Critic and cross-wiki:** the LLM Critic agent, cross-wiki name discovery, and `index-of-indexes.md` updates.
+
+### New: Prompt Engineering Note
+
+The Critic is the most prompt-sensitive component in the project. At the locked temperature of 1.0, its strictness can drift between runs. Include 1–2 explicit few-shot examples in the Critic prompt: one example of a page that should PASS the checklist and one example of a page that should FAIL (with a clear `blockingIssues` entry).
+
 ---
 
 ## 4. Project Vision References
