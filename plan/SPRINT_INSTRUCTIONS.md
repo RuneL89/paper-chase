@@ -1,10 +1,10 @@
-# SPRINT_INSTRUCTIONS.md — Implementation Tracker
+# SPRINT_INSTRUCTIONS.md — Implementation Tracker (Revised)
 
 | Attribute | Value |
 |---|---|
 | Project | LLM Wiki CLI v2.0 |
-| Version | 2.0 |
-| Date | 2026-07-06 |
+| Version | 2.0-revised |
+| Date | 2026-07-07 |
 | Based on | `plan/IMPLEMENTATION_PLAN.md` and `Project Vision/` |
 | Purpose | Single source of truth for sprint execution order, status, and human gates. |
 
@@ -19,47 +19,69 @@ This file is the anchor for the implementation phase. It records which sprint is
 ### Sprint Execution Order
 
 ```
-Sprint 1: Foundation
+Sprint 1: Foundation + Test Infrastructure
     ↓
 Sprint 2: Extraction & Chunking
     ↓
-Sprint 3: Deterministic Provenance Layer
+Sprint 3: Deterministic Provenance Layer + ingest-all
     ↓
-Sprint 4: LLM as Author — AGENTS.md & ChunkWriter
+Sprint 4a: Sampling Strategies & AGENTS.md
+    ↓
+Sprint 4b: LLM-Driven ChunkWriter
     ↓
 Sprint 5: LLM Sub-Agent Pipeline
     ↓
 Sprint 6: Dynamic Structure & Human Approval
     ↓
-Sprint 7: Validation, Quality & Cross-Wiki
+Sprint 7: Selective Re-ingestion
     ↓
-Sprint 8: README Documentation
+Sprint 8: Validation, Quality & Cross-Wiki
+    ↓
+Sprint 9: README Documentation
 ```
 
 ### Where to Find Each Sprint's Instructions
 
 | Sprint | Folder | Instruction File |
 |---|---|---|
-| Sprint 1 — Foundation | `plan/Plan_implementation/sprint-01-foundation/` | `instruction.md` |
+| Sprint 1 — Foundation + Test Infrastructure | `plan/Plan_implementation/sprint-01-foundation/` | `instruction.md` |
 | Sprint 2 — Extraction & Chunking | `plan/Plan_implementation/sprint-02-extraction-chunking/` | `instruction.md` |
-| Sprint 3 — Deterministic Provenance Layer | `plan/Plan_implementation/sprint-03-deterministic-provenance/` | `instruction.md` |
-| Sprint 4 — LLM as Author: AGENTS.md & ChunkWriter | `plan/Plan_implementation/sprint-04-llm-agents-md/` | `instruction.md` |
+| Sprint 3 — Deterministic Provenance Layer + `ingest-all` | `plan/Plan_implementation/sprint-03-deterministic-provenance/` | `instruction.md` |
+| Sprint 4a — Sampling Strategies & `AGENTS.md` | `plan/Plan_implementation/sprint-04a-agents-md-sampling/` | `instruction.md` |
+| Sprint 4b — LLM-Driven ChunkWriter | `plan/Plan_implementation/sprint-04b-llm-chunkwriter/` | `instruction.md` |
 | Sprint 5 — LLM Sub-Agent Pipeline | `plan/Plan_implementation/sprint-05-llm-sub-agents/` | `instruction.md` |
 | Sprint 6 — Dynamic Structure & Human Approval | `plan/Plan_implementation/sprint-06-dynamic-structure/` | `instruction.md` |
-| Sprint 7 — Validation, Quality & Cross-Wiki | `plan/Plan_implementation/sprint-07-validation-quality/` | `instruction.md` |
-| Sprint 8 — README Documentation | `plan/Plan_implementation/sprint-08-readme/` | `instruction.md` |
+| Sprint 7 — Selective Re-ingestion | `plan/Plan_implementation/sprint-07-selective-reingestion/` | `instruction.md` |
+| Sprint 8 — Validation, Quality & Cross-Wiki | `plan/Plan_implementation/sprint-08-validation-quality/` | `instruction.md` |
+| Sprint 9 — README Documentation | `plan/Plan_implementation/sprint-09-readme/` | `instruction.md` |
 
 ---
 
-## 2. TDD Red-Green-Refactor-Evaluate Methodology
+## 2. What Changed in the Revised Plan
+
+The original 8-sprint plan was revised to address the following weaknesses:
+
+1. **Sprint 1 now includes test-mode definition and frontmatter schema validation.** Every later sprint needs a deterministic `test` LLM provider and a YAML schema validator.
+2. **Sprint 2 clarifies that `chunking-strategy.md` is deterministic**, not LLM-written.
+3. **Sprint 3 explicitly scopes `ingest-all`.**
+4. **Sprint 4 is split into 4a and 4b.** Sprint 4a discovers the sampling strategy *before* generating the full `AGENTS.md`, resolving the circular dependency. Sprint 4b handles the LLM-driven ChunkWriter and the engine refactoring.
+5. **Sprint 5 consumes the `AGENTS.md` and sampling context** produced in Sprint 4a.
+6. **Sprint 6 is narrowed to structural proposals and human approval.**
+7. **New Sprint 7** is dedicated to selective re-ingestion after approved structural changes, with a clear strategy for preserving manual edits.
+8. **Sprint 8** is renumbered from the original Sprint 7 (validation, quality, cross-wiki).
+9. **Sprint 9** is renumbered from the original Sprint 8 (README documentation).
+
+---
+
+## 3. TDD Red-Green-Refactor-Evaluate Methodology
 
 Every sprint must be implemented using the following loop. The instruction file for each sprint repeats these rules.
 
-### 2.1 RED Phase — Write Tests First
+### 3.1 RED Phase — Write Tests First
 
 Before implementing any feature in a sprint, write the Technical Acceptance Criteria as executable tests (unit tests, integration tests, or manual verification scripts). These tests must fail against the current codebase.
 
-### 2.2 GREEN Phase — Make Tests Pass
+### 3.2 GREEN Phase — Make Tests Pass
 
 Implement the minimal code to make the tests pass. After every code change, immediately run:
 
@@ -77,7 +99,7 @@ If compilation fails or tests fail, enter a **Self-Correcting Generator-Critic l
 
 **Maximum 5 iterations per fix attempt.** If the issue cannot be resolved after 5 iterations, stop and ask for human input.
 
-### 2.3 EVALUATE Phase — Evaluator-Optimizer Loop
+### 3.3 EVALUATE Phase — Evaluator-Optimizer Loop
 
 Run the Evaluator-Optimizer loop against the sprint's TAC and UAT. Treat the TAC as a weighted rubric. Score each criterion as **PASS** or **FAIL**. If any criterion fails:
 
@@ -86,11 +108,11 @@ Run the Evaluator-Optimizer loop against the sprint's TAC and UAT. Treat the TAC
 
 **Maximum 3 evaluation iterations per sprint.** During this phase, use the actual Kimi Code credentials to run the implemented feature through the LLM and verify it works as required.
 
-### 2.4 REFACTOR Phase — Improve Quality
+### 3.4 REFACTOR Phase — Improve Quality
 
 Once all tests pass and all criteria are met, improve code quality (naming, structure, deduplication) while ensuring all tests still pass. Do not add new features during refactoring.
 
-### 2.5 HUMAN GATE — User Approval Required
+### 3.5 HUMAN GATE — User Approval Required
 
 Do **not** proceed to the next sprint until the user has explicitly approved the UAT Acceptance Criteria. This is a hard Human-in-the-Loop checkpoint.
 
@@ -104,7 +126,7 @@ At the end of each sprint, present the user with:
 
 ---
 
-## 3. Boundedness Rules
+## 4. Boundedness Rules
 
 Every loop must have a termination condition:
 
@@ -113,13 +135,13 @@ Every loop must have a termination condition:
 | Compile-fix loop | 5 | Stop and ask for human input. |
 | Evaluator-optimizer loop | 3 | Stop and ask for human input. |
 | TDD loop for a single feature | 10 | Stop and ask for human input. |
-| Documentation review loop (Sprint 8) | 3 | Stop and ask for human input. |
+| Documentation review loop (Sprint 9) | 3 | Stop and ask for human input. |
 
 If any loop hits its maximum without success, escalate to the user. Do not silently continue.
 
 ---
 
-## 4. State Accumulation Rule
+## 5. State Accumulation Rule
 
 When moving to the next sprint, preserve all context from previous sprints. Do not start fresh. The `plan/` directory, the test suite, and the working codebase are the accumulated state. Use them as context for each new sprint.
 
@@ -131,20 +153,22 @@ This means:
 
 ---
 
-## 5. Status Table
+## 6. Status Table
 
 This table is updated at the end of every sprint and whenever a sprint's status changes. It is the primary state checkpoint.
 
 | Sprint | Status | Test Pass Rate | Acceptance Criteria Score | Blockers |
 |---|---|---|---|---|
-| Sprint 1 — Foundation | `NOT_STARTED` | — | — | — |
+| Sprint 1 — Foundation + Test Infrastructure | `NOT_STARTED` | — | — | — |
 | Sprint 2 — Extraction & Chunking | `NOT_STARTED` | — | — | — |
-| Sprint 3 — Deterministic Provenance Layer | `NOT_STARTED` | — | — | — |
-| Sprint 4 — LLM as Author: AGENTS.md & ChunkWriter | `NOT_STARTED` | — | — | — |
+| Sprint 3 — Deterministic Provenance Layer + `ingest-all` | `NOT_STARTED` | — | — | — |
+| Sprint 4a — Sampling Strategies & `AGENTS.md` | `NOT_STARTED` | — | — | — |
+| Sprint 4b — LLM-Driven ChunkWriter | `NOT_STARTED` | — | — | — |
 | Sprint 5 — LLM Sub-Agent Pipeline | `NOT_STARTED` | — | — | — |
 | Sprint 6 — Dynamic Structure & Human Approval | `NOT_STARTED` | — | — | — |
-| Sprint 7 — Validation, Quality & Cross-Wiki | `NOT_STARTED` | — | — | — |
-| Sprint 8 — README Documentation | `NOT_STARTED` | — | — | — |
+| Sprint 7 — Selective Re-ingestion | `NOT_STARTED` | — | — | — |
+| Sprint 8 — Validation, Quality & Cross-Wiki | `NOT_STARTED` | — | — | — |
+| Sprint 9 — README Documentation | `NOT_STARTED` | — | — | — |
 
 ### Status Values
 
@@ -158,7 +182,7 @@ This table is updated at the end of every sprint and whenever a sprint's status 
 
 ---
 
-## 6. Hard Rules
+## 7. Hard Rules
 
 1. **Next sprint never starts until all UAT Acceptance Criteria are accepted by the user.** This is non-negotiable.
 2. Sprints execute in strict order.
@@ -168,11 +192,11 @@ This table is updated at the end of every sprint and whenever a sprint's status 
 
 ---
 
-## 7. Changelog
+## 8. Changelog
 
 | Date | Sprint | Action | Updated By |
 |---|---|---|---|
-| 2026-07-06 | All | Created SPRINT_INSTRUCTIONS.md and Plan_implementation structure | ZCode |
+| 2026-07-07 | All | Revised plan: split Sprint 4, added test mode, schema validation, selective re-ingestion | ZCode |
 
 ---
 
