@@ -62,7 +62,7 @@ A workspace is a directory that contains:
 ```
 src/
 ├── cli.ts                 # Commander entry point; register commands here
-├── commands/              # sample, ingest, ingest-all, status, configure-llm, test-llm
+├── commands/              # init, sample, ingest, ingest-all, status, configure-llm, test-llm
 ├── config.ts              # default config, buildConfig, loadConfig, mergeConfig, validateConfig
 ├── workspace.ts           # wiki discovery, path helpers, inside-raw checks
 ├── extractor/             # PDF extraction (pdf.ts) and batch runner (batch.ts)
@@ -103,7 +103,7 @@ The seven sub-agents run in order:
 6. **ChunkWriter** — records the planned files; existing writers materialize the markdown.
 7. **Critic** — deterministic review of plan completeness, schema, and folder placement.
 
-Rolling memory is accumulated across PDFs during full ingestion and persisted in `output/.state/ingest-state.json`.
+Rolling memory is accumulated across PDFs during full ingestion and persisted in `output/.state/rolling-memory.json` (structured state) and `output/.state/memory-summary.md` (compressed natural-language summary).
 
 ## Coding conventions
 
@@ -133,6 +133,24 @@ Rolling memory is accumulated across PDFs during full ingestion and persisted in
 - **Structural-change approval:** creating new folders or changing the wiki's organization requires a human-approved proposal with reason, pros, cons, and required contract updates. New page types inside existing folders do not require approval.
 - **Markdown authorship:** deterministic code must not draft or mutate wiki page bodies; the LLM is the sole author of all markdown content pages.
 
+## Authority matrix
+
+| Role | Authority |
+|---|---|
+| **User (human)** | High-level purpose, PDF curation, structural approval, when to run commands. |
+| **LLM Orchestrator** | Folder structure, page content, entities, links, citations, new page types. |
+| **Local deterministic code** | Extraction, hashing, validation, orchestration, file I/O. |
+| **Critic** | Whether LLM output is good enough to commit. |
+
+No deterministic code may draft or mutate markdown bodies; no LLM agent may compute SHA-256 hashes or manage file I/O directly. Code reviews enforce this boundary.
+
+## Naming and citation conventions
+
+- **Slugification:** use Unicode NFKD normalization, lowercase, replace non-alphanumeric characters with hyphens, collapse consecutive hyphens, and trim trailing hyphens. Example: `Électricité de France` → `electricite-de-france`.
+- **Disambiguation:** when two canonical names collide, append an incremental integer (`john-smith`, `john-smith-1`, `john-smith-2`).
+- **Canonical names:** the rolling memory structured state maps every extracted entity name to its canonical slug; aliases resolve to the same slug.
+- **Citations:** every factual claim uses `[^srcN]` markers mapped to a `sources` frontmatter entry. Multi-source claims cite all sources (`[^src1] [^src2]`). Table captions include a citation (`Source: [^src1]`). Claims from scanned pages are either omitted or explicitly marked as needing verification.
+
 ## Testing
 
 - Tests are in `tests/` and run with Vitest.
@@ -149,7 +167,7 @@ Rolling memory is accumulated across PDFs during full ingestion and persisted in
 
 - **ESM imports:** every import path must end in `.js`, even though the source files are `.ts`. TypeScript resolves these with `NodeNext` module resolution.
 - **No raw PDF bytes to the LLM:** the LLM only ever receives extracted text and metadata. Never pass raw PDF buffers to an LLM call.
-- **`sample` before `ingest`:** `ingest` warns if the wiki status is not `"ready"`. Run `sample` first to generate the folder plan and update the wiki status.
+- **`init` → `sample` → `ingest`:** `ingest` warns if the wiki status is not `"ready"`. Run `init` to create the wiki, then `sample` to generate the folder plan and `AGENTS.md`, then `ingest` to process PDFs.
 - **Scanned pages go to `raw/`:** image-only or unparseable pages are preserved as `raw` pages and skipped from normal document chunks.
 - **Kimi `thinking` blocks:** Kimi Code may return `thinking` blocks before the final `text` block. If the CLI appears to get an empty response, use `test-llm --verbose` to inspect the raw LLM output.
 - **Forward slashes in stored paths:** always normalize stored relative paths to forward slashes via `toRelativePath` from `workspace.ts`, even on Windows.

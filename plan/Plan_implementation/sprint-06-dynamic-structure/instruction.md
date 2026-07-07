@@ -1,57 +1,41 @@
-# Sprint 6 — Dynamic Structure & Human Approval: Sampling Strategies and Folder Planning
+# Sprint 6 — Dynamic Structure & Human Approval
 
 | Attribute | Value |
 |---|---|
 | Sprint ID | `sprint-06-dynamic-structure` |
-| Goal | Implement corpus-aware sampling strategies, dynamic folder planning, and the human approval flow for structural changes. |
-| Based on | `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3 Principle 4, §8.2; `Project Vision/03_DOX_concept_detailed.md` §4; `Project Vision/07_validation_and_quality.md` §5. |
+| Goal | Implement corpus-aware dynamic folder planning, structural change proposals, and the human approval flow. |
+| Based on | `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3 Principle 4; `Project Vision/03_DOX_concept_detailed.md` §4, §5; `Project Vision/07_validation_and_quality.md` §5, §6; `Project Vision/04_orchestration_detailed.md` §4.4.5. |
 | Status | `NOT_STARTED` |
 
 ---
 
 ## 1. Why This Sprint
 
-`Project Vision/01` §8.2 says the `sample` command must adapt to the document category:
+`Project Vision/01` §3 Principle 4 states:
 
-> The sampling strategy must adapt to the nature of the documents in the corpus. The orchestrator chooses or is configured with a strategy appropriate to the document collection, such as: a collection of smaller, similar documents; a single very large document; a collection of similar but very large documents; a mixed corpus.
+> Structural changes that affect the top-level contract require a human-approved proposal. New page types within existing folders can be added without approval.
 
-`Project Vision/03` §4 says the folder structure is discovered during `sample` and `ingest`, not fixed in advance. `Project Vision/01` §3 Principle 4 and `Project Vision/07` §5 require human approval for structural changes.
+`Project Vision/03` §4 says the folder structure is discovered during `sample` and `ingest`, not fixed in advance. `Project Vision/07` §5 and §6 describe the proposal format and the re-ingestion that follows approval. This sprint implements the proposal and approval machinery, building on the sampling strategies and `AGENTS.md` from Sprint 4a and the LLM-driven ChunkWriter from Sprint 4b.
 
 ---
 
 ## 2. Prerequisites
 
-- **Sprints 1–5** must be approved by the user.
-- The LLM sub-agent pipeline is in place and produces page plans.
+- **Sprints 1, 2, 3, 4a, 4b, and 5** must be approved by the user.
+- The LLM sub-agent pipeline, `AGENTS.md` generation, and sampling strategies are in place.
 
 ---
 
 ## 3. Scope
 
-### 3.1 Sampling Strategies
-
-Implement the four strategies from `Project Vision/01` §8.2:
-
-| Category | Strategy |
-|---|---|
-| Single very large document | Look for a TOC in the first 50 pages. If found, use it. If not, perform a full read during sample. |
-| Similar, manageable-sized documents | Read one document fully, then sample pages from remaining documents. |
-| Similar but very large documents | Read the first document fully to create the strategy; process the rest with `ingest`. |
-| Mixed corpus | Classify each document and apply the appropriate strategy per group. |
-
-Implementation:
-
-- Add `src/orchestrator/sampling.ts` with strategy detection and execution.
-- The `sample` command should discover all PDFs in `raw/`, classify them, and apply the right strategy.
-- The output is a folder plan and `AGENTS.md` that can accommodate all document types.
-
-### 3.2 Dynamic Folder Planning
+### 3.1 Dynamic Folder Planning
 
 - `PagePlanner` must propose folders based on the corpus, not just the default `documents`, `sources`, `entities`, `topics`, `raw`.
 - New page types inside existing folders are auto-approved (`Project Vision/01` §3 Principle 4).
-- New folders require a structural change proposal.
+- New folders or changes to the top-level contract require a structural change proposal.
+- Folder planning must respect the sampling context from Sprint 4a (e.g., a mixed corpus may need sub-group folders).
 
-### 3.3 Structural Change Proposals
+### 3.2 Structural Change Proposals
 
 `Project Vision/07` §5.1 describes the hybrid approval process:
 
@@ -66,16 +50,32 @@ Implementation:
   - For complex changes: write a proposal file to `.kimi-code/proposals/<timestamp>-structural-change.md` with reason, affected pages, proposed structure, pros/cons, and required contract updates.
 - Add a command or flag to apply approved proposals: `llm-wiki-cli apply-proposal <slug> <proposal-file>` or auto-apply on next `sample`/`ingest` if the proposal file is marked approved.
 - If a proposal is rejected, fall back to the existing structure.
-- After accepting a proposal that affects existing pages, re-ingest earlier chunks to align them with the new structure.
+- After accepting a proposal, update the wiki-level `index.md` and any affected folder-level `index.md` contracts to reflect the new structure.
+
+### 3.3 Re-ingestion Trigger (Selective)
+
+After a proposal is approved, the system must selectively re-process affected pages. The full re-ingestion strategy is implemented in Sprint 7; this sprint only triggers the need and records the affected pages in the proposal file.
+
+### 3.4 Dual Documentation for New Page Types
+
+`Project Vision/02` §6.6 and `Project Vision/05` §9 require that new page types be documented in **both** the folder-level `index.md` and the wiki's `AGENTS.md`. This is a deterministic post-processing step, not an LLM decision:
+
+- When a new page type is created inside an existing folder (auto-approved per `Project Vision/01` §3 Principle 4), the ChunkWriter must emit two deterministic updates after writing the new page:
+  1. Update the folder-level `index.md` to list the new page type, its frontmatter schema, and naming convention.
+  2. Update the wiki's `AGENTS.md` to add the new page type to the "Page Types" section, with a brief rationale.
+- The update must preserve existing manual edits to the markdown body where possible, only appending or modifying the relevant section.
+- New page types that require a new folder still follow the structural-change proposal flow from §3.2; the dual documentation is applied after the proposal is approved.
 
 ---
 
 ## 4. Project Vision References
 
 - `Project Vision/01` §3 Principle 4: Human approval for structural changes.
-- `Project Vision/01` §8.2: Sampling strategies.
+- `Project Vision/02` §6.6: New page types must be documented in `AGENTS.md`.
 - `Project Vision/03` §4: Dynamic folders and the sample phase.
 - `Project Vision/03` §5: The contract as a binding document.
+- `Project Vision/04` §4.4.5: PagePlanner responsibilities.
+- `Project Vision/05` §9: New page type dual documentation.
 - `Project Vision/07` §5: Structural change proposals.
 - `Project Vision/07` §6: Re-ingestion after changes.
 
@@ -83,41 +83,45 @@ Implementation:
 
 ## 5. Files to Create or Modify
 
-- `src/orchestrator/sampling.ts` — new file.
 - `src/orchestrator/proposals.ts` — new file.
-- `src/commands/sample.ts` — use sampling strategies.
 - `src/commands/apply-proposal.ts` — new command or flag.
 - `src/orchestrator/agents.ts` — PagePlanner must use corpus-aware folder proposals.
-- `src/orchestrator/index.ts` — integrate sampling into sample orchestrator.
+- `src/orchestrator/index.ts` — integrate proposal detection into sample orchestrator.
 - `src/orchestrator/ingest.ts` — detect and surface structural proposals.
-- `tests/orchestrator/sampling.test.ts` — new tests.
+- `src/orchestrator/contracts.ts` — update contracts after approved structural changes.
+- `src/writers/agents.ts` — update `AGENTS.md` when new page types are added.
+- `src/writers/index.ts` — update folder-level `index.md` when new page types are added.
 - `tests/orchestrator/proposals.test.ts` — new tests.
-- `tests/commands/sample.test.ts` — update for corpus-level sampling.
+- `tests/commands/apply-proposal.test.ts` — new tests.
+- `tests/commands/sample.test.ts` — update for proposal flow.
+- `tests/writers/agents.test.ts` — update for dual documentation.
 
 ---
 
 ## 6. Technical Acceptance Criteria (TAC)
 
 1. `npm run build` succeeds with no TypeScript errors.
-2. `sample` discovers all PDFs in `raw/` and classifies the corpus into one of the four strategies.
-3. Each strategy produces a folder plan and `AGENTS.md`.
-4. The proposal system writes `.kimi-code/proposals/` files for complex structural changes.
-5. Interactive approval works for simple changes (tested with mocked stdin).
-6. Rejected proposals leave the existing structure unchanged.
-7. Accepted proposals trigger re-ingestion of affected earlier chunks.
-8. Tests cover all four sampling strategies with fixture PDFs.
-9. `npm run test` passes.
+2. `sample` and `ingest` detect when a proposed folder structure differs from the current one.
+3. The proposal system writes `.kimi-code/proposals/` files for complex structural changes.
+4. Interactive approval works for simple changes (tested with mocked stdin).
+5. Rejected proposals leave the existing structure unchanged.
+6. Accepted proposals update the wiki-level `index.md` and affected folder-level `index.md` contracts.
+7. New page types inside existing folders are approved automatically and do not generate a proposal.
+8. When a new page type is created inside an existing folder, both the folder-level `index.md` and the wiki's `AGENTS.md` are updated deterministically.
+9. Tests cover simple, complex, and rejected proposals.
+10. `npm run test` passes.
 
 ---
 
 ## 7. User Acceptance Criteria (UAT)
 
-1. Placing one 2,000-page PDF in `raw/` and running `sample` triggers the "single very large document" strategy and searches for a TOC in the first 50 pages.
-2. Placing 15 annual reports in `raw/` and running `sample` triggers the "similar, manageable-sized documents" strategy and reads one fully plus a subset of others.
-3. Running `ingest` on a corpus that needs a new folder (`timeline/` for chronological events) pauses and asks the user to approve the new folder.
-4. After approving, the new folder appears with a folder-level `index.md` contract, and earlier pages are reorganized if needed.
-5. The user can review complex proposals in `.kimi-code/proposals/` before deciding.
-6. Rejecting a proposal keeps the existing folder structure and continues ingestion.
+1. Running `ingest` on a corpus that needs a new folder (`timeline/` for chronological events) pauses and asks the user to approve the new folder.
+2. After approving, the new folder appears with a folder-level `index.md` contract.
+3. The user can review complex proposals in `.kimi-code/proposals/` before deciding.
+4. Rejecting a proposal keeps the existing folder structure and continues ingestion.
+5. Adding a new page type inside an existing folder (e.g., a new `entity` page) does not trigger a proposal.
+6. When a new page type is added, both the folder-level `index.md` and the wiki's `AGENTS.md` are updated to document it.
+7. The proposal file includes reason, pros/cons, affected pages, and required contract updates.
 
 ---
 
@@ -142,7 +146,7 @@ Follow this exact loop for every feature in this sprint:
 
 ## 9. State Accumulation Rule
 
-Preserve all context from Sprints 1–5. The `init` command, extraction, chunking, state tracking, writers, `AGENTS.md`, ChunkWriter, and LLM sub-agent pipeline must remain functional. Do not start fresh.
+Preserve all context from Sprints 1–5. The `init` command, extraction, chunking, state tracking, writers, `AGENTS.md`, sampling strategies, ChunkWriter, and LLM sub-agent pipeline must remain functional. Do not start fresh.
 
 ---
 
@@ -162,4 +166,4 @@ After completing this sprint:
 
 ## 11. Next Sprint
 
-After approval, proceed to **Sprint 7 — Validation, Quality & Cross-Wiki**: `plan/Plan_implementation/sprint-07-validation-quality/instruction.md`.
+After approval, proceed to **Sprint 7 — Selective Re-ingestion**: `plan/Plan_implementation/sprint-07-selective-reingestion/instruction.md`.
