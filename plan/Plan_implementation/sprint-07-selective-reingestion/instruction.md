@@ -5,7 +5,7 @@
 | Sprint ID | `sprint-07-selective-reingestion` |
 | Goal | Implement selective re-ingestion after approved structural changes, preserving manual edits while aligning existing pages with the new structure. |
 | Based on | `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3 Principle 4; `Project Vision/07_validation_and_quality.md` §5, §6; `Project Vision/03_DOX_concept_detailed.md` §5. |
-| Status | `NOT_STARTED` |
+| Status | `COMPLETE` |
 
 ---
 

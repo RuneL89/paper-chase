@@ -7,6 +7,7 @@ import { statusCommand } from './commands/status.js';
 import { configureLlmCommand } from './commands/configure-llm.js';
 import { testLlmCommand } from './commands/test-llm.js';
 import { initCommand } from './commands/init.js';
+import { applyProposalCommand } from './commands/apply-proposal.js';
 import { CLIError } from './errors.js';
 import { buildRunLog, writeRunLog } from './log.js';
 
@@ -70,8 +71,9 @@ const ingest = addWorkspaceOption(
     .description('Run full ingestion for a single wiki according to its config.json.')
     .argument('<wiki-slug>', 'slug of the wiki to ingest')
     .option('--resume', 'skip chunks with a completed state file and resume from the failed chunk', false)
-    .action(async (slug: string, options: { workspace: string; resume?: boolean }) => {
-      await ingestCommand(options.workspace, slug, options.resume ?? false);
+    .option('--yes', 'auto-approve simple structural-change proposals', false)
+    .action(async (slug: string, options: { workspace: string; resume?: boolean; yes?: boolean }) => {
+      await ingestCommand(options.workspace, slug, options.resume ?? false, options.yes ?? false);
     }),
 );
 
@@ -80,6 +82,17 @@ const ingestAll = addWorkspaceOption(
     .description('Run full ingestion for every wiki in the workspace.')
     .action(async (options: { workspace: string }) => {
       await ingestAllCommand(options.workspace);
+    }),
+);
+
+const applyProposal = addWorkspaceOption(
+  new Command('apply-proposal')
+    .description('Apply an approved structural-change proposal to a wiki.')
+    .argument('<wiki-slug>', 'slug of the wiki')
+    .argument('<proposal-file>', 'path or name of the proposal markdown file')
+    .option('--skip-manual-edits', 'skip pages that have been manually edited instead of overwriting them', false)
+    .action(async (slug: string, proposalFile: string, options: { workspace: string; skipManualEdits?: boolean }) => {
+      await applyProposalCommand(options.workspace, slug, proposalFile, { skipManualEdits: options.skipManualEdits });
     }),
 );
 
@@ -117,6 +130,7 @@ program.addCommand(init);
 program.addCommand(sample);
 program.addCommand(ingest);
 program.addCommand(ingestAll);
+program.addCommand(applyProposal);
 program.addCommand(status);
 program.addCommand(configureLlm);
 program.addCommand(testLlm);

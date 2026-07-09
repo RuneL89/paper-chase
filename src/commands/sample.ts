@@ -13,6 +13,7 @@ import { writeRawPage } from '../writers/raw.js';
 import { writeAgentsMd } from '../writers/agents.js';
 import { runSampleOrchestrator } from '../orchestrator/index.js';
 import { classifyCorpus, type CorpusFileInfo } from '../orchestrator/sampling.js';
+import { collectPageTypesPerFolder, updateAgentsMdForNewPageTypes } from '../orchestrator/proposals.js';
 import { buildRunLog, writeRunLog } from '../log.js';
 import { createLLMClient, type LLMCallRecord } from '../llm/client.js';
 import type { ExtractionResult } from '../extractor/types.js';
@@ -108,6 +109,15 @@ export async function sampleCommand(
     },
     llmClient,
   );
+
+  // Document any new page types discovered during sampling in the AGENTS.md guide.
+  if (orchestratorResult.pages) {
+    const pageTypesByFolder = collectPageTypesPerFolder(orchestratorResult.pages);
+    const agentsMdPath = path.join(wikiDir, 'AGENTS.md');
+    for (const [folder, types] of pageTypesByFolder) {
+      updateAgentsMdForNewPageTypes(agentsMdPath, folder, Array.from(types));
+    }
+  }
 
   for (const chunk of chunks) {
     writeDocumentPage(
