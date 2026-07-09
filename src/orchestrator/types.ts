@@ -33,7 +33,7 @@ export interface ExtractedEvidence {
 }
 
 export interface PagePlan {
-  pageType: 'document' | 'source' | 'topic' | 'entity' | 'raw' | 'index';
+  pageType: string;
   title: string;
   fileName: string;
   folder: string;
@@ -89,9 +89,21 @@ export interface OrchestratorMemory {
   };
 }
 
+export interface CriticCheck {
+  name: string;
+  result: 'PASS' | 'FAIL';
+  reason?: string;
+}
+
 export interface CriticReview {
+  /** True when the Critic approves the output; false when it is blocked. */
+  approved: boolean;
   issues: { type: 'citation' | 'hallucination' | 'schema' | 'link' | 'missing'; message: string; severity: 'low' | 'medium' | 'high' }[];
   confidence: 'high' | 'medium' | 'low';
+  /** Full checklist of items the Critic evaluated. */
+  checks: CriticCheck[];
+  /** Issues that block committing the chunk. */
+  blockingIssues: { check: string; message: string; severity: 'low' | 'medium' | 'high' }[];
 }
 
 export interface PageUpdate {
@@ -107,6 +119,9 @@ export interface StructuralProposal {
   reason: string;
   currentFolders: string[];
   proposedFolders: string[];
+  newFolderPlans: FolderPlan[];
+  /** Set to true when the proposal is approved and applied during an ingest run. */
+  applied?: boolean;
 }
 
 export interface OrchestratorResult {
@@ -114,6 +129,7 @@ export interface OrchestratorResult {
   folderIndexes: string[];
   memory: OrchestratorMemory;
   critic: CriticReview;
+  pages?: PagePlan[];
 }
 
 export interface IngestOrchestratorResult {

@@ -10,13 +10,22 @@ import { buildRunLog, writeRunLog } from '../log.js';
 import { createLLMClient } from '../llm/client.js';
 import { runIngestOrchestrator, writeIngestOutput } from '../orchestrator/ingest.js';
 import {
+  writeProposalFile,
+  detectNewPageTypes,
+  updateFolderIndexForNewPageTypes,
+  updateAgentsMdForNewPageTypes,
+} from '../orchestrator/proposals.js';
+import {
   loadState,
   saveState,
   fileChanged,
   detectRemovedSources,
   updateSourceState,
   statePath,
+  refreshPageState,
 } from './state.js';
+import { appendLogEntry, type LogEntry } from '../writers/log.js';
+import { runReingest } from './reingest.js';
 import {
   chunkStatePath,
   runManifestPath,
@@ -34,6 +43,7 @@ export async function runIngestion(
   slug: string,
   config: Config,
   resume = false,
+  autoApproveProposals = false,
 ): Promise<IngestionResult> {
   const wikiDir = wikiPath(workspace, slug);
   const stateFile = statePath(wikiDir, config.output.dir);
@@ -67,6 +77,9 @@ export async function runIngestion(
   let memory = state.memory;
   const allProposals: import('../orchestrator/types.js').StructuralProposal[] = [];
   const allFolderPlacements: Map<string, import('../orchestrator/types.js').FolderPlan> = new Map();
+  const allPages: import('../orchestrator/types.js').PagePlan[] = [];
+  const originalFolderHierarchy = { ...(state.memory?.state.folderHierarchy ?? {}) };
+  const removedSourceStates: Record<string, import('./state.js').SourceState> = {};
 
   result.sourceFiles = pdfFiles.length;
   result.sourceFilePaths = pdfFiles.map((f) => toRelativePath(workspace, f));
@@ -110,6 +123,9 @@ export async function runIngestion(
   // Remove stale output from deleted PDFs.
   for (const removedFile of result.removed) {
     const sourceState = state.sources[removedFile];
+    if (sourceState) {
+      removedSourceStates[removedFile] = { ...sourceState };
+    }
     if (!sourceState) continue;
     for (const docPage of sourceState.documentPages) {
       const fullPath = path.join(wikiDir, config.output.dir, docPage);
@@ -200,6 +216,7 @@ export async function runIngestion(
       llmClient,
       memory,
       strategy.samplingStrategy,
+      { autoApproveProposals },
     );
     memory = orchestratorResult.memory;
     for (const proposal of orchestratorResult.proposals) {
@@ -208,6 +225,7 @@ export async function runIngestion(
     for (const folder of orchestratorResult.folderPlacements) {
       allFolderPlacements.set(folder.folder, folder);
     }
+    allPages.push(...orchestratorResult.pages);
     result.warnings.push(...orchestratorResult.critic.issues.map((i) => i.message));
     const rawPageIds = extractionResult.pages
       .filter((page) => page.isScanned)
@@ -293,14 +311,122 @@ export async function runIngestion(
   });
   result.proposals = allProposals;
 
+  // Persist per-page metadata so selective re-ingestion can compare against the
+  // last generated version and detect manual edits.
+  refreshPageState(state, wikiDir, config.output.dir);
+
+  // Dual documentation: new page types inside existing folders are auto-approved,
+  // but must be documented in both the folder-level index.md and the wiki AGENTS.md.
+  const newPageTypes = detectNewPageTypes(originalFolderHierarchy, allPages);
+  const agentsMdPath = path.join(wikiDir, 'AGENTS.md');
+  for (const [folder, types] of newPageTypes) {
+    updateAgentsMdForNewPageTypes(agentsMdPath, folder, Array.from(types));
+  }
+
   state.lastRun = new Date().toISOString();
   state.memory = memory;
   saveState(stateFile, state);
   writeRunManifest(manifestFile, manifest);
 
+  // Append the append-only audit record for this ingestion run.
+  const logEntry = buildIngestLogEntry(
+    workspace,
+    slug,
+    config,
+    result,
+    processed,
+    allProposals,
+    removedSourceStates,
+  );
+  appendLogEntry(wikiDir, config.output.dir, logEntry);
+
+  // If a structural proposal was approved during this run, align existing pages with
+  // the new hierarchy without re-extracting unchanged PDFs.
+  if (memory && allProposals.some((p) => p.applied)) {
+    await runReingest(workspace, slug, config, memory.state.folderHierarchy);
+  }
+
   writeIngestRunLog(workspace, slug, config, result, llmClient.getRecords());
 
   return result;
+}
+
+function buildIngestLogEntry(
+  workspace: string,
+  slug: string,
+  config: Config,
+  result: IngestionResult,
+  processed: ProcessedSource[],
+  proposals: import('../orchestrator/types.js').StructuralProposal[],
+  removedSourceStates: Record<string, import('./state.js').SourceState>,
+): LogEntry {
+  const wikiDir = wikiPath(workspace, slug);
+  const rawDir = path.join(wikiDir, 'raw');
+
+  const sourceStatuses = new Map<string, 'added' | 'changed' | 'removed' | 'unchanged'>();
+  for (const added of result.added) sourceStatuses.set(added, 'added');
+  for (const changed of result.changed) sourceStatuses.set(changed, 'changed');
+  for (const removed of result.removed) sourceStatuses.set(removed, 'removed');
+
+  const sources: LogEntry['sources'] = [];
+  for (const filePath of processed) {
+    const relative = filePath.relativeFile;
+    const status = sourceStatuses.get(relative) ?? 'changed';
+    sources.push({ filePath: relative, sha256: filePath.sha256, status });
+  }
+  for (const removed of result.removed) {
+    if (!processed.some((p) => p.relativeFile === removed)) {
+      sources.push({ filePath: removed, status: 'removed' });
+    }
+  }
+
+  const pages: LogEntry['pages'] = [];
+  for (const source of processed) {
+    const status = sourceStatuses.get(source.relativeFile) ?? 'changed';
+    const action: LogEntryPage['action'] = status === 'added' ? 'created' : 'updated';
+    for (const docPage of source.documentPageIds ?? []) {
+      pages.push({ filePath: docPage, action });
+    }
+    for (const rawPage of source.rawPageIds ?? []) {
+      pages.push({ filePath: rawPage, action });
+    }
+    if (source.sourcePageId) {
+      pages.push({ filePath: source.sourcePageId, action });
+    }
+  }
+  for (const removed of result.removed) {
+    const sourceState = removedSourceStates[removed];
+    if (!sourceState) continue;
+    for (const docPage of sourceState.documentPages) {
+      pages.push({ filePath: docPage, action: 'deleted' });
+    }
+    for (const rawPage of sourceState.rawPages) {
+      pages.push({ filePath: rawPage, action: 'deleted' });
+    }
+    pages.push({ filePath: sourceState.sourcePage, action: 'deleted' });
+  }
+
+  const structuralChanges = proposals.length > 0
+    ? proposals.map((p) => `${p.type}: ${p.reason} (${p.applied ? 'applied' : 'proposed'})`)
+    : undefined;
+
+  return {
+    timestamp: new Date().toISOString(),
+    command: 'ingest',
+    sources,
+    pages,
+    structuralChanges,
+    errors: result.errors,
+    warnings: result.warnings,
+    quarantined: [],
+  };
+}
+
+/** Single page entry for the append-only log. */
+interface LogEntryPage {
+  filePath: string;
+  action: 'created' | 'updated' | 'deleted' | 'moved';
+  from?: string;
 }
 
 function writeIngestRunLog(

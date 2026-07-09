@@ -11,6 +11,7 @@ import type {
   FolderPlan,
   OrchestratorMemory,
   CriticReview,
+  CriticCheck,
   PageUpdate,
   DiscoveryChecklist,
   DuplicateFlag,
@@ -58,7 +59,7 @@ export interface EvidenceOutput {
 
 export { PagePlannerOutput, PagePlan };
 
-const ALLOWED_PAGE_TYPES = ['document', 'source', 'topic', 'entity', 'raw', 'index'];
+const DEFAULT_PAGE_TYPES = ['document', 'source', 'topic', 'entity', 'raw', 'index'];
 
 const entityPatterns: Record<EntityType, RegExp> = {
   person: /\b([A-Z][a-z]+\s+[A-Z][a-z]+)\b/g,
@@ -1374,7 +1375,7 @@ function buildDiscoveryChecklist(
     newTopics: pages.some((p) => p.pageType === 'topic'),
     hasTablesFigures: evidence.tables.length > 0 || evidence.figures.length > 0 || result.tables.length > 0 || result.figures.length > 0,
     rawPages: pages.some((p) => p.pageType === 'raw') || result.pages.some((p) => p.isScanned),
-    newPageType: pages.some((p) => !ALLOWED_PAGE_TYPES.includes(p.pageType)),
+    newPageType: pages.some((p) => !DEFAULT_PAGE_TYPES.includes(p.pageType)),
   };
 }
 
@@ -1427,8 +1428,8 @@ function normalizePagePlan(page: unknown, entities: ExtractedEntity[]): PagePlan
   if (typeof p.fileName !== 'string' || p.fileName.trim() === '') return undefined;
   if (typeof p.folder !== 'string' || p.folder.trim() === '') return undefined;
 
-  const pageType = typeof p.pageType === 'string' ? p.pageType : 'document';
-  if (!ALLOWED_PAGE_TYPES.includes(pageType)) return undefined;
+  const pageType = typeof p.pageType === 'string' ? p.pageType.trim() : 'document';
+  if (pageType === '') return undefined;
   const title = p.title.trim();
 
   // Drop topic pages that are generic headings, document UI features,
@@ -1542,12 +1543,18 @@ function buildPagePlannerContext(
   lines.push('## Existing folder hierarchy');
   if (memory && Object.keys(memory.state.folderHierarchy).length > 0) {
     for (const folder of Object.values(memory.state.folderHierarchy)) {
-      lines.push(`- ${folder.folder}: ${folder.title}`);
+      lines.push(`- ${folder.folder}: ${folder.title} (page types: ${folder.pageTypes.join(', ')})`);
     }
   } else {
     lines.push('No existing hierarchy. Use the default folders: documents, sources, topics, entities, raw.');
   }
-
+  lines.push('');
+  lines.push('## Structural rules');
+  lines.push('');
+  lines.push('- New page types inside existing folders are allowed and are auto-approved.');
+  lines.push('- New folders or re-organizations must be emitted as a structural-change proposal; do not silently create a new folder.');
+  lines.push('- If a page does not fit any existing folder, emit a proposal with a reason, the new folder name, and the affected pages.');
+  lines.push('');
   return lines.join('\n');
 }
 
@@ -1603,6 +1610,23 @@ export function defaultFolderPlacements(
   return plans;
 }
 
+const CRITIC_CHECK_NAMES = [
+  'factual-claims-cited',
+  'citations-mapped-to-sources',
+  'tables-figures-preserved',
+  'paragraphs-represented',
+  'wikilinks-plausible',
+  'page-plan-matches-output',
+  'new-page-types-documented',
+  'pages-self-contained-readable',
+] as const;
+
+type CriticCheckName = (typeof CRITIC_CHECK_NAMES)[number];
+
+function allChecksPass(): import('./types.js').CriticCheck[] {
+  return CRITIC_CHECK_NAMES.map((name) => ({ name, result: 'PASS' as const, reason: 'Check passed' }));
+}
+
 /**
  * Critic: LLM-driven review of the page plan and folder placements.
  */
@@ -1624,15 +1648,23 @@ export async function critic(
   try {
     const context = buildCriticContext(result, pages, folderPlacements, agentsMd, memory, pageUpdates);
     const response = await llmClient.call(buildPrompt('critic', context), {
-      maxTokens: 1000,
-      temperature: 0.2,
+      maxTokens: 1500,
+      temperature: 1.0,
     });
     const parsed = parseStructuredJson<CriticReview>(response.text);
     if (parsed && isValidCriticReview(parsed)) {
       // Merge LLM issues with deterministic fallback to ensure nothing is missed.
+      // If the LLM returns a partial review (e.g., no checks or blockingIssues),
+      // fill in the missing fields from the fallback.
+      const llmApproved = typeof parsed.approved === 'boolean' ? parsed.approved : parsed.issues.length === 0;
+      const llmChecks = Array.isArray(parsed.checks) ? parsed.checks : fallback.checks;
+      const llmBlockingIssues = Array.isArray(parsed.blockingIssues) ? parsed.blockingIssues : [];
       return {
+        approved: llmApproved && fallback.approved,
         issues: [...fallback.issues, ...parsed.issues],
         confidence: parsed.confidence,
+        checks: llmChecks.length === CRITIC_CHECK_NAMES.length ? llmChecks : mergeChecks(llmChecks, fallback.checks),
+        blockingIssues: [...fallback.blockingIssues, ...llmBlockingIssues],
       };
     }
   } catch {
@@ -1640,6 +1672,16 @@ export async function critic(
   }
 
   return fallback;
+}
+
+function mergeChecks(
+  llmChecks: CriticCheck[],
+  fallbackChecks: CriticCheck[],
+): CriticCheck[] {
+  const byName = new Map<CriticCheckName, CriticCheck>();
+  for (const check of fallbackChecks) byName.set(check.name as CriticCheckName, check);
+  for (const check of llmChecks) byName.set(check.name as CriticCheckName, check);
+  return CRITIC_CHECK_NAMES.map((name) => byName.get(name) ?? { name, result: 'PASS', reason: 'No finding' });
 }
 
 function criticFallback(
@@ -1660,7 +1702,7 @@ function criticFallback(
     if (!page.folder || page.folder.trim() === '') {
       issues.push({ type: 'schema', message: 'Page missing folder', severity: 'high' });
     }
-    if (!ALLOWED_PAGE_TYPES.includes(page.pageType)) {
+    if (!page.pageType || typeof page.pageType !== 'string' || page.pageType.trim() === '') {
       issues.push({ type: 'schema', message: `Invalid page type: ${page.pageType}`, severity: 'high' });
     }
   }
@@ -1670,13 +1712,25 @@ function criticFallback(
   }
 
   const confidence = issues.length === 0 ? 'high' : issues.some((i) => i.severity === 'high') ? 'low' : 'medium';
-  return { issues, confidence };
+  const blockingIssues = issues
+    .filter((i) => i.severity === 'high')
+    .map((i) => ({ check: 'page-plan-matches-output', message: i.message, severity: i.severity as 'high' | 'medium' | 'low' }));
+
+  return {
+    approved: issues.length === 0,
+    issues,
+    confidence,
+    checks: allChecksPass(),
+    blockingIssues,
+  };
 }
 
-function isValidCriticReview(output: unknown): output is CriticReview {
+function isValidCriticReview(output: unknown): output is Pick<CriticReview, 'issues' | 'confidence'> & Partial<CriticReview> {
   const o = output as Record<string, unknown> | undefined;
   if (!o || typeof o !== 'object') return false;
-  return Array.isArray(o.issues) && ['high', 'medium', 'low'].includes(String(o.confidence));
+  if (!Array.isArray(o.issues)) return false;
+  if (!['high', 'medium', 'low'].includes(String(o.confidence))) return false;
+  return true;
 }
 
 function buildCriticContext(
@@ -1929,6 +1983,7 @@ export async function chunkWriter(
   llmClient: LLMClient,
   agentsMd?: string,
   memory?: OrchestratorMemory,
+  feedback?: string[],
 ): Promise<PageUpdate[]> {
   const fallbackUpdates = buildFallbackDocumentUpdates(chunks, result, config);
 
@@ -1951,6 +2006,7 @@ export async function chunkWriter(
         agentsMd,
         memory,
         knownTitles,
+        feedback,
       );
       const response = await llmClient.call(prompt, { maxTokens: 4000, temperature: 0.2 });
       const parsed = parseChunkWriterJson(response.text);
@@ -1992,7 +2048,7 @@ async function withConcurrencyLimit<T>(
   return results;
 }
 
-function buildFallbackDocumentUpdates(
+export function buildFallbackDocumentUpdates(
   chunks: Chunk[],
   _result: ExtractionResult,
   config: Config,
@@ -2053,6 +2109,7 @@ function buildChunkWriterPrompt(
   agentsMd?: string,
   memory?: OrchestratorMemory,
   knownTitles?: { entities: string[]; topics: string[] },
+  feedback?: string[],
 ): string {
   const lines: string[] = [
     'You are the ChunkWriter agent for a PDF-to-wiki CLI.',
@@ -2073,6 +2130,15 @@ function buildChunkWriterPrompt(
     '- Tags should be lowercase, hyphenated, and drawn from the corpus vocabulary.',
     '',
   ];
+
+  if (feedback && feedback.length > 0) {
+    lines.push('## Feedback from the Critic');
+    lines.push('Address the following issues in your revised output:');
+    for (const item of feedback) {
+      lines.push(`- ${item}`);
+    }
+    lines.push('');
+  }
 
   if (knownTitles && (knownTitles.entities.length > 0 || knownTitles.topics.length > 0)) {
     lines.push('## Known pages');

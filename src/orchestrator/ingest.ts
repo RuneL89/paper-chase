@@ -43,6 +43,7 @@ import {
   createInitialMemory,
   updateMemory,
   defaultFolderPlacements,
+  buildFallbackDocumentUpdates,
 } from './agents.js';
 import {
   compactMemoryIfNeeded,
@@ -52,6 +53,19 @@ import {
 } from './memory.js';
 import { writeWikiIndexContract, writeFolderIndexContract, type WikiIndexData } from './contracts.js';
 import { validatePagePlan } from './validation.js';
+import { checkCompleteness, type CompletenessResult } from '../validation/completeness.js';
+import { CLIError } from '../errors.js';
+import {
+  detectStructuralProposals,
+  detectNewPageTypes,
+  updateFolderIndexForNewPageTypes,
+  updateAgentsMdForNewPageTypes,
+  promptProposalApproval,
+  writeProposalFile,
+  isSimpleProposal,
+  folderPlacementsFromProposal,
+  syncFolderPageTypes,
+} from './proposals.js';
 import type { OrchestratorMemory, FolderPlan, CriticReview, PagePlan, StructuralProposal, PageUpdate, ExtractedEntity } from './types.js';
 
 export interface IngestOrchestratorResult {
@@ -85,6 +99,7 @@ export async function runIngestOrchestrator(
   llmClient: LLMClient,
   previousMemory?: OrchestratorMemory,
   samplingStrategy?: { category: string; reason: string },
+  options?: { autoApproveProposals?: boolean },
 ): Promise<IngestOrchestratorResult> {
   const agentsMd = readAgentsMd(workspace, slug);
   const stepStart = Date.now();
@@ -182,40 +197,73 @@ export async function runIngestOrchestrator(
     ? plannerOutput.folderPlacements
     : defaultFolderPlacements(result, entities);
 
+  // Detect structural-change proposals relative to the previously approved folder
+  // hierarchy. Simple new-folder proposals can be approved interactively (or with
+  // --yes). Complex proposals are written to .kimi-code/proposals/ for later review.
+  const previousHierarchy = previousMemory?.state.folderHierarchy ?? {};
+  let resolvedFolderPlacements = folderPlacements;
+  let resolvedPages = plannerOutput.pages;
+  const proposals = detectStructuralProposals(previousHierarchy, folderPlacements);
+
+  if (proposals.length > 0) {
+    const proposal = proposals[0];
+    let approved = false;
+    if (isSimpleProposal(proposal)) {
+      approved = await promptProposalApproval(proposal, { autoApprove: options?.autoApproveProposals ?? false });
+    } else {
+      const proposalPath = writeProposalFile(workspace, slug, proposal);
+      console.log(`Structural change proposal written to: ${proposalPath}`);
+    }
+    if (approved) {
+      resolvedFolderPlacements = folderPlacementsFromProposal(previousHierarchy, proposal);
+    } else {
+      resolvedFolderPlacements =
+        Object.keys(previousHierarchy).length > 0
+          ? Object.values(previousHierarchy)
+          : defaultFolderPlacements(result, entities);
+      resolvedPages = plannerOutput.pages.filter((p) =>
+        resolvedFolderPlacements.some((f) => f.folder === p.folder),
+      );
+    }
+    proposal.applied = approved;
+  }
+
+  syncFolderPageTypes(resolvedFolderPlacements, resolvedPages);
+
   const memory = previousMemory
     ? mergeMemory(previousMemory, result, chunks)
     : createInitialMemory(result, chunks);
 
-  const pageUpdates = await chunkWriter(
-    plannerOutput.pages,
+  const validationResult = await writeAndValidateChunks(
+    resolvedPages,
     chunks,
     result,
     config,
     llmClient,
     agentsMd,
     memory,
+    resolvedFolderPlacements,
   );
+  const pageUpdates = validationResult.pageUpdates;
   logStep('chunkWriter');
-
-  const criticReview = await critic(
-    result,
-    plannerOutput.pages,
-    folderPlacements,
-    llmClient,
-    agentsMd,
-    memory,
-    pageUpdates,
-  );
   logStep('critic');
-  const validationReview = validatePagePlan(plannerOutput.pages, folderPlacements);
-  const combinedIssues = [...criticReview.issues, ...validationReview.issues];
+
+  const validationReview = validatePagePlan(resolvedPages, resolvedFolderPlacements);
+  const combinedIssues = [
+    ...validationResult.critic.issues,
+    ...validationResult.completenessIssues.map((m) => ({ type: 'missing' as const, message: m, severity: 'medium' as const })),
+    ...validationReview.issues,
+  ];
   const combinedCritic: CriticReview = {
+    approved: validationResult.critic.approved && validationResult.completenessIssues.length === 0,
     issues: combinedIssues,
     confidence: combinedIssues.length === 0 ? 'high' : 'low',
+    checks: validationResult.critic.checks,
+    blockingIssues: validationResult.critic.blockingIssues,
   };
 
-  const extractedTopics = mergeFragmentTopics(extractTopicsFromPagePlans(plannerOutput.pages));
-  updateMemory(memory, result.filePath, entities, relationships, extractedTopics, folderPlacements);
+  const extractedTopics = mergeFragmentTopics(extractTopicsFromPagePlans(resolvedPages));
+  updateMemory(memory, result.filePath, entities, relationships, extractedTopics, resolvedFolderPlacements);
 
   // Rolling memory compaction and persistence.
   compactMemoryIfNeeded(memory, {
@@ -230,15 +278,10 @@ export async function runIngestOrchestrator(
   saveMemory(outputDir, memory);
   saveMemorySummary(outputDir, memory);
 
-  const proposals = detectStructuralProposals(
-    previousMemory?.state.folderHierarchy ?? {},
-    folderPlacements,
-  );
-
   return {
     memory,
-    folderPlacements,
-    pages: plannerOutput.pages,
+    folderPlacements: resolvedFolderPlacements,
+    pages: resolvedPages,
     pageUpdates,
     critic: combinedCritic,
     proposals,
@@ -300,6 +343,110 @@ function topicNameFromPagePlan(page: PagePlan): string {
     return lower.slice(6).trim();
   }
   return lower.trim();
+}
+
+async function writeAndValidateChunks(
+  pages: PagePlan[],
+  chunks: Chunk[],
+  result: ExtractionResult,
+  config: Config,
+  llmClient: LLMClient,
+  agentsMd: string | undefined,
+  memory: OrchestratorMemory,
+  folderPlacements: FolderPlan[],
+): Promise<{
+  pageUpdates: PageUpdate[];
+  critic: CriticReview;
+  completenessIssues: string[];
+}> {
+  let pageUpdates = await chunkWriter(
+    pages,
+    chunks,
+    result,
+    config,
+    llmClient,
+    agentsMd,
+    memory,
+  );
+  let criticReview = await critic(
+    result,
+    pages,
+    folderPlacements,
+    llmClient,
+    agentsMd,
+    memory,
+    pageUpdates,
+  );
+  const completenessIssues = collectCompletenessIssues(chunks, pageUpdates, result);
+
+  // Retry once if the LLM is enabled and the first pass had blocking issues or
+  // completeness gaps. The second attempt uses the same input but relies on the
+  // LLM's stochasticity to produce a better result; keep the better outcome.
+  if (
+    llmClient.isEnabled() &&
+    (completenessIssues.length > 0 || !criticReview.approved || criticReview.blockingIssues.length > 0)
+  ) {
+    pageUpdates = await chunkWriter(
+      pages,
+      chunks,
+      result,
+      config,
+      llmClient,
+      agentsMd,
+      memory,
+    );
+    criticReview = await critic(
+      result,
+      pages,
+      folderPlacements,
+      llmClient,
+      agentsMd,
+      memory,
+      pageUpdates,
+    );
+    const retriedCompletenessIssues = collectCompletenessIssues(chunks, pageUpdates, result);
+    if (retriedCompletenessIssues.length < completenessIssues.length) {
+      return {
+        pageUpdates,
+        critic: criticReview,
+        completenessIssues: retriedCompletenessIssues,
+      };
+    }
+  }
+
+  return {
+    pageUpdates,
+    critic: criticReview,
+    completenessIssues,
+  };
+}
+
+function collectCompletenessIssues(
+  chunks: Chunk[],
+  pageUpdates: PageUpdate[],
+  result: ExtractionResult,
+): string[] {
+  const issues: string[] = [];
+  for (const chunk of chunks) {
+    const filePath = `documents/${chunk.id}.md`;
+    const update = pageUpdates.find((u) => u.filePath === filePath);
+    if (!update) {
+      issues.push(`Chunk ${chunk.id} has no generated page (${filePath}).`);
+      continue;
+    }
+    const completeness = checkCompleteness(
+      chunk,
+      update,
+      result.tables,
+      result.figures,
+    );
+    if (!completeness.ok) {
+      for (const issue of completeness.missing) {
+        issues.push(`Chunk ${chunk.id}: ${issue.message}`);
+      }
+    }
+  }
+  return issues;
 }
 
 export function writeIngestContracts(
@@ -600,28 +747,6 @@ function mergeMemory(
   }
 
   return merged;
-}
-
-function detectStructuralProposals(
-  previousHierarchy: Record<string, FolderPlan>,
-  currentPlacements: FolderPlan[],
-): StructuralProposal[] {
-  const previousFolders = new Set(Object.keys(previousHierarchy));
-  const currentFolders = new Set(currentPlacements.map((f) => f.folder));
-  const addedFolders = currentPlacements.filter((f) => !previousFolders.has(f.folder));
-
-  if (previousFolders.size === 0 || addedFolders.length === 0) {
-    return [];
-  }
-
-  return [
-    {
-      type: 'new-folder',
-      reason: `New corpus content requires additional folders: ${addedFolders.map((f) => f.title).join(', ')}.`,
-      currentFolders: Array.from(previousFolders),
-      proposedFolders: Array.from(currentFolders),
-    },
-  ];
 }
 
 function readAgentsMd(workspace: string, slug: string): string | undefined {

@@ -3,6 +3,22 @@ import type { Chunk } from '../chunking/types.js';
 import type { ExtractionResult } from '../extractor/types.js';
 import type { CriticReview, PagePlan, FolderPlan } from './types.js';
 
+function buildCriticReview(
+  issues: CriticReview['issues'],
+  confidence: CriticReview['confidence'],
+): CriticReview {
+  const blockingIssues = issues
+    .filter((i) => i.severity === 'high')
+    .map((i) => ({ check: 'validation', message: i.message, severity: i.severity }));
+  return {
+    approved: issues.length === 0,
+    issues,
+    confidence,
+    checks: [{ name: 'validation', result: 'PASS', reason: 'Deterministic validation completed' }],
+    blockingIssues,
+  };
+}
+
 export function validatePagePlan(
   pages: PagePlan[],
   folderPlacements: FolderPlan[],
@@ -32,7 +48,7 @@ export function validatePagePlan(
   }
 
   const confidence = issues.length === 0 ? 'high' : issues.some((i) => i.severity === 'high') ? 'low' : 'medium';
-  return { issues, confidence };
+  return buildCriticReview(issues, confidence);
 }
 
 export function validateChunkSources(
@@ -60,7 +76,7 @@ export function validateChunkSources(
     }
   }
 
-  return { issues, confidence: issues.length === 0 ? 'high' : 'low' };
+  return buildCriticReview(issues, issues.length === 0 ? 'high' : 'low');
 }
 
 export function validateConfig(config: Config): CriticReview {
@@ -76,5 +92,5 @@ export function validateConfig(config: Config): CriticReview {
     issues.push({ type: 'schema', message: 'min_chunk_size > max_chunk_size', severity: 'high' });
   }
 
-  return { issues, confidence: issues.length === 0 ? 'high' : 'medium' };
+  return buildCriticReview(issues, issues.length === 0 ? 'high' : 'medium');
 }

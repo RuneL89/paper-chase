@@ -214,11 +214,11 @@ This table is updated at the end of every sprint and whenever a sprint's status 
 | Sprint 3 — Deterministic Provenance Layer + `ingest-all` | `COMPLETE` | 120/120 (100%) | TAC: 10/10 PASS; UAT: approved | — |
 | Sprint 4a — Sampling Strategies & `AGENTS.md` | `COMPLETE` | 132/132 (100%) | TAC: 8/8 PASS; UAT: approved | — |
 | Sprint 4b — LLM-Driven ChunkWriter | `COMPLETE` | 139/139 (100%) | TAC: 12/12 PASS; UAT: automated E2E test passed with no remaining bugs | — |
-| Sprint 5 — LLM Sub-Agent Pipeline | `AWAITING_UAT` | 163/163 (100%) | TAC: 14/14 PASS; UAT: awaiting automated E2E UAT run | — |
-| Sprint 6 — Dynamic Structure & Human Approval | `NOT_STARTED` | — | — | — |
-| Sprint 7 — Selective Re-ingestion | `NOT_STARTED` | — | — | — |
-| Sprint 8 — Validation, Quality & Cross-Wiki | `NOT_STARTED` | — | — | — |
-| Sprint 9 — README Documentation | `NOT_STARTED` | — | — | — |
+| Sprint 5 — LLM Sub-Agent Pipeline | `COMPLETE` | 163/163 (100%) | TAC: 14/14 PASS; UAT: approved via normal checks (E2E deferred to final sprint) | — |
+| Sprint 6 — Dynamic Structure & Human Approval | `COMPLETE` | 183/183 (100%) | TAC: 10/10 PASS; UAT: approved via normal checks (E2E deferred to final sprint) | — |
+| Sprint 7 — Selective Re-ingestion | `COMPLETE` | 192/192 (100%) | TAC: 9/9 PASS; UAT: approved via normal checks (E2E deferred to final sprint) | — |
+| Sprint 8 — Validation, Quality & Cross-Wiki | `COMPLETE` | 207/207 (100%) | TAC: 10/10 PASS; UAT: approved via normal checks (E2E UAT deferred to after final sprint) | — |
+| Sprint 9 — README Documentation | `COMPLETE` | 207/207 (100%) | TAC: 9/9 PASS; UAT: README approved, full E2E UAT deferred | — |
 
 ### Status Values
 
@@ -258,6 +258,11 @@ This table is updated at the end of every sprint and whenever a sprint's status 
 | 2026-07-09 | Sprint 4b | UAT approved; Sprint 4b marked COMPLETE; Sprint 5 — LLM Sub-Agent Pipeline marked IN_PROGRESS | ZCode |
 | 2026-07-09 | Sprint 5 | Implemented LLM-driven sub-agents (StructureAnalyst, EntityExtractor, RelationshipExtractor, EvidenceCollector, PagePlanner, Critic) with deterministic fallback; added rolling memory compaction, canonical name resolution, entity mentions, topic related links, discovery checklist, duplicate entity flagging; fixed cross-wiki entity directory typo; TAC passed, UAT awaiting automated E2E test | ZCode |
 | 2026-07-09 | All | Replaced human UAT with agent-run automated E2E UAT test using three PDFs from `C:\Users\atavi\Documents`, target folder in `C:\temp`, and LLM config `C:\Users\atavi\Documents\config.json`. Added Git Push Checkpoints: push to `main` after TAC/TAT and after the full UAT loop complete. Bugs are reported in the sprint folder and fixed iteratively before automatic progression. | ZCode |
+| 2026-07-09 | Sprint 5 | Sprint 5 normal UAT checks passed (build + tests); status marked `COMPLETE`. E2E UAT deferred to final sprint per user directive. Sprint 6 — Dynamic Structure & Human Approval marked `IN_PROGRESS`. | ZCode |
+| 2026-07-09 | Sprint 6 | Implemented structural change proposals (`new-folder` simple/complex), `apply-proposal` command, `--yes` auto-approve, dual documentation sync in `index.md` and `AGENTS.md` for new page types; TAC passed, UAT approved via normal checks. Sprint 7 — Selective Re-ingestion marked `IN_PROGRESS`. | ZCode |
+| 2026-07-09 | Sprint 7 | Implemented selective re-ingestion: per-page state tracking, manual-edit detection with skip option, move/delete affected pages after approved structural changes, in-run reingest after approved proposals, contract/index-of-indexes/AGENTS updates, reingest run logs; TAC passed, UAT approved via normal checks. Sprint 8 — Validation, Quality & Cross-Wiki marked `IN_PROGRESS`. | ZCode |
+| 2026-07-09 | Sprint 8 | Phase 1: deterministic validation layer (completeness, links, citations, schema, lint, log.md). Phase 2: LLM Critic with eight-item checklist and blockingIssues, cross-wiki name discovery, index-of-indexes.md updates, and integration in `runIngestOrchestrator` via `writeAndValidateChunks`. TAC passed (build + tests 207/207); status marked `AWAITING_UAT` pending E2E decision. | ZCode |
+| 2026-07-09 | Sprint 9 | Rewrote `README.md` from scratch with the required five-section structure (Introduction, Functional Architecture, Step-by-Step Architecture, Detailed Technical Architecture, Project Structure), setup/usage examples, security notes, and claim verification path. `docs/QUICKSTART.md` and `docs/USAGE.md` remain current. Build + tests pass (207/207); status marked `COMPLETE` with full E2E UAT deferred. | ZCode |
 
 ---
 

@@ -16,6 +16,9 @@ import {
 } from './agents.js';
 import { writeWikiIndexContract, writeFolderIndexContract, type WikiIndexData } from './contracts.js';
 import { validatePagePlan } from './validation.js';
+import {
+  syncFolderPageTypes,
+} from './proposals.js';
 import type { OrchestratorResult, CriticReview, FolderPlan, PagePlan } from './types.js';
 
 export async function runSampleOrchestrator(
@@ -74,13 +77,18 @@ export async function runSampleOrchestrator(
     ? plannerOutput.folderPlacements
     : defaultFolderPlacements(result, entities);
 
+  syncFolderPageTypes(folderPlacements, plannerOutput.pages);
+
   // Step 7: Critic (LLM-driven with deterministic fallback)
   const criticReview = await critic(result, plannerOutput.pages, folderPlacements, llmClient);
   const validationReview = validatePagePlan(plannerOutput.pages, folderPlacements);
   const combinedIssues = [...criticReview.issues, ...validationReview.issues];
   const combinedCritic: CriticReview = {
+    approved: combinedIssues.length === 0,
     issues: combinedIssues,
     confidence: combinedIssues.length === 0 ? 'high' : 'low',
+    checks: criticReview.checks,
+    blockingIssues: criticReview.blockingIssues,
   };
 
   // Rolling memory
@@ -120,6 +128,7 @@ export async function runSampleOrchestrator(
     folderIndexes,
     memory,
     critic: combinedCritic,
+    pages: plannerOutput.pages,
   };
 }
 

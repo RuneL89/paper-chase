@@ -174,7 +174,8 @@ export function writeIndexOfIndexes(
     created,
     updated: now,
     type: 'index',
-    wikis: wikis.map((w) => w.slug),
+    wiki: 'workspace',
+    children: wikis.map((w) => `wikis/${w.slug}/index.md`),
   };
 
   const totalSources = wikis.reduce((sum, w) => sum + w.sourceCount, 0);

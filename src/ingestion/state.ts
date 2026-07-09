@@ -1,7 +1,16 @@
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSync } from 'fs';
 import path from 'path';
+import { createHash } from 'crypto';
+import matter from 'gray-matter';
 
 import type { OrchestratorMemory } from '../orchestrator/types.js';
+
+export interface PageState {
+  folder: string;
+  pageType: string;
+  generatedHash: string;
+  updatedAt: string;
+}
 
 export interface SourceState {
   sha256: string;
@@ -19,15 +28,17 @@ export interface IngestionState {
   lastRun: string;
   sources: Record<string, SourceState>;
   memory?: OrchestratorMemory;
+  pages?: Record<string, PageState>;
 }
 
-export const STATE_VERSION = '1.0';
+export const STATE_VERSION = '1.1';
 
 export function defaultState(): IngestionState {
   return {
     version: STATE_VERSION,
     lastRun: new Date().toISOString(),
     sources: {},
+    pages: {},
   };
 }
 
@@ -45,6 +56,7 @@ export function loadState(stateFile: string): IngestionState {
       ...defaultState(),
       ...parsed,
       sources: parsed.sources ?? {},
+      pages: parsed.pages ?? {},
     };
   } catch {
     return defaultState();
@@ -54,6 +66,64 @@ export function loadState(stateFile: string): IngestionState {
 export function saveState(stateFile: string, state: IngestionState): void {
   mkdirSync(path.dirname(stateFile), { recursive: true });
   writeFileSync(stateFile, JSON.stringify(state, null, 2) + '\n');
+}
+
+export function hashFile(filePath: string): string {
+  return createHash('sha256').update(readFileSync(filePath)).digest('hex');
+}
+
+export function hashPageContent(content: string): string {
+  const parsed = matter(content);
+  const normalized = { ...parsed.data };
+  delete normalized.updated;
+  return createHash('sha256')
+    .update(matter.stringify(parsed.content, normalized))
+    .digest('hex');
+}
+
+export function refreshPageState(
+  state: IngestionState,
+  wikiDir: string,
+  outputDirName: string,
+): void {
+  const outputDir = path.join(wikiDir, outputDirName);
+  if (!existsSync(outputDir)) {
+    return;
+  }
+
+  const pages: Record<string, PageState> = { ...state.pages };
+
+  function walk(dir: string): void {
+    const entries = readdirSync(dir);
+    for (const entry of entries) {
+      const full = path.join(dir, entry);
+      const stat = statSync(full);
+      if (stat.isDirectory()) {
+        walk(full);
+      } else if (entry.endsWith('.md')) {
+        const relative = path.relative(outputDir, full).replace(/\\/g, '/');
+        if (relative === 'index.md' || relative.endsWith('/index.md')) {
+          continue;
+        }
+        try {
+          const content = readFileSync(full, 'utf-8');
+          const parsed = matter(content);
+          const folder = relative.includes('/') ? path.dirname(relative).replace(/\\/g, '/') : '';
+          pages[relative] = {
+            folder,
+            pageType: String(parsed.data.type || 'document'),
+            generatedHash: hashPageContent(content),
+            updatedAt: new Date().toISOString(),
+          };
+        } catch {
+          // Skip malformed files.
+        }
+      }
+    }
+  }
+
+  walk(outputDir);
+  state.pages = pages;
 }
 
 export function fileChanged(
@@ -126,4 +196,22 @@ export function filterByThreshold(
     .filter(([, count]) => count >= threshold)
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   return entries.slice(0, maxItems).map(([name]) => name);
+}
+
+export function findSourceForPage(
+  state: IngestionState,
+  pagePath: string,
+): { sourcePath: string; sourceState: SourceState } | undefined {
+  for (const [sourcePath, sourceState] of Object.entries(state.sources)) {
+    if (sourceState.documentPages.includes(pagePath)) {
+      return { sourcePath, sourceState };
+    }
+    if (sourceState.rawPages.includes(pagePath)) {
+      return { sourcePath, sourceState };
+    }
+    if (sourceState.sourcePage === pagePath) {
+      return { sourcePath, sourceState };
+    }
+  }
+  return undefined;
 }

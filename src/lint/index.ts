@@ -3,19 +3,32 @@ import path from 'path';
 import matter from 'gray-matter';
 import type { Config } from '../config.js';
 import { wikiPath } from '../workspace.js';
+import { loadState, statePath, findSourceForPage, hashFile, fileChanged } from '../ingestion/state.js';
+import { findPotentialDuplicates } from '../utils/similarity.js';
 
 export interface LintIssue {
-  type: 'broken-wikilink' | 'invalid-citation' | 'missing-frontmatter';
+  type: 'broken-wikilink' | 'invalid-citation' | 'missing-frontmatter' | 'orphaned-page' | 'stale-page' | 'duplicate-entity' | 'missing-source-file';
   file: string;
   message: string;
 }
 
-export interface LintResult {
+export interface LintReport {
+  timestamp: string;
+  total_pages: number;
+  pages_by_type: Record<string, number>;
+  errors: number;
+  warnings: number;
+  broken_links: number;
+  orphaned_pages: number;
+  citation_issues: number;
+  duplicate_entities_flagged: number;
+  stale_pages: number;
+  missing_source_files: number;
   issues: LintIssue[];
-  brokenLinks: number;
-  invalidCitations: number;
-  missingFrontmatter: number;
 }
+
+// Backward-compatible alias used by earlier sprint tests.
+export type LintResult = LintReport;
 
 const REQUIRED_FRONTMATTER: Record<string, string[]> = {
   index: ['title', 'type', 'updated', 'wiki', 'created', 'sources'],
@@ -26,28 +39,38 @@ const REQUIRED_FRONTMATTER: Record<string, string[]> = {
   raw: ['title', 'type', 'source', 'reason', 'raw_fragment', 'wiki', 'created'],
 };
 
-export function lintWiki(workspace: string, slug: string, config: Config): LintResult {
-  const wikiDir = wikiPath(workspace, slug);
-  const contentFolders = ['documents', 'sources', 'topics', 'entities', 'raw'];
-  const issues: LintIssue[] = [];
+const CONTENT_FOLDERS = ['documents', 'sources', 'topics', 'entities', 'raw'];
 
-  const titleMap = buildTitleMap(wikiDir, contentFolders);
-  const files = collectMarkdownFiles(wikiDir, contentFolders);
+export function lintWiki(workspace: string, slug: string, config: Config): LintReport {
+  const wikiDir = wikiPath(workspace, slug);
+  const stateFile = statePath(wikiDir, config.output.dir);
+  const state = existsSync(stateFile) ? loadState(stateFile) : undefined;
+
+  const issues: LintIssue[] = [];
+  const titleMap = buildTitleMap(wikiDir, CONTENT_FOLDERS);
+  const files = collectMarkdownFiles(wikiDir, CONTENT_FOLDERS);
+  const pagesByType: Record<string, number> = {};
 
   for (const file of files) {
-    const relativeFile = path.relative(wikiDir, file);
+    const relativeFile = path.relative(wikiDir, file).replace(/\\/g, '/');
     const content = readFileSync(file, 'utf-8');
     const parsed = matter(content);
+    const pageType = String(parsed.data.type ?? 'unknown');
+    pagesByType[pageType] = (pagesByType[pageType] ?? 0) + 1;
 
     issues.push(...checkFrontmatter(relativeFile, parsed.data));
-    issues.push(...checkCitations(relativeFile, parsed.content, parsed.data));
+    issues.push(...checkCitations(relativeFile, parsed.content, parsed.data, wikiDir));
     issues.push(...checkWikilinks(relativeFile, parsed.content, titleMap));
   }
 
-  return summarize(issues);
+  issues.push(...checkOrphanedPages(wikiDir, CONTENT_FOLDERS, titleMap));
+  issues.push(...checkStalePages(wikiDir, config.output.dir, CONTENT_FOLDERS, state));
+  issues.push(...checkDuplicateEntities(wikiDir, CONTENT_FOLDERS));
+
+  return summarizeReport(issues, files.length, pagesByType);
 }
 
-export function writeLintReport(workspace: string, slug: string, config: Config, result: LintResult): string {
+export function writeLintReport(workspace: string, slug: string, config: Config, result: LintReport): string {
   const wikiDir = wikiPath(workspace, slug);
   const lintDir = path.join(wikiDir, config.output.dir, 'lint');
   mkdirSync(lintDir, { recursive: true });
@@ -76,11 +99,10 @@ export function writeLintReport(workspace: string, slug: string, config: Config,
  */
 export function repairWikilinks(workspace: string, slug: string, config: Config): void {
   const wikiDir = wikiPath(workspace, slug);
-  const contentFolders = ['documents', 'sources', 'topics', 'entities', 'raw'];
-  const titleMap = buildTitleMap(wikiDir, contentFolders);
+  const titleMap = buildTitleMap(wikiDir, CONTENT_FOLDERS);
   const titles = Array.from(titleMap.keys());
 
-  for (const file of collectMarkdownFiles(wikiDir, contentFolders)) {
+  for (const file of collectMarkdownFiles(wikiDir, CONTENT_FOLDERS)) {
     const content = readFileSync(file, 'utf-8');
     const parsed = matter(content);
     const repaired = repairContentWikilinks(parsed.content, titles);
@@ -208,11 +230,20 @@ function checkFrontmatter(file: string, data: Record<string, unknown>): LintIssu
   return issues;
 }
 
-function checkCitations(file: string, content: string, data: Record<string, unknown>): LintIssue[] {
+function checkCitations(file: string, content: string, data: Record<string, unknown>, wikiDir: string): LintIssue[] {
   const issues: LintIssue[] = [];
   const inlineCitations = content.match(/\[\^src\d+\]/g) ?? [];
   const sources = Array.isArray(data.sources) ? (data.sources as Record<string, unknown>[]) : [];
-  const sourceIds = new Set(sources.map((s) => String(s.id ?? '')));
+  const sourceIds = new Set<string>();
+  const sourceById = new Map<string, Record<string, unknown>>();
+
+  for (const source of sources) {
+    const id = String(source.id ?? '');
+    if (id) {
+      sourceIds.add(id);
+      sourceById.set(id, source);
+    }
+  }
 
   for (const citation of inlineCitations) {
     const id = citation.match(/src\d+/)?.[0] ?? '';
@@ -222,6 +253,19 @@ function checkCitations(file: string, content: string, data: Record<string, unkn
         file,
         message: `Inline citation ${citation} has no matching source entry`,
       });
+      continue;
+    }
+    const source = sourceById.get(id);
+    const sourceFile = typeof source?.file === 'string' ? source.file : '';
+    if (sourceFile) {
+      const absolutePath = path.resolve(wikiDir, sourceFile);
+      if (!existsSync(absolutePath)) {
+        issues.push({
+          type: 'missing-source-file',
+          file,
+          message: `Source file for citation ${citation} does not exist: ${sourceFile}`,
+        });
+      }
     }
   }
 
@@ -247,11 +291,136 @@ function checkWikilinks(file: string, content: string, titleMap: Map<string, str
   return issues;
 }
 
-function summarize(issues: LintIssue[]): LintResult {
+function checkOrphanedPages(wikiDir: string, contentFolders: string[], titleMap: Map<string, string>): LintIssue[] {
+  const issues: LintIssue[] = [];
+  const allLinks = new Set<string>();
+
+  for (const file of collectMarkdownFiles(wikiDir, contentFolders)) {
+    const content = readFileSync(file, 'utf-8');
+    const parsed = matter(content);
+    const wikilinks = parsed.content.match(/\[\[[^\]]+\]\]/g) ?? [];
+    for (const link of wikilinks) {
+      const target = link.slice(2, -2).split('|', 2)[0].trim();
+      allLinks.add(target.toLowerCase());
+    }
+  }
+
+  for (const [title, file] of titleMap) {
+    const parsed = matter(readFileSync(file, 'utf-8'));
+    const type = String(parsed.data.type ?? '');
+    // Index and source pages are allowed to be entry points without incoming links.
+    if (type === 'index' || type === 'source') continue;
+    if (!allLinks.has(title.toLowerCase())) {
+      const relativeFile = path.relative(wikiDir, file).replace(/\\/g, '/');
+      issues.push({
+        type: 'orphaned-page',
+        file: relativeFile,
+        message: `Page "${title}" has no incoming wikilinks`,
+      });
+    }
+  }
+
+  return issues;
+}
+
+function checkStalePages(
+  wikiDir: string,
+  outputDirName: string,
+  contentFolders: string[],
+  state?: { sources?: Record<string, { sha256: string }> },
+): LintIssue[] {
+  const issues: LintIssue[] = [];
+  if (!state || !state.sources) return issues;
+
+  const outputDir = path.join(wikiDir, outputDirName);
+
+  for (const file of collectMarkdownFiles(wikiDir, contentFolders)) {
+    const relativeFile = path.relative(wikiDir, file).replace(/\\/g, '/');
+    const sourceInfo = findSourceForPage(state as any, relativeFile);
+    if (!sourceInfo) continue;
+
+    const sourcePath = sourceInfo.sourcePath;
+    const rawFilePath = path.resolve(wikiDir, sourcePath);
+    if (!existsSync(rawFilePath)) {
+      issues.push({
+        type: 'stale-page',
+        file: relativeFile,
+        message: `Page source PDF no longer exists: ${sourcePath}`,
+      });
+      continue;
+    }
+
+    const currentHash = hashFile(rawFilePath);
+    if (fileChanged(state as any, sourcePath, currentHash, 0)) {
+      issues.push({
+        type: 'stale-page',
+        file: relativeFile,
+        message: `Page may be stale because source PDF has changed: ${sourcePath}`,
+      });
+    }
+  }
+
+  return issues;
+}
+
+function checkDuplicateEntities(wikiDir: string, contentFolders: string[]): LintIssue[] {
+  const issues: LintIssue[] = [];
+  const entitySlugs: string[] = [];
+  const entityFileBySlug = new Map<string, string>();
+
+  const entitiesDir = path.join(wikiDir, 'entities');
+  if (!existsSync(entitiesDir)) return issues;
+
+  for (const file of collectMarkdownFilesRecursive(entitiesDir)) {
+    const parsed = matter(readFileSync(file, 'utf-8'));
+    const slug = path.basename(file, '.md');
+    const title = String(parsed.data.title ?? slug);
+    entitySlugs.push(slug);
+    entityFileBySlug.set(slug, title);
+  }
+
+  const duplicates = findPotentialDuplicates(entitySlugs);
+  for (const dup of duplicates) {
+    const titleA = entityFileBySlug.get(dup.a) ?? dup.a;
+    const titleB = entityFileBySlug.get(dup.b) ?? dup.b;
+    issues.push({
+      type: 'duplicate-entity',
+      file: 'entities',
+      message: `Potential duplicate entities: "${titleA}" and "${titleB}" (${dup.reason})`,
+    });
+  }
+
+  return issues;
+}
+
+function summarizeReport(issues: LintIssue[], totalPages: number, pagesByType: Record<string, number>): LintReport {
+  const brokenLinks = issues.filter((i) => i.type === 'broken-wikilink').length;
+  const invalidCitations = issues.filter((i) => i.type === 'invalid-citation').length;
+  const missingSourceFiles = issues.filter((i) => i.type === 'missing-source-file').length;
+  const citationIssues = invalidCitations + missingSourceFiles;
+  const orphaned = issues.filter((i) => i.type === 'orphaned-page').length;
+  const stale = issues.filter((i) => i.type === 'stale-page').length;
+  const duplicates = issues.filter((i) => i.type === 'duplicate-entity').length;
+  const missingFrontmatter = issues.filter((i) => i.type === 'missing-frontmatter').length;
+
+  // Errors are blocking schema/citation issues; warnings are quality/structural issues.
+  const errors = missingFrontmatter + invalidCitations + missingSourceFiles;
+  const warnings = issues.length - errors;
+
   return {
+    timestamp: new Date().toISOString(),
+    total_pages: totalPages,
+    pages_by_type: pagesByType,
+    errors,
+    warnings,
+    broken_links: brokenLinks,
+    orphaned_pages: orphaned,
+    citation_issues: citationIssues,
+    duplicate_entities_flagged: duplicates,
+    stale_pages: stale,
+    missing_source_files: missingSourceFiles,
     issues,
-    brokenLinks: issues.filter((i) => i.type === 'broken-wikilink').length,
-    invalidCitations: issues.filter((i) => i.type === 'invalid-citation').length,
-    missingFrontmatter: issues.filter((i) => i.type === 'missing-frontmatter').length,
   };
 }
+
+export { buildTitleMap, collectMarkdownFiles };
