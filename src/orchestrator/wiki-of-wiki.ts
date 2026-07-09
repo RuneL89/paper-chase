@@ -42,7 +42,7 @@ export function runWikiOfWikiAgent(
     const wikiDir = path.join(workspace, 'wikis', wiki.slug);
 
     for (const type of ['entity', 'topic'] as const) {
-      const dir = path.join(wikiDir, `${type}s`);
+      const dir = path.join(wikiDir, type === 'entity' ? 'entities' : 'topics');
       if (!existsSync(dir)) continue;
 
       if (!namesByType.has(type)) {
@@ -51,7 +51,7 @@ export function runWikiOfWikiAgent(
       const typeMap = namesByType.get(type)!;
 
       for (const fileName of readdirSync(dir)) {
-        if (!fileName.endsWith('.md')) continue;
+        if (!fileName.endsWith('.md') || fileName === 'index.md') continue;
         const filePath = path.join(dir, fileName);
         const st = statSync(filePath);
         if (!st.isFile()) continue;

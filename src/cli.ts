@@ -69,8 +69,9 @@ const ingest = addWorkspaceOption(
   new Command('ingest')
     .description('Run full ingestion for a single wiki according to its config.json.')
     .argument('<wiki-slug>', 'slug of the wiki to ingest')
-    .action(async (slug: string, options: { workspace: string }) => {
-      await ingestCommand(options.workspace, slug);
+    .option('--resume', 'skip chunks with a completed state file and resume from the failed chunk', false)
+    .action(async (slug: string, options: { workspace: string; resume?: boolean }) => {
+      await ingestCommand(options.workspace, slug, options.resume ?? false);
     }),
 );
 

@@ -109,17 +109,20 @@ async function countImageOperators(page: any): Promise<number> {
   }
 }
 
-function detectScanned(items: ExtractedTextItem[], text: string, imageOpCount: number): { isScanned: boolean; scanConfidence: ExtractedPage['scanConfidence'] } {
+function detectScanned(items: ExtractedTextItem[], text: string, _imageOpCount = 0): { isScanned: boolean; scanConfidence: ExtractedPage['scanConfidence'] } {
   const trimmedText = text.trim();
   const textLength = trimmedText.length;
 
   if (items.length === 0 || textLength < 10) {
     return { isScanned: true, scanConfidence: 'low' };
   }
-  if (imageOpCount >= 3 && textLength < 200) {
+  // Pages with very little extracted text are likely image-only or scanned.
+  if (textLength < 30) {
     return { isScanned: true, scanConfidence: 'low' };
   }
-  if (imageOpCount >= 3 && textLength < 500) {
+  // Pages with a modest amount of text and few text items may still be
+  // image-heavy (e.g., a figure with a caption), so mark medium confidence.
+  if (textLength < 500 && items.length < 30) {
     return { isScanned: false, scanConfidence: 'medium' };
   }
   return { isScanned: false, scanConfidence: 'high' };
@@ -352,6 +355,25 @@ function detectMultiPageObjects(pages: ExtractedPage[]): MultiPageObject[] {
   return objects;
 }
 
+async function withConcurrencyLimit<T>(
+  tasks: (() => Promise<T>)[],
+  limit: number,
+): Promise<T[]> {
+  const results: T[] = new Array(tasks.length);
+  let index = 0;
+
+  async function worker(): Promise<void> {
+    while (index < tasks.length) {
+      const current = index++;
+      results[current] = await tasks[current]();
+    }
+  }
+
+  const workers = Array.from({ length: Math.min(limit, tasks.length) }, () => worker());
+  await Promise.all(workers);
+  return results;
+}
+
 export async function extractPdf(filePath: string): Promise<ExtractionResult> {
   const data = new Uint8Array(readFileSync(filePath));
   const pdf = await pdfjs.getDocument({
@@ -372,35 +394,38 @@ export async function extractPdf(filePath: string): Promise<ExtractionResult> {
     pageLabels = [];
   }
 
-  const pages: ExtractedPage[] = [];
+  // Extract pages concurrently to reduce wall-clock time for large PDFs.
+  const pageTasks: (() => Promise<ExtractedPage>)[] = [];
   for (let i = 1; i <= numPages; i++) {
-    const page = await pdf.getPage(i);
-    const textContent = await page.getTextContent();
-    const items = textContent.items.filter(isTextItem).map(toExtractedItem);
-    const sortedItems = readingOrder(items);
-    const text = buildPageText(sortedItems);
-    const imageOpCount = await countImageOperators(page);
-    const { isScanned, scanConfidence } = detectScanned(items, text, imageOpCount);
+    pageTasks.push(async () => {
+      const page = await pdf.getPage(i);
+      const textContent = await page.getTextContent();
+      const items = textContent.items.filter(isTextItem).map(toExtractedItem);
+      const sortedItems = readingOrder(items);
+      const text = buildPageText(sortedItems);
 
-    const pageLabel = pageLabels[i - 1];
+      const pageLabel = pageLabels[i - 1];
 
-    const pageObj: ExtractedPage = {
-      physicalPage: i,
-      logicalPage: pageLabel ? parseInt(pageLabel, 10) || i : i,
-      pageLabel,
-      text,
-      items: sortedItems,
-      isScanned,
-      scanConfidence,
-      imageOpCount,
-    };
-
-    pageObj.estimatedHeadings = detectHeadings(pageObj);
-    pageObj.estimatedLists = detectLists(pageObj);
-
-    pages.push(pageObj);
+      const pageObj: ExtractedPage = {
+        physicalPage: i,
+        logicalPage: pageLabel ? parseInt(pageLabel, 10) || i : i,
+        pageLabel,
+        text,
+        items: sortedItems,
+        isScanned: false,
+        scanConfidence: 'high',
+        imageOpCount: 0,
+      };
+      const { isScanned, scanConfidence } = detectScanned(items, text, 0);
+      pageObj.isScanned = isScanned;
+      pageObj.scanConfidence = scanConfidence;
+      pageObj.estimatedHeadings = detectHeadings(pageObj);
+      pageObj.estimatedLists = detectLists(pageObj);
+      return pageObj;
+    });
   }
 
+  const pages = await withConcurrencyLimit(pageTasks, 4);
   const tables = detectTables(pages);
   const figures = detectFigures(pages);
   const multiPageObjects = detectMultiPageObjects(pages);

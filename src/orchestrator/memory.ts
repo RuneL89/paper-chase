@@ -38,6 +38,8 @@ export function memoryPaths(outputDir: string): RollingMemoryPaths {
 
 const emptyMemory: OrchestratorMemory = {
   rollingSummary: '',
+  historicalSummary: '',
+  summaryOnly: false,
   state: {
     document: {
       title: '',
@@ -51,6 +53,9 @@ const emptyMemory: OrchestratorMemory = {
     sources: {},
     folderHierarchy: {},
     rawFragments: [],
+    duplicateFlags: [],
+    sourceEntities: {},
+    sourceTopics: {},
   },
 };
 
@@ -67,7 +72,11 @@ export function loadMemory(outputDir: string): OrchestratorMemory {
   try {
     const raw = readFileSync(paths.structured, 'utf-8');
     const parsed = JSON.parse(raw) as OrchestratorMemory;
-    return { ...emptyMemory, ...parsed };
+    return {
+      ...emptyMemory,
+      ...parsed,
+      state: { ...emptyMemory.state, ...parsed.state },
+    };
   } catch {
     return structuredClone(emptyMemory);
   }
@@ -84,11 +93,33 @@ export function saveMemory(outputDir: string, memory: OrchestratorMemory): void 
 
 /**
  * Persists the compressed natural-language summary to disk.
+ * The file contains a current summary section and a historical archive section.
  */
-export function saveMemorySummary(outputDir: string, summary: string): void {
+export function saveMemorySummary(outputDir: string, memory: OrchestratorMemory): void {
   const paths = memoryPaths(outputDir);
   mkdirSync(path.dirname(paths.summary), { recursive: true });
-  writeFileSync(paths.summary, summary);
+
+  const lines: string[] = ['# Rolling Memory Summary', ''];
+
+  if (memory.rollingSummary) {
+    lines.push('## Current Summary');
+    lines.push(memory.rollingSummary);
+    lines.push('');
+  }
+
+  if (memory.summaryOnly) {
+    lines.push('## Mode');
+    lines.push('Summary-only: the LLM receives only the compressed summary; structured state is used for deterministic lookups.');
+    lines.push('');
+  }
+
+  if (memory.historicalSummary) {
+    lines.push('## Historical Summary');
+    lines.push(memory.historicalSummary);
+    lines.push('');
+  }
+
+  writeFileSync(paths.summary, lines.join('\n'));
 }
 
 /**
@@ -100,8 +131,6 @@ export function countSummaryTokens(summary: string): number {
 
 /**
  * Returns true if the memory exceeds the configured caps.
- * Full compaction logic is implemented in Sprint 5; this is the Sprint 1
- * detection helper.
  */
 export function memoryExceedsCaps(memory: OrchestratorMemory, caps: MemoryCaps): boolean {
   const entityCount = Object.keys(memory.state.entities).length;
@@ -117,19 +146,127 @@ export function memoryExceedsCaps(memory: OrchestratorMemory, caps: MemoryCaps):
   );
 }
 
+interface CompactionResult {
+  compacted: boolean;
+  archivedEntities: string[];
+  archivedTopics: string[];
+  archivedRelationships: string[];
+  summaryOnly: boolean;
+}
+
 /**
- * Stub for the compaction logic that will be fully implemented in Sprint 5.
- * In Sprint 1 it only records that the memory has exceeded caps and would
- * need compaction.
+ * Compacts rolling memory when it exceeds the configured caps.
+ * Oldest 20% of entities, topics, relationships, and summary text are archived
+ * into the historical summary. If the memory still cannot fit, summary-only mode
+ * is enabled.
  */
-export function compactMemoryIfNeeded(
-  memory: OrchestratorMemory,
-  caps: MemoryCaps,
-): { compacted: boolean; archivedEntities: string[]; archivedTopics: string[] } {
+export function compactMemoryIfNeeded(memory: OrchestratorMemory, caps: MemoryCaps): CompactionResult {
   if (!memoryExceedsCaps(memory, caps)) {
-    return { compacted: false, archivedEntities: [], archivedTopics: [] };
+    return {
+      compacted: false,
+      archivedEntities: [],
+      archivedTopics: [],
+      archivedRelationships: [],
+      summaryOnly: false,
+    };
   }
 
-  // Sprint 1: only mark that compaction is required; do not mutate memory.
-  return { compacted: true, archivedEntities: [], archivedTopics: [] };
+  const result: CompactionResult = {
+    compacted: true,
+    archivedEntities: [],
+    archivedTopics: [],
+    archivedRelationships: [],
+    summaryOnly: false,
+  };
+
+  // Archive oldest 20% of entities.
+  const entityKeys = Object.keys(memory.state.entities);
+  if (entityKeys.length > caps.maxEntities) {
+    const archiveCount = Math.max(1, Math.floor(entityKeys.length * caps.compactionRatio));
+    const sortedByMention = entityKeys.sort((a, b) => {
+      const countA = memory.state.entities[a].count ?? 0;
+      const countB = memory.state.entities[b].count ?? 0;
+      return countA - countB;
+    });
+    const toArchive = sortedByMention.slice(0, archiveCount);
+    result.archivedEntities = toArchive;
+
+    const historical = toArchive
+      .map((key) => {
+        const entity = memory.state.entities[key];
+        return `${entity.name} (${entity.type}, mentions: ${entity.count ?? 0})`;
+      })
+      .join(', ');
+    appendHistorical(memory, `Archived entities: ${historical}.`);
+
+    for (const key of toArchive) {
+      delete memory.state.entities[key];
+    }
+  }
+
+  // Archive oldest 20% of topics.
+  const topicKeys = Object.keys(memory.state.topics);
+  if (topicKeys.length > caps.maxTopics) {
+    const archiveCount = Math.max(1, Math.floor(topicKeys.length * caps.compactionRatio));
+    const sortedByMention = topicKeys.sort((a, b) => {
+      const countA = memory.state.topics[a].mentions?.length ?? 0;
+      const countB = memory.state.topics[b].mentions?.length ?? 0;
+      return countA - countB;
+    });
+    const toArchive = sortedByMention.slice(0, archiveCount);
+    result.archivedTopics = toArchive;
+
+    const historical = toArchive
+      .map((key) => {
+        const topic = memory.state.topics[key];
+        return `${key} (mentions: ${topic.mentions?.length ?? 0})`;
+      })
+      .join(', ');
+    appendHistorical(memory, `Archived topics: ${historical}.`);
+
+    for (const key of toArchive) {
+      delete memory.state.topics[key];
+    }
+  }
+
+  // Archive oldest 20% of relationships.
+  if (memory.state.relationships.length > caps.maxRelationships) {
+    const archiveCount = Math.max(1, Math.floor(memory.state.relationships.length * caps.compactionRatio));
+    const toArchive = memory.state.relationships.slice(0, archiveCount);
+    result.archivedRelationships = toArchive.map((r) => `${r.subject} - ${r.predicate} - ${r.object}`);
+
+    const historical = toArchive.map((r) => `${r.subject} - ${r.predicate} - ${r.object} (${r.pages})`).join('; ');
+    appendHistorical(memory, `Archived relationships: ${historical}.`);
+
+    memory.state.relationships = memory.state.relationships.slice(archiveCount);
+  }
+
+  // Archive oldest 20% of summary if it exceeds token cap.
+  if (countSummaryTokens(memory.rollingSummary) > caps.maxRollingMemoryTokens) {
+    const words = memory.rollingSummary.split(/\s+/).filter(Boolean);
+    const archiveCount = Math.max(1, Math.floor(words.length * caps.compactionRatio));
+    const archivedWords = words.slice(0, archiveCount);
+    const remainingWords = words.slice(archiveCount);
+
+    appendHistorical(memory, `Archived summary: ${archivedWords.join(' ')}`);
+    memory.rollingSummary = remainingWords.join(' ');
+  }
+
+  // If memory still exceeds caps after compaction, switch to summary-only mode.
+  if (memoryExceedsCaps(memory, caps)) {
+    result.summaryOnly = true;
+    memory.summaryOnly = true;
+  } else {
+    memory.summaryOnly = false;
+  }
+
+  return result;
+}
+
+function appendHistorical(memory: OrchestratorMemory, text: string): void {
+  if (!memory.historicalSummary) {
+    memory.historicalSummary = text;
+  } else {
+    memory.historicalSummary += '\n\n' + text;
+  }
 }

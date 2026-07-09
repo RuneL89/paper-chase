@@ -20,7 +20,9 @@ const baseConfig: Config = {
   extraction: { engine: 'pdfjs-dist', ocr_enabled: true, page_range: null },
   output: { dir: '.', page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'] },
   ingestion: { entity_threshold: 2, topic_threshold: 2, max_entities: 50, max_topics: 50 },
+  sampling: { large_page_threshold: 500, strategy_page_budget: 50, similarity_metadata_keys: ['title', 'author'] },
   status: 'ready',
+  llm: { provider: 'test', model: 'local', enabled: false, maxRetries: 3, baseDelay: 1000, concurrency: 5, maxRollingMemoryTokens: 8000 },
   resilience: { recoveryMode: 'fallback', circuitBreakerThreshold: 0.3, circuitBreakerWindowMs: 300000 },
 };
 

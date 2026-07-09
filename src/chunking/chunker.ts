@@ -1,8 +1,9 @@
 import path from 'path';
 import type { ExtractionResult, ExtractedPage } from '../extractor/types.js';
 import type { Config } from '../config.js';
-import type { PdfStructure, Chunk, ChunkingStrategy, ChunkBoundary } from './types.js';
+import type { PdfStructure, Chunk, ChunkingStrategy, ChunkBoundary, SamplingStrategy } from './types.js';
 import { analyzePdfStructure } from './analyzer.js';
+import { createDefaultSamplingStrategy } from '../orchestrator/sampling.js';
 
 export function buildChunkingStrategy(
   result: ExtractionResult,
@@ -93,6 +94,7 @@ export function buildChunkingStrategy(
     fallback,
     boundaries,
     example,
+    samplingStrategy: createDefaultSamplingStrategy(result, config),
   };
 }
 
@@ -218,6 +220,19 @@ function buildChunkContent(
   return contentLines.join('\n');
 }
 
+function estimatePageContentLength(
+  page: ExtractedPage,
+  result: ExtractionResult,
+): number {
+  const headerLength = 40 + (page.pageLabel ? 20 : 0);
+  const tables = result.tables.filter((t) => t.page === page.physicalPage);
+  const tableLength = tables.reduce((sum, t) => sum + (t.markdown?.length || 0), 0);
+  const figures = result.figures.filter((f) => f.page === page.physicalPage);
+  const figureLength = figures.reduce((sum, f) => sum + (f.description?.length || 0), 0);
+  const listLength = (page.estimatedLists || []).reduce((sum, l) => sum + l.length, 0);
+  return headerLength + page.text.length + tableLength + figureLength + listLength;
+}
+
 export function chunkPages(
   result: ExtractionResult,
   config: Config,
@@ -230,6 +245,7 @@ export function chunkPages(
   let currentGroup: ExtractedPage[] = [];
   let groupIndex = 1;
   let activeMultiPageObject: { type: 'table' | 'figure' | 'footnote'; endPage: number; description: string } | undefined;
+  let currentGroupLength = 0;
 
   function flushGroup(): void {
     if (currentGroup.length === 0) return;
@@ -268,6 +284,7 @@ export function chunkPages(
     currentGroup = [];
     groupIndex++;
     activeMultiPageObject = undefined;
+    currentGroupLength = 0;
   }
 
   for (const page of result.pages) {
@@ -275,15 +292,18 @@ export function chunkPages(
     if (page.isScanned) continue;
 
     const pageMpo = findMultiPageObjectForPage(page, structure);
+    const pageIsMpo = pageMpo !== undefined;
+    const groupIsMpo = activeMultiPageObject !== undefined;
+    const sameMpo =
+      pageIsMpo && groupIsMpo && pageMpo.endPage === activeMultiPageObject?.endPage;
 
-    // If we are inside a multi-page object and this page no longer belongs to it,
-    // flush the current group so we don't mix objects.
-    if (activeMultiPageObject && (!pageMpo || pageMpo.endPage !== activeMultiPageObject.endPage)) {
+    // Flush whenever the boundary class changes (MPO vs. normal, or different MPO).
+    if (currentGroup.length > 0 && !sameMpo) {
       flushGroup();
     }
 
-    if (pageMpo) {
-      // Start a new group if we are beginning a multi-page object.
+    if (pageIsMpo) {
+      // Start a new MPO group if we are beginning one.
       if (currentGroup.length === 0) {
         activeMultiPageObject = pageMpo;
       }
@@ -293,9 +313,21 @@ export function chunkPages(
         flushGroup();
       }
     } else {
-      // Normal page: create a single-page chunk.
+      // Normal page: group consecutive pages until the next page would exceed the
+      // maximum chunk size, then flush before adding it.
+      const pageLength = estimatePageContentLength(page, result);
+      if (
+        currentGroup.length > 0 &&
+        currentGroupLength + pageLength > config.chunking.max_chunk_size
+      ) {
+        flushGroup();
+      }
+      if (currentGroup.length === 0) {
+        activeMultiPageObject = undefined;
+        currentGroupLength = 0;
+      }
       currentGroup.push(page);
-      flushGroup();
+      currentGroupLength += pageLength;
     }
   }
 
@@ -307,6 +339,7 @@ export function chunkPages(
 export function analyzeAndChunk(
   result: ExtractionResult,
   config: Config,
+  samplingStrategy?: SamplingStrategy,
 ): {
   structure: PdfStructure;
   strategy: ChunkingStrategy;
@@ -314,6 +347,9 @@ export function analyzeAndChunk(
 } {
   const structure = analyzePdfStructure(result);
   const strategy = buildChunkingStrategy(result, structure, config);
+  if (samplingStrategy) {
+    strategy.samplingStrategy = samplingStrategy;
+  }
   const chunks = chunkPages(result, config, structure);
   return { structure, strategy, chunks };
 }

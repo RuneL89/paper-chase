@@ -5,7 +5,7 @@
 | Sprint ID | `sprint-04a-agents-md-sampling` |
 | Goal | Discover the sampling strategy for the corpus and generate the full per-wiki `AGENTS.md` ingestion guide before the LLM writes any content. |
 | Based on | `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §8.2; `Project Vision/02_WIKI_concept_detailed.md` §7; `Project Vision/04_orchestration_detailed.md` §4.1–4.3; `Project Vision/07_validation_and_quality.md` §5. |
-| Status | `NOT_STARTED` |
+| Status | `COMPLETE` |
 
 ---
 

@@ -1,6 +1,7 @@
 import { writeFileSync, mkdirSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { readCreatedTimestamp } from '../writers/preservation.js';
 import type { Config } from '../config.js';
 import type { FolderPlan, OrchestratorMemory } from './types.js';
 
@@ -27,12 +28,15 @@ export function writeWikiIndexContract(
 
   const title = `${data.title} Index`;
   const children = data.folders.map((f) => `${f.folder}/index.md`);
+  const now = new Date().toISOString();
+  const created = readCreatedTimestamp(filePath) ?? now;
 
   const frontmatter = {
     title,
     type: 'index',
     wiki: data.slug,
-    updated: new Date().toISOString(),
+    created,
+    updated: now,
     children,
   };
 
@@ -60,6 +64,7 @@ export function writeWikiIndexContract(
     '- Page types: `document`, `source`, `topic`, `entity`, `raw`.',
     '- Citation format: `[^srcN]` mapped to `sources` frontmatter.',
     '- Naming convention: `<slug>-part-NNN.md` for document chunks, `<entity-slug>.md` for entities.',
+    '- Every generated page must include `wiki: <slug>` and a `created` timestamp.',
     '',
     '## Statistics',
     '',
@@ -79,38 +84,84 @@ export function writeFolderIndexContract(
   folder: FolderPlan,
   data: WikiIndexData,
   memory: OrchestratorMemory,
+  folderPages: Record<string, string[]> = {},
 ): void {
   mkdirSync(path.dirname(filePath), { recursive: true });
 
   const parent = '../index.md';
   const children = folder.children.map((c) => `${c}/index.md`);
+  const now = new Date().toISOString();
+  const created = readCreatedTimestamp(filePath) ?? now;
 
   const frontmatter: Record<string, unknown> = {
     title: folder.title,
     type: 'index',
     wiki: data.slug,
-    updated: new Date().toISOString(),
+    created,
+    updated: now,
   };
   if (parent) frontmatter.parent = parent;
   if (children.length > 0) frontmatter.children = children;
 
+  const siblingFolders = data.folders
+    .filter((f) => f.folder !== folder.folder)
+    .map((f) => `- [[${f.title}]] — ${f.folder}/index.md`);
+
+  const pages = folderPages[folder.folder] ?? [];
+  const catalogLines =
+    pages.length > 0
+      ? pages.map((p) => `- ${p}`)
+      : ['- No pages in this folder yet.'];
+
+  const namingConvention = getNamingConvention(folder.folder);
+
   const lines = [
     `# ${folder.title}`,
     '',
-    '## Catalog',
+    '## Purpose',
     '',
-    `This folder contains ${folder.pageTypes.join(', ')} pages.`,
+    folder.description,
     '',
-    '## Navigation',
+    '## Page Types',
+    '',
+    ...folder.pageTypes.map((t) => `- \`${t}\``),
+    '',
+    '## Naming Convention',
+    '',
+    namingConvention,
+    '',
+    '## Links to Other Folders',
     '',
     `- Parent: [[${data.title} Index]]`,
+    ...(siblingFolders.length > 0 ? siblingFolders : ['- No sibling folders.']),
     '',
-    '## Contract',
+    '## Folder-Specific Rules',
     '',
-    `- Page types in this folder: ${folder.pageTypes.join(', ')}.`,
-    '- Citation format: `[^srcN]` mapped to `sources` frontmatter.',
-    folder.description,
+    '- Every page must include `wiki: <slug>` and a `created` timestamp in its frontmatter.',
+    '- Citation format is `[^srcN]` mapped to `sources` frontmatter.',
+    '- Pages are linked to related entities, topics, and source pages via `[[...]]` wikilinks.',
+    '',
+    '## Catalog',
+    '',
+    ...catalogLines,
   ];
 
   writeFileSync(filePath, matter.stringify(lines.join('\n'), frontmatter));
+}
+
+function getNamingConvention(folder: string): string {
+  switch (folder) {
+    case 'documents':
+      return '`<source-slug>-part-NNN.md` for each document chunk.';
+    case 'sources':
+      return '`<source-slug>.md` for each source PDF catalog page.';
+    case 'entities':
+      return '`<entity-slug>.md` for each named entity.';
+    case 'topics':
+      return '`<topic-slug>.md` for each recurring theme.';
+    case 'raw':
+      return '`<source-slug>-page-NNN.md` for scanned pages, or `<source-slug>.md` for malformed files.';
+    default:
+      return '`<slug>.md` for pages in this folder.';
+  }
 }

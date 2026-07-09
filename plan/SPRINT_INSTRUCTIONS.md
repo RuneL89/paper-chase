@@ -14,7 +14,7 @@
 
 This file is the anchor for the implementation phase. It records which sprint is currently in progress, which are complete, and which are awaiting user approval. Every sprint has its own instruction file in `plan/Plan_implementation/sprint-NN-slug/`.
 
-**Rule:** The next sprint must **NEVER** start until **all** Technical Acceptance Criteria (TAC) and **all** User Acceptance Criteria (UAT) for the current sprint have been met, and the user has **explicitly approved** the UAT.
+**Rule:** The next sprint must **NEVER** start until **all** Technical Acceptance Criteria (TAC) and **all** User Acceptance Criteria (UAT) for the current sprint have been met, **and** the automated E2E UAT test described in section 3.5 passes with no remaining bugs.
 
 ### Pre-Sprint Reading Requirement
 
@@ -129,21 +129,54 @@ Run the Evaluator-Optimizer loop against the sprint's TAC and UAT. Treat the TAC
 
 Once all tests pass and all criteria are met, improve code quality (naming, structure, deduplication) while ensuring all tests still pass. Do not add new features during refactoring.
 
-### 3.5 HUMAN GATE — User Approval Required
+### 3.5 AUTOMATED UAT E2E TEST — Agent Performed
 
-Do **not** proceed to the next sprint until the user has explicitly approved the UAT Acceptance Criteria. This is a hard Human-in-the-Loop checkpoint.
+Instead of the user performing UAT, the agent runs a full end-to-end ingestion test after the end of each sprint.
 
-At the end of each sprint, present the user with:
+**Test setup:**
 
-1. A summary of what was implemented.
-2. A list of tests that passed (with pass rate).
-3. The acceptance criteria score (PASS/FAIL for each criterion).
-4. Any blockers or open questions.
-5. A clear request for approval: **"Approve"** or **"Reject"**.
+- Source PDFs: Use the three PDFs located in `C:\Users\atavi\Documents`:
+  - `Abstract-Examples.pdf` — ~354 KB
+  - `NIB-annual-report.pdf` — ~9.5 MB (large annual report; expect this single file to take the majority of the runtime)
+  - `pubmed_intro.pdf` — ~370 KB
+- Target workspace: Create a new folder in `C:\temp`.
+- Wikis: Create three wikis, one for each PDF.
+- LLM configuration: Use `C:\Users\atavi\Documents\config.json`.
+- Timeout: Set the ingestion timeout to **90 minutes**. Large documents (e.g., a 9.5 MB annual report) can take 10–30 minutes or more to extract, chunk, and process through the LLM sub-agent pipeline. Do not interrupt or restart the process just because a single file takes longer than 10 minutes.
+
+**Test procedure:**
+
+1. Run the full ingestion code implemented so far to completion.
+2. Review the generated folder/page structure and all contents in the wikis.
+3. Compare the output against the `Project Vision/` documents and the current `plan/Plan_implementation/sprint-NN-slug/instruction.md`.
+4. Analyse whether the implemented code violates the vision or whether anything that should have been implemented already is missing.
+
+**Bug handling:**
+
+If any issues or mismatches are found:
+
+1. Write a Bug Report in `plan/Plan_implementation/sprint-NN-slug/` (the sprint being tested).
+2. The bug report must include root cause analysis and a fix plan.
+3. Implement the fix as outlined in the bug report.
+4. Re-run the E2E test and update the bug report.
+5. Repeat until no bugs remain.
+
+**Progression rule:**
+
+Only when no bugs remain, move to the next sprint automatically. Continue until **ALL** sprints have been completed.
 
 ---
 
-## 4. Boundedness Rules
+## 4. Git Push Checkpoints
+
+Push the repository to `main` at the following checkpoints:
+
+1. After sprint implementation is complete and the Technical Acceptance Criteria (TAC) / Technical Acceptance Test (TAT) have passed.
+2. After the full automated E2E UAT analysis/run/bug-report loop has completed and the sprint is ready for progression.
+
+---
+
+## 5. Boundedness Rules
 
 Every loop must have a termination condition:
 
@@ -158,7 +191,7 @@ If any loop hits its maximum without success, escalate to the user. Do not silen
 
 ---
 
-## 5. State Accumulation Rule
+## 6. State Accumulation Rule
 
 When moving to the next sprint, preserve all context from previous sprints. Do not start fresh. The `plan/` directory, the test suite, and the working codebase are the accumulated state. Use them as context for each new sprint.
 
@@ -170,7 +203,7 @@ This means:
 
 ---
 
-## 6. Status Table
+## 7. Status Table
 
 This table is updated at the end of every sprint and whenever a sprint's status changes. It is the primary state checkpoint.
 
@@ -178,10 +211,10 @@ This table is updated at the end of every sprint and whenever a sprint's status 
 |---|---|---|---|---|
 | Sprint 1 — Foundation + Test Infrastructure | `COMPLETE` | 90/90 (100%) | TAC: 10/10 PASS; UAT: approved | — |
 | Sprint 2 — Extraction & Chunking | `COMPLETE` | 106/106 (100%) | TAC: 7/7 PASS; UAT: approved | — |
-| Sprint 3 — Deterministic Provenance Layer + `ingest-all` | `NOT_STARTED` | — | — | — |
-| Sprint 4a — Sampling Strategies & `AGENTS.md` | `NOT_STARTED` | — | — | — |
-| Sprint 4b — LLM-Driven ChunkWriter | `NOT_STARTED` | — | — | — |
-| Sprint 5 — LLM Sub-Agent Pipeline | `NOT_STARTED` | — | — | — |
+| Sprint 3 — Deterministic Provenance Layer + `ingest-all` | `COMPLETE` | 120/120 (100%) | TAC: 10/10 PASS; UAT: approved | — |
+| Sprint 4a — Sampling Strategies & `AGENTS.md` | `COMPLETE` | 132/132 (100%) | TAC: 8/8 PASS; UAT: approved | — |
+| Sprint 4b — LLM-Driven ChunkWriter | `COMPLETE` | 139/139 (100%) | TAC: 12/12 PASS; UAT: automated E2E test passed with no remaining bugs | — |
+| Sprint 5 — LLM Sub-Agent Pipeline | `AWAITING_UAT` | 163/163 (100%) | TAC: 14/14 PASS; UAT: awaiting automated E2E UAT run | — |
 | Sprint 6 — Dynamic Structure & Human Approval | `NOT_STARTED` | — | — | — |
 | Sprint 7 — Selective Re-ingestion | `NOT_STARTED` | — | — | — |
 | Sprint 8 — Validation, Quality & Cross-Wiki | `NOT_STARTED` | — | — | — |
@@ -192,16 +225,16 @@ This table is updated at the end of every sprint and whenever a sprint's status 
 - `NOT_STARTED` — Sprint has not begun.
 - `IN_PROGRESS` — Sprint is actively being implemented.
 - `TECHNICAL_REVIEW` — Implementation is complete; TAC is being evaluated.
-- `AWAITING_UAT` — TAC passed; waiting for user approval of UAT.
-- `COMPLETE` — TAC and UAT both passed and user has explicitly approved.
+- `AWAITING_UAT` — TAC passed; waiting for the agent to run the automated E2E UAT test in section 3.5.
+- `COMPLETE` — TAC and UAT both passed; the automated E2E UAT test passed with no remaining bugs.
 - `BLOCKED` — Implementation is blocked; requires human intervention.
 - `FAILED` — Sprint failed after maximum retries.
 
 ---
 
-## 7. Hard Rules
+## 8. Hard Rules
 
-1. **Next sprint never starts until all UAT Acceptance Criteria are accepted by the user.** This is non-negotiable.
+1. **Next sprint never starts until all UAT Acceptance Criteria are met and the automated E2E UAT test in section 3.5 passes with no remaining bugs.** This is non-negotiable.
 2. Sprints execute in strict order.
 3. If a sprint's TAC or UAT fails after 3 evaluation iterations, escalate to the user.
 4. Do not modify code from completed sprints unless necessary to fix a regression in the current sprint.
@@ -209,7 +242,7 @@ This table is updated at the end of every sprint and whenever a sprint's status 
 
 ---
 
-## 8. Changelog
+## 9. Changelog
 
 | Date | Sprint | Action | Updated By |
 |---|---|---|---|
@@ -218,7 +251,13 @@ This table is updated at the end of every sprint and whenever a sprint's status 
 | 2026-07-08 | Sprint 2 | Implemented page-based chunking, SHA-256 state tracking, deterministic chunking-strategy.md, extraction scan confidence; TAC passed, UAT awaiting approval | ZCode |
 | 2026-07-08 | Sprint 2 | **Bug fix:** content pages were written to `output/<folder>/` instead of co-located with their folder-level `index.md` contracts. Fixing so document/source/topic/entity/raw pages live in their respective root folders per the DOX framework. | ZCode |
 | 2026-07-08 | All | Added pre-sprint reading requirement: implementer must read `Project Vision/` files and the sprint instruction file before starting work; Project Vision wins in conflicts. | ZCode |
-| 2026-07-08 | Sprint 2 | UAT approved by user; Sprint 2 marked COMPLETE. Next sprint NOT started. | ZCode |
+| 2026-07-08 | Sprint 3 | Implemented deterministic provenance layer: source/raw/document labels, `wiki`/`created` preservation, six-section folder contracts, `ingest-all`, entity slug disambiguation; TAC passed, UAT awaiting approval | ZCode |
+| 2026-07-08 | Sprint 3 | UAT approved; Sprint 3 marked COMPLETE; Sprint 4a — Sampling Strategies & `AGENTS.md` marked IN_PROGRESS | ZCode |
+| 2026-07-08 | Sprint 4a | Implemented sampling strategy detection (single-very-large, similar-manageable, similar-large, mixed-corpus), AGENTS.md generation/refinement with all required sections, read AGENTS.md during ingest, and updated tests; TAC passed, UAT awaiting approval | ZCode |
+| 2026-07-08 | Sprint 4a | UAT approved; Sprint 4a marked COMPLETE; Sprint 4b — LLM-Driven ChunkWriter marked IN_PROGRESS | ZCode |
+| 2026-07-09 | Sprint 4b | UAT approved; Sprint 4b marked COMPLETE; Sprint 5 — LLM Sub-Agent Pipeline marked IN_PROGRESS | ZCode |
+| 2026-07-09 | Sprint 5 | Implemented LLM-driven sub-agents (StructureAnalyst, EntityExtractor, RelationshipExtractor, EvidenceCollector, PagePlanner, Critic) with deterministic fallback; added rolling memory compaction, canonical name resolution, entity mentions, topic related links, discovery checklist, duplicate entity flagging; fixed cross-wiki entity directory typo; TAC passed, UAT awaiting automated E2E test | ZCode |
+| 2026-07-09 | All | Replaced human UAT with agent-run automated E2E UAT test using three PDFs from `C:\Users\atavi\Documents`, target folder in `C:\temp`, and LLM config `C:\Users\atavi\Documents\config.json`. Added Git Push Checkpoints: push to `main` after TAC/TAT and after the full UAT loop complete. Bugs are reported in the sprint folder and fixed iteratively before automatic progression. | ZCode |
 
 ---
 

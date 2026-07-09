@@ -5,11 +5,11 @@ import { mkdirSync, readFileSync, statSync } from 'fs';
 import path from 'path';
 import { writeRawPage } from '../writers/raw.js';
 
-export async function safeExtractPdf(filePath: string, rawOutputDir?: string): Promise<ExtractionOutcome> {
+export async function safeExtractPdf(filePath: string, rawOutputDir?: string, wikiSlug?: string): Promise<ExtractionOutcome> {
   console.log(`Extracting ${path.basename(filePath)}…`);
   try {
     const result = await extractPdf(filePath);
-    writeScannedRawPages(result, rawOutputDir);
+    writeScannedRawPages(result, rawOutputDir, wikiSlug);
     return result;
   } catch (error) {
     const reason = error instanceof Error ? error.message : String(error);
@@ -17,15 +17,15 @@ export async function safeExtractPdf(filePath: string, rawOutputDir?: string): P
   }
 }
 
-export async function processPdfs(filePaths: string[], rawOutputDir?: string): Promise<ExtractionOutcome[]> {
+export async function processPdfs(filePaths: string[], rawOutputDir?: string, wikiSlug?: string): Promise<ExtractionOutcome[]> {
   const outcomes: ExtractionOutcome[] = [];
   for (const filePath of filePaths) {
-    outcomes.push(await safeExtractPdf(filePath, rawOutputDir));
+    outcomes.push(await safeExtractPdf(filePath, rawOutputDir, wikiSlug));
   }
   return outcomes;
 }
 
-function writeScannedRawPages(result: ExtractionResult, rawOutputDir?: string): void {
+function writeScannedRawPages(result: ExtractionResult, rawOutputDir?: string, wikiSlug?: string): void {
   const scannedPages = result.pages.filter((page) => page.isScanned);
   if (scannedPages.length === 0) {
     return;
@@ -35,9 +35,10 @@ function writeScannedRawPages(result: ExtractionResult, rawOutputDir?: string): 
   mkdirSync(outputDir, { recursive: true });
 
   const baseSlug = path.basename(result.filePath, path.extname(result.filePath));
+  const slug = wikiSlug ?? 'unknown';
   for (const page of scannedPages) {
     const rawPath = path.join(outputDir, `${baseSlug}-page-${page.physicalPage}.md`);
-    writeRawPage(rawPath, result, page);
+    writeRawPage(rawPath, result, page, slug);
   }
 }
 

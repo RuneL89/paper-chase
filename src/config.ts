@@ -45,6 +45,12 @@ export interface IngestionConfig {
   max_topics: number;
 }
 
+export interface SamplingConfig {
+  large_page_threshold: number;
+  strategy_page_budget: number;
+  similarity_metadata_keys: string[];
+}
+
 export interface ResilienceConfig {
   recoveryMode: RecoveryMode;
   circuitBreakerThreshold: number;
@@ -58,6 +64,7 @@ export interface Config {
   extraction: ExtractionConfig;
   output: OutputConfig;
   ingestion: IngestionConfig;
+  sampling: SamplingConfig;
   status: WikiStatus;
   llm?: LLMConfig;
   resilience: ResilienceConfig;
@@ -95,6 +102,11 @@ export const defaultConfig: Config = {
     topic_threshold: 2,
     max_entities: 50,
     max_topics: 50,
+  },
+  sampling: {
+    large_page_threshold: 500,
+    strategy_page_budget: 50,
+    similarity_metadata_keys: ['title', 'author'],
   },
   status: 'draft',
   llm: {
@@ -185,6 +197,9 @@ const requiredPaths: { path: string[]; label: string }[] = [
   { path: ['extraction', 'engine'], label: 'extraction.engine' },
   { path: ['output', 'dir'], label: 'output.dir' },
   { path: ['output', 'page_types'], label: 'output.page_types' },
+  { path: ['sampling', 'large_page_threshold'], label: 'sampling.large_page_threshold' },
+  { path: ['sampling', 'strategy_page_budget'], label: 'sampling.strategy_page_budget' },
+  { path: ['sampling', 'similarity_metadata_keys'], label: 'sampling.similarity_metadata_keys' },
   { path: ['status'], label: 'status' },
   { path: ['resilience', 'recoveryMode'], label: 'resilience.recoveryMode' },
   { path: ['resilience', 'circuitBreakerThreshold'], label: 'resilience.circuitBreakerThreshold' },
@@ -285,6 +300,16 @@ function validateConfig(config: Config): void {
   }
   if (!Array.isArray(config.output.page_types) || config.output.page_types.some((t) => typeof t !== 'string')) {
     errors.push('output.page_types must be an array of strings');
+  }
+
+  if (!Number.isInteger(config.sampling.large_page_threshold) || config.sampling.large_page_threshold <= 0) {
+    errors.push('sampling.large_page_threshold must be a positive integer');
+  }
+  if (!Number.isInteger(config.sampling.strategy_page_budget) || config.sampling.strategy_page_budget <= 0) {
+    errors.push('sampling.strategy_page_budget must be a positive integer');
+  }
+  if (!Array.isArray(config.sampling.similarity_metadata_keys) || config.sampling.similarity_metadata_keys.some((k) => typeof k !== 'string')) {
+    errors.push('sampling.similarity_metadata_keys must be an array of strings');
   }
 
   const allowedStatuses: WikiStatus[] = ['initialized', 'sampled', 'ready', 'draft'];

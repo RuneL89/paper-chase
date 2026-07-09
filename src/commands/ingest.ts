@@ -3,7 +3,7 @@ import { discoverWikis } from '../workspace.js';
 import { CLIError } from '../errors.js';
 import { runIngestion } from '../ingestion/engine.js';
 
-export async function ingestCommand(workspace: string, slug: string): Promise<number> {
+export async function ingestCommand(workspace: string, slug: string, resume = false): Promise<number> {
   if (!slug) {
     throw new CLIError(
       'Please provide a wiki slug. Example: llm-wiki-cli ingest acme',
@@ -19,8 +19,8 @@ export async function ingestCommand(workspace: string, slug: string): Promise<nu
     );
   }
 
-  console.log(`Starting full ingestion for wiki "${slug}"…`);
-  const result = await runIngestion(workspace, slug, config);
+  console.log(`Starting full ingestion for wiki "${slug}"${resume ? ' (resuming)' : ''}…`);
+  const result = await runIngestion(workspace, slug, config, resume);
   printSummary(slug, result);
   return 0;
 }

@@ -1,5 +1,6 @@
 import { writeFileSync } from 'fs';
 import matter from 'gray-matter';
+import { readCreatedTimestamp, humanizeLabel } from './preservation.js';
 import type { ExtractionResult } from '../extractor/types.js';
 
 export interface DocumentPageLink {
@@ -17,7 +18,7 @@ export function writeSourcePage(
   result: ExtractionResult,
   documentLinks: DocumentPageLink[] = [],
   rawLinks: RawPageLink[] = [],
-  wikiSlug?: string,
+  wikiSlug: string,
 ): void {
   // Strip undefined metadata fields so gray-matter can serialize cleanly.
   const metadata: Record<string, string> = {};
@@ -27,10 +28,15 @@ export function writeSourcePage(
     }
   }
 
+  const now = new Date().toISOString();
+  const created = readCreatedTimestamp(filePath) ?? now;
+
   const frontmatter: Record<string, unknown> = {
     title: `Source: ${result.fileName}`,
     type: 'source',
+    wiki: wikiSlug,
     file: result.filePath,
+    label: humanizeLabel(result.fileName),
     sha256: result.sha256,
     logical_pages: result.logicalPages,
     physical_pages: result.physicalPages,
@@ -41,10 +47,9 @@ export function writeSourcePage(
     metadata,
     ingested: result.ingested,
     warnings: result.warnings,
+    created,
+    updated: now,
   };
-  if (wikiSlug) {
-    frontmatter.wiki = wikiSlug;
-  }
 
   const documentLines = documentLinks.length
     ? documentLinks.map((d) => `- [[${d.title}]] — pages ${d.pageRange}`)

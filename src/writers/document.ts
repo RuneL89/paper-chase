@@ -1,25 +1,31 @@
 import { writeFileSync } from 'fs';
 import matter from 'gray-matter';
+import { readCreatedTimestamp, humanizeLabel } from './preservation.js';
 import type { Chunk } from '../chunking/types.js';
 import type { Config } from '../config.js';
 
-export function writeDocumentPage(
-  filePath: string,
+export interface LlmPageContent {
+  frontmatter: Record<string, unknown>;
+  body: string;
+}
+
+export function buildDocumentPage(
   chunk: Chunk,
   config: Config,
   entityTitles: string[] = [],
   topicTitles: string[] = [],
-): void {
+): LlmPageContent {
   const confidence = deriveConfidence(chunk);
   const source = chunk.sources[0];
   const sourceFileName = source?.file ? pathBasename(source.file) : '';
   const sourceTitle = sourceFileName ? `Source: ${sourceFileName}` : '';
   const indexTitle = `${config.wiki.title} Index`;
+  const now = new Date().toISOString();
 
   const frontmatter = {
     title: chunk.title,
-    created: new Date().toISOString(),
-    updated: new Date().toISOString(),
+    created: now,
+    updated: now,
     type: 'document',
     wiki: config.wiki.slug,
     tags: chunk.tags,
@@ -32,6 +38,7 @@ export function writeDocumentPage(
       file: source.file,
       pages: source.pages,
       extracted: source.extracted,
+      label: humanizeLabel(pathBasename(source.file)),
     })),
   };
 
@@ -76,8 +83,62 @@ export function writeDocumentPage(
     ...wikilinks.map((link) => `- [[${link}]]`),
   ];
 
-  const content = matter.stringify(bodyLines.join('\n'), frontmatter);
-  writeFileSync(filePath, content);
+  return { frontmatter, body: bodyLines.join('\n') };
+}
+
+export function writeDocumentPage(
+  filePath: string,
+  chunk: Chunk,
+  config: Config,
+  entityTitles: string[] = [],
+  topicTitles: string[] = [],
+  llmContent?: LlmPageContent,
+): void {
+  const content = llmContent
+    ? mergeLlmContentWithChunk(llmContent, chunk, config)
+    : buildDocumentPage(chunk, config, entityTitles, topicTitles);
+
+  const now = new Date().toISOString();
+  const created = readCreatedTimestamp(filePath) ?? (content.frontmatter.created as string | undefined) ?? now;
+  content.frontmatter.created = created;
+  content.frontmatter.updated = now;
+
+  const full = matter.stringify(content.body, content.frontmatter);
+  writeFileSync(filePath, full);
+}
+
+function mergeLlmContentWithChunk(
+  llmContent: LlmPageContent,
+  chunk: Chunk,
+  config: Config,
+): LlmPageContent {
+  const frontmatter = { ...llmContent.frontmatter };
+  // Ensure required deterministic fields are present even if the LLM omitted them.
+  frontmatter.title = frontmatter.title ?? chunk.title;
+  frontmatter.type = 'document';
+  frontmatter.wiki = config.wiki.slug;
+  frontmatter.tags = Array.isArray(frontmatter.tags) ? frontmatter.tags : chunk.tags;
+  frontmatter.confidence = frontmatter.confidence ?? deriveConfidence(chunk);
+  frontmatter.below_min = chunk.belowMin;
+  frontmatter.char_count = chunk.charCount;
+  frontmatter.boundary_type = chunk.boundaryType;
+  frontmatter.sources = Array.isArray(frontmatter.sources) && frontmatter.sources.length > 0
+    ? frontmatter.sources
+    : chunk.sources.map((source) => ({
+        id: source.id,
+        file: source.file,
+        pages: source.pages,
+        extracted: source.extracted,
+        label: humanizeLabel(pathBasename(source.file)),
+      }));
+
+  let body = llmContent.body;
+  // Ensure the full extracted detail is preserved somewhere on the page.
+  if (!body.includes(chunk.content.trim().slice(0, 200))) {
+    body = body + '\n\n## Preserved Extracted Detail\n\n' + chunk.content;
+  }
+
+  return { frontmatter, body };
 }
 
 function deriveConfidence(chunk: Chunk): 'high' | 'medium' | 'low' {

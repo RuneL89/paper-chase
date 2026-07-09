@@ -8,6 +8,7 @@ describe('frontmatter schema validation', () => {
       type: 'index',
       updated: '2026-07-08T00:00:00Z',
       wiki: 'donations',
+      created: '2026-07-08T00:00:00Z',
       children: [],
     });
     expect(result.valid).toBe(true);
@@ -60,12 +61,35 @@ describe('frontmatter schema validation', () => {
     const result = validateFrontmatter({
       title: 'Source: report.pdf',
       type: 'source',
+      wiki: 'donations',
       file: 'wikis/donations/raw/report.pdf',
-      pages: 12,
+      logical_pages: 12,
+      physical_pages: 12,
+      sha256: 'a'.repeat(64),
       ingested: '2026-07-08T00:00:00Z',
       warnings: [],
+      label: 'Report',
+      created: '2026-07-08T00:00:00Z',
+      updated: '2026-07-08T00:00:00Z',
     });
     expect(result.valid).toBe(true);
+  });
+
+  it('TAC-006A: rejects source page missing wiki or created', () => {
+    const result = validateFrontmatter({
+      title: 'Source: report.pdf',
+      type: 'source',
+      file: 'wikis/donations/raw/report.pdf',
+      logical_pages: 12,
+      physical_pages: 12,
+      sha256: 'a'.repeat(64),
+      ingested: '2026-07-08T00:00:00Z',
+      warnings: [],
+      label: 'Report',
+    });
+    expect(result.valid).toBe(false);
+    expect(result.issues.some((i) => i.field === 'wiki')).toBe(true);
+    expect(result.issues.some((i) => i.field === 'created')).toBe(true);
   });
 
   it('TAC-007: isKnownPageType recognizes default types', () => {

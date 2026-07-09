@@ -28,6 +28,10 @@ export interface RunLog {
   configVersions: Record<string, string>;
   llmCalls: LLMCallRecord[];
   lintIssues?: number;
+  samplingStrategy?: {
+    category: string;
+    reason: string;
+  };
 }
 
 export function writeRunLog(workspace: string, log: RunLog): string {
@@ -56,6 +60,10 @@ export function buildRunLog(
     configVersions?: Record<string, string>;
     llmCalls?: LLMCallRecord[];
     lintIssues?: number;
+    samplingStrategy?: {
+      category: string;
+      reason: string;
+    };
   } = {},
 ): RunLog {
   return {
@@ -73,5 +81,6 @@ export function buildRunLog(
     configVersions: options.configVersions ?? {},
     llmCalls: options.llmCalls ?? [],
     lintIssues: options.lintIssues,
+    samplingStrategy: options.samplingStrategy,
   };
 }

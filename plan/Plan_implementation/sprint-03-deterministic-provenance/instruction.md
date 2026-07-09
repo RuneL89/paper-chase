@@ -5,7 +5,7 @@
 | Sprint ID | `sprint-03-deterministic-provenance` |
 | Goal | Implement the deterministic provenance layer (source, raw, baseline document pages) and explicitly scope the `ingest-all` command. This is the fallback that the LLM will later enhance. |
 | Based on | `Project Vision/05_page_types_specification.md` §4, §5, §8; `Project Vision/06_citation_and_provenance.md` §4; `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §2.5, §2.6. |
-| Status | `NOT_STARTED` |
+| Status | `COMPLETE` |
 
 ---
 

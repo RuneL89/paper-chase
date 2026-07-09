@@ -2,9 +2,14 @@ export type EntityType = 'person' | 'organization' | 'location' | 'case' | 'even
 
 export interface ExtractedEntity {
   name: string;
+  canonical: string;
+  aliases: string[];
   type: EntityType;
+  count: number;
   mentions: { page: number; context: string }[];
   confidence: number;
+  description?: string;
+  relationships?: { predicate: string; object: string; evidence: string; pages: string }[];
 }
 
 export interface ExtractedRelationship {
@@ -35,6 +40,7 @@ export interface PagePlan {
   tags: string[];
   citations: string[];
   wikilinks: string[];
+  related: string[];
 }
 
 export interface FolderPlan {
@@ -45,8 +51,25 @@ export interface FolderPlan {
   children: string[];
 }
 
+export interface DiscoveryChecklist {
+  existingDocument: boolean;
+  newEntities: boolean;
+  newTopics: boolean;
+  hasTablesFigures: boolean;
+  rawPages: boolean;
+  newPageType: boolean;
+}
+
+export interface DuplicateFlag {
+  a: string;
+  b: string;
+  reason: 'levenshtein' | 'slug';
+}
+
 export interface OrchestratorMemory {
   rollingSummary: string;
+  historicalSummary: string;
+  summaryOnly: boolean;
   state: {
     document: {
       title: string;
@@ -55,11 +78,14 @@ export interface OrchestratorMemory {
       boundaryType: string;
     };
     entities: Record<string, ExtractedEntity>;
-    topics: Record<string, { tags: string[]; mentions: { page: number; context: string }[] }>;
+    topics: Record<string, { tags: string[]; mentions: { page: number; context: string }[]; related: string[] }>;
     relationships: ExtractedRelationship[];
     sources: Record<string, { sha256: string; logicalPages: string; physicalPages: number; warnings: string[] }>;
     folderHierarchy: Record<string, FolderPlan>;
     rawFragments: { source: string; pages: string; reason: string; fragment: string }[];
+    duplicateFlags: DuplicateFlag[];
+    sourceEntities: Record<string, Record<string, number>>;
+    sourceTopics: Record<string, Record<string, number>>;
   };
 }
 
@@ -68,9 +94,43 @@ export interface CriticReview {
   confidence: 'high' | 'medium' | 'low';
 }
 
+export interface PageUpdate {
+  filePath: string;
+  frontmatter: Record<string, unknown>;
+  body: string;
+  citations?: { claim: string; sources: string[] }[];
+  fallback?: boolean;
+}
+
+export interface StructuralProposal {
+  type: 'new-folder' | 'restructure';
+  reason: string;
+  currentFolders: string[];
+  proposedFolders: string[];
+}
+
 export interface OrchestratorResult {
   wikiIndexPath: string;
   folderIndexes: string[];
   memory: OrchestratorMemory;
   critic: CriticReview;
+}
+
+export interface IngestOrchestratorResult {
+  memory: OrchestratorMemory;
+  folderPlacements: FolderPlan[];
+  pages: PagePlan[];
+  pageUpdates?: PageUpdate[];
+  critic: CriticReview;
+  proposals: StructuralProposal[];
+  extractedEntities: ExtractedEntity[];
+  extractedTopics: { name: string; count: number; related: string[] }[];
+}
+
+export interface PagePlannerOutput {
+  pages: PagePlan[];
+  folderPlacements: FolderPlan[];
+  wikilinks: string[];
+  citations: string[];
+  discovery: DiscoveryChecklist;
 }

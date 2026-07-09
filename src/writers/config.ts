@@ -33,6 +33,11 @@ export function writeWikiConfig(
       ...config.output,
       page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
     },
+    sampling: {
+      ...config.sampling,
+      large_page_threshold: strategy.samplingStrategy.largePageThreshold,
+      strategy_page_budget: strategy.samplingStrategy.pageBudget,
+    },
     status: 'ready',
   };
 

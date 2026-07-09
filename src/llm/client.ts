@@ -53,6 +53,7 @@ function isKnownProvider(value: string): value is LLMConfig['provider'] {
 export class LLMClient {
   private config: LLMConfig;
   private fetchFn: typeof fetch;
+  private records: LLMCallRecord[] = [];
 
   constructor(config: LLMConfig, fetchFn?: typeof fetch) {
     this.config = config;
@@ -78,19 +79,19 @@ export class LLMClient {
       );
     }
 
+    let response: LLMResponse;
     if (!this.config.enabled) {
-      return this.fallbackResponse(prompt);
+      response = this.fallbackResponse(prompt);
+    } else if (this.config.provider === 'test') {
+      response = this.mockResponse(prompt, options?.maxTokens ?? 1024);
+    } else {
+      const maxTokens = options?.maxTokens ?? 1024;
+      const temperature = options?.temperature ?? 0.2;
+      response = await this.remoteCall(prompt, maxTokens, temperature, options?.verbose ?? false);
     }
 
-    const maxTokens = options?.maxTokens ?? 1024;
-    const temperature = options?.temperature ?? 0.2;
-    const verbose = options?.verbose ?? false;
-
-    if (this.config.provider === 'test') {
-      return this.mockResponse(prompt, maxTokens);
-    }
-
-    return this.remoteCall(prompt, maxTokens, temperature, verbose);
+    this.records.push(this.toRecord(response));
+    return response;
   }
 
   private fallbackResponse(prompt: string): LLMResponse {
@@ -349,6 +350,10 @@ export class LLMClient {
       estimatedTokens: response.estimatedTokens,
       estimatedCost: response.estimatedCost,
     };
+  }
+
+  getRecords(): LLMCallRecord[] {
+    return [...this.records];
   }
 }
 

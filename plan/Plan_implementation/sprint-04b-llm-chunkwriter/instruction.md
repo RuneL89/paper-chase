@@ -5,7 +5,7 @@
 | Sprint ID | `sprint-04b-llm-chunkwriter` |
 | Goal | Make the LLM the author of markdown content by implementing an LLM-driven ChunkWriter that produces synthesis, citations, and wikilinks, while refactoring `ingestion/engine.ts` to delegate content generation to the writers/orchestrator. |
 | Based on | `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3 Principle 1; `Project Vision/02_WIKI_concept_detailed.md` §7; `Project Vision/04_orchestration_detailed.md` §4.4.6; `Project Vision/06_citation_and_provenance.md` §2, §3. |
-| Status | `NOT_STARTED` |
+| Status | `AWAITING_UAT` |
 
 ---
 

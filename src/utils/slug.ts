@@ -51,6 +51,22 @@ export class SlugRegistry {
   }
 
   /**
+   * Seeds the registry from existing slugs so that new registrations
+   * continue the disambiguation sequence (e.g., john-smith, john-smith-1, john-smith-2).
+   */
+  seedFromSlugs(slugs: string[]): void {
+    for (const slug of slugs) {
+      const base = slug.replace(/-\d+$/g, '');
+      const indexMatch = slug.match(/-(\d+)$/);
+      const index = indexMatch ? parseInt(indexMatch[1], 10) : 0;
+      const current = this.counts.get(base) ?? 0;
+      if (index + 1 > current) {
+        this.counts.set(base, index + 1);
+      }
+    }
+  }
+
+  /**
    * Resets the registry.
    */
   clear(): void {

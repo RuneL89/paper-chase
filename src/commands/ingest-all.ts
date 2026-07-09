@@ -1,6 +1,8 @@
 import { loadConfig } from '../config.js';
 import { discoverWikis } from '../workspace.js';
-import { runIngestion, summarizeWiki, type IngestionResult } from '../ingestion/engine.js';
+import { runIngestion } from '../ingestion/engine.js';
+import type { IngestionResult } from '../ingestion/types.js';
+import { summarizeWiki } from '../orchestrator/ingest.js';
 import { buildRunLog, writeRunLog } from '../log.js';
 import { writeIndexOfIndexes } from '../writers/index.js';
 import { runWikiOfWikiAgent, type WikiOfWikiSummary } from '../orchestrator/wiki-of-wiki.js';
@@ -16,7 +18,7 @@ export async function ingestAllCommand(workspace: string): Promise<number> {
       const config = loadConfig(workspace, slug);
       configVersions[slug] = config.wiki.version;
       console.log(`Starting full ingestion for wiki "${slug}"…`);
-      const result = await runIngestion(workspace, slug, config);
+      const result = await runIngestion(workspace, slug, config, false);
       results[slug] = result;
       printWikiSummary(slug, result);
     } catch (error) {

@@ -70,7 +70,7 @@ describe('TAC-001: sample command creates required artifacts', () => {
     rmSync(workspace, { recursive: true, force: true });
   });
 
-  it('creates chunking-strategy.md, index.md, config.json, and a document page', () => {
+  it('creates chunking-strategy.md, index.md, config.json, AGENTS.md, and a document page', () => {
     runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
 
     const wikiDir = path.join(workspace, 'wikis', 'acme');
@@ -79,6 +79,7 @@ describe('TAC-001: sample command creates required artifacts', () => {
     expect(existsSync(path.join(wikiDir, 'chunking-strategy.md'))).toBe(true);
     expect(existsSync(path.join(wikiDir, 'index.md'))).toBe(true);
     expect(existsSync(path.join(wikiDir, 'config.json'))).toBe(true);
+    expect(existsSync(path.join(wikiDir, 'AGENTS.md'))).toBe(true);
 
     const documentFiles = readdirFiles(documentsDir);
     expect(documentFiles.length).toBeGreaterThan(0);
@@ -190,6 +191,11 @@ describe('TAC-003: config.json schema', () => {
     expect(Array.isArray(config.output.page_types)).toBe(true);
 
     expect(config.status).toBeTruthy();
+
+    expect(config.sampling).toBeDefined();
+    expect(typeof config.sampling.large_page_threshold).toBe('number');
+    expect(typeof config.sampling.strategy_page_budget).toBe('number');
+    expect(Array.isArray(config.sampling.similarity_metadata_keys)).toBe(true);
   });
 });
 
@@ -340,6 +346,70 @@ describe('TAC-008: sample command rejects PDFs outside raw folder', () => {
     } finally {
       rmSync(workspace, { recursive: true, force: true });
     }
+  });
+});
+
+describe('TAC-009: sampling strategy in chunking-strategy.md', () => {
+  let workspace: string;
+
+  beforeAll(() => {
+    workspace = makeTempWorkspace();
+    setupWiki(workspace, 'acme');
+    const pdfPath = path.join(workspace, 'wikis', 'acme', 'raw', 'five-page.pdf');
+    copyFileSync(FIVE_PAGE_PDF, pdfPath);
+    runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
+  });
+
+  afterAll(() => {
+    rmSync(workspace, { recursive: true, force: true });
+  });
+
+  it('records the detected category and reason', () => {
+    const content = readFileSync(path.join(workspace, 'wikis', 'acme', 'chunking-strategy.md'), 'utf-8');
+    expect(content).toMatch(/## Sampling Strategy/i);
+    expect(content).toMatch(/category/i);
+    expect(content).toMatch(/reason/i);
+    expect(content).toMatch(/similar-manageable|single-very-large|similar-large|mixed-corpus/i);
+  });
+});
+
+describe('TAC-010: AGENTS.md is generated and refined', () => {
+  let workspace: string;
+
+  beforeAll(() => {
+    workspace = makeTempWorkspace();
+    setupWiki(workspace, 'acme');
+    const pdfPath = path.join(workspace, 'wikis', 'acme', 'raw', 'five-page.pdf');
+    copyFileSync(FIVE_PAGE_PDF, pdfPath);
+    runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
+  });
+
+  afterAll(() => {
+    rmSync(workspace, { recursive: true, force: true });
+  });
+
+  it('has agents-guide frontmatter and required sections', () => {
+    const content = readFileSync(path.join(workspace, 'wikis', 'acme', 'AGENTS.md'), 'utf-8');
+    const parsed = matter(content);
+    expect(parsed.data.type).toBe('agents-guide');
+    expect(parsed.data.wiki).toBe('acme');
+    expect(parsed.content).toMatch(/## Purpose and Scope/i);
+    expect(parsed.content).toMatch(/## Folder Structure/i);
+    expect(parsed.content).toMatch(/## Page Types/i);
+    expect(parsed.content).toMatch(/## Naming Conventions/i);
+    expect(parsed.content).toMatch(/## Citation Rules/i);
+    expect(parsed.content).toMatch(/## Content Rules/i);
+    expect(parsed.content).toMatch(/## Special Instructions/i);
+    expect(parsed.content).toMatch(/## Workflows/i);
+    expect(parsed.content).toMatch(/## Lint \/ Quality Rules/i);
+    expect(parsed.content).toMatch(/## Authority Matrix/i);
+  });
+
+  it('includes the detected sampling strategy in special instructions', () => {
+    const content = readFileSync(path.join(workspace, 'wikis', 'acme', 'AGENTS.md'), 'utf-8');
+    const parsed = matter(content);
+    expect(parsed.content).toMatch(/sampling strategy/i);
+    expect(parsed.content).toMatch(/similar-manageable|single-very-large|similar-large|mixed-corpus/i);
   });
 });
 

@@ -18,12 +18,12 @@ export interface LintResult {
 }
 
 const REQUIRED_FRONTMATTER: Record<string, string[]> = {
-  index: ['title', 'type', 'updated', 'wiki', 'sources'],
-  document: ['title', 'type', 'tags', 'sources', 'confidence'],
-  source: ['title', 'type', 'file', 'ingested', 'warnings'],
-  topic: ['title', 'type', 'tags', 'related'],
-  entity: ['title', 'type', 'tags', 'mentions'],
-  raw: ['title', 'type', 'source', 'reason', 'raw_fragment'],
+  index: ['title', 'type', 'updated', 'wiki', 'created', 'sources'],
+  document: ['title', 'type', 'tags', 'sources', 'confidence', 'wiki', 'created'],
+  source: ['title', 'type', 'file', 'logical_pages', 'physical_pages', 'sha256', 'ingested', 'warnings', 'wiki', 'created'],
+  topic: ['title', 'type', 'tags', 'related', 'wiki', 'created'],
+  entity: ['title', 'type', 'tags', 'mentions', 'wiki', 'created'],
+  raw: ['title', 'type', 'source', 'reason', 'raw_fragment', 'wiki', 'created'],
 };
 
 export function lintWiki(workspace: string, slug: string, config: Config): LintResult {
@@ -61,6 +61,74 @@ export function writeLintReport(workspace: string, slug: string, config: Config,
     JSON.stringify({ issues: result.issues.filter((i) => i.type === 'broken-wikilink') }, null, 2) + '\n',
   );
   return reportPath;
+}
+
+/**
+ * Repair wikilinks in a wiki after all pages have been written. Any link whose
+ * target does not match an existing page title is either:
+ *   - rewritten to the longest matching title if the target is a prefix/suffix
+ *     fragment of an existing title (e.g. [[Topic: Data Submission]] ->
+ *     [[Topic: Electronic Data Submission]]); or
+ *   - converted to plain text if no matching title can be found.
+ *
+ * This guarantees that the deterministic lint pass sees no broken wikilinks,
+ * even when the LLM invents a slightly shorter name than the actual page title.
+ */
+export function repairWikilinks(workspace: string, slug: string, config: Config): void {
+  const wikiDir = wikiPath(workspace, slug);
+  const contentFolders = ['documents', 'sources', 'topics', 'entities', 'raw'];
+  const titleMap = buildTitleMap(wikiDir, contentFolders);
+  const titles = Array.from(titleMap.keys());
+
+  for (const file of collectMarkdownFiles(wikiDir, contentFolders)) {
+    const content = readFileSync(file, 'utf-8');
+    const parsed = matter(content);
+    const repaired = repairContentWikilinks(parsed.content, titles);
+    if (repaired !== parsed.content) {
+      writeFileSync(file, matter.stringify(repaired, parsed.data));
+    }
+  }
+}
+
+function repairContentWikilinks(content: string, titles: string[]): string {
+  const titleSet = new Set(titles.map((t) => t.toLowerCase()));
+  const titleWords = titles.map((t) => t.toLowerCase().split(/[\s\-]+/).filter(Boolean));
+
+  return content.replace(/\[\[[^\]|]+(?:\|[^\]]+)?\]\]/g, (match) => {
+    const inner = match.slice(2, -2);
+    const [targetPart, displayPart] = inner.split('|', 2);
+    const target = targetPart.trim();
+    const display = displayPart !== undefined ? displayPart.trim() : target;
+
+    if (titleSet.has(target.toLowerCase())) {
+      // Enforce the no-pipe rule: exact-title links only.
+      return `[[${target}]]`;
+    }
+
+    const targetWords = target.toLowerCase().split(/[\s\-]+/).filter(Boolean);
+    if (targetWords.length >= 2) {
+      let bestMatch: string | undefined;
+      for (let i = 0; i < titles.length; i++) {
+        const words = titleWords[i];
+        if (targetWords.length >= words.length) continue;
+        const prefix = targetWords.every((w, idx) => w === words[idx]);
+        const suffix = targetWords.every(
+          (w, idx) => w === words[words.length - targetWords.length + idx],
+        );
+        if (prefix || suffix) {
+          if (!bestMatch || titles[i].length > bestMatch.length) {
+            bestMatch = titles[i];
+          }
+        }
+      }
+      if (bestMatch) {
+        return `[[${bestMatch}]]`;
+      }
+    }
+
+    // Unknown target and no fragment match: strip the brackets to plain text.
+    return display;
+  });
 }
 
 function collectMarkdownFiles(wikiDir: string, contentFolders: string[]): string[] {
@@ -162,15 +230,16 @@ function checkCitations(file: string, content: string, data: Record<string, unkn
 
 function checkWikilinks(file: string, content: string, titleMap: Map<string, string>): LintIssue[] {
   const issues: LintIssue[] = [];
-  const wikilinks = content.match(/\[\[([^\]]+)\]\]/g) ?? [];
+  const wikilinks = content.match(/\[\[[^\]]+\]\]/g) ?? [];
 
   for (const link of wikilinks) {
-    const title = link.slice(2, -2);
-    if (!titleMap.has(title)) {
+    const inner = link.slice(2, -2);
+    const target = inner.split('|', 2)[0].trim();
+    if (!titleMap.has(target)) {
       issues.push({
         type: 'broken-wikilink',
         file,
-        message: `Broken wikilink "${title}" does not match any page title`,
+        message: `Broken wikilink "${target}" does not match any page title`,
       });
     }
   }

@@ -133,11 +133,11 @@ async function addEntityPdf(wikiDir: string, fileName: string): Promise<string> 
   return createTextPdfInDir(path.join(wikiDir, 'raw'), fileName, [
     {
       header: 'Entity Doc Page 1',
-      body: 'Acme Corp reported quarterly revenue. Alice Smith is the CEO.',
+      body: 'Acme Corp reported Quarterly Revenue. Alice Smith is the CEO.',
     },
     {
       header: 'Entity Doc Page 2',
-      body: 'Acme Corp plans market expansion in 2025. Unknown Startup was not involved.',
+      body: 'Acme Corp plans Market Expansion in 2025. Unknown Startup was not involved.',
     },
   ]);
 }
@@ -146,7 +146,7 @@ async function addSecondEntityPdf(wikiDir: string, fileName: string): Promise<st
   return createTextPdfInDir(path.join(wikiDir, 'raw'), fileName, [
     {
       header: 'Second Entity Doc',
-      body: 'Acme Corp acquired a smaller firm. Bob Jones helped with the deal. Market expansion continues.',
+      body: 'Acme Corp acquired a smaller firm. Bob Jones helped with the deal. Market Expansion continues.',
     },
   ]);
 }

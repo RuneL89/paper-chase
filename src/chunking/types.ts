@@ -67,6 +67,41 @@ export interface ChunkingStrategy {
   fallback: string;
   boundaries: ChunkBoundary[];
   example: ChunkBoundary;
+  samplingStrategy: SamplingStrategy;
+}
+
+export interface CorpusFileInfo {
+  fileName: string;
+  pageCount: number;
+  metadata: Record<string, unknown>;
+}
+
+export interface SamplingGroup {
+  name: string;
+  files: string[];
+  category: SamplingCategory;
+  reason: string;
+}
+
+export type SamplingCategory =
+  | 'single-very-large'
+  | 'similar-manageable'
+  | 'similar-large'
+  | 'mixed-corpus';
+
+export interface SamplingStrategy {
+  category: SamplingCategory;
+  largePageThreshold: number;
+  pageBudget: number;
+  reason: string;
+  tocSearch?: {
+    enabled: boolean;
+    firstPages: number;
+  };
+  readFirstFully?: boolean;
+  sampleRemaining?: boolean;
+  deferRestToIngest?: boolean;
+  groups?: SamplingGroup[];
 }
 
 export interface ChunkSource {

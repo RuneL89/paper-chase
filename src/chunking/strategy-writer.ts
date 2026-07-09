@@ -38,6 +38,36 @@ export function writeChunkingStrategy(
   lines.push(`- **Scanned pages:** ${structure.scannedPages.join(', ') || 'none'}`);
   lines.push('');
 
+  lines.push('## Sampling Strategy');
+  lines.push('');
+  lines.push(`- **Category:** ${strategy.samplingStrategy.category}`);
+  lines.push(`- **Reasoning:** ${strategy.samplingStrategy.reason}`);
+  lines.push(`- **Large-page threshold:** ${strategy.samplingStrategy.largePageThreshold} pages`);
+  lines.push(`- **Strategy page budget:** ${strategy.samplingStrategy.pageBudget} pages`);
+  if (strategy.samplingStrategy.tocSearch) {
+    lines.push(`- **TOC search:** enabled in first ${strategy.samplingStrategy.tocSearch.firstPages} pages`);
+  }
+  if (strategy.samplingStrategy.readFirstFully) {
+    lines.push('- **Read first document fully:** yes');
+  }
+  if (strategy.samplingStrategy.sampleRemaining) {
+    lines.push('- **Sample remaining documents:** yes');
+  }
+  if (strategy.samplingStrategy.deferRestToIngest) {
+    lines.push('- **Defer remaining documents to ingest:** yes');
+  }
+  if (strategy.samplingStrategy.groups && strategy.samplingStrategy.groups.length > 0) {
+    lines.push('');
+    lines.push('### Mixed-corpus groups');
+    lines.push('');
+    for (const group of strategy.samplingStrategy.groups) {
+      lines.push(`- **${group.name}** (${group.category})`);
+      lines.push(`  - Files: ${group.files.join(', ')}`);
+      lines.push(`  - Reason: ${group.reason}`);
+    }
+  }
+  lines.push('');
+
   lines.push('## Chosen Chunk Boundaries');
   lines.push('');
   lines.push(`The primary split boundary is **${strategy.splitBoundary}**. `);

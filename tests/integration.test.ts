@@ -37,7 +37,7 @@ describe('TAC-004: malformed PDF resilience', () => {
     const tempDir = makeTempDir();
     try {
       const rawPath = path.join(tempDir, 'malformed-raw.md');
-      writeFailureRawPage(rawPath, failed as ExtractionFailure);
+      writeFailureRawPage(rawPath, failed as ExtractionFailure, 'test-wiki');
 
       const content = readFileSync(rawPath, 'utf-8');
       const parsed = matter(content);

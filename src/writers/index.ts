@@ -1,6 +1,7 @@
 import { writeFileSync, mkdirSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { readCreatedTimestamp } from './preservation.js';
 import type { Config } from '../config.js';
 import type { CrossWikiName } from '../orchestrator/wiki-of-wiki.js';
 
@@ -40,6 +41,7 @@ export function writeSkeletonWikiIndex(filePath: string, config: Config): void {
     title: config.wiki.title,
     type: 'index',
     wiki: config.wiki.slug,
+    created: now,
     updated: now,
     children: [] as string[],
   };
@@ -86,10 +88,12 @@ export function writeWikiIndex(
   mkdirSync(path.dirname(filePath), { recursive: true });
 
   const title = `${config.wiki.title} Index`;
+  const now = new Date().toISOString();
+  const created = readCreatedTimestamp(filePath) ?? now;
   const frontmatter = {
     title,
-    created: new Date().toISOString(),
-    updated: new Date().toISOString(),
+    created,
+    updated: now,
     type: 'index',
     wiki: config.wiki.slug,
     sources: sources.map((s) => s.filePath),
@@ -163,10 +167,12 @@ export function writeIndexOfIndexes(
   crossWikiNames: CrossWikiName[] = [],
 ): void {
   const filePath = path.join(workspace, 'index-of-indexes.md');
+  const now = new Date().toISOString();
+  const created = readCreatedTimestamp(filePath) ?? now;
   const frontmatter = {
     title: 'Index of Indexes',
-    created: new Date().toISOString(),
-    updated: new Date().toISOString(),
+    created,
+    updated: now,
     type: 'index',
     wikis: wikis.map((w) => w.slug),
   };
