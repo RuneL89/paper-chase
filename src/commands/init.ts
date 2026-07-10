@@ -51,6 +51,8 @@ export async function initCommand(options: InitOptions): Promise<number> {
   const config = buildConfig(workspace, slug, title, description);
   config.status = 'initialized';
 
+  mkdirSync(path.join(workspace, '.kimi-code'), { recursive: true });
+  mkdirSync(path.join(workspace, '.kimi-code', 'logs'), { recursive: true });
   mkdirSync(wikiDir, { recursive: true });
   mkdirSync(path.join(wikiDir, 'raw'), { recursive: true });
 

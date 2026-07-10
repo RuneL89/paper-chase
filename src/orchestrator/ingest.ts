@@ -13,7 +13,7 @@ import { writeDocumentPage } from '../writers/document.js';
 import { writeRawPage } from '../writers/raw.js';
 import { writeSourcePage, type DocumentPageLink } from '../writers/source.js';
 import { writeWikiIndex, writeIndexOfIndexes } from '../writers/index.js';
-import { lintWiki, writeLintReport, repairWikilinks } from '../lint/index.js';
+import { lintWiki, writeLintReport, checkFrontmatter, checkCitations, checkWikilinks } from '../lint/index.js';
 import { runWikiOfWikiAgent, type WikiOfWikiSummary } from '../orchestrator/wiki-of-wiki.js';
 import { SlugRegistry, slugify } from '../utils/slug.js';
 import {
@@ -44,6 +44,10 @@ import {
   updateMemory,
   defaultFolderPlacements,
   buildFallbackDocumentUpdates,
+  entityTopicPageWriter,
+  type EntityTopicPageOutput,
+  type EntityTopicPageInputEntity,
+  type EntityTopicPageInputTopic,
 } from './agents.js';
 import {
   compactMemoryIfNeeded,
@@ -88,6 +92,7 @@ export interface IngestOutputContext {
   memory?: OrchestratorMemory;
   folderPlacements: FolderPlan[];
   result: IngestionResult;
+  llmClient?: LLMClient;
 }
 
 export async function runIngestOrchestrator(
@@ -235,6 +240,7 @@ export async function runIngestOrchestrator(
     : createInitialMemory(result, chunks);
 
   const validationResult = await writeAndValidateChunks(
+    workspace,
     resolvedPages,
     chunks,
     result,
@@ -274,7 +280,7 @@ export async function runIngestOrchestrator(
     compactionRatio: DEFAULT_MEMORY_CAPS.compactionRatio,
   });
   const wikiDir = path.join(workspace, 'wikis', slug);
-  const outputDir = path.join(wikiDir, config.output.dir);
+  const outputDir = path.join(wikiDir, 'output');
   saveMemory(outputDir, memory);
   saveMemorySummary(outputDir, memory);
 
@@ -346,6 +352,7 @@ function topicNameFromPagePlan(page: PagePlan): string {
 }
 
 async function writeAndValidateChunks(
+  workspace: string,
   pages: PagePlan[],
   chunks: Chunk[],
   result: ExtractionResult,
@@ -377,15 +384,22 @@ async function writeAndValidateChunks(
     memory,
     pageUpdates,
   );
-  const completenessIssues = collectCompletenessIssues(chunks, pageUpdates, result);
+  let completenessIssues = collectCompletenessIssues(chunks, pageUpdates, result);
+  const schemaIssues = validatePageUpdates(workspace, pages, pageUpdates, result, config);
+  completenessIssues = completenessIssues.concat(schemaIssues);
 
-  // Retry once if the LLM is enabled and the first pass had blocking issues or
-  // completeness gaps. The second attempt uses the same input but relies on the
-  // LLM's stochasticity to produce a better result; keep the better outcome.
-  if (
-    llmClient.isEnabled() &&
-    (completenessIssues.length > 0 || !criticReview.approved || criticReview.blockingIssues.length > 0)
-  ) {
+  // Retry up to a bounded number of attempts, feeding the Critic, completeness,
+  // and schema/link/citation issues back to the ChunkWriter as explicit instructions.
+  const maxRetries = Math.max(1, config.llm?.maxRetries ?? 2);
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    if (
+      !llmClient.isEnabled() ||
+      (completenessIssues.length === 0 && criticReview.approved && criticReview.blockingIssues.length === 0)
+    ) {
+      break;
+    }
+
+    const feedback = buildWriterFeedback(criticReview, completenessIssues);
     pageUpdates = await chunkWriter(
       pages,
       chunks,
@@ -394,6 +408,7 @@ async function writeAndValidateChunks(
       llmClient,
       agentsMd,
       memory,
+      feedback,
     );
     criticReview = await critic(
       result,
@@ -404,14 +419,9 @@ async function writeAndValidateChunks(
       memory,
       pageUpdates,
     );
-    const retriedCompletenessIssues = collectCompletenessIssues(chunks, pageUpdates, result);
-    if (retriedCompletenessIssues.length < completenessIssues.length) {
-      return {
-        pageUpdates,
-        critic: criticReview,
-        completenessIssues: retriedCompletenessIssues,
-      };
-    }
+    completenessIssues = collectCompletenessIssues(chunks, pageUpdates, result);
+    const retriedSchemaIssues = validatePageUpdates(workspace, pages, pageUpdates, result, config);
+    completenessIssues = completenessIssues.concat(retriedSchemaIssues);
   }
 
   return {
@@ -419,6 +429,63 @@ async function writeAndValidateChunks(
     critic: criticReview,
     completenessIssues,
   };
+}
+
+function buildWriterFeedback(criticReview: CriticReview, completenessIssues: string[]): string[] {
+  const feedback: string[] = [];
+  for (const issue of criticReview.blockingIssues) {
+    feedback.push(`[BLOCKING] ${issue.check}: ${issue.message}`);
+  }
+  for (const issue of criticReview.issues) {
+    feedback.push(`[${issue.severity.toUpperCase()}] ${issue.type}: ${issue.message}`);
+  }
+  for (const issue of completenessIssues) {
+    feedback.push(`[COMPLETENESS] ${issue}`);
+  }
+  return feedback;
+}
+
+function validatePageUpdates(
+  workspace: string,
+  pages: PagePlan[],
+  pageUpdates: PageUpdate[],
+  _result: ExtractionResult,
+  config: Config,
+): string[] {
+  const issues: string[] = [];
+  const titleMap = buildKnownTitleMap(pages, config, _result.fileName);
+
+  for (const update of pageUpdates) {
+    const file = update.filePath;
+    issues.push(...checkFrontmatter(file, update.frontmatter).map((i) => i.message));
+    issues.push(...checkCitations(file, update.body, update.frontmatter, workspace).map((i) => i.message));
+    issues.push(...checkWikilinks(file, update.body, titleMap).map((i) => i.message));
+  }
+
+  return issues;
+}
+
+function buildKnownTitleMap(pages: PagePlan[], config: Config, sourceFileName?: string): Map<string, string> {
+  const map = new Map<string, string>();
+  for (const page of pages) {
+    map.set(page.title, page.fileName);
+    if (page.pageType === 'entity') {
+      const clean = page.title.replace(/^Entity:\s*/i, '').trim();
+      map.set(`Entity: ${clean}`, page.fileName);
+      map.set(clean, page.fileName);
+    } else if (page.pageType === 'topic') {
+      const clean = page.title.replace(/^Topic:\s*/i, '').trim();
+      map.set(`Topic: ${clean}`, page.fileName);
+      map.set(clean, page.fileName);
+    }
+  }
+  const wikiIndexTitle = `${config.wiki.title} Index`;
+  map.set(wikiIndexTitle, 'index.md');
+  map.set(config.wiki.title, 'index.md');
+  if (sourceFileName) {
+    map.set(`Source: ${sourceFileName}`, `sources/${path.basename(sourceFileName, path.extname(sourceFileName))}.md`);
+  }
+  return map;
 }
 
 function collectCompletenessIssues(
@@ -491,7 +558,7 @@ export function writeIngestContracts(
 }
 
 export async function writeIngestOutput(context: IngestOutputContext): Promise<void> {
-  const { workspace, slug, config, processed, state, memory, folderPlacements, result } = context;
+  const { workspace, slug, config, processed, state, memory, folderPlacements, result, llmClient } = context;
   const wikiDir = path.join(workspace, 'wikis', slug);
   const outputDir = path.join(wikiDir, config.output.dir);
   const sourcesDir = path.join(outputDir, 'sources');
@@ -582,12 +649,12 @@ export async function writeIngestOutput(context: IngestOutputContext): Promise<v
     for (const name of Object.keys(source.entities)) {
       const title = entityPageTitle({ name, type: 'organization', count: 0 });
       if (!entityLocations[title]) entityLocations[title] = [];
-      entityLocations[title].push({ source: source.fileName, pages: pageRanges });
+      entityLocations[title].push({ source: source.fileName, filePath: source.relativeFile, pages: pageRanges });
     }
     for (const name of Object.keys(source.topics)) {
       const title = topicPageTitle({ name, count: 0 });
       if (!topicLocations[title]) topicLocations[title] = [];
-      topicLocations[title].push({ source: source.fileName, pages: pageRanges });
+      topicLocations[title].push({ source: source.fileName, filePath: source.relativeFile, pages: pageRanges });
     }
   }
 
@@ -611,6 +678,41 @@ export async function writeIngestOutput(context: IngestOutputContext): Promise<v
     entries.sort((a, b) => b[1] - a[1]);
     return entries[0][1] > 0 ? entries[0][0] : inferEntityType(name);
   }
+
+  // Prepare LLM-authored entity/topic page bodies. If the LLM is disabled or
+  // returns invalid output, the deterministic writers below use their fallback.
+  const entityInputs: EntityTopicPageInputEntity[] = selectedEntityNames.map((name) => {
+    const type = resolveEntityType(name);
+    const title = entityPageTitle({ name, type, count: 0 });
+    const count = globalEntityCounts[name];
+    const memoryEntity = memory?.state.entities[slugify(name)] ?? memory?.state.entities[name.toLowerCase()];
+    return {
+      name,
+      type,
+      count,
+      mentions: entityLocations[title] || [],
+      description: memoryEntity?.description,
+      relationships: memoryEntity?.relationships,
+    };
+  });
+  const topicInputs: EntityTopicPageInputTopic[] = selectedTopicNames.map((name) => {
+    const title = topicPageTitle({ name, count: 0 });
+    const count = globalTopicCounts[name];
+    const related = memory?.state.topics[name]?.related ?? topicLocations[title]?.map((m) => m.source) ?? [];
+    return {
+      name,
+      count,
+      mentions: topicLocations[title] || [],
+      related,
+    };
+  });
+  const agentsMd = readAgentsMd(workspace, slug);
+  const entityTopicBodies = llmClient
+    ? await entityTopicPageWriter(entityInputs, topicInputs, config, llmClient, agentsMd, memory)
+    : undefined;
+  const entityBodies = new Map(entityTopicBodies?.entities.map((e) => [e.name, e.body]) ?? []);
+  const topicBodies = new Map(entityTopicBodies?.topics.map((t) => [t.name, t.body]) ?? []);
+
   for (const name of selectedEntityNames) {
     const type = resolveEntityType(name);
     const title = entityPageTitle({ name, type, count: 0 });
@@ -618,15 +720,18 @@ export async function writeIngestOutput(context: IngestOutputContext): Promise<v
     const entity: EntityMention = { name, type, count };
     // Memory stores entities by canonical slug; selected names use the display name.
     const memoryEntity = memory?.state.entities[slugify(name)] ?? memory?.state.entities[name.toLowerCase()];
+    const entityMentions = entityLocations[title] || [];
     writeEntityPage(
       path.join(entitiesDir, entityFileNameWithRegistry(entity, entityRegistry)),
       entity,
       config,
-      entityLocations[title] || [],
+      entityMentions,
       {
         description: memoryEntity?.description,
         relationships: memoryEntity?.relationships,
+        sources: buildMentionSources(entityMentions),
       },
+      entityBodies.get(name),
     );
     result.entityPages++;
   }
@@ -637,12 +742,15 @@ export async function writeIngestOutput(context: IngestOutputContext): Promise<v
     const count = globalTopicCounts[name];
     const topic: Topic = { name, count };
     const related = memory?.state.topics[name]?.related ?? topicLocations[title]?.map((m) => m.source) ?? [];
+    const topicMentions = topicLocations[title] || [];
     writeTopicPage(
       path.join(topicsDir, topicFileName(topic)),
       topic,
       config,
-      topicLocations[title] || [],
+      topicMentions,
       related,
+      topicBodies.get(name),
+      buildMentionSources(topicMentions),
     );
     result.topicPages++;
   }
@@ -686,10 +794,6 @@ export async function writeIngestOutput(context: IngestOutputContext): Promise<v
   const wikiSummaries: WikiOfWikiSummary[] = wikiSlugs.map((s) => summarizeWiki(workspace, s));
   const wikiOfWikiResult = runWikiOfWikiAgent(workspace, wikiSummaries);
   writeIndexOfIndexes(workspace, wikiOfWikiResult.wikis, wikiOfWikiResult.crossWikiNames);
-
-  // Repair any wikilinks that the LLM wrote to titles that were not actually
-  // created (e.g. a fragment topic), so the deterministic lint pass is clean.
-  repairWikilinks(workspace, slug, config);
 
   // Run lint and write report.
   const lintResult = lintWiki(workspace, slug, config);
@@ -812,6 +916,28 @@ function inferEntityType(name: string): EntityMention['type'] {
   // most unrecognized named entities in annual reports are institutions, funds, or
   // frameworks.
   return 'organization';
+}
+
+function buildMentionSources(
+  mentions: { source: string; filePath?: string; pages: string }[],
+): { id: string; file: string; pages: string; extracted: string }[] {
+  const now = new Date().toISOString();
+  const seen = new Map<string, string>();
+  let index = 0;
+  for (const mention of mentions) {
+    if (!mention.filePath) continue;
+    if (seen.has(mention.filePath)) {
+      const existing = seen.get(mention.filePath)!;
+      seen.set(mention.filePath, `${existing}, ${mention.pages}`);
+    } else {
+      seen.set(mention.filePath, mention.pages);
+    }
+  }
+  const sources: { id: string; file: string; pages: string; extracted: string }[] = [];
+  for (const [file, pages] of seen) {
+    sources.push({ id: `src${++index}`, file, pages, extracted: now });
+  }
+  return sources;
 }
 
 function buildSourcePageInfos(

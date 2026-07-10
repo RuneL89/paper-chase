@@ -118,7 +118,7 @@ describe('resume', () => {
     // Mark the first chunk as failed and write it back.
     manifest.chunks[0].status = 'failed';
     manifest.chunks[0].updatedAt = new Date().toISOString();
-    const stateDir = path.join(wikiDir, config.output.dir, '.state', 'chunks');
+    const stateDir = path.join(wikiDir, 'output', '.state', 'chunks');
     const stateFile = path.join(stateDir, `${manifest.chunks[0].source}-${manifest.chunks[0].chunkId}.json`);
     const state = JSON.parse(readFileSync(stateFile, 'utf-8'));
     state.status = 'failed';

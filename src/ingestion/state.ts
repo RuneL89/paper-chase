@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSy
 import path from 'path';
 import { createHash } from 'crypto';
 import matter from 'gray-matter';
+import { toRelativePathFromDir } from '../workspace.js';
 
 import type { OrchestratorMemory } from '../orchestrator/types.js';
 
@@ -42,8 +43,8 @@ export function defaultState(): IngestionState {
   };
 }
 
-export function statePath(wikiDir: string, outputDir: string): string {
-  return path.join(wikiDir, outputDir, '.state', 'ingest-state.json');
+export function statePath(wikiDir: string, _outputDir?: string): string {
+  return path.join(wikiDir, 'output', '.state', 'ingest-state.json');
 }
 
 export function loadState(stateFile: string): IngestionState {
@@ -101,7 +102,7 @@ export function refreshPageState(
       if (stat.isDirectory()) {
         walk(full);
       } else if (entry.endsWith('.md')) {
-        const relative = path.relative(outputDir, full).replace(/\\/g, '/');
+        const relative = toRelativePathFromDir(outputDir, full);
         if (relative === 'index.md' || relative.endsWith('/index.md')) {
           continue;
         }

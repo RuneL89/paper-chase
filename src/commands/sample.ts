@@ -22,25 +22,32 @@ import type { OrchestratorResult } from '../orchestrator/types.js';
 export async function sampleCommand(
   workspace: string,
   slug: string,
-  pdfPath: string,
+  pdfPath?: string,
 ): Promise<number> {
-  if (!slug || !pdfPath) {
+  if (!slug) {
     throw new CLIError(
-      'Please provide a wiki slug and a path to a PDF. ' +
-        'Example: llm-wiki-cli sample acme wikis/acme/raw/annual-report.pdf',
+      'Please provide a wiki slug. ' +
+        'Example: llm-wiki-cli sample acme',
     );
   }
 
   ensureWikiExists(workspace, slug);
 
-  if (!isInsideRawFolder(workspace, slug, pdfPath)) {
-    throw new CLIError(
-      `The PDF must be inside the wiki's raw folder: wikis/${slug}/raw/. ` +
-      `Received: ${pdfPath}`,
-    );
+  let resolvedPdfPath: string;
+  let relativePdfPath: string;
+  if (pdfPath) {
+    if (!isInsideRawFolder(workspace, slug, pdfPath)) {
+      throw new CLIError(
+        `The PDF must be inside the wiki's raw folder: wikis/${slug}/raw/. ` +
+        `Received: ${pdfPath}`,
+      );
+    }
+    resolvedPdfPath = path.resolve(workspace, pdfPath);
+    relativePdfPath = pdfPath;
+  } else {
+    resolvedPdfPath = await selectRepresentativePdf(workspace, slug);
+    relativePdfPath = toRelativePath(workspace, resolvedPdfPath);
   }
-
-  const resolvedPdfPath = path.resolve(workspace, pdfPath);
 
   let config: Config;
   const wikiConfigPath = path.join(wikiPath(workspace, slug), 'config.json');
@@ -51,7 +58,7 @@ export async function sampleCommand(
   }
 
   const result = await extractPdf(resolvedPdfPath);
-  result.filePath = toRelativePath(workspace, pdfPath);
+  result.filePath = toRelativePath(workspace, relativePdfPath);
 
   const otherFiles = await collectOtherPdfInfo(workspace, slug, resolvedPdfPath);
   const samplingStrategy = classifyCorpus(result, otherFiles, config);
@@ -193,6 +200,21 @@ function buildSamplePrompt(
     `Sampling reason: ${samplingStrategy.reason}`,
     'Provide a one-sentence scope summary for this wiki.',
   ].join('\n');
+}
+
+async function selectRepresentativePdf(workspace: string, slug: string): Promise<string> {
+  const rawDir = path.join(wikiPath(workspace, slug), 'raw');
+  if (!existsSync(rawDir)) {
+    throw new CLIError(`No raw folder found for wiki "${slug}". Add PDFs to wikis/${slug}/raw/ first.`);
+  }
+  const entries = readdirSync(rawDir, { withFileTypes: true })
+    .filter((e) => e.isFile() && e.name.toLowerCase().endsWith('.pdf'))
+    .map((e) => e.name)
+    .sort();
+  if (entries.length === 0) {
+    throw new CLIError(`No PDFs found in wikis/${slug}/raw/. Add at least one PDF before sampling.`);
+  }
+  return path.join(rawDir, entries[0]);
 }
 
 async function collectOtherPdfInfo(

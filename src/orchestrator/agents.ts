@@ -27,8 +27,10 @@ import {
   containsProductKeyword,
   looksLikePerson,
   looksLikeAcronym,
+  type EntityMention,
+  type MentionLocation as EntityMentionLocation,
 } from '../entities/index.js';
-import { extractTopics, topicPageTitle, isGenericTopic } from '../topics/index.js';
+import { extractTopics, topicPageTitle, isGenericTopic, type Topic, type MentionLocation as TopicMentionLocation } from '../topics/index.js';
 import { slugify, SlugRegistry } from '../utils/slug.js';
 import { findPotentialDuplicates, findCrossDuplicates } from '../utils/similarity.js';
 import type { Config } from '../config.js';
@@ -2123,7 +2125,7 @@ function buildChunkWriterPrompt(
     '- ONLY link to entity/topic pages listed in the "Known pages" section below. If a name is not listed, do not link it.',
     '- NEVER use piped wikilinks such as [[Target|Display]]. Use only the exact title format: [[Exact Title]].',
     '- Mention any preserved tables or figures briefly, with Source: [^srcN].',
-    '- Do NOT include the full extracted text or tables in the body; the deterministic layer appends the full extracted detail below your synthesis.',
+    '- Preserve the original extracted text by including it in a "## Preserved Extracted Detail" section at the end of the body.',
     '- Multi-source claims cite all sources: [^src1] [^src2].',
     '- Scanned or unparseable pages: do not make claims, or mark them as needing verification.',
     '- Confidence may be high, medium, or low.',
@@ -2350,6 +2352,205 @@ function mergeWithFallback(
     }
     return fallback;
   });
+}
+
+function formatMentionSources(
+  mentions: { source: string; filePath?: string; pages: string }[],
+): string[] {
+  const seen = new Map<string, string>();
+  for (const mention of mentions) {
+    if (!mention.filePath) continue;
+    if (seen.has(mention.filePath)) {
+      const existing = seen.get(mention.filePath)!;
+      seen.set(mention.filePath, `${existing}, ${mention.pages}`);
+    } else {
+      seen.set(mention.filePath, mention.pages);
+    }
+  }
+  let index = 0;
+  const lines: string[] = [];
+  for (const [file, pages] of seen) {
+    lines.push(`  - src${++index}: ${file}, pages ${pages}`);
+  }
+  return lines;
+}
+
+export interface EntityTopicPageOutput {
+  entities: { name: string; body: string }[];
+  topics: { name: string; body: string }[];
+}
+
+export interface EntityTopicPageInputEntity {
+  name: string;
+  type: EntityMention['type'];
+  count: number;
+  mentions: EntityMentionLocation[];
+  description?: string;
+  relationships?: EntityMention['relationships'];
+}
+
+export interface EntityTopicPageInputTopic {
+  name: string;
+  count: number;
+  mentions: TopicMentionLocation[];
+  related: string[];
+}
+
+export async function entityTopicPageWriter(
+  entities: EntityTopicPageInputEntity[],
+  topics: EntityTopicPageInputTopic[],
+  config: Config,
+  llmClient: LLMClient,
+  agentsMd?: string,
+  memory?: OrchestratorMemory,
+): Promise<EntityTopicPageOutput | undefined> {
+  if (!llmClient.isEnabled()) {
+    return undefined;
+  }
+  if (entities.length === 0 && topics.length === 0) {
+    return undefined;
+  }
+
+  const prompt = buildEntityTopicWriterPrompt(entities, topics, config, agentsMd, memory);
+  try {
+    const response = await llmClient.call(prompt, { maxTokens: 8000, temperature: 0.2 });
+    return parseEntityTopicWriterJson(response.text);
+  } catch {
+    return undefined;
+  }
+}
+
+function buildEntityTopicWriterPrompt(
+  entities: EntityTopicPageInputEntity[],
+  topics: EntityTopicPageInputTopic[],
+  config: Config,
+  agentsMd?: string,
+  _memory?: OrchestratorMemory,
+): string {
+  const lines: string[] = [
+    'You are the EntityTopicPageWriter agent for a PDF-to-wiki CLI.',
+    'Write LLM-authored markdown bodies for the entity and topic pages below.',
+    'Return ONLY a JSON object matching the schema at the end.',
+    '',
+    'Rules for entity pages:',
+    '- Start with a brief synthesis of what the entity is and why it matters in the corpus.',
+    '- Include a Description section if a description is provided.',
+    '- Include a Relationships section if relationships are provided; otherwise omit it.',
+    '- Include an Appearances section listing the source files and page ranges where the entity occurs.',
+    '- Cite sources using inline [^srcN] markers that match the source entries shown below each entity/topic.',
+    '- Use the exact source id (src1, src2, etc.) provided in the source list.',
+    '- Link to other entity pages using [[Entity: Name]] and topic pages using [[Topic: Name]].',
+    '- Only link to names that appear in the "Known entities" or "Known topics" lists below.',
+    '- End with a link to the wiki index: [[' + config.wiki.title + ' Index]].',
+    '',
+    'Rules for topic pages:',
+    '- Start with a brief synthesis of the topic and its significance in the corpus.',
+    '- Include an Appearances section listing the source files and page ranges where the topic occurs.',
+    '- Include a Related section if related topics/entities are provided; otherwise omit it.',
+    '- Cite sources using inline [^srcN] markers matching the source entries shown below each topic.',
+    '- Use the exact source id (src1, src2, etc.) provided in the source list.',
+    '- End with a link to the wiki index: [[' + config.wiki.title + ' Index]].',
+    '',
+    'Format requirements:',
+    '- The body must be valid markdown.',
+    '- Do NOT wrap the body in a markdown code block inside the JSON string.',
+    '- Keep the body concise but informative; do not invent facts not supported by the supplied data.',
+    '',
+    'JSON schema:',
+    '{',
+    '  "entities": [',
+    '    { "name": "Exact Entity Name", "body": "# Entity: ...\\n\\n..." }',
+    '  ],',
+    '  "topics": [',
+    '    { "name": "Exact Topic Name", "body": "# Topic: ...\\n\\n..." }',
+    '  ]',
+    '}',
+    '',
+  ];
+
+  if (agentsMd) {
+    lines.push('## Wiki ingestion guide (AGENTS.md)');
+    lines.push(agentsMd);
+    lines.push('');
+  }
+
+  if (entities.length > 0) {
+    lines.push('## Known entities');
+    for (const entity of entities) {
+      lines.push(`- Entity: ${entity.name} (${entity.type}, mentions: ${entity.count})`);
+    }
+    lines.push('');
+  }
+
+  if (topics.length > 0) {
+    lines.push('## Known topics');
+    for (const topic of topics) {
+      lines.push(`- Topic: ${topic.name} (mentions: ${topic.count})`);
+    }
+    lines.push('');
+  }
+
+  if (entities.length > 0) {
+    lines.push('## Entity data');
+    for (const entity of entities) {
+      lines.push(`### Entity: ${entity.name}`);
+      lines.push(`- type: ${entity.type}`);
+      lines.push(`- mentions: ${entity.count}`);
+      lines.push(`- description: ${entity.description || '(none)'}`);
+      if (entity.relationships && entity.relationships.length > 0) {
+        lines.push('- relationships:');
+        for (const rel of entity.relationships) {
+          lines.push(`  - ${entity.name} ${rel.predicate} ${rel.object} — ${rel.evidence} (${rel.pages})`);
+        }
+      }
+      lines.push('- appearances:');
+      for (const m of entity.mentions) {
+        lines.push(`  - ${m.source}, pages ${m.pages}`);
+      }
+      const entitySourceLines = formatMentionSources(entity.mentions);
+      if (entitySourceLines.length > 0) {
+        lines.push('- sources:');
+        lines.push(...entitySourceLines);
+      }
+      lines.push('');
+    }
+  }
+
+  if (topics.length > 0) {
+    lines.push('## Topic data');
+    for (const topic of topics) {
+      lines.push(`### Topic: ${topic.name}`);
+      lines.push(`- mentions: ${topic.count}`);
+      lines.push(`- related: ${topic.related.join(', ') || '(none)'}`);
+      lines.push('- appearances:');
+      for (const m of topic.mentions) {
+        lines.push(`  - ${m.source}, pages ${m.pages}`);
+      }
+      const topicSourceLines = formatMentionSources(topic.mentions);
+      if (topicSourceLines.length > 0) {
+        lines.push('- sources:');
+        lines.push(...topicSourceLines);
+      }
+      lines.push('');
+    }
+  }
+
+  return lines.join('\n');
+}
+
+function parseEntityTopicWriterJson(text: string): EntityTopicPageOutput | undefined {
+  const parsed = parseStructuredJson(text) as Partial<EntityTopicPageOutput>;
+  if (!parsed) return undefined;
+  const entities = Array.isArray(parsed.entities) ? parsed.entities : [];
+  const topics = Array.isArray(parsed.topics) ? parsed.topics : [];
+  return {
+    entities: entities
+      .filter((e: Record<string, unknown>) => typeof e.name === 'string' && typeof e.body === 'string')
+      .map((e: Record<string, unknown>) => ({ name: e.name as string, body: e.body as string })),
+    topics: topics
+      .filter((t: Record<string, unknown>) => typeof t.name === 'string' && typeof t.body === 'string')
+      .map((t: Record<string, unknown>) => ({ name: t.name as string, body: t.body as string })),
+  };
 }
 
 export { buildDefaultSources };

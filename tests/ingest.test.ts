@@ -266,7 +266,7 @@ describe('TAC-004: wikilinks use [[Page Title]] and lint records unresolved link
     }
     expect(hasWikilink).toBe(true);
 
-    const lintPath = path.join(wikiDir, 'lint', 'wikilinks.json');
+    const lintPath = path.join(wikiDir, 'output', 'lint', 'wikilinks.json');
     expect(existsSync(lintPath)).toBe(true);
     const lint = JSON.parse(readFileSync(lintPath, 'utf-8'));
     expect(Array.isArray(lint.issues)).toBe(true);

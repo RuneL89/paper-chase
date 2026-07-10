@@ -59,7 +59,7 @@ function gatherWikiStatus(workspace: string, slug: string): WikiStatus {
   const rawCount = countMarkdownFiles(wikiDir, 'raw');
   const totalGeneratedPages = documentCount + entityCount + topicCount + rawCount;
 
-  const statePath = path.join(wikiDir, '.state', 'ingest-state.json');
+  const statePath = path.join(wikiDir, 'output', '.state', 'ingest-state.json');
   let lastRun = 'never';
   if (existsSync(statePath)) {
     try {
@@ -71,7 +71,7 @@ function gatherWikiStatus(workspace: string, slug: string): WikiStatus {
   }
 
   const warnings: string[] = [];
-  const lintPath = path.join(wikiDir, 'lint', 'report.json');
+  const lintPath = path.join(wikiDir, 'output', 'lint', 'report.json');
   if (existsSync(lintPath)) {
     try {
       const report = JSON.parse(readFileSync(lintPath, 'utf-8')) as {

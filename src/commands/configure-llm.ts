@@ -4,6 +4,7 @@ import { CLIError } from '../errors.js';
 import { loadLLMConfig } from '../llm/client.js';
 import { prompt, promptHidden, confirm, isInteractive } from '../prompt.js';
 import { testLlmCommand } from './test-llm.js';
+import { buildRunLog, writeRunLog } from '../log.js';
 
 const KNOWN_PROVIDERS = ['openai', 'anthropic', 'openai-compatible', 'kimi', 'test'];
 
@@ -95,6 +96,13 @@ export async function configureLlmCommand(options: ConfigureLlmOptions): Promise
   };
 
   writeFileSync(configPath, JSON.stringify(updated, null, 2) + '\n', 'utf-8');
+
+  const log = buildRunLog('configure-llm', workspace, {
+    llmProvider: provider,
+    llmModel: finalModel,
+    status: 'success',
+  });
+  writeRunLog(workspace, log);
 
   console.log('');
   console.log(`LLM configuration saved to ${configPath}`);

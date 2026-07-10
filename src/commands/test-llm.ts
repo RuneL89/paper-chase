@@ -1,5 +1,6 @@
 import { createLLMClient } from '../llm/client.js';
 import { CLIError } from '../errors.js';
+import { buildRunLog, writeRunLog } from '../log.js';
 
 interface TestLlmOptions {
   workspace: string;
@@ -9,6 +10,7 @@ interface TestLlmOptions {
 
 export async function testLlmCommand(options: TestLlmOptions): Promise<void> {
   const client = createLLMClient(options.workspace);
+  const workspace = options.workspace;
 
   if (!client.isEnabled()) {
     throw new CLIError(
@@ -37,8 +39,21 @@ export async function testLlmCommand(options: TestLlmOptions): Promise<void> {
     console.log('');
     console.log('Response:');
     console.log(response.text);
+
+    const log = buildRunLog('test-llm', workspace, {
+      llmProvider: response.provider,
+      llmModel: response.model,
+      llmTokens: response.estimatedTokens,
+      status: 'success',
+    });
+    writeRunLog(workspace, log);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
+    const log = buildRunLog('test-llm', workspace, {
+      errors: [message],
+      status: 'failed',
+    });
+    writeRunLog(workspace, log);
     throw new CLIError(`LLM connection failed: ${message}`, 2);
   }
 }

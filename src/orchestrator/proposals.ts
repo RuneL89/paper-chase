@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, writeFile
 import path from 'path';
 import matter from 'gray-matter';
 import { confirm, isInteractive } from '../prompt.js';
+import { CLIError } from '../errors.js';
 import type { Config } from '../config.js';
 import type { FolderPlan, PagePlan, StructuralProposal } from './types.js';
 import { writeFolderIndexContract, type WikiIndexData } from './contracts.js';
@@ -22,31 +23,67 @@ export function detectStructuralProposals(
   const addedFolders = currentPlacements.filter((f) => !previousFolders.has(f.folder));
   const removedFolders = Array.from(previousFolders).filter((f) => !currentFolders.has(f));
 
-  if (previousFolders.size === 0 || (addedFolders.length === 0 && removedFolders.length === 0)) {
+  const renamedFolders: { from: string; to: string; title: string; description: string; pageTypes: string[]; children: string[] }[] = [];
+  const previousByTitle = new Map<string, string>();
+  for (const [slug, plan] of Object.entries(previousHierarchy)) {
+    previousByTitle.set(plan.title, slug);
+  }
+  for (const current of addedFolders) {
+    const previousSlug = previousByTitle.get(current.title);
+    if (previousSlug && !currentFolders.has(previousSlug)) {
+      renamedFolders.push({
+        from: previousSlug,
+        to: current.folder,
+        title: current.title,
+        description: current.description,
+        pageTypes: current.pageTypes,
+        children: current.children,
+      });
+    }
+  }
+
+  const effectiveAdded = addedFolders.filter(
+    (f) => !renamedFolders.some((r) => r.to === f.folder),
+  );
+  const effectiveRemoved = removedFolders.filter(
+    (f) => !renamedFolders.some((r) => r.from === f),
+  );
+
+  if (previousFolders.size === 0 || (effectiveAdded.length === 0 && effectiveRemoved.length === 0 && renamedFolders.length === 0)) {
     return [];
   }
 
   const type: 'new-folder' | 'restructure' =
-    addedFolders.length === 1 && removedFolders.length === 0 ? 'new-folder' : 'restructure';
+    effectiveAdded.length === 1 && effectiveRemoved.length === 0 && renamedFolders.length === 0
+      ? 'new-folder'
+      : 'restructure';
 
   return [
     {
       type,
-      reason: buildProposalReason(addedFolders, removedFolders),
+      reason: buildProposalReason(effectiveAdded, effectiveRemoved, renamedFolders),
       currentFolders: Array.from(previousFolders),
       proposedFolders: Array.from(currentFolders),
-      newFolderPlans: addedFolders,
+      newFolderPlans: effectiveAdded,
+      renamedFolders: renamedFolders.length > 0 ? renamedFolders : undefined,
     },
   ];
 }
 
-function buildProposalReason(added: FolderPlan[], removed: string[]): string {
+function buildProposalReason(
+  added: FolderPlan[],
+  removed: string[],
+  renamed: { from: string; to: string; title: string }[] = [],
+): string {
   const parts: string[] = [];
   if (added.length > 0) {
     parts.push(`new folder(s): ${added.map((f) => f.title).join(', ')}`);
   }
   if (removed.length > 0) {
     parts.push(`removed folder(s): ${removed.join(', ')}`);
+  }
+  if (renamed.length > 0) {
+    parts.push(`renamed folder(s): ${renamed.map((r) => `${r.title} (${r.from}/ → ${r.to}/)`).join(', ')}`);
   }
   return `Corpus structure changed and requires ${parts.join('; ')}.`;
 }
@@ -99,6 +136,26 @@ export function renderProposalMarkdown(slug: string, proposal: StructuralProposa
     '',
     ...proposal.newFolderPlans.map((f) => `- **${f.folder}/** — ${f.title}: ${f.description}`),
     '',
+    ...(proposal.renamedFolders && proposal.renamedFolders.length > 0
+      ? [
+          '## Renamed folders',
+          '',
+          ...proposal.renamedFolders.map(
+            (r) => `- **${r.from}/** → **${r.to}/** — ${r.title}: ${r.description}`,
+          ),
+          '',
+        ]
+      : []),
+    ...(proposal.movedFolders && proposal.movedFolders.length > 0
+      ? [
+          '## Moved folders',
+          '',
+          ...proposal.movedFolders.map(
+            (m) => `- **${m.from}/** → **${m.to}/** — ${m.title}: ${m.description}`,
+          ),
+          '',
+        ]
+      : []),
     '## Pros',
     '',
     '- Better reflects the corpus structure discovered during ingestion.',
@@ -114,7 +171,12 @@ export function renderProposalMarkdown(slug: string, proposal: StructuralProposa
     '- Update `wikis/' + slug + '/index.md` to list the new folder(s).',
     '- Create folder-level `index.md` contract(s) for the new folder(s).',
     '- Update `wikis/' + slug + '/AGENTS.md` to document the new folder(s).',
-    '',
+    ...(proposal.renamedFolders && proposal.renamedFolders.length > 0
+      ? ['- Rename the affected folder directories and update existing page paths.', '']
+      : []),
+    ...(proposal.movedFolders && proposal.movedFolders.length > 0
+      ? ['- Move the affected folder directories and update existing page paths.', '']
+      : []),
     '## Approval',
     '',
     'To approve, change the frontmatter `status` to `approved` and run:',
@@ -156,7 +218,7 @@ export function applyProposal(
   config: Config,
 ): { proposal: StructuralProposal; approved: boolean } {
   if (!existsSync(proposalPath)) {
-    throw new Error(`Proposal file not found: ${proposalPath}`);
+    throw new CLIError(`Proposal file not found: ${proposalPath}`);
   }
 
   const content = readFileSync(proposalPath, 'utf-8');
@@ -164,7 +226,7 @@ export function applyProposal(
   const status = String(parsed.data.status || '').toLowerCase();
   const proposal = parseProposalMarkdown(content);
   if (!proposal) {
-    throw new Error('Invalid proposal file content');
+    throw new CLIError('Invalid proposal file content');
   }
 
   const wikiDir = path.join(workspace, 'wikis', slug);
@@ -214,7 +276,7 @@ export function applyProposal(
     const rejectedPath = proposalPath.replace(/-structural-change\.md$/, '-structural-change-rejected.md');
     renameSync(proposalPath, rejectedPath);
   } else {
-    throw new Error(`Proposal status must be 'approved' or 'rejected'; found '${status || 'pending'}'`);
+    throw new CLIError(`Proposal status must be 'approved' or 'rejected'; found '${status || 'pending'}'`);
   }
 
   return { proposal, approved };
@@ -253,13 +315,44 @@ export function parseProposalMarkdown(content: string): StructuralProposal | und
   const reasonMatch = parsed.content.match(/## Reason\n\n([\s\S]*?)(?=\n## |$)/);
   const reason = reasonMatch ? reasonMatch[1].trim() : 'Structural change proposed.';
 
+  const renamedFolders = parseRenameMoveSection(parsed.content, '## Renamed folders');
+  const movedFolders = parseRenameMoveSection(parsed.content, '## Moved folders');
+
   return {
-    type: newFolderPlans.length === 1 && currentFolders.length > 0 ? 'new-folder' : 'restructure',
+    type: newFolderPlans.length === 1 && currentFolders.length > 0 && renamedFolders.length === 0 && movedFolders.length === 0 ? 'new-folder' : 'restructure',
     reason,
     currentFolders,
     proposedFolders,
     newFolderPlans,
+    renamedFolders: renamedFolders.length > 0 ? renamedFolders : undefined,
+    movedFolders: movedFolders.length > 0 ? movedFolders : undefined,
   };
+}
+
+function parseRenameMoveSection(
+  content: string,
+  header: string,
+): { from: string; to: string; title: string; description: string; pageTypes: string[]; children: string[] }[] {
+  const regex = new RegExp(`${header.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\n\n([\\s\\S]*?)(?=\n## |$)`);
+  const match = content.match(regex);
+  if (!match) return [];
+
+  const lines = match[1].split('\n').filter((l) => l.trim().startsWith('- '));
+  const result: { from: string; to: string; title: string; description: string; pageTypes: string[]; children: string[] }[] = [];
+  for (const line of lines) {
+    const parsed = line.match(/- \*\*([^*]+)\*\* → \*\*([^*]+)\*\* — (.+): (.+)/);
+    if (parsed) {
+      result.push({
+        from: parsed[1].trim().replace(/\/$/, ''),
+        to: parsed[2].trim().replace(/\/$/, ''),
+        title: parsed[3].trim(),
+        description: parsed[4].trim(),
+        pageTypes: ['document'],
+        children: [],
+      });
+    }
+  }
+  return result;
 }
 
 export function detectNewPageTypes(

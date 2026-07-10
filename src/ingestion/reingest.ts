@@ -3,14 +3,14 @@ import path from 'path';
 import matter from 'gray-matter';
 
 import type { Config } from '../config.js';
-import { wikiPath } from '../workspace.js';
+import { wikiPath, toRelativePathFromDir } from '../workspace.js';
 import { buildRunLog, writeRunLog } from '../log.js';
 import type { FolderPlan, PagePlan, StructuralProposal } from '../orchestrator/types.js';
 import { writeFolderIndexContract, writeWikiIndexContract, type WikiIndexData } from '../orchestrator/contracts.js';
 import { updateAgentsMdForNewPageTypes } from '../orchestrator/proposals.js';
 import { runWikiOfWikiAgent, type WikiOfWikiSummary } from '../orchestrator/wiki-of-wiki.js';
 import { writeIndexOfIndexes } from '../writers/index.js';
-import { repairWikilinks, lintWiki, writeLintReport } from '../lint/index.js';
+import { lintWiki, writeLintReport } from '../lint/index.js';
 import {
   loadState,
   saveState,
@@ -128,7 +128,7 @@ export async function runReingest(
       mkdirSync(path.dirname(targetPath), { recursive: true });
       writeFileSync(targetPath, readFileSync(fullPath));
       rmSync(fullPath);
-      const targetRelative = path.relative(outputDir, targetPath).replace(/\\/g, '/');
+      const targetRelative = toRelativePathFromDir(outputDir, targetPath);
       updatePagePathInSource(state, pagePath, targetRelative);
       state.pages![targetRelative] = {
         ...pageState,
@@ -360,7 +360,6 @@ function updateContractsAndAgents(
   const wikiOfWikiResult = runWikiOfWikiAgent(workspace, wikiSummaries);
   writeIndexOfIndexes(workspace, wikiOfWikiResult.wikis, wikiOfWikiResult.crossWikiNames);
 
-  repairWikilinks(workspace, slug, config);
   const lintResult = lintWiki(workspace, slug, config);
   writeLintReport(workspace, slug, config, lintResult);
 }

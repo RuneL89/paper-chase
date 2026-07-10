@@ -120,6 +120,8 @@ export interface StructuralProposal {
   currentFolders: string[];
   proposedFolders: string[];
   newFolderPlans: FolderPlan[];
+  renamedFolders?: { from: string; to: string; title: string; description: string; pageTypes: string[]; children: string[] }[];
+  movedFolders?: { from: string; to: string; title: string; description: string; pageTypes: string[]; children: string[] }[];
   /** Set to true when the proposal is approved and applied during an ingest run. */
   applied?: boolean;
 }

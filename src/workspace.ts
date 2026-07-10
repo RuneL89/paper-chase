@@ -60,3 +60,9 @@ export function toRelativePath(workspace: string, filePath: string): string {
   const relative = path.relative(workspace, resolved);
   return relative.replace(/\\/g, '/');
 }
+
+export function toRelativePathFromDir(dir: string, filePath: string): string {
+  const resolved = path.resolve(dir, filePath);
+  const relative = path.relative(dir, resolved);
+  return relative.replace(/\\/g, '/');
+}

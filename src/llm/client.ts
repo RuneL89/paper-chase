@@ -107,10 +107,11 @@ export class LLMClient {
 
   private mockResponse(prompt: string, maxTokens: number): LLMResponse {
     const tokens = estimateTokens(prompt) + maxTokens;
+    const text = generateMockResponse(prompt);
     return {
       provider: this.config.provider,
       model: this.config.model,
-      text: 'This is a test LLM response.',
+      text,
       estimatedTokens: tokens,
       estimatedCost: estimateCost(this.config.provider, this.config.model, tokens),
     };
@@ -355,6 +356,71 @@ export class LLMClient {
   getRecords(): LLMCallRecord[] {
     return [...this.records];
   }
+}
+
+function generateMockResponse(prompt: string): string {
+  if (prompt.includes('You are the ChunkWriter agent')) {
+    const chunkMatch = prompt.match(/### Chunk[^\n]*\n([\s\S]*?)(?=\n### Chunk|\n## JSON schema|$)/);
+    const chunkContent = chunkMatch?.[1]?.trim() || 'Extracted content placeholder.';
+    return JSON.stringify({
+      pages: [
+        {
+          filePath: 'documents/part-001.md',
+          frontmatter: {
+            title: 'Synthesized chunk page',
+            type: 'document',
+            confidence: 'high',
+            tags: ['document'],
+          },
+          body: `# Synthesized chunk page\n\n## Synthesis\n\nKey claims extracted from the chunk. [^src1]\n\n## Preserved Extracted Detail\n\n${chunkContent}`,
+          citations: [{ claim: 'Key claims extracted from the chunk.', sources: ['src1'] }],
+        },
+      ],
+    });
+  }
+
+  if (prompt.includes('You are the EntityTopicPageWriter agent')) {
+    return JSON.stringify({ entities: [], topics: [] });
+  }
+
+  if (prompt.includes('You are the StructureAnalyst agent')) {
+    return JSON.stringify({
+      headings: [],
+      sections: [],
+      boundaries: [],
+      pageRange: '1',
+      boundaryType: 'page',
+      readingOrderFlags: [],
+    });
+  }
+
+  if (prompt.includes('You are the EntityExtractor agent')) {
+    return JSON.stringify({ entities: [] });
+  }
+
+  if (prompt.includes('You are the RelationshipExtractor agent')) {
+    return JSON.stringify({ relationships: [] });
+  }
+
+  if (prompt.includes('You are the EvidenceCollector agent')) {
+    return JSON.stringify({ claims: [], tables: [], figures: [] });
+  }
+
+  if (prompt.includes('You are the PagePlanner agent')) {
+    return JSON.stringify({ pages: [], folderPlacements: [], wikilinks: [], citations: [] });
+  }
+
+  if (prompt.includes('You are the Critic agent')) {
+    return JSON.stringify({
+      approved: true,
+      issues: [],
+      confidence: 'high',
+      checks: [],
+      blockingIssues: [],
+    });
+  }
+
+  return 'This is a test LLM response.';
 }
 
 export function createLLMClient(workspace: string, fetchFn?: typeof fetch): LLMClient {

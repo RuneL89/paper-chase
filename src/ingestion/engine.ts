@@ -308,6 +308,7 @@ export async function runIngestion(
     memory,
     folderPlacements,
     result,
+    llmClient,
   });
   result.proposals = allProposals;
 

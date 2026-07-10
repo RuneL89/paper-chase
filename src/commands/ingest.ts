@@ -2,6 +2,7 @@ import { loadConfig } from '../config.js';
 import { discoverWikis } from '../workspace.js';
 import { CLIError } from '../errors.js';
 import { runIngestion } from '../ingestion/engine.js';
+import { buildRunLog, writeRunLog } from '../log.js';
 
 export async function ingestCommand(workspace: string, slug: string, resume = false, autoApproveProposals = false): Promise<number> {
   if (!slug) {
@@ -22,6 +23,30 @@ export async function ingestCommand(workspace: string, slug: string, resume = fa
   console.log(`Starting full ingestion for wiki "${slug}"${resume ? ' (resuming)' : ''}…`);
   const result = await runIngestion(workspace, slug, config, resume, autoApproveProposals);
   printSummary(slug, result);
+
+  const status =
+    result.errors.length > 0 ? 'failed' : result.warnings.length > 0 ? 'partial' : 'success';
+
+  const log = buildRunLog('ingest', workspace, {
+    wikiSlugs: [slug],
+    sourceFiles: result.sourceFilePaths,
+    chunkBoundaries: result.chunkBoundaries,
+    pagesGenerated: [
+      { type: 'document', count: result.documentPages },
+      { type: 'raw', count: result.rawPages },
+      { type: 'entity', count: result.entityPages },
+      { type: 'topic', count: result.topicPages },
+    ],
+    warnings: result.warnings,
+    errors: result.errors,
+    status,
+    lintIssues: result.lintIssues,
+    added: result.added,
+    changed: result.changed,
+    removed: result.removed,
+  });
+  writeRunLog(workspace, log);
+
   return 0;
 }
 

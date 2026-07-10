@@ -22,21 +22,21 @@ export interface RunManifest {
 
 export const RESUME_VERSION = '1.0';
 
-export function chunkStateDir(wikiDir: string, outputDir: string): string {
-  return path.join(wikiDir, outputDir, '.state', 'chunks');
+export function chunkStateDir(wikiDir: string, _outputDir?: string): string {
+  return path.join(wikiDir, 'output', '.state', 'chunks');
 }
 
 export function chunkStatePath(
   wikiDir: string,
-  outputDir: string,
-  sourceSlug: string,
-  chunkId: string,
+  _outputDir?: string,
+  sourceSlug?: string,
+  chunkId?: string,
 ): string {
-  return path.join(chunkStateDir(wikiDir, outputDir), `${sourceSlug}-${chunkId}.json`);
+  return path.join(chunkStateDir(wikiDir), `${sourceSlug}-${chunkId}.json`);
 }
 
-export function runManifestPath(wikiDir: string, outputDir: string): string {
-  return path.join(wikiDir, outputDir, '.state', 'run-manifest.json');
+export function runManifestPath(wikiDir: string, _outputDir?: string): string {
+  return path.join(wikiDir, 'output', '.state', 'run-manifest.json');
 }
 
 export function defaultManifest(): RunManifest {

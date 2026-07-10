@@ -426,7 +426,7 @@ describe('TAC-009: lint checks detect broken links, invalid citations, and missi
   });
 
   it('writes a lint report with issues array and surfaces it in the run log', () => {
-    const lintPath = path.join(wikiDir, 'lint', 'report.json');
+    const lintPath = path.join(wikiDir, 'output', 'lint', 'report.json');
     expect(existsSync(lintPath)).toBe(true);
     const report = JSON.parse(readFileSync(lintPath, 'utf-8'));
     expect(Array.isArray(report.issues)).toBe(true);

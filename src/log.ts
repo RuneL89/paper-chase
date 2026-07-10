@@ -32,6 +32,13 @@ export interface RunLog {
     category: string;
     reason: string;
   };
+  llmProvider?: string;
+  llmModel?: string;
+  llmTokens?: number;
+  added?: string[];
+  changed?: string[];
+  removed?: string[];
+  proposal?: string;
 }
 
 export function writeRunLog(workspace: string, log: RunLog): string {
@@ -64,6 +71,13 @@ export function buildRunLog(
       category: string;
       reason: string;
     };
+    llmProvider?: string;
+    llmModel?: string;
+    llmTokens?: number;
+    added?: string[];
+    changed?: string[];
+    removed?: string[];
+    proposal?: string;
   } = {},
 ): RunLog {
   return {
@@ -82,5 +96,12 @@ export function buildRunLog(
     llmCalls: options.llmCalls ?? [],
     lintIssues: options.lintIssues,
     samplingStrategy: options.samplingStrategy,
+    llmProvider: options.llmProvider,
+    llmModel: options.llmModel,
+    llmTokens: options.llmTokens,
+    added: options.added,
+    changed: options.changed,
+    removed: options.removed,
+    proposal: options.proposal,
   };
 }
