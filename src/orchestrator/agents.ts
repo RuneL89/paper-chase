@@ -1,5 +1,6 @@
 import type { LLMClient } from '../llm/client.js';
 import { parseStructuredJson } from '../llm/json.js';
+import { CLIError } from '../errors.js';
 import type { Chunk } from '../chunking/types.js';
 import type { ExtractionResult, ExtractedPage } from '../extractor/types.js';
 import type {
@@ -17,10 +18,8 @@ import type {
   DuplicateFlag,
   PagePlannerOutput,
 } from './types.js';
-import { buildDocumentPage, type LlmPageContent } from '../writers/document.js';
 import { validateFrontmatter } from '../validation/schema.js';
 import {
-  extractEntities,
   entityPageTitle,
   looksLikeOrganization,
   containsOrgKeyword,
@@ -35,7 +34,6 @@ import { slugify, SlugRegistry } from '../utils/slug.js';
 import { findPotentialDuplicates, findCrossDuplicates } from '../utils/similarity.js';
 import type { Config } from '../config.js';
 import { buildPrompt } from './prompt-loader.js';
-
 export interface StructureOutput {
   headings: { title: string; page: number; level: number }[];
   sections: { title: string; startPage: number; endPage: number; level: number }[];
@@ -61,7 +59,6 @@ export interface EvidenceOutput {
 
 export { PagePlannerOutput, PagePlan };
 
-const DEFAULT_PAGE_TYPES = ['document', 'source', 'topic', 'entity', 'raw', 'index'];
 
 const entityPatterns: Record<EntityType, RegExp> = {
   person: /\b([A-Z][a-z]+\s+[A-Z][a-z]+)\b/g,
@@ -85,16 +82,6 @@ function inferEntityType(name: string): EntityType {
   // default to organization rather than guessing person.
   if (/\b[A-Z][a-z]+\s+[A-Z][a-z]+\b/.test(name)) return 'person';
   return 'organization';
-}
-
-function parsePageRange(range: string): number[] {
-  const match = range.match(/^(\d+)(?:-(\d+))?$/);
-  if (!match) return [1];
-  const start = parseInt(match[1], 10);
-  const end = match[2] ? parseInt(match[2], 10) : start;
-  const pages: number[] = [];
-  for (let i = start; i <= end; i++) pages.push(i);
-  return pages;
 }
 
 // ---------- Canonical name resolution ----------
@@ -268,8 +255,8 @@ function isPhraseFragment(shorter: string, longer: string): boolean {
 }
 
 /**
- * Merge entities that share a name or alias, e.g. deterministic fallback "Acme Corp"
- * and LLM result "Acme Corporation (alias: Acme Corp)". The longer name is preferred
+ * Merge entities that share a name or alias, e.g. LLM-extracted "Acme Corp"
+ * and "Acme Corporation (alias: Acme Corp)". The longer name is preferred
  * as the canonical display name.
  */
 function mergeByNameAndAlias(entities: ExtractedEntity[]): ExtractedEntity[] {
@@ -333,7 +320,6 @@ function normalizeEntityType(type: string): EntityType {
 }
 
 // ---------- Agents ----------
-
 /**
  * StructureAnalyst: derive headings, sections, and chunk boundaries from the PDF structure.
  */
@@ -344,10 +330,8 @@ export async function structureAnalyst(
   agentsMd?: string,
   memory?: OrchestratorMemory,
 ): Promise<StructureOutput> {
-  const fallback = structureAnalystFallback(result, chunks);
-
   if (!llmClient.isEnabled()) {
-    return fallback;
+    throw new CLIError('LLM is required for structure analysis.');
   }
 
   try {
@@ -361,51 +345,11 @@ export async function structureAnalyst(
       return parsed;
     }
   } catch {
-    // Fall through to deterministic fallback.
+    // Fall through to the invalid-output error below.
   }
 
-  return fallback;
+  throw new CLIError('StructureAnalyst returned invalid output.');
 }
-
-function structureAnalystFallback(result: ExtractionResult, chunks: Chunk[]): StructureOutput {
-  const headings = result.pages
-    .flatMap((page) =>
-      (page.estimatedHeadings ?? []).map((title) => ({
-        title,
-        page: page.physicalPage,
-        level: 1,
-      })),
-    )
-    .slice(0, 20);
-
-  const sections: StructureOutput['sections'] = [];
-  for (let i = 0; i < headings.length; i++) {
-    const start = headings[i].page;
-    const end = i + 1 < headings.length ? headings[i + 1].page - 1 : result.physicalPages;
-    sections.push({
-      title: headings[i].title,
-      startPage: start,
-      endPage: Math.max(start, end),
-      level: headings[i].level,
-    });
-  }
-
-  const boundaries = chunks.map((chunk) => ({
-    type: chunk.boundaryType,
-    pageRange: chunk.pageRange,
-    description: chunk.title,
-  }));
-
-  return {
-    headings,
-    sections,
-    boundaries,
-    pageRange: `1-${result.physicalPages}`,
-    boundaryType: result.tables.length > 0 ? 'table' : result.figures.length > 0 ? 'figure' : 'page',
-    readingOrderFlags: result.pages.some((p) => p.isScanned) ? ['scanned-pages-excluded'] : [],
-  };
-}
-
 function isValidStructureOutput(output: unknown): output is StructureOutput {
   const o = output as Record<string, unknown> | undefined;
   if (!o || typeof o !== 'object') return false;
@@ -466,38 +410,38 @@ export async function entityExtractor(
   agentsMd?: string,
   memory?: OrchestratorMemory,
 ): Promise<EntityOutput> {
-  const fallback = entityExtractorFallback(result, chunks);
-  const fallbackEntities = filterQualityEntities(fallback.entities, chunks);
-  let llmEntities: ExtractedEntity[] = [];
-
-  if (llmClient.isEnabled()) {
-    try {
-      const context = buildEntityContext(result, chunks, agentsMd, memory);
-      const response = await llmClient.call(buildPrompt('entity-extractor', context), {
-        maxTokens: 2000,
-        temperature: 0.2,
-      });
-      const parsed = parseStructuredJson<{ entities?: unknown[] }>(response.text);
-      if (parsed && Array.isArray(parsed.entities)) {
-        const normalized = parsed.entities
-          .map((e) => normalizeExtractedEntity(e))
-          .filter((e): e is ExtractedEntity => {
-            if (!e) return false;
-            // Only keep LLM entities that include a non-empty description. The
-            // deterministic fallback provides entities without descriptions, so this
-            // filter prevents low-quality LLM hallucinations from swamping the corpus.
-            return typeof e.description === 'string' && e.description.trim().length > 0;
-          });
-        llmEntities = filterQualityEntities(normalized, chunks);
-      }
-    } catch {
-      // Keep the filtered fallback.
-    }
+  if (!llmClient.isEnabled()) {
+    throw new CLIError('LLM is required for entity extraction.');
   }
 
-  // Merge the deterministic fallback with LLM results so that full names
-  // discovered by local extraction are not lost when the LLM only returns fragments.
-  const combined = resolveAndMergeEntities([...fallbackEntities, ...llmEntities], memory);
+  let llmEntities: ExtractedEntity[] = [];
+
+  try {
+    const context = buildEntityContext(result, chunks, agentsMd, memory);
+    const response = await llmClient.call(buildPrompt('entity-extractor', context), {
+      maxTokens: 2000,
+      temperature: 0.2,
+    });
+    const parsed = parseStructuredJson<{ entities?: unknown[] }>(response.text);
+    if (parsed && Array.isArray(parsed.entities)) {
+      const normalized = parsed.entities
+        .map((e) => normalizeExtractedEntity(e))
+        .filter((e): e is ExtractedEntity => {
+          if (!e) return false;
+          // Only keep LLM entities that include a non-empty description.
+          return typeof e.description === 'string' && e.description.trim().length > 0;
+        });
+      llmEntities = filterQualityEntities(normalized, chunks);
+    }
+  } catch {
+    // Fall through to the invalid-output error below.
+  }
+
+  if (llmEntities.length === 0) {
+    throw new CLIError('EntityExtractor returned invalid or empty output.');
+  }
+
+  const combined = resolveAndMergeEntities(llmEntities, memory);
   const merged = mergeByNameAndAlias(mergeFragmentEntities(combined));
   const sorted = merged.sort((a, b) => {
     const countDiff = b.count - a.count;
@@ -506,56 +450,6 @@ export async function entityExtractor(
   });
   return { entities: sorted.slice(0, 50) };
 }
-
-function entityExtractorFallback(result: ExtractionResult, chunks: Chunk[]): EntityOutput {
-  const allText = chunks.map((c) => cleanTextForEntityExtraction(c.content)).join('\n\n');
-  const mentions = extractEntities(allText, { max: 20 });
-  const entities: ExtractedEntity[] = [];
-
-  for (const mention of mentions) {
-    const chunk = chunks.find((c) => c.content.includes(mention.name)) ?? chunks[0];
-    const pages = chunk ? parsePageRange(chunk.pageRange) : [1];
-    const contexts = extractMentionContexts(mention.name, chunk?.content ?? result.pages[0]?.text ?? '', pages);
-    const { name, aliases } = normalizeEntityName(mention.name);
-    entities.push({
-      name,
-      canonical: slugify(name),
-      aliases,
-      type: mention.type as EntityType,
-      count: mention.count,
-      mentions: contexts,
-      confidence: 0.6,
-    });
-  }
-
-  return { entities };
-}
-
-function extractMentionContexts(name: string, text: string, pages: number[]): { page: number; context: string }[] {
-  const contexts: { page: number; context: string }[] = [];
-  const sentences = cleanTextForEntityExtraction(text).split(/(?<=[.!?])\s+|\n+/);
-  const seen = new Set<string>();
-
-  for (const sentence of sentences) {
-    if (!sentence.includes(name)) continue;
-    const context = sentence.trim().replace(/\s+/g, ' ').slice(0, 200);
-    if (seen.has(context)) continue;
-    seen.add(context);
-    for (const page of pages) {
-      contexts.push({ page, context });
-    }
-    if (contexts.length >= pages.length * 3) break;
-  }
-
-  if (contexts.length === 0) {
-    for (const page of pages) {
-      contexts.push({ page, context: text.slice(0, 200).replace(/\s+/g, ' ') });
-    }
-  }
-
-  return contexts;
-}
-
 function normalizeExtractedEntity(entity: unknown): ExtractedEntity | undefined {
   if (typeof entity !== 'object' || entity === null) return undefined;
   const e = entity as Record<string, unknown>;
@@ -985,22 +879,6 @@ function cleanEntityContextChunkContent(content: string): string {
     .slice(0, 3000);
 }
 
-function cleanTextForEntityExtraction(text: string): string {
-  // Drop markdown table lines and other layout artifacts so the deterministic
-  // entity extractor does not treat captions and headers as named entities.
-  return text
-    .split('\n')
-    .filter((line) => {
-      const trimmed = line.trim();
-      if (trimmed.length === 0) return false;
-      if (/^\|[-|\s|]*\|$/.test(trimmed)) return false;
-      const pipeCount = (trimmed.match(/\|/g) ?? []).length;
-      const wordCount = trimmed.split(/\s+/).length;
-      return pipeCount < wordCount;
-    })
-    .join('\n');
-}
-
 function buildEntityContext(
   result: ExtractionResult,
   chunks: Chunk[],
@@ -1055,10 +933,8 @@ export async function relationshipExtractor(
   agentsMd?: string,
   memory?: OrchestratorMemory,
 ): Promise<RelationshipOutput> {
-  const fallback = relationshipExtractorFallback(result, entities);
-
   if (!llmClient.isEnabled()) {
-    return fallback;
+    throw new CLIError('LLM is required for relationship extraction.');
   }
 
   try {
@@ -1077,46 +953,11 @@ export async function relationshipExtractor(
       }
     }
   } catch {
-    // Keep fallback.
+    // Fall through to the invalid-output error below.
   }
 
-  return fallback;
+  throw new CLIError('RelationshipExtractor returned invalid or empty output.');
 }
-
-function relationshipExtractorFallback(
-  result: ExtractionResult,
-  entities: ExtractedEntity[],
-): RelationshipOutput {
-  const relationships: ExtractedRelationship[] = [];
-  const entityNames = entities.map((e) => e.name.toLowerCase());
-  for (let i = 0; i < entities.length; i++) {
-    for (let j = 0; j < entities.length; j++) {
-      if (i === j) continue;
-      const sentence = findCooccurringSentence(result, entities[i].name, entities[j].name);
-      if (sentence) {
-        relationships.push({
-          subject: entities[i].name,
-          predicate: 'related to',
-          object: entities[j].name,
-          evidence: sentence,
-          pages: '1',
-        });
-      }
-    }
-  }
-  return { relationships: relationships.slice(0, 10) };
-}
-
-function findCooccurringSentence(result: ExtractionResult, a: string, b: string): string | undefined {
-  const sentences = result.pages.flatMap((p) => p.text.split(/(?<=[.!?])\s+/));
-  for (const sentence of sentences) {
-    if (sentence.includes(a) && sentence.includes(b)) {
-      return sentence.trim().slice(0, 200);
-    }
-  }
-  return undefined;
-}
-
 function normalizeRelationship(
   relationship: unknown,
   entities: ExtractedEntity[],
@@ -1187,10 +1028,8 @@ export async function evidenceCollector(
   agentsMd?: string,
   memory?: OrchestratorMemory,
 ): Promise<EvidenceOutput> {
-  const fallback = evidenceCollectorFallback(result, chunks);
-
   if (!llmClient.isEnabled()) {
-    return fallback;
+    throw new CLIError('LLM is required for evidence collection.');
   }
 
   try {
@@ -1204,47 +1043,11 @@ export async function evidenceCollector(
       return parsed;
     }
   } catch {
-    // Keep fallback.
+    // Fall through to the invalid-output error below.
   }
 
-  return fallback;
+  throw new CLIError('EvidenceCollector returned invalid output.');
 }
-
-function evidenceCollectorFallback(result: ExtractionResult, chunks: Chunk[]): EvidenceOutput {
-  const claims: ExtractedEvidence['claims'] = [];
-  const seen = new Set<string>();
-  for (const chunk of chunks) {
-    const sentences = chunk.content.split(/(?<=[.!?])\s+/);
-    for (const sentence of sentences) {
-      const trimmed = sentence.trim();
-      if (trimmed.length < 40 || trimmed.length > 200) continue;
-      if (seen.has(trimmed)) continue;
-      seen.add(trimmed);
-      claims.push({
-        text: trimmed,
-        evidence: trimmed,
-        pages: chunk.pageRange,
-      });
-      if (claims.length >= 10) break;
-    }
-    if (claims.length >= 10) break;
-  }
-
-  const tables = result.tables.map((t) => ({
-    page: t.page,
-    caption: t.caption,
-    markdown: t.markdown,
-  }));
-
-  const figures = result.figures.map((f) => ({
-    page: f.page,
-    caption: f.caption,
-    description: f.description,
-  }));
-
-  return { claims, tables, figures };
-}
-
 function isValidEvidenceOutput(output: unknown): output is EvidenceOutput {
   const o = output as Record<string, unknown> | undefined;
   if (!o || typeof o !== 'object') return false;
@@ -1301,17 +1104,8 @@ export async function pagePlanner(
   memory?: OrchestratorMemory,
   samplingStrategy?: { category: string; reason: string },
 ): Promise<PagePlannerOutput> {
-  const fallback = pagePlannerFallback(result, structure, entities, evidence);
-  const emptyOutput: PagePlannerOutput = {
-    pages: [],
-    folderPlacements: [],
-    wikilinks: [],
-    citations: [],
-    discovery: fallback.discovery,
-  };
-
   if (!llmClient.isEnabled()) {
-    return normalizePagePlannerOutput(emptyOutput, result, entities, fallback);
+    throw new CLIError('LLM is required for page planning.');
   }
 
   try {
@@ -1322,63 +1116,19 @@ export async function pagePlanner(
     });
     const parsed = parseStructuredJson<PagePlannerOutput>(response.text);
     if (parsed && isValidPagePlannerOutput(parsed)) {
-      return normalizePagePlannerOutput(parsed, result, entities, fallback);
+      const normalized = normalizePagePlannerOutput(parsed, result, entities);
+      if (normalized.folderPlacements.length === 0) {
+        throw new CLIError('PagePlanner returned no folder placements.');
+      }
+      return normalized;
     }
-  } catch {
-    // Keep fallback.
+  } catch (err) {
+    if (err instanceof CLIError) {
+      throw err;
+    }
   }
 
-  return normalizePagePlannerOutput(emptyOutput, result, entities, fallback);
-}
-
-function pagePlannerFallback(
-  result: ExtractionResult,
-  _structure: StructureOutput,
-  entities: ExtractedEntity[],
-  evidence: EvidenceOutput,
-): PagePlannerOutput {
-  const pages: PagePlan[] = [];
-
-  // Topic pages derived from recurring capitalized themes in the source text.
-  const allText = result.pages.map((p) => p.text).join('\n\n');
-  const topics = extractTopics(allText, { max: 20 });
-  for (const topic of topics) {
-    const slug = slugify(topic.name);
-    if (slug.length < 2) continue;
-    pages.push({
-      pageType: 'topic',
-      title: topicPageTitle(topic),
-      fileName: `${slug}.md`,
-      folder: 'topics',
-      tags: ['topic', 'theme'],
-      citations: ['src1'],
-      wikilinks: [],
-      related: entities.slice(0, 3).map((e) => `entities/${e.canonical}.md`),
-    });
-  }
-
-  return {
-    pages,
-    folderPlacements: defaultFolderPlacements(result, entities),
-    wikilinks: [],
-    citations: ['src1'],
-    discovery: buildDiscoveryChecklist(pages, evidence, result),
-  };
-}
-
-function buildDiscoveryChecklist(
-  pages: PagePlan[],
-  evidence: EvidenceOutput,
-  result: ExtractionResult,
-): DiscoveryChecklist {
-  return {
-    existingDocument: pages.some((p) => p.pageType === 'document'),
-    newEntities: pages.some((p) => p.pageType === 'entity'),
-    newTopics: pages.some((p) => p.pageType === 'topic'),
-    hasTablesFigures: evidence.tables.length > 0 || evidence.figures.length > 0 || result.tables.length > 0 || result.figures.length > 0,
-    rawPages: pages.some((p) => p.pageType === 'raw') || result.pages.some((p) => p.isScanned),
-    newPageType: pages.some((p) => !DEFAULT_PAGE_TYPES.includes(p.pageType)),
-  };
+  throw new CLIError('PagePlanner returned invalid output.');
 }
 
 function isValidPagePlannerOutput(output: unknown): output is PagePlannerOutput {
@@ -1391,38 +1141,21 @@ function normalizePagePlannerOutput(
   output: PagePlannerOutput,
   result: ExtractionResult,
   entities: ExtractedEntity[],
-  fallback: PagePlannerOutput,
 ): PagePlannerOutput {
   const pages = output.pages
     .map((p) => normalizePagePlan(p, entities))
     .filter(Boolean) as PagePlan[];
 
-  // Merge fallback topic pages that were not already planned by the LLM. The
-  // fallback derives topics from recurring capitalized phrases, which helps
-  // ensure topic pages are created even when the LLM planner omits them.
-  // Fallback pages must also pass the same normalization/quality filters.
-  const existingTitles = new Set(pages.map((p) => p.title.toLowerCase()));
-  for (const page of fallback.pages) {
-    const normalized = normalizePagePlan(page, entities);
-    if (!normalized) continue;
-    if (!existingTitles.has(normalized.title.toLowerCase())) {
-      pages.push(normalized);
-      existingTitles.add(normalized.title.toLowerCase());
-    }
-  }
-
-  const folderPlacements = output.folderPlacements.length > 0 ? output.folderPlacements : fallback.folderPlacements;
-  const discovery = output.discovery || fallback.discovery;
+  const folderPlacements = Array.isArray(output.folderPlacements) ? output.folderPlacements : [];
 
   return {
     pages,
     folderPlacements,
-    wikilinks: Array.isArray(output.wikilinks) ? output.wikilinks : fallback.wikilinks,
-    citations: Array.isArray(output.citations) ? output.citations : fallback.citations,
-    discovery,
+    wikilinks: Array.isArray(output.wikilinks) ? output.wikilinks : [],
+    citations: Array.isArray(output.citations) ? output.citations : [],
+    discovery: output.discovery,
   };
 }
-
 function normalizePagePlan(page: unknown, entities: ExtractedEntity[]): PagePlan | undefined {
   if (typeof page !== 'object' || page === null) return undefined;
   const p = page as Record<string, unknown>;
@@ -1560,75 +1293,6 @@ function buildPagePlannerContext(
   return lines.join('\n');
 }
 
-export function defaultFolderPlacements(
-  result: ExtractionResult,
-  entities: ExtractedEntity[],
-): FolderPlan[] {
-  const plans: FolderPlan[] = [
-    {
-      folder: 'documents',
-      title: 'Documents',
-      description: 'Document chunks extracted from the source PDFs.',
-      pageTypes: ['document'],
-      children: [],
-    },
-    {
-      folder: 'sources',
-      title: 'Sources',
-      description: 'Catalog pages for each source PDF.',
-      pageTypes: ['source'],
-      children: [],
-    },
-  ];
-
-  if (result.pages.some((p) => p.isScanned)) {
-    plans.push({
-      folder: 'raw',
-      title: 'Raw Fragments',
-      description: 'Scanned or unparseable pages preserved as raw fragments.',
-      pageTypes: ['raw'],
-      children: [],
-    });
-  }
-
-  if (entities.length > 0) {
-    plans.push({
-      folder: 'entities',
-      title: 'Entities',
-      description: 'People, organizations, and other named entities mentioned in the corpus.',
-      pageTypes: ['entity'],
-      children: [],
-    });
-  }
-
-  plans.push({
-    folder: 'topics',
-    title: 'Topics',
-    description: 'Recurring themes and concepts.',
-    pageTypes: ['topic'],
-    children: [],
-  });
-
-  return plans;
-}
-
-const CRITIC_CHECK_NAMES = [
-  'factual-claims-cited',
-  'citations-mapped-to-sources',
-  'tables-figures-preserved',
-  'paragraphs-represented',
-  'wikilinks-plausible',
-  'page-plan-matches-output',
-  'new-page-types-documented',
-  'pages-self-contained-readable',
-] as const;
-
-type CriticCheckName = (typeof CRITIC_CHECK_NAMES)[number];
-
-function allChecksPass(): import('./types.js').CriticCheck[] {
-  return CRITIC_CHECK_NAMES.map((name) => ({ name, result: 'PASS' as const, reason: 'Check passed' }));
-}
-
 /**
  * Critic: LLM-driven review of the page plan and folder placements.
  */
@@ -1641,10 +1305,8 @@ export async function critic(
   memory?: OrchestratorMemory,
   pageUpdates?: PageUpdate[],
 ): Promise<CriticReview> {
-  const fallback = criticFallback(result, pages, folderPlacements);
-
   if (!llmClient.isEnabled()) {
-    return fallback;
+    throw new CLIError('LLM is required for critic review.');
   }
 
   try {
@@ -1655,78 +1317,20 @@ export async function critic(
     });
     const parsed = parseStructuredJson<CriticReview>(response.text);
     if (parsed && isValidCriticReview(parsed)) {
-      // Merge LLM issues with deterministic fallback to ensure nothing is missed.
-      // If the LLM returns a partial review (e.g., no checks or blockingIssues),
-      // fill in the missing fields from the fallback.
-      const llmApproved = typeof parsed.approved === 'boolean' ? parsed.approved : parsed.issues.length === 0;
-      const llmChecks = Array.isArray(parsed.checks) ? parsed.checks : fallback.checks;
-      const llmBlockingIssues = Array.isArray(parsed.blockingIssues) ? parsed.blockingIssues : [];
       return {
-        approved: llmApproved && fallback.approved,
-        issues: [...fallback.issues, ...parsed.issues],
+        approved: typeof parsed.approved === 'boolean' ? parsed.approved : parsed.issues.length === 0,
+        issues: Array.isArray(parsed.issues) ? parsed.issues : [],
         confidence: parsed.confidence,
-        checks: llmChecks.length === CRITIC_CHECK_NAMES.length ? llmChecks : mergeChecks(llmChecks, fallback.checks),
-        blockingIssues: [...fallback.blockingIssues, ...llmBlockingIssues],
+        checks: Array.isArray(parsed.checks) ? parsed.checks : [],
+        blockingIssues: Array.isArray(parsed.blockingIssues) ? parsed.blockingIssues : [],
       };
     }
   } catch {
-    // Keep fallback.
+    // Fall through to the invalid-output error below.
   }
 
-  return fallback;
+  throw new CLIError('Critic returned invalid output.');
 }
-
-function mergeChecks(
-  llmChecks: CriticCheck[],
-  fallbackChecks: CriticCheck[],
-): CriticCheck[] {
-  const byName = new Map<CriticCheckName, CriticCheck>();
-  for (const check of fallbackChecks) byName.set(check.name as CriticCheckName, check);
-  for (const check of llmChecks) byName.set(check.name as CriticCheckName, check);
-  return CRITIC_CHECK_NAMES.map((name) => byName.get(name) ?? { name, result: 'PASS', reason: 'No finding' });
-}
-
-function criticFallback(
-  _result: ExtractionResult,
-  pages: PagePlan[],
-  folderPlacements: FolderPlan[],
-): CriticReview {
-  const issues: CriticReview['issues'] = [];
-
-  if (pages.length === 0) {
-    issues.push({ type: 'missing', message: 'No pages planned', severity: 'high' });
-  }
-
-  for (const page of pages) {
-    if (!page.title || page.title.trim() === '') {
-      issues.push({ type: 'schema', message: 'Page missing title', severity: 'high' });
-    }
-    if (!page.folder || page.folder.trim() === '') {
-      issues.push({ type: 'schema', message: 'Page missing folder', severity: 'high' });
-    }
-    if (!page.pageType || typeof page.pageType !== 'string' || page.pageType.trim() === '') {
-      issues.push({ type: 'schema', message: `Invalid page type: ${page.pageType}`, severity: 'high' });
-    }
-  }
-
-  if (folderPlacements.length === 0) {
-    issues.push({ type: 'missing', message: 'No folder placements planned', severity: 'high' });
-  }
-
-  const confidence = issues.length === 0 ? 'high' : issues.some((i) => i.severity === 'high') ? 'low' : 'medium';
-  const blockingIssues = issues
-    .filter((i) => i.severity === 'high')
-    .map((i) => ({ check: 'page-plan-matches-output', message: i.message, severity: i.severity as 'high' | 'medium' | 'low' }));
-
-  return {
-    approved: issues.length === 0,
-    issues,
-    confidence,
-    checks: allChecksPass(),
-    blockingIssues,
-  };
-}
-
 function isValidCriticReview(output: unknown): output is Pick<CriticReview, 'issues' | 'confidence'> & Partial<CriticReview> {
   const o = output as Record<string, unknown> | undefined;
   if (!o || typeof o !== 'object') return false;
@@ -1777,7 +1381,7 @@ function buildCriticContext(
   if (pageUpdates && pageUpdates.length > 0) {
     lines.push('## Drafted pages');
     for (const update of pageUpdates) {
-      lines.push(`- ${update.filePath} (fallback: ${update.fallback ?? false})`);
+      lines.push(`- ${update.filePath}`);
       const bodyPreview = String(update.body ?? '').slice(0, 800).replace(/\s+/g, ' ');
       if (bodyPreview) {
         lines.push(`  Body preview: ${bodyPreview}`);
@@ -1974,8 +1578,7 @@ function flagDuplicateEntities(memory: OrchestratorMemory): void {
 // ---------- ChunkWriter (Sprint 4b) ----------
 
 /**
- * ChunkWriter: LLM-driven author of markdown content. Falls back to deterministic
- * document pages when the LLM is disabled or returns invalid output.
+ * ChunkWriter: LLM-driven author of markdown content.
  */
 export async function chunkWriter(
   pages: PagePlan[],
@@ -1987,50 +1590,42 @@ export async function chunkWriter(
   memory?: OrchestratorMemory,
   feedback?: string[],
 ): Promise<PageUpdate[]> {
-  const fallbackUpdates = buildFallbackDocumentUpdates(chunks, result, config);
-
   if (!llmClient.isEnabled()) {
-    return fallbackUpdates;
+    throw new CLIError('LLM is required for chunk writing.');
   }
 
   const knownTitles = collectKnownPageTitles(pages);
+  knownTitles.sources.push(`Source: ${result.fileName}`);
+  knownTitles.indexes.push(`${config.wiki.title} Index`);
 
   // Process chunks concurrently with a small limit so large documents do not
   // spend wall-clock time on sequential LLM calls.
   const chunkTasks = chunks.map((chunk) => async () => {
     const chunkPlan = findPagePlanForChunk(pages, chunk) ?? buildDefaultPagePlan(chunk);
-    try {
-      const prompt = buildChunkWriterPrompt(
-        [chunkPlan],
-        [chunk],
-        result,
-        config,
-        agentsMd,
-        memory,
-        knownTitles,
-        feedback,
-      );
-      const response = await llmClient.call(prompt, { maxTokens: 4000, temperature: 0.2 });
-      const parsed = parseChunkWriterJson(response.text);
-      if (parsed && Array.isArray(parsed.pages) && parsed.pages.length > 0) {
-        const normalized = normalizePageUpdate(parsed.pages[0], result, config, knownTitles);
-        if (normalized) {
-          // Use the deterministic file path so merges are always correct.
-          return { ...normalized, filePath: `documents/${chunk.id}.md` };
-        }
-      }
-    } catch {
-      // Ignore per-chunk LLM failures and keep the fallback for this chunk.
+    const prompt = buildChunkWriterPrompt(
+      [chunkPlan],
+      [chunk],
+      result,
+      config,
+      agentsMd,
+      memory,
+      knownTitles,
+      feedback,
+    );
+    const response = await llmClient.call(prompt, { maxTokens: 4000, temperature: 0.2 });
+    const parsed = parseChunkWriterJson(response.text);
+    if (!parsed || !Array.isArray(parsed.pages) || parsed.pages.length === 0) {
+      throw new CLIError('ChunkWriter returned invalid output.');
     }
-    return undefined;
+    const normalized = normalizePageUpdate(parsed.pages[0], result, config, knownTitles);
+    if (!normalized) {
+      throw new CLIError('ChunkWriter returned invalid page output.');
+    }
+    return { ...normalized, filePath: `documents/${chunk.id}.md` };
   });
 
-  const results = await withConcurrencyLimit(chunkTasks, 4);
-  const llmUpdates = results.filter((u): u is PageUpdate => u !== undefined);
-
-  return mergeWithFallback(fallbackUpdates, llmUpdates);
+  return withConcurrencyLimit(chunkTasks, 4);
 }
-
 async function withConcurrencyLimit<T>(
   tasks: (() => Promise<T>)[],
   limit: number,
@@ -2048,22 +1643,6 @@ async function withConcurrencyLimit<T>(
   const workers = Array.from({ length: Math.min(limit, tasks.length) }, () => worker());
   await Promise.all(workers);
   return results;
-}
-
-export function buildFallbackDocumentUpdates(
-  chunks: Chunk[],
-  _result: ExtractionResult,
-  config: Config,
-): PageUpdate[] {
-  return chunks.map((chunk) => {
-    const { frontmatter, body } = buildDocumentPage(chunk, config, [], []);
-    return {
-      filePath: `documents/${chunk.id}.md`,
-      frontmatter,
-      body,
-      fallback: true,
-    };
-  });
 }
 
 function findPagePlanForChunk(pages: PagePlan[], chunk: Chunk): PagePlan | undefined {
@@ -2084,7 +1663,7 @@ function buildDefaultPagePlan(chunk: Chunk): PagePlan {
   };
 }
 
-function collectKnownPageTitles(pages: PagePlan[]): { entities: string[]; topics: string[] } {
+function collectKnownPageTitles(pages: PagePlan[]): { entities: string[]; topics: string[]; sources: string[]; indexes: string[] } {
   const entities = new Set<string>();
   const topics = new Set<string>();
 
@@ -2100,7 +1679,7 @@ function collectKnownPageTitles(pages: PagePlan[]): { entities: string[]; topics
     }
   }
 
-  return { entities: Array.from(entities), topics: Array.from(topics) };
+  return { entities: Array.from(entities), topics: Array.from(topics), sources: [], indexes: [] };
 }
 
 function buildChunkWriterPrompt(
@@ -2110,7 +1689,7 @@ function buildChunkWriterPrompt(
   config: Config,
   agentsMd?: string,
   memory?: OrchestratorMemory,
-  knownTitles?: { entities: string[]; topics: string[] },
+  knownTitles?: { entities: string[]; topics: string[]; sources: string[]; indexes: string[] },
   feedback?: string[],
 ): string {
   const lines: string[] = [
@@ -2142,7 +1721,13 @@ function buildChunkWriterPrompt(
     lines.push('');
   }
 
-  if (knownTitles && (knownTitles.entities.length > 0 || knownTitles.topics.length > 0)) {
+  if (
+    knownTitles &&
+    (knownTitles.entities.length > 0 ||
+      knownTitles.topics.length > 0 ||
+      knownTitles.sources.length > 0 ||
+      knownTitles.indexes.length > 0)
+  ) {
     lines.push('## Known pages');
     lines.push('Only use wikilinks that match these exact titles. Do not invent titles.');
     if (knownTitles.entities.length > 0) {
@@ -2156,6 +1741,20 @@ function buildChunkWriterPrompt(
       lines.push('');
       lines.push('Topics:');
       for (const title of knownTitles.topics) {
+        lines.push(`- [[${title}]]`);
+      }
+    }
+    if (knownTitles.sources.length > 0) {
+      lines.push('');
+      lines.push('Sources:');
+      for (const title of knownTitles.sources) {
+        lines.push(`- [[${title}]]`);
+      }
+    }
+    if (knownTitles.indexes.length > 0) {
+      lines.push('');
+      lines.push('Wiki indexes:');
+      for (const title of knownTitles.indexes) {
         lines.push(`- [[${title}]]`);
       }
     }
@@ -2255,7 +1854,7 @@ function normalizePageUpdate(
   page: unknown,
   result: ExtractionResult,
   config: Config,
-  knownTitles?: { entities: string[]; topics: string[] },
+  knownTitles?: { entities: string[]; topics: string[]; sources: string[]; indexes: string[] },
 ): PageUpdate | undefined {
   if (typeof page !== 'object' || page === null) return undefined;
   const p = page as Record<string, unknown>;
@@ -2306,15 +1905,14 @@ function normalizePageUpdate(
     frontmatter,
     body,
     citations: Array.isArray(p.citations) ? (p.citations as { claim: string; sources: string[] }[]) : undefined,
-    fallback: false,
   };
 }
 
 function sanitizeWikilinks(
   body: string,
-  knownTitles: { entities: string[]; topics: string[] },
+  knownTitles: { entities: string[]; topics: string[]; sources: string[]; indexes: string[] },
 ): string {
-  const known = new Set([...knownTitles.entities, ...knownTitles.topics]);
+  const known = new Set([...knownTitles.entities, ...knownTitles.topics, ...knownTitles.sources, ...knownTitles.indexes]);
   return body.replace(/\[\[[^\]|]+(?:\|[^\]]+)?\]\]/g, (match) => {
     const inner = match.slice(2, -2);
     const [target, display] = inner.split('|', 2);
@@ -2338,20 +1936,6 @@ function buildDefaultSources(result: ExtractionResult): Record<string, unknown>[
       label: result.fileName,
     },
   ];
-}
-
-function mergeWithFallback(
-  fallbackUpdates: PageUpdate[],
-  llmUpdates: PageUpdate[],
-): PageUpdate[] {
-  const llmByPath = new Map(llmUpdates.map((u) => [u.filePath.toLowerCase(), u]));
-  return fallbackUpdates.map((fallback) => {
-    const llm = llmByPath.get(fallback.filePath.toLowerCase());
-    if (llm) {
-      return { ...llm, filePath: fallback.filePath };
-    }
-    return fallback;
-  });
 }
 
 function formatMentionSources(
@@ -2403,23 +1987,29 @@ export async function entityTopicPageWriter(
   llmClient: LLMClient,
   agentsMd?: string,
   memory?: OrchestratorMemory,
-): Promise<EntityTopicPageOutput | undefined> {
+): Promise<EntityTopicPageOutput> {
   if (!llmClient.isEnabled()) {
-    return undefined;
+    throw new CLIError('LLM is required for entity and topic page writing.');
   }
   if (entities.length === 0 && topics.length === 0) {
-    return undefined;
+    return { entities: [], topics: [] };
   }
 
   const prompt = buildEntityTopicWriterPrompt(entities, topics, config, agentsMd, memory);
   try {
     const response = await llmClient.call(prompt, { maxTokens: 8000, temperature: 0.2 });
-    return parseEntityTopicWriterJson(response.text);
-  } catch {
-    return undefined;
+    const parsed = parseEntityTopicWriterJson(response.text);
+    if (!parsed || (parsed.entities.length === 0 && parsed.topics.length === 0)) {
+      throw new CLIError('EntityTopicPageWriter returned invalid or empty output.');
+    }
+    return parsed;
+  } catch (err) {
+    if (err instanceof CLIError) {
+      throw err;
+    }
+    throw new CLIError('EntityTopicPageWriter returned invalid or empty output.');
   }
 }
-
 function buildEntityTopicWriterPrompt(
   entities: EntityTopicPageInputEntity[],
   topics: EntityTopicPageInputTopic[],

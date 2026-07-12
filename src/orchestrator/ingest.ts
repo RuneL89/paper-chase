@@ -42,8 +42,6 @@ import {
   critic,
   createInitialMemory,
   updateMemory,
-  defaultFolderPlacements,
-  buildFallbackDocumentUpdates,
   entityTopicPageWriter,
   type EntityTopicPageOutput,
   type EntityTopicPageInputEntity,
@@ -70,6 +68,8 @@ import {
   folderPlacementsFromProposal,
   syncFolderPageTypes,
 } from './proposals.js';
+import type { ProgressReporter } from '../progress/types.js';
+import { NoOpReporter } from '../progress/types.js';
 import type { OrchestratorMemory, FolderPlan, CriticReview, PagePlan, StructuralProposal, PageUpdate, ExtractedEntity } from './types.js';
 
 export interface IngestOrchestratorResult {
@@ -105,14 +105,20 @@ export async function runIngestOrchestrator(
   previousMemory?: OrchestratorMemory,
   samplingStrategy?: { category: string; reason: string },
   options?: { autoApproveProposals?: boolean },
+  reporter?: ProgressReporter,
 ): Promise<IngestOrchestratorResult> {
+  const progress = reporter ?? new NoOpReporter();
   const agentsMd = readAgentsMd(workspace, slug);
   const stepStart = Date.now();
   const logStep = (label: string) => {
     console.log(`  ${label}: ${((Date.now() - stepStart) / 1000).toFixed(1)}s`);
   };
 
-  const structure = await structureAnalyst(result, chunks, llmClient, agentsMd, previousMemory);
+  const structure = await progress.step(
+    'structure-analyst',
+    'Analyzing document structure',
+    () => structureAnalyst(result, chunks, llmClient, agentsMd, previousMemory),
+  );
   logStep('structureAnalyst');
 
   // Entity extraction runs per chunk so the LLM receives a focused context and
@@ -122,13 +128,19 @@ export async function runIngestOrchestrator(
     ? mergeMemory(previousMemory, result, chunks)
     : createInitialMemory(result, chunks);
   const entityMap = new Map<string, ExtractedEntity>();
-  for (const chunk of chunks) {
-    const { entities: chunkEntities } = await entityExtractor(
-      result,
-      [chunk],
-      llmClient,
-      agentsMd,
-      accumulatedMemory,
+  for (let chunkIndex = 0; chunkIndex < chunks.length; chunkIndex++) {
+    const chunk = chunks[chunkIndex];
+    progress.chunkProgress(result.fileName, chunk.id, chunkIndex + 1, chunks.length);
+    const { entities: chunkEntities } = await progress.step(
+      'entity-extractor',
+      `Extracting entities from chunk ${chunk.id}`,
+      () => entityExtractor(
+        result,
+        [chunk],
+        llmClient,
+        agentsMd,
+        accumulatedMemory,
+      ),
     );
     for (const entity of chunkEntities) {
       const canonical = entity.canonical || slugify(entity.name);
@@ -163,15 +175,25 @@ export async function runIngestOrchestrator(
   const entities = Array.from(entityMap.values());
   logStep('entityExtractor');
 
-  const { relationships } = await relationshipExtractor(result, entities, llmClient, agentsMd, previousMemory);
+  const { relationships } = await progress.step(
+    'relationship-extractor',
+    'Extracting relationships',
+    () => relationshipExtractor(result, entities, llmClient, agentsMd, previousMemory),
+  );
   logStep('relationshipExtractor');
 
-  const evidence = await evidenceCollector(result, chunks, llmClient, agentsMd, previousMemory);
+  const evidence = await progress.step(
+    'evidence-collector',
+    'Collecting evidence',
+    () => evidenceCollector(result, chunks, llmClient, agentsMd, previousMemory),
+  );
   logStep('evidenceCollector');
 
-  let plannerOutput;
-  try {
-    plannerOutput = await pagePlanner(
+  // Step 4: PagePlanner (LLM-only; aborts on invalid or empty output)
+  const plannerOutput = await progress.step(
+    'page-planner',
+    'Planning wiki pages',
+    () => pagePlanner(
       result,
       structure,
       entities,
@@ -180,33 +202,20 @@ export async function runIngestOrchestrator(
       agentsMd,
       previousMemory,
       samplingStrategy,
-    );
-  } catch (error) {
-    plannerOutput = {
-      pages: [],
-      folderPlacements: defaultFolderPlacements(result, entities),
-      wikilinks: [],
-      citations: [],
-      discovery: {
-        existingDocument: false,
-        newEntities: false,
-        newTopics: false,
-        hasTablesFigures: false,
-        rawPages: false,
-        newPageType: false,
-      },
-    };
+    ),
+  );
+
+  if (plannerOutput.folderPlacements.length === 0) {
+    throw new CLIError('PagePlanner returned no folder placements.');
   }
 
-  const folderPlacements = plannerOutput.folderPlacements.length > 0
-    ? plannerOutput.folderPlacements
-    : defaultFolderPlacements(result, entities);
+  const folderPlacements = plannerOutput.folderPlacements;
 
   // Detect structural-change proposals relative to the previously approved folder
   // hierarchy. Simple new-folder proposals can be approved interactively (or with
   // --yes). Complex proposals are written to .kimi-code/proposals/ for later review.
   const previousHierarchy = previousMemory?.state.folderHierarchy ?? {};
-  let resolvedFolderPlacements = folderPlacements;
+  let resolvedFolderPlacements: FolderPlan[] = folderPlacements;
   let resolvedPages = plannerOutput.pages;
   const proposals = detectStructuralProposals(previousHierarchy, folderPlacements);
 
@@ -219,15 +228,18 @@ export async function runIngestOrchestrator(
       const proposalPath = writeProposalFile(workspace, slug, proposal);
       console.log(`Structural change proposal written to: ${proposalPath}`);
     }
+    progress.proposal(proposal.type, proposal.reason, approved);
     if (approved) {
       resolvedFolderPlacements = folderPlacementsFromProposal(previousHierarchy, proposal);
-    } else {
-      resolvedFolderPlacements =
-        Object.keys(previousHierarchy).length > 0
-          ? Object.values(previousHierarchy)
-          : defaultFolderPlacements(result, entities);
+    } else if (Object.keys(previousHierarchy).length > 0) {
+      resolvedFolderPlacements = Object.values(previousHierarchy);
       resolvedPages = plannerOutput.pages.filter((p) =>
         resolvedFolderPlacements.some((f) => f.folder === p.folder),
+      );
+    } else {
+      throw new CLIError(
+        `Structural proposal was rejected and no existing folder hierarchy is available. ` +
+          `Review the proposal and re-run with --yes or approve it manually.`,
       );
     }
     proposal.applied = approved;
@@ -249,6 +261,7 @@ export async function runIngestOrchestrator(
     agentsMd,
     memory,
     resolvedFolderPlacements,
+    progress,
   );
   const pageUpdates = validationResult.pageUpdates;
   logStep('chunkWriter');
@@ -361,29 +374,42 @@ async function writeAndValidateChunks(
   agentsMd: string | undefined,
   memory: OrchestratorMemory,
   folderPlacements: FolderPlan[],
+  reporter: ProgressReporter,
 ): Promise<{
   pageUpdates: PageUpdate[];
   critic: CriticReview;
   completenessIssues: string[];
 }> {
-  let pageUpdates = await chunkWriter(
-    pages,
-    chunks,
-    result,
-    config,
-    llmClient,
-    agentsMd,
-    memory,
+  const progress = reporter;
+  let pageUpdates = await progress.step(
+    'chunk-writer',
+    'Writing document chunks',
+    () => chunkWriter(
+      pages,
+      chunks,
+      result,
+      config,
+      llmClient,
+      agentsMd,
+      memory,
+    ),
   );
-  let criticReview = await critic(
-    result,
-    pages,
-    folderPlacements,
-    llmClient,
-    agentsMd,
-    memory,
-    pageUpdates,
+  let criticReview = await progress.step(
+    'critic',
+    'Reviewing generated pages',
+    () => critic(
+      result,
+      pages,
+      folderPlacements,
+      llmClient,
+      agentsMd,
+      memory,
+      pageUpdates,
+    ),
   );
+  if (criticReview.issues.length > 0) {
+    progress.criticIssues(criticReview.issues);
+  }
   let completenessIssues = collectCompletenessIssues(chunks, pageUpdates, result);
   const schemaIssues = validatePageUpdates(workspace, pages, pageUpdates, result, config);
   completenessIssues = completenessIssues.concat(schemaIssues);
@@ -400,25 +426,36 @@ async function writeAndValidateChunks(
     }
 
     const feedback = buildWriterFeedback(criticReview, completenessIssues);
-    pageUpdates = await chunkWriter(
-      pages,
-      chunks,
-      result,
-      config,
-      llmClient,
-      agentsMd,
-      memory,
-      feedback,
+    pageUpdates = await progress.step(
+      'chunk-writer',
+      `Retrying chunk writer (attempt ${attempt})`,
+      () => chunkWriter(
+        pages,
+        chunks,
+        result,
+        config,
+        llmClient,
+        agentsMd,
+        memory,
+        feedback,
+      ),
     );
-    criticReview = await critic(
-      result,
-      pages,
-      folderPlacements,
-      llmClient,
-      agentsMd,
-      memory,
-      pageUpdates,
+    criticReview = await progress.step(
+      'critic',
+      `Re-reviewing generated pages (attempt ${attempt})`,
+      () => critic(
+        result,
+        pages,
+        folderPlacements,
+        llmClient,
+        agentsMd,
+        memory,
+        pageUpdates,
+      ),
     );
+    if (criticReview.issues.length > 0) {
+      progress.criticIssues(criticReview.issues);
+    }
     completenessIssues = collectCompletenessIssues(chunks, pageUpdates, result);
     const retriedSchemaIssues = validatePageUpdates(workspace, pages, pageUpdates, result, config);
     completenessIssues = completenessIssues.concat(retriedSchemaIssues);
@@ -602,21 +639,20 @@ export async function writeIngestOutput(context: IngestOutputContext): Promise<v
       const documentPageId = source.documentPageIds![i];
       const filePath = path.join(wikiDir, config.output.dir, documentPageId);
       const update = source.pageUpdates?.find((u) => u.filePath.toLowerCase() === documentPageId.toLowerCase());
-      if (update) {
-        writeDocumentPage(
-          filePath,
-          chunk,
-          config,
-          entityTitles,
-          topicTitles,
-          { frontmatter: update.frontmatter, body: update.body },
-        );
-      } else {
-        writeDocumentPage(filePath, chunk, config, entityTitles, topicTitles);
+      if (!update) {
+        throw new CLIError(`No LLM-generated page found for chunk ${chunk.id} (${documentPageId}).`);
       }
+      writeDocumentPage(
+        filePath,
+        chunk,
+        config,
+        { frontmatter: update.frontmatter, body: update.body },
+        entityTitles,
+        topicTitles,
+      );
       result.documentPages++;
 
-      // Use the actual LLM-written title (or fallback to the deterministic title)
+      // Use the LLM-written title, or the chunk title if the frontmatter is missing one,
       // so that source and index pages link to the exact page title.
       const parsed = matter(readFileSync(filePath, 'utf-8'));
       documentLinks.push({ title: String(parsed.data.title || chunk.title), pageRange: chunk.pageRange });
@@ -680,7 +716,7 @@ export async function writeIngestOutput(context: IngestOutputContext): Promise<v
   }
 
   // Prepare LLM-authored entity/topic page bodies. If the LLM is disabled or
-  // returns invalid output, the deterministic writers below use their fallback.
+  // returns invalid output, the writer aborts.
   const entityInputs: EntityTopicPageInputEntity[] = selectedEntityNames.map((name) => {
     const type = resolveEntityType(name);
     const title = entityPageTitle({ name, type, count: 0 });

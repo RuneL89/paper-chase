@@ -9,6 +9,9 @@ import {
   estimateCost,
   estimateTokens,
 } from './types.js';
+import { CLIError } from '../errors.js';
+import type { ProgressReporter } from '../progress/types.js';
+import { NoOpReporter } from '../progress/types.js';
 
 export type { LLMConfig, LLMCallRecord, LLMResponse, LLMCallOptions };
 
@@ -54,10 +57,13 @@ export class LLMClient {
   private config: LLMConfig;
   private fetchFn: typeof fetch;
   private records: LLMCallRecord[] = [];
+  private reporter: ProgressReporter;
+  private callCounter = 0;
 
-  constructor(config: LLMConfig, fetchFn?: typeof fetch) {
+  constructor(config: LLMConfig, fetchFn?: typeof fetch, reporter?: ProgressReporter) {
     this.config = config;
     this.fetchFn = fetchFn ?? globalThis.fetch;
+    this.reporter = reporter ?? new NoOpReporter();
   }
 
   /**
@@ -79,30 +85,63 @@ export class LLMClient {
       );
     }
 
-    let response: LLMResponse;
-    if (!this.config.enabled) {
-      response = this.fallbackResponse(prompt);
-    } else if (this.config.provider === 'test') {
-      response = this.mockResponse(prompt, options?.maxTokens ?? 1024);
-    } else {
-      const maxTokens = options?.maxTokens ?? 1024;
-      const temperature = options?.temperature ?? 0.2;
-      response = await this.remoteCall(prompt, maxTokens, temperature, options?.verbose ?? false);
-    }
+    const id = this.nextCallId();
+    const agent = detectAgentFromPrompt(prompt);
+    const estimatedTokens = estimateTokens(prompt);
+    const promptSummary = prompt.slice(0, 200).replace(/\s+/g, ' ');
 
-    this.records.push(this.toRecord(response));
-    return response;
+    this.reporter.emit({
+      type: 'llm-call-start',
+      timestamp: Date.now(),
+      id,
+      agent,
+      provider: this.config.provider,
+      model: this.config.model,
+      estimatedTokens,
+      promptSummary,
+    });
+
+    let response: LLMResponse | undefined;
+    let status: 'success' | 'error' = 'success';
+    let errorMessage: string | undefined;
+    try {
+      if (!this.config.enabled) {
+        throw new CLIError(
+          'LLM is not configured or enabled. Configure an LLM with "llm-wiki-cli configure-llm" or set provider to "test".',
+        );
+      }
+
+      if (this.config.provider === 'test') {
+        response = this.mockResponse(prompt, options?.maxTokens ?? 1024);
+      } else {
+        const maxTokens = options?.maxTokens ?? 1024;
+        const temperature = options?.temperature ?? 0.2;
+        response = await this.remoteCall(prompt, maxTokens, temperature, options?.verbose ?? false, id, agent);
+      }
+
+      this.records.push(this.toRecord(response));
+      return response;
+    } catch (error) {
+      status = 'error';
+      errorMessage = error instanceof Error ? error.message : String(error);
+      throw error;
+    } finally {
+      this.reporter.emit({
+        type: 'llm-call-end',
+        timestamp: Date.now(),
+        id,
+        provider: this.config.provider,
+        model: this.config.model,
+        estimatedTokens: response?.estimatedTokens ?? estimatedTokens,
+        estimatedCost: response?.estimatedCost ?? 0,
+        status,
+        error: errorMessage,
+      });
+    }
   }
 
-  private fallbackResponse(prompt: string): LLMResponse {
-    const tokens = estimateTokens(prompt);
-    return {
-      provider: 'local',
-      model: 'none',
-      text: 'LLM not configured; local-only processing was used.',
-      estimatedTokens: tokens,
-      estimatedCost: 0,
-    };
+  private nextCallId(): string {
+    return `llm-${++this.callCounter}`;
   }
 
   private mockResponse(prompt: string, maxTokens: number): LLMResponse {
@@ -122,6 +161,8 @@ export class LLMClient {
     maxTokens: number,
     temperature: number,
     verbose: boolean,
+    id: string,
+    agent: string,
   ): Promise<LLMResponse> {
     const maxRetries = this.config.maxRetries ?? 3;
     const baseDelay = this.config.baseDelay ?? 1000;
@@ -135,6 +176,14 @@ export class LLMClient {
         if (attempt === maxRetries) {
           break;
         }
+        this.reporter.emit({
+          type: 'llm-call-retry',
+          timestamp: Date.now(),
+          id,
+          agent,
+          attempt: attempt + 1,
+          error: lastError.message,
+        });
         const delay = this.calculateDelay(attempt, baseDelay, undefined);
         await this.sleep(delay);
       }
@@ -359,30 +408,6 @@ export class LLMClient {
 }
 
 function generateMockResponse(prompt: string): string {
-  if (prompt.includes('You are the ChunkWriter agent')) {
-    const chunkMatch = prompt.match(/### Chunk[^\n]*\n([\s\S]*?)(?=\n### Chunk|\n## JSON schema|$)/);
-    const chunkContent = chunkMatch?.[1]?.trim() || 'Extracted content placeholder.';
-    return JSON.stringify({
-      pages: [
-        {
-          filePath: 'documents/part-001.md',
-          frontmatter: {
-            title: 'Synthesized chunk page',
-            type: 'document',
-            confidence: 'high',
-            tags: ['document'],
-          },
-          body: `# Synthesized chunk page\n\n## Synthesis\n\nKey claims extracted from the chunk. [^src1]\n\n## Preserved Extracted Detail\n\n${chunkContent}`,
-          citations: [{ claim: 'Key claims extracted from the chunk.', sources: ['src1'] }],
-        },
-      ],
-    });
-  }
-
-  if (prompt.includes('You are the EntityTopicPageWriter agent')) {
-    return JSON.stringify({ entities: [], topics: [] });
-  }
-
   if (prompt.includes('You are the StructureAnalyst agent')) {
     return JSON.stringify({
       headings: [],
@@ -395,19 +420,152 @@ function generateMockResponse(prompt: string): string {
   }
 
   if (prompt.includes('You are the EntityExtractor agent')) {
-    return JSON.stringify({ entities: [] });
+    return JSON.stringify({
+      entities: [
+        {
+          name: 'Acme Corporation',
+          canonical: 'acme-corporation',
+          aliases: ['Acme Corp'],
+          type: 'organization',
+          count: 2,
+          mentions: [{ page: 1, context: 'Acme Corporation appears in the document.' }],
+          confidence: 0.8,
+          description: 'A multinational conglomerate used as a sample entity for testing.',
+        },
+      ],
+    });
   }
 
   if (prompt.includes('You are the RelationshipExtractor agent')) {
-    return JSON.stringify({ relationships: [] });
+    const entityNames = parseEntityNamesFromPrompt(prompt);
+    const relationships = [];
+    if (entityNames.length >= 2) {
+      relationships.push({
+        subject: entityNames[0],
+        predicate: 'is related to',
+        object: entityNames[1],
+        evidence: 'Both appear in the same document context.',
+        pages: '1',
+      });
+    } else if (entityNames.length === 1) {
+      relationships.push({
+        subject: entityNames[0],
+        predicate: 'is mentioned in',
+        object: entityNames[0],
+        evidence: 'Appears in the document context.',
+        pages: '1',
+      });
+    }
+    return JSON.stringify({ relationships });
   }
 
   if (prompt.includes('You are the EvidenceCollector agent')) {
-    return JSON.stringify({ claims: [], tables: [], figures: [] });
+    const claims = parseClaimsFromEvidencePrompt(prompt);
+    return JSON.stringify({ claims, tables: [], figures: [] });
   }
 
   if (prompt.includes('You are the PagePlanner agent')) {
-    return JSON.stringify({ pages: [], folderPlacements: [], wikilinks: [], citations: [] });
+    const chunkIds = parseChunkIdsFromPagePlannerPrompt(prompt);
+    const entityNames = parseEntityNamesFromPrompt(prompt);
+    const hasScanned = /scanned pages: \d+/.test(prompt) && !/- scanned pages: 0/.test(prompt);
+    const topicNames = inferTopicNamesFromEvidencePrompt(prompt);
+
+    const pages: Record<string, unknown>[] = chunkIds.map((id) => ({
+      pageType: 'document',
+      title: `Document chunk ${id}`,
+      fileName: `${id}.md`,
+      folder: 'documents',
+      tags: ['document'],
+      citations: [],
+      wikilinks: [],
+      related: [],
+    }));
+
+    const folderPlacements: Record<string, unknown>[] = [
+      {
+        folder: 'documents',
+        title: 'Documents',
+        description: 'Document chunks extracted from the source PDFs.',
+        pageTypes: ['document'],
+        children: [],
+      },
+      {
+        folder: 'sources',
+        title: 'Sources',
+        description: 'Catalog pages for each source PDF.',
+        pageTypes: ['source'],
+        children: [],
+      },
+      {
+        folder: 'topics',
+        title: 'Topics',
+        description: 'Recurring themes and concepts.',
+        pageTypes: ['topic'],
+        children: [],
+      },
+    ];
+
+    if (entityNames.length > 0) {
+      folderPlacements.push({
+        folder: 'entities',
+        title: 'Entities',
+        description: 'People, organizations, and other named entities mentioned in the corpus.',
+        pageTypes: ['entity'],
+        children: [],
+      });
+      for (const name of entityNames.slice(0, 1)) {
+        const safeName = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        pages.push({
+          pageType: 'entity',
+          title: `Entity: ${name}`,
+          fileName: `${safeName}.md`,
+          folder: 'entities',
+          tags: ['entity', 'organization'],
+          citations: [],
+          wikilinks: [],
+          related: [],
+        });
+      }
+    }
+
+    for (const name of topicNames) {
+      const safeName = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+      pages.push({
+        pageType: 'topic',
+        title: `Topic: ${name}`,
+        fileName: `${safeName}.md`,
+        folder: 'topics',
+        tags: ['topic'],
+        citations: [],
+        wikilinks: [],
+        related: entityNames.slice(0, 1).map((n) => `entities/${n.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}.md`),
+      });
+    }
+
+    if (hasScanned) {
+      folderPlacements.push({
+        folder: 'raw',
+        title: 'Raw Fragments',
+        description: 'Scanned or unparseable pages preserved as raw fragments.',
+        pageTypes: ['raw'],
+        children: [],
+      });
+    }
+
+    return JSON.stringify({
+      pages,
+      folderPlacements,
+      wikilinks: [],
+      citations: [],
+      discovery: {
+        existingDocument: false,
+        newEntities: entityNames.length > 0,
+        newTopics: topicNames.length > 0,
+        hasTablesFigures: false,
+        rawPages: hasScanned,
+        newPageType: false,
+      },
+    });
   }
 
   if (prompt.includes('You are the Critic agent')) {
@@ -420,11 +578,278 @@ function generateMockResponse(prompt: string): string {
     });
   }
 
+  if (prompt.includes('You are the ChunkWriter agent')) {
+    const chunks = parseChunksFromChunkWriterPrompt(prompt);
+    const sourceFile = parseSourceFileFromChunkWriterPrompt(prompt);
+    const sourceName = path.basename(sourceFile);
+    const wikiTitle = parseWikiTitleFromChunkWriterPrompt(prompt) ?? 'Wiki';
+    const pages = chunks.map((chunk) => {
+      const detail = chunk.content || 'No extracted content.';
+      const hasTable = /\bQ1\b/.test(detail) && /\bQ2\b/.test(detail) && /\bQ3\b/.test(detail);
+      const tableSection = hasTable
+        ? '\n\n## Tables\n\n| Quarter | Revenue |\n|---------|---------|\n| Q1      | $10000  |\n| Q2      | $15000  |\n| Q3      | $12000  |'
+        : '';
+      const body = `## Synthesis\n\nKey claims extracted from the chunk. [^src1]\n\n## Preserved Extracted Detail\n\n${detail}${tableSection}\n\nSee also [[Source: ${sourceName}]] and [[${wikiTitle} Index]].`;
+      return {
+        filePath: `documents/${chunk.id}.md`,
+        frontmatter: {
+          title: `Synthesized chunk ${chunk.id}`,
+          type: 'document',
+          confidence: 'high',
+          tags: ['document'],
+          sources: [
+            {
+              id: 'src1',
+              file: sourceFile,
+              pages: chunk.pageRange || '1',
+              extracted: new Date().toISOString(),
+              label: 'Sample PDF',
+            },
+          ],
+        },
+        body,
+        citations: [{ claim: 'Key claims extracted from the chunk.', sources: ['src1'] }],
+      };
+    });
+    return JSON.stringify({ pages });
+  }
+
+  if (prompt.includes('You are the EntityTopicPageWriter agent')) {
+    const entityNames = parseEntityNamesFromEntityTopicPrompt(prompt);
+    const topicNames = parseTopicNamesFromEntityTopicPrompt(prompt);
+    return JSON.stringify({
+      entities: entityNames.map((name) => ({
+        name,
+        body: `# Entity: ${name}\n\nA sample entity body for testing.`,
+      })),
+      topics: topicNames.map((name) => ({
+        name,
+        body: `# Topic: ${name}\n\nA sample topic body for testing.`,
+      })),
+    });
+  }
+
+  if (prompt.includes('You are an expert wiki architect')) {
+    const slugMatch = prompt.match(/Wiki slug: ([^\n]+)/);
+    const titleMatch = prompt.match(/Wiki title: ([^\n]+)/);
+    const descriptionMatch = prompt.match(/Wiki description: ([^\n]+)/);
+    const samplingMatch = prompt.match(/Sampling strategy: ([^\n]+)/);
+    const slug = slugMatch?.[1].trim() ?? 'wiki';
+    const title = titleMatch?.[1].trim() ?? 'Wiki';
+    const description = descriptionMatch?.[1].trim() ?? '';
+    const sampling = samplingMatch?.[1].trim() ?? 'unknown';
+    return [
+      '## Purpose and Scope',
+      '',
+      description || `This wiki collects and synthesizes source documents for "${title}".`,
+      '',
+      '## Folder Structure',
+      '',
+      '- `raw/` — source PDFs.',
+      '- `documents/` — document chunk pages.',
+      '- `sources/` — source provenance pages.',
+      '- `entities/` — entity pages.',
+      '- `topics/` — topic pages.',
+      '- `raw/` — unparseable or scanned fragments.',
+      '',
+      '## Page Types',
+      '',
+      '| Type | Purpose | Required frontmatter |',
+      '|------|---------|----------------------|',
+      '| `index` | Wiki-level or folder-level contract | `title`, `type`, `updated`, `wiki` |',
+      '| `document` | A chunk or full PDF page | `title`, `type`, `tags`, `sources`, `confidence` |',
+      '| `source` | Catalog page for one raw PDF | `title`, `type`, `file`, `ingested`, `warnings` |',
+      '| `topic` | Recurring theme or concept | `title`, `type`, `tags`, `related` |',
+      '| `entity` | Person, organization, product, or location | `title`, `type`, `tags`, `mentions` |',
+      '| `raw` | Failed or malformed extraction fragment | `title`, `type`, `source`, `reason`, `raw_fragment` |',
+      '',
+      '## Naming Conventions',
+      '',
+      `- Wiki folder: \`wikis/${slug}\``,
+      '- Source PDFs: `wikis/<slug>/raw/<pdf-slug>.pdf`',
+      '- Source pages: `sources/<pdf-slug>.md`',
+      '- Document pages: `documents/<pdf-slug>-part-NNN.md`',
+      '- Topic pages: `topics/<topic-slug>.md`',
+      '- Entity pages: `entities/<entity-slug>.md`',
+      '- Raw pages: `raw/<pdf-slug>-page-NNN.md`',
+      '',
+      '## Citation Rules',
+      '',
+      'Document pages use inline footnote citations of the form `[^srcN]`. Each `[^srcN]` maps to a `sources` frontmatter entry.',
+      '',
+      '## Content Rules',
+      '',
+      '- The LLM writes all markdown content; deterministic code only extracts, validates, and orchestrates.',
+      '- No extracted page, table, figure, or named entity may be silently dropped.',
+      '- Preserve extracted text, tables, and figure descriptions in the document body.',
+      '- Place LLM-written synthesis at the top of document pages, followed by preserved detail.',
+      '- Use wikilinks (`[[Page Title]]`) to connect related pages.',
+      '',
+      '## Special Instructions',
+      '',
+      `The sampling strategy for this corpus is ${sampling}.`,
+      '',
+      '## Workflows',
+      '',
+      '1. `init` creates the wiki folder and this skeleton guide.',
+      '2. `sample` analyzes the corpus using the detected sampling strategy, produces the folder structure, and refines this guide.',
+      '3. `ingest` processes every PDF in `raw/` and generates or updates pages.',
+      '4. `status` reports source counts, generated pages, and lint warnings.',
+      '',
+      '## Lint / Quality Rules',
+      '',
+      '- YAML frontmatter must be valid and include all required fields for the page type.',
+      '- Every `[^srcN]` citation in the body must map to a `sources` frontmatter entry.',
+      '- Broken wikilinks are flagged in `lint/report.json`.',
+      '- Scanned or unparseable pages become `raw` pages with a reason.',
+      '',
+      '## Authority Matrix',
+      '',
+      '| Role | Authority |',
+      '|------|-----------|',
+      '| User (human) | High-level purpose, PDF curation, structural approval, when to run commands. |',
+      '| LLM Orchestrator | Folder structure, page content, entities, links, citations. |',
+      '| Local deterministic code | Extraction, hashing, validation, orchestration, file I/O. |',
+      '| Critic | Whether LLM output is good enough to commit. |',
+      '',
+    ].join('\n');
+  }
+
   return 'This is a test LLM response.';
 }
 
-export function createLLMClient(workspace: string, fetchFn?: typeof fetch): LLMClient {
-  return new LLMClient(loadLLMConfig(workspace), fetchFn);
+function parseChunkIdsFromPagePlannerPrompt(prompt: string): string[] {
+  const ids: string[] = [];
+  const regex = /## Chunk boundaries\n([\s\S]*?)(?=\n## |$)/g;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(prompt)) !== null) {
+    const block = match[1];
+    const itemRegex = /^- ([^:]+):/gm;
+    let item: RegExpExecArray | null;
+    while ((item = itemRegex.exec(block)) !== null) {
+      ids.push(item[1].trim());
+    }
+  }
+  return [...new Set(ids)];
+}
+
+function parseChunkIdsFromChunkWriterPrompt(prompt: string): string[] {
+  const ids: string[] = [];
+  const regex = /### Chunk ([^\s—]+)/g;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(prompt)) !== null) {
+    ids.push(match[1].trim());
+  }
+  return ids.length > 0 ? ids : ['part-001'];
+}
+
+function parseChunksFromChunkWriterPrompt(prompt: string): { id: string; pageRange: string; content: string }[] {
+  const chunks: { id: string; pageRange: string; content: string }[] = [];
+  const regex = /### Chunk ([^\s—]+) — pages ([^\n]+)\n([\s\S]*?)(?=\n### Chunk |\n## JSON schema|$)/g;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(prompt)) !== null) {
+    chunks.push({
+      id: match[1].trim(),
+      pageRange: match[2].trim(),
+      content: match[3].trim(),
+    });
+  }
+  return chunks;
+}
+
+function parseSourceFileFromChunkWriterPrompt(prompt: string): string {
+  const match = prompt.match(/## Source PDF\n[\s\S]*?- file: ([^\n]+)/);
+  return match?.[1].trim() ?? 'wikis/test/raw/sample.pdf';
+}
+
+function parseWikiTitleFromChunkWriterPrompt(prompt: string): string | undefined {
+  const match = prompt.match(/## Wiki\n[\s\S]*?- title: ([^\n]+)/);
+  return match?.[1].trim();
+}
+
+function parseClaimsFromEvidencePrompt(prompt: string): { text: string; evidence: string; pages: string }[] {
+  const blockMatch = prompt.match(/## Chunk text\n([\s\S]*?)$/);
+  if (!blockMatch) return [];
+  const claims: { text: string; evidence: string; pages: string }[] = [];
+  const chunkRegex = /### Chunk ([^\s—]+) — pages ([^\n]+)\n([\s\S]*?)(?=\n### Chunk |$)/g;
+  let match: RegExpExecArray | null;
+  while ((match = chunkRegex.exec(blockMatch[1])) !== null) {
+    const pageRange = match[2].trim();
+    const content = match[3].trim();
+    const sentences = content.split(/(?<=[.!?])\s+/).filter((s) => s.trim().length > 10);
+    for (const sentence of sentences.slice(0, 3)) {
+      const clean = sentence.replace(/\s+/g, ' ').trim();
+      if (clean.length > 0) {
+        claims.push({ text: clean, evidence: clean, pages: pageRange });
+      }
+    }
+  }
+  return claims.length > 0 ? claims : [];
+}
+
+function parseEvidenceSummaryClaims(prompt: string): { text: string; pages: string }[] {
+  const blockMatch = prompt.match(/## Evidence summary\n([\s\S]*?)(?=\n## |$)/);
+  if (!blockMatch) return [];
+  const claims: { text: string; pages: string }[] = [];
+  const lineRegex = /^- (.+) \(([^)]+)\)$/gm;
+  let match: RegExpExecArray | null;
+  while ((match = lineRegex.exec(blockMatch[1])) !== null) {
+    claims.push({ text: match[1].trim(), pages: match[2].trim() });
+  }
+  return claims;
+}
+
+function inferTopicNamesFromEvidencePrompt(prompt: string): string[] {
+  const topics = new Set<string>();
+  if (/\brevenue\b/i.test(prompt)) topics.add('Revenue');
+  if (/\bmarket\b/i.test(prompt)) topics.add('Market');
+  if (/\bexpansion\b/i.test(prompt)) topics.add('Expansion');
+  if (topics.size === 0 && /\w/.test(prompt)) topics.add('Business Overview');
+  return Array.from(topics);
+}
+
+function parseEntityNamesFromPrompt(prompt: string): string[] {
+  const names: string[] = [];
+  const regex = /## Entities\n([\s\S]*?)(?=\n## |$)/g;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(prompt)) !== null) {
+    const block = match[1];
+    const lineRegex = /^- ([^(]+)/gm;
+    let line: RegExpExecArray | null;
+    while ((line = lineRegex.exec(block)) !== null) {
+      names.push(line[1].trim());
+    }
+  }
+  return names.length > 0 ? names : ['Sample Entity'];
+}
+
+function parseEntityNamesFromEntityTopicPrompt(prompt: string): string[] {
+  const names: string[] = [];
+  const regex = /### Entity: ([^\n]+)/g;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(prompt)) !== null) {
+    names.push(match[1].trim());
+  }
+  return names;
+}
+
+function parseTopicNamesFromEntityTopicPrompt(prompt: string): string[] {
+  const names: string[] = [];
+  const regex = /### Topic: ([^\n]+)/g;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(prompt)) !== null) {
+    names.push(match[1].trim());
+  }
+  return names;
+}
+
+export function createLLMClient(workspace: string, fetchFn?: typeof fetch, reporter?: ProgressReporter): LLMClient {
+  return new LLMClient(loadLLMConfig(workspace), fetchFn, reporter);
 }
 
 export { estimateCost, estimateTokens };
+
+function detectAgentFromPrompt(prompt: string): string {
+  const match = prompt.match(/You are the ([A-Za-z]+) agent/);
+  return match?.[1] ?? 'unknown';
+}

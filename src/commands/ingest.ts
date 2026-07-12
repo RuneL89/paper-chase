@@ -3,8 +3,11 @@ import { discoverWikis } from '../workspace.js';
 import { CLIError } from '../errors.js';
 import { runIngestion } from '../ingestion/engine.js';
 import { buildRunLog, writeRunLog } from '../log.js';
+import { createLLMClient } from '../llm/client.js';
 
-export async function ingestCommand(workspace: string, slug: string, resume = false, autoApproveProposals = false): Promise<number> {
+import type { ProgressReporter } from '../progress/types.js';
+
+export async function ingestCommand(workspace: string, slug: string, resume = false, autoApproveProposals = false, reporter?: ProgressReporter): Promise<number> {
   if (!slug) {
     throw new CLIError(
       'Please provide a wiki slug. Example: llm-wiki-cli ingest acme',
@@ -14,6 +17,13 @@ export async function ingestCommand(workspace: string, slug: string, resume = fa
   discoverWikis(workspace);
   const config = loadConfig(workspace, slug);
 
+  const llmClient = createLLMClient(workspace, undefined, reporter);
+  if (!llmClient.isEnabled()) {
+    throw new CLIError(
+      'LLM is not configured or enabled. Configure an LLM with "llm-wiki-cli configure-llm" or set provider to "test".',
+    );
+  }
+
   if (config.status !== 'ready') {
     console.warn(
       `Wiki "${slug}" is not ready (status: ${config.status}). Run sample first.`,
@@ -21,7 +31,7 @@ export async function ingestCommand(workspace: string, slug: string, resume = fa
   }
 
   console.log(`Starting full ingestion for wiki "${slug}"${resume ? ' (resuming)' : ''}…`);
-  const result = await runIngestion(workspace, slug, config, resume, autoApproveProposals);
+  const result = await runIngestion(workspace, slug, config, resume, autoApproveProposals, reporter);
   printSummary(slug, result);
 
   const status =

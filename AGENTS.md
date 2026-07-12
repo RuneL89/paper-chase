@@ -2,6 +2,16 @@
 
 > **Two meanings of `AGENTS.md`:** this file (`<workspace>/AGENTS.md`) is the workspace-level handbook for *ZCode agents editing the CLI codebase*. Each wiki that the CLI ingests also gets its own `AGENTS.md`, which is a per-wiki **LLM ingestion guide** (not the human contract). When working on source code, this file applies; when working on the wiki format, see the per-wiki `AGENTS.md` concept in `Project Vision/02_WIKI_concept_detailed.md`.
 
+## Quick reference
+
+- **Run CLI locally:** `npm run dev -- <command> [args]` (uses `tsx src/cli.ts`)
+- **Build:** `npm run build` (runs `tsc`; there is no separate `typecheck` or `lint` script)
+- **Test:** `npm run test` (runs the full Vitest suite with `--pool=forks --poolOptions.forks.singleFork`)
+- **Focused test:** `npx vitest run --pool=forks --poolOptions.forks.singleFork tests/<file>.test.ts`
+- **Hard boundary:** deterministic code writes only DOX index/contract files and orchestration metadata; the LLM authors all wiki page bodies. LLM agents never compute SHA-256 or perform file I/O directly.
+- **Imports:** all ESM import paths end in `.js`, even from `.ts` source files (`NodeNext` resolution).
+- **Paths:** store relative paths with forward slashes using `toRelativePath` from `workspace.ts`.
+
 ## Project purpose
 
 Local Node.js/TypeScript CLI that converts collections of PDFs into a **wiki-of-wikis**: each collection is a markdown wiki with its own index, and all wiki indexes roll up into a top-level **index-of-indexes**. Built for research where every claim must be traceable to an exact source location.
@@ -122,6 +132,46 @@ The seven sub-agents run in order:
 7. **Critic** — deterministic review of plan completeness, schema, and folder placement.
 
 Rolling memory is accumulated across PDFs during full ingestion and persisted in `.state/rolling-memory.json` (structured state) and `.state/memory-summary.md` (compressed natural-language summary).
+
+## Terminal User Interface (TUI)
+
+A keyboard-driven terminal UI lives in `src/tui/` and is launched with `llm-wiki-cli tui`:
+
+```
+src/tui/
+├── index.ts               # entry point; renderToString for --non-interactive mode
+├── app.tsx                # main Ink component, screen routing, global key handler
+├── types.ts               # TUI screen and wiki summary types
+├── screens/               # welcome, workspace, dashboard, wiki-detail, create-wiki, llm-config, progress, result
+└── components/            # Panel, ProgressBar, StatusBar
+```
+
+The TUI reuses the existing command functions (`initCommand`, `sampleCommand`, `ingestCommand`, `configureLlmCommand`) and passes a `ProgressReporter` so the live operation screen can show the current sub-agent, LLM calls, source/chunk progress, and Critic issues. TUI components must not compute SHA-256 hashes or perform file I/O directly; they delegate to the command layer.
+
+## Progress instrumentation
+
+A structured progress layer in `src/progress/` emits events without changing the return values of existing functions:
+
+```
+src/progress/
+├── types.ts               # ProgressEvent union and ProgressReporter interface
+├── collecting-reporter.ts # stores events for testing and the TUI
+└── index.ts               # public re-exports
+```
+
+Key events:
+
+- `step-start` / `step-end` — sub-agent boundaries
+- `llm-call-start` / `llm-call-end` / `llm-call-retry` — provider, model, tokens, cost, status
+- `source-start` / `source-end` — per-PDF progress
+- `chunk-progress` — per-chunk entity extraction
+- `critic-issues` — issues surfaced by the Critic
+- `proposal` — structural change proposals
+- `warning` / `error` — runtime issues
+- `summary` — final ingestion counts
+- `status` — human-readable status messages
+
+`LLMClient`, `runSampleOrchestrator`, `runIngestOrchestrator`, and `runIngestion` accept an optional `ProgressReporter`. When none is provided, a `NoOpReporter` is used so existing commands continue to work unchanged.
 
 ## Coding conventions
 

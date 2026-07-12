@@ -8,6 +8,7 @@ import { configureLlmCommand } from './commands/configure-llm.js';
 import { testLlmCommand } from './commands/test-llm.js';
 import { initCommand } from './commands/init.js';
 import { applyProposalCommand } from './commands/apply-proposal.js';
+import { runTui } from './tui/index.js';
 import { CLIError } from './errors.js';
 import { buildRunLog, writeRunLog } from './log.js';
 
@@ -32,6 +33,7 @@ program
     `
 Examples:
   $ llm-wiki-cli --help
+  $ llm-wiki-cli tui
   $ llm-wiki-cli status -w ./my-workspace
   $ llm-wiki-cli init donations --title "Political Donations" --description "Annual filings..."
   $ llm-wiki-cli sample acme                    # corpus-centric sample
@@ -128,6 +130,15 @@ const testLlm = addWorkspaceOption(
     }),
 );
 
+const tui = addWorkspaceOption(
+  new Command('tui')
+    .description('Launch the interactive terminal frontend.')
+    .option('--non-interactive', 'Render a single frame and exit (for testing)')
+    .action(async (options: { workspace: string; nonInteractive?: boolean }) => {
+      runTui({ workspace: options.workspace, nonInteractive: options.nonInteractive ?? false });
+    }),
+);
+
 program.addCommand(init);
 program.addCommand(sample);
 program.addCommand(ingest);
@@ -136,6 +147,7 @@ program.addCommand(applyProposal);
 program.addCommand(status);
 program.addCommand(configureLlm);
 program.addCommand(testLlm);
+program.addCommand(tui);
 
 async function main(): Promise<void> {
   try {

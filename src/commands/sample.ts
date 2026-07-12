@@ -1,5 +1,6 @@
-import { mkdirSync, existsSync, readdirSync } from 'fs';
+import { mkdirSync, existsSync, readdirSync, readFileSync } from 'fs';
 import path from 'path';
+import matter from 'gray-matter';
 import { buildConfig, loadConfig, type Config } from '../config.js';
 import { ensureWikiExists, isInsideRawFolder, wikiPath, toRelativePath } from '../workspace.js';
 import { extractPdf } from '../extractor/pdf.js';
@@ -15,14 +16,17 @@ import { runSampleOrchestrator } from '../orchestrator/index.js';
 import { classifyCorpus, type CorpusFileInfo } from '../orchestrator/sampling.js';
 import { collectPageTypesPerFolder, updateAgentsMdForNewPageTypes } from '../orchestrator/proposals.js';
 import { buildRunLog, writeRunLog } from '../log.js';
-import { createLLMClient, type LLMCallRecord } from '../llm/client.js';
+import { createLLMClient } from '../llm/client.js';
+import type { LLMCallRecord } from '../llm/types.js';
 import type { ExtractionResult } from '../extractor/types.js';
+import type { ProgressReporter } from '../progress/types.js';
 import type { OrchestratorResult } from '../orchestrator/types.js';
 
 export async function sampleCommand(
   workspace: string,
   slug: string,
   pdfPath?: string,
+  reporter?: ProgressReporter,
 ): Promise<number> {
   if (!slug) {
     throw new CLIError(
@@ -66,12 +70,11 @@ export async function sampleCommand(
   const { structure, strategy, chunks } = analyzeAndChunk(result, config, samplingStrategy);
 
   // Optional LLM enhancement: only metadata and extracted text are sent; raw PDFs are not.
-  const llmClient = createLLMClient(workspace);
-  let llmRecord: LLMCallRecord | undefined;
-  if (llmClient.isEnabled()) {
-    const prompt = buildSamplePrompt(result, structure, samplingStrategy);
-    const llmResult = await llmClient.call(prompt);
-    llmRecord = llmClient.toRecord(llmResult);
+  const llmClient = createLLMClient(workspace, undefined, reporter);
+  if (!llmClient.isEnabled()) {
+    throw new CLIError(
+      'LLM is not configured or enabled. Configure an LLM with "llm-wiki-cli configure-llm" or set provider to "test".',
+    );
   }
 
   const wikiDir = wikiPath(workspace, slug);
@@ -99,6 +102,7 @@ export async function sampleCommand(
     chunks,
     llmClient,
     samplingStrategy,
+    reporter,
   );
 
   await writeAgentsMd(
@@ -126,15 +130,26 @@ export async function sampleCommand(
     }
   }
 
-  for (const chunk of chunks) {
+  for (const update of orchestratorResult.pageUpdates ?? []) {
+    const chunk = chunks.find((c) => update.filePath === `documents/${c.id}.md`);
+    if (!chunk) {
+      throw new CLIError(`ChunkWriter produced a page with no matching chunk: ${update.filePath}`);
+    }
     writeDocumentPage(
       path.join(documentsDir, `${chunk.id}.md`),
       chunk,
       config,
+      { frontmatter: update.frontmatter, body: update.body },
     );
   }
 
-  const documentLinks = chunks.map((chunk) => ({ title: chunk.title, pageRange: chunk.pageRange }));
+  const documentLinks = chunks.map((chunk) => {
+    const filePath = path.join(documentsDir, `${chunk.id}.md`);
+    const title = existsSync(filePath)
+      ? (matter(readFileSync(filePath, 'utf-8')).data.title ?? chunk.title)
+      : chunk.title;
+    return { title: String(title), pageRange: chunk.pageRange };
+  });
   const rawLinks = result.pages
     .filter((page) => page.isScanned)
     .map((page) => ({
@@ -180,7 +195,7 @@ export async function sampleCommand(
     chunks,
     orchestratorResult,
     samplingStrategy,
-    llmRecord,
+    llmClient.getRecords(),
   );
   return 0;
 }
@@ -255,7 +270,7 @@ function writeSampleRunLog(
   chunks: { id: string; title: string; pageRange: string; content: string }[],
   orchestratorResult: OrchestratorResult,
   samplingStrategy: { category: string; reason: string },
-  llmRecord?: LLMCallRecord,
+  llmRecords?: LLMCallRecord[],
 ): void {
   const log = buildRunLog('sample', workspace, {
     wikiSlugs: [slug],
@@ -274,7 +289,7 @@ function writeSampleRunLog(
     warnings: result.warnings,
     errors: orchestratorResult.critic.issues.map((i) => i.message),
     status: 'success',
-    llmCalls: llmRecord ? [llmRecord] : [],
+    llmCalls: llmRecords ?? [],
     samplingStrategy: {
       category: samplingStrategy.category,
       reason: samplingStrategy.reason,

@@ -3,6 +3,7 @@ import type { LLMClient } from '../llm/client.js';
 import type { Config } from '../config.js';
 import type { Chunk } from '../chunking/types.js';
 import type { ExtractionResult } from '../extractor/types.js';
+import { CLIError } from '../errors.js';
 import {
   structureAnalyst,
   entityExtractor,
@@ -14,11 +15,14 @@ import {
   createInitialMemory,
   updateMemory,
 } from './agents.js';
+import { writeDocumentPage } from '../writers/document.js';
 import { writeWikiIndexContract, writeFolderIndexContract, type WikiIndexData } from './contracts.js';
 import { validatePagePlan } from './validation.js';
 import {
   syncFolderPageTypes,
 } from './proposals.js';
+import type { ProgressReporter } from '../progress/types.js';
+import { NoOpReporter } from '../progress/types.js';
 import type { OrchestratorResult, CriticReview, FolderPlan, PagePlan } from './types.js';
 
 export async function runSampleOrchestrator(
@@ -29,23 +33,42 @@ export async function runSampleOrchestrator(
   chunks: Chunk[],
   llmClient: LLMClient,
   samplingStrategy?: { category: string; reason: string },
+  reporter?: ProgressReporter,
 ): Promise<OrchestratorResult> {
+  const progress = reporter ?? new NoOpReporter();
   // Step 1: StructureAnalyst
-  const structure = await structureAnalyst(result, chunks, llmClient);
+  const structure = await progress.step(
+    'structure-analyst',
+    'Analyzing document structure',
+    () => structureAnalyst(result, chunks, llmClient),
+  );
 
   // Step 2: EntityExtractor
-  const { entities } = await entityExtractor(result, chunks, llmClient);
+  const { entities } = await progress.step(
+    'entity-extractor',
+    'Extracting entities',
+    () => entityExtractor(result, chunks, llmClient),
+  );
 
   // Step 3: RelationshipExtractor
-  const { relationships } = await relationshipExtractor(result, entities, llmClient);
+  const { relationships } = await progress.step(
+    'relationship-extractor',
+    'Extracting relationships',
+    () => relationshipExtractor(result, entities, llmClient),
+  );
 
   // Step 4: EvidenceCollector
-  const evidence = await evidenceCollector(result, chunks, llmClient);
+  const evidence = await progress.step(
+    'evidence-collector',
+    'Collecting evidence',
+    () => evidenceCollector(result, chunks, llmClient),
+  );
 
-  // Step 5: PagePlanner (uses LLM when enabled; falls back to deterministic defaults)
-  let plannerOutput;
-  try {
-    plannerOutput = await pagePlanner(
+  // Step 5: PagePlanner (LLM-only; aborts on invalid or empty output)
+  const plannerOutput = await progress.step(
+    'page-planner',
+    'Planning wiki pages',
+    () => pagePlanner(
       result,
       structure,
       entities,
@@ -54,33 +77,26 @@ export async function runSampleOrchestrator(
       undefined,
       undefined,
       samplingStrategy,
-    );
-  } catch (error) {
-    const reason = error instanceof Error ? error.message : String(error);
-    plannerOutput = {
-      pages: [],
-      folderPlacements: defaultFolderPlacements(result, entities),
-      wikilinks: [],
-      citations: [],
-      discovery: {
-        existingDocument: false,
-        newEntities: false,
-        newTopics: false,
-        hasTablesFigures: false,
-        rawPages: false,
-        newPageType: false,
-      },
-    };
+    ),
+  );
+
+  if (plannerOutput.folderPlacements.length === 0) {
+    throw new CLIError('PagePlanner returned no folder placements.');
   }
 
-  const folderPlacements = plannerOutput.folderPlacements.length > 0
-    ? plannerOutput.folderPlacements
-    : defaultFolderPlacements(result, entities);
+  const folderPlacements = plannerOutput.folderPlacements;
 
   syncFolderPageTypes(folderPlacements, plannerOutput.pages);
 
-  // Step 7: Critic (LLM-driven with deterministic fallback)
-  const criticReview = await critic(result, plannerOutput.pages, folderPlacements, llmClient);
+  // Step 7: Critic (LLM-driven)
+  const criticReview = await progress.step(
+    'critic',
+    'Reviewing page plan',
+    () => critic(result, plannerOutput.pages, folderPlacements, llmClient),
+  );
+  if (criticReview.issues.length > 0) {
+    progress.criticIssues(criticReview.issues);
+  }
   const validationReview = validatePagePlan(plannerOutput.pages, folderPlacements);
   const combinedIssues = [...criticReview.issues, ...validationReview.issues];
   const combinedCritic: CriticReview = {
@@ -123,12 +139,28 @@ export async function runSampleOrchestrator(
     folderIndexes.push(folderIndexPath);
   }
 
+  // Step 7: ChunkWriter — LLM authors every document page.
+  const pageUpdates = await progress.step(
+    'chunk-writer',
+    'Writing document chunks',
+    () => chunkWriter(
+      plannerOutput.pages,
+      chunks,
+      result,
+      config,
+      llmClient,
+      undefined,
+      memory,
+    ),
+  );
+
   return {
     wikiIndexPath,
     folderIndexes,
     memory,
     critic: combinedCritic,
     pages: plannerOutput.pages,
+    pageUpdates,
   };
 }
 
@@ -156,56 +188,4 @@ function topicNameFromPagePlan(page: PagePlan): string {
     return lower.slice(6).trim();
   }
   return lower.trim();
-}
-
-function defaultFolderPlacements(
-  result: ExtractionResult,
-  entities: { type: string }[],
-): FolderPlan[] {
-  const plans: FolderPlan[] = [
-    {
-      folder: 'documents',
-      title: 'Documents',
-      description: 'Document chunks extracted from the source PDFs.',
-      pageTypes: ['document'],
-      children: [],
-    },
-    {
-      folder: 'sources',
-      title: 'Sources',
-      description: 'Catalog pages for each source PDF.',
-      pageTypes: ['source'],
-      children: [],
-    },
-  ];
-
-  if (result.pages.some((p) => p.isScanned)) {
-    plans.push({
-      folder: 'raw',
-      title: 'Raw Fragments',
-      description: 'Scanned or unparseable pages preserved as raw fragments.',
-      pageTypes: ['raw'],
-      children: [],
-    });
-  }
-
-  if (entities.length > 0) {
-    plans.push({
-      folder: 'entities',
-      title: 'Entities',
-      description: 'People, organizations, and other named entities mentioned in the corpus.',
-      pageTypes: ['entity'],
-      children: [],
-    });
-  }
-
-  plans.push({
-    folder: 'topics',
-    title: 'Topics',
-    description: 'Recurring themes and concepts.',
-    pageTypes: ['topic'],
-    children: [],
-  });
-
-  return plans;
 }

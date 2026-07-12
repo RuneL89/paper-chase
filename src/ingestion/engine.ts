@@ -37,6 +37,8 @@ import {
   getSourceChunkStates,
 } from './resume.js';
 import type { IngestionResult, ProcessedSource } from './types.js';
+import type { ProgressReporter } from '../progress/types.js';
+import { NoOpReporter } from '../progress/types.js';
 
 export async function runIngestion(
   workspace: string,
@@ -44,7 +46,9 @@ export async function runIngestion(
   config: Config,
   resume = false,
   autoApproveProposals = false,
+  reporter?: import('../progress/types.js').ProgressReporter,
 ): Promise<IngestionResult> {
+  const progress = reporter ?? new NoOpReporter();
   const wikiDir = wikiPath(workspace, slug);
   const stateFile = statePath(wikiDir, config.output.dir);
   const manifestFile = runManifestPath(wikiDir, config.output.dir);
@@ -73,7 +77,7 @@ export async function runIngestion(
     lintIssues: 0,
   };
 
-  const llmClient = createLLMClient(workspace);
+  const llmClient = createLLMClient(workspace, undefined, progress);
   let memory = state.memory;
   const allProposals: import('../orchestrator/types.js').StructuralProposal[] = [];
   const allFolderPlacements: Map<string, import('../orchestrator/types.js').FolderPlan> = new Map();
@@ -142,159 +146,169 @@ export async function runIngestion(
 
   // Extract and chunk all changed sources in memory first.
   const processed: ProcessedSource[] = [];
-  for (const filePath of changedFiles) {
+  for (let i = 0; i < changedFiles.length; i++) {
+    const filePath = changedFiles[i];
     const relativeFile = toRelativePath(workspace, filePath);
     const fileName = path.basename(filePath);
     const baseSlug = path.basename(filePath, path.extname(filePath));
     const stats = statSync(filePath);
     const sha256 = hashFile(filePath);
 
-    const outcome = await safeExtractPdf(filePath, undefined, slug);
-    if (isExtractionFailure(outcome)) {
-      const failure = outcome;
-      const rawPageId = `raw/${baseSlug}.md`;
-      const rawPagePath = path.join(wikiDir, config.output.dir, rawPageId);
-      const { writeFailureRawPage } = await import('../writers/raw.js');
-      writeFailureRawPage(rawPagePath, failure, config.wiki.slug);
-      result.errors.push(`Failed to extract ${fileName}: ${failure.reason}`);
-      result.rawPages++;
-
-      updateSourceState(
-        state,
-        relativeFile,
-        sha256,
-        stats.mtimeMs,
-        '',
-        [],
-        [rawPageId],
-        {},
-        {},
-        0,
-      );
-      processed.push({
-        relativeFile,
-        fileName,
-        baseSlug,
-        sha256,
-        mtime: stats.mtimeMs,
-        outcome: failure,
-        sourcePageId: '',
-        entities: {},
-        topics: {},
-      });
-      continue;
-    }
-
-    const extractionResult = outcome;
-    extractionResult.filePath = relativeFile;
-
-    const { chunks, strategy } = analyzeAndChunk(extractionResult, config);
-    const documentPageIds = chunks.map((chunk) => `documents/${chunk.id}.md`);
-    const chunkStates = buildChunkStates(baseSlug, chunks, documentPageIds);
-    manifest = initializeRunManifest(manifest, chunkStates);
-
-    for (const chunk of chunks) {
-      const statePath = chunkStatePath(wikiDir, config.output.dir, baseSlug, chunk.id);
-      updateChunkStatus(manifest, statePath, baseSlug, chunk.id, 'processing');
-    }
-
-    for (const chunk of chunks) {
-      result.chunkBoundaries.push({
-        source: relativeFile,
-        boundary: chunk.boundaryType,
-        pageRange: chunk.pageRange,
-      });
-    }
-
-    // Run the ingest orchestrator for this source, accumulating memory.
-    const orchestratorResult = await runIngestOrchestrator(
-      workspace,
-      slug,
-      config,
-      extractionResult,
-      chunks,
-      llmClient,
-      memory,
-      strategy.samplingStrategy,
-      { autoApproveProposals },
-    );
-    memory = orchestratorResult.memory;
-    for (const proposal of orchestratorResult.proposals) {
-      allProposals.push(proposal);
-    }
-    for (const folder of orchestratorResult.folderPlacements) {
-      allFolderPlacements.set(folder.folder, folder);
-    }
-    allPages.push(...orchestratorResult.pages);
-    result.warnings.push(...orchestratorResult.critic.issues.map((i) => i.message));
-    const rawPageIds = extractionResult.pages
-      .filter((page) => page.isScanned)
-      .map((page) => `raw/${baseSlug}-page-${page.physicalPage}.md`);
-
-    for (const chunk of chunks) {
-      const statePath = chunkStatePath(wikiDir, config.output.dir, baseSlug, chunk.id);
-      const pagePath = `documents/${chunk.id}.md`;
-      const hasUpdate = orchestratorResult.pageUpdates?.some((u) => u.filePath === pagePath);
-      updateChunkStatus(
-        manifest,
-        statePath,
-        baseSlug,
-        chunk.id,
-        hasUpdate ? 'completed' : 'failed',
-      );
-    }
-    writeRunManifest(manifestFile, manifest);
-
-    const entities: Record<string, number> = {};
-    const entityTypes: Record<string, import('../entities/index.js').EntityMention['type']> = {};
-    for (const entity of orchestratorResult.extractedEntities) {
-      const canonicalEntity = memory.state.entities[entity.canonical];
-      const displayName = canonicalEntity?.name ?? entity.name;
-      entities[displayName] = (entities[displayName] ?? 0) + entity.count;
-      // Resolve type conflicts by keeping the most-frequent type for this source.
-      const currentType = entityTypes[displayName];
-      if (!currentType) {
-        entityTypes[displayName] = entity.type as import('../entities/index.js').EntityMention['type'];
-      }
-    }
-    const topics: Record<string, number> = {};
-    for (const topic of orchestratorResult.extractedTopics) {
-      // Ensure planned topic pages are materialized even when the concept only
-      // appears in one source or chunk.
-      topics[topic.name] = Math.max(topic.count, config.ingestion.topic_threshold);
-    }
-
-    updateSourceState(
-      state,
+    await progress.source(
       relativeFile,
-      sha256,
-      stats.mtimeMs,
-      `sources/${baseSlug}.md`,
-      documentPageIds,
-      rawPageIds,
-      entities,
-      topics,
-      chunks.length,
+      i + 1,
+      changedFiles.length,
+      async () => {
+        const outcome = await safeExtractPdf(filePath, undefined, slug);
+        if (isExtractionFailure(outcome)) {
+          const failure = outcome;
+          const rawPageId = `raw/${baseSlug}.md`;
+          const rawPagePath = path.join(wikiDir, config.output.dir, rawPageId);
+          const { writeFailureRawPage } = await import('../writers/raw.js');
+          writeFailureRawPage(rawPagePath, failure, config.wiki.slug);
+          result.errors.push(`Failed to extract ${fileName}: ${failure.reason}`);
+          progress.error(`Failed to extract ${fileName}: ${failure.reason}`);
+          result.rawPages++;
+
+          updateSourceState(
+            state,
+            relativeFile,
+            sha256,
+            stats.mtimeMs,
+            '',
+            [],
+            [rawPageId],
+            {},
+            {},
+            0,
+          );
+          processed.push({
+            relativeFile,
+            fileName,
+            baseSlug,
+            sha256,
+            mtime: stats.mtimeMs,
+            outcome: failure,
+            sourcePageId: '',
+            entities: {},
+            topics: {},
+          });
+          return;
+        }
+
+        const extractionResult = outcome;
+        extractionResult.filePath = relativeFile;
+
+        const { chunks, strategy } = analyzeAndChunk(extractionResult, config);
+        const documentPageIds = chunks.map((chunk) => `documents/${chunk.id}.md`);
+        const chunkStates = buildChunkStates(baseSlug, chunks, documentPageIds);
+        manifest = initializeRunManifest(manifest, chunkStates);
+
+        for (const chunk of chunks) {
+          const statePath = chunkStatePath(wikiDir, config.output.dir, baseSlug, chunk.id);
+          updateChunkStatus(manifest, statePath, baseSlug, chunk.id, 'processing');
+        }
+
+        for (const chunk of chunks) {
+          result.chunkBoundaries.push({
+            source: relativeFile,
+            boundary: chunk.boundaryType,
+            pageRange: chunk.pageRange,
+          });
+        }
+
+        // Run the ingest orchestrator for this source, accumulating memory.
+        const orchestratorResult = await runIngestOrchestrator(
+          workspace,
+          slug,
+          config,
+          extractionResult,
+          chunks,
+          llmClient,
+          memory,
+          strategy.samplingStrategy,
+          { autoApproveProposals },
+          progress,
+        );
+        memory = orchestratorResult.memory;
+        for (const proposal of orchestratorResult.proposals) {
+          allProposals.push(proposal);
+        }
+        for (const folder of orchestratorResult.folderPlacements) {
+          allFolderPlacements.set(folder.folder, folder);
+        }
+        allPages.push(...orchestratorResult.pages);
+        result.warnings.push(...orchestratorResult.critic.issues.map((i) => i.message));
+        const rawPageIds = extractionResult.pages
+          .filter((page) => page.isScanned)
+          .map((page) => `raw/${baseSlug}-page-${page.physicalPage}.md`);
+
+        for (const chunk of chunks) {
+          const statePath = chunkStatePath(wikiDir, config.output.dir, baseSlug, chunk.id);
+          const pagePath = `documents/${chunk.id}.md`;
+          const hasUpdate = orchestratorResult.pageUpdates?.some((u) => u.filePath === pagePath);
+          updateChunkStatus(
+            manifest,
+            statePath,
+            baseSlug,
+            chunk.id,
+            hasUpdate ? 'completed' : 'failed',
+          );
+        }
+        writeRunManifest(manifestFile, manifest);
+
+        const entities: Record<string, number> = {};
+        const entityTypes: Record<string, import('../entities/index.js').EntityMention['type']> = {};
+        for (const entity of orchestratorResult.extractedEntities) {
+          const canonicalEntity = memory.state.entities[entity.canonical];
+          const displayName = canonicalEntity?.name ?? entity.name;
+          entities[displayName] = (entities[displayName] ?? 0) + entity.count;
+          // Resolve type conflicts by keeping the most-frequent type for this source.
+          const currentType = entityTypes[displayName];
+          if (!currentType) {
+            entityTypes[displayName] = entity.type as import('../entities/index.js').EntityMention['type'];
+          }
+        }
+        const topics: Record<string, number> = {};
+        for (const topic of orchestratorResult.extractedTopics) {
+          // Ensure planned topic pages are materialized even when the concept only
+          // appears in one source or chunk.
+          topics[topic.name] = Math.max(topic.count, config.ingestion.topic_threshold);
+        }
+
+        updateSourceState(
+          state,
+          relativeFile,
+          sha256,
+          stats.mtimeMs,
+          `sources/${baseSlug}.md`,
+          documentPageIds,
+          rawPageIds,
+          entities,
+          topics,
+          chunks.length,
+        );
+
+        result.warnings.push(...extractionResult.warnings);
+
+        processed.push({
+          relativeFile,
+          fileName,
+          baseSlug,
+          sha256,
+          mtime: stats.mtimeMs,
+          outcome: extractionResult,
+          chunks,
+          documentPageIds,
+          rawPageIds,
+          sourcePageId: `sources/${baseSlug}.md`,
+          entities,
+          entityTypes,
+          topics,
+          pageUpdates: orchestratorResult.pageUpdates,
+        });
+      },
     );
-
-    result.warnings.push(...extractionResult.warnings);
-
-    processed.push({
-      relativeFile,
-      fileName,
-      baseSlug,
-      sha256,
-      mtime: stats.mtimeMs,
-      outcome: extractionResult,
-      chunks,
-      documentPageIds,
-      rawPageIds,
-      sourcePageId: `sources/${baseSlug}.md`,
-      entities,
-      entityTypes,
-      topics,
-      pageUpdates: orchestratorResult.pageUpdates,
-    });
   }
 
   // Delegate all markdown content generation and contract/index writing to the orchestrator.
@@ -348,6 +362,20 @@ export async function runIngestion(
   }
 
   writeIngestRunLog(workspace, slug, config, result, llmClient.getRecords());
+
+  progress.summary({
+    sourceFiles: result.sourceFiles,
+    documentPages: result.documentPages,
+    rawPages: result.rawPages,
+    entityPages: result.entityPages,
+    topicPages: result.topicPages,
+    warnings: result.warnings.length,
+    errors: result.errors.length,
+    added: result.added,
+    changed: result.changed,
+    removed: result.removed,
+    proposals: allProposals.length,
+  });
 
   return result;
 }
