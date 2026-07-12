@@ -52,6 +52,19 @@ llm-wiki-cli configure-llm
 llm-wiki-cli test-llm
 ```
 
+## E2E / verification runs
+
+When the user asks for an E2E run, smoke test, or verification of the CLI against a workspace, the agent is **only** allowed to run commands and report results. Source-code changes are **forbidden** during these runs.
+
+- **Do not modify source code.** This includes `src/`, `tests/`, `docs/`, `plan/`, or any other tracked file in the repo.
+- **Do not modify tests.** Verification runs must use the codebase as-is.
+- **Do not modify documentation or the bug report.** If a bug is found, report it in the conversation; do not write it into `plan/e2e-bug-report.md` or any other file.
+- **Do not add fallbacks, workarounds, defensive fixes, or retries.** If a step fails, stop and report the failure.
+- **Do not proceed past the first failure.** The E2E stops at the first failing command; the agent reports where it stopped and why.
+- **Verify the working tree is clean before starting.** Run `git status --short` and confirm it prints nothing. If it does not, report the modified files and stop.
+- **If the working tree becomes dirty during the run, stop immediately.** Report the unexpected change and do not continue.
+- The only permissible changes are to the **E2E workspace data** (e.g., `C:\temp\wiki-e2e` or another explicitly named workspace), not to the CLI repository.
+
 ## Workspace layout
 
 A workspace is a directory that contains:
