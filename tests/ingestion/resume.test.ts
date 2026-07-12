@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { mkdtempSync, rmSync, existsSync, readFileSync, writeFileSync, readdirSync } from 'fs';
+import { mkdtempSync, rmSync, existsSync, readFileSync, writeFileSync, readdirSync, mkdirSync } from 'fs';
 import path from 'path';
 import os from 'os';
 import matter from 'gray-matter';
@@ -13,7 +13,15 @@ import { loadConfig } from '../../src/config.js';
 import type { Config } from '../../src/config.js';
 
 function makeTempWorkspace(): string {
-  return mkdtempSync(path.join(os.tmpdir(), 'wiki-resume-'));
+  const tmp = mkdtempSync(path.join(os.tmpdir(), 'wiki-resume-'));
+  mkdirSync(path.join(tmp, '.kimi-code'), { recursive: true });
+  writeFileSync(
+    path.join(tmp, '.kimi-code', 'config.json'),
+    JSON.stringify({
+      llm: { provider: 'test', model: 'test', enabled: true },
+    }),
+  );
+  return tmp;
 }
 
 function makeConfig(slug: string): Config {
@@ -52,7 +60,7 @@ function makeConfig(slug: string): Config {
     },
     status: 'ready',
     resilience: {
-      recoveryMode: 'fallback',
+      recoveryMode: 'abort',
       circuitBreakerThreshold: 0.3,
       circuitBreakerWindowMs: 300000,
     },

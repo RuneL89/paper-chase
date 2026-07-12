@@ -1,5 +1,6 @@
 import { writeFileSync, readFileSync, existsSync } from 'fs';
 import matter from 'gray-matter';
+import { CLIError } from '../errors.js';
 import type { Config } from '../config.js';
 import type { PdfStructure } from '../chunking/types.js';
 import type { SamplingStrategy } from '../chunking/types.js';
@@ -140,19 +141,13 @@ export async function writeAgentsMd(
   context: AgentsMdContext,
   llmClient?: LLMClient,
 ): Promise<void> {
-  let body = renderAgentsMdBody(context);
-
-  if (llmClient?.isEnabled()) {
-    try {
-      const prompt = buildAgentsMdPrompt(context);
-      const response = await llmClient.call(prompt);
-      if (response.text && response.text.trim().length > 0) {
-        body = sanitizeAgentsMdBody(response.text, context);
-      }
-    } catch {
-      // Keep deterministic fallback on LLM error.
-    }
+  if (!llmClient || !llmClient.isEnabled()) {
+    throw new CLIError('LLM is required to write AGENTS.md.');
   }
+
+  const prompt = buildAgentsMdPrompt(context);
+  const response = await llmClient.call(prompt);
+  const body = sanitizeAgentsMdBody(response.text, context);
 
   const created = readCreatedTimestamp(filePath) ?? new Date().toISOString();
   const frontmatter = {
@@ -235,12 +230,12 @@ function buildAgentsMdPrompt(context: AgentsMdContext): string {
   ].join('\n');
 }
 
-function sanitizeAgentsMdBody(text: string, context: AgentsMdContext): string {
+function sanitizeAgentsMdBody(text: string, _context: AgentsMdContext): string {
   // Strip any leading YAML frontmatter the LLM may have emitted.
   const withoutFrontmatter = text.replace(/^---\s*\n[\s\S]*?\n---\s*\n?/, '');
   const body = withoutFrontmatter.trim();
   if (body.length === 0) {
-    return renderAgentsMdBody(context);
+    throw new CLIError('LLM returned an empty AGENTS.md body.');
   }
   return body;
 }

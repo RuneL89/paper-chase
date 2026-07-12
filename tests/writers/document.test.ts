@@ -47,7 +47,7 @@ function makeConfig(slug: string): Config {
     },
     status: 'ready',
     resilience: {
-      recoveryMode: 'fallback',
+      recoveryMode: 'abort',
       circuitBreakerThreshold: 0.3,
       circuitBreakerWindowMs: 300000,
     },
@@ -88,7 +88,16 @@ describe('TAC-001: document page frontmatter', () => {
     const chunk = makeChunk();
     const config = makeConfig('acme');
 
-    writeDocumentPage(outputPath, chunk, config);
+    writeDocumentPage(outputPath, chunk, config, {
+      frontmatter: {
+        title: 'Annual Report Page 1',
+        type: 'document',
+        tags: ['annual-report'],
+        confidence: 'high',
+        sources: chunk.sources.map((s) => ({ ...s, label: 'Annual Report' })),
+      },
+      body: '# Annual Report Page 1\n\nAnnual report page one.',
+    });
 
     const content = readFileSync(outputPath, 'utf-8');
     const parsed = matter(content);
@@ -120,7 +129,13 @@ describe('TAC-001: document page frontmatter', () => {
 
     const chunk = makeChunk();
     const config = makeConfig('acme');
-    writeDocumentPage(outputPath, chunk, config);
+    writeDocumentPage(outputPath, chunk, config, {
+      frontmatter: {
+        title: 'Existing',
+        type: 'document',
+      },
+      body: '# Existing doc\n',
+    });
 
     const content = readFileSync(outputPath, 'utf-8');
     const parsed = matter(content);

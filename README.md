@@ -114,7 +114,7 @@ If `ingest` discovers that the corpus needs a new folder structure (e.g., a new 
 
 ### Rejection / reprocessing loop
 
-The Critic and the deterministic completeness check can block a chunk. When that happens, the feedback is sent back to the ChunkWriter and the chunk is re-drafted. If a chunk still fails after the maximum number of attempts, the system falls back to a deterministic document page or quarantines the extracted text, depending on the configured recovery mode (`fallback`, `quarantine`, or `abort`).
+The Critic and the deterministic completeness check can block a chunk. When that happens, the feedback is sent back to the ChunkWriter and the chunk is re-drafted. If a chunk still fails after the maximum number of attempts, the run aborts and the error is reported.
 
 ---
 
@@ -187,13 +187,9 @@ wiki config.json > workspace .kimi-code/config.json > src/config.ts defaultConfi
 3. **Structural checks (`lint/index.ts`)** — broken wikilinks, orphaned pages, citation integrity, duplicate entities.
 4. **Schema validation (`validation/schema.ts`)** — required frontmatter fields per page type.
 
-### Recovery modes
+### Recovery mode
 
-Configured in `config.json` under `resilience.recoveryMode`:
-
-- `fallback` — write a deterministic document page and continue.
-- `quarantine` — write the extracted text to a `raw/` or `failed/` page and continue.
-- `abort` — stop the run and report the error.
+Configured in `config.json` under `resilience.recoveryMode`. The only supported mode is `abort`: if the LLM is disabled, fails, or returns invalid/empty output, the command stops and reports the error. Deterministic content fallbacks are not produced.
 
 ### Cross-wiki discovery
 

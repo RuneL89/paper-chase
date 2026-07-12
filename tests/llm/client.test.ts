@@ -34,15 +34,13 @@ describe('LLM client test provider', () => {
     expect(response.model).toBe('test');
   });
 
-  it('TAC-002: disabled client returns local fallback', async () => {
+  it('TAC-002: disabled client throws a CLIError', async () => {
     const client = new LLMClient({
       ...DEFAULT_LLM_CONFIG,
       enabled: false,
     });
 
-    const response = await client.call('Hello?');
-    expect(response.text).toBe('LLM not configured; local-only processing was used.');
-    expect(response.provider).toBe('local');
+    await expect(client.call('Hello?')).rejects.toThrow('LLM is not configured or enabled');
   });
 
   it('TAC-003: rejects non-string prompts', async () => {

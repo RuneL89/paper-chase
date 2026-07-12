@@ -43,7 +43,7 @@ function makeConfig(slug: string): Config {
     },
     status: 'ready',
     resilience: {
-      recoveryMode: 'fallback',
+      recoveryMode: 'abort',
       circuitBreakerThreshold: 0.3,
       circuitBreakerWindowMs: 300000,
     },
@@ -132,21 +132,17 @@ function mockFetchJson(json: unknown): typeof fetch {
 }
 
 describe('chunkWriter', () => {
-  it('TAC-001: falls back to deterministic document pages when LLM is disabled', async () => {
+  it('TAC-001: throws a CLIError when LLM is disabled', async () => {
     const client = new LLMClient({ ...DEFAULT_LLM_CONFIG, enabled: false });
-    const updates = await chunkWriter(
-      [makePagePlan()],
-      [makeChunk()],
-      makeExtractionResult(),
-      makeConfig('acme'),
-      client,
-    );
-
-    expect(updates).toHaveLength(1);
-    expect(updates[0].fallback).toBe(true);
-    expect(updates[0].filePath).toBe('documents/annual-report-part-001.md');
-    expect(updates[0].frontmatter.type).toBe('document');
-    expect(updates[0].body).toContain('# Part 1: annual-report');
+    await expect(
+      chunkWriter(
+        [makePagePlan()],
+        [makeChunk()],
+        makeExtractionResult(),
+        makeConfig('acme'),
+        client,
+      ),
+    ).rejects.toThrow('LLM is required for chunk writing');
   });
 
   it('TAC-002: parses valid LLM JSON into page updates with citations and wikilinks', async () => {
@@ -189,14 +185,13 @@ describe('chunkWriter', () => {
     );
 
     expect(updates).toHaveLength(1);
-    expect(updates[0].fallback).toBe(false);
     expect(updates[0].body).toContain('[^src1]');
     expect(updates[0].body).toContain('[[Entity: Acme Corp]]');
     expect(updates[0].frontmatter.confidence).toBe('high');
     expect(updates[0].frontmatter.tags).toContain('earnings');
   });
 
-  it('TAC-003: falls back to deterministic pages when LLM returns invalid JSON', async () => {
+  it('TAC-003: throws a CLIError when LLM returns invalid JSON', async () => {
     const client = new LLMClient(
       { ...DEFAULT_LLM_CONFIG, enabled: true, provider: 'openai', model: 'gpt-4o', apiKey: 'test' },
       (async () => ({
@@ -208,20 +203,18 @@ describe('chunkWriter', () => {
       })) as unknown as typeof fetch,
     );
 
-    const updates = await chunkWriter(
-      [makePagePlan()],
-      [makeChunk()],
-      makeExtractionResult(),
-      makeConfig('acme'),
-      client,
-    );
-
-    expect(updates).toHaveLength(1);
-    expect(updates[0].fallback).toBe(true);
-    expect(updates[0].body).toContain('# Part 1: annual-report');
+    await expect(
+      chunkWriter(
+        [makePagePlan()],
+        [makeChunk()],
+        makeExtractionResult(),
+        makeConfig('acme'),
+        client,
+      ),
+    ).rejects.toThrow('ChunkWriter returned invalid output');
   });
 
-  it('TAC-004: falls back when LLM frontmatter fails schema validation', async () => {
+  it('TAC-004: throws a CLIError when LLM frontmatter fails schema validation', async () => {
     const llmJson = {
       pages: [
         {
@@ -240,15 +233,14 @@ describe('chunkWriter', () => {
       mockFetchJson(llmJson),
     );
 
-    const updates = await chunkWriter(
-      [makePagePlan(), makeEntityPagePlan()],
-      [makeChunk()],
-      makeExtractionResult(),
-      makeConfig('acme'),
-      client,
-    );
-
-    expect(updates).toHaveLength(1);
-    expect(updates[0].fallback).toBe(true);
+    await expect(
+      chunkWriter(
+        [makePagePlan(), makeEntityPagePlan()],
+        [makeChunk()],
+        makeExtractionResult(),
+        makeConfig('acme'),
+        client,
+      ),
+    ).rejects.toThrow('ChunkWriter returned invalid page output');
   });
 });

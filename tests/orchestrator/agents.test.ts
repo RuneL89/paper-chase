@@ -50,7 +50,7 @@ function makeConfig(slug: string): Config {
     },
     status: 'ready',
     resilience: {
-      recoveryMode: 'fallback',
+      recoveryMode: 'abort',
       circuitBreakerThreshold: 0.3,
       circuitBreakerWindowMs: 300000,
     },
@@ -126,16 +126,38 @@ function makeClient(json: unknown): LLMClient {
   );
 }
 
+function makeAgentClient(responses: Record<string, unknown>): LLMClient {
+  const fetchFn = (async (_input: RequestInfo | URL, init?: RequestInit) => {
+    const raw = typeof init?.body === 'string' ? init.body : '{}';
+    const parsed = JSON.parse(raw) as { messages?: { content?: string }[] };
+    const prompt = parsed.messages?.[0]?.content ?? '';
+    const agentMatch = prompt.match(/You are the ([A-Za-z]+) agent/);
+    const agent = agentMatch?.[1] ?? 'unknown';
+    const json = responses[agent] ?? {};
+    return {
+      ok: true,
+      status: 200,
+      headers: { get: () => null },
+      text: async () => JSON.stringify({ choices: [{ message: { content: JSON.stringify(json) } }] }),
+      json: async () => ({ choices: [{ message: { content: JSON.stringify(json) } }] }),
+    };
+  }) as unknown as typeof fetch;
+
+  return new LLMClient(
+    { ...DEFAULT_LLM_CONFIG, enabled: true, provider: 'openai', model: 'gpt-4o', apiKey: 'test' },
+    fetchFn,
+  );
+}
+
 function makeDisabledClient(): LLMClient {
   return new LLMClient({ ...DEFAULT_LLM_CONFIG, enabled: false });
 }
 
 describe('structureAnalyst', () => {
-  it('TAC-001: returns deterministic fallback when LLM is disabled', async () => {
-    const result = await structureAnalyst(makeExtractionResult(), [makeChunk()], makeDisabledClient());
-    expect(result.headings).toHaveLength(1);
-    expect(result.boundaries).toHaveLength(1);
-    expect(result.pageRange).toBe('1-1');
+  it('TAC-001: throws a CLIError when LLM is disabled', async () => {
+    await expect(structureAnalyst(makeExtractionResult(), [makeChunk()], makeDisabledClient())).rejects.toThrow(
+      'LLM is required for structure analysis',
+    );
   });
 
   it('TAC-002: parses valid LLM JSON into structure output', async () => {
@@ -154,14 +176,13 @@ describe('structureAnalyst', () => {
 });
 
 describe('entityExtractor', () => {
-  it('TAC-003: returns deterministic fallback entities when LLM is disabled', async () => {
-    const result = await entityExtractor(makeExtractionResult(), [makeChunk()], makeDisabledClient());
-    const names = result.entities.map((e) => e.name);
-    expect(names).toContain('Acme Corp');
-    expect(names).toContain('Globex Inc');
+  it('TAC-003: throws a CLIError when LLM is disabled', async () => {
+    await expect(entityExtractor(makeExtractionResult(), [makeChunk()], makeDisabledClient())).rejects.toThrow(
+      'LLM is required for entity extraction',
+    );
   });
 
-  it('TAC-004: parses LLM entities and resolves canonical names, merging with deterministic fallback', async () => {
+  it('TAC-004: parses LLM entities and resolves canonical names', async () => {
     const llmJson = {
       entities: [
         {
@@ -177,15 +198,14 @@ describe('entityExtractor', () => {
       ],
     };
     const result = await entityExtractor(makeExtractionResult(), [makeChunk()], makeClient(llmJson));
-    expect(result.entities).toHaveLength(2);
+    expect(result.entities).toHaveLength(1);
     const acme = result.entities.find((e) => e.name === 'Acme Corporation');
-    const globex = result.entities.find((e) => e.name === 'Globex Inc');
     expect(acme).toBeDefined();
-    expect(globex).toBeDefined();
-    expect(acme?.canonical).toBe('acme-corp');
+    expect(acme?.canonical).toBe('acme-corporation');
+    expect(acme?.aliases).toContain('Acme Corp');
   });
 
-  it('TAC-004A: merges LLM entities that share aliases into a single canonical entity, including deterministic fallback', async () => {
+  it('TAC-004A: merges LLM entities that share aliases into a single canonical entity', async () => {
     const llmJson = {
       entities: [
         {
@@ -214,17 +234,20 @@ describe('entityExtractor', () => {
     const result = await entityExtractor(makeExtractionResult(), [chunk], makeClient(llmJson));
     expect(result.entities).toHaveLength(1);
     expect(result.entities[0].name).toBe('Acme Corporation');
-    expect(result.entities[0].canonical).toBe('acme-corp');
+    expect(result.entities[0].canonical).toBe('acme-corporation');
     expect(result.entities[0].count).toBeGreaterThanOrEqual(3);
     expect(result.entities[0].aliases).toContain('Acme Corp');
   });
 });
 
 describe('relationshipExtractor', () => {
-  it('TAC-005: returns deterministic fallback relationships when LLM is disabled', async () => {
-    const entities = (await entityExtractor(makeExtractionResult(), [makeChunk()], makeDisabledClient())).entities;
-    const result = await relationshipExtractor(makeExtractionResult(), entities, makeDisabledClient());
-    expect(result.relationships.length).toBeGreaterThan(0);
+  it('TAC-005: throws a CLIError when LLM is disabled', async () => {
+    const entities = [
+      { name: 'Acme Corp', canonical: 'acme-corp', aliases: [], type: 'organization' as const, count: 1, mentions: [], confidence: 0.9 },
+    ];
+    await expect(relationshipExtractor(makeExtractionResult(), entities, makeDisabledClient())).rejects.toThrow(
+      'LLM is required for relationship extraction',
+    );
   });
 
   it('TAC-006: parses LLM relationships and normalizes subjects/objects', async () => {
@@ -250,9 +273,10 @@ describe('relationshipExtractor', () => {
 });
 
 describe('evidenceCollector', () => {
-  it('TAC-007: returns deterministic fallback evidence when LLM is disabled', async () => {
-    const result = await evidenceCollector(makeExtractionResult(), [makeChunk()], makeDisabledClient());
-    expect(result.claims.length).toBeGreaterThan(0);
+  it('TAC-007: throws a CLIError when LLM is disabled', async () => {
+    await expect(evidenceCollector(makeExtractionResult(), [makeChunk()], makeDisabledClient())).rejects.toThrow(
+      'LLM is required for evidence collection',
+    );
   });
 
   it('TAC-008: parses LLM evidence output', async () => {
@@ -268,24 +292,39 @@ describe('evidenceCollector', () => {
 });
 
 describe('pagePlanner', () => {
-  it('TAC-009: returns deterministic fallback plan with discovery checklist when LLM is disabled', async () => {
+  it('TAC-009: throws a CLIError when LLM is disabled', async () => {
     const chunk = makeChunkWithContent(
       'Annual report page one. Acme Corp reported record earnings as part of its Climate Strategy and Net Zero Commitment.',
     );
-    const result = await pagePlanner(
-      makeExtractionResult(),
-      await structureAnalyst(makeExtractionResult(), [chunk], makeDisabledClient()),
-      (await entityExtractor(makeExtractionResult(), [chunk], makeDisabledClient())).entities,
-      await evidenceCollector(makeExtractionResult(), [chunk], makeDisabledClient()),
-      makeDisabledClient(),
-    );
-    expect(result.pages.length).toBeGreaterThan(0);
-    expect(result.discovery).toBeDefined();
-    expect(result.discovery.existingDocument).toBe(false);
-    expect(result.discovery.newTopics).toBe(true);
+    await expect(
+      pagePlanner(
+        makeExtractionResult(),
+        await structureAnalyst(makeExtractionResult(), [chunk], makeClient({ headings: [], sections: [], boundaries: [], pageRange: '1', boundaryType: 'page', readingOrderFlags: [] })),
+        (await entityExtractor(
+          makeExtractionResult(),
+          [chunk],
+          makeClient({
+            entities: [
+              {
+                name: 'Acme Corp',
+                type: 'organization',
+                aliases: [],
+                count: 1,
+                mentions: [{ page: 1, context: 'Acme Corp reported earnings.' }],
+                confidence: 0.9,
+                description: 'Acme Corp.',
+              },
+            ],
+          }),
+        )).entities,
+        await evidenceCollector(makeExtractionResult(), [chunk], makeClient({ claims: [], tables: [], figures: [] })),
+        makeDisabledClient(),
+      ),
+    ).rejects.toThrow('LLM is required for page planning');
   });
 
   it('TAC-010: parses LLM page plan and normalizes topic related links', async () => {
+    const chunk = makeChunkWithContent('Acme Corp reported record earnings.');
     const entities = [
       { name: 'Acme Corp', canonical: 'acme-corp', aliases: [], type: 'organization' as const, count: 1, mentions: [], confidence: 0.9 },
     ];
@@ -319,9 +358,13 @@ describe('pagePlanner', () => {
     };
     const result = await pagePlanner(
       makeExtractionResult(),
-      await structureAnalyst(makeExtractionResult(), [makeChunk()], makeDisabledClient()),
+      await structureAnalyst(makeExtractionResult(), [chunk], makeAgentClient({
+        StructureAnalyst: { headings: [], sections: [], boundaries: [], pageRange: '1', boundaryType: 'page', readingOrderFlags: [] },
+      })),
       entities,
-      await evidenceCollector(makeExtractionResult(), [makeChunk()], makeDisabledClient()),
+      await evidenceCollector(makeExtractionResult(), [chunk], makeAgentClient({
+        EvidenceCollector: { claims: [], tables: [], figures: [] },
+      })),
       makeClient(llmJson),
     );
     const topicPage = result.pages.find((p) => p.pageType === 'topic');
@@ -332,26 +375,102 @@ describe('pagePlanner', () => {
 });
 
 describe('critic', () => {
-  it('TAC-011: returns deterministic fallback review when LLM is disabled', async () => {
+  it('TAC-011: throws a CLIError when LLM is disabled', async () => {
+    const chunk = makeChunkWithContent('Acme Corp reported record earnings.');
     const plan = await pagePlanner(
       makeExtractionResult(),
-      await structureAnalyst(makeExtractionResult(), [makeChunk()], makeDisabledClient()),
-      (await entityExtractor(makeExtractionResult(), [makeChunk()], makeDisabledClient())).entities,
-      await evidenceCollector(makeExtractionResult(), [makeChunk()], makeDisabledClient()),
-      makeDisabledClient(),
+      await structureAnalyst(makeExtractionResult(), [chunk], makeAgentClient({
+        StructureAnalyst: { headings: [], sections: [], boundaries: [], pageRange: '1', boundaryType: 'page', readingOrderFlags: [] },
+      })),
+      (await entityExtractor(makeExtractionResult(), [chunk], makeAgentClient({
+        EntityExtractor: {
+          entities: [
+            {
+              name: 'Acme Corp',
+              type: 'organization',
+              aliases: [],
+              count: 1,
+              mentions: [{ page: 1, context: 'Acme Corp reported earnings.' }],
+              confidence: 0.9,
+              description: 'Acme Corp.',
+            },
+          ],
+        },
+      }))).entities,
+      await evidenceCollector(makeExtractionResult(), [chunk], makeAgentClient({
+        EvidenceCollector: { claims: [], tables: [], figures: [] },
+      })),
+      makeAgentClient({
+        PagePlanner: {
+          pages: [
+            {
+              pageType: 'document',
+              title: 'Annual Report Page 1',
+              fileName: 'annual-report-part-001.md',
+              folder: 'documents',
+              tags: ['document'],
+              citations: [],
+              wikilinks: [],
+              related: [],
+            },
+          ],
+          folderPlacements: [
+            { folder: 'documents', title: 'Documents', description: '', pageTypes: ['document'], children: [] },
+          ],
+          discovery: { existingDocument: true, newEntities: false, newTopics: false, hasTablesFigures: false, rawPages: false, newPageType: false },
+        },
+      }),
     );
-    const result = await critic(makeExtractionResult(), plan.pages, plan.folderPlacements, makeDisabledClient());
-    expect(result.issues).toBeDefined();
-    expect(result.confidence).toBeDefined();
+    await expect(critic(makeExtractionResult(), plan.pages, plan.folderPlacements, makeDisabledClient())).rejects.toThrow(
+      'LLM is required for critic review',
+    );
   });
 
-  it('TAC-012: merges LLM issues with deterministic fallback issues', async () => {
+  it('TAC-012: merges LLM issues with deterministic validation issues', async () => {
+    const chunk = makeChunkWithContent('Acme Corp reported record earnings.');
     const plan = await pagePlanner(
       makeExtractionResult(),
-      await structureAnalyst(makeExtractionResult(), [makeChunk()], makeDisabledClient()),
-      (await entityExtractor(makeExtractionResult(), [makeChunk()], makeDisabledClient())).entities,
-      await evidenceCollector(makeExtractionResult(), [makeChunk()], makeDisabledClient()),
-      makeDisabledClient(),
+      await structureAnalyst(makeExtractionResult(), [chunk], makeAgentClient({
+        StructureAnalyst: { headings: [], sections: [], boundaries: [], pageRange: '1', boundaryType: 'page', readingOrderFlags: [] },
+      })),
+      (await entityExtractor(makeExtractionResult(), [chunk], makeAgentClient({
+        EntityExtractor: {
+          entities: [
+            {
+              name: 'Acme Corp',
+              type: 'organization',
+              aliases: [],
+              count: 1,
+              mentions: [{ page: 1, context: 'Acme Corp reported earnings.' }],
+              confidence: 0.9,
+              description: 'Acme Corp.',
+            },
+          ],
+        },
+      }))).entities,
+      await evidenceCollector(makeExtractionResult(), [chunk], makeAgentClient({
+        EvidenceCollector: { claims: [], tables: [], figures: [] },
+      })),
+      makeAgentClient({
+        PagePlanner: {
+          pages: [
+            {
+              pageType: 'document',
+              title: 'Annual Report Page 1',
+              fileName: 'annual-report-part-001.md',
+              folder: 'documents',
+              tags: ['document'],
+              citations: [],
+              wikilinks: [],
+              related: [],
+            },
+          ],
+          folderPlacements: [
+            { folder: 'documents', title: 'Documents', description: '', pageTypes: ['document'], children: [] },
+          ],
+          discovery: { existingDocument: true, newEntities: false, newTopics: false, hasTablesFigures: false, rawPages: false, newPageType: false },
+        },
+      }),
     );
     const llmJson = {
       issues: [{ type: 'suggestion', message: 'Consider adding a topic page.', severity: 'low' }],

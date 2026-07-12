@@ -5,7 +5,7 @@ import { wikiPath } from './workspace.js';
 import type { LLMConfig } from './llm/types.js';
 
 export type WikiStatus = 'initialized' | 'sampled' | 'ready' | 'draft';
-export type RecoveryMode = 'fallback' | 'aggressive' | 'abort';
+export type RecoveryMode = 'abort';
 
 export interface WikiConfig {
   slug: string;
@@ -119,7 +119,7 @@ export const defaultConfig: Config = {
     maxRollingMemoryTokens: 8000,
   },
   resilience: {
-    recoveryMode: 'fallback',
+    recoveryMode: 'abort',
     circuitBreakerThreshold: 0.3,
     circuitBreakerWindowMs: 300000,
   },
@@ -317,9 +317,9 @@ function validateConfig(config: Config): void {
     errors.push(`status must be one of: ${allowedStatuses.join(', ')}`);
   }
 
-  const allowedRecoveryModes: RecoveryMode[] = ['fallback', 'aggressive', 'abort'];
+  const allowedRecoveryModes: RecoveryMode[] = ['abort'];
   if (!allowedRecoveryModes.includes(config.resilience.recoveryMode)) {
-    errors.push(`resilience.recoveryMode must be one of: ${allowedRecoveryModes.join(', ')}`);
+    errors.push(`resilience.recoveryMode must be: ${allowedRecoveryModes.join(', ')}`);
   }
   if (typeof config.resilience.circuitBreakerThreshold !== 'number' || config.resilience.circuitBreakerThreshold <= 0 || config.resilience.circuitBreakerThreshold > 1) {
     errors.push('resilience.circuitBreakerThreshold must be a number between 0 and 1');

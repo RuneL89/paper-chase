@@ -26,6 +26,7 @@ function makeTempWorkspace(): string {
     JSON.stringify({
       chunking: { max_chunk_size: 40000, min_chunk_size: 100 },
       extraction: { engine: 'pdfjs-dist' },
+      llm: { provider: 'test', model: 'test', enabled: true },
     }),
   );
   return tmp;

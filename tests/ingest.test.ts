@@ -27,6 +27,7 @@ function makeTempWorkspace(): string {
     JSON.stringify({
       chunking: { max_chunk_size: 40000, min_chunk_size: 100 },
       extraction: { engine: 'pdfjs-dist' },
+      llm: { provider: 'test', model: 'test', enabled: true },
     }),
   );
   return tmp;
@@ -72,6 +73,7 @@ function setupWiki(workspace: string, slug: string): string {
         max_entities: 50,
         max_topics: 50,
       },
+      llm: { provider: 'test', model: 'test', enabled: true },
     }),
   );
   writeFileSync(path.join(wikiDir, 'index.md'), `# ${slug} Wiki\n`);

@@ -44,7 +44,7 @@ function makeConfig(slug: string): Config {
     output: { dir: '.', page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'] },
     ingestion: { entity_threshold: 1, topic_threshold: 1, max_entities: 50, max_topics: 50 },
     sampling: { large_page_threshold: 500, strategy_page_budget: 50, similarity_metadata_keys: ['title'] },
-    resilience: { recoveryMode: 'fallback', circuitBreakerThreshold: 0.3, circuitBreakerWindowMs: 300000 },
+    resilience: { recoveryMode: 'abort', circuitBreakerThreshold: 0.3, circuitBreakerWindowMs: 300000 },
     status: 'ready',
   } as Config;
 }

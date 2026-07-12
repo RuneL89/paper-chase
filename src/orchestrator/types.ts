@@ -111,7 +111,6 @@ export interface PageUpdate {
   frontmatter: Record<string, unknown>;
   body: string;
   citations?: { claim: string; sources: string[] }[];
-  fallback?: boolean;
 }
 
 export interface StructuralProposal {
@@ -132,6 +131,7 @@ export interface OrchestratorResult {
   memory: OrchestratorMemory;
   critic: CriticReview;
   pages?: PagePlan[];
+  pageUpdates?: PageUpdate[];
 }
 
 export interface IngestOrchestratorResult {

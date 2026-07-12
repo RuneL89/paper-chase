@@ -25,6 +25,7 @@ function makeTempWorkspace(): string {
     JSON.stringify({
       chunking: { max_chunk_size: 40000, min_chunk_size: 100 },
       extraction: { engine: 'pdfjs-dist' },
+      llm: { provider: 'test', model: 'test', enabled: true },
     }),
   );
   return tmp;
@@ -70,6 +71,7 @@ function setupWiki(workspace: string, slug: string, title?: string, description?
         max_entities: 50,
         max_topics: 50,
       },
+      llm: { provider: 'test', model: 'test', enabled: true },
     }),
   );
   writeFileSync(path.join(wikiDir, 'index.md'), `# ${slug} Wiki\n`);
@@ -376,8 +378,9 @@ describe('TAC-007: LLM client records calls and never transmits raw PDFs', () =>
     await expect(client.call(Buffer.from('pdf bytes') as any)).rejects.toThrow(/raw|pdf|string/i);
   });
 
-  it('loads config from workspace and falls back to local-only when missing', () => {
-    const workspace = makeTempWorkspace();
+  it('loads config from workspace and returns disabled defaults when no LLM is configured', () => {
+    const workspace = mkdtempSync(path.join(os.tmpdir(), 'wiki-sprint4-no-llm-'));
+    mkdirSync(path.join(workspace, '.kimi-code'), { recursive: true });
     try {
       const config = loadLLMConfig(workspace);
       expect(config.enabled).toBe(false);
@@ -387,26 +390,17 @@ describe('TAC-007: LLM client records calls and never transmits raw PDFs', () =>
   });
 });
 
-describe('TAC-008: local-only fallback produces valid output', () => {
-  let workspace: string;
-  let wikiDir: string;
-
-  beforeAll(async () => {
-    workspace = makeTempWorkspace();
-    wikiDir = setupWiki(workspace, 'acme');
+describe('TAC-008: ingest aborts when LLM is not configured', () => {
+  it('fails with a clear error instead of producing local fallback pages', async () => {
+    const workspace = mkdtempSync(path.join(os.tmpdir(), 'wiki-sprint4-no-llm-'));
+    mkdirSync(path.join(workspace, '.kimi-code'), { recursive: true });
+    const wikiDir = setupWiki(workspace, 'acme');
     await addPdf(wikiDir, 'doc-a.pdf', 'Doc A', 'Acme Corp reported revenue.');
-    runCli(['ingest', 'acme'], workspace);
-  });
-
-  afterAll(() => {
-    rmSync(workspace, { recursive: true, force: true });
-  });
-
-  it('produces source pages and document pages without LLM config', () => {
-    const sourceFiles = readOutputFiles(wikiDir, 'sources');
-    const documentFiles = readOutputFiles(wikiDir, 'documents');
-    expect(sourceFiles).toContain('doc-a.md');
-    expect(documentFiles.length).toBeGreaterThan(0);
+    try {
+      expect(() => runCli(['ingest', 'acme'], workspace)).toThrow(/LLM is not configured or enabled/);
+    } finally {
+      rmSync(workspace, { recursive: true, force: true });
+    }
   });
 });
 

@@ -106,27 +106,59 @@ mkdir -p ~/Desktop/my-wiki-workspace
 
 A wiki is a group of related PDFs. In this example, we will make a wiki called `acme-reports` for yearly reports from a company called Acme.
 
-Type:
+The `init` command creates the wiki skeleton and starter files. Type:
 
 ```bash
-mkdir -p "C:\Users\atavi\Desktop\my-wiki-workspace\wikis\acme-reports\raw"
+npm run dev -- init acme-reports --title "Acme Reports" --description "Annual and quarterly reports for Acme" -w "C:\Users\atavi\Desktop\my-wiki-workspace"
 ```
 
 On Mac/Linux:
 
 ```bash
-mkdir -p ~/Desktop/my-wiki-workspace/wikis/acme-reports/raw
+npm run dev -- init acme-reports --title "Acme Reports" --description "Annual and quarterly reports for Acme" -w ~/Desktop/my-wiki-workspace
 ```
 
-The `raw` folder is where you put the PDFs.
+What this command means:
+
+- `npm run dev --` = run the tool in development mode
+- `init` = the command to create a new wiki
+- `acme-reports` = the name of your wiki (must be lowercase letters, numbers, and hyphens)
+- `--title` and `--description` = optional human-readable labels
+- `-w` = "workspace", the folder that will contain your wikis
+
+If you do not provide a title or description, the tool will ask you for them.
+
+When it finishes, you will see a message like:
+
+```text
+Initialized wiki "acme-reports" at C:\Users\atavi\Desktop\my-wiki-workspace\wikis\acme-reports
+  Title: Acme Reports
+  Status: initialized
+Next steps:
+  1. Add PDFs to wikis/acme-reports/raw/
+  2. Run: llm-wiki-cli sample acme-reports wikis/acme-reports/raw/<pdf>
+  3. Run: llm-wiki-cli ingest acme-reports
+```
 
 ---
 
 ## Step 7: Copy your PDFs into the raw folder
 
-Use your file explorer to copy your PDFs into the `raw` folder you just created.
+Use your file explorer to copy your PDFs into the `raw` folder that `init` created.
 
-Or you can do it in the terminal. For example:
+On Windows, the folder is:
+
+```text
+C:\Users\atavi\Desktop\my-wiki-workspace\wikis\acme-reports\raw\
+```
+
+On Mac/Linux:
+
+```text
+~/Desktop/my-wiki-workspace/wikis/acme-reports/raw/
+```
+
+You can also do it in the terminal. For example:
 
 ```bash
 cp "C:\Users\atavi\Downloads\acme-2022-annual.pdf" "C:\Users\atavi\Desktop\my-wiki-workspace\wikis\acme-reports\raw\"
@@ -146,9 +178,9 @@ You can add as many PDFs as you want.
 
 ## Step 8: Pick one PDF to analyze
 
-The tool has a special command called `sample`. It looks at one PDF, learns about its structure, and writes a few starter files for the wiki. Pick the most typical PDF in your group.
+The tool has a special command called `sample`. It looks at one representative PDF, learns about its structure, and writes the starter files for the wiki.
 
-In this example, our PDF is called `acme-2022-annual.pdf`.
+You can give it the path to the PDF you want to analyze. In this example, our PDF is called `acme-2022-annual.pdf`.
 
 Type this command:
 
@@ -162,58 +194,38 @@ On Mac/Linux:
 npm run dev -- sample acme-reports ~/Desktop/my-wiki-workspace/wikis/acme-reports/raw/acme-2022-annual.pdf -w ~/Desktop/my-wiki-workspace
 ```
 
-What this command means:
+If you leave out the PDF path, the tool will pick the first PDF it finds alphabetically in the `raw` folder:
 
-- `npm run dev --` = run the tool in development mode
-- `sample` = the command to analyze one PDF
-- `acme-reports` = the name of your wiki
-- the long path = the PDF to analyze
-- `-w` = "workspace", the folder containing your wikis
+```bash
+npm run dev -- sample acme-reports -w "C:\Users\atavi\Desktop\my-wiki-workspace"
+```
 
 Press Enter and wait. The tool will print progress. When it finishes, you will see a summary.
+
+`sample` also sets the wiki status to `ready`, so you do not need to edit `config.json` yourself.
 
 ---
 
 ## Step 9: Look at what `sample` created
 
-Open the folder `my-wiki-workspace/wikis/acme-reports` in your file explorer. You should see new files:
+Open the folder `my-wiki-workspace/wikis/acme-reports` in your file explorer. You should see new files and folders:
 
-- `config.json` — settings for this wiki
+- `config.json` — settings for this wiki, now with status `ready`
 - `chunking-strategy.md` — a report explaining how the PDF was split
 - `index.md` — rules and overview for the wiki
-- `output/documents/...` — one or more pages extracted from the PDF
-- `output/sources/...` — a source page describing the PDF
-- `output/raw/...` — only appears if some pages were scanned images
+- `AGENTS.md` — the LLM's guide for writing pages in this wiki
+- `documents/` — one or more pages extracted from the PDF
+- `sources/` — a source page describing the PDF
+- `raw/` — holds your original PDFs; raw markdown pages only appear if some pages were scanned images
+- `output/` — internal folder for state and lint reports; you do not need to open it
 
 Open `chunking-strategy.md` in any text editor and read it. It tells you how the PDF was understood and how it was split into chunks.
 
-Also open the generated document page in `output/documents/`. It contains the extracted text and tables.
+Also open the generated document page in `documents/`. It contains the extracted text and tables.
 
 ---
 
-## Step 10: Enable full ingestion
-
-Before the tool will process all your PDFs, you must tell it that the wiki is ready.
-
-Open `my-wiki-workspace/wikis/acme-reports/config.json` in a text editor.
-
-Find this line:
-
-```json
-"status": "draft"
-```
-
-Change it to:
-
-```json
-"status": "ready"
-```
-
-Save the file and close the editor.
-
----
-
-## Step 11: Run full ingestion
+## Step 10: Run full ingestion
 
 Now the tool will process every PDF in the `raw` folder.
 
@@ -239,7 +251,7 @@ Wait for it to finish. It will tell you:
 
 ---
 
-## Step 12: Explore the results
+## Step 11: Explore the results
 
 Open these files in any text editor:
 
@@ -247,9 +259,7 @@ Open these files in any text editor:
    - This is the roadmap. It lists all your wikis and highlights any entity or topic names that appear in more than one wiki.
 2. `my-wiki-workspace/wikis/acme-reports/index.md`
    - This is the wiki-level contract. It explains the wiki's structure and conventions.
-3. `my-wiki-workspace/wikis/acme-reports/output/index.md`
-   - This is the generated catalog. It lists all the pages inside this wiki.
-4. `my-wiki-workspace/wikis/acme-reports/documents/index.md` and other folder-level indexes
+3. `my-wiki-workspace/wikis/acme-reports/documents/index.md` and other folder-level indexes
    - These are child contracts that describe the pages in each folder.
 
 From the wiki-level index, you can follow `[[Page Title]]` links to:
@@ -262,7 +272,7 @@ From the wiki-level index, you can follow `[[Page Title]]` links to:
 
 ---
 
-## Step 13: Add a new PDF later
+## Step 12: Add a new PDF later
 
 When you get a new PDF:
 
@@ -277,7 +287,7 @@ The tool will detect the new PDF and only re-process what changed. It will not d
 
 ---
 
-## Step 14: Check the status of your workspace
+## Step 13: Check the status of your workspace
 
 To see a quick summary of all wikis and how many pages they have, type:
 
@@ -293,15 +303,15 @@ npm run dev -- status -w ~/Desktop/my-wiki-workspace
 
 ---
 
-## Step 15: Add more wikis
+## Step 14: Add more wikis
 
 If you have a different group of PDFs, create another wiki:
 
 ```bash
-mkdir -p "C:\Users\atavi\Desktop\my-wiki-workspace\wikis\legal-depositions\raw"
+npm run dev -- init legal-depositions -w "C:\Users\atavi\Desktop\my-wiki-workspace"
 ```
 
-Copy PDFs into that folder, run `sample` for it, then run `ingest`. You can run `ingest-all` to process every wiki at once:
+Copy PDFs into that wiki's `raw` folder, run `sample` for it, then run `ingest`. You can run `ingest-all` to process every ready wiki at once:
 
 ```bash
 npm run dev -- ingest-all -w "C:\Users\atavi\Desktop\my-wiki-workspace"
@@ -316,9 +326,11 @@ npm run dev -- ingest-all -w "C:\Users\atavi\Desktop\my-wiki-workspace"
 | `node --version` does not work | Install Node.js from [https://nodejs.org](https://nodejs.org). |
 | `npm install` fails | Check your internet connection and try again. |
 | The command is very long | You can use shorter paths, but make sure they are correct. |
-| It says "Wiki is not marked as ready" | Open `config.json` and change `"status": "draft"` to `"status": "ready"`. |
+| It says "Wiki is not marked as ready" | Run `sample` first. `sample` sets the wiki status to `ready`. |
 | It says "Workspace not found" | Make sure the `-w` path points to an existing folder. |
+| It says "This folder does not have a wikis/ directory" | Run `init` to create at least one wiki first. |
 | Some pages look empty | The PDF pages may be scanned images. The tool will save them as `raw` pages instead of dropping them. |
+| It says "Invalid wiki slug" | Use only lowercase letters, numbers, and hyphens. |
 
 ---
 
@@ -335,8 +347,8 @@ npm run dev -- configure-llm -w "C:\Users\atavi\Desktop\my-wiki-workspace"
 The wizard will ask you for:
 
 1. Provider (default: `kimi`)
-2. Model (default: `k2.7-code`)
-3. Base URL (default: `https://api.kimi.com/coding`)
+2. Model (default: `k2.7-code` for Kimi)
+3. Base URL (default: `https://api.kimi.com/coding` for Kimi)
 4. API key (hidden while you type)
 
 After saving the config, it asks if you want to test the connection. If you say yes, it sends a test prompt and prints the response.
@@ -364,4 +376,4 @@ npm run dev -- test-llm -w "C:\Users\atavi\Desktop\my-wiki-workspace" --prompt "
 Never commit the `.kimi-code/config.json` file. The CLI works without an LLM if you leave it disabled.
 
 - Do not put API keys in files you share with others.
-- You can always delete the `output/` folder and re-run `ingest` to regenerate the pages.
+- You can always delete the generated markdown pages and re-run `ingest` to regenerate them.

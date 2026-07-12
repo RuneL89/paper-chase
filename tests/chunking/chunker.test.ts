@@ -23,7 +23,7 @@ const baseConfig: Config = {
   sampling: { large_page_threshold: 500, strategy_page_budget: 50, similarity_metadata_keys: ['title', 'author'] },
   status: 'ready',
   llm: { provider: 'test', model: 'local', enabled: false, maxRetries: 3, baseDelay: 1000, concurrency: 5, maxRollingMemoryTokens: 8000 },
-  resilience: { recoveryMode: 'fallback', circuitBreakerThreshold: 0.3, circuitBreakerWindowMs: 300000 },
+  resilience: { recoveryMode: 'abort', circuitBreakerThreshold: 0.3, circuitBreakerWindowMs: 300000 },
 };
 
 describe('TAC-001: page-based chunking', () => {

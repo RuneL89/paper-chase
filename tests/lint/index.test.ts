@@ -42,7 +42,7 @@ function makeConfig(slug: string): Config {
     },
     status: 'ready',
     resilience: {
-      recoveryMode: 'fallback',
+      recoveryMode: 'abort',
       circuitBreakerThreshold: 0.3,
       circuitBreakerWindowMs: 300000,
     },

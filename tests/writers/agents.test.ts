@@ -4,9 +4,14 @@ import path from 'path';
 import os from 'os';
 import matter from 'gray-matter';
 import { writeAgentsMd, updateAgentsMd } from '../../src/writers/agents.js';
+import { LLMClient } from '../../src/llm/client.js';
 import type { PdfStructure } from '../../src/chunking/types.js';
 import type { SamplingStrategy } from '../../src/chunking/types.js';
 import type { FolderPlan } from '../../src/orchestrator/types.js';
+
+function makeTestLlmClient(): LLMClient {
+  return new LLMClient({ provider: 'test', model: 'test', enabled: true });
+}
 
 function tempDir(): string {
   return mkdtempSync(path.join(os.tmpdir(), 'agents-writer-'));
@@ -61,7 +66,7 @@ describe('writeAgentsMd', () => {
       folderPlacements: makeFolders(),
     };
 
-    await writeAgentsMd(filePath, context);
+    await writeAgentsMd(filePath, context, makeTestLlmClient());
 
     const raw = readFileSync(filePath, 'utf-8');
     const parsed = matter(raw);
@@ -99,7 +104,7 @@ describe('writeAgentsMd', () => {
       samplingStrategy: makeStrategy(),
     };
 
-    await writeAgentsMd(filePath, context);
+    await writeAgentsMd(filePath, context, makeTestLlmClient());
 
     const parsed = matter(readFileSync(filePath, 'utf-8'));
     expect(parsed.data.created).toBe('2020-01-01T00:00:00.000Z');
@@ -108,7 +113,7 @@ describe('writeAgentsMd', () => {
 });
 
 describe('updateAgentsMd', () => {
-  it('updates the sampling strategy section without rewriting the whole file', () => {
+  it('updates the sampling strategy section without rewriting the whole file', async () => {
     const dir = tempDir();
     const filePath = path.join(dir, 'AGENTS.md');
     const context = {
@@ -119,7 +124,7 @@ describe('updateAgentsMd', () => {
       samplingStrategy: makeStrategy(),
       folderPlacements: makeFolders(),
     };
-    writeAgentsMd(filePath, context);
+    await writeAgentsMd(filePath, context, makeTestLlmClient());
 
     updateAgentsMd(filePath, {
       slug: 'test-wiki',

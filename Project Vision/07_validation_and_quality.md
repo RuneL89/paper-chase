@@ -181,13 +181,7 @@ Re-ingestion is efficient because the system tracks which PDFs have changed. Unc
 
 ## 7. Error Handling and Recovery
 
-If a chunk fails validation repeatedly, the system has several options:
-
-1. **Quarantine the chunk** — Write the extracted material to a `raw/` or `failed/` page for manual review, and continue with the next chunk.
-2. **Fallback to deterministic extraction** — If the LLM cannot produce valid markdown, the system writes the extracted text verbatim with minimal markdown formatting.
-3. **Abort the run** — For severe issues (e.g., a corrupted PDF or a persistent LLM failure), the system may abort and report the error to the user.
-
-The chosen behavior is configurable per wiki in `AGENTS.md` or the workspace config.
+If a chunk or any LLM agent fails validation or produces invalid/empty output, the run aborts and the error is reported to the user. The `resilience.recoveryMode` setting only supports `abort`; deterministic content fallbacks and quarantine modes are not used. The human operator must fix the underlying issue (e.g., enable or reconfigure the LLM, adjust the prompt context, or skip the problematic source) and re-run the command.
 
 ---
 

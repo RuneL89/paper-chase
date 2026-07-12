@@ -24,7 +24,7 @@ function makeConfig(overrides: Partial<Config['sampling']> = {}): Config {
       ...overrides,
     },
     status: 'ready',
-    resilience: { recoveryMode: 'fallback', circuitBreakerThreshold: 0.3, circuitBreakerWindowMs: 300000 },
+    resilience: { recoveryMode: 'abort', circuitBreakerThreshold: 0.3, circuitBreakerWindowMs: 300000 },
   } as Config;
 }
 
