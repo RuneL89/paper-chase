@@ -5,6 +5,9 @@ import matter from 'gray-matter';
 import { toRelativePathFromDir } from '../workspace.js';
 
 import type { OrchestratorMemory } from '../orchestrator/types.js';
+import type { ExtractedRelationship } from '../orchestrator/types.js';
+import type { Chunk } from '../chunking/types.js';
+import type { ExtractionResult } from '../extractor/types.js';
 
 export interface PageState {
   folder: string;
@@ -80,6 +83,70 @@ export function hashPageContent(content: string): string {
   return createHash('sha256')
     .update(matter.stringify(parsed.content, normalized))
     .digest('hex');
+}
+
+export function verifyPreservation(oldBody: string, newBody: string): boolean {
+  const oldCitations = new Set(oldBody.match(/\[\^src\d+\]/g) ?? []);
+  const newCitations = new Set(newBody.match(/\[\^src\d+\]/g) ?? []);
+  for (const c of oldCitations) {
+    if (!newCitations.has(c)) return false;
+  }
+  const oldLinks = new Set(oldBody.match(/\[\[[^\]]+\]\]/g) ?? []);
+  const newLinks = new Set(newBody.match(/\[\[[^\]]+\]\]/g) ?? []);
+  for (const l of oldLinks) {
+    if (!newLinks.has(l)) return false;
+  }
+  return true;
+}
+
+export function isPageManuallyEdited(relativePath: string, content: string, state: IngestionState): boolean {
+  const stored = state.pages?.[relativePath];
+  if (!stored) return false;
+  const currentHash = hashPageContent(content);
+  return stored.generatedHash !== currentHash;
+}
+
+export function buildMergedSources(
+  existing: { frontmatter: Record<string, unknown> } | undefined,
+  source: ExtractionResult,
+  chunk: Chunk,
+): { id: string; file: string; pages: string; extracted: string }[] {
+  const sources: { id: string; file: string; pages: string; extracted: string }[] = [];
+  const existingSources = Array.isArray(existing?.frontmatter.sources)
+    ? (existing?.frontmatter.sources as { id: string; file: string; pages: string; extracted: string }[])
+    : [];
+  for (const s of existingSources) {
+    if (s.id && s.file) {
+      sources.push(s);
+    }
+  }
+
+  const maxIndex = sources.reduce((max, s) => {
+    const match = s.id.match(/^src(\d+)$/);
+    return match ? Math.max(max, parseInt(match[1], 10)) : max;
+  }, 0);
+
+  sources.push({
+    id: `src${maxIndex + 1}`,
+    file: source.filePath,
+    pages: chunk.pageRange,
+    extracted: new Date().toISOString(),
+  });
+
+  return sources;
+}
+
+export function normalizeRelationshipsForEntity(
+  entityName: string,
+  relationships?: { predicate: string; object: string; evidence: string; pages: string }[],
+): ExtractedRelationship[] {
+  return (relationships ?? []).map((r) => ({
+    subject: entityName,
+    predicate: r.predicate,
+    object: r.object,
+    evidence: r.evidence,
+    pages: r.pages,
+  }));
 }
 
 export function refreshPageState(
