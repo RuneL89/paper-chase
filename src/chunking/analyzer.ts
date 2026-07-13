@@ -1,6 +1,10 @@
 import type { ExtractionResult, ExtractedPage } from '../extractor/types.js';
 import type { PdfStructure, DetectedTable, DetectedFigure, PdfSection, MultiPageObject } from './types.js';
 
+// Maximum number of pages a single multi-page object may span. Very long spans
+// usually indicate over-merging of unrelated tables in financial documents.
+const MAX_MPO_PAGE_SPAN = 10;
+
 export function analyzePdfStructure(result: ExtractionResult): PdfStructure {
   const totalPages = result.physicalPages;
   const pages = result.pages;
@@ -247,8 +251,9 @@ function detectMultiPageObjects(
     }
   }
 
-  // Merge adjacent/overlapping objects of the same type.
-  return mergeMultiPageObjects(objects);
+  // Merge adjacent/overlapping objects of the same type, then cap their span
+  // so over-merged sections cannot create oversized chunks.
+  return capMultiPageObjectSpan(mergeMultiPageObjects(objects));
 }
 
 function extractFigureNumber(caption: string): string | undefined {
@@ -276,6 +281,27 @@ function mergeMultiPageObjects(objects: MultiPageObject[]): MultiPageObject[] {
   }
   merged.push(current);
   return merged;
+}
+
+function capMultiPageObjectSpan(objects: MultiPageObject[]): MultiPageObject[] {
+  const capped: MultiPageObject[] = [];
+  for (const obj of objects) {
+    const span = obj.endPage - obj.startPage + 1;
+    if (span <= MAX_MPO_PAGE_SPAN) {
+      capped.push(obj);
+      continue;
+    }
+    for (let start = obj.startPage; start <= obj.endPage; start += MAX_MPO_PAGE_SPAN) {
+      const end = Math.min(start + MAX_MPO_PAGE_SPAN - 1, obj.endPage);
+      capped.push({
+        ...obj,
+        startPage: start,
+        endPage: end,
+        description: `${obj.description} (capped span ${start}-${end})`,
+      });
+    }
+  }
+  return capped;
 }
 
 function mergeSections(sections: PdfSection[]): PdfSection[] {

@@ -22,6 +22,8 @@ export interface LLMCallOptions {
   maxTokens?: number;
   temperature?: number;
   verbose?: boolean;
+  model?: string;
+  thinking?: unknown;
 }
 
 export interface LLMResponse {
@@ -53,6 +55,7 @@ export function estimateCost(provider: string, model: string, tokens: number): n
     'anthropic:claude-3-sonnet': 0.003,
     'anthropic:claude-3-haiku': 0.00025,
     'kimi:k2.7-code': 0.0005,
+    'kimi:k2.6': 0.0005,
     'kimi:kimi-k2-0711-preview': 0.0005,
   };
   const rate = rates[`${provider}:${model}`] ?? 0.001;

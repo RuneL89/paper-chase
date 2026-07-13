@@ -116,7 +116,7 @@ export class LLMClient {
       } else {
         const maxTokens = options?.maxTokens ?? 1024;
         const temperature = options?.temperature ?? 0.2;
-        response = await this.remoteCall(prompt, maxTokens, temperature, options?.verbose ?? false, id, agent);
+        response = await this.remoteCall(prompt, maxTokens, temperature, options?.verbose ?? false, id, agent, options);
       }
 
       this.records.push(this.toRecord(response));
@@ -131,7 +131,7 @@ export class LLMClient {
         timestamp: Date.now(),
         id,
         provider: this.config.provider,
-        model: this.config.model,
+        model: response?.model ?? this.config.model,
         estimatedTokens: response?.estimatedTokens ?? estimatedTokens,
         estimatedCost: response?.estimatedCost ?? 0,
         status,
@@ -163,6 +163,7 @@ export class LLMClient {
     verbose: boolean,
     id: string,
     agent: string,
+    options?: LLMCallOptions,
   ): Promise<LLMResponse> {
     const maxRetries = this.config.maxRetries ?? 3;
     const baseDelay = this.config.baseDelay ?? 1000;
@@ -170,7 +171,7 @@ export class LLMClient {
 
     for (let attempt = 0; attempt <= maxRetries; attempt++) {
       try {
-        return await this.providerCall(prompt, maxTokens, temperature, verbose);
+        return await this.providerCall(prompt, maxTokens, temperature, verbose, options);
       } catch (error) {
         lastError = error instanceof Error ? error : new Error(String(error));
         if (attempt === maxRetries) {
@@ -197,18 +198,19 @@ export class LLMClient {
     maxTokens: number,
     temperature: number,
     verbose: boolean,
+    options?: LLMCallOptions,
   ): Promise<LLMResponse> {
     const estimatedTokens = estimateTokens(prompt) + maxTokens;
 
     if (this.config.provider === 'anthropic') {
-      return this.anthropicCall(prompt, maxTokens, temperature, estimatedTokens, verbose);
+      return this.anthropicCall(prompt, maxTokens, temperature, estimatedTokens, verbose, options);
     }
 
     if (this.config.provider === 'kimi') {
-      return this.kimiCall(prompt, maxTokens, temperature, estimatedTokens, verbose);
+      return this.kimiCall(prompt, maxTokens, temperature, estimatedTokens, verbose, options);
     }
 
-    return this.openaiCompatibleCall(prompt, maxTokens, temperature, estimatedTokens, verbose);
+    return this.openaiCompatibleCall(prompt, maxTokens, temperature, estimatedTokens, verbose, options);
   }
 
   private calculateDelay(attempt: number, baseDelay: number, retryAfter: number | undefined): number {
@@ -230,9 +232,11 @@ export class LLMClient {
     temperature: number,
     estimatedTokens: number,
     verbose: boolean,
+    options?: LLMCallOptions,
   ): Promise<LLMResponse> {
     const baseUrl = this.config.baseUrl ?? 'https://api.openai.com/v1';
     const url = `${baseUrl}/chat/completions`;
+    const model = options?.model ?? this.config.model;
 
     const response = await this.fetchFn(url, {
       method: 'POST',
@@ -241,7 +245,7 @@ export class LLMClient {
         ...(this.config.apiKey ? { Authorization: `Bearer ${this.config.apiKey}` } : {}),
       },
       body: JSON.stringify({
-        model: this.config.model,
+        model,
         messages: [{ role: 'user', content: prompt }],
         max_tokens: maxTokens,
         temperature,
@@ -264,10 +268,10 @@ export class LLMClient {
 
     return {
       provider: this.config.provider,
-      model: this.config.model,
+      model,
       text,
       estimatedTokens: tokens,
-      estimatedCost: estimateCost(this.config.provider, this.config.model, tokens),
+      estimatedCost: estimateCost(this.config.provider, model, tokens),
     };
   }
 
@@ -277,9 +281,11 @@ export class LLMClient {
     temperature: number,
     estimatedTokens: number,
     verbose: boolean,
+    options?: LLMCallOptions,
   ): Promise<LLMResponse> {
     const baseUrl = this.config.baseUrl ?? 'https://api.anthropic.com/v1';
     const url = `${baseUrl}/messages`;
+    const model = options?.model ?? this.config.model;
 
     const response = await this.fetchFn(url, {
       method: 'POST',
@@ -289,7 +295,7 @@ export class LLMClient {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: this.config.model,
+        model,
         messages: [{ role: 'user', content: prompt }],
         max_tokens: maxTokens,
         temperature,
@@ -325,10 +331,10 @@ export class LLMClient {
 
     return {
       provider: this.config.provider,
-      model: this.config.model,
+      model,
       text,
       estimatedTokens: tokens,
-      estimatedCost: estimateCost(this.config.provider, this.config.model, tokens),
+      estimatedCost: estimateCost(this.config.provider, model, tokens),
     };
   }
 
@@ -338,9 +344,25 @@ export class LLMClient {
     temperature: number,
     estimatedTokens: number,
     verbose: boolean,
+    options?: LLMCallOptions,
   ): Promise<LLMResponse> {
     const baseUrl = this.config.baseUrl ?? 'https://api.kimi.com/coding';
     const url = `${baseUrl}/v1/messages`;
+    const model = options?.model ?? this.config.model;
+
+    const body: Record<string, unknown> = {
+      model,
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: maxTokens,
+    };
+    if (options?.temperature !== undefined) {
+      body.temperature = options.temperature;
+    } else if (options?.thinking === undefined) {
+      body.temperature = temperature;
+    }
+    if (options?.thinking) {
+      body.thinking = options.thinking;
+    }
 
     const response = await this.fetchFn(url, {
       method: 'POST',
@@ -349,12 +371,7 @@ export class LLMClient {
         'x-api-key': this.config.apiKey ?? '',
         'anthropic-version': '2023-06-01',
       },
-      body: JSON.stringify({
-        model: this.config.model,
-        messages: [{ role: 'user', content: prompt }],
-        max_tokens: maxTokens,
-        temperature,
-      }),
+      body: JSON.stringify(body),
     });
 
     if (!response.ok) {
@@ -386,10 +403,10 @@ export class LLMClient {
 
     return {
       provider: this.config.provider,
-      model: this.config.model,
+      model,
       text,
       estimatedTokens: tokens,
-      estimatedCost: estimateCost(this.config.provider, this.config.model, tokens),
+      estimatedCost: estimateCost(this.config.provider, model, tokens),
     };
   }
 
@@ -639,16 +656,11 @@ function generateMockResponse(prompt: string): string {
   }
 
   if (prompt.includes('You are the ChunkingPlanner agent')) {
-    const pages = parsePagesFromChunkingPlannerPrompt(prompt);
-    const boundaries = pages
-      .filter((p) => !p.isScanned)
-      .map((p) => ({
-        startPage: p.physicalPage,
-        endPage: p.physicalPage,
-        type: 'page',
-        reason: `Page ${p.physicalPage}`,
-      }));
-    return JSON.stringify({ boundaries, issues: [] });
+    return JSON.stringify({
+      splitBoundary: 'page',
+      reason: 'Deterministic test provider recommends page-based splitting.',
+      issues: [],
+    });
   }
 
   if (prompt.includes('You are an expert wiki architect')) {
@@ -884,19 +896,6 @@ function parseEntityNamesFromCriticPrompt(prompt: string): string[] {
     }
   }
   return names;
-}
-
-function parsePagesFromChunkingPlannerPrompt(prompt: string): { physicalPage: number; isScanned: boolean }[] {
-  const pages: { physicalPage: number; isScanned: boolean }[] = [];
-  const regex = /### Page (\d+)[\s\S]*?- scanned: (yes|no)/g;
-  let match: RegExpExecArray | null;
-  while ((match = regex.exec(prompt)) !== null) {
-    pages.push({
-      physicalPage: parseInt(match[1], 10),
-      isScanned: match[2] === 'yes',
-    });
-  }
-  return pages;
 }
 
 function detectAgentFromPrompt(prompt: string): string {

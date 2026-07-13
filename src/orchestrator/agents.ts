@@ -1,7 +1,7 @@
 import type { LLMClient } from '../llm/client.js';
 import { parseStructuredJson } from '../llm/json.js';
 import { CLIError } from '../errors.js';
-import type { Chunk, ChunkingPlan, PdfStructure, SamplingStrategy } from '../chunking/types.js';
+import type { Chunk, ChunkingStrategyHint, PdfStructure, SamplingStrategy } from '../chunking/types.js';
 import type { ExtractionResult, ExtractedPage } from '../extractor/types.js';
 import type {
   EntityType,
@@ -534,7 +534,9 @@ export function applyEntityAudit(entities: ExtractedEntity[], audit: EntityAudit
 }
 
 /**
- * ChunkingPlanner: LLM-driven proposal of chunk boundaries.
+ * ChunkingPlanner: LLM-driven advice for how the deterministic chunker should
+ * split this document. The final boundaries are still produced by the local
+ * deterministic chunker; this agent only recommends a splitBoundary.
  */
 export async function chunkingPlanner(
   result: ExtractionResult,
@@ -543,7 +545,7 @@ export async function chunkingPlanner(
   samplingStrategy: SamplingStrategy,
   llmClient: LLMClient,
   agentsMd?: string,
-): Promise<ChunkingPlan> {
+): Promise<ChunkingStrategyHint> {
   if (!llmClient.isEnabled()) {
     throw new CLIError('LLM is required for chunking planning.');
   }
@@ -551,11 +553,12 @@ export async function chunkingPlanner(
   try {
     const context = buildChunkingPlannerContext(result, structure, samplingStrategy, config, agentsMd);
     const response = await llmClient.call(buildPrompt('chunking-planner', context), {
-      maxTokens: 8500,
-      temperature: 0.2,
+      maxTokens: 2048,
+      model: 'k2.6',
+      thinking: { type: 'disabled' },
     });
-    const parsed = parseStructuredJson<ChunkingPlan>(response.text);
-    if (parsed && isValidChunkingPlan(parsed)) {
+    const parsed = parseStructuredJson<ChunkingStrategyHint>(response.text);
+    if (parsed && isValidChunkingStrategyHint(parsed)) {
       return parsed;
     }
   } catch (err) {
@@ -565,19 +568,13 @@ export async function chunkingPlanner(
   throw new CLIError('ChunkingPlanner returned invalid output.');
 }
 
-function isValidChunkingPlan(output: unknown): output is ChunkingPlan {
+function isValidChunkingStrategyHint(output: unknown): output is ChunkingStrategyHint {
   const o = output as Record<string, unknown> | undefined;
   if (!o || typeof o !== 'object') return false;
-  if (!Array.isArray(o.boundaries)) return false;
+  const allowed: Array<ChunkingStrategyHint['splitBoundary']> = ['page', 'section', 'heading', 'table', 'figure'];
+  if (typeof o.splitBoundary !== 'string' || !allowed.includes(o.splitBoundary as ChunkingStrategyHint['splitBoundary'])) return false;
+  if (typeof o.reason !== 'string') return false;
   if (!Array.isArray(o.issues)) return false;
-  for (const b of o.boundaries) {
-    if (typeof b !== 'object' || b === null) return false;
-    const bb = b as Record<string, unknown>;
-    if (typeof bb.startPage !== 'number') return false;
-    if (typeof bb.endPage !== 'number') return false;
-    if (typeof bb.type !== 'string') return false;
-    if (typeof bb.reason !== 'string') return false;
-  }
   return true;
 }
 
@@ -617,11 +614,6 @@ function buildChunkingPlannerContext(
   lines.push(`- has cover: ${structure.hasCover}`);
   lines.push(`- has TOC: ${structure.hasToc}`);
   lines.push(`- headings: ${structure.headings.length}`);
-  if (structure.headings.length > 0) {
-    for (const h of structure.headings) {
-      lines.push(`  - ${h.title} (page ${h.startPage}, level ${h.level})`);
-    }
-  }
   lines.push(`- tables: ${structure.tables.length}`);
   lines.push(`- figures: ${structure.figures.length}`);
   lines.push(`- multi-page objects: ${structure.multiPageObjects.length}`);
@@ -631,24 +623,8 @@ function buildChunkingPlannerContext(
     }
   }
   lines.push(`- scanned pages: ${structure.scannedPages.join(', ') || 'none'}`);
-  lines.push(`- footnote pages: ${structure.footnotePages.join(', ') || 'none'}`);
   lines.push(`- appendix pages: ${structure.appendixPages.join(', ') || 'none'}`);
   lines.push('');
-
-  lines.push('## Per-page summary');
-  for (const page of result.pages) {
-    const pageHeadings = page.estimatedHeadings?.join('; ') || '(none)';
-    const pageTables = result.tables.filter((t) => t.page === page.physicalPage).map((t) => t.caption || 'table').join('; ') || '(none)';
-    const pageFigures = result.figures.filter((f) => f.page === page.physicalPage).map((f) => f.caption || 'figure').join('; ') || '(none)';
-    lines.push(`### Page ${page.physicalPage}${page.pageLabel ? ` (logical ${page.pageLabel})` : ''}`);
-    lines.push(`- scanned: ${page.isScanned ? 'yes' : 'no'}`);
-    lines.push(`- characters: ${page.text.length}`);
-    lines.push(`- headings: ${pageHeadings}`);
-    lines.push(`- tables: ${pageTables}`);
-    lines.push(`- figures: ${pageFigures}`);
-    lines.push(`- text snippet: ${page.text.slice(0, 300).replace(/\s+/g, ' ')}`);
-    lines.push('');
-  }
 
   lines.push('## Chunking constraints');
   lines.push(`- max_chunk_size: ${config.chunking.max_chunk_size} characters`);
