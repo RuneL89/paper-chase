@@ -35,7 +35,7 @@ describe('TAC-001: page-based chunking', () => {
 
   it('chunks a 10-page PDF into one chunk per page', async () => {
     const result = await extractPdf(filePath);
-    const { chunks } = analyzeAndChunk(result, baseConfig);
+    const { chunks } = await analyzeAndChunk(result, baseConfig);
 
     expect(chunks).toHaveLength(10);
     for (let i = 0; i < 10; i++) {
@@ -56,7 +56,7 @@ describe('TAC-002: multi-page table preservation', () => {
 
   it('keeps a multi-page table in a single chunk', async () => {
     const result = await extractPdf(filePath);
-    const { chunks, structure } = analyzeAndChunk(result, baseConfig);
+    const { chunks, structure } = await analyzeAndChunk(result, baseConfig);
 
     expect(structure.multiPageObjects.length).toBeGreaterThan(0);
     const tableObject = structure.multiPageObjects.find((o) => o.type === 'table');
@@ -79,7 +79,7 @@ describe('TAC-003: scanned page skipping', () => {
 
   it('excludes scanned pages from document chunks', async () => {
     const result = await extractPdf(filePath);
-    const { chunks } = analyzeAndChunk(result, baseConfig);
+    const { chunks } = await analyzeAndChunk(result, baseConfig);
 
     expect(result.pages[0].isScanned).toBe(true);
     expect(chunks).toHaveLength(0);
@@ -95,7 +95,7 @@ describe('TAC-004: chunk source SHA-256', () => {
 
   it('includes the source SHA-256 in every chunk source', async () => {
     const result = await extractPdf(filePath);
-    const { chunks } = analyzeAndChunk(result, baseConfig);
+    const { chunks } = await analyzeAndChunk(result, baseConfig);
 
     expect(chunks.length).toBeGreaterThan(0);
     for (const chunk of chunks) {
@@ -124,7 +124,7 @@ describe('TAC-005: deterministic chunking strategy document', () => {
 
   it('writes a deterministic audit trail with boundaries and rationale', async () => {
     const result = await extractPdf(filePath);
-    const { structure, strategy } = analyzeAndChunk(result, baseConfig);
+    const { structure, strategy } = await analyzeAndChunk(result, baseConfig);
     const strategyPath = path.join(tmpDir, 'chunking-strategy.md');
     writeChunkingStrategy(strategyPath, structure, strategy);
 

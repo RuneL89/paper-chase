@@ -1,3 +1,6 @@
+import type { Config } from '../config.js';
+import type { ExtractionResult } from '../extractor/types.js';
+
 export interface PdfSection {
   title: string;
   startPage: number;
@@ -125,3 +128,23 @@ export interface Chunk {
   belowMin: boolean;
   charCount: number;
 }
+
+export interface ChunkBoundaryProposal {
+  startPage: number;
+  endPage: number;
+  type: 'page' | 'section' | 'heading' | 'toc' | 'table' | 'figure' | 'semantic-object';
+  reason: string;
+}
+
+export interface ChunkingPlan {
+  boundaries: ChunkBoundaryProposal[];
+  issues: string[];
+}
+
+export type ChunkingPlannerFn = (
+  result: ExtractionResult,
+  structure: PdfStructure,
+  config: Config,
+  samplingStrategy: SamplingStrategy,
+  agentsMd?: string,
+) => Promise<ChunkingPlan>;

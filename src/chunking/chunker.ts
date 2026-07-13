@@ -1,7 +1,7 @@
 import path from 'path';
 import type { ExtractionResult, ExtractedPage } from '../extractor/types.js';
 import type { Config } from '../config.js';
-import type { PdfStructure, Chunk, ChunkingStrategy, ChunkBoundary, SamplingStrategy } from './types.js';
+import type { PdfStructure, Chunk, ChunkingStrategy, ChunkBoundary, SamplingStrategy, ChunkingPlan, ChunkingPlannerFn } from './types.js';
 import { analyzePdfStructure } from './analyzer.js';
 import { createDefaultSamplingStrategy } from '../orchestrator/sampling.js';
 
@@ -336,22 +336,183 @@ export function chunkPages(
   return chunks;
 }
 
-export function analyzeAndChunk(
+export interface AnalyzeAndChunkOptions {
+  samplingStrategy?: SamplingStrategy;
+  planner?: ChunkingPlannerFn;
+  agentsMd?: string;
+}
+
+export async function analyzeAndChunk(
   result: ExtractionResult,
   config: Config,
-  samplingStrategy?: SamplingStrategy,
-): {
+  options?: AnalyzeAndChunkOptions,
+): Promise<{
   structure: PdfStructure;
   strategy: ChunkingStrategy;
   chunks: Chunk[];
-} {
+}> {
   const structure = analyzePdfStructure(result);
   const strategy = buildChunkingStrategy(result, structure, config);
-  if (samplingStrategy) {
-    strategy.samplingStrategy = samplingStrategy;
+  if (options?.samplingStrategy) {
+    strategy.samplingStrategy = options.samplingStrategy;
   }
-  const chunks = chunkPages(result, config, structure);
+
+  let chunks: Chunk[];
+  if (options?.planner && strategy.samplingStrategy) {
+    try {
+      const plan = await options.planner(
+        result,
+        structure,
+        config,
+        strategy.samplingStrategy,
+        options.agentsMd,
+      );
+      const validation = validateChunkingPlan(plan, result, structure, config);
+      if (validation.valid) {
+        chunks = materializeChunksFromPlan(plan, result, structure, config);
+      } else {
+        console.warn(
+          `ChunkingPlanner proposal rejected: ${validation.reasons.join('; ')}. Falling back to deterministic page-based chunking.`,
+        );
+        chunks = chunkPages(result, config, structure);
+      }
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      console.warn(`ChunkingPlanner failed: ${message}. Falling back to deterministic page-based chunking.`);
+      chunks = chunkPages(result, config, structure);
+    }
+  } else {
+    chunks = chunkPages(result, config, structure);
+  }
+
   return { structure, strategy, chunks };
+}
+
+function estimatePagesContentLength(
+  pages: ExtractedPage[],
+  result: ExtractionResult,
+): number {
+  return pages.reduce((sum, page) => sum + estimatePageContentLength(page, result), 0);
+}
+
+function normalizePlannerBoundaryType(type: string): Chunk['boundaryType'] {
+  const allowed: Chunk['boundaryType'][] = ['page', 'section', 'heading', 'table', 'figure'];
+  if (allowed.includes(type as Chunk['boundaryType'])) {
+    return type as Chunk['boundaryType'];
+  }
+  return 'section';
+}
+
+export function validateChunkingPlan(
+  plan: ChunkingPlan,
+  result: ExtractionResult,
+  structure: PdfStructure,
+  config: Config,
+): { valid: boolean; reasons: string[] } {
+  const reasons: string[] = [];
+
+  if (!plan || typeof plan !== 'object' || !Array.isArray(plan.boundaries)) {
+    return { valid: false, reasons: ['Plan is missing a boundaries array'] };
+  }
+
+  const nonScannedPages = new Set(result.pages.filter((p) => !p.isScanned).map((p) => p.physicalPage));
+  const scannedPages = new Set(result.pages.filter((p) => p.isScanned).map((p) => p.physicalPage));
+  const covered = new Set<number>();
+
+  for (let i = 0; i < plan.boundaries.length; i++) {
+    const b = plan.boundaries[i];
+    if (!b || typeof b !== 'object') {
+      reasons.push(`Boundary ${i} is not an object`);
+      continue;
+    }
+    if (typeof b.startPage !== 'number' || typeof b.endPage !== 'number' || b.startPage > b.endPage) {
+      reasons.push(`Boundary ${i} has invalid start/end pages`);
+      continue;
+    }
+    for (let p = b.startPage; p <= b.endPage; p++) {
+      if (covered.has(p)) {
+        reasons.push(`Page ${p} is covered by multiple boundaries`);
+      }
+      covered.add(p);
+      if (scannedPages.has(p)) {
+        reasons.push(`Scanned page ${p} must not be included in a document chunk`);
+      }
+    }
+  }
+
+  for (const page of nonScannedPages) {
+    if (!covered.has(page)) {
+      reasons.push(`Non-scanned page ${page} is missing from the plan`);
+    }
+  }
+
+  for (const mpo of structure.multiPageObjects) {
+    for (const b of plan.boundaries) {
+      if (b.startPage > mpo.startPage && b.startPage <= mpo.endPage && b.endPage < mpo.endPage) {
+        reasons.push(
+          `Boundary ${b.startPage}-${b.endPage} splits ${mpo.type} ${mpo.startPage}-${mpo.endPage}`,
+        );
+      }
+    }
+  }
+
+  for (const b of plan.boundaries) {
+    const pages = result.pages.filter(
+      (p) => p.physicalPage >= b.startPage && p.physicalPage <= b.endPage,
+    );
+    const estimatedLength = estimatePagesContentLength(pages, result);
+    if (estimatedLength > config.chunking.max_chunk_size) {
+      reasons.push(
+        `Boundary ${b.startPage}-${b.endPage} exceeds max chunk size (${estimatedLength} > ${config.chunking.max_chunk_size})`,
+      );
+    }
+  }
+
+  return { valid: reasons.length === 0, reasons };
+}
+
+function materializeChunksFromPlan(
+  plan: ChunkingPlan,
+  result: ExtractionResult,
+  structure: PdfStructure,
+  config: Config,
+): Chunk[] {
+  const baseSlug = path.basename(result.filePath, path.extname(result.filePath));
+  const relativeFile = result.filePath;
+
+  return plan.boundaries.map((b, i) => {
+    const pages = result.pages.filter(
+      (p) => p.physicalPage >= b.startPage && p.physicalPage <= b.endPage && !p.isScanned,
+    );
+    const pageRange = buildPageRangeLabel(pages);
+    const logicalPageRange = buildLogicalPageRangeLabel(pages);
+    const content = buildChunkContent(pages, result);
+    const charCount = content.length;
+    const belowMin = charCount < config.chunking.min_chunk_size;
+    const sourceId = `src${i + 1}`;
+
+    return {
+      id: `${baseSlug}-part-${String(i + 1).padStart(3, '0')}`,
+      title: `Part ${i + 1}: ${baseSlug}`,
+      pageRange,
+      logicalPageRange,
+      boundaryType: normalizePlannerBoundaryType(b.type),
+      content,
+      sources: [
+        {
+          id: sourceId,
+          file: relativeFile,
+          pages: pageRange,
+          logicalPages: logicalPageRange,
+          extracted: result.ingested,
+          sha256: result.sha256,
+        },
+      ],
+      tags: inferTags(result, structure),
+      belowMin,
+      charCount,
+    };
+  });
 }
 
 function inferTags(result: ExtractionResult, structure: PdfStructure): string[] {

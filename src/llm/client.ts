@@ -638,6 +638,19 @@ function generateMockResponse(prompt: string): string {
     });
   }
 
+  if (prompt.includes('You are the ChunkingPlanner agent')) {
+    const pages = parsePagesFromChunkingPlannerPrompt(prompt);
+    const boundaries = pages
+      .filter((p) => !p.isScanned)
+      .map((p) => ({
+        startPage: p.physicalPage,
+        endPage: p.physicalPage,
+        type: 'page',
+        reason: `Page ${p.physicalPage}`,
+      }));
+    return JSON.stringify({ boundaries, issues: [] });
+  }
+
   if (prompt.includes('You are an expert wiki architect')) {
     const slugMatch = prompt.match(/Wiki slug: ([^\n]+)/);
     const titleMatch = prompt.match(/Wiki title: ([^\n]+)/);
@@ -871,6 +884,19 @@ function parseEntityNamesFromCriticPrompt(prompt: string): string[] {
     }
   }
   return names;
+}
+
+function parsePagesFromChunkingPlannerPrompt(prompt: string): { physicalPage: number; isScanned: boolean }[] {
+  const pages: { physicalPage: number; isScanned: boolean }[] = [];
+  const regex = /### Page (\d+)[\s\S]*?- scanned: (yes|no)/g;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(prompt)) !== null) {
+    pages.push({
+      physicalPage: parseInt(match[1], 10),
+      isScanned: match[2] === 'yes',
+    });
+  }
+  return pages;
 }
 
 function detectAgentFromPrompt(prompt: string): string {

@@ -1,7 +1,7 @@
 import type { LLMClient } from '../llm/client.js';
 import { parseStructuredJson } from '../llm/json.js';
 import { CLIError } from '../errors.js';
-import type { Chunk } from '../chunking/types.js';
+import type { Chunk, ChunkingPlan, PdfStructure, SamplingStrategy } from '../chunking/types.js';
 import type { ExtractionResult, ExtractedPage } from '../extractor/types.js';
 import type {
   EntityType,
@@ -531,6 +531,133 @@ function buildEntityCriticContext(
 export function applyEntityAudit(entities: ExtractedEntity[], audit: EntityAudit): ExtractedEntity[] {
   const approved = new Set(audit.approvedEntities.map((n) => n.trim()));
   return entities.filter((e) => approved.has(e.name.trim()));
+}
+
+/**
+ * ChunkingPlanner: LLM-driven proposal of chunk boundaries.
+ */
+export async function chunkingPlanner(
+  result: ExtractionResult,
+  structure: PdfStructure,
+  config: Config,
+  samplingStrategy: SamplingStrategy,
+  llmClient: LLMClient,
+  agentsMd?: string,
+): Promise<ChunkingPlan> {
+  if (!llmClient.isEnabled()) {
+    throw new CLIError('LLM is required for chunking planning.');
+  }
+
+  try {
+    const context = buildChunkingPlannerContext(result, structure, samplingStrategy, config, agentsMd);
+    const response = await llmClient.call(buildPrompt('chunking-planner', context), {
+      maxTokens: 8500,
+      temperature: 0.2,
+    });
+    const parsed = parseStructuredJson<ChunkingPlan>(response.text);
+    if (parsed && isValidChunkingPlan(parsed)) {
+      return parsed;
+    }
+  } catch (err) {
+    if (err instanceof CLIError) throw err;
+  }
+
+  throw new CLIError('ChunkingPlanner returned invalid output.');
+}
+
+function isValidChunkingPlan(output: unknown): output is ChunkingPlan {
+  const o = output as Record<string, unknown> | undefined;
+  if (!o || typeof o !== 'object') return false;
+  if (!Array.isArray(o.boundaries)) return false;
+  if (!Array.isArray(o.issues)) return false;
+  for (const b of o.boundaries) {
+    if (typeof b !== 'object' || b === null) return false;
+    const bb = b as Record<string, unknown>;
+    if (typeof bb.startPage !== 'number') return false;
+    if (typeof bb.endPage !== 'number') return false;
+    if (typeof bb.type !== 'string') return false;
+    if (typeof bb.reason !== 'string') return false;
+  }
+  return true;
+}
+
+function buildChunkingPlannerContext(
+  result: ExtractionResult,
+  structure: PdfStructure,
+  samplingStrategy: SamplingStrategy,
+  config: Config,
+  agentsMd?: string,
+): string {
+  const lines: string[] = [];
+
+  if (agentsMd) {
+    lines.push('## AGENTS.md');
+    lines.push(agentsMd);
+    lines.push('');
+  }
+
+  lines.push('## PDF metadata');
+  lines.push(`- file: ${result.fileName}`);
+  lines.push(`- physical pages: ${result.physicalPages}`);
+  lines.push(`- logical pages: ${result.logicalPages}`);
+  lines.push(`- title: ${result.metadata.title || 'unknown'}`);
+  lines.push(`- total tables: ${result.tables.length}`);
+  lines.push(`- total figures: ${result.figures.length}`);
+  lines.push('');
+
+  lines.push('## Sampling strategy');
+  lines.push(`- category: ${samplingStrategy.category}`);
+  lines.push(`- reason: ${samplingStrategy.reason}`);
+  if (samplingStrategy.tocSearch) {
+    lines.push(`- TOC search: first ${samplingStrategy.tocSearch.firstPages} pages`);
+  }
+  lines.push('');
+
+  lines.push('## Detected structure');
+  lines.push(`- has cover: ${structure.hasCover}`);
+  lines.push(`- has TOC: ${structure.hasToc}`);
+  lines.push(`- headings: ${structure.headings.length}`);
+  if (structure.headings.length > 0) {
+    for (const h of structure.headings) {
+      lines.push(`  - ${h.title} (page ${h.startPage}, level ${h.level})`);
+    }
+  }
+  lines.push(`- tables: ${structure.tables.length}`);
+  lines.push(`- figures: ${structure.figures.length}`);
+  lines.push(`- multi-page objects: ${structure.multiPageObjects.length}`);
+  if (structure.multiPageObjects.length > 0) {
+    for (const mpo of structure.multiPageObjects) {
+      lines.push(`  - ${mpo.type} pages ${mpo.startPage}-${mpo.endPage}: ${mpo.description}`);
+    }
+  }
+  lines.push(`- scanned pages: ${structure.scannedPages.join(', ') || 'none'}`);
+  lines.push(`- footnote pages: ${structure.footnotePages.join(', ') || 'none'}`);
+  lines.push(`- appendix pages: ${structure.appendixPages.join(', ') || 'none'}`);
+  lines.push('');
+
+  lines.push('## Per-page summary');
+  for (const page of result.pages) {
+    const pageHeadings = page.estimatedHeadings?.join('; ') || '(none)';
+    const pageTables = result.tables.filter((t) => t.page === page.physicalPage).map((t) => t.caption || 'table').join('; ') || '(none)';
+    const pageFigures = result.figures.filter((f) => f.page === page.physicalPage).map((f) => f.caption || 'figure').join('; ') || '(none)';
+    lines.push(`### Page ${page.physicalPage}${page.pageLabel ? ` (logical ${page.pageLabel})` : ''}`);
+    lines.push(`- scanned: ${page.isScanned ? 'yes' : 'no'}`);
+    lines.push(`- characters: ${page.text.length}`);
+    lines.push(`- headings: ${pageHeadings}`);
+    lines.push(`- tables: ${pageTables}`);
+    lines.push(`- figures: ${pageFigures}`);
+    lines.push(`- text snippet: ${page.text.slice(0, 300).replace(/\s+/g, ' ')}`);
+    lines.push('');
+  }
+
+  lines.push('## Chunking constraints');
+  lines.push(`- max_chunk_size: ${config.chunking.max_chunk_size} characters`);
+  lines.push(`- min_chunk_size: ${config.chunking.min_chunk_size} characters`);
+  lines.push(`- never_split: ${config.chunking.never_split.join(', ')}`);
+  lines.push(`- overlap: ${config.chunking.overlap}`);
+  lines.push('');
+
+  return lines.join('\n');
 }
 
 function normalizeExtractedEntity(entity: unknown): ExtractedEntity | undefined {

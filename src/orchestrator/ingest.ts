@@ -899,7 +899,7 @@ function mergeMemory(
   return merged;
 }
 
-function readAgentsMd(workspace: string, slug: string): string | undefined {
+export function readAgentsMd(workspace: string, slug: string): string | undefined {
   const agentsPath = path.join(workspace, 'wikis', slug, 'AGENTS.md');
   if (!existsSync(agentsPath)) {
     return undefined;

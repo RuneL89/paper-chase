@@ -14,6 +14,8 @@ import { writeRawPage } from '../writers/raw.js';
 import { writeAgentsMd } from '../writers/agents.js';
 import { runSampleOrchestrator } from '../orchestrator/index.js';
 import { classifyCorpus, type CorpusFileInfo } from '../orchestrator/sampling.js';
+import { chunkingPlanner } from '../orchestrator/agents.js';
+import { readAgentsMd } from '../orchestrator/ingest.js';
 import { collectPageTypesPerFolder, updateAgentsMdForNewPageTypes } from '../orchestrator/proposals.js';
 import { buildRunLog, writeRunLog } from '../log.js';
 import { createLLMClient } from '../llm/client.js';
@@ -67,15 +69,19 @@ export async function sampleCommand(
   const otherFiles = await collectOtherPdfInfo(workspace, slug, resolvedPdfPath);
   const samplingStrategy = classifyCorpus(result, otherFiles, config);
 
-  const { structure, strategy, chunks } = analyzeAndChunk(result, config, samplingStrategy);
-
-  // Optional LLM enhancement: only metadata and extracted text are sent; raw PDFs are not.
   const llmClient = createLLMClient(workspace, undefined, reporter);
   if (!llmClient.isEnabled()) {
     throw new CLIError(
       'LLM is not configured or enabled. Configure an LLM with "llm-wiki-cli configure-llm" or set provider to "test".',
     );
   }
+
+  const agentsMd = readAgentsMd(workspace, slug);
+  const { structure, strategy, chunks } = await analyzeAndChunk(result, config, {
+    samplingStrategy,
+    planner: (r, s, c, strat, md) => chunkingPlanner(r, s, c, strat, llmClient, md),
+    agentsMd,
+  });
 
   const wikiDir = wikiPath(workspace, slug);
   const outputDir = path.join(wikiDir, config.output.dir);

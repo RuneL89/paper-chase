@@ -8,7 +8,8 @@ import { isExtractionFailure, type ExtractionResult, type ExtractionFailure } fr
 import { analyzeAndChunk } from '../chunking/chunker.js';
 import { buildRunLog, writeRunLog } from '../log.js';
 import { createLLMClient } from '../llm/client.js';
-import { runIngestOrchestrator, writeIngestOutput } from '../orchestrator/ingest.js';
+import { runIngestOrchestrator, writeIngestOutput, readAgentsMd } from '../orchestrator/ingest.js';
+import { chunkingPlanner } from '../orchestrator/agents.js';
 import {
   writeProposalFile,
   detectNewPageTypes,
@@ -199,7 +200,11 @@ export async function runIngestion(
         const extractionResult = outcome;
         extractionResult.filePath = relativeFile;
 
-        const { chunks, strategy } = analyzeAndChunk(extractionResult, config);
+        const agentsMd = readAgentsMd(workspace, slug);
+        const { chunks, strategy } = await analyzeAndChunk(extractionResult, config, {
+          planner: (r, s, c, strat, md) => chunkingPlanner(r, s, c, strat, llmClient, md),
+          agentsMd,
+        });
         const documentPageIds = chunks.map((chunk) => `documents/${chunk.id}.md`);
         const chunkStates = buildChunkStates(baseSlug, chunks, documentPageIds);
         manifest = initializeRunManifest(manifest, chunkStates);
