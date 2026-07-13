@@ -283,7 +283,13 @@ function detectHeadings(page: ExtractedPage): string[] {
   if (fontSizes.length === 0) return headings;
 
   const avgSize = fontSizes.reduce((a, b) => a + b, 0) / fontSizes.length;
-  const threshold = Math.max(avgSize * 1.3, 11);
+  const threshold = Math.max(avgSize * 1.6, 12);
+  const minHeadingLength = 10;
+  const maxHeadingLength = 80;
+  // Reject lines that are purely numbers, currency, percentages, or table/figure captions.
+  const numericOrCurrencyOnly = /^[\d\s$€£,.%-]+$/;
+  const startsWithDecimal = /^\d+[.,]\d+/;
+  const captionLike = /^(Table|Figure|Fig\.)\s+\d+/i;
 
   const lines = new Map<number, ExtractedTextItem[]>();
   for (const item of items) {
@@ -297,8 +303,12 @@ function detectHeadings(page: ExtractedPage): string[] {
     const sorted = row.sort((a, b) => a.x - b.x);
     const lineText = sorted.map((i) => i.text).join(' ').trim();
     if (!lineText) continue;
+    const lineLength = lineText.length;
+    if (lineLength < minHeadingLength || lineLength > maxHeadingLength) continue;
+    if (captionLike.test(lineText)) continue;
+    if (numericOrCurrencyOnly.test(lineText) || startsWithDecimal.test(lineText)) continue;
     const maxSize = Math.max(...sorted.map((i) => i.fontSize ?? 0));
-    if (maxSize >= threshold && lineText.length <= 120 && !/[.!?]$/.test(lineText)) {
+    if (maxSize >= threshold && !/[.!?]$/.test(lineText)) {
       headings.push(lineText);
     }
   }

@@ -10,6 +10,7 @@ import {
   createMultiPageTablePdf,
   createScannedPdf,
   createTextPdfInDir,
+  createTextPdfWithLinesInDir,
 } from '../fixtures/pdf-helpers.js';
 import type { Config } from '../../src/config.js';
 
@@ -140,5 +141,105 @@ describe('TAC-005: deterministic chunking strategy document', () => {
     expect(content).toContain('Chunk Size Policy');
     expect(content).toContain('Fallback Rule');
     expect(content).not.toContain(result.ingested);
+  });
+});
+
+describe('TAC-006: cover page merged across scanned gap', () => {
+  let tmpDir: string;
+  let filePath: string;
+
+  beforeAll(async () => {
+    tmpDir = mkdtempSync(path.join(tmpdir(), 'llm-wiki-cli-cover-merge-'));
+    filePath = await createTextPdfInDir(tmpDir, 'cover-gap.pdf', [
+      {
+        header: 'Annual Report',
+        body:
+          'This is the cover page of the annual report. It is intentionally brief so that it remains detected as a cover page, but it contains enough text to avoid being classified as scanned.',
+      },
+      { header: 'Scanned separator', body: 'image' },
+      {
+        header: 'Introduction',
+        body:
+          'This is the introduction of the annual report. It contains enough text to bring the merged chunk well above the minimum chunk size when the cover page is merged across the scanned page gap. Additional content is included here to ensure the merged result is clearly above the threshold.',
+      },
+    ]);
+  });
+
+  afterAll(() => {
+    rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('merges an isolated cover page across a scanned page gap', async () => {
+    const result = await extractPdf(filePath);
+    result.pages[1].isScanned = true;
+    result.pages[1].scanConfidence = 'high';
+    const config = { ...baseConfig, chunking: { ...baseConfig.chunking, min_chunk_size: 250 } };
+    const { chunks, warnings, structure } = await analyzeAndChunk(result, config);
+
+    expect(structure.hasCover).toBe(true);
+    expect(warnings.some((w) => w.includes('cover page'))).toBe(true);
+    expect(warnings.some((w) => w.includes('scanned page gap'))).toBe(true);
+    expect(chunks).toHaveLength(1);
+    expect(chunks[0].pageRange).toBe('1,3');
+    expect(chunks[0].tags).toContain('scanned-gap');
+    expect(chunks[0].belowMin).toBe(false);
+  });
+});
+
+describe('TAC-007: below-minimum chunk merged across scanned gap as fallback', () => {
+  let tmpDir: string;
+  let filePath: string;
+
+  beforeAll(async () => {
+    tmpDir = mkdtempSync(path.join(tmpdir(), 'llm-wiki-cli-belowmin-merge-'));
+    filePath = await createTextPdfWithLinesInDir(tmpDir, 'belowmin-gap.pdf', [
+      {
+        header: 'Section A',
+        bodyLines: [
+          'This is the first page of the document.',
+          'It contains enough text to be a standalone chunk and to avoid being classified as a cover page.',
+          'The content is intentionally long enough to exceed the cover-page threshold while remaining below the maximum chunk size.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+          'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.',
+          'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.',
+        ],
+      },
+      { header: 'Scanned separator 1', bodyLines: ['image'] },
+      { header: 'Page 3', bodyLines: ['This is a short page isolated by scanned pages.'] },
+      { header: 'Scanned separator 2', bodyLines: ['image'] },
+      {
+        header: 'Section B',
+        bodyLines: [
+          'This is the last content page.',
+          'It is long enough to bring the merged chunk above the minimum chunk size when the isolated short page is merged across the scanned page gap.',
+          'Additional content is included here to ensure the merged result is clearly above the threshold.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        ],
+      },
+    ]);
+  });
+
+  afterAll(() => {
+    rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('merges an isolated below-minimum chunk across a scanned page gap', async () => {
+    const result = await extractPdf(filePath);
+    result.pages[1].isScanned = true;
+    result.pages[1].scanConfidence = 'high';
+    result.pages[3].isScanned = true;
+    result.pages[3].scanConfidence = 'high';
+    const config = { ...baseConfig, chunking: { ...baseConfig.chunking, min_chunk_size: 300 } };
+    const { chunks, warnings } = await analyzeAndChunk(result, config);
+
+    expect(warnings.some((w) => w.includes('below-minimum'))).toBe(true);
+    expect(warnings.some((w) => w.includes('scanned page gap'))).toBe(true);
+    expect(chunks).toHaveLength(2);
+    expect(chunks[1].pageRange).toBe('3,5');
+    expect(chunks[1].tags).toContain('scanned-gap');
+    expect(chunks[1].belowMin).toBe(false);
   });
 });

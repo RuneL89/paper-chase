@@ -201,10 +201,14 @@ export async function runIngestion(
         extractionResult.filePath = relativeFile;
 
         const agentsMd = readAgentsMd(workspace, slug);
-        const { chunks, strategy } = await analyzeAndChunk(extractionResult, config, {
+        const { chunks, strategy, warnings } = await analyzeAndChunk(extractionResult, config, {
           planner: (r, s, c, strat, md) => chunkingPlanner(r, s, c, strat, llmClient, md),
           agentsMd,
         });
+        for (const warning of warnings) {
+          result.warnings.push(warning);
+          progress.warning(warning);
+        }
         const documentPageIds = chunks.map((chunk) => `documents/${chunk.id}.md`);
         const chunkStates = buildChunkStates(baseSlug, chunks, documentPageIds);
         manifest = initializeRunManifest(manifest, chunkStates);

@@ -116,6 +116,30 @@ export async function createTextPdfInDir(
   return filePath;
 }
 
+export async function createTextPdfWithLinesInDir(
+  dir: string,
+  fileName: string,
+  pages: { header: string; bodyLines: string[] }[],
+): Promise<string> {
+  const pdfDoc = await PDFDocument.create();
+  const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+
+  for (const page of pages) {
+    const pdfPage = pdfDoc.addPage([612, 792]);
+    pdfPage.drawText(page.header, { x: 50, y: 720, size: 18, font });
+    let y = 680;
+    for (const line of page.bodyLines) {
+      pdfPage.drawText(line, { x: 50, y, size: 12, font });
+      y -= 16;
+    }
+  }
+
+  const filePath = path.join(dir, fileName);
+  const pdfBytes = await pdfDoc.save();
+  writeFileSync(filePath, pdfBytes);
+  return filePath;
+}
+
 export async function createTenPagePdf(): Promise<string> {
   const pages: { header: string; body: string }[] = [];
   for (let i = 1; i <= 10; i++) {

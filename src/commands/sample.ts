@@ -77,7 +77,7 @@ export async function sampleCommand(
   }
 
   const agentsMd = readAgentsMd(workspace, slug);
-  const { structure, strategy, chunks } = await analyzeAndChunk(result, config, {
+  const { structure, strategy, chunks, warnings: chunkWarnings } = await analyzeAndChunk(result, config, {
     samplingStrategy,
     planner: (r, s, c, strat, md) => chunkingPlanner(r, s, c, strat, llmClient, md),
     agentsMd,
@@ -201,6 +201,7 @@ export async function sampleCommand(
     chunks,
     orchestratorResult,
     samplingStrategy,
+    chunkWarnings,
     llmClient.getRecords(),
   );
   return 0;
@@ -276,6 +277,7 @@ function writeSampleRunLog(
   chunks: { id: string; title: string; pageRange: string; content: string }[],
   orchestratorResult: OrchestratorResult,
   samplingStrategy: { category: string; reason: string },
+  chunkWarnings: string[],
   llmRecords?: LLMCallRecord[],
 ): void {
   const log = buildRunLog('sample', workspace, {
@@ -292,7 +294,7 @@ function writeSampleRunLog(
       { type: 'raw', count: result.pages.filter((p) => p.isScanned).length },
       { type: 'index', count: 1 + orchestratorResult.folderIndexes.length },
     ],
-    warnings: result.warnings,
+    warnings: [...result.warnings, ...chunkWarnings],
     errors: orchestratorResult.critic.issues.map((i) => i.message),
     status: 'success',
     llmCalls: llmRecords ?? [],

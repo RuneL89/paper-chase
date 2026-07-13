@@ -1,7 +1,7 @@
 import path from 'path';
 import type { ExtractionResult, ExtractedPage } from '../extractor/types.js';
 import type { Config } from '../config.js';
-import type { PdfStructure, Chunk, ChunkingStrategy, ChunkBoundary, SamplingStrategy, ChunkingPlan, ChunkingPlannerFn } from './types.js';
+import type { PdfStructure, Chunk, ChunkingStrategy, ChunkBoundary, SamplingStrategy, ChunkingStrategyHint, ChunkingPlannerFn, AnalyzeAndChunkResult } from './types.js';
 import { analyzePdfStructure } from './analyzer.js';
 import { createDefaultSamplingStrategy } from '../orchestrator/sampling.js';
 
@@ -103,19 +103,59 @@ function chooseSplitBoundary(structure: PdfStructure, config: Config): string {
   return config.chunking.split_boundary;
 }
 
-function buildPageRangeLabel(pages: ExtractedPage[]): string {
+export function buildPageRangeLabel(pages: ExtractedPage[]): string {
   if (pages.length === 0) return '';
   const start = pages[0].physicalPage;
   const end = pages[pages.length - 1].physicalPage;
   return start === end ? String(start) : `${start}-${end}`;
 }
 
-function buildLogicalPageRangeLabel(pages: ExtractedPage[]): string | undefined {
+export function buildLogicalPageRangeLabel(pages: ExtractedPage[]): string | undefined {
   const labels = pages.map((p) => p.pageLabel).filter((l): l is string => Boolean(l));
   if (labels.length === 0) return undefined;
   const start = labels[0];
   const end = labels[labels.length - 1];
   return start === end ? start : `${start}-${end}`;
+}
+
+function buildCompactPageRange(pages: ExtractedPage[]): string {
+  if (pages.length === 0) return '';
+  const sorted = [...pages].sort((a, b) => a.physicalPage - b.physicalPage);
+  const ranges: string[] = [];
+  let runStart = sorted[0].physicalPage;
+  let runEnd = sorted[0].physicalPage;
+  for (let i = 1; i < sorted.length; i++) {
+    const pageNum = sorted[i].physicalPage;
+    if (pageNum === runEnd + 1) {
+      runEnd = pageNum;
+    } else {
+      ranges.push(runStart === runEnd ? String(runStart) : `${runStart}-${runEnd}`);
+      runStart = pageNum;
+      runEnd = pageNum;
+    }
+  }
+  ranges.push(runStart === runEnd ? String(runStart) : `${runStart}-${runEnd}`);
+  return ranges.join(',');
+}
+
+function buildCompactLogicalPageRange(pages: ExtractedPage[]): string | undefined {
+  const labels = pages.map((p) => p.pageLabel).filter((l): l is string => Boolean(l));
+  if (labels.length === 0) return undefined;
+  const ranges: string[] = [];
+  let runStart = labels[0];
+  let runEnd = labels[0];
+  for (let i = 1; i < labels.length; i++) {
+    const label = labels[i];
+    if (label === String(Number(runEnd) + 1)) {
+      runEnd = label;
+    } else {
+      ranges.push(runStart === runEnd ? runStart : `${runStart}-${runEnd}`);
+      runStart = label;
+      runEnd = label;
+    }
+  }
+  ranges.push(runStart === runEnd ? runStart : `${runStart}-${runEnd}`);
+  return ranges.join(',');
 }
 
 function findMultiPageObjectForPage(
@@ -134,7 +174,7 @@ function findMultiPageObjectForPage(
   return undefined;
 }
 
-function findBoundaryType(
+export function findBoundaryType(
   pages: ExtractedPage[],
   result: ExtractionResult,
   structure: PdfStructure,
@@ -170,7 +210,7 @@ function findBoundaryType(
   return 'page';
 }
 
-function buildChunkContent(
+export function buildChunkContent(
   pages: ExtractedPage[],
   result: ExtractionResult,
 ): string {
@@ -237,8 +277,10 @@ export function chunkPages(
   result: ExtractionResult,
   config: Config,
   structure: PdfStructure,
-): Chunk[] {
+  strategy: ChunkingStrategy,
+): { chunks: Chunk[]; warnings: string[] } {
   const chunks: Chunk[] = [];
+  const groups: ExtractedPage[][] = [];
   const baseSlug = path.basename(result.filePath, path.extname(result.filePath));
   const relativeFile = result.filePath;
 
@@ -281,6 +323,7 @@ export function chunkPages(
       charCount,
     });
 
+    groups.push([...currentGroup]);
     currentGroup = [];
     groupIndex++;
     activeMultiPageObject = undefined;
@@ -307,7 +350,19 @@ export function chunkPages(
       if (currentGroup.length === 0) {
         activeMultiPageObject = pageMpo;
       }
+      // Enforce the configured max chunk size even for MPOs. If the MPO is too
+      // large to fit, split it at page boundaries rather than creating an
+      // oversized chunk.
+      const pageLength = estimatePageContentLength(page, result);
+      if (
+        currentGroup.length > 0 &&
+        currentGroupLength + pageLength > config.chunking.max_chunk_size
+      ) {
+        flushGroup();
+        activeMultiPageObject = pageMpo;
+      }
       currentGroup.push(page);
+      currentGroupLength += pageLength;
       // If we have collected the whole multi-page object, flush it now.
       if (page.physicalPage === pageMpo.endPage) {
         flushGroup();
@@ -333,7 +388,141 @@ export function chunkPages(
 
   flushGroup();
 
-  return chunks;
+  const { chunks: mergedChunks, warnings } = mergeIsolatedChunks(
+    chunks,
+    groups,
+    result,
+    structure,
+    config,
+    baseSlug,
+  );
+
+  return { chunks: mergedChunks, warnings };
+}
+
+function mergeIsolatedChunks(
+  chunks: Chunk[],
+  groups: ExtractedPage[][],
+  result: ExtractionResult,
+  structure: PdfStructure,
+  config: Config,
+  baseSlug: string,
+): { chunks: Chunk[]; warnings: string[] } {
+  const warnings: string[] = [];
+  const scannedPages = result.pages.filter((p) => p.isScanned).map((p) => p.physicalPage);
+  if (scannedPages.length === 0) {
+    return { chunks, warnings };
+  }
+  const scannedPageSet = new Set(scannedPages);
+
+  function isIsolated(groupIndex: number): boolean {
+    const group = groups[groupIndex];
+    if (group.length === 0) return false;
+    const firstPage = group[0].physicalPage;
+    const lastPage = group[group.length - 1].physicalPage;
+    return (
+      (firstPage > 1 && scannedPageSet.has(firstPage - 1)) ||
+      (lastPage < structure.totalPages && scannedPageSet.has(lastPage + 1))
+    );
+  }
+
+  function isCoverChunk(groupIndex: number): boolean {
+    return structure.hasCover && groups[groupIndex].some((p) => p.physicalPage === 1);
+  }
+
+  let i = 0;
+  while (i < chunks.length) {
+    const chunk = chunks[i];
+    const isolated = isIsolated(i);
+    const cover = isCoverChunk(i);
+
+    if (!isolated || (!cover && !chunk.belowMin)) {
+      i++;
+      continue;
+    }
+
+    let targetIndex = -1;
+    if (i + 1 < chunks.length) {
+      targetIndex = i + 1;
+    } else if (i - 1 >= 0) {
+      targetIndex = i - 1;
+    }
+
+    if (targetIndex === -1) {
+      const reason = cover ? 'cover' : 'below-minimum';
+      warnings.push(
+        `Isolated ${reason} chunk ${chunk.id} (${chunk.pageRange}) has no adjacent chunk to merge with.`,
+      );
+      i++;
+      continue;
+    }
+
+    // Merging would create a chunk that exceeds the configured max size; skip and warn.
+    if (chunk.charCount + chunks[targetIndex].charCount > config.chunking.max_chunk_size) {
+      const reason = cover ? 'cover' : 'below-minimum';
+      warnings.push(
+        `Isolated ${reason} chunk ${chunk.id} (${chunk.pageRange}) could not be merged: combined chunk would exceed max_chunk_size.`,
+      );
+      i++;
+      continue;
+    }
+
+    const sourcePages = groups[i];
+    const targetPages = groups[targetIndex];
+    const mergedPages = [...sourcePages, ...targetPages].sort(
+      (a, b) => a.physicalPage - b.physicalPage,
+    );
+    const uniquePages = mergedPages.filter(
+      (p, idx, arr) => arr.findIndex((x) => x.physicalPage === p.physicalPage) === idx,
+    );
+    const sourcePageRange = chunk.pageRange;
+    const targetChunk = chunks[targetIndex];
+    const newPageRange = buildCompactPageRange(uniquePages);
+    const newLogicalPageRange = buildCompactLogicalPageRange(uniquePages);
+    const newContent = buildChunkContent(uniquePages, result);
+    const newCharCount = newContent.length;
+    const newBelowMin = newCharCount < config.chunking.min_chunk_size;
+
+    chunks[targetIndex] = {
+      ...targetChunk,
+      id: targetChunk.id,
+      title: targetChunk.title,
+      pageRange: newPageRange,
+      logicalPageRange: newLogicalPageRange,
+      boundaryType: findBoundaryType(uniquePages, result, structure),
+      content: newContent,
+      charCount: newCharCount,
+      belowMin: newBelowMin,
+      sources: [
+        {
+          ...targetChunk.sources[0],
+          pages: newPageRange,
+          logicalPages: newLogicalPageRange,
+        },
+      ],
+      tags: Array.from(new Set([...targetChunk.tags, 'scanned-gap'])),
+    };
+    groups[targetIndex] = uniquePages;
+
+    const reason = cover ? 'cover page' : 'below-minimum chunk';
+    warnings.push(
+      `Merged isolated ${reason} pages ${sourcePageRange} into chunk ${targetChunk.id} (now ${newPageRange}) due to scanned page gap.`,
+    );
+
+    chunks.splice(i, 1);
+    groups.splice(i, 1);
+  }
+
+  // Renumber chunk IDs and titles so they stay sequential after merges.
+  for (let idx = 0; idx < chunks.length; idx++) {
+    chunks[idx].id = `${baseSlug}-part-${String(idx + 1).padStart(3, '0')}`;
+    chunks[idx].title = `Part ${idx + 1}: ${baseSlug}`;
+    if (chunks[idx].sources.length > 0) {
+      chunks[idx].sources[0].id = `src${idx + 1}`;
+    }
+  }
+
+  return { chunks, warnings };
 }
 
 export interface AnalyzeAndChunkOptions {
@@ -346,173 +535,50 @@ export async function analyzeAndChunk(
   result: ExtractionResult,
   config: Config,
   options?: AnalyzeAndChunkOptions,
-): Promise<{
-  structure: PdfStructure;
-  strategy: ChunkingStrategy;
-  chunks: Chunk[];
-}> {
+): Promise<AnalyzeAndChunkResult> {
   const structure = analyzePdfStructure(result);
   const strategy = buildChunkingStrategy(result, structure, config);
   if (options?.samplingStrategy) {
     strategy.samplingStrategy = options.samplingStrategy;
   }
 
-  let chunks: Chunk[];
   if (options?.planner && strategy.samplingStrategy) {
     try {
-      const plan = await options.planner(
+      const hint = await options.planner(
         result,
         structure,
         config,
         strategy.samplingStrategy,
         options.agentsMd,
       );
-      const validation = validateChunkingPlan(plan, result, structure, config);
-      if (validation.valid) {
-        chunks = materializeChunksFromPlan(plan, result, structure, config);
+      if (isValidChunkingStrategyHint(hint)) {
+        strategy.splitBoundary = hint.splitBoundary;
+        strategy.fallback = `${strategy.fallback} LLM strategy reason: ${hint.reason}`;
       } else {
         console.warn(
-          `ChunkingPlanner proposal rejected: ${validation.reasons.join('; ')}. Falling back to deterministic page-based chunking.`,
+          'ChunkingPlanner returned an invalid strategy hint. Using deterministic fallback.',
         );
-        chunks = chunkPages(result, config, structure);
       }
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
-      console.warn(`ChunkingPlanner failed: ${message}. Falling back to deterministic page-based chunking.`);
-      chunks = chunkPages(result, config, structure);
+      console.warn(`ChunkingPlanner failed: ${message}. Using deterministic fallback.`);
     }
-  } else {
-    chunks = chunkPages(result, config, structure);
   }
 
-  return { structure, strategy, chunks };
+  const { chunks, warnings } = chunkPages(result, config, structure, strategy);
+  return { structure, strategy, chunks, warnings };
 }
 
-function estimatePagesContentLength(
-  pages: ExtractedPage[],
-  result: ExtractionResult,
-): number {
-  return pages.reduce((sum, page) => sum + estimatePageContentLength(page, result), 0);
-}
-
-function normalizePlannerBoundaryType(type: string): Chunk['boundaryType'] {
-  const allowed: Chunk['boundaryType'][] = ['page', 'section', 'heading', 'table', 'figure'];
-  if (allowed.includes(type as Chunk['boundaryType'])) {
-    return type as Chunk['boundaryType'];
-  }
-  return 'section';
-}
-
-export function validateChunkingPlan(
-  plan: ChunkingPlan,
-  result: ExtractionResult,
-  structure: PdfStructure,
-  config: Config,
-): { valid: boolean; reasons: string[] } {
-  const reasons: string[] = [];
-
-  if (!plan || typeof plan !== 'object' || !Array.isArray(plan.boundaries)) {
-    return { valid: false, reasons: ['Plan is missing a boundaries array'] };
-  }
-
-  const nonScannedPages = new Set(result.pages.filter((p) => !p.isScanned).map((p) => p.physicalPage));
-  const scannedPages = new Set(result.pages.filter((p) => p.isScanned).map((p) => p.physicalPage));
-  const covered = new Set<number>();
-
-  for (let i = 0; i < plan.boundaries.length; i++) {
-    const b = plan.boundaries[i];
-    if (!b || typeof b !== 'object') {
-      reasons.push(`Boundary ${i} is not an object`);
-      continue;
-    }
-    if (typeof b.startPage !== 'number' || typeof b.endPage !== 'number' || b.startPage > b.endPage) {
-      reasons.push(`Boundary ${i} has invalid start/end pages`);
-      continue;
-    }
-    for (let p = b.startPage; p <= b.endPage; p++) {
-      if (covered.has(p)) {
-        reasons.push(`Page ${p} is covered by multiple boundaries`);
-      }
-      covered.add(p);
-      if (scannedPages.has(p)) {
-        reasons.push(`Scanned page ${p} must not be included in a document chunk`);
-      }
-    }
-  }
-
-  for (const page of nonScannedPages) {
-    if (!covered.has(page)) {
-      reasons.push(`Non-scanned page ${page} is missing from the plan`);
-    }
-  }
-
-  for (const mpo of structure.multiPageObjects) {
-    for (const b of plan.boundaries) {
-      if (b.startPage > mpo.startPage && b.startPage <= mpo.endPage && b.endPage < mpo.endPage) {
-        reasons.push(
-          `Boundary ${b.startPage}-${b.endPage} splits ${mpo.type} ${mpo.startPage}-${mpo.endPage}`,
-        );
-      }
-    }
-  }
-
-  for (const b of plan.boundaries) {
-    const pages = result.pages.filter(
-      (p) => p.physicalPage >= b.startPage && p.physicalPage <= b.endPage,
-    );
-    const estimatedLength = estimatePagesContentLength(pages, result);
-    if (estimatedLength > config.chunking.max_chunk_size) {
-      reasons.push(
-        `Boundary ${b.startPage}-${b.endPage} exceeds max chunk size (${estimatedLength} > ${config.chunking.max_chunk_size})`,
-      );
-    }
-  }
-
-  return { valid: reasons.length === 0, reasons };
-}
-
-function materializeChunksFromPlan(
-  plan: ChunkingPlan,
-  result: ExtractionResult,
-  structure: PdfStructure,
-  config: Config,
-): Chunk[] {
-  const baseSlug = path.basename(result.filePath, path.extname(result.filePath));
-  const relativeFile = result.filePath;
-
-  return plan.boundaries.map((b, i) => {
-    const pages = result.pages.filter(
-      (p) => p.physicalPage >= b.startPage && p.physicalPage <= b.endPage && !p.isScanned,
-    );
-    const pageRange = buildPageRangeLabel(pages);
-    const logicalPageRange = buildLogicalPageRangeLabel(pages);
-    const content = buildChunkContent(pages, result);
-    const charCount = content.length;
-    const belowMin = charCount < config.chunking.min_chunk_size;
-    const sourceId = `src${i + 1}`;
-
-    return {
-      id: `${baseSlug}-part-${String(i + 1).padStart(3, '0')}`,
-      title: `Part ${i + 1}: ${baseSlug}`,
-      pageRange,
-      logicalPageRange,
-      boundaryType: normalizePlannerBoundaryType(b.type),
-      content,
-      sources: [
-        {
-          id: sourceId,
-          file: relativeFile,
-          pages: pageRange,
-          logicalPages: logicalPageRange,
-          extracted: result.ingested,
-          sha256: result.sha256,
-        },
-      ],
-      tags: inferTags(result, structure),
-      belowMin,
-      charCount,
-    };
-  });
+function isValidChunkingStrategyHint(
+  output: unknown,
+): output is ChunkingStrategyHint {
+  const o = output as Record<string, unknown> | undefined;
+  if (!o || typeof o !== 'object') return false;
+  const allowed = ['page', 'section', 'heading', 'table', 'figure'];
+  if (typeof o.splitBoundary !== 'string' || !allowed.includes(o.splitBoundary)) return false;
+  if (typeof o.reason !== 'string') return false;
+  if (!Array.isArray(o.issues)) return false;
+  return true;
 }
 
 function inferTags(result: ExtractionResult, structure: PdfStructure): string[] {

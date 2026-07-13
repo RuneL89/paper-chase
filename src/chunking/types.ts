@@ -129,15 +129,9 @@ export interface Chunk {
   charCount: number;
 }
 
-export interface ChunkBoundaryProposal {
-  startPage: number;
-  endPage: number;
-  type: 'page' | 'section' | 'heading' | 'toc' | 'table' | 'figure' | 'semantic-object';
+export interface ChunkingStrategyHint {
+  splitBoundary: 'page' | 'section' | 'heading' | 'table' | 'figure';
   reason: string;
-}
-
-export interface ChunkingPlan {
-  boundaries: ChunkBoundaryProposal[];
   issues: string[];
 }
 
@@ -147,4 +141,11 @@ export type ChunkingPlannerFn = (
   config: Config,
   samplingStrategy: SamplingStrategy,
   agentsMd?: string,
-) => Promise<ChunkingPlan>;
+) => Promise<ChunkingStrategyHint>;
+
+export interface AnalyzeAndChunkResult {
+  structure: PdfStructure;
+  strategy: ChunkingStrategy;
+  chunks: Chunk[];
+  warnings: string[];
+}
