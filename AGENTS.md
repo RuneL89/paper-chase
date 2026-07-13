@@ -2,6 +2,84 @@
 
 > **Two meanings of `AGENTS.md`:** this file (`<workspace>/AGENTS.md`) is the workspace-level handbook for *ZCode agents editing the CLI codebase*. Each wiki that the CLI ingests also gets its own `AGENTS.md`, which is a per-wiki **LLM ingestion guide** (not the human contract). When working on source code, this file applies; when working on the wiki format, see the per-wiki `AGENTS.md` concept in `Project Vision/02_WIKI_concept_detailed.md`.
 
+- DOX is highly performant AGENTS.md hierarchy installed here
+- Agent must follow DOX instructions across any edits
+
+## Core Contract
+
+- AGENTS.md files are binding work contracts for their subtrees
+- Work products, source materials, instructions, records, assets, and durable docs must stay understandable from the nearest applicable AGENTS.md plus every parent AGENTS.md above it
+
+## Read Before Editing
+
+1. Read the root AGENTS.md
+2. Identify every file or folder you expect to touch
+3. Walk from the repository root to each target path
+4. Read every AGENTS.md found along each route
+5. If a parent AGENTS.md lists a child AGENTS.md whose scope contains the path, read that child and continue from there
+6. Use the nearest AGENTS.md as the local contract and parent docs for repo-wide rules
+7. If docs conflict, the closer doc controls local work details, but no child doc may weaken DOX
+
+Do not rely on memory. Re-read the applicable DOX chain in the current session before editing.
+
+## Update After Editing
+
+Every meaningful change requires a DOX pass before the task is done.
+
+Update the closest owning AGENTS.md when a change affects:
+
+- purpose, scope, ownership, or responsibilities
+- durable structure, contracts, workflows, or operating rules
+- required inputs, outputs, permissions, constraints, side effects, or artifacts
+- user preferences about behavior, communication, process, organization, or quality
+- AGENTS.md creation, deletion, move, rename, or index contents
+
+Update parent docs when parent-level structure, ownership, workflow, or child index changes. Update child docs when parent changes alter local rules. Remove stale or contradictory text immediately. Small edits that do not change behavior or contracts may leave docs unchanged, but the DOX pass still must happen.
+
+## Hierarchy
+
+- Root AGENTS.md is the DOX rail: project-wide instructions, global preferences, durable workflow rules, and the top-level Child DOX Index
+- Child AGENTS.md files own domain-specific instructions and their own Child DOX Index
+- Each parent explains what its direct children cover and what stays owned by the parent
+- The closer a doc is to the work, the more specific and practical it must be
+
+## Child Doc Shape
+
+- Create a child AGENTS.md when a folder becomes a durable boundary with its own purpose, rules, responsibilities, workflow, materials, or quality standards
+- Work Guidance must reflect the current standards of the project or user instructions; if there are no specific standards or instructions yet, leave it empty
+- Verification must reflect an existing check; if no verification framework exists yet, leave it empty and update it when one exists
+
+Default section order:
+- Purpose
+- Ownership
+- Local Contracts
+- Work Guidance
+- Verification
+- Child DOX Index
+
+## Style
+
+- Keep docs concise, current, and operational
+- Document stable contracts, not diary entries
+- Put broad rules in parent docs and concrete details in child docs
+- Prefer direct bullets with explicit names
+- Do not duplicate rules across many files unless each scope needs a local version
+- Delete stale notes instead of explaining history
+- Trim obvious statements, repeated rules, misplaced detail, and warnings for risks that no longer exist
+
+## Closeout
+
+1. Re-check changed paths against the DOX chain
+2. Update nearest owning docs and any affected parents or children
+3. Refresh every affected Child DOX Index
+4. Remove stale or contradictory text immediately
+5. Run existing verification when relevant
+6. Report any docs intentionally left unchanged and why
+
+## User Preferences
+
+When the user requests a durable behavior change, record it here or in the relevant child AGENTS.md.
+
 ## Quick reference
 
 - **Run CLI locally:** `npm run dev -- <command> [args]` (uses `tsx src/cli.ts`)
@@ -108,7 +186,7 @@ src/
 ├── workspace.ts           # wiki discovery, path helpers, inside-raw checks
 ├── extractor/             # PDF extraction (pdf.ts) and batch runner (batch.ts)
 ├── chunking/              # structure analyzer, chunker, strategy writer
-├── ingestion/             # engine.ts (full ingestion) and state.ts (incremental state)
+├── ingestion/             # engine.ts (full ingestion), state.ts (incremental state), chunk-materializer.ts (per-chunk entity/topic updates)
 ├── writers/               # markdown writers for pages, source, index, config
 ├── entities/              # entity extraction and page writing
 ├── topics/                # topic extraction and page writing
@@ -126,23 +204,25 @@ The custom multi-agent orchestrator lives in `src/orchestrator/` and drives both
 
 ```
 src/orchestrator/
-├── agents.ts              # seven sub-agents: StructureAnalyst, EntityExtractor, RelationshipExtractor, EvidenceCollector, PagePlanner, ChunkWriter, Critic
+├── agents.ts              # seven sub-agents: StructureAnalyst, EntityExtractor, RelationshipExtractor, EvidenceCollector, PagePlanner, ChunkWriter, Critic; plus helpers used by the materializer
 ├── contracts.ts           # DOX contract writers for wiki-level and folder-level index.md
 ├── index.ts               # runSampleOrchestrator entry point
-├── ingest.ts              # runIngestOrchestrator and rolling-memory integration
+├── ingest.ts              # runIngestOrchestrator and rolling-memory integration; re-exports preservation helpers from state.ts
 ├── types.ts               # orchestrator shared types (memory, folder plans, critic)
 ├── validation.ts          # deterministic validation helpers
 └── wiki-of-wiki.ts        # cross-wiki name discovery agent
 ```
 
-The seven sub-agents run in order:
+The sub-agents run in order during `sample` and `ingest`:
 1. **StructureAnalyst** — derives headings, sections, and chunk boundaries from the PDF structure.
 2. **EntityExtractor** — surfaces people, organizations, locations, cases, events, and products.
-3. **RelationshipExtractor** — captures co-occurrence relationships between entities.
+3. **RelationshipExtractor** — captures co-occurrence relationships between entities (uses the global entity list from rolling memory so cross-chunk links are visible).
 4. **EvidenceCollector** — extracts key claims, tables, and figures.
 5. **PagePlanner** — proposes a folder hierarchy and page plan (LLM-assisted, deterministic fallback).
 6. **ChunkWriter** — records the planned files; existing writers materialize the markdown.
 7. **Critic** — deterministic review of plan completeness, schema, and folder placement.
+
+During `ingest`, after the Critic approves a chunk, the **ChunkMaterializer** (`src/ingestion/chunk-materializer.ts`) immediately writes or updates the affected entity and topic pages. It reads existing pages, detects manual edits via `IngestionState` hashes, and uses an LLM update mode with a deterministic preservation check (every old citation and wikilink must survive the rewrite). If preservation fails or the page was manually edited, the materializer falls back to deterministic append-only.
 
 Rolling memory is accumulated across PDFs during full ingestion and persisted in `.state/rolling-memory.json` (structured state) and `.state/memory-summary.md` (compressed natural-language summary).
 
@@ -213,6 +293,7 @@ Key events:
 - **DOX contracts:** `index-of-indexes.md` → `wikis/<slug>/index.md` → `<folder>/index.md`. Folder-level indexes are child contracts that describe the folder's page types and navigation.
 - **Structural-change approval:** creating new folders or changing the wiki's organization requires a human-approved proposal with reason, pros, cons, and required contract updates. New page types inside existing folders do not require approval.
 - **Markdown authorship:** deterministic code must not draft or mutate wiki page bodies; the LLM is the sole author of all markdown content pages.
+- **Preservation-first updates:** when `ingest` updates an existing entity/topic page, the LLM regenerates the body in update mode but must keep every existing citation and wikilink. A deterministic preservation check rejects rewrites that drop prior content; manually edited pages receive append-only updates.
 
 ## Authority matrix
 
@@ -267,3 +348,11 @@ No deterministic code may draft or mutate markdown bodies; no LLM agent may comp
 - `Project Vision/06_citation_and_provenance.md` — citation format, `sources` frontmatter, and provenance rules
 - `Project Vision/07_validation_and_quality.md` — validation order, Critic, lint, and structural-change approval
 - `plan/SPRINT_INSTRUCTIONS.md` — sprint plans and implementation tracker
+
+## Child DOX Index
+
+- `src/AGENTS.md` — source code conventions, module boundaries, and the orchestrator/ingestion pipeline.
+- `tests/AGENTS.md` — test conventions, fixtures, and how to keep the Vitest suite green.
+- `docs/AGENTS.md` — user-facing documentation, quickstart, and command references.
+- `Project Vision/AGENTS.md` — product vision, architecture, page-type specifications, and citation/provenance rules.
+- `plan/AGENTS.md` — sprint plans, implementation tracker, and UAT documents.

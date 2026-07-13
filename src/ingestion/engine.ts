@@ -8,7 +8,7 @@ import { isExtractionFailure, type ExtractionResult, type ExtractionFailure } fr
 import { analyzeAndChunk } from '../chunking/chunker.js';
 import { buildRunLog, writeRunLog } from '../log.js';
 import { createLLMClient } from '../llm/client.js';
-import { runIngestOrchestrator, writeIngestOutput, readAgentsMd } from '../orchestrator/ingest.js';
+import { runIngestOrchestrator, writeIngestFinalOutput, readAgentsMd, createEmptyMemory } from '../orchestrator/ingest.js';
 import { chunkingPlanner } from '../orchestrator/agents.js';
 import {
   writeProposalFile,
@@ -238,6 +238,8 @@ export async function runIngestion(
           strategy.samplingStrategy,
           { autoApproveProposals },
           progress,
+          result,
+          state,
         );
         memory = orchestratorResult.memory;
         for (const proposal of orchestratorResult.proposals) {
@@ -320,18 +322,18 @@ export async function runIngestion(
     );
   }
 
-  // Delegate all markdown content generation and contract/index writing to the orchestrator.
+  // Finalize contracts, indexes, and lint now that all sources have been
+  // incrementally materialized.
   const folderPlacements = Array.from(allFolderPlacements.values());
-  await writeIngestOutput({
+  await writeIngestFinalOutput({
     workspace,
     slug,
     config,
-    processed,
     state,
-    memory,
+    memory: memory || state.memory || createEmptyMemory(),
     folderPlacements,
     result,
-    llmClient,
+    processed,
   });
   result.proposals = allProposals;
 

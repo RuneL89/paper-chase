@@ -834,6 +834,7 @@ function buildRelationshipContext(
   entities: ExtractedEntity[],
   agentsMd?: string,
   memory?: OrchestratorMemory,
+  chunk?: Chunk,
 ): string {
   const lines: string[] = [];
 
@@ -858,13 +859,76 @@ function buildRelationshipContext(
   lines.push('');
 
   lines.push('## Extracted text');
-  for (const page of result.pages) {
-    lines.push(`### Page ${page.physicalPage}`);
-    lines.push(page.text.slice(0, 200));
+  if (chunk) {
+    lines.push(`### Chunk ${chunk.id} — pages ${chunk.pageRange}`);
+    lines.push(chunk.content.slice(0, 4000));
     lines.push('');
+  } else {
+    for (const page of result.pages) {
+      lines.push(`### Page ${page.physicalPage}`);
+      lines.push(page.text.slice(0, 200));
+      lines.push('');
+    }
   }
 
   return lines.join('\n');
+}
+
+/**
+ * RelationshipExtractor variant that runs on a single chunk, using the accumulated
+ * global entity list so relationships between entities from distant parts of the same
+ * source can be surfaced.
+ */
+export async function relationshipExtractorForChunk(
+  result: ExtractionResult,
+  chunk: Chunk,
+  entities: ExtractedEntity[],
+  llmClient: LLMClient,
+  agentsMd?: string,
+  memory?: OrchestratorMemory,
+): Promise<RelationshipOutput> {
+  if (!llmClient.isEnabled()) {
+    throw new CLIError('LLM is required for relationship extraction.');
+  }
+
+  // Combine chunk entities with the already-known global entities so the LLM can
+  // spot relationships that mention entities from other chunks.
+  const knownEntityNames = new Set(entities.map((e) => e.name.toLowerCase()));
+  if (memory) {
+    for (const entity of Object.values(memory.state.entities)) {
+      knownEntityNames.add(entity.name.toLowerCase());
+      for (const alias of entity.aliases) {
+        knownEntityNames.add(alias.toLowerCase());
+      }
+    }
+  }
+  const combinedEntities = [
+    ...entities,
+    ...Object.values(memory?.state.entities ?? {}).filter(
+      (e) => !knownEntityNames.has(e.name.toLowerCase()),
+    ),
+  ];
+
+  try {
+    const context = buildRelationshipContext(result, combinedEntities, agentsMd, memory, chunk);
+    const response = await llmClient.call(buildPrompt('relationship-extractor', context), {
+      maxTokens: 8500,
+      temperature: 0.2,
+    });
+    const parsed = parseStructuredJson<{ relationships?: unknown[] }>(response.text);
+    if (parsed && Array.isArray(parsed.relationships) && parsed.relationships.length > 0) {
+      const normalized = parsed.relationships
+        .map((r) => normalizeRelationship(r, combinedEntities))
+        .filter(Boolean) as ExtractedRelationship[];
+      if (normalized.length > 0) {
+        return { relationships: normalized };
+      }
+    }
+  } catch {
+    // Fall through to the invalid-output error below.
+  }
+
+  throw new CLIError('RelationshipExtractor returned invalid or empty output.');
 }
 
 /**
@@ -1424,6 +1488,132 @@ function flagDuplicateEntities(memory: OrchestratorMemory): void {
   }
 }
 
+/**
+ * Subtract the contributions of a previous ingestion of the same source before
+ * reprocessing it chunk-by-chunk. This keeps memory counts consistent when a
+ * source is re-ingested or resumed.
+ */
+export function prepareMemoryForSource(memory: OrchestratorMemory, sourcePath: string): void {
+  const oldSourceEntities = memory.state.sourceEntities[sourcePath] ?? {};
+  for (const [slug, oldCount] of Object.entries(oldSourceEntities)) {
+    const entity = memory.state.entities[slug];
+    if (entity) {
+      entity.count = Math.max(0, (entity.count ?? 0) - oldCount);
+      if (entity.count <= 0) {
+        delete memory.state.entities[slug];
+      }
+    }
+  }
+  memory.state.sourceEntities[sourcePath] = {};
+
+  const oldSourceTopics = memory.state.sourceTopics[sourcePath] ?? {};
+  for (const [name, oldCount] of Object.entries(oldSourceTopics)) {
+    const topic = memory.state.topics[name];
+    if (topic) {
+      const currentMentions = topic.mentions.length;
+      topic.mentions.splice(0, Math.min(oldCount, currentMentions));
+      if (topic.mentions.length === 0 && topic.related.length === 0) {
+        delete memory.state.topics[name];
+      }
+    }
+  }
+  memory.state.sourceTopics[sourcePath] = {};
+}
+
+function relationshipKey(rel: ExtractedRelationship): string {
+  return `${rel.subject.toLowerCase()}|${rel.predicate.toLowerCase()}|${rel.object.toLowerCase()}|${rel.pages}`;
+}
+
+/**
+ * Incrementally update rolling memory with a single chunk's entities, relationships,
+ * and topics. This makes earlier chunks visible to relationship extraction for later
+ * chunks of the same source.
+ */
+export function updateMemoryForChunk(
+  memory: OrchestratorMemory,
+  sourcePath: string,
+  entities: ExtractedEntity[],
+  relationships: ExtractedRelationship[],
+  topics: { name: string; count: number; related: string[] }[],
+): void {
+  const sourceEntities = memory.state.sourceEntities[sourcePath] ?? {};
+  const knownRelationshipKeys = new Set(memory.state.relationships.map(relationshipKey));
+
+  for (const entity of entities) {
+    const canonical = entity.canonical || slugify(entity.name);
+    sourceEntities[canonical] = (sourceEntities[canonical] ?? 0) + (entity.count ?? 1);
+
+    if (memory.state.entities[canonical]) {
+      const existing = memory.state.entities[canonical];
+      existing.count = (existing.count ?? 0) + (entity.count ?? 1);
+      existing.mentions.push(...entity.mentions);
+      existing.confidence = Math.max(existing.confidence, entity.confidence);
+      for (const alias of entity.aliases) {
+        if (!existing.aliases.includes(alias)) {
+          existing.aliases.push(alias);
+        }
+      }
+      if (existing.name.toLowerCase() !== entity.name.toLowerCase() && !existing.aliases.includes(entity.name)) {
+        existing.aliases.push(entity.name);
+      }
+      if (!existing.description && entity.description) {
+        existing.description = entity.description;
+      }
+      if (entity.relationships) {
+        existing.relationships = existing.relationships ?? [];
+        for (const rel of entity.relationships) {
+          if (!existing.relationships.some((r) => r.predicate === rel.predicate && r.object === rel.object)) {
+            existing.relationships.push(rel);
+          }
+        }
+      }
+    } else {
+      memory.state.entities[canonical] = { ...entity, canonical };
+    }
+  }
+  memory.state.sourceEntities[sourcePath] = sourceEntities;
+
+  for (const rel of relationships) {
+    const key = relationshipKey(rel);
+    if (!knownRelationshipKeys.has(key)) {
+      memory.state.relationships.push(rel);
+      knownRelationshipKeys.add(key);
+    }
+
+    const subjectSlug = findCanonicalSlugByName(rel.subject, memory);
+    if (subjectSlug) {
+      const entity = memory.state.entities[subjectSlug];
+      if (entity) {
+        entity.relationships = entity.relationships ?? [];
+        if (!entity.relationships.some((r) => r.predicate === rel.predicate && r.object === rel.object)) {
+          entity.relationships.push({
+            predicate: rel.predicate,
+            object: rel.object,
+            evidence: rel.evidence,
+            pages: rel.pages,
+          });
+        }
+      }
+    }
+  }
+
+  const sourceTopics = memory.state.sourceTopics[sourcePath] ?? {};
+  for (const topic of topics) {
+    const name = topic.name.toLowerCase();
+    sourceTopics[name] = (sourceTopics[name] ?? 0) + topic.count;
+
+    if (!memory.state.topics[name]) {
+      memory.state.topics[name] = { tags: ['topic', 'theme'], mentions: [], related: [] };
+    }
+    memory.state.topics[name].related = [...new Set([...memory.state.topics[name].related, ...topic.related])];
+  }
+  memory.state.sourceTopics[sourcePath] = sourceTopics;
+
+  memory.rollingSummary = `Updated memory with ${Object.keys(memory.state.entities).length} entities, ${memory.state.relationships.length} relationships, and ${Object.keys(memory.state.topics).length} topics.`;
+
+  flagDuplicateEntities(memory);
+}
+
 // ---------- ChunkWriter (Sprint 4b) ----------
 
 /**
@@ -1443,37 +1633,56 @@ export async function chunkWriter(
     throw new CLIError('LLM is required for chunk writing.');
   }
 
+  const chunkTasks = chunks.map((chunk) => async () =>
+    chunkWriterForChunk(pages, chunk, result, config, llmClient, agentsMd, memory, feedback),
+  );
+
+  return withConcurrencyLimit(chunkTasks, 4);
+}
+
+/**
+ * ChunkWriter variant for a single chunk. Used by the per-chunk incremental
+ * materializer so each chunk is written immediately after it is processed.
+ */
+export async function chunkWriterForChunk(
+  pages: PagePlan[],
+  chunk: Chunk,
+  result: ExtractionResult,
+  config: Config,
+  llmClient: LLMClient,
+  agentsMd?: string,
+  memory?: OrchestratorMemory,
+  feedback?: string[],
+): Promise<PageUpdate> {
+  if (!llmClient.isEnabled()) {
+    throw new CLIError('LLM is required for chunk writing.');
+  }
+
   const knownTitles = collectKnownPageTitles(pages);
   knownTitles.sources.push(`Source: ${result.fileName}`);
   knownTitles.indexes.push(`${config.wiki.title} Index`);
 
-  // Process chunks concurrently with a small limit so large documents do not
-  // spend wall-clock time on sequential LLM calls.
-  const chunkTasks = chunks.map((chunk) => async () => {
-    const chunkPlan = findPagePlanForChunk(pages, chunk) ?? buildDefaultPagePlan(chunk);
-    const prompt = buildChunkWriterPrompt(
-      [chunkPlan],
-      [chunk],
-      result,
-      config,
-      agentsMd,
-      memory,
-      knownTitles,
-      feedback,
-    );
-    const response = await llmClient.call(prompt, { maxTokens: 8500, temperature: 0.2 });
-    const parsed = parseChunkWriterJson(response.text);
-    if (!parsed || !Array.isArray(parsed.pages) || parsed.pages.length === 0) {
-      throw new CLIError('ChunkWriter returned invalid output.');
-    }
-    const normalized = normalizePageUpdate(parsed.pages[0], result, config, knownTitles);
-    if (!normalized) {
-      throw new CLIError('ChunkWriter returned invalid page output.');
-    }
-    return { ...normalized, filePath: `documents/${chunk.id}.md` };
-  });
-
-  return withConcurrencyLimit(chunkTasks, 4);
+  const chunkPlan = findPagePlanForChunk(pages, chunk) ?? buildDefaultPagePlan(chunk);
+  const prompt = buildChunkWriterPrompt(
+    [chunkPlan],
+    [chunk],
+    result,
+    config,
+    agentsMd,
+    memory,
+    knownTitles,
+    feedback,
+  );
+  const response = await llmClient.call(prompt, { maxTokens: 8500, temperature: 0.2 });
+  const parsed = parseChunkWriterJson(response.text);
+  if (!parsed || !Array.isArray(parsed.pages) || parsed.pages.length === 0) {
+    throw new CLIError('ChunkWriter returned invalid output.');
+  }
+  const normalized = normalizePageUpdate(parsed.pages[0], result, config, knownTitles);
+  if (!normalized) {
+    throw new CLIError('ChunkWriter returned invalid page output.');
+  }
+  return { ...normalized, filePath: `documents/${chunk.id}.md` };
 }
 async function withConcurrencyLimit<T>(
   tasks: (() => Promise<T>)[],
@@ -1820,6 +2029,10 @@ export interface EntityTopicPageInputEntity {
   mentions: EntityMentionLocation[];
   description?: string;
   relationships?: EntityMention['relationships'];
+  /** If provided, the LLM must preserve all existing information while updating. */
+  existingBody?: string;
+  /** Optional explicit source list; if omitted, sources are derived from mentions. */
+  sources?: { id: string; file: string; pages: string; extracted: string }[];
 }
 
 export interface EntityTopicPageInputTopic {
@@ -1827,6 +2040,10 @@ export interface EntityTopicPageInputTopic {
   count: number;
   mentions: TopicMentionLocation[];
   related: string[];
+  /** If provided, the LLM must preserve all existing information while updating. */
+  existingBody?: string;
+  /** Optional explicit source list; if omitted, sources are derived from mentions. */
+  sources?: { id: string; file: string; pages: string; extracted: string }[];
 }
 
 export async function entityTopicPageWriter(
@@ -1836,6 +2053,8 @@ export async function entityTopicPageWriter(
   llmClient: LLMClient,
   agentsMd?: string,
   memory?: OrchestratorMemory,
+  knownEntities?: EntityTopicPageInputEntity[],
+  knownTopics?: EntityTopicPageInputTopic[],
 ): Promise<EntityTopicPageOutput> {
   if (!llmClient.isEnabled()) {
     throw new CLIError('LLM is required for entity and topic page writing.');
@@ -1844,7 +2063,15 @@ export async function entityTopicPageWriter(
     return { entities: [], topics: [] };
   }
 
-  const prompt = buildEntityTopicWriterPrompt(entities, topics, config, agentsMd, memory);
+  const prompt = buildEntityTopicWriterPrompt(
+    entities,
+    topics,
+    config,
+    agentsMd,
+    memory,
+    knownEntities,
+    knownTopics,
+  );
   try {
     const response = await llmClient.call(prompt, { maxTokens: 8500, temperature: 0.2 });
     const parsed = parseEntityTopicWriterJson(response.text);
@@ -1865,6 +2092,8 @@ function buildEntityTopicWriterPrompt(
   config: Config,
   agentsMd?: string,
   _memory?: OrchestratorMemory,
+  knownEntities?: EntityTopicPageInputEntity[],
+  knownTopics?: EntityTopicPageInputTopic[],
 ): string {
   const lines: string[] = [
     'You are the EntityTopicPageWriter agent for a PDF-to-wiki CLI.',
@@ -1890,6 +2119,13 @@ function buildEntityTopicWriterPrompt(
     '- Use the exact source id (src1, src2, etc.) provided in the source list.',
     '- End with a link to the wiki index: [[' + config.wiki.title + ' Index]].',
     '',
+    'Update mode (when an existing body is provided):',
+    '- The existing body is shown verbatim under each entity/topic.',
+    '- Preserve every existing fact, citation, section, sentence, and detail.',
+    '- Add the new information from the supplied data to the relevant sections.',
+    '- You may rephrase for coherence, but you must NOT remove any existing information, not even a minor detail.',
+    '- If the existing body already contains an Appearances, Relationships, or Related section, extend it with the new data rather than replacing it.',
+    '',
     'Format requirements:',
     '- The body must be valid markdown.',
     '- Do NOT wrap the body in a markdown code block inside the JSON string.',
@@ -1913,17 +2149,20 @@ function buildEntityTopicWriterPrompt(
     lines.push('');
   }
 
-  if (entities.length > 0) {
+  const knownEntityList = knownEntities ?? entities;
+  const knownTopicList = knownTopics ?? topics;
+
+  if (knownEntityList.length > 0) {
     lines.push('## Known entities');
-    for (const entity of entities) {
+    for (const entity of knownEntityList) {
       lines.push(`- Entity: ${entity.name} (${entity.type}, mentions: ${entity.count})`);
     }
     lines.push('');
   }
 
-  if (topics.length > 0) {
+  if (knownTopicList.length > 0) {
     lines.push('## Known topics');
-    for (const topic of topics) {
+    for (const topic of knownTopicList) {
       lines.push(`- Topic: ${topic.name} (mentions: ${topic.count})`);
     }
     lines.push('');
@@ -1936,6 +2175,14 @@ function buildEntityTopicWriterPrompt(
       lines.push(`- type: ${entity.type}`);
       lines.push(`- mentions: ${entity.count}`);
       lines.push(`- description: ${entity.description || '(none)'}`);
+      if (entity.existingBody) {
+        lines.push('- existing body (preserve all of this, including every citation and wikilink):');
+        lines.push('  ```markdown');
+        for (const line of entity.existingBody.split('\n')) {
+          lines.push(`  ${line}`);
+        }
+        lines.push('  ```');
+      }
       if (entity.relationships && entity.relationships.length > 0) {
         lines.push('- relationships:');
         for (const rel of entity.relationships) {
@@ -1946,9 +2193,11 @@ function buildEntityTopicWriterPrompt(
       for (const m of entity.mentions) {
         lines.push(`  - ${m.source}, pages ${m.pages}`);
       }
-      const entitySourceLines = formatMentionSources(entity.mentions);
+      const entitySourceLines = entity.sources
+        ? formatExplicitSources(entity.sources)
+        : formatMentionSources(entity.mentions);
       if (entitySourceLines.length > 0) {
-        lines.push('- sources:');
+        lines.push('- sources (preserve existing ids; use them exactly in citations):');
         lines.push(...entitySourceLines);
       }
       lines.push('');
@@ -1961,13 +2210,23 @@ function buildEntityTopicWriterPrompt(
       lines.push(`### Topic: ${topic.name}`);
       lines.push(`- mentions: ${topic.count}`);
       lines.push(`- related: ${topic.related.join(', ') || '(none)'}`);
+      if (topic.existingBody) {
+        lines.push('- existing body (preserve all of this, including every citation and wikilink):');
+        lines.push('  ```markdown');
+        for (const line of topic.existingBody.split('\n')) {
+          lines.push(`  ${line}`);
+        }
+        lines.push('  ```');
+      }
       lines.push('- appearances:');
       for (const m of topic.mentions) {
         lines.push(`  - ${m.source}, pages ${m.pages}`);
       }
-      const topicSourceLines = formatMentionSources(topic.mentions);
+      const topicSourceLines = topic.sources
+        ? formatExplicitSources(topic.sources)
+        : formatMentionSources(topic.mentions);
       if (topicSourceLines.length > 0) {
-        lines.push('- sources:');
+        lines.push('- sources (preserve existing ids; use them exactly in citations):');
         lines.push(...topicSourceLines);
       }
       lines.push('');
@@ -1975,6 +2234,12 @@ function buildEntityTopicWriterPrompt(
   }
 
   return lines.join('\n');
+}
+
+function formatExplicitSources(
+  sources: { id: string; file: string; pages: string; extracted: string }[],
+): string[] {
+  return sources.map((s) => `  - ${s.id}: ${s.file}, pages ${s.pages}`);
 }
 
 function parseEntityTopicWriterJson(text: string): EntityTopicPageOutput | undefined {

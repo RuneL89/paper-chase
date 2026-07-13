@@ -32,16 +32,27 @@ import {
   type Topic,
   type MentionLocation as TopicMentionLocation,
 } from '../topics/index.js';
+import { materializeChunkEntitiesAndTopics } from '../ingestion/chunk-materializer.js';
+export {
+  verifyPreservation,
+  buildMergedSources,
+  isPageManuallyEdited,
+  normalizeRelationshipsForEntity,
+} from '../ingestion/state.js';
 import {
   structureAnalyst,
   entityExtractor,
   relationshipExtractor,
+  relationshipExtractorForChunk,
   evidenceCollector,
   pagePlanner,
   chunkWriter,
+  chunkWriterForChunk,
   critic,
   createInitialMemory,
   updateMemory,
+  prepareMemoryForSource,
+  updateMemoryForChunk,
   entityTopicPageWriter,
   entityCritic,
   applyEntityAudit,
@@ -108,6 +119,8 @@ export async function runIngestOrchestrator(
   samplingStrategy?: { category: string; reason: string },
   options?: { autoApproveProposals?: boolean },
   reporter?: ProgressReporter,
+  ingestionResult?: IngestionResult,
+  state?: IngestionState,
 ): Promise<IngestOrchestratorResult> {
   const progress = reporter ?? new NoOpReporter();
   const agentsMd = readAgentsMd(workspace, slug);
@@ -125,11 +138,13 @@ export async function runIngestOrchestrator(
 
   // Entity extraction runs per chunk so the LLM receives a focused context and
   // can accurately identify proper named entities. Results are accumulated and
-  // deduplicated across chunks.
+  // deduplicated across chunks, and per-chunk outputs are stored for the
+  // per-chunk materialization loop below.
   const accumulatedMemory = previousMemory
     ? mergeMemory(previousMemory, result, chunks)
     : createInitialMemory(result, chunks);
   const entityMap = new Map<string, ExtractedEntity>();
+  const chunkEntityOutputs: ExtractedEntity[][] = [];
   for (let chunkIndex = 0; chunkIndex < chunks.length; chunkIndex++) {
     const chunk = chunks[chunkIndex];
     progress.chunkProgress(result.fileName, chunk.id, chunkIndex + 1, chunks.length);
@@ -144,6 +159,7 @@ export async function runIngestOrchestrator(
         accumulatedMemory,
       ),
     );
+    chunkEntityOutputs.push(chunkEntities);
     for (const entity of chunkEntities) {
       const canonical = entity.canonical || slugify(entity.name);
       const existing = entityMap.get(canonical);
@@ -185,13 +201,8 @@ export async function runIngestOrchestrator(
   const auditedEntities = applyEntityAudit(entities, audit);
   logStep('entityCritic');
 
-  const { relationships } = await progress.step(
-    'relationship-extractor',
-    'Extracting relationships',
-    () => relationshipExtractor(result, auditedEntities, llmClient, agentsMd, previousMemory),
-  );
-  logStep('relationshipExtractor');
-
+  // Evidence and page planning happen once per source so the folder structure
+  // is stable for the whole source; entity/topic pages are updated per-chunk.
   const evidence = await progress.step(
     'evidence-collector',
     'Collecting evidence',
@@ -199,7 +210,6 @@ export async function runIngestOrchestrator(
   );
   logStep('evidenceCollector');
 
-  // Step 4: PagePlanner (LLM-only; aborts on invalid or empty output)
   const plannerOutput = await progress.step(
     'page-planner',
     'Planning wiki pages',
@@ -257,42 +267,154 @@ export async function runIngestOrchestrator(
 
   syncFolderPageTypes(resolvedFolderPlacements, resolvedPages);
 
+  // Prepare rolling memory for this source: subtract old contributions on re-ingestion
+  // and start with a fresh source ledger for per-chunk accumulation.
   const memory = previousMemory
     ? mergeMemory(previousMemory, result, chunks)
     : createInitialMemory(result, chunks);
+  prepareMemoryForSource(memory, result.filePath);
 
-  const validationResult = await writeAndValidateChunks(
-    workspace,
-    resolvedPages,
-    chunks,
-    result,
-    config,
-    llmClient,
-    agentsMd,
-    memory,
-    resolvedFolderPlacements,
-    progress,
-  );
-  const pageUpdates = validationResult.pageUpdates;
+  const wikiDir = path.join(workspace, 'wikis', slug);
+  const outputDir = path.join(wikiDir, config.output.dir);
+  mkdirSync(outputDir, { recursive: true });
+  for (const dir of ['documents', 'sources', 'raw', 'entities', 'topics']) {
+    mkdirSync(path.join(outputDir, dir), { recursive: true });
+  }
+  const pageUpdates: PageUpdate[] = [];
+  const documentLinks: DocumentPageLink[] = [];
+  const allCriticIssues: CriticReview['issues'] = [];
+  const allBlockingIssues: CriticReview['blockingIssues'] = [];
+  const allChecks: CriticReview['checks'] = [];
+  let allApproved = true;
+  const allCompletenessIssues: string[] = [];
+
+  // Per-chunk incremental flush: for each chunk we extract relationships, update
+  // memory, write the document page, and update affected entity/topic pages.
+  for (let chunkIndex = 0; chunkIndex < chunks.length; chunkIndex++) {
+    const chunk = chunks[chunkIndex];
+    const chunkEntities = chunkEntityOutputs[chunkIndex];
+
+    const chunkTopics = extractTopics(chunk.content, { max: 50 }).map((t) => ({ name: t.name, count: t.count, related: [] as string[] }));
+    updateMemoryForChunk(memory, result.filePath, chunkEntities, [], chunkTopics);
+
+    const { relationships: chunkRelationships } = await progress.step(
+      'relationship-extractor',
+      `Extracting relationships for chunk ${chunk.id}`,
+      () => relationshipExtractorForChunk(result, chunk, auditedEntities, llmClient, agentsMd, memory),
+    );
+    updateMemoryForChunk(memory, result.filePath, [], chunkRelationships, []);
+
+    const validationResult = await writeAndValidateChunk(
+      workspace,
+      resolvedPages,
+      chunk,
+      result,
+      config,
+      llmClient,
+      agentsMd,
+      memory,
+      resolvedFolderPlacements,
+      progress,
+    );
+    const pageUpdate = validationResult.pageUpdate;
+    pageUpdates.push(pageUpdate);
+    allCriticIssues.push(...validationResult.critic.issues);
+    allBlockingIssues.push(...validationResult.critic.blockingIssues);
+    allChecks.push(...validationResult.critic.checks);
+    allApproved = allApproved && validationResult.critic.approved;
+    allCompletenessIssues.push(...validationResult.completenessIssues);
+
+    const documentPageId = `documents/${chunk.id}.md`;
+    const filePath = path.join(outputDir, documentPageId);
+    mkdirSync(path.dirname(filePath), { recursive: true });
+    writeDocumentPage(
+      filePath,
+      chunk,
+      config,
+      { frontmatter: pageUpdate.frontmatter, body: pageUpdate.body },
+    );
+    if (ingestionResult) {
+      ingestionResult.documentPages++;
+    }
+
+    const parsed = matter(readFileSync(filePath, 'utf-8'));
+    documentLinks.push({ title: String(parsed.data.title || chunk.title), pageRange: chunk.pageRange });
+
+    await materializeChunkEntitiesAndTopics(
+      {
+        workspace,
+        slug,
+        config,
+        source: result,
+        chunk,
+        memory,
+        llmClient,
+        state: state ?? {
+          version: '1.1',
+          lastRun: new Date().toISOString(),
+          sources: {},
+          pages: {},
+        },
+        result: ingestionResult ?? {
+          sourceFiles: 0,
+          sourceFilePaths: [],
+          documentPages: 0,
+          rawPages: 0,
+          entityPages: 0,
+          topicPages: 0,
+          warnings: [],
+          errors: [],
+          changed: [],
+          added: [],
+          removed: [],
+          chunkBoundaries: [],
+          lintIssues: 0,
+        },
+        folderPlacements: resolvedFolderPlacements,
+        pages: resolvedPages,
+        reporter: progress,
+      },
+      chunkEntities,
+      chunkRelationships,
+    );
+  }
   logStep('chunkWriter');
   logStep('critic');
 
-  const validationReview = validatePagePlan(resolvedPages, resolvedFolderPlacements);
-  const combinedIssues = [
-    ...validationResult.critic.issues,
-    ...validationResult.completenessIssues.map((m) => ({ type: 'missing' as const, message: m, severity: 'medium' as const })),
-    ...validationReview.issues,
-  ];
-  const combinedCritic: CriticReview = {
-    approved: validationResult.critic.approved && validationResult.completenessIssues.length === 0,
-    issues: combinedIssues,
-    confidence: combinedIssues.length === 0 ? 'high' : 'low',
-    checks: validationResult.critic.checks,
-    blockingIssues: validationResult.critic.blockingIssues,
-  };
+  // Write raw pages for this source.
+  const baseSlug = path.basename(result.fileName, path.extname(result.fileName));
+  const rawPageIds = result.pages
+    .filter((page) => page.isScanned)
+    .map((page) => `raw/${baseSlug}-page-${page.physicalPage}.md`);
+  for (const rawPageId of rawPageIds) {
+    const pageNumber = parseInt(rawPageId.match(/page-(\d+)\.md$/)?.[1] || '0', 10);
+    const page = result.pages.find((p) => p.physicalPage === pageNumber);
+    if (page) {
+      writeRawPage(path.join(outputDir, rawPageId), result, page, config.wiki.slug);
+      if (ingestionResult) {
+        ingestionResult.rawPages++;
+      }
+    }
+  }
 
+  const rawLinks = rawPageIds.map((id) => ({
+    title: `Raw fragment: ${result.fileName}, page ${id.match(/page-(\d+)\.md$/)?.[1] || 0}`,
+    physicalPage: parseInt(id.match(/page-(\d+)\.md$/)?.[1] || '0', 10),
+  }));
+  writeSourcePage(
+    path.join(outputDir, `sources/${baseSlug}.md`),
+    result,
+    documentLinks,
+    rawLinks,
+    config.wiki.slug,
+  );
+
+  // Finalize topics from page plans and folder hierarchy in memory.
   const extractedTopics = mergeFragmentTopics(extractTopicsFromPagePlans(resolvedPages));
-  updateMemory(memory, result.filePath, auditedEntities, relationships, extractedTopics, resolvedFolderPlacements);
+  updateMemoryForChunk(memory, result.filePath, [], [], extractedTopics);
+  for (const folder of resolvedFolderPlacements) {
+    memory.state.folderHierarchy[folder.folder] = folder;
+  }
 
   // Rolling memory compaction and persistence.
   compactMemoryIfNeeded(memory, {
@@ -302,10 +424,22 @@ export async function runIngestOrchestrator(
     maxRollingMemoryTokens: config.llm?.maxRollingMemoryTokens ?? DEFAULT_MEMORY_CAPS.maxRollingMemoryTokens,
     compactionRatio: DEFAULT_MEMORY_CAPS.compactionRatio,
   });
-  const wikiDir = path.join(workspace, 'wikis', slug);
-  const outputDir = path.join(wikiDir, 'output');
   saveMemory(outputDir, memory);
   saveMemorySummary(outputDir, memory);
+
+  const validationReview = validatePagePlan(resolvedPages, resolvedFolderPlacements);
+  const combinedIssues = [
+    ...allCriticIssues,
+    ...allCompletenessIssues.map((m) => ({ type: 'missing' as const, message: m, severity: 'medium' as const })),
+    ...validationReview.issues,
+  ];
+  const combinedCritic: CriticReview = {
+    approved: allApproved && allCompletenessIssues.length === 0,
+    issues: combinedIssues,
+    confidence: combinedIssues.length === 0 ? 'high' : 'low',
+    checks: allChecks,
+    blockingIssues: allBlockingIssues,
+  };
 
   return {
     memory,
@@ -374,10 +508,10 @@ function topicNameFromPagePlan(page: PagePlan): string {
   return lower.trim();
 }
 
-async function writeAndValidateChunks(
+async function writeAndValidateChunk(
   workspace: string,
   pages: PagePlan[],
-  chunks: Chunk[],
+  chunk: Chunk,
   result: ExtractionResult,
   config: Config,
   llmClient: LLMClient,
@@ -386,17 +520,17 @@ async function writeAndValidateChunks(
   folderPlacements: FolderPlan[],
   reporter: ProgressReporter,
 ): Promise<{
-  pageUpdates: PageUpdate[];
+  pageUpdate: PageUpdate;
   critic: CriticReview;
   completenessIssues: string[];
 }> {
   const progress = reporter;
-  let pageUpdates = await progress.step(
+  let pageUpdate = await progress.step(
     'chunk-writer',
-    'Writing document chunks',
-    () => chunkWriter(
+    `Writing document chunk ${chunk.id}`,
+    () => chunkWriterForChunk(
       pages,
-      chunks,
+      chunk,
       result,
       config,
       llmClient,
@@ -406,7 +540,7 @@ async function writeAndValidateChunks(
   );
   let criticReview = await progress.step(
     'critic',
-    'Reviewing generated pages',
+    `Reviewing chunk ${chunk.id}`,
     () => critic(
       result,
       pages,
@@ -414,18 +548,16 @@ async function writeAndValidateChunks(
       llmClient,
       agentsMd,
       memory,
-      pageUpdates,
+      [pageUpdate],
     ),
   );
   if (criticReview.issues.length > 0) {
     progress.criticIssues(criticReview.issues);
   }
-  let completenessIssues = collectCompletenessIssues(chunks, pageUpdates, result);
-  const schemaIssues = validatePageUpdates(workspace, pages, pageUpdates, result, config);
+  let completenessIssues = collectCompletenessIssues([chunk], [pageUpdate], result);
+  const schemaIssues = validatePageUpdates(workspace, pages, [pageUpdate], result, config);
   completenessIssues = completenessIssues.concat(schemaIssues);
 
-  // Retry up to a bounded number of attempts, feeding the Critic, completeness,
-  // and schema/link/citation issues back to the ChunkWriter as explicit instructions.
   const maxRetries = Math.max(1, config.llm?.maxRetries ?? 2);
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     if (
@@ -436,12 +568,12 @@ async function writeAndValidateChunks(
     }
 
     const feedback = buildWriterFeedback(criticReview, completenessIssues);
-    pageUpdates = await progress.step(
+    pageUpdate = await progress.step(
       'chunk-writer',
-      `Retrying chunk writer (attempt ${attempt})`,
-      () => chunkWriter(
+      `Retrying chunk ${chunk.id} (attempt ${attempt})`,
+      () => chunkWriterForChunk(
         pages,
-        chunks,
+        chunk,
         result,
         config,
         llmClient,
@@ -452,7 +584,7 @@ async function writeAndValidateChunks(
     );
     criticReview = await progress.step(
       'critic',
-      `Re-reviewing generated pages (attempt ${attempt})`,
+      `Re-reviewing chunk ${chunk.id} (attempt ${attempt})`,
       () => critic(
         result,
         pages,
@@ -460,19 +592,19 @@ async function writeAndValidateChunks(
         llmClient,
         agentsMd,
         memory,
-        pageUpdates,
+        [pageUpdate],
       ),
     );
     if (criticReview.issues.length > 0) {
       progress.criticIssues(criticReview.issues);
     }
-    completenessIssues = collectCompletenessIssues(chunks, pageUpdates, result);
-    const retriedSchemaIssues = validatePageUpdates(workspace, pages, pageUpdates, result, config);
+    completenessIssues = collectCompletenessIssues([chunk], [pageUpdate], result);
+    const retriedSchemaIssues = validatePageUpdates(workspace, pages, [pageUpdate], result, config);
     completenessIssues = completenessIssues.concat(retriedSchemaIssues);
   }
 
   return {
-    pageUpdates,
+    pageUpdate,
     critic: criticReview,
     completenessIssues,
   };
@@ -604,22 +736,39 @@ export function writeIngestContracts(
   return folderIndexes;
 }
 
-export async function writeIngestOutput(context: IngestOutputContext): Promise<void> {
-  const { workspace, slug, config, processed, state, memory, folderPlacements, result, llmClient } = context;
+export interface IngestFinalOutputContext {
+  workspace: string;
+  slug: string;
+  config: Config;
+  state: IngestionState;
+  memory: OrchestratorMemory;
+  folderPlacements: FolderPlan[];
+  result: IngestionResult;
+  processed?: ProcessedSource[];
+}
+
+export async function writeIngestFinalOutput(context: IngestFinalOutputContext): Promise<void> {
+  const { workspace, slug, config, state, memory, folderPlacements, result, processed = [] } = context;
   const wikiDir = path.join(workspace, 'wikis', slug);
   const outputDir = path.join(wikiDir, config.output.dir);
-  const sourcesDir = path.join(outputDir, 'sources');
-  const documentsDir = path.join(outputDir, 'documents');
-  const rawDir = path.join(outputDir, 'raw');
-  const entitiesDir = path.join(outputDir, 'entities');
-  const topicsDir = path.join(outputDir, 'topics');
+
+  // Ensure the lint directory exists.
   const lintDir = path.join(outputDir, 'lint');
+  mkdirSync(lintDir, { recursive: true });
 
-  for (const dir of [sourcesDir, documentsDir, rawDir, entitiesDir, topicsDir, lintDir]) {
-    mkdirSync(dir, { recursive: true });
-  }
+  // Count pages that were already written incrementally so the final result reflects
+  // the actual output rather than what was buffered in memory.
+  result.documentPages = countPagesInFolder(outputDir, 'documents');
+  result.rawPages = countPagesInFolder(outputDir, 'raw');
+  result.entityPages = countPagesInFolder(outputDir, 'entities');
+  result.topicPages = countPagesInFolder(outputDir, 'topics');
 
-  // Determine global entities and topics from all sources (changed + unchanged).
+  // Build page information from the persisted state and the files already on disk.
+  const sourcePageInfos = buildSourcePageInfos(wikiDir, config.output.dir, state, processed);
+  const documentPageInfos = buildDocumentPageInfos(wikiDir, config.output.dir, state, processed);
+  const rawPageInfos = buildRawPageInfos(wikiDir, config.output.dir, state, processed);
+
+  // Determine selected entity and topic titles for the wiki index.
   const { entities: globalEntityCounts, topics: globalTopicCounts } = aggregateCounts(state.sources);
   const selectedEntityNames = filterByThreshold(
     globalEntityCounts,
@@ -631,180 +780,10 @@ export async function writeIngestOutput(context: IngestOutputContext): Promise<v
     config.ingestion.topic_threshold,
     config.ingestion.max_topics,
   );
-  const entityTitles = selectedEntityNames.map((name) => entityPageTitle({ name, type: inferEntityType(name), count: 0 }));
+  const entityTitles = selectedEntityNames.map((name) =>
+    entityPageTitle({ name, type: inferEntityType(name), count: 0 }),
+  );
   const topicTitles = selectedTopicNames.map((name) => topicPageTitle({ name, count: 0 }));
-
-  // Write document pages, raw pages, and source pages for changed sources.
-  const entityLocations: Record<string, EntityMentionLocation[]> = {};
-  const topicLocations: Record<string, TopicMentionLocation[]> = {};
-
-  for (const source of processed) {
-    if (isExtractionFailure(source.outcome)) continue;
-    const extractionResult = source.outcome;
-    const chunks = source.chunks!;
-
-    const documentLinks: DocumentPageLink[] = [];
-    for (let i = 0; i < chunks.length; i++) {
-      const chunk = chunks[i];
-      const documentPageId = source.documentPageIds![i];
-      const filePath = path.join(wikiDir, config.output.dir, documentPageId);
-      const update = source.pageUpdates?.find((u) => u.filePath.toLowerCase() === documentPageId.toLowerCase());
-      if (!update) {
-        throw new CLIError(`No LLM-generated page found for chunk ${chunk.id} (${documentPageId}).`);
-      }
-      writeDocumentPage(
-        filePath,
-        chunk,
-        config,
-        { frontmatter: update.frontmatter, body: update.body },
-        entityTitles,
-        topicTitles,
-      );
-      result.documentPages++;
-
-      // Use the LLM-written title, or the chunk title if the frontmatter is missing one,
-      // so that source and index pages link to the exact page title.
-      const parsed = matter(readFileSync(filePath, 'utf-8'));
-      documentLinks.push({ title: String(parsed.data.title || chunk.title), pageRange: chunk.pageRange });
-    }
-
-    for (const rawPageId of source.rawPageIds || []) {
-      const pageNumber = parseInt(rawPageId.match(/page-(\d+)\.md$/)?.[1] || '0', 10);
-      const page = extractionResult.pages.find((p) => p.physicalPage === pageNumber);
-      if (page) {
-        writeRawPage(path.join(wikiDir, config.output.dir, rawPageId), extractionResult, page, config.wiki.slug);
-        result.rawPages++;
-      }
-    }
-
-    // documentLinks is populated inside the document loop above so titles reflect the LLM-written frontmatter.
-    const rawLinks = (source.rawPageIds || []).map((id) => ({
-      title: `Raw fragment: ${source.fileName}, page ${id.match(/page-(\d+)\.md$/)?.[1] || 0}`,
-      physicalPage: parseInt(id.match(/page-(\d+)\.md$/)?.[1] || '0', 10),
-    }));
-    writeSourcePage(
-      path.join(wikiDir, config.output.dir, source.sourcePageId),
-      extractionResult,
-      documentLinks,
-      rawLinks,
-      config.wiki.slug,
-    );
-    source.documentLinks = documentLinks;
-
-    const pageRanges = chunks.map((c) => c.pageRange).join(', ');
-    for (const name of Object.keys(source.entities)) {
-      const title = entityPageTitle({ name, type: 'organization', count: 0 });
-      if (!entityLocations[title]) entityLocations[title] = [];
-      entityLocations[title].push({ source: source.fileName, filePath: source.relativeFile, pages: pageRanges });
-    }
-    for (const name of Object.keys(source.topics)) {
-      const title = topicPageTitle({ name, count: 0 });
-      if (!topicLocations[title]) topicLocations[title] = [];
-      topicLocations[title].push({ source: source.fileName, filePath: source.relativeFile, pages: pageRanges });
-    }
-  }
-
-  // Write entity pages.
-  const entityRegistry = new SlugRegistry();
-  const globalEntityTypeScores: Record<string, Record<EntityMention['type'], number>> = {};
-  for (const source of processed) {
-    if (!source.entityTypes) continue;
-    for (const [name, type] of Object.entries(source.entityTypes)) {
-      if (!globalEntityTypeScores[name]) {
-        globalEntityTypeScores[name] = { person: 0, organization: 0, product: 0, location: 0, case: 0, event: 0 };
-      }
-      const sourceCount = source.entities[name] || 1;
-      globalEntityTypeScores[name][type] += sourceCount;
-    }
-  }
-  function resolveEntityType(name: string): EntityMention['type'] {
-    const scores = globalEntityTypeScores[name];
-    if (!scores) return inferEntityType(name);
-    const entries = Object.entries(scores) as [EntityMention['type'], number][];
-    entries.sort((a, b) => b[1] - a[1]);
-    return entries[0][1] > 0 ? entries[0][0] : inferEntityType(name);
-  }
-
-  // Prepare LLM-authored entity/topic page bodies. If the LLM is disabled or
-  // returns invalid output, the writer aborts.
-  const entityInputs: EntityTopicPageInputEntity[] = selectedEntityNames.map((name) => {
-    const type = resolveEntityType(name);
-    const title = entityPageTitle({ name, type, count: 0 });
-    const count = globalEntityCounts[name];
-    const memoryEntity = memory?.state.entities[slugify(name)] ?? memory?.state.entities[name.toLowerCase()];
-    return {
-      name,
-      type,
-      count,
-      mentions: entityLocations[title] || [],
-      description: memoryEntity?.description,
-      relationships: memoryEntity?.relationships,
-    };
-  });
-  const topicInputs: EntityTopicPageInputTopic[] = selectedTopicNames.map((name) => {
-    const title = topicPageTitle({ name, count: 0 });
-    const count = globalTopicCounts[name];
-    const related = memory?.state.topics[name]?.related ?? topicLocations[title]?.map((m) => m.source) ?? [];
-    return {
-      name,
-      count,
-      mentions: topicLocations[title] || [],
-      related,
-    };
-  });
-  const agentsMd = readAgentsMd(workspace, slug);
-  const entityTopicBodies = llmClient
-    ? await entityTopicPageWriter(entityInputs, topicInputs, config, llmClient, agentsMd, memory)
-    : undefined;
-  const entityBodies = new Map(entityTopicBodies?.entities.map((e) => [e.name, e.body]) ?? []);
-  const topicBodies = new Map(entityTopicBodies?.topics.map((t) => [t.name, t.body]) ?? []);
-
-  for (const name of selectedEntityNames) {
-    const type = resolveEntityType(name);
-    const title = entityPageTitle({ name, type, count: 0 });
-    const count = globalEntityCounts[name];
-    const entity: EntityMention = { name, type, count };
-    // Memory stores entities by canonical slug; selected names use the display name.
-    const memoryEntity = memory?.state.entities[slugify(name)] ?? memory?.state.entities[name.toLowerCase()];
-    const entityMentions = entityLocations[title] || [];
-    writeEntityPage(
-      path.join(entitiesDir, entityFileNameWithRegistry(entity, entityRegistry)),
-      entity,
-      config,
-      entityMentions,
-      {
-        description: memoryEntity?.description,
-        relationships: memoryEntity?.relationships,
-        sources: buildMentionSources(entityMentions),
-      },
-      entityBodies.get(name),
-    );
-    result.entityPages++;
-  }
-
-  // Write topic pages.
-  for (const name of selectedTopicNames) {
-    const title = topicPageTitle({ name, count: 0 });
-    const count = globalTopicCounts[name];
-    const topic: Topic = { name, count };
-    const related = memory?.state.topics[name]?.related ?? topicLocations[title]?.map((m) => m.source) ?? [];
-    const topicMentions = topicLocations[title] || [];
-    writeTopicPage(
-      path.join(topicsDir, topicFileName(topic)),
-      topic,
-      config,
-      topicMentions,
-      related,
-      topicBodies.get(name),
-      buildMentionSources(topicMentions),
-    );
-    result.topicPages++;
-  }
-
-  // Build index page information.
-  const sourcePageInfos = buildSourcePageInfos(wikiDir, config.output.dir, state, processed);
-  const documentPageInfos = buildDocumentPageInfos(wikiDir, config.output.dir, state, processed);
-  const rawPageInfos = buildRawPageInfos(wikiDir, config.output.dir, state, processed);
 
   // Write dynamic folder hierarchy contracts and update rolling memory.
   const folderPages = collectFolderPages(wikiDir, config.output.dir, folderPlacements.map((f) => f.folder));
@@ -821,7 +800,7 @@ export async function writeIngestOutput(context: IngestOutputContext): Promise<v
     folderPages,
   );
 
-  // Write the wiki-level index as the final generated page (overwrites the skeleton/contract stub).
+  // Write the wiki-level index as the final generated page.
   const wikiIndexPath = path.join(outputDir, 'index.md');
   writeWikiIndex(
     wikiIndexPath,
@@ -845,9 +824,13 @@ export async function writeIngestOutput(context: IngestOutputContext): Promise<v
   const lintResult = lintWiki(workspace, slug, config);
   writeLintReport(workspace, slug, config, lintResult);
   result.lintIssues = lintResult.issues.length;
-  result.warnings.push(
-    ...lintResult.issues.map((i) => `[${i.type}] ${i.file}: ${i.message}`),
-  );
+  result.warnings.push(...lintResult.issues.map((i) => `[${i.type}] ${i.file}: ${i.message}`));
+}
+
+function countPagesInFolder(outputDir: string, folder: string): number {
+  const dir = path.join(outputDir, folder);
+  if (!existsSync(dir)) return 0;
+  return readdirSync(dir).filter((f) => f.endsWith('.md') && f !== 'index.md').length;
 }
 
 function mergeMemory(
@@ -917,7 +900,7 @@ export function readAgentsMd(workspace: string, slug: string): string | undefine
   }
 }
 
-function createEmptyMemory(): OrchestratorMemory {
+export function createEmptyMemory(): OrchestratorMemory {
   return {
     rollingSummary: 'No memory accumulated yet.',
     historicalSummary: '',
@@ -1044,6 +1027,25 @@ function buildDocumentPageInfos(
           sourceFile: source.fileName,
           sourcePageTitle: `Source: ${source.fileName}`,
           pageRange: link.pageRange,
+        });
+      }
+      continue;
+    }
+    if (source.documentPageIds) {
+      for (const docPage of source.documentPageIds) {
+        const docPagePath = path.join(outputDir, docPage);
+        if (!existsSync(docPagePath)) continue;
+        const parsed = matter(readFileSync(docPagePath, 'utf-8'));
+        const pageRange =
+          parsed.data.sources?.[0]?.pages ||
+          source.chunks?.find((c) => `documents/${c.id}.md` === docPage)?.pageRange ||
+          '?';
+        infos.push({
+          fileName: path.basename(docPage),
+          title: parsed.data.title || path.basename(docPage, '.md'),
+          sourceFile: source.fileName,
+          sourcePageTitle: `Source: ${source.fileName}`,
+          pageRange,
         });
       }
       continue;
