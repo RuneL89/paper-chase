@@ -307,10 +307,10 @@ function checkDuplicateEntities(wikiDir: string, contentFolders: string[]): Lint
 
   for (const file of collectMarkdownFilesRecursive(entitiesDir)) {
     const parsed = matter(readFileSync(file, 'utf-8'));
-    const slug = path.basename(file, '.md');
-    const title = String(parsed.data.title ?? slug);
-    entitySlugs.push(slug);
-    entityFileBySlug.set(slug, title);
+    const relative = path.relative(entitiesDir, file).replace(/\\/g, '/').replace(/\.md$/, '');
+    const title = String(parsed.data.title ?? path.basename(file, '.md'));
+    entitySlugs.push(relative);
+    entityFileBySlug.set(relative, title);
   }
 
   const duplicates = findPotentialDuplicates(entitySlugs);

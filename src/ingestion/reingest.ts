@@ -289,6 +289,23 @@ function updateContractsAndAgents(
   const folders = Object.values(hierarchy);
   const folderPages = collectFolderPages(outputDir, folders.map((f) => f.folder));
 
+  const entitySubFolders = state.memory?.state.entityTaxonomy.subFolders ?? [];
+  const entityFolderPlan = folders.find((f) => f.folder === 'entities');
+  if (entityFolderPlan) {
+    entityFolderPlan.children = entitySubFolders.map((s) => s.slug);
+  }
+  if (entityFolderPlan) {
+    folderPages['entities'] = entitySubFolders.map((s) => `${s.slug}/index.md`);
+  }
+  for (const sub of entitySubFolders) {
+    const fullDir = path.join(outputDir, 'entities', sub.slug);
+    if (existsSync(fullDir)) {
+      folderPages[`entities/${sub.slug}`] = readdirSync(fullDir)
+        .filter((f) => f.endsWith('.md') && f !== 'index.md')
+        .sort();
+    }
+  }
+
   const sourceCount = countPagesInFolder(outputDir, 'sources');
   const documentCount = countPagesInFolder(outputDir, 'documents');
   const rawCount = countPagesInFolder(outputDir, 'raw');
@@ -327,6 +344,44 @@ function updateContractsAndAgents(
           relationships: [],
           sources: {},
           folderHierarchy: {},
+          entityTaxonomy: { subFolders: [], assignments: {} },
+          rawFragments: [],
+          duplicateFlags: [],
+          sourceEntities: {},
+          sourceTopics: {},
+        },
+      },
+      folderPages,
+    );
+  }
+
+  // Write entity sub-folder indexes as DOX child contracts.
+  for (const sub of entitySubFolders) {
+    const subFolderPlan: FolderPlan = {
+      folder: `entities/${sub.slug}`,
+      title: sub.title,
+      description: sub.description,
+      pageTypes: ['entity'],
+      children: [],
+    };
+    const subIndexPath = path.join(wikiDir, 'entities', sub.slug, 'index.md');
+    mkdirSync(path.dirname(subIndexPath), { recursive: true });
+    writeFolderIndexContract(
+      subIndexPath,
+      subFolderPlan,
+      indexData,
+      state.memory || {
+        rollingSummary: '',
+        historicalSummary: '',
+        summaryOnly: false,
+        state: {
+          document: { title: '', totalPages: 0, currentChunk: 0, boundaryType: 'page' },
+          entities: {},
+          topics: {},
+          relationships: [],
+          sources: {},
+          folderHierarchy: {},
+          entityTaxonomy: { subFolders: [], assignments: {} },
           rawFragments: [],
           duplicateFlags: [],
           sourceEntities: {},
@@ -380,7 +435,16 @@ function collectFolderPages(outputDir: string, folders: string[]): Record<string
 function countPagesInFolder(outputDir: string, folder: string): number {
   const fullDir = path.join(outputDir, folder);
   if (!existsSync(fullDir)) return 0;
-  return readdirSync(fullDir).filter((f) => f.endsWith('.md') && f !== 'index.md').length;
+  let count = 0;
+  for (const entry of readdirSync(fullDir)) {
+    const entryPath = path.join(fullDir, entry);
+    if (statSync(entryPath).isDirectory()) {
+      count += countPagesInFolder(outputDir, path.join(folder, entry));
+    } else if (entry.endsWith('.md') && entry !== 'index.md') {
+      count++;
+    }
+  }
+  return count;
 }
 
 function discoverWikisForIndex(workspace: string): string[] {
@@ -416,10 +480,7 @@ function summarizeWiki(workspace: string, slug: string): WikiOfWikiSummary {
 
   const counts: Record<string, number> = {};
   for (const folder of ['documents', 'entities', 'topics', 'raw']) {
-    const dir = path.join(wikiDir, folder);
-    counts[folder] = existsSync(dir)
-      ? readdirSync(dir).filter((f) => f.endsWith('.md') && f !== 'index.md').length
-      : 0;
+    counts[folder] = countPagesInFolder(wikiDir, folder);
   }
 
   return {

@@ -265,6 +265,7 @@ export function applyProposal(
           duplicateFlags: [],
           sourceEntities: {},
           sourceTopics: {},
+          entityTaxonomy: { subFolders: [], assignments: {} },
         },
       });
     }

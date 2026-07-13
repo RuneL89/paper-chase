@@ -18,11 +18,16 @@ import type {
   DuplicateFlag,
   PagePlannerOutput,
   EntityAudit,
+  EntityTaxonomy,
+  EntitySubFolder,
 } from './types.js';
 import { validateFrontmatter } from '../validation/schema.js';
 import {
   type EntityMention,
   type MentionLocation as EntityMentionLocation,
+  buildTypeBasedTaxonomy,
+  resolveEntitySubFolder,
+  entityFilePath,
 } from '../entities/index.js';
 import { extractTopics, topicPageTitle, isGenericTopic, type Topic, type MentionLocation as TopicMentionLocation } from '../topics/index.js';
 import { slugify, SlugRegistry } from '../utils/slug.js';
@@ -1055,8 +1060,10 @@ function normalizePagePlannerOutput(
   result: ExtractionResult,
   entities: ExtractedEntity[],
 ): PagePlannerOutput {
+  const taxonomy = normalizeEntityTaxonomy(output.entityTaxonomy, entities);
+
   const pages = output.pages
-    .map((p) => normalizePagePlan(p, entities))
+    .map((p) => normalizePagePlan(p, entities, taxonomy))
     .filter(Boolean) as PagePlan[];
 
   const folderPlacements = Array.isArray(output.folderPlacements) ? output.folderPlacements : [];
@@ -1064,12 +1071,67 @@ function normalizePagePlannerOutput(
   return {
     pages,
     folderPlacements,
+    entityTaxonomy: taxonomy,
     wikilinks: Array.isArray(output.wikilinks) ? output.wikilinks : [],
     citations: Array.isArray(output.citations) ? output.citations : [],
     discovery: output.discovery,
   };
 }
-function normalizePagePlan(page: unknown, entities: ExtractedEntity[]): PagePlan | undefined {
+
+function normalizeEntityTaxonomy(
+  taxonomy: unknown,
+  entities: ExtractedEntity[],
+): EntityTaxonomy {
+  const fallback = buildTypeBasedTaxonomy(entities);
+  if (!taxonomy || typeof taxonomy !== 'object') {
+    return fallback;
+  }
+  const t = taxonomy as Record<string, unknown>;
+  const rawSubFolders = Array.isArray(t.subFolders) ? t.subFolders : [];
+  const rawAssignments = t.assignments && typeof t.assignments === 'object' ? (t.assignments as Record<string, unknown>) : {};
+
+  const subFolders: EntitySubFolder[] = [];
+  for (const raw of rawSubFolders) {
+    if (typeof raw !== 'object' || raw === null) continue;
+    const s = raw as Record<string, unknown>;
+    const slug = typeof s.slug === 'string' ? slugify(s.slug) : '';
+    const title = typeof s.title === 'string' ? s.title.trim() : slug;
+    const description = typeof s.description === 'string' ? s.description.trim() : '';
+    if (!slug) continue;
+    if (!subFolders.some((f) => f.slug === slug)) {
+      subFolders.push({ slug, title, description });
+    }
+  }
+
+  const assignments: Record<string, string> = {};
+  for (const [entitySlug, folderSlug] of Object.entries(rawAssignments)) {
+    const canonical = slugify(entitySlug);
+    const folder = typeof folderSlug === 'string' ? slugify(folderSlug) : '';
+    if (!canonical || !folder) continue;
+    assignments[canonical] = folder;
+    if (!subFolders.some((f) => f.slug === folder)) {
+      subFolders.push({ slug: folder, title: folder, description: `${folder} entities.` });
+    }
+  }
+
+  // Ensure every known entity has an assignment, falling back to its type.
+  for (const entity of entities) {
+    const canonical = entity.canonical || slugify(entity.name);
+    if (!assignments[canonical]) {
+      const folder = resolveEntitySubFolder(entity, { subFolders, assignments });
+      assignments[canonical] = folder;
+    }
+  }
+
+  // If the LLM returned no usable sub-folders at all, use the type-based fallback.
+  if (subFolders.length === 0) {
+    return fallback;
+  }
+
+  return { subFolders, assignments };
+}
+
+function normalizePagePlan(page: unknown, entities: ExtractedEntity[], taxonomy: EntityTaxonomy): PagePlan | undefined {
   if (typeof page !== 'object' || page === null) return undefined;
   const p = page as Record<string, unknown>;
   if (typeof p.title !== 'string' || p.title.trim() === '') return undefined;
@@ -1115,7 +1177,7 @@ function normalizePagePlan(page: unknown, entities: ExtractedEntity[]): PagePlan
 
   // Ensure topic pages always have related links to supporting documents and entities.
   if (pageType === 'topic' && related.length === 0) {
-    related = entities.slice(0, 3).map((e) => `entities/${e.canonical}.md`);
+    related = entities.slice(0, 3).map((e) => entityFilePath(e, taxonomy));
   }
 
   return {
@@ -1197,11 +1259,30 @@ function buildPagePlannerContext(
     lines.push('No existing hierarchy. Use the default folders: documents, sources, topics, entities, raw.');
   }
   lines.push('');
+
+  lines.push('## Existing entity taxonomy');
+  if (memory && memory.state.entityTaxonomy && memory.state.entityTaxonomy.subFolders.length > 0) {
+    for (const sub of memory.state.entityTaxonomy.subFolders) {
+      lines.push(`- ${sub.slug}: ${sub.title} — ${sub.description}`);
+    }
+  } else {
+    lines.push('No existing entity taxonomy. Propose a custom set of sub-folders for the entities/ folder.');
+  }
+  lines.push('');
+
   lines.push('## Structural rules');
   lines.push('');
   lines.push('- New page types inside existing folders are allowed and are auto-approved.');
   lines.push('- New folders or re-organizations must be emitted as a structural-change proposal; do not silently create a new folder.');
   lines.push('- If a page does not fit any existing folder, emit a proposal with a reason, the new folder name, and the affected pages.');
+  lines.push('');
+  lines.push('## Entity taxonomy rules');
+  lines.push('');
+  lines.push('The entities/ folder is split into sub-folders. Propose a small taxonomy that fits the corpus.');
+  lines.push('Each sub-folder has a slug, a title, and a short description.');
+  lines.push('Every entity must be assigned to exactly one sub-folder by its canonical slug.');
+  lines.push('Prefer the existing taxonomy above; only introduce new sub-folders for genuinely new groups.');
+  lines.push('Return the taxonomy in the `entityTaxonomy` field of the JSON output.');
   lines.push('');
   return lines.join('\n');
 }
@@ -1340,6 +1421,7 @@ export function createInitialMemory(
         },
       },
       folderHierarchy: {},
+      entityTaxonomy: { subFolders: [], assignments: {} },
       rawFragments: result.pages
         .filter((p) => p.isScanned)
         .map((p) => ({
@@ -1362,6 +1444,7 @@ export function updateMemory(
   relationships: ExtractedRelationship[],
   topics: { name: string; count: number; related: string[] }[],
   folderPlacements: FolderPlan[],
+  entityTaxonomy?: EntityTaxonomy,
 ): void {
   // Subtract old source contributions to avoid double-counting on re-ingestion.
   const oldSourceEntities = memory.state.sourceEntities[sourcePath] ?? {};
@@ -1464,6 +1547,11 @@ export function updateMemory(
     memory.state.folderHierarchy[folder.folder] = folder;
   }
 
+  // Update entity taxonomy if a new one was proposed.
+  if (entityTaxonomy) {
+    mergeEntityTaxonomy(memory, entityTaxonomy);
+  }
+
   // Update rolling summary.
   memory.rollingSummary = `Updated memory with ${Object.keys(memory.state.entities).length} entities, ${memory.state.relationships.length} relationships, and ${Object.keys(memory.state.topics).length} topics.`;
 
@@ -1484,6 +1572,23 @@ function flagDuplicateEntities(memory: OrchestratorMemory): void {
     if (!existing.has(key)) {
       memory.state.duplicateFlags.push(flag);
       existing.add(key);
+    }
+  }
+}
+
+export function mergeEntityTaxonomy(
+  memory: OrchestratorMemory,
+  incoming: EntityTaxonomy,
+): void {
+  const existing = memory.state.entityTaxonomy;
+  for (const sub of incoming.subFolders) {
+    if (!existing.subFolders.some((f) => f.slug === sub.slug)) {
+      existing.subFolders.push(sub);
+    }
+  }
+  for (const [canonical, folder] of Object.entries(incoming.assignments)) {
+    if (!existing.assignments[canonical]) {
+      existing.assignments[canonical] = folder;
     }
   }
 }

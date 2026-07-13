@@ -528,21 +528,59 @@ function generateMockResponse(prompt: string): string {
         title: 'Entities',
         description: 'People, organizations, and other named entities mentioned in the corpus.',
         pageTypes: ['entity'],
-        children: [],
+        children: ['organizations'],
       });
+      const entityTaxonomy = {
+        subFolders: [
+          { slug: 'organizations', title: 'Organizations', description: 'Organizations and companies.' },
+        ],
+        assignments: {} as Record<string, string>,
+      };
       for (const name of entityNames.slice(0, 1)) {
         const safeName = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        entityTaxonomy.assignments[safeName] = 'organizations';
         pages.push({
           pageType: 'entity',
           title: `Entity: ${name}`,
           fileName: `${safeName}.md`,
-          folder: 'entities',
+          folder: 'entities/organizations',
           tags: ['entity', 'organization'],
           citations: [],
           wikilinks: [],
           related: [],
         });
       }
+      for (const name of topicNames) {
+        const safeName = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        pages.push({
+          pageType: 'topic',
+          title: `Topic: ${name}`,
+          fileName: `${safeName}.md`,
+          folder: 'topics',
+          tags: ['topic'],
+          citations: [],
+          wikilinks: [],
+          related: entityNames.slice(0, 1).map((n) => {
+            const entityFile = n.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+            return `entities/organizations/${entityFile}.md`;
+          }),
+        });
+      }
+      return JSON.stringify({
+        pages,
+        folderPlacements,
+        entityTaxonomy,
+        wikilinks: [],
+        citations: [],
+        discovery: {
+          existingDocument: false,
+          newEntities: entityNames.length > 0,
+          newTopics: topicNames.length > 0,
+          hasTablesFigures: false,
+          rawPages: hasScanned,
+          newPageType: false,
+        },
+      });
     }
 
     for (const name of topicNames) {
@@ -555,7 +593,7 @@ function generateMockResponse(prompt: string): string {
         tags: ['topic'],
         citations: [],
         wikilinks: [],
-        related: entityNames.slice(0, 1).map((n) => `entities/${n.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}.md`),
+        related: [],
       });
     }
 
@@ -682,7 +720,7 @@ function generateMockResponse(prompt: string): string {
       '- `raw/` — source PDFs.',
       '- `documents/` — document chunk pages.',
       '- `sources/` — source provenance pages.',
-      '- `entities/` — entity pages.',
+      '- `entities/<subfolder>/` — entity pages grouped by taxonomy.',
       '- `topics/` — topic pages.',
       '- `raw/` — unparseable or scanned fragments.',
       '',
@@ -704,7 +742,7 @@ function generateMockResponse(prompt: string): string {
       '- Source pages: `sources/<pdf-slug>.md`',
       '- Document pages: `documents/<pdf-slug>-part-NNN.md`',
       '- Topic pages: `topics/<topic-slug>.md`',
-      '- Entity pages: `entities/<entity-slug>.md`',
+      '- Entity pages: `entities/<subfolder>/<entity-slug>.md`',
       '- Raw pages: `raw/<pdf-slug>-page-NNN.md`',
       '',
       '## Citation Rules',

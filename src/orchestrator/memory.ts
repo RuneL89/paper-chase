@@ -56,6 +56,7 @@ const emptyMemory: OrchestratorMemory = {
     duplicateFlags: [],
     sourceEntities: {},
     sourceTopics: {},
+    entityTaxonomy: { subFolders: [], assignments: {} },
   },
 };
 

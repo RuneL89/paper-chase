@@ -165,4 +165,21 @@ describe('lint report', () => {
     expect(parsed.total_pages).toBeGreaterThanOrEqual(0);
     expect(parsed.pages_by_type).toBeTypeOf('object');
   });
+
+  it('TAC-006: duplicate-entity detection does not flag identical base names in different sub-folders', () => {
+    mkdirSync(path.join(wikiDir, 'entities', 'people'), { recursive: true });
+    mkdirSync(path.join(wikiDir, 'entities', 'organizations'), { recursive: true });
+    writeFileSync(
+      path.join(wikiDir, 'entities', 'people', 'john-smith.md'),
+      matter.stringify('Person John Smith.', { title: 'John Smith', type: 'entity', wiki: 'acme' }),
+    );
+    writeFileSync(
+      path.join(wikiDir, 'entities', 'organizations', 'john-smith.md'),
+      matter.stringify('Organization John Smith Inc.', { title: 'John Smith Inc.', type: 'entity', wiki: 'acme' }),
+    );
+
+    const result = lintWiki(workspace, slug, makeConfig(slug));
+    expect(result.duplicate_entities_flagged).toBe(0);
+    expect(result.issues.some((i) => i.type === 'duplicate-entity')).toBe(false);
+  });
 });

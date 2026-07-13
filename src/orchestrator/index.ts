@@ -1,4 +1,5 @@
 import path from 'path';
+import { existsSync, readdirSync } from 'fs';
 import type { LLMClient } from '../llm/client.js';
 import type { Config } from '../config.js';
 import type { Chunk } from '../chunking/types.js';
@@ -14,6 +15,7 @@ import {
   critic,
   createInitialMemory,
   updateMemory,
+  mergeEntityTaxonomy,
   entityCritic,
   applyEntityAudit,
 } from './agents.js';
@@ -120,11 +122,39 @@ export async function runSampleOrchestrator(
   // Rolling memory
   const memory = createInitialMemory(result, chunks);
   const extractedTopics = extractTopicsFromPagePlans(plannerOutput.pages);
-  updateMemory(memory, result.filePath, entities, relationships, extractedTopics, folderPlacements);
+  updateMemory(
+    memory,
+    result.filePath,
+    entities,
+    relationships,
+    extractedTopics,
+    folderPlacements,
+    plannerOutput.entityTaxonomy,
+  );
 
   // Write index contracts
   const wikiDir = path.join(workspace, 'wikis', slug);
   const wikiIndexPath = path.join(wikiDir, 'index.md');
+
+  // Reflect entity sub-folders in the entities folder plan.
+  const entitySubFolders = memory.state.entityTaxonomy.subFolders;
+  const entityFolderPlan = folderPlacements.find((f) => f.folder === 'entities');
+  if (entityFolderPlan) {
+    entityFolderPlan.children = entitySubFolders.map((s) => s.slug);
+  }
+
+  const folderPages = collectFolderPages(wikiDir, folderPlacements);
+  if (entityFolderPlan) {
+    folderPages['entities'] = entitySubFolders.map((s) => `${s.slug}/index.md`);
+  }
+  for (const sub of entitySubFolders) {
+    const fullDir = path.join(wikiDir, 'entities', sub.slug);
+    if (existsSync(fullDir)) {
+      folderPages[`entities/${sub.slug}`] = readdirSync(fullDir)
+        .filter((f) => f.endsWith('.md') && f !== 'index.md')
+        .sort();
+    }
+  }
 
   const indexData: WikiIndexData = {
     slug,
@@ -145,8 +175,22 @@ export async function runSampleOrchestrator(
   const folderIndexes: string[] = [];
   for (const folder of folderPlacements) {
     const folderIndexPath = path.join(wikiDir, folder.folder, 'index.md');
-    writeFolderIndexContract(folderIndexPath, folder, indexData, memory);
+    writeFolderIndexContract(folderIndexPath, folder, indexData, memory, folderPages);
     folderIndexes.push(folderIndexPath);
+  }
+
+  // Write each entity sub-folder index as a DOX child contract.
+  for (const sub of entitySubFolders) {
+    const subFolderPlan: FolderPlan = {
+      folder: `entities/${sub.slug}`,
+      title: sub.title,
+      description: sub.description,
+      pageTypes: ['entity'],
+      children: [],
+    };
+    const subIndexPath = path.join(wikiDir, 'entities', sub.slug, 'index.md');
+    writeFolderIndexContract(subIndexPath, subFolderPlan, indexData, memory, folderPages);
+    folderIndexes.push(subIndexPath);
   }
 
   // Step 7: ChunkWriter — LLM authors every document page.
@@ -198,4 +242,20 @@ function topicNameFromPagePlan(page: PagePlan): string {
     return lower.slice(6).trim();
   }
   return lower.trim();
+}
+
+function collectFolderPages(
+  wikiDir: string,
+  folderPlacements: FolderPlan[],
+): Record<string, string[]> {
+  const result: Record<string, string[]> = {};
+  for (const folder of folderPlacements) {
+    const fullDir = path.join(wikiDir, folder.folder);
+    if (!existsSync(fullDir)) continue;
+    const entries = readdirSync(fullDir)
+      .filter((f) => f.endsWith('.md') && f !== 'index.md')
+      .sort();
+    result[folder.folder] = entries;
+  }
+  return result;
 }

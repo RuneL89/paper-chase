@@ -51,6 +51,7 @@ import {
   critic,
   createInitialMemory,
   updateMemory,
+  mergeEntityTaxonomy,
   prepareMemoryForSource,
   updateMemoryForChunk,
   entityTopicPageWriter,
@@ -274,11 +275,19 @@ export async function runIngestOrchestrator(
     : createInitialMemory(result, chunks);
   prepareMemoryForSource(memory, result.filePath);
 
+  if (plannerOutput.entityTaxonomy) {
+    mergeEntityTaxonomy(memory, plannerOutput.entityTaxonomy);
+  }
+
   const wikiDir = path.join(workspace, 'wikis', slug);
   const outputDir = path.join(wikiDir, config.output.dir);
   mkdirSync(outputDir, { recursive: true });
-  for (const dir of ['documents', 'sources', 'raw', 'entities', 'topics']) {
+  for (const dir of ['documents', 'sources', 'raw', 'topics']) {
     mkdirSync(path.join(outputDir, dir), { recursive: true });
+  }
+  mkdirSync(path.join(outputDir, 'entities'), { recursive: true });
+  for (const sub of memory.state.entityTaxonomy.subFolders) {
+    mkdirSync(path.join(outputDir, 'entities', sub.slug), { recursive: true });
   }
   const pageUpdates: PageUpdate[] = [];
   const documentLinks: DocumentPageLink[] = [];
@@ -701,28 +710,11 @@ export function writeIngestContracts(
   config: Config,
   memory: OrchestratorMemory,
   folderPlacements: FolderPlan[],
-  sourceCount: number,
-  documentCount: number,
-  rawCount: number,
-  warnings: string[],
+  indexData: WikiIndexData,
   folderPages: Record<string, string[]> = {},
 ): string[] {
   const wikiDir = path.join(workspace, 'wikis', slug);
   const wikiIndexPath = path.join(wikiDir, 'index.md');
-
-  const indexData: WikiIndexData = {
-    slug,
-    title: config.wiki.title,
-    description: config.wiki.description,
-    scope: memory.rollingSummary,
-    sourceCount,
-    documentCount,
-    entityCount: Object.keys(memory.state.entities).length,
-    topicCount: Object.keys(memory.state.topics).length,
-    rawCount,
-    folders: folderPlacements,
-    warnings,
-  };
 
   writeWikiIndexContract(wikiIndexPath, indexData, config);
 
@@ -785,20 +777,61 @@ export async function writeIngestFinalOutput(context: IngestFinalOutputContext):
   );
   const topicTitles = selectedTopicNames.map((name) => topicPageTitle({ name, count: 0 }));
 
-  // Write dynamic folder hierarchy contracts and update rolling memory.
+  // Reflect entity sub-folders in the entities folder plan.
+  const entitySubFolders = memory.state.entityTaxonomy.subFolders;
+  const entityFolderPlan = folderPlacements.find((f) => f.folder === 'entities');
+  if (entityFolderPlan) {
+    entityFolderPlan.children = entitySubFolders.map((s) => s.slug);
+  }
+
+  // Build folder page catalogs, including entity sub-folders.
   const folderPages = collectFolderPages(wikiDir, config.output.dir, folderPlacements.map((f) => f.folder));
+  if (entityFolderPlan) {
+    folderPages['entities'] = entitySubFolders.map((s) => `${s.slug}/index.md`);
+  }
+  const subFolderPages = collectEntitySubFolderPages(wikiDir, config.output.dir, entitySubFolders);
+  for (const [key, value] of Object.entries(subFolderPages)) {
+    folderPages[key] = value;
+  }
+
+  const indexData: WikiIndexData = {
+    slug,
+    title: config.wiki.title,
+    description: config.wiki.description,
+    scope: memory.rollingSummary,
+    sourceCount: result.sourceFiles,
+    documentCount: result.documentPages,
+    rawCount: result.rawPages,
+    entityCount: Object.keys(memory.state.entities).length,
+    topicCount: Object.keys(memory.state.topics).length,
+    folders: folderPlacements,
+    warnings: result.warnings,
+  };
+
+  // Write dynamic folder hierarchy contracts and update rolling memory.
   result.folderIndexes = writeIngestContracts(
     workspace,
     slug,
     config,
     memory || createEmptyMemory(),
     folderPlacements,
-    result.sourceFiles,
-    result.documentPages,
-    result.rawPages,
-    result.warnings,
+    indexData,
     folderPages,
   );
+
+  // Write each entity sub-folder index as a DOX child contract.
+  for (const sub of entitySubFolders) {
+    const subFolderPlan: FolderPlan = {
+      folder: `entities/${sub.slug}`,
+      title: sub.title,
+      description: sub.description,
+      pageTypes: ['entity'],
+      children: [],
+    };
+    const subIndexPath = path.join(outputDir, 'entities', sub.slug, 'index.md');
+    writeFolderIndexContract(subIndexPath, subFolderPlan, indexData, memory, folderPages);
+    result.folderIndexes.push(subIndexPath);
+  }
 
   // Write the wiki-level index as the final generated page.
   const wikiIndexPath = path.join(outputDir, 'index.md');
@@ -830,7 +863,16 @@ export async function writeIngestFinalOutput(context: IngestFinalOutputContext):
 function countPagesInFolder(outputDir: string, folder: string): number {
   const dir = path.join(outputDir, folder);
   if (!existsSync(dir)) return 0;
-  return readdirSync(dir).filter((f) => f.endsWith('.md') && f !== 'index.md').length;
+  let count = 0;
+  for (const entry of readdirSync(dir)) {
+    const full = path.join(dir, entry);
+    if (statSync(full).isDirectory()) {
+      count += countPagesInFolder(outputDir, path.join(folder, entry));
+    } else if (entry.endsWith('.md') && entry !== 'index.md') {
+      count++;
+    }
+  }
+  return count;
 }
 
 function mergeMemory(
@@ -854,6 +896,10 @@ function mergeMemory(
       relationships: [...previous.state.relationships],
       sources: { ...previous.state.sources },
       folderHierarchy: { ...previous.state.folderHierarchy },
+      entityTaxonomy: {
+        subFolders: [...previous.state.entityTaxonomy.subFolders],
+        assignments: { ...previous.state.entityTaxonomy.assignments },
+      },
       rawFragments: [...previous.state.rawFragments],
       duplicateFlags: [...previous.state.duplicateFlags],
       sourceEntities: { ...previous.state.sourceEntities },
@@ -912,6 +958,7 @@ export function createEmptyMemory(): OrchestratorMemory {
       relationships: [],
       sources: {},
       folderHierarchy: {},
+      entityTaxonomy: { subFolders: [], assignments: {} },
       rawFragments: [],
       duplicateFlags: [],
       sourceEntities: {},
@@ -1150,6 +1197,23 @@ function collectFolderPages(
   return result;
 }
 
+function collectEntitySubFolderPages(
+  wikiDir: string,
+  outputDirName: string,
+  subFolders: { slug: string }[],
+): Record<string, string[]> {
+  const result: Record<string, string[]> = {};
+  for (const sub of subFolders) {
+    const fullDir = path.join(wikiDir, outputDirName, 'entities', sub.slug);
+    if (!existsSync(fullDir)) continue;
+    const entries = readdirSync(fullDir)
+      .filter((f) => f.endsWith('.md') && f !== 'index.md')
+      .sort();
+    result[`entities/${sub.slug}`] = entries;
+  }
+  return result;
+}
+
 export function summarizeWiki(
   workspace: string,
   slug: string,
@@ -1183,18 +1247,10 @@ export function summarizeWiki(
   const entitiesDir = path.join(wikiDir, 'entities');
   const topicsDir = path.join(wikiDir, 'topics');
   const rawOutputDir = path.join(wikiDir, 'raw');
-  const documentCount = existsSync(documentsDir)
-    ? readdirSync(documentsDir).filter((f) => f.endsWith('.md') && f !== 'index.md').length
-    : 0;
-  const entityCount = existsSync(entitiesDir)
-    ? readdirSync(entitiesDir).filter((f) => f.endsWith('.md') && f !== 'index.md').length
-    : 0;
-  const topicCount = existsSync(topicsDir)
-    ? readdirSync(topicsDir).filter((f) => f.endsWith('.md') && f !== 'index.md').length
-    : 0;
-  const rawCount = existsSync(rawOutputDir)
-    ? readdirSync(rawOutputDir).filter((f) => f.endsWith('.md') && f !== 'index.md').length
-    : 0;
+  const documentCount = countPagesInFolder(wikiDir, 'documents');
+  const entityCount = countPagesInFolder(wikiDir, 'entities');
+  const topicCount = countPagesInFolder(wikiDir, 'topics');
+  const rawCount = countPagesInFolder(wikiDir, 'raw');
 
   return { slug, title, description, sourceCount, documentCount, entityCount, topicCount, rawCount };
 }

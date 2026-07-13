@@ -32,6 +32,21 @@ export interface WikiOfWikiResult {
   crossWikiNames: CrossWikiName[];
 }
 
+function collectMarkdownFilesRecursive(dir: string): string[] {
+  const files: string[] = [];
+  if (!existsSync(dir)) return files;
+  for (const entry of readdirSync(dir)) {
+    const fullPath = path.join(dir, entry);
+    const st = statSync(fullPath);
+    if (st.isDirectory()) {
+      files.push(...collectMarkdownFilesRecursive(fullPath));
+    } else if (entry.endsWith('.md') && entry !== 'index.md') {
+      files.push(fullPath);
+    }
+  }
+  return files;
+}
+
 export function runWikiOfWikiAgent(
   workspace: string,
   slugSummaries: WikiOfWikiSummary[],
@@ -50,16 +65,12 @@ export function runWikiOfWikiAgent(
       }
       const typeMap = namesByType.get(type)!;
 
-      for (const fileName of readdirSync(dir)) {
-        if (!fileName.endsWith('.md') || fileName === 'index.md') continue;
-        const filePath = path.join(dir, fileName);
-        const st = statSync(filePath);
-        if (!st.isFile()) continue;
-
+      for (const filePath of collectMarkdownFilesRecursive(dir)) {
         const parsed = matter(readFileSync(filePath, 'utf-8'));
         const title = String(parsed.data.title ?? '');
         if (!title) continue;
 
+        const fileName = path.relative(dir, filePath).replace(/\\/g, '/');
         const lowerName = title.toLowerCase();
         if (!typeMap.has(lowerName)) {
           typeMap.set(lowerName, []);

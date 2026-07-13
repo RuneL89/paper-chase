@@ -25,7 +25,9 @@ import {
 import {
   writeEntityPage,
   entityPageTitle,
-  entityFileName,
+  entityFilePath,
+  migrateLegacyEntityPage,
+  removeLegacyEntityPage,
   type EntityMention,
   type MentionLocation as EntityMentionLocation,
 } from '../entities/index.js';
@@ -114,7 +116,7 @@ export async function materializeChunkEntitiesAndTopics(
       description: memoryEntity.description,
       relationships: memoryEntity.relationships,
     };
-    const filePath = path.join(outputDir, 'entities', entityFileName(entity));
+    const { filePath } = migrateLegacyEntityPage(outputDir, entity, memory.state.entityTaxonomy);
     const relativePath = toRelativePathFromDir(outputDir, filePath);
     const existing = readExistingPage(filePath);
     const isManual = existing ? isPageManuallyEdited(relativePath, existing.content, state) : false;
@@ -213,7 +215,7 @@ export async function materializeChunkEntitiesAndTopics(
           description: input.description,
           relationships: input.relationships,
         };
-        const filePath = path.join(outputDir, 'entities', entityFileName(entity));
+        const { filePath } = migrateLegacyEntityPage(outputDir, entity, memory.state.entityTaxonomy);
         const relativePath = toRelativePathFromDir(outputDir, filePath);
         const existing = readExistingPage(filePath);
         const generatedBody = entityBodyMap.get(input.name);
@@ -228,12 +230,14 @@ export async function materializeChunkEntitiesAndTopics(
             ...normalizeRelationshipsForEntity(input.name, input.relationships),
           ]);
           writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), fallbackBody);
+        removeLegacyEntityPage(outputDir, entity);
           updatePageState(state, relativePath, outputDir, 'entity');
           result.entityPages++;
           continue;
         }
 
         writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), generatedBody);
+        removeLegacyEntityPage(outputDir, entity);
         updatePageState(state, relativePath, outputDir, 'entity');
         result.entityPages++;
       }
@@ -276,7 +280,7 @@ export async function materializeChunkEntitiesAndTopics(
           description: input.description,
           relationships: input.relationships,
         };
-        const filePath = path.join(outputDir, 'entities', entityFileName(entity));
+        const { filePath } = migrateLegacyEntityPage(outputDir, entity, memory.state.entityTaxonomy);
         const relativePath = toRelativePathFromDir(outputDir, filePath);
         const existing = readExistingPage(filePath);
         const fallbackBody = appendChunkToEntityBody(
@@ -287,6 +291,7 @@ export async function materializeChunkEntitiesAndTopics(
           normalizeRelationshipsForEntity(input.name, input.relationships),
         );
         writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), fallbackBody);
+        removeLegacyEntityPage(outputDir, entity);
         updatePageState(state, relativePath, outputDir, 'entity');
         result.entityPages++;
       }
@@ -315,6 +320,7 @@ export async function materializeChunkEntitiesAndTopics(
       rels,
     );
     writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), fallbackBody);
+    removeLegacyEntityPage(outputDir, entity);
     updatePageState(state, relativePath, outputDir, 'entity');
     result.entityPages++;
   }

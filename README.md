@@ -2,16 +2,16 @@
 
 ## 1. Introduction
 
-**LLM Wiki CLI** is a local, command-line research tool that turns a folder of PDFs into a citation-backed markdown wiki. It is built for investigative journalism, compliance research, and any workflow where every claim must be traceable to an exact page in an original source document.
+**LLM Wiki CLI** is a local command-line tool that turns a folder of PDFs into a citation-backed markdown wiki. It is built for investigative research, compliance reviews, and any workflow where every claim must be traceable to an exact page in the original source document.
 
-Drop a collection of PDFs into a wiki, run two commands, and get a network of interlinked markdown articles. Each article contains synthesized summaries, extracted tables and figures, named entities, recurring topics, and inline citations like `[^src1]` that map back to the exact PDF and page range.
+Drop a collection of PDFs into a wiki, run two commands, and you get a network of interlinked markdown articles. Each article contains synthesized summaries, extracted tables and figures, named entities, recurring topics, and inline citations like `[^src1]` that map back to the exact PDF and page range.
 
 The tool is inspired by two ideas:
 
 - **Andrej Karpathy's LLM Wiki Gist** — large texts should be split into small, self-contained wiki articles so readers can navigate without losing context.
 - **The DOX Framework** — complex knowledge bases should be organized into sub-folders with binding contracts so you always know what belongs where.
 
-LLM Wiki CLI combines both insights and applies them to PDF collections. It differs from **RAG** (which answers on the fly from raw documents) and from automatic connection-finders (which would match a donor in one corpus to a company in another). It is a *pre-compiled map*: the expensive work happens once at ingestion, producing a browseable, verifiable knowledge base that a journalist or research agent can use to find the story.
+LLM Wiki CLI combines both insights and applies them to PDF collections. It differs from **RAG** (which answers questions on the fly from raw documents) and from automatic connection-finders (which would blindly match names across corpora). It is a *pre-compiled map*: the expensive work happens once at ingestion, producing a browseable, verifiable knowledge base that a journalist, analyst, or research agent can use to find the story.
 
 In one sentence: **your PDFs become a citation-backed wiki, written by an LLM, organized by contracts, and owned entirely by you.**
 
@@ -34,12 +34,22 @@ At the highest level, the tool works in three layers:
 
 ### Typical workflow
 
-1. Create a workspace and put PDFs in `wikis/<slug>/raw/`.
-2. Run `sample <slug> <pdf>` on one representative PDF to analyze structure and generate starter config.
-3. Review the generated `chunking-strategy.md` and `index.md`, then set `status: "ready"` in `config.json`.
-4. Run `ingest <slug>` to process every PDF in the wiki.
-5. Browse `index-of-indexes.md` (workspace roadmap) → `wikis/<slug>/index.md` (wiki contract) → `wikis/<slug>/output/index.md` (generated catalog) → individual pages.
-6. Add or remove PDFs and re-run `ingest`; only changed files are reprocessed.
+1. **Create a workspace and a wiki.**
+   ```bash
+   llm-wiki-cli init acme-annual-reports --title "Acme Annual Reports" -w ./my-workspace
+   ```
+2. **Copy PDFs** into `my-workspace/wikis/acme-annual-reports/raw/`.
+3. **Run `sample`** on one representative PDF to discover structure and generate the starter artifacts.
+   ```bash
+   llm-wiki-cli sample acme-annual-reports -w ./my-workspace
+   ```
+4. **Review** the generated `chunking-strategy.md`, `AGENTS.md`, and `index.md`.
+5. **Run `ingest`** to process every PDF in the wiki.
+   ```bash
+   llm-wiki-cli ingest acme-annual-reports -w ./my-workspace
+   ```
+6. **Browse** the wiki starting from `index-of-indexes.md` → `wikis/<slug>/index.md` → folder-level `index.md` files → individual pages.
+7. **Add or remove PDFs** and re-run `ingest`; only changed files are reprocessed.
 
 ### Generated artifacts
 
@@ -49,20 +59,99 @@ At the highest level, the tool works in three layers:
 | `wikis/<slug>/index.md` | wiki root | Wiki-level DOX contract: catalog, navigation, page-type contract. |
 | `wikis/<slug>/chunking-strategy.md` | wiki root | Discovered PDF structure and chunk boundaries. |
 | `wikis/<slug>/config.json` | wiki root | Wiki-level config controlling ingestion. |
-| `wikis/<slug>/<folder>/index.md` | wiki root | Folder-level DOX child contract. |
-| `wikis/<slug>/output/index.md` | wiki output | Generated catalog of all pages in the wiki. |
-| `output/sources/` | wiki output | One catalog page per PDF with provenance. |
-| `output/documents/` | wiki output | Extracted text and tables per chunk. |
-| `output/entities/` | wiki output | People, organizations, products, and locations mentioned repeatedly. |
-| `output/topics/` | wiki output | Recurring themes and concepts. |
-| `output/raw/` | wiki output | Preserved fragments from scanned or unparseable pages. |
-| `output/lint/report.json` | wiki output | Validation results: broken links, invalid citations, missing frontmatter. |
-| `output/log.md` | wiki output | Append-only audit record of every ingestion run and structural change. |
+| `wikis/<slug>/AGENTS.md` | wiki root | LLM ingestion guide for this specific corpus. |
+| `wikis/<slug>/documents/index.md` | wiki root | Folder-level DOX child contract for document chunks. |
+| `wikis/<slug>/documents/<chunk>.md` | wiki root | Extracted text and synthesis per chunk. |
+| `wikis/<slug>/sources/index.md` | wiki root | Folder-level DOX child contract for source pages. |
+| `wikis/<slug>/sources/<pdf>.md` | wiki root | One catalog page per PDF with provenance. |
+| `wikis/<slug>/entities/index.md` | wiki root | Parent contract listing entity sub-folders. |
+| `wikis/<slug>/entities/<subfolder>/<slug>.md` | wiki root | Individual entity pages, grouped by type. |
+| `wikis/<slug>/topics/index.md` | wiki root | Folder-level DOX child contract for topic pages. |
+| `wikis/<slug>/topics/<slug>.md` | wiki root | Recurring themes and concepts. |
+| `wikis/<slug>/raw/<pdf>-page-N.md` | wiki root | Preserved fragments from scanned or unparseable pages. |
+| `wikis/<slug>/lint/report.json` | wiki root | Validation results: broken links, invalid citations, duplicate entities, missing frontmatter. |
+| `wikis/<slug>/.state/rolling-memory.json` | wiki root | Structured rolling memory of entities, topics, relationships, and hierarchy. |
+| `wikis/<slug>/.state/memory-summary.md` | wiki root | Compressed natural-language summary of the same memory. |
+| `wikis/<slug>/.kimi-code/logs/*.json` | wiki root | JSON run logs for every command. |
 
 ### The two roles of documentation
 
-- `AGENTS.md` — the **LLM's runbook**. It tells the LLM how to write pages, name files, cite sources, and handle this specific corpus. It is produced during `sample` and updated as the wiki evolves.
-- `index.md` hierarchy — the **human contract**. The `index-of-indexes.md` → `wikis/<slug>/index.md` → `<folder>/index.md` cascade tells a reader what each folder contains and how to navigate the wiki.
+- **`AGENTS.md`** — the **LLM's runbook**. It tells the LLM how to write pages, name files, cite sources, and handle this specific corpus. It is produced during `sample` and updated as the wiki evolves.
+- **`index.md` hierarchy** — the **human contract**. The `index-of-indexes.md` → `wikis/<slug>/index.md` → `<folder>/index.md` cascade tells a reader what each folder contains and how to navigate the wiki.
+
+### Setup and usage
+
+#### Requirements
+
+- Node.js >= 20.0.0
+- npm
+
+#### Install dependencies
+
+```bash
+npm install
+```
+
+#### Build the TypeScript source
+
+```bash
+npm run build
+```
+
+#### Run in development mode
+
+```bash
+npm run dev -- <command> [args]
+```
+
+#### Configure the LLM
+
+The agent pipeline is LLM-driven. Configure a provider before running `sample` or `ingest`:
+
+```bash
+llm-wiki-cli configure-llm -w ./my-workspace
+```
+
+Supported providers: `openai`, `anthropic`, `openai-compatible`, `kimi`, and `test`. Use the `test` provider with `enabled: true` for deterministic mock responses during testing.
+
+Test the connection with:
+
+```bash
+llm-wiki-cli test-llm -w ./my-workspace
+```
+
+#### Full example workflow
+
+```bash
+# 1. Create a workspace and a wiki
+llm-wiki-cli init acme-annual-reports -w ./my-workspace
+
+# 2. Copy PDFs into the wiki's raw folder
+#    my-workspace/wikis/acme-annual-reports/raw/
+
+# 3. Sample one representative PDF
+llm-wiki-cli sample acme-annual-reports -w ./my-workspace
+
+# 4. Review chunking-strategy.md, AGENTS.md, and index.md
+
+# 5. Ingest the full wiki
+llm-wiki-cli ingest acme-annual-reports -w ./my-workspace
+
+# 6. Ingest all wikis in the workspace
+llm-wiki-cli ingest-all -w ./my-workspace
+
+# 7. Check workspace status
+llm-wiki-cli status -w ./my-workspace
+
+# 8. Launch the interactive TUI
+llm-wiki-cli tui -w ./my-workspace
+```
+
+### Security notes
+
+- Never commit `.kimi-code/config.json`; it contains API keys.
+- No raw PDF bytes are sent over the network. Only extracted text and metadata go to remote LLMs.
+- JSON run logs never include API keys or raw content.
 
 ---
 
@@ -73,21 +162,24 @@ The CLI is a pipeline of **seven sub-agents** plus deterministic validation. The
 ### The seven sub-agents
 
 1. **StructureAnalyst** — reads the PDF and identifies headings, sections, tables, figures, and logical chunk boundaries.
-2. **EntityExtractor** — extracts people, organizations, locations, cases, events, and products mentioned in the text.
-3. **RelationshipExtractor** — identifies relationships between entities (e.g., "John Smith is the CEO of Acme Corp").
-4. **EvidenceCollector** — collects claims, numbers, dates, tables, and figures, each with its source location.
-5. **PagePlanner** — proposes the folder structure, page types, and page plans based on what was found.
-6. **ChunkWriter** — drafts the markdown pages: synthesized summaries, extracted text, citations, and wikilinks.
-7. **Critic** — reviews the drafted pages and page plan for quality, completeness, consistency, and adherence to `AGENTS.md`.
+2. **EntityExtractor** — extracts people, organizations, locations, cases, events, and products mentioned in the text, then merges them with rolling memory.
+3. **EntityCritic** — audits the extracted entity list and rejects false positives or hallucinations.
+4. **RelationshipExtractor** — identifies relationships between entities (e.g., "John Smith is the CEO of Acme Corp"). During `ingest` it also runs per-chunk to catch cross-chunk relationships.
+5. **EvidenceCollector** — collects claims, numbers, dates, tables, and figures, each with its source location.
+6. **PagePlanner** — proposes the folder structure, page types, filenames, and the entity taxonomy (sub-folders under `entities/`).
+7. **ChunkWriter** — drafts the markdown pages: synthesized summaries, extracted text, citations, and wikilinks.
+
+A separate **EntityTopicPageWriter** agent writes and updates entity and topic pages, preserving existing content.
 
 ### The `sample` flow
 
-1. Read the current `AGENTS.md` (usually a skeleton written by the user).
+1. Read the current `AGENTS.md` (usually a skeleton written during `init`).
 2. Classify the corpus: single very large document, similar manageable documents, similar very large documents, or mixed corpus.
 3. Apply a sampling strategy based on the classification (e.g., read one manageable document fully, sample the rest).
 4. Run the seven sub-agents on the sampled material.
 5. If the PagePlanner proposes a folder structure different from the existing one, produce a structural-change proposal. Simple changes can be approved interactively; complex changes are written to `.kimi-code/proposals/` for later review.
-6. Write the wiki-level `index.md`, folder-level `index.md` files, the updated `AGENTS.md`, and any sample content pages.
+6. Write the wiki-level `index.md`, folder-level `index.md` contracts, `entities/<subfolder>/index.md` child contracts, the updated `AGENTS.md`, and the sample document/source pages.
+7. Transition the wiki status from `initialized` to `ready` so `ingest` can run.
 
 ### The `ingest` flow
 
@@ -95,18 +187,19 @@ The CLI is a pipeline of **seven sub-agents** plus deterministic validation. The
 2. Compare each PDF in `raw/` to the last ingestion state by SHA-256. Skip unchanged PDFs; reprocess added, changed, or removed PDFs.
 3. For each changed PDF, extract text, tables, and figures with `pdfjs-dist`.
 4. Chunk the PDF using the strategy discovered during `sample`. Chunks are page-based; the system never splits inside a table or figure.
-5. Run the seven sub-agents on the chunks.
-6. Run the validation pipeline:
+5. Run the agents. Page planning happens once per source so the folder structure is stable; entity and topic extraction are refined per-chunk.
+6. Detect structural-change proposals against the previously approved folder hierarchy. Simple new-folder proposals can be approved interactively or with `--yes`; complex proposals are written to `.kimi-code/proposals/` and applied with `apply-proposal`. If rejected, the orchestrator falls back to the existing structure.
+7. Run the validation pipeline:
    - **Critic review** — LLM quality check with an eight-item checklist and blocking issues.
-   - **Deterministic completeness check** — compare the LLM-written page to the extracted input to ensure no text, tables, or figures were dropped.
-   - **Deterministic structural checks** — broken wikilinks, orphaned pages, citation integrity, duplicate entities.
+   - **Completeness check** — deterministic comparison of the LLM-written page to the extracted input to ensure no text, tables, or figures were dropped.
+   - **Structural checks** — broken wikilinks, orphaned pages, citation integrity, duplicate entities.
    - **Schema validation** — required YAML frontmatter fields per page type.
-7. If validation fails, reprocess the chunk with feedback (up to the configured maximum attempts).
-8. Write the final pages, update the folder-level and wiki-level `index.md` contracts, update `index-of-indexes.md`, append to `output/log.md`, and write `output/lint/report.json`.
+8. If validation fails, reprocess the chunk with feedback (up to the configured maximum attempts).
+9. Write the final pages, update the folder-level and wiki-level `index.md` contracts, update `index-of-indexes.md`, and write `lint/report.json`.
 
 ### Rolling memory
 
-Across multiple PDFs, the orchestrator maintains **rolling memory** (`.state/rolling-memory.json` and `.state/memory-summary.md`). This memory stores canonical entity names, aliases, topics, relationships, and the folder hierarchy so that later PDFs can link back to entities discovered in earlier PDFs and avoid duplicate pages.
+Across multiple PDFs, the orchestrator maintains **rolling memory** (`.state/rolling-memory.json` and `.state/memory-summary.md`). This memory stores canonical entity names, aliases, topics, relationships, the folder hierarchy, and the entity taxonomy so that later PDFs can link back to entities discovered in earlier PDFs and avoid duplicate pages. If the memory grows too large, the oldest 20% of entities, topics, relationships, and summary text are archived into the historical summary.
 
 ### Structural-change proposals
 
@@ -129,28 +222,31 @@ The Critic and the deterministic completeness check can block a chunk. When that
 - **Frontmatter:** `gray-matter`
 - **Tests:** Vitest
 - **Dev runner:** `tsx src/cli.ts`
+- **TUI:** Ink (React for terminals)
 
 ### Module layout
 
 ```
 src/
-├── cli.ts                      # Commander entry point
+├── cli.ts                      # Commander entry point; registers all commands
 ├── config.ts                   # default config, validation, merge logic
-├── workspace.ts                # wiki discovery, path helpers
+├── workspace.ts                # wiki discovery, path helpers, toRelativePath
 ├── errors.ts                   # CLIError class
 ├── prompt.ts                   # interactive prompt utility
 ├── log.ts                      # JSON run-log builder/writer
 ├── llm/                        # LLM client abstraction, adapters, JSON parsing
 ├── extractor/                  # PDF extraction and batch runner
 ├── chunking/                   # structure analyzer, chunker, strategy writer
-├── ingestion/                  # engine, incremental state, resume, reingest
+├── ingestion/                  # engine, incremental state, resume, reingest, materializer
 ├── orchestrator/               # sub-agents, memory, contracts, validation, sampling, proposals
-├── entities/                   # entity extraction and page writing
+├── entities/                   # entity extraction, taxonomy helpers, and page writing
 ├── topics/                     # topic extraction and page writing
 ├── wikilinks/                  # link helpers and repair
 ├── lint/                       # link/citation/frontmatter checks and report writer
 ├── validation/                 # deterministic validation: completeness, schema
 ├── writers/                    # markdown writers for pages, source, index, config, log
+├── progress/                   # structured progress events for TUI and logs
+├── tui/                        # interactive terminal UI
 └── utils/                      # slugification, similarity
 ```
 
@@ -184,7 +280,7 @@ wiki config.json > workspace .kimi-code/config.json > src/config.ts defaultConfi
    - new page types documented
    - pages self-contained and readable
 2. **Completeness (`validation/completeness.ts`)** — normalizes text, checks that every extracted paragraph is represented in the markdown body, that table headers are preserved, and that figures are described.
-3. **Structural checks (`lint/index.ts`)** — broken wikilinks, orphaned pages, citation integrity, duplicate entities.
+3. **Structural checks (`lint/index.ts`)** — broken wikilinks, orphaned pages, citation integrity, duplicate entities, stale pages, missing source files.
 4. **Schema validation (`validation/schema.ts`)** — required frontmatter fields per page type.
 
 ### Recovery mode
@@ -193,7 +289,7 @@ Configured in `config.json` under `resilience.recoveryMode`. The only supported 
 
 ### Cross-wiki discovery
 
-After all wikis in a workspace are ingested, `orchestrator/wiki-of-wiki.ts` compares entity and topic names across wikis and surfaces cross-wiki names. `writers/index.ts` writes the workspace-level `index-of-indexes.md` with these names and links to each wiki-level `index.md`.
+After all wikis in a workspace are ingested, `orchestrator/wiki-of-wiki.ts` recursively compares entity and topic names across wikis and surfaces cross-wiki names. `writers/index.ts` writes the workspace-level `index-of-indexes.md` with these names and links to each wiki-level `index.md`.
 
 ### Claim verification path
 
@@ -206,6 +302,14 @@ A reader can verify any claim in five steps:
 5. Open the original PDF at the cited page range to verify the claim.
 
 Because the full extracted text is also preserved on the wiki page, the reader can often verify the claim without leaving the wiki.
+
+### Development commands
+
+```bash
+npm run build     # compile src/ → dist/ with tsc
+npm run test      # run the Vitest suite
+npm run dev --    # run the CLI without compiling
+```
 
 ---
 
@@ -230,7 +334,7 @@ Because the full extracted text is also preserved on the wiki page, the reader c
 | File / Folder | Responsibility |
 |---|---|
 | `cli.ts` | Commander entry point; registers all commands. |
-| `commands/` | One module per CLI command: `init`, `sample`, `ingest`, `ingest-all`, `status`, `configure-llm`, `test-llm`, `apply-proposal`. |
+| `commands/` | One module per CLI command: `init`, `sample`, `ingest`, `ingest-all`, `status`, `configure-llm`, `test-llm`, `apply-proposal`, `tui`. |
 | `config.ts` | Default configuration, `buildConfig`, `loadConfig`, `mergeConfig`, `validateConfig`. |
 | `workspace.ts` | Wiki discovery, path helpers, inside-raw checks, `toRelativePath`. |
 | `extractor/pdf.ts` | PDF text extraction using `pdfjs-dist` legacy build. |
@@ -244,7 +348,8 @@ Because the full extracted text is also preserved on the wiki page, the reader c
 | `ingestion/state.ts` | Incremental ingestion state: SHA-256, per-page metadata, manifests. |
 | `ingestion/resume.ts` | Resume support for interrupted ingestion runs. |
 | `ingestion/reingest.ts` | Selective re-ingestion after approved structural changes. |
-| `orchestrator/agents.ts` | The seven sub-agents: StructureAnalyst, EntityExtractor, RelationshipExtractor, EvidenceCollector, PagePlanner, ChunkWriter, Critic. |
+| `ingestion/chunk-materializer.ts` | Per-chunk writer for document, entity, and topic pages. |
+| `orchestrator/agents.ts` | The seven sub-agents: StructureAnalyst, EntityExtractor, EntityCritic, RelationshipExtractor, EvidenceCollector, PagePlanner, ChunkWriter, plus Critic and EntityTopicPageWriter. |
 | `orchestrator/index.ts` | `runSampleOrchestrator` entry point. |
 | `orchestrator/ingest.ts` | `runIngestOrchestrator` and `writeIngestOutput`. |
 | `orchestrator/memory.ts` | Rolling memory persistence and compaction. |
@@ -256,10 +361,10 @@ Because the full extracted text is also preserved on the wiki page, the reader c
 | `orchestrator/types.ts` | Shared orchestrator types. |
 | `orchestrator/prompt-loader.ts` | Prompt file loader. |
 | `orchestrator/prompts/` | Markdown prompt files for each sub-agent. |
-| `entities/index.ts` | Entity extraction, page title/file-name helpers, and entity page writer. |
+| `entities/index.ts` | Entity extraction, taxonomy helpers, page title/file-name helpers, and entity page writer. |
 | `topics/index.ts` | Topic extraction and topic page writer. |
 | `wikilinks/` | Wikilink helpers and broken-link repair. |
-| `lint/index.ts` | Lint pass: broken links, citations, orphans, duplicate entities, report writer. |
+| `lint/index.ts` | Lint pass: broken links, citations, orphans, duplicate entities, stale pages, missing source files, report writer. |
 | `validation/completeness.ts` | Deterministic completeness check against extracted input. |
 | `validation/schema.ts` | YAML frontmatter schema validation. |
 | `llm/client.ts` | LLM client factory and provider adapters. |
@@ -273,94 +378,14 @@ Because the full extracted text is also preserved on the wiki page, the reader c
 | `writers/config.ts` | Wiki config writer. |
 | `writers/log.ts` | Append-only `log.md` writer. |
 | `writers/preservation.ts` | Helpers for preserving existing content. |
+| `progress/types.ts` | Progress event types and `ProgressReporter` interface. |
+| `progress/collecting-reporter.ts` | In-memory reporter for tests and TUI. |
+| `tui/index.ts` | TUI entry point and non-interactive render. |
+| `tui/app.tsx` | Main Ink component, screen routing, key handler. |
+| `tui/screens/` | Welcome, workspace, dashboard, wiki-detail, create-wiki, LLM config, progress, result screens. |
+| `tui/components/` | Panel, ProgressBar, StatusBar. |
 | `utils/slug.ts` | Unicode NFKD slugification and slug registry. |
 | `utils/similarity.ts` | Levenshtein and slug-based similarity for duplicate detection. |
 | `errors.ts` | `CLIError` for user-facing errors. |
 | `prompt.ts` | Interactive prompt utility (e.g., hidden API-key input). |
 | `log.ts` | JSON run-log builder and writer. |
-
----
-
-## Setup and usage
-
-### Requirements
-
-- Node.js >= 20.0.0
-- npm
-
-### Install dependencies
-
-```bash
-npm install
-```
-
-### Build the TypeScript source
-
-```bash
-npm run build
-```
-
-### Run in development mode
-
-```bash
-npm run dev -- <command> [args]
-```
-
-### Full example workflow
-
-```bash
-# 1. Create a workspace and a wiki
-npm run dev -- init acme-annual-reports -w ./my-workspace
-
-# 2. Copy PDFs into the wiki's raw folder
-#    (e.g., my-workspace/wikis/acme-annual-reports/raw/)
-
-# 3. Sample one representative PDF
-npm run dev -- sample acme-annual-reports \
-  my-workspace/wikis/acme-annual-reports/raw/acme-2022.pdf \
-  -w ./my-workspace
-
-# 4. Review chunking-strategy.md, index.md, and AGENTS.md,
-#    then set status to "ready" in config.json
-
-# 5. Ingest the full wiki
-npm run dev -- ingest acme-annual-reports -w ./my-workspace
-
-# 6. Ingest all wikis in the workspace
-npm run dev -- ingest-all -w ./my-workspace
-
-# 7. Check workspace status
-npm run dev -- status -w ./my-workspace
-```
-
-### Optional LLM configuration
-
-The CLI works without an LLM; all LLM-driven features fall back to deterministic output. To enable LLM-driven structure discovery, page drafting, and critic review:
-
-```bash
-npm run dev -- configure-llm -w ./my-workspace
-```
-
-This interactive wizard asks for provider, model, base URL, and API key. Supported providers: `openai`, `anthropic`, `openai-compatible`, `kimi`, and `test`.
-
-Test the connection with:
-
-```bash
-npm run dev -- test-llm -w ./my-workspace
-```
-
-### Security notes
-
-- Never commit `.kimi-code/config.json`; it contains API keys.
-- No raw PDF bytes are sent over the network. Only extracted text and metadata go to remote LLMs.
-- JSON run logs never include API keys or raw content.
-
----
-
-## Development commands
-
-```bash
-npm run build     # compile src/ → dist/ with tsc
-npm run test      # run the Vitest suite
-npm run dev --    # run the CLI without compiling
-```

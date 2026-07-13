@@ -72,6 +72,17 @@ export interface EntityAudit {
   issues: { type: string; message: string; severity: 'low' | 'medium' | 'high' }[];
 }
 
+export interface EntitySubFolder {
+  slug: string;
+  title: string;
+  description: string;
+}
+
+export interface EntityTaxonomy {
+  subFolders: EntitySubFolder[];
+  assignments: Record<string, string>;
+}
+
 export interface OrchestratorMemory {
   rollingSummary: string;
   historicalSummary: string;
@@ -88,6 +99,7 @@ export interface OrchestratorMemory {
     relationships: ExtractedRelationship[];
     sources: Record<string, { sha256: string; logicalPages: string; physicalPages: number; warnings: string[] }>;
     folderHierarchy: Record<string, FolderPlan>;
+    entityTaxonomy: EntityTaxonomy;
     rawFragments: { source: string; pages: string; reason: string; fragment: string }[];
     duplicateFlags: DuplicateFlag[];
     sourceEntities: Record<string, Record<string, number>>;
@@ -154,6 +166,7 @@ export interface IngestOrchestratorResult {
 export interface PagePlannerOutput {
   pages: PagePlan[];
   folderPlacements: FolderPlan[];
+  entityTaxonomy?: EntityTaxonomy;
   wikilinks: string[];
   citations: string[];
   discovery: DiscoveryChecklist;

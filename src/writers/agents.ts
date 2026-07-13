@@ -58,7 +58,7 @@ export function writeSkeletonAgentsMd(
   lines.push('- `raw/` — source PDFs.');
   lines.push('- `documents/` — document chunk pages.');
   lines.push('- `sources/` — source provenance pages.');
-  lines.push('- `entities/` — entity pages (people, organizations, locations, products, etc.).');
+  lines.push('- `entities/<subfolder>/` — entity pages (people, organizations, locations, products, etc.) grouped by the taxonomy proposed during sampling.');
   lines.push('- `topics/` — topic pages (recurring themes and concepts).');
   lines.push('- `raw/` — unparseable or scanned fragments.');
   lines.push('');
@@ -186,7 +186,7 @@ export function updateAgentsMd(
 function buildAgentsMdPrompt(context: AgentsMdContext): string {
   const folderList = context.folderPlacements
     ? context.folderPlacements.map((f) => `- ${f.folder}: ${f.description}`).join('\n')
-    : '- documents/\n- sources/\n- entities/\n- topics/\n- raw/';
+    : '- documents/\n- sources/\n- entities/<subfolder>/\n- topics/\n- raw/';
 
   const entityNames = context.memory
     ? Object.keys(context.memory.state.entities).slice(0, 20).join(', ')
@@ -263,7 +263,7 @@ function renderAgentsMdBody(context: AgentsMdContext): string {
     lines.push('- `raw/` — source PDFs.');
     lines.push('- `documents/` — document chunk pages.');
     lines.push('- `sources/` — source provenance pages.');
-    lines.push('- `entities/` — entity pages (people, organizations, locations, products, etc.).');
+    lines.push('- `entities/<subfolder>/` — entity pages (people, organizations, locations, products, etc.) grouped by the taxonomy proposed during sampling.');
     lines.push('- `topics/` — topic pages (recurring themes and concepts).');
     lines.push('- `raw/` — unparseable or scanned fragments.');
   }
@@ -295,7 +295,7 @@ function renderAgentsMdBody(context: AgentsMdContext): string {
   lines.push(`- Source pages: \`sources/<pdf-slug>.md\``);
   lines.push(`- Document pages: \`documents/<pdf-slug>-part-NNN.md\``);
   lines.push(`- Topic pages: \`topics/<topic-slug>.md\``);
-  lines.push(`- Entity pages: \`entities/<entity-slug>.md\``);
+  lines.push(`- Entity pages: \`entities/<subfolder>/<entity-slug>.md\``);
   lines.push(`- Raw pages: \`raw/<pdf-slug>-page-NNN.md\``);
   lines.push('');
 

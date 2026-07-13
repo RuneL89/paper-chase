@@ -66,7 +66,10 @@ describe('index-of-indexes writer', () => {
     const content = readFileSync(path.join(workspace, 'index-of-indexes.md'), 'utf-8');
     expect(content).toContain('Acme Wiki');
     expect(content).toContain('Globex Wiki');
-    expect(content).toContain('2 sources');
-    expect(content).toContain('1 sources');
+    expect(content).toContain('2 source(s)');
+    expect(content).toContain('1 source(s)');
+    expect(content).toContain('How to use this index');
+    expect(content).toContain('Wiki catalog');
+    expect(content).toContain('| Wiki | Sources | Docs | Entities | Topics | Raw | What it covers |');
   });
 });

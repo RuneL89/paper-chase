@@ -156,12 +156,14 @@ function getNamingConvention(folder: string): string {
     case 'sources':
       return '`<source-slug>.md` for each source PDF catalog page.';
     case 'entities':
-      return '`<entity-slug>.md` for each named entity.';
+      return '`<subfolder>/<entity-slug>.md` inside typed entity sub-folders.';
     case 'topics':
       return '`<topic-slug>.md` for each recurring theme.';
     case 'raw':
       return '`<source-slug>-page-NNN.md` for scanned pages, or `<source-slug>.md` for malformed files.';
-    default:
-      return '`<slug>.md` for pages in this folder.';
   }
+  if (folder.startsWith('entities/')) {
+    return '`<entity-slug>.md` for each named entity in this group.';
+  }
+  return '`<slug>.md` for pages in this folder.';
 }

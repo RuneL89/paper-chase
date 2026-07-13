@@ -31,7 +31,7 @@ Return ONLY a JSON object with this exact shape:
       "tags": ["tag"],
       "citations": ["src1"],
       "wikilinks": ["Related Page"],
-      "related": ["documents/source-part-001.md", "entities/slug.md"]
+      "related": ["documents/source-part-001.md", "entities/subfolder/slug.md"]
     }
   ],
   "folderPlacements": [
@@ -43,6 +43,19 @@ Return ONLY a JSON object with this exact shape:
       "children": []
     }
   ],
+  "entityTaxonomy": {
+    "subFolders": [
+      {
+        "slug": "companies",
+        "title": "Companies",
+        "description": "Corporate and organizational entities."
+      }
+    ],
+    "assignments": {
+      "acme-corp": "companies",
+      "jane-doe": "people"
+    }
+  },
   "wikilinks": ["Related Page"],
   "citations": ["src1"],
   "discovery": {
@@ -68,6 +81,9 @@ Return ONLY a JSON object with this exact shape:
 - **Plan at least 2–3 topic pages for the most important concepts, systems, databases, tools, or themes** in the corpus, even if they only appear once. If the corpus is too short or too generic to identify meaningful topics, it is acceptable to plan fewer, but never plan zero topics unless the corpus truly has no concepts.
 - Use title-case topic names with the prefix `Topic: ` (e.g., `Topic: PubMed`, `Topic: Electronic Data Submission`, `Topic: Falls Prevention`).
 - **Plan entity pages for the significant named organizations, persons, locations, products, and systems** identified by the EntityExtractor.
+- Group entity pages into sub-folders under `entities/`. Propose a `entityTaxonomy` with `subFolders` and an `assignments` map from each entity canonical slug to one sub-folder slug.
+- Prefer the existing taxonomy if one is shown; only add new sub-folders when the corpus contains a genuinely new group.
+- If the corpus is small and the taxonomy is not obvious, fall back to the built-in type-based sub-folders: `people`, `organizations`, `locations`, `cases`, `events`, `products`.
 - **Do not plan pages for generic document sections or headings** (e.g., "Introduction", "Methods", "Results") unless they represent a genuine named entity or recurring theme.
 - **Review your final plan before returning it.** Ensure every topic page has at least one `related` link to a supporting document or entity page. Ensure no topic or entity page is just a heading or descriptive phrase.
 - **Plan at least one document page** for each supplied chunk if no better mapping exists.

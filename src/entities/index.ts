@@ -1,10 +1,11 @@
-import { writeFileSync, mkdirSync } from 'fs';
+import { writeFileSync, mkdirSync, existsSync, readFileSync, renameSync, rmSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { CLIError } from '../errors.js';
 import { readCreatedTimestamp } from '../writers/preservation.js';
 import type { Config } from '../config.js';
 import { SlugRegistry, slugify } from '../utils/slug.js';
+import type { EntityTaxonomy } from '../orchestrator/types.js';
 
 export interface EntityMention {
   name: string;
@@ -410,6 +411,99 @@ export function entityFileNameWithRegistry(entity: EntityMention, registry: Slug
 
 export function entityPageTitle(entity: EntityMention): string {
   return `Entity: ${entity.name}`;
+}
+
+// ---------- Entity taxonomy helpers ----------
+
+const TYPE_TO_SUBFOLDER: Record<EntityMention['type'], string> = {
+  person: 'people',
+  organization: 'organizations',
+  location: 'locations',
+  case: 'cases',
+  event: 'events',
+  product: 'products',
+};
+
+const TYPE_TO_TITLE: Record<EntityMention['type'], string> = {
+  person: 'People',
+  organization: 'Organizations',
+  location: 'Locations',
+  case: 'Cases',
+  event: 'Events',
+  product: 'Products',
+};
+
+export function buildTypeBasedTaxonomy(entities: EntityMention[]): EntityTaxonomy {
+  const taxonomy: EntityTaxonomy = { subFolders: [], assignments: {} };
+  for (const entity of entities) {
+    const subFolder = TYPE_TO_SUBFOLDER[entity.type];
+    const title = TYPE_TO_TITLE[entity.type];
+    if (!taxonomy.subFolders.some((f) => f.slug === subFolder)) {
+      taxonomy.subFolders.push({ slug: subFolder, title, description: `${title} mentioned in the corpus.` });
+    }
+    taxonomy.assignments[slugify(entity.name)] = subFolder;
+  }
+  return taxonomy;
+}
+
+export function resolveEntitySubFolder(entity: EntityMention, taxonomy: EntityTaxonomy): string {
+  const canonical = slugify(entity.name);
+  const assigned = taxonomy.assignments[canonical];
+  if (assigned) return assigned;
+
+  const fallback = TYPE_TO_SUBFOLDER[entity.type] ?? 'other';
+  const title = TYPE_TO_TITLE[entity.type] ?? 'Other Entities';
+  if (!taxonomy.subFolders.some((f) => f.slug === fallback)) {
+    taxonomy.subFolders.push({ slug: fallback, title, description: `${title} mentioned in the corpus.` });
+  }
+  taxonomy.assignments[canonical] = fallback;
+  return fallback;
+}
+
+export function entityFilePath(entity: EntityMention, taxonomy: EntityTaxonomy): string {
+  const subFolder = resolveEntitySubFolder(entity, taxonomy);
+  return path.posix.join('entities', subFolder, `${slugify(entity.name)}.md`);
+}
+
+export function entityFilePathWithRegistry(
+  entity: EntityMention,
+  taxonomy: EntityTaxonomy,
+  registry: SlugRegistry,
+): string {
+  const subFolder = resolveEntitySubFolder(entity, taxonomy);
+  return path.posix.join('entities', subFolder, `${registry.register(entity.name)}.md`);
+}
+
+export function migrateLegacyEntityPage(
+  outputDir: string,
+  entity: EntityMention,
+  taxonomy: EntityTaxonomy,
+): { filePath: string; existingBody?: string } {
+  const newRelativePath = entityFilePath(entity, taxonomy);
+  const newFilePath = path.join(outputDir, newRelativePath);
+  if (existsSync(newFilePath)) {
+    return { filePath: newFilePath };
+  }
+
+  const legacyRelativePath = path.posix.join('entities', `${slugify(entity.name)}.md`);
+  const legacyFilePath = path.join(outputDir, legacyRelativePath);
+  if (existsSync(legacyFilePath)) {
+    mkdirSync(path.dirname(newFilePath), { recursive: true });
+    renameSync(legacyFilePath, newFilePath);
+    const content = readFileSync(newFilePath, 'utf-8');
+    const parsed = matter(content);
+    return { filePath: newFilePath, existingBody: parsed.content };
+  }
+
+  return { filePath: newFilePath };
+}
+
+export function removeLegacyEntityPage(outputDir: string, entity: EntityMention): void {
+  const legacyRelativePath = path.posix.join('entities', `${slugify(entity.name)}.md`);
+  const legacyFilePath = path.join(outputDir, legacyRelativePath);
+  if (existsSync(legacyFilePath)) {
+    rmSync(legacyFilePath);
+  }
 }
 
 export interface MentionLocation {

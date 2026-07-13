@@ -100,7 +100,20 @@ function runCliError(args: string[], cwd: string): { status: number; stderr: str
 function readOutputFiles(wikiDir: string, subdir: string): string[] {
   const fullDir = path.join(wikiDir, subdir);
   if (!existsSync(fullDir)) return [];
-  return readdirSync(fullDir).filter((f) => f.endsWith('.md'));
+  const files: string[] = [];
+  function walk(current: string) {
+    for (const entry of readdirSync(current)) {
+      const full = path.join(current, entry);
+      const st = statSync(full);
+      if (st.isDirectory()) {
+        walk(full);
+      } else if (entry.endsWith('.md') && entry !== 'index.md') {
+        files.push(path.relative(fullDir, full));
+      }
+    }
+  }
+  walk(fullDir);
+  return files;
 }
 
 function readMtimes(dir: string): Record<string, number> {
