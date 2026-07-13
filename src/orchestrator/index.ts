@@ -14,6 +14,8 @@ import {
   critic,
   createInitialMemory,
   updateMemory,
+  entityCritic,
+  applyEntityAudit,
 } from './agents.js';
 import { writeDocumentPage } from '../writers/document.js';
 import { writeWikiIndexContract, writeFolderIndexContract, type WikiIndexData } from './contracts.js';
@@ -44,11 +46,19 @@ export async function runSampleOrchestrator(
   );
 
   // Step 2: EntityExtractor
-  const { entities } = await progress.step(
+  const { entities: rawEntities } = await progress.step(
     'entity-extractor',
     'Extracting entities',
     () => entityExtractor(result, chunks, llmClient),
   );
+
+  // Step 2b: EntityCritic audits the extracted entity list.
+  const audit = await progress.step(
+    'entity-critic',
+    'Auditing extracted entities',
+    () => entityCritic(rawEntities, result, llmClient),
+  );
+  const entities = applyEntityAudit(rawEntities, audit);
 
   // Step 3: RelationshipExtractor
   const { relationships } = await progress.step(

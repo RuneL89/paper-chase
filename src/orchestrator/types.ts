@@ -66,6 +66,12 @@ export interface DuplicateFlag {
   reason: 'levenshtein' | 'slug';
 }
 
+export interface EntityAudit {
+  approvedEntities: string[];
+  rejectedEntities: { name: string; reason: string }[];
+  issues: { type: string; message: string; severity: 'low' | 'medium' | 'high' }[];
+}
+
 export interface OrchestratorMemory {
   rollingSummary: string;
   historicalSummary: string;

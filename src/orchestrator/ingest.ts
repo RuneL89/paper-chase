@@ -43,6 +43,8 @@ import {
   createInitialMemory,
   updateMemory,
   entityTopicPageWriter,
+  entityCritic,
+  applyEntityAudit,
   type EntityTopicPageOutput,
   type EntityTopicPageInputEntity,
   type EntityTopicPageInputTopic,
@@ -175,10 +177,18 @@ export async function runIngestOrchestrator(
   const entities = Array.from(entityMap.values());
   logStep('entityExtractor');
 
+  const audit = await progress.step(
+    'entity-critic',
+    'Auditing extracted entities',
+    () => entityCritic(entities, result, llmClient, agentsMd),
+  );
+  const auditedEntities = applyEntityAudit(entities, audit);
+  logStep('entityCritic');
+
   const { relationships } = await progress.step(
     'relationship-extractor',
     'Extracting relationships',
-    () => relationshipExtractor(result, entities, llmClient, agentsMd, previousMemory),
+    () => relationshipExtractor(result, auditedEntities, llmClient, agentsMd, previousMemory),
   );
   logStep('relationshipExtractor');
 
@@ -196,7 +206,7 @@ export async function runIngestOrchestrator(
     () => pagePlanner(
       result,
       structure,
-      entities,
+      auditedEntities,
       evidence,
       llmClient,
       agentsMd,
@@ -282,7 +292,7 @@ export async function runIngestOrchestrator(
   };
 
   const extractedTopics = mergeFragmentTopics(extractTopicsFromPagePlans(resolvedPages));
-  updateMemory(memory, result.filePath, entities, relationships, extractedTopics, resolvedFolderPlacements);
+  updateMemory(memory, result.filePath, auditedEntities, relationships, extractedTopics, resolvedFolderPlacements);
 
   // Rolling memory compaction and persistence.
   compactMemoryIfNeeded(memory, {
@@ -304,7 +314,7 @@ export async function runIngestOrchestrator(
     pageUpdates,
     critic: combinedCritic,
     proposals,
-    extractedEntities: entities,
+    extractedEntities: auditedEntities,
     extractedTopics,
   };
 }

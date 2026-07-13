@@ -629,6 +629,15 @@ function generateMockResponse(prompt: string): string {
     });
   }
 
+  if (prompt.includes('You are the EntityCritic agent')) {
+    const entityNames = parseEntityNamesFromCriticPrompt(prompt);
+    return JSON.stringify({
+      approvedEntities: entityNames,
+      rejectedEntities: [],
+      issues: [],
+    });
+  }
+
   if (prompt.includes('You are an expert wiki architect')) {
     const slugMatch = prompt.match(/Wiki slug: ([^\n]+)/);
     const titleMatch = prompt.match(/Wiki title: ([^\n]+)/);
@@ -848,6 +857,21 @@ export function createLLMClient(workspace: string, fetchFn?: typeof fetch, repor
 }
 
 export { estimateCost, estimateTokens };
+
+function parseEntityNamesFromCriticPrompt(prompt: string): string[] {
+  const names: string[] = [];
+  const regex = /## Candidate entities\n([\s\S]*?)(?=\n## |$)/g;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(prompt)) !== null) {
+    const block = match[1];
+    const lineRegex = /^- ([^(]+)/gm;
+    let line: RegExpExecArray | null;
+    while ((line = lineRegex.exec(block)) !== null) {
+      names.push(line[1].trim());
+    }
+  }
+  return names;
+}
 
 function detectAgentFromPrompt(prompt: string): string {
   const match = prompt.match(/You are the ([A-Za-z]+) agent/);

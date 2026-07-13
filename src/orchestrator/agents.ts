@@ -17,15 +17,10 @@ import type {
   DiscoveryChecklist,
   DuplicateFlag,
   PagePlannerOutput,
+  EntityAudit,
 } from './types.js';
 import { validateFrontmatter } from '../validation/schema.js';
 import {
-  entityPageTitle,
-  looksLikeOrganization,
-  containsOrgKeyword,
-  containsProductKeyword,
-  looksLikePerson,
-  looksLikeAcronym,
   type EntityMention,
   type MentionLocation as EntityMentionLocation,
 } from '../entities/index.js';
@@ -60,14 +55,7 @@ export interface EvidenceOutput {
 export { PagePlannerOutput, PagePlan };
 
 
-const entityPatterns: Record<EntityType, RegExp> = {
-  person: /\b([A-Z][a-z]+\s+[A-Z][a-z]+)\b/g,
-  organization: /\b([A-Z][a-z]+\s+(?:Corp|Inc|LLC|Ltd|Company|Association|Organization|Agency))\b/g,
-  location: /\b([A-Z][a-z]+\s*,\s*[A-Z]{2})\b/g,
-  case: /\b([A-Z][a-z]+\s+v\.?\s+[A-Z][a-z]+)\b/gi,
-  event: /\b(20\d{2}\s+[A-Z][a-z]+\s+Conference|Summit|Meeting)\b/g,
-  product: /\b([A-Z][a-z]+\s+(?:Product|Device|System|Platform|Tool))\b/g,
-};
+// ---------- Canonical name resolution ----------
 
 function inferEntityType(name: string): EntityType {
   const lower = name.toLowerCase();
@@ -337,7 +325,7 @@ export async function structureAnalyst(
   try {
     const context = buildStructureContext(result, chunks, agentsMd, memory);
     const response = await llmClient.call(buildPrompt('structure-analyst', context), {
-      maxTokens: 1000,
+      maxTokens: 8500,
       temperature: 0.2,
     });
     const parsed = parseStructuredJson<StructureOutput>(response.text);
@@ -419,7 +407,7 @@ export async function entityExtractor(
   try {
     const context = buildEntityContext(result, chunks, agentsMd, memory);
     const response = await llmClient.call(buildPrompt('entity-extractor', context), {
-      maxTokens: 2000,
+      maxTokens: 8500,
       temperature: 0.2,
     });
     const parsed = parseStructuredJson<{ entities?: unknown[] }>(response.text);
@@ -431,14 +419,21 @@ export async function entityExtractor(
           // Only keep LLM entities that include a non-empty description.
           return typeof e.description === 'string' && e.description.trim().length > 0;
         });
-      llmEntities = filterQualityEntities(normalized, chunks);
+      llmEntities = normalized.sort((a, b) => {
+        const countDiff = b.count - a.count;
+        if (countDiff !== 0) return countDiff;
+        return b.confidence - a.confidence;
+      }).slice(0, 50);
+    } else {
+      throw new CLIError('EntityExtractor returned invalid output.');
     }
-  } catch {
-    // Fall through to the invalid-output error below.
+  } catch (err) {
+    if (err instanceof CLIError) throw err;
+    throw new CLIError('EntityExtractor returned invalid output.');
   }
 
   if (llmEntities.length === 0) {
-    throw new CLIError('EntityExtractor returned invalid or empty output.');
+    return { entities: [] };
   }
 
   const combined = resolveAndMergeEntities(llmEntities, memory);
@@ -450,6 +445,94 @@ export async function entityExtractor(
   });
   return { entities: sorted.slice(0, 50) };
 }
+
+/**
+ * EntityCritic: LLM-driven review of extracted entities.
+ */
+export async function entityCritic(
+  entities: ExtractedEntity[],
+  result: ExtractionResult,
+  llmClient: LLMClient,
+  agentsMd?: string,
+): Promise<EntityAudit> {
+  if (!llmClient.isEnabled()) {
+    throw new CLIError('LLM is required for entity critic review.');
+  }
+  if (entities.length === 0) {
+    return { approvedEntities: [], rejectedEntities: [], issues: [] };
+  }
+
+  try {
+    const context = buildEntityCriticContext(entities, result, agentsMd);
+    const response = await llmClient.call(buildPrompt('entity-critic', context), {
+      maxTokens: 8500,
+      temperature: 0.2,
+    });
+    const parsed = parseStructuredJson<EntityAudit>(response.text);
+    if (parsed && isValidEntityAudit(parsed)) {
+      return parsed;
+    }
+  } catch (err) {
+    if (err instanceof CLIError) throw err;
+  }
+
+  throw new CLIError('EntityCritic returned invalid output.');
+}
+function isValidEntityAudit(audit: unknown): audit is EntityAudit {
+  const a = audit as Record<string, unknown> | undefined;
+  if (!a || typeof a !== 'object') return false;
+  if (!Array.isArray(a.approvedEntities)) return false;
+  if (!Array.isArray(a.rejectedEntities)) return false;
+  if (!Array.isArray(a.issues)) return false;
+  for (const item of a.rejectedEntities) {
+    if (typeof item !== 'object' || item === null) return false;
+    const r = item as Record<string, unknown>;
+    if (typeof r.name !== 'string' || typeof r.reason !== 'string') return false;
+  }
+  for (const item of a.issues) {
+    if (typeof item !== 'object' || item === null) return false;
+    const i = item as Record<string, unknown>;
+    if (typeof i.type !== 'string' || typeof i.message !== 'string') return false;
+    if (!['low', 'medium', 'high'].includes(String(i.severity))) return false;
+  }
+  return true;
+}
+function buildEntityCriticContext(
+  entities: ExtractedEntity[],
+  result: ExtractionResult,
+  agentsMd?: string,
+): string {
+  const lines: string[] = [];
+  if (agentsMd) {
+    lines.push('## AGENTS.md');
+    lines.push(agentsMd);
+    lines.push('');
+  }
+  lines.push('## Source PDF');
+  lines.push(`- file: ${result.fileName}`);
+  lines.push(`- pages: ${result.physicalPages}`);
+  lines.push('');
+  lines.push('## Extracted text by page');
+  for (const page of result.pages) {
+    lines.push(`### Page ${page.physicalPage}`);
+    lines.push(page.text.slice(0, 500));
+    lines.push('');
+  }
+  lines.push('## Candidate entities');
+  for (const entity of entities) {
+    lines.push(`- ${entity.name} (${entity.type}) — description: ${entity.description ?? '(none)'}`);
+  }
+  return lines.join('\n');
+}
+
+/**
+ * Apply an EntityAudit to a list of entities, keeping only approved names.
+ */
+export function applyEntityAudit(entities: ExtractedEntity[], audit: EntityAudit): ExtractedEntity[] {
+  const approved = new Set(audit.approvedEntities.map((n) => n.trim()));
+  return entities.filter((e) => approved.has(e.name.trim()));
+}
+
 function normalizeExtractedEntity(entity: unknown): ExtractedEntity | undefined {
   if (typeof entity !== 'object' || entity === null) return undefined;
   const e = entity as Record<string, unknown>;
@@ -505,50 +588,6 @@ function normalizeExtractedEntity(entity: unknown): ExtractedEntity | undefined 
   };
 }
 
-/**
- * Words that are common nouns, adjectives, section labels, or domain jargon and
- * should not be treated as proper nouns when validating entity names.
- */
-const GENERIC_ENTITY_WORDS = new Set([
-  // function words
-  'a', 'an', 'and', 'are', 'as', 'at', 'be', 'been', 'but', 'by', 'can', 'could', 'did', 'do', 'for', 'from', 'had', 'has', 'have', 'how', 'in', 'is', 'it', 'its', 'may', 'might', 'must', 'new', 'no', 'not', 'of', 'on', 'one', 'or', 'ought', 'shall', 'should', 'so', 'some', 'than', 'that', 'the', 'their', 'there', 'these', 'they', 'this', 'those', 'through', 'to', 'two', 'under', 'up', 'us', 'was', 'were', 'we', 'what', 'when', 'where', 'which', 'who', 'whom', 'whose', 'why', 'will', 'with', 'would',
-  // generic document words
-  'page', 'document', 'report', 'table', 'figure', 'note', 'section', 'appendix', 'contents', 'summary', 'references', 'acknowledgements', 'introduction', 'objectives', 'methods', 'results', 'conclusion', 'discussion', 'background', 'purpose', 'analysis', 'review', 'abstract', 'example', 'examples', 'created', 'updated', 'revised', 'issued', 'date', 'sheet', 'limit', 'limits', 'history',
-  // generic nouns / adjectives / domain jargon that produced false positives in the E2E corpus
-  'about', 'added', 'after', 'affairs', 'agency', 'all', 'also', 'alternate', 'american', 'analysis', 'analyst', 'annex', 'annual', 'approach', 'approaches', 'approached', 'appointed', 'approval', 'approved', 'arild', 'articles', 'article', 'asian', 'asset', 'assets', 'assessment', 'association', 'author', 'authorised', 'authorized', 'available', 'balance', 'baltic', 'bank', 'banking', 'based', 'before', 'benefits', 'beverage', 'bibliographic', 'board', 'bodies', 'bod', 'bond', 'bonds', 'broad', 'broader', 'business', 'bureau', 'cabinet', 'can', 'capital', 'caption', 'carbon', 'care', 'catalog', 'catalogue', 'center', 'centre', 'chair', 'chairman', 'chairmanship', 'chamber', 'change', 'changes', 'chemical', 'chemicals', 'chief', 'citation', 'citations', 'climate', 'collaborator', 'committee', 'community', 'company', 'compensation', 'compliance', 'concentration', 'concept', 'concepts', 'conclusion', 'conference', 'consortium', 'consumer', 'continues', 'contract', 'control', 'cooperation', 'cooperative', 'coordinating', 'corporate', 'corporation', 'council', 'country', 'created', 'credit', 'criteria', 'currency', 'current', 'customer', 'data', 'database', 'day', 'day-to-day', 'debt', 'decision', 'definition', 'department', 'derivative', 'derivatives', 'designed', 'developed', 'details', 'device', 'direct', 'director', 'directors', 'disclosure', 'disclosures', 'disease', 'discussion', 'division', 'dtd', 'economic', 'economics', 'education', 'educational', 'effective', 'efficiency', 'efficient', 'electronic', 'eligible', 'emergency', 'end', 'energy', 'england', 'enterprise', 'enterprises', 'environment', 'environmental', 'equity', 'esg', 'estate', 'estonia', 'ethics', 'european', 'evaluation', 'event', 'evidence', 'exchange', 'executive', 'expansion', 'expert', 'exposure', 'facility', 'factoring', 'factory', 'fallback', 'falls', 'feature', 'federation', 'field', 'fields', 'file', 'finance', 'financial', 'financials', 'finland', 'finnish', 'firm', 'fiscal', 'following', 'forecast', 'foreign', 'form', 'framework', 'free', 'fund', 'funding', 'funds', 'future', 'gas', 'general', 'generic', 'global', 'goods', 'governance', 'government', 'group', 'growth', 'guarantee', 'guarantees', 'handbook', 'has', 'headings', 'health', 'held', 'helped', 'high', 'higher', 'highest', 'hill', 'holdings', 'host', 'how', 'human', 'icon', 'impact', 'implemented', 'included', 'including', 'income', 'index', 'industries', 'industry', 'information', 'initiative', 'innovation', 'institute', 'institution', 'institutional', 'institutionalised', 'instrument', 'insurance', 'integrated', 'interest', 'internal', 'international', 'inventory', 'invested', 'investing', 'investment', 'investments', 'investor', 'investors', 'involved', 'isk', 'issue', 'issued', 'issues', 'its', 'journal', 'journals', 'key', 'knowledge', 'largest', 'latvia', 'law', 'leading', 'led', 'lending', 'level', 'liability', 'library', 'license', 'life', 'limit', 'limits', 'line', 'link', 'linking', 'links', 'liquidity', 'lit', 'loan', 'loans', 'local', 'location', 'long', 'longer', 'low', 'lower', 'lowest', 'lp', 'ltd', 'made', 'maintained', 'major', 'management', 'manager', 'manual', 'march', 'market', 'markets', 'material', 'maturity', 'medical', 'medicine', 'member', 'membership', 'metric', 'metrics', 'minister', 'ministry', 'model', 'moderate', 'modern', 'molecular', 'monetary', 'more', 'mortgage', 'national', 'natural', 'nature', 'negative', 'new', 'nib', 'nkg', 'nkr', 'nkv', 'nkvk', 'nkr', 'nomination', 'nordic', 'note', 'notes', 'novel', 'objective', 'objectives', 'obligations', 'observation', 'obtained', 'occupational', 'october', 'office', 'officer', 'official', 'of', 'oil', 'older', 'on', 'operating', 'operational', 'operations', 'opportunity', 'order', 'organization', 'organisation', 'original', 'outstanding', 'over', 'overview', 'pacific', 'page', 'pages', 'participant', 'participants', 'partners', 'partnership', 'party', 'past', 'payment', 'pension', 'people', 'period', 'permanent', 'person', 'personal', 'phase', 'planned', 'planning', 'platform', 'poorly', 'portfolio', 'position', 'positive', 'possible', 'practices', 'prepared', 'presentation', 'preservation', 'president', 'prevention', 'previous', 'primary', 'principal', 'process', 'processed', 'product', 'production', 'products', 'professional', 'program', 'programme', 'project', 'projects', 'promoting', 'proper', 'property', 'proposal', 'proposed', 'protocol', 'provided', 'public', 'publication', 'publications', 'publicly', 'published', 'purpose', 'qualitative', 'quality', 'quantitative', 'quarter', 'quarterly', 'rating', 'ratings', 'real', 'reason', 'receivable', 'receivables', 'recipient', 'recognised', 'recognized', 'recommendation', 'record', 'recovery', 'reduced', 'reduction', 'reference', 'references', 'regional', 'regulated', 'regulation', 'regulations', 'regulatory', 'related', 'relevant', 'report', 'reported', 'reporting', 'reports', 'representative', 'reputation', 'request', 'required', 'requirement', 'requirements', 'research', 'reserve', 'reserves', 'resilience', 'resilient', 'resolution', 'resolving', 'resource', 'resources', 'responsible', 'responsibility', 'rest', 'result', 'results', 'retail', 'retained', 'retirement', 'return', 'returns', 'review', 'reviewed', 'right', 'risk', 'risks', 'role', 'rubric', 'rule', 'rules', 'safe', 'safety', 'said', 'salary', 'says', 'scanning', 'scenario', 'scenarios', 'schedule', 'science', 'sciences', 'scope', 'score', 'scores', 'search', 'searching', 'seasonal', 'secondary', 'secretary', 'sector', 'sectors', 'secured', 'securities', 'security', 'selected', 'selection', 'senior', 'separate', 'sequence', 'ser', 'service', 'services', 'set', 'settlement', 'several', 'share', 'shared', 'shareholder', 'shareholders', 'shares', 'sheet', 'short', 'significant', 'simple', 'slower', 'small', 'society', 'societal', 'soft', 'solution', 'solutions', 'source', 'sourcing', 'special', 'speciality', 'specialty', 'specific', 'spend', 'spending', 'spread', 'stability', 'stable', 'staff', 'stakeholder', 'stakeholders', 'standard', 'standards', 'state', 'statement', 'statements', 'statistical', 'statistics', 'status', 'strategy', 'strong', 'structural', 'structure', 'structured', 'subheadings', 'subject', 'subjects', 'submission', 'submitted', 'subsidiary', 'substantial', 'successful', 'summary', 'supervisory', 'supplement', 'supplementary', 'supplied', 'supply', 'support', 'supported', 'supporting', 'sustainability', 'sustainable', 'sustainalytics', 'swap', 'swaps', 'syndicated', 'system', 'systems', 'table', 'tables', 'taken', 'taking', 'target', 'targets', 'tariff', 'task', 'taskforce', 'tax', 'taxation', 'taxonomy', 'team', 'technical', 'technologies', 'technology', 'term', 'terms', 'text', 'than', 'that', 'the', 'them', 'then', 'theory', 'there', 'these', 'thesis', 'those', 'through', 'throughout', 'time', 'times', 'title', 'to', 'tool', 'topic', 'total', 'trade', 'traded', 'trading', 'training', 'transfer', 'transferred', 'translation', 'transmission', 'transparency', 'treasury', 'treaty', 'trend', 'trends', 'trial', 'trust', 'trustee', 'type', 'types', 'typical', 'under', 'understanding', 'updated', 'use', 'used', 'useful', 'using', 'utility', 'value', 'values', 'variable', 'variables', 'variation', 'variety', 'various', 'venture', 'ventures', 'version', 'very', 'vice', 'volume', 'website', 'well', 'well-written', 'what', 'when', 'where', 'which', 'who', 'whole', 'with', 'within', 'without', 'workflow', 'work', 'working', 'works', 'world', 'written', 'xml', 'year', 'years', 'yield', 'yields', 'zone',
-  'queries', 'matcher', 'batch', 'clinical', 'programming', 'utilities', 'full', 'partial', 'investigator', 'help', 'desk', 'contact', 'mesh', 'pharmacologic', 'action', 'breast', 'neoplasms',
-  'additional', 'features', 'feature', 'advanced', 'complex', 'effective', 'following', 'resources', 'facilitate', 'tools',
-  'search', 'searching', 'queries', 'details', 'discovery', 'links', 'results', 'mobile', 'support', 'center', 'centre', 'service',
-  'online', 'how', 'create', 'creating', 'web', 'use', 'uses', 'used', 'useful', 'homepage', 'filters', 'filter', 'narrow', 'save',
-  'saved', 'saving', 'email', 'e-mail', 'print', 'printing', 'sort', 'sorted', 'sorting', 'format', 'formats', 'display', 'view',
-  'views', 'viewed', 'item', 'items', 'citation', 'citations', 'multiple', 'ids', 'pmid', 'sensors', 'images', 'supplemental',
-  'default', 'turning', 'auto', 'suggest', 'suggestions', 'managing', 'recent', 'activity', 'setting', 'preferences', 'preference',
-  'outside', 'delivery', 'icon', 'linkout', 'history', 'clipboard', 'limits', 'limit', 'bibliographies', 'bibliography', 'highlighting',
-  'highlight', 'opening', 'abstract', 'engl', 'med',
-  // Generic document/standard terms that surface as false entities in academic sources.
-  'pharmacological', 'pharmacologic', 'actions', 'action', 'serial', 'serials', 'numbers', 'number',
-  'portal', 'issn', 'issns', 'standard', 'standards', 'international', 'ids', 'identifier', 'identifiers',
-]);
-
-/**
- * All-caps acronyms that are common words, diseases, protocols, or formats and
- * should never be treated as named entities.
- */
-const NON_ENTITY_ACRONYMS = new Set([
-  'AND', 'OR', 'NOT', 'AIDS', 'DTD', 'FTP', 'OCR', 'XML', 'PDF', 'HTML', 'HTTP', 'CSV', 'JSON',
-  // Currency codes and credit ratings are not named entities.
-  'USD', 'EUR', 'GBP', 'JPY', 'SEK', 'NOK', 'CHF', 'CAD', 'AUD', 'DKK', 'ISK',
-  'AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'BAA', 'BA', 'B',
-]);
-
-function isNonEntityAcronym(word: string): boolean {
-  return NON_ENTITY_ACRONYMS.has(word.toUpperCase());
-}
-
-function isAllCapsAcronym(word: string): boolean {
-  return /^[A-Z]{2,8}$/.test(word.trim());
-}
-
 function stripTrailingAcronym(name: string): { name: string; alias?: string } {
   const parenthetical = name.match(/^(.*?)\s+\(([A-Z]{2,8})\)\s*$/);
   if (parenthetical) {
@@ -574,299 +613,6 @@ function normalizeEntityName(name: string, aliases: string[] = []): { name: stri
     (a) => a.toLowerCase() !== strippedName.toLowerCase(),
   );
   return { name: strippedName, aliases: unique };
-}
-
-function hasAcronymAlias(entity: ExtractedEntity): boolean {
-  return hasAcronymToken(entity.name) || entity.aliases.some((a) => hasAcronymToken(a));
-}
-
-function containsOrgSuffix(name: string): boolean {
-  const upper = ' ' + name.toUpperCase() + ' ';
-  const suffixes = [
-    ' CENTER ', ' CENTRE ', ' INSTITUTE ', ' INSTITUTES ', ' INSTITUTION ', ' COMMITTEE ', ' BANK ',
-    ' DEPARTMENT ', ' FOUNDATION ', ' ASSOCIATION ', ' COUNCIL ', ' AGENCY ', ' BOARD ',
-    ' COMMISSION ', ' OFFICE ', ' BUREAU ', ' ADMINISTRATION ', ' AUTHORITY ',
-    ' ORGANIZATION ', ' ORGANISATION ', ' UNION ', ' ALLIANCE ', ' CONSORTIUM ',
-    ' SOCIETY ', ' FEDERATION ', ' CHAMBER ', ' EXCHANGE ', ' CORPORATION ', ' INCORPORATED ',
-    ' LIBRARY ', ' HOSPITAL ', ' UNIVERSITY ', ' COLLEGE ', ' SCHOOL ', ' CLINIC ',
-  ];
-  return suffixes.some((s) => upper.includes(s));
-}
-
-function isOrganizationAcronym(name: string, allText: string): boolean {
-  if (!isAllCapsAcronym(name)) return false;
-  const pattern = new RegExp(
-    `\\b[A-Z][A-Za-z0-9.,&\\s]+?[\\s\\n]*\\(${name}\\)`,
-    'g',
-  );
-  return pattern.test(allText);
-}
-
-/**
- * Geographic and regional adjectives that are allowed as proper-noun anchors in
- * organization names even though they appear in the generic-word list.
- */
-const GEOGRAPHIC_ADJECTIVES = new Set([
-  'nordic', 'baltic', 'scandinavian', 'european', 'american', 'asian', 'african', 'pacific',
-  'arctic', 'antarctic', 'national', 'international', 'global', 'regional', 'local',
-]);
-
-function hasNonGenericProperNoun(name: string, allowGeographic = false): boolean {
-  const words = name.trim().split(/[\s\-]+/).filter(Boolean);
-  for (const word of words) {
-    const t = word.trim();
-    if (t.length < 2) continue;
-    if (isAcronym(t)) {
-      if (!isNonEntityAcronym(t)) return true;
-      continue;
-    }
-    if (!/^[A-Z][a-zA-Z\-]+$/.test(t)) continue;
-    const lower = t.toLowerCase();
-    if (allowGeographic && GEOGRAPHIC_ADJECTIVES.has(lower)) return true;
-    if (!GENERIC_ENTITY_WORDS.has(lower)) return true;
-  }
-  return false;
-}
-
-function isMostlyGeneric(name: string): boolean {
-  const words = name.toLowerCase().split(/[\s\-]+/).filter(Boolean);
-  if (words.length === 0) return true;
-  const genericCount = words.filter((w) => GENERIC_ENTITY_WORDS.has(w)).length;
-  return genericCount / words.length >= 0.5;
-}
-
-function isAcronymPlusGenericWord(entity: ExtractedEntity): boolean {
-  const parts = entity.name.trim().split(/\s+/).filter(Boolean);
-  if (parts.length < 2) return false;
-  if (!isAllCapsAcronym(parts[0])) return false;
-  const rest = parts.slice(1).join(' ');
-  const lowerWords = rest.toLowerCase().split(/[\s\-]+/).filter(Boolean);
-  if (lowerWords.length === 0) return false;
-  const genericCount = lowerWords.filter((w) => GENERIC_ENTITY_WORDS.has(w)).length;
-  const mostlyGeneric = genericCount / lowerWords.length >= 0.5;
-  if (!mostlyGeneric) return false;
-  // Allow products whose trailing word is a recognized product keyword (e.g., "MEDLINE Database").
-  if (entity.type === 'product' && containsProductKeyword(rest)) return false;
-  return true;
-}
-
-function hasNonEntityAcronym(name: string): boolean {
-  return name
-    .split(/[\s\-]+/)
-    .some((w) => isAcronym(w.trim()) && isNonEntityAcronym(w.trim()));
-}
-
-function isAcronym(word: string): boolean {
-  return /^[A-Z]{2,8}$/.test(word.trim());
-}
-
-function isProperNounWord(word: string): boolean {
-  const trimmed = word.trim();
-  if (trimmed.length < 2) return false;
-  if (isAcronym(trimmed)) return true;
-  return /^[A-Z][a-zA-Z\-]+$/.test(trimmed) && !GENERIC_ENTITY_WORDS.has(trimmed.toLowerCase());
-}
-
-function hasProperNounIndicator(name: string): boolean {
-  return name
-    .split(/[\s\-]+/)
-    .some((w) => isProperNounWord(w));
-}
-
-function countEntityMentions(name: string, aliases: string[], text: string): number {
-  const allNames = [name, ...aliases].filter((n) => n.trim().length > 0);
-  if (allNames.length === 0) return 0;
-  const pattern = new RegExp(
-    allNames.map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'),
-    'gi',
-  );
-  return (text.match(pattern) ?? []).length;
-}
-
-function isSingleCapitalizedToken(name: string): boolean {
-  const trimmed = name.trim();
-  return /^[A-Z][a-zA-Z0-9]+$/.test(trimmed) && trimmed.length >= 3 && trimmed.length <= 25;
-}
-
-function hasAcronymToken(name: string): boolean {
-  return name
-    .split(/[\s\-]+/)
-    .some((w) => /^[A-Z][A-Z0-9&]{1,7}$/.test(w.trim()));
-}
-
-function isPlausibleEntityType(entity: ExtractedEntity): boolean {
-  switch (entity.type) {
-    case 'person':
-      return looksLikePerson(entity.name);
-    case 'organization': {
-      if (isNonEntityAcronym(entity.name)) return false;
-      const hasOrgMarker = looksLikeOrganization(entity.name) || containsOrgKeyword(entity.name);
-      // Require a real proper-noun anchor (including geographic adjectives). A bare
-      // acronym is not enough for an organisation, because acronyms in headings
-      // (e.g., "GRI Global Reporting Initiative") are not organisations by themselves.
-      return hasOrgMarker && hasNonGenericProperNoun(entity.name, true);
-    }
-    case 'product': {
-      if (isNonEntityAcronym(entity.name)) return false;
-      if (hasAcronymToken(entity.name) && !hasNonEntityAcronym(entity.name)) return true;
-      if (isSingleCapitalizedToken(entity.name)) {
-        return !GENERIC_ENTITY_WORDS.has(entity.name.toLowerCase());
-      }
-      return containsProductKeyword(entity.name) && !isMostlyGeneric(entity.name);
-    }
-    case 'location': {
-      const words = entity.name.split(/[\s\-]+/).filter(Boolean);
-      if (words.length >= 4 && !entity.name.includes(',') && !hasAcronymToken(entity.name)) return false;
-      return entity.name.includes(',') || hasAcronymToken(entity.name) || hasNonGenericProperNoun(entity.name, true);
-    }
-    case 'case':
-      return /\bv\.?\b|\bvs\.?\b/i.test(entity.name);
-    case 'event':
-      return /\d{4}/.test(entity.name);
-    default:
-      return false;
-  }
-}
-
-/**
- * Known taxonomy / controlled-vocabulary terms that are explicitly topics, not
- * named entities. These are extracted from MeSH-style headings.
- */
-const TAXONOMY_TERMS = new Set([
-  'breast neoplasms',
-  'pharmacologic actions',
-  'pharmacologic action',
-  'pharmacological actions',
-  'pharmacological action',
-  'serial numbers',
-  'international standard serial numbers',
-  'issn',
-  'issns',
-  'medical subject headings',
-  'mesh terms',
-  'mesh translation',
-  'supplementary concepts',
-  'subheadings publication',
-  'subheadings',
-  'publication type',
-  'publication types',
-  'author index',
-  'subject headings',
-  'bibliographic database',
-  'electronic data submission',
-]);
-
-/**
- * Words that commonly appear in section headings, table-of-contents lines, and
- * table captions but do not by themselves indicate a named entity. A phrase
- * composed mostly of these words is almost certainly a heading, not an entity.
- */
-const HEADING_WORDS = new Set([
-  'report', 'reports', 'reporting', 'annual', 'annualreport', 'annual-report',
-  'disclosure', 'disclosures', 'other', 'others', 'financial', 'financials',
-  'governance', 'sustainability', 'impact', 'responsibility', 'esg',
-  'statement', 'statements', 'position', 'balance', 'income', 'cashflow',
-  'flow', 'notes', 'note', 'outstanding', 'guarantee', 'commitment', 'commitments',
-  'fair', 'value', 'maturity', 'analysis', 'currency', 'derivative', 'derivatives',
-  'hedge', 'accounting', 'risk', 'exposure', 'industry', 'counterparty',
-  'concentration', 'credit', 'market', 'liquidity', 'operational', 'banking',
-  'board', 'directors', 'bod', 'members', 'alternates', 'management', 'executive',
-  'committee', 'committees', 'audit', 'remuneration', 'nomination',
-  'part', 'parts', 'page', 'pages', 'section', 'sections', 'chapter', 'chapters',
-  'appendix', 'appendices', 'contents', 'table', 'tables', 'figure', 'figures',
-  'summary', 'overview', 'review', 'highlights', 'key', 'points', 'agenda',
-  'abstract', 'example', 'examples', 'introduction', 'objectives', 'methods',
-  'results', 'conclusion', 'discussion', 'background', 'purpose', 'educational',
-  'presentation', 'quality', 'value', 'values', 'rubric', 'evaluation', 'assessment',
-  'score', 'scores', 'points', 'criteria', 'index', 'author', 'authorindex',
-  'subject', 'subjects', 'headings', 'subheadings', 'concepts', 'utilities',
-  'data', 'submission', 'process', 'selection', 'searching', 'simple', 'translation',
-  'queries', 'matcher', 'batch', 'clinical', 'programming', 'full', 'investigator', 'collaborator', 'help', 'desk', 'contact', 'mesh', 'pharmacologic', 'action', 'breast', 'neoplasms', 'support', 'center', 'centre',
-  'bibliographic', 'database', 'cell', 'molecular', 'biology', 'created', 'updated', 'fact', 'sheet', 'summary', 'detail', 'extracted', 'preserved',
-]);
-
-function isKnownTaxonomyTerm(name: string): boolean {
-  const lower = name.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').trim();
-  if (TAXONOMY_TERMS.has(lower)) return true;
-  // Reject MeSH-style plural disease terms such as "X Neoplasms", "X Diseases".
-  if (/\bneoplasms$|\bdiseases$|\bdisorders$|\bsyndromes$/i.test(lower)) return true;
-  return false;
-}
-
-/**
- * Specific phrases observed in the UAT corpus that slip through generic-word filters
- * because they contain a proper noun or acronym but are still not named entities.
- */
-const NON_ENTITY_PHRASES = new Set([
-  'the bank', 'the control committee', 'cooperation council',
-  'accounting financials pcaf institution framework', 'sustainability gri global reporting initiative',
-  'basel the bank', 'adjustments acquisition', 'combating fraud', 'commercial paper program', 'due diligence',
-  'monte carlo', 'contracts referencing nature dependent electricity', 'aviation fuel', 'power heat', 'metals mining',
-  'loss given', 'pasaules dabas', 'denmark finland iceland', 'denmark finland iceland norway', 'finland iceland norway',
-  'ahonen heikki cantell', 'arild fearnley camilla', 'fearnley camilla kastengren', 'dovil jasaitien tom', 'cantell luca',
-  'aaa', 'aaa aaa', 'bond', 'program', 'jul aug', 'jul-aug', 'eur', 'usd', 'gbp', 'jpy', 'sek', 'nok', 'chf', 'cad', 'aud', 'dkk', 'isk',
-]);
-
-function isKnownNonEntityPhrase(name: string): boolean {
-  const normalized = name.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').trim();
-  return NON_ENTITY_PHRASES.has(normalized);
-}
-
-function isHeadingLikePhrase(name: string): boolean {
-  const lower = name.toLowerCase().replace(/[^a-z0-9\s]/g, ' ');
-  const words = lower.split(/\s+/).filter(Boolean);
-  if (words.length === 0) return true;
-  // All-caps phrases are typically headings in annual reports.
-  if (/^[A-Z\s\-]+$/.test(name.trim()) && name.length > 5) return true;
-  // Phrases composed mostly of heading words are not entities.
-  const headingCount = words.filter((w) => HEADING_WORDS.has(w)).length;
-  return headingCount / words.length >= 0.5;
-}
-
-function isQualityEntity(entity: ExtractedEntity, allText: string): boolean {
-  if (entity.confidence < 0.6) return false;
-  if (entity.name.length < 3 || entity.name.length > 80) return false;
-  // Reject known taxonomy / controlled-vocabulary terms (e.g. MeSH headings).
-  if (isKnownTaxonomyTerm(entity.name)) return false;
-  // Reject specific phrases observed as false entities in the UAT corpus.
-  if (isKnownNonEntityPhrase(entity.name)) return false;
-  // Reject obvious heading-like phrases and concatenated section titles.
-  if (isHeadingLikePhrase(entity.name)) return false;
-  // Reject standalone common-word, disease, protocol, and format acronyms.
-  if (isAllCapsAcronym(entity.name) && NON_ENTITY_ACRONYMS.has(entity.name.toUpperCase())) return false;
-  // Reject acronym + generic word fragments (e.g., "NLM Medical", "AND Boolean").
-  if (isAcronymPlusGenericWord(entity)) return false;
-  // Reject mostly generic phrases unless they have an organization suffix or
-  // an acronym alias, which signals a real proper-noun entity.
-  const lower = entity.name.toLowerCase();
-  const words = lower.split(/[\s\-]+/);
-  const genericCount = words.filter((w) => GENERIC_ENTITY_WORDS.has(w)).length;
-  const mostlyGeneric = genericCount / words.length >= 0.5;
-  const isOrgWithSuffix = entity.type === 'organization' && containsOrgSuffix(entity.name);
-  if (mostlyGeneric && !isOrgWithSuffix && !hasAcronymAlias(entity)) return false;
-  // Reclassify acronyms that are clearly organization aliases by their context
-  // (e.g., "National Center for Biotechnology Information (NCBI)").
-  if (entity.type === 'product' && isOrganizationAcronym(entity.name, allText)) {
-    entity.type = 'organization';
-  }
-  // Validate against the declared entity type. This catches LLM errors such as
-  // classifying a taxonomy term or a job title as a person.
-  return isPlausibleEntityType(entity);
-}
-
-function filterQualityEntities(
-  entities: ExtractedEntity[],
-  chunks: Chunk[],
-): ExtractedEntity[] {
-  const allText = chunks.map((c) => c.content).join('\n\n');
-  const filtered = entities.filter((e) => isQualityEntity(e, allText));
-  // Prefer frequently-mentioned entities, then high-confidence ones, and cap the volume.
-  filtered.sort((a, b) => {
-    const countDiff = b.count - a.count;
-    if (countDiff !== 0) return countDiff;
-    return b.confidence - a.confidence;
-  });
-  return filtered.slice(0, 50);
 }
 
 function cleanEntityContextChunkContent(content: string): string {
@@ -940,7 +686,7 @@ export async function relationshipExtractor(
   try {
     const context = buildRelationshipContext(result, entities, agentsMd, memory);
     const response = await llmClient.call(buildPrompt('relationship-extractor', context), {
-      maxTokens: 1500,
+      maxTokens: 8500,
       temperature: 0.2,
     });
     const parsed = parseStructuredJson<{ relationships?: unknown[] }>(response.text);
@@ -1035,7 +781,7 @@ export async function evidenceCollector(
   try {
     const context = buildEvidenceContext(result, chunks, agentsMd, memory);
     const response = await llmClient.call(buildPrompt('evidence-collector', context), {
-      maxTokens: 2000,
+      maxTokens: 8500,
       temperature: 0.2,
     });
     const parsed = parseStructuredJson<EvidenceOutput>(response.text);
@@ -1111,7 +857,7 @@ export async function pagePlanner(
   try {
     const context = buildPagePlannerContext(result, structure, entities, evidence, agentsMd, memory, samplingStrategy);
     const response = await llmClient.call(buildPrompt('page-planner', context), {
-      maxTokens: 2000,
+      maxTokens: 8500,
       temperature: 0.2,
     });
     const parsed = parseStructuredJson<PagePlannerOutput>(response.text);
@@ -1312,7 +1058,7 @@ export async function critic(
   try {
     const context = buildCriticContext(result, pages, folderPlacements, agentsMd, memory, pageUpdates);
     const response = await llmClient.call(buildPrompt('critic', context), {
-      maxTokens: 1500,
+      maxTokens: 8500,
       temperature: 1.0,
     });
     const parsed = parseStructuredJson<CriticReview>(response.text);
@@ -1612,7 +1358,7 @@ export async function chunkWriter(
       knownTitles,
       feedback,
     );
-    const response = await llmClient.call(prompt, { maxTokens: 4000, temperature: 0.2 });
+    const response = await llmClient.call(prompt, { maxTokens: 8500, temperature: 0.2 });
     const parsed = parseChunkWriterJson(response.text);
     if (!parsed || !Array.isArray(parsed.pages) || parsed.pages.length === 0) {
       throw new CLIError('ChunkWriter returned invalid output.');
@@ -1997,7 +1743,7 @@ export async function entityTopicPageWriter(
 
   const prompt = buildEntityTopicWriterPrompt(entities, topics, config, agentsMd, memory);
   try {
-    const response = await llmClient.call(prompt, { maxTokens: 8000, temperature: 0.2 });
+    const response = await llmClient.call(prompt, { maxTokens: 8500, temperature: 0.2 });
     const parsed = parseEntityTopicWriterJson(response.text);
     if (!parsed || (parsed.entities.length === 0 && parsed.topics.length === 0)) {
       throw new CLIError('EntityTopicPageWriter returned invalid or empty output.');
