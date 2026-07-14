@@ -59,9 +59,7 @@ function setupWiki(workspace: string, slug: string, title?: string, description?
         ocr_enabled: true,
         page_range: null,
       },
-      output: {
-        dir: '.',
-        page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
+      output: { page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
       },
       status: 'ready',
       ingestion: {

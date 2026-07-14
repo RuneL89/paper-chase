@@ -1,150 +1,153 @@
 # E2E Bug Report — LLM Wiki CLI v2.0
 
-**Date:** 2026-07-13  
-**E2E workspace:** `C:\temp\wiki-e2e-6W9oRs`  
+**Date:** 2026-07-14  
+**E2E workspace:** `C:\temp\wiki-e2e-20260714`  
 **Source PDFs:** `C:\Users\atavi\Documents\test ingest`  
-**Test scope:** Full `init` → `sample` → `ingest` cycle for three wikis, one per PDF, with LLM config from `C:\Users\atavi\Documents\config.json`.  
-**Codebase:** `C:\Users\atavi\Projects\Wiki v4`, working tree clean, built successfully with `npm run build`.
+**LLM config:** `C:\Users\atavi\Documents\config.json` (provider: `kimi`, model: `k2.7-code`, baseUrl: `https://api.kimi.com/coding`, enabled: `true`)  
+**Codebase:** `C:\Users\atavi\Projects\Wiki v4`, working tree **dirty**, branch `feat/fix-12-issues`, `npm run build` **succeeded**.
+
+---
+
+## Pre-Run Checks
+
+| Check | Result |
+|---|---|
+| PDF `Abstract-Examples.pdf` | Exists, 362,463 bytes (~354 KB) |
+| PDF `Corporate Governance Guidelines as of February 20, 2025.pdf` | Exists, 186,850 bytes (~183 KB) |
+| PDF `wipo_pub_rn2021_18e.pdf` | Exists, 1,308,911 bytes (~1.3 MB) |
+| LLM config | Exists, provider `kimi`, model `k2.7-code`, enabled |
+| `npm run build` | Succeeded (tsc only, no test run) |
+| Git status | Dirty — see below. Per user instruction, E2E proceeds with dirty tree. |
+
+### Dirty working tree (recorded because `AGENTS.md` normally requires a clean tree)
+
+```
+ M "Project Vision/07_validation_and_quality.md"
+ M plan/IMPLEMENTATION_PLAN.md
+ M plan/e2e-bug-report.md
+ M plan/fix-suggestions.md
+n M tests/chunking/chunker.test.ts
+ M tests/commands/ingest-all.test.ts
+ M tests/entities/disambiguation.test.ts
+ M tests/fixtures/*.pdf
+ M tests/orchestrator/agents.test.ts
+ M tests/orchestrator/contracts.test.ts
+ M tests/orchestrator/proposals.test.ts
+ M tests/orchestrator/sampling.test.ts
+ M tests/writers/document.test.ts
+```
+
+No `src/` files are modified, so the runtime code under test matches the latest commit on `feat/fix-12-issues`.
+
+---
 
 ## E2E Execution Summary
 
-1. All three `init` commands succeeded.
-2. All three PDFs were copied into the respective `raw/` folders.
-3. `sample abstract-examples` failed with:
+1. Created a fresh workspace in `C:\temp\wiki-e2e-20260714`.
+2. Copied `C:\Users\atavi\Documents\config.json` to `<workspace>\.kimi-code\config.json`.
+3. Initialized the first wiki: `abstract-examples`.
+4. Copied `Abstract-Examples.pdf` into `wikis/abstract-examples/raw/`.
+5. Ran `sample abstract-examples`.
+6. The command failed at the **ChunkWriter** step with:
    ```
-   RelationshipExtractor returned invalid or empty output.
+   ChunkWriter returned invalid or unparseable output after one repair attempt.
    ```
-   originating from `src/orchestrator/agents.ts:808`.
-4. Per `AGENTS.md` E2E rules, the run stopped at the first failure. `sample` for the remaining wikis and all `ingest` commands were **not** executed.
+   originating from `src/orchestrator/agents.ts:96` (`callAgentWithRepair`).
+7. Per the E2E gate in `AGENTS.md`, the run stopped at the first failure. No further `sample` or `ingest` commands were executed.
+
+### Observed partial output
+
+- The wiki skeleton was created: `index.md`, `AGENTS.md`, `chunking-strategy.md`, `config.json`, `documents/`, `sources/`, `raw/`.
+- The PDF was copied to `raw/`.
+- `chunking-strategy.md` shows the document has 3 physical pages, 3 tables, 1 multi-page table, and was grouped into a single chunk (pages 1-3) because the table spans the entire document.
+- No document pages, source pages, or raw pages were written; the `documents/` and `sources/` folders are empty.
+
+---
 
 ## Methodology
 
-- Verified working tree cleanliness (`git status --short` returned empty).
-- Compared the implementation diff from `c0539c1` (pre-sprint baseline) to `HEAD` against:
+- Followed `plan/SPRINT_INSTRUCTIONS.md` §3.5 with the substitution of the three PDFs from `C:\Users\atavi\Documents\test ingest`.
+- Did not modify source code, tests, or documentation to continue after a failure.
+- Compared the implementation against:
   - `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` through `07_validation_and_quality.md`
   - `plan/IMPLEMENTATION_PLAN.md`
   - `plan/SPRINT_INSTRUCTIONS.md`
-  - `AGENTS.md` (coding standards / authority matrix)
-- Ran the full code-review process (Standards and Spec axes) over the same diff.
-- Did **not** modify any source code, tests, or documentation to continue the run.
+  - `AGENTS.md` (workspace standards and authority matrix)
+- Ran the `code-review` skill against `main` with the Project Vision and Implementation Plan as the spec source.
+
+---
 
 ## Issues Found
 
-### 1. [BLOCKING] RelationshipExtractor aborts when no relationships are found
-
-- **Severity:** Critical (blocks the E2E pipeline)
-- **Location:** `src/orchestrator/agents.ts:778-809`
-- **Root cause:**
-  - `relationshipExtractor` parses the LLM response and immediately throws a `CLIError` if `parsed.relationships` is missing, empty, or if all normalized relationships are filtered out (e.g., subject/object not in the extracted entity list).
-  - The `normalizeRelationship` function also discards any relationship whose subject or object is not exactly in the entity list, so even a valid LLM output can result in an empty set and trigger the abort.
-- **Why this violates the vision:**
-  - `Project Vision/04_orchestration_detailed.md` describes the RelationshipExtractor as finding relationships *when they exist*, not requiring them on every chunk.
-  - `Project Vision/02_WIKI_concept_detailed.md` states that **no extracted data may be left out**; aborting an entire chunk because no relationship was found loses the rest of that chunk's content.
-  - `plan/IMPLEMENTATION_PLAN.md` §7.5 says the default recovery mode should be `fallback`, not `abort`.
-
-### 2. No deterministic fallback for malformed or empty LLM output
+### 1. [HIGH] `AGENTS.md` materializer description contradicts the implementation
 
 - **Severity:** High
-- **Location:** `src/orchestrator/agents.ts:339, 429, 808, 980, 1467, 1859`
-- **Root cause:**
-  - Every LLM sub-agent (`StructureAnalyst`, `EntityExtractor`, `RelationshipExtractor`, `PagePlanner`, `ChunkWriter`, `EntityTopicPageWriter`) throws a `CLIError` when the LLM response cannot be parsed or is semantically empty.
-  - The JSON parser (`src/llm/json.ts`) tries to repair malformed JSON, but there is no retry with a stricter prompt, and no fallback to deterministic output when repair fails.
-- **Why this violates the vision:**
-  - `plan/IMPLEMENTATION_PLAN.md` §7.5 explicitly requires: *“Malformed JSON is retried once with a stricter prompt; if still malformed, the chunk falls back to deterministic output.”*
-  - `Project Vision/07_validation_and_quality.md` requires a resilient pipeline; an unparseable response from one chunk should not kill the entire ingestion.
+- **Location:** `AGENTS.md` (root) and `src/ingestion/chunk-materializer.ts:225-236` / `311-334`
+- **Root cause:** The root `AGENTS.md` says: *“If preservation fails or the page was manually edited, the materializer reports the conflict and skips the update so the human edit is not overwritten.”* In the code, when preservation fails or the LLM batch call fails, the materializer appends a deterministic fallback body (`appendChunkToEntityBody` / `appendChunkToTopicBody`) instead of skipping.
+- **Why this violates the vision:** `AGENTS.md` Closeout rule requires removing stale or contradictory text immediately. The authority matrix says deterministic code must not draft or mutate wiki page bodies; the fallback append functions synthesize markdown section headings and bullets.
 
-### 3. Recovery mode defaults to `abort` and only `abort` is allowed
+### 2. [HIGH] Deterministic default bodies for `source` and `raw` pages when LLM is disabled
 
 - **Severity:** High
-- **Location:** `src/config.ts:122` (default), `src/config.ts:320-323` (validation)
-- **Root cause:**
-  - `defaultConfig.resilience.recoveryMode` is set to `'abort'`.
-  - `validateConfig` only allows `'abort'` in the `allowedRecoveryModes` array.
-- **Why this violates the vision:**
-  - `plan/IMPLEMENTATION_PLAN.md` §7.5 states: *“Recovery mode is configurable per wiki (`aggressive`, `fallback`, `abort`). Default: `fallback`.”*
-  - Defaulting to `abort` makes the malformed-JSON fallback required by the plan unreachable in practice.
+- **Location:** `src/writers/source.ts:16-46` (`buildDefaultSourcePageBody`), `src/writers/raw.ts:6-18` (`buildDefaultRawPageBody`), and `src/orchestrator/agents.ts:1871-1872` / `1957-1958` where the writers return these defaults when `!llmClient.isEnabled()`.
+- **Root cause:** The LLM-driven `sourcePageWriter` and `rawPageWriter` fall back to deterministic body builders when the LLM is disabled, and those builders remain reachable functions even when the LLM is enabled.
+- **Why this violates the vision:** `AGENTS.md` hard boundary: *“LLM agents never compute SHA-256 or perform file I/O directly; the LLM authors all wiki page bodies.”* `Project Vision/01` §3 Principle 1 says deterministic code never drafts or mutates markdown bodies.
 
-### 4. Chunk content is truncated before the LLM
+### 3. [HIGH] Corpus-centric `sample` does not fully classify and drive the corpus
 
 - **Severity:** High
-- **Location:** `src/orchestrator/agents.ts:1647-1655`
-- **Root cause:**
-  - `buildChunkWriterPrompt` slices chunk content to `MAX_CHUNK_PROMPT_CHARS = 10000` characters before sending it to the LLM.
-  - The final document page (`src/writers/document.ts`) stores only the LLM-authored `body`; it does not append the full original chunk text.
-- **Why this violates the vision:**
-  - `Project Vision/02_WIKI_concept_detailed.md` §2: *“The most important rule of the wiki is that no extracted data may be left out.”*
-  - `Project Vision/02_WIKI_concept_detailed.md` §4: *“The LLM must then turn this extracted material into markdown pages. It is not allowed to … summarize it in a way that removes detail, or to omit a table because it is complicated.”*
-  - Truncating the chunk before the LLM means the LLM cannot faithfully transcribe or cite anything beyond the first 10,000 characters.
+- **Location:** `src/commands/sample.ts:41-56`
+- **Root cause:** The command classifies the corpus (`classifyCorpus`) but still extracts and samples only a single representative PDF (`selectRepresentativePdf`). The corpus classification is not used to drive the category-specific strategies from `Project Vision/01` §8.2 (e.g., read one document fully and sample subsets of the rest for similar-manageable documents, or read the first document fully and defer the rest for similar-large documents).
+- **Why this violates the vision:** `Project Vision/01` §8.2 expects `sample` to analyze the PDFs in `raw/` and choose a sampling strategy appropriate to the collection; the current implementation is still document-centric at the extraction level.
 
-### 5. `source` and `raw` page bodies are written deterministically
-
-- **Severity:** Medium–High
-- **Location:** `src/writers/source.ts`, `src/writers/raw.ts`
-- **Root cause:**
-  - `writeSourcePage` and `writeRawPage` construct the entire markdown body deterministically (`bodyLines`) and write it with `gray-matter`.
-- **Why this violates the standards:**
-  - `AGENTS.md` authority matrix: *“No deterministic code may draft or mutate markdown bodies; the LLM is the sole author of all markdown content pages.”*
-  - `AGENTS.md` also states: *“Deterministic code writes only DOX index/contract files and orchestration metadata.”*
-  - This creates a direct conflict with `Project Vision/06_citation_and_provenance.md`, which says every source PDF has a source page as a provenance anchor. That conflict must be resolved explicitly in either the standard or the implementation.
-
-### 6. Critic prompt misrepresents authorship
+### 4. [MEDIUM] LLM-driven `source` and `raw` pages risk scope creep / provenance drift
 
 - **Severity:** Medium
-- **Location:** `src/orchestrator/prompts/critic.md:108-112`
+- **Location:** `src/orchestrator/agents.ts:1859-1887` (`sourcePageWriter`), `1946-1974` (`rawPageWriter`), plus prompts `src/orchestrator/prompts/source-page-writer.md` and `src/orchestrator/prompts/raw-page-writer.md`.
+- **Root cause:** The diff adds two new LLM agents outside the specified seven-agent pipeline to author catalog and raw pages. While this addresses the authorship boundary, `Project Vision/02` §6.4 and §6.5 frame `source` and `raw` pages as deterministic catalog entries / preserved fragments, not as LLM-authored content.
+- **Why this violates the vision:** `Project Vision/05` §5.1 specifies deterministic provenance fields for `source` pages. Allowing the LLM to write the prose of a provenance page risks hallucinated metadata or editorialized provenance, which conflicts with the citation-backed principle.
+
+### 5. [MEDIUM] LLM-driven `ChunkingPlanner` feedback loop is not requested
+
+- **Severity:** Medium
+- **Location:** `src/chunking/chunker.ts` (oversized-chunk feedback loop)
+- **Root cause:** The chunker iteratively shrinks `max_chunk_size` and asks the LLM for finer split boundaries when a chunk is too large. `Project Vision/01` §3 Principle 5 requires page-based chunks and never splitting inside a table/figure; the LLM feedback loop introduces LLM influence into what is supposed to be a deterministic audit trail (`IMPLEMENTATION_PLAN` §2.2).
+- **Why this violates the vision:** Chunking strategy should be deterministic per the vision; adding an LLM feedback loop blurs the boundary and could produce non-reproducible splits.
+
+### 6. [LOW] `outputDir` is a misleading name after `output.dir` removal
+
+- **Severity:** Low (code smell)
+- **Location:** `src/ingestion/reingest.ts`, `src/orchestrator/ingest.ts:284-286`, `src/ingestion/engine.ts`, etc.
+- **Root cause:** After `output.dir` was removed, `const outputDir = wikiDir;` is used in several places. The variable name implies a separate output directory, but it is now always the wiki directory.
+- **Why this violates the standards:** The code should use honest names; `wikiDir` or `contentDir` would make the co-location rule obvious.
+
+### 7. [LOW] Duplicated oversized-chunk filter in `chunker.ts`
+
+- **Severity:** Low (code smell)
+- **Location:** `src/chunking/chunker.ts`
+- **Root cause:** The same oversized-chunk expression is computed twice: once inside the feedback loop and once as `stillOversized` after the loop.
+- **Why this violates the standards:** Duplicated code increases the risk of inconsistent logic when the oversized threshold changes.
+
+### 8. [LOW] `output.dir` removal scattered across many files
+
+- **Severity:** Low (code smell)
+- **Location:** `src/ingestion/engine.ts`, `reingest.ts`, `chunk-materializer.ts`, `orchestrator/ingest.ts`, `lint/index.ts`, `writers/log.ts`, etc.
+- **Root cause:** Path construction logic was updated in many files to remove the configurable `output.dir` prefix.
+- **Why this violates the standards:** A single `wikiContentDir` helper would make the co-location rule live in one place and reduce future shotgun surgery.
+
+### 9. [BLOCKING] ChunkWriter fails on the first sample with unparseable LLM output
+
+- **Severity:** Blocking — stops the E2E pipeline on the first PDF.
+- **Location:** `src/orchestrator/agents.ts:96` (`callAgentWithRepair` → `ChunkWriter`), `src/orchestrator/agents.ts:1840-1855` (`chunkWriterForChunk`), `src/orchestrator/agents.ts:2224-2230` (`parseChunkWriterJson`).
 - **Root cause:**
-  - The Critic prompt tells the LLM: *“The full source catalog, extracted source context, and preserved tables are appended by deterministic code after drafting, so do not flag their absence from this context.”*
+  - The ChunkWriter prompt (`buildChunkWriterPrompt`, `src/orchestrator/agents.ts:2070-2222`) is very large: it includes the full extracted chunk content, the page plan, AGENTS.md, rolling memory, and a JSON schema example.
+  - For `Abstract-Examples.pdf`, the entire 3-page document is a single chunk containing a multi-page table. The prompt may exceed the comfortable JSON-generation context for the model, or the model may return the body wrapped in markdown fences, partial JSON, or malformed keys.
+  - `parseChunkWriterJson` only accepts the response if `parseStructuredJson` succeeds and `parsed.pages` is an array. Any deviation (e.g., top-level object with no `pages` array, markdown fences, trailing commas, or generated text outside JSON) is rejected.
+  - `callAgentWithRepair` retries once with the same prompt plus a generic "return only valid JSON" instruction. If the model’s first failure is due to prompt overload or schema confusion, the repair attempt usually repeats the same mistake rather than correcting it.
+  - There is no deterministic fallback to emit a valid document page when the LLM cannot produce parseable JSON, so the entire `sample` command aborts.
 - **Why this violates the vision:**
-  - This contradicts `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3 Principle 1: *“The LLM writes all markdown content … deterministic code … never drafts or mutates markdown bodies.”*
-  - In practice, the full extracted text is **not** appended to document pages (see Issue 4), so the Critic is being told not to flag a gap that actually exists.
+  - `Project Vision/02_WIKI_concept_detailed.md` §2: *“The most important rule of the wiki is that no extracted data may be left out.”* Aborting the run means none of the extracted content reaches the wiki.
+  - `Project Vision/07_validation_and_quality.md` §7 requires resilient LLM handling: *“If a chunk or LLM agent failed validation, the system retries once with a stricter repair prompt. If the repaired output was still invalid, the run aborted and the error was reported to the user.”* While one retry is present, the repair prompt does not address the root cause (oversized/confusing prompt), so the retry is ineffective.
+  - `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3 Principle 1 expects the LLM to write the markdown, but the deterministic pipeline should still produce a usable output even when the LLM returns malformed JSON.
 
-### 7. `sample` still exposes a single-PDF argument
 
-- **Severity:** Low–Medium
-- **Location:** `src/cli.ts:62-70`, `src/commands/sample.ts`
-- **Root cause:**
-  - The CLI signature remains `sample <slug> [path-to-pdf]`, with the optional path defaulting to the first PDF in `raw/`.
-- **Why this violates the vision:**
-  - `plan/IMPLEMENTATION_PLAN.md` §2.2 identified the old `sample` as *“document-centric, not corpus-centric”* and the vision expects `sample` to analyze the whole corpus (`Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §8.2).
-  - The implementation does classify the corpus when the optional path is supplied, but the CLI interface still perpetuates the document-centric mental model.
-
-### 8. TUI command and React/ink UI are not in the vision
-
-- **Severity:** Low (scope creep)
-- **Location:** `src/tui/`, `docs/TUI.md`, `src/cli.ts:102-104`
-- **Root cause:**
-  - A full terminal UI (`llm-wiki-cli tui`) was added to the CLI and documented.
-- **Why this violates the vision:**
-  - `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` and the CLI command list in `AGENTS.md` list only `init, sample, ingest, ingest-all, status, configure-llm, test-llm`. No TUI is specified.
-
-### 9. Debug and temporary files are committed to the repository
-
-- **Severity:** Low
-- **Location:** `debug-*.ts`, `tmp*.ts`, `tmp-make-pdfs.cjs`, `diff.txt`
-- **Root cause:**
-  - These files appear in the diff from `c0539c1` to `HEAD` and are tracked in `main`.
-- **Why this matters:**
-  - They are not source code, tests, or documentation. They clutter the repo, increase the diff size, and could be mistaken for production code.
-
-### 10. Minor standards / code-quality issues
-
-- **Severity:** Low
-- **Location:** `src/orchestrator/ingest.ts` (`any[]` return types), `src/extractor/pdf.ts` (`any` parameter), `src/writers/document.ts` (custom `pathBasename` reimplementing `path.basename`)
-- **Root cause:**
-  - Use of `any` and reimplementation of Node.js path helpers despite `AGENTS.md` strict-TypeScript rule.
-
-## Cross-Cutting Observations
-
-- The **LLM sub-agent pipeline is brittle**: every agent aborts on empty or malformed output rather than degrading gracefully. This makes the entire ingestion dependent on every LLM call returning perfect JSON, which is unrealistic for production PDFs.
-- The **chunk-writer truncation** undermines the project's central promise that no extracted data is lost.
-- The **authorship boundary** between deterministic code and the LLM is inconsistent: some content pages (`source`, `raw`) are deterministic, some are LLM-authored, and the Critic prompt was written to excuse content that is not actually present in document pages.
-
-## Recommended Next Steps (Pending User Approval)
-
-1. Resolve the RelationshipExtractor abort and malformed-JSON fallback so the E2E can run to completion.
-2. Decide whether `source`/`raw` page bodies should remain deterministic or become LLM-authored, and document that decision in `AGENTS.md`.
-3. Remove chunk truncation or guarantee the full chunk is preserved in the final document page.
-4. Reconcile the Critic prompt with the chosen authorship model.
-5. Decide whether the TUI and optional `sample` path should remain, and update the vision/standard if so.
-6. Clean up committed debug/temporary files.
-
-See `plan/fix-suggestions.md` for at least two candidate fixes per issue, with confidence scores and pros/cons.

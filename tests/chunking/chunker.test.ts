@@ -19,7 +19,7 @@ const baseConfig: Config = {
   schema: { wiki_index_md: 'index.md', chunking_strategy_md: 'chunking-strategy.md' },
   chunking: { max_chunk_size: 100000, min_chunk_size: 100, split_boundary: 'page', never_split: ['table'], overlap: 0 },
   extraction: { engine: 'pdfjs-dist', ocr_enabled: true, page_range: null },
-  output: { dir: '.', page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'] },
+  output: { page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'] },
   ingestion: { entity_threshold: 2, topic_threshold: 2, max_entities: 50, max_topics: 50 },
   sampling: { large_page_threshold: 500, strategy_page_budget: 50, similarity_metadata_keys: ['title', 'author'] },
   status: 'ready',

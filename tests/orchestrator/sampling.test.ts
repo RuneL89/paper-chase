@@ -15,7 +15,7 @@ function makeConfig(overrides: Partial<Config['sampling']> = {}): Config {
       overlap: 0,
     },
     extraction: { engine: 'pdfjs-dist', ocr_enabled: true, page_range: null },
-    output: { dir: '.', page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'] },
+    output: { page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'] },
     ingestion: { entity_threshold: 2, topic_threshold: 2, max_entities: 50, max_topics: 50 },
     sampling: {
       large_page_threshold: 500,

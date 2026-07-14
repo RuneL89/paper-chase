@@ -23,7 +23,7 @@ import type { Config } from '../../src/config.js';
 function makeConfig(slug: string): Config {
   return {
     wiki: { slug, title: 'Test Wiki', description: 'Test.' },
-    output: { dir: 'documents' },
+    output: { page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'] },
     ingestion: { entity_threshold: 1, topic_threshold: 1, max_entities: 50, max_topics: 50 },
     llm: { provider: 'test', enabled: false },
   } as Config;

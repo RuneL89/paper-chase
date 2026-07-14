@@ -35,9 +35,7 @@ function makeConfig(slug: string): Config {
       ocr_enabled: true,
       page_range: null,
     },
-    output: {
-      dir: '.',
-      page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
+    output: { page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
     },
     ingestion: {
       entity_threshold: 2,

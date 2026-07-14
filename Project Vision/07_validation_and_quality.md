@@ -97,7 +97,7 @@ The Critic should verify at least the following:
 
 ## 4. Lint Report
 
-After each ingestion run, the system writes a lint report to the wiki's output folder, typically `output/lint/report.json`. The report contains:
+After each ingestion run, the system writes a lint report to the wiki folder, at `wikis/<slug>/lint/report.json`. The report contains:
 
 - Total page count and pages by type.
 - Number of errors and warnings.
@@ -181,7 +181,7 @@ Re-ingestion is efficient because the system tracks which PDFs have changed. Unc
 
 ## 7. Error Handling and Recovery
 
-If a chunk or any LLM agent fails validation or produces invalid/empty output, the run aborts and the error is reported to the user. The `resilience.recoveryMode` setting only supports `abort`; deterministic content fallbacks and quarantine modes are not used. The human operator must fix the underlying issue (e.g., enable or reconfigure the LLM, adjust the prompt context, or skip the problematic source) and re-run the command.
+If a chunk or any LLM agent fails validation or produces invalid/empty output, the system retries once with a stricter repair prompt so the LLM can correct its own output. If the repaired output is still invalid, the run aborts and the error is reported to the user. The human operator must then fix the underlying issue (e.g., enable or reconfigure the LLM, adjust the prompt context, or skip the problematic source) and re-run the command.
 
 ---
 

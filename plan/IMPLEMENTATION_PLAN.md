@@ -106,7 +106,7 @@ The following principles from `Project Vision/01` §3 must remain non-negotiable
 | Sprint 2 | Extraction & Chunking | PDF extraction, page-based chunking, scanned-page handling, incremental SHA-256 state, deterministic `chunking-strategy.md`. |
 | Sprint 3 | Deterministic Provenance Layer + `ingest-all` | Source pages, raw pages, baseline document pages, `ingest-all`. |
 | Sprint 4a | Sampling Strategies & `AGENTS.md` | Corpus classification, sampling strategies, full per-wiki `AGENTS.md` generation. |
-| Sprint 4b | LLM-Driven ChunkWriter | LLM writes synthesis, citations, wikilinks; engine refactoring; deterministic fallback. |
+| Sprint 4b | LLM-Driven ChunkWriter | LLM writes synthesis, citations, wikilinks; engine refactoring. |
 | Sprint 5 | LLM Sub-Agent Pipeline | Convert seven sub-agents into LLM-driven roles with rolling memory. |
 | Sprint 6 | Dynamic Structure & Human Approval | Folder planning, structural-change proposals, approval flow. |
 | Sprint 7 | Selective Re-ingestion | Re-process only affected pages after approved structural changes. |
@@ -262,9 +262,9 @@ Every sprint that calls the LLM must respect a common resilience layer defined i
 - Exponential backoff with jitter: 1s, 2s, 4s, 8s. Maximum **3 retries** per LLM call.
 - Per-provider request queue with configurable concurrency (default **5** parallel requests).
 - Respect `Retry-After` headers when present.
-- Malformed JSON is retried once with a stricter prompt; if still malformed, the chunk falls back to deterministic output.
+- Malformed JSON is retried once with a stricter prompt; if still malformed, the run aborts and the error is reported to the user.
 - A circuit breaker pauses the run if more than 30% of chunks fail in a 5-minute window.
-- Recovery mode is configurable per wiki (`aggressive`, `fallback`, `abort`). Default: `fallback`.
+- The pipeline aborts on persistent LLM failures; no recovery modes are supported.
 
 The mid-run resume mechanism (`--resume` flag and per-chunk state files) is implemented in Sprint 4b, but the directory and state schema are defined in Sprint 1.
 
