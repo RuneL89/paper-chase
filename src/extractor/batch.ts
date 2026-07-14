@@ -3,7 +3,7 @@ import { isExtractionFailure, type ExtractionFailure, type ExtractionOutcome, ty
 import { createHash } from 'crypto';
 import { mkdirSync, readFileSync, statSync } from 'fs';
 import path from 'path';
-import { writeRawPage } from '../writers/raw.js';
+import { writeRawPage, buildDefaultRawPageBody } from '../writers/raw.js';
 
 export async function safeExtractPdf(filePath: string, rawOutputDir?: string, wikiSlug?: string): Promise<ExtractionOutcome> {
   console.log(`Extracting ${path.basename(filePath)}…`);
@@ -38,7 +38,8 @@ function writeScannedRawPages(result: ExtractionResult, rawOutputDir?: string, w
   const slug = wikiSlug ?? 'unknown';
   for (const page of scannedPages) {
     const rawPath = path.join(outputDir, `${baseSlug}-page-${page.physicalPage}.md`);
-    writeRawPage(rawPath, result, page, slug);
+    const body = buildDefaultRawPageBody(result, page);
+    writeRawPage(rawPath, result, page, body, slug);
   }
 }
 

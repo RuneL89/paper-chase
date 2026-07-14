@@ -253,7 +253,7 @@ export class LLMClient {
     });
 
     if (!response.ok) {
-      throw new Error(`LLM request failed: ${response.status} ${await response.text()}`);
+      throw new CLIError(`LLM request failed: ${response.status} ${await response.text()}`);
     }
 
     const data = (await response.json()) as {
@@ -303,7 +303,7 @@ export class LLMClient {
     });
 
     if (!response.ok) {
-      throw new Error(`LLM request failed: ${response.status} ${await response.text()}`);
+      throw new CLIError(`LLM request failed: ${response.status} ${await response.text()}`);
     }
 
     const data = (await response.json()) as {
@@ -375,7 +375,7 @@ export class LLMClient {
     });
 
     if (!response.ok) {
-      throw new Error(`LLM request failed: ${response.status} ${await response.text()}`);
+      throw new CLIError(`LLM request failed: ${response.status} ${await response.text()}`);
     }
 
     const data = (await response.json()) as {
@@ -785,6 +785,18 @@ function generateMockResponse(prompt: string): string {
       '| Critic | Whether LLM output is good enough to commit. |',
       '',
     ].join('\n');
+  }
+
+  if (prompt.includes('You are the SourcePageWriter agent')) {
+    return JSON.stringify({
+      body: '# Source\n\nA test source catalog page body.',
+    });
+  }
+
+  if (prompt.includes('You are the RawPageWriter agent')) {
+    return JSON.stringify({
+      body: '# Raw fragment\n\nA test raw page body.',
+    });
   }
 
   return 'This is a test LLM response.';

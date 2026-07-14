@@ -42,8 +42,7 @@ export async function applyProposalCommand(
 
   if (approved) {
     const wikiDir = path.join(workspace, 'wikis', slug);
-    const outputDir = path.join(wikiDir, config.output.dir);
-    const state = loadState(statePath(wikiDir, config.output.dir));
+    const state = loadState(statePath(wikiDir));
     const hierarchy: Record<string, import('../orchestrator/types.js').FolderPlan> = {};
     const previous = state.memory?.state?.folderHierarchy || {};
     for (const folder of Object.values(previous)) {
@@ -54,8 +53,8 @@ export async function applyProposalCommand(
     // the new folder directory and state paths stay consistent.
     if (proposal.renamedFolders && proposal.renamedFolders.length > 0) {
       for (const rename of proposal.renamedFolders) {
-        const oldDir = path.join(outputDir, rename.from);
-        const newDir = path.join(outputDir, rename.to);
+        const oldDir = path.join(wikiDir, rename.from);
+        const newDir = path.join(wikiDir, rename.to);
         if (existsSync(oldDir)) {
           renameSync(oldDir, newDir);
         }

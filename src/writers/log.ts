@@ -25,13 +25,12 @@ export interface LogEntry {
   quarantined?: string[];
 }
 
-export function logPath(wikiDir: string, outputDirName: string): string {
-  // The log is a wiki-level artifact; when outputDir is '.', it lives next to the wiki folders.
-  return path.join(wikiDir, outputDirName, 'log.md');
+export function logPath(wikiDir: string): string {
+  return path.join(wikiDir, 'log.md');
 }
 
-export function appendLogEntry(wikiDir: string, outputDirName: string, entry: LogEntry): string {
-  const filePath = logPath(wikiDir, outputDirName);
+export function appendLogEntry(wikiDir: string, entry: LogEntry): string {
+  const filePath = logPath(wikiDir);
   mkdirSync(path.dirname(filePath), { recursive: true });
 
   const existing = existsSync(filePath) ? readFileSync(filePath, 'utf-8') : '';
@@ -85,8 +84,8 @@ export function appendLogEntry(wikiDir: string, outputDirName: string, entry: Lo
   return filePath;
 }
 
-export function readLogEntries(wikiDir: string, outputDirName: string): string[] {
-  const filePath = logPath(wikiDir, outputDirName);
+export function readLogEntries(wikiDir: string): string[] {
+  const filePath = logPath(wikiDir);
   if (!existsSync(filePath)) return [];
   const parsed = matter(readFileSync(filePath, 'utf-8'));
   return String(parsed.content)

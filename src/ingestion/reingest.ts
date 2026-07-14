@@ -51,9 +51,9 @@ export async function runReingest(
   options: ReingestOptions = {},
 ): Promise<ReingestResult> {
   const wikiDir = wikiPath(workspace, slug);
-  const stateFile = statePath(wikiDir, config.output.dir);
+  const stateFile = statePath(wikiDir);
   const state = loadState(stateFile);
-  const outputDir = path.join(wikiDir, config.output.dir);
+  const outputDir = wikiDir;
 
   const hierarchy = newFolderHierarchy || state.memory?.state.folderHierarchy || {};
 
@@ -165,7 +165,7 @@ export async function runReingest(
 
   updateContractsAndAgents(workspace, slug, config, state, hierarchy, outputDir, result);
 
-  refreshPageState(state, wikiDir, config.output.dir);
+  refreshPageState(state, wikiDir);
   saveState(stateFile, state);
   writeReingestRunLog(workspace, slug, config, result);
 
@@ -540,7 +540,7 @@ function folderHierarchyFromProposal(
   proposal: StructuralProposal,
 ): Record<string, FolderPlan> {
   const wikiDir = path.join(workspace, 'wikis', slug);
-  const stateFile = statePath(wikiDir, config.output.dir);
+  const stateFile = statePath(wikiDir);
   const state = loadState(stateFile);
   const existing = state.memory?.state.folderHierarchy || {};
   const merged: Record<string, FolderPlan> = { ...existing };

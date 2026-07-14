@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Text } from 'ink';
 import TextInput from 'ink-text-input';
-import { existsSync } from 'fs';
 import path from 'path';
+import { workspaceExists } from '../../workspace.js';
 
 interface WorkspaceScreenProps {
   workspace: string;
@@ -16,7 +16,7 @@ export function WorkspaceScreen({ workspace, onSelect, onCancel }: WorkspaceScre
 
   function handleSubmit(): void {
     const resolved = path.resolve(value);
-    if (!existsSync(resolved)) {
+    if (!workspaceExists(resolved)) {
       setError(`Directory does not exist: ${resolved}`);
       return;
     }

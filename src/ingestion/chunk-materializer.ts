@@ -65,7 +65,7 @@ export async function materializeChunkEntitiesAndTopics(
 ): Promise<void> {
   const progress = context.reporter ?? new NoOpReporter();
   const { workspace, slug, config, source, chunk, memory, state, result, llmClient } = context;
-  const outputDir = path.join(workspace, 'wikis', slug, config.output.dir);
+  const wikiDir = path.join(workspace, 'wikis', slug);
 
   // Determine which entities are touched by this chunk or its relationships.
   const affectedEntitySlugs = new Set<string>();
@@ -116,8 +116,8 @@ export async function materializeChunkEntitiesAndTopics(
       description: memoryEntity.description,
       relationships: memoryEntity.relationships,
     };
-    const { filePath } = migrateLegacyEntityPage(outputDir, entity, memory.state.entityTaxonomy);
-    const relativePath = toRelativePathFromDir(outputDir, filePath);
+    const { filePath } = migrateLegacyEntityPage(wikiDir, entity, memory.state.entityTaxonomy);
+    const relativePath = toRelativePathFromDir(wikiDir, filePath);
     const existing = readExistingPage(filePath);
     const isManual = existing ? isPageManuallyEdited(relativePath, existing.content, state) : false;
 
@@ -157,8 +157,8 @@ export async function materializeChunkEntitiesAndTopics(
     const memoryTopic = memory.state.topics[name];
     const count = memoryTopic ? memoryTopic.related.length + memoryTopic.mentions.length : 1;
     const topic: Topic = { name, count };
-    const filePath = path.join(outputDir, 'topics', topicFileName(topic));
-    const relativePath = toRelativePathFromDir(outputDir, filePath);
+    const filePath = path.join(wikiDir, 'topics', topicFileName(topic));
+    const relativePath = toRelativePathFromDir(wikiDir, filePath);
     const existing = readExistingPage(filePath);
     const isManual = existing ? isPageManuallyEdited(relativePath, existing.content, state) : false;
 
@@ -215,8 +215,8 @@ export async function materializeChunkEntitiesAndTopics(
           description: input.description,
           relationships: input.relationships,
         };
-        const { filePath } = migrateLegacyEntityPage(outputDir, entity, memory.state.entityTaxonomy);
-        const relativePath = toRelativePathFromDir(outputDir, filePath);
+        const { filePath } = migrateLegacyEntityPage(wikiDir, entity, memory.state.entityTaxonomy);
+        const relativePath = toRelativePathFromDir(wikiDir, filePath);
         const existing = readExistingPage(filePath);
         const generatedBody = entityBodyMap.get(input.name);
         if (!generatedBody) continue;
@@ -230,22 +230,22 @@ export async function materializeChunkEntitiesAndTopics(
             ...normalizeRelationshipsForEntity(input.name, input.relationships),
           ]);
           writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), fallbackBody);
-        removeLegacyEntityPage(outputDir, entity);
-          updatePageState(state, relativePath, outputDir, 'entity');
+        removeLegacyEntityPage(wikiDir, entity);
+          updatePageState(state, relativePath, wikiDir, 'entity');
           result.entityPages++;
           continue;
         }
 
         writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), generatedBody);
-        removeLegacyEntityPage(outputDir, entity);
-        updatePageState(state, relativePath, outputDir, 'entity');
+        removeLegacyEntityPage(wikiDir, entity);
+        updatePageState(state, relativePath, wikiDir, 'entity');
         result.entityPages++;
       }
 
       for (const input of topicInputs) {
         const topic: Topic = { name: input.name, count: input.count };
-        const filePath = path.join(outputDir, 'topics', topicFileName(topic));
-        const relativePath = toRelativePathFromDir(outputDir, filePath);
+        const filePath = path.join(wikiDir, 'topics', topicFileName(topic));
+        const relativePath = toRelativePathFromDir(wikiDir, filePath);
         const existing = readExistingPage(filePath);
         const generatedBody = topicBodyMap.get(input.name);
         if (!generatedBody) continue;
@@ -257,13 +257,13 @@ export async function materializeChunkEntitiesAndTopics(
           );
           const fallbackBody = appendChunkToTopicBody(existing?.body ?? '', input.name, source, chunk);
           writeTopicPage(filePath, topic, config, input.mentions, input.related, fallbackBody, input.sources);
-          updatePageState(state, relativePath, outputDir, 'topic');
+          updatePageState(state, relativePath, wikiDir, 'topic');
           result.topicPages++;
           continue;
         }
 
         writeTopicPage(filePath, topic, config, input.mentions, input.related, generatedBody, input.sources);
-        updatePageState(state, relativePath, outputDir, 'topic');
+        updatePageState(state, relativePath, wikiDir, 'topic');
         result.topicPages++;
       }
     } catch (err) {
@@ -280,8 +280,8 @@ export async function materializeChunkEntitiesAndTopics(
           description: input.description,
           relationships: input.relationships,
         };
-        const { filePath } = migrateLegacyEntityPage(outputDir, entity, memory.state.entityTaxonomy);
-        const relativePath = toRelativePathFromDir(outputDir, filePath);
+        const { filePath } = migrateLegacyEntityPage(wikiDir, entity, memory.state.entityTaxonomy);
+        const relativePath = toRelativePathFromDir(wikiDir, filePath);
         const existing = readExistingPage(filePath);
         const fallbackBody = appendChunkToEntityBody(
           existing?.body ?? '',
@@ -291,18 +291,18 @@ export async function materializeChunkEntitiesAndTopics(
           normalizeRelationshipsForEntity(input.name, input.relationships),
         );
         writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), fallbackBody);
-        removeLegacyEntityPage(outputDir, entity);
-        updatePageState(state, relativePath, outputDir, 'entity');
+        removeLegacyEntityPage(wikiDir, entity);
+        updatePageState(state, relativePath, wikiDir, 'entity');
         result.entityPages++;
       }
       for (const input of topicInputs) {
         const topic: Topic = { name: input.name, count: input.count };
-        const filePath = path.join(outputDir, 'topics', topicFileName(topic));
-        const relativePath = toRelativePathFromDir(outputDir, filePath);
+        const filePath = path.join(wikiDir, 'topics', topicFileName(topic));
+        const relativePath = toRelativePathFromDir(wikiDir, filePath);
         const existing = readExistingPage(filePath);
         const fallbackBody = appendChunkToTopicBody(existing?.body ?? '', input.name, source, chunk);
         writeTopicPage(filePath, topic, config, input.mentions, input.related, fallbackBody, input.sources);
-        updatePageState(state, relativePath, outputDir, 'topic');
+        updatePageState(state, relativePath, wikiDir, 'topic');
         result.topicPages++;
       }
     }
@@ -310,7 +310,7 @@ export async function materializeChunkEntitiesAndTopics(
 
   // Deterministic append for pages that were manually edited.
   for (const { entity, filePath, rels, input } of manuallyEditedEntities) {
-    const relativePath = toRelativePathFromDir(outputDir, filePath);
+    const relativePath = toRelativePathFromDir(wikiDir, filePath);
     const existing = readExistingPage(filePath);
     const fallbackBody = appendChunkToEntityBody(
       existing?.body ?? '',
@@ -320,16 +320,16 @@ export async function materializeChunkEntitiesAndTopics(
       rels,
     );
     writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), fallbackBody);
-    removeLegacyEntityPage(outputDir, entity);
-    updatePageState(state, relativePath, outputDir, 'entity');
+    removeLegacyEntityPage(wikiDir, entity);
+    updatePageState(state, relativePath, wikiDir, 'entity');
     result.entityPages++;
   }
   for (const { topic, filePath, input } of manuallyEditedTopics) {
-    const relativePath = toRelativePathFromDir(outputDir, filePath);
+    const relativePath = toRelativePathFromDir(wikiDir, filePath);
     const existing = readExistingPage(filePath);
     const fallbackBody = appendChunkToTopicBody(existing?.body ?? '', topic.name, source, chunk);
     writeTopicPage(filePath, topic, config, input.mentions, input.related, fallbackBody, input.sources);
-    updatePageState(state, relativePath, outputDir, 'topic');
+    updatePageState(state, relativePath, wikiDir, 'topic');
     result.topicPages++;
   }
 }
@@ -434,10 +434,10 @@ function appendChunkToTopicBody(
 function updatePageState(
   state: IngestionState,
   relativePath: string,
-  outputDir: string,
+  wikiDir: string,
   pageType: string,
 ): void {
-  const fullPath = path.join(outputDir, relativePath);
+  const fullPath = path.join(wikiDir, relativePath);
   if (!existsSync(fullPath)) return;
   const content = readFileSync(fullPath, 'utf-8');
   state.pages = state.pages ?? {};

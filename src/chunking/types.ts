@@ -141,6 +141,7 @@ export type ChunkingPlannerFn = (
   config: Config,
   samplingStrategy: SamplingStrategy,
   agentsMd?: string,
+  feedback?: string,
 ) => Promise<ChunkingStrategyHint>;
 
 export interface AnalyzeAndChunkResult {

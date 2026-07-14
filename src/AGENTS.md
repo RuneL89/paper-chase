@@ -25,7 +25,7 @@ This folder contains the LLM Wiki CLI source code: the Commander entry point, co
 - Add new CLI commands by registering them in `src/cli.ts` and implementing the handler in `src/commands/`.
 - Add new LLM providers in `src/llm/` with an adapter that matches the existing client interface.
 - Instrument long-running operations with `ProgressReporter` from `src/progress/`; do not change existing return values.
-- Keep the TUI in `src/tui/` thin: it delegates to command functions and must not compute hashes or do I/O directly.
+- Keep the TUI in `src/tui/` thin: it delegates to command functions and may use deterministic workspace helpers for lightweight read-only UI state; it must not compute hashes or do I/O directly.
 - When extending the orchestrator, prefer adding agents or helpers in `src/orchestrator/agents.ts` and wiring them in `src/orchestrator/ingest.ts` or `src/orchestrator/index.ts`.
 - When modifying ingestion state, update `src/ingestion/state.ts` and keep resume/re-ingest logic in sync.
 

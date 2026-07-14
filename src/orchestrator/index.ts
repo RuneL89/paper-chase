@@ -25,6 +25,7 @@ import { validatePagePlan } from './validation.js';
 import {
   syncFolderPageTypes,
 } from './proposals.js';
+import { readAgentsMd } from './ingest.js';
 import type { ProgressReporter } from '../progress/types.js';
 import { NoOpReporter } from '../progress/types.js';
 import type { OrchestratorResult, CriticReview, FolderPlan, PagePlan } from './types.js';
@@ -77,6 +78,10 @@ export async function runSampleOrchestrator(
   );
 
   // Step 5: PagePlanner (LLM-only; aborts on invalid or empty output)
+  // Pass the wiki's ingestion guide and initial rolling memory so the plan
+  // respects existing conventions and discovered state.
+  const agentsMd = readAgentsMd(workspace, slug);
+  const initialMemory = createInitialMemory(result, chunks);
   const plannerOutput = await progress.step(
     'page-planner',
     'Planning wiki pages',
@@ -86,8 +91,8 @@ export async function runSampleOrchestrator(
       entities,
       evidence,
       llmClient,
-      undefined,
-      undefined,
+      agentsMd,
+      initialMemory,
       samplingStrategy,
     ),
   );
@@ -100,11 +105,39 @@ export async function runSampleOrchestrator(
 
   syncFolderPageTypes(folderPlacements, plannerOutput.pages);
 
-  // Step 7: Critic (LLM-driven)
+  // Rolling memory
+  const memory = initialMemory;
+  const extractedTopics = extractTopicsFromPagePlans(plannerOutput.pages);
+  updateMemory(
+    memory,
+    result.filePath,
+    entities,
+    relationships,
+    extractedTopics,
+    folderPlacements,
+    plannerOutput.entityTaxonomy,
+  );
+
+  // Step 6: ChunkWriter — LLM authors every document page before the Critic reviews them.
+  const pageUpdates = await progress.step(
+    'chunk-writer',
+    'Writing document chunks',
+    () => chunkWriter(
+      plannerOutput.pages,
+      chunks,
+      result,
+      config,
+      llmClient,
+      agentsMd,
+      memory,
+    ),
+  );
+
+  // Step 7: Critic (LLM-driven) reviews the drafted pages, not just the plan.
   const criticReview = await progress.step(
     'critic',
-    'Reviewing page plan',
-    () => critic(result, plannerOutput.pages, folderPlacements, llmClient),
+    'Reviewing drafted pages',
+    () => critic(result, plannerOutput.pages, folderPlacements, llmClient, agentsMd, memory, pageUpdates),
   );
   if (criticReview.issues.length > 0) {
     progress.criticIssues(criticReview.issues);
@@ -118,19 +151,6 @@ export async function runSampleOrchestrator(
     checks: criticReview.checks,
     blockingIssues: criticReview.blockingIssues,
   };
-
-  // Rolling memory
-  const memory = createInitialMemory(result, chunks);
-  const extractedTopics = extractTopicsFromPagePlans(plannerOutput.pages);
-  updateMemory(
-    memory,
-    result.filePath,
-    entities,
-    relationships,
-    extractedTopics,
-    folderPlacements,
-    plannerOutput.entityTaxonomy,
-  );
 
   // Write index contracts
   const wikiDir = path.join(workspace, 'wikis', slug);
@@ -192,21 +212,6 @@ export async function runSampleOrchestrator(
     writeFolderIndexContract(subIndexPath, subFolderPlan, indexData, memory, folderPages);
     folderIndexes.push(subIndexPath);
   }
-
-  // Step 7: ChunkWriter — LLM authors every document page.
-  const pageUpdates = await progress.step(
-    'chunk-writer',
-    'Writing document chunks',
-    () => chunkWriter(
-      plannerOutput.pages,
-      chunks,
-      result,
-      config,
-      llmClient,
-      undefined,
-      memory,
-    ),
-  );
 
   return {
     wikiIndexPath,

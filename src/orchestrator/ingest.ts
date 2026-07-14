@@ -49,6 +49,8 @@ import {
   chunkWriter,
   chunkWriterForChunk,
   critic,
+  sourcePageWriter,
+  rawPageWriter,
   createInitialMemory,
   updateMemory,
   mergeEntityTaxonomy,
@@ -280,7 +282,7 @@ export async function runIngestOrchestrator(
   }
 
   const wikiDir = path.join(workspace, 'wikis', slug);
-  const outputDir = path.join(wikiDir, config.output.dir);
+  const outputDir = wikiDir;
   mkdirSync(outputDir, { recursive: true });
   for (const dir of ['documents', 'sources', 'raw', 'topics']) {
     mkdirSync(path.join(outputDir, dir), { recursive: true });
@@ -399,7 +401,8 @@ export async function runIngestOrchestrator(
     const pageNumber = parseInt(rawPageId.match(/page-(\d+)\.md$/)?.[1] || '0', 10);
     const page = result.pages.find((p) => p.physicalPage === pageNumber);
     if (page) {
-      writeRawPage(path.join(outputDir, rawPageId), result, page, config.wiki.slug);
+      const { body: rawBody } = await rawPageWriter(result, page, config, llmClient, agentsMd, memory);
+      writeRawPage(path.join(outputDir, rawPageId), result, page, rawBody, config.wiki.slug);
       if (ingestionResult) {
         ingestionResult.rawPages++;
       }
@@ -410,11 +413,19 @@ export async function runIngestOrchestrator(
     title: `Raw fragment: ${result.fileName}, page ${id.match(/page-(\d+)\.md$/)?.[1] || 0}`,
     physicalPage: parseInt(id.match(/page-(\d+)\.md$/)?.[1] || '0', 10),
   }));
-  writeSourcePage(
-    path.join(outputDir, `sources/${baseSlug}.md`),
+  const { body: sourceBody } = await sourcePageWriter(
     result,
     documentLinks,
     rawLinks,
+    config,
+    llmClient,
+    agentsMd,
+    memory,
+  );
+  writeSourcePage(
+    path.join(outputDir, `sources/${baseSlug}.md`),
+    result,
+    sourceBody,
     config.wiki.slug,
   );
 
@@ -742,7 +753,7 @@ export interface IngestFinalOutputContext {
 export async function writeIngestFinalOutput(context: IngestFinalOutputContext): Promise<void> {
   const { workspace, slug, config, state, memory, folderPlacements, result, processed = [] } = context;
   const wikiDir = path.join(workspace, 'wikis', slug);
-  const outputDir = path.join(wikiDir, config.output.dir);
+  const outputDir = wikiDir;
 
   // Ensure the lint directory exists.
   const lintDir = path.join(outputDir, 'lint');
@@ -756,9 +767,9 @@ export async function writeIngestFinalOutput(context: IngestFinalOutputContext):
   result.topicPages = countPagesInFolder(outputDir, 'topics');
 
   // Build page information from the persisted state and the files already on disk.
-  const sourcePageInfos = buildSourcePageInfos(wikiDir, config.output.dir, state, processed);
-  const documentPageInfos = buildDocumentPageInfos(wikiDir, config.output.dir, state, processed);
-  const rawPageInfos = buildRawPageInfos(wikiDir, config.output.dir, state, processed);
+  const sourcePageInfos = buildSourcePageInfos(wikiDir, state, processed);
+  const documentPageInfos = buildDocumentPageInfos(wikiDir, state, processed);
+  const rawPageInfos = buildRawPageInfos(wikiDir, state, processed);
 
   // Determine selected entity and topic titles for the wiki index.
   const { entities: globalEntityCounts, topics: globalTopicCounts } = aggregateCounts(state.sources);
@@ -785,11 +796,11 @@ export async function writeIngestFinalOutput(context: IngestFinalOutputContext):
   }
 
   // Build folder page catalogs, including entity sub-folders.
-  const folderPages = collectFolderPages(wikiDir, config.output.dir, folderPlacements.map((f) => f.folder));
+  const folderPages = collectFolderPages(wikiDir, folderPlacements.map((f) => f.folder));
   if (entityFolderPlan) {
     folderPages['entities'] = entitySubFolders.map((s) => `${s.slug}/index.md`);
   }
-  const subFolderPages = collectEntitySubFolderPages(wikiDir, config.output.dir, entitySubFolders);
+  const subFolderPages = collectEntitySubFolderPages(wikiDir, entitySubFolders);
   for (const [key, value] of Object.entries(subFolderPages)) {
     folderPages[key] = value;
   }
@@ -1018,12 +1029,10 @@ function buildMentionSources(
 
 function buildSourcePageInfos(
   wikiDir: string,
-  outputDirName: string,
   state: { sources: Record<string, { sourcePage: string }> },
   processed: ProcessedSource[],
 ): any[] {
   const infos: any[] = [];
-  const outputDir = path.join(wikiDir, outputDirName);
 
   for (const source of processed) {
     if (isExtractionFailure(source.outcome)) continue;
@@ -1040,15 +1049,15 @@ function buildSourcePageInfos(
 
   for (const [relativeFile, sourceState] of Object.entries(state.sources)) {
     if (processed.some((p) => p.relativeFile === relativeFile)) continue;
-    const sourcePagePath = path.join(outputDir, sourceState.sourcePage);
+    const sourcePagePath = path.join(wikiDir, sourceState.sourcePage);
     if (!existsSync(sourcePagePath)) continue;
     const parsed = matter(readFileSync(sourcePagePath, 'utf-8'));
     infos.push({
       fileName: path.basename(relativeFile),
       filePath: relativeFile,
       title: parsed.data.title || `Source: ${path.basename(relativeFile)}`,
-      physicalPages: parsed.data.physical_pages || 0,
-      logicalPages: parsed.data.logical_pages || 0,
+      physicalPages: parsed.data.pages || 0,
+      logicalPages: parsed.data.pages || 0,
       warnings: parsed.data.warnings || [],
     });
   }
@@ -1058,12 +1067,10 @@ function buildSourcePageInfos(
 
 function buildDocumentPageInfos(
   wikiDir: string,
-  outputDirName: string,
   state: { sources: Record<string, { documentPages: string[] }> },
   processed: ProcessedSource[],
 ): any[] {
   const infos: any[] = [];
-  const outputDir = path.join(wikiDir, outputDirName);
 
   for (const source of processed) {
     if (source.documentLinks) {
@@ -1080,7 +1087,7 @@ function buildDocumentPageInfos(
     }
     if (source.documentPageIds) {
       for (const docPage of source.documentPageIds) {
-        const docPagePath = path.join(outputDir, docPage);
+        const docPagePath = path.join(wikiDir, docPage);
         if (!existsSync(docPagePath)) continue;
         const parsed = matter(readFileSync(docPagePath, 'utf-8'));
         const pageRange =
@@ -1112,7 +1119,7 @@ function buildDocumentPageInfos(
   for (const [relativeFile, sourceState] of Object.entries(state.sources)) {
     if (processed.some((p) => p.relativeFile === relativeFile)) continue;
     for (const docPage of sourceState.documentPages) {
-      const docPagePath = path.join(outputDir, docPage);
+      const docPagePath = path.join(wikiDir, docPage);
       if (!existsSync(docPagePath)) continue;
       const parsed = matter(readFileSync(docPagePath, 'utf-8'));
       const pageRange = parsed.data.sources?.[0]?.pages || '?';
@@ -1131,17 +1138,15 @@ function buildDocumentPageInfos(
 
 function buildRawPageInfos(
   wikiDir: string,
-  outputDirName: string,
   state: { sources: Record<string, { rawPages: string[] }> },
   processed: ProcessedSource[],
 ): any[] {
   const infos: any[] = [];
-  const outputDir = path.join(wikiDir, outputDirName);
 
   for (const source of processed) {
     if (!source.rawPageIds) continue;
     for (const rawPageId of source.rawPageIds) {
-      const rawPagePath = path.join(outputDir, rawPageId);
+      const rawPagePath = path.join(wikiDir, rawPageId);
       if (!existsSync(rawPagePath)) continue;
       const parsed = matter(readFileSync(rawPagePath, 'utf-8'));
       infos.push({
@@ -1155,7 +1160,7 @@ function buildRawPageInfos(
   for (const [relativeFile, sourceState] of Object.entries(state.sources)) {
     if (processed.some((p) => p.relativeFile === relativeFile)) continue;
     for (const rawPage of sourceState.rawPages) {
-      const rawPagePath = path.join(outputDir, rawPage);
+      const rawPagePath = path.join(wikiDir, rawPage);
       if (!existsSync(rawPagePath)) continue;
       const parsed = matter(readFileSync(rawPagePath, 'utf-8'));
       infos.push({
@@ -1182,12 +1187,11 @@ function discoverWikisForIndex(workspace: string): string[] {
 
 function collectFolderPages(
   wikiDir: string,
-  outputDirName: string,
   folders: string[],
 ): Record<string, string[]> {
   const result: Record<string, string[]> = {};
   for (const folder of folders) {
-    const fullDir = path.join(wikiDir, outputDirName, folder);
+    const fullDir = path.join(wikiDir, folder);
     if (!existsSync(fullDir)) continue;
     const entries = readdirSync(fullDir)
       .filter((f) => f.endsWith('.md') && f !== 'index.md')
@@ -1199,12 +1203,11 @@ function collectFolderPages(
 
 function collectEntitySubFolderPages(
   wikiDir: string,
-  outputDirName: string,
   subFolders: { slug: string }[],
 ): Record<string, string[]> {
   const result: Record<string, string[]> = {};
   for (const sub of subFolders) {
-    const fullDir = path.join(wikiDir, outputDirName, 'entities', sub.slug);
+    const fullDir = path.join(wikiDir, 'entities', sub.slug);
     if (!existsSync(fullDir)) continue;
     const entries = readdirSync(fullDir)
       .filter((f) => f.endsWith('.md') && f !== 'index.md')

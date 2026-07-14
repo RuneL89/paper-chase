@@ -7,12 +7,10 @@ import { appendLogEntry, readLogEntries } from '../../src/writers/log.js';
 
 describe('append-only log.md', () => {
   let wikiDir: string;
-  let outputDirName: string;
 
   beforeAll(() => {
     const workspace = mkdtempSync(path.join(os.tmpdir(), 'wiki-log-writer-'));
     wikiDir = path.join(workspace, 'wikis', 'acme');
-    outputDirName = '.';
   });
 
   afterAll(() => {
@@ -20,7 +18,7 @@ describe('append-only log.md', () => {
   });
 
   it('TAC-001: creates a log file with the first entry', () => {
-    appendLogEntry(wikiDir, outputDirName, {
+    appendLogEntry(wikiDir, {
       timestamp: '2026-07-09T10:00:00Z',
       command: 'ingest',
       sources: [{ filePath: 'raw/a.pdf', sha256: 'a'.repeat(64), status: 'added' }],
@@ -29,7 +27,7 @@ describe('append-only log.md', () => {
       warnings: [],
     });
 
-    const filePath = path.join(wikiDir, outputDirName, 'log.md');
+    const filePath = path.join(wikiDir, 'log.md');
     expect(existsSync(filePath)).toBe(true);
     const content = readFileSync(filePath, 'utf-8');
     expect(content).toContain('# Ingestion Log');
@@ -38,7 +36,7 @@ describe('append-only log.md', () => {
   });
 
   it('TAC-002: appends new entries without removing old ones', () => {
-    appendLogEntry(wikiDir, outputDirName, {
+    appendLogEntry(wikiDir, {
       timestamp: '2026-07-09T11:00:00Z',
       command: 'ingest',
       sources: [{ filePath: 'raw/b.pdf', sha256: 'b'.repeat(64), status: 'changed' }],
@@ -48,10 +46,10 @@ describe('append-only log.md', () => {
       structuralChanges: ['new-folder: timeline (applied)'],
     });
 
-    const entries = readLogEntries(wikiDir, outputDirName);
+    const entries = readLogEntries(wikiDir);
     expect(entries.length).toBe(2);
 
-    const content = readFileSync(path.join(wikiDir, outputDirName, 'log.md'), 'utf-8');
+    const content = readFileSync(path.join(wikiDir, 'log.md'), 'utf-8');
     expect(content).toContain('raw/a.pdf');
     expect(content).toContain('raw/b.pdf');
     expect(content).toContain('Extraction warning');

@@ -3,8 +3,8 @@ import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'fs';
 import path from 'path';
 import os from 'os';
 import matter from 'gray-matter';
-import { writeSourcePage } from '../src/writers/source.js';
-import { writeRawPage } from '../src/writers/raw.js';
+import { writeSourcePage, buildDefaultSourcePageBody } from '../src/writers/source.js';
+import { writeRawPage, buildDefaultRawPageBody } from '../src/writers/raw.js';
 import { createFivePagePdf, createScannedPdf } from './fixtures/pdf-helpers.js';
 import { extractPdf } from '../src/extractor/pdf.js';
 
@@ -25,7 +25,7 @@ describe('TAC-002: source page frontmatter', () => {
     const result = await extractPdf(filePath);
     const outputPath = path.join(tempDir, 'source.md');
 
-    writeSourcePage(outputPath, result, [], [], 'test-wiki');
+    writeSourcePage(outputPath, result, buildDefaultSourcePageBody(result, [], []), 'test-wiki');
 
     const content = readFileSync(outputPath, 'utf-8');
     const parsed = matter(content);
@@ -36,8 +36,7 @@ describe('TAC-002: source page frontmatter', () => {
       wiki: 'test-wiki',
       file: expect.any(String),
       sha256: expect.any(String),
-      logical_pages: expect.any(Number),
-      physical_pages: expect.any(Number),
+      pages: expect.any(Number),
       size_bytes: expect.any(Number),
       metadata: expect.any(Object),
       ingested: expect.any(String),
@@ -47,8 +46,7 @@ describe('TAC-002: source page frontmatter', () => {
       updated: expect.any(String),
     });
 
-    expect(parsed.data.physical_pages).toBe(5);
-    expect(parsed.data.logical_pages).toBe(5);
+    expect(parsed.data.pages).toBe(5);
     expect(parsed.data.sha256).toHaveLength(64);
     expect(parsed.data.label).toBe('Five Page');
     expect(new Date(parsed.data.created).getTime()).not.toBeNaN();
@@ -67,7 +65,7 @@ describe('TAC-002: source page frontmatter', () => {
       }),
     );
 
-    writeSourcePage(outputPath, result, [], [], 'test-wiki');
+    writeSourcePage(outputPath, result, buildDefaultSourcePageBody(result, [], []), 'test-wiki');
 
     const content = readFileSync(outputPath, 'utf-8');
     const parsed = matter(content);
@@ -91,7 +89,7 @@ describe('TAC-003: raw page for scanned page', () => {
     expect(scannedPage).toBeDefined();
 
     const outputPath = path.join(tempDir, 'raw-page.md');
-    writeRawPage(outputPath, result, scannedPage!, 'test-wiki');
+    writeRawPage(outputPath, result, scannedPage!, buildDefaultRawPageBody(result, scannedPage!), 'test-wiki');
 
     const content = readFileSync(outputPath, 'utf-8');
     const parsed = matter(content);
@@ -129,7 +127,7 @@ describe('TAC-003: raw page for scanned page', () => {
       }),
     );
 
-    writeRawPage(outputPath, result, scannedPage!, 'test-wiki');
+    writeRawPage(outputPath, result, scannedPage!, buildDefaultRawPageBody(result, scannedPage!), 'test-wiki');
 
     const content = readFileSync(outputPath, 'utf-8');
     const parsed = matter(content);

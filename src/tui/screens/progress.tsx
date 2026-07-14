@@ -10,7 +10,7 @@ import { ProgressBar } from '../components/progress-bar.js';
 
 interface ProgressScreenProps {
   workspace: string;
-  operation: { type: 'sample' | 'ingest'; slug: string; pdfPath?: string };
+  operation: { type: 'sample' | 'ingest'; slug: string };
   onComplete: (slug: string, summary: string, failed?: boolean) => void;
   onCancel: () => void;
 }
@@ -141,7 +141,7 @@ export function ProgressScreen({
       }
       try {
         if (operation.type === 'sample') {
-          await sampleCommand(workspace, operation.slug, operation.pdfPath, reporter);
+          await sampleCommand(workspace, operation.slug, reporter);
         } else {
           await ingestCommand(workspace, operation.slug, false, false, reporter);
         }

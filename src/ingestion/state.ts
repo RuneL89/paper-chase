@@ -46,8 +46,8 @@ export function defaultState(): IngestionState {
   };
 }
 
-export function statePath(wikiDir: string, _outputDir?: string): string {
-  return path.join(wikiDir, 'output', '.state', 'ingest-state.json');
+export function statePath(wikiDir: string): string {
+  return path.join(wikiDir, '.state', 'ingest-state.json');
 }
 
 export function loadState(stateFile: string): IngestionState {
@@ -152,10 +152,8 @@ export function normalizeRelationshipsForEntity(
 export function refreshPageState(
   state: IngestionState,
   wikiDir: string,
-  outputDirName: string,
 ): void {
-  const outputDir = path.join(wikiDir, outputDirName);
-  if (!existsSync(outputDir)) {
+  if (!existsSync(wikiDir)) {
     return;
   }
 
@@ -169,7 +167,7 @@ export function refreshPageState(
       if (stat.isDirectory()) {
         walk(full);
       } else if (entry.endsWith('.md')) {
-        const relative = toRelativePathFromDir(outputDir, full);
+        const relative = toRelativePathFromDir(wikiDir, full);
         if (relative === 'index.md' || relative.endsWith('/index.md')) {
           continue;
         }
@@ -190,7 +188,7 @@ export function refreshPageState(
     }
   }
 
-  walk(outputDir);
+  walk(wikiDir);
   state.pages = pages;
 }
 

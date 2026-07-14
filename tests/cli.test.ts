@@ -121,7 +121,7 @@ describe('TAC-006: command stubs and error handling', () => {
   it('sample exits non-zero in an invalid workspace', () => {
     const tmp = makeTempDir();
     try {
-      const { status } = runCliError(['sample', 'acme', 'wikis/acme/raw/x.pdf'], tmp);
+      const { status } = runCliError(['sample', 'acme'], tmp);
       expect(status).not.toBe(0);
     } finally {
       rmSync(tmp, { recursive: true, force: true });

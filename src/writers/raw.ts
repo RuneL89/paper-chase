@@ -3,10 +3,25 @@ import matter from 'gray-matter';
 import { readCreatedTimestamp } from './preservation.js';
 import type { ExtractedPage, ExtractionFailure, ExtractionResult } from '../extractor/types.js';
 
+export function buildDefaultRawPageBody(result: ExtractionResult, page: ExtractedPage): string {
+  return [
+    `# Raw fragment: ${result.fileName}, page ${page.physicalPage}`,
+    '',
+    `**Source:** ${result.filePath}`,
+    `**Page:** ${page.physicalPage}`,
+    `**Reason:** Image-only or scanned page; text extraction confidence below threshold`,
+    '',
+    '## Preserved Fragment',
+    '',
+    page.text.trim().length > 0 ? page.text : '*No text available*',
+  ].join('\n');
+}
+
 export function writeRawPage(
   filePath: string,
   result: ExtractionResult,
   page: ExtractedPage,
+  body: string,
   wikiSlug: string,
 ): void {
   const fragment = page.text.trim().slice(0, 500);
@@ -28,19 +43,7 @@ export function writeRawPage(
     updated: now,
   };
 
-  const bodyLines = [
-    `# Raw fragment: ${result.fileName}, page ${page.physicalPage}`,
-    '',
-    `**Source:** ${result.filePath}`,
-    `**Page:** ${page.physicalPage}`,
-    `**Reason:** ${frontmatter.reason}`,
-    '',
-    '## Preserved Fragment',
-    '',
-    page.text.trim().length > 0 ? page.text : '*No text available*',
-  ];
-
-  const content = matter.stringify(bodyLines.join('\n'), frontmatter);
+  const content = matter.stringify(body, frontmatter);
   writeFileSync(filePath, content);
 }
 

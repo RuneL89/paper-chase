@@ -34,6 +34,8 @@ import { slugify, SlugRegistry } from '../utils/slug.js';
 import { findPotentialDuplicates, findCrossDuplicates } from '../utils/similarity.js';
 import type { Config } from '../config.js';
 import { buildPrompt } from './prompt-loader.js';
+import { buildDefaultSourcePageBody } from '../writers/source.js';
+import { buildDefaultRawPageBody } from '../writers/raw.js';
 export interface StructureOutput {
   headings: { title: string; page: number; level: number }[];
   sections: { title: string; startPage: number; endPage: number; level: number }[];
@@ -57,8 +59,42 @@ export interface EvidenceOutput {
   figures: { page: number; caption?: string; description: string }[];
 }
 
+export interface SourcePageWriterOutput {
+  body: string;
+}
+
+export interface RawPageWriterOutput {
+  body: string;
+}
+
 export { PagePlannerOutput, PagePlan };
 
+// ---------- LLM call helper with one JSON repair attempt ----------
+
+async function callAgentWithRepair<T>(
+  agent: string,
+  prompt: string,
+  llmClient: LLMClient,
+  maxTokens: number,
+  temperature: number,
+  parse: (text: string) => T | undefined,
+): Promise<T> {
+  const callOptions = { maxTokens, temperature };
+  const response = await llmClient.call(prompt, callOptions);
+  const parsed = parse(response.text);
+  if (parsed !== undefined) {
+    return parsed;
+  }
+
+  const repairPrompt = `${prompt}\n\n---\n\nYour previous response could not be parsed as valid JSON. Please return ONLY a single valid JSON object matching the requested schema, with no markdown fences, no explanatory text, and no trailing commas. Do not include any other text.`;
+  const repairResponse = await llmClient.call(repairPrompt, callOptions);
+  const repaired = parse(repairResponse.text);
+  if (repaired !== undefined) {
+    return repaired;
+  }
+
+  throw new CLIError(`${agent} returned invalid or unparseable output after one repair attempt.`);
+}
 
 // ---------- Canonical name resolution ----------
 
@@ -327,21 +363,19 @@ export async function structureAnalyst(
     throw new CLIError('LLM is required for structure analysis.');
   }
 
-  try {
-    const context = buildStructureContext(result, chunks, agentsMd, memory);
-    const response = await llmClient.call(buildPrompt('structure-analyst', context), {
-      maxTokens: 8500,
-      temperature: 0.2,
-    });
-    const parsed = parseStructuredJson<StructureOutput>(response.text);
-    if (parsed && isValidStructureOutput(parsed)) {
-      return parsed;
-    }
-  } catch {
-    // Fall through to the invalid-output error below.
-  }
-
-  throw new CLIError('StructureAnalyst returned invalid output.');
+  const context = buildStructureContext(result, chunks, agentsMd, memory);
+  const parsed = await callAgentWithRepair<StructureOutput>(
+    'StructureAnalyst',
+    buildPrompt('structure-analyst', context),
+    llmClient,
+    8500,
+    0.2,
+    (text) => {
+      const p = parseStructuredJson<StructureOutput>(text);
+      return p && isValidStructureOutput(p) ? p : undefined;
+    },
+  );
+  return parsed;
 }
 function isValidStructureOutput(output: unknown): output is StructureOutput {
   const o = output as Record<string, unknown> | undefined;
@@ -407,35 +441,31 @@ export async function entityExtractor(
     throw new CLIError('LLM is required for entity extraction.');
   }
 
-  let llmEntities: ExtractedEntity[] = [];
+  const context = buildEntityContext(result, chunks, agentsMd, memory);
+  const parsed = await callAgentWithRepair<{ entities?: unknown[] }>(
+    'EntityExtractor',
+    buildPrompt('entity-extractor', context),
+    llmClient,
+    8500,
+    0.2,
+    (text) => {
+      const p = parseStructuredJson<{ entities?: unknown[] }>(text);
+      return p && Array.isArray(p.entities) ? p : undefined;
+    },
+  );
 
-  try {
-    const context = buildEntityContext(result, chunks, agentsMd, memory);
-    const response = await llmClient.call(buildPrompt('entity-extractor', context), {
-      maxTokens: 8500,
-      temperature: 0.2,
+  const normalized = (parsed.entities || [])
+    .map((e) => normalizeExtractedEntity(e))
+    .filter((e): e is ExtractedEntity => {
+      if (!e) return false;
+      // Only keep LLM entities that include a non-empty description.
+      return typeof e.description === 'string' && e.description.trim().length > 0;
     });
-    const parsed = parseStructuredJson<{ entities?: unknown[] }>(response.text);
-    if (parsed && Array.isArray(parsed.entities)) {
-      const normalized = parsed.entities
-        .map((e) => normalizeExtractedEntity(e))
-        .filter((e): e is ExtractedEntity => {
-          if (!e) return false;
-          // Only keep LLM entities that include a non-empty description.
-          return typeof e.description === 'string' && e.description.trim().length > 0;
-        });
-      llmEntities = normalized.sort((a, b) => {
-        const countDiff = b.count - a.count;
-        if (countDiff !== 0) return countDiff;
-        return b.confidence - a.confidence;
-      }).slice(0, 50);
-    } else {
-      throw new CLIError('EntityExtractor returned invalid output.');
-    }
-  } catch (err) {
-    if (err instanceof CLIError) throw err;
-    throw new CLIError('EntityExtractor returned invalid output.');
-  }
+  const llmEntities = normalized.sort((a, b) => {
+    const countDiff = b.count - a.count;
+    if (countDiff !== 0) return countDiff;
+    return b.confidence - a.confidence;
+  }).slice(0, 50);
 
   if (llmEntities.length === 0) {
     return { entities: [] };
@@ -550,13 +580,14 @@ export async function chunkingPlanner(
   samplingStrategy: SamplingStrategy,
   llmClient: LLMClient,
   agentsMd?: string,
+  feedback?: string,
 ): Promise<ChunkingStrategyHint> {
   if (!llmClient.isEnabled()) {
     throw new CLIError('LLM is required for chunking planning.');
   }
 
   try {
-    const context = buildChunkingPlannerContext(result, structure, samplingStrategy, config, agentsMd);
+    const context = buildChunkingPlannerContext(result, structure, samplingStrategy, config, agentsMd, feedback);
     const response = await llmClient.call(buildPrompt('chunking-planner', context), {
       maxTokens: 2048,
       model: 'k2.6',
@@ -589,12 +620,19 @@ function buildChunkingPlannerContext(
   samplingStrategy: SamplingStrategy,
   config: Config,
   agentsMd?: string,
+  feedback?: string,
 ): string {
   const lines: string[] = [];
 
   if (agentsMd) {
     lines.push('## AGENTS.md');
     lines.push(agentsMd);
+    lines.push('');
+  }
+
+  if (feedback && feedback.trim().length > 0) {
+    lines.push('## Feedback from previous chunking attempt');
+    lines.push(feedback);
     lines.push('');
   }
 
@@ -791,26 +829,23 @@ export async function relationshipExtractor(
     throw new CLIError('LLM is required for relationship extraction.');
   }
 
-  try {
-    const context = buildRelationshipContext(result, entities, agentsMd, memory);
-    const response = await llmClient.call(buildPrompt('relationship-extractor', context), {
-      maxTokens: 8500,
-      temperature: 0.2,
-    });
-    const parsed = parseStructuredJson<{ relationships?: unknown[] }>(response.text);
-    if (parsed && Array.isArray(parsed.relationships) && parsed.relationships.length > 0) {
-      const normalized = parsed.relationships
-        .map((r) => normalizeRelationship(r, entities))
-        .filter(Boolean) as ExtractedRelationship[];
-      if (normalized.length > 0) {
-        return { relationships: normalized };
-      }
-    }
-  } catch {
-    // Fall through to the invalid-output error below.
-  }
+  const context = buildRelationshipContext(result, entities, agentsMd, memory);
+  const parsed = await callAgentWithRepair<{ relationships?: unknown[] }>(
+    'RelationshipExtractor',
+    buildPrompt('relationship-extractor', context),
+    llmClient,
+    8500,
+    0.2,
+    (text) => {
+      const p = parseStructuredJson<{ relationships?: unknown[] }>(text);
+      return p && Array.isArray(p.relationships) ? p : undefined;
+    },
+  );
 
-  throw new CLIError('RelationshipExtractor returned invalid or empty output.');
+  const normalized = (parsed.relationships || [])
+    .map((r) => normalizeRelationship(r, entities))
+    .filter(Boolean) as ExtractedRelationship[];
+  return { relationships: normalized };
 }
 function normalizeRelationship(
   relationship: unknown,
@@ -914,26 +949,23 @@ export async function relationshipExtractorForChunk(
     ),
   ];
 
-  try {
-    const context = buildRelationshipContext(result, combinedEntities, agentsMd, memory, chunk);
-    const response = await llmClient.call(buildPrompt('relationship-extractor', context), {
-      maxTokens: 8500,
-      temperature: 0.2,
-    });
-    const parsed = parseStructuredJson<{ relationships?: unknown[] }>(response.text);
-    if (parsed && Array.isArray(parsed.relationships) && parsed.relationships.length > 0) {
-      const normalized = parsed.relationships
-        .map((r) => normalizeRelationship(r, combinedEntities))
-        .filter(Boolean) as ExtractedRelationship[];
-      if (normalized.length > 0) {
-        return { relationships: normalized };
-      }
-    }
-  } catch {
-    // Fall through to the invalid-output error below.
-  }
+  const context = buildRelationshipContext(result, combinedEntities, agentsMd, memory, chunk);
+  const parsed = await callAgentWithRepair<{ relationships?: unknown[] }>(
+    'RelationshipExtractor',
+    buildPrompt('relationship-extractor', context),
+    llmClient,
+    8500,
+    0.2,
+    (text) => {
+      const p = parseStructuredJson<{ relationships?: unknown[] }>(text);
+      return p && Array.isArray(p.relationships) ? p : undefined;
+    },
+  );
 
-  throw new CLIError('RelationshipExtractor returned invalid or empty output.');
+  const normalized = (parsed.relationships || [])
+    .map((r) => normalizeRelationship(r, combinedEntities))
+    .filter(Boolean) as ExtractedRelationship[];
+  return { relationships: normalized };
 }
 
 /**
@@ -950,21 +982,19 @@ export async function evidenceCollector(
     throw new CLIError('LLM is required for evidence collection.');
   }
 
-  try {
-    const context = buildEvidenceContext(result, chunks, agentsMd, memory);
-    const response = await llmClient.call(buildPrompt('evidence-collector', context), {
-      maxTokens: 8500,
-      temperature: 0.2,
-    });
-    const parsed = parseStructuredJson<EvidenceOutput>(response.text);
-    if (parsed && isValidEvidenceOutput(parsed)) {
-      return parsed;
-    }
-  } catch {
-    // Fall through to the invalid-output error below.
-  }
-
-  throw new CLIError('EvidenceCollector returned invalid output.');
+  const context = buildEvidenceContext(result, chunks, agentsMd, memory);
+  const parsed = await callAgentWithRepair<EvidenceOutput>(
+    'EvidenceCollector',
+    buildPrompt('evidence-collector', context),
+    llmClient,
+    8500,
+    0.2,
+    (text) => {
+      const p = parseStructuredJson<EvidenceOutput>(text);
+      return p && isValidEvidenceOutput(p) ? p : undefined;
+    },
+  );
+  return parsed;
 }
 function isValidEvidenceOutput(output: unknown): output is EvidenceOutput {
   const o = output as Record<string, unknown> | undefined;
@@ -1026,27 +1056,23 @@ export async function pagePlanner(
     throw new CLIError('LLM is required for page planning.');
   }
 
-  try {
-    const context = buildPagePlannerContext(result, structure, entities, evidence, agentsMd, memory, samplingStrategy);
-    const response = await llmClient.call(buildPrompt('page-planner', context), {
-      maxTokens: 8500,
-      temperature: 0.2,
-    });
-    const parsed = parseStructuredJson<PagePlannerOutput>(response.text);
-    if (parsed && isValidPagePlannerOutput(parsed)) {
-      const normalized = normalizePagePlannerOutput(parsed, result, entities);
-      if (normalized.folderPlacements.length === 0) {
-        throw new CLIError('PagePlanner returned no folder placements.');
-      }
-      return normalized;
-    }
-  } catch (err) {
-    if (err instanceof CLIError) {
-      throw err;
-    }
+  const context = buildPagePlannerContext(result, structure, entities, evidence, agentsMd, memory, samplingStrategy);
+  const parsed = await callAgentWithRepair<PagePlannerOutput>(
+    'PagePlanner',
+    buildPrompt('page-planner', context),
+    llmClient,
+    8500,
+    0.2,
+    (text) => {
+      const p = parseStructuredJson<PagePlannerOutput>(text);
+      return p && isValidPagePlannerOutput(p) ? p : undefined;
+    },
+  );
+  const normalized = normalizePagePlannerOutput(parsed, result, entities);
+  if (normalized.folderPlacements.length === 0) {
+    throw new CLIError('PagePlanner returned no folder placements.');
   }
-
-  throw new CLIError('PagePlanner returned invalid output.');
+  return normalized;
 }
 
 function isValidPagePlannerOutput(output: unknown): output is PagePlannerOutput {
@@ -1303,27 +1329,26 @@ export async function critic(
     throw new CLIError('LLM is required for critic review.');
   }
 
-  try {
-    const context = buildCriticContext(result, pages, folderPlacements, agentsMd, memory, pageUpdates);
-    const response = await llmClient.call(buildPrompt('critic', context), {
-      maxTokens: 8500,
-      temperature: 1.0,
-    });
-    const parsed = parseStructuredJson<CriticReview>(response.text);
-    if (parsed && isValidCriticReview(parsed)) {
+  const context = buildCriticContext(result, pages, folderPlacements, agentsMd, memory, pageUpdates);
+  const parsed = await callAgentWithRepair<CriticReview>(
+    'Critic',
+    buildPrompt('critic', context),
+    llmClient,
+    8500,
+    1.0,
+    (text) => {
+      const p = parseStructuredJson<CriticReview>(text);
+      if (!p || !isValidCriticReview(p)) return undefined;
       return {
-        approved: typeof parsed.approved === 'boolean' ? parsed.approved : parsed.issues.length === 0,
-        issues: Array.isArray(parsed.issues) ? parsed.issues : [],
-        confidence: parsed.confidence,
-        checks: Array.isArray(parsed.checks) ? parsed.checks : [],
-        blockingIssues: Array.isArray(parsed.blockingIssues) ? parsed.blockingIssues : [],
+        approved: typeof p.approved === 'boolean' ? p.approved : p.issues.length === 0,
+        issues: Array.isArray(p.issues) ? p.issues : [],
+        confidence: p.confidence,
+        checks: Array.isArray(p.checks) ? p.checks : [],
+        blockingIssues: Array.isArray(p.blockingIssues) ? p.blockingIssues : [],
       };
-    }
-  } catch {
-    // Fall through to the invalid-output error below.
-  }
-
-  throw new CLIError('Critic returned invalid output.');
+    },
+  );
+  return parsed;
 }
 function isValidCriticReview(output: unknown): output is Pick<CriticReview, 'issues' | 'confidence'> & Partial<CriticReview> {
   const o = output as Record<string, unknown> | undefined;
@@ -1373,6 +1398,7 @@ function buildCriticContext(
   lines.push('');
 
   if (pageUpdates && pageUpdates.length > 0) {
+    const knownTitles = collectKnownPageTitles(pages);
     lines.push('## Drafted pages');
     for (const update of pageUpdates) {
       lines.push(`- ${update.filePath}`);
@@ -1380,6 +1406,16 @@ function buildCriticContext(
       if (bodyPreview) {
         lines.push(`  Body preview: ${bodyPreview}`);
       }
+      const unknown = findUnknownWikilinks(String(update.body ?? ''), knownTitles);
+      if (unknown.length > 0) {
+        lines.push(`  Wikilinks not matching known pages: ${unknown.join(', ')}`);
+      }
+    }
+    lines.push('');
+    lines.push('## Known page titles');
+    lines.push('Only the following exact titles are valid wikilink targets for this review:');
+    for (const title of [...knownTitles.entities, ...knownTitles.topics, ...knownTitles.sources, ...knownTitles.indexes]) {
+      lines.push(`- [[${title}]]`);
     }
     lines.push('');
   }
@@ -1390,6 +1426,29 @@ function buildCriticContext(
   lines.push('');
 
   return lines.join('\n');
+}
+
+function findUnknownWikilinks(
+  body: string,
+  knownTitles: { entities: string[]; topics: string[]; sources: string[]; indexes: string[] },
+): string[] {
+  const known = new Set([
+    ...knownTitles.entities,
+    ...knownTitles.topics,
+    ...knownTitles.sources,
+    ...knownTitles.indexes,
+  ]);
+  const unknown = new Set<string>();
+  body.replace(/\[\[[^\]|]+(?:\|[^\]]+)?\]\]/g, (match) => {
+    const inner = match.slice(2, -2);
+    const [target] = inner.split('|', 2);
+    const targetTitle = target.trim();
+    if (!known.has(targetTitle)) {
+      unknown.add(targetTitle);
+    }
+    return match;
+  });
+  return Array.from(unknown);
 }
 
 // ---------- Memory helpers ----------
@@ -1778,9 +1837,15 @@ export async function chunkWriterForChunk(
     knownTitles,
     feedback,
   );
-  const response = await llmClient.call(prompt, { maxTokens: 8500, temperature: 0.2 });
-  const parsed = parseChunkWriterJson(response.text);
-  if (!parsed || !Array.isArray(parsed.pages) || parsed.pages.length === 0) {
+  const parsed = await callAgentWithRepair<{ pages: unknown[] }>(
+    'ChunkWriter',
+    prompt,
+    llmClient,
+    8500,
+    0.2,
+    parseChunkWriterJson,
+  );
+  if (!parsed.pages.length) {
     throw new CLIError('ChunkWriter returned invalid output.');
   }
   const normalized = normalizePageUpdate(parsed.pages[0], result, config, knownTitles);
@@ -1789,6 +1854,163 @@ export async function chunkWriterForChunk(
   }
   return { ...normalized, filePath: `documents/${chunk.id}.md` };
 }
+
+/**
+ * SourcePageWriter: LLM-driven author of source catalog page bodies.
+ */
+export async function sourcePageWriter(
+  result: ExtractionResult,
+  documentLinks: { title: string; pageRange: string }[],
+  rawLinks: { title: string; physicalPage: number }[],
+  config: Config,
+  llmClient: LLMClient,
+  agentsMd?: string,
+  memory?: OrchestratorMemory,
+): Promise<SourcePageWriterOutput> {
+  if (!llmClient.isEnabled()) {
+    return { body: buildDefaultSourcePageBody(result, documentLinks, rawLinks) };
+  }
+
+  const context = buildSourcePageWriterContext(result, documentLinks, rawLinks, config, agentsMd, memory);
+  const parsed = await callAgentWithRepair<{ body: string }>(
+    'SourcePageWriter',
+    buildPrompt('source-page-writer', context),
+    llmClient,
+    4000,
+    0.2,
+    (text) => {
+      const p = parseStructuredJson<{ body?: string }>(text);
+      return p && typeof p.body === 'string' ? (p as { body: string }) : undefined;
+    },
+  );
+  return { body: parsed.body };
+}
+
+function buildSourcePageWriterContext(
+  result: ExtractionResult,
+  documentLinks: { title: string; pageRange: string }[],
+  rawLinks: { title: string; physicalPage: number }[],
+  config: Config,
+  agentsMd?: string,
+  memory?: OrchestratorMemory,
+): string {
+  const lines: string[] = [];
+  if (agentsMd) {
+    lines.push('## AGENTS.md');
+    lines.push(agentsMd);
+    lines.push('');
+  }
+  if (memory && memory.rollingSummary) {
+    lines.push('## Rolling memory');
+    lines.push(memory.summaryOnly ? '[Summary-only mode]' : memory.rollingSummary);
+    lines.push('');
+  }
+
+  lines.push('## Source PDF');
+  lines.push(`- file: ${result.filePath}`);
+  lines.push(`- filename: ${result.fileName}`);
+  lines.push(`- pages: ${result.logicalPages} logical / ${result.physicalPages} physical`);
+  lines.push(`- tables: ${result.hasTables ? 'yes' : 'no'}`);
+  lines.push(`- figures: ${result.hasFigures ? 'yes' : 'no'}`);
+  lines.push(`- scanned: ${result.isScanned ? 'yes' : 'no'}`);
+  lines.push(`- size: ${result.sizeBytes} bytes`);
+  lines.push(`- ingested: ${result.ingested}`);
+  lines.push('');
+
+  lines.push('## Document pages');
+  for (const link of documentLinks) {
+    lines.push(`- [[${link.title}]] — pages ${link.pageRange}`);
+  }
+  if (documentLinks.length === 0) {
+    lines.push('- No document pages generated.');
+  }
+  lines.push('');
+
+  lines.push('## Raw pages');
+  for (const link of rawLinks) {
+    lines.push(`- [[${link.title}]] — page ${link.physicalPage}`);
+  }
+  if (rawLinks.length === 0) {
+    lines.push('- No raw pages generated.');
+  }
+  lines.push('');
+
+  lines.push('## Wiki');
+  lines.push(`- slug: ${config.wiki.slug}`);
+  lines.push(`- title: ${config.wiki.title}`);
+  lines.push('');
+
+  return lines.join('\n');
+}
+
+/**
+ * RawPageWriter: LLM-driven author of raw page bodies for scanned/unparseable pages.
+ */
+export async function rawPageWriter(
+  result: ExtractionResult,
+  page: ExtractedPage,
+  config: Config,
+  llmClient: LLMClient,
+  agentsMd?: string,
+  memory?: OrchestratorMemory,
+): Promise<RawPageWriterOutput> {
+  if (!llmClient.isEnabled()) {
+    return { body: buildDefaultRawPageBody(result, page) };
+  }
+
+  const context = buildRawPageWriterContext(result, page, config, agentsMd, memory);
+  const parsed = await callAgentWithRepair<{ body: string }>(
+    'RawPageWriter',
+    buildPrompt('raw-page-writer', context),
+    llmClient,
+    4000,
+    0.2,
+    (text) => {
+      const p = parseStructuredJson<{ body?: string }>(text);
+      return p && typeof p.body === 'string' ? (p as { body: string }) : undefined;
+    },
+  );
+  return { body: parsed.body };
+}
+
+function buildRawPageWriterContext(
+  result: ExtractionResult,
+  page: ExtractedPage,
+  config: Config,
+  agentsMd?: string,
+  memory?: OrchestratorMemory,
+): string {
+  const lines: string[] = [];
+  if (agentsMd) {
+    lines.push('## AGENTS.md');
+    lines.push(agentsMd);
+    lines.push('');
+  }
+  if (memory && memory.rollingSummary) {
+    lines.push('## Rolling memory');
+    lines.push(memory.summaryOnly ? '[Summary-only mode]' : memory.rollingSummary);
+    lines.push('');
+  }
+
+  lines.push('## Source PDF');
+  lines.push(`- file: ${result.filePath}`);
+  lines.push(`- filename: ${result.fileName}`);
+  lines.push('');
+
+  lines.push(`## Page ${page.physicalPage}`);
+  lines.push(`- reason: Image-only or scanned page; text extraction confidence below threshold`);
+  lines.push(`- extracted text:`);
+  lines.push(page.text.trim().length > 0 ? page.text : '*No text available*');
+  lines.push('');
+
+  lines.push('## Wiki');
+  lines.push(`- slug: ${config.wiki.slug}`);
+  lines.push(`- title: ${config.wiki.title}`);
+  lines.push('');
+
+  return lines.join('\n');
+}
+
 async function withConcurrencyLimit<T>(
   tasks: (() => Promise<T>)[],
   limit: number,
@@ -1960,13 +2182,7 @@ function buildChunkWriterPrompt(
   lines.push('## Extracted chunks');
   for (const chunk of chunks) {
     lines.push(`### Chunk ${chunk.id} — pages ${chunk.pageRange}`);
-    // The full extracted text is preserved by the deterministic layer below the
-    // LLM synthesis. Truncating the prompt keeps LLM calls fast for large chunks.
-    const MAX_CHUNK_PROMPT_CHARS = 10000;
-    lines.push(chunk.content.slice(0, MAX_CHUNK_PROMPT_CHARS));
-    if (chunk.content.length > MAX_CHUNK_PROMPT_CHARS) {
-      lines.push('\n[Chunk content truncated for prompt length; full detail is preserved below.]');
-    }
+    lines.push(chunk.content);
     lines.push('');
   }
 
@@ -2058,35 +2274,12 @@ function normalizePageUpdate(
     return undefined;
   }
 
-  let body = p.body;
-  if (knownTitles) {
-    body = sanitizeWikilinks(body, knownTitles);
-  }
-
   return {
     filePath: p.filePath,
     frontmatter,
-    body,
+    body: p.body,
     citations: Array.isArray(p.citations) ? (p.citations as { claim: string; sources: string[] }[]) : undefined,
   };
-}
-
-function sanitizeWikilinks(
-  body: string,
-  knownTitles: { entities: string[]; topics: string[]; sources: string[]; indexes: string[] },
-): string {
-  const known = new Set([...knownTitles.entities, ...knownTitles.topics, ...knownTitles.sources, ...knownTitles.indexes]);
-  return body.replace(/\[\[[^\]|]+(?:\|[^\]]+)?\]\]/g, (match) => {
-    const inner = match.slice(2, -2);
-    const [target, display] = inner.split('|', 2);
-    const targetTitle = target.trim();
-    const displayText = display !== undefined ? display.trim() : targetTitle;
-    if (known.has(targetTitle)) {
-      // Enforce the no-pipe rule: only exact-title links are allowed.
-      return `[[${targetTitle}]]`;
-    }
-    return displayText;
-  });
 }
 
 function buildDefaultSources(result: ExtractionResult): Record<string, unknown>[] {
@@ -2177,19 +2370,18 @@ export async function entityTopicPageWriter(
     knownEntities,
     knownTopics,
   );
-  try {
-    const response = await llmClient.call(prompt, { maxTokens: 8500, temperature: 0.2 });
-    const parsed = parseEntityTopicWriterJson(response.text);
-    if (!parsed || (parsed.entities.length === 0 && parsed.topics.length === 0)) {
-      throw new CLIError('EntityTopicPageWriter returned invalid or empty output.');
-    }
-    return parsed;
-  } catch (err) {
-    if (err instanceof CLIError) {
-      throw err;
-    }
+  const parsed = await callAgentWithRepair<EntityTopicPageOutput>(
+    'EntityTopicPageWriter',
+    prompt,
+    llmClient,
+    8500,
+    0.2,
+    parseEntityTopicWriterJson,
+  );
+  if (parsed.entities.length === 0 && parsed.topics.length === 0) {
     throw new CLIError('EntityTopicPageWriter returned invalid or empty output.');
   }
+  return parsed;
 }
 function buildEntityTopicWriterPrompt(
   entities: EntityTopicPageInputEntity[],

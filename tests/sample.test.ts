@@ -8,6 +8,7 @@ import {
   mkdirSync,
   copyFileSync,
   writeFileSync,
+  readdirSync,
 } from 'fs';
 import path from 'path';
 import os from 'os';
@@ -72,7 +73,7 @@ describe('TAC-001: sample command creates required artifacts', () => {
   });
 
   it('creates chunking-strategy.md, index.md, config.json, AGENTS.md, and a document page', () => {
-    runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
+    runCli(['sample', 'acme'], workspace);
 
     const wikiDir = path.join(workspace, 'wikis', 'acme');
     const documentsDir = path.join(wikiDir, 'documents');
@@ -104,7 +105,7 @@ describe('TAC-001A: sample command creates folder-level index contracts', () => 
   });
 
   it('creates at least one folder-level index.md with type index and parent link', () => {
-    runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
+    runCli(['sample', 'acme'], workspace);
 
     const wikiDir = path.join(workspace, 'wikis', 'acme');
     expect(existsSync(path.join(wikiDir, 'documents', 'index.md'))).toBe(true);
@@ -127,7 +128,7 @@ describe('TAC-002: chunking-strategy.md contents', () => {
     setupWiki(workspace, 'acme');
     pdfPath = path.join(workspace, 'wikis', 'acme', 'raw', 'five-page.pdf');
     copyFileSync(FIVE_PAGE_PDF, pdfPath);
-    runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
+    runCli(['sample', 'acme'], workspace);
   });
 
   afterAll(() => {
@@ -156,7 +157,7 @@ describe('TAC-003: config.json schema', () => {
     setupWiki(workspace, 'acme');
     const pdfPath = path.join(workspace, 'wikis', 'acme', 'raw', 'five-page.pdf');
     copyFileSync(FIVE_PAGE_PDF, pdfPath);
-    runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
+    runCli(['sample', 'acme'], workspace);
   });
 
   afterAll(() => {
@@ -188,7 +189,6 @@ describe('TAC-003: config.json schema', () => {
     expect(typeof config.extraction.ocr_enabled).toBe('boolean');
 
     expect(config.output).toBeDefined();
-    expect(config.output.dir).toBeTruthy();
     expect(Array.isArray(config.output.page_types)).toBe(true);
 
     expect(config.status).toBeTruthy();
@@ -208,7 +208,7 @@ describe('TAC-004: document page frontmatter', () => {
     setupWiki(workspace, 'acme');
     const pdfPath = path.join(workspace, 'wikis', 'acme', 'raw', 'five-page.pdf');
     copyFileSync(FIVE_PAGE_PDF, pdfPath);
-    runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
+    runCli(['sample', 'acme'], workspace);
   });
 
   afterAll(() => {
@@ -240,7 +240,7 @@ describe('TAC-005: citations in document pages', () => {
     setupWiki(workspace, 'acme');
     const pdfPath = path.join(workspace, 'wikis', 'acme', 'raw', 'five-page.pdf');
     copyFileSync(FIVE_PAGE_PDF, pdfPath);
-    runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
+    runCli(['sample', 'acme'], workspace);
   });
 
   afterAll(() => {
@@ -278,7 +278,7 @@ describe('TAC-006: tables and figures are not split arbitrarily', () => {
     setupWiki(workspace, 'acme');
     const pdfPath = path.join(workspace, 'wikis', 'acme', 'raw', 'table.pdf');
     copyFileSync(TABLE_PDF, pdfPath);
-    runCli(['sample', 'acme', 'wikis/acme/raw/table.pdf'], workspace);
+    runCli(['sample', 'acme'], workspace);
   });
 
   afterAll(() => {
@@ -308,7 +308,7 @@ describe('TAC-007: small chunks are flagged, not discarded', () => {
     setupWiki(workspace, 'acme');
     const pdfPath = path.join(workspace, 'wikis', 'acme', 'raw', 'five-page.pdf');
     copyFileSync(FIVE_PAGE_PDF, pdfPath);
-    runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
+    runCli(['sample', 'acme'], workspace);
   });
 
   afterAll(() => {
@@ -330,26 +330,6 @@ describe('TAC-007: small chunks are flagged, not discarded', () => {
   });
 });
 
-describe('TAC-008: sample command rejects PDFs outside raw folder', () => {
-  it('exits with a non-zero code when the PDF is not inside the wiki raw folder', () => {
-    const workspace = makeTempWorkspace();
-    try {
-      setupWiki(workspace, 'acme');
-      const outsidePdf = path.join(workspace, 'five-page.pdf');
-      copyFileSync(FIVE_PAGE_PDF, outsidePdf);
-
-      const { status, stderr } = runCliError(
-        ['sample', 'acme', 'five-page.pdf'],
-        workspace,
-      );
-      expect(status).not.toBe(0);
-      expect(stderr).toMatch(/raw|inside|folder|directory/i);
-    } finally {
-      rmSync(workspace, { recursive: true, force: true });
-    }
-  });
-});
-
 describe('TAC-009: sampling strategy in chunking-strategy.md', () => {
   let workspace: string;
 
@@ -358,7 +338,7 @@ describe('TAC-009: sampling strategy in chunking-strategy.md', () => {
     setupWiki(workspace, 'acme');
     const pdfPath = path.join(workspace, 'wikis', 'acme', 'raw', 'five-page.pdf');
     copyFileSync(FIVE_PAGE_PDF, pdfPath);
-    runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
+    runCli(['sample', 'acme'], workspace);
   });
 
   afterAll(() => {
@@ -382,7 +362,7 @@ describe('TAC-010: AGENTS.md is generated and refined', () => {
     setupWiki(workspace, 'acme');
     const pdfPath = path.join(workspace, 'wikis', 'acme', 'raw', 'five-page.pdf');
     copyFileSync(FIVE_PAGE_PDF, pdfPath);
-    runCli(['sample', 'acme', 'wikis/acme/raw/five-page.pdf'], workspace);
+    runCli(['sample', 'acme'], workspace);
   });
 
   afterAll(() => {
@@ -416,7 +396,6 @@ describe('TAC-010: AGENTS.md is generated and refined', () => {
 
 function readdirFiles(dir: string): string[] {
   if (!existsSync(dir)) return [];
-  return require('fs')
-    .readdirSync(dir)
-    .filter((f: string) => !f.startsWith('.') && f !== 'index.md');
+  return readdirSync(dir)
+    .filter((f) => !f.startsWith('.') && f !== 'index.md');
 }

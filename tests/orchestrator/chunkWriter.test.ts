@@ -31,9 +31,7 @@ function makeConfig(slug: string): Config {
       ocr_enabled: true,
       page_range: null,
     },
-    output: {
-      dir: '.',
-      page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
+    output: { page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
     },
     ingestion: {
       entity_threshold: 2,
@@ -211,7 +209,7 @@ describe('chunkWriter', () => {
         makeConfig('acme'),
         client,
       ),
-    ).rejects.toThrow('ChunkWriter returned invalid output');
+    ).rejects.toThrow(/ChunkWriter returned invalid/);
   });
 
   it('TAC-004: throws a CLIError when LLM frontmatter fails schema validation', async () => {

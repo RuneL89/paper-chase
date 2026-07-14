@@ -41,7 +41,7 @@ function makeConfig(slug: string): Config {
       overlap: 0,
     },
     extraction: { engine: 'pdfjs-dist', ocr_enabled: true, page_range: null },
-    output: { dir: '.', page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'] },
+    output: { page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'] },
     ingestion: { entity_threshold: 1, topic_threshold: 1, max_entities: 50, max_topics: 50 },
     sampling: { large_page_threshold: 500, strategy_page_budget: 50, similarity_metadata_keys: ['title'] },
     resilience: { recoveryMode: 'abort', circuitBreakerThreshold: 0.3, circuitBreakerWindowMs: 300000 },
@@ -80,7 +80,7 @@ function seedState(wikiDir: string, config: Config, pages: Record<string, PageSt
     },
     pages,
   };
-  saveState(statePath(wikiDir, config.output.dir), state);
+  saveState(statePath(wikiDir), state);
 }
 
 describe('reingest', () => {
@@ -103,7 +103,7 @@ describe('reingest', () => {
       'documents/old.md': { folder: 'documents', pageType: 'document', generatedHash: hashPageContent(readFileSync(path.join(wikiDir, 'documents/old.md'), 'utf-8')), updatedAt: new Date().toISOString() },
     };
     seedState(wikiDir, config, pages, ['documents/old.md']);
-    const state = loadState(statePath(wikiDir, config.output.dir));
+    const state = loadState(statePath(wikiDir));
 
     const hierarchy: Record<string, FolderPlan> = {
       sources: makeFolderPlan('sources', 'Sources'),
@@ -118,7 +118,7 @@ describe('reingest', () => {
       'documents/legacy.md': { folder: 'documents', pageType: 'legacy', generatedHash: hashPageContent(readFileSync(path.join(wikiDir, 'documents/legacy.md'), 'utf-8')), updatedAt: new Date().toISOString() },
     };
     seedState(wikiDir, config, pages, ['documents/legacy.md']);
-    const state = loadState(statePath(wikiDir, config.output.dir));
+    const state = loadState(statePath(wikiDir));
 
     const hierarchy: Record<string, FolderPlan> = {
       documents: makeFolderPlan('documents', 'Documents', ['document']),
@@ -133,7 +133,7 @@ describe('reingest', () => {
       'documents/timeline.md': { folder: 'documents', pageType: 'timeline', generatedHash: hashPageContent(readFileSync(path.join(wikiDir, 'documents/timeline.md'), 'utf-8')), updatedAt: new Date().toISOString() },
     };
     seedState(wikiDir, config, pages, ['documents/timeline.md']);
-    const state = loadState(statePath(wikiDir, config.output.dir));
+    const state = loadState(statePath(wikiDir));
 
     const hierarchy: Record<string, FolderPlan> = {
       documents: makeFolderPlan('documents', 'Documents', ['document']),
@@ -149,7 +149,7 @@ describe('reingest', () => {
       'documents/unchanged.md': { folder: 'documents', pageType: 'document', generatedHash: hashPageContent(readFileSync(path.join(wikiDir, 'documents/unchanged.md'), 'utf-8')), updatedAt: new Date().toISOString() },
     };
     seedState(wikiDir, config, pages, ['documents/unchanged.md']);
-    const state = loadState(statePath(wikiDir, config.output.dir));
+    const state = loadState(statePath(wikiDir));
 
     const hierarchy: Record<string, FolderPlan> = {
       documents: makeFolderPlan('documents', 'Documents', ['document']),
@@ -171,7 +171,7 @@ describe('reingest', () => {
     const editedContent = originalContent + '\n\nManual edit.';
     writeFileSync(path.join(wikiDir, 'documents/timeline.md'), editedContent);
 
-    const state = loadState(statePath(wikiDir, config.output.dir));
+    const state = loadState(statePath(wikiDir));
     const hierarchy: Record<string, FolderPlan> = {
       documents: makeFolderPlan('documents', 'Documents', ['document']),
       timeline: makeFolderPlan('timeline', 'Timeline', ['timeline']),
@@ -203,7 +203,7 @@ describe('reingest', () => {
     expect(existsSync(path.join(wikiDir, 'documents/timeline.md'))).toBe(false);
     expect(existsSync(path.join(wikiDir, 'timeline/timeline.md'))).toBe(true);
 
-    const state = loadState(statePath(wikiDir, config.output.dir));
+    const state = loadState(statePath(wikiDir));
     expect(state.pages!['timeline/timeline.md']).toBeDefined();
     expect(state.pages!['timeline/timeline.md'].folder).toBe('timeline');
     expect(state.pages!['documents/timeline.md']).toBeUndefined();
@@ -224,7 +224,7 @@ describe('reingest', () => {
     const result = await runReingest(workspace, 'acme', config, hierarchy);
     expect(result.pagesDeleted).toContain('documents/legacy.md');
     expect(existsSync(path.join(wikiDir, 'documents/legacy.md'))).toBe(false);
-    const state = loadState(statePath(wikiDir, config.output.dir));
+    const state = loadState(statePath(wikiDir));
     expect(state.pages!['documents/legacy.md']).toBeUndefined();
   });
 

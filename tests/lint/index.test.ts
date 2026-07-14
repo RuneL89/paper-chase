@@ -30,9 +30,7 @@ function makeConfig(slug: string): Config {
       ocr_enabled: true,
       page_range: null,
     },
-    output: {
-      dir: '.',
-      page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
+    output: { page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
     },
     ingestion: {
       entity_threshold: 2,
@@ -98,8 +96,7 @@ describe('lint report', () => {
     });
     writePage(wikiDir, 'sources', 'a.md', 'Source: A', 'source', 'Source page.', {
       file: 'wikis/acme/raw/a.pdf',
-      logical_pages: 1,
-      physical_pages: 1,
+      pages: 1,
       sha256: 'a'.repeat(64),
       ingested: '2026-07-08T00:00:00Z',
       warnings: [],

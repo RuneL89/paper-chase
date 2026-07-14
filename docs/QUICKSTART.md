@@ -217,7 +217,7 @@ Open the folder `my-wiki-workspace/wikis/acme-reports` in your file explorer. Yo
 - `documents/` — one or more pages extracted from the PDF
 - `sources/` — a source page describing the PDF
 - `raw/` — holds your original PDFs; raw markdown pages only appear if some pages were scanned images
-- `output/` — internal folder for state and lint reports; you do not need to open it
+- Internal state and lint reports are stored directly under the wiki folder (`.state/` and `lint/`) and do not need to be edited.
 
 Open `chunking-strategy.md` in any text editor and read it. It tells you how the PDF was understood and how it was split into chunks.
 

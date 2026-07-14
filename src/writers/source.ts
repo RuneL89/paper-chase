@@ -13,11 +13,42 @@ export interface RawPageLink {
   physicalPage: number;
 }
 
-export function writeSourcePage(
-  filePath: string,
+export function buildDefaultSourcePageBody(
   result: ExtractionResult,
   documentLinks: DocumentPageLink[] = [],
   rawLinks: RawPageLink[] = [],
+): string {
+  const documentLines = documentLinks.length
+    ? documentLinks.map((d) => `- [[${d.title}]] — pages ${d.pageRange}`)
+    : ['- No document pages generated.'];
+
+  const rawLines = rawLinks.length
+    ? rawLinks.map((r) => `- [[${r.title}]] — page ${r.physicalPage}`)
+    : ['- No raw pages generated.'];
+
+  return [
+    `# Source: ${result.fileName}`,
+    '',
+    `**File:** ${result.filePath}`,
+    `**Filename:** ${result.fileName}`,
+    `**Pages:** ${result.logicalPages} logical / ${result.physicalPages} physical`,
+    `**Tables:** ${result.hasTables ? 'yes' : 'no'}`,
+    `**Figures:** ${result.hasFigures ? 'yes' : 'no'}`,
+    `**Scanned:** ${result.isScanned ? 'yes' : 'no'}`,
+    `**Size:** ${result.sizeBytes} bytes`,
+    '',
+    '## Document Pages',
+    ...documentLines,
+    '',
+    '## Raw Pages',
+    ...rawLines,
+  ].join('\n');
+}
+
+export function writeSourcePage(
+  filePath: string,
+  result: ExtractionResult,
+  body: string,
   wikiSlug: string,
 ): void {
   // Strip undefined metadata fields so gray-matter can serialize cleanly.
@@ -38,8 +69,7 @@ export function writeSourcePage(
     file: result.filePath,
     label: humanizeLabel(result.fileName),
     sha256: result.sha256,
-    logical_pages: result.logicalPages,
-    physical_pages: result.physicalPages,
+    pages: result.physicalPages,
     has_tables: result.hasTables,
     has_figures: result.hasFigures,
     is_scanned: result.isScanned,
@@ -51,32 +81,6 @@ export function writeSourcePage(
     updated: now,
   };
 
-  const documentLines = documentLinks.length
-    ? documentLinks.map((d) => `- [[${d.title}]] — pages ${d.pageRange}`)
-    : ['- No document pages generated.'];
-
-  const rawLines = rawLinks.length
-    ? rawLinks.map((r) => `- [[${r.title}]] — page ${r.physicalPage}`)
-    : ['- No raw pages generated.'];
-
-  const bodyLines = [
-    `# Source: ${result.fileName}`,
-    '',
-    `**File:** ${result.filePath}`,
-    `**Filename:** ${result.fileName}`,
-    `**Pages:** ${result.logicalPages} logical / ${result.physicalPages} physical`,
-    `**Tables:** ${result.hasTables ? 'yes' : 'no'}`,
-    `**Figures:** ${result.hasFigures ? 'yes' : 'no'}`,
-    `**Scanned:** ${result.isScanned ? 'yes' : 'no'}`,
-    `**Size:** ${result.sizeBytes} bytes`,
-    '',
-    '## Document Pages',
-    ...documentLines,
-    '',
-    '## Raw Pages',
-    ...rawLines,
-  ];
-
-  const content = matter.stringify(bodyLines.join('\n'), frontmatter);
+  const content = matter.stringify(body, frontmatter);
   writeFileSync(filePath, content);
 }

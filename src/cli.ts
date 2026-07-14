@@ -36,8 +36,7 @@ Examples:
   $ llm-wiki-cli tui
   $ llm-wiki-cli status -w ./my-workspace
   $ llm-wiki-cli init donations --title "Political Donations" --description "Annual filings..."
-  $ llm-wiki-cli sample acme                    # corpus-centric sample
-  $ llm-wiki-cli sample acme wikis/acme/raw/annual-report.pdf
+  $ llm-wiki-cli sample acme
   $ llm-wiki-cli ingest acme
   $ llm-wiki-cli ingest-all
   $ llm-wiki-cli configure-llm             # interactive wizard
@@ -63,9 +62,8 @@ const sample = addWorkspaceOption(
   new Command('sample')
     .description('Run sample ingestion for a wiki and produce the four starter artifacts.')
     .argument('<wiki-slug>', 'slug of the wiki to work on')
-    .argument('[path-to-pdf]', 'optional path to a representative PDF inside wikis/<wiki-slug>/raw/ (defaults to the first PDF found)')
-    .action(async (slug: string, pdfPath: string | undefined, options: { workspace: string }) => {
-      await sampleCommand(options.workspace, slug, pdfPath);
+    .action(async (slug: string, options: { workspace: string }) => {
+      await sampleCommand(options.workspace, slug);
     }),
 );
 

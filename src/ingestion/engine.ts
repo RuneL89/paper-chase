@@ -51,8 +51,8 @@ export async function runIngestion(
 ): Promise<IngestionResult> {
   const progress = reporter ?? new NoOpReporter();
   const wikiDir = wikiPath(workspace, slug);
-  const stateFile = statePath(wikiDir, config.output.dir);
-  const manifestFile = runManifestPath(wikiDir, config.output.dir);
+  const stateFile = statePath(wikiDir);
+  const manifestFile = runManifestPath(wikiDir);
   let manifest = loadRunManifest(manifestFile);
   const state = loadState(stateFile);
   const rawDirPath = path.join(wikiDir, 'raw');
@@ -133,14 +133,14 @@ export async function runIngestion(
     }
     if (!sourceState) continue;
     for (const docPage of sourceState.documentPages) {
-      const fullPath = path.join(wikiDir, config.output.dir, docPage);
+      const fullPath = path.join(wikiDir, docPage);
       if (existsSync(fullPath)) rmSync(fullPath);
     }
     for (const rawPage of sourceState.rawPages) {
-      const fullPath = path.join(wikiDir, config.output.dir, rawPage);
+      const fullPath = path.join(wikiDir, rawPage);
       if (existsSync(fullPath)) rmSync(fullPath);
     }
-    const sourcePage = path.join(wikiDir, config.output.dir, sourceState.sourcePage);
+    const sourcePage = path.join(wikiDir, sourceState.sourcePage);
     if (existsSync(sourcePage)) rmSync(sourcePage);
     delete state.sources[removedFile];
   }
@@ -164,7 +164,7 @@ export async function runIngestion(
         if (isExtractionFailure(outcome)) {
           const failure = outcome;
           const rawPageId = `raw/${baseSlug}.md`;
-          const rawPagePath = path.join(wikiDir, config.output.dir, rawPageId);
+          const rawPagePath = path.join(wikiDir, rawPageId);
           const { writeFailureRawPage } = await import('../writers/raw.js');
           writeFailureRawPage(rawPagePath, failure, config.wiki.slug);
           result.errors.push(`Failed to extract ${fileName}: ${failure.reason}`);
@@ -202,7 +202,7 @@ export async function runIngestion(
 
         const agentsMd = readAgentsMd(workspace, slug);
         const { chunks, strategy, warnings } = await analyzeAndChunk(extractionResult, config, {
-          planner: (r, s, c, strat, md) => chunkingPlanner(r, s, c, strat, llmClient, md),
+          planner: (r, s, c, strat, md, feedback) => chunkingPlanner(r, s, c, strat, llmClient, md, feedback),
           agentsMd,
         });
         for (const warning of warnings) {
@@ -214,7 +214,7 @@ export async function runIngestion(
         manifest = initializeRunManifest(manifest, chunkStates);
 
         for (const chunk of chunks) {
-          const statePath = chunkStatePath(wikiDir, config.output.dir, baseSlug, chunk.id);
+          const statePath = chunkStatePath(wikiDir, baseSlug, chunk.id);
           updateChunkStatus(manifest, statePath, baseSlug, chunk.id, 'processing');
         }
 
@@ -255,7 +255,7 @@ export async function runIngestion(
           .map((page) => `raw/${baseSlug}-page-${page.physicalPage}.md`);
 
         for (const chunk of chunks) {
-          const statePath = chunkStatePath(wikiDir, config.output.dir, baseSlug, chunk.id);
+          const statePath = chunkStatePath(wikiDir, baseSlug, chunk.id);
           const pagePath = `documents/${chunk.id}.md`;
           const hasUpdate = orchestratorResult.pageUpdates?.some((u) => u.filePath === pagePath);
           updateChunkStatus(
@@ -339,7 +339,7 @@ export async function runIngestion(
 
   // Persist per-page metadata so selective re-ingestion can compare against the
   // last generated version and detect manual edits.
-  refreshPageState(state, wikiDir, config.output.dir);
+  refreshPageState(state, wikiDir);
 
   // Dual documentation: new page types inside existing folders are auto-approved,
   // but must be documented in both the folder-level index.md and the wiki AGENTS.md.
@@ -364,7 +364,7 @@ export async function runIngestion(
     allProposals,
     removedSourceStates,
   );
-  appendLogEntry(wikiDir, config.output.dir, logEntry);
+  appendLogEntry(wikiDir, logEntry);
 
   // If a structural proposal was approved during this run, align existing pages with
   // the new hierarchy without re-extracting unchanged PDFs.

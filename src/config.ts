@@ -34,7 +34,6 @@ export interface ExtractionConfig {
 }
 
 export interface OutputConfig {
-  dir: string;
   page_types: string[];
 }
 
@@ -94,7 +93,6 @@ export const defaultConfig: Config = {
     page_range: null,
   },
   output: {
-    dir: '.',
     page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
   },
   ingestion: {
@@ -195,7 +193,6 @@ const requiredPaths: { path: string[]; label: string }[] = [
   { path: ['chunking', 'min_chunk_size'], label: 'chunking.min_chunk_size' },
   { path: ['chunking', 'split_boundary'], label: 'chunking.split_boundary' },
   { path: ['extraction', 'engine'], label: 'extraction.engine' },
-  { path: ['output', 'dir'], label: 'output.dir' },
   { path: ['output', 'page_types'], label: 'output.page_types' },
   { path: ['sampling', 'large_page_threshold'], label: 'sampling.large_page_threshold' },
   { path: ['sampling', 'strategy_page_budget'], label: 'sampling.strategy_page_budget' },

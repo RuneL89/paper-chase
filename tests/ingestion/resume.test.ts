@@ -8,7 +8,7 @@ import { ingestCommand } from '../../src/commands/ingest.js';
 import { initCommand } from '../../src/commands/init.js';
 import { sampleCommand } from '../../src/commands/sample.js';
 import { runIngestion } from '../../src/ingestion/engine.js';
-import { loadRunManifest, runManifestPath } from '../../src/ingestion/resume.js';
+import { loadRunManifest, runManifestPath, chunkStateDir } from '../../src/ingestion/resume.js';
 import { loadConfig } from '../../src/config.js';
 import type { Config } from '../../src/config.js';
 
@@ -49,7 +49,6 @@ function makeConfig(slug: string): Config {
       page_range: null,
     },
     output: {
-      dir: '.',
       page_types: ['index', 'source', 'document', 'topic', 'entity', 'raw'],
     },
     ingestion: {
@@ -79,7 +78,7 @@ describe('resume', () => {
     await createTextPdfInDir(path.join(wikiDir, 'raw'), 'annual-report.pdf', [
       { header: 'Annual Report', body: 'Acme Corp reported record earnings this year.' },
     ]);
-    await sampleCommand(workspace, slug, path.join(wikiDir, 'raw', 'annual-report.pdf'));
+    await sampleCommand(workspace, slug);
   });
 
   afterEach(() => {
@@ -90,7 +89,7 @@ describe('resume', () => {
     const config = loadConfig(workspace, slug);
     await runIngestion(workspace, slug, config, false);
 
-    const manifest = loadRunManifest(runManifestPath(wikiDir, config.output.dir));
+    const manifest = loadRunManifest(runManifestPath(wikiDir));
     expect(manifest.chunks.length).toBeGreaterThan(0);
     expect(manifest.chunks.every((c) => c.status === 'completed')).toBe(true);
   });
@@ -119,14 +118,14 @@ describe('resume', () => {
     const config = loadConfig(workspace, slug);
     await runIngestion(workspace, slug, config, false);
 
-    const manifestPath = runManifestPath(wikiDir, config.output.dir);
+    const manifestPath = runManifestPath(wikiDir);
     const manifest = loadRunManifest(manifestPath);
     expect(manifest.chunks.length).toBeGreaterThan(0);
 
     // Mark the first chunk as failed and write it back.
     manifest.chunks[0].status = 'failed';
     manifest.chunks[0].updatedAt = new Date().toISOString();
-    const stateDir = path.join(wikiDir, 'output', '.state', 'chunks');
+    const stateDir = chunkStateDir(wikiDir);
     const stateFile = path.join(stateDir, `${manifest.chunks[0].source}-${manifest.chunks[0].chunkId}.json`);
     const state = JSON.parse(readFileSync(stateFile, 'utf-8'));
     state.status = 'failed';

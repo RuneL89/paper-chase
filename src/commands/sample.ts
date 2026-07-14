@@ -2,7 +2,7 @@ import { mkdirSync, existsSync, readdirSync, readFileSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { buildConfig, loadConfig, type Config } from '../config.js';
-import { ensureWikiExists, isInsideRawFolder, wikiPath, toRelativePath } from '../workspace.js';
+import { ensureWikiExists, wikiPath, toRelativePath } from '../workspace.js';
 import { extractPdf } from '../extractor/pdf.js';
 import { CLIError } from '../errors.js';
 import { analyzeAndChunk } from '../chunking/chunker.js';
@@ -14,7 +14,7 @@ import { writeRawPage } from '../writers/raw.js';
 import { writeAgentsMd } from '../writers/agents.js';
 import { runSampleOrchestrator } from '../orchestrator/index.js';
 import { classifyCorpus, type CorpusFileInfo } from '../orchestrator/sampling.js';
-import { chunkingPlanner } from '../orchestrator/agents.js';
+import { chunkingPlanner, sourcePageWriter, rawPageWriter } from '../orchestrator/agents.js';
 import { readAgentsMd } from '../orchestrator/ingest.js';
 import { collectPageTypesPerFolder, updateAgentsMdForNewPageTypes } from '../orchestrator/proposals.js';
 import { buildRunLog, writeRunLog } from '../log.js';
@@ -27,7 +27,6 @@ import type { OrchestratorResult } from '../orchestrator/types.js';
 export async function sampleCommand(
   workspace: string,
   slug: string,
-  pdfPath?: string,
   reporter?: ProgressReporter,
 ): Promise<number> {
   if (!slug) {
@@ -39,21 +38,8 @@ export async function sampleCommand(
 
   ensureWikiExists(workspace, slug);
 
-  let resolvedPdfPath: string;
-  let relativePdfPath: string;
-  if (pdfPath) {
-    if (!isInsideRawFolder(workspace, slug, pdfPath)) {
-      throw new CLIError(
-        `The PDF must be inside the wiki's raw folder: wikis/${slug}/raw/. ` +
-        `Received: ${pdfPath}`,
-      );
-    }
-    resolvedPdfPath = path.resolve(workspace, pdfPath);
-    relativePdfPath = pdfPath;
-  } else {
-    resolvedPdfPath = await selectRepresentativePdf(workspace, slug);
-    relativePdfPath = toRelativePath(workspace, resolvedPdfPath);
-  }
+  const resolvedPdfPath = await selectRepresentativePdf(workspace, slug);
+  const relativePdfPath = toRelativePath(workspace, resolvedPdfPath);
 
   let config: Config;
   const wikiConfigPath = path.join(wikiPath(workspace, slug), 'config.json');
@@ -79,15 +65,14 @@ export async function sampleCommand(
   const agentsMd = readAgentsMd(workspace, slug);
   const { structure, strategy, chunks, warnings: chunkWarnings } = await analyzeAndChunk(result, config, {
     samplingStrategy,
-    planner: (r, s, c, strat, md) => chunkingPlanner(r, s, c, strat, llmClient, md),
+    planner: (r, s, c, strat, md, feedback) => chunkingPlanner(r, s, c, strat, llmClient, md, feedback),
     agentsMd,
   });
 
   const wikiDir = wikiPath(workspace, slug);
-  const outputDir = path.join(wikiDir, config.output.dir);
-  const documentsDir = path.join(outputDir, 'documents');
-  const sourcesDir = path.join(outputDir, 'sources');
-  const rawDir = path.join(outputDir, 'raw');
+  const documentsDir = path.join(wikiDir, 'documents');
+  const sourcesDir = path.join(wikiDir, 'sources');
+  const rawDir = path.join(wikiDir, 'raw');
 
   mkdirSync(documentsDir, { recursive: true });
   mkdirSync(sourcesDir, { recursive: true });
@@ -163,16 +148,32 @@ export async function sampleCommand(
       physicalPage: page.physicalPage,
     }));
 
-  writeSourcePage(
-    path.join(sourcesDir, `${path.basename(resolvedPdfPath, path.extname(resolvedPdfPath))}.md`),
+  const { body: sourceBody } = await sourcePageWriter(
     result,
     documentLinks,
     rawLinks,
+    config,
+    llmClient,
+    agentsMd,
+    orchestratorResult.memory,
+  );
+  writeSourcePage(
+    path.join(sourcesDir, `${path.basename(resolvedPdfPath, path.extname(resolvedPdfPath))}.md`),
+    result,
+    sourceBody,
     slug,
   );
 
   for (const page of result.pages) {
     if (page.isScanned) {
+      const { body: rawBody } = await rawPageWriter(
+        result,
+        page,
+        config,
+        llmClient,
+        agentsMd,
+        orchestratorResult.memory,
+      );
       writeRawPage(
         path.join(
           rawDir,
@@ -180,6 +181,7 @@ export async function sampleCommand(
         ),
         result,
         page,
+        rawBody,
         slug,
       );
     }

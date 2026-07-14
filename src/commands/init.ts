@@ -66,7 +66,7 @@ export async function initCommand(options: InitOptions): Promise<number> {
   console.log(`  Status: initialized`);
   console.log('Next steps:');
   console.log(`  1. Add PDFs to wikis/${slug}/raw/`);
-  console.log(`  2. Run: llm-wiki-cli sample ${slug} wikis/${slug}/raw/<pdf>`);
+  console.log(`  2. Run: llm-wiki-cli sample ${slug}`);
   console.log(`  3. Run: llm-wiki-cli ingest ${slug}`);
 
   writeInitRunLog(workspace, slug);

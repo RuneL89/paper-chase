@@ -41,11 +41,9 @@ my-workspace/
         │   └── index.md
         ├── raw/             # source PDFs and failed/scanned extraction pages
         │   └── index.md
-        └── output/          # internal state only
-            ├── .state/      # incremental ingest state, rolling memory, manifests
-            └── lint/
-                ├── report.json
-                └── wikilinks.json
+        ├── .state/          # incremental ingest state, rolling memory, manifests
+        └── lint/            # lint reports
+            └── report.json
 ```
 
 You can have as many wikis as you want under `wikis/`. For example:
@@ -57,7 +55,7 @@ wikis/
 └── legal-depositions/
 ```
 
-The `raw/` folder contains your original source PDFs alongside any `raw` pages produced for scanned or unparseable pages. The `output/` folder is only for internal state and lint reports; you do not need to read or edit it.
+The `raw/` folder contains your original source PDFs alongside any `raw` pages produced for scanned or unparseable pages. Internal state and lint reports are stored directly under the wiki folder (`wikis/<slug>/.state/` and `wikis/<slug>/lint/`); you do not need to read or edit them.
 
 ## Typical workflow
 
@@ -85,18 +83,10 @@ cp ~/Downloads/acme-2023-annual.pdf my-workspace/wikis/acme-annual-reports/raw/
 
 ### 3. Run sample ingestion
 
-This analyzes the PDF structure and writes the starter configuration files.
+This analyzes the PDF structure and writes the starter configuration files. It uses the first PDF alphabetically in the wiki's `raw/` folder as the representative sample.
 
 ```bash
 cd llm-wiki-cli-project
-npm run dev -- sample acme-annual-reports \
-  my-workspace/wikis/acme-annual-reports/raw/acme-2022-annual.pdf \
-  -w ./my-workspace
-```
-
-You can omit the PDF path to let the tool pick the first PDF alphabetically in `raw/`:
-
-```bash
 npm run dev -- sample acme-annual-reports -w ./my-workspace
 ```
 
@@ -196,16 +186,14 @@ Example:
 npm run dev -- init acme-annual-reports --title "Acme Annual Reports" -w ./my-workspace
 ```
 
-### `sample <wiki-slug> [path-to-pdf]`
+### `sample <wiki-slug>`
 
-Run sample ingestion for a wiki and produce the starter artifacts. If `path-to-pdf` is omitted, the first PDF alphabetically in the wiki's `raw/` folder is used.
+Run sample ingestion for a wiki and produce the starter artifacts. The first PDF alphabetically in the wiki's `raw/` folder is used as the representative sample.
 
 Example:
 
 ```bash
-npm run dev -- sample acme-annual-reports \
-  my-workspace/wikis/acme-annual-reports/raw/acme-2022-annual.pdf \
-  -w ./my-workspace
+npm run dev -- sample acme-annual-reports -w ./my-workspace
 ```
 
 ### `ingest <wiki-slug>`
@@ -337,7 +325,7 @@ If you are an AI research agent, the recommended traversal path is:
 2. Select a wiki and read its `index.md`.
 3. Follow `[[...]]` wikilinks to source pages, document pages, entity pages, and topic pages.
 4. Verify every claim against the inline `[^srcN]` citations and the corresponding `sources` frontmatter entry.
-5. Check `output/lint/report.json` for broken wikilinks, invalid citations, or missing frontmatter.
+5. Check `lint/report.json` for broken wikilinks, invalid citations, or missing frontmatter.
 
 ## Structural-change proposals
 

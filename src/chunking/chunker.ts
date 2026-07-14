@@ -542,17 +542,22 @@ export async function analyzeAndChunk(
     strategy.samplingStrategy = options.samplingStrategy;
   }
 
+  let currentConfig = config;
+  let previousBoundary = strategy.splitBoundary;
+  const allWarnings: string[] = [];
+
   if (options?.planner && strategy.samplingStrategy) {
     try {
       const hint = await options.planner(
         result,
         structure,
-        config,
+        currentConfig,
         strategy.samplingStrategy,
         options.agentsMd,
       );
       if (isValidChunkingStrategyHint(hint)) {
         strategy.splitBoundary = hint.splitBoundary;
+        previousBoundary = hint.splitBoundary;
         strategy.fallback = `${strategy.fallback} LLM strategy reason: ${hint.reason}`;
       } else {
         console.warn(
@@ -565,8 +570,77 @@ export async function analyzeAndChunk(
     }
   }
 
-  const { chunks, warnings } = chunkPages(result, config, structure, strategy);
-  return { structure, strategy, chunks, warnings };
+  let { chunks, warnings } = chunkPages(result, currentConfig, structure, strategy);
+  allWarnings.push(...warnings);
+
+  // Agentic feedback loop: if any chunk is still oversized, ask the ChunkingPlanner
+  // for a finer boundary subdivision and re-chunk with a reduced max_chunk_size.
+  const MAX_FEEDBACK_ITERATIONS = 3;
+  const SAFE_PROMPT_TOKEN_ESTIMATE = 4; // chars per token (rough).
+  const SAFE_PROMPT_TOKEN_LIMIT = 12000; // ~12k token budget for chunk content.
+  for (let iteration = 0; iteration < MAX_FEEDBACK_ITERATIONS; iteration++) {
+    const oversized = chunks.filter(
+      (c) => c.content.length / SAFE_PROMPT_TOKEN_ESTIMATE > SAFE_PROMPT_TOKEN_LIMIT,
+    );
+    if (oversized.length === 0) break;
+
+    const oversizedSummary = oversized
+      .map((c) => `${c.id} (${c.pageRange}, ${c.content.length} chars)`)
+      .join(', ');
+    const feedback =
+      `The previous splitBoundary "${previousBoundary}" produced ${oversized.length} oversized chunk(s): ${oversizedSummary}. ` +
+      `Suggest a finer natural boundary (e.g., page, heading, or table) so each chunk fits within a safe prompt budget. ` +
+      `Do not split inside multi-page tables or figures.`;
+    allWarnings.push(
+      `Oversized chunk(s) detected: ${oversizedSummary}. Requesting finer split boundary from ChunkingPlanner (iteration ${iteration + 1}).`,
+    );
+
+    if (options?.planner && strategy.samplingStrategy) {
+      try {
+        const hint = await options.planner(
+          result,
+          structure,
+          currentConfig,
+          strategy.samplingStrategy,
+          options.agentsMd,
+          feedback,
+        );
+        if (isValidChunkingStrategyHint(hint)) {
+          strategy.splitBoundary = hint.splitBoundary;
+          previousBoundary = hint.splitBoundary;
+          strategy.fallback = `${strategy.fallback} [feedback ${iteration + 1}] ${hint.reason}`;
+        }
+      } catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        console.warn(`ChunkingPlanner feedback call failed: ${message}. Using deterministic fallback.`);
+      }
+    }
+
+    // Reduce max_chunk_size as a deterministic backstop even if the planner does not help.
+    const reducedMaxChunkSize = Math.max(
+      currentConfig.chunking.min_chunk_size,
+      Math.floor(currentConfig.chunking.max_chunk_size * 0.7),
+    );
+    currentConfig = {
+      ...currentConfig,
+      chunking: { ...currentConfig.chunking, max_chunk_size: reducedMaxChunkSize },
+    };
+
+    const rechunked = chunkPages(result, currentConfig, structure, strategy);
+    chunks = rechunked.chunks;
+    allWarnings.push(...rechunked.warnings);
+  }
+
+  const stillOversized = chunks.filter(
+    (c) => c.content.length / SAFE_PROMPT_TOKEN_ESTIMATE > SAFE_PROMPT_TOKEN_LIMIT,
+  );
+  if (stillOversized.length > 0) {
+    allWarnings.push(
+      `Could not reduce ${stillOversized.length} chunk(s) below safe prompt budget after ${MAX_FEEDBACK_ITERATIONS} iterations.`,
+    );
+  }
+
+  return { structure, strategy, chunks, warnings: allWarnings };
 }
 
 function isValidChunkingStrategyHint(

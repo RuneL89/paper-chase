@@ -21,7 +21,7 @@ export function App({ workspace: initialWorkspace, nonInteractive }: AppProps): 
   const [screen, setScreen] = useState<TuiScreen>('welcome');
   const [workspace, setWorkspace] = useState(initialWorkspace);
   const [selectedWiki, setSelectedWiki] = useState<string | undefined>(undefined);
-  const [operation, setOperation] = useState<{ type: 'sample' | 'ingest'; slug: string; pdfPath?: string } | undefined>(undefined);
+  const [operation, setOperation] = useState<{ type: 'sample' | 'ingest'; slug: string } | undefined>(undefined);
   const [result, setResult] = useState<{ slug: string; summary: string; failed?: boolean } | undefined>(undefined);
   const [operationComplete, setOperationComplete] = useState(false);
 
@@ -48,8 +48,8 @@ export function App({ workspace: initialWorkspace, nonInteractive }: AppProps): 
     setScreen('wiki-detail');
   }
 
-  function handleStartOperation(type: 'sample' | 'ingest', slug: string, pdfPath?: string): void {
-    setOperation({ type, slug, pdfPath });
+  function handleStartOperation(type: 'sample' | 'ingest', slug: string): void {
+    setOperation({ type, slug });
     setOperationComplete(false);
     setScreen('progress');
   }

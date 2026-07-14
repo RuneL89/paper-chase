@@ -33,7 +33,7 @@ export type LintResult = LintReport;
 const REQUIRED_FRONTMATTER: Record<string, string[]> = {
   index: ['title', 'type', 'updated', 'wiki', 'created', 'sources'],
   document: ['title', 'type', 'tags', 'sources', 'confidence', 'wiki', 'created'],
-  source: ['title', 'type', 'file', 'logical_pages', 'physical_pages', 'sha256', 'ingested', 'warnings', 'wiki', 'created'],
+  source: ['title', 'type', 'file', 'pages', 'sha256', 'ingested', 'warnings', 'wiki', 'created'],
   topic: ['title', 'type', 'tags', 'related', 'wiki', 'created'],
   entity: ['title', 'type', 'tags', 'mentions', 'wiki', 'created'],
   raw: ['title', 'type', 'source', 'reason', 'raw_fragment', 'wiki', 'created'],
@@ -43,7 +43,7 @@ const CONTENT_FOLDERS = ['documents', 'sources', 'topics', 'entities', 'raw'];
 
 export function lintWiki(workspace: string, slug: string, config: Config): LintReport {
   const wikiDir = wikiPath(workspace, slug);
-  const stateFile = statePath(wikiDir, config.output.dir);
+  const stateFile = statePath(wikiDir);
   const state = existsSync(stateFile) ? loadState(stateFile) : undefined;
 
   const issues: LintIssue[] = [];
@@ -64,7 +64,7 @@ export function lintWiki(workspace: string, slug: string, config: Config): LintR
   }
 
   issues.push(...checkOrphanedPages(wikiDir, CONTENT_FOLDERS, titleMap));
-  issues.push(...checkStalePages(wikiDir, config.output.dir, CONTENT_FOLDERS, state, workspace));
+  issues.push(...checkStalePages(wikiDir, CONTENT_FOLDERS, state, workspace));
   issues.push(...checkDuplicateEntities(wikiDir, CONTENT_FOLDERS));
 
   return summarizeReport(issues, files.length, pagesByType);
@@ -72,7 +72,7 @@ export function lintWiki(workspace: string, slug: string, config: Config): LintR
 
 export function writeLintReport(workspace: string, slug: string, _config: Config, result: LintReport): string {
   const wikiDir = wikiPath(workspace, slug);
-  const lintDir = path.join(wikiDir, 'output', 'lint');
+  const lintDir = path.join(wikiDir, 'lint');
   mkdirSync(lintDir, { recursive: true });
   const reportPath = path.join(lintDir, 'report.json');
   writeFileSync(reportPath, JSON.stringify(result, null, 2) + '\n');
@@ -258,7 +258,6 @@ function checkOrphanedPages(wikiDir: string, contentFolders: string[], titleMap:
 
 function checkStalePages(
   wikiDir: string,
-  outputDirName: string,
   contentFolders: string[],
   state: { sources?: Record<string, { sha256: string }> } | undefined,
   workspace: string,
@@ -266,10 +265,8 @@ function checkStalePages(
   const issues: LintIssue[] = [];
   if (!state || !state.sources) return issues;
 
-  const outputDir = path.join(wikiDir, outputDirName);
-
   for (const file of collectMarkdownFiles(wikiDir, contentFolders)) {
-    const relativeFile = toRelativePathFromDir(outputDir, file);
+    const relativeFile = toRelativePathFromDir(wikiDir, file);
     const sourceInfo = findSourceForPage(state as any, relativeFile);
     if (!sourceInfo) continue;
 

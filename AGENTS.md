@@ -122,7 +122,7 @@ npm run test                      # run Vitest suite
 
 ```bash
 llm-wiki-cli init <slug> [--title <title>] [--description <description>] [--force]
-llm-wiki-cli sample <slug> [path-to-pdf]
+llm-wiki-cli sample <slug>
 llm-wiki-cli ingest <slug> [--yes] [--resume]
 llm-wiki-cli ingest-all [--yes]
 llm-wiki-cli status
@@ -234,11 +234,11 @@ The sub-agents run in order during `sample` and `ingest`:
 3. **EntityCritic** — audits the extracted entity list for false positives and hallucinations.
 4. **RelationshipExtractor** — captures relationships between entities (uses the global entity list from rolling memory so cross-chunk links are visible; during `ingest` a per-chunk variant catches relationships across chunk boundaries).
 5. **EvidenceCollector** — extracts key claims, tables, and figures.
-6. **PagePlanner** — proposes a folder hierarchy, page plan, and typed entity sub-folder taxonomy (LLM-assisted, deterministic fallback).
+6. **PagePlanner** — proposes a folder hierarchy, page plan, and typed entity sub-folder taxonomy (LLM-driven).
 7. **ChunkWriter** — records the planned files; existing writers materialize the markdown.
 8. **Critic** — deterministic review of plan completeness, schema, and folder placement.
 
-During `ingest`, after the Critic approves a chunk, the **ChunkMaterializer** (`src/ingestion/chunk-materializer.ts`) immediately writes or updates the affected entity and topic pages. It reads existing pages, detects manual edits via `IngestionState` hashes, and uses an LLM update mode with a deterministic preservation check (every old citation and wikilink must survive the rewrite). If preservation fails or the page was manually edited, the materializer falls back to deterministic append-only.
+During `ingest`, after the Critic approves a chunk, the **ChunkMaterializer** (`src/ingestion/chunk-materializer.ts`) immediately writes or updates the affected entity and topic pages. It reads existing pages, detects manual edits via `IngestionState` hashes, and uses an LLM update mode with a preservation check (every old citation and wikilink must survive the rewrite). If preservation fails or the page was manually edited, the materializer reports the conflict and skips the update so the human edit is not overwritten.
 
 Rolling memory is accumulated across PDFs during full ingestion and persisted in `.state/rolling-memory.json` (structured state) and `.state/memory-summary.md` (compressed natural-language summary).
 

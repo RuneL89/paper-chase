@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Text } from 'ink';
 import SelectInput from 'ink-select-input';
-import { readdirSync, existsSync } from 'fs';
-import path from 'path';
-import { wikiRawPath } from '../../workspace.js';
+import { listWikiRawPdfs } from '../../workspace.js';
 import { loadConfig } from '../../config.js';
 
 interface WikiDetailScreenProps {
   workspace: string;
   slug: string;
   onBack: () => void;
-  onStartOperation: (type: 'sample' | 'ingest', slug: string, pdfPath?: string) => void;
+  onStartOperation: (type: 'sample' | 'ingest', slug: string) => void;
 }
 
 export function WikiDetailScreen({
@@ -23,13 +21,7 @@ export function WikiDetailScreen({
   const [status, setStatus] = useState<string>('unknown');
 
   useEffect(() => {
-    const rawDir = wikiRawPath(workspace, slug);
-    if (existsSync(rawDir)) {
-      const files = readdirSync(rawDir)
-        .filter((f) => f.toLowerCase().endsWith('.pdf'))
-        .sort();
-      setPdfs(files);
-    }
+    setPdfs(listWikiRawPdfs(workspace, slug));
     try {
       const config = loadConfig(workspace, slug);
       setStatus(config.status ?? 'unknown');

@@ -61,8 +61,23 @@ export function toRelativePath(workspace: string, filePath: string): string {
   return relative.replace(/\\/g, '/');
 }
 
+export function workspaceExists(workspace: string): boolean {
+  return existsSync(workspace);
+}
+
+export function listWikiRawPdfs(workspace: string, slug: string): string[] {
+  const rawDir = wikiRawPath(workspace, slug);
+  if (!existsSync(rawDir)) {
+    return [];
+  }
+  return readdirSync(rawDir)
+    .filter((f) => f.toLowerCase().endsWith('.pdf'))
+    .sort();
+}
+
 export function toRelativePathFromDir(dir: string, filePath: string): string {
   const resolved = path.resolve(dir, filePath);
   const relative = path.relative(dir, resolved);
   return relative.replace(/\\/g, '/');
 }
+
