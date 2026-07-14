@@ -10,6 +10,22 @@
 - AGENTS.md files are binding work contracts for their subtrees
 - Work products, source materials, instructions, records, assets, and durable docs must stay understandable from the nearest applicable AGENTS.md plus every parent AGENTS.md above it
 
+## Vision Authority for Changes and Fixes
+
+The `Project Vision/` documents are the highest source of truth for any proposed change, fix, or suggestion in this repository — whether proposed by the human or by an AI agent. Before implementing any change or fix, re-read the relevant `Project Vision/` files and verify that the proposal does not contradict them.
+
+Specifically, the following are forbidden because they violate the Project Vision:
+
+- Adding deterministic fallbacks for LLM failures (e.g., deterministic page creation, deterministic updates, deterministic append, or deterministic repair of LLM-authored content).
+- Reintroducing human approval gates for structural changes.
+- Overwriting manually edited pages by default.
+- Silently repairing missing or invalid LLM frontmatter with deterministic code.
+- Drafting or mutating synthesized content page bodies (`document`, `entity`, `topic`, or derived types) with deterministic code.
+- Passing raw PDF bytes to the LLM.
+- Allowing LLM agents to compute hashes or perform file I/O directly.
+
+If a proposed change contradicts the Project Vision, reject it and propose an alternative that aligns with the vision. If the only apparent fix requires violating the vision, escalate it to the user instead of applying it.
+
 ## Read Before Editing
 
 1. Read the root AGENTS.md
@@ -137,16 +153,52 @@ llm-wiki-cli tui [--non-interactive]
 
 ## E2E / verification runs
 
-When the user asks for an E2E run, smoke test, or verification of the CLI against a workspace, the agent is **only** allowed to run commands and report results. Source-code changes are **forbidden** during these runs.
+E2E and verification runs follow a three-phase process: clear prior artifacts, review the implementation against the Project Vision, then run the CLI live. Any fix applied during the run must align with the Project Vision and must not reintroduce forbidden patterns such as deterministic LLM fallbacks or human approval gates for structural changes.
 
-- **Do not modify source code.** This includes `src/`, `tests/`, `docs/`, `plan/`, or any other tracked file in the repo.
-- **Do not modify tests.** Verification runs must use the codebase as-is.
-- **Do not modify documentation or the bug report.** If a bug is found, report it in the conversation; do not write it into `plan/e2e-bug-report.md` or any other file.
-- **Do not add fallbacks, workarounds, defensive fixes, or retries.** If a step fails, stop and report the failure.
-- **Do not proceed past the first failure.** The E2E stops at the first failing command; the agent reports where it stopped and why.
-- **Verify the working tree is clean before starting.** Run `git status --short` and confirm it prints nothing. If it does not, report the modified files and stop.
-- **If the working tree becomes dirty during the run, stop immediately.** Report the unexpected change and do not continue.
-- The only permissible changes are to the **E2E workspace data** (e.g., `C:\temp\wiki-e2e` or another explicitly named workspace), not to the CLI repository.
+### Phase 0: Clear prior E2E artifacts
+
+Before starting, clear the previous E2E artifacts so old fixed bugs are not included in the analysis:
+
+- `plan/e2e-bug-report.md`
+- `plan/fix-suggestions.md`
+
+If either file exists, clear its contents before writing new findings. Then proceed to Phase 1.
+
+### Phase 1: Code review against the Project Vision
+
+Before running the CLI against a live workspace, review the implementation code that will be exercised and check it against the relevant `Project Vision/` documents. If the code contradicts the vision, fix it before proceeding to Phase 2. Do not treat the E2E run as the first line of verification.
+
+### Phase 2: Live E2E run
+
+Run the CLI end-to-end against a fresh workspace. Use the LLM configuration from `C:\Users\atavi\Documents\config.json` and the PDFs in `C:\Users\atavi\Documents\test-ingest`. Create one wiki per PDF. Set an ingestion timeout of at least 90 minutes for large documents.
+
+When an issue is found during the run:
+
+1. **Stop and root-cause the issue.** Do not continue past an unanalyzed failure.
+2. **Check the proposed fix against the Project Vision.** Re-read the relevant `Project Vision/` files before writing any code.
+3. **Apply the fix only if it aligns with the vision.** If the only apparent fix violates the vision, stop and report the conflict to the user instead of applying it.
+4. **Re-verify.** After the fix, rerun the failing step and continue the E2E run from there.
+5. **Document the issue.** Write the bug and the applied fix into `plan/e2e-bug-report.md` and, if applicable, `plan/fix-suggestions.md`.
+
+### Hard constraints for any E2E run
+
+- **Verify the working tree is clean before starting.** Run `git status --short` and confirm it prints nothing. If it does not, stop and report the modified files.
+- **If the working tree becomes dirty during the run, stop immediately** and report the unexpected change.
+- **Only E2E workspace data may be modified.** Use a dedicated folder under `C:\temp` (e.g., `C:\temp\wiki-e2e-<timestamp>`). Do not touch the CLI repository itself except for the required fix.
+- **Do not run commands as background tasks.** Run each command synchronously, wait for it to complete, and report the result before proceeding.
+- **Do not add fallbacks, workarounds, or defensive retries that contradict the vision.** A fix that merely papers over an LLM failure with deterministic code is forbidden.
+- **No raw PDF bytes are transmitted over the network.** Only extracted text and metadata go to remote LLMs.
+
+### Expected output
+
+- The working tree remains clean except for the bug report and fix-suggestion files in `plan/`.
+- `npm run build` and `npm run test` pass before the run starts.
+- Each wiki produced by the run has the expected structure: `index.md`, `AGENTS.md`, `chunking-strategy.md`, `documents/`, `sources/`, `topics/`, `entities/`, `raw/`, `lint/`, and `.state/`.
+- Folder-level `index.md` contracts are co-located with content pages.
+- Factual claims cite exact PDF sources via `[^srcN]` markers.
+- Entity pages are grouped under typed sub-folders inside `entities/`.
+- The top-level workspace has an `index-of-indexes.md`.
+- A final summary reports: working tree status, build/test results, each E2E step outcome, bugs found, fixes applied, and a confirmation that all changes were vision-aligned.
 
 ## Workspace layout
 

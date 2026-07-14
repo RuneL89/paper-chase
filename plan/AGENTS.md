@@ -13,8 +13,9 @@ This folder contains sprint plans, implementation trackers, UAT documents, and o
 ## Local Contracts
 
 - `plan/SPRINT_INSTRUCTIONS.md` is the active sprint tracker.
+- `plan/e2e-prompt.md` is the canonical two-phase E2E verification prompt. It is a UAT artifact that must be followed during E2E runs.
+- During E2E / verification runs, the only plan documents that may be modified are the E2E artifacts: `plan/e2e-bug-report.md` and `plan/fix-suggestions.md`. All other plan documents should not be modified during a run; report findings in the conversation instead.
 - UAT documents should be standalone and testable.
-- Do not modify plan documents during E2E / verification runs; report findings in the conversation instead.
 - Completed plans should be marked or archived, not deleted, unless the user requests removal.
 
 ## Work Guidance
