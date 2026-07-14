@@ -7,7 +7,7 @@ import { createLLMClient } from '../llm/client.js';
 
 import type { ProgressReporter } from '../progress/types.js';
 
-export async function ingestCommand(workspace: string, slug: string, resume = false, autoApproveProposals = false, reporter?: ProgressReporter): Promise<number> {
+export async function ingestCommand(workspace: string, slug: string, resume = false, reporter?: ProgressReporter): Promise<number> {
   if (!slug) {
     throw new CLIError(
       'Please provide a wiki slug. Example: llm-wiki-cli ingest acme',
@@ -31,7 +31,7 @@ export async function ingestCommand(workspace: string, slug: string, resume = fa
   }
 
   console.log(`Starting full ingestion for wiki "${slug}"${resume ? ' (resuming)' : ''}…`);
-  const result = await runIngestion(workspace, slug, config, resume, autoApproveProposals, reporter);
+  const result = await runIngestion(workspace, slug, config, resume, reporter);
   printSummary(slug, result);
 
   const status =

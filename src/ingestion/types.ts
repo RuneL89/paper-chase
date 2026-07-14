@@ -18,6 +18,7 @@ export interface IngestionResult {
   removed: string[];
   chunkBoundaries: { source: string; boundary: string; pageRange: string }[];
   lintIssues: number;
+  skippedUpdates?: string[];
   proposals?: StructuralProposal[];
   folderIndexes?: string[];
 }

@@ -27,9 +27,9 @@ The LLM Wiki Gist frames the system as:
 
 > "Obsidian is the IDE; the LLM is the programmer; the wiki is the codebase."
 
-This means the human's job is to **curate sources, direct the analysis, ask good questions, and think about what it all means**. The LLM's job is **everything else**: writing pages, adding links, updating content, maintaining the folder structure, and keeping the wiki consistent.
+This means the human's job is to **provide the raw sources and consume the compiled wiki**. The LLM's job is **everything else**: writing pages, adding links, updating content, deciding when the folder structure needs to change, maintaining the folder structure, and keeping the wiki consistent.
 
-The human does not write the wiki pages. The human does not decide the exact folder structure. The human provides the raw material and the high-level direction; the LLM turns that material into a structured, navigable, citation-backed knowledge base. The human then reads, verifies, and interprets the result.
+The human does not write the wiki pages. The human does not decide the exact folder structure or approve structural changes. The human places the PDFs and the LLM turns them into a structured, navigable, citation-backed knowledge base. The human then reads, verifies, and interprets the result.
 
 This division of labor is what makes the system scalable. A journalist can throw a thousand-page leak at the CLI, ask it to "organize this by company and jurisdiction," and the LLM will do the mechanical work. The journalist can then focus on the story.
 
@@ -72,21 +72,22 @@ At the same time, every page is **richly linked**: citations point to source PDF
 
 ## 4. LLM-Written vs. Deterministic Content
 
-The LLM is the author of all markdown content. The local deterministic layer is only responsible for:
+The LLM is the author of all synthesized markdown content. Deterministic provenance/preservation pages (`source` and `raw` page types) are generated deterministically from extraction metadata. The local deterministic layer is only responsible for:
 
 - Extracting text, tables, and metadata from PDFs.
 - Computing file hashes and managing file paths.
 - Running schema and link validation.
 - Orchestrating the LLM pipeline.
+- Generating deterministic `source` and `raw` provenance/preservation pages.
 
 The LLM is responsible for:
 
-- Deciding what pages exist.
+- Deciding what synthesized content pages exist (`document`, `entity`, `topic`, and derived types).
 - Writing summaries and analyses.
 - Transcribing extracted text into markdown.
 - Preserving tables and figures.
 - Adding citations and wikilinks.
-- Updating existing pages when new evidence arrives.
+- Updating existing synthesized content pages when new evidence arrives.
 - Discovering new page types and folder structures when needed.
 
 Because the LLM writes both the synthesized and the extracted content, a deterministic completeness check compares the final markdown against the extracted input to make sure nothing was dropped or materially altered.
@@ -163,6 +164,8 @@ It contains:
 - An LLM-written description of what the entity is and its role in the corpus.
 - A list of the entity's relationships (e.g., board memberships, ownership, donations received).
 - A complete list of every mention of the entity across the corpus, with citations.
+
+Entity pages are grouped under typed sub-folders inside `entities/` (for example, `entities/people/`, `entities/organizations/`, or corpus-specific groups proposed by the LLM). The wiki's `entityTaxonomy` records which sub-folder each entity belongs to. This grouping keeps the entity namespace organized and makes it easier for a research agent to browse all people, companies, or other related groups in one place.
 
 The entity page is the canonical reference for that entity. Every other page that mentions the entity should link to it.
 
@@ -302,7 +305,7 @@ For example:
 
 ### 7.5 Living Document
 
-`AGENTS.md` is a living document. If the LLM discovers during ingestion that the structure needs to change, it updates `AGENTS.md` to reflect the new convention. If the change requires a new folder or a change to the wiki-level organization, it also proposes a structural change for human approval, as described in the product vision.
+`AGENTS.md` is a living document. If the LLM discovers during ingestion that the structure needs to change, it updates `AGENTS.md` to reflect the new convention. If the change requires a new folder or a change to the wiki-level organization, the LLM applies the change autonomously and records it in the structural change log, as described in the product vision.
 
 ---
 

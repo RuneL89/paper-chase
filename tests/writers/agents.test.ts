@@ -89,6 +89,10 @@ describe('writeAgentsMd', () => {
     expect(body).toContain('## Authority Matrix');
     expect(body).toContain('similar-manageable');
     expect(body).toContain('documents/');
+    expect(body).toContain('autonomously creates new folders');
+    expect(body).toContain('structural change log for human review');
+    expect(body).not.toContain('human approval');
+    expect(body).not.toContain('structural approval');
   });
 
   it('preserves existing created timestamp on update', async () => {
@@ -144,5 +148,9 @@ describe('updateAgentsMd', () => {
     expect(parsed.content).toContain('single-very-large');
     expect(parsed.content).toContain('Updated reason.');
     expect(parsed.content).toContain('## Folder Structure');
+    expect(parsed.content).toContain('autonomously creates new folders');
+    expect(parsed.content).toContain('structural change log for human review');
+    expect(parsed.content).not.toContain('human approval');
+    expect(parsed.content).not.toContain('structural approval');
   });
 });

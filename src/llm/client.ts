@@ -638,6 +638,8 @@ function generateMockResponse(prompt: string): string {
     const sourceFile = parseSourceFileFromChunkWriterPrompt(prompt);
     const sourceName = path.basename(sourceFile);
     const wikiTitle = parseWikiTitleFromChunkWriterPrompt(prompt) ?? 'Wiki';
+    const wikiSlug = parseWikiSlugFromChunkWriterPrompt(prompt) ?? 'wiki';
+    const now = new Date().toISOString();
     const pages = chunks.map((chunk) => {
       const detail = chunk.content || 'No extracted content.';
       const hasTable = /\bQ1\b/.test(detail) && /\bQ2\b/.test(detail) && /\bQ3\b/.test(detail);
@@ -650,14 +652,17 @@ function generateMockResponse(prompt: string): string {
         frontmatter: {
           title: `Synthesized chunk ${chunk.id}`,
           type: 'document',
+          wiki: wikiSlug,
           confidence: 'high',
           tags: ['document'],
+          created: now,
+          updated: now,
           sources: [
             {
               id: 'src1',
               file: sourceFile,
               pages: chunk.pageRange || '1',
-              extracted: new Date().toISOString(),
+              extracted: now,
               label: 'Sample PDF',
             },
           ],
@@ -724,6 +729,10 @@ function generateMockResponse(prompt: string): string {
       '- `topics/` — topic pages.',
       '- `raw/` — unparseable or scanned fragments.',
       '',
+      'Additional folders may be proposed by the PagePlanner during sampling or ingestion.',
+      'The LLM autonomously creates new folders or reorganizes the wiki when the corpus demands it.',
+      'Each structural change is recorded in the structural change log for human review.',
+      '',
       '## Page Types',
       '',
       '| Type | Purpose | Required frontmatter |',
@@ -779,7 +788,7 @@ function generateMockResponse(prompt: string): string {
       '',
       '| Role | Authority |',
       '|------|-----------|',
-      '| User (human) | High-level purpose, PDF curation, structural approval, when to run commands. |',
+      '| User (human) | High-level purpose, PDF curation, when to run commands, reviewing logged structural changes. |',
       '| LLM Orchestrator | Folder structure, page content, entities, links, citations. |',
       '| Local deterministic code | Extraction, hashing, validation, orchestration, file I/O. |',
       '| Critic | Whether LLM output is good enough to commit. |',
@@ -848,6 +857,11 @@ function parseSourceFileFromChunkWriterPrompt(prompt: string): string {
 
 function parseWikiTitleFromChunkWriterPrompt(prompt: string): string | undefined {
   const match = prompt.match(/## Wiki\n[\s\S]*?- title: ([^\n]+)/);
+  return match?.[1].trim();
+}
+
+function parseWikiSlugFromChunkWriterPrompt(prompt: string): string | undefined {
+  const match = prompt.match(/## Wiki\n[\s\S]*?- slug: ([^\n]+)/);
   return match?.[1].trim();
 }
 

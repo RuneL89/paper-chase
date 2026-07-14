@@ -15,8 +15,8 @@ This folder implements the full ingestion flow, incremental state tracking, resu
 - `engine.ts` drives the source loop and delegates per-chunk work to the orchestrator and materializer.
 - `state.ts` is the source of truth for per-source SHA-256, page hashes, and the manifest used for resume and manual-edit detection.
 - `chunk-materializer.ts` immediately writes/updates affected entity/topic pages after each chunk is processed.
-- Preservation check: every old citation (`[^srcN]`) and wikilink (`[[...]]`) must survive an LLM rewrite; otherwise use deterministic append-only.
-- Manually edited pages (hash mismatch with stored state) are always append-only.
+- Preservation check: every old citation (`[^srcN]`) and wikilink (`[[...]]`) must survive an LLM rewrite; if the rewrite drops prior content, the update is skipped and the conflict is reported.
+- Manually edited pages (hash mismatch with stored state) are skipped entirely; the human edit is not overwritten.
 - Re-ingest and resume use the per-chunk manifest in `IngestionState` to skip unchanged work.
 
 ## Work Guidance

@@ -143,7 +143,7 @@ export function ProgressScreen({
         if (operation.type === 'sample') {
           await sampleCommand(workspace, operation.slug, reporter);
         } else {
-          await ingestCommand(workspace, operation.slug, false, false, reporter);
+          await ingestCommand(workspace, operation.slug, false, reporter);
         }
         completedRef.current = true;
         setDone(true);

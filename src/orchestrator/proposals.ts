@@ -1,18 +1,10 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, writeFileSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { confirm, isInteractive } from '../prompt.js';
 import { CLIError } from '../errors.js';
 import type { Config } from '../config.js';
 import type { FolderPlan, PagePlan, StructuralProposal } from './types.js';
 import { writeFolderIndexContract, type WikiIndexData } from './contracts.js';
-
-export interface ProposalApprovalOptions {
-  /** Automatically approve simple proposals without prompting. */
-  autoApprove?: boolean;
-  /** Force interactive mode; if false and not auto-approve, simple proposals are rejected. */
-  interactive?: boolean;
-}
 
 export function detectStructuralProposals(
   previousHierarchy: Record<string, FolderPlan>,
@@ -107,10 +99,10 @@ export function writeProposalFile(
   const filePath = proposalFileName(workspace, slug);
   const lines = renderProposalMarkdown(slug, proposal, filePath);
   writeFileSync(filePath, matter.stringify(lines.join('\n'), {
-    title: `Structural Change Proposal — ${slug}`,
+    title: `Structural Change Log — ${slug}`,
     type: 'proposal',
     wiki: slug,
-    status: 'pending',
+    status: 'applied',
     created: new Date().toISOString(),
   }));
   return filePath;
@@ -118,7 +110,7 @@ export function writeProposalFile(
 
 export function renderProposalMarkdown(slug: string, proposal: StructuralProposal, filePath: string): string[] {
   const lines: string[] = [
-    `# Structural Change Proposal — ${slug}`,
+    `# Structural Change Log — ${slug}`,
     '',
     '## Reason',
     '',
@@ -177,38 +169,8 @@ export function renderProposalMarkdown(slug: string, proposal: StructuralProposa
     ...(proposal.movedFolders && proposal.movedFolders.length > 0
       ? ['- Move the affected folder directories and update existing page paths.', '']
       : []),
-    '## Approval',
-    '',
-    'To approve, change the frontmatter `status` to `approved` and run:',
-    '',
-    '```',
-    `llm-wiki-cli apply-proposal ${slug} ${path.basename(filePath)}`,
-    '```',
-    '',
-    'To reject, change the frontmatter `status` to `rejected` and run the same command, or delete this file.',
-    '',
   ];
   return lines;
-}
-
-export async function promptProposalApproval(
-  proposal: StructuralProposal,
-  options: ProposalApprovalOptions = {},
-): Promise<boolean> {
-  if (options.autoApprove) return true;
-  if (options.interactive === false) return false;
-  if (!isInteractive()) return false;
-
-  const message = isSimpleProposal(proposal)
-    ? `The PagePlanner proposes a new folder: ${proposal.newFolderPlans[0].title} (${proposal.newFolderPlans[0].folder}/). Approve?`
-    : `A structural change proposal is required. Review the file and run apply-proposal to approve. Reject now?`;
-
-  if (isSimpleProposal(proposal)) {
-    return confirm(message, true);
-  }
-  // For complex proposals, always reject interactively and ask the user to review the file.
-  console.log(message);
-  return false;
 }
 
 export function applyProposal(
@@ -216,71 +178,148 @@ export function applyProposal(
   slug: string,
   proposalPath: string,
   config: Config,
+  state: import('../ingestion/state.js').IngestionState,
+  memory: import('./types.js').OrchestratorMemory,
 ): { proposal: StructuralProposal; approved: boolean } {
   if (!existsSync(proposalPath)) {
     throw new CLIError(`Proposal file not found: ${proposalPath}`);
   }
 
   const content = readFileSync(proposalPath, 'utf-8');
-  const parsed = matter(content);
-  const status = String(parsed.data.status || '').toLowerCase();
   const proposal = parseProposalMarkdown(content);
   if (!proposal) {
     throw new CLIError('Invalid proposal file content');
   }
 
-  const wikiDir = path.join(workspace, 'wikis', slug);
+  applyFolderRenames(workspace, slug, proposal, state, memory);
+  applyNewFolderPlans(workspace, slug, proposal.newFolderPlans, config, memory);
 
-  let approved = false;
-  if (status === 'approved') {
-    // Create new folder index contracts for approved new folders.
-    const indexData: WikiIndexData = {
-      slug,
-      title: config.wiki.title,
-      description: config.wiki.description,
-      scope: '',
-      sourceCount: 0,
-      documentCount: 0,
-      entityCount: 0,
-      topicCount: 0,
-      rawCount: 0,
-      folders: proposal.newFolderPlans,
-      warnings: [],
-    };
-    for (const folder of proposal.newFolderPlans) {
-      const folderIndexPath = path.join(wikiDir, folder.folder, 'index.md');
-      mkdirSync(path.dirname(folderIndexPath), { recursive: true });
-      writeFolderIndexContract(folderIndexPath, folder, indexData, {
-        rollingSummary: '',
-        historicalSummary: '',
-        summaryOnly: false,
-        state: {
-          document: { title: '', totalPages: 0, currentChunk: 0, boundaryType: 'page' },
-          entities: {},
-          topics: {},
-          relationships: [],
-          sources: {},
-          folderHierarchy: {},
-          rawFragments: [],
-          duplicateFlags: [],
-          sourceEntities: {},
-          sourceTopics: {},
-          entityTaxonomy: { subFolders: [], assignments: {} },
-        },
-      });
-    }
-    // Mark proposal as applied.
-    const appliedPath = proposalPath.replace(/-structural-change\.md$/, '-structural-change-applied.md');
-    renameSync(proposalPath, appliedPath);
-    approved = true;
-  } else if (status === 'rejected') {
-    const rejectedPath = proposalPath.replace(/-structural-change\.md$/, '-structural-change-rejected.md');
-    renameSync(proposalPath, rejectedPath);
-  } else {
-    throw new CLIError(`Proposal status must be 'approved' or 'rejected'; found '${status || 'pending'}'`);
+  // Update rolling memory to reflect the new hierarchy.
+  for (const folder of proposal.newFolderPlans) {
+    memory.state.folderHierarchy[folder.folder] = folder;
   }
 
-  return { proposal, approved };
+  // Mark proposal as applied.
+  const appliedPath = proposalPath.replace(/-structural-change\.md$/, '-structural-change-applied.md');
+  renameSync(proposalPath, appliedPath);
+
+  return { proposal, approved: true };
+}
+
+function applyNewFolderPlans(
+  workspace: string,
+  slug: string,
+  newFolderPlans: FolderPlan[],
+  config: Config,
+  memory: import('./types.js').OrchestratorMemory,
+): void {
+  const wikiDir = path.join(workspace, 'wikis', slug);
+  const indexData: WikiIndexData = {
+    slug,
+    title: config.wiki.title,
+    description: config.wiki.description,
+    scope: memory.rollingSummary,
+    sourceCount: 0,
+    documentCount: 0,
+    entityCount: 0,
+    topicCount: 0,
+    rawCount: 0,
+    folders: newFolderPlans,
+    warnings: [],
+  };
+  for (const folder of newFolderPlans) {
+    const folderIndexPath = path.join(wikiDir, folder.folder, 'index.md');
+    mkdirSync(path.dirname(folderIndexPath), { recursive: true });
+    writeFolderIndexContract(folderIndexPath, folder, indexData, memory);
+  }
+}
+
+export function applyStructuralChanges(
+  workspace: string,
+  slug: string,
+  proposal: StructuralProposal,
+  config: Config,
+  memory: import('./types.js').OrchestratorMemory,
+  state?: import('../ingestion/state.js').IngestionState,
+): StructuralProposal {
+  // Write the structural change log for after-the-fact human review.
+  const filePath = writeProposalFile(workspace, slug, proposal);
+  const wikiDir = path.join(workspace, 'wikis', slug);
+
+  // Apply folder renames/moves before updating the hierarchy so state paths stay consistent.
+  if (state) {
+    applyFolderRenames(workspace, slug, proposal, state, memory);
+  }
+
+  applyNewFolderPlans(workspace, slug, proposal.newFolderPlans, config, memory);
+
+  // Mark the log file as applied.
+  const appliedPath = filePath.replace(/-structural-change\.md$/, '-structural-change-applied.md');
+  renameSync(filePath, appliedPath);
+
+  // Update rolling memory to reflect the new hierarchy.
+  for (const folder of proposal.newFolderPlans) {
+    memory.state.folderHierarchy[folder.folder] = folder;
+  }
+
+  return { ...proposal, applied: true };
+}
+
+export function applyFolderRenames(
+  workspace: string,
+  slug: string,
+  proposal: StructuralProposal,
+  state: import('../ingestion/state.js').IngestionState,
+  memory: import('./types.js').OrchestratorMemory,
+): void {
+  const wikiDir = path.join(workspace, 'wikis', slug);
+  const hierarchy = { ...memory.state.folderHierarchy };
+
+  const renames = proposal.renamedFolders || [];
+  const moves = proposal.movedFolders || [];
+  const allRenames = [...renames, ...moves];
+
+  for (const rename of allRenames) {
+    const oldDir = path.join(wikiDir, rename.from);
+    const newDir = path.join(wikiDir, rename.to);
+    if (existsSync(oldDir)) {
+      renameSync(oldDir, newDir);
+    }
+
+    const oldPrefix = `${rename.from}/`;
+    const newPrefix = `${rename.to}/`;
+    for (const sourceState of Object.values(state.sources)) {
+      sourceState.documentPages = sourceState.documentPages.map((p) =>
+        p.startsWith(oldPrefix) ? newPrefix + p.slice(oldPrefix.length) : p,
+      );
+      sourceState.rawPages = sourceState.rawPages.map((p) =>
+        p.startsWith(oldPrefix) ? newPrefix + p.slice(oldPrefix.length) : p,
+      );
+    }
+    for (const [pagePath, pageState] of Object.entries(state.pages || {})) {
+      if (pagePath.startsWith(oldPrefix) || pageState.folder === rename.from) {
+        const newPagePath = pagePath.startsWith(oldPrefix)
+          ? newPrefix + pagePath.slice(oldPrefix.length)
+          : pagePath;
+        if (newPagePath !== pagePath) {
+          state.pages![newPagePath] = { ...pageState, folder: rename.to };
+          delete state.pages![pagePath];
+        } else {
+          pageState.folder = rename.to;
+        }
+      }
+    }
+    delete hierarchy[rename.from];
+    hierarchy[rename.to] = {
+      folder: rename.to,
+      title: rename.title,
+      description: rename.description,
+      pageTypes: rename.pageTypes,
+      children: rename.children,
+    };
+    memory.state.folderHierarchy[rename.to] = hierarchy[rename.to];
+    delete memory.state.folderHierarchy[rename.from];
+  }
 }
 
 export function parseProposalMarkdown(content: string): StructuralProposal | undefined {
@@ -457,6 +496,18 @@ export function folderPlacementsFromProposal(
   proposal: StructuralProposal,
 ): FolderPlan[] {
   const merged = { ...previousHierarchy };
+  // Apply renames/moves so the resolved hierarchy uses the new folder names.
+  const allRenames = [...(proposal.renamedFolders || []), ...(proposal.movedFolders || [])];
+  for (const rename of allRenames) {
+    delete merged[rename.from];
+    merged[rename.to] = {
+      folder: rename.to,
+      title: rename.title,
+      description: rename.description,
+      pageTypes: rename.pageTypes,
+      children: rename.children,
+    };
+  }
   for (const folder of proposal.newFolderPlans) {
     merged[folder.folder] = folder;
   }

@@ -21,6 +21,7 @@ import {
   entityTopicPageWriter,
   type EntityTopicPageInputEntity,
   type EntityTopicPageInputTopic,
+  type EntityTopicPageOutput,
 } from '../orchestrator/agents.js';
 import {
   writeEntityPage,
@@ -104,7 +105,6 @@ export async function materializeChunkEntitiesAndTopics(
 
   // Build the update inputs for the affected entities and topics.
   const entityInputs: EntityTopicPageInputEntity[] = [];
-  const manuallyEditedEntities: { entity: EntityMention; filePath: string; rels: ExtractedRelationship[]; input: EntityTopicPageInputEntity }[] = [];
   for (const slug of affectedEntitySlugs) {
     const memoryEntity = memory.state.entities[slug];
     if (!memoryEntity) continue;
@@ -120,6 +120,15 @@ export async function materializeChunkEntitiesAndTopics(
     const relativePath = toRelativePathFromDir(wikiDir, filePath);
     const existing = readExistingPage(filePath);
     const isManual = existing ? isPageManuallyEdited(relativePath, existing.content, state) : false;
+
+    if (isManual) {
+      recordSkippedUpdate(
+        result,
+        progress,
+        `Entity page ${memoryEntity.name} is manually edited; skipping update to preserve human changes.`,
+      );
+      continue;
+    }
 
     const relsForEntity = chunkRelationships.filter(
       (r) =>
@@ -143,16 +152,10 @@ export async function materializeChunkEntitiesAndTopics(
       sources,
     };
 
-    if (isManual) {
-      manuallyEditedEntities.push({ entity, filePath, rels: relsForEntity, input });
-      continue;
-    }
-
     entityInputs.push(input);
   }
 
   const topicInputs: EntityTopicPageInputTopic[] = [];
-  const manuallyEditedTopics: { topic: Topic; filePath: string; input: EntityTopicPageInputTopic }[] = [];
   for (const name of affectedTopicNames) {
     const memoryTopic = memory.state.topics[name];
     const count = memoryTopic ? memoryTopic.related.length + memoryTopic.mentions.length : 1;
@@ -161,6 +164,15 @@ export async function materializeChunkEntitiesAndTopics(
     const relativePath = toRelativePathFromDir(wikiDir, filePath);
     const existing = readExistingPage(filePath);
     const isManual = existing ? isPageManuallyEdited(relativePath, existing.content, state) : false;
+
+    if (isManual) {
+      recordSkippedUpdate(
+        result,
+        progress,
+        `Topic page ${name} is manually edited; skipping update to preserve human changes.`,
+      );
+      continue;
+    }
 
     const sources = buildMergedSources(existing, source, chunk);
     const mentions: TopicMentionLocation[] = [
@@ -177,161 +189,162 @@ export async function materializeChunkEntitiesAndTopics(
       sources,
     };
 
-    if (isManual) {
-      manuallyEditedTopics.push({ topic, filePath, input });
-      continue;
-    }
-
     topicInputs.push(input);
   }
 
-  // Batch LLM update for non-manually edited pages.
-  if (entityInputs.length > 0 || topicInputs.length > 0) {
-    try {
-      const llmBodies = await progress.step(
-        'entity-topic-writer',
-        `Updating ${entityInputs.length} entity and ${topicInputs.length} topic pages for chunk ${chunk.id}`,
-        () =>
-          entityTopicPageWriter(
-            entityInputs,
-            topicInputs,
-            config,
-            llmClient,
-            readAgentsMd(workspace, slug),
-            memory,
-            knownEntityInputs,
-            knownTopicInputs,
-          ),
-      );
-
-      const entityBodyMap = new Map(llmBodies.entities.map((e) => [e.name, e.body]));
-      const topicBodyMap = new Map(llmBodies.topics.map((t) => [t.name, t.body]));
-
-      for (const input of entityInputs) {
-        const entity = {
-          name: input.name,
-          type: input.type,
-          count: input.count,
-          description: input.description,
-          relationships: input.relationships,
-        };
-        const { filePath } = migrateLegacyEntityPage(wikiDir, entity, memory.state.entityTaxonomy);
-        const relativePath = toRelativePathFromDir(wikiDir, filePath);
-        const existing = readExistingPage(filePath);
-        const generatedBody = entityBodyMap.get(input.name);
-        if (!generatedBody) continue;
-
-        const preserved = !existing || verifyPreservation(existing.body, generatedBody);
-        if (!preserved) {
-          progress.warning(
-            `Entity page ${input.name} LLM rewrite did not preserve existing content; appending instead.`,
-          );
-          const fallbackBody = appendChunkToEntityBody(existing?.body ?? '', input.name, source, chunk, [
-            ...normalizeRelationshipsForEntity(input.name, input.relationships),
-          ]);
-          writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), fallbackBody);
-        removeLegacyEntityPage(wikiDir, entity);
-          updatePageState(state, relativePath, wikiDir, 'entity');
-          result.entityPages++;
-          continue;
-        }
-
-        writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), generatedBody);
-        removeLegacyEntityPage(wikiDir, entity);
-        updatePageState(state, relativePath, wikiDir, 'entity');
-        result.entityPages++;
-      }
-
-      for (const input of topicInputs) {
-        const topic: Topic = { name: input.name, count: input.count };
-        const filePath = path.join(wikiDir, 'topics', topicFileName(topic));
-        const relativePath = toRelativePathFromDir(wikiDir, filePath);
-        const existing = readExistingPage(filePath);
-        const generatedBody = topicBodyMap.get(input.name);
-        if (!generatedBody) continue;
-
-        const preserved = !existing || verifyPreservation(existing.body, generatedBody);
-        if (!preserved) {
-          progress.warning(
-            `Topic page ${input.name} LLM rewrite did not preserve existing content; appending instead.`,
-          );
-          const fallbackBody = appendChunkToTopicBody(existing?.body ?? '', input.name, source, chunk);
-          writeTopicPage(filePath, topic, config, input.mentions, input.related, fallbackBody, input.sources);
-          updatePageState(state, relativePath, wikiDir, 'topic');
-          result.topicPages++;
-          continue;
-        }
-
-        writeTopicPage(filePath, topic, config, input.mentions, input.related, generatedBody, input.sources);
-        updatePageState(state, relativePath, wikiDir, 'topic');
-        result.topicPages++;
-      }
-    } catch (err) {
-      // If the batch LLM call fails, fall back to deterministic append for all
-      // affected pages so information is not lost.
-      progress.warning(
-        `Entity/topic writer failed for chunk ${chunk.id}: ${err instanceof Error ? err.message : String(err)}. Appending only.`,
-      );
-      for (const input of entityInputs) {
-        const entity = {
-          name: input.name,
-          type: input.type,
-          count: input.count,
-          description: input.description,
-          relationships: input.relationships,
-        };
-        const { filePath } = migrateLegacyEntityPage(wikiDir, entity, memory.state.entityTaxonomy);
-        const relativePath = toRelativePathFromDir(wikiDir, filePath);
-        const existing = readExistingPage(filePath);
-        const fallbackBody = appendChunkToEntityBody(
-          existing?.body ?? '',
-          input.name,
-          source,
-          chunk,
-          normalizeRelationshipsForEntity(input.name, input.relationships),
-        );
-        writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), fallbackBody);
-        removeLegacyEntityPage(wikiDir, entity);
-        updatePageState(state, relativePath, wikiDir, 'entity');
-        result.entityPages++;
-      }
-      for (const input of topicInputs) {
-        const topic: Topic = { name: input.name, count: input.count };
-        const filePath = path.join(wikiDir, 'topics', topicFileName(topic));
-        const relativePath = toRelativePathFromDir(wikiDir, filePath);
-        const existing = readExistingPage(filePath);
-        const fallbackBody = appendChunkToTopicBody(existing?.body ?? '', input.name, source, chunk);
-        writeTopicPage(filePath, topic, config, input.mentions, input.related, fallbackBody, input.sources);
-        updatePageState(state, relativePath, wikiDir, 'topic');
-        result.topicPages++;
-      }
-    }
+  if (entityInputs.length === 0 && topicInputs.length === 0) {
+    return;
   }
 
-  // Deterministic append for pages that were manually edited.
-  for (const { entity, filePath, rels, input } of manuallyEditedEntities) {
+  // Batch LLM update with one retry and no deterministic fallback.
+  const llmBodies = await progress.step(
+    'entity-topic-writer',
+    `Updating ${entityInputs.length} entity and ${topicInputs.length} topic pages for chunk ${chunk.id}`,
+    () =>
+      callEntityTopicWriterWithRetry(
+        entityInputs,
+        topicInputs,
+        config,
+        llmClient,
+        readAgentsMd(workspace, slug),
+        memory,
+        knownEntityInputs,
+        knownTopicInputs,
+        chunk.id,
+        progress,
+      ),
+  );
+
+  const entityBodyMap = new Map(llmBodies.entities.map((e) => [e.name, e.body]));
+  const topicBodyMap = new Map(llmBodies.topics.map((t) => [t.name, t.body]));
+
+  for (const input of entityInputs) {
+    const entity = {
+      name: input.name,
+      type: input.type,
+      count: input.count,
+      description: input.description,
+      relationships: input.relationships,
+    };
+    const { filePath } = migrateLegacyEntityPage(wikiDir, entity, memory.state.entityTaxonomy);
     const relativePath = toRelativePathFromDir(wikiDir, filePath);
     const existing = readExistingPage(filePath);
-    const fallbackBody = appendChunkToEntityBody(
-      existing?.body ?? '',
-      entity.name,
-      source,
-      chunk,
-      rels,
-    );
-    writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), fallbackBody);
+    const generatedBody = entityBodyMap.get(input.name);
+    if (!generatedBody) {
+      recordSkippedUpdate(
+        result,
+        progress,
+        `Entity page ${input.name} was not returned by the LLM writer; skipping update.`,
+      );
+      continue;
+    }
+
+    const preserved = !existing || verifyPreservation(existing.body, generatedBody);
+    if (!preserved) {
+      recordSkippedUpdate(
+        result,
+        progress,
+        `Entity page ${input.name} LLM rewrite did not preserve existing content; skipping update.`,
+      );
+      continue;
+    }
+
+    writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), generatedBody);
     removeLegacyEntityPage(wikiDir, entity);
     updatePageState(state, relativePath, wikiDir, 'entity');
     result.entityPages++;
   }
-  for (const { topic, filePath, input } of manuallyEditedTopics) {
+
+  for (const input of topicInputs) {
+    const topic: Topic = { name: input.name, count: input.count };
+    const filePath = path.join(wikiDir, 'topics', topicFileName(topic));
     const relativePath = toRelativePathFromDir(wikiDir, filePath);
     const existing = readExistingPage(filePath);
-    const fallbackBody = appendChunkToTopicBody(existing?.body ?? '', topic.name, source, chunk);
-    writeTopicPage(filePath, topic, config, input.mentions, input.related, fallbackBody, input.sources);
+    const generatedBody = topicBodyMap.get(input.name);
+    if (!generatedBody) {
+      recordSkippedUpdate(
+        result,
+        progress,
+        `Topic page ${input.name} was not returned by the LLM writer; skipping update.`,
+      );
+      continue;
+    }
+
+    const preserved = !existing || verifyPreservation(existing.body, generatedBody);
+    if (!preserved) {
+      recordSkippedUpdate(
+        result,
+        progress,
+        `Topic page ${input.name} LLM rewrite did not preserve existing content; skipping update.`,
+      );
+      continue;
+    }
+
+    writeTopicPage(filePath, topic, config, input.mentions, input.related, generatedBody, input.sources);
     updatePageState(state, relativePath, wikiDir, 'topic');
     result.topicPages++;
   }
+}
+
+async function callEntityTopicWriterWithRetry(
+  entityInputs: EntityTopicPageInputEntity[],
+  topicInputs: EntityTopicPageInputTopic[],
+  config: Config,
+  llmClient: LLMClient,
+  agentsMd: string | undefined,
+  memory: OrchestratorMemory,
+  knownEntityInputs: EntityTopicPageInputEntity[],
+  knownTopicInputs: EntityTopicPageInputTopic[],
+  chunkId: string,
+  progress: ProgressReporter,
+): Promise<EntityTopicPageOutput> {
+  try {
+    return await entityTopicPageWriter(
+      entityInputs,
+      topicInputs,
+      config,
+      llmClient,
+      agentsMd,
+      memory,
+      knownEntityInputs,
+      knownTopicInputs,
+    );
+  } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    progress.warning(`Entity/topic writer failed for chunk ${chunkId}: ${errorMessage}. Retrying once.`);
+    progress.retry(chunkId, 'EntityTopicPageWriter', 2, errorMessage);
+    try {
+      return await entityTopicPageWriter(
+        entityInputs,
+        topicInputs,
+        config,
+        llmClient,
+        agentsMd,
+        memory,
+        knownEntityInputs,
+        knownTopicInputs,
+        `The previous attempt failed with: ${errorMessage}. Return ONLY a valid JSON object matching the schema, with all requested entity and topic bodies, and preserve every existing citation and wikilink when an existing body is provided.`,
+      );
+    } catch (retryErr) {
+      throw new CLIError(
+        `Entity/topic writer failed for chunk ${chunkId} after one retry: ${
+          retryErr instanceof Error ? retryErr.message : String(retryErr)
+        }`,
+      );
+    }
+  }
+}
+
+function recordSkippedUpdate(
+  result: IngestionResult,
+  progress: ProgressReporter,
+  message: string,
+): void {
+  progress.warning(message);
+  result.warnings = result.warnings ?? [];
+  result.warnings.push(message);
+  result.skippedUpdates = result.skippedUpdates ?? [];
+  result.skippedUpdates.push(message);
 }
 
 function findCanonicalSlugByName(name: string, memory: OrchestratorMemory): string | undefined {
@@ -392,43 +405,6 @@ function buildKnownTopicInputs(
     mentions: [{ source: source.fileName, filePath: source.filePath, pages: 'various' }],
     related: [...topic.related],
   }));
-}
-
-function appendChunkToEntityBody(
-  existingBody: string,
-  entityName: string,
-  source: ExtractionResult,
-  chunk: Chunk,
-  relationships: ExtractedRelationship[],
-): string {
-  const lines = existingBody.trim().length > 0 ? [existingBody] : [`# Entity: ${entityName}`];
-  lines.push('');
-  lines.push(`## New mentions from ${source.fileName}, pages ${chunk.pageRange}`);
-  lines.push('');
-  lines.push(`- Mentioned in ${source.fileName}, pages ${chunk.pageRange}.`);
-  for (const rel of relationships) {
-    if (
-      rel.subject.toLowerCase() === entityName.toLowerCase() ||
-      rel.object.toLowerCase() === entityName.toLowerCase()
-    ) {
-      lines.push(`- ${rel.subject} ${rel.predicate} ${rel.object} — ${rel.evidence} (${rel.pages}).`);
-    }
-  }
-  return lines.join('\n');
-}
-
-function appendChunkToTopicBody(
-  existingBody: string,
-  topicName: string,
-  source: ExtractionResult,
-  chunk: Chunk,
-): string {
-  const lines = existingBody.trim().length > 0 ? [existingBody] : [`# Topic: ${topicName}`];
-  lines.push('');
-  lines.push(`## New mentions from ${source.fileName}, pages ${chunk.pageRange}`);
-  lines.push('');
-  lines.push(`- Mentioned in ${source.fileName}, pages ${chunk.pageRange}.`);
-  return lines.join('\n');
 }
 
 function updatePageState(

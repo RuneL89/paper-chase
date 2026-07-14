@@ -159,7 +159,7 @@ describe('reingest', () => {
     expect(plan.affectedPages.has('documents/unchanged.md')).toBe(false);
   });
 
-  it('buildReingestPlan detects manual edits and supports skipping them', () => {
+  it('buildReingestPlan detects manual edits and skips them by default', () => {
     writePage(wikiDir, 'documents/timeline.md', 'timeline');
     const originalContent = readFileSync(path.join(wikiDir, 'documents/timeline.md'), 'utf-8');
     const pages: Record<string, PageState> = {
@@ -180,15 +180,30 @@ describe('reingest', () => {
     const plan = buildReingestPlan(state, hierarchy, wikiDir, {});
     expect(plan.affectedPages.has('documents/timeline.md')).toBe(true);
     expect(plan.manualEditWarnings.length).toBe(1);
+    expect(plan.manualEditWarnings[0]).toContain('skipped');
+    expect(plan.pagesToSkip.has('documents/timeline.md')).toBe(true);
 
-    const skipPlan = buildReingestPlan(state, hierarchy, wikiDir, { skipManualEdits: true });
-    expect(skipPlan.pagesToSkip.has('documents/timeline.md')).toBe(true);
+    const overwritePlan = buildReingestPlan(state, hierarchy, wikiDir, { skipManualEdits: false });
+    expect(overwritePlan.pagesToSkip.has('documents/timeline.md')).toBe(false);
+    expect(overwritePlan.manualEditWarnings[0]).toContain('overwritten');
   });
 
-  it('runReingest moves an affected page to the new folder and updates state', async () => {
-    writePage(wikiDir, 'documents/timeline.md', 'timeline');
+  it('runReingest moves an affected page to the new folder and preserves LLM-authored content', async () => {
+    const originalTitle = 'Original Timeline';
+    const originalBody = 'Original LLM-authored body.';
+    const filePath = path.join(wikiDir, 'documents/timeline.md');
+    mkdirSync(path.dirname(filePath), { recursive: true });
+    const originalContent = matter.stringify(originalBody, {
+      title: originalTitle,
+      type: 'timeline',
+      wiki: 'acme',
+      created: new Date().toISOString(),
+      updated: new Date().toISOString(),
+    });
+    writeFileSync(filePath, originalContent);
+
     const pages: Record<string, PageState> = {
-      'documents/timeline.md': { folder: 'documents', pageType: 'timeline', generatedHash: hashPageContent(readFileSync(path.join(wikiDir, 'documents/timeline.md'), 'utf-8')), updatedAt: new Date().toISOString() },
+      'documents/timeline.md': { folder: 'documents', pageType: 'timeline', generatedHash: hashPageContent(originalContent), updatedAt: new Date().toISOString() },
     };
     seedState(wikiDir, config, pages, ['documents/timeline.md']);
 
@@ -203,11 +218,44 @@ describe('reingest', () => {
     expect(existsSync(path.join(wikiDir, 'documents/timeline.md'))).toBe(false);
     expect(existsSync(path.join(wikiDir, 'timeline/timeline.md'))).toBe(true);
 
+    const movedContent = readFileSync(path.join(wikiDir, 'timeline/timeline.md'), 'utf-8');
+    expect(movedContent).toBe(originalContent);
+    const movedParsed = matter(movedContent);
+    expect(movedParsed.data.title).toBe(originalTitle);
+    expect(movedParsed.content.trim()).toBe(originalBody);
+
     const state = loadState(statePath(wikiDir));
     expect(state.pages!['timeline/timeline.md']).toBeDefined();
     expect(state.pages!['timeline/timeline.md'].folder).toBe('timeline');
     expect(state.pages!['documents/timeline.md']).toBeUndefined();
     expect(state.sources['raw/source.pdf'].documentPages).toContain('timeline/timeline.md');
+  });
+
+  it('runReingest skips moving manually edited pages', async () => {
+    const originalBody = 'Original LLM-authored body.';
+    writePage(wikiDir, 'documents/timeline.md', 'timeline', originalBody);
+    const originalContent = readFileSync(path.join(wikiDir, 'documents/timeline.md'), 'utf-8');
+    const pages: Record<string, PageState> = {
+      'documents/timeline.md': { folder: 'documents', pageType: 'timeline', generatedHash: hashPageContent(originalContent), updatedAt: new Date().toISOString() },
+    };
+    seedState(wikiDir, config, pages, ['documents/timeline.md']);
+
+    // Simulate a manual edit.
+    const editedContent = originalContent + '\n\nManual edit.';
+    writeFileSync(path.join(wikiDir, 'documents/timeline.md'), editedContent);
+
+    const hierarchy: Record<string, FolderPlan> = {
+      documents: makeFolderPlan('documents', 'Documents', ['document']),
+      timeline: makeFolderPlan('timeline', 'Timeline', ['timeline']),
+    };
+
+    const result = await runReingest(workspace, 'acme', config, hierarchy, { skipManualEdits: false });
+    expect(result.affectedPages).toContain('documents/timeline.md');
+    expect(result.pagesMoved).not.toContain('documents/timeline.md -> timeline/timeline.md');
+    expect(result.skippedPages).toContain('documents/timeline.md');
+    expect(existsSync(path.join(wikiDir, 'documents/timeline.md'))).toBe(true);
+    expect(existsSync(path.join(wikiDir, 'timeline/timeline.md'))).toBe(false);
+    expect(readFileSync(path.join(wikiDir, 'documents/timeline.md'), 'utf-8')).toBe(editedContent);
   });
 
   it('runReingest deletes pages whose page type is removed', async () => {

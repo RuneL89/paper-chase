@@ -10,7 +10,7 @@ The LLM writes the wiki, but the system does not trust the LLM blindly. Every ch
 
 1. **LLM-level review** — the Critic sub-agent reviews the LLM's own output.
 2. **Deterministic checks** — local code verifies that the output matches the source material and follows the schema.
-3. **Human approval** — the user approves structural changes that would alter the wiki's organization.
+3. **Human review** — the user consumes the compiled wiki and reviews logged structural changes; the user can revert changes via version control or re-run commands with revised guidance.
 
 This layered approach combines the flexibility of the LLM with the reliability of deterministic validation and the judgment of the human user.
 
@@ -58,7 +58,18 @@ Every page must have valid YAML frontmatter and the required fields for its `typ
 
 ---
 
-## 3. The Critic Agent
+## 3. Preservation-First Materialization
+
+During `ingest`, the **ChunkMaterializer** writes or updates entity and topic pages immediately after each chunk passes the Critic and deterministic validation. Because existing pages may have been manually edited or may contain evidence from earlier chunks, the materializer follows a preservation-first protocol:
+
+1. **Manual-edit detection.** Before calling the LLM, the materializer compares the current page content against the hash stored in `IngestionState`. If the page has been changed by a human since the last ingestion run, the materializer skips the LLM rewrite and reports the conflict.
+2. **LLM update mode.** For pages that were not manually edited, the materializer passes the existing body to the LLM and asks for a regenerated body that includes the new evidence from the current chunk.
+3. **Preservation check.** After the LLM returns a new body, the materializer verifies that every existing citation (`[^srcN]`) and every existing wikilink is still present. If the rewrite drops any prior content, the materializer reports the conflict and skips the update for that page.
+4. **No deterministic fallback.** If the LLM update call fails, the materializer may retry the same LLM call with a stricter repair prompt. It must **not** fall back to deterministic page creation, deterministic append, or any other deterministic authoring of wiki content. If the repair also fails, the run aborts and the error is reported to the user.
+
+Skipped updates are surfaced in the lint report and in the run log so the user knows which pages were not updated and why.
+
+## 4. The Critic Agent
 
 The Critic is the LLM's own quality checker. It is given:
 
@@ -80,7 +91,7 @@ When blocked, the Critic's feedback includes:
 
 The feedback is passed back to the ChunkWriter (or earlier agents), and the chunk is reprocessed. The Critic reviews the revised output again.
 
-### 3.1 Critic Checklist
+### 4.1 Critic Checklist
 
 The Critic should verify at least the following:
 
@@ -95,7 +106,7 @@ The Critic should verify at least the following:
 
 ---
 
-## 4. Lint Report
+## 5. Lint Report
 
 After each ingestion run, the system writes a lint report to the wiki folder, at `wikis/<slug>/lint/report.json`. The report contains:
 
@@ -127,47 +138,21 @@ Example lint report structure:
 
 ---
 
-## 5. Structural Change Proposals
+## 6. Structural Change Log
 
-When the PagePlanner discovers that the existing folder structure cannot accommodate the corpus, it creates a **structural change proposal**. The proposal includes:
+When the PagePlanner discovers that the existing folder structure cannot accommodate the corpus, the LLM autonomously creates, moves, or renames folders and updates the page-type taxonomy. The orchestrator records each structural change with:
 
-- **Reason** — why the change is needed.
-- **Affected pages and folders** — what would be moved or created.
-- **Proposed new structure** — the new folder hierarchy or page-type taxonomy.
-- **Pros and cons** — the trade-offs of accepting the change.
-- **Required contract updates** — which `index.md` and `AGENTS.md` files need to change.
+- **Reason** — why the change was needed.
+- **Affected pages and folders** — what was moved or created.
+- **New structure** — the new folder hierarchy or page-type taxonomy.
+- **Pros and cons** — the trade-offs of the change.
+- **Contract updates** — which `index.md` and `AGENTS.md` files were changed.
 
-### 5.1 Approval Process
-
-The approval process is **hybrid**:
-
-- **Simple changes** (e.g., adding a single folder or a few new page types) are presented interactively in the CLI. The user approves or rejects on the spot.
-- **Complex changes** (e.g., reorganizing the entire wiki or introducing a new top-level category) are written to a proposal file in `.kimi-code/proposals/` for the user to review and edit later. The user approves the file, and the change is applied on the next `sample` or `ingest` run.
-
-If the user rejects a proposal, the system falls back to the existing structure. If the user accepts, the system:
-
-1. Updates the affected `index.md` contracts.
-2. Updates `AGENTS.md` to reflect the new conventions.
-3. Re-ingests earlier chunks if necessary so that all pages follow the new structure.
-
-### 5.2 When a Proposal Is Required
-
-A proposal is required for:
-
-- Creating a new folder.
-- Moving a folder.
-- Renaming a folder.
-- Changing the wiki-level page-type taxonomy in a way that affects multiple folders.
-
-A proposal is **not** required for:
-
-- Creating a new page inside an existing folder.
-- Creating a new page type inside an existing folder.
-- Adding a page to an existing topic or entity page.
+These records are written to a log (for example, `.kimi-code/proposals/` or an append-only section of `AGENTS.md`) so the human can review what changed after the fact. The LLM applies the change immediately and updates the affected contracts. If the human disagrees with a change, they can revert it via version control or re-run `sample` with revised guidance. There is no approval gate; the human is the consumer, not the gatekeeper, of structural evolution.
 
 ---
 
-## 6. Re-Ingestion After Changes
+## 7. Re-Ingestion After Changes
 
 When `AGENTS.md` or the folder structure changes, earlier chunks may no longer be organized correctly. The system must support **re-ingestion** of earlier chunks so that:
 
@@ -179,12 +164,12 @@ Re-ingestion is efficient because the system tracks which PDFs have changed. Unc
 
 ---
 
-## 7. Error Handling and Recovery
+## 8. Error Handling and Recovery
 
-If a chunk or any LLM agent fails validation or produces invalid/empty output, the system retries once with a stricter repair prompt so the LLM can correct its own output. If the repaired output is still invalid, the run aborts and the error is reported to the user. The human operator must then fix the underlying issue (e.g., enable or reconfigure the LLM, adjust the prompt context, or skip the problematic source) and re-run the command.
+If a chunk, any LLM sub-agent, or the ChunkMaterializer's LLM update call fails validation or produces invalid/empty output, the system retries once with a stricter repair prompt so the LLM can correct its own output. The retry stays within the same LLM agent or materializer call; the system does **not** substitute deterministic page creation, deterministic page updates, deterministic append, or any other deterministic authoring of wiki content as a fallback. If the repaired output is still invalid, the run aborts and the error is reported to the user. The human operator must then fix the underlying issue (e.g., enable or reconfigure the LLM, adjust the prompt context, or skip the problematic source) and re-run the command.
 
 ---
 
-## 8. Summary
+## 9. Summary
 
-Quality in the LLM Wiki CLI is enforced through three layers: the Critic reviews the LLM's output, deterministic checks verify completeness and integrity, and the human approves structural changes. The lint report gives the user visibility into the wiki's health, and re-ingestion ensures that the wiki stays consistent as conventions evolve. This system makes the wiki both flexible and trustworthy: the LLM can adapt to the corpus, but it cannot silently drop details or break links.
+Quality in the LLM Wiki CLI is enforced through three layers: the Critic reviews the LLM's output, deterministic checks verify completeness and integrity, and the human reviews the compiled wiki and logged structural changes. The lint report gives the user visibility into the wiki's health, and re-ingestion ensures that the wiki stays consistent as conventions evolve. This system makes the wiki both flexible and trustworthy: the LLM can adapt to the corpus, but it cannot silently drop details or break links.

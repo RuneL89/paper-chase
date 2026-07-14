@@ -100,6 +100,7 @@ const schemas: PageSchema[] = [
       { name: 'confidence', required: true, validate: isConfidence },
       { name: 'wiki', required: true, validate: isNonEmptyString },
       { name: 'created', required: true, validate: isValidDate },
+      { name: 'updated', required: true, validate: isValidDate },
     ],
   },
   {

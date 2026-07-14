@@ -80,13 +80,16 @@ Default section order:
 
 When the user requests a durable behavior change, record it here or in the relevant child AGENTS.md.
 
+- **No deterministic fallback on LLM failure.** LLM sub-agents are responsible for page creation, page updates, and all other markdown authoring. If an LLM sub-agent fails to produce valid output (empty, malformed, or failing validation), the orchestrator may retry the same LLM agent with a stricter repair prompt, but it must **not** fall back to deterministic page creation, deterministic page updates, or any other deterministic authoring of wiki content. If the repair also fails, the run aborts and reports the error to the user. Deterministic code validates, repairs, and orchestrates; it never authors markdown bodies as a fallback.
+- **LLM-driven structural evolution.** The LLM autonomously creates new folders, reorganizes the wiki, and evolves the page-type taxonomy as the corpus demands. Structural changes are recorded in a log (e.g., `.kimi-code/proposals/`) with reason, pros, cons, and required contract updates so the human can review them after the fact, but there is no human approval gate. The human provides the PDFs and consumes the compiled wiki; the LLM manages the structure.
+
 ## Quick reference
 
 - **Run CLI locally:** `npm run dev -- <command> [args]` (uses `tsx src/cli.ts`)
 - **Build:** `npm run build` (runs `tsc`; there is no separate `typecheck` or `lint` script)
 - **Test:** `npm run test` (runs the full Vitest suite with `--pool=forks --poolOptions.forks.singleFork`)
 - **Focused test:** `npx vitest run --pool=forks --poolOptions.forks.singleFork tests/<file>.test.ts`
-- **Hard boundary:** deterministic code writes only DOX index/contract files and orchestration metadata; the LLM authors all wiki page bodies. LLM agents never compute SHA-256 or perform file I/O directly.
+- **Hard boundary:** deterministic code writes only DOX index/contract files, orchestration metadata, and deterministic provenance/preservation pages (`source` and `raw` page types); the LLM authors all synthesized content pages (`document`, `entity`, `topic`, and any derived page types). LLM agents never compute SHA-256 or perform file I/O directly.
 - **Imports:** all ESM import paths end in `.js`, even from `.ts` source files (`NodeNext` resolution).
 - **Paths:** store relative paths with forward slashes using `toRelativePath` from `workspace.ts`.
 
@@ -219,7 +222,7 @@ src/orchestrator/
 ├── index.ts               # runSampleOrchestrator entry point
 ├── ingest.ts              # runIngestOrchestrator and rolling-memory integration
 ├── memory.ts              # rolling memory persistence and compaction
-├── proposals.ts           # structural-change proposal detection, approval, and application
+├── proposals.ts           # structural-change detection, logging, and application
 ├── sampling.ts            # corpus sampling strategies
 ├── types.ts               # orchestrator shared types (memory, folder plans, critic)
 ├── validation.ts          # deterministic validation helpers
@@ -275,7 +278,7 @@ Key events:
 - `source-start` / `source-end` — per-PDF progress
 - `chunk-progress` — per-chunk entity extraction
 - `critic-issues` — issues surfaced by the Critic
-- `proposal` — structural change proposals
+- `proposal` — structural change log events (recorded for human review, not requiring approval)
 - `warning` / `error` — runtime issues
 - `summary` — final ingestion counts
 - `status` — human-readable status messages
@@ -307,21 +310,22 @@ Key events:
 - **Config precedence:** wiki `config.json` overrides workspace `.kimi-code/config.json` overrides `defaultConfig` in `src/config.ts`.
 - **Status gate:** `ingest` warns if wiki status is not `"ready"`; run `sample` first.
 - **DOX contracts:** `index-of-indexes.md` → `wikis/<slug>/index.md` → `<folder>/index.md`. Folder-level indexes are child contracts that describe the folder's page types and navigation. For typed entity groups, the chain continues into `entities/<subfolder>/index.md` child contracts.
-- **Entity sub-folders:** each wiki maintains an `entityTaxonomy` in rolling memory. Entity pages are written as `entities/<subfolder>/<entity-slug>.md`, where `<subfolder>` is either proposed by the LLM during sampling or derived from the entity type. The built-in convention does not require a structural-change proposal.
-- **Structural-change approval:** creating new folders or changing the wiki's organization requires a human-approved proposal with reason, pros, cons, and required contract updates. New page types inside existing folders do not require approval.
-- **Markdown authorship:** deterministic code must not draft or mutate wiki page bodies; the LLM is the sole author of all markdown content pages.
+- **Entity sub-folders:** each wiki maintains an `entityTaxonomy` in rolling memory. Entity pages are written as `entities/<subfolder>/<entity-slug>.md`, where `<subfolder>` is either proposed by the LLM during sampling or derived from the entity type. The built-in convention does not require a new folder to be created.
+- **Structural-change log:** creating new folders or changing the wiki's organization is done autonomously by the LLM. Each change is recorded with reason, pros, cons, and required contract updates so the human can review it after the fact. New page types inside existing folders and new folders are both managed by the LLM.
+- **Markdown authorship:** deterministic code must not draft or mutate synthesized content wiki page bodies; the LLM is the sole author of all synthesized content pages (`document`, `entity`, `topic`, and derived types). Deterministic provenance/preservation pages (`source` and `raw`) are generated deterministically from extraction metadata.
+- **No deterministic fallback on LLM failure:** if an LLM sub-agent fails, the orchestrator may retry the same LLM agent with a repair prompt, but it must never substitute deterministic page creation, updates, or other markdown authoring. If repair fails, the run aborts.
 - **Preservation-first updates:** when `ingest` updates an existing entity/topic page, the LLM regenerates the body in update mode but must keep every existing citation and wikilink. A deterministic preservation check rejects rewrites that drop prior content; manually edited pages receive append-only updates.
 
 ## Authority matrix
 
 | Role | Authority |
 |---|---|
-| **User (human)** | High-level purpose, PDF curation, structural approval, when to run commands. |
-| **LLM Orchestrator** | Folder structure, page content, entities, links, citations, new page types. |
+| **User (human)** | High-level purpose, PDF curation, when to run commands, reviewing the compiled wiki and logged structural changes. |
+| **LLM Orchestrator** | Folder structure, page content, entities, links, citations, new page types, and autonomous structural changes. |
 | **Local deterministic code** | Extraction, hashing, validation, orchestration, file I/O. |
 | **Critic** | Whether LLM output is good enough to commit. |
 
-No deterministic code may draft or mutate markdown bodies; no LLM agent may compute SHA-256 hashes or manage file I/O directly. Code reviews enforce this boundary.
+No deterministic code may draft or mutate synthesized content markdown bodies; deterministic code may generate `source` and `raw` provenance/preservation pages. No LLM agent may compute SHA-256 hashes or manage file I/O directly. Code reviews enforce this boundary.
 
 ## Naming and citation conventions
 
@@ -366,7 +370,7 @@ No deterministic code may draft or mutate markdown bodies; no LLM agent may comp
 - `Project Vision/04_orchestration_detailed.md` — sampling and ingestion orchestrator flows
 - `Project Vision/05_page_types_specification.md` — frontmatter schemas and content structures for default page types
 - `Project Vision/06_citation_and_provenance.md` — citation format, `sources` frontmatter, and provenance rules
-- `Project Vision/07_validation_and_quality.md` — validation order, Critic, lint, and structural-change approval
+- `Project Vision/07_validation_and_quality.md` — validation order, Critic, lint, and structural-change log
 - `plan/SPRINT_INSTRUCTIONS.md` — sprint plans and implementation tracker
 
 ## Child DOX Index

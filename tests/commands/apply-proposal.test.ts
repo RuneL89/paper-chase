@@ -24,7 +24,7 @@ describe('apply-proposal command', () => {
     // Temp directory cleanup is handled by the OS.
   });
 
-  it('applies an approved proposal and creates the new folder', async () => {
+  it('applies a proposal and creates the new folder', async () => {
     const proposal = {
       type: 'new-folder' as const,
       reason: 'Need a timeline folder.',
@@ -33,16 +33,13 @@ describe('apply-proposal command', () => {
       newFolderPlans: [makeFolderPlan('timeline', 'Timeline', ['timeline'])],
     };
     const filePath = writeProposalFile(workspace, 'acme', proposal);
-    const parsed = matter(readFileSync(filePath, 'utf-8'));
-    parsed.data.status = 'approved';
-    writeFileSync(filePath, matter.stringify(parsed.content, parsed.data));
 
     const code = await applyProposalCommand(workspace, 'acme', path.basename(filePath));
     expect(code).toBe(0);
     expect(existsSync(path.join(workspace, 'wikis', 'acme', 'timeline', 'index.md'))).toBe(true);
   });
 
-  it('rejects a proposal with rejected status', async () => {
+  it('applies a proposal regardless of prior status', async () => {
     const proposal = {
       type: 'new-folder' as const,
       reason: 'Need a timeline folder.',
@@ -55,20 +52,13 @@ describe('apply-proposal command', () => {
     parsed.data.status = 'rejected';
     writeFileSync(filePath, matter.stringify(parsed.content, parsed.data));
 
-    await applyProposalCommand(workspace, 'acme', path.basename(filePath));
-    expect(existsSync(filePath)).toBe(false);
-    expect(existsSync(filePath.replace('-structural-change.md', '-structural-change-rejected.md'))).toBe(true);
+    const code = await applyProposalCommand(workspace, 'acme', path.basename(filePath));
+    expect(code).toBe(0);
+    expect(existsSync(path.join(workspace, 'wikis', 'acme', 'timeline', 'index.md'))).toBe(true);
+    expect(existsSync(filePath.replace('-structural-change.md', '-structural-change-applied.md'))).toBe(true);
   });
 
-  it('throws when the proposal status is pending', async () => {
-    const proposal = {
-      type: 'new-folder' as const,
-      reason: 'Need a timeline folder.',
-      currentFolders: ['documents'],
-      proposedFolders: ['documents', 'timeline'],
-      newFolderPlans: [makeFolderPlan('timeline', 'Timeline')],
-    };
-    const filePath = writeProposalFile(workspace, 'acme', proposal);
-    await expect(applyProposalCommand(workspace, 'acme', path.basename(filePath))).rejects.toThrow();
+  it('throws when the proposal file is missing', async () => {
+    await expect(applyProposalCommand(workspace, 'acme', 'missing-proposal.md')).rejects.toThrow();
   });
 });

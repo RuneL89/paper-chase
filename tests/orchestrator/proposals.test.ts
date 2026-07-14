@@ -1,20 +1,21 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { mkdtempSync, writeFileSync, readFileSync, existsSync } from 'fs';
+import { mkdtempSync, writeFileSync, readFileSync, existsSync, mkdirSync } from 'fs';
 import path from 'path';
 import { tmpdir } from 'os';
 import matter from 'gray-matter';
+import { loadState, statePath } from '../../src/ingestion/state.js';
 import {
   detectStructuralProposals,
   isSimpleProposal,
   writeProposalFile,
   parseProposalMarkdown,
   applyProposal,
+  applyStructuralChanges,
   detectNewPageTypes,
   updateFolderIndexForNewPageTypes,
   updateAgentsMdForNewPageTypes,
   collectPageTypesPerFolder,
   syncFolderPageTypes,
-  promptProposalApproval,
   folderPlacementsFromProposal,
 } from '../../src/orchestrator/proposals.js';
 import type { FolderPlan, PagePlan } from '../../src/orchestrator/types.js';
@@ -99,7 +100,7 @@ describe('proposals', () => {
     expect(isSimpleProposal(proposal)).toBe(false);
   });
 
-  it('writes and parses a proposal file', () => {
+  it('writes and parses a proposal file with applied status', () => {
     const slug = 'acme';
     const proposal = detectStructuralProposals(
       { documents: makeFolderPlan('documents', 'Documents') },
@@ -108,31 +109,17 @@ describe('proposals', () => {
     const filePath = writeProposalFile(workspace, slug, proposal);
     expect(existsSync(filePath)).toBe(true);
 
-    const parsed = parseProposalMarkdown(readFileSync(filePath, 'utf-8'));
-    expect(parsed).toBeDefined();
-    expect(parsed!.type).toBe('new-folder');
-    expect(parsed!.newFolderPlans[0].folder).toBe('timeline');
+    const parsed = matter(readFileSync(filePath, 'utf-8'));
+    expect(parsed.data.status).toBe('applied');
+    expect(parsed.content).toContain('Structural Change Log');
+
+    const parsedProposal = parseProposalMarkdown(readFileSync(filePath, 'utf-8'));
+    expect(parsedProposal).toBeDefined();
+    expect(parsedProposal!.type).toBe('new-folder');
+    expect(parsedProposal!.newFolderPlans[0].folder).toBe('timeline');
   });
 
-  it('auto-approves a simple proposal when requested', async () => {
-    const proposal = detectStructuralProposals(
-      { documents: makeFolderPlan('documents', 'Documents') },
-      [makeFolderPlan('documents', 'Documents'), makeFolderPlan('timeline', 'Timeline')],
-    )[0];
-    const approved = await promptProposalApproval(proposal, { autoApprove: true });
-    expect(approved).toBe(true);
-  });
-
-  it('rejects a simple proposal when interactive is false', async () => {
-    const proposal = detectStructuralProposals(
-      { documents: makeFolderPlan('documents', 'Documents') },
-      [makeFolderPlan('documents', 'Documents'), makeFolderPlan('timeline', 'Timeline')],
-    )[0];
-    const approved = await promptProposalApproval(proposal, { interactive: false });
-    expect(approved).toBe(false);
-  });
-
-  it('applies an approved proposal by creating the new folder index', () => {
+  it('applies a proposal by creating the new folder index', () => {
     const slug = 'acme';
     const wikiDir = path.join(workspace, 'wikis', slug);
     const proposal = detectStructuralProposals(
@@ -140,11 +127,29 @@ describe('proposals', () => {
       [makeFolderPlan('documents', 'Documents'), makeFolderPlan('timeline', 'Timeline', ['timeline'])],
     )[0 ];
     const filePath = writeProposalFile(workspace, slug, proposal);
-    const parsed = matter(readFileSync(filePath, 'utf-8'));
-    parsed.data.status = 'approved';
-    writeFileSync(filePath, matter.stringify(parsed.content, parsed.data));
 
-    applyProposal(workspace, slug, filePath, makeConfig(slug));
+    const state = loadState(statePath(wikiDir));
+    const memory = state.memory || {
+      rollingSummary: '',
+      historicalSummary: '',
+      summaryOnly: false,
+      state: {
+        document: { title: '', totalPages: 0, currentChunk: 0, boundaryType: 'page' },
+        entities: {},
+        topics: {},
+        relationships: [],
+        sources: {},
+        folderHierarchy: {},
+        entityTaxonomy: { subFolders: [], assignments: {} },
+        rawFragments: [],
+        duplicateFlags: [],
+        sourceEntities: {},
+        sourceTopics: {},
+      },
+    };
+
+    const { approved } = applyProposal(workspace, slug, filePath, makeConfig(slug), state, memory);
+    expect(approved).toBe(true);
 
     const folderIndexPath = path.join(wikiDir, 'timeline', 'index.md');
     expect(existsSync(folderIndexPath)).toBe(true);
@@ -153,7 +158,7 @@ describe('proposals', () => {
     expect(indexParsed.content).toContain('Timeline');
   });
 
-  it('rejects a proposal by renaming the file', () => {
+  it('applies a proposal regardless of prior status', () => {
     const slug = 'acme';
     const proposal = detectStructuralProposals(
       { documents: makeFolderPlan('documents', 'Documents') },
@@ -164,19 +169,67 @@ describe('proposals', () => {
     parsed.data.status = 'rejected';
     writeFileSync(filePath, matter.stringify(parsed.content, parsed.data));
 
-    applyProposal(workspace, slug, filePath, makeConfig(slug));
-    expect(existsSync(filePath)).toBe(false);
-    expect(existsSync(filePath.replace('-structural-change.md', '-structural-change-rejected.md'))).toBe(true);
+    const wikiDir = path.join(workspace, 'wikis', slug);
+    const state = loadState(statePath(wikiDir));
+    const memory = state.memory || {
+      rollingSummary: '',
+      historicalSummary: '',
+      summaryOnly: false,
+      state: {
+        document: { title: '', totalPages: 0, currentChunk: 0, boundaryType: 'page' },
+        entities: {},
+        topics: {},
+        relationships: [],
+        sources: {},
+        folderHierarchy: {},
+        entityTaxonomy: { subFolders: [], assignments: {} },
+        rawFragments: [],
+        duplicateFlags: [],
+        sourceEntities: {},
+        sourceTopics: {},
+      },
+    };
+
+    const { approved } = applyProposal(workspace, slug, filePath, makeConfig(slug), state, memory);
+    expect(approved).toBe(true);
+    expect(existsSync(filePath.replace('-structural-change.md', '-structural-change-applied.md'))).toBe(true);
   });
 
-  it('detects new page types inside existing folders', () => {
-    const hierarchy = { documents: makeFolderPlan('documents', 'Documents', ['document']) };
-    const pages: PagePlan[] = [
-      { pageType: 'document', title: 'A', fileName: 'a.md', folder: 'documents', tags: [], citations: [], wikilinks: [], related: [] },
-      { pageType: 'claim', title: 'B', fileName: 'b.md', folder: 'documents', tags: [], citations: [], wikilinks: [], related: [] },
-    ];
-    const newTypes = detectNewPageTypes(hierarchy, pages);
-    expect(newTypes.get('documents')).toEqual(new Set(['claim']));
+  it('applies structural changes during ingest', () => {
+    const slug = 'acme';
+    const proposal = detectStructuralProposals(
+      { documents: makeFolderPlan('documents', 'Documents') },
+      [makeFolderPlan('documents', 'Documents'), makeFolderPlan('timeline', 'Timeline', ['timeline'])],
+    )[0];
+
+    const wikiDir = path.join(workspace, 'wikis', slug);
+    mkdirSync(wikiDir, { recursive: true });
+    const state = loadState(statePath(wikiDir));
+    const memory = state.memory || {
+      rollingSummary: '',
+      historicalSummary: '',
+      summaryOnly: false,
+      state: {
+        document: { title: '', totalPages: 0, currentChunk: 0, boundaryType: 'page' },
+        entities: {},
+        topics: {},
+        relationships: [],
+        sources: {},
+        folderHierarchy: {},
+        entityTaxonomy: { subFolders: [], assignments: {} },
+        rawFragments: [],
+        duplicateFlags: [],
+        sourceEntities: {},
+        sourceTopics: {},
+      },
+    };
+
+    const applied = applyStructuralChanges(workspace, slug, proposal, makeConfig(slug), memory, state);
+    expect(applied.applied).toBe(true);
+
+    const folderIndexPath = path.join(wikiDir, 'timeline', 'index.md');
+    expect(existsSync(folderIndexPath)).toBe(true);
+    expect(memory.state.folderHierarchy['timeline']).toBeDefined();
   });
 
   it('updates a folder index with new page types', () => {
@@ -263,6 +316,31 @@ describe('proposals', () => {
     const merged = folderPlacementsFromProposal(previous, proposal);
     const folders = merged.map((f) => f.folder);
     expect(folders).toContain('documents');
+    expect(folders).toContain('timeline');
+  });
+
+  it('merges folder placements with renamed folders', () => {
+    const previous = { documents: makeFolderPlan('documents', 'Documents') };
+    const proposal: import('../../src/orchestrator/types.js').StructuralProposal = {
+      type: 'restructure',
+      reason: 'Renamed documents to timeline.',
+      currentFolders: ['documents'],
+      proposedFolders: ['timeline'],
+      newFolderPlans: [],
+      renamedFolders: [
+        {
+          from: 'documents',
+          to: 'timeline',
+          title: 'Timeline',
+          description: 'Chronological documents.',
+          pageTypes: ['document'],
+          children: [],
+        },
+      ],
+    };
+    const merged = folderPlacementsFromProposal(previous, proposal);
+    const folders = merged.map((f) => f.folder);
+    expect(folders).not.toContain('documents');
     expect(folders).toContain('timeline');
   });
 });

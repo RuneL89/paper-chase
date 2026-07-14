@@ -63,7 +63,8 @@ export function writeSkeletonAgentsMd(
   lines.push('- `raw/` — unparseable or scanned fragments.');
   lines.push('');
   lines.push('Additional folders may be proposed by the PagePlanner during sampling or ingestion.');
-  lines.push('New folders require a structural-change proposal and human approval.');
+  lines.push('The LLM autonomously creates new folders or reorganizes the wiki when the corpus demands it.');
+  lines.push('Each structural change is recorded in the structural change log for human review.');
   lines.push('');
 
   lines.push('## Page Types');
@@ -125,7 +126,7 @@ export function writeSkeletonAgentsMd(
   lines.push('');
   lines.push('| Role | Authority |');
   lines.push('|------|-----------|');
-  lines.push('| User (human) | High-level purpose, PDF curation, structural approval, when to run commands. |');
+  lines.push('| User (human) | High-level purpose, PDF curation, when to run commands, reviewing logged structural changes. |');
   lines.push('| LLM Orchestrator | Folder structure, page content, entities, links, citations, new page types. |');
   lines.push('| Local deterministic code | Extraction, hashing, validation, orchestration, file I/O. |');
   lines.push('| Critic | Whether LLM output is good enough to commit. |');
@@ -227,6 +228,8 @@ function buildAgentsMdPrompt(context: AgentsMdContext): string {
     '## Authority Matrix',
     '',
     'Tailor the content to the corpus. Be concise but specific. Do not include a top-level title; the frontmatter will be added by the caller.',
+    'Authority model: the LLM autonomously creates new folders or reorganizes the wiki when the corpus demands it; each structural change is recorded in a structural change log for after-the-fact human review. No prior approval is required for new folders or reorganizations.',
+    'The generated AGENTS.md must not state that structural changes require human approval.',
   ].join('\n');
 }
 
@@ -269,7 +272,8 @@ function renderAgentsMdBody(context: AgentsMdContext): string {
   }
   lines.push('');
   lines.push('Additional folders may be proposed by the PagePlanner during sampling or ingestion.');
-  lines.push('New folders require a structural-change proposal and human approval.');
+  lines.push('The LLM autonomously creates new folders or reorganizes the wiki when the corpus demands it.');
+  lines.push('Each structural change is recorded in the structural change log for human review.');
   lines.push('');
 
   lines.push('## Page Types');
@@ -370,7 +374,7 @@ function renderAgentsMdBody(context: AgentsMdContext): string {
   lines.push('');
   lines.push('| Role | Authority |');
   lines.push('|------|-----------|');
-  lines.push('| User (human) | High-level purpose, PDF curation, structural approval, when to run commands. |');
+  lines.push('| User (human) | High-level purpose, PDF curation, when to run commands, reviewing logged structural changes. |');
   lines.push('| LLM Orchestrator | Folder structure, page content, entities, links, citations, new page types. |');
   lines.push('| Local deterministic code | Extraction, hashing, validation, orchestration, file I/O. |');
   lines.push('| Critic | Whether LLM output is good enough to commit. |');
@@ -411,7 +415,7 @@ function updateSamplingSection(body: string, strategy: SamplingStrategy): string
 
 function updateFolderStructureSection(body: string, folders: FolderPlan[]): string {
   const folderLines = folders.map((f) => `- \`${f.folder}/\` — ${f.description}`).join('\n');
-  const newSection = ['## Folder Structure', '', folderLines, '', 'Additional folders may be proposed by the PagePlanner during sampling or ingestion.', 'New folders require a structural-change proposal and human approval.', ''];
+  const newSection = ['## Folder Structure', '', folderLines, '', 'Additional folders may be proposed by the PagePlanner during sampling or ingestion.', 'The LLM autonomously creates new folders or reorganizes the wiki when the corpus demands it.', 'Each structural change is recorded in the structural change log for human review.', ''];
   const sectionRegex = /(## Folder Structure\n\n)([\s\S]*?)(?=\n## |$)/;
   if (sectionRegex.test(body)) {
     return body.replace(sectionRegex, newSection.join('\n') + '\n');

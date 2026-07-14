@@ -20,7 +20,7 @@ In one sentence: **your PDFs become a citation-backed wiki, written by an LLM, o
 - **The LLM is the programmer; the wiki is the codebase.** The LLM plans the structure, writes the pages, adds links and citations, and maintains consistency. Local deterministic code handles PDF extraction, hashing, validation, file I/O, and orchestration.
 - **Citation-backed.** Every factual claim uses an inline `[^srcN]` marker that maps to a YAML `sources` entry, which records the exact PDF and page range.
 - **Compounding, not ephemeral.** Each ingestion run enriches existing pages and creates new ones. Nothing is lost.
-- **Human approval for structural changes.** The LLM can propose new folder structures or page types, but a human must approve any change that reorganizes the wiki.
+- **LLM-driven structural evolution.** The LLM autonomously creates new folders, reorganizes the wiki, and evolves the page-type taxonomy as the corpus demands. Each structural change is recorded in a log for after-the-fact human review.
 
 ---
 
@@ -177,7 +177,7 @@ A separate **EntityTopicPageWriter** agent writes and updates entity and topic p
 2. Classify the corpus: single very large document, similar manageable documents, similar very large documents, or mixed corpus.
 3. Apply a sampling strategy based on the classification (e.g., read one manageable document fully, sample the rest).
 4. Run the seven sub-agents on the sampled material.
-5. If the PagePlanner proposes a folder structure different from the existing one, produce a structural-change proposal. Simple changes can be approved interactively; complex changes are written to `.kimi-code/proposals/` for later review.
+5. If the PagePlanner proposes a folder structure different from the existing one, the structural change is applied automatically and recorded in `.kimi-code/proposals/` for after-the-fact review.
 6. Write the wiki-level `index.md`, folder-level `index.md` contracts, `entities/<subfolder>/index.md` child contracts, the updated `AGENTS.md`, and the sample document/source pages.
 7. Transition the wiki status from `initialized` to `ready` so `ingest` can run.
 
@@ -188,7 +188,7 @@ A separate **EntityTopicPageWriter** agent writes and updates entity and topic p
 3. For each changed PDF, extract text, tables, and figures with `pdfjs-dist`.
 4. Chunk the PDF using the strategy discovered during `sample`. Chunks are page-based; the system never splits inside a table or figure.
 5. Run the agents. Page planning happens once per source so the folder structure is stable; entity and topic extraction are refined per-chunk.
-6. Detect structural-change proposals against the previously approved folder hierarchy. Simple new-folder proposals can be approved interactively or with `--yes`; complex proposals are written to `.kimi-code/proposals/` and applied with `apply-proposal`. If rejected, the orchestrator falls back to the existing structure.
+6. Detect structural changes relative to the existing folder hierarchy. New folders or reorganizations are applied automatically and logged in `.kimi-code/proposals/` for after-the-fact review. Existing pages are then aligned with the new hierarchy via selective re-ingest.
 7. Run the validation pipeline:
    - **Critic review** — LLM quality check with an eight-item checklist and blocking issues.
    - **Completeness check** — deterministic comparison of the LLM-written page to the extracted input to ensure no text, tables, or figures were dropped.
@@ -201,9 +201,9 @@ A separate **EntityTopicPageWriter** agent writes and updates entity and topic p
 
 Across multiple PDFs, the orchestrator maintains **rolling memory** (`.state/rolling-memory.json` and `.state/memory-summary.md`). This memory stores canonical entity names, aliases, topics, relationships, the folder hierarchy, and the entity taxonomy so that later PDFs can link back to entities discovered in earlier PDFs and avoid duplicate pages. If the memory grows too large, the oldest 20% of entities, topics, relationships, and summary text are archived into the historical summary.
 
-### Structural-change proposals
+### Structural-change log
 
-If `ingest` discovers that the corpus needs a new folder structure (e.g., a new `timeline/` folder), the orchestrator produces a proposal. The proposal includes the reason, affected pages, pros and cons, and required contract updates. Simple new-folder proposals can be approved interactively or with `--yes`; complex proposals are written to `.kimi-code/proposals/` and applied with `apply-proposal`. If the proposal is rejected, the orchestrator falls back to the existing structure.
+If `ingest` discovers that the corpus needs a new folder structure (e.g., a new `timeline/` folder), the orchestrator applies the change immediately and writes a structural-change log. The log includes the reason, affected folders, pros and cons, and required contract updates. These logs are stored in `.kimi-code/proposals/` for after-the-fact human review; there is no approval gate. The `apply-proposal` command remains available for re-applying an older log if needed.
 
 ### Rejection / reprocessing loop
 
@@ -355,7 +355,7 @@ npm run dev --    # run the CLI without compiling
 | `orchestrator/memory.ts` | Rolling memory persistence and compaction. |
 | `orchestrator/contracts.ts` | `index.md` contract writers. |
 | `orchestrator/validation.ts` | Deterministic page-plan validation. |
-| `orchestrator/proposals.ts` | Structural change proposal detection, approval, and application. |
+| `orchestrator/proposals.ts` | Structural change detection, autonomous application, and logging. |
 | `orchestrator/sampling.ts` | Corpus sampling strategies. |
 | `orchestrator/wiki-of-wiki.ts` | Cross-wiki name discovery. |
 | `orchestrator/types.ts` | Shared orchestrator types. |

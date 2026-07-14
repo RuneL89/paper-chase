@@ -1837,7 +1837,7 @@ export async function chunkWriterForChunk(
     knownTitles,
     feedback,
   );
-  const parsed = await callAgentWithRepair<{ pages: unknown[] }>(
+  let parsed = await callAgentWithRepair<{ pages: unknown[] }>(
     'ChunkWriter',
     prompt,
     llmClient,
@@ -1848,11 +1848,21 @@ export async function chunkWriterForChunk(
   if (!parsed.pages.length) {
     throw new CLIError('ChunkWriter returned invalid output.');
   }
-  const normalized = normalizePageUpdate(parsed.pages[0], result, config, knownTitles);
-  if (!normalized) {
-    throw new CLIError('ChunkWriter returned invalid page output.');
+
+  try {
+    const normalized = normalizePageUpdate(parsed.pages[0], result, config, knownTitles);
+    return { ...normalized, filePath: `documents/${chunk.id}.md` };
+  } catch (validationError) {
+    const validationMessage = validationError instanceof CLIError ? validationError.message : String(validationError);
+    const repairPrompt = `${prompt}\n\n---\n\nYour previous response failed validation: ${validationMessage}. Please fix the issues and return ONLY a valid JSON object matching the requested schema. Required frontmatter fields must be authored by the LLM and must not be omitted.`;
+    const repairResponse = await llmClient.call(repairPrompt, { maxTokens: 8500, temperature: 0.2 });
+    const repaired = parseChunkWriterJson(repairResponse.text);
+    if (!repaired || !repaired.pages.length) {
+      throw new CLIError(`ChunkWriter returned invalid page output after one repair attempt: ${validationMessage}`);
+    }
+    const normalized = normalizePageUpdate(repaired.pages[0], result, config, knownTitles);
+    return { ...normalized, filePath: `documents/${chunk.id}.md` };
   }
-  return { ...normalized, filePath: `documents/${chunk.id}.md` };
 }
 
 /**
@@ -2234,44 +2244,31 @@ function normalizePageUpdate(
   result: ExtractionResult,
   config: Config,
   knownTitles?: { entities: string[]; topics: string[]; sources: string[]; indexes: string[] },
-): PageUpdate | undefined {
-  if (typeof page !== 'object' || page === null) return undefined;
+): PageUpdate {
+  if (typeof page !== 'object' || page === null) {
+    throw new CLIError('ChunkWriter page is not an object.');
+  }
   const p = page as Record<string, unknown>;
-  if (typeof p.filePath !== 'string' || p.filePath.trim() === '') return undefined;
-  if (typeof p.body !== 'string' || p.body.trim() === '') return undefined;
+  if (typeof p.filePath !== 'string' || p.filePath.trim() === '') {
+    throw new CLIError('ChunkWriter page missing or invalid filePath.');
+  }
+  if (typeof p.body !== 'string' || p.body.trim() === '') {
+    throw new CLIError('ChunkWriter page missing or invalid body.');
+  }
   const frontmatter = (typeof p.frontmatter === 'object' && p.frontmatter !== null)
     ? (p.frontmatter as Record<string, unknown>)
     : {};
 
   // Reject frontmatter that explicitly claims an invalid page type for a document page.
-  if (frontmatter.type && frontmatter.type !== 'document') return undefined;
-
-  // Ensure required deterministic fields.
-  frontmatter.type = 'document';
-  frontmatter.wiki = config.wiki.slug;
-  if (!frontmatter.title || typeof frontmatter.title !== 'string' || frontmatter.title.trim() === '') {
-    frontmatter.title = p.filePath;
-  }
-  if (!frontmatter.sources || !Array.isArray(frontmatter.sources) || frontmatter.sources.length === 0) {
-    frontmatter.sources = buildDefaultSources(result);
-  }
-  if (!frontmatter.tags || !Array.isArray(frontmatter.tags)) {
-    frontmatter.tags = [];
-  }
-  if (!frontmatter.confidence || !['high', 'medium', 'low'].includes(String(frontmatter.confidence))) {
-    frontmatter.confidence = 'medium';
-  }
-  const now = new Date().toISOString();
-  if (!frontmatter.created || typeof frontmatter.created !== 'string') {
-    frontmatter.created = now;
-  }
-  if (!frontmatter.updated || typeof frontmatter.updated !== 'string') {
-    frontmatter.updated = now;
+  if (frontmatter.type && frontmatter.type !== 'document') {
+    throw new CLIError(`ChunkWriter page has invalid type: ${String(frontmatter.type)}`);
   }
 
+  // Required fields must be authored by the LLM; do not fall back to deterministic values.
   const validation = validateFrontmatter(frontmatter);
   if (!validation.valid) {
-    return undefined;
+    const issues = validation.issues.map((i) => `${i.field}: ${i.message}`).join('; ');
+    throw new CLIError(`ChunkWriter page failed frontmatter validation: ${issues}`);
   }
 
   return {
@@ -2280,18 +2277,6 @@ function normalizePageUpdate(
     body: p.body,
     citations: Array.isArray(p.citations) ? (p.citations as { claim: string; sources: string[] }[]) : undefined,
   };
-}
-
-function buildDefaultSources(result: ExtractionResult): Record<string, unknown>[] {
-  return [
-    {
-      id: 'src1',
-      file: result.filePath,
-      pages: `1-${result.physicalPages}`,
-      extracted: result.ingested,
-      label: result.fileName,
-    },
-  ];
 }
 
 function formatMentionSources(
@@ -2353,6 +2338,7 @@ export async function entityTopicPageWriter(
   memory?: OrchestratorMemory,
   knownEntities?: EntityTopicPageInputEntity[],
   knownTopics?: EntityTopicPageInputTopic[],
+  feedback?: string,
 ): Promise<EntityTopicPageOutput> {
   if (!llmClient.isEnabled()) {
     throw new CLIError('LLM is required for entity and topic page writing.');
@@ -2369,6 +2355,7 @@ export async function entityTopicPageWriter(
     memory,
     knownEntities,
     knownTopics,
+    feedback,
   );
   const parsed = await callAgentWithRepair<EntityTopicPageOutput>(
     'EntityTopicPageWriter',
@@ -2391,6 +2378,7 @@ function buildEntityTopicWriterPrompt(
   _memory?: OrchestratorMemory,
   knownEntities?: EntityTopicPageInputEntity[],
   knownTopics?: EntityTopicPageInputTopic[],
+  feedback?: string,
 ): string {
   const lines: string[] = [
     'You are the EntityTopicPageWriter agent for a PDF-to-wiki CLI.',
@@ -2439,6 +2427,13 @@ function buildEntityTopicWriterPrompt(
     '}',
     '',
   ];
+
+  if (feedback && feedback.trim().length > 0) {
+    lines.push('## Feedback from previous attempt');
+    lines.push('Address the following issue in your revised output:');
+    lines.push(feedback);
+    lines.push('');
+  }
 
   if (agentsMd) {
     lines.push('## Wiki ingestion guide (AGENTS.md)');
@@ -2553,5 +2548,3 @@ function parseEntityTopicWriterJson(text: string): EntityTopicPageOutput | undef
       .map((t: Record<string, unknown>) => ({ name: t.name as string, body: t.body as string })),
   };
 }
-
-export { buildDefaultSources };

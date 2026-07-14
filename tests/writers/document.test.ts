@@ -131,6 +131,9 @@ describe('TAC-001: document page frontmatter', () => {
       frontmatter: {
         title: 'Existing',
         type: 'document',
+        tags: ['document'],
+        confidence: 'high',
+        sources: chunk.sources.map((s) => ({ ...s, label: 'Annual Report' })),
       },
       body: '# Existing doc\n',
     });
@@ -139,5 +142,20 @@ describe('TAC-001: document page frontmatter', () => {
     const parsed = matter(content);
     expect(parsed.data.created).toBe(existingCreated);
     expect(parsed.data.updated).not.toBe(existingCreated);
+  });
+
+  it('rejects LLM content missing required frontmatter fields', () => {
+    const outputPath = path.join(tempDir, 'doc-incomplete.md');
+    const chunk = makeChunk();
+    const config = makeConfig('acme');
+
+    expect(() =>
+      writeDocumentPage(outputPath, chunk, config, {
+        frontmatter: {
+          title: 'Incomplete',
+        },
+        body: '# Incomplete\n',
+      }),
+    ).toThrow('missing required frontmatter field');
   });
 });

@@ -15,7 +15,7 @@ This folder contains the multi-agent orchestrator that drives the `sample` and `
 - The public sub-agent pipeline for `sample` is: StructureAnalyst → EntityExtractor → RelationshipExtractor → EvidenceCollector → PagePlanner → ChunkWriter → Critic.
 - During `ingest`, after the Critic approves a chunk, `src/ingestion/chunk-materializer.ts` updates affected entity/topic pages.
 - Rolling memory is accumulated across PDFs and persisted in `.state/rolling-memory.json` and `.state/memory-summary.md`.
-- Structural proposals that create new folders or change the wiki organization require human approval.
+- Structural changes that create new folders or reorganize the wiki are applied autonomously by the LLM and recorded in a structural change log for human review.
 
 ## Work Guidance
 

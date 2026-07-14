@@ -154,6 +154,8 @@ describe('chunkWriter', () => {
             wiki: 'acme',
             tags: ['annual-report', 'earnings'],
             confidence: 'high',
+            created: '2026-07-08T00:00:00.000Z',
+            updated: '2026-07-08T00:00:00.000Z',
             sources: [
               {
                 id: 'src1',
@@ -239,6 +241,6 @@ describe('chunkWriter', () => {
         makeConfig('acme'),
         client,
       ),
-    ).rejects.toThrow('ChunkWriter returned invalid page output');
+    ).rejects.toThrow('ChunkWriter page has invalid type: invalid-type');
   });
 });

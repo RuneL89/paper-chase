@@ -72,29 +72,26 @@ const ingest = addWorkspaceOption(
     .description('Run full ingestion for a single wiki according to its config.json.')
     .argument('<wiki-slug>', 'slug of the wiki to ingest')
     .option('--resume', 'skip chunks with a completed state file and resume from the failed chunk', false)
-    .option('--yes', 'auto-approve simple structural-change proposals', false)
-    .action(async (slug: string, options: { workspace: string; resume?: boolean; yes?: boolean }) => {
-      await ingestCommand(options.workspace, slug, options.resume ?? false, options.yes ?? false);
+    .action(async (slug: string, options: { workspace: string; resume?: boolean }) => {
+      await ingestCommand(options.workspace, slug, options.resume ?? false);
     }),
 );
 
 const ingestAll = addWorkspaceOption(
   new Command('ingest-all')
     .description('Run full ingestion for every wiki in the workspace.')
-    .option('--yes', 'auto-approve simple structural-change proposals', false)
-    .action(async (options: { workspace: string; yes?: boolean }) => {
-      await ingestAllCommand(options.workspace, options.yes ?? false);
+    .action(async (options: { workspace: string }) => {
+      await ingestAllCommand(options.workspace);
     }),
 );
 
 const applyProposal = addWorkspaceOption(
   new Command('apply-proposal')
-    .description('Apply an approved structural-change proposal to a wiki.')
+    .description('Apply a structural-change log to a wiki (re-runs reingest).')
     .argument('<wiki-slug>', 'slug of the wiki')
-    .argument('<proposal-file>', 'path or name of the proposal markdown file')
-    .option('--skip-manual-edits', 'skip pages that have been manually edited instead of overwriting them', false)
-    .action(async (slug: string, proposalFile: string, options: { workspace: string; skipManualEdits?: boolean }) => {
-      await applyProposalCommand(options.workspace, slug, proposalFile, { skipManualEdits: options.skipManualEdits });
+    .argument('<proposal-file>', 'path or name of the structural-change markdown file')
+    .action(async (slug: string, proposalFile: string, options: { workspace: string }) => {
+      await applyProposalCommand(options.workspace, slug, proposalFile);
     }),
 );
 

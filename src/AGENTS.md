@@ -8,7 +8,7 @@ This folder contains the LLM Wiki CLI source code: the Commander entry point, co
 
 - **LLM agents** design and draft new modules, agent prompts, page writers, and command flows.
 - **Deterministic code** owns extraction, hashing, file I/O, validation, state management, and orchestration wiring.
-- **Human user** approves structural changes and decides when to run commands.
+- **Human user** provides PDFs, consumes the compiled wiki, reviews logged changes, and decides when to run commands.
 
 ## Local Contracts
 

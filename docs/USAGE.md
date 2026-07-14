@@ -116,10 +116,10 @@ This processes every PDF in the wiki's `raw/` folder. It will tell you:
 - which PDFs were added, changed, or removed,
 - any warnings or errors.
 
-If you want to resume an interrupted run, add `--resume`. To auto-approve simple structural-change proposals, add `--yes`:
+If you want to resume an interrupted run, add `--resume`:
 
 ```bash
-npm run dev -- ingest acme-annual-reports --resume --yes -w ./my-workspace
+npm run dev -- ingest acme-annual-reports --resume -w ./my-workspace
 ```
 
 `ingest` requires a configured LLM. Configure one with `configure-llm` or use the `test` provider for non-production runs.
@@ -201,31 +201,26 @@ npm run dev -- sample acme-annual-reports -w ./my-workspace
 Run full ingestion for a single wiki according to its `config.json`.
 
 - `--resume` — skip chunks with a completed state file and resume from the failed or pending chunk.
-- `--yes` — auto-approve simple structural-change proposals.
 
 Example:
 
 ```bash
-npm run dev -- ingest acme-annual-reports --yes -w ./my-workspace
+npm run dev -- ingest acme-annual-reports -w ./my-workspace
 ```
 
 ### `ingest-all`
 
 Run full ingestion for every wiki in the workspace.
 
-- `--yes` — auto-approve simple structural-change proposals.
-
 Example:
 
 ```bash
-npm run dev -- ingest-all --yes -w ./my-workspace
+npm run dev -- ingest-all -w ./my-workspace
 ```
 
 ### `apply-proposal <wiki-slug> <proposal-file>`
 
-Apply an approved structural-change proposal to a wiki. This is an advanced command used when the orchestrator proposes a new folder structure or page type that requires human approval.
-
-- `--skip-manual-edits` — skip pages that have been manually edited instead of overwriting them.
+Apply a structural-change log to a wiki. This is an advanced command used to re-apply a structural change that was previously logged during an ingest run. Structural changes are normally applied automatically during `ingest`; this command is provided for repair or re-application of an older log. Pages that have been manually edited are always skipped during re-application to preserve human edits.
 
 Example:
 
@@ -327,13 +322,9 @@ If you are an AI research agent, the recommended traversal path is:
 4. Verify every claim against the inline `[^srcN]` citations and the corresponding `sources` frontmatter entry.
 5. Check `lint/report.json` for broken wikilinks, invalid citations, or missing frontmatter.
 
-## Structural-change proposals
+## Structural-change log
 
-During `sample` or `ingest`, the orchestrator may propose a new folder structure or page type. Simple proposals can be approved interactively or with `--yes`; complex proposals are written to `.kimi-code/proposals/` for later review. Once approved, apply them with:
-
-```bash
-npm run dev -- apply-proposal <wiki-slug> <proposal-file> -w ./my-workspace
-```
+During `sample` or `ingest`, the orchestrator may create a new folder structure or page type when the corpus demands it. These changes are applied automatically and recorded as structural-change logs in `.kimi-code/proposals/` for after-the-fact human review. You do not need to approve them in advance, but you can inspect the logs after a run to understand how the wiki evolved.
 
 ## Troubleshooting
 

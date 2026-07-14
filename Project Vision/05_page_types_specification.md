@@ -209,11 +209,41 @@ An `entity` page contains:
 
 ### 6.3 Naming Convention
 
+Entity pages are grouped under typed sub-folders inside `entities/`:
+
 ```
-entities/<normalized-name-slug>.md
+entities/<subfolder>/<normalized-name-slug>.md
 ```
 
-The slug is derived from the normalized entity name. For example, "Russell Barkley" becomes `russell-barkley.md`.
+For example, with the sub-folder `people`:
+
+```
+entities/people/russell-barkley.md
+```
+
+The `<subfolder>` comes from the wiki's entity taxonomy. The taxonomy is proposed by the LLM during the `sample` phase (or the first `ingest` run) and is refined as the corpus grows. If the corpus is small or the taxonomy is not obvious, the system falls back to the built-in type-based sub-folders:
+
+| Entity Type | Default Sub-folder |
+|---|---|
+| `person` | `people` |
+| `organization` | `organizations` |
+| `location` | `locations` |
+| `case` | `cases` |
+| `event` | `events` |
+| `product` | `products` |
+
+### 6.4 Entity Taxonomy
+
+The wiki maintains an `entityTaxonomy` in rolling memory. It has two parts:
+
+- `subFolders` — a list of sub-folder descriptors, each with a `slug`, `title`, and `description`.
+- `assignments` — a map from each entity's canonical slug to the sub-folder slug it belongs in.
+
+Every entity must be assigned to exactly one sub-folder. The PagePlanner proposes the taxonomy; if the LLM returns none, or if the returned taxonomy is empty, the system falls back to the type-based defaults above. New sub-folders may be proposed during `ingest` when the corpus reveals a genuinely new group of entities.
+
+### 6.5 Legacy Migration
+
+Flat `entities/<slug>.md` files created by earlier versions are automatically moved into `entities/<subfolder>/<slug>.md` the first time the entity is re-ingested. Existing content is preserved, and manual-edit detection continues on the new path.
 
 ---
 
@@ -295,7 +325,7 @@ The LLM may create new page types when the corpus demands them. The process is:
 1. The PagePlanner identifies the need for a new type.
 2. If the new type fits inside an existing folder, it is auto-created.
 3. The new type is documented in the folder-level `index.md` and in `AGENTS.md`.
-4. If the new type requires a new folder, the orchestrator proposes a structural change for human approval.
+4. If the new type requires a new folder, the orchestrator autonomously creates the folder, applies the structural change, and records it in the structural change log.
 
 Examples of new page types:
 
@@ -317,15 +347,16 @@ When the LLM processes a chunk, it should ask:
 
 - Does this chunk belong to an existing `document` page or a new one?
 - Does it mention any entities that should have `entity` pages?
+- If so, which sub-folder in `entities/` does each entity belong to, and is the taxonomy still correct?
 - Does it introduce or reinforce any themes that should have `topic` pages?
 - Does it contain any tables or figures that must be preserved?
 - Are there any pages that should be `raw` because they are unparseable?
 - Does the corpus demand a new page type?
 
-If the answer to any question is yes, the PagePlanner creates or updates the appropriate page.
+If the answer to any question is yes, the PagePlanner creates or updates the appropriate page and updates the entity taxonomy if needed.
 
 ---
 
 ## 11. Summary
 
-The six default page types cover the essential structure of the wiki: contracts (`index`), raw content (`document`), provenance (`source`), themes (`topic`), named things (`entity`), and unparseable fragments (`raw`). The LLM can extend this taxonomy as needed, as long as each new type is documented in the folder-level contracts and `AGENTS.md`. Every page must have valid YAML frontmatter, a self-contained body, and citations for every factual claim.
+The six default page types cover the essential structure of the wiki: contracts (`index`), raw content (`document`), provenance (`source`), themes (`topic`), named things (`entity`), and unparseable fragments (`raw`). The LLM can extend this taxonomy as needed, as long as each new type is documented in the folder-level contracts and `AGENTS.md`. Entity pages are organized under typed sub-folders defined by the wiki's `entityTaxonomy`, and every entity must be assigned to exactly one sub-folder. Every page must have valid YAML frontmatter, a self-contained body, and citations for every factual claim.

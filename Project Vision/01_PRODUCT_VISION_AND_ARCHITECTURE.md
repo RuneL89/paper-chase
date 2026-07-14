@@ -3,9 +3,9 @@
 | Attribute | Value |
 |---|---|
 | Document ID | `LLM-WIKI-CLI-ARCH-001` |
-| Version | 2.0 |
+| Version | 2.0.1 |
 | Status | Canonical |
-| Date | 2026-07-06 |
+| Date | 2026-07-14 |
 
 ---
 
@@ -25,7 +25,7 @@ The LLM Wiki Gist frames the system as:
 
 > "Obsidian is the IDE; the LLM is the programmer; the wiki is the codebase."
 
-In this project, that means the **human's job is to curate sources, direct the analysis, ask good questions, and interpret the results**. The **LLM's job is everything else**: planning the wiki structure, writing pages, preserving extracted detail, adding citations and links, updating existing pages, and maintaining consistency. The human does not hand-write the wiki; the human provides the raw material and the high-level direction, and the LLM turns it into a structured, navigable, citation-backed knowledge base.
+In this project, that means the **human's job is to provide the raw sources and consume the compiled wiki**. The **LLM's job is everything else**: planning the wiki structure, deciding when folders need to change, writing pages, preserving extracted detail, adding citations and links, updating existing pages, and maintaining consistency. The human does not hand-write the wiki, direct the analysis, or approve structural changes; the human places the PDFs and the LLM turns them into a structured, navigable, citation-backed knowledge base. The human can then read, query, and interpret the result.
 
 ---
 
@@ -44,6 +44,8 @@ One per PDF collection. It states the scope of the collection, lists the dynamic
 ### 2.3 Folder-Level Contracts — `wikis/<slug>/<folder>/index.md`
 
 The folder structure is not hard-coded. It is decided during the **sample** phase based on what the corpus actually contains. Each folder's `index.md` acts as a binding contract: it says what kind of pages live there, what the naming convention is, and how pages are linked.
+
+Typed groups of entities (for example, `entities/people/`, `entities/organizations/`, or corpus-specific groups like `entities/regulators/`) extend the contract hierarchy one level deeper. Each entity sub-folder has its own `index.md` child contract that describes the page types and naming rules for that group.
 
 ### 2.4 LLM-Written Content Pages
 
@@ -67,7 +69,9 @@ For pages that were scanned, image-only, or otherwise unparseable, the fragment 
 
 ### Principle 1: The LLM Writes All Markdown Content
 
-The LLM does all research, planning, and writing of markdown. This includes not only synthesized summaries, analyses, and connections, but also the faithful transcription of extracted text, tables, and figure descriptions into markdown. Local deterministic code handles PDF extraction, file I/O, hashing, schema validation, and orchestration, but it never drafts or mutates markdown bodies. The LLM is the sole author of every wiki page.
+The LLM does all research, planning, and writing of synthesized markdown content. This includes not only synthesized summaries, analyses, and connections, but also the faithful transcription of extracted text, tables, and figure descriptions into markdown. Local deterministic code handles PDF extraction, file I/O, hashing, schema validation, and orchestration, but it never drafts or mutates synthesized content markdown bodies. Deterministic provenance/preservation pages (`source` and `raw` page types) are generated deterministically from extraction metadata; the LLM is the sole author of all synthesized content pages (`document`, `entity`, `topic`, and derived types).
+
+If an LLM sub-agent fails to produce valid output (empty, malformed, or failing validation), the orchestrator may retry the same LLM agent with a stricter repair prompt. It must **not** fall back to deterministic page creation, deterministic page updates, or any other deterministic authoring of wiki content. If the repair attempt also fails, the run aborts and the error is reported to the user. Deterministic code validates, repairs, and orchestrates; it never authors content as a fallback.
 
 ### Principle 2: Citation-Backed Knowledge
 
@@ -77,9 +81,9 @@ Every claim on a wiki page is attributable to a specific location in a specific 
 
 Every ingestion pass makes the wiki richer: new pages, new links, updated indexes, new evidence on existing pages. Existing pages are updated with new evidence and mentions; no detail is lost.
 
-### Principle 4: Human Approval for Structural Changes
+### Principle 4: LLM-Driven Structural Evolution
 
-The system drafts plans and pages autonomously, but a human must approve any plan that creates new folder structures or modifies the wiki's organization. The approval gate presents structural-change proposals with reason, pros, cons, and required contract updates. New page types created inside existing folders are exempt from the approval gate; the LLM may introduce them as it discovers the corpus demands them.
+The system drafts plans, pages, and folder structures autonomously. The LLM may create new folders, reorganize the wiki, or evolve the page-type taxonomy as the corpus demands, without requiring human approval for each structural change. Structural changes are still documented in the `index.md` contracts and `AGENTS.md` so the human can understand them, but the LLM is the sole authority over when and how the structure evolves. New page types inside existing folders and new folders are both managed by the LLM.
 
 ### Principle 5: Context-Cautious Chunking
 
@@ -177,17 +181,17 @@ Every factual claim, number, name, date, quote, and figure on a wiki page is att
 3. **Deterministic structural checks** — broken link detection, citation integrity, schema compliance.
 4. **Schema validation** — all pages must match the required frontmatter schema.
 
-### 7.2 Structural Change Proposals
+### 7.2 Structural Change Log
 
-When the existing folder hierarchy cannot accommodate the corpus, the orchestrator pauses and presents a structural change proposal with:
+When the existing folder hierarchy cannot accommodate the corpus, the LLM autonomously creates or reorganizes folders and updates the page-type taxonomy. The orchestrator records each structural change with:
 
 - The reason for the change.
 - The affected pages and folders.
-- The proposed new structure.
+- The new structure.
 - Pros and cons.
-- Required contract updates.
+- The contract updates that were made.
 
-The approval process is **hybrid**: simple structural changes (e.g., adding a single folder) are approved interactively in the CLI; complex changes that require careful review are written to a proposal file (e.g., `.kimi-code/proposals/`) for the user to review, edit, and approve later. Re-running `sample` or `ingest` applies the approved changes. If a proposal is rejected, the system falls back to the existing structure.
+These records are written to a log (for example, `.kimi-code/proposals/` or an append-only section of `AGENTS.md`) so the human can review what changed and why. The LLM applies the change immediately and updates the affected `index.md` contracts and `AGENTS.md` without a separate approval gate. If a change proves unhelpful, the human can revert it via version control or by re-running `sample` with revised guidance.
 
 ---
 
@@ -229,9 +233,14 @@ The `ingest` command processes the PDFs in the wiki's `raw/` folder incrementall
 
 PDFs are ingested as **page-based chunks**. A chunk is one or more consecutive pages that fit comfortably within the configured LLM context window. The system never splits a page, table, or figure across chunks. If a document is large, it is processed as a sequence of page-based chunks, with rolling memory carrying context forward.
 
-
-
-
 ---
+
+## 9. Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| 2.0.3 | 2026-07-14 | Removed human approval gate for structural changes; the LLM now autonomously evolves the wiki structure and records each change for human review. |
+| 2.0.2 | 2026-07-14 | Added typed entity sub-folders, `entityTaxonomy`, and per-chunk page materialization with preservation-first updates to the folder-level contract hierarchy. |
+| 2.0.1 | 2026-07-14 | Clarified Principle 1: if an LLM sub-agent fails, the orchestrator may retry the same LLM agent with a repair prompt, but it must never fall back to deterministic page creation, updates, or other markdown authoring. |
 
 *This document is the canonical product vision and architecture reference for LLM Wiki CLI v2.0. Changes require explicit version bump and changelog entry.*

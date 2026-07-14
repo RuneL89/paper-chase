@@ -122,7 +122,18 @@ export async function runReingest(
     }
 
     if (allowedFolder !== pageState.folder) {
-      // Page type now belongs in a different folder: move the page.
+      // Skip moves for manually edited pages so human edits are not disturbed.
+      const currentContent = readFileSync(fullPath, 'utf-8');
+      const currentHash = hashPageContent(currentContent);
+      const hasManualEdits = pageState.generatedHash && pageState.generatedHash !== currentHash;
+      if (hasManualEdits) {
+        const warning = `Page "${pagePath}" has manual edits and will not be moved by re-ingestion.`;
+        result.manualEditWarnings.push(warning);
+        result.skippedPages.push(pagePath);
+        continue;
+      }
+
+      // Page type now belongs in a different folder: move the page without rewriting content.
       const fileName = path.basename(pagePath);
       const targetPath = path.join(outputDir, allowedFolder, fileName);
       mkdirSync(path.dirname(targetPath), { recursive: true });
@@ -137,27 +148,11 @@ export async function runReingest(
       };
       delete state.pages![pagePath];
       result.pagesMoved.push(`${pagePath} -> ${targetRelative}`);
-
-      // Update the frontmatter type to match the folder's primary page type if necessary.
-      const parsed = matter(readFileSync(targetPath, 'utf-8'));
-      if (parsed.data.type !== pageState.pageType) {
-        parsed.data.type = pageState.pageType;
-        parsed.data.updated = new Date().toISOString();
-        writeFileSync(targetPath, matter.stringify(parsed.content, parsed.data));
-      }
       continue;
     }
 
     // Page type still in the same folder but marked affected (e.g. a page type rename).
-    // Update the frontmatter type if it differs from the stored page type.
-    if (pageState.pageType) {
-      const parsed = matter(readFileSync(fullPath, 'utf-8'));
-      if (parsed.data.type !== pageState.pageType) {
-        parsed.data.type = pageState.pageType;
-        parsed.data.updated = new Date().toISOString();
-        writeFileSync(fullPath, matter.stringify(parsed.content, parsed.data));
-      }
-    }
+    // Do not rewrite frontmatter deterministically; defer content updates to the LLM.
   }
 
   // Remove empty folders that may have been left behind after moving pages.
@@ -190,6 +185,8 @@ export function buildReingestPlan(
 
   const typeToFolder = buildTypeToFolderMap(hierarchy);
 
+  const skipManualEdits = options.skipManualEdits !== false;
+
   for (const [pagePath, pageState] of Object.entries(state.pages || {})) {
     const fullPath = path.join(outputDir, pagePath);
     if (!existsSync(fullPath)) {
@@ -210,9 +207,10 @@ export function buildReingestPlan(
       const hasManualEdits = pageState.generatedHash && pageState.generatedHash !== currentHash;
 
       if (hasManualEdits) {
-        const warning = `Page "${pagePath}" has manual edits and will be overwritten by re-ingestion.`;
+        const action = skipManualEdits ? 'skipped' : 'overwritten';
+        const warning = `Page "${pagePath}" has manual edits and will be ${action} by re-ingestion.`;
         manualEditWarnings.push(warning);
-        if (options.skipManualEdits) {
+        if (skipManualEdits) {
           pagesToSkip.add(pagePath);
         }
       }

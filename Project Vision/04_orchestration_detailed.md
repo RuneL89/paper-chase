@@ -87,25 +87,25 @@ For the sampled material, the orchestrator runs the seven sub-agents in order:
 2. **EntityExtractor** — extracts people, organizations, companies, locations, and other named entities.
 3. **RelationshipExtractor** — identifies relationships between entities (e.g., "John Smith is the CEO of Acme Corp").
 4. **EvidenceCollector** — collects claims, numbers, dates, and other evidence, each with its source location.
-5. **PagePlanner** — proposes the folder structure, page types, and page plans based on what was found.
+5. **PagePlanner** — proposes the folder structure, page types, page plans, and the **entity taxonomy** (typed sub-folders under `entities/`) based on what was found.
 6. **ChunkWriter** — drafts the initial markdown pages and the `index.md` contracts.
 7. **Critic** — reviews the drafted pages and plans for quality, consistency, and completeness. If issues are found, the Critic blocks and the sample is reprocessed with feedback.
 
-#### Step 5: Handle Structural Change Proposals
+#### Step 5: Apply and Log Structural Changes
 
-If the PagePlanner proposes a folder structure that does not match the existing skeleton, the orchestrator must get human approval. The proposal includes:
+If the PagePlanner proposes a folder structure that does not match the existing skeleton, the orchestrator applies the change autonomously. The LLM is the sole authority over the wiki's organization. The proposal is still recorded with:
 
 - The reason for the change.
 - The affected pages and folders.
-- The proposed new structure.
+- The new structure.
 - Pros and cons.
-- Required contract updates.
+- The contract updates that were made.
 
-For simple changes, the CLI asks the user interactively. For complex changes, the proposal is written to a file (e.g., `.kimi-code/proposals/`) for later review. If the user rejects the proposal, the orchestrator falls back to the existing structure. If accepted, the new structure is used and the contracts are updated.
+The orchestrator writes this record to a log (for example, `.kimi-code/proposals/` or an append-only section of `AGENTS.md`) so the human can review what changed after the fact. The new structure is used immediately and the contracts are updated. If the human disagrees with a change, they can revert it via version control or re-run `sample` with revised guidance.
 
 #### Step 6: Write the Contracts and `AGENTS.md`
 
-Once the structure is approved, the orchestrator writes:
+Once the structure is finalized, the orchestrator writes:
 
 - The wiki-level `index.md`.
 - The folder-level `index.md` files.
@@ -209,27 +209,28 @@ For each chunk, the orchestrator runs the seven sub-agents in order:
 - Decides which existing pages should be updated with new evidence.
 - Decides which new pages should be created.
 - Decides where each page belongs in the folder structure.
-- Proposes new page types if the corpus demands them (auto-approved inside existing folders).
-- Proposes new folders if the existing structure cannot accommodate the corpus (requires human approval).
+- Proposes or updates the **entity taxonomy**: the sub-folders under `entities/` and the assignment of each entity to one sub-folder.
+- Proposes new page types if the corpus demands them.
+- Proposes new folders or reorganizations if the existing structure cannot accommodate the corpus; these are applied autonomously and logged for human review.
 
-**Output:** A page plan listing every page to create or update, with its type, folder, and source material.
+**Output:** A page plan listing every page to create or update, with its type, folder, and source material, plus the entity taxonomy for the wiki.
 
 ##### 4.4.6 ChunkWriter
 
-**Purpose:** Write the actual markdown content.
+**Purpose:** Draft the markdown content for each planned page.
 
 **What it does:**
 
 - Receives the page plan and all extracted material.
-- Writes the markdown body of each page, including:
+- Drafts the markdown body of each page, including:
   - LLM-written synthesis and summaries.
   - Faithful transcription of extracted text, tables, and figures.
   - Inline citations (`[^srcN]`).
   - Wikilinks to related pages.
-- Updates existing pages by appending new evidence and mentions without losing existing detail.
-- Updates the `index.md` contracts to include new pages and page types.
+- Proposes updates to existing pages by regenerating the body in update mode, preserving every existing citation and wikilink.
+- Proposes updates to the `index.md` contracts to include new pages and page types.
 
-**Output:** A set of markdown files (new pages and updated pages) with valid YAML frontmatter.
+**Output:** A set of drafted markdown bodies (new pages and updated pages) with valid YAML frontmatter. The pages are not written to disk yet; the ChunkMaterializer commits them after validation.
 
 ##### 4.4.7 Critic
 
@@ -257,31 +258,47 @@ After the Critic approves, the local deterministic code runs additional checks:
 
 If any check fails, the orchestrator is notified and the chunk is reprocessed.
 
-#### Step 6: Update Rolling Memory
+#### Step 6: Chunk Materialization
 
-After the chunk is validated, the orchestrator updates the rolling memory:
+After the Critic approves and deterministic validation passes, the **ChunkMaterializer** immediately writes or updates the entity and topic pages affected by this chunk. This is what makes the wiki compounding: evidence from the latest chunk is reflected in the relevant pages right away, rather than waiting until the end of the PDF.
+
+The ChunkMaterializer:
+
+1. Identifies which entities and topics are touched by the chunk.
+2. Reads any existing page for each affected entity or topic.
+3. Detects manual edits by comparing the current page hash to the hash stored in `IngestionState`.
+4. For pages that were **not** manually edited, it calls the LLM in **update mode**, passing the existing body and asking for a regenerated body that includes the new evidence.
+5. Runs a **preservation check**: every existing citation (`[^srcN]`) and every existing wikilink must survive the LLM rewrite. If the rewrite drops any prior content, the materializer reports the conflict and skips the update for that page.
+6. For pages that **were** manually edited, it skips the LLM rewrite and reports the conflict so the human edit is not overwritten.
+7. Writes the new or updated entity/topic pages to disk.
+
+If the LLM update call fails, the materializer may retry the same LLM call with a stricter repair prompt. It does **not** fall back to deterministic page creation, deterministic append, or any other deterministic authoring of wiki content. If the repair also fails, the run aborts and the error is reported to the user.
+
+#### Step 7: Write Remaining Pages and Contracts
+
+After entity and topic pages are materialized, the orchestrator writes the remaining pages and updates the contracts:
+
+- Content pages (`document` pages for the current chunk, plus any new `entity`/`topic` pages already materialized).
+- Source pages for the PDFs processed so far.
+- Raw pages for any scanned or unparseable fragments.
+- Wiki-level and folder-level `index.md` contracts, including the entity sub-folder contracts.
+- Updated `AGENTS.md` if conventions changed.
+
+#### Step 8: Update Rolling Memory
+
+After the chunk is materialized, the orchestrator updates the rolling memory:
 
 - The compressed natural-language summary is updated with what the chunk contained.
 - The structured state object is updated with new pages, entities, relationships, evidence, and source hashes.
 - The rolling memory is persisted to disk so the next chunk (or the next `ingest` run) can start from it.
 
-#### Step 7: Write the Pages and Contracts
+#### Step 9: Move to the Next Chunk
 
-Finally, the orchestrator writes the updated pages to disk:
-
-- Content pages (`document`, `entity`, `topic`, etc.).
-- Source pages.
-- Raw pages.
-- Wiki-level and folder-level `index.md` contracts.
-- Updated `AGENTS.md` if conventions changed.
-
-#### Step 8: Move to the Next Chunk
-
-The orchestrator repeats Steps 4–7 for the next chunk. Because rolling memory is persisted, each chunk knows what has already been discovered and written.
+The orchestrator repeats Steps 4–8 for the next chunk. Because rolling memory is persisted and entity/topic pages are written immediately, each chunk knows what has already been discovered and written.
 
 ### 4.3 After `ingest` Finishes
 
-When all chunks are processed, the orchestrator writes the final state and updates the `index-of-indexes.md` if this is a multi-wiki workspace. The wiki now contains all extracted material from the processed PDFs, organized into pages, linked, and cited.
+When all chunks are processed, the orchestrator writes the final state and updates the `index-of-indexes.md` if this is a multi-wiki workspace. Because entity and topic pages were materialized chunk-by-chunk, the final state already reflects the cumulative evidence from every processed chunk. The wiki now contains all extracted material from the processed PDFs, organized into pages, linked, and cited.
 
 ---
 
@@ -311,9 +328,10 @@ When the orchestrator starts a new chunk, it reads the rolling memory. When it f
 | **EntityExtractor** | Chunk text + rolling memory | List of entities and mentions | What named things appear in this chunk. |
 | **RelationshipExtractor** | Entities + chunk text | Relationships between entities | How entities are connected. |
 | **EvidenceCollector** | Chunk text + entities | Claims and evidence with citations | What facts are asserted and where they come from. |
-| **PagePlanner** | All previous outputs + `AGENTS.md` + rolling memory | Page plan (new pages, updates, folders) | What pages should exist and where they go. |
-| **ChunkWriter** | Page plan + all extracted material | Markdown pages with frontmatter and citations | What each page says and how it links to others. |
+| **PagePlanner** | All previous outputs + `AGENTS.md` + rolling memory | Page plan (new pages, updates, folders) + entity taxonomy | What pages should exist and where they go. |
+| **ChunkWriter** | Page plan + all extracted material | Drafted markdown pages with frontmatter and citations | What each page says and how it links to others. |
 | **Critic** | LLM-written pages + page plan | Approval or list of blocking issues | Whether the output is good enough to keep. |
+| **ChunkMaterializer** | Approved drafted pages + existing pages + `IngestionState` | Written or updated entity/topic pages on disk | Whether the chunk's evidence is committed to the wiki without overwriting human edits. |
 
 ---
 
@@ -324,15 +342,16 @@ A common question is: who is in charge at each step? Here is the division of aut
 - **The user (human)** decides:
   - The high-level purpose of the wiki (via `init` and `AGENTS.md`).
   - Which PDFs are in the corpus (by placing them in `raw/`).
-  - Whether to approve structural changes that create new folders or modify the wiki organization.
   - When to run `sample`, `ingest`, or other commands.
+  - The user reviews the compiled wiki and may revert structural changes via version control if desired.
 
 - **The LLM orchestrator** decides:
   - The exact folder structure and page types.
+  - When to create new folders or reorganize the wiki.
   - The content of every page.
   - Which entities, relationships, and evidence to extract.
   - How to link pages and cite sources.
-  - Whether a new page type is needed inside an existing folder.
+  - Whether a new page type is needed inside an existing folder or requires a new folder.
   - Whether to reprocess a chunk based on the Critic's feedback.
 
 - **Local deterministic code** decides:
@@ -351,11 +370,11 @@ A common question is: who is in charge at each step? Here is the division of aut
 
 To make this concrete, here is what happens to a single 100-page PDF of political-donation filings.
 
-1. **User runs `sample`.** The orchestrator classifies this as a "similar, manageable-sized document" and reads it in full (because it is the first document of its type). It runs the seven sub-agents, discovers the structure, and creates folders like `donors/`, `recipients/`, and `donations/`. It writes `AGENTS.md` and the `index.md` contracts.
+1. **User runs `sample`.** The orchestrator classifies this as a "similar, manageable-sized document" and reads it in full (because it is the first document of its type). It runs the seven sub-agents, discovers the structure, and creates folders like `entities/donors/`, `entities/recipients/`, and `topics/donations/`. It writes `AGENTS.md` and the `index.md` contracts.
 
 2. **User runs `ingest`.** The orchestrator sees this PDF is new and processes it. It splits the PDF into chunks of, say, 10 pages each.
 
-3. **Chunk 1 (pages 1–10).** The StructureAnalyst finds the table of contents and introduction. The EntityExtractor finds names of politicians and parties. The RelationshipExtractor finds that "Party X received donations from donors Y and Z." The EvidenceCollector records the donation amounts. The PagePlanner decides to create or update pages for Party X, donors Y and Z, and a topic page for "2024 Election Donations." The ChunkWriter drafts those pages. The Critic reviews them and approves. Deterministic checks confirm no detail was lost. Rolling memory is updated.
+3. **Chunk 1 (pages 1–10).** The StructureAnalyst finds the table of contents and introduction. The EntityExtractor finds names of politicians and parties. The RelationshipExtractor finds that "Party X received donations from donors Y and Z." The EvidenceCollector records the donation amounts. The PagePlanner decides to create or update pages for Party X in `entities/recipients/`, donors Y and Z in `entities/donors/`, and a topic page for "2024 Election Donations." The ChunkWriter drafts those pages. The Critic reviews them and approves. Deterministic checks confirm no detail was lost. Rolling memory is updated.
 
 4. **Chunk 2 (pages 11–20).** The orchestrator reads the updated rolling memory. It finds more donors, some of whom already have pages from Chunk 1. The PagePlanner updates those existing pages with new mentions. The ChunkWriter appends the new evidence without losing the old. The Critic approves. Rolling memory is updated again.
 
@@ -367,4 +386,4 @@ To make this concrete, here is what happens to a single 100-page PDF of politica
 
 ## 9. Summary
 
-The orchestrator is a pipeline of seven sub-agents that turns raw PDFs into a structured wiki. The `sample` command discovers the wiki's shape; the `ingest` command fills it with content. At every step, the LLM is the author, the human is the curator, and the deterministic code is the quality checker. Rolling memory carries context across chunks, and the Critic ensures that only good output is committed. The result is a compounding, citation-backed knowledge base that a journalist or research agent can navigate without re-reading the original documents.
+The orchestrator is a pipeline of seven LLM sub-agents plus a deterministic **ChunkMaterializer** that turns raw PDFs into a structured wiki. The `sample` command discovers the wiki's shape, including the entity taxonomy that groups entity pages under typed sub-folders; the `ingest` command fills the wiki with content one chunk at a time. After the Critic approves each chunk, the ChunkMaterializer immediately commits the affected entity and topic pages using preservation-first updates, so the wiki compounds as ingestion progresses. At every step, the LLM is the author, the human is the consumer, and the deterministic code is the quality checker. Rolling memory carries context across chunks, and the Critic ensures that only good output is committed. The result is a compounding, citation-backed knowledge base that a journalist or research agent can navigate without re-reading the original documents.

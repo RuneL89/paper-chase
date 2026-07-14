@@ -11,7 +11,6 @@ import { createLLMClient } from '../llm/client.js';
 import { runIngestOrchestrator, writeIngestFinalOutput, readAgentsMd, createEmptyMemory } from '../orchestrator/ingest.js';
 import { chunkingPlanner } from '../orchestrator/agents.js';
 import {
-  writeProposalFile,
   detectNewPageTypes,
   updateFolderIndexForNewPageTypes,
   updateAgentsMdForNewPageTypes,
@@ -46,7 +45,6 @@ export async function runIngestion(
   slug: string,
   config: Config,
   resume = false,
-  autoApproveProposals = false,
   reporter?: import('../progress/types.js').ProgressReporter,
 ): Promise<IngestionResult> {
   const progress = reporter ?? new NoOpReporter();
@@ -236,7 +234,6 @@ export async function runIngestion(
           llmClient,
           memory,
           strategy.samplingStrategy,
-          { autoApproveProposals },
           progress,
           result,
           state,
@@ -366,9 +363,9 @@ export async function runIngestion(
   );
   appendLogEntry(wikiDir, logEntry);
 
-  // If a structural proposal was approved during this run, align existing pages with
+  // If a structural change was applied during this run, align existing pages with
   // the new hierarchy without re-extracting unchanged PDFs.
-  if (memory && allProposals.some((p) => p.applied)) {
+  if (memory && allProposals.length > 0) {
     await runReingest(workspace, slug, config, memory.state.folderHierarchy);
   }
 

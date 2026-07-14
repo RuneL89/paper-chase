@@ -78,9 +78,7 @@ import {
   detectNewPageTypes,
   updateFolderIndexForNewPageTypes,
   updateAgentsMdForNewPageTypes,
-  promptProposalApproval,
-  writeProposalFile,
-  isSimpleProposal,
+  applyStructuralChanges,
   folderPlacementsFromProposal,
   syncFolderPageTypes,
 } from './proposals.js';
@@ -120,7 +118,6 @@ export async function runIngestOrchestrator(
   llmClient: LLMClient,
   previousMemory?: OrchestratorMemory,
   samplingStrategy?: { category: string; reason: string },
-  options?: { autoApproveProposals?: boolean },
   reporter?: ProgressReporter,
   ingestionResult?: IngestionResult,
   state?: IngestionState,
@@ -235,8 +232,8 @@ export async function runIngestOrchestrator(
   const folderPlacements = plannerOutput.folderPlacements;
 
   // Detect structural-change proposals relative to the previously approved folder
-  // hierarchy. Simple new-folder proposals can be approved interactively (or with
-  // --yes). Complex proposals are written to .kimi-code/proposals/ for later review.
+  // hierarchy. All structural changes are applied autonomously by the LLM and logged
+  // for after-the-fact human review; there is no approval gate.
   const previousHierarchy = previousMemory?.state.folderHierarchy ?? {};
   let resolvedFolderPlacements: FolderPlan[] = folderPlacements;
   let resolvedPages = plannerOutput.pages;
@@ -244,28 +241,17 @@ export async function runIngestOrchestrator(
 
   if (proposals.length > 0) {
     const proposal = proposals[0];
-    let approved = false;
-    if (isSimpleProposal(proposal)) {
-      approved = await promptProposalApproval(proposal, { autoApprove: options?.autoApproveProposals ?? false });
-    } else {
-      const proposalPath = writeProposalFile(workspace, slug, proposal);
-      console.log(`Structural change proposal written to: ${proposalPath}`);
-    }
-    progress.proposal(proposal.type, proposal.reason, approved);
-    if (approved) {
-      resolvedFolderPlacements = folderPlacementsFromProposal(previousHierarchy, proposal);
-    } else if (Object.keys(previousHierarchy).length > 0) {
-      resolvedFolderPlacements = Object.values(previousHierarchy);
-      resolvedPages = plannerOutput.pages.filter((p) =>
-        resolvedFolderPlacements.some((f) => f.folder === p.folder),
-      );
-    } else {
-      throw new CLIError(
-        `Structural proposal was rejected and no existing folder hierarchy is available. ` +
-          `Review the proposal and re-run with --yes or approve it manually.`,
-      );
-    }
-    proposal.applied = approved;
+    const applied = applyStructuralChanges(
+      workspace,
+      slug,
+      proposal,
+      config,
+      accumulatedMemory,
+      state,
+    );
+    resolvedFolderPlacements = folderPlacementsFromProposal(previousHierarchy, applied);
+    progress.proposal(applied.type, applied.reason, true);
+    console.log(`Structural change applied and logged for wiki "${slug}": ${applied.reason}`);
   }
 
   syncFolderPageTypes(resolvedFolderPlacements, resolvedPages);

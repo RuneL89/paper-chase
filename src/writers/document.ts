@@ -1,7 +1,7 @@
 import { writeFileSync } from 'fs';
 import matter from 'gray-matter';
 import { CLIError } from '../errors.js';
-import { readCreatedTimestamp, humanizeLabel } from './preservation.js';
+import { readCreatedTimestamp } from './preservation.js';
 import type { Chunk } from '../chunking/types.js';
 import type { Config } from '../config.js';
 
@@ -39,34 +39,27 @@ function mergeLlmContentWithChunk(
   config: Config,
 ): LlmPageContent {
   const frontmatter = { ...llmContent.frontmatter };
-  // Ensure required deterministic fields are present even if the LLM omitted them.
-  frontmatter.title = frontmatter.title ?? chunk.title;
+
+  // Required fields must be authored by the LLM; do not fall back to chunk values.
+  if (typeof frontmatter.title !== 'string' || frontmatter.title.trim() === '') {
+    throw new CLIError('LLM-authored document page missing required frontmatter field: title');
+  }
+  if (!Array.isArray(frontmatter.sources) || frontmatter.sources.length === 0) {
+    throw new CLIError('LLM-authored document page missing required frontmatter field: sources');
+  }
+  if (!Array.isArray(frontmatter.tags)) {
+    throw new CLIError('LLM-authored document page missing required frontmatter field: tags');
+  }
+  if (!['high', 'medium', 'low'].includes(String(frontmatter.confidence))) {
+    throw new CLIError('LLM-authored document page missing or invalid frontmatter field: confidence');
+  }
+
+  // Deterministic fields are supplied by the orchestration layer.
   frontmatter.type = 'document';
   frontmatter.wiki = config.wiki.slug;
-  frontmatter.tags = Array.isArray(frontmatter.tags) ? frontmatter.tags : chunk.tags;
-  frontmatter.confidence = frontmatter.confidence ?? deriveConfidence(chunk);
   frontmatter.below_min = chunk.belowMin;
   frontmatter.char_count = chunk.charCount;
   frontmatter.boundary_type = chunk.boundaryType;
-  frontmatter.sources = Array.isArray(frontmatter.sources) && frontmatter.sources.length > 0
-    ? frontmatter.sources
-    : chunk.sources.map((source) => ({
-        id: source.id,
-        file: source.file,
-        pages: source.pages,
-        extracted: source.extracted,
-        label: humanizeLabel(pathBasename(source.file)),
-      }));
 
   return { frontmatter, body: llmContent.body };
-}
-
-function deriveConfidence(chunk: Chunk): 'high' | 'medium' | 'low' {
-  if (chunk.belowMin) return 'low';
-  if (chunk.boundaryType === 'section' || chunk.boundaryType === 'page') return 'high';
-  return 'medium';
-}
-
-function pathBasename(filePath: string): string {
-  return filePath.split(/[\\/]/).pop() || filePath;
 }
