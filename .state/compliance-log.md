@@ -41,3 +41,20 @@
   Docs intentionally left unchanged: `Implementation Plan/AGENTS.md` (its statement that implementation subfolders are indexed in the root AGENTS.md remains accurate); `Project Vision/AGENTS.md` (no vision content changed)
   Result: COMPLIANT — DOX hierarchy now matches the Phase 0 tree
   Checked By: Main agent (phase orchestrator)
+
+[2026-07-17 01:35] Template Update: `templates/AGENTS.md` replaced with merged user-provided template
+  Changed: `templates/AGENTS.md`
+  Vision Docs Checked:
+    - `01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3 (AGENTS.md = constitution; every LLM call follows it)
+    - `03_DOX_concept_detailed.md` §3 (folder hierarchy, naming rules), §5 (structural change logging), §6 (DOX Writer)
+    - `05_page_types_specification.md` §1 (6 default types), §2 (frontmatter rules), §6 (two-layer entity page), §8 (raw type), §9 (custom types)
+    - `06_citation_and_provenance.md` §1-3 (citation format, sources frontmatter schema), §5-7 (page sections, integrity, verification path)
+  Notes:
+    - Base: user-provided template (`Downloads/templates_AGENTS.md`). It is MORE vision-compliant than the Phase 0 version: fixes a latent contradiction (old template's `pages/`/`raw-pages/` vs `03` §3.1's `raw/`/`documents/`/`sources/`/`entities/`/`topics/`) and matches `05`'s page-type taxonomy and two-layer entity format.
+    - Preserved from the Phase 0 template: constitution/binding framing, `{{WIKI_TITLE}}`/`{{SLUG}}` double-brace placeholders, `sources` frontmatter schema, preserve-existing-citations-and-human-edits rule, "never invent sources/page numbers/quotes".
+    - Added per user request: the Journalist Test (aligns with `01` journalist user + `06` §7) and a Disambiguation bullet (aligns with the Extractor's `disambiguation` field, `04`).
+    - Corrections applied to the user's version: `raw` page type added (`05` §8); entity/topic "Created By" reworded to "your content, assembled by the Materializer" (`05` §1); wiki-root files noted (`03` §3.1); custom-type rule added (`05` §9).
+    - Dropped: "log every LLM call (tokens and cost)" — cost logging is the deterministic client's job, not the LLM's.
+    - Placeholder contract for Phase 1 `init`: substitute ALL `{{WIKI_TITLE}}` and `{{SLUG}}` occurrences (including inside the frontmatter example).
+  Result: COMPLIANT (user-directed EXTENSION that increases vision compliance)
+  Checked By: Main agent (phase orchestrator)
