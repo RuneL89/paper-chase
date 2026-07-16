@@ -13,6 +13,7 @@ import {
   hashPageContent,
   verifyPreservation,
   isPageManuallyEdited,
+  movePageState,
   buildMergedSources,
   normalizeRelationshipsForEntity,
 } from './state.js';
@@ -36,7 +37,6 @@ import {
   writeTopicPage,
   topicPageTitle,
   topicFileName,
-  extractTopics,
   type Topic,
   type MentionLocation as TopicMentionLocation,
 } from '../topics/index.js';
@@ -57,6 +57,12 @@ export interface ChunkMaterializationContext {
   folderPlacements: FolderPlan[];
   pages: PagePlan[];
   reporter?: ProgressReporter;
+  /**
+   * True when this is the final chunk of the source. LLM-planned topic pages
+   * that no chunk content matched are materialized here so every planned page
+   * exists by the end of the source.
+   */
+  isLastChunk?: boolean;
 }
 
 export async function materializeChunkEntitiesAndTopics(
@@ -80,17 +86,30 @@ export async function materializeChunkEntitiesAndTopics(
     if (objectSlug) affectedEntitySlugs.add(objectSlug);
   }
 
-  // Determine which topics are touched by this chunk.
+  // Determine which topics are touched by this chunk. Topic pages exist only
+  // because the LLM decided they should (PagePlanner plans and topics already
+  // established in rolling memory); deterministic code merely matches which of
+  // those LLM-decided topics this chunk's content touches.
   const chunkTopicNames = new Set<string>();
-  for (const topic of extractTopics(chunk.content, { max: 50 })) {
-    chunkTopicNames.add(topic.name.toLowerCase());
-  }
-  // Also consider topic pages planned for this chunk's content.
+  const chunkContentLower = chunk.content.toLowerCase();
   for (const page of context.pages) {
     if (page.pageType !== 'topic') continue;
     const topicName = page.title.replace(/^Topic:\s*/i, '').trim().toLowerCase();
-    if (chunkTopicNames.has(topicName) || chunk.content.toLowerCase().includes(topicName)) {
+    if (!topicName) continue;
+    if (chunkContentLower.includes(topicName)) {
       chunkTopicNames.add(topicName);
+    } else if (context.isLastChunk) {
+      // Ensure every LLM-planned topic page is materialized at least once per
+      // source even when no chunk contains the title verbatim.
+      const topicPath = path.join(wikiDir, 'topics', topicFileName({ name: topicName, count: 1 }));
+      if (!existsSync(topicPath)) {
+        chunkTopicNames.add(topicName);
+      }
+    }
+  }
+  for (const name of Object.keys(memory.state.topics)) {
+    if (chunkContentLower.includes(name.toLowerCase())) {
+      chunkTopicNames.add(name.toLowerCase());
     }
   }
   const affectedTopicNames = Array.from(chunkTopicNames);
@@ -116,8 +135,33 @@ export async function materializeChunkEntitiesAndTopics(
       description: memoryEntity.description,
       relationships: memoryEntity.relationships,
     };
+
+    // Manual-edit detection must run against the legacy flat path BEFORE any
+    // migration renames the file, because the stored page state is keyed by
+    // the path the page had when it was last generated.
+    const legacyRelativePath = path.posix.join('entities', `${slugify(memoryEntity.name)}.md`);
+    const legacyFullPath = path.join(wikiDir, legacyRelativePath);
+    const preMigrationNewPath = path.join(wikiDir, entityFilePath(entity, memory.state.entityTaxonomy));
+    const legacyExists = !existsSync(preMigrationNewPath) && existsSync(legacyFullPath);
+    if (legacyExists) {
+      const legacyContent = readFileSync(legacyFullPath, 'utf-8');
+      if (isPageManuallyEdited(legacyRelativePath, legacyContent, state)) {
+        recordSkippedUpdate(
+          result,
+          progress,
+          `Entity page ${memoryEntity.name} (legacy path) is manually edited; skipping migration and update to preserve human changes.`,
+        );
+        continue;
+      }
+    }
+
     const { filePath } = migrateLegacyEntityPage(wikiDir, entity, memory.state.entityTaxonomy);
     const relativePath = toRelativePathFromDir(wikiDir, filePath);
+    if (legacyExists) {
+      // The page moved on disk; move its stored state with it so manual-edit
+      // detection continues on the new path.
+      movePageState(state, legacyRelativePath, relativePath);
+    }
     const existing = readExistingPage(filePath);
     const isManual = existing ? isPageManuallyEdited(relativePath, existing.content, state) : false;
 
@@ -215,8 +259,8 @@ export async function materializeChunkEntitiesAndTopics(
       ),
   );
 
-  const entityBodyMap = new Map(llmBodies.entities.map((e) => [e.name, e.body]));
-  const topicBodyMap = new Map(llmBodies.topics.map((t) => [t.name, t.body]));
+  const entityEntryMap = new Map(llmBodies.entities.map((e) => [normalizePageName(e.name), e]));
+  const topicEntryMap = new Map(llmBodies.topics.map((t) => [normalizePageName(t.name), t]));
 
   for (const input of entityInputs) {
     const entity = {
@@ -229,15 +273,13 @@ export async function materializeChunkEntitiesAndTopics(
     const { filePath } = migrateLegacyEntityPage(wikiDir, entity, memory.state.entityTaxonomy);
     const relativePath = toRelativePathFromDir(wikiDir, filePath);
     const existing = readExistingPage(filePath);
-    const generatedBody = entityBodyMap.get(input.name);
-    if (!generatedBody) {
-      recordSkippedUpdate(
-        result,
-        progress,
-        `Entity page ${input.name} was not returned by the LLM writer; skipping update.`,
-      );
-      continue;
+    const generatedEntry = entityEntryMap.get(normalizePageName(input.name));
+    if (!generatedEntry) {
+      // Completeness is validated (with one repair retry) before this loop, so
+      // a missing body here is a defect; abort rather than silently drop evidence.
+      throw new CLIError(`Entity page ${input.name} was not returned by the LLM writer after the repair retry.`);
     }
+    const generatedBody = generatedEntry.body;
 
     const preserved = !existing || verifyPreservation(existing.body, generatedBody);
     if (!preserved) {
@@ -249,7 +291,14 @@ export async function materializeChunkEntitiesAndTopics(
       continue;
     }
 
-    writeEntityPage(filePath, entity, config, input.mentions, buildEntityOptions(input), generatedBody);
+    writeEntityPage(
+      filePath,
+      entity,
+      config,
+      input.mentions,
+      { ...buildEntityOptions(input), tags: generatedEntry.tags },
+      generatedBody,
+    );
     removeLegacyEntityPage(wikiDir, entity);
     updatePageState(state, relativePath, wikiDir, 'entity');
     result.entityPages++;
@@ -260,15 +309,13 @@ export async function materializeChunkEntitiesAndTopics(
     const filePath = path.join(wikiDir, 'topics', topicFileName(topic));
     const relativePath = toRelativePathFromDir(wikiDir, filePath);
     const existing = readExistingPage(filePath);
-    const generatedBody = topicBodyMap.get(input.name);
-    if (!generatedBody) {
-      recordSkippedUpdate(
-        result,
-        progress,
-        `Topic page ${input.name} was not returned by the LLM writer; skipping update.`,
-      );
-      continue;
+    const generatedEntry = topicEntryMap.get(normalizePageName(input.name));
+    if (!generatedEntry) {
+      // Completeness is validated (with one repair retry) before this loop, so
+      // a missing body here is a defect; abort rather than silently drop evidence.
+      throw new CLIError(`Topic page ${input.name} was not returned by the LLM writer after the repair retry.`);
     }
+    const generatedBody = generatedEntry.body;
 
     const preserved = !existing || verifyPreservation(existing.body, generatedBody);
     if (!preserved) {
@@ -280,7 +327,16 @@ export async function materializeChunkEntitiesAndTopics(
       continue;
     }
 
-    writeTopicPage(filePath, topic, config, input.mentions, input.related, generatedBody, input.sources);
+    writeTopicPage(
+      filePath,
+      topic,
+      config,
+      input.mentions,
+      generatedEntry.related,
+      generatedBody,
+      input.sources,
+      generatedEntry.tags,
+    );
     updatePageState(state, relativePath, wikiDir, 'topic');
     result.topicPages++;
   }
@@ -298,8 +354,14 @@ async function callEntityTopicWriterWithRetry(
   chunkId: string,
   progress: ProgressReporter,
 ): Promise<EntityTopicPageOutput> {
+  // A response missing any requested page body is invalid output: it gets one
+  // stricter repair retry naming the missing pages, then the run aborts.
+  // Silently skipping pages the LLM omitted would drop chunk evidence.
+  let firstOutput: EntityTopicPageOutput | undefined;
+  let failureReason: string;
+
   try {
-    return await entityTopicPageWriter(
+    firstOutput = await entityTopicPageWriter(
       entityInputs,
       topicInputs,
       config,
@@ -309,30 +371,79 @@ async function callEntityTopicWriterWithRetry(
       knownEntityInputs,
       knownTopicInputs,
     );
-  } catch (err) {
-    const errorMessage = err instanceof Error ? err.message : String(err);
-    progress.warning(`Entity/topic writer failed for chunk ${chunkId}: ${errorMessage}. Retrying once.`);
-    progress.retry(chunkId, 'EntityTopicPageWriter', 2, errorMessage);
-    try {
-      return await entityTopicPageWriter(
-        entityInputs,
-        topicInputs,
-        config,
-        llmClient,
-        agentsMd,
-        memory,
-        knownEntityInputs,
-        knownTopicInputs,
-        `The previous attempt failed with: ${errorMessage}. Return ONLY a valid JSON object matching the schema, with all requested entity and topic bodies, and preserve every existing citation and wikilink when an existing body is provided.`,
-      );
-    } catch (retryErr) {
-      throw new CLIError(
-        `Entity/topic writer failed for chunk ${chunkId} after one retry: ${
-          retryErr instanceof Error ? retryErr.message : String(retryErr)
-        }`,
-      );
+    const missing = findMissingPageBodies(firstOutput, entityInputs, topicInputs);
+    if (missing.length === 0) {
+      return firstOutput;
     }
+    failureReason = `The response was missing bodies for: ${missing.join(', ')}.`;
+  } catch (err) {
+    failureReason = err instanceof Error ? err.message : String(err);
   }
+
+  progress.warning(`Entity/topic writer failed for chunk ${chunkId}: ${failureReason} Retrying once.`);
+  progress.retry(chunkId, 'EntityTopicPageWriter', 2, failureReason);
+  try {
+    const secondOutput = await entityTopicPageWriter(
+      entityInputs,
+      topicInputs,
+      config,
+      llmClient,
+      agentsMd,
+      memory,
+      knownEntityInputs,
+      knownTopicInputs,
+      `The previous attempt failed with: ${failureReason} Return ONLY a valid JSON object matching the schema, with a non-empty body for EVERY requested entity and topic (do not omit any), and preserve every existing citation and wikilink when an existing body is provided.`,
+    );
+    const merged = mergeWriterOutputs(firstOutput, secondOutput);
+    const stillMissing = findMissingPageBodies(merged, entityInputs, topicInputs);
+    if (stillMissing.length > 0) {
+      throw new CLIError(`The repaired response was still missing bodies for: ${stillMissing.join(', ')}.`);
+    }
+    return merged;
+  } catch (retryErr) {
+    throw new CLIError(
+      `Entity/topic writer failed for chunk ${chunkId} after one retry: ${
+        retryErr instanceof Error ? retryErr.message : String(retryErr)
+      }`,
+    );
+  }
+}
+
+function normalizePageName(name: string): string {
+  return name.trim().toLowerCase();
+}
+
+function findMissingPageBodies(
+  output: EntityTopicPageOutput,
+  entityInputs: EntityTopicPageInputEntity[],
+  topicInputs: EntityTopicPageInputTopic[],
+): string[] {
+  const returnedEntities = new Set(
+    output.entities.filter((e) => e.body && e.body.trim().length > 0).map((e) => normalizePageName(e.name)),
+  );
+  const returnedTopics = new Set(
+    output.topics.filter((t) => t.body && t.body.trim().length > 0).map((t) => normalizePageName(t.name)),
+  );
+  const missing: string[] = [];
+  for (const input of entityInputs) {
+    if (!returnedEntities.has(normalizePageName(input.name))) missing.push(`entity "${input.name}"`);
+  }
+  for (const input of topicInputs) {
+    if (!returnedTopics.has(normalizePageName(input.name))) missing.push(`topic "${input.name}"`);
+  }
+  return missing;
+}
+
+function mergeWriterOutputs(
+  first: EntityTopicPageOutput | undefined,
+  second: EntityTopicPageOutput,
+): EntityTopicPageOutput {
+  if (!first) return second;
+  const entities = new Map(first.entities.map((e) => [normalizePageName(e.name), e]));
+  for (const e of second.entities) entities.set(normalizePageName(e.name), e);
+  const topics = new Map(first.topics.map((t) => [normalizePageName(t.name), t]));
+  for (const t of second.topics) topics.set(normalizePageName(t.name), t);
+  return { entities: Array.from(entities.values()), topics: Array.from(topics.values()) };
 }
 
 function recordSkippedUpdate(

@@ -1,5 +1,11 @@
 #!/usr/bin/env node
+import { Agent as UndiciAgent, setGlobalDispatcher } from 'undici';
 import { Command } from 'commander';
+
+// Node's built-in fetch defaults to a 300s headers/body timeout; LLM calls on
+// large documents legitimately run longer. Ingestion runs budget up to 90
+// minutes, so individual requests get a 30-minute transport allowance.
+setGlobalDispatcher(new UndiciAgent({ headersTimeout: 1_800_000, bodyTimeout: 1_800_000 }));
 import { sampleCommand } from './commands/sample.js';
 import { ingestCommand } from './commands/ingest.js';
 import { ingestAllCommand } from './commands/ingest-all.js';

@@ -55,11 +55,7 @@ export async function applyProposalCommand(
     },
   };
 
-  const { proposal, approved } = applyProposal(workspace, slug, proposalPath, config, state, memory);
-
-  if (!approved) {
-    throw new CLIError(`Failed to apply structural change for wiki "${slug}".`);
-  }
+  const { proposal } = applyProposal(workspace, slug, proposalPath, config, state, memory);
 
   state.memory = memory;
   saveState(stateFile, state);

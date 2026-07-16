@@ -6,6 +6,7 @@ import type { PdfStructure } from '../chunking/types.js';
 import type { SamplingStrategy } from '../chunking/types.js';
 import type { FolderPlan, OrchestratorMemory } from '../orchestrator/types.js';
 import type { LLMClient } from '../llm/client.js';
+import { structuredOutputOptions } from '../orchestrator/agents.js';
 import { readCreatedTimestamp } from './preservation.js';
 
 export interface AgentsMdContext {
@@ -147,8 +148,20 @@ export async function writeAgentsMd(
   }
 
   const prompt = buildAgentsMdPrompt(context);
-  const response = await llmClient.call(prompt);
-  const body = sanitizeAgentsMdBody(response.text, context);
+  // The guide is a full ingestion handbook; a generous output budget is needed
+  // and, on Kimi, thinking is disabled so it cannot starve the reply of output
+  // tokens. Invalid/empty output gets one stricter repair retry, then the run
+  // aborts (vision 07 §8); there is no deterministic fallback body.
+  const callOptions = { maxTokens: 16000, temperature: 0.2, ...structuredOutputOptions(llmClient) };
+  const response = await llmClient.call(prompt, callOptions);
+  let body: string;
+  try {
+    body = sanitizeAgentsMdBody(response.text, context);
+  } catch {
+    const repairPrompt = `${prompt}\n\n---\n\nYour previous response was empty or contained no markdown body. Return ONLY the markdown body of the AGENTS.md ingestion guide, with no YAML frontmatter and no explanation.`;
+    const repairResponse = await llmClient.call(repairPrompt, callOptions);
+    body = sanitizeAgentsMdBody(repairResponse.text, context);
+  }
 
   const created = readCreatedTimestamp(filePath) ?? new Date().toISOString();
   const frontmatter = {
@@ -230,6 +243,12 @@ function buildAgentsMdPrompt(context: AgentsMdContext): string {
     'Tailor the content to the corpus. Be concise but specific. Do not include a top-level title; the frontmatter will be added by the caller.',
     'Authority model: the LLM autonomously creates new folders or reorganizes the wiki when the corpus demands it; each structural change is recorded in a structural change log for after-the-fact human review. No prior approval is required for new folders or reorganizations.',
     'The generated AGENTS.md must not state that structural changes require human approval.',
+    '',
+    'SYSTEM-WIDE INVARIANTS (these are fixed by the product vision; your guide must state them EXACTLY and must NOT invent alternative syntaxes, field names, or naming schemes):',
+    '- Citations: every factual claim uses inline footnote markers [^srcN] (src1, src2, ...) that map to a `sources` entry in the page YAML frontmatter. Each sources entry uses EXACTLY these field names: `id` (e.g., "src1"), `file` (relative PDF path), `pages` (page range string, e.g., "1-7"), and optionally `extracted`, `sha256`, `label`. Citations are NEVER written as wikilinks.',
+    '- Wikilinks: pages link to each other using the exact page TITLE in double brackets, e.g. [[Entity: The Coca-Cola Company]] or [[Topic: Board Composition]]; display text may be added after a pipe ([[Exact Title|display text]]) as long as the exact title precedes the pipe. Wikilink targets NEVER use file names or slugs.',
+    '- File naming: kebab-case slugs are used for FILE NAMES only (e.g., entities/<subfolder>/<entity-slug>.md), never inside wikilink brackets. Document page file names are assigned by the deterministic chunker as `documents/<source-slug>-part-NNN.md`; your guide must NOT prescribe any alternative file-naming scheme for document pages.',
+    'You may tailor folder structure, page types, content rules, and special instructions to the corpus, but the Citation Rules and any link/naming guidance must restate these invariants without contradiction.',
   ].join('\n');
 }
 

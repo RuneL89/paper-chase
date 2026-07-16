@@ -78,22 +78,73 @@ async function callAgentWithRepair<T>(
   maxTokens: number,
   temperature: number,
   parse: (text: string) => T | undefined,
+  extraOptions?: Record<string, unknown>,
 ): Promise<T> {
-  const callOptions = { maxTokens, temperature };
+  // Every agent routed through this helper returns structured JSON, so
+  // provider thinking is disabled (Kimi only) to keep the whole max_tokens
+  // budget available for the reply; thinking-starvation otherwise yields
+  // empty or truncated JSON.
+  const callOptions = { maxTokens, temperature, ...structuredOutputOptions(llmClient), ...(extraOptions ?? {}) };
   const response = await llmClient.call(prompt, callOptions);
   const parsed = parse(response.text);
   if (parsed !== undefined) {
     return parsed;
   }
 
-  const repairPrompt = `${prompt}\n\n---\n\nYour previous response could not be parsed as valid JSON. Please return ONLY a single valid JSON object matching the requested schema, with no markdown fences, no explanatory text, and no trailing commas. Do not include any other text.`;
+  const degenerationNote = hasDegenerateTail(response.text)
+    ? ' Your previous response degenerated into an endlessly repeated filler pattern (such as empty table cells "| | |") and was cut off. Do NOT transcribe empty cells or repeat filler; omit empty cells and rows entirely and continue with real content.'
+    : '';
+  const repairPrompt = `${prompt}\n\n---\n\nYour previous response could not be parsed as valid JSON.${degenerationNote} Please return ONLY a single valid JSON object matching the requested schema, with no markdown fences, no explanatory text, and no trailing commas. Do not include any other text.`;
   const repairResponse = await llmClient.call(repairPrompt, callOptions);
   const repaired = parse(repairResponse.text);
   if (repaired !== undefined) {
     return repaired;
   }
 
-  throw new CLIError(`${agent} returned invalid or unparseable output after one repair attempt.`);
+  throw new CLIError(
+    `${agent} returned invalid or unparseable output after one repair attempt. ` +
+      `First response: ${describeUnparseableResponse(response.text)} ` +
+      `Repaired response: ${describeUnparseableResponse(repairResponse.text)}`,
+  );
+}
+
+/**
+ * Provider-specific options for large structured-output calls. On Kimi,
+ * thinking tokens draw from the same max_tokens budget as the reply, which can
+ * starve or truncate a long JSON response; disabling thinking keeps the whole
+ * budget for the reply. Other providers need no override.
+ */
+export function structuredOutputOptions(llmClient: LLMClient): Record<string, unknown> {
+  const provider = typeof llmClient.provider === 'function' ? llmClient.provider() : undefined;
+  return provider === 'kimi' ? { thinking: { type: 'disabled' as const } } : {};
+}
+
+/**
+ * Detects a degenerate repeated-filler tail (e.g., an unbroken run of empty
+ * markdown table cells) in a failed LLM response so the repair prompt can name
+ * the pathology explicitly.
+ */
+function hasDegenerateTail(text: string): boolean {
+  const tail = text.slice(-600);
+  if (tail.length < 200) return false;
+  const filler = (tail.match(/[|\s-]/g) ?? []).length;
+  return filler / tail.length > 0.9;
+}
+
+/**
+ * Diagnostic summary of an unparseable LLM response (length + head/tail
+ * snippets) so parse failures can be root-caused from the error message
+ * without extra instrumentation. Wiki content and API keys never appear here;
+ * the snippets are from the LLM's own reply.
+ */
+function describeUnparseableResponse(text: string): string {
+  const trimmed = text.trim();
+  if (trimmed.length === 0) {
+    return '(empty response text)';
+  }
+  const head = trimmed.slice(0, 300).replace(/\s+/g, ' ');
+  const tail = trimmed.length > 600 ? trimmed.slice(-300).replace(/\s+/g, ' ') : '';
+  return `[${trimmed.length} chars] head="${head}"${tail ? ` tail="${tail}"` : ''}`;
 }
 
 // ---------- Canonical name resolution ----------
@@ -497,22 +548,30 @@ export async function entityCritic(
     return { approvedEntities: [], rejectedEntities: [], issues: [] };
   }
 
-  try {
-    const context = buildEntityCriticContext(entities, result, agentsMd);
-    const response = await llmClient.call(buildPrompt('entity-critic', context), {
-      maxTokens: 8500,
-      temperature: 0.2,
-    });
-    const parsed = parseStructuredJson<EntityAudit>(response.text);
-    if (parsed && isValidEntityAudit(parsed)) {
-      return parsed;
-    }
-  } catch (err) {
-    if (err instanceof CLIError) throw err;
-  }
-
-  throw new CLIError('EntityCritic returned invalid output.');
+  const context = buildEntityCriticContext(entities, result, agentsMd);
+  return callAgentWithRepair<EntityAudit>(
+    'EntityCritic',
+    buildPrompt('entity-critic', context),
+    llmClient,
+    8500,
+    0.2,
+    parseEntityAuditJson,
+  );
 }
+
+function parseEntityAuditJson(text: string): EntityAudit | undefined {
+  const parsed = parseStructuredJson<EntityAudit>(text);
+  if (!parsed || typeof parsed !== 'object') return undefined;
+  // The prompt declares `issues` optional; default it rather than rejecting
+  // prompt-compliant output.
+  const normalized: EntityAudit = {
+    approvedEntities: (parsed as EntityAudit).approvedEntities,
+    rejectedEntities: (parsed as EntityAudit).rejectedEntities ?? [],
+    issues: (parsed as EntityAudit).issues ?? [],
+  };
+  return isValidEntityAudit(normalized) ? normalized : undefined;
+}
+
 function isValidEntityAudit(audit: unknown): audit is EntityAudit {
   const a = audit as Record<string, unknown> | undefined;
   if (!a || typeof a !== 'object') return false;
@@ -586,22 +645,34 @@ export async function chunkingPlanner(
     throw new CLIError('LLM is required for chunking planning.');
   }
 
-  try {
-    const context = buildChunkingPlannerContext(result, structure, samplingStrategy, config, agentsMd, feedback);
-    const response = await llmClient.call(buildPrompt('chunking-planner', context), {
-      maxTokens: 2048,
-      model: 'k2.6',
-      thinking: { type: 'disabled' },
-    });
-    const parsed = parseStructuredJson<ChunkingStrategyHint>(response.text);
-    if (parsed && isValidChunkingStrategyHint(parsed)) {
-      return parsed;
-    }
-  } catch (err) {
-    if (err instanceof CLIError) throw err;
+  const context = buildChunkingPlannerContext(result, structure, samplingStrategy, config, agentsMd, feedback);
+  const prompt = buildPrompt('chunking-planner', context);
+  // The lightweight model / disabled-thinking override only exists on Kimi;
+  // passing it to other providers would request a nonexistent model.
+  const kimiOptions = llmClient.provider() === 'kimi'
+    ? { model: 'k2.6', thinking: { type: 'disabled' as const } }
+    : {};
+
+  const parse = (text: string): ChunkingStrategyHint | undefined => {
+    const parsed = parseStructuredJson<ChunkingStrategyHint>(text);
+    return parsed && isValidChunkingStrategyHint(parsed) ? parsed : undefined;
+  };
+
+  const callOptions = { maxTokens: 2048, ...kimiOptions };
+  const response = await llmClient.call(prompt, callOptions);
+  const parsed = parse(response.text);
+  if (parsed !== undefined) {
+    return parsed;
   }
 
-  throw new CLIError('ChunkingPlanner returned invalid output.');
+  const repairPrompt = `${prompt}\n\n---\n\nYour previous response could not be parsed. Return ONLY a single valid JSON object matching the requested schema, with no markdown fences and no explanatory text.`;
+  const repairResponse = await llmClient.call(repairPrompt, callOptions);
+  const repaired = parse(repairResponse.text);
+  if (repaired !== undefined) {
+    return repaired;
+  }
+
+  throw new CLIError('ChunkingPlanner returned invalid or unparseable output after one repair attempt.');
 }
 
 function isValidChunkingStrategyHint(output: unknown): output is ChunkingStrategyHint {
@@ -987,7 +1058,7 @@ export async function evidenceCollector(
     'EvidenceCollector',
     buildPrompt('evidence-collector', context),
     llmClient,
-    8500,
+    16000,
     0.2,
     (text) => {
       const p = parseStructuredJson<EvidenceOutput>(text);
@@ -1051,28 +1122,77 @@ export async function pagePlanner(
   agentsMd?: string,
   memory?: OrchestratorMemory,
   samplingStrategy?: { category: string; reason: string },
+  chunks?: Chunk[],
 ): Promise<PagePlannerOutput> {
   if (!llmClient.isEnabled()) {
     throw new CLIError('LLM is required for page planning.');
   }
 
-  const context = buildPagePlannerContext(result, structure, entities, evidence, agentsMd, memory, samplingStrategy);
+  const parse = (text: string): PagePlannerOutput | undefined => {
+    const p = parseStructuredJson<PagePlannerOutput>(text);
+    return p && isValidPagePlannerOutput(p) ? p : undefined;
+  };
+
+  const context = buildPagePlannerContext(result, structure, entities, evidence, agentsMd, memory, samplingStrategy, chunks);
   const parsed = await callAgentWithRepair<PagePlannerOutput>(
     'PagePlanner',
     buildPrompt('page-planner', context),
     llmClient,
-    8500,
+    16000,
     0.2,
-    (text) => {
-      const p = parseStructuredJson<PagePlannerOutput>(text);
-      return p && isValidPagePlannerOutput(p) ? p : undefined;
-    },
+    parse,
   );
-  const normalized = normalizePagePlannerOutput(parsed, result, entities);
-  if (normalized.folderPlacements.length === 0) {
-    throw new CLIError('PagePlanner returned no folder placements.');
+  let normalized = normalizePagePlannerOutput(parsed, result, entities);
+
+  // Semantic plan validation: the plan must list the wiki's folders and cover
+  // every chunk with a document page. A plan failing these checks is invalid
+  // LLM output — retry once with a stricter repair prompt naming the problems,
+  // then abort. Never substitute a deterministic default plan.
+  let problems = collectPlanProblems(normalized, chunks);
+  if (problems.length > 0) {
+    const repairContext = [
+      context,
+      '',
+      '## Repair feedback',
+      'Your previous plan was rejected for the following reasons. Fix ALL of them and return the corrected full JSON plan:',
+      ...problems.map((p) => `- ${p}`),
+    ].join('\n');
+    const repaired = await callAgentWithRepair<PagePlannerOutput>(
+      'PagePlanner',
+      buildPrompt('page-planner', repairContext),
+      llmClient,
+      16000,
+      0.2,
+      parse,
+    );
+    normalized = normalizePagePlannerOutput(repaired, result, entities);
+    problems = collectPlanProblems(normalized, chunks);
+    if (problems.length > 0) {
+      throw new CLIError(`PagePlanner output was still invalid after one repair attempt: ${problems.join('; ')}`);
+    }
   }
+
   return normalized;
+}
+
+function collectPlanProblems(plan: PagePlannerOutput, chunks?: Chunk[]): string[] {
+  const problems: string[] = [];
+  if (plan.folderPlacements.length === 0) {
+    problems.push(
+      'folderPlacements is empty. List EVERY folder the wiki uses in folderPlacements — including the defaults (documents, sources, topics, entities, raw) — each with folder, title, description, pageTypes, and children.',
+    );
+  }
+  for (const chunk of findChunksWithoutPlans(plan.pages, chunks)) {
+    problems.push(
+      `No document page was planned for chunk ${chunk.id} (pages ${chunk.pageRange}). Plan one with fileName exactly "${chunk.id}.md" in the "documents" folder.`,
+    );
+  }
+  return problems;
+}
+
+function findChunksWithoutPlans(pages: PagePlan[], chunks?: Chunk[]): Chunk[] {
+  if (!chunks || chunks.length === 0) return [];
+  return chunks.filter((chunk) => !pages.some((p) => p.fileName === `${chunk.id}.md`));
 }
 
 function isValidPagePlannerOutput(output: unknown): output is PagePlannerOutput {
@@ -1157,7 +1277,7 @@ function normalizeEntityTaxonomy(
   return { subFolders, assignments };
 }
 
-function normalizePagePlan(page: unknown, entities: ExtractedEntity[], taxonomy: EntityTaxonomy): PagePlan | undefined {
+function normalizePagePlan(page: unknown, _entities: ExtractedEntity[], _taxonomy: EntityTaxonomy): PagePlan | undefined {
   if (typeof page !== 'object' || page === null) return undefined;
   const p = page as Record<string, unknown>;
   if (typeof p.title !== 'string' || p.title.trim() === '') return undefined;
@@ -1168,43 +1288,15 @@ function normalizePagePlan(page: unknown, entities: ExtractedEntity[], taxonomy:
   if (pageType === '') return undefined;
   const title = p.title.trim();
 
-  // Drop topic pages that are generic headings, document UI features,
-  // controlled-vocabulary fragments, or duplicates of entity/person pages
-  // rather than genuine recurring themes.
-  if (pageType === 'topic') {
-    const topicName = title.replace(/^Topic:\s*/i, '').trim();
-    const topicLower = topicName.toLowerCase();
-    const isGeneric = isGenericTopic(topicName);
-    const topicWords = topicLower.split(/\s+/).filter(Boolean);
-    const matchingEntity = entities.find(
-      (e) => {
-        const entityLower = e.name.toLowerCase();
-        if (entityLower === topicLower) return true;
-        if (e.aliases.some((a) => a.toLowerCase() === topicLower)) return true;
-        // Reject topics that are a sub-phrase of an entity name (e.g., "Nib Environmental"
-        // from "NIB Environmental Bond").
-        if (topicWords.length >= 2 && entityLower.includes(topicLower)) return true;
-        return false;
-      },
-    );
-    // Also reject reversed or reordered person names (e.g., "Varmus Harold").
-    const matchingPerson = entities.find(
-      (e) =>
-        e.type === 'person' &&
-        e.name.toLowerCase().split(/\s+/).filter(Boolean).sort().join(' ') === topicWords.sort().join(' '),
-    );
-    if (isGeneric || matchingEntity || matchingPerson) return undefined;
-  }
-
+  // The LLM PagePlanner is the sole authority over which pages exist (vision
+  // 02 §4, 04 §4.4.5). Deterministic code validates structure only; quality
+  // objections (generic topics, entity duplicates) belong to the Critic loop,
+  // not silent deterministic filtering.
   const tags = Array.isArray(p.tags) ? p.tags.filter((t): t is string => typeof t === 'string') : [];
   const citations = Array.isArray(p.citations) ? p.citations.filter((c): c is string => typeof c === 'string') : [];
   const wikilinks = Array.isArray(p.wikilinks) ? p.wikilinks.filter((w): w is string => typeof w === 'string') : [];
-  let related = Array.isArray(p.related) ? p.related.filter((r): r is string => typeof r === 'string') : [];
-
-  // Ensure topic pages always have related links to supporting documents and entities.
-  if (pageType === 'topic' && related.length === 0) {
-    related = entities.slice(0, 3).map((e) => entityFilePath(e, taxonomy));
-  }
+  // `related` is LLM-authored plan metadata; never fabricate it deterministically.
+  const related = Array.isArray(p.related) ? p.related.filter((r): r is string => typeof r === 'string') : [];
 
   return {
     pageType: pageType as PagePlan['pageType'],
@@ -1226,6 +1318,7 @@ function buildPagePlannerContext(
   agentsMd?: string,
   memory?: OrchestratorMemory,
   samplingStrategy?: { category: string; reason: string },
+  chunks?: Chunk[],
 ): string {
   const lines: string[] = [];
 
@@ -1263,6 +1356,16 @@ function buildPagePlannerContext(
   }
   lines.push('');
 
+  if (chunks && chunks.length > 0) {
+    lines.push('## Chunks to plan');
+    lines.push('Plan at least one document page for EACH chunk below.');
+    lines.push('The document page fileName MUST be exactly the chunk id plus ".md" (shown per chunk) and its folder MUST be "documents".');
+    for (const chunk of chunks) {
+      lines.push(`- chunk id: ${chunk.id} — pages ${chunk.pageRange} — title: ${chunk.title} — required fileName: "${chunk.id}.md"`);
+    }
+    lines.push('');
+  }
+
   lines.push('## Entities');
   for (const entity of entities) {
     lines.push(`- ${entity.name} (${entity.type}) — canonical: ${entity.canonical}`);
@@ -1282,7 +1385,8 @@ function buildPagePlannerContext(
       lines.push(`- ${folder.folder}: ${folder.title} (page types: ${folder.pageTypes.join(', ')})`);
     }
   } else {
-    lines.push('No existing hierarchy. Use the default folders: documents, sources, topics, entities, raw.');
+    lines.push('No existing hierarchy yet. Start from the default folders: documents, sources, topics, entities, raw.');
+    lines.push('IMPORTANT: you must still list EVERY folder the wiki uses (including these defaults) in the `folderPlacements` array of your JSON output; an empty folderPlacements is invalid.');
   }
   lines.push('');
 
@@ -1298,9 +1402,10 @@ function buildPagePlannerContext(
 
   lines.push('## Structural rules');
   lines.push('');
-  lines.push('- New page types inside existing folders are allowed and are auto-approved.');
-  lines.push('- New folders or re-organizations must be emitted as a structural-change proposal; do not silently create a new folder.');
-  lines.push('- If a page does not fit any existing folder, emit a proposal with a reason, the new folder name, and the affected pages.');
+  lines.push('- New page types inside existing folders are allowed; document them in the folder-level index.md contract.');
+  lines.push('- You have sole authority over the folder structure. To create a new folder or reorganize the wiki, include the new or changed folder in `folderPlacements` with a clear title and description.');
+  lines.push('- Structural changes are applied autonomously and recorded in a structural-change log for after-the-fact human review; no approval is needed.');
+  lines.push('- If a page does not fit any existing folder, add the folder it needs to `folderPlacements` and place the page there.');
   lines.push('');
   lines.push('## Entity taxonomy rules');
   lines.push('');
@@ -1324,18 +1429,20 @@ export async function critic(
   agentsMd?: string,
   memory?: OrchestratorMemory,
   pageUpdates?: PageUpdate[],
+  chunk?: Chunk,
+  config?: Config,
 ): Promise<CriticReview> {
   if (!llmClient.isEnabled()) {
     throw new CLIError('LLM is required for critic review.');
   }
 
-  const context = buildCriticContext(result, pages, folderPlacements, agentsMd, memory, pageUpdates);
+  const context = buildCriticContext(result, pages, folderPlacements, agentsMd, memory, pageUpdates, chunk, config);
   const parsed = await callAgentWithRepair<CriticReview>(
     'Critic',
     buildPrompt('critic', context),
     llmClient,
     8500,
-    1.0,
+    0.2,
     (text) => {
       const p = parseStructuredJson<CriticReview>(text);
       if (!p || !isValidCriticReview(p)) return undefined;
@@ -1365,6 +1472,8 @@ function buildCriticContext(
   agentsMd?: string,
   memory?: OrchestratorMemory,
   pageUpdates?: PageUpdate[],
+  chunk?: Chunk,
+  config?: Config,
 ): string {
   const lines: string[] = [];
 
@@ -1398,20 +1507,35 @@ function buildCriticContext(
   lines.push('');
 
   if (pageUpdates && pageUpdates.length > 0) {
+    // The known-title list must match the one the ChunkWriter was given —
+    // including the source page and wiki index titles the writer is
+    // explicitly instructed to link — or the Critic flags mandated links as
+    // invented and the retry loop can never converge.
     const knownTitles = collectKnownPageTitles(pages);
-    lines.push('## Drafted pages');
+    knownTitles.sources.push(`Source: ${result.fileName}`);
+    if (config) {
+      knownTitles.indexes.push(`${config.wiki.title} Index`);
+    }
+    // Vision 07 §4: the Critic must receive the FULL markdown pages produced
+    // by the ChunkWriter (frontmatter and body). Reviewing a truncated preview
+    // makes every completeness check a false negative.
+    lines.push('## Drafted pages (full content)');
     for (const update of pageUpdates) {
-      lines.push(`- ${update.filePath}`);
-      const bodyPreview = String(update.body ?? '').slice(0, 800).replace(/\s+/g, ' ');
-      if (bodyPreview) {
-        lines.push(`  Body preview: ${bodyPreview}`);
-      }
+      lines.push(`### ${update.filePath}`);
+      lines.push('Frontmatter:');
+      lines.push('```json');
+      lines.push(JSON.stringify(update.frontmatter ?? {}, null, 2));
+      lines.push('```');
+      lines.push('Body:');
+      lines.push('```markdown');
+      lines.push(String(update.body ?? ''));
+      lines.push('```');
       const unknown = findUnknownWikilinks(String(update.body ?? ''), knownTitles);
       if (unknown.length > 0) {
-        lines.push(`  Wikilinks not matching known pages: ${unknown.join(', ')}`);
+        lines.push(`Wikilinks not matching known pages: ${unknown.join(', ')}`);
       }
+      lines.push('');
     }
-    lines.push('');
     lines.push('## Known page titles');
     lines.push('Only the following exact titles are valid wikilink targets for this review:');
     for (const title of [...knownTitles.entities, ...knownTitles.topics, ...knownTitles.sources, ...knownTitles.indexes]) {
@@ -1420,10 +1544,18 @@ function buildCriticContext(
     lines.push('');
   }
 
-  lines.push('## Source context (truncated)');
-  const sourceText = result.pages.map((p) => p.text).join('\n\n');
-  lines.push(sourceText.slice(0, 2000).replace(/\s+/g, ' '));
-  lines.push('');
+  // Vision 07 §4: the Critic receives the extracted input for the chunk under
+  // review so completeness can actually be judged.
+  if (chunk) {
+    lines.push(`## Extracted input for chunk ${chunk.id} (pages ${chunk.pageRange})`);
+    lines.push(chunk.content);
+    lines.push('');
+  } else {
+    lines.push('## Source context (truncated)');
+    const sourceText = result.pages.map((p) => p.text).join('\n\n');
+    lines.push(sourceText.slice(0, 8000).replace(/\s+/g, ' '));
+    lines.push('');
+  }
 
   return lines.join('\n');
 }
@@ -1826,7 +1958,14 @@ export async function chunkWriterForChunk(
   knownTitles.sources.push(`Source: ${result.fileName}`);
   knownTitles.indexes.push(`${config.wiki.title} Index`);
 
-  const chunkPlan = findPagePlanForChunk(pages, chunk) ?? buildDefaultPagePlan(chunk);
+  // The LLM PagePlanner is the sole planner of pages; plan completeness for
+  // every chunk is validated (with one repair retry) at planning time, so a
+  // missing plan here is a defect rather than a condition to paper over with a
+  // deterministic default plan.
+  const chunkPlan = findPagePlanForChunk(pages, chunk);
+  if (!chunkPlan) {
+    throw new CLIError(`PagePlanner did not plan a document page for chunk ${chunk.id} ("documents/${chunk.id}.md").`);
+  }
   const prompt = buildChunkWriterPrompt(
     [chunkPlan],
     [chunk],
@@ -1837,13 +1976,23 @@ export async function chunkWriterForChunk(
     knownTitles,
     feedback,
   );
+  // The ChunkWriter's reply embeds the chunk's full preserved extracted detail
+  // in a JSON body, so its output budget must comfortably exceed the maximum
+  // chunk size. On Kimi, thinking tokens draw from the same budget and can
+  // starve or truncate the JSON, so thinking is disabled for this
+  // structured-output call.
+  // Temperature 0.6: greedy sampling (0.2) is prone to degenerate repetition
+  // loops when transcribing wide tables; a moderate temperature breaks the
+  // low-entropy attractor while the Critic and deterministic checks gate
+  // quality.
   let parsed = await callAgentWithRepair<{ pages: unknown[] }>(
     'ChunkWriter',
     prompt,
     llmClient,
-    8500,
-    0.2,
+    32000,
+    0.6,
     parseChunkWriterJson,
+    structuredOutputOptions(llmClient),
   );
   if (!parsed.pages.length) {
     throw new CLIError('ChunkWriter returned invalid output.');
@@ -1851,18 +2000,41 @@ export async function chunkWriterForChunk(
 
   try {
     const normalized = normalizePageUpdate(parsed.pages[0], result, config, knownTitles);
-    return { ...normalized, filePath: `documents/${chunk.id}.md` };
+    return { ...enforceSourceProvenance(normalized, chunk, result), filePath: `documents/${chunk.id}.md` };
   } catch (validationError) {
     const validationMessage = validationError instanceof CLIError ? validationError.message : String(validationError);
     const repairPrompt = `${prompt}\n\n---\n\nYour previous response failed validation: ${validationMessage}. Please fix the issues and return ONLY a valid JSON object matching the requested schema. Required frontmatter fields must be authored by the LLM and must not be omitted.`;
-    const repairResponse = await llmClient.call(repairPrompt, { maxTokens: 8500, temperature: 0.2 });
+    const repairResponse = await llmClient.call(repairPrompt, { maxTokens: 32000, temperature: 0.6, ...structuredOutputOptions(llmClient) });
     const repaired = parseChunkWriterJson(repairResponse.text);
     if (!repaired || !repaired.pages.length) {
       throw new CLIError(`ChunkWriter returned invalid page output after one repair attempt: ${validationMessage}`);
     }
     const normalized = normalizePageUpdate(repaired.pages[0], result, config, knownTitles);
-    return { ...normalized, filePath: `documents/${chunk.id}.md` };
+    return { ...enforceSourceProvenance(normalized, chunk, result), filePath: `documents/${chunk.id}.md` };
   }
+}
+
+/**
+ * Deterministic provenance enforcement for document-page sources entries.
+ *
+ * The authority matrix assigns extraction, hashing, and file I/O to
+ * deterministic code: the LLM cannot know the true on-disk path or hash of the
+ * chunk's source PDF (it only ever sees extracted text), so those values are
+ * set from the extractor's ground truth. The LLM remains the sole author of
+ * the citations themselves — which claims carry which [^srcN] markers and the
+ * page sub-ranges they refer to.
+ */
+function enforceSourceProvenance(update: PageUpdate, chunk: Chunk, result: ExtractionResult): PageUpdate {
+  const trueFile = chunk.sources[0]?.file ?? result.filePath;
+  const trueSha = chunk.sources[0]?.sha256 ?? result.sha256;
+  const sources = Array.isArray(update.frontmatter.sources)
+    ? (update.frontmatter.sources as Record<string, unknown>[]).map((entry) => ({
+        ...entry,
+        file: trueFile,
+        ...(trueSha ? { sha256: trueSha } : {}),
+      }))
+    : update.frontmatter.sources;
+  return { ...update, frontmatter: { ...update.frontmatter, sources } };
 }
 
 /**
@@ -2045,19 +2217,6 @@ function findPagePlanForChunk(pages: PagePlan[], chunk: Chunk): PagePlan | undef
   return pages.find((p) => p.fileName === fileName);
 }
 
-function buildDefaultPagePlan(chunk: Chunk): PagePlan {
-  return {
-    pageType: 'document',
-    title: chunk.title,
-    fileName: `${chunk.id}.md`,
-    folder: 'documents',
-    tags: chunk.tags,
-    citations: chunk.sources.map((s) => s.id),
-    wikilinks: [],
-    related: [],
-  };
-}
-
 function collectKnownPageTitles(pages: PagePlan[]): { entities: string[]; topics: string[]; sources: string[]; indexes: string[] } {
   const entities = new Set<string>();
   const topics = new Set<string>();
@@ -2093,17 +2252,32 @@ function buildChunkWriterPrompt(
     'Return ONLY a JSON object matching the schema at the end.',
     '',
     'Rules:',
-    '- Begin each document page with a brief LLM-written synthesis / summary.',
+    '- Begin each document page with a brief LLM-written synthesis / summary. Every factual statement in the synthesis must carry an inline [^srcN] citation.',
+    '- The frontmatter `title` must exactly match the page plan title shown in the "Page plan" section.',
     '- Add key claims extracted from the chunk, each with an inline [^srcN] citation.',
     '- Link named entities to their canonical pages using the exact page title: [[Entity: Name]] or [[Topic: Name]].',
-    '- ONLY link to entity/topic pages listed in the "Known pages" section below. If a name is not listed, do not link it.',
-    '- NEVER use piped wikilinks such as [[Target|Display]]. Use only the exact title format: [[Exact Title]].',
-    '- Mention any preserved tables or figures briefly, with Source: [^srcN].',
-    '- Preserve the original extracted text by including it in a "## Preserved Extracted Detail" section at the end of the body.',
+    '- ONLY link to entity/topic pages listed in the "Known pages" section below. If a name or concept is not in that list, write it as plain text WITHOUT brackets — never invent a wikilink for it.',
+    '- Wikilink format: [[Exact Title]] or, when you need different display text, [[Exact Title|display text]]. The part BEFORE the pipe must be an exact title from the Known pages list.',
+    '- Before returning, scan your body once more: every [[...]] target (the text before any pipe) must exactly match a Known pages title.',
+    '- Mention any preserved tables or figures briefly in the synthesis area, with Source: [^srcN].',
+    '- Preserve the original extracted text by including it in a "## Preserved Extracted Detail" section at the end of the body: copy the chunk text VERBATIM, exactly as supplied (organized under per-page headings is fine).',
+    '- In Preserved Extracted Detail, do NOT convert the extracted text into markdown pipe tables — copy tabular text verbatim as plain text. This preserves every row and value by construction.',
+    '- You MAY additionally render a small, simple table (fewer than 8 columns) as a clean markdown table in the synthesis area when it aids readability, but wide or noisy tables must stay verbatim-only.',
+    '- NEVER emit runs of empty table cells, empty rows, or repeated separator cells (like "| | | |" or "--- | --- | ---"). If you notice yourself repeating any pattern, stop immediately and continue with the next real content.',
     '- Multi-source claims cite all sources: [^src1] [^src2].',
     '- Scanned or unparseable pages: do not make claims, or mark them as needing verification.',
     '- Confidence may be high, medium, or low.',
     '- Tags should be lowercase, hyphenated, and drawn from the corpus vocabulary.',
+    '',
+    'Required frontmatter fields (omitting ANY of these causes your output to be rejected):',
+    '- title: non-empty string.',
+    '- type: exactly "document".',
+    '- wiki: the wiki slug shown below.',
+    '- tags: non-empty array of lowercase strings.',
+    '- confidence: exactly one of "high", "medium", "low".',
+    '- created and updated: ISO 8601 timestamps.',
+    '- sources: non-empty array; EVERY entry must include "id", "file", and "pages". The "file" value MUST be copied VERBATIM from the "- file:" line of the "## Source PDF" section below — never invent, shorten, or re-slug the path.',
+    '- The "id" values (src1, src2, ...) are the join keys for inline [^srcN] citations: every [^srcN] marker in the body MUST match a sources entry with id "srcN".',
     '',
   ];
 
@@ -2271,6 +2445,17 @@ function normalizePageUpdate(
     throw new CLIError(`ChunkWriter page failed frontmatter validation: ${issues}`);
   }
 
+  // Citation integrity joins [^srcN] markers to sources entries by id; an entry
+  // without an id silently breaks every citation on the page.
+  if (Array.isArray(frontmatter.sources)) {
+    for (let i = 0; i < frontmatter.sources.length; i++) {
+      const entry = frontmatter.sources[i] as Record<string, unknown>;
+      if (typeof entry?.id !== 'string' || entry.id.trim() === '') {
+        throw new CLIError(`ChunkWriter page sources entry ${i + 1} is missing the required "id" (e.g., "src1").`);
+      }
+    }
+  }
+
   return {
     filePath: p.filePath,
     frontmatter,
@@ -2301,8 +2486,8 @@ function formatMentionSources(
 }
 
 export interface EntityTopicPageOutput {
-  entities: { name: string; body: string }[];
-  topics: { name: string; body: string }[];
+  entities: { name: string; body: string; tags: string[] }[];
+  topics: { name: string; body: string; tags: string[]; related: string[] }[];
 }
 
 export interface EntityTopicPageInputEntity {
@@ -2357,13 +2542,17 @@ export async function entityTopicPageWriter(
     knownTopics,
     feedback,
   );
+  // Update-mode rewrites must return every existing body plus new evidence for
+  // a whole batch of pages, so the output budget mirrors the ChunkWriter's,
+  // and provider thinking is likewise disabled for this structured output.
   const parsed = await callAgentWithRepair<EntityTopicPageOutput>(
     'EntityTopicPageWriter',
     prompt,
     llmClient,
-    8500,
+    32000,
     0.2,
     parseEntityTopicWriterJson,
+    structuredOutputOptions(llmClient),
   );
   if (parsed.entities.length === 0 && parsed.topics.length === 0) {
     throw new CLIError('EntityTopicPageWriter returned invalid or empty output.');
@@ -2393,7 +2582,7 @@ function buildEntityTopicWriterPrompt(
     '- Cite sources using inline [^srcN] markers that match the source entries shown below each entity/topic.',
     '- Use the exact source id (src1, src2, etc.) provided in the source list.',
     '- Link to other entity pages using [[Entity: Name]] and topic pages using [[Topic: Name]].',
-    '- Only link to names that appear in the "Known entities" or "Known topics" lists below.',
+    '- Only link to names that appear in the "Known entities" or "Known topics" lists below, using the EXACT titles as shown there (including capitalization).',
     '- End with a link to the wiki index: [[' + config.wiki.title + ' Index]].',
     '',
     'Rules for topic pages:',
@@ -2416,13 +2605,17 @@ function buildEntityTopicWriterPrompt(
     '- Do NOT wrap the body in a markdown code block inside the JSON string.',
     '- Keep the body concise but informative; do not invent facts not supported by the supplied data.',
     '',
+    'Frontmatter fields you must author (omitting these causes your output to be rejected):',
+    '- tags (entities AND topics): 3-6 lowercase, hyphenated, corpus-specific tags describing the role or theme (e.g., ["board-member", "governance", "audit-committee"]). Never use generic filler like "entity", "topic", or "theme".',
+    '- related (topics only): a list of related page titles or relative paths drawn from the known entities/topics and supplied related data. May be empty ONLY if nothing related exists.',
+    '',
     'JSON schema:',
     '{',
     '  "entities": [',
-    '    { "name": "Exact Entity Name", "body": "# Entity: ...\\n\\n..." }',
+    '    { "name": "Exact Entity Name", "body": "# Entity: ...\\n\\n...", "tags": ["corpus-specific-tag"] }',
     '  ],',
     '  "topics": [',
-    '    { "name": "Exact Topic Name", "body": "# Topic: ...\\n\\n..." }',
+    '    { "name": "Exact Topic Name", "body": "# Topic: ...\\n\\n...", "tags": ["corpus-specific-tag"], "related": ["Entity: Name"] }',
     '  ]',
     '}',
     '',
@@ -2455,7 +2648,9 @@ function buildEntityTopicWriterPrompt(
   if (knownTopicList.length > 0) {
     lines.push('## Known topics');
     for (const topic of knownTopicList) {
-      lines.push(`- Topic: ${topic.name} (mentions: ${topic.count})`);
+      // Present the exact page title (title-cased) so wikilinks written from
+      // this list resolve against the real topic pages.
+      lines.push(`- ${topicPageTitle({ name: topic.name, count: topic.count })} (mentions: ${topic.count})`);
     }
     lines.push('');
   }
@@ -2534,17 +2729,47 @@ function formatExplicitSources(
   return sources.map((s) => `  - ${s.id}: ${s.file}, pages ${s.pages}`);
 }
 
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((v) => typeof v === 'string');
+}
+
 function parseEntityTopicWriterJson(text: string): EntityTopicPageOutput | undefined {
   const parsed = parseStructuredJson(text) as Partial<EntityTopicPageOutput>;
   if (!parsed) return undefined;
   const entities = Array.isArray(parsed.entities) ? parsed.entities : [];
   const topics = Array.isArray(parsed.topics) ? parsed.topics : [];
+  // Entries without LLM-authored tags (and, for topics, a related list) are
+  // invalid: the downstream completeness check treats them as missing pages
+  // and triggers the stricter repair prompt. Deterministic code never
+  // fabricates these frontmatter fields.
   return {
     entities: entities
-      .filter((e: Record<string, unknown>) => typeof e.name === 'string' && typeof e.body === 'string')
-      .map((e: Record<string, unknown>) => ({ name: e.name as string, body: e.body as string })),
+      .filter(
+        (e: Record<string, unknown>) =>
+          typeof e.name === 'string' &&
+          typeof e.body === 'string' &&
+          isStringArray(e.tags) &&
+          (e.tags as string[]).length > 0,
+      )
+      .map((e: Record<string, unknown>) => ({
+        name: e.name as string,
+        body: e.body as string,
+        tags: e.tags as string[],
+      })),
     topics: topics
-      .filter((t: Record<string, unknown>) => typeof t.name === 'string' && typeof t.body === 'string')
-      .map((t: Record<string, unknown>) => ({ name: t.name as string, body: t.body as string })),
+      .filter(
+        (t: Record<string, unknown>) =>
+          typeof t.name === 'string' &&
+          typeof t.body === 'string' &&
+          isStringArray(t.tags) &&
+          (t.tags as string[]).length > 0 &&
+          isStringArray(t.related),
+      )
+      .map((t: Record<string, unknown>) => ({
+        name: t.name as string,
+        body: t.body as string,
+        tags: t.tags as string[],
+        related: t.related as string[],
+      })),
   };
 }

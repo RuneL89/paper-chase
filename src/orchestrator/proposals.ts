@@ -58,6 +58,7 @@ export function detectStructuralProposals(
       proposedFolders: Array.from(currentFolders),
       newFolderPlans: effectiveAdded,
       renamedFolders: renamedFolders.length > 0 ? renamedFolders : undefined,
+      removedFolders: effectiveRemoved.length > 0 ? effectiveRemoved : undefined,
     },
   ];
 }
@@ -78,10 +79,6 @@ function buildProposalReason(
     parts.push(`renamed folder(s): ${renamed.map((r) => `${r.title} (${r.from}/ → ${r.to}/)`).join(', ')}`);
   }
   return `Corpus structure changed and requires ${parts.join('; ')}.`;
-}
-
-export function isSimpleProposal(proposal: StructuralProposal): boolean {
-  return proposal.type === 'new-folder' && proposal.newFolderPlans.length === 1;
 }
 
 export function proposalFileName(workspace: string, slug: string, timestamp = new Date()): string {
@@ -148,26 +145,42 @@ export function renderProposalMarkdown(slug: string, proposal: StructuralProposa
           '',
         ]
       : []),
+    ...(proposal.removedFolders && proposal.removedFolders.length > 0
+      ? [
+          '## Folders absent from the latest plan (NOT removed)',
+          '',
+          ...proposal.removedFolders.map((f) => `- \`${f}/\``),
+          '',
+          'These folders were not mentioned in the latest page plan. They are retained on disk',
+          'with their pages and contracts; folder removal is never inferred from omission.',
+          '',
+        ]
+      : []),
     '## Pros',
     '',
-    '- Better reflects the corpus structure discovered during ingestion.',
-    '- Provides a dedicated location for pages that do not fit the default folders.',
+    ...(proposal.newFolderPlans.length > 0
+      ? proposal.newFolderPlans.map((f) => `- \`${f.folder}/\` gives "${f.title}" pages a dedicated location: ${f.description}`)
+      : []),
+    ...((proposal.renamedFolders?.length || proposal.movedFolders?.length)
+      ? ['- The renamed/moved folder names better reflect the corpus structure discovered during ingestion.']
+      : []),
+    '- Keeps the folder hierarchy aligned with what the PagePlanner discovered in the corpus.',
     '',
     '## Cons',
     '',
-    '- Adds complexity to the wiki hierarchy.',
-    '- Requires updates to the wiki-level and folder-level index contracts.',
+    '- Adds complexity to the wiki hierarchy and its contract chain.',
+    '- Existing wikilinks and reader habits may need to adjust to the new layout.',
     '',
-    '## Required contract updates',
+    '## Contract updates made',
     '',
-    '- Update `wikis/' + slug + '/index.md` to list the new folder(s).',
-    '- Create folder-level `index.md` contract(s) for the new folder(s).',
-    '- Update `wikis/' + slug + '/AGENTS.md` to document the new folder(s).',
+    '- `wikis/' + slug + '/index.md` regenerated to list the current folder set.',
+    ...proposal.newFolderPlans.map((f) => `- Folder-level contract created: \`wikis/${slug}/${f.folder}/index.md\`.`),
+    '- `wikis/' + slug + '/AGENTS.md` updated to document new folders and page types.',
     ...(proposal.renamedFolders && proposal.renamedFolders.length > 0
-      ? ['- Rename the affected folder directories and update existing page paths.', '']
+      ? ['- Renamed folder directories on disk and re-keyed existing page paths in ingestion state.']
       : []),
     ...(proposal.movedFolders && proposal.movedFolders.length > 0
-      ? ['- Move the affected folder directories and update existing page paths.', '']
+      ? ['- Moved folder directories on disk and re-keyed existing page paths in ingestion state.']
       : []),
   ];
   return lines;
@@ -180,7 +193,7 @@ export function applyProposal(
   config: Config,
   state: import('../ingestion/state.js').IngestionState,
   memory: import('./types.js').OrchestratorMemory,
-): { proposal: StructuralProposal; approved: boolean } {
+): { proposal: StructuralProposal } {
   if (!existsSync(proposalPath)) {
     throw new CLIError(`Proposal file not found: ${proposalPath}`);
   }
@@ -203,7 +216,7 @@ export function applyProposal(
   const appliedPath = proposalPath.replace(/-structural-change\.md$/, '-structural-change-applied.md');
   renameSync(proposalPath, appliedPath);
 
-  return { proposal, approved: true };
+  return { proposal };
 }
 
 function applyNewFolderPlans(
@@ -480,15 +493,6 @@ export function updateAgentsMdForNewPageTypes(
 
   parsed.data.updated = new Date().toISOString();
   writeFileSync(filePath, matter.stringify(body, parsed.data));
-}
-
-export function getApprovedProposalPaths(workspace: string, slug: string): string[] {
-  const proposalsDir = path.join(workspace, '.kimi-code', 'proposals');
-  if (!existsSync(proposalsDir)) return [];
-  const files = readdirSync(proposalsDir);
-  return files
-    .filter((f) => f.includes(`-${slug}-structural-change`) && f.endsWith('.md'))
-    .map((f) => path.join(proposalsDir, f));
 }
 
 export function folderPlacementsFromProposal(

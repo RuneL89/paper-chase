@@ -366,7 +366,11 @@ Key events:
 - **Structural-change log:** creating new folders or changing the wiki's organization is done autonomously by the LLM. Each change is recorded with reason, pros, cons, and required contract updates so the human can review it after the fact. New page types inside existing folders and new folders are both managed by the LLM.
 - **Markdown authorship:** deterministic code must not draft or mutate synthesized content wiki page bodies; the LLM is the sole author of all synthesized content pages (`document`, `entity`, `topic`, and derived types). Deterministic provenance/preservation pages (`source` and `raw`) are generated deterministically from extraction metadata.
 - **No deterministic fallback on LLM failure:** if an LLM sub-agent fails, the orchestrator may retry the same LLM agent with a repair prompt, but it must never substitute deterministic page creation, updates, or other markdown authoring. If repair fails, the run aborts.
-- **Preservation-first updates:** when `ingest` updates an existing entity/topic page, the LLM regenerates the body in update mode but must keep every existing citation and wikilink. A deterministic preservation check rejects rewrites that drop prior content; manually edited pages receive append-only updates.
+- **Preservation-first updates:** when `ingest` updates an existing entity/topic page, the LLM regenerates the body in update mode but must keep every existing citation and wikilink. A deterministic preservation check rejects rewrites that drop prior content; manually edited pages are skipped with a reported conflict. Manual-edit baselines survive across runs: `refreshPageState` only re-baselines pages the system wrote in the current run.
+- **Open page-type taxonomy:** `validateFrontmatter` validates unknown (LLM-created) page types against the universal minimum (`title`, `type`, `updated`) instead of rejecting them; contract declaration is checked by lint. Entity `mentions` is a count (number), and every default page type requires `updated`.
+- **Chunk sizing:** default `max_chunk_size` is 15,000 characters (vision Principle 5 — more, smaller chunks). The ChunkWriter must reproduce a chunk's full extracted detail verbatim inside a JSON reply, and verbatim-preservation reliability degrades on larger chunks.
+- **Deterministic provenance on citations:** `sources.file`/`sha256` on document pages are set from the chunk's extraction record after LLM validation (the LLM cannot know true paths); the LLM authors citation `id`s, `pages` sub-ranges, and all `[^srcN]` placement.
+- **Wikilinks:** targets must be exact page titles; piped display text (`[[Exact Title|display]]`) is allowed and validators check the target before the pipe.
 
 ## Authority matrix
 
@@ -407,7 +411,7 @@ No deterministic code may draft or mutate synthesized content markdown bodies; d
 - **`init` → `sample` → `ingest`:** `ingest` warns if the wiki status is not `"ready"`. Run `init` to create the wiki, then `sample` to generate the folder plan and `AGENTS.md`, then `ingest` to process PDFs.
 - **Scanned pages go to `raw/`:** image-only or unparseable pages are preserved as `raw` pages and skipped from normal document chunks.
 - **Legacy entity migration:** flat `entities/<slug>.md` files are automatically moved into `entities/<subfolder>/<slug>.md` the first time an entity is re-ingested. Existing content is preserved; manual-edit detection continues on the new path.
-- **Kimi `thinking` blocks:** Kimi Code may return `thinking` blocks before the final `text` block. If the CLI appears to get an empty response, use `test-llm --verbose` to inspect the raw LLM output.
+- **Kimi `thinking` blocks:** Kimi Code may return `thinking` blocks before the final `text` block, and thinking tokens draw from the same `max_tokens` budget as the reply — long analytical prompts can starve or truncate a JSON reply entirely. All structured-output agents therefore disable thinking on Kimi (`structuredOutputOptions` in `src/orchestrator/agents.ts`). Use `test-llm --verbose` to inspect raw LLM output.
 - **Forward slashes in stored paths:** always normalize stored relative paths to forward slashes via `toRelativePath` from `workspace.ts`, even on Windows.
 
 ## Documentation to read before major changes

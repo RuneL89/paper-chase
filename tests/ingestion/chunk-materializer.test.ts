@@ -187,8 +187,8 @@ function buildEntityTopicWriterResponse(entityBodies: Record<string, string>, to
     provider: 'test',
     model: 'test',
     text: JSON.stringify({
-      entities: Object.entries(entityBodies).map(([name, body]) => ({ name, body })),
-      topics: Object.entries(topicBodies).map(([name, body]) => ({ name, body })),
+      entities: Object.entries(entityBodies).map(([name, body]) => ({ name, body, tags: ['sample-entity', 'test-corpus'] })),
+      topics: Object.entries(topicBodies).map(([name, body]) => ({ name, body, tags: ['sample-topic', 'test-corpus'], related: [] })),
     }),
     estimatedTokens: 100,
     estimatedCost: 0,

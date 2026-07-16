@@ -15,23 +15,12 @@ import { writeSourcePage, type DocumentPageLink } from '../writers/source.js';
 import { writeWikiIndex, writeIndexOfIndexes } from '../writers/index.js';
 import { lintWiki, writeLintReport, checkFrontmatter, checkCitations, checkWikilinks } from '../lint/index.js';
 import { runWikiOfWikiAgent, type WikiOfWikiSummary } from '../orchestrator/wiki-of-wiki.js';
-import { SlugRegistry, slugify } from '../utils/slug.js';
+import { slugify } from '../utils/slug.js';
 import {
-  extractEntities,
   entityPageTitle,
-  entityFileNameWithRegistry,
-  writeEntityPage,
   type EntityMention,
-  type MentionLocation as EntityMentionLocation,
 } from '../entities/index.js';
-import {
-  extractTopics,
-  topicPageTitle,
-  topicFileName,
-  writeTopicPage,
-  type Topic,
-  type MentionLocation as TopicMentionLocation,
-} from '../topics/index.js';
+import { topicPageTitle } from '../topics/index.js';
 import { materializeChunkEntitiesAndTopics } from '../ingestion/chunk-materializer.js';
 export {
   verifyPreservation,
@@ -42,11 +31,9 @@ export {
 import {
   structureAnalyst,
   entityExtractor,
-  relationshipExtractor,
   relationshipExtractorForChunk,
   evidenceCollector,
   pagePlanner,
-  chunkWriter,
   chunkWriterForChunk,
   critic,
   sourcePageWriter,
@@ -56,12 +43,8 @@ import {
   mergeEntityTaxonomy,
   prepareMemoryForSource,
   updateMemoryForChunk,
-  entityTopicPageWriter,
   entityCritic,
   applyEntityAudit,
-  type EntityTopicPageOutput,
-  type EntityTopicPageInputEntity,
-  type EntityTopicPageInputTopic,
 } from './agents.js';
 import {
   compactMemoryIfNeeded,
@@ -75,9 +58,6 @@ import { checkCompleteness, type CompletenessResult } from '../validation/comple
 import { CLIError } from '../errors.js';
 import {
   detectStructuralProposals,
-  detectNewPageTypes,
-  updateFolderIndexForNewPageTypes,
-  updateAgentsMdForNewPageTypes,
   applyStructuralChanges,
   folderPlacementsFromProposal,
   syncFolderPageTypes,
@@ -222,6 +202,7 @@ export async function runIngestOrchestrator(
       agentsMd,
       previousMemory,
       samplingStrategy,
+      chunks,
     ),
   );
 
@@ -285,14 +266,20 @@ export async function runIngestOrchestrator(
   let allApproved = true;
   const allCompletenessIssues: string[] = [];
 
+  // Topic pages exist only because the LLM decided they should (vision 02 §4):
+  // seed rolling memory from the PagePlanner's topic plans BEFORE the chunk
+  // loop so per-chunk materialization updates exactly the LLM-planned topics.
+  // Deterministic n-gram topic extraction must not decide page existence.
+  const extractedTopics = extractTopicsFromPagePlans(resolvedPages);
+  updateMemoryForChunk(memory, result.filePath, [], [], extractedTopics);
+
   // Per-chunk incremental flush: for each chunk we extract relationships, update
   // memory, write the document page, and update affected entity/topic pages.
   for (let chunkIndex = 0; chunkIndex < chunks.length; chunkIndex++) {
     const chunk = chunks[chunkIndex];
     const chunkEntities = chunkEntityOutputs[chunkIndex];
 
-    const chunkTopics = extractTopics(chunk.content, { max: 50 }).map((t) => ({ name: t.name, count: t.count, related: [] as string[] }));
-    updateMemoryForChunk(memory, result.filePath, chunkEntities, [], chunkTopics);
+    updateMemoryForChunk(memory, result.filePath, chunkEntities, [], []);
 
     const { relationships: chunkRelationships } = await progress.step(
       'relationship-extractor',
@@ -370,6 +357,7 @@ export async function runIngestOrchestrator(
         folderPlacements: resolvedFolderPlacements,
         pages: resolvedPages,
         reporter: progress,
+        isLastChunk: chunkIndex === chunks.length - 1,
       },
       chunkEntities,
       chunkRelationships,
@@ -415,9 +403,8 @@ export async function runIngestOrchestrator(
     config.wiki.slug,
   );
 
-  // Finalize topics from page plans and folder hierarchy in memory.
-  const extractedTopics = mergeFragmentTopics(extractTopicsFromPagePlans(resolvedPages));
-  updateMemoryForChunk(memory, result.filePath, [], [], extractedTopics);
+  // Finalize the folder hierarchy in memory (topics were seeded from the
+  // LLM page plans before the chunk loop).
   for (const folder of resolvedFolderPlacements) {
     memory.state.folderHierarchy[folder.folder] = folder;
   }
@@ -477,35 +464,6 @@ function extractTopicsFromPagePlans(
   return Array.from(topics.values()).map((t) => ({ ...t, related: Array.from(t.related) }));
 }
 
-function mergeFragmentTopics(
-  topics: { name: string; count: number; related: string[] }[],
-): { name: string; count: number; related: string[] }[] {
-  const sorted = [...topics].sort(
-    (a, b) => b.name.length - a.name.length || a.name.localeCompare(b.name),
-  );
-  const merged: { name: string; count: number; related: Set<string> }[] = [];
-  for (const topic of sorted) {
-    const target = merged.find((m) => isTopicFragment(topic.name, m.name));
-    if (target) {
-      target.count += topic.count;
-      for (const r of topic.related) target.related.add(r);
-    } else {
-      merged.push({ name: topic.name, count: topic.count, related: new Set(topic.related) });
-    }
-  }
-  return merged.map((m) => ({ ...m, related: Array.from(m.related) }));
-}
-
-function isTopicFragment(shorter: string, longer: string): boolean {
-  const sWords = shorter.toLowerCase().split(/[\s\-]+/).filter(Boolean);
-  if (sWords.length < 2) return false;
-  const lWords = longer.toLowerCase().split(/[\s\-]+/).filter(Boolean);
-  if (sWords.length >= lWords.length) return false;
-  const prefixMatch = sWords.every((w, i) => w === lWords[i]);
-  const suffixMatch = sWords.every((w, i) => w === lWords[lWords.length - sWords.length + i]);
-  return prefixMatch || suffixMatch;
-}
-
 function topicNameFromPagePlan(page: PagePlan): string {
   const lower = page.title.toLowerCase();
   if (lower.startsWith('topic:')) {
@@ -555,6 +513,8 @@ async function writeAndValidateChunk(
       agentsMd,
       memory,
       [pageUpdate],
+      chunk,
+      config,
     ),
   );
   if (criticReview.issues.length > 0) {
@@ -599,6 +559,7 @@ async function writeAndValidateChunk(
         agentsMd,
         memory,
         [pageUpdate],
+        chunk,
       ),
     );
     if (criticReview.issues.length > 0) {
@@ -609,6 +570,23 @@ async function writeAndValidateChunk(
     completenessIssues = completenessIssues.concat(retriedSchemaIssues);
   }
 
+  // Vision 07 §8: if the reprocessed output still fails the Critic's blocking
+  // checks or deterministic validation, the run aborts. Committing the chunk
+  // anyway (with the failures demoted to warnings) would put unvalidated
+  // content — e.g., unmapped citations or dropped tables — into the wiki.
+  if (
+    llmClient.isEnabled() &&
+    (criticReview.blockingIssues.length > 0 || completenessIssues.length > 0)
+  ) {
+    const details = [
+      ...criticReview.blockingIssues.map((i) => `[BLOCKING] ${i.check}: ${i.message}`),
+      ...completenessIssues.map((m) => `[VALIDATION] ${m}`),
+    ];
+    throw new CLIError(
+      `Chunk ${chunk.id} failed validation after ${maxRetries + 1} attempts; aborting instead of committing unvalidated content.\n${details.join('\n')}`,
+    );
+  }
+
   return {
     pageUpdate,
     critic: criticReview,
@@ -617,7 +595,9 @@ async function writeAndValidateChunk(
 }
 
 function buildWriterFeedback(criticReview: CriticReview, completenessIssues: string[]): string[] {
-  const feedback: string[] = [];
+  const feedback: string[] = [
+    'Fix EVERY issue below. Then re-check your entire body for: wikilinks whose target (the text before any pipe) is not an exact title from the Known pages list (forbidden — use plain text instead), and factual claims without an inline [^srcN] citation.',
+  ];
   for (const issue of criticReview.blockingIssues) {
     feedback.push(`[BLOCKING] ${issue.check}: ${issue.message}`);
   }
@@ -989,28 +969,6 @@ function inferEntityType(name: string): EntityMention['type'] {
   // most unrecognized named entities in annual reports are institutions, funds, or
   // frameworks.
   return 'organization';
-}
-
-function buildMentionSources(
-  mentions: { source: string; filePath?: string; pages: string }[],
-): { id: string; file: string; pages: string; extracted: string }[] {
-  const now = new Date().toISOString();
-  const seen = new Map<string, string>();
-  let index = 0;
-  for (const mention of mentions) {
-    if (!mention.filePath) continue;
-    if (seen.has(mention.filePath)) {
-      const existing = seen.get(mention.filePath)!;
-      seen.set(mention.filePath, `${existing}, ${mention.pages}`);
-    } else {
-      seen.set(mention.filePath, mention.pages);
-    }
-  }
-  const sources: { id: string; file: string; pages: string; extracted: string }[] = [];
-  for (const [file, pages] of seen) {
-    sources.push({ id: `src${++index}`, file, pages, extracted: now });
-  }
-  return sources;
 }
 
 function buildSourcePageInfos(

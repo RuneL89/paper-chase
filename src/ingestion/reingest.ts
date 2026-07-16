@@ -21,11 +21,6 @@ import {
   type PageState,
 } from './state.js';
 
-export interface ReingestOptions {
-  /** Skip pages that have been manually edited instead of overwriting them. */
-  skipManualEdits?: boolean;
-}
-
 export interface ReingestResult {
   affectedPages: string[];
   skippedPages: string[];
@@ -36,19 +31,19 @@ export interface ReingestResult {
 }
 
 /**
- * Run selective re-ingestion after a structural change has been approved.
+ * Run selective re-ingestion after a structural change has been applied and logged.
  *
  * The implementation is deterministic: it compares the current page states against the
- * approved folder hierarchy, moves pages whose page type now belongs in a different folder,
- * deletes pages whose page type has been removed, and warns about manual edits before
- * overwriting them. It does not re-extract unchanged PDFs.
+ * applied folder hierarchy, moves pages whose page type now belongs in a different folder,
+ * and deletes pages whose page type has been removed. Manually edited pages are always
+ * skipped and reported so human edits are never disturbed. It does not re-extract
+ * unchanged PDFs.
  */
 export async function runReingest(
   workspace: string,
   slug: string,
   config: Config,
   newFolderHierarchy?: Record<string, FolderPlan>,
-  options: ReingestOptions = {},
 ): Promise<ReingestResult> {
   const wikiDir = wikiPath(workspace, slug);
   const stateFile = statePath(wikiDir);
@@ -78,7 +73,7 @@ export async function runReingest(
     return result;
   }
 
-  const plan = buildReingestPlan(state, hierarchy, outputDir, options);
+  const plan = buildReingestPlan(state, hierarchy, outputDir);
   result.affectedPages = Array.from(plan.affectedPages);
   result.manualEditWarnings = plan.manualEditWarnings;
   result.skippedPages = Array.from(plan.pagesToSkip);
@@ -177,15 +172,12 @@ export function buildReingestPlan(
   state: IngestionState,
   hierarchy: Record<string, FolderPlan>,
   outputDir: string,
-  options: ReingestOptions = {},
 ): ReingestPlan {
   const affectedPages = new Set<string>();
   const pagesToSkip = new Set<string>();
   const manualEditWarnings: string[] = [];
 
   const typeToFolder = buildTypeToFolderMap(hierarchy);
-
-  const skipManualEdits = options.skipManualEdits !== false;
 
   for (const [pagePath, pageState] of Object.entries(state.pages || {})) {
     const fullPath = path.join(outputDir, pagePath);
@@ -207,12 +199,9 @@ export function buildReingestPlan(
       const hasManualEdits = pageState.generatedHash && pageState.generatedHash !== currentHash;
 
       if (hasManualEdits) {
-        const action = skipManualEdits ? 'skipped' : 'overwritten';
-        const warning = `Page "${pagePath}" has manual edits and will be ${action} by re-ingestion.`;
+        const warning = `Page "${pagePath}" has manual edits and will be skipped by re-ingestion.`;
         manualEditWarnings.push(warning);
-        if (skipManualEdits) {
-          pagesToSkip.add(pagePath);
-        }
+        pagesToSkip.add(pagePath);
       }
     }
   }
@@ -525,10 +514,9 @@ export function applyReingestFromProposal(
   slug: string,
   config: Config,
   proposal: StructuralProposal,
-  options?: ReingestOptions,
 ): Promise<ReingestResult> {
   const hierarchy = folderHierarchyFromProposal(workspace, slug, config, proposal);
-  return runReingest(workspace, slug, config, hierarchy, options);
+  return runReingest(workspace, slug, config, hierarchy);
 }
 
 function folderHierarchyFromProposal(

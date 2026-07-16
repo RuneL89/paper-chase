@@ -1,4 +1,4 @@
-import { readFileSync, existsSync } from 'fs';
+﻿import { readFileSync, existsSync } from 'fs';
 import path from 'path';
 import {
   type LLMConfig,
@@ -68,10 +68,16 @@ export class LLMClient {
 
   /**
    * Returns true when the LLM is configured and enabled.
-   * When false, callers should fall back to local-only processing.
+   * When false, LLM-dependent agents throw a CLIError; there is no
+   * deterministic fallback for LLM-authored content.
    */
   isEnabled(): boolean {
     return this.config.enabled;
+  }
+
+  /** Returns the configured provider name (e.g., "kimi", "anthropic", "test"). */
+  provider(): LLMConfig['provider'] {
+    return this.config.provider;
   }
 
   /**
@@ -107,7 +113,7 @@ export class LLMClient {
     try {
       if (!this.config.enabled) {
         throw new CLIError(
-          'LLM is not configured or enabled. Configure an LLM with "llm-wiki-cli configure-llm" or set provider to "test".',
+          'LLM is not configured or enabled. Configure an LLM with "llm-wiki-cli configure-llm".',
         );
       }
 
@@ -253,7 +259,7 @@ export class LLMClient {
     });
 
     if (!response.ok) {
-      throw new CLIError(`LLM request failed: ${response.status} ${await response.text()}`);
+      throw new CLIError(`LLM request failed: ${response.status} ${redactSecrets(await response.text())}`);
     }
 
     const data = (await response.json()) as {
@@ -303,7 +309,7 @@ export class LLMClient {
     });
 
     if (!response.ok) {
-      throw new CLIError(`LLM request failed: ${response.status} ${await response.text()}`);
+      throw new CLIError(`LLM request failed: ${response.status} ${redactSecrets(await response.text())}`);
     }
 
     const data = (await response.json()) as {
@@ -375,7 +381,7 @@ export class LLMClient {
     });
 
     if (!response.ok) {
-      throw new CLIError(`LLM request failed: ${response.status} ${await response.text()}`);
+      throw new CLIError(`LLM request failed: ${response.status} ${redactSecrets(await response.text())}`);
     }
 
     const data = (await response.json()) as {
@@ -681,10 +687,13 @@ function generateMockResponse(prompt: string): string {
       entities: entityNames.map((name) => ({
         name,
         body: `# Entity: ${name}\n\nA sample entity body for testing.`,
+        tags: ['sample-entity', 'test-corpus'],
       })),
       topics: topicNames.map((name) => ({
         name,
         body: `# Topic: ${name}\n\nA sample topic body for testing.`,
+        tags: ['sample-topic', 'test-corpus'],
+        related: entityNames.slice(0, 1).map((n) => `Entity: ${n}`),
       })),
     });
   }
@@ -813,11 +822,11 @@ function generateMockResponse(prompt: string): string {
 
 function parseChunkIdsFromPagePlannerPrompt(prompt: string): string[] {
   const ids: string[] = [];
-  const regex = /## Chunk boundaries\n([\s\S]*?)(?=\n## |$)/g;
+  const regex = /## Chunks to plan\n([\s\S]*?)(?=\n## |$)/g;
   let match: RegExpExecArray | null;
   while ((match = regex.exec(prompt)) !== null) {
     const block = match[1];
-    const itemRegex = /^- ([^:]+):/gm;
+    const itemRegex = /^- chunk id: (\S+)/gm;
     let item: RegExpExecArray | null;
     while ((item = itemRegex.exec(block)) !== null) {
       ids.push(item[1].trim());
@@ -965,4 +974,17 @@ function parseEntityNamesFromCriticPrompt(prompt: string): string[] {
 function detectAgentFromPrompt(prompt: string): string {
   const match = prompt.match(/You are the ([A-Za-z]+) agent/);
   return match?.[1] ?? 'unknown';
+}
+
+/**
+ * Redacts API-key-shaped tokens from provider error bodies before they are
+ * embedded in thrown error messages (which end up in run logs). Some providers
+ * echo a partially redacted key in 401 responses; run logs must never contain
+ * API keys.
+ */
+function redactSecrets(text: string): string {
+  return text
+    .replace(/sk-[A-Za-z0-9_-]{8,}/g, 'sk-***REDACTED***')
+    .replace(/(["']?(?:api[_-]?key|authorization|x-api-key)["']?\s*[:=]\s*["']?)[^"',\s}]+/gi, '$1***REDACTED***')
+    .slice(0, 2000);
 }

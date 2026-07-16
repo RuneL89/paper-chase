@@ -59,6 +59,39 @@ const isConfidence = (value: unknown): string | undefined => {
   return undefined;
 };
 
+const isNumber = (value: unknown): string | undefined => {
+  if (typeof value !== 'number' || Number.isNaN(value)) {
+    return 'must be a number';
+  }
+  return undefined;
+};
+
+// Vision 06 §3.1: every sources entry must identify the source PDF (`file`)
+// and the exact page range (`pages`). Other fields (id, extracted, sha256,
+// label) are optional.
+const isSourcesArray = (value: unknown): string | undefined => {
+  if (!Array.isArray(value)) {
+    return 'must be an array';
+  }
+  for (let i = 0; i < value.length; i++) {
+    const entry = value[i];
+    if (typeof entry !== 'object' || entry === null) {
+      return `entry ${i + 1} must be an object with "file" and "pages"`;
+    }
+    const record = entry as Record<string, unknown>;
+    if (typeof record.file !== 'string' || record.file.trim() === '') {
+      return `entry ${i + 1} is missing a non-empty "file"`;
+    }
+    if (
+      (typeof record.pages !== 'string' || record.pages.trim() === '') &&
+      typeof record.pages !== 'number'
+    ) {
+      return `entry ${i + 1} is missing "pages"`;
+    }
+  }
+  return undefined;
+};
+
 const isWikiStatus = (value: unknown): string | undefined => {
   const allowed: WikiStatus[] = ['initialized', 'sampled', 'ready', 'draft'];
   if (typeof value !== 'string' || !allowed.includes(value as WikiStatus)) {
@@ -96,7 +129,7 @@ const schemas: PageSchema[] = [
       { name: 'title', required: true, validate: isNonEmptyString },
       { name: 'type', required: true, validate: isNonEmptyString },
       { name: 'tags', required: true, validate: isArray },
-      { name: 'sources', required: true, validate: isArray },
+      { name: 'sources', required: true, validate: isSourcesArray },
       { name: 'confidence', required: true, validate: isConfidence },
       { name: 'wiki', required: true, validate: isNonEmptyString },
       { name: 'created', required: true, validate: isValidDate },
@@ -115,6 +148,7 @@ const schemas: PageSchema[] = [
       { name: 'warnings', required: true, validate: isArray },
       { name: 'wiki', required: true, validate: isNonEmptyString },
       { name: 'created', required: true, validate: isValidDate },
+      { name: 'updated', required: true, validate: isValidDate },
       { name: 'label', required: false, validate: isNonEmptyString },
     ],
   },
@@ -127,6 +161,7 @@ const schemas: PageSchema[] = [
       { name: 'related', required: true, validate: isArray },
       { name: 'wiki', required: true, validate: isNonEmptyString },
       { name: 'created', required: true, validate: isValidDate },
+      { name: 'updated', required: true, validate: isValidDate },
     ],
   },
   {
@@ -135,9 +170,11 @@ const schemas: PageSchema[] = [
       { name: 'title', required: true, validate: isNonEmptyString },
       { name: 'type', required: true, validate: isNonEmptyString },
       { name: 'tags', required: true, validate: isArray },
-      { name: 'mentions', required: true, validate: isArray },
+      // Vision 05 §6.1: `mentions` is a count (e.g., `mentions: 23`).
+      { name: 'mentions', required: true, validate: isNumber },
       { name: 'wiki', required: true, validate: isNonEmptyString },
       { name: 'created', required: true, validate: isValidDate },
+      { name: 'updated', required: true, validate: isValidDate },
     ],
   },
   {
@@ -150,8 +187,20 @@ const schemas: PageSchema[] = [
       { name: 'raw_fragment', required: true, validate: isNonEmptyString },
       { name: 'wiki', required: true, validate: isNonEmptyString },
       { name: 'created', required: true, validate: isValidDate },
+      { name: 'updated', required: true, validate: isValidDate },
     ],
   },
+];
+
+// Vision 05 §2: the universal minimum for every page, regardless of type, is
+// `title`, `type`, and `updated`. Pages of LLM-created types are validated
+// against this minimum; the type itself must be declared in the governing
+// folder-level index.md contract (checked by lint, which has filesystem
+// context), not rejected here.
+const universalMinimumFields: FieldSchema[] = [
+  { name: 'title', required: true, validate: isNonEmptyString },
+  { name: 'type', required: true, validate: isNonEmptyString },
+  { name: 'updated', required: true, validate: isValidDate },
 ];
 
 const schemaByType = new Map(schemas.map((s) => [s.type, s]));
@@ -164,26 +213,28 @@ const knownPageTypes = new Set(schemas.map((s) => s.type));
  */
 export function validateFrontmatter(data: Record<string, unknown>): ValidationResult {
   const type = String(data.type ?? '');
-  const schema = schemaByType.get(type);
 
   const issues: ValidationIssue[] = [];
 
-  if (!schema) {
-    if (type === '') {
-      issues.push({ field: 'type', message: 'missing page type' });
-    } else {
-      issues.push({ field: 'type', message: `unknown page type "${type}"` });
-    }
-  } else {
-    for (const field of schema.fields) {
-      const value = data[field.name];
-      if (field.required && (value === undefined || value === null || value === '')) {
-        issues.push({ field: field.name, message: `missing required field` });
-      } else if (value !== undefined && value !== null && field.validate) {
-        const error = field.validate(value);
-        if (error) {
-          issues.push({ field: field.name, message: error });
-        }
+  if (type === '') {
+    issues.push({ field: 'type', message: 'missing page type' });
+    return { valid: false, type, issues };
+  }
+
+  // The page-type taxonomy is open (vision 05 §1): the LLM may create new
+  // types. Known default types get their full schema; unknown types are
+  // validated against the universal minimum instead of being rejected.
+  const schema = schemaByType.get(type);
+  const fields = schema ? schema.fields : universalMinimumFields;
+
+  for (const field of fields) {
+    const value = data[field.name];
+    if (field.required && (value === undefined || value === null || value === '')) {
+      issues.push({ field: field.name, message: `missing required field` });
+    } else if (value !== undefined && value !== null && field.validate) {
+      const error = field.validate(value);
+      if (error) {
+        issues.push({ field: field.name, message: error });
       }
     }
   }

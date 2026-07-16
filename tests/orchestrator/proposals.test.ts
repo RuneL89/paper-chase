@@ -6,7 +6,6 @@ import matter from 'gray-matter';
 import { loadState, statePath } from '../../src/ingestion/state.js';
 import {
   detectStructuralProposals,
-  isSimpleProposal,
   writeProposalFile,
   parseProposalMarkdown,
   applyProposal,
@@ -80,15 +79,15 @@ describe('proposals', () => {
     expect(detectStructuralProposals({}, current)).toHaveLength(0);
   });
 
-  it('classifies a single new folder as simple', () => {
+  it('classifies a single new folder as new-folder', () => {
     const proposal = detectStructuralProposals(
       { documents: makeFolderPlan('documents', 'Documents') },
       [makeFolderPlan('documents', 'Documents'), makeFolderPlan('timeline', 'Timeline')],
     )[0];
-    expect(isSimpleProposal(proposal)).toBe(true);
+    expect(proposal.type).toBe('new-folder');
   });
 
-  it('classifies a restructure as not simple', () => {
+  it('classifies multiple new folders as a restructure', () => {
     const proposal = detectStructuralProposals(
       { documents: makeFolderPlan('documents', 'Documents') },
       [
@@ -97,7 +96,7 @@ describe('proposals', () => {
         makeFolderPlan('cases', 'Cases'),
       ],
     )[0];
-    expect(isSimpleProposal(proposal)).toBe(false);
+    expect(proposal.type).toBe('restructure');
   });
 
   it('writes and parses a proposal file with applied status', () => {
@@ -148,8 +147,8 @@ describe('proposals', () => {
       },
     };
 
-    const { approved } = applyProposal(workspace, slug, filePath, makeConfig(slug), state, memory);
-    expect(approved).toBe(true);
+    const { proposal: appliedProposal } = applyProposal(workspace, slug, filePath, makeConfig(slug), state, memory);
+    expect(appliedProposal.newFolderPlans[0].folder).toBe('timeline');
 
     const folderIndexPath = path.join(wikiDir, 'timeline', 'index.md');
     expect(existsSync(folderIndexPath)).toBe(true);
@@ -190,8 +189,8 @@ describe('proposals', () => {
       },
     };
 
-    const { approved } = applyProposal(workspace, slug, filePath, makeConfig(slug), state, memory);
-    expect(approved).toBe(true);
+    const { proposal: appliedProposal } = applyProposal(workspace, slug, filePath, makeConfig(slug), state, memory);
+    expect(appliedProposal).toBeDefined();
     expect(existsSync(filePath.replace('-structural-change.md', '-structural-change-applied.md'))).toBe(true);
   });
 

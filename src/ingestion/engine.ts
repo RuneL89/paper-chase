@@ -12,7 +12,6 @@ import { runIngestOrchestrator, writeIngestFinalOutput, readAgentsMd, createEmpt
 import { chunkingPlanner } from '../orchestrator/agents.js';
 import {
   detectNewPageTypes,
-  updateFolderIndexForNewPageTypes,
   updateAgentsMdForNewPageTypes,
 } from '../orchestrator/proposals.js';
 import {
@@ -188,6 +187,7 @@ export async function runIngestion(
             sha256,
             mtime: stats.mtimeMs,
             outcome: failure,
+            rawPageIds: [rawPageId],
             sourcePageId: '',
             entities: {},
             topics: {},
@@ -335,8 +335,16 @@ export async function runIngestion(
   result.proposals = allProposals;
 
   // Persist per-page metadata so selective re-ingestion can compare against the
-  // last generated version and detect manual edits.
-  refreshPageState(state, wikiDir);
+  // last generated version and detect manual edits. Only pages the system wrote
+  // in this run may be re-baselined; manually edited pages keep their previous
+  // generated hash so the conflict stays detectable across runs.
+  const writtenThisRun = new Set<string>();
+  for (const source of processed) {
+    for (const docPage of source.documentPageIds ?? []) writtenThisRun.add(docPage);
+    for (const rawPage of source.rawPageIds ?? []) writtenThisRun.add(rawPage);
+    if (source.sourcePageId) writtenThisRun.add(source.sourcePageId);
+  }
+  refreshPageState(state, wikiDir, writtenThisRun);
 
   // Dual documentation: new page types inside existing folders are auto-approved,
   // but must be documented in both the folder-level index.md and the wiki AGENTS.md.

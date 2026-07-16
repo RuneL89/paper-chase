@@ -108,7 +108,7 @@ describe('reingest', () => {
     const hierarchy: Record<string, FolderPlan> = {
       sources: makeFolderPlan('sources', 'Sources'),
     };
-    const plan = buildReingestPlan(state, hierarchy, wikiDir, {});
+    const plan = buildReingestPlan(state, hierarchy, wikiDir);
     expect(plan.affectedPages.has('documents/old.md')).toBe(true);
   });
 
@@ -123,7 +123,7 @@ describe('reingest', () => {
     const hierarchy: Record<string, FolderPlan> = {
       documents: makeFolderPlan('documents', 'Documents', ['document']),
     };
-    const plan = buildReingestPlan(state, hierarchy, wikiDir, {});
+    const plan = buildReingestPlan(state, hierarchy, wikiDir);
     expect(plan.affectedPages.has('documents/legacy.md')).toBe(true);
   });
 
@@ -139,7 +139,7 @@ describe('reingest', () => {
       documents: makeFolderPlan('documents', 'Documents', ['document']),
       timeline: makeFolderPlan('timeline', 'Timeline', ['timeline']),
     };
-    const plan = buildReingestPlan(state, hierarchy, wikiDir, {});
+    const plan = buildReingestPlan(state, hierarchy, wikiDir);
     expect(plan.affectedPages.has('documents/timeline.md')).toBe(true);
   });
 
@@ -155,11 +155,11 @@ describe('reingest', () => {
       documents: makeFolderPlan('documents', 'Documents', ['document']),
       timeline: makeFolderPlan('timeline', 'Timeline', ['timeline']),
     };
-    const plan = buildReingestPlan(state, hierarchy, wikiDir, {});
+    const plan = buildReingestPlan(state, hierarchy, wikiDir);
     expect(plan.affectedPages.has('documents/unchanged.md')).toBe(false);
   });
 
-  it('buildReingestPlan detects manual edits and skips them by default', () => {
+  it('buildReingestPlan detects manual edits and always skips them', () => {
     writePage(wikiDir, 'documents/timeline.md', 'timeline');
     const originalContent = readFileSync(path.join(wikiDir, 'documents/timeline.md'), 'utf-8');
     const pages: Record<string, PageState> = {
@@ -177,15 +177,11 @@ describe('reingest', () => {
       timeline: makeFolderPlan('timeline', 'Timeline', ['timeline']),
     };
 
-    const plan = buildReingestPlan(state, hierarchy, wikiDir, {});
+    const plan = buildReingestPlan(state, hierarchy, wikiDir);
     expect(plan.affectedPages.has('documents/timeline.md')).toBe(true);
     expect(plan.manualEditWarnings.length).toBe(1);
     expect(plan.manualEditWarnings[0]).toContain('skipped');
     expect(plan.pagesToSkip.has('documents/timeline.md')).toBe(true);
-
-    const overwritePlan = buildReingestPlan(state, hierarchy, wikiDir, { skipManualEdits: false });
-    expect(overwritePlan.pagesToSkip.has('documents/timeline.md')).toBe(false);
-    expect(overwritePlan.manualEditWarnings[0]).toContain('overwritten');
   });
 
   it('runReingest moves an affected page to the new folder and preserves LLM-authored content', async () => {
@@ -249,7 +245,7 @@ describe('reingest', () => {
       timeline: makeFolderPlan('timeline', 'Timeline', ['timeline']),
     };
 
-    const result = await runReingest(workspace, 'acme', config, hierarchy, { skipManualEdits: false });
+    const result = await runReingest(workspace, 'acme', config, hierarchy);
     expect(result.affectedPages).toContain('documents/timeline.md');
     expect(result.pagesMoved).not.toContain('documents/timeline.md -> timeline/timeline.md');
     expect(result.skippedPages).toContain('documents/timeline.md');
