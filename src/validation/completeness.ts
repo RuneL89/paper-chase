@@ -107,7 +107,11 @@ export function checkCompleteness(
     const tableMarkdown = table.markdown?.trim();
     if (!tableMarkdown) continue;
     const header = extractTableHeaderRow(tableMarkdown);
-    if (header && !bodyOriginal.includes(header) && !bodyOriginal.includes(normalizeText(tableMarkdown))) {
+    // Compare normalized-to-normalized: the header is whitespace-collapsed, so
+    // it must be matched against the normalized body, not the raw body —
+    // otherwise tables rendered with different pipe spacing false-positive as
+    // "not preserved".
+    if (header && !bodyLower.includes(header) && !bodyLower.includes(normalizeText(tableMarkdown)) && !isRepresented(header, bodyLower)) {
       missing.push({
         kind: 'table',
         message: 'Table from the extracted chunk is not preserved in the markdown body',

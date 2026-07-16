@@ -321,7 +321,7 @@ describe('pagePlanner', () => {
     ).rejects.toThrow('LLM is required for page planning');
   });
 
-  it('TAC-010: parses LLM page plan and normalizes topic related links', async () => {
+  it('TAC-010: parses LLM page plan and preserves the LLM-authored related list verbatim', async () => {
     const chunk = makeChunkWithContent('Acme Corp reported record earnings.');
     const entities = [
       { name: 'Acme Corp', canonical: 'acme-corp', aliases: [], type: 'organization' as const, count: 1, mentions: [], confidence: 0.9 },
@@ -367,8 +367,9 @@ describe('pagePlanner', () => {
     );
     const topicPage = result.pages.find((p) => p.pageType === 'topic');
     expect(topicPage).toBeDefined();
-    expect(topicPage?.related.length).toBeGreaterThan(0);
-    expect(topicPage?.related[0]).toContain('acme-corp');
+    // `related` is LLM-authored plan metadata; deterministic code must not
+    // fabricate entries when the LLM returns an empty list (vision 05 §7.1).
+    expect(topicPage?.related).toEqual([]);
   });
 });
 

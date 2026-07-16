@@ -86,8 +86,8 @@ describe('TAC-001: entity slug collisions are resolved with incremental suffixes
       expect(file2).toBe('john-smith-1.md');
       expect(file1).not.toBe(file2);
 
-      writeEntityPage(path.join(tempDir, file1), entity1, config, mentions, undefined, '# Entity: John Smith');
-      writeEntityPage(path.join(tempDir, file2), entity2, config, mentions, undefined, '# Entity: John-Smith');
+      writeEntityPage(path.join(tempDir, file1), entity1, config, mentions, { tags: ['person', 'sample'] }, '# Entity: John Smith');
+      writeEntityPage(path.join(tempDir, file2), entity2, config, mentions, { tags: ['organization', 'sample'] }, '# Entity: John-Smith');
 
       const content1 = matter(readFileSync(path.join(tempDir, file1), 'utf-8'));
       const content2 = matter(readFileSync(path.join(tempDir, file2), 'utf-8'));

@@ -23,7 +23,7 @@ Return ONLY a JSON object with this exact shape:
 
 - `approvedEntities` must contain the exact `name` strings of entities you accept. Do not rename or re-case them.
 - `rejectedEntities` must list every rejected name with a one-sentence reason.
-- `issues` is optional. Use it for systemic concerns (e.g., many generic terms, missing descriptions, possible duplicates). Each issue must include `type`, `message`, and `severity`.
+- `issues` may be an empty array when there are no systemic concerns, but always include the field. Use it for systemic concerns (e.g., many generic terms, missing descriptions, possible duplicates). Each issue must include `type`, `message`, and `severity`.
 
 ## What counts as a named entity
 

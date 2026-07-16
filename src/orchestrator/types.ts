@@ -139,7 +139,13 @@ export interface StructuralProposal {
   newFolderPlans: FolderPlan[];
   renamedFolders?: { from: string; to: string; title: string; description: string; pageTypes: string[]; children: string[] }[];
   movedFolders?: { from: string; to: string; title: string; description: string; pageTypes: string[]; children: string[] }[];
-  /** Set to true when the proposal is approved and applied during an ingest run. */
+  /**
+   * Folders present in the previous hierarchy but absent from the latest plan.
+   * Recorded for review only: folders are retained on disk, never removed by
+   * inference from omission.
+   */
+  removedFolders?: string[];
+  /** Set to true when the structural change has been applied during an ingest run. */
   applied?: boolean;
 }
 

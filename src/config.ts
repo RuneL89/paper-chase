@@ -81,7 +81,12 @@ export const defaultConfig: Config = {
     chunking_strategy_md: 'chunking-strategy.md',
   },
   chunking: {
-    max_chunk_size: 100000,
+    // Vision Principle 5 (context-cautious chunking): err on the side of more,
+    // smaller chunks. The ChunkWriter must reproduce the chunk's full
+    // extracted detail verbatim inside a JSON body; live-run evidence shows
+    // verbatim-preservation reliability degrades on large chunks, so chunks
+    // are kept small (15k chars ≈ 3.75k tokens of content plus synthesis).
+    max_chunk_size: 15000,
     min_chunk_size: 1000,
     split_boundary: 'page',
     never_split: ['table', 'figure_with_caption', 'multi_page_footnote'],

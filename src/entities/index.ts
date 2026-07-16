@@ -516,6 +516,8 @@ export interface EntityWriteOptions {
   description?: string;
   relationships?: { predicate: string; object: string; evidence: string; pages: string }[];
   sources?: { id: string; file: string; pages: string; extracted: string }[];
+  /** LLM-authored corpus-specific tags. Required; deterministic code never fabricates tags. */
+  tags?: string[];
 }
 
 export function writeEntityPage(
@@ -532,21 +534,26 @@ export function writeEntityPage(
   const now = new Date().toISOString();
   const created = readCreatedTimestamp(filePath) ?? now;
 
+  if (!body || body.trim().length === 0) {
+    throw new CLIError('LLM body is required to write an entity page.');
+  }
+  // Tags are synthesized page frontmatter (vision 05 §6.1); the LLM is their
+  // sole author. Deterministic code must not substitute e.g. [type, 'entity'].
+  if (!options?.tags || options.tags.length === 0) {
+    throw new CLIError('LLM-authored tags are required to write an entity page.');
+  }
+
   const frontmatter: Record<string, unknown> = {
     title,
     created,
     updated: now,
     type: 'entity',
     wiki: config.wiki.slug,
-    tags: [entity.type, 'entity'],
+    tags: options.tags,
     mentions: entity.count,
   };
   if (options?.sources && options.sources.length > 0) {
     frontmatter.sources = options.sources;
-  }
-
-  if (!body || body.trim().length === 0) {
-    throw new CLIError('LLM body is required to write an entity page.');
   }
 
   writeFileSync(filePath, matter.stringify(body, frontmatter));

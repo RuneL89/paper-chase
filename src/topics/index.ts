@@ -231,10 +231,11 @@ export function writeTopicPage(
   filePath: string,
   topic: Topic,
   config: Config,
-  mentions: MentionLocation[],
+  _mentions: MentionLocation[],
   related?: string[],
   body?: string,
   sources?: { id: string; file: string; pages: string; extracted: string }[],
+  tags?: string[],
 ): void {
   mkdirSync(path.dirname(filePath), { recursive: true });
 
@@ -242,21 +243,30 @@ export function writeTopicPage(
   const now = new Date().toISOString();
   const created = readCreatedTimestamp(filePath) ?? now;
 
+  if (!body?.trim()) {
+    throw new CLIError('LLM body is required to write a topic page.');
+  }
+  // Tags and related are synthesized page frontmatter (vision 05 §7.1); the
+  // LLM is their sole author. Deterministic code must not substitute
+  // ['topic', 'theme'] or derive related from mention sources.
+  if (!tags || tags.length === 0) {
+    throw new CLIError('LLM-authored tags are required to write a topic page.');
+  }
+  if (!Array.isArray(related)) {
+    throw new CLIError('An LLM-authored related list is required to write a topic page.');
+  }
+
   const frontmatter: Record<string, unknown> = {
     title,
     created,
     updated: now,
     type: 'topic',
     wiki: config.wiki.slug,
-    tags: ['topic', 'theme'],
-    related: related ?? mentions.map((m) => m.source),
+    tags,
+    related,
   };
   if (sources && sources.length > 0) {
     frontmatter.sources = sources;
-  }
-
-  if (!body?.trim()) {
-    throw new CLIError('LLM body is required to write a topic page.');
   }
 
   writeFileSync(filePath, matter.stringify(body.trim(), frontmatter));

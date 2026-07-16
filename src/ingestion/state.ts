@@ -149,15 +149,32 @@ export function normalizeRelationshipsForEntity(
   }));
 }
 
+/**
+ * Refresh per-page state after a run.
+ *
+ * Preservation-first semantics: the stored `generatedHash` is the baseline for
+ * manual-edit detection, so it may only be re-baselined for pages the system
+ * actually wrote in this run (`writtenPaths`). A page whose on-disk content
+ * differs from its stored hash and that was NOT written this run is a manual
+ * edit; its old baseline is preserved so the conflict keeps being detected and
+ * reported on every subsequent run instead of being silently absorbed.
+ *
+ * Root-level files (index.md, AGENTS.md, chunking-strategy.md) are never
+ * tracked: they are contracts/guides maintained by the system, not content
+ * pages, and tracking them would make re-ingestion treat them as misplaced
+ * content (moving or deleting them).
+ */
 export function refreshPageState(
   state: IngestionState,
   wikiDir: string,
+  writtenPaths?: Set<string>,
 ): void {
   if (!existsSync(wikiDir)) {
     return;
   }
 
-  const pages: Record<string, PageState> = { ...state.pages };
+  const previous = state.pages ?? {};
+  const pages: Record<string, PageState> = {};
 
   function walk(dir: string): void {
     const entries = readdirSync(dir);
@@ -165,21 +182,36 @@ export function refreshPageState(
       const full = path.join(dir, entry);
       const stat = statSync(full);
       if (stat.isDirectory()) {
+        if (entry === '.state' || entry === 'lint') continue;
         walk(full);
       } else if (entry.endsWith('.md')) {
         const relative = toRelativePathFromDir(wikiDir, full);
-        if (relative === 'index.md' || relative.endsWith('/index.md')) {
+        if (!relative.includes('/')) {
+          // Root-level contract/guide files are not content pages.
+          continue;
+        }
+        if (relative.endsWith('/index.md')) {
           continue;
         }
         try {
           const content = readFileSync(full, 'utf-8');
           const parsed = matter(content);
-          const folder = relative.includes('/') ? path.dirname(relative).replace(/\\/g, '/') : '';
+          const folder = path.dirname(relative).replace(/\\/g, '/');
+          const currentHash = hashPageContent(content);
+          const prior = previous[relative];
+
+          if (prior && prior.generatedHash !== currentHash && !writtenPaths?.has(relative)) {
+            // Manual edit: keep the last generated baseline so the conflict
+            // remains detectable; never adopt the human's content as "generated".
+            pages[relative] = prior;
+            continue;
+          }
+
           pages[relative] = {
             folder,
             pageType: String(parsed.data.type || 'document'),
-            generatedHash: hashPageContent(content),
-            updatedAt: new Date().toISOString(),
+            generatedHash: currentHash,
+            updatedAt: prior && prior.generatedHash === currentHash ? prior.updatedAt : new Date().toISOString(),
           };
         } catch {
           // Skip malformed files.
@@ -190,6 +222,22 @@ export function refreshPageState(
 
   walk(wikiDir);
   state.pages = pages;
+}
+
+/**
+ * Re-key a page's stored state when the file is moved (e.g., legacy flat
+ * entity pages migrating into typed sub-folders), preserving the generated
+ * hash so manual-edit detection follows the page to its new path.
+ */
+export function movePageState(state: IngestionState, oldRelativePath: string, newRelativePath: string): void {
+  const entry = state.pages?.[oldRelativePath];
+  if (!entry) return;
+  state.pages = state.pages ?? {};
+  state.pages[newRelativePath] = {
+    ...entry,
+    folder: path.dirname(newRelativePath).replace(/\\/g, '/'),
+  };
+  delete state.pages[oldRelativePath];
 }
 
 export function fileChanged(

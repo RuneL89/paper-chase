@@ -22,7 +22,8 @@
     "ink-select-input": "^6.2.0",
     "ink-spinner": "^5.0.0",
     "ink-text-input": "^6.0.0",
-    "pdfjs-dist": "^4.10.38"
+    "pdfjs-dist": "^4.10.38",
+    "undici": "^8.7.0"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",

@@ -39,14 +39,22 @@ describe('frontmatter schema validation', () => {
     expect(result.issues.some((i) => i.field === 'confidence')).toBe(true);
   });
 
-  it('TAC-004: rejects unknown page type', () => {
+  it('TAC-004: accepts an LLM-created page type against the universal minimum', () => {
+    // The page-type taxonomy is open (vision 05 §1): unknown types are
+    // validated against title/type/updated instead of being rejected.
     const result = validateFrontmatter({
       title: 'Unknown',
-      type: 'unknown-type',
+      type: 'timeline',
       updated: '2026-07-08T00:00:00Z',
     });
-    expect(result.valid).toBe(false);
-    expect(result.issues.some((i) => i.field === 'type')).toBe(true);
+    expect(result.valid).toBe(true);
+
+    const missingUpdated = validateFrontmatter({
+      title: 'Unknown',
+      type: 'timeline',
+    });
+    expect(missingUpdated.valid).toBe(false);
+    expect(missingUpdated.issues.some((i) => i.field === 'updated')).toBe(true);
   });
 
   it('TAC-005: rejects missing type', () => {

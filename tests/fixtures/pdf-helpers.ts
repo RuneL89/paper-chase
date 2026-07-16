@@ -1,14 +1,20 @@
 import { PDFDocument, PDFPage, rgb, StandardFonts } from 'pdf-lib';
-import { writeFileSync } from 'fs';
+import { writeFileSync, mkdtempSync } from 'fs';
 import path from 'path';
+import os from 'os';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const FIXTURES_DIR = __dirname;
 
+// Generated PDFs go to a per-run temp directory so the committed fixtures in
+// tests/fixtures/ are never overwritten (pdf-lib output is not byte-stable,
+// which would dirty the working tree on every test run).
+const GENERATED_DIR = mkdtempSync(path.join(os.tmpdir(), 'wiki-generated-fixtures-'));
+
 export function fixturePath(name: string): string {
-  return path.join(FIXTURES_DIR, name);
+  return path.join(GENERATED_DIR, name);
 }
 
 export async function createTextPdf(

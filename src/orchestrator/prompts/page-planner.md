@@ -49,6 +49,11 @@ Return ONLY a JSON object with this exact shape:
         "slug": "companies",
         "title": "Companies",
         "description": "Corporate and organizational entities."
+      },
+      {
+        "slug": "people",
+        "title": "People",
+        "description": "Individuals mentioned in the corpus."
       }
     ],
     "assignments": {
@@ -75,8 +80,8 @@ Return ONLY a JSON object with this exact shape:
 - For every topic page plan, include `related` links to supporting documents and entities.
 - `folder` must be one of the existing default folders unless a structural change is required.
 - `fileName` must be kebab-case and end in `.md`.
-- `pageType` must be one of the allowed values: `document`, `source`, `topic`, `entity`, `raw`, `index`.
-- If the corpus cannot fit the existing folder hierarchy, raise a structural change proposal by including a new folder in `folderPlacements`.
+- `pageType` is usually one of the defaults: `document`, `source`, `topic`, `entity`, `raw`, `index`. You may introduce a new page type (e.g., `timeline`, `claim`, `transaction`) when the corpus demands it; new types are documented automatically in the folder contract and AGENTS.md.
+- If the corpus cannot fit the existing folder hierarchy, include the new folder in `folderPlacements`; the change is applied autonomously and logged for after-the-fact human review.
 - Respect the wiki conventions in AGENTS.md.
 - **Plan at least 2–3 topic pages for the most important concepts, systems, databases, tools, or themes** in the corpus, even if they only appear once. If the corpus is too short or too generic to identify meaningful topics, it is acceptable to plan fewer, but never plan zero topics unless the corpus truly has no concepts.
 - Use title-case topic names with the prefix `Topic: ` (e.g., `Topic: PubMed`, `Topic: Electronic Data Submission`, `Topic: Falls Prevention`).
@@ -86,4 +91,4 @@ Return ONLY a JSON object with this exact shape:
 - If the corpus is small and the taxonomy is not obvious, fall back to the built-in type-based sub-folders: `people`, `organizations`, `locations`, `cases`, `events`, `products`.
 - **Do not plan pages for generic document sections or headings** (e.g., "Introduction", "Methods", "Results") unless they represent a genuine named entity or recurring theme.
 - **Review your final plan before returning it.** Ensure every topic page has at least one `related` link to a supporting document or entity page. Ensure no topic or entity page is just a heading or descriptive phrase.
-- **Plan at least one document page** for each supplied chunk if no better mapping exists.
+- **Plan exactly one document page for EACH chunk** listed in the "Chunks to plan" section. The document page `fileName` must be exactly the chunk id plus `.md` (shown per chunk) and its `folder` must be `documents`. A plan that misses a chunk is rejected.

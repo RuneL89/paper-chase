@@ -94,6 +94,7 @@ export async function runSampleOrchestrator(
       agentsMd,
       initialMemory,
       samplingStrategy,
+      chunks,
     ),
   );
 
@@ -137,7 +138,7 @@ export async function runSampleOrchestrator(
   const criticReview = await progress.step(
     'critic',
     'Reviewing drafted pages',
-    () => critic(result, plannerOutput.pages, folderPlacements, llmClient, agentsMd, memory, pageUpdates),
+    () => critic(result, plannerOutput.pages, folderPlacements, llmClient, agentsMd, memory, pageUpdates, undefined, config),
   );
   if (criticReview.issues.length > 0) {
     progress.criticIssues(criticReview.issues);

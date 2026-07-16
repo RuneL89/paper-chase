@@ -32,11 +32,11 @@ export type LintResult = LintReport;
 
 const REQUIRED_FRONTMATTER: Record<string, string[]> = {
   index: ['title', 'type', 'updated', 'wiki', 'created', 'sources'],
-  document: ['title', 'type', 'tags', 'sources', 'confidence', 'wiki', 'created'],
-  source: ['title', 'type', 'file', 'pages', 'sha256', 'ingested', 'warnings', 'wiki', 'created'],
-  topic: ['title', 'type', 'tags', 'related', 'wiki', 'created'],
-  entity: ['title', 'type', 'tags', 'mentions', 'wiki', 'created'],
-  raw: ['title', 'type', 'source', 'reason', 'raw_fragment', 'wiki', 'created'],
+  document: ['title', 'type', 'tags', 'sources', 'confidence', 'wiki', 'created', 'updated'],
+  source: ['title', 'type', 'file', 'pages', 'sha256', 'ingested', 'warnings', 'wiki', 'created', 'updated'],
+  topic: ['title', 'type', 'tags', 'related', 'wiki', 'created', 'updated'],
+  entity: ['title', 'type', 'tags', 'mentions', 'wiki', 'created', 'updated'],
+  raw: ['title', 'type', 'source', 'reason', 'raw_fragment', 'wiki', 'created', 'updated'],
 };
 
 const CONTENT_FOLDERS = ['documents', 'sources', 'topics', 'entities', 'raw'];

@@ -58,7 +58,7 @@ export async function sampleCommand(
   const llmClient = createLLMClient(workspace, undefined, reporter);
   if (!llmClient.isEnabled()) {
     throw new CLIError(
-      'LLM is not configured or enabled. Configure an LLM with "llm-wiki-cli configure-llm" or set provider to "test".',
+      'LLM is not configured or enabled. Configure an LLM with "llm-wiki-cli configure-llm".',
     );
   }
 
