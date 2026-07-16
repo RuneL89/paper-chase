@@ -6,6 +6,7 @@
 ## Project
 
 * This folder is the project root for **LLM Wiki CLI v2.0** — a CLI that turns PDFs into citation-backed markdown wikis
+* Canonical remote: `https://github.com/RuneL89/llm-wiki-cli` — `main` carries v2.0 history; the previous v1 codebase is archived on branch `archive/v1-main`
 * Canonical vision documents live in `Project Vision/`; the phased implementation plan lives in `Implementation Plan/`
 * All implementation artifacts (`src/`, `tests/`, `test-pdfs/`, `templates/`, `prompts/`, `wikis/`, `package.json`, etc.) are created directly in this project root. Never create a separate project directory (e.g. `llm-wiki-cli-v2/`) here or elsewhere
 
