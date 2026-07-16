@@ -2,17 +2,54 @@
   "phase": "00",
   "goal": "All 8 technical gates in Implementation Plan/PHASE_00_infrastructure.md pass (npm test is green), all 6 UAT steps are documented with exact commands and expected output, test-pdfs/golden-master.pdf and templates/AGENTS.md exist and are committed to git, the TUI renders and navigates between screens, no init/ingest/agent implementation code exists (infrastructure only), .state/compliance-log.md shows no unresolved contradictions, and total LLM cost for the phase is $0 (one de-minimis smoke call for Gate 0.4 allowed by user decision 2026-07-17).",
   "goalNote": "The /goal skill is not installed in this environment; the goal is tracked here on disk and re-checked after every turn (manual loop).",
-  "status": "in-progress",
-  "lastAction": "User decided: LLM provider = Anthropic (ANTHROPIC_API_KEY); one smoke call allowed for Gate 0.4. Invoking Implementer sub-agent.",
+  "status": "implemented-awaiting-verification",
+  "lastAction": "Implementer sub-agent completed Phase 0: all source, tests, golden master PDF, and template created; npm test green (9 passed, 1 skipped); committed as git commit 6c0f4e5 'Phase 0: infrastructure'. No live LLM call was made; Gate 0.4 test self-skips without ANTHROPIC_API_KEY.",
   "userDecisions": {
-    "llmProvider": "Anthropic Messages API, key from ANTHROPIC_API_KEY env var",
-    "gate04": "One live smoke call (~$0.001) allowed as de-minimis exception to $0 budget"
+    "llmProvider": "Anthropic Messages API (https://api.anthropic.com/v1/messages, x-api-key header, anthropic-version 2023-06-01), key from ANTHROPIC_API_KEY env var with hand-rolled .env fallback parser (no dotenv); model from ANTHROPIC_MODEL, default claude-haiku-4-5-20251001; cost logged from response usage with Haiku 4.5 price table ($1/MTok input, $5/MTok output) overridable via ANTHROPIC_INPUT_PRICE_PER_MTOK / ANTHROPIC_OUTPUT_PRICE_PER_MTOK",
+    "gate04": "One live smoke call (~$0.001) allowed as de-minimis exception to $0 budget; Implementer did NOT make the call (no key in environment). Test committed as test.skipIf(!process.env.ANTHROPIC_API_KEY) and will run when the user provides a key."
   },
-  "gatesPassed": [],
+  "gatesPassed": ["0.1", "0.2", "0.3", "0.5", "0.6", "0.7", "0.8"],
   "gatesFailed": [],
-  "gatesPending": ["0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8"],
+  "gatesPending": ["0.4"],
+  "gateStatus": {
+    "0.1": "passed - extractText returns all golden master strings (John Smith, Acme Corp, March 15, 2024, $42.5 million, Board Members)",
+    "0.2": "passed - page range 1-1 contains John Smith and not Board Members",
+    "0.3": "passed - sha256 matches certutil -hashfile SHA256 reference (shasum unavailable on Windows; see deviations)",
+    "0.4": "pending-key - live Anthropic call test committed as self-skipping (test.skipIf(!process.env.ANTHROPIC_API_KEY)); run with the key set to execute",
+    "0.5": "passed - { program } named export from src/cli.ts has init, ingest, test commands; parse guarded so import does not hang",
+    "0.6": "passed - TUI renders and unmounts without crashing",
+    "0.7": "passed - menu shows all 5 options",
+    "0.8": "passed - restructured (see deviations): fake-TTY stdin drives real Ink input pipeline, Enter on first item shows init screen; plus pure mapping test and direct screen renders"
+  },
+  "testResults": {
+    "command": "npm test",
+    "testFiles": "2 passed (2)",
+    "tests": "9 passed, 1 skipped (Gate 0.4 self-skipped), 0 failed (10 total)",
+    "tsc": "npx tsc --noEmit clean",
+    "cliSmoke": "npx tsx src/cli.ts --help, init --help, ingest --help all print correctly"
+  },
   "llmCost": "$0.00",
-  "tokenBudgetRemaining": "$0.00 product LLM spend (Gate 0.4 smoke call excepted per user decision)",
+  "tokenBudgetRemaining": "$0.00 product LLM spend (Gate 0.4 smoke call excepted per user decision; not yet spent)",
   "blocker": "Gate 0.4 needs ANTHROPIC_API_KEY at test time; user will provide it before the smoke call.",
-  "nextAction": "Implementer sub-agent builds Phase 0 infrastructure"
+  "nextAction": "Verifier sub-agent reviews Phase 0 implementation against the vision and gates; user provides ANTHROPIC_API_KEY to run Gate 0.4",
+  "deviations": [
+    "Dependency versions: NONE. Every pinned range from the phase doc resolved exactly as specified (ink 7.1.1, ink-select-input 6.2.0, ink-spinner 5.0.0, ink-text-input 6.0.0, undici 8.7.0, pdfjs-dist 4.10.38, commander 12.1.0, react 19.2.7, vitest 1.6.1, tsx 4.23.1, typescript 5.9.3, @types/node 20.19.43, @types/react 19.2.17, pdf-lib 1.17.1, gray-matter 4.0.3). npm install succeeded without --legacy-peer-deps.",
+    "Gate 0.3: shasum is not executable from the Windows test shell. The test tries 'shasum -a 256' first, falls back to 'certutil -hashfile test-pdfs/golden-master.pdf SHA256' (parses the 64-hex line; this is the path taken on this machine), and finally to a one-shot node:crypto reference. Hash verified identical across sha256(), certutil, and the reference.",
+    "Gate 0.4: no live LLM call was executed by the Implementer (no key in environment, $0 spend). Test committed in self-skipping form test.skipIf(!process.env.ANTHROPIC_API_KEY); note it reads the process environment only, not the .env fallback - export ANTHROPIC_API_KEY in the shell before npm test to run it.",
+    "Gate 0.8 restructured: the spec version renders <App /> twice and writes to a non-TTY stdin, which cannot work under Ink 7 in vitest. Replaced with (a) an end-to-end test driving the real Ink input pipeline via a fake TTY stdin (PassThrough with isTTY/setRawMode stubs) - pressing Enter on 'Create New Wiki (init)' navigates App to the init screen and the frame shows 'Create New Wiki' + 'Press Escape to go back'; (b) a unit test of the exported resolveMenuSelection mapping for all 5 menu items; (c) direct renders of each screen asserting content (TestScreen rendered with autoRun=false so it does not spawn npm test recursively).",
+    "Ink 7 API adaptations: render() no longer returns lastFrame(), and non-TTY stdout runs Ink in non-interactive mode where the frame is only written on unmount - TUI tests capture the fake stdout stream and assert after unmount() (documented in tests/tui/menu.test.tsx). Also useInput is gated with { isActive: isRawModeSupported === true } in all screens because Ink 7 throws on non-TTY stdin (isTTY is undefined, not false), and MenuScreen renders a static item list instead of ink-select-input when raw mode is unavailable.",
+    "src/cli.ts parse guard: program.parse() runs only when the file is executed directly - guarded by !process.env.VITEST plus an argv[1] vs import.meta.url comparison (case-insensitive on Windows) - so Gate 0.5 can import { program } without hanging or rendering the TUI.",
+    "Extra files not in the phase doc tree: scripts/verify-golden-master.ts (one-off extraction verification helper, committed for reproducibility) and scripts/create-golden-master.ts (required by the user brief)."
+  ],
+  "goldenMaster": {
+    "path": "test-pdfs/golden-master.pdf",
+    "sha256": "1e4f2cbec74a83bf8ae56f3a45035827ec405bd02989d6b38f08929b80ac339d",
+    "generator": "scripts/create-golden-master.ts (pdf-lib); extraction of all gate strings verified before commit",
+    "note": "This PDF must never change for the lifetime of the project."
+  },
+  "git": {
+    "commit": "6c0f4e5",
+    "message": "Phase 0: infrastructure",
+    "identity": "used pre-configured global git identity (ZCode Agent <agent@zcode.local>); repo-local llm-wiki-cli/dev@localhost was not needed"
+  }
 }
