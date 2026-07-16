@@ -1,0 +1,18 @@
+{
+  "phase": "00",
+  "goal": "All 8 technical gates in Implementation Plan/PHASE_00_infrastructure.md pass (npm test is green), all 6 UAT steps are documented with exact commands and expected output, test-pdfs/golden-master.pdf and templates/AGENTS.md exist and are committed to git, the TUI renders and navigates between screens, no init/ingest/agent implementation code exists (infrastructure only), .state/compliance-log.md shows no unresolved contradictions, and total LLM cost for the phase is $0 (one de-minimis smoke call for Gate 0.4 allowed by user decision 2026-07-17).",
+  "goalNote": "The /goal skill is not installed in this environment; the goal is tracked here on disk and re-checked after every turn (manual loop).",
+  "status": "in-progress",
+  "lastAction": "User decided: LLM provider = Anthropic (ANTHROPIC_API_KEY); one smoke call allowed for Gate 0.4. Invoking Implementer sub-agent.",
+  "userDecisions": {
+    "llmProvider": "Anthropic Messages API, key from ANTHROPIC_API_KEY env var",
+    "gate04": "One live smoke call (~$0.001) allowed as de-minimis exception to $0 budget"
+  },
+  "gatesPassed": [],
+  "gatesFailed": [],
+  "gatesPending": ["0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8"],
+  "llmCost": "$0.00",
+  "tokenBudgetRemaining": "$0.00 product LLM spend (Gate 0.4 smoke call excepted per user decision)",
+  "blocker": "Gate 0.4 needs ANTHROPIC_API_KEY at test time; user will provide it before the smoke call.",
+  "nextAction": "Implementer sub-agent builds Phase 0 infrastructure"
+}
