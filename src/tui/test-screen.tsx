@@ -42,8 +42,10 @@ export function TestScreen({ onBack, onResult, autoRun = true }: TestScreenProps
     startedRef.current = true;
     setRunning(true);
 
+    // shell: true is mandatory on Windows — Node >= 20.12.2 refuses to spawn
+    // .cmd files (npm is npm.cmd) without a shell and throws EINVAL.
     const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
-    const child = spawn(npmCmd, ['test'], { cwd: process.cwd(), shell: false });
+    const child = spawn(npmCmd, ['test'], { cwd: process.cwd(), shell: true });
 
     const append = (chunk: unknown) => {
       const lines = String(chunk).split(/\r?\n/).filter((line) => line.length > 0);

@@ -3,7 +3,7 @@
   "goal": "All 8 technical gates in Implementation Plan/PHASE_00_infrastructure.md pass (npm test is green), all 6 UAT steps are documented with exact commands and expected output, test-pdfs/golden-master.pdf and templates/AGENTS.md exist and are committed to git, the TUI renders and navigates between screens, no init/ingest/agent implementation code exists (infrastructure only), .state/compliance-log.md shows no unresolved contradictions, and total LLM cost for the phase is $0 (one de-minimis smoke call for Gate 0.4 allowed by user decision 2026-07-17).",
   "goalNote": "The /goal skill is not installed in this environment; the goal is tracked here on disk and re-checked after every turn (manual loop).",
   "status": "verified-awaiting-uat",
-  "lastAction": "Verifier sub-agent: 7 gates independently reproduced PASS (0.4 self-skipped in its env; already passed live via orchestrator with sourced key); all 7 deviations ACCEPTED; compliance COMPLIANT; no init/ingest/agent business logic found; golden master hash independently recomputed and matching. Report: .state/phase-0-verification.md",
+  "lastAction": "UAT 0.2 failed on first run (spawn EINVAL: Node >= 20.12.2 refuses to spawn npm.cmd without shell:true). Fixed in src/tui/test-screen.tsx and src/cli.ts; regression test added (tests/tui/test-screen-spawn.test.tsx); suite green 10 passed + 1 self-skipped; CLI spawn path verified end-to-end via 'npx tsx src/cli.ts test' (exit 0). Awaiting user re-run of UAT 0.2.",
   "userDecisions": {
     "llmProvider": "Anthropic Messages API (https://api.anthropic.com/v1/messages, x-api-key header, anthropic-version 2023-06-01), key from ANTHROPIC_API_KEY env var with hand-rolled .env fallback parser (no dotenv); model from ANTHROPIC_MODEL, default claude-haiku-4-5-20251001; cost logged from response usage with Haiku 4.5 price table ($1/MTok input, $5/MTok output) overridable via ANTHROPIC_INPUT_PRICE_PER_MTOK / ANTHROPIC_OUTPUT_PRICE_PER_MTOK",
     "gate04": "One live smoke call (~$0.001) allowed as de-minimis exception to $0 budget; Implementer did NOT make the call (no key in environment). Test committed as test.skipIf(!process.env.ANTHROPIC_API_KEY) and will run when the user provides a key."
@@ -31,7 +31,15 @@
   "llmCost": "$0.00008 (2 live smoke calls: Gate 0.4 run + full-suite re-run)",
   "tokenBudgetRemaining": "$0.00 product LLM spend remaining (de-minimis smoke-call exception consumed)",
   "blocker": null,
-  "nextAction": "Reporter presents UAT; user runs manual UAT 0.1-0.6 and reports back",
+  "uatResults": {
+    "0.1": "PASS (user, 2026-07-17): 9 passed + 1 skipped without key; shasum-not-found noise is the documented certutil fallback engaging",
+    "0.2": "FAIL on first run (spawn EINVAL) → fixed same day (shell:true in test-screen.tsx + cli.ts, regression test added); orchestrator verified CLI path end-to-end; awaiting user re-run of the interactive TUI step",
+    "0.3": "not yet run by user",
+    "0.4": "not yet run by user (gate passed live by orchestrator earlier)",
+    "0.5": "not yet run by user",
+    "0.6": "menu render confirmed by user during 0.2 attempt; navigation/exit still to confirm on re-run"
+  },
+  "nextAction": "User re-runs UAT 0.2, then UAT 0.3-0.6",
   "deviations": [
     "Dependency versions: NONE. Every pinned range from the phase doc resolved exactly as specified (ink 7.1.1, ink-select-input 6.2.0, ink-spinner 5.0.0, ink-text-input 6.0.0, undici 8.7.0, pdfjs-dist 4.10.38, commander 12.1.0, react 19.2.7, vitest 1.6.1, tsx 4.23.1, typescript 5.9.3, @types/node 20.19.43, @types/react 19.2.17, pdf-lib 1.17.1, gray-matter 4.0.3). npm install succeeded without --legacy-peer-deps.",
     "Gate 0.3: shasum is not executable from the Windows test shell. The test tries 'shasum -a 256' first, falls back to 'certutil -hashfile test-pdfs/golden-master.pdf SHA256' (parses the 64-hex line; this is the path taken on this machine), and finally to a one-shot node:crypto reference. Hash verified identical across sha256(), certutil, and the reference.",

@@ -43,8 +43,10 @@ program
   .command('test')
   .description('Run the test suite')
   .action(async () => {
+    // shell: true is mandatory on Windows — Node >= 20.12.2 refuses to spawn
+    // .cmd files (npm is npm.cmd) without a shell and throws EINVAL.
     const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
-    const child = spawn(npmCmd, ['test'], { stdio: 'inherit' });
+    const child = spawn(npmCmd, ['test'], { stdio: 'inherit', shell: true });
     child.on('close', (code) => process.exit(code ?? 1));
   });
 
