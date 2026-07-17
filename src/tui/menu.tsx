@@ -13,6 +13,8 @@ export interface MenuItem {
 export const MENU_ITEMS: MenuItem[] = [
   { label: 'Create New Wiki (init)', value: 'init' },
   { label: 'Ingest PDFs (ingest)', value: 'ingest' },
+  // Phase 2 (phase doc §5.2): Test Extractor immediately after Ingest PDFs.
+  { label: 'Test Extractor', value: 'extractor-test' },
   // User-directed extension 2026-07-17: copy PDFs into raw/ from the TUI
   // (compliance log entry "2026-07-17 10:20"; supersedes gate 0.7's 5-item menu).
   { label: 'Add PDFs (copy into raw/)', value: 'add-pdfs' },

@@ -102,3 +102,47 @@
   Comparison: Launching the OS-native file-open dialog (Windows OpenFileDialog via PowerShell, PDF-filtered, multi-select) from the TUI is still a local single-user CLI workflow, not a web interface. Manual path entry stays only as a fallback when the dialog is unavailable. DOX platform rule (Windows/Git Bash, no UNIX-only shellouts) is satisfied: the shellout IS the Windows path; non-Windows/failure fallback = manual input.
   Result: COMPLIANT (user-directed refinement of the 10:20 EXTENSION)
   Checked By: Main agent (phase orchestrator)
+
+[2026-07-17 12:00] Phase 2 Pre-Implementation Compliance Check
+  Changed: (none yet — pre-implementation check)
+  Vision Docs Checked: `Project Vision/04_orchestration_detailed.md`, `Project Vision/05_page_types_specification.md` (mapping per MASTER_IMPLEMENTATION_PROMPT.md §4)
+  Sections Checked:
+    - `04` §1 (pipeline layers, Extractor = only LLM call in core pipeline), §3.2 Step 5 (Extractor input: chunk text, page range, full AGENTS.md, rolling memory; output JSON to .state/extracted/<chunk-id>.json), §5 (rolling memory shape, loaded per chunk, updated after Materializer), §6 (validation order: schema, folder, no path traversal; no retry on failure), §7 (LLM decides classification/folders; deterministic code does validation + I/O)
+    - `05` §1 (page types; entity/topic created by Layer 3 Materializer), §2 (frontmatter rules), §6 (entity page two-layer format, `entities/<subfolder>/<slug>.md` naming), §7 (topic), §9 (custom page types: "The Extractor includes it in the JSON output")
+    - Cross-check: `templates/AGENTS.md` wiki constitution (already compliance-logged 2026-07-17 01:35) — its ingest instructions demand timeline, context paragraph, folder assignment, disambiguation from the Extractor; citation rules match the phase doc's fixed prompt text.
+  Comparison:
+    - Phase doc §2.2 `extractChunk` signature (chunkText, pageRange, sourceFile, agentsMd, existingFolders, existingEntities) carries exactly the `04` §3.2 Step 5 inputs. COMPLIANT.
+    - JSON saved to `.state/extracted/<chunk-id>.json` during ingest (phase doc §2.3) matches `04` §3.2 Step 5 output location. COMPLIANT.
+    - Entities/relationships/claims schema (phase doc §2.2) matches the `04` example JSON field-for-field (name/type/slug/folder/mentions{page,context}; subject/predicate/object/evidence/page; text/type/entities/page). COMPLIANT.
+    - Gates 2.9-2.12 additionally require `timeline`, `context`, per-entity `significance`, optional `disambiguation` — fields absent from the `04` example JSON. This is an EXTENSION, not a contradiction: the `04` JSON is illustrative ("It does everything" = one call doing all extraction), `05` §6.2 + the wiki constitution require Timeline sections and disambiguation on entity pages, and the constitution explicitly instructs timeline/context extraction. The Materializer (Phase 3) can only get this data from the Extractor (the only LLM call). Recorded as noted adaptation 1.
+    - Folder validation (gates 2.4: `^entities/|^topics/`, no `..`, ≤4 segments) matches `04` §6 folder validation + the constitution's "maximum 3 levels below entities/ or topics/" (= 4 path segments total). COMPLIANT.
+    - Error handling "throw ExtractorError, no retry" matches `04` §6 "The system does not retry." COMPLIANT.
+    - Rolling memory: phase loads existing folders/entities (empty on first run) and passes them to the Extractor; updating rolling-memory.json remains a Materializer (Phase 3) job per `04` §5. Phase 2 only reads it if present. COMPLIANT.
+    - TUI Extractor Test screen (phase doc §5) is terminal UI, not a web interface (`01` §7, per prior entries). COMPLIANT.
+  Noted adaptations (not vision contradictions — binding for the Implementer, to be recorded as deviations in the phase status file):
+    1. Schema EXTENSION: ExtractorResult gains `timeline: Array<{date, event, entities[]}>`, `context: string`, per-entity `significance: string`, optional per-entity `disambiguation?: string` (gates 2.9-2.12 supersede the §2.2 interface sketch; grounds above).
+    2. Budget inconsistency in the phase doc: header says $5.00 hard cap, Approval Checklist says "under $7.00 (increased for richer output)", MASTER §5 example says $7.00. The Checklist + Master Prompt govern: $7.00 cap, pause at $5.60 (80%).
+    3. Live LLM tests: gates 2.1-2.12 make real LLM calls. Per tests/AGENTS.md they self-skip without ANTHROPIC_API_KEY and are run deliberately with the key loaded (.env present at project root), same precedent as Phase 0 gate 0.4.
+    4. Hermetic workspaces: gate 2.6's `ingest('test-wiki')` runs against a temp workspace (Phase 1 precedent) because the repo's wikis/test-wiki is already ingested and hash-skip would prevent extraction; pass criteria unchanged.
+    5. Deterministic slugs (gate 2.3): LLM output at default temperature cannot guarantee identical slugs across runs; deterministic slug normalization via the existing slugify() is the architecture-sanctioned way (`04` §7: deterministic code does the boring parts). Implementer may also make an additive, non-breaking extension to the frozen callLLM (optional maxTokens/temperature options object) — 1024 default max_tokens risks truncating the richer JSON; raising it for extraction calls does not change existing callers' behavior.
+    6. TUI screen chunk listing: phase doc §5.1 says "Lists wikis and chunks from .state/extracted/" but un-extracted chunks live in documents/; the screen lists chunks from documents/ and saves results to .state/extracted/ (the save location is what §5.1's results panel shows).
+    7. Menu/Screen wiring is additive to the current 6-item menu (user-directed add-pdfs item stays); gate 0.7's successor assertion grows to 7 items, recorded in the status file.
+    8. UAT 2.2's `jq` may be absent on Windows; UAT documents a node-based fallback.
+  Result: COMPLIANT (with one noted schema EXTENSION, grounds recorded)
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-17 15:10] Phase 2 Post-Implementation Check
+  Changed: prompts/extractor.prompt.txt, src/agents/extractor.ts, src/validation/extractor-schema.ts, src/state/rolling-memory.ts, src/commands/extract-chunk.ts, src/commands/ingest.ts, src/llm/client.ts, src/cli.ts, src/tui/{menu,app,ingest-screen,extractor-test-screen}.tsx, src/tui/hooks/use-document-chunks.ts, tests/phase-02.test.ts, tests/tui/extractor-test-screen.test.tsx, tests/{phase-01.test.ts,tui/menu.test.tsx,tui/phase-01-screens.test.tsx}, DOX updates (root/src/tests/prompts/wikis AGENTS.md)
+  Vision Docs Checked: `04_orchestration_detailed.md` §1/§3.2 Step 5/§5/§6/§7, `05_page_types_specification.md` §1/§6/§9 (same mapping as pre-implementation check)
+  Result: COMPLIANT — no contradictions. Independent Verifier APPROVED all 12 gates with self-produced evidence (`.state/phase-2-verification.md`): npm test with key 95 passed + 1 by-design skip (all 12 gates green, replay of gate 2.3 deterministic), without key 83 passed + 13 self-skipped, tsc clean, frozen callLLM/extractText surfaces intact (additive CallLLMOptions defaults identical), Extractor is the only callLLM consumer, no Materializer/DOX Writer code, rolling memory read-only, unchanged PDFs skip extraction (verified live: 0 LLM calls on re-ingest), folders constrained (prefix/no-`..`/≤4 segments), no new dependencies.
+  Schema EXTENSION (pre-logged 12:00, noted adaptation 1) confirmed compliant: timeline/context/significance/disambiguation feed the `05` §6.2 + constitution-mandated page sections and can only originate from the Extractor.
+  Deviations: all 8 binding noted adaptations plus Implementer choices (extract?: boolean default-true with Phase 1 tests pinned to extract:false, shared extractDocumentChunk path, --no-extract CLI flag, prompt engineering for gate reliability) recorded in `.state/phase-2-status.json`; none conflict with vision.
+  LLM cost: Implementer $0.1727 + Verifier $0.1845 ≈ $0.36 of the $7.00 cap (~5%).
+  Non-blocking findings for later phases (from the Verifier): UAT 2.4's `git checkout --` restore works only after the prompt file is committed; UAT 2.4 verified by code+deterministic tests, not executed live; per-gate token figures vary run-to-run.
+  Checked By: Verifier sub-agent (independent) + Main agent (orchestrator)
+
+[2026-07-17 15:15] Phase 2 DOX Closeout
+  Changed: Root `AGENTS.md` (Child DOX Index: src/ + prompts/ entries), `src/AGENTS.md` (Extractor, validation, rolling-memory, extract-chunk, extractor-test screen, CallLLMOptions, Layer-2 ingest, 7-item menu, updated agent-phase contracts), `tests/AGENTS.md` (phase-02 + extractor-test-screen suites, 7-item menu note, both-modes verification counts), `prompts/AGENTS.md` (owns extractor.prompt.txt; placeholder + prompt-behavior contracts), `wikis/AGENTS.md` (read-only test-wiki fixture exception for Phase 2 gate tests)
+  Docs intentionally left unchanged: `.state/AGENTS.md` (already covers phase-N status/verification records), `Implementation Plan/AGENTS.md` (no plan structure changed), `Project Vision/AGENTS.md` (no vision content changed), `templates/` rules (template artifact untouched), `test-pdfs/AGENTS.md` + `scripts/AGENTS.md` (fixtures untouched)
+  Result: COMPLIANT — DOX hierarchy now matches the Phase 2 tree
+  Checked By: Main agent (phase orchestrator)

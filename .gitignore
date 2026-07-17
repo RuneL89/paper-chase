@@ -12,3 +12,11 @@ yarn-error.log*
 
 # Runtime wikis (init/ingest output, UAT artifacts); wikis/AGENTS.md and wikis/.gitkeep stay tracked
 wikis/*/
+
+# Phase 2 gate-test fixtures (committed per wikis/AGENTS.md): only the two files tests/phase-02.test.ts reads
+!wikis/test-wiki/
+wikis/test-wiki/*
+!wikis/test-wiki/AGENTS.md
+!wikis/test-wiki/documents/
+wikis/test-wiki/documents/*
+!wikis/test-wiki/documents/golden-master-part-001.md

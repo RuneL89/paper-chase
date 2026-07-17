@@ -195,7 +195,9 @@ test('ingest screen runs ingestion with progress display', async () => {
 
     let result: string | undefined;
     const screen = renderCaptured(
-      <IngestScreen onBack={() => {}} onResult={(message) => (result = message)} workspace={solo} />,
+      // extract={false} (Phase 2 deviation, .state/phase-2-status.json): this
+      // Phase 1 flow test exercises Layer 1 only and must never call the LLM.
+      <IngestScreen onBack={() => {}} onResult={(message) => (result = message)} workspace={solo} extract={false} />,
     );
     await tick(400); // let the wiki list load
     screen.stdin.write('\r'); // run ingest on the highlighted wiki

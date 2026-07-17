@@ -71,12 +71,24 @@ interface AnthropicResponse {
 }
 
 /**
+ * Additive per-call options (Phase 2, noted adaptation 5 in the 2026-07-17
+ * 12:00 compliance-log entry). Defaults preserve the frozen Phase 0 behavior
+ * exactly: 1024 max_tokens and no temperature field in the request.
+ */
+export interface CallLLMOptions {
+  /** Max output tokens for the request; defaults to 1024. */
+  maxTokens?: number;
+  /** Sampling temperature; omitted from the request unless provided. */
+  temperature?: number;
+}
+
+/**
  * Call the Anthropic Messages API with a single user prompt (and optional
  * system prompt). Logs `LLM Call | Tokens: {input}/{output} | Cost: ${amount}`
  * for every call. Returns the raw response text. No retry logic: if the API
  * call fails, this throws.
  */
-export async function callLLM(prompt: string, system?: string): Promise<string> {
+export async function callLLM(prompt: string, system?: string, options: CallLLMOptions = {}): Promise<string> {
   loadEnvFile();
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -90,11 +102,14 @@ export async function callLLM(prompt: string, system?: string): Promise<string> 
 
   const requestBody: Record<string, unknown> = {
     model,
-    max_tokens: 1024,
+    max_tokens: options.maxTokens ?? 1024,
     messages: [{ role: 'user', content: prompt }],
   };
   if (system) {
     requestBody.system = system;
+  }
+  if (options.temperature !== undefined) {
+    requestBody.temperature = options.temperature;
   }
 
   const { statusCode, body } = await request(ANTHROPIC_API_URL, {

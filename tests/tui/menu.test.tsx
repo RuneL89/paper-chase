@@ -7,6 +7,7 @@ import { MENU_ITEMS, MenuScreen, resolveMenuSelection } from '../../src/tui/menu
 import { InitScreen } from '../../src/tui/init-screen';
 import { IngestScreen } from '../../src/tui/ingest-screen';
 import { AddPdfsScreen } from '../../src/tui/add-pdfs-screen';
+import { ExtractorTestScreen } from '../../src/tui/extractor-test-screen';
 import { TestScreen } from '../../src/tui/test-screen';
 import { SettingsScreen } from '../../src/tui/settings-screen';
 
@@ -113,6 +114,9 @@ test('TUI renders without crashing', () => {
 // user's request to copy files into raw/ entirely from the TUI (compliance
 // log entry "2026-07-17 10:20"). The original 5-option assertion is
 // superseded; the deviation is recorded in .state/phase-1-status.json.
+// UPDATED 2026-07-17 (Phase 2, phase doc §5.2 + compliance log 2026-07-17
+// 12:00 noted adaptation 7): 'Test Extractor' was inserted immediately after
+// 'Ingest PDFs (ingest)' — the menu now has 7 items.
 test('TUI menu shows all options', async () => {
   const menu = renderCaptured(<MenuScreen onSelect={() => {}} lastResult="" />);
   await tick();
@@ -121,6 +125,7 @@ test('TUI menu shows all options', async () => {
   const frame = menu.output();
   expect(frame).toContain('Create New Wiki');
   expect(frame).toContain('Ingest PDFs');
+  expect(frame).toContain('Test Extractor');
   expect(frame).toContain('Add PDFs');
   expect(frame).toContain('Run Tests');
   expect(frame).toContain('Settings');
@@ -156,6 +161,7 @@ test('every menu item maps to its screen', () => {
   const expected: Array<[string, Screen]> = [
     ['init', 'init'],
     ['ingest', 'ingest'],
+    ['extractor-test', 'extractor-test'],
     ['add-pdfs', 'add-pdfs'],
     ['test', 'test'],
     ['settings', 'settings'],
@@ -164,8 +170,17 @@ test('every menu item maps to its screen', () => {
   for (const [value, screen] of expected) {
     expect(resolveMenuSelection(value)).toBe(screen);
   }
-  // 6 items since the user-directed 2026-07-17 extension (add-pdfs).
-  expect(MENU_ITEMS.map((item) => item.value)).toEqual(['init', 'ingest', 'add-pdfs', 'test', 'settings', 'exit']);
+  // 7 items: 6 since the user-directed 2026-07-17 extension (add-pdfs),
+  // + 'extractor-test' inserted after 'ingest' in Phase 2 (phase doc §5.2).
+  expect(MENU_ITEMS.map((item) => item.value)).toEqual([
+    'init',
+    'ingest',
+    'extractor-test',
+    'add-pdfs',
+    'test',
+    'settings',
+    'exit',
+  ]);
 });
 
 test('each screen renders its expected content', async () => {
@@ -191,6 +206,13 @@ test('each screen renders its expected content', async () => {
   await tick(50);
   expect(addPdfs.output()).toContain('Add PDFs');
   expect(addPdfs.output()).toContain('Press Escape to go back');
+
+  const extractorTest = renderCaptured(<ExtractorTestScreen onBack={noop} onResult={noop} />);
+  await tick();
+  extractorTest.unmount();
+  await tick(50);
+  expect(extractorTest.output()).toContain('Test Extractor');
+  expect(extractorTest.output()).toContain('Press Escape to go back');
 
   // autoRun=false so this does not spawn `npm test` inside the test runner
   const testScreen = renderCaptured(<TestScreen onBack={noop} onResult={noop} autoRun={false} />);

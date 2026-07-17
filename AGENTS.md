@@ -94,11 +94,11 @@ When the user requests a durable behavior change, record it here or in the relev
 
 * `Project Vision/` — canonical vision and specification documents for LLM Wiki CLI v2.0; the source of truth for implementation compliance. See `Project Vision/AGENTS.md`
 * `Implementation Plan/` — phased implementation plan (Phases 0-9), master index, and agent prompts. See `Implementation Plan/AGENTS.md`
-* `src/` — all TypeScript source (CLI, TUI, extraction, LLM client, utils; commands/state/agents scaffolding). See `src/AGENTS.md`
+* `src/` — all TypeScript source (CLI, TUI, extraction, LLM client, Extractor agent, validation, commands, state, utils; Materializer/DOX Writer still scaffolding). See `src/AGENTS.md`
 * `tests/` — vitest suites; each phase's technical gates encoded as tests. See `tests/AGENTS.md`
 * `test-pdfs/` — controlled PDF fixtures; golden masters are immutable. See `test-pdfs/AGENTS.md`
 * `templates/` — templates for generated wiki artifacts. Special case: `templates/AGENTS.md` is the **wiki constitution template artifact** required by `PHASE_00_infrastructure.md` §2.1, not a DOX contract, so this folder's rules live here: template must keep covering wiki purpose, page structure, `[^srcN]` + `sources` citation rules, and the LLM-must-follow rule; placeholders use `{{DOUBLE_BRACE}}`; changes must stay compliant with `Project Vision/06_citation_and_provenance.md` and `03_DOX_concept_detailed.md`
-* `prompts/` — LLM prompt files for the agent pipeline (empty until Phase 2). See `prompts/AGENTS.md`
+* `prompts/` — LLM prompt files for the agent pipeline (`extractor.prompt.txt` since Phase 2; DOX Writer/Synthesis Writer prompts arrive with their phases). See `prompts/AGENTS.md`
 * `scripts/` — one-off fixture generator/verifier scripts; never re-run the golden master generator. See `scripts/AGENTS.md`
 * `.state/` — phase status files, compliance log, verification reports; the project's durable memory. See `.state/AGENTS.md`
 * `wikis/` — runtime workspace for generated wikis (Phase 1+ output of `init`/`ingest`). See `wikis/AGENTS.md`

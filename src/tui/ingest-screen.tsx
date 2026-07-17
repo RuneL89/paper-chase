@@ -13,6 +13,11 @@ import type { ScreenProps } from './init-screen';
 export interface IngestScreenProps extends ScreenProps {
   /** Workspace directory containing wikis/ (used by tests; default '.'). */
   workspace?: string;
+  /**
+   * Passed through to ingest() (Phase 2, additive): run the Layer 2 Extractor
+   * on each new chunk. Defaults to true; tests pass false to stay LLM-free.
+   */
+  extract?: boolean;
 }
 
 type IngestStatus = 'idle' | 'running' | 'success' | 'error';
@@ -29,7 +34,7 @@ function formatTimestamp(iso: string | null): string {
  * runs ingest() with a spinner and live progress lines
  * ("Extracting text...", "Chunk X/Y...", "Done!").
  */
-export function IngestScreen({ onBack, onResult, workspace = '.' }: IngestScreenProps) {
+export function IngestScreen({ onBack, onResult, workspace = '.', extract = true }: IngestScreenProps) {
   const { isRawModeSupported } = useStdin();
   const wikis = useWikiList(workspace);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -46,6 +51,7 @@ export function IngestScreen({ onBack, onResult, workspace = '.' }: IngestScreen
     try {
       const result = await ingest(wiki, {
         workspace,
+        extract,
         onProgress: (line) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
       });
       const summary = `Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`;

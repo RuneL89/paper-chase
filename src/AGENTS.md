@@ -2,30 +2,35 @@
 
 ## Purpose
 
-All TypeScript source for LLM Wiki CLI v2.0: CLI entry point, TUI (Ink), PDF extraction, LLM client, utilities, and (in later phases) commands, state, and agents.
+All TypeScript source for LLM Wiki CLI v2.0: CLI entry point, TUI (Ink), PDF extraction, LLM client, the Extractor agent (Layer 2), schema validation, commands, state, utilities, and (in later phases) Materializer/DOX Writer agents.
 
 ## Ownership
 
-* `cli.ts` — Commander entry point; named `program` export; `program.parse()` only runs when executed directly (guarded), never on import
-* `tui/` — Ink TUI: `app.tsx` (screen router), `menu.tsx` (6-item main menu + exported `resolveMenuSelection`), screen per command (`init-screen.tsx`, `ingest-screen.tsx`, `add-pdfs-screen.tsx` — user-directed 2026-07-17 extension that copies PDFs into `raw/`; primary control is the native graphical picker via `pickFiles` (default `pickPdfFiles`, injectable for tests), manual path input is the demoted fallback), `components/` (header, footer, spinner, error-box, success-box), `hooks/use-wiki-list.ts`, `hooks/use-wiki-details.ts`, `hooks/use-raw-contents.ts`
+* `cli.ts` — Commander entry point; named `program` export; `program.parse()` only runs when executed directly (guarded), never on import; `ingest` accepts `--no-extract` (Layer-1-only opt-out; extraction is default-on since Phase 2)
+* `tui/` — Ink TUI: `app.tsx` (screen router), `menu.tsx` (7-item main menu + exported `resolveMenuSelection`; 'Test Extractor' after 'Ingest PDFs' per Phase 2 §5.2, `add-pdfs` user-directed 2026-07-17 extension retained), screen per command (`init-screen.tsx`, `ingest-screen.tsx` — additive `extract` prop default true, `add-pdfs-screen.tsx` — native graphical picker via `pickFiles` as primary, manual path input demoted fallback, `extractor-test-screen.tsx` — Phase 2: wiki → chunk from `documents/` → run → results (counts, entity names/types, save path) → scrollable JSON viewer; `extractChunkFn` injectable for tests), `components/` (header, footer, spinner, error-box, success-box), `hooks/use-wiki-list.ts`, `hooks/use-wiki-details.ts`, `hooks/use-raw-contents.ts`, `hooks/use-document-chunks.ts` (chunk list from `documents/`)
 * `extraction/pdf.ts` — `extractText(pdfPath, startPage?, endPage?)` via pdfjs-dist legacy build; never splits a page; additive Phase 1 `getPageCount(pdfPath)` shares the same loader
 * `extraction/markdown-tables.ts` — deterministic plaintext-table detection; rebuilds markdown tables from whitespace-collapsed extraction output (conservative guards, every word preserved)
-* `llm/client.ts` — `callLLM(prompt, system?)`; Anthropic Messages API; logs `LLM Call | Tokens: i/o | Cost: $x` for every call; no retries, throws on failure
+* `llm/client.ts` — `callLLM(prompt, system?, options?)`; Anthropic Messages API; logs `LLM Call | Tokens: i/o | Cost: $x` for every call; no retries, throws on failure; additive Phase 2 `CallLLMOptions { maxTokens?, temperature? }` — defaults (1024, temperature omitted) preserve the frozen Phase 0 behavior exactly
 * `utils/hash.ts` — `sha256(filePath)` streaming helper
-* `utils/slug.ts` — wiki-slug validation (kebab-case) and source-slug derivation from PDF file names
+* `utils/slug.ts` — wiki-slug validation (kebab-case), source-slug derivation, and `slugify` (also used by the Extractor for deterministic slug normalization)
 * `utils/paths.ts` — workspace/wiki path helpers; generated paths always use forward slashes
 * `utils/file-dialog.ts` — native graphical PDF picker (user decision 2026-07-17 10:55): `pickPdfFiles()` spawns `powershell.exe -NoProfile -NonInteractive -Command <script>` (`shell: false`, args array only) showing a topmost System.Windows.Forms OpenFileDialog (PDF filter, multi-select, 10-minute timeout); resolves with the picked paths, `null` on cancel, throws descriptively on spawn/non-zero-exit/timeout; `parseDialogOutput(stdout)` is the pure `\r\n`-safe parser exported for tests
 * `commands/init.ts` — Phase 1 `init(slug, { title?, workspace? })`: creates `wikis/<slug>/` structure and generates AGENTS.md from `templates/AGENTS.md` (all `{{WIKI_TITLE}}`/`{{SLUG}}` replaced)
-* `commands/ingest.ts` — Phase 1 `ingest(slug, { workspace?, pagesPerChunk?, onProgress? })`: hash-skip unchanged PDFs, page-by-page extraction, whole-page chunking (default 5), document pages via gray-matter, source pages, state; Layer 1 only, no LLM
+* `commands/ingest.ts` — `ingest(slug, { workspace?, pagesPerChunk?, extract?, onProgress? })`: hash-skip unchanged PDFs, page-by-page extraction, whole-page chunking (default 5), document pages via gray-matter, source pages, state; Layer 2 since Phase 2: per-chunk Extractor run (default-on, `extract?: boolean` opt-out) saving `.state/extracted/<chunk-id>.json`, additive `IngestResult.extractions` counts; unchanged PDFs skip extraction entirely
+* `commands/extract-chunk.ts` — Phase 2 `extractDocumentChunk(wikiDir, chunkId)`: the single shared extraction path used by both `ingest` and the TUI Test Extractor screen; reads the document page (chunk text, page range, source file from frontmatter), the wiki constitution, and rolling memory (read-only); writes `.state/extracted/<chunk-id>.json`
 * `commands/add-pdf.ts` — user-directed Phase 1 extension (2026-07-17): `addPdfToWiki(wikiDir, sourcePath)` copies a PDF into `<wikiDir>/raw/` (strips surrounding quotes from drag-drop pastes, validates existence + `.pdf`, keeps the file name); throws typed `AddPdfError` with user-displayable messages; no LLM, no new deps
 * `state/ingestion-state.ts` — read/write `wikis/<slug>/.state/ingestion.json` (phase doc §2.3 shape)
+* `state/rolling-memory.ts` — Phase 2 READ-ONLY loader for `.state/rolling-memory.json` (vision `04` §5 shape: `folderStructure` → folders, `entities[].slug` → slugs; absence → empty lists, malformed → descriptive throw); writing/updating it is Phase 3 (Materializer) territory and forbidden here
 * `pages/source-page.ts` — deterministic `sources/<source-slug>.md` provenance pages (phase doc §2.4)
-* `agents/` — empty scaffolding for Phases 2+ (`.gitkeep`); no Extractor/Materializer/DOX Writer code may land before its phase
+* `agents/extractor.ts` — Phase 2: the Extractor (Layer 2), the ONLY LLM call in the pipeline. `extractChunk(chunkText, pageRange, sourceFile, agentsMd, existingFolders, existingEntities)` → extended `ExtractorResult` (entities/relationships/claims + `timeline`, `context`, per-entity `significance`, optional `disambiguation` — gates 2.9-2.12 extension); typed `ExtractorError` (raw response on invalid JSON, issue list on schema failure; NO retry); fence-tolerant JSON parse; deterministic `slugify()` normalization of all slugs before validation; extraction calls use `maxTokens: 4096, temperature: 0`
+* `validation/extractor-schema.ts` — Phase 2: non-throwing `validateExtractorResult(data, pageRange?)` → `{ valid, issues }` per phase doc §2.4 + extended fields; folder prefix `^entities/|^topics/`, no `..`, ≤4 segments, page-range checks (skipped for unparseable ranges)
+* `agents/` — Phase 2 landed `extractor.ts` only; Materializer/DOX Writer code may not land before its phase
 
 ## Local Contracts
 
-* Phase 0 public surface is frozen per `Implementation Plan/PHASE_00_infrastructure.md` §7: `extractText`, `callLLM`, `sha256`, and the TUI framework must not change signature/behavior after Phase 0 approval; later phases extend, they do not break (Phase 1's `getPageCount` is an additive extension)
-* Everything in `agents/` remains placeholder-only until its implementing phase; `init`/`ingest` business logic landed in Phase 1 per its phase doc — later-phase logic (Extractor, Materializer, DOX Writer) still may not land outside its phase
+* Phase 0 public surface is frozen per `Implementation Plan/PHASE_00_infrastructure.md` §7: `extractText`, `callLLM`, `sha256`, and the TUI framework must not change signature/behavior after Phase 0 approval; later phases extend, they do not break (Phase 1's `getPageCount` and Phase 2's `CallLLMOptions` are additive extensions with identical defaults)
+* `agents/` holds only the agents whose phase has run (Phase 2: the Extractor); Materializer, DOX Writer, and any rolling-memory WRITES still may not land outside their phases
+* The Extractor is the ONLY LLM call in the pipeline (vision `04` §1); every other concern (folder creation, page writing, memory updates) is deterministic code or a later phase
 * LLM provider is Anthropic (user decision 2026-07-17): key from `ANTHROPIC_API_KEY` with `.env` fallback, model from `ANTHROPIC_MODEL` (default `claude-haiku-4-5-20251001`), prices overridable via env
 * Every LLM call must log tokens and cost; product LLM spend is tracked per phase in `.state/phase-N-status.json`
 * TUI conventions (Ink 7): every `useInput` is gated `isActive: isRawModeSupported === true`; components must render correctly in non-TTY contexts (static fallbacks); Escape = back, Enter = select

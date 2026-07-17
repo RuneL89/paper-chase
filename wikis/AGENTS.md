@@ -11,7 +11,7 @@ Runtime workspace for generated wikis. `llm-wiki-cli init <slug>` creates `wikis
 ## Local Contracts
 
 * This folder holds generated data, not source code; the repo only tracks the folder itself (`.gitkeep`) — wiki contents are user data
-* Tests do not use this folder; they run against temp workspaces (see `tests/AGENTS.md`)
+* Tests do not create or modify wikis here; they run against temp workspaces (see `tests/AGENTS.md`). Sole exception: Phase 2 gate tests READ the committed `test-wiki` fixtures (`documents/golden-master-part-001.md`, `AGENTS.md`) as extractor input — read-only, never written by tests
 * Each wiki's `AGENTS.md` is that wiki's constitution (a generated artifact per `templates/AGENTS.md`), not a DOX contract for this repo; DOX contracts for generated wikis arrive with the DOX Writer in a later phase
 
 ## Work Guidance

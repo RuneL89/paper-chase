@@ -43,13 +43,17 @@ program
   .option('-w, --workspace <workspace>', 'Workspace directory', '.')
   .option('--synthesis', 'Enable LLM synthesis (no-op in Phase 1)')
   .option('--update-agents', 'Update AGENTS.md (no-op in Phase 1)')
+  .option('--no-extract', 'Skip the Layer 2 Extractor (Layer 1 document pages only)')
   .option('--verbose', 'Verbose output')
-  .action(async (slug: string, options: { workspace: string; synthesis?: boolean; updateAgents?: boolean; verbose?: boolean }) => {
+  .action(async (slug: string, options: { workspace: string; synthesis?: boolean; updateAgents?: boolean; extract?: boolean; verbose?: boolean }) => {
     // --synthesis and --update-agents are accepted for forward compatibility;
     // they are no-ops in Phase 1 (Layer 1 is deterministic, $0 LLM).
+    // Extraction (Layer 2) is ON by default per the phase doc; --no-extract
+    // opts out (e.g. offline/key-less Layer 1-only runs).
     try {
       const result = await ingest(slug, {
         workspace: options.workspace,
+        extract: options.extract,
         onProgress: (message) => console.log(message),
       });
       if (options.verbose) {
@@ -57,6 +61,9 @@ program
           for (const page of source.documentPages) {
             console.log(`  wrote ${page}`);
           }
+        }
+        for (const extraction of result.extractions) {
+          console.log(`  extracted .state/extracted/${extraction.chunkId}.json`);
         }
       }
       console.log(`Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`);

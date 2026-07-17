@@ -17,6 +17,11 @@ const GOLDEN_MASTER = 'test-pdfs/golden-master.pdf';
  * creating `wikis/test-wiki` in the repo, every gate runs against a temp
  * workspace via the `workspace` option and the temp tree is destroyed in
  * teardown. The gate assertions themselves are verbatim from the phase doc.
+ *
+ * Phase 2 deviation (documented in .state/phase-2-status.json): every ingest
+ * call here passes `extract: false` — Phase 1 gates are Layer 1 tests and
+ * must run without an API key and without LLM cost (the Extractor is the
+ * default-on Layer 2 step added in Phase 2).
  */
 let workspace: string;
 let wikiDir: string;
@@ -28,7 +33,7 @@ beforeAll(async () => {
   // raw/ (never modify the golden master itself), first ingest run.
   await init('test-wiki', { workspace });
   copyFileSync(GOLDEN_MASTER, join(wikiDir, 'raw', 'golden-master.pdf'));
-  await ingest('test-wiki', { workspace });
+  await ingest('test-wiki', { workspace, extract: false });
 }, 60000);
 
 afterAll(() => {
@@ -112,8 +117,8 @@ test('source page contains correct SHA-256', async () => {
 
 // Gate 1.7: Re-Running Ingest is Idempotent
 test('re-running ingest does not duplicate pages', async () => {
-  await ingest('test-wiki', { workspace }); // second run
-  await ingest('test-wiki', { workspace }); // third run
+  await ingest('test-wiki', { workspace, extract: false }); // second run
+  await ingest('test-wiki', { workspace, extract: false }); // third run
   const files = readdirSync(join(wikiDir, 'documents'));
   expect(files.filter((f) => f.startsWith('golden-master'))).toHaveLength(1);
 });
@@ -121,7 +126,7 @@ test('re-running ingest does not duplicate pages', async () => {
 // Gate 1.8: Re-Running Ingest is Fast for Unchanged PDFs
 test('re-running ingest skips unchanged PDFs', async () => {
   const start = Date.now();
-  await ingest('test-wiki', { workspace });
+  await ingest('test-wiki', { workspace, extract: false });
   expect(Date.now() - start).toBeLessThan(1000); // should be near-instant
 });
 
@@ -154,13 +159,13 @@ test('init rejects invalid slugs and duplicate wikis', async () => {
 
 // §2.2: ingest requires an existing wiki.
 test('ingest fails clearly when the wiki does not exist', async () => {
-  await expect(ingest('missing-wiki', { workspace })).rejects.toThrow("Wiki 'missing-wiki' not found");
+  await expect(ingest('missing-wiki', { workspace, extract: false })).rejects.toThrow("Wiki 'missing-wiki' not found");
 });
 
 // UAT 1.5: re-running reports the skip on the progress channel.
 test('re-running ingest prints "Skipping <file> (unchanged)"', async () => {
   const lines: string[] = [];
-  await ingest('test-wiki', { workspace, onProgress: (line) => lines.push(line) });
+  await ingest('test-wiki', { workspace, extract: false, onProgress: (line) => lines.push(line) });
   expect(lines).toContain('Skipping golden-master.pdf (unchanged)');
 });
 
@@ -172,7 +177,7 @@ test('ingest chunks consecutive pages without splitting a page', async () => {
     join(rawDir, 'twelve-pager.pdf'),
     Array.from({ length: 12 }, (_, i) => [`Report page ${i + 1}`, `Content line for page ${i + 1} here`]),
   );
-  await ingest('test-wiki', { workspace });
+  await ingest('test-wiki', { workspace, extract: false });
 
   const documents = readdirSync(join(wikiDir, 'documents')).filter((f) => f.startsWith('twelve-pager'));
   expect(documents.sort()).toEqual(['twelve-pager-part-001.md', 'twelve-pager-part-002.md', 'twelve-pager-part-003.md']);
@@ -205,7 +210,7 @@ test('chunk size is configurable via pagesPerChunk', async () => {
     join(chunkWikiDir, 'raw', 'dozen.pdf'),
     Array.from({ length: 12 }, (_, i) => [`Dozen page ${i + 1}`]),
   );
-  await ingest('chunk-wiki', { workspace, pagesPerChunk: 4 });
+  await ingest('chunk-wiki', { workspace, pagesPerChunk: 4, extract: false });
   const state = JSON.parse(readFileSync(join(chunkWikiDir, '.state', 'ingestion.json'), 'utf-8'));
   expect(state.sources['dozen'].documentPages).toHaveLength(3); // 12 / 4 = 3
   const part1 = matter(readFileSync(join(chunkWikiDir, 'documents', 'dozen-part-001.md'), 'utf-8'));
@@ -222,7 +227,7 @@ test('re-ingesting a changed PDF rewrites its pages and removes stale chunks', a
     join(rawDir, 'changing.pdf'),
     Array.from({ length: 12 }, (_, i) => [`Changing report page ${i + 1}`]),
   );
-  await ingest('test-wiki', { workspace });
+  await ingest('test-wiki', { workspace, extract: false });
   expect(
     readdirSync(join(wikiDir, 'documents')).filter((f) => f.startsWith('changing')).sort(),
   ).toEqual(['changing-part-001.md', 'changing-part-002.md', 'changing-part-003.md']);
@@ -232,7 +237,7 @@ test('re-ingesting a changed PDF rewrites its pages and removes stale chunks', a
     join(rawDir, 'changing.pdf'),
     Array.from({ length: 7 }, (_, i) => [`Changing report v2 page ${i + 1}`]),
   );
-  await ingest('test-wiki', { workspace });
+  await ingest('test-wiki', { workspace, extract: false });
 
   const files = readdirSync(join(wikiDir, 'documents')).filter((f) => f.startsWith('changing'));
   expect(files.sort()).toEqual(['changing-part-001.md', 'changing-part-002.md']);
@@ -248,7 +253,7 @@ test('re-ingesting a changed PDF rewrites its pages and removes stale chunks', a
 test('source page records warnings for pages that extract to empty text', async () => {
   const rawDir = join(wikiDir, 'raw');
   await createPdf(join(rawDir, 'scanned.pdf'), [['Scanned intro page'], null, ['Last page']]);
-  await ingest('test-wiki', { workspace });
+  await ingest('test-wiki', { workspace, extract: false });
 
   const source = readFileSync(join(wikiDir, 'sources', 'scanned.md'), 'utf-8');
   const parsed = matter(source);
