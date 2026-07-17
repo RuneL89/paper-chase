@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 /**
@@ -25,6 +25,13 @@ export interface RollingMemorySummary {
   folders: string[];
   /** Entity slugs from `entities[].slug` (empty when the file is absent). */
   entitySlugs: string[];
+}
+
+export interface RollingMemory {
+  entities: Array<{ slug: string; folder: string; mentionCount: number }>;
+  topics: string[];
+  sources: string[];
+  folderStructure: string[];
 }
 
 export function rollingMemoryPath(wikiDir: string): string {
@@ -71,4 +78,16 @@ export async function readRollingMemory(wikiDir: string): Promise<RollingMemoryS
     : [];
 
   return { folders, entitySlugs };
+}
+
+/**
+ * Persist rolling memory to `.state/rolling-memory.json` (vision `04` §5).
+ *
+ * The Materializer (Phase 3) is the only caller; Phase 2 and earlier only read
+ * this file. Writing is additive and does not change the read-only contract.
+ */
+export async function saveRollingMemory(wikiDir: string, memory: RollingMemory): Promise<void> {
+  const path = rollingMemoryPath(wikiDir);
+  await mkdir(join(wikiDir, '.state'), { recursive: true });
+  await writeFile(path, JSON.stringify(memory, null, 2) + '\n', 'utf-8');
 }

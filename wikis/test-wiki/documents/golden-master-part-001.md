@@ -5,9 +5,9 @@ wiki: test-wiki
 sources:
   - file: wikis/test-wiki/raw/golden-master.pdf
     pages: 1-3
-    extracted: '2026-07-17T11:15:49.837Z'
+    extracted: '2026-07-17T13:37:56.824Z'
     sha256: 1e4f2cbec74a83bf8ae56f3a45035827ec405bd02989d6b38f08929b80ac339d
-updated: '2026-07-17T11:15:49.837Z'
+updated: '2026-07-17T13:37:56.824Z'
 ---
 
 ## Extracted Text: Pages 1-3
