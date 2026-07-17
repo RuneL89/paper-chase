@@ -1,0 +1,84 @@
+{
+  "phase": "01",
+  "goal": "All 9 technical gates in Implementation Plan/PHASE_01_raw_document_pages.md pass (npm test is green), TUI init and ingest screens implemented per phase doc section 5 with their tests, all 6 UAT steps are documented with exact commands and expected output, .state/compliance-log.md shows no unresolved contradictions, no Extractor/Materializer/DOX Writer code exists, and total LLM cost for the phase is $0.",
+  "goalNote": "The /goal skill is not installed in this environment (confirmed again 2026-07-17: 'Skill not found: goal'); the goal is tracked here on disk and re-checked after every turn (manual loop), same as Phase 0.",
+  "status": "complete",
+  "lastAction": "User accepted Phase 1 (2026-07-17). UAT 1.1-1.6 passed; full TUI tour passed (init form, Add PDFs with native OpenFileDialog multi-select picker appearing topmost, ingest screen with spinner + progress); real-world 2-PDF multi-ingest inspected against the vision (Coca-Cola Governance Guidelines 9pp + WIPO Annual Financial Report 2020 56pp -> 14 document pages, contiguous chunk ranges, hashes matching certutil, provenance warnings for 2 empty-extraction pages, 31 markdown tables rebuilt, corpus fully grep-able). Prior state: Implementer built the native file picker refinement (compliance log 2026-07-17 10:55); Verifier APPROVED (report appended to .state/phase-1-verification.md). npm test 56 passed + 1 by-design skip (57 total, 7 files), npx tsc --noEmit clean.",
+  "gatesPassed": ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9"],
+  "gatesFailed": [],
+  "gatesPending": [],
+  "gateStatus": {
+    "1.1": "passed - init('test-wiki', {workspace}) created raw/, documents/, sources/, entities/, topics/, .state/ and AGENTS.md (tests/phase-01.test.ts 'init creates wiki structure')",
+    "1.2": "passed - documents/golden-master-part-001.md exists after ingest ('ingest writes document pages for each chunk')",
+    "1.3": "passed - document page contains John Smith, Acme Corp, March 15 2024, $42.5 million, Board Members ('document page contains all text from PDF')",
+    "1.4": "passed - document page contains '|' and 'Revenue'; the golden master's Revenue-by-Quarter table renders as a real markdown table ('| Quarter | Revenue | Growth |', '| Q1 | $9.8M | +4% |') via the deterministic renderer (see deviations #3)",
+    "1.5": "passed - matter() parses frontmatter: type=document, sources[0].file contains golden-master.pdf, sources[0].pages === '1-3' (3-page golden master, 5-page default chunk); extracted + sha256 also present per compliance note",
+    "1.6": "passed - sources/golden-master.md contains sha256('test-pdfs/golden-master.pdf') = 1e4f2cbe...ac339d in frontmatter and field table",
+    "1.7": "passed - after three ingest runs, documents/ holds exactly 1 golden-master* file ('re-running ingest does not duplicate pages')",
+    "1.8": "passed - unchanged re-run completes in <1s (hash compare + skip, no extraction; 're-running ingest skips unchanged PDFs')",
+    "1.9": "passed - .state/ingestion.json parses; sources['golden-master'].hash truthy, documentPages length 1, ingestedAt ISO timestamp"
+  },
+  "testResults": {
+    "command": "npm test",
+    "testFiles": "6 passed (6)",
+    "tests": "56 passed, 1 skipped, 0 failed (57 total, 7 files) without ANTHROPIC_API_KEY; the skipped test is the Phase 0 live-call Gate 0.4 which self-skips by design. Phase 1 adds 23 tests: 17 in tests/phase-01.test.ts (9 gates + 8 supplementary) and 6 in tests/tui/phase-01-screens.test.tsx. The user-directed 2026-07-17 extension adds 16 in tests/tui/add-pdfs-screen.test.tsx (11 screen tests incl. 5 native-picker tests with an injected pickFiles stub, + 5 addPdfToWiki helper unit tests) and 7 in tests/file-dialog.test.ts (pure parseDialogOutput tests; pickPdfFiles spawns the real dialog and is UAT-only).",
+    "tsc": "npx tsc --noEmit clean",
+    "cliSmoke": "npx tsx src/cli.ts init --help and ingest --help print correctly; end-to-end in a temp workspace: init printed the exact phase-doc message, ingest printed 'Extracting text from golden-master.pdf...' / 'Chunk 1/1 (pages 1-3)' / 'Done!', re-run printed 'Skipping golden-master.pdf (unchanged)'."
+  },
+  "llmCost": "$0.00",
+  "tokenBudgetRemaining": "$0.00 (phase LLM budget is $0 - no LLM calls were made; src/llm/ and prompts/ untouched)",
+  "blocker": null,
+  "uatResults": {
+    "1.1": "PASS (user, 2026-07-17): exact init message; 6 subfolders + AGENTS.md; zero '{{' placeholders",
+    "1.2": "PASS (user, 2026-07-17): exact progress lines 'Extracting text...' / 'Chunk 1/1 (pages 1-3)' / 'Done!'; document + source pages written",
+    "1.3": "PASS (user, 2026-07-17): valid frontmatter; all 5 golden-master strings present; Revenue table rendered as a real markdown table",
+    "1.4": "PASS (user, 2026-07-17): source page sha256 matches certutil -hashfile exactly",
+    "1.5": "PASS (user, 2026-07-17): 'Skipping golden-master.pdf (unchanged)', '0 ingested, 1 skipped'; no new files, mtimes unchanged",
+    "1.6": "PASS (user, 2026-07-17): Select-String found 3 'John Smith' hits in golden-master-part-001.md",
+    "tui": "PASS (user, 2026-07-17): init form created tui-wiki with title substituted into the constitution; Add PDFs native OpenFileDialog appeared topmost, PDF-filtered, multi-select; cancel path neutral; ingest screen showed spinner + progress lines",
+    "realWorld": "PASS (user + orchestrator inspection, 2026-07-17): 2 real PDFs ingested into tui-wiki in one run (Coca-Cola Governance 9pp -> 2 chunks; WIPO Financial Report 2020 56pp -> 12 chunks); contiguous chunk ranges, hashes match certutil, warnings recorded for 2 empty-extraction pages, 31 markdown tables rebuilt, corpus grep-able"
+  },
+  "uat": {
+    "note": "UAT steps are manual (user runs them). All commands assume the project root and use the default workspace; nothing is written outside wikis/test-wiki/. Implementer pre-verified every step in a temp workspace via the CLI smoke above.",
+    "1.1": "COMMAND: npx tsx src/cli.ts init test-wiki  EXPECTED: prints \"Wiki 'test-wiki' created. Place PDFs in wikis/test-wiki/raw/ and run ingest.\"; wikis/test-wiki/ exists with raw/, documents/, sources/, entities/, topics/, .state/, AGENTS.md",
+    "1.2": "COMMAND: cp test-pdfs/golden-master.pdf wikis/test-wiki/raw/ && npx tsx src/cli.ts ingest test-wiki  EXPECTED: progress lines (Extracting text..., Chunk 1/1 (pages 1-3), Done!); documents/golden-master-part-001.md and sources/golden-master.md exist",
+    "1.3": "OPEN wikis/test-wiki/documents/golden-master-part-001.md  EXPECTED: YAML frontmatter on top, then full PDF text; 'John Smith', 'Acme Corp', 'Board Members' present; Revenue-by-Quarter table rendered as a markdown table with | characters",
+    "1.4": "OPEN wikis/test-wiki/sources/golden-master.md  EXPECTED: sha256 1e4f2cbec74a83bf8ae56f3a45035827ec405bd02989d6b38f08929b80ac339d, matching shasum -a 256 test-pdfs/golden-master.pdf (or certutil -hashfile test-pdfs/golden-master.pdf SHA256)",
+    "1.5": "COMMAND: npx tsx src/cli.ts ingest test-wiki  EXPECTED: 'Skipping golden-master.pdf (unchanged)'; no new files, existing files unmodified",
+    "1.6": "COMMAND: grep -r \"John Smith\" wikis/test-wiki/documents/  EXPECTED: matches in golden-master-part-001.md (corpus is searchable without any LLM processing)"
+  },
+  "deviations": [
+    "Placeholder adaptation (binding per compliance log 2026-07-17 02:10, noted adaptation 1): phase doc section 2.1 says init replaces '{wiki-title}', but templates/AGENTS.md uses double-brace placeholders. init() replaces ALL {{WIKI_TITLE}} and {{SLUG}} occurrences; title defaults to the slug.",
+    "Hermetic tests: gates run against a temp workspace (mkdtemp) via the workspace option instead of creating wikis/test-wiki in the repo, and section 5.4's 'wikis/fake-wiki' is created in a temp workspace with the screen's new optional workspace prop. Gate assertions are verbatim from the phase doc; only the root path changed (tests/AGENTS.md permits restructuring when the literal test cannot run cleanly, pass criteria unchanged).",
+    "Gate 1.4 table handling: the frozen Phase 0 extractText (pdfjs-dist) collapses column-aligned whitespace, so the golden master's drawn table arrives as plain lines ('Quarter Revenue Growth', 'Q1 $9.8M +4%', ...). Added src/extraction/markdown-tables.ts, a deterministic conservative renderer (same-token-count runs of >=3 lines, no list markers, no sentence punctuation, >=2 trailing digit-bearing rows) that rebuilds markdown tables in place. Every word is preserved; prose, headings, and lists are never converted. The raw phase-1 UAT expectation (table formatted with | characters) is genuinely met.",
+    "Added -w/--workspace option to the ingest CLI command (init already had it in Phase 0 scaffolding) for symmetry and hermetic CLI use; phase doc section 2.2 shows ingest without it. Additive only.",
+    "Added additive export getPageCount(pdfPath) to src/extraction/pdf.ts (frozen extractText signature and behavior unchanged - Phase 0 tests green). Ingestion needs the page count to plan whole-page chunk ranges; both functions now share an internal openDocument helper with identical loader options.",
+    "Document page body starts with '## Extracted Text: Pages X-Y' (the vision 06 section 5 pattern) above the raw text; the phase doc section 2.2 body shows raw text only. Additive; all gate-1.3 strings still match verbatim.",
+    "Source page adds a '## Warnings' body section only when warnings exist (frontmatter warnings field is exactly per section 2.4; the golden-master page shows warnings: [] and no section).",
+    "State file ingestedAt records the LAST successful ingest of a source (drives the TUI 'Last ingest' display); the source page preserves first ingestion in 'ingested' and tracks rewrites in 'updated'. State shape otherwise exactly per section 2.3.",
+    "Extra source files not in the phase doc tree: src/utils/slug.ts (wiki-slug validation + source-slug derivation; init rejects non-kebab-case slugs for path safety), src/utils/paths.ts (workspace/wiki path helpers, forward-slash generated paths), src/tui/hooks/use-wiki-details.ts (PDF count + last-ingest display per section 5.2). No new npm dependencies (gray-matter, ink-text-input, pdf-lib were already installed).",
+    "TUI section 5.2 simplification: the wiki list itself is the selector - Enter on a highlighted wiki runs ingest on it (Up/Down to choose) instead of a separate two-control list-plus-buttons layout; PDF count, last-ingest timestamp, spinner, and the 'Extracting text...'/'Chunk X/Y'/'Done!' progress lines are all shown as specified.",
+    "User-directed extension 2026-07-17 (compliance log entry '2026-07-17 10:20', COMPLIANT user-directed EXTENSION): the TUI menu grew from 5 to 6 items - 'Add PDFs (copy into raw/)' was inserted after 'Ingest PDFs (ingest)' so the user can copy PDFs into wikis/<slug>/raw/ entirely from the TUI. This supersedes Phase 0 gate 0.7's 'menu shows all 5 options' assertion; tests/tui/menu.test.tsx now asserts the 6-item menu with a comment recording why.",
+    "Extension files not in the phase doc tree: src/tui/add-pdfs-screen.tsx (wiki selector reusing the ingest-screen pattern, live raw/ contents via the new src/tui/hooks/use-raw-contents.ts, drag-drop-friendly path input that strips surrounding quotes), src/commands/add-pdf.ts (pure addPdfToWiki(wikiDir, sourcePath) helper: quote-stripping, existence + .pdf validation, mkdir -p raw/, copyFile; typed AddPdfError with user-displayable messages; exported for tests and reusable by a future CLI command), tests/tui/add-pdfs-screen.test.tsx. No LLM calls, no new npm dependencies, frozen Phase 0/1 surfaces unchanged.",
+    "User-directed refinement 2026-07-17 (compliance log entry '2026-07-17 10:55', user preference in root AGENTS.md): the Add PDFs screen's PRIMARY interaction is now an OS-native graphical file picker instead of typed/pasted paths. Added src/utils/file-dialog.ts (pickPdfFiles spawns powershell.exe -NoProfile -NonInteractive -Command with an args array and shell:false; the script shows a PDF-filtered, multi-select System.Windows.Forms OpenFileDialog owned by a topmost form so it never hides behind the terminal; OK prints one path per line, cancel prints nothing; 10-minute timeout; parseDialogOutput is the pure exported parser) and tests/file-dialog.test.ts. src/tui/add-pdfs-screen.tsx redesigned: '[ Browse for PDFs... ]' is the default-focused primary control (Enter opens the picker, spinner + input gating while it runs), picked files are batch-copied via addPdfToWiki with a SuccessBox summary and per-file failures collected into the ErrorBox (successes still count), cancel shows the neutral 'No files selected.', dialog failure shows an ErrorBox pointing at the manual fallback; the manual path input is demoted to a 'Fallback: enter path manually' row and stays fully functional (typing while Browse is focused auto-focuses it); the screen's new optional pickFiles prop lets tests inject a stub so automated tests never spawn a real dialog (the dialog itself is exercised by user UAT). No LLM calls, no new npm dependencies, frozen surfaces unchanged."
+  ],
+  "filesCreated": [
+    "src/commands/init.ts", "src/commands/ingest.ts", "src/state/ingestion-state.ts", "src/pages/source-page.ts",
+    "src/extraction/markdown-tables.ts", "src/utils/slug.ts", "src/utils/paths.ts", "src/tui/hooks/use-wiki-details.ts",
+    "tests/phase-01.test.ts", "tests/tui/phase-01-screens.test.tsx", "wikis/AGENTS.md", "wikis/.gitkeep",
+    "src/commands/add-pdf.ts", "src/tui/add-pdfs-screen.tsx", "src/tui/hooks/use-raw-contents.ts",
+    "tests/tui/add-pdfs-screen.test.tsx", "src/utils/file-dialog.ts", "tests/file-dialog.test.ts"
+  ],
+  "filesModified": [
+    "src/cli.ts (init/ingest actions wired; --synthesis/--update-agents accepted as no-ops; parse guard and { program } export intact)",
+    "src/extraction/pdf.ts (additive getPageCount; extractText frozen behavior preserved)",
+    "src/tui/init-screen.tsx (real form per section 5.1)", "src/tui/ingest-screen.tsx (real screen per section 5.2)",
+    "src/tui/menu.tsx (6th item 'Add PDFs (copy into raw/)' after 'Ingest PDFs (ingest)'; resolveMenuSelection export intact)",
+    "src/tui/app.tsx (Screen union + add-pdfs route)",
+    "tests/tui/menu.test.tsx (gate 0.7 updated to the user-directed 6-item menu)",
+    "src/tui/add-pdfs-screen.tsx (10:55 redesign: native picker primary via injectable pickFiles, manual path input demoted to fallback, batch-add summary + per-file failure reporting, cancel is neutral)",
+    "tests/tui/add-pdfs-screen.test.tsx (+5 native-picker tests; manual-entry and Escape flows unchanged)",
+    "src/AGENTS.md", "tests/AGENTS.md", "AGENTS.md (wikis/ index entry)", ".state/phase-1-status.json"
+  ],
+  "nextAction": "User runs UAT 1.1-1.6 plus the redesigned Add PDFs TUI flow (menu -> Add PDFs -> select wiki -> Enter on '[ Browse for PDFs... ]' -> pick PDFs in the native dialog, incl. multi-select, cancel, and the fallback manual path row). The native dialog interaction itself is UAT-only; automated tests stub pickFiles. src/agents/ remains .gitkeep-only; no Extractor/Materializer/DOX Writer code exists."
+}

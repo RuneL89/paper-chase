@@ -87,6 +87,8 @@ Default section order:
 When the user requests a durable behavior change, record it here or in the relevant child AGENTS.md
 
 * 2026-07-16: All new files and folders must be created in this project folder (`Wiki v5/`). Do not create or reference another project directory; older docs that pointed at `llm-wiki-cli-v2/` / `llm-wiki-cli-v2-vision/` were corrected.
+* 2026-07-17: All core workflows must be doable from the TUI in a user-friendly manner (no manual file copying in Explorer). Established with the Phase 1 "Add PDFs" screen; applies to future phases' features too.
+* 2026-07-17: File selection in the TUI must use a graphical/native file picker (Windows OpenFileDialog), never typed or pasted paths as the primary interaction; manual path entry is only a fallback.
 
 ## Child DOX Index
 
@@ -99,7 +101,6 @@ When the user requests a durable behavior change, record it here or in the relev
 * `prompts/` — LLM prompt files for the agent pipeline (empty until Phase 2). See `prompts/AGENTS.md`
 * `scripts/` — one-off fixture generator/verifier scripts; never re-run the golden master generator. See `scripts/AGENTS.md`
 * `.state/` — phase status files, compliance log, verification reports; the project's durable memory. See `.state/AGENTS.md`
-
-`wikis/` does not exist yet; index it and add a child AGENTS.md when created (Phase 1+).
+* `wikis/` — runtime workspace for generated wikis (Phase 1+ output of `init`/`ingest`). See `wikis/AGENTS.md`
 
 

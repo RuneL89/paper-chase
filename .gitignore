@@ -9,3 +9,6 @@ desktop.ini
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Runtime wikis (init/ingest output, UAT artifacts); wikis/AGENTS.md and wikis/.gitkeep stay tracked
+wikis/*/

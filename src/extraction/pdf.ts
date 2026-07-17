@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { dirname, join, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getDocument } from 'pdfjs-dist/legacy/build/pdf.mjs';
+import type { PDFDocumentProxy } from 'pdfjs-dist';
 
 // Point pdfjs at its bundled standard fonts so it does not warn about a
 // missing standardFontDataUrl. Resolved relative to the installed
@@ -19,6 +20,22 @@ function resolveStandardFontDataUrl(): string | undefined {
 const standardFontDataUrl = resolveStandardFontDataUrl();
 
 /**
+ * Open a PDF with the shared Phase 0 loader options. Callers must
+ * `await doc.destroy()` when done.
+ */
+async function openDocument(pdfPath: string): Promise<PDFDocumentProxy> {
+  const data = new Uint8Array(await readFile(pdfPath));
+  return getDocument({
+    data,
+    useWorkerFetch: false,
+    isEvalSupported: false,
+    disableFontFace: true,
+    verbosity: 0, // errors only
+    ...(standardFontDataUrl ? { standardFontDataUrl } : {}),
+  }).promise;
+}
+
+/**
  * Extract plain text from a PDF.
  *
  * Pages are never split: `startPage`/`endPage` (1-based, inclusive) select a
@@ -27,15 +44,7 @@ const standardFontDataUrl = resolveStandardFontDataUrl();
  * with newlines.
  */
 export async function extractText(pdfPath: string, startPage?: number, endPage?: number): Promise<string> {
-  const data = new Uint8Array(await readFile(pdfPath));
-  const doc = await getDocument({
-    data,
-    useWorkerFetch: false,
-    isEvalSupported: false,
-    disableFontFace: true,
-    verbosity: 0, // errors only
-    ...(standardFontDataUrl ? { standardFontDataUrl } : {}),
-  }).promise;
+  const doc = await openDocument(pdfPath);
 
   try {
     const first = startPage ?? 1;
@@ -58,6 +67,22 @@ export async function extractText(pdfPath: string, startPage?: number, endPage?:
     }
 
     return pages.join('\n');
+  } finally {
+    await doc.destroy();
+  }
+}
+
+/**
+ * Return the number of pages in a PDF.
+ *
+ * Additive Phase 1 helper: the frozen Phase 0 `extractText` surface is
+ * unchanged; ingestion needs the page count up front to plan page-range
+ * chunks without splitting a page.
+ */
+export async function getPageCount(pdfPath: string): Promise<number> {
+  const doc = await openDocument(pdfPath);
+  try {
+    return doc.numPages;
   } finally {
     await doc.destroy();
   }

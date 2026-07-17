@@ -6,6 +6,8 @@ import { resolve } from 'node:path';
 import React from 'react';
 import { render } from 'ink';
 import { App } from './tui/app';
+import { init } from './commands/init';
+import { ingest } from './commands/ingest';
 
 export const program = new Command();
 
@@ -25,18 +27,43 @@ program
   .description('Create a new wiki')
   .option('--title <title>', 'Wiki title')
   .option('-w, --workspace <workspace>', 'Workspace directory', '.')
-  .action(async (_slug: string, _options: { title?: string; workspace: string }) => {
-    // Phase 1 implementation
+  .action(async (slug: string, options: { title?: string; workspace: string }) => {
+    try {
+      const result = await init(slug, { title: options.title, workspace: options.workspace });
+      console.log(result.message);
+    } catch (err) {
+      console.error(`Error: ${(err as Error).message}`);
+      process.exitCode = 1;
+    }
   });
 
 program
   .command('ingest <slug>')
   .description('Ingest PDFs into a wiki')
-  .option('--synthesis', 'Enable LLM synthesis')
-  .option('--update-agents', 'Update AGENTS.md')
+  .option('-w, --workspace <workspace>', 'Workspace directory', '.')
+  .option('--synthesis', 'Enable LLM synthesis (no-op in Phase 1)')
+  .option('--update-agents', 'Update AGENTS.md (no-op in Phase 1)')
   .option('--verbose', 'Verbose output')
-  .action(async (_slug: string, _options: { synthesis?: boolean; updateAgents?: boolean; verbose?: boolean }) => {
-    // Phase 1+ implementation
+  .action(async (slug: string, options: { workspace: string; synthesis?: boolean; updateAgents?: boolean; verbose?: boolean }) => {
+    // --synthesis and --update-agents are accepted for forward compatibility;
+    // they are no-ops in Phase 1 (Layer 1 is deterministic, $0 LLM).
+    try {
+      const result = await ingest(slug, {
+        workspace: options.workspace,
+        onProgress: (message) => console.log(message),
+      });
+      if (options.verbose) {
+        for (const source of result.ingested) {
+          for (const page of source.documentPages) {
+            console.log(`  wrote ${page}`);
+          }
+        }
+      }
+      console.log(`Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`);
+    } catch (err) {
+      console.error(`Error: ${(err as Error).message}`);
+      process.exitCode = 1;
+    }
   });
 
 program
