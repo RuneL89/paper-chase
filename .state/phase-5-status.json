@@ -1,0 +1,43 @@
+{
+  "phase": "05",
+  "status": "complete",
+  "lastAction": "Implemented Phase 5 DOX Writer (Layer 4) and integrated into CLI/TUI; all 6 gates pass; full test suite green.",
+  "gatesPassed": ["5.1", "5.2", "5.3", "5.4", "5.5", "5.6"],
+  "gatesFailed": [],
+  "gatesPending": [],
+  "llmCost": "$0.00",
+  "tokenBudgetRemaining": "$0.00 (no LLM budget)",
+  "blocker": null,
+  "nextAction": "Phase 5 accepted. Proceed to Phase 6 when ready.",
+  "filesCreated": [
+    "src/dox-writer.ts",
+    "src/tui/dox-browser.tsx",
+    "tests/phase-05.test.ts",
+    "tests/tui/dox-browser.test.tsx"
+  ],
+  "filesModified": [
+    "src/commands/ingest.ts",
+    "src/tui/components/tree-browser.tsx",
+    "src/tui/menu.tsx",
+    "src/tui/app.tsx",
+    "src/validation/schema-validator.ts",
+    "src/validation/link-checker.ts",
+    "tests/tui/menu.test.tsx",
+    "src/AGENTS.md",
+    "tests/AGENTS.md"
+  ],
+  "uatResults": {},
+  "uat": {
+    "5.1": {
+      "command": "npx tsx src/cli.ts ingest test-wiki \u0026\u0026 cat wikis/test-wiki/index.md",
+      "expected": "A markdown index with title, description, and links to entities/, topics/, documents/, and sources/."
+    }
+  },
+  "deviations": [
+    "The DOX Writer is fully deterministic (no LLM calls). Descriptions are template-based from folder names rather than synthesized from page content, satisfying the $0 budget requirement.",
+    "The implementation accepts a workspace option in writeDoxContracts so tests can run hermetically against temp directories; the phase doc signature omits this option.",
+    "Link checker was enhanced in Phase 4 with folder-index and root-index fallback mappings so DOX-generated wikilinks like [[Executives]] resolve to executives/index.md and [[Test Wiki]] resolves to the root index.md.",
+    "Gate 5.6 uses an injected extractChunkFn to re-run ingest with extract: true without live LLM calls, keeping the phase budget at $0. The gate's pass criterion (index.md is regenerated and reflects new pages) is unchanged.",
+    "tree-browser.tsx was extended with optional rootName, excludeFolders, and excludeFiles props to support the wiki-root DOX browser; the original entity/topic browser behavior is preserved."
+  ]
+}

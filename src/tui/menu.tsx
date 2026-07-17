@@ -17,9 +17,11 @@ export const MENU_ITEMS: MenuItem[] = [
   { label: 'Test Extractor', value: 'extractor-test' },
   // User-directed extension 2026-07-17: copy PDFs into raw/ from the TUI.
   { label: 'Add PDFs (copy into raw/)', value: 'add-pdfs' },
-  // Phase 3: browse generated entity and topic pages.
+  // Phase 4: view deterministic validation report after ingestion.
+  { label: 'View Validation Report', value: 'validation-report' },
   { label: 'Browse Entities', value: 'entity-browser' },
   { label: 'Browse Topics', value: 'topic-browser' },
+  { label: 'Browse DOX Contracts', value: 'dox-browser' },
   { label: 'Run Tests', value: 'test' },
   { label: 'Settings', value: 'settings' },
   { label: 'Exit', value: 'exit' },

@@ -18,6 +18,16 @@ export interface IngestScreenProps extends ScreenProps {
    * on each new chunk. Defaults to true; tests pass false to stay LLM-free.
    */
   extract?: boolean;
+  /**
+   * Phase 4: called after a successful ingest so the app can navigate to the
+   * validation report for the wiki that was just ingested.
+   */
+  onViewReport?: (wiki: string) => void;
+  /**
+   * Injectable ingestion implementation (test-only). Defaults to the real
+   * ingest command; tests can inject a stub to avoid disk I/O / LLM calls.
+   */
+  ingestFn?: (slug: string, options: Record<string, unknown>) => Promise<unknown>;
 }
 
 type IngestStatus = 'idle' | 'running' | 'success' | 'error';
@@ -34,7 +44,14 @@ function formatTimestamp(iso: string | null): string {
  * runs ingest() with a spinner and live progress lines
  * ("Extracting text...", "Chunk X/Y...", "Done!").
  */
-export function IngestScreen({ onBack, onResult, workspace = '.', extract = true }: IngestScreenProps) {
+export function IngestScreen({
+  onBack,
+  onResult,
+  onViewReport,
+  workspace = '.',
+  extract = true,
+  ingestFn,
+}: IngestScreenProps) {
   const { isRawModeSupported } = useStdin();
   const wikis = useWikiList(workspace);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -49,16 +66,18 @@ export function IngestScreen({ onBack, onResult, workspace = '.', extract = true
     setStatus('running');
     setProgressLines([]);
     try {
-      const result = await ingest(wiki, {
+      const run = ingestFn ?? ingest;
+      const result = (await run(wiki, {
         workspace,
         extract,
-        onProgress: (line) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
-      });
+        onProgress: (line: string) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
+      })) as { ingested: unknown[]; skipped: unknown[] };
       const summary = `Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`;
       setStatus('success');
       setMessage(summary);
       onResult?.(summary);
       setRefreshKey((key) => key + 1);
+      onViewReport?.(wiki);
     } catch (err) {
       const errorMessage = (err as Error).message;
       setStatus('error');

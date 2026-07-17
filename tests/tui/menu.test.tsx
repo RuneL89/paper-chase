@@ -12,6 +12,8 @@ import { TestScreen } from '../../src/tui/test-screen';
 import { SettingsScreen } from '../../src/tui/settings-screen';
 import { EntityBrowser } from '../../src/tui/entity-browser';
 import { TopicBrowser } from '../../src/tui/topic-browser';
+import { DoxBrowser } from '../../src/tui/dox-browser';
+import { ValidationReportScreen } from '../../src/tui/validation-report-screen';
 
 const cleanup: Array<() => void> = [];
 
@@ -119,6 +121,10 @@ test('TUI renders without crashing', () => {
 // UPDATED 2026-07-17 (Phase 2, phase doc §5.2 + compliance log 2026-07-17
 // 12:00 noted adaptation 7): 'Test Extractor' was inserted immediately after
 // 'Ingest PDFs (ingest)' — the menu now has 7 items.
+// UPDATED 2026-07-17 (Phase 4, phase doc §5.2): 'View Validation Report' was
+// added after 'Add PDFs (copy into raw/)' — the menu now has 10 items.
+// UPDATED 2026-07-17 (Phase 5, phase doc §5.2): 'Browse DOX Contracts' was
+// added after 'Browse Topics' — the menu now has 11 items.
 test('TUI menu shows all options', async () => {
   const menu = renderCaptured(<MenuScreen onSelect={() => {}} lastResult="" />);
   await tick();
@@ -129,8 +135,10 @@ test('TUI menu shows all options', async () => {
   expect(frame).toContain('Ingest PDFs');
   expect(frame).toContain('Test Extractor');
   expect(frame).toContain('Add PDFs');
+  expect(frame).toContain('View Validation Report');
   expect(frame).toContain('Browse Entities');
   expect(frame).toContain('Browse Topics');
+  expect(frame).toContain('Browse DOX Contracts');
   expect(frame).toContain('Run Tests');
   expect(frame).toContain('Settings');
   expect(frame).toContain('Exit');
@@ -167,8 +175,10 @@ test('every menu item maps to its screen', () => {
     ['ingest', 'ingest'],
     ['extractor-test', 'extractor-test'],
     ['add-pdfs', 'add-pdfs'],
+    ['validation-report', 'validation-report'],
     ['entity-browser', 'entity-browser'],
     ['topic-browser', 'topic-browser'],
+    ['dox-browser', 'dox-browser'],
     ['test', 'test'],
     ['settings', 'settings'],
     ['exit', 'exit'],
@@ -176,14 +186,16 @@ test('every menu item maps to its screen', () => {
   for (const [value, screen] of expected) {
     expect(resolveMenuSelection(value)).toBe(screen);
   }
-  // 9 items: 7 from Phase 2 + Phase 3 browse screens.
+  // 11 items: previous 10 + Phase 5 DOX browser.
   expect(MENU_ITEMS.map((item) => item.value)).toEqual([
     'init',
     'ingest',
     'extractor-test',
     'add-pdfs',
+    'validation-report',
     'entity-browser',
     'topic-browser',
+    'dox-browser',
     'test',
     'settings',
     'exit',
@@ -234,6 +246,27 @@ test('each screen renders its expected content', async () => {
   await tick(50);
   expect(topicBrowser.output()).toContain('Browse Topics');
   expect(topicBrowser.output()).toContain('Escape: back');
+
+  const doxBrowser = renderCaptured(<DoxBrowser onBack={noop} />);
+  await tick(400);
+  doxBrowser.unmount();
+  await tick(50);
+  expect(doxBrowser.output()).toContain('Browse DOX Contracts');
+  expect(doxBrowser.output()).toContain('Escape: back');
+
+  const validationReport = renderCaptured(
+    <ValidationReportScreen onBack={noop} onResult={noop} validateFn={() => Promise.resolve({
+      wikiSlug: 'test',
+      links: { broken: [], orphaned: [], totalLinks: 0, totalPages: 0 },
+      citations: { invalid: [], missingSource: [], totalCitations: 0 },
+      schema: { invalid: [], totalPages: 0 },
+    })} />,
+  );
+  await tick(400);
+  validationReport.unmount();
+  await tick(50);
+  expect(validationReport.output()).toContain('Validation Report');
+  expect(validationReport.output()).toContain('Escape: back');
 
   // autoRun=false so this does not spawn `npm test` inside the test runner
   const testScreen = renderCaptured(<TestScreen onBack={noop} onResult={noop} autoRun={false} />);

@@ -16,8 +16,21 @@ type Mode = 'wiki' | 'tree' | 'viewer';
 const VIEWER_LINES = 14;
 const VIEWER_PAGE_STEP = 10;
 
-async function buildTreeNodes(rootPath: string, rootName: string): Promise<TreeNode[]> {
-  const root: TreeNode = { type: 'folder', name: rootName, path: rootName, depth: 0, expanded: true };
+function childPath(parentPath: string, childName: string): string {
+  if (parentPath === '') {
+    return childName;
+  }
+  return parentPath.endsWith('/') ? `${parentPath}${childName}` : `${parentPath}/${childName}`;
+}
+
+async function buildTreeNodes(
+  rootPath: string,
+  rootName: string,
+  initialParentPath: string,
+  excludeFolders: string[],
+  excludeFiles: string[],
+): Promise<TreeNode[]> {
+  const root: TreeNode = { type: 'folder', name: rootName, path: '', depth: 0, expanded: true };
   const result: TreeNode[] = [root];
 
   async function scan(dirPath: string, parentPath: string, depth: number): Promise<TreeNode[]> {
@@ -28,26 +41,33 @@ async function buildTreeNodes(rootPath: string, rootName: string): Promise<TreeN
       return [];
     }
 
-    const folders = entries.filter((e) => e.isDirectory()).sort((a, b) => a.name.localeCompare(b.name));
+    const folders = entries
+      .filter((e) => e.isDirectory() && !excludeFolders.includes(e.name))
+      .sort((a, b) => a.name.localeCompare(b.name));
     const files = entries
-      .filter((e) => e.isFile() && e.name.toLowerCase().endsWith('.md'))
+      .filter(
+        (e) =>
+          e.isFile() &&
+          e.name.toLowerCase().endsWith('.md') &&
+          !excludeFiles.includes(e.name),
+      )
       .sort((a, b) => a.name.localeCompare(b.name));
 
     const nodes: TreeNode[] = [];
     for (const folder of folders) {
-      const path = parentPath.endsWith('/') ? `${parentPath}${folder.name}` : `${parentPath}/${folder.name}`;
+      const path = childPath(parentPath, folder.name);
       nodes.push({ type: 'folder', name: folder.name, path, depth, expanded: false });
       const childNodes = await scan(join(dirPath, folder.name), path, depth + 1);
       nodes.push(...childNodes);
     }
     for (const file of files) {
-      const path = parentPath.endsWith('/') ? `${parentPath}${file.name}` : `${parentPath}/${file.name}`;
+      const path = childPath(parentPath, file.name);
       nodes.push({ type: 'file', name: file.name, path, depth });
     }
     return nodes;
   }
 
-  result.push(...(await scan(rootPath, rootName, 1)));
+  result.push(...(await scan(rootPath, initialParentPath, 1)));
   return result;
 }
 
@@ -90,12 +110,24 @@ function toggleNode(nodes: TreeNode[], index: number): TreeNode[] {
 export interface TreeBrowserProps {
   workspace?: string;
   wiki?: string;
-  rootFolder: string; // e.g. 'entities/' or 'topics/'
+  rootFolder: string; // e.g. 'entities/' or 'topics/' or '' for wiki root
+  rootName?: string; // display name for root; defaults to rootFolder
   title: string;
   onBack: () => void;
+  excludeFolders?: string[];
+  excludeFiles?: string[];
 }
 
-export function TreeBrowser({ workspace = '.', wiki, rootFolder, title, onBack }: TreeBrowserProps) {
+export function TreeBrowser({
+  workspace = '.',
+  wiki,
+  rootFolder,
+  rootName,
+  title,
+  onBack,
+  excludeFolders = [],
+  excludeFiles = [],
+}: TreeBrowserProps) {
   const { isRawModeSupported } = useStdin();
   const wikis = useWikiList(workspace);
   const [mode, setMode] = useState<Mode>(wiki ? 'tree' : 'wiki');
@@ -108,6 +140,8 @@ export function TreeBrowser({ workspace = '.', wiki, rootFolder, title, onBack }
   const [viewerScroll, setViewerScroll] = useState(0);
   const [error, setError] = useState('');
 
+  const displayRootName = rootName ?? rootFolder;
+  const normalizedRootFolder = rootFolder.replace(/\/+$/, '');
   const rootPath = activeWiki ? join(workspace, 'wikis', activeWiki, rootFolder) : null;
 
   useEffect(() => {
@@ -118,7 +152,13 @@ export function TreeBrowser({ workspace = '.', wiki, rootFolder, title, onBack }
     let cancelled = false;
     (async () => {
       try {
-        const tree = await buildTreeNodes(rootPath, rootFolder);
+        const tree = await buildTreeNodes(
+          rootPath,
+          displayRootName,
+          normalizedRootFolder,
+          excludeFolders,
+          excludeFiles,
+        );
         if (!cancelled) {
           setNodes(tree);
           setSelectedIndex(0);
@@ -132,7 +172,10 @@ export function TreeBrowser({ workspace = '.', wiki, rootFolder, title, onBack }
     return () => {
       cancelled = true;
     };
-  }, [rootPath, rootFolder]);
+    // excludeFolders/excludeFiles are assumed stable prop literals; including
+    // them here would cause an infinite loop when parents pass inline arrays.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rootPath, displayRootName, normalizedRootFolder]);
 
   const visible = visibleNodes(nodes);
 
@@ -244,13 +287,15 @@ export function TreeBrowser({ workspace = '.', wiki, rootFolder, title, onBack }
         ? 'Up/Down: select wiki | Enter: choose | Escape: back'
         : 'Up/Down: select | Right: expand | Left: collapse | Enter: open | Escape: back';
 
+  const filteredFiles = nodes.filter((node) => node.type === 'file');
+
   return (
     <Box flexDirection="column">
       <Header />
       <Text bold>{title}</Text>
       {!isRawModeSupported ? (
         <Box flexDirection="column" marginTop={1}>
-          {activeWiki && nodes.filter((node) => node.type === 'file').map((node) => <Text key={node.path}>{node.path}</Text>)}
+          {activeWiki && filteredFiles.map((node) => <Text key={node.path}>{node.path}</Text>)}
           {!activeWiki && wikis.map((w) => <Text key={w}>{w}</Text>)}
           <Text dimColor>Interactive tree browsing requires a TTY.</Text>
         </Box>
@@ -278,7 +323,7 @@ export function TreeBrowser({ workspace = '.', wiki, rootFolder, title, onBack }
               const indent = '  '.repeat(node.depth);
               const marker = index === selectedIndex ? '> ' : '  ';
               const icon = node.type === 'folder' ? (node.expanded ? 'v ' : '> ') : '  ';
-              const displayName = node.type === 'folder' ? `${node.name}/` : node.name;
+              const displayName = node.type === 'folder' ? (node.name.endsWith('/') ? node.name : `${node.name}/`) : node.name;
               return (
                 <Text key={node.path} color={index === selectedIndex ? 'cyan' : undefined}>
                   {marker}
