@@ -10,6 +10,7 @@ import { sourcePdfPath, wikiDir, wikiRelativePath } from '../utils/paths';
 import { readIngestionState, writeIngestionState } from '../state/ingestion-state';
 import { writeSourcePage } from '../pages/source-page';
 import { extractDocumentChunk } from './extract-chunk';
+import { materialize } from '../materializer';
 
 export interface IngestOptions {
   /** Workspace directory containing wikis/; defaults to '.'. */
@@ -192,6 +193,13 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           claims: extraction.result.claims.length,
         });
       }
+    }
+
+    // Layer 3 (phase doc §2.5): after a source's chunks are extracted,
+    // materialize all entity and topic pages from every .state/extracted/*.json.
+    if (extract) {
+      await materialize(slug, { workspace: options.workspace });
+      progress('Materialized entity and topic pages.');
     }
 
     await writeSourcePage(dir, {

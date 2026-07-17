@@ -10,6 +10,8 @@ import { AddPdfsScreen } from '../../src/tui/add-pdfs-screen';
 import { ExtractorTestScreen } from '../../src/tui/extractor-test-screen';
 import { TestScreen } from '../../src/tui/test-screen';
 import { SettingsScreen } from '../../src/tui/settings-screen';
+import { EntityBrowser } from '../../src/tui/entity-browser';
+import { TopicBrowser } from '../../src/tui/topic-browser';
 
 const cleanup: Array<() => void> = [];
 
@@ -127,6 +129,8 @@ test('TUI menu shows all options', async () => {
   expect(frame).toContain('Ingest PDFs');
   expect(frame).toContain('Test Extractor');
   expect(frame).toContain('Add PDFs');
+  expect(frame).toContain('Browse Entities');
+  expect(frame).toContain('Browse Topics');
   expect(frame).toContain('Run Tests');
   expect(frame).toContain('Settings');
   expect(frame).toContain('Exit');
@@ -163,6 +167,8 @@ test('every menu item maps to its screen', () => {
     ['ingest', 'ingest'],
     ['extractor-test', 'extractor-test'],
     ['add-pdfs', 'add-pdfs'],
+    ['entity-browser', 'entity-browser'],
+    ['topic-browser', 'topic-browser'],
     ['test', 'test'],
     ['settings', 'settings'],
     ['exit', 'exit'],
@@ -170,13 +176,14 @@ test('every menu item maps to its screen', () => {
   for (const [value, screen] of expected) {
     expect(resolveMenuSelection(value)).toBe(screen);
   }
-  // 7 items: 6 since the user-directed 2026-07-17 extension (add-pdfs),
-  // + 'extractor-test' inserted after 'ingest' in Phase 2 (phase doc §5.2).
+  // 9 items: 7 from Phase 2 + Phase 3 browse screens.
   expect(MENU_ITEMS.map((item) => item.value)).toEqual([
     'init',
     'ingest',
     'extractor-test',
     'add-pdfs',
+    'entity-browser',
+    'topic-browser',
     'test',
     'settings',
     'exit',
@@ -213,6 +220,20 @@ test('each screen renders its expected content', async () => {
   await tick(50);
   expect(extractorTest.output()).toContain('Test Extractor');
   expect(extractorTest.output()).toContain('Press Escape to go back');
+
+  const entityBrowser = renderCaptured(<EntityBrowser onBack={noop} />);
+  await tick(400);
+  entityBrowser.unmount();
+  await tick(50);
+  expect(entityBrowser.output()).toContain('Browse Entities');
+  expect(entityBrowser.output()).toContain('Escape: back');
+
+  const topicBrowser = renderCaptured(<TopicBrowser onBack={noop} />);
+  await tick(400);
+  topicBrowser.unmount();
+  await tick(50);
+  expect(topicBrowser.output()).toContain('Browse Topics');
+  expect(topicBrowser.output()).toContain('Escape: back');
 
   // autoRun=false so this does not spawn `npm test` inside the test runner
   const testScreen = renderCaptured(<TestScreen onBack={noop} onResult={noop} autoRun={false} />);
