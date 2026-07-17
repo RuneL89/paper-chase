@@ -1,0 +1,52 @@
+{
+  "phase": "04",
+  "status": "complete",
+  "lastAction": "Verifier APPROVED Phase 4; all 6 gates pass; full test suite green.",
+  "gatesPassed": ["4.1", "4.2", "4.3", "4.4", "4.5", "4.6"],
+  "gatesFailed": [],
+  "gatesPending": [],
+  "llmCost": "$0.00",
+  "tokenBudgetRemaining": "$0.00 (no LLM budget)",
+  "blocker": null,
+  "nextAction": "Phase 4 accepted. Proceed to Phase 5 when ready.",
+  "filesCreated": [
+    "src/validation/link-checker.ts",
+    "src/validation/citation-checker.ts",
+    "src/validation/schema-validator.ts",
+    "src/validation/index.ts",
+    "src/tui/validation-report-screen.tsx",
+    "tests/phase-04.test.ts",
+    "tests/tui/validation-report-screen.test.tsx"
+  ],
+  "filesModified": [
+    "src/commands/ingest.ts",
+    "src/tui/menu.tsx",
+    "src/tui/app.tsx",
+    "src/tui/ingest-screen.tsx",
+    "tests/tui/menu.test.tsx",
+    "src/AGENTS.md",
+    "tests/AGENTS.md",
+    ".state/compliance-log.md"
+  ],
+  "uatResults": {},
+  "uat": {
+    "4.1": {
+      "command": "npx tsx src/cli.ts -> Ingest PDFs -> test-wiki -> Enter",
+      "expected": "Console shows a summary like: Link check: N links, 0 broken, 0 orphaned; Citation check: N citations, 0 invalid; Schema check: N pages, 0 invalid."
+    },
+    "4.2": {
+      "command": "grep -r \"\\[\\[\" wikis/test-wiki/entities/ | head -5",
+      "expected": "Wikilinks like [[Acme Corp]] and [[John Smith]]; every link resolves to an existing .md file."
+    },
+    "4.3": {
+      "command": "Open wikis/test-wiki/entities/people/executives/john-smith.md and wikis/test-wiki/sources/golden-master.md",
+      "expected": "[^src1] in the entity page has a matching [^src1]: definition and the source PDF is listed in sources/."
+    }
+  },
+  "deviations": [
+    "The wiki constitution (wikis/\u003cslug\u003e/AGENTS.md) is excluded from all three validators. It is an instruction artifact, not a content page, and contains illustrative placeholders like [[Page Title]] that would otherwise be flagged as broken links. This is an implementation adaptation, not a vision contradiction.",
+    "Gate 4.6 uses an injected extractChunkFn to run ingest with extract: true without live LLM calls, keeping the phase budget at $0. The gate's pass criterion (validation summary is logged by ingest) is unchanged.",
+    "Gate 4.5's illustrative writeFileSync('wikis/test-wiki/entities/orphan.md', ...) is performed in a hermetic temp workspace rather than the repo's tracked wikis/test-wiki fixture.",
+    "TUI UX refinement: the Validation Report link check shows a green checkmark when there are no broken links, even if orphans are present. Orphans are still listed as details. This aligns with the phase doc's error mockup, which shows red X only for broken links."
+  ]
+}

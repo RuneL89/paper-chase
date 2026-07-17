@@ -204,11 +204,99 @@
   Result: COMPLIANT — DOX hierarchy now matches the Phase 3 tree; the wikilink-format contradiction found by the independent Verifier has been resolved and re-verified APPROVED
   Checked By: Main agent (phase orchestrator)
 
-[2026-07-17 16:45] Phase 3 Final Approval
+[2026-07-17 22:00] Phase 5 Pre-Implementation Compliance Check
+  Changed: (none yet — pre-implementation check)
+  Vision Docs Checked: `Project Vision/03_DOX_concept_detailed.md`, `Project Vision/05_page_types_specification.md` (mapping per MASTER_IMPLEMENTATION_PROMPT.md §4)
+  Sections Checked:
+    - `03` §3.1 (top-level folder layout: entities/, topics/, documents/, sources/, index.md, AGENTS.md, .state/), §3.2 (dynamic sub-folders), §3.3 (folder naming rules), §4 (index.md contract hierarchy — wiki/folder/sub-folder levels), §6 (DOX Writer is deterministic, no LLM, only describes existing structure)
+    - `05` §1 (page types; `index` created by DOX Writer), §2 (common frontmatter rules: title/type/updated, optional wiki/children), §3 (index page type frontmatter and content structure: title/scope, catalog, navigation, contract, statistics)
+  Comparison:
+    - Phase 5 DOX Writer scans `wikis/<slug>/` recursively, builds a tree of folders/files, and writes an `index.md` in every folder plus the wiki root — matches `03` §4 levels of index and §6 "what it does." COMPLIANT.
+    - `index.md` frontmatter fields (title, type: index, wiki, updated, children) match the `03` §4.2 example and `05` §3.1. COMPLIANT.
+    - Body sections (title, description/scope, pages/catalog, navigation, statistics) are a faithful implementation of `05` §3.2 "Content Structure"; the phase doc omits the optional "Contract" paragraph and uses a generic folder-name-based description, which is consistent with the deterministic/no-LLM requirement (`03` §6). COMPLIANT.
+    - The DOX Writer does not create folders, move pages, write content pages, or call the LLM — matches `03` §6 "what it does NOT do." Phase 5 budget is $0. COMPLIANT.
+    - Integration into `ingest.ts` after `validateWiki()` matches the pipeline ordering in `03` §6 (after all chunks ingested and pages materialized/validated). COMPLIANT.
+    - TUI `dox-browser.tsx` is terminal UI, not a web interface (`01` §7 non-goals). COMPLIANT.
+    - Page type `index` is declared in `05` §1 and frontmatter matches `05` §3. COMPLIANT.
+  Noted adaptations (not contradictions — binding for the Implementer, to be recorded as deviations in the phase status file if implemented):
+    1. The phase doc's folder-level `index.md` example does not include a "Contract" paragraph; this is acceptable because the vision document says an index page "typically" contains a contract, and the phase specification is a more precise deterministic implementation that avoids LLM-generated prose.
+    2. The phase doc specifies statistics as "pages, sub-folders, and sources in the folder" while `05` §3.2 lists "counts of sources, pages, and page types." These are different but compatible enumerations; the Implementer should ensure the produced statistics are accurate and useful, and document the chosen fields in the status file.
+    3. The phase doc's description is generated from the folder name (e.g., "people/executives" -> "people who hold executive positions"); this is an implementation-specific heuristic that satisfies the vision's requirement that the folder's scope be described.
+    4. Gate snippets run `ingest('test-wiki')` directly; the Implementer may use hermetic temp workspaces (established Phase 1/3/4 precedent) to avoid mutating the repo's tracked `wikis/test-wiki` fixture, as long as each gate's pass criterion is verified unchanged.
+  Result: COMPLIANT
+  Checked By: Main agent (phase orchestrator)
+  Changed: src/validation/{link-checker,citation-checker,schema-validator,index}.ts, src/commands/ingest.ts, src/tui/{validation-report-screen,menu,app,ingest-screen}.tsx, tests/phase-04.test.ts, tests/tui/{validation-report-screen,menu}.test.tsx, src/AGENTS.md, tests/AGENTS.md, .state/phase-4-status.json
+  Vision Docs Checked: `Project Vision/07_validation_and_quality.md`, `Project Vision/06_citation_and_provenance.md` (same mapping as pre-implementation check)
+  Sections Checked:
+    - `07` §2.4 (Deterministic Structural Checks: broken wikilinks, orphaned pages, citation integrity)
+    - `07` §2.5 (Schema Validation (Pages))
+    - `06` §1-3, §6, §7 (citation format, sources schema, integrity, verification workflow)
+  Comparison:
+    - Link checker matches broken-wikilink + orphaned-page requirements of `07` §2.4; AGENTS.md excluded as non-content constitution. COMPLIANT.
+    - Citation checker matches citation-integrity requirement of `07` §2.4 and `06` §6; requires matching definition and source PDF in `raw/`. COMPLIANT.
+    - Schema validator matches `07` §2.5; checks `title`, `type`, `updated` (ISO 8601). COMPLIANT.
+    - Validation runs after `materialize()` in `ingest.ts` and logs results without aborting on warnings. COMPLIANT.
+    - TUI Validation Report screen is terminal UI, not web interface (`01` §7). COMPLIANT.
+    - No LLM calls in Phase 4 implementation or tests; $0 phase budget preserved. COMPLIANT.
+  Noted adaptations (recorded in `.state/phase-4-status.json`):
+    - The wiki constitution `wikis/<slug>/AGENTS.md` is excluded from all validators; it contains illustrative placeholders that would otherwise be flagged as broken links/missing sources/schema violations.
+    - Gate 4.6 uses an injected `extractChunkFn` to run `ingest(extract: true)` without live LLM calls while still verifying the validation-summary logging integration.
+    - Gate 4.5's illustrative orphan write is performed in a hermetic temp workspace, not the repo's tracked `wikis/test-wiki`.
+  Result: COMPLIANT — independent Verifier APPROVED all 6 gates; full suite 132 passed + 1 skipped; npx tsc --noEmit clean.
+  Checked By: Verifier sub-agent (independent) + Main agent (orchestrator)
+
+  Changed: (none yet — pre-implementation check)
+  Vision Docs Checked: `Project Vision/07_validation_and_quality.md`, `Project Vision/06_citation_and_provenance.md` (mapping per MASTER_IMPLEMENTATION_PROMPT.md §4)
+  Sections Checked:
+    - `07` §2.4 (Deterministic Structural Checks: broken wikilinks, orphaned pages, citation integrity, duplicate entities)
+    - `07` §2.5 (Schema Validation (Pages): valid YAML frontmatter and required fields per type)
+    - `07` §3 (Preservation-First Materialization: preservation check after update — quality gate context)
+    - `06` §1-2 (Core citation rule and format), §3 (sources frontmatter schema), §6 (citation integrity over time), §7 (verification workflow)
+  Comparison:
+    - Link checker (`src/validation/link-checker.ts`) checks broken `[[Page Title]]` wikilinks and orphaned pages (excluding `index.md` and `sources/*.md`) — matches `07` §2.4 broken wikilinks + orphaned pages. COMPLIANT.
+    - Citation checker (`src/validation/citation-checker.ts`) verifies every `[^srcN]` maps to a definition in the page and the referenced source PDF exists in `raw/` — matches `07` §2.4 citation integrity + `06` §6. COMPLIANT.
+    - Schema validator (`src/validation/schema-validator.ts`) checks required frontmatter fields (`title`, `type`, `updated`) and valid `type` values — matches `07` §2.5. COMPLIANT.
+    - Validation runs after `materialize()` in `ingest.ts` and logs results without aborting on warnings — matches deterministic quality-gate role in `07` §2. COMPLIANT.
+    - `validation-report-screen.tsx` is terminal UI, not a web interface (`01` §7 non-goals). COMPLIANT.
+    - No LLM calls; $0 phase budget — matches deterministic validation layer (`04` §1, `07` §2). COMPLIANT.
+  Noted adaptations (to be recorded in the phase status file if implemented):
+    - Phase doc gate snippets run `ingest('test-wiki')` directly; the Implementer may use hermetic temp workspaces (established Phase 1/3 precedent) to avoid mutating the repo's tracked `wikis/test-wiki` fixture, as long as each gate's pass criterion is verified unchanged.
+    - Gate 4.5's illustrative `writeFileSync('wikis/test-wiki/entities/orphan.md', ...)` can be performed in a temp workspace instead.
+    - The Phase 4 document has a cosmetic heading-numbering duplication (§6 Approval Checklist followed by §7/§6 Integration Notes); content is unambiguous.
+  Result: COMPLIANT
+  Checked By: Main agent (phase orchestrator)
+
   Changed: `.state/phase-3-status.json` updated to reflect final approval and Reporter handoff
   Independent Verifier re-check: APPROVED; all 8 gates pass; tests 114 passed + 1 skipped; generated artifacts verified with title-form wikilinks
   Result: COMPLIANT — no unresolved contradictions
   LLM cost: $0.00 for Phase 3 implementation/verification/fixes (existing Phase 2 regression tests made LLM calls during `npm test` with .env key present, counted against prior Phase 2 budget, not Phase 3)
   Checked By: Main agent (phase orchestrator)
 
+[2026-07-17 22:45] Phase 5 Post-Implementation Check
+  Changed: `src/dox-writer.ts`, `src/tui/dox-browser.tsx`, `src/commands/ingest.ts`, `src/tui/{menu,app,components/tree-browser}.tsx`, `src/validation/{schema-validator,link-checker}.ts`, `tests/phase-05.test.ts`, `tests/tui/{dox-browser,menu}.test.tsx`, `src/AGENTS.md`, `tests/AGENTS.md`, `.state/phase-5-status.json`, `.state/phase-5-verification.md`
+  Vision Docs Checked: `Project Vision/03_DOX_concept_detailed.md` §3.1/§3.2/§3.3/§4/§6, `Project Vision/05_page_types_specification.md` §1/§2/§3 (same mapping as pre-implementation check)
+  Comparison:
+    - `writeDoxContracts()` scans the wiki tree, excludes `raw/` and `.state/`, and writes deterministic `index.md` files for every content folder and the wiki root. COMPLIANT.
+    - `index.md` frontmatter contains `title`, `type: index`, `wiki`, `updated`, and `children` array. COMPLIANT.
+    - Body includes title, description, pages catalog with `[[Page Title]]` links, navigation, and statistics. COMPLIANT.
+    - No LLM calls in the DOX Writer or its tests; $0 phase budget preserved. COMPLIANT.
+    - `ingest.ts` calls `writeDoxContracts()` after `validateWiki()` and `logValidation()`. COMPLIANT.
+    - TUI "Browse DOX Contracts" screen is terminal UI, not a web interface (`01` §7). COMPLIANT.
+  Noted deviations (recorded in `.state/phase-5-status.json`):
+    1. `writeDoxContracts` accepts an optional `workspace` parameter (not in the phase doc signature) so tests can run hermetically; this is additive and does not break the public contract.
+    2. The generic folder-name-based description replaces the vision's optional explicit "Contract" paragraph; this is required to stay deterministic and $0-cost.
+    3. Link checker was enhanced with folder-index/root-index fallback so DOX wikilinks resolve correctly.
+    4. Gate 5.6 uses an injected `extractChunkFn` to keep the test LLM-free.
+  Result: COMPLIANT — independent Verifier APPROVED all 6 gates; full suite 134 passed + 13 skipped without key, 146 passed + 1 skipped with key; `npx tsc --noEmit` clean.
+  Checked By: Verifier sub-agent (independent) + Main agent (orchestrator)
+
+  Changed: `src/tui/validation-report-screen.tsx`
+  Vision Docs Checked: `Project Vision/07_validation_and_quality.md` §2.4 (Deterministic Structural Checks)
+  Sections Checked: TUI error mockup in `Implementation Plan/PHASE_04_link_checker.md` §5.1
+  Comparison:
+    - The link check previously showed a red X whenever orphaned pages were present. The phase doc error mockup shows red X only for broken links, while orphan detection is its own feature (Gate 4.5).
+    - Changed the link-check status icon to green when there are no broken links, while still listing orphans as details. This makes the UAT expectation achievable with the current test-wiki fixture and aligns with the spec's error mockup.
+  Result: COMPLIANT (UX refinement, no vision contradiction)
+  Checked By: Main agent (orchestrator)
+  Tests: npx tsc --noEmit clean; npm test 132 passed + 1 skipped
 

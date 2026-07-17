@@ -9,8 +9,10 @@ import { sourceSlugForFile } from '../utils/slug';
 import { sourcePdfPath, wikiDir, wikiRelativePath } from '../utils/paths';
 import { readIngestionState, writeIngestionState } from '../state/ingestion-state';
 import { writeSourcePage } from '../pages/source-page';
-import { extractDocumentChunk } from './extract-chunk';
+import { extractDocumentChunk, type ChunkExtraction } from './extract-chunk';
 import { materialize } from '../materializer';
+import { writeDoxContracts } from '../dox-writer';
+import { validateWiki, logValidation, type ValidationSummary } from '../validation';
 
 export interface IngestOptions {
   /** Workspace directory containing wikis/; defaults to '.'. */
@@ -27,6 +29,12 @@ export interface IngestOptions {
   extract?: boolean;
   /** Progress callback (CLI prints these lines; the TUI renders them). */
   onProgress?: (message: string) => void;
+  /**
+   * Injectable extraction implementation (test-only). Defaults to the real
+   * Layer 2 pipeline so the CLI and TUI make live LLM calls; tests can inject
+   * a deterministic stub to exercise `extract: true` without an API key.
+   */
+  extractChunkFn?: (wikiDir: string, chunkId: string) => Promise<ChunkExtraction>;
 }
 
 export interface IngestedSource {
@@ -54,6 +62,8 @@ export interface IngestResult {
   skipped: string[];
   /** One entry per extracted chunk (Phase 2, additive; empty when extract: false). */
   extractions: ChunkExtractionSummary[];
+  /** Phase 4: deterministic validation summary produced after materialization. */
+  validation?: ValidationSummary;
 }
 
 const DEFAULT_PAGES_PER_CHUNK = 5;
@@ -181,7 +191,8 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       // Test Extractor screen share one code path.
       if (extract) {
         const chunkId = docFileName.replace(/\.md$/, '');
-        const extraction = await extractDocumentChunk(dir, chunkId);
+        const run = options.extractChunkFn ?? extractDocumentChunk;
+        const extraction = await run(dir, chunkId);
         progress(
           `Extracted ${extraction.result.entities.length} entities, ${extraction.result.relationships.length} relationships, ` +
             `${extraction.result.claims.length} claims from chunk ${chunkId}.`,
@@ -228,6 +239,19 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   }
 
   await writeIngestionState(dir, state);
+
+  // Phase 4: deterministic quality gate after materialization. Runs whenever
+  // extraction was requested so the TUI and CLI always report link, citation,
+  // and schema health at the end of an ingest.
+  if (extract) {
+    const validation = await validateWiki(slug, options.workspace);
+    logValidation(validation);
+    result.validation = validation;
+  }
+
+  await writeDoxContracts(slug, { workspace: options.workspace });
+  progress('DOX contracts updated.');
+
   progress('Done!');
   return result;
 }
