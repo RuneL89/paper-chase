@@ -4,25 +4,40 @@ import matter from 'gray-matter';
 import { wikiDir } from './utils/paths';
 import { writeEntityPage, type EntityPageData } from './pages/entity-page';
 import { writeTopicPage, type TopicPageData } from './pages/topic-page';
+import { type DocumentPageData } from './pages/document-page';
 import { saveRollingMemory, type RollingMemory } from './state/rolling-memory';
 import type {
   ExtractorEntity,
   ExtractorRelationship,
   ExtractorClaim,
   ExtractorResult,
+  ExtractorTimelineEvent,
 } from './agents/extractor';
 
 export interface MaterializeOptions {
   workspace?: string;
 }
 
+export interface MaterializeResult {
+  /** Structured data for every entity page written. */
+  entityPages: EntityPageData[];
+  /** Structured data for every topic page written. */
+  topicPages: TopicPageData[];
+  /** Structured data for every document page written. */
+  documentPages: DocumentPageData[];
+}
+
 interface MaterializedEntity {
   name: string;
   type: string;
   folder: string;
+  significance: string;
+  disambiguation?: string;
+  contexts: Set<string>;
   mentions: EntityPageData['mentions'];
   relationships: EntityPageData['relationships'];
   claims: EntityPageData['claims'];
+  timeline: ExtractorTimelineEvent[];
 }
 
 interface MaterializedTopic {
@@ -72,6 +87,16 @@ function dedupeClaims(list: EntityPageData['claims']): EntityPageData['claims'] 
   });
 }
 
+function dedupeTimeline(list: ExtractorTimelineEvent[]): ExtractorTimelineEvent[] {
+  const seen = new Set<string>();
+  return list.filter((item) => {
+    const key = `${item.date}|${item.event}|${item.entities.join(',')}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
 async function loadChunkSource(wikiDir: string, chunkId: string): Promise<ChunkSource | null> {
   const documentPath = join(wikiDir, 'documents', `${chunkId}.md`);
   try {
@@ -94,8 +119,11 @@ async function loadChunkSource(wikiDir: string, chunkId: string): Promise<ChunkS
  * write/update entity pages, topic pages, and rolling memory.
  *
  * This is deterministic code: no LLM calls.
+ *
+ * Phase 5: returns the structured data for every entity/topic page written so
+ * the optional Synthesis Writer can read it without re-parsing markdown.
  */
-export async function materialize(wikiSlug: string, options?: MaterializeOptions): Promise<void> {
+export async function materialize(wikiSlug: string, options?: MaterializeOptions): Promise<MaterializeResult> {
   const dir = wikiDir(options?.workspace, wikiSlug);
   const extractedDir = join(dir, '.state', 'extracted');
   let extractionFiles: string[];
@@ -115,6 +143,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
   const topicMap = new Map<string, MaterializedTopic>();
   const sourceSlugs = new Set<string>();
   const folderStructure = new Set<string>();
+  const chunkSources: Array<{ chunkId: string; file: string; pages: string }> = [];
 
   for (const fileName of extractionFiles) {
     const chunkId = fileName.replace(/\.json$/i, '');
@@ -127,6 +156,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       // so that the materializer never emits pages with broken citations.
       continue;
     }
+    chunkSources.push({ chunkId, file: chunkSource.file, pages: chunkSource.pages });
 
     const raw = await readFile(join(extractedDir, fileName), 'utf-8');
     const extracted = JSON.parse(raw) as ExtractorResult;
@@ -138,17 +168,24 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         name: entity.name,
         type: entity.type,
         folder: entity.folder,
+        significance: entity.significance ?? '',
+        disambiguation: entity.disambiguation,
+        contexts: new Set<string>(),
         mentions: [],
         relationships: [],
         claims: [],
+        timeline: [],
       };
 
       if (existing) {
         // First folder assignment wins (vision 03 §3.2 "The first folder assignment wins").
+        // First significance/disambiguation wins too.
       } else {
         target.name = entity.name;
         target.type = entity.type;
         target.folder = entity.folder;
+        target.significance = entity.significance ?? '';
+        target.disambiguation = entity.disambiguation;
       }
 
       for (const mention of entity.mentions ?? []) {
@@ -223,6 +260,25 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         }
       }
     }
+
+    // Timeline and context (Phase 5: attach to relevant entities)
+    if (extracted.context && extracted.context.trim().length > 0) {
+      for (const entity of extracted.entities ?? []) {
+        const target = entityMap.get(entity.slug);
+        if (target) {
+          target.contexts.add(extracted.context.trim());
+        }
+      }
+    }
+
+    for (const event of extracted.timeline ?? []) {
+      for (const entitySlug of event.entities ?? []) {
+        const target = entityMap.get(entitySlug);
+        if (target) {
+          target.timeline.push(event);
+        }
+      }
+    }
   }
 
   // Build a slug-to-title map so wikilinks can render as [[Page Title]]
@@ -232,10 +288,15 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     slugToTitle[slug] = entity.name;
   }
 
+  const result: MaterializeResult = { entityPages: [], topicPages: [], documentPages: [] };
+
   // Write entity pages
   for (const [slug, entity] of entityMap.entries()) {
     const folderPath = join(dir, entity.folder);
     await mkdir(folderPath, { recursive: true });
+
+    const significance = entity.significance.trim();
+    const disambiguation = entity.disambiguation?.trim();
 
     const pageData: EntityPageData = {
       title: entity.name,
@@ -247,8 +308,17 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       relationships: dedupeRelationships(entity.relationships),
       claims: dedupeClaims(entity.claims),
       slugToTitle,
+      significance: significance.length > 0 ? significance : undefined,
+      disambiguation: disambiguation && disambiguation.length > 0 ? disambiguation : undefined,
+      context: entity.contexts.size > 0 ? Array.from(entity.contexts).join('\n\n') : undefined,
+      timeline: dedupeTimeline(entity.timeline).map((event) => ({
+        date: event.date,
+        event: event.event,
+        entities: event.entities,
+      })),
     };
 
+    result.entityPages.push(pageData);
     await writeFile(join(folderPath, `${slug}.md`), writeEntityPage(pageData), 'utf-8');
   }
 
@@ -257,16 +327,71 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     const folderPath = join(dir, topic.folder);
     await mkdir(folderPath, { recursive: true });
 
+    const topicClaims = dedupeClaims(topic.claims);
+    const topicEntities = Array.from(
+      new Set(topicClaims.flatMap((claim) => claim.entities.map((e) => slugToTitle[e] ?? e))),
+    ).sort();
+
     const pageData: TopicPageData = {
       title: topic.title,
       slug: topic.slug,
       folder: topic.folder,
       wiki: wikiSlug,
-      claims: dedupeClaims(topic.claims),
+      claims: topicClaims,
       slugToTitle,
+      entities: topicEntities,
     };
 
+    result.topicPages.push(pageData);
     await writeFile(join(folderPath, `${topic.slug}.md`), writeTopicPage(pageData), 'utf-8');
+  }
+
+  // Build document page data for optional synthesis (Phase 5+)
+  for (const { chunkId, file, pages } of chunkSources) {
+    const extractionPath = join(extractedDir, `${chunkId}.json`);
+    let extracted: ExtractorResult;
+    try {
+      const raw = await readFile(extractionPath, 'utf-8');
+      extracted = JSON.parse(raw) as ExtractorResult;
+    } catch {
+      continue;
+    }
+
+    const documentPath = join(dir, 'documents', `${chunkId}.md`);
+    let documentRaw: string;
+    try {
+      documentRaw = await readFile(documentPath, 'utf-8');
+    } catch {
+      continue;
+    }
+    const parsed = matter(documentRaw);
+    const entitySlugs = new Set<string>();
+    for (const entity of extracted.entities ?? []) {
+      entitySlugs.add(entity.slug);
+    }
+    for (const claim of extracted.claims ?? []) {
+      for (const slug of claim.entities ?? []) {
+        entitySlugs.add(slug);
+      }
+    }
+
+    result.documentPages.push({
+      title: chunkId,
+      slug: chunkId,
+      folder: 'documents',
+      wiki: wikiSlug,
+      source: file,
+      pages,
+      extractedText: parsed.content,
+      entitySlugs: Array.from(entitySlugs),
+      slugToTitle,
+      claims: (extracted.claims ?? []).map((claim) => ({
+        text: claim.text,
+        type: claim.type,
+        entities: claim.entities ?? [],
+        page: claim.page,
+      })),
+    });
   }
 
   // Update rolling memory
@@ -286,4 +411,5 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
   };
 
   await saveRollingMemory(dir, memory);
+  return result;
 }

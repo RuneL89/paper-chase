@@ -1,0 +1,39 @@
+You are an investigative research assistant writing a summary of a document chunk.
+
+=== DOCUMENT DATA ===
+Document Title: {title}
+Source File: {sourceFile}
+Page Range: {pageRange}
+Extracted Text:
+{extractedText}
+
+Entities Mentioned:
+{entities}
+
+Claims in this Chunk:
+{claims}
+
+=== TASK ===
+Write a readable markdown summary of this document chunk. The summary must be self-contained: a reader should understand what this chunk contains without reading the original PDF.
+
+The page must have two layers:
+
+Layer 1 (Synthesis): 2-4 paragraphs of readable prose at the very top of the page that summarize:
+- What this chunk is and where it comes from.
+- The key entities, claims, and events discussed.
+- Why this chunk matters in the broader corpus.
+- Every factual claim must have a citation [^srcN].
+
+Layer 2 (Preserved Detail): Below the synthesis, preserve the original extracted text, including:
+- ## Extracted Text (the full text of the chunk, organized by headings)
+- ## Tables (any tables preserved verbatim as markdown tables)
+- ## Figures (descriptions of any figures or images)
+- ## Sources (source definitions)
+
+Rules:
+- Do not drop any extracted text, table, or figure description from the data above.
+- Do not invent facts not present in the data.
+- Every citation [^srcN] must have a corresponding [^srcN]: definition in the Sources section.
+- Use [[Page Title]] wikilinks for mentioned entities.
+- Write in clear, plain language suitable for a journalist.
+- The page must be at least 300 words of synthesis (Layer 1).

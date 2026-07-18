@@ -79,16 +79,17 @@ At the highest level, the tool works in three layers:
 
 ### 4.1 Layered Architecture
 
-The system is built in four layers:
+The system is built in five layers:
 
-| Layer | Responsibility | LLM Calls | Cost per Chunk |
+| Layer | Responsibility | LLM Calls | Cost Basis |
 |---|---|---|---|
-| **Layer 1: Raw Document Pages** | Extract text from PDFs, write raw chunks to disk | 0 | $0 |
-| **Layer 2: Extractor** | Read chunk, return JSON with entities, relationships, claims, folder assignments | 1 | ~$0.01 |
+| **Layer 1: Raw Document Pages** | Extract text from PDFs, write raw chunks to disk | 0 | $0 per chunk |
+| **Layer 2: Extractor** | Read chunk, return JSON with entities, relationships, claims, folder assignments | 1 | ~$0.01 per chunk |
 | **Layer 3: Materializer** | Create folders, write/update entity/topic pages, run preservation checks | 0 | $0 |
-| **Layer 4: DOX Writer** | Scan completed wiki, write `index.md` navigation contracts | 0 | $0 |
+| **Layer 4: Synthesis Writer** | Optionally rewrite entity/topic/document pages with readable synthesis | 1 | ~$0.01 per page |
+| **Layer 5: DOX Writer** | Scan completed wiki, write `index.md` navigation contracts | 1 | per folder |
 
-**Layer 5: Synthesis Writer** (optional, Phase 6) turns structured entity pages into readable two-layer pages with LLM-written synthesis at the top.
+**Layer 4: Synthesis Writer** (optional, Phase 5) turns structured entity, topic, and document pages into readable two-layer pages with LLM-written synthesis at the top.
 
 ### 4.2 Incremental Ingestion
 

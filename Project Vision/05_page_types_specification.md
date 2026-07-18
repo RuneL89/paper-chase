@@ -19,6 +19,8 @@ The LLM Wiki CLI generates a wiki of interlinked markdown pages. Each page has a
 
 The page-type taxonomy is **not hard-coded**. The LLM may create new types (e.g., `timeline`, `claim`, `transaction`, `case`) when the corpus demands them. New types must be documented in the folder-level `index.md` and in the wiki's `AGENTS.md`.
 
+`entity`, `topic`, and `document` pages are optionally enhanced by the **Synthesis Writer** (Layer 4) in Phase 5+, which adds a Layer 1 synthesis of readable prose while preserving the Layer 2 structured or extracted detail.
+
 ---
 
 ## 2. Common Frontmatter Rules
@@ -113,7 +115,7 @@ updated: "2026-07-16T10:00:00Z"
 
 A `document` page has two layers:
 
-1. **LLM-written synthesis** at the top (optional, Phase 6+):
+1. **LLM-written synthesis** at the top (optional, Phase 5+):
    - Summary of the chunk.
    - Key claims with citations.
    - Links to related entities, topics, and sources.
@@ -260,11 +262,11 @@ sources:
 
 **Layer 1: Synthesis**
 
-A summary of how the topic appears across the corpus, with key claims and citations.
+2–4 paragraphs of readable prose that explain how the topic appears across the corpus, why it matters, and how it relates to key entities. The summary must include key claims with inline citations and links to related entities and topics.
 
 **Layer 2: Preserved Detail**
 
-A list of claims related to this topic, organized by source and page, with links to the entities involved.
+A list of every claim related to this topic, organized by source and page, with links to the entities involved, plus a `## Sources` section defining every citation.
 
 ### 7.3 Naming Convention
 

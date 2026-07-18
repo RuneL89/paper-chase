@@ -16,6 +16,10 @@ export interface TopicPageData {
   wiki: string;
   claims: TopicPageClaim[];
   slugToTitle: Record<string, string>;
+  /** Phase 5: related entity titles (derived from claims) for topic synthesis. */
+  entities?: string[];
+  /** Phase 5: broader corpus context for topic synthesis. */
+  context?: string;
 }
 
 function sourceKey(file: string, pages: string): string {

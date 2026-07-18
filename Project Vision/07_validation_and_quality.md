@@ -48,7 +48,7 @@ If folder validation fails, the chunk is rejected.
 
 ### 2.3 Deterministic Completeness Check
 
-After the Writer (Phase 6+) generates a synthesized page, the system compares the LLM-written page against the structured data to ensure:
+After the Synthesis Writer (Phase 5+) generates a synthesized page, the system compares the LLM-written page against the structured data to ensure:
 
 - Every mention from the structured data appears in the markdown.
 - Every relationship from the structured data appears in the markdown.

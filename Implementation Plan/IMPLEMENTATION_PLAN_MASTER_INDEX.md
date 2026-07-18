@@ -30,14 +30,14 @@ This structure prevents the compounding bug problem that destroyed the previous 
 | 2 | [PHASE_02_extractor.md](PHASE_02_extractor.md) | Extractor agent: one LLM call per chunk returns structured JSON | $5.00 | 4-6h |
 | 3 | [PHASE_03_materializer.md](PHASE_03_materializer.md) | Materializer: deterministic code writes entity and topic pages | $0 | 4-6h |
 | 4 | [PHASE_04_link_checker.md](PHASE_04_link_checker.md) | Link checker, citation checker, schema validator | $0 | 2-3h |
-| 5 | [PHASE_05_dox_writer.md](PHASE_05_dox_writer.md) | DOX Writer: deterministic `index.md` generation | $0 | 3-4h |
-| 6 | [PHASE_06_synthesis_writer.md](PHASE_06_synthesis_writer.md) | Writer agent: optional LLM-written synthesis for entity pages | $10.00 | 4-6h |
+| 5 | [PHASE_05_synthesis_writer.md](PHASE_05_synthesis_writer.md) | Synthesis Writer: optional LLM-written synthesis for entity, topic, and document pages | $10.00 | 4-6h |
+| 6 | [PHASE_06_dox_writer.md](PHASE_06_dox_writer.md) | DOX Writer: LLM-driven rich `index.md` generation | Quality-first | 4-6h |
 | 7 | [PHASE_07_multi_pdf_compounding.md](PHASE_07_multi_pdf_compounding.md) | Multi-PDF compounding, incremental ingestion, conflict detection | $5.00 | 4-5h |
 | 8 | [PHASE_08_agents_updater.md](PHASE_08_agents_updater.md) | AGENTS.md updater: proposes updates based on discovered structure | $2.00 | 3-4h |
 | 9 | [PHASE_09_polish.md](PHASE_09_polish.md) | Config, logging, metrics, error handling, README, E2E tests | $0 | 4-6h |
 
-**Total Estimated LLM Cost (all phases):** ~$22.00
-**Total Estimated Time:** 31-44 hours
+**Total Estimated LLM Cost (all phases):** Variable; baseline ~$27.00 plus quality-first DOX Writer cost per wiki.
+**Total Estimated Time:** 32-46 hours
 
 ---
 
@@ -56,12 +56,14 @@ Every phase has two kinds of tests:
 **Isolation Tests:** Test the new component without the rest of the pipeline.
 - Phase 2: Call `extractChunk()` directly with a string of text. No filesystem, no `ingest` command.
 - Phase 3: Create fake JSON files manually, then call `materialize()`. No LLM, no extraction.
-- Phase 6: Call `writeEntitySynthesis()` with fake entity data. No filesystem.
+- Phase 5: Call `writeEntitySynthesis()`, `writeTopicSynthesis()`, or `writeDocumentSynthesis()` with fake data. No filesystem.
+- Phase 6: Call `writeDoxContracts()` on a fake folder tree. No full pipeline.
 
 **Integration Tests:** Test the component within the full pipeline.
 - Phase 2: Run `ingest` and verify `.state/extracted/` contains valid JSON.
 - Phase 3: Run `ingest` and verify `entities/` contains pages.
-- Phase 6: Run `ingest --synthesis` and verify entity pages have readable prose.
+- Phase 5: Run `ingest --synthesis` and verify entity, topic, and document pages have readable prose.
+- Phase 6: Run `ingest` and verify `index.md` hierarchy is generated.
 
 **Rule:** Every gate must have an isolation test. Integration tests are for UAT and final verification.
 
@@ -72,7 +74,8 @@ Every phase has two kinds of tests:
 | Phase | Budget | What Happens If You Hit It |
 |---|---|---|
 | 2 | $5.00 | Your prompt is wrong. Fix the prompt, not the code. |
-| 6 | $10.00 | Your Writer prompt is too verbose or the chunk is too large. |
+| 5 | $15.00 | Your Synthesis Writer prompt is too verbose or the page data is too large. |
+| 6 | Quality-first | The DOX Writer makes one call per folder + root; cost scales with wiki size. Optimize prompts, not output quality. |
 | 7 | $5.00 | Your test PDFs are too large. Use smaller fixtures. |
 | 8 | $2.00 | The AGENTS.md is too long. Trim it. |
 
@@ -103,8 +106,8 @@ Before starting each phase, read the relevant vision document (all in `Project V
 | 2 | `04_orchestration_detailed.md` | Understand the Extractor's role in the pipeline. |
 | 3 | `05_page_types_specification.md` | Understand entity page format and frontmatter. |
 | 4 | `07_validation_and_quality.md` | Understand validation layers and preservation checks. |
-| 5 | `03_DOX_concept_detailed.md` | Understand DOX contracts and index.md hierarchy. |
-| 6 | `02_WIKI_concept_detailed.md` | Understand the two-layer page structure. |
+| 5 | `02_WIKI_concept_detailed.md` | Understand the two-layer page structure (synthesis + preserved detail). |
+| 6 | `03_DOX_concept_detailed.md` | Understand DOX contracts and index.md hierarchy. |
 | 7 | `01_PRODUCT_VISION_AND_ARCHITECTURE.md` | Understand compounding and incremental ingestion. |
 | 8 | `03_DOX_concept_detailed.md` | Understand AGENTS.md as a living document. |
 | 9 | All | Polish and production readiness. |
@@ -137,8 +140,8 @@ For each phase:
 | 2 | Inspect extracted JSON. See structured entities, relationships, claims. |
 | 3 | Browse entity pages. Click `[[Acme Corp]]` and see mentions. |
 | 4 | Verify all links work. Verify all citations map to sources. |
-| 5 | Navigate the wiki via `index.md` contracts. See folder structure. |
-| 6 | Read synthesized entity pages with readable prose and preserved detail. |
+| 5 | Read synthesized entity, topic, and document pages with readable prose and preserved detail. |
+| 6 | Navigate the wiki via rich `index.md` contracts with content-based descriptions. See folder structure and purpose. |
 | 7 | Add new PDFs over time. Watch the wiki compound. See conflicts logged. |
 | 8 | Review proposed AGENTS.md updates. Apply them manually. |
 | 9 | Use a production-ready CLI with config, logging, metrics, and documentation. |
@@ -169,8 +172,8 @@ Wiki v5/                              # project root — all code and tests are 
     ├── PHASE_02_extractor.md
     ├── PHASE_03_materializer.md
     ├── PHASE_04_link_checker.md
-    ├── PHASE_05_dox_writer.md
-    ├── PHASE_06_synthesis_writer.md
+    ├── PHASE_05_synthesis_writer.md
+    ├── PHASE_06_dox_writer.md
     ├── PHASE_07_multi_pdf_compounding.md
     ├── PHASE_08_agents_updater.md
     └── PHASE_09_polish.md

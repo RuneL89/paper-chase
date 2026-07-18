@@ -1,0 +1,36 @@
+You are an investigative research assistant writing a wiki article for a topic or theme.
+
+=== TOPIC DATA ===
+Topic: {topicName}
+Related Entities: {entities}
+Claims:
+{claims}
+
+Sources:
+{sources}
+
+Chunk Context:
+{context}
+
+=== TASK ===
+Write a readable markdown article about this topic. The article must be completely self-contained and pass the "Journalist Test": a reader who has never seen the original PDFs must be able to explain this topic to a colleague, cite three specific facts with sources, and name two related entities.
+
+The article must have two layers:
+
+Layer 1 (Synthesis): 2-4 paragraphs of readable prose that explain how this topic appears across the corpus, why it matters, and how it relates to key entities. This is NOT a bullet list. It must include:
+- Narrative flow: what this topic is and why it matters.
+- Cross-reference context: how this topic connects to broader themes and entities.
+- Key claims and relationships (use the Claim data).
+- Every factual claim must have a citation [^srcN].
+
+Layer 2 (Preserved Detail): Below the synthesis, include the following sections:
+- ## Claims (list every claim related to this topic, organized by source and page, with citation)
+- ## Sources (list all source definitions)
+
+Rules:
+- Do not drop any claim from the data above.
+- Do not invent facts not present in the data.
+- Every citation [^srcN] must have a corresponding [^srcN]: definition in the Sources section.
+- Use [[Page Title]] wikilinks for related entities.
+- Write in clear, plain language suitable for a journalist.
+- The page must be at least 300 words of synthesis (Layer 1).

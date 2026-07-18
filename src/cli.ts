@@ -41,19 +41,20 @@ program
   .command('ingest <slug>')
   .description('Ingest PDFs into a wiki')
   .option('-w, --workspace <workspace>', 'Workspace directory', '.')
-  .option('--synthesis', 'Enable LLM synthesis (no-op in Phase 1)')
+  .option('--synthesis', 'Enable LLM synthesis for entity, topic, and document pages (Phase 5)')
   .option('--update-agents', 'Update AGENTS.md (no-op in Phase 1)')
   .option('--no-extract', 'Skip the Layer 2 Extractor (Layer 1 document pages only)')
   .option('--verbose', 'Verbose output')
   .action(async (slug: string, options: { workspace: string; synthesis?: boolean; updateAgents?: boolean; extract?: boolean; verbose?: boolean }) => {
-    // --synthesis and --update-agents are accepted for forward compatibility;
-    // they are no-ops in Phase 1 (Layer 1 is deterministic, $0 LLM).
+    // --synthesis is Phase 5: opt-in LLM synthesis of entity, topic, and document pages after extraction.
+    // --update-agents is accepted for forward compatibility; it is a no-op here.
     // Extraction (Layer 2) is ON by default per the phase doc; --no-extract
     // opts out (e.g. offline/key-less Layer 1-only runs).
     try {
       const result = await ingest(slug, {
         workspace: options.workspace,
         extract: options.extract,
+        synthesis: options.synthesis,
         onProgress: (message) => console.log(message),
       });
       if (options.verbose) {
@@ -65,8 +66,31 @@ program
         for (const extraction of result.extractions) {
           console.log(`  extracted .state/extracted/${extraction.chunkId}.json`);
         }
+        if (result.synthesized !== undefined) {
+          console.log(`  synthesized ${result.synthesized} entity page(s)`);
+          if (result.synthesizedTopics !== undefined) {
+            console.log(`  synthesized ${result.synthesizedTopics} topic page(s)`);
+          }
+          if (result.synthesizedDocuments !== undefined) {
+            console.log(`  synthesized ${result.synthesizedDocuments} document page(s)`);
+          }
+        }
+        if (result.synthesisConflicts !== undefined && result.synthesisConflicts > 0) {
+          console.log(`  ${result.synthesisConflicts} synthesis conflict(s) logged`);
+        }
       }
       console.log(`Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`);
+      if (result.synthesized !== undefined) {
+        const entityTotal = (result.synthesized ?? 0) + (result.synthesizedPermissive ?? 0);
+        const topicTotal = (result.synthesizedTopics ?? 0) + (result.synthesizedTopicsPermissive ?? 0);
+        const documentTotal = (result.synthesizedDocuments ?? 0) + (result.synthesizedDocumentsPermissive ?? 0);
+        const totalSynthesized = entityTotal + topicTotal + documentTotal;
+        console.log(
+          `Synthesis: ${totalSynthesized} page(s) written ` +
+            `(entities: ${entityTotal}, topics: ${topicTotal}, documents: ${documentTotal}), ` +
+            `${result.synthesisConflicts} conflict(s).`,
+        );
+      }
     } catch (err) {
       console.error(`Error: ${(err as Error).message}`);
       process.exitCode = 1;

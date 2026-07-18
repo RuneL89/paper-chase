@@ -264,7 +264,7 @@ The LLM is responsible for:
 
 - Deciding what entities exist and what folders they belong in.
 - Extracting relationships and claims from chunks.
-- Writing readable synthesis for entity and topic pages.
+- Writing readable synthesis for entity, topic, and document pages.
 - Updating existing pages with new evidence (in update mode).
 
 ---

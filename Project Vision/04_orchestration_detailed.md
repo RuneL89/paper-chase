@@ -6,15 +6,13 @@ This document explains how the LLM Wiki CLI orchestrates the `ingest` flow. It i
 
 ## 1. The Pipeline
 
-The orchestrator is not a distributed system of 7 agents. It is a **four-layer pipeline** with two LLM calls per chunk (Extractor and optional Writer) and one deterministic pass at the end (DOX Writer).
+The orchestrator is not a distributed system of 7 agents. It is a **five-layer pipeline** with two LLM calls per chunk (Extractor and optional Synthesis Writer) and one LLM pass at the end (DOX Writer). The optional Synthesis Writer may rewrite entity, topic, and document pages.
 
 ```
-PDF → Chunker → Layer 1 (Raw Pages) → Layer 2 (Extractor) → Layer 3 (Materializer) → Layer 4 (DOX Writer)
-                                    ↓
-                              Layer 5 (Writer) [Phase 6+]
+PDF → Chunker → Layer 1 (Raw Pages) → Layer 2 (Extractor) → Layer 3 (Materializer) → Layer 4 (Synthesis Writer) → Layer 5 (DOX Writer)
 ```
 
-The local deterministic code handles the boring parts: reading files, extracting text, computing hashes, writing files, validating schemas, and checking links. The LLM handles the thinking parts: extraction, classification, and synthesis.
+The local deterministic code handles the boring parts: reading files, extracting text, computing hashes, writing files, validating schemas, and checking links. The LLM handles the thinking parts: extraction, classification, synthesis, and writing navigation contracts.
 
 ---
 
@@ -150,34 +148,49 @@ After writing an updated page, verify that every existing citation (`[^srcN]`) a
 
 For each processed PDF, write a `source` page with provenance: file path, SHA-256 hash, page count, extraction timestamp, warnings.
 
-#### Step 8: Validate Links (Deterministic)
+#### Step 8: Validate Content Pages (Deterministic)
 
-Scan all pages for `[[Page Title]]` wikilinks. Verify every link points to an existing file. Report broken links.
+Scan all materialized content pages for `[[Page Title]]` wikilinks, `[^srcN]` citations, and valid YAML frontmatter. Report broken links, invalid citations, and schema issues. The DOX Writer will not run until this validation passes.
 
-#### Step 9: Write DOX Contracts (Layer 4)
+#### Step 9: Write Synthesis (Layer 4, Phase 5+)
 
-After all pages are materialized, the **DOX Writer** runs:
+After the core content pages are validated, the optional **Synthesis Writer** runs per entity, topic, and document page:
+
+1. Read the structured entity page.
+2. Call the LLM with the synthesis prompt, passing the entity data and `AGENTS.md`.
+3. Run a preservation check to ensure no mentions, relationships, claims, or citations were dropped.
+4. If the check passes, replace the structured page with the synthesized page.
+5. If the check fails, log a conflict and keep the structured page.
+
+This step is opt-in (`ingest --synthesis`).
+
+#### Step 10: Write DOX Contracts (Layer 5)
+
+After all content pages are finalized, the **DOX Writer** runs:
 
 1. Scan the entire wiki tree.
-2. For each folder, write `index.md` with: title, children list, description, navigation links, statistics.
-3. Write the wiki-level `index.md`.
+2. For each folder and the wiki root, read the folder contents, `AGENTS.md`, and rolling memory.
+3. Call the LLM once per folder with a structured prompt to write a rich `index.md`.
+4. Verify that the LLM-generated `index.md` uses the exact children list and statistics supplied by deterministic code.
+5. Write the final `index.md` files.
+6. Run a final validation pass over the entire wiki, including the new DOX pages.
 
-This is deterministic. No LLM is involved.
+This is an LLM-driven step. It produces the navigation contracts that describe the finalized wiki.
 
-#### Step 10: Update State
+#### Step 11: Update State
 
 Write `.state/ingestion.json` and `.state/rolling-memory.json` for the next run.
 
 ---
 
-## 4. The Writer (Layer 5, Phase 6+)
+## 4. The Synthesis Writer (Layer 4, Phase 5+)
 
-After the core pipeline is stable, add the **Writer** to turn structured entity pages into readable two-layer pages:
+After the core content pages are validated, the optional **Synthesis Writer** turns structured entity, topic, and document pages into readable two-layer pages:
 
-**Input:** The structured data for one entity (mentions, relationships, claims).
+**Input:** The structured data for one entity, topic, or document page (e.g., mentions, relationships, claims, timeline, context, significance, disambiguation, or extracted chunk text).
 **Output:** A readable markdown page with synthesis at the top and preserved detail below.
 
-The Writer runs per entity page after the Materializer has aggregated the data. It replaces the structured template with LLM-written prose.
+The Synthesis Writer runs per entity page after the Materializer has aggregated the data. It replaces the structured template with LLM-written prose, but only if the preservation check confirms that no data was dropped.
 
 **Preservation Check:** After the Writer returns a page, verify that every mention, relationship, and claim from the structured data still exists in the written page. If the check fails, reject the output and keep the structured template.
 
@@ -211,15 +224,15 @@ Rolling memory is a JSON file at `.state/rolling-memory.json`:
 
 ## 6. Validation Order
 
-For every chunk, the validation pipeline runs in this order:
+Validation runs at multiple points in the pipeline:
 
 1. **Schema validation** — Is the Extractor JSON valid? Does it match the expected schema?
 2. **Folder validation** — Does every entity folder start with `entities/` or `topics/`? No path traversal?
-3. **Deterministic completeness check** — After the Writer (if used), does the markdown page contain every mention, relationship, and claim from the structured data?
-4. **Link validation** — Do all `[[Page Title]]` links point to existing files?
-5. **Citation integrity** — Does every `[^srcN]` map to a valid `sources` entry?
+3. **Preservation check** — After the Synthesis Writer (if used), does the markdown page contain every mention, relationship, and claim from the structured data for entity and topic pages, and all preserved tables, figures, and extracted sections for document pages?
+4. **Content-page validation** — After materialization (and optional synthesis), do all `[[Page Title]]` links resolve, all `[^srcN]` citations map to sources, and all pages have valid frontmatter?
+5. **DOX-page validation** — After the DOX Writer writes the `index.md` contracts, do the new DOX pages have valid frontmatter, accurate children lists, and no broken links?
 
-If any check fails, the chunk is rejected and the error is logged. The system does not retry. The user fixes the prompt or the PDF and re-runs `ingest`.
+If any check fails, the error is logged. The system does not retry. The user fixes the prompt or the PDF and re-runs `ingest`.
 
 ---
 
@@ -231,10 +244,10 @@ If any check fails, the chunk is rejected and the error is logged. The system do
 | Which PDFs to ingest | Human | Files placed in `raw/` |
 | Exact folder structure | LLM | Extractor proposes sub-folders under `entities/` and `topics/` |
 | Entity classification | LLM | Extractor assigns type and folder |
-| Page content (synthesis) | LLM | Writer generates readable pages |
+| Page content (synthesis) | LLM | Synthesis Writer generates readable pages |
 | Text extraction, hashing, file I/O | Deterministic code | `pdfjs-dist`, `fs`, `crypto` |
 | Validation | Deterministic code | Schema checks, link checks, preservation checks |
-| Navigation contracts | Deterministic code | DOX Writer reads filesystem and writes `index.md` |
+| Navigation contracts | LLM | DOX Writer reads finalized pages and writes `index.md` |
 | Structural change review | Human | After-the-fact via `.state/proposals/` log |
 
 ---
@@ -251,8 +264,10 @@ Here is what happens to a single 100-page PDF of political-donation filings.
 
 4. **Materializer.** After all 10 chunks are extracted, the Materializer reads all JSON files. It creates the folders the Extractor proposed, writes entity pages for each politician and donor, and writes topic pages for "Campaign Finance" and "Donation Thresholds."
 
-5. **DOX Writer.** After materialization, the DOX Writer scans the wiki and writes `index.md` files for every folder and the wiki root.
+5. **Synthesis Writer (optional).** If the user ran `ingest --synthesis`, the Synthesis Writer reads each structured entity page, calls the LLM to write readable prose, and runs a preservation check. Pages that pass the check now start with a narrative summary of the entity.
 
-6. **User opens the wiki in Obsidian.** They see a folder structure with politicians, donors, and parties that the LLM created based on the actual content. They click `[[Senator X]]` and see every donation mentioned in the PDF, with citations to exact pages.
+6. **DOX Writer.** After all content pages are finalized, the DOX Writer scans the wiki, reads each folder's pages and `AGENTS.md`, and calls the LLM to write rich `index.md` navigation contracts for every folder and the wiki root.
 
-7. **User adds a second PDF and runs `ingest` again.** The system skips the first PDF (hash unchanged) and processes the second. New entities are added. Existing entity pages are updated with new mentions. The DOX Writer regenerates the contracts. The AGENTS.md updater (if enabled) proposes updates to `AGENTS.md` based on the newly discovered structure.
+7. **User opens the wiki in Obsidian.** They see a folder structure with politicians, donors, and parties that the LLM created based on the actual content. They click `[[Senator X]]` and see every donation mentioned in the PDF, with citations to exact pages.
+
+8. **User adds a second PDF and runs `ingest` again.** The system skips the first PDF (hash unchanged) and processes the second. New entities are added. Existing entity pages are updated with new mentions. The Synthesis Writer (if enabled) and the DOX Writer regenerate their outputs. The AGENTS.md updater (if enabled) proposes updates to `AGENTS.md` based on the newly discovered structure.
