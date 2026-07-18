@@ -428,6 +428,14 @@ test('stripCodeFences removes a wrapping markdown fence only', () => {
   expect(stripCodeFences('```\n{"a":1}\n```')).toBe('{"a":1}');
   expect(stripCodeFences('{"a":1}')).toBe('{"a":1}');
   expect(stripCodeFences('  {"a":1}  ')).toBe('{"a":1}');
+  // Closing fence on the same line as the content.
+  expect(stripCodeFences('```json\n{"a":1}```')).toBe('{"a":1}');
+  // Trailing model commentary after the closing fence.
+  expect(stripCodeFences('```json\n{"a":1}\n```\n\n[^src1]: source note')).toBe('{"a":1}');
+  // Opening fence with no language tag.
+  expect(stripCodeFences('```\n{"a":1}\n```')).toBe('{"a":1}');
+  // Windows line endings.
+  expect(stripCodeFences('```json\r\n{"a":1}\r\n```')).toBe('{"a":1}');
 });
 
 test('parseExtractorJson parses raw and fenced JSON', () => {

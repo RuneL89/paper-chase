@@ -63,6 +63,7 @@ export async function extractDocumentChunk(wikiDir: string, chunkId: string): Pr
     agentsMd,
     memory.folders,
     memory.entitySlugs,
+    { logPath: join(wikiDir, '.state', 'llm-calls.json'), context: chunkId },
   );
 
   const extractedDir = join(wikiDir, '.state', 'extracted');

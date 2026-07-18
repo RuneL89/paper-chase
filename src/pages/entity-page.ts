@@ -2,9 +2,9 @@ import matter from 'gray-matter';
 
 /**
  * Source reference attached to a mention, relationship, or claim. The `file`
- * field is the workspace-relative path (forward slashes) so generated pages
- * are byte-identical on every platform; the `pages` field is the chunk's page
- * range (e.g. "1-3").
+ * field is the workspace-relative path (forward slashes) so generated pages are
+ * byte-identical on every platform; the `pages` field is the chunk's page range
+ * (e.g. "1-3").
  */
 export interface PageSourceRef {
   file: string;
@@ -37,6 +37,12 @@ export interface EntityPageClaim {
   pages: string;
 }
 
+export interface EntityPageTimelineEvent {
+  date: string;
+  event: string;
+  entities: string[];
+}
+
 export interface EntityPageData {
   title: string;
   slug: string;
@@ -47,6 +53,20 @@ export interface EntityPageData {
   relationships: EntityPageRelationship[];
   claims: EntityPageClaim[];
   slugToTitle: Record<string, string>;
+  /** Phase 5: significance statement from the Extractor. */
+  significance?: string;
+  /** Phase 5: optional disambiguation note from the Extractor. */
+  disambiguation?: string;
+  /** Phase 5: broader corpus context from the Extractor. */
+  context?: string;
+  /** Phase 5: timeline events involving this entity. */
+  timeline?: EntityPageTimelineEvent[];
+  /**
+   * Phase 5: citation keys (e.g. "src1") already present in the structured
+   * page. Used by the preservation check to ensure synthesis does not drop
+   * existing citations.
+   */
+  citations?: string[];
 }
 
 function sourceKey(file: string, pages: string): string {
@@ -82,6 +102,50 @@ function titleCaseClaimType(type: string): string {
 }
 
 /**
+ * Build the citation map used by `writeEntityPage` and the preservation check.
+ * Returns a map from source key (`file|pages`) to the assigned `srcN` index,
+ * and the list of citation keys in order.
+ */
+export function buildCitationMap(data: Pick<EntityPageData, 'mentions' | 'relationships' | 'claims'>): {
+  citationMap: Map<string, number>;
+  keys: string[];
+} {
+  const citationMap = new Map<string, number>();
+  const keys: string[] = [];
+  let nextCitation = 1;
+
+  function assignKey(file: string, pages: string): void {
+    const key = sourceKey(file, pages);
+    if (citationMap.has(key)) {
+      return;
+    }
+    const index = nextCitation++;
+    citationMap.set(key, index);
+    keys.push(`src${index}`);
+  }
+
+  for (const mention of data.mentions) {
+    assignKey(mention.source, mention.pages);
+  }
+  for (const rel of data.relationships) {
+    assignKey(rel.source, rel.pages);
+  }
+  for (const claim of data.claims) {
+    assignKey(claim.source, claim.pages);
+  }
+
+  return { citationMap, keys };
+}
+
+function getCitation(citationMap: Map<string, number>, file: string, pages: string): string {
+  const index = citationMap.get(sourceKey(file, pages));
+  if (index === undefined) {
+    throw new Error(`Citation map missing entry for ${file} pages ${pages}.`);
+  }
+  return `[^src${index}]`;
+}
+
+/**
  * Render an entity page as a markdown string with YAML frontmatter.
  *
  * Citation numbering (`src1`, `src2`, ...) is sequential within the page. Each
@@ -92,19 +156,10 @@ export function writeEntityPage(data: EntityPageData): string {
   const updated = new Date().toISOString();
   const tags = [data.type].filter((tag, index, arr) => arr.indexOf(tag) === index);
 
-  const citationMap = new Map<string, number>();
+  const { citationMap } = buildCitationMap(data);
   const sourceDefinitions: Map<string, { file: string; pages: string; index: number }> = new Map();
-  let nextCitation = 1;
-
-  function getCitation(file: string, pages: string): string {
-    const key = sourceKey(file, pages);
-    let index = citationMap.get(key);
-    if (index === undefined) {
-      index = nextCitation++;
-      citationMap.set(key, index);
-      sourceDefinitions.set(key, { file, pages, index });
-    }
-    return `[^src${index}]`;
+  for (const [key, index] of citationMap.entries()) {
+    sourceDefinitions.set(key, { file: key.split('|')[0], pages: key.split('|')[1], index });
   }
 
   const lines: string[] = [];
@@ -113,7 +168,7 @@ export function writeEntityPage(data: EntityPageData): string {
   if (data.mentions.length > 0) {
     lines.push('## Mentions', '');
     for (const mention of data.mentions) {
-      const citation = getCitation(mention.source, mention.pages);
+      const citation = getCitation(citationMap, mention.source, mention.pages);
       lines.push(`- Page ${mention.page}: "${stripCitations(mention.context)}" ${citation}`);
     }
     lines.push('');
@@ -123,7 +178,7 @@ export function writeEntityPage(data: EntityPageData): string {
   if (data.relationships.length > 0) {
     lines.push('## Relationships', '');
     for (const rel of data.relationships) {
-      const citation = getCitation(rel.source, rel.pages);
+      const citation = getCitation(citationMap, rel.source, rel.pages);
       const predicateReadable = rel.predicate
         .split('-')
         .map((word) => (word.length > 0 ? word[0].toUpperCase() + word.slice(1) : word))
@@ -137,7 +192,7 @@ export function writeEntityPage(data: EntityPageData): string {
   if (data.claims.length > 0) {
     lines.push('## Claims', '');
     for (const claim of data.claims) {
-      const citation = getCitation(claim.source, claim.pages);
+      const citation = getCitation(citationMap, claim.source, claim.pages);
       const entityLinks = claim.entities.map((e) => formatWikilink(e, data.slugToTitle)).join(', ');
       lines.push(`- ${stripCitations(claim.text)} ${citation}${entityLinks ? ` (${entityLinks})` : ''}`);
     }

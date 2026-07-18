@@ -1,3 +1,5 @@
+import { mkdir, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { checkLinks, type LinkCheckResult } from './link-checker';
 import { checkCitations, type CitationCheckResult } from './citation-checker';
 import { validateSchema, type SchemaCheckResult } from './schema-validator';
@@ -41,12 +43,34 @@ function formatSchemaSummary(schema: SchemaCheckResult): string {
   return `Schema check: ${schema.totalPages} pages, ${schema.invalid.length} invalid`;
 }
 
+export async function writeValidationReport(wikiDir: string, summary: ValidationSummary): Promise<void> {
+  try {
+    const reportDir = join(wikiDir, '.state');
+    await mkdir(reportDir, { recursive: true });
+    await writeFile(
+      join(reportDir, 'validation-report.json'),
+      JSON.stringify(summary, null, 2) + '\n',
+      'utf-8',
+    );
+  } catch {
+    // Best-effort file write; do not let logging obscure validation failures.
+  }
+}
+
+async function writeValidationReportFile(wikiDir: string, summary: ValidationSummary): Promise<void> {
+  await writeValidationReport(wikiDir, summary);
+}
+
 /**
  * Log a concise validation summary to the console. Warnings are printed when
  * broken links, invalid citations, or schema violations are found, but the
- * function never throws.
+ * function never throws. If `wikiDir` is provided, the full summary is also
+ * written to `wikis/<slug>/.state/validation-report.json`.
  */
-export function logValidation(summary: ValidationSummary): void {
+export async function logValidation(
+  summary: ValidationSummary,
+  wikiDir?: string,
+): Promise<void> {
   console.log(formatLinkSummary(summary.links));
   console.log(formatCitationSummary(summary.citations));
   console.log(formatSchemaSummary(summary.schema));
@@ -65,6 +89,10 @@ export function logValidation(summary: ValidationSummary): void {
   }
   for (const violation of summary.schema.invalid) {
     console.warn(`Schema violation in ${violation.page}: ${violation.issue}`);
+  }
+
+  if (wikiDir) {
+    await writeValidationReportFile(wikiDir, summary);
   }
 }
 

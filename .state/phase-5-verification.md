@@ -1,27 +1,54 @@
 # Phase 5 Verification Report
 
-**Date:** 2026-07-17
-**Verifier:** Phase 5 Verifier sub-agent
-**Scope:** LLM Wiki CLI v2.0 — Phase 5 DOX Writer (Layer 4)
+**Verifier:** Independent Phase 5 Verifier sub-agent  
+**Date:** 2026-07-17  
+**Phase Document:** `Implementation Plan/PHASE_05_synthesis_writer.md`  
+**Status File:** `.state/phase-5-status.json`  
+
+---
 
 ## Summary
 
-**COMPLIANT** — All six Phase 5 technical gates pass, the TypeScript build is clean, and the full `npm test` suite is green in both key-less and key-loaded modes. The implementation matches the Phase 5 specification (`Implementation Plan/PHASE_05_dox_writer.md`) and the required TUI/CLI integration is present.
+**Overall: PASS with documentation-only findings.**
 
-Two minor deviations from the broader Project Vision DOX documents were noted, but both are inherited from the Phase 5 plan's intentional simplification and do not affect any Phase 5 gate. They are documented in the Compliance section below.
+All 7 technical gates in `PHASE_05_synthesis_writer.md` are implemented and pass. `npx tsc --noEmit` is clean and `npm test` reports 155 passed / 1 skipped. The implementation is compliant with the mapped vision documents, with one minor phase-document inconsistency (the DOX Writer already exists and is invoked by `ingest`, contrary to the Phase 5 checklist item "No code exists for the DOX Writer"). This is consistent with the vision orchestration doc, so it is a documentation drift rather than a functional blocker. No code changes are required for acceptance.
+
+---
 
 ## Gate-by-Gate Verification
 
-| Gate | Pass Criterion | Evidence | Result |
-|------|----------------|----------|--------|
-| 5.1 | Every folder in `wikis/<slug>/` (excluding `raw/` and `.state/`) has an `index.md`. | `tests/phase-05.test.ts` gate test scans every folder and asserts `existsSync(index.md)`. Manual inspection of `C:\Users\atavi\Projects\Wiki v5\wikis\test-wiki\` after `npx tsx src/cli.ts ingest test-wiki --no-extract` shows 11 generated `index.md` files covering every folder under `entities/`, `topics/`, `documents/`, and `sources/`. | PASS |
-| 5.2 | Each `index.md` lists all children in its frontmatter. | `tests/phase-05.test.ts` parses `entities/people/executives/index.md` and asserts `children` contains `john-smith.md`. Manual inspection confirms children include every sibling `.md` and sub-folder `index.md` (e.g., `people/index.md` contains `executives/index.md`). | PASS |
-| 5.3 | Wiki-level `index.md` links to `entities/`, `topics/`, `documents/`, `sources/`. | `tests/phase-05.test.ts` asserts the root `index.md` string contains `entities/`, `topics/`, `documents/`, and `sources/`. Manual inspection of `C:\Users\atavi\Projects\Wiki v5\wikis\test-wiki\index.md` shows `children` lists `entities/index.md`, `topics/index.md`, `documents/index.md`, `sources/index.md`, and the body links to `[[Entities]]`, `[[Topics]]`, `[[Documents]]`, `[[Sources]]`. | PASS |
-| 5.4 | `index.md` has valid YAML frontmatter with `type: index`, truthy `title`, and array `children`. | `tests/phase-05.test.ts` parses the root `index.md` with `gray-matter` and asserts `type === 'index'`, `title` truthy, and `children` is an `Array`. Manual inspection of generated `index.md` files confirms all three fields are present and valid. | PASS |
-| 5.5 | Wiki-level `index.md` statistics are accurate. | `tests/phase-05.test.ts` computes actual file counts and asserts the root `index.md` contains the matching statistics. Manual Node count for `C:\Users\atavi\Projects\Wiki v5\wikis\test-wiki\` after ingest: Sources 1, Document pages 1, Entity pages 4, Topic pages 4 — exactly matching the generated root `index.md`. | PASS |
-| 5.6 | Re-running `ingest` regenerates `index.md` files and reflects new pages. | `tests/phase-05.test.ts` runs `ingest` with an injected `extractChunkFn`, records the first `executives/index.md`, adds `new-person.md`, re-runs `ingest`, asserts the second index differs, contains `new-person.md`, and has a newer mtime. | PASS |
+| Gate | Description | Status | Evidence |
+|------|-------------|--------|----------|
+| 5.1 | Synthesis returns readable markdown with synthesis at top | **PASS** | `tests/phase-05.test.ts` lines 226-239 asserts `## Mentions`, `## Relationships`, `## Claims`, `## Timeline`, `## Sources`, first heading > 300 chars, timeline date, and significance present. `src/agents/synthesis.ts` implements `writeEntitySynthesis(entityData, agentsMd)`. |
+| 5.2 | Synthesis includes all mentions | **PASS** | `tests/phase-05.test.ts` lines 243-249 iterates `data.mentions` and asserts each `context` is present. `src/agents/synthesis.ts` injects every mention into the prompt. |
+| 5.3 | Synthesis includes all relationships | **PASS** | `tests/phase-05.test.ts` lines 253-259 iterates `data.relationships` and asserts each `evidence` is present. `src/agents/synthesis.ts` injects every relationship into the prompt. |
+| 5.4 | Synthesis includes all claims | **PASS** | `tests/phase-05.test.ts` lines 263-269 iterates `data.claims` and asserts each `text` is present. `src/agents/synthesis.ts` injects every claim into the prompt. |
+| 5.5 | Preservation check catches dropped content | **PASS** | `tests/phase-05.test.ts` lines 273-279 passes a bad page and asserts `passed === false` and `droppedMentions.length > 0`. `src/validation/preservation-check.ts` implements `checkPreservation` with the exact interface from the phase doc. |
+| 5.6 | Preservation check passes for complete output | **PASS** | `tests/phase-05.test.ts` lines 283-288 builds a complete page and asserts `passed === true`. |
+| 5.7 | Synthesis does not run by default | **PASS** | `tests/phase-05.test.ts` lines 294-324 runs `ingest` without `synthesis` and asserts `result.synthesized === 0` and the page stays structured. `src/commands/ingest.ts` line 127 defaults `synthesis` to `false`. `src/cli.ts` line 44 exposes `--synthesis` as opt-in only. |
 
-## Test-Run Results
+---
+
+## Compliance Against Vision Documents
+
+| Requirement | Vision Citation | Status | Notes |
+|-------------|-------------------|--------|-------|
+| Synthesis Writer runs after Materializer and before final content validation / DOX contracts | `04_orchestration_detailed.md` §3.2 Step 9, Step 10 | **COMPLIANT** | `src/commands/ingest.ts` lines 288-318 runs validation, then optional synthesis, then `writeDoxContracts`. |
+| Synthesis is opt-in (`--synthesis` flag) | `04_orchestration_detailed.md` §3.2 Step 9; `PHASE_05` §3.4 | **COMPLIANT** | `src/commands/ingest.ts` line 127 defaults to `false`; `src/cli.ts` line 44 adds `--synthesis` flag; `src/tui/settings.ts` defaults `synthesis: false`. |
+| Two-layer page: readable synthesis + preserved detail | `02_WIKI_concept_detailed.md` §3; `05_page_types_specification.md` §6.2 | **COMPLIANT** | `prompts/synthesis.prompt.txt` explicitly defines Layer 1 and Layer 2 with `## Mentions`, `## Relationships`, `## Claims`, `## Timeline`, `## Sources`. |
+| Pass the "Journalist Test" | `02_WIKI_concept_detailed.md` §4.5 | **COMPLIANT** | Prompt requires self-contained prose, three cited facts, two related entities, and explicit chronological/cross-reference/disambiguation context. |
+| Inline citations `[^srcN]` mapping to Sources | `02_WIKI_concept_detailed.md` §6; `05_page_types_specification.md` §6.2 | **COMPLIANT** | Prompt instructs every factual claim to use `[^srcN]` and requires source definitions. Preservation check verifies existing citations remain. |
+| Preserve every mention, relationship, claim | `04_orchestration_detailed.md` §4; `PHASE_05` §3.3 | **COMPLIANT** | `src/validation/preservation-check.ts` checks mention context, relationship evidence, claim text, and citation markers. |
+| Preservation failure keeps structured template and logs conflict | `04_orchestration_detailed.md` §4; `PHASE_05` §3.4 | **COMPLIANT** | `src/commands/ingest.ts` lines 308-314 warns, calls `logConflict`, and leaves the structured page. `src/state/conflicts.ts` persists to `.state/conflicts.json`. |
+| TUI Settings screen has a Synthesis toggle | `PHASE_05` §6.1 | **COMPLIANT** | `src/tui/settings-screen.tsx` renders "Synthesis" toggle and persists to `.llm-wiki-cli.json`. `src/tui/ingest-screen.tsx` pre-checks "Enable Synthesis" from settings. |
+| No DOX Writer code (Phase 6) in Phase 5 | `PHASE_05` §7 checklist | **CONTRADICTION** | `src/dox-writer.ts` exists and is called by `src/commands/ingest.ts` line 318. However, this matches `04_orchestration_detailed.md` §3.2 Step 10 and the `tests/phase-06.test.ts` suite already covers DOX Writer. The phase doc checklist is outdated; the code is not broken or expanded. |
+| Synthesis prompt file matches the phase doc | `PHASE_05` §3.1 | **COMPLIANT** | `prompts/synthesis.prompt.txt` is byte-for-byte identical to the prompt in the phase document. |
+| Synthesis agent appends wiki constitution to the prompt | Not explicitly in `PHASE_05` §3.2 | **EXTENSION** | `src/agents/synthesis.ts` line 94 appends `AGENTS.md` to the prompt. This aligns with the vision that AGENTS.md is the binding constitution for every LLM call (`02_WIKI_concept_detailed.md` §7; `04_orchestration_detailed.md` §3.2 Step 1). |
+| Materializer returns structured data for synthesis | `PHASE_05` §3.4 pseudo-code | **COMPLIANT** | `src/materializer.ts` returns `MaterializeResult` with `entityPages: EntityPageData[]`, used by `src/commands/ingest.ts` without re-parsing markdown. |
+
+---
+
+## Test Results
 
 ### TypeScript type check
 
@@ -29,79 +56,75 @@ Two minor deviations from the broader Project Vision DOX documents were noted, b
 npx tsc --noEmit
 ```
 
-- Result: clean, exit code 0, no output.
+**Result:** Clean (no output, exit code 0).
 
-### npm test without API key
-
-```bash
-mv .env .env.bak
-unset ANTHROPIC_API_KEY
-npm test
-mv .env.bak .env
-```
-
-- Result: 16 test files passed, 134 tests passed, 13 skipped (12 live Phase 2 gates + Phase 0 gate 0.4), exit code 0.
-- Phase 5 tests (`tests/phase-05.test.ts`, `tests/tui/dox-browser.test.tsx`) all passed; the 12 live Phase 2 gates correctly self-skipped without a key.
-
-### npm test with API key loaded
+### Unit / integration test suite
 
 ```bash
 npm test
 ```
 
-- Result: 16 test files passed, 146 tests passed, 1 skipped (Phase 0 gate 0.4), exit code 0.
-- All 12 live Phase 2 gates ran and passed.
+**Result:**
 
-### Tests executed
+```
+ Test Files  17 passed (17)
+      Tests  155 passed | 1 skipped (156)
+   Duration  117.24s
+```
 
-- `tests/infrastructure.test.ts`
-- `tests/phase-01.test.ts`
-- `tests/phase-02.test.ts`
-- `tests/phase-03.test.ts`
-- `tests/phase-04.test.ts`
-- `tests/phase-05.test.ts`
-- `tests/file-dialog.test.ts`
-- `tests/tui/add-pdfs-screen.test.tsx`
-- `tests/tui/dox-browser.test.tsx`
-- `tests/tui/entity-browser.test.tsx`
-- `tests/tui/extractor-test-screen.test.tsx`
-- `tests/tui/menu.test.tsx`
-- `tests/tui/phase-01-screens.test.tsx`
-- `tests/tui/test-screen-spawn.test.tsx`
-- `tests/tui/topic-browser.test.tsx`
-- `tests/tui/validation-report-screen.test.tsx`
+The single skipped test is Phase 0 gate 0.4 (requires `LLM_WIKI_CLI_LLM_COST` exported environment variable), which is outside Phase 5 scope. All Phase 5 gates in `tests/phase-05.test.ts` pass (9 tests, including 2 supplementary tests). Phase 6 tests in `tests/phase-06.test.ts` also pass (9 tests), confirming the DOX Writer code remains functional.
 
-## Implementation Details Verified
-
-- **No LLM calls in the DOX Writer:** `C:\Users\atavi\Projects\Wiki v5\src\dox-writer.ts` imports only `node:fs/promises`, `node:path`, `gray-matter`, and local utils; it does not import or call `callLLM`. `grep` confirms no `callLLM` usage in the file.
-- **`ingest.ts` calls `writeDoxContracts` after validation:** `C:\Users\atavi\Projects\Wiki v5\src\commands\ingest.ts` imports `writeDoxContracts` at line 14 and invokes it at line 252, after the Phase 4 `validateWiki`/`logValidation` block.
-- **TUI menu includes the new screen:** `C:\Users\atavi\Projects\Wiki v5\src\tui\menu.tsx` lists `{ label: 'Browse DOX Contracts', value: 'dox-browser' }` and `tests/tui/menu.test.tsx` asserts its presence.
-- **`app.tsx` routes to `dox-browser`:** `C:\Users\atavi\Projects\Wiki v5\src\tui\app.tsx` includes `dox-browser` in the `Screen` union and renders `<DoxBrowser onBack={() => setScreen('menu')} />` when `screen === 'dox-browser'`.
-- **TUI DOX browser renders the tree and shows content:** `C:\Users\atavi\Projects\Wiki v5\src\tui\dox-browser.tsx` wraps `TreeBrowser` with `excludeFolders={['raw', '.state']}` and `excludeFiles={['AGENTS.md']}`. `C:\Users\atavi\Projects\Wiki v5\src\tui\components\tree-browser.tsx` supports tree navigation, folder expansion, and a file viewer that shows the raw `index.md` content (including title, type, and children). `tests/tui/dox-browser.test.tsx` verifies the tree, index viewer, content viewer, Escape chain, and non-TTY fallback.
-- **Phase 4 additive changes:** `C:\Users\atavi\Projects\Wiki v5\src\validation\schema-validator.ts` now includes `'index'` in `KNOWN_TYPES`, and `C:\Users\atavi\Projects\Wiki v5\src\validation\link-checker.ts` resolves `[[Folder Name]]` and `[[Wiki Slug]]` to folder and root `index.md` files, respectively.
-
-## Compliance with Vision Documents
-
-The following vision documents were read and checked:
-
-- `C:\Users\atavi\Projects\Wiki v5\Project Vision\03_DOX_concept_detailed.md` — Sections 3 (Folder Hierarchy), 4 (The `index.md` Contract Hierarchy), and 6 (The DOX Writer).
-- `C:\Users\atavi\Projects\Wiki v5\Project Vision\05_page_types_specification.md` — Sections 2 (Common Frontmatter Rules), 3 (The `index` Page Type), and 9 (Custom Page Types).
-- `C:\Users\atavi\Projects\Wiki v5\AGENTS.md`, `C:\Users\atavi\Projects\Wiki v5\src\AGENTS.md`, and `C:\Users\atavi\Projects\Wiki v5\tests\AGENTS.md`.
-
-The implementation is fully aligned with the Phase 5 implementation plan. Two deviations from the broader vision documents were identified:
-
-1. **Missing explicit `Contract` body section.** The vision documents state that every `index.md` body should include a `Contract` section describing the rules that pages inside the folder must follow. The Phase 5 implementation plan intentionally replaces this with a generic, template-based description (e.g., "This folder contains pages and sub-folders related to executives."). This keeps the DOX Writer deterministic and $0-cost, as documented in the phase plan's deviation note, but it is a departure from the richer DOX contract section envisioned in `Project Vision/03_DOX_concept_detailed.md`.
-2. **Custom page types are not yet declared or permitted.** `Project Vision/05_page_types_specification.md` states that non-default page types must be declared in the folder-level `index.md` and that the DOX Writer should document them. The schema validator (`C:\Users\atavi\Projects\Wiki v5\src\validation\schema-validator.ts`) still flags any type outside the built-in set as invalid, and the DOX Writer does not collect or emit custom-type declarations. This is not triggered by the current Phase 5 fixtures (which only emit `entity`, `topic`, `document`, `source`, `raw`, and `index`), but it is a gap relative to the vision document.
-
-Neither deviation affects the six Phase 5 gates or the contract with Phase 6 (Phase 6 does not change the DOX structure). They are inherited from the Phase 5 plan's scope and simplification.
+---
 
 ## LLM Cost
 
-- **Phase 5 verification cost:** $0.00. The DOX Writer, Phase 5 tests, and the no-key `npm test` run make no LLM calls.
-- **Full with-key test suite:** The with-key run additionally executed 12 live Phase 2 Extractor tests. The LLM client logged those calls (costs appear in the test output), but they are unrelated to Phase 5 and are not part of the Phase 5 budget.
+**Automated verification cost: $0.00.**
 
-## Final Recommendation
+The Phase 5 test suite uses deterministic stubs for `callLLM` when `ANTHROPIC_API_KEY` is absent (`tests/phase-05.test.ts` lines 216-222). No live Synthesis Writer calls were made during `npm test`. Phase 2 live tests did make Anthropic calls, but those are Phase 2 gates, not Phase 5. The status file reports Phase 5 LLM cost as `$0.00`, which matches this verification run.
 
-**PROCEED TO PHASE 6.**
+---
 
-All Phase 5 gates are verified, the TypeScript build is clean, the full test suite passes in both modes, and the TUI DOX browser is functional. The two vision-document deviations are minor, intentional simplifications carried by the Phase 5 plan, and do not block the handoff to the Reporter or the start of Phase 6.
+## Blockers
+
+**None.** The implementation is ready for Phase 5 acceptance.
+
+---
+
+## Recommendations (non-blocking)
+
+1. **Update root `AGENTS.md` Child DOX Index.** Line 97 currently says `src/AGENTS.md` covers "Synthesis Writer still scaffolding." Since Phase 5 is complete, this should be updated to reflect that the Synthesis Writer is now implemented in `src/agents/synthesis.ts`.
+2. **Correct `tests/tui/menu.test.tsx` comment.** Line 189 states "11 items: previous 10 + Phase 5 DOX browser." The DOX browser is a Phase 6 feature, not Phase 5; the comment should say "Phase 6 DOX browser." The test assertions themselves are correct.
+3. **Reconcile Phase 5 checklist wording.** The Phase 5 doc §7 checklist says "No code exists for the DOX Writer (Phase 6)." Because `src/dox-writer.ts` already exists and is invoked by `ingest`, this checklist item should be updated or removed to avoid future verifier confusion. The existing DOX Writer code is deterministic, functional, and not expanded by Phase 5.
+4. **Complete UAT.** The status file records UAT 5.1-5.4 as "pending." These should be run with a live API key before formally signing off Phase 5, as the phase doc requires 4 UAT steps to pass.
+
+---
+
+## Files Verified
+
+- `Implementation Plan/PHASE_05_synthesis_writer.md`
+- `Project Vision/02_WIKI_concept_detailed.md`
+- `Project Vision/05_page_types_specification.md`
+- `Project Vision/04_orchestration_detailed.md` §4 and §6
+- `AGENTS.md` (root)
+- `src/AGENTS.md`
+- `tests/AGENTS.md`
+- `prompts/AGENTS.md`
+- `src/agents/synthesis.ts`
+- `src/validation/preservation-check.ts`
+- `src/commands/ingest.ts`
+- `src/cli.ts`
+- `src/tui/settings-screen.tsx`
+- `src/tui/ingest-screen.tsx`
+- `src/tui/app.tsx`
+- `src/tui/settings.ts`
+- `src/state/conflicts.ts`
+- `src/pages/entity-page.ts`
+- `src/materializer.ts`
+- `src/dox-writer.ts`
+- `src/agents/extractor.ts`
+- `src/tui/menu.tsx`
+- `prompts/synthesis.prompt.txt`
+- `tests/phase-05.test.ts`
+- `tests/phase-06.test.ts`
+- `tests/tui/menu.test.tsx`
+- `.state/phase-5-status.json`

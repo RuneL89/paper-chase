@@ -203,8 +203,8 @@ Phase documents live in `Implementation Plan/`; vision documents live in `Projec
 | 2 | `PHASE_02_extractor.md` | `04_orchestration_detailed.md`, `05_page_types_specification.md` | Extractor role, page types, JSON schema |
 | 3 | `PHASE_03_materializer.md` | `05_page_types_specification.md`, `03_DOX_concept_detailed.md` | Entity page format, folder hierarchy |
 | 4 | `PHASE_04_link_checker.md` | `07_validation_and_quality.md`, `06_citation_and_provenance.md` | Validation layers, citation integrity |
-| 5 | `PHASE_05_dox_writer.md` | `03_DOX_concept_detailed.md`, `05_page_types_specification.md` | DOX contracts, index.md hierarchy |
-| 6 | `PHASE_06_synthesis_writer.md` | `02_WIKI_concept_detailed.md`, `05_page_types_specification.md` | Two-layer pages, synthesis requirements |
+| 5 | `PHASE_05_synthesis_writer.md` | `02_WIKI_concept_detailed.md`, `05_page_types_specification.md` | Two-layer pages, synthesis requirements |
+| 6 | `PHASE_06_dox_writer.md` | `03_DOX_concept_detailed.md`, `05_page_types_specification.md` | DOX contracts, index.md hierarchy |
 | 7 | `PHASE_07_multi_pdf_compounding.md` | `01_PRODUCT_VISION_AND_ARCHITECTURE.md`, `04_orchestration_detailed.md` | Compounding, incremental ingestion |
 | 8 | `PHASE_08_agents_updater.md` | `03_DOX_concept_detailed.md`, `01_PRODUCT_VISION_AND_ARCHITECTURE.md` | AGENTS.md as living document |
 | 9 | `PHASE_09_polish.md` | All vision documents | Final polish, must not break any existing spec |
@@ -337,8 +337,9 @@ Wiki v5/
 │   ├── PHASE_02_extractor.md                     # Phase 2
 │   ├── PHASE_03_materializer.md                  # Phase 3
 │   ├── PHASE_04_link_checker.md                  # Phase 4
-│   ├── PHASE_05_dox_writer.md                    # Phase 5
-│   ├── PHASE_06_synthesis_writer.md              # Phase 6
+    │   ├── PHASE_05_synthesis_writer.md              # Phase 5
+    │   ├── PHASE_06_dox_writer.md                    # Phase 6
+
 │   ├── PHASE_07_multi_pdf_compounding.md         # Phase 7
 │   ├── PHASE_08_agents_updater.md                # Phase 8
 │   └── PHASE_09_polish.md                        # Phase 9

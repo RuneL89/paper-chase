@@ -176,7 +176,7 @@ const KEY = {
   escape: ESC,
 };
 
-// Phase 5 §5.1: DOX browser renders the contract tree.
+// Phase 6 §5.1: DOX browser renders the contract tree.
 test('DOX browser renders the contract tree', async () => {
   const workspace = makeTempDir('llm-wiki-doxbrowser-');
   makeWikiWithDox(workspace, 'test-wiki');

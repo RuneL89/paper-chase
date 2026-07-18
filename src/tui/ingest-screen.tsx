@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Text, useInput, useStdin } from 'ink';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
@@ -8,6 +8,7 @@ import { SuccessBox } from './components/success-box';
 import { useWikiList } from './hooks/use-wiki-list';
 import { useWikiDetails } from './hooks/use-wiki-details';
 import { ingest } from '../commands/ingest';
+import { loadSettings } from './settings';
 import type { ScreenProps } from './init-screen';
 
 export interface IngestScreenProps extends ScreenProps {
@@ -43,6 +44,9 @@ function formatTimestamp(iso: string | null): string {
  * count in raw/ and the last ingest timestamp for the selected wiki, and
  * runs ingest() with a spinner and live progress lines
  * ("Extracting text...", "Chunk X/Y...", "Done!").
+ *
+ * Phase 5: adds an "Enable Synthesis" checkbox pre-checked from
+ * `.llm-wiki-cli.json`. When checked, ingest runs with `synthesis: true`.
  */
 export function IngestScreen({
   onBack,
@@ -61,6 +65,23 @@ export function IngestScreen({
   const [status, setStatus] = useState<IngestStatus>('idle');
   const [progressLines, setProgressLines] = useState<string[]>([]);
   const [message, setMessage] = useState('');
+  const [synthesis, setSynthesis] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+    loadSettings(workspace)
+      .then((s) => {
+        if (mounted) {
+          setSynthesis(s.synthesis);
+        }
+      })
+      .catch(() => {
+        // Keep default false on settings load failure.
+      });
+    return () => {
+      mounted = false;
+    };
+  }, [workspace]);
 
   const runIngest = async (wiki: string) => {
     setStatus('running');
@@ -70,9 +91,13 @@ export function IngestScreen({
       const result = (await run(wiki, {
         workspace,
         extract,
+        synthesis,
         onProgress: (line: string) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
-      })) as { ingested: unknown[]; skipped: unknown[] };
-      const summary = `Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`;
+      })) as { ingested: unknown[]; skipped: unknown[]; synthesized?: number; synthesisConflicts?: number };
+      let summary = `Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`;
+      if (result.synthesized !== undefined) {
+        summary += ` Synthesis: ${result.synthesized} page(s), ${result.synthesisConflicts ?? 0} conflict(s).`;
+      }
       setStatus('success');
       setMessage(summary);
       onResult?.(summary);
@@ -112,6 +137,10 @@ export function IngestScreen({
         setSelectedIndex((selectedIndex + 1) % wikis.length);
         return;
       }
+      if (_input === ' ') {
+        setSynthesis((prev) => !prev);
+        return;
+      }
       if (key.return && selectedWiki) {
         void runIngest(selectedWiki);
       }
@@ -145,6 +174,9 @@ export function IngestScreen({
             <Text>PDFs in raw/: {details.pdfCount === null ? '...' : `${details.pdfCount} file(s)`}</Text>
             <Text>Last ingest: {formatTimestamp(details.lastIngest)}</Text>
           </Box>
+          <Box flexDirection="column" marginTop={1}>
+            <Text>[{synthesis ? '✓' : ' '}] Enable Synthesis (Space to toggle)</Text>
+          </Box>
         </Box>
       )}
       {status === 'running' && <LoadingSpinner label="Running ingest..." />}
@@ -155,7 +187,7 @@ export function IngestScreen({
       ))}
       {status === 'success' && <SuccessBox message={message} />}
       {status === 'error' && <ErrorBox message={message} />}
-      <Footer helpText="Up/Down: select wiki | Enter: run ingest | Press Escape to go back" />
+      <Footer helpText="Up/Down: select wiki | Space: toggle synthesis | Enter: run ingest | Escape: back" />
     </Box>
   );
 }

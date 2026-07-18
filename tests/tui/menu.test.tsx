@@ -123,7 +123,7 @@ test('TUI renders without crashing', () => {
 // 'Ingest PDFs (ingest)' — the menu now has 7 items.
 // UPDATED 2026-07-17 (Phase 4, phase doc §5.2): 'View Validation Report' was
 // added after 'Add PDFs (copy into raw/)' — the menu now has 10 items.
-// UPDATED 2026-07-17 (Phase 5, phase doc §5.2): 'Browse DOX Contracts' was
+// UPDATED 2026-07-17 (Phase 6, phase doc §5.2): 'Browse DOX Contracts' was
 // added after 'Browse Topics' — the menu now has 11 items.
 test('TUI menu shows all options', async () => {
   const menu = renderCaptured(<MenuScreen onSelect={() => {}} lastResult="" />);
@@ -186,7 +186,7 @@ test('every menu item maps to its screen', () => {
   for (const [value, screen] of expected) {
     expect(resolveMenuSelection(value)).toBe(screen);
   }
-  // 11 items: previous 10 + Phase 5 DOX browser.
+  // 11 items: previous 10 + Phase 6 DOX browser.
   expect(MENU_ITEMS.map((item) => item.value)).toEqual([
     'init',
     'ingest',
@@ -217,7 +217,8 @@ test('each screen renders its expected content', async () => {
   ingest.unmount();
   await tick(50);
   expect(ingest.output()).toContain('Ingest PDFs');
-  expect(ingest.output()).toContain('Press Escape to go back');
+  expect(ingest.output()).toContain('Up/Down: select wiki');
+  expect(ingest.output()).toContain('Enter: run ingest');
 
   const addPdfs = renderCaptured(<AddPdfsScreen onBack={noop} onResult={noop} />);
   await tick();
@@ -281,5 +282,5 @@ test('each screen renders its expected content', async () => {
   settings.unmount();
   await tick(50);
   expect(settings.output()).toContain('Settings');
-  expect(settings.output()).toContain('Press Escape to go back');
+  expect(settings.output()).toContain('Up/Down: select | Space: toggle | Enter: save/back | Escape: back');
 });

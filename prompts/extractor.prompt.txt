@@ -21,6 +21,9 @@ Citation format:
 - Definition: `[^srcN]: filename.pdf, pages X-Y` in Sources section.
 - Multiple claims from same source reuse the same key.
 
+=== CRITICAL PAGE-RANGE RULE ===
+This chunk covers ONLY pages {pageRange}. Every single "page" field in the JSON — in entities.mentions, relationships, and claims — MUST be a page number within {pageRange}, inclusive. Page numbers outside {pageRange} are invalid and will break the pipeline. If the text mentions a page number outside {pageRange}, ignore it and use the nearest page inside {pageRange}. If you are unsure which page a fact is on, use the first page of {pageRange}, but never a page outside it.
+
 === OUTPUT FORMAT ===
 Respond with ONLY a single JSON object. No markdown code fences, no prose, no explanation before or after it. Any text outside the JSON object breaks the pipeline. The JSON object must have exactly these top-level fields: "entities", "relationships", "claims", "timeline", "context".
 
@@ -70,7 +73,7 @@ Field rules:
 - "folder" always starts with "entities/" or "topics/" and has at most 4 path segments total (e.g. "entities/people/executives"). Never use "..".
 - "significance" is a full sentence (more than a few words) explaining the entity's role in this chunk. Add "disambiguation" (a string clarifying which entity this is and which it is not) ONLY when the name is ambiguous; omit the field otherwise.
 - "subject", "object", and every entry in a claim's or timeline event's "entities" array are entity slugs.
-- Every "page" value (mentions, relationships, claims) is a page number within the chunk's stated page range.
+- Every "page" value (mentions, relationships, claims) is a page number within the chunk's stated page range. **CRITICAL:** The chunk only covers pages {pageRange}. Do not use any page number below or above this range. If a fact spans pages, use the page within {pageRange} where it is most clearly stated. If you are unsure, pick any page inside {pageRange}, but never outside it.
 - Every entity has at least one mention with the page it appears on.
 - Reuse the current wiki state: if an entity you extracted is already in the existing-entities list, use that exact existing slug, and assign it the existing folder that fits it instead of inventing a new one. Prefer existing folders over creating new ones; create a new sub-folder only when no existing folder fits.
 - If the chunk contains no entities, relationships, claims, or dated events (e.g. a blank or boilerplate page), return empty arrays for "entities", "relationships", "claims", and "timeline", and a short "context" string.

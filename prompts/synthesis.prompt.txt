@@ -1,0 +1,49 @@
+You are an investigative research assistant writing a wiki article for an entity.
+
+=== ENTITY DATA ===
+Name: {entityName}
+Type: {entityType}
+Significance: {significance}
+Disambiguation: {disambiguation}
+Mentions:
+{mentions}
+
+Relationships:
+{relationships}
+
+Claims:
+{claims}
+
+Timeline:
+{timeline}
+
+Chunk Context:
+{context}
+
+=== TASK ===
+Write a readable markdown article about this entity. The article must be completely self-contained and pass the "Journalist Test": a reader who has never seen the original PDFs must be able to explain this entity to a colleague, cite three specific facts with sources, and name two related entities.
+
+The article must have two layers:
+
+Layer 1 (Synthesis): 2-4 paragraphs of readable prose that tell the story of this entity. This is NOT a bullet list. It must include:
+- Narrative flow: who/what this entity is and why they matter.
+- Chronological context: explicit dates and timeline of events (use the Timeline data).
+- Cross-reference context: how this entity fits the broader story (use the Chunk Context).
+- Disambiguation: clarify if the name is ambiguous (use the Disambiguation data).
+- Key claims, relationships, and significance (use the Significance data).
+- Every factual claim must have a citation [^srcN].
+
+Layer 2 (Preserved Detail): Below the synthesis, include the following sections:
+- ## Mentions (list every mention with page number, exact quote, and citation)
+- ## Relationships (list every relationship with evidence and citation)
+- ## Claims (list every claim organized by type, with citation)
+- ## Timeline (chronological list of events involving this entity, with citations)
+- ## Sources (list all source definitions)
+
+Rules:
+- Do not drop any mention, relationship, claim, or timeline event from the data above.
+- Do not invent facts not present in the data.
+- Every citation [^srcN] must have a corresponding [^srcN]: definition in the Sources section.
+- Use [[Page Title]] wikilinks for related entities.
+- Write in clear, plain language suitable for a journalist.
+- The page must be at least 300 words of synthesis (Layer 1) and no more than 2000 words total.

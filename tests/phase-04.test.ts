@@ -244,7 +244,7 @@ test('logValidation prints summary and warnings', async () => {
   const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
   try {
-    logValidation({
+    await logValidation({
       wikiSlug: 'test-wiki',
       links: { broken: [], orphaned: [], totalLinks: 3, totalPages: 2 },
       citations: { invalid: [], missingSource: [], totalCitations: 1 },
@@ -268,7 +268,7 @@ test('logValidation warns about issues', async () => {
   const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
   try {
-    logValidation({
+    await logValidation({
       wikiSlug: 'test-wiki',
       links: {
         broken: [{ page: 'entities/a.md', link: 'Missing' }],
@@ -295,6 +295,33 @@ test('logValidation warns about issues', async () => {
     consoleLog.mockRestore();
     consoleWarn.mockRestore();
   }
+});
+
+// ---------------------------------------------------------------------------
+// Supplementary: logValidation writes a JSON report file when wikiDir is given.
+// ---------------------------------------------------------------------------
+test('logValidation writes validation-report.json when wikiDir is provided', async () => {
+  const workspace = mkdtempSync(join(tmpdir(), 'llm-wiki-phase4-report-'));
+  const wikiDir = join(workspace, 'wikis', 'test-wiki');
+  mkdirSync(join(wikiDir, '.state'), { recursive: true });
+  tempDirs.push(workspace);
+
+  const summary = {
+    wikiSlug: 'test-wiki',
+    links: { broken: [], orphaned: [], totalLinks: 3, totalPages: 2 },
+    citations: { invalid: [], missingSource: [], totalCitations: 1 },
+    schema: { invalid: [], totalPages: 2 },
+  };
+
+  await logValidation(summary, wikiDir);
+
+  const reportPath = join(wikiDir, '.state', 'validation-report.json');
+  expect(existsSync(reportPath)).toBe(true);
+  const written = JSON.parse(readFileSync(reportPath, 'utf-8'));
+  expect(written.wikiSlug).toBe('test-wiki');
+  expect(written.links.totalLinks).toBe(3);
+  expect(written.citations.totalCitations).toBe(1);
+  expect(written.schema.totalPages).toBe(2);
 });
 
 // ---------------------------------------------------------------------------

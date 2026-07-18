@@ -1,4 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
+import { mkdir, appendFile } from 'node:fs/promises';
+import { dirname } from 'node:path';
 import { resolve } from 'node:path';
 import { request } from 'undici';
 
@@ -80,6 +82,43 @@ export interface CallLLMOptions {
   maxTokens?: number;
   /** Sampling temperature; omitted from the request unless provided. */
   temperature?: number;
+  /**
+   * Optional label describing the caller (e.g., 'extractor', 'synthesis',
+   * 'permissive-synthesis'). Used only in the LLM call log.
+   */
+  callType?: string;
+  /**
+   * Optional caller-provided context string (e.g., entity slug, chunk ID) to
+   * tie the LLM call to a specific item in the pipeline. Used only in the log.
+   */
+  context?: string;
+  /**
+   * Optional path to a JSON-lines file where each LLM call is appended.
+   * If provided, a summary record is written after a successful call.
+   */
+  logPath?: string;
+}
+
+interface LlmCallLogEntry {
+  timestamp: string;
+  callType?: string;
+  context?: string;
+  model: string;
+  inputTokens: number;
+  outputTokens: number;
+  cost: number;
+}
+
+async function appendLlmCallLog(logPath: string | undefined, entry: LlmCallLogEntry): Promise<void> {
+  if (!logPath) {
+    return;
+  }
+  try {
+    await mkdir(dirname(logPath), { recursive: true });
+    await appendFile(logPath, JSON.stringify(entry) + '\n', 'utf-8');
+  } catch {
+    // Best-effort logging; do not let a write failure break the LLM call.
+  }
 }
 
 /**
@@ -141,6 +180,16 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
   const cost = (inputTokens * inputPrice + outputTokens * outputPrice) / 1_000_000;
 
   console.log(`LLM Call | Tokens: ${inputTokens}/${outputTokens} | Cost: $${cost.toFixed(4)}`);
+
+  await appendLlmCallLog(options.logPath, {
+    timestamp: new Date().toISOString(),
+    callType: options.callType,
+    context: options.context,
+    model,
+    inputTokens,
+    outputTokens,
+    cost,
+  });
 
   return text;
 }

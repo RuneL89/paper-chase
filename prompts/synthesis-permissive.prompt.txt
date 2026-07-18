@@ -1,0 +1,42 @@
+You are an investigative research assistant writing a wiki article for an entity.
+
+=== ENTITY DATA ===
+Name: {entityName}
+Type: {entityType}
+Significance: {significance}
+Disambiguation: {disambiguation}
+Mentions:
+{mentions}
+
+Relationships:
+{relationships}
+
+Claims:
+{claims}
+
+Timeline:
+{timeline}
+
+Chunk Context:
+{context}
+
+=== TASK ===
+Write a readable markdown article about this entity. Because the source material is very dense, this article uses a **hybrid format**:
+
+Layer 1 (Synthesis): 2-4 paragraphs of readable prose at the very top of the page. Tell the story of this entity: who/what it is, why it matters, key claims, dates, and relationships. You may summarize and paraphrase here. Every factual claim must have a citation [^srcN].
+
+Layer 2 (Preserved Detail): Below the synthesis, include the following sections using the exact data provided above. **Do not change the exact wording of the mention contexts, relationship evidence, or claim text.** Preserve them verbatim so readers can verify the synthesis against the original source.
+
+- ## Mentions (list every mention with page number, exact quote, and citation)
+- ## Relationships (list every relationship with evidence and citation)
+- ## Claims (list every claim organized by type, with citation)
+- ## Timeline (chronological list of events involving this entity, with citations)
+- ## Sources (list all source definitions)
+
+Rules:
+- Do not drop any mention, relationship, claim, or timeline event from the data above.
+- In Layer 1, you may summarize and paraphrase; in Layer 2, preserve the exact strings from the data.
+- Every citation [^srcN] must have a corresponding [^srcN]: definition in the Sources section.
+- Use [[Page Title]] wikilinks for related entities.
+- Write in clear, plain language suitable for a journalist.
+- The page must be at least 300 words of synthesis (Layer 1).

@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { callLLM } from '../llm/client';
@@ -80,7 +80,7 @@ export class ExtractorError extends Error {
 // deterministic output (temperature 0) makes slugs/folders stable across runs
 // (noted adaptation 5; additive CallLLMOptions, defaults unchanged for all
 // other callers).
-const EXTRACTION_MAX_TOKENS = 4096;
+const EXTRACTION_MAX_TOKENS = 16384;
 const EXTRACTION_TEMPERATURE = 0;
 
 let promptTemplateCache: string | null = null;
@@ -106,23 +106,61 @@ function fillPromptTemplate(template: string, values: Record<string, string>): s
 }
 
 /**
- * Strip a single leading/trailing markdown code fence if the model added one
- * despite the prompt asking for raw JSON. Exported for tests.
+ * Strip a leading markdown code fence if the model added one despite the
+ * prompt asking for raw JSON. The model is inconsistent: some chunks return
+ * bare JSON, others wrap it in ```json ... ```. We handle the common variants:
+ *   - ```json\n{...}\n```
+ *   - ```\n{...}\n```
+ *   - ```json{...}```
+ *   - fenced JSON followed by trailing model commentary
+ * Exported for tests.
  */
 export function stripCodeFences(text: string): string {
-  let trimmed = text.trim();
-  const fenceMatch = /^```[a-zA-Z]*\r?\n/.exec(trimmed);
-  if (fenceMatch) {
-    trimmed = trimmed.slice(fenceMatch[0].length);
-    if (trimmed.endsWith('```')) {
-      trimmed = trimmed.slice(0, trimmed.length - 3);
+  let normalized = text.trim().replace(/\r\n/g, '\n');
+  if (!normalized.startsWith('```')) {
+    return normalized;
+  }
+
+  // Skip the opening fence (and optional language tag) to get to the content.
+  const firstNewline = normalized.indexOf('\n');
+  let content: string;
+  if (firstNewline === -1) {
+    // No newline at all; inline fence like ```json{...}``` or ```{...}```
+    content = normalized.replace(/^```[a-zA-Z]*/, '');
+  } else {
+    content = normalized.slice(firstNewline + 1);
+  }
+
+  // Find the first line that is exactly a closing fence (with optional
+  // surrounding whitespace), then drop everything from that line onward.
+  const lines = content.split('\n');
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i].trim() === '```') {
+      return lines.slice(0, i).join('\n').trim();
     }
   }
-  return trimmed.trim();
+
+  // No closing fence found; strip a trailing ``` if present and return the rest.
+  return content.replace(/```\s*$/, '').trim();
+}
+
+async function debugWriteRawResponse(rawResponse: string): Promise<void> {
+  try {
+    const here = dirname(fileURLToPath(import.meta.url));
+    const debugDir = join(here, '..', '..', '.state');
+    await mkdir(debugDir, { recursive: true });
+    await writeFile(
+      join(debugDir, 'debug-extractor-raw.txt'),
+      rawResponse,
+      'utf-8',
+    );
+  } catch {
+    // Best-effort debug write; do not obscure the real error.
+  }
 }
 
 /**
- * Parse the LLM response as JSON, tolerating one wrapping code fence.
+ * Parse the LLM response as JSON, tolerating a wrapping code fence.
  * Throws ExtractorError carrying the raw response on invalid JSON.
  * Exported for tests.
  */
@@ -131,6 +169,7 @@ export function parseExtractorJson(rawResponse: string): unknown {
   try {
     return JSON.parse(candidate);
   } catch (err) {
+    void debugWriteRawResponse(rawResponse);
     throw new ExtractorError(
       `Extractor returned invalid JSON: ${(err as Error).message}`,
       { rawResponse },
@@ -213,6 +252,7 @@ export async function extractChunk(
   agentsMd: string,
   existingFolders: string[],
   existingEntities: string[],
+  options?: { logPath?: string; context?: string },
 ): Promise<ExtractorResult> {
   const template = await loadPromptTemplate();
   const prompt = fillPromptTemplate(template, {
@@ -229,6 +269,9 @@ export async function extractChunk(
   const rawResponse = await callLLM(prompt, undefined, {
     maxTokens: EXTRACTION_MAX_TOKENS,
     temperature: EXTRACTION_TEMPERATURE,
+    callType: 'extractor',
+    context: options?.context,
+    logPath: options?.logPath,
   });
 
   const parsed = parseExtractorJson(rawResponse);

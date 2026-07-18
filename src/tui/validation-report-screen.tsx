@@ -5,7 +5,8 @@ import { Footer } from './components/footer';
 import { LoadingSpinner } from './components/spinner';
 import { ErrorBox } from './components/error-box';
 import { useWikiList } from './hooks/use-wiki-list';
-import { validateWiki, type ValidationSummary } from '../validation';
+import { validateWiki, writeValidationReport, type ValidationSummary } from '../validation';
+import { wikiDir } from '../utils/paths';
 import type { ScreenProps } from './init-screen';
 
 export interface ValidationReportScreenProps extends ScreenProps {
@@ -72,6 +73,7 @@ export function ValidationReportScreen({
       setSummary(result);
       setStatus('done');
       onResult?.(isOk(result) ? `Validation passed for ${slug}.` : `Validation found issues in ${slug}.`);
+      await writeValidationReport(wikiDir(workspace, slug), result);
     } catch (err) {
       const message = (err as Error).message;
       setErrorMessage(message);

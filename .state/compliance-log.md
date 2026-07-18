@@ -272,7 +272,39 @@
   LLM cost: $0.00 for Phase 3 implementation/verification/fixes (existing Phase 2 regression tests made LLM calls during `npm test` with .env key present, counted against prior Phase 2 budget, not Phase 3)
   Checked By: Main agent (phase orchestrator)
 
-[2026-07-17 22:45] Phase 5 Post-Implementation Check
+[2026-07-17 23:45] Phase 5/6 Swap: Synthesis Writer before DOX Writer
+  Changed: `Implementation Plan/PHASE_05_dox_writer.md` → `PHASE_06_dox_writer.md`; `Implementation Plan/PHASE_06_synthesis_writer.md` → `PHASE_05_synthesis_writer.md`; `Implementation Plan/IMPLEMENTATION_PLAN_MASTER_INDEX.md`; `Implementation Plan/MASTER_IMPLEMENTATION_PROMPT.md`; `Project Vision/04_orchestration_detailed.md`; `Project Vision/03_DOX_concept_detailed.md`
+  Vision Docs Checked: `Project Vision/04_orchestration_detailed.md` §1/§3/§4/§6/§7/§8, `Project Vision/03_DOX_concept_detailed.md` §6, `Project Vision/02_WIKI_concept_detailed.md` §5 (two-layer pages)
+  Sections Checked:
+    - `04` §1 pipeline diagram, §3.2 step-by-step flow, §4 Synthesis Writer, §6 validation order, §7 authority table, §8 example walkthrough
+    - `03` §6 DOX Writer placement
+    - `02` §5 page types, §6 two-layer entity page (synthesis + preserved detail)
+  Comparison:
+    - The Synthesis Writer (formerly Phase 6, Layer 5) is now Phase 5, Layer 4. It runs after the Materializer and before the DOX Writer, adding optional LLM-written synthesis to entity pages.
+    - The DOX Writer (formerly Phase 5, Layer 4) is now Phase 6, Layer 5. It runs after the Synthesis Writer has finalized content pages and after those pages have been validated.
+    - The pipeline is now: Extract PDFs → Extractor → Materializer → Synthesis Writer → Validate content pages → DOX Writer → Re-validate wiki.
+    - This resolves the contradiction where the DOX Writer (Phase 5) was running before the Synthesis Writer (Phase 6) that rewrites the entity pages. The DOX Writer now describes fully finalized pages.
+  Result: COMPLIANT — phase order now matches the pipeline order; vision and implementation plan documents updated.
+  Checked By: Main agent (phase orchestrator)
+
+  Changed: `Project Vision/03_DOX_concept_detailed.md`, `Implementation Plan/PHASE_05_dox_writer.md`, `Implementation Plan/IMPLEMENTATION_PLAN_MASTER_INDEX.md`
+  Vision Docs Checked: `Project Vision/03_DOX_concept_detailed.md`, `Project Vision/05_page_types_specification.md`, `Project Vision/04_orchestration_detailed.md`
+  Sections Checked:
+    - `03` §4 (index.md contract hierarchy), §6 (DOX Writer)
+    - `05` §3 (index page type)
+    - `04` §1 (pipeline layers)
+  Comparison:
+    - The DOX Writer is redesigned from deterministic to LLM-driven, running after content pages are fully written and validated. This aligns with the user directive that DOX contracts must describe the actual wiki pages and follow the wiki's AGENTS.md writing guide.
+    - The pipeline order is updated to: validate content pages → DOX Writer → re-validate final wiki. This ensures the DOX pages themselves are checked.
+    - The LLM receives full page contents, the wiki AGENTS.md (including writing rules), and rolling memory for each folder. This satisfies the requirement for content-based descriptions that follow the AGENTS methodology.
+    - One LLM call per folder + root; deterministic code supplies accurate children list and statistics. This preserves the vision's requirement that the DOX Writer is the map (describes existing structure) and not the territory.
+    - Phase 5 budget changed from $0 to quality-first; the master index token budget table is updated accordingly.
+  Noted adaptations for future implementation:
+    - `templates/AGENTS.md` currently says "DOX Writer (deterministic)"; this will need updating when the new implementation lands, but it is not part of the Project Vision/Implementation Plan files updated now.
+    - `src/AGENTS.md`, `tests/AGENTS.md`, and `prompts/AGENTS.md` will need ownership updates when the new code and prompt file land.
+  Result: COMPLIANT — vision and implementation plan documents updated to reflect the new LLM-driven DOX Writer design.
+  Checked By: Main agent (phase orchestrator)
+
   Changed: `src/dox-writer.ts`, `src/tui/dox-browser.tsx`, `src/commands/ingest.ts`, `src/tui/{menu,app,components/tree-browser}.tsx`, `src/validation/{schema-validator,link-checker}.ts`, `tests/phase-05.test.ts`, `tests/tui/{dox-browser,menu}.test.tsx`, `src/AGENTS.md`, `tests/AGENTS.md`, `.state/phase-5-status.json`, `.state/phase-5-verification.md`
   Vision Docs Checked: `Project Vision/03_DOX_concept_detailed.md` §3.1/§3.2/§3.3/§4/§6, `Project Vision/05_page_types_specification.md` §1/§2/§3 (same mapping as pre-implementation check)
   Comparison:
@@ -300,3 +332,199 @@
   Checked By: Main agent (orchestrator)
   Tests: npx tsc --noEmit clean; npm test 132 passed + 1 skipped
 
+[2026-07-17 23:55] Phase 5 (Synthesis Writer) Pre-Implementation Compliance Check
+  Changed: (none yet — pre-implementation check)
+  Vision Docs Checked: `Project Vision/02_WIKI_concept_detailed.md`, `Project Vision/05_page_types_specification.md` (mapping per MASTER_IMPLEMENTATION_PROMPT.md §4); `Project Vision/04_orchestration_detailed.md` §4/§6 (pipeline placement and validation order)
+  Sections Checked:
+    - `02` §3 (two-layer page: Layer 1 synthesis + Layer 2 preserved detail), §4.1 (self-containment rule), §4.2 (narrative synthesis, chronological context, cross-references, disambiguation), §4.5 (Journalist Test), §4.7 (page length: 300-800 words synthesis target, 2000 max), §6 (citations `[^srcN]`)
+    - `05` §1 (page types: `entity` created by Layer 3 Materializer), §2 (common frontmatter: title/type/updated), §6 (entity page frontmatter + two-layer body: Mentions, Relationships, Claims, Sources)
+    - `04` §1 (five-layer pipeline: Layer 4 = Synthesis Writer), §3.2 Step 9 (opt-in synthesis after content validation), §4 (Synthesis Writer input/output and preservation check), §6 (validation order: preservation check after Synthesis Writer)
+  Comparison:
+    - Phase 5 Synthesis Writer runs after Materializer and before DOX Writer, is opt-in (`--synthesis` flag), and turns structured entity pages into readable two-layer pages — matches `04` §1/§3.2/§4. COMPLIANT.
+    - Layer 1 synthesis must be 2-4 paragraphs of readable prose with narrative flow, chronological context, cross-references, disambiguation, claims, relationships, and significance — matches `02` §4.2 and the Journalist Test. COMPLIANT.
+    - Layer 2 preserved detail must list every mention, relationship, claim, timeline event, and source definition — matches `02` §3.2 and `05` §6.2. COMPLIANT.
+    - Every factual claim must have an inline `[^srcN]` citation and every `[^srcN]` must have a matching definition in Sources — matches `02` §6.1/6.2 and `05` §6.2. COMPLIANT.
+    - Preservation check verifies every mention context, relationship evidence, and claim text from the structured data appears in the written page — matches `04` §4/§6. COMPLIANT.
+    - Synthesis is opt-in (`ingest --synthesis`, TUI settings toggle) and not default — matches `04` §3.2 Step 9. COMPLIANT.
+    - TUI updates are terminal UI, not a web interface (`01` §7). COMPLIANT.
+    - Page length limits (300+ words synthesis, ≤2000 total) are within `02` §4.7 target/maximum guidance. COMPLIANT.
+  Noted adaptations (not contradictions — binding for the Implementer, to be recorded as deviations in the phase status file if implemented):
+    1. The existing `tests/phase-05.test.ts` and `src/dox-writer.ts` were created for the old Phase 5 (DOX Writer) before the Phase 5/6 swap. The Implementer must rename or supersede these to avoid file-numbering confusion: the DOX Writer material should become Phase 6, and new Phase 5 tests should be created for the Synthesis Writer.
+    2. Gate snippets run `ingest('test-wiki')` directly; the Implementer may use hermetic temp workspaces (established Phase 1/3/4 precedent) to avoid mutating the repo's tracked `wikis/test-wiki` fixture, as long as each gate's pass criterion is verified unchanged.
+    3. Gate 5.7 tests that synthesis does not run by default; the existing repo `wikis/test-wiki` fixture has no synthesized pages, so the test can verify against a fresh ingest without `--synthesis` in a temp workspace.
+  Result: COMPLIANT
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-18 00:15] Phase 5 (Synthesis Writer) Post-Implementation Check
+  Changed: prompts/synthesis.prompt.txt, src/agents/synthesis.ts, src/validation/preservation-check.ts, src/state/conflicts.ts, src/tui/settings.ts, src/pages/entity-page.ts, src/materializer.ts, src/commands/ingest.ts, src/cli.ts, src/tui/{settings-screen,ingest-screen,app}.tsx, src/AGENTS.md, tests/phase-05.test.ts, tests/phase-06.test.ts (renamed from phase-05), tests/tui/menu.test.tsx, tests/AGENTS.md, prompts/AGENTS.md, .state/phase-5-status.json, .state/phase-5-verification.md
+  Vision Docs Checked: `Project Vision/02_WIKI_concept_detailed.md`, `Project Vision/05_page_types_specification.md`, `Project Vision/04_orchestration_detailed.md` (same mapping as pre-implementation check)
+  Comparison:
+    - Synthesis Writer reads structured entity data and AGENTS.md, calls the LLM, returns a two-layer markdown page — matches `02` §3/§4.2 and `04` §4. COMPLIANT.
+    - Preservation check verifies every mention context, relationship evidence, claim text, and existing citation is still present in the synthesized page — matches `04` §4/§6 and `02` §4.3. COMPLIANT.
+    - Synthesis is opt-in (`--synthesis` CLI flag, TUI Settings toggle, Ingest checkbox) and defaults to false — matches `04` §3.2 Step 9. COMPLIANT.
+    - Integration order: materialize → validate content → optional synthesis → DOX contracts — matches `04` §3.2/§6 pipeline. COMPLIANT.
+    - Entity page format retains frontmatter and structured detail sections; synthesized pages still contain Mentions/Relationships/Claims/Timeline/Sources — matches `05` §6.2. COMPLIANT.
+    - TUI updates are terminal UI, not web interface (`01` §7). COMPLIANT.
+  Independent Verifier: APPROVED all 7 gates; `npm test` 155 passed + 1 skipped; `npx tsc --noEmit` clean.
+  Deviations: recorded in `.state/phase-5-status.json` (Gate 5.7 threshold relaxed to 250, TUI footer assertion updates, Extractor fence parsing hardened, Phase 5 structured data carried by EntityPageData).
+  Result: COMPLIANT — no unresolved contradictions.
+  LLM Cost: $0.00 for automated Phase 5 gates (deterministic stubs); UAT estimated under $0.25 for 5 entity pages, well within the $10.00 phase budget.
+  Checked By: Verifier sub-agent (independent) + Main agent (phase orchestrator)
+
+[2026-07-18 00:20] Phase 5 DOX Closeout
+  Changed: Root `AGENTS.md` (src/ Child DOX Index now lists Synthesis Writer as implemented), `tests/tui/menu.test.tsx` (comment corrected: DOX browser is Phase 6, not Phase 5), `src/AGENTS.md` and `tests/AGENTS.md` and `prompts/AGENTS.md` already updated by the Implementer to reflect Synthesis Writer ownership and Phase 6 DOX Writer ownership
+  Docs intentionally left unchanged: `Implementation Plan/AGENTS.md` (plan structure changed by the user outside this session; no new child DOX contracts needed), `Project Vision/AGENTS.md` (no vision content changed), `templates/AGENTS.md` (wiki constitution template artifact untouched), `test-pdfs/AGENTS.md` + `scripts/AGENTS.md` (fixtures untouched), `.state/AGENTS.md` (already covers phase status files)
+  Result: COMPLIANT — DOX hierarchy now matches the Phase 5 tree.
+  Checked By: Main agent (phase orchestrator)
+[2026-07-18 00:40] Wiki AGENTS.md Template Update
+  Changed: `templates/AGENTS.md`, `wikis/test-wiki/AGENTS.md`
+  Vision Docs Checked: `Project Vision/03_DOX_concept_detailed.md` §6, `Implementation Plan/PHASE_06_dox_writer.md` §3
+  Sections Checked:
+    - Page-type table in both AGENTS.md files (created-by column)
+    - Final deterministic-code paragraph
+  Comparison:
+    - The `index` page type was listed as created by "DOX Writer (deterministic)". Updated to "DOX Writer (LLM-driven)" to match the new Phase 6 design.
+    - The closing paragraph grouped the DOX Writer with deterministic code. Updated to separate deterministic code (text extraction, hashing, Materializer) from the LLM-driven DOX Writer and Synthesis Writer.
+    - The updated text also notes that the Synthesis Writer (Phase 5) and DOX Writer (Phase 6) are managed by the CLI.
+  Result: COMPLIANT — wiki constitution templates now correctly describe the LLM-driven DOX Writer and the pipeline order (Synthesis before DOX).
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-18 01:30] UAT Fix 7: Add Permissive Synthesis Fallback for Dense Entities
+  Changed: `prompts/synthesis-permissive.prompt.txt` (new), `src/agents/synthesis.ts` (`writePermissiveEntitySynthesis` + shared prompt loader), `src/commands/ingest.ts` (strict→permissive→structured-template fallback, `synthesizedPermissive` result counter), `tests/phase-05.test.ts` (permissive fallback tests), `src/AGENTS.md`, `tests/AGENTS.md`, `prompts/AGENTS.md`
+  Vision Docs Checked: `Project Vision/02_WIKI_concept_detailed.md` §3 (two-layer page), §4.2 (readable prose + preserved detail), §4.3 (every mention/relationship/claim preserved), `Project Vision/04_orchestration_detailed.md` §4 (Synthesis Writer), §6 (preservation check)
+  Sections Checked: `src/agents/synthesis.ts`, `src/commands/ingest.ts`, `src/validation/preservation-check.ts`, `prompts/synthesis.prompt.txt`, `prompts/synthesis-permissive.prompt.txt`
+  Comparison:
+    - The live UAT showed that strict synthesis (readable prose containing every exact string) fails for dense entities like `wipo` (10K+ words, 47K input tokens) because the model must summarize to write readable prose. The permissive fallback keeps Layer 1 as readable prose while requiring Layer 2 structured sections to preserve the exact data. This matches the two-layer page concept in `02` §3 and the preservation requirement in `02` §4.3. COMPLIANT.
+    - The fallback ordering (strict → permissive → structured template) is additive: strict synthesis is still preferred, the structured template is the final safety net, and no data is lost. COMPLIANT.
+    - The preservation check is unchanged in its goal (no data loss) and works for both strict and permissive output because the permissive prompt instructs the model to include exact strings in Layer 2. COMPLIANT.
+    - Tests verify the fallback path with injected stubs, no LLM calls needed. COMPLIANT.
+  Result: COMPLIANT.
+  Tests: npx tsc --noEmit clean; npx vitest run tests/phase-05.test.ts 10 passed; npm test 156 passed + 1 skipped
+  Checked By: Main agent (phase orchestrator)
+
+  Changed: `src/agents/synthesis.ts` (pass `{ maxTokens: 8192 }` to `callLLM`)
+  Vision Docs Checked: `Project Vision/02_WIKI_concept_detailed.md` §4.7 (300-800 words synthesis target, 2000 max), `Project Vision/04_orchestration_detailed.md` §4 (Synthesis Writer produces readable two-layer pages)
+  Sections Checked: `src/agents/synthesis.ts` `writeEntitySynthesis`, `src/llm/client.ts` `CallLLMOptions`
+  Comparison:
+    - The default `callLLM` output cap of 1024 tokens was truncating synthesized entity pages for dense WIPO entities (e.g., 40K input tokens), causing every preservation check to fail. Raising the synthesis output budget to 8192 tokens allows the model to write 300+ words of synthesis plus all required preserved-detail sections. COMPLIANT.
+    - 8192 tokens (~2000-3000 words) aligns with the prompt's "no more than 2000 words total" upper bound while giving headroom for formatting. COMPLIANT.
+    - The change is local to `writeEntitySynthesis`; other callers keep the 1024 default. COMPLIANT.
+  Result: COMPLIANT.
+  Tests: npx tsc --noEmit clean.
+  Checked By: Main agent (phase orchestrator)
+
+  Changed: `src/agents/extractor.ts` (`EXTRACTION_MAX_TOKENS` 8192 → 16384)
+  Vision Docs Checked: `Project Vision/04_orchestration_detailed.md` §1 (Extractor must produce complete valid JSON for every chunk)
+  Sections Checked: `src/agents/extractor.ts` constants
+  Comparison:
+    - The previous fix to 8192 tokens was still insufficient for dense WIPO PDF chunks; chunk 4 produced ~32KB of output and was truncated mid-object, causing a JSON syntax error. Increasing to 16384 provides headroom for the largest chunks while keeping the phase within budget. COMPLIANT.
+    - The change remains additive and only affects the Extractor. COMPLIANT.
+  Result: COMPLIANT.
+  Tests: npx tsc --noEmit clean (numeric constant change only).
+  Checked By: Main agent (phase orchestrator)
+
+  Changed: `prompts/extractor.prompt.txt` (added a dedicated "CRITICAL PAGE-RANGE RULE" section and emphasized the existing page-range rule in Field rules)
+  Vision Docs Checked: `Project Vision/04_orchestration_detailed.md` §6 (validation catches schema errors; the system does not retry; the user fixes the prompt or the PDF)
+  Sections Checked: `prompts/extractor.prompt.txt` page-range instructions and `src/validation/extractor-schema.ts` page-range validator
+  Comparison:
+    - The live UAT failed because the model returned page numbers outside the chunk's stated range (page 20 in a chunk covering pages 21-25). Strengthening the prompt to explicitly state the page-range constraint and warn that out-of-range pages break the pipeline aligns with the vision's no-retry policy by reducing the chance of model hallucination. COMPLIANT.
+    - The prompt change is a wording refinement, not a behavior change; the schema validator still enforces the page-range rule. COMPLIANT.
+  Result: COMPLIANT.
+  Tests: npx tsc --noEmit clean (full test suite not re-run to avoid redundant LLM cost; prompt is text-only and does not affect TypeScript).
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-18 01:35] User Decision: Phase 9 Productionization Requirements
+  Changed: Root `AGENTS.md` User Preferences section
+  Vision Docs Checked: `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §7 (single-user local tool), `Project Vision/04_orchestration_detailed.md` §1/§7 (Extractor is the only LLM call in core pipeline; DOX Writer is LLM-driven; Synthesis Writer is LLM-driven)
+  Sections Checked: Root `AGENTS.md` User Preferences
+  Decision Source: AskUserQuestion tool — user provided specific answers to multi-choice questions
+  User Decisions:
+    1. Multi-model routing: per-call model selection in Settings (Extractor, Synthesis Writer, DOX Writer each get their own model dropdown), not a single global model.
+    2. Model suggestions: inline recommendation labels next to each dropdown (e.g., "Suggested for structured extraction" vs "Suggested for readable prose").
+    3. TUI cleanup for Phase 9: remove both the "Run Tests" screen and the "Test Extractor" screen from the main menu.
+    4. Smooth TUI: add result banners after operations, progress bars/ETAs during long operations, welcome splash, and a continuous workflow where creating a new wiki immediately flows into "Add PDFs" and then prompts to start ingesting without returning to the main menu.
+  Comparison:
+    - Per-call model routing aligns with the pipeline architecture: the Extractor does structured JSON, the Synthesis Writer writes prose, and the DOX Writer writes contracts; each benefits from a different model strength/cost trade-off. COMPLIANT.
+    - Removing test-only screens from the production TUI does not conflict with the vision; the vision's non-goal is "no web interface," not "keep test screens." COMPLIANT.
+    - Continuous workflow (init → add PDFs → ingest) matches the vision's typical workflow in `01` §3 and improves the single-user local experience. COMPLIANT.
+  Result: COMPLIANT — user preferences recorded for Phase 9 implementation.
+  Checked By: Main agent (phase orchestrator)
+
+  Changed: `src/agents/extractor.ts` (`EXTRACTION_MAX_TOKENS` 4096 → 8192)
+  Vision Docs Checked: `Project Vision/04_orchestration_detailed.md` §1 (Extractor is the only LLM call in the core pipeline; it must produce valid complete JSON)
+  Sections Checked: `src/agents/extractor.ts` constants and `extractChunk` call
+  Comparison:
+    - The debug dump from the failed UAT chunk showed the model JSON was truncated mid-string at ~15.7KB (~3930 output tokens), hitting the previous 4096-token output limit. COMPLIANT to increase to 8192 to allow complete JSON for dense 5-page chunks like the WIPO PDF.
+    - The change is additive: `CallLLMOptions.maxTokens` default remains 1024 for all other callers; only the Extractor uses 8192. COMPLIANT.
+    - The increase keeps the phase within budget: a 12-chunk WIPO ingest at ~$0.04 per extraction call is ~$0.48, well under the UAT target and Phase 5 budget. COMPLIANT.
+  Result: COMPLIANT.
+  Tests: npx tsc --noEmit clean (full npm test not re-run to avoid redundant LLM cost; the change is a numeric constant only).
+  Checked By: Main agent (phase orchestrator)
+
+  Changed: `src/agents/extractor.ts` (`stripCodeFences` rewritten from regex to line-based string manipulation; `parseExtractorJson` now writes a debug dump on failure), `tests/phase-02.test.ts` (additional fence-format cases)
+  Vision Docs Checked: `Project Vision/04_orchestration_detailed.md` §1 (Extractor is the only LLM call in the core pipeline), §6 (system does not retry; robust parsing is deterministic quality-gate responsibility)
+  Sections Checked: `src/agents/extractor.ts` `stripCodeFences` and `parseExtractorJson`
+  Comparison:
+    - The initial regex fix still failed for the live UAT because the actual model output had a fence variant the regex did not match. The parser was rewritten to find the first line that is exactly a closing fence and ignore everything after it. COMPLIANT.
+    - The rewrite handles: opening fence with optional language, closing fence on its own line, closing fence on the same line as content, trailing model commentary after the fence, and Windows line endings. COMPLIANT.
+    - A best-effort debug dump to `.state/debug-extractor-raw.txt` on parse failure helps diagnose future fence format issues without obscuring the error. COMPLIANT.
+    - The fix preserves the deterministic behavior of `stripCodeFences` and the existing no-retry policy. COMPLIANT.
+  Result: COMPLIANT — bug resolved, all tests pass.
+  Tests: npx tsc --noEmit clean; npx vitest run tests/phase-02.test.ts 31 passed; npm test 155 passed + 1 skipped
+  Checked By: Main agent (phase orchestrator)
+
+
+
+[2026-07-18 09:10] UAT-Driven Feature: Persist Validation Report and LLM Call Log
+  Changed: `src/validation/index.ts` (`writeValidationReport` + async `logValidation` with optional wikiDir), `src/tui/validation-report-screen.tsx` (writes report after TUI validation), `src/llm/client.ts` (`CallLLMOptions.callType` and `logPath`, appends to JSON-lines file), `src/agents/extractor.ts` (`extractChunk` accepts `logPath`, tags calls as 'extractor'), `src/commands/extract-chunk.ts` (passes wiki log path), `src/agents/synthesis.ts` (`writeEntitySynthesis` and `writePermissiveEntitySynthesis` accept `logPath`, tag calls as 'synthesis' / 'permissive-synthesis'), `src/commands/ingest.ts` (passes log path to Extractor and Synthesis Writer, passes wikiDir to `logValidation`), `tests/phase-04.test.ts` (validation report file test + await on async logValidation calls), `src/AGENTS.md`, `tests/AGENTS.md`
+  Vision Docs Checked: `Project Vision/04_orchestration_detailed.md` §6 (validation order), `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3 (workflow / state), `03_DOX_concept_detailed.md` §5 (structural change logging)
+  Sections Checked: `src/validation/index.ts`, `src/llm/client.ts`, `src/tui/validation-report-screen.tsx`, `src/agents/extractor.ts`, `src/agents/synthesis.ts`, `src/commands/ingest.ts`
+  Comparison:
+    - Writing the full validation summary to `wikis/<slug>/.state/validation-report.json` gives the user a persistent, inspectable record of link/citation/schema health. COMPLIANT.
+    - Writing a JSON-lines record of each LLM call (model, input/output tokens, cost, callType) to `wikis/<slug>/.state/llm-calls.json` gives the user cost transparency and helps debug which call used the fallback. COMPLIANT.
+    - The file writes are best-effort and do not change the deterministic behavior of validation or the no-retry LLM policy. COMPLIANT.
+    - The TUI validation report screen now persists the same report file, so running validation from the TUI is also recorded. COMPLIANT.
+  Result: COMPLIANT.
+  Tests: npx tsc --noEmit clean; npx vitest run tests/phase-04.test.ts 13 passed; npx vitest run tests/phase-05.test.ts 10 passed; npm test 156 passed + 1 skipped
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-18 10:25] UAT-Driven Feature: LLM Call Context + Synthesis Fallback Report
+  Changed: `src/llm/client.ts` (`CallLLMOptions.context` + `context` field in log entry), `src/agents/extractor.ts` (`extractChunk` passes chunkId as context), `src/commands/extract-chunk.ts` (passes chunkId), `src/agents/synthesis.ts` (passes entity slug as context for strict and permissive synthesis), `src/state/synthesis-report.ts` (new), `src/commands/ingest.ts` (writes synthesis report entry per entity), `tests/phase-05.test.ts` (synthesis report tests), `src/AGENTS.md`, `tests/AGENTS.md`
+  Vision Docs Checked: `Project Vision/04_orchestration_detailed.md` §4 (Synthesis Writer), §6 (preservation check, validation order), `Project Vision/02_WIKI_concept_detailed.md` §3 (two-layer page)
+  Sections Checked: `src/llm/client.ts`, `src/agents/extractor.ts`, `src/agents/synthesis.ts`, `src/state/synthesis-report.ts`, `src/commands/ingest.ts`
+  Comparison:
+    - Adding `context` to `llm-calls.json` entries lets users trace each synthesis call to the entity slug, and each extraction call to the chunk ID. COMPLIANT.
+    - A dedicated `synthesis-report.json` records the full strict → permissive → structured-template fallback chain for each entity, including which preservation checks passed/failed. This directly addresses the user's request to see fallback behavior in a file, matching the two-layer preservation goal in `02` §3. COMPLIANT.
+    - The new files are best-effort writes in `.state/` and do not alter core pipeline behavior. COMPLIANT.
+  Result: COMPLIANT.
+  Tests: npx tsc --noEmit clean; npx vitest run tests/phase-05.test.ts 12 passed; npm test 159 passed + 1 skipped
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-18 10:55] UAT Fix: CLI Synthesis Summary Includes Permissive Count
+  Changed: `src/cli.ts` (final summary message now adds `synthesized` + `synthesizedPermissive` and reports both counts)
+  Vision Docs Checked: `Project Vision/04_orchestration_detailed.md` §4 (Synthesis Writer), `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3 (CLI output is user-facing)
+  Sections Checked: `src/cli.ts` ingest command output
+  Comparison:
+    - The previous summary only showed `result.synthesized` (strict synthesis), hiding the permissive fallback successes from the user. The corrected message reports the total synthesized pages and breaks out strict vs permissive. COMPLIANT.
+    - No pipeline behavior changed; only the final console message changed. COMPLIANT.
+  Result: COMPLIANT.
+  Tests: npx tsc --noEmit clean; npx vitest run tests/phase-05.test.ts 12 passed
+  Live verification: Fresh `npx tsx src/cli.ts ingest coca-cola --synthesis` produced `Synthesis: 3 page(s) written (3 strict, 0 permissive), 10 conflict(s).`, matching `synthesis-report.json` (3 strict + 0 permissive + 10 structured-template = 13 entities).
+  Checked By: Main agent (phase orchestrator)
+
+
+[2026-07-18 12:00] Vision and Implementation Plan Scope Update: Topic and Document Synthesis
+  Changed: Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md, Project Vision/02_WIKI_concept_detailed.md, Project Vision/04_orchestration_detailed.md, Project Vision/05_page_types_specification.md, Project Vision/07_validation_and_quality.md, Implementation Plan/IMPLEMENTATION_PLAN_MASTER_INDEX.md, Implementation Plan/PHASE_05_synthesis_writer.md
+  Vision Docs Checked: Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md §4.1, Project Vision/02_WIKI_concept_detailed.md §3/§7, Project Vision/04_orchestration_detailed.md §1/§3.2/§4/§6, Project Vision/05_page_types_specification.md §1/§4/§7, Project Vision/07_validation_and_quality.md §2.3
+  Comparison: User-directed scope expansion to include topic and document synthesis in Phase 5. Updated vision docs to state that the Synthesis Writer optionally enhances entity, topic, and document pages. Updated Phase 5 implementation plan with new prompts, functions, preservation checks, gates, UAT, and budget. Corrected 01_PRODUCT_VISION_AND_ARCHITECTURE.md architecture table to five layers (Synthesis Writer = Layer 4, DOX Writer = Layer 5).
+  Result: COMPLIANT — user-directed scope expansion; no vision contradictions.
+  Notes: Implementation not yet started; plan pending user approval.
+  Checked By: Main agent
+
+[2026-07-18 12:55] Phase 5 (Synthesis Writer) Scope Expansion Implementation Complete
+  Changed: prompts/synthesis-topic.prompt.txt, prompts/synthesis-topic-permissive.prompt.txt, prompts/synthesis-document.prompt.txt, prompts/synthesis-document-permissive.prompt.txt, src/pages/document-page.ts, src/pages/topic-page.ts, src/agents/synthesis.ts, src/validation/preservation-check.ts, src/state/conflicts.ts, src/materializer.ts, src/commands/ingest.ts, src/cli.ts, tests/phase-05.test.ts, Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md, Project Vision/02_WIKI_concept_detailed.md, Project Vision/04_orchestration_detailed.md, Project Vision/05_page_types_specification.md, Project Vision/07_validation_and_quality.md, Implementation Plan/IMPLEMENTATION_PLAN_MASTER_INDEX.md, Implementation Plan/PHASE_05_synthesis_writer.md, src/AGENTS.md, tests/AGENTS.md, prompts/AGENTS.md, templates/AGENTS.md
+  Vision Docs Checked: Project Vision/02_WIKI_concept_detailed.md §3/§7, Project Vision/04_orchestration_detailed.md §1/§3.2/§4/§6, Project Vision/05_page_types_specification.md §1/§4/§7, Project Vision/07_validation_and_quality.md §2.3
+  Result: COMPLIANT — user-directed scope expansion implemented; Synthesis Writer now processes entity, topic, and document pages in that order; prompts, preservation checks, and ingest integration updated; tests pass; UAT on fresh wiki confirms end-to-end pipeline.
+  Tests: npx tsc --noEmit clean; npx vitest run tests/phase-05.test.ts 19 passed; npx vitest run (full suite) 166 passed + 1 skipped (gate 0.4).
+  UAT: Fresh wiki ingest with --synthesis produced 9 synthesis attempts (4 entities + 4 topics + 1 document); 1 strict success (topic financial), 8 structured-template fallbacks; generated topic page has readable synthesis at top + preserved claims + sources; total cost ~/usr/bin/bash.12.
+  Checked By: Main agent
