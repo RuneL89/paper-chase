@@ -3,17 +3,17 @@ import { join } from 'node:path';
 import type {
   PreservationCheckResult,
   TopicPreservationCheckResult,
-  DocumentPreservationCheckResult,
 } from '../validation/preservation-check';
 
 export type AnyPreservationCheckResult =
   | PreservationCheckResult
-  | TopicPreservationCheckResult
-  | DocumentPreservationCheckResult;
+  | TopicPreservationCheckResult;
 
 export interface ConflictEntry {
   /** ISO 8601 timestamp when the conflict was detected. */
   timestamp: string;
+  /** Page type whose synthesis failed preservation. */
+  pageType: 'entity' | 'topic';
   /** Page slug whose synthesis failed preservation. */
   slug: string;
   /** Which parts of the original data were dropped. */
@@ -63,10 +63,12 @@ export async function logConflict(
   wikiDir: string,
   slug: string,
   check: AnyPreservationCheckResult,
+  pageType: 'entity' | 'topic',
 ): Promise<void> {
   const state = await readConflicts(wikiDir);
   const entry: ConflictEntry = {
     timestamp: new Date().toISOString(),
+    pageType,
     slug,
     dropped: {
       citations: [],
@@ -80,9 +82,6 @@ export async function logConflict(
     entry.dropped.citations = check.droppedCitations;
   } else if ('droppedClaims' in check) {
     entry.dropped.claims = check.droppedClaims;
-    entry.dropped.citations = check.droppedCitations;
-  } else {
-    entry.dropped.text = check.droppedText;
     entry.dropped.citations = check.droppedCitations;
   }
 

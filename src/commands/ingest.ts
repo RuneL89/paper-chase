@@ -18,15 +18,12 @@ import {
   writePermissiveEntitySynthesis,
   writeTopicSynthesis,
   writePermissiveTopicSynthesis,
-  writeDocumentSynthesis,
-  writePermissiveDocumentSynthesis,
 } from '../agents/synthesis';
-import { checkPreservation, checkTopicPreservation, checkDocumentPreservation } from '../validation/preservation-check';
+import { checkPreservation, checkTopicPreservation } from '../validation/preservation-check';
 import { logConflict } from '../state/conflicts';
 import { logSynthesisReport } from '../state/synthesis-report';
 import type { EntityPageData } from '../pages/entity-page';
 import type { TopicPageData } from '../pages/topic-page';
-import type { DocumentPageData } from '../pages/document-page';
 
 export interface IngestOptions {
   /** Workspace directory containing wikis/; defaults to '.'. */
@@ -91,24 +88,6 @@ export interface IngestOptions {
     agentsMd: string,
     logPath?: string,
   ) => Promise<string>;
-  /**
-   * Injectable document synthesis implementation (test-only). Defaults to the real
-   * document Synthesis Writer; tests can inject a deterministic stub.
-   */
-  synthesizeDocumentFn?: (
-    documentData: DocumentPageData,
-    agentsMd: string,
-    logPath?: string,
-  ) => Promise<string>;
-  /**
-   * Injectable permissive document synthesis implementation (test-only). Defaults
-   * to the real permissive document Synthesis Writer; tests can inject a deterministic stub.
-   */
-  synthesizeDocumentPermissiveFn?: (
-    documentData: DocumentPageData,
-    agentsMd: string,
-    logPath?: string,
-  ) => Promise<string>;
 }
 
 export interface IngestedSource {
@@ -146,12 +125,10 @@ export interface IngestResult {
   synthesizedTopics?: number;
   /** Phase 5: number of topic pages successfully synthesized using the permissive fallback. */
   synthesizedTopicsPermissive?: number;
-  /** Phase 5: number of document pages successfully synthesized. */
-  synthesizedDocuments?: number;
-  /** Phase 5: number of document pages successfully synthesized using the permissive fallback. */
-  synthesizedDocumentsPermissive?: number;
-  /** Phase 5: number of pages where preservation check failed. */
+  /** Phase 5: number of entity pages where preservation check failed. */
   synthesisConflicts?: number;
+  /** Phase 5: number of topic pages where preservation check failed. */
+  topicConflicts?: number;
 }
 
 const DEFAULT_PAGES_PER_CHUNK = 5;
@@ -222,9 +199,8 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     synthesizedPermissive: 0,
     synthesizedTopics: 0,
     synthesizedTopicsPermissive: 0,
-    synthesizedDocuments: 0,
-    synthesizedDocumentsPermissive: 0,
     synthesisConflicts: 0,
+    topicConflicts: 0,
   };
 
   if (pdfFiles.length === 0) {
@@ -366,7 +342,8 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   }
 
   // Phase 5: optional synthesis after validation and before DOX contracts.
-  // Order: entities first, then topics, then documents.
+  // Order: entities first, then topics. Document pages keep their deterministic
+  // Phase 1 format and are not synthesized.
   if (extract && synthesis && lastMaterializeResult) {
     const agentsMd = loadAgentsMd(dir);
     const llmLogPath = join(dir, '.state', 'llm-calls.json');
@@ -376,9 +353,6 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     const runTopicSynthesis = options.synthesizeTopicFn ?? writeTopicSynthesis;
     const runTopicPermissiveSynthesis =
       options.synthesizeTopicPermissiveFn ?? writePermissiveTopicSynthesis;
-    const runDocumentSynthesis = options.synthesizeDocumentFn ?? writeDocumentSynthesis;
-    const runDocumentPermissiveSynthesis =
-      options.synthesizeDocumentPermissiveFn ?? writePermissiveDocumentSynthesis;
 
     // 1. Entity synthesis
     const entityCount = lastMaterializeResult.entityPages.length;
@@ -397,6 +371,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         result.synthesized = (result.synthesized ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
+          pageType: 'entity',
           slug: entityPage.slug,
           strict: { attempted: true, passed: true },
           permissive: { attempted: false, passed: false },
@@ -417,6 +392,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         result.synthesizedPermissive = (result.synthesizedPermissive ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
+          pageType: 'entity',
           slug: entityPage.slug,
           strict: { attempted: true, passed: false },
           permissive: { attempted: true, passed: true },
@@ -426,10 +402,11 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         console.warn(
           `Permissive synthesis also failed preservation for ${entityPage.slug}. Keeping structured template.`,
         );
-        await logConflict(dir, entityPage.slug, permissiveCheck);
+        await logConflict(dir, entityPage.slug, permissiveCheck, 'entity');
         result.synthesisConflicts = (result.synthesisConflicts ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
+          pageType: 'entity',
           slug: entityPage.slug,
           strict: { attempted: true, passed: false },
           permissive: { attempted: true, passed: false },
@@ -453,6 +430,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         result.synthesizedTopics = (result.synthesizedTopics ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
+          pageType: 'topic',
           slug: topicPage.slug,
           strict: { attempted: true, passed: true },
           permissive: { attempted: false, passed: false },
@@ -472,6 +450,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         result.synthesizedTopicsPermissive = (result.synthesizedTopicsPermissive ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
+          pageType: 'topic',
           slug: topicPage.slug,
           strict: { attempted: true, passed: false },
           permissive: { attempted: true, passed: true },
@@ -481,66 +460,12 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         console.warn(
           `Permissive synthesis also failed preservation for topic ${topicPage.slug}. Keeping structured template.`,
         );
-        await logConflict(dir, topicPage.slug, permissiveCheck);
-        result.synthesisConflicts = (result.synthesisConflicts ?? 0) + 1;
+        await logConflict(dir, topicPage.slug, permissiveCheck, 'topic');
+        result.topicConflicts = (result.topicConflicts ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
+          pageType: 'topic',
           slug: topicPage.slug,
-          strict: { attempted: true, passed: false },
-          permissive: { attempted: true, passed: false },
-          finalMode: 'structured-template',
-        });
-      }
-    }
-
-    // 3. Document synthesis
-    const documentCount = lastMaterializeResult.documentPages.length;
-    if (documentCount > 0) {
-      progress(`Writing synthesis for ${documentCount} document page(s)...`);
-    }
-
-    for (const documentPage of lastMaterializeResult.documentPages) {
-      const synthesized = await runDocumentSynthesis(documentPage, agentsMd, llmLogPath);
-      const check = checkDocumentPreservation(documentPage, synthesized);
-      if (check.passed) {
-        const folderPath = join(dir, documentPage.folder);
-        await writeFile(join(folderPath, `${documentPage.slug}.md`), synthesized, 'utf-8');
-        result.synthesizedDocuments = (result.synthesizedDocuments ?? 0) + 1;
-        await logSynthesisReport(dir, {
-          timestamp: new Date().toISOString(),
-          slug: documentPage.slug,
-          strict: { attempted: true, passed: true },
-          permissive: { attempted: false, passed: false },
-          finalMode: 'strict-synthesis',
-        });
-        continue;
-      }
-
-      console.warn(
-        `Strict synthesis failed preservation for document ${documentPage.slug}. Trying permissive fallback.`,
-      );
-      const permissive = await runDocumentPermissiveSynthesis(documentPage, agentsMd, llmLogPath);
-      const permissiveCheck = checkDocumentPreservation(documentPage, permissive);
-      if (permissiveCheck.passed) {
-        const folderPath = join(dir, documentPage.folder);
-        await writeFile(join(folderPath, `${documentPage.slug}.md`), permissive, 'utf-8');
-        result.synthesizedDocumentsPermissive = (result.synthesizedDocumentsPermissive ?? 0) + 1;
-        await logSynthesisReport(dir, {
-          timestamp: new Date().toISOString(),
-          slug: documentPage.slug,
-          strict: { attempted: true, passed: false },
-          permissive: { attempted: true, passed: true },
-          finalMode: 'permissive-synthesis',
-        });
-      } else {
-        console.warn(
-          `Permissive synthesis also failed preservation for document ${documentPage.slug}. Keeping structured template.`,
-        );
-        await logConflict(dir, documentPage.slug, permissiveCheck);
-        result.synthesisConflicts = (result.synthesisConflicts ?? 0) + 1;
-        await logSynthesisReport(dir, {
-          timestamp: new Date().toISOString(),
-          slug: documentPage.slug,
           strict: { attempted: true, passed: false },
           permissive: { attempted: true, passed: false },
           finalMode: 'structured-template',

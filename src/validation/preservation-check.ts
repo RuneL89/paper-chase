@@ -1,7 +1,6 @@
 import { buildCitationMap } from '../pages/entity-page';
 import type { EntityPageData } from '../pages/entity-page';
 import type { TopicPageData } from '../pages/topic-page';
-import type { DocumentPageData } from '../pages/document-page';
 
 export interface PreservationCheckResult {
   passed: boolean;
@@ -14,12 +13,6 @@ export interface PreservationCheckResult {
 export interface TopicPreservationCheckResult {
   passed: boolean;
   droppedClaims: string[];
-  droppedCitations: string[];
-}
-
-export interface DocumentPreservationCheckResult {
-  passed: boolean;
-  droppedText: boolean;
   droppedCitations: string[];
 }
 
@@ -101,26 +94,4 @@ export function checkTopicPreservation(
   const passed = droppedClaims.length === 0 && droppedCitations.length === 0;
 
   return { passed, droppedClaims, droppedCitations };
-}
-
-/**
- * Verify that a synthesized document page preserves the full extracted text
- * and all source citations from the original document chunk.
- */
-export function checkDocumentPreservation(
-  originalData: DocumentPageData,
-  writtenPage: string,
-): DocumentPreservationCheckResult {
-  const droppedText = !writtenPage.includes(originalData.extractedText);
-  const droppedCitations: string[] = [];
-
-  // Document pages currently reference a single source, so the only citation is src1.
-  const marker = '[^src1]';
-  if (!writtenPage.includes(marker)) {
-    droppedCitations.push(marker);
-  }
-
-  const passed = !droppedText && droppedCitations.length === 0;
-
-  return { passed, droppedText, droppedCitations };
 }

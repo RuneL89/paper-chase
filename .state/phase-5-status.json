@@ -1,14 +1,14 @@
 {
   "phase": "05",
-  "status": "complete",
-  "lastAction": "All 7 gates pass; full test suite green (155 passed, 1 skipped); TypeScript clean.",
+  "status": "accepted",
+  "lastAction": "Phase 5 accepted by user. All gates pass; UAT revealed model-capability limitation (Haiku drops claims for dense entities), which is deferred to Phase 9 per-call model routing.",
   "gatesPassed": ["5.1", "5.2", "5.3", "5.4", "5.5", "5.6", "5.7"],
   "gatesFailed": [],
   "gatesPending": [],
   "llmCost": "$0.00 (deterministic stubs in tests; no live LLM calls during automated Phase 5 gates)",
   "tokenBudgetRemaining": "$9.90+ (UAT estimated at ~$0.02-0.05 per entity page, well under $0.25/5 pages)",
   "blocker": null,
-  "nextAction": "Phase 5 accepted. Proceed to Phase 6 when ready.",
+  "nextAction": "Phase 5 accepted. Proceed to Phase 6 (DOX Writer) when ready. Synthesis model improvement (Haiku → Sonnet/Opus) deferred to Phase 9 per-call model routing.",
   "filesCreated": [
     "prompts/synthesis.prompt.txt",
     "src/agents/synthesis.ts",
@@ -70,7 +70,8 @@
     "UAT fix 7 (post-Reporter): strict synthesis failed for dense WIPO entities because the model must summarize to write readable prose. Added a permissive fallback (`prompts/synthesis-permissive.prompt.txt` + `writePermissiveEntitySynthesis`) that writes readable prose in Layer 1 while preserving the exact mention contexts, relationship evidence, and claim text in Layer 2. `ingest.ts` now tries strict synthesis first, then permissive fallback, then structured template. Tests added.",
     "UAT-driven logging: validation summaries are now written to `wikis/<slug>/.state/validation-report.json` (via `logValidation` or `writeValidationReport`), and every LLM call is appended to `wikis/<slug>/.state/llm-calls.json` with timestamp, model, input/output tokens, cost, and callType (extractor, synthesis, permissive-synthesis). This helps users inspect validation health and cost/fallback usage after a run.",
     "UAT-driven logging refinement: LLM call entries now include a `context` field (entity slug for synthesis, chunk ID for extraction). A new `wikis/<slug>/.state/synthesis-report.json` records the full strict → permissive → structured-template fallback chain per entity, so users can see exactly which entities fell back and why.",
-    "UAT fix: CLI synthesis summary message was under-reporting by ignoring `synthesizedPermissive`. Fixed in `src/cli.ts` to report total synthesized pages with a breakdown: `Synthesis: N page(s) written (X strict, Y permissive), Z conflict(s).`"
+    "UAT fix: CLI synthesis summary message was under-reporting by ignoring `synthesizedPermissive`. Fixed in `src/cli.ts` to report total synthesized pages with a breakdown: `Synthesis: N page(s) written (X strict, Y permissive), Z conflict(s).`",
+    "UAT-driven scope refinement: document synthesis was removed because `checkDocumentPreservation` required the full extracted text verbatim, which is practically impossible for real chunks. Synthesis now runs only for entities and topics. `pageType` was added to `synthesis-report.json` and `conflicts.json`, and the CLI summary now splits entity/topic conflicts."
   ]
 
 }

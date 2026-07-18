@@ -131,7 +131,6 @@ test('init screen renders form fields', async () => {
   await tick();
   screen.unmount();
   await tick(50);
-  expect(screen.output()).toContain('Wiki Slug');
   expect(screen.output()).toContain('Title');
   expect(screen.output()).toContain('Workspace');
   expect(screen.output()).toContain('Create Wiki');
@@ -155,20 +154,18 @@ test('init screen renders a static form without a TTY', async () => {
   await tick();
   screen.unmount();
   await tick(50);
-  expect(screen.output()).toContain('Wiki Slug');
   expect(screen.output()).toContain('Title');
+  expect(screen.output()).toContain('Workspace');
 });
 
 // §5.1 behavior: Tab between fields, Enter on "Create Wiki" runs init().
-test('init screen creates a wiki via the form', async () => {
+test('init screen creates a wiki from a title-derived slug', async () => {
   let result: string | undefined;
   const screen = renderCaptured(
     <InitScreen onBack={() => {}} onResult={(message) => (result = message)} defaultWorkspace={workspace} />,
   );
   await tick();
-  screen.stdin.write('tui-wiki'); // Wiki Slug field (focused first)
-  await tick(100);
-  screen.stdin.write('\t'); // -> Title
+  screen.stdin.write('TUI Wiki'); // Title field (focused first)
   await tick(100);
   screen.stdin.write('\t'); // -> Workspace (pre-filled with the temp workspace)
   await tick(100);

@@ -1,90 +1,157 @@
-# Phase 9: Polish, Performance, and Production Readiness
+# Phase 9: Polish and Productionization
 
 **Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-009`
-**Version:** 1.0.0
+**Version:** 1.1.0
 **Status:** Draft
-**Date:** 2026-07-16
-**Dependencies:** Phase 0-8
+**Date:** 2026-07-18
+**Dependencies:** Phases 0-8
 **Estimated Time:** 4-6 hours
-**LLM Token Budget:** $0 (unless testing performance with large PDFs)
+**LLM Token Budget:** $0 (no new LLM calls; productionization touches only)
 
 ---
 
 ## 1. Objective
 
-Polish the CLI for production use. Add performance optimizations, error handling, logging, configuration files, and documentation. This phase does not add new features. It makes the existing features robust and user-friendly.
+Polish the CLI/TUI for production use: per-call LLM model routing with suggestion labels, TUI cleanup, smoother workflow, and a complete README.md that documents the app accurately after all implementation is done.
 
 ---
 
 ## 2. What to Build
 
-### 2.1 Configuration File
+### 2.1 Per-Call LLM Model Routing
 
-**File:** `src/config.ts`
+**Goal:** Let the user choose a different Anthropic model for each LLM call type (Extractor, Synthesis Writer, DOX Writer).
 
-Support a `.llm-wiki-cli.json` config file in the workspace root:
+**Settings screen additions:**
 
-```json
-{
-  "chunkSize": 5,
-  "llmProvider": "fable",
-  "llmModel": "default",
-  "synthesis": false,
-  "updateAgents": false,
-  "maxFolderDepth": 3
-}
+```
+╔══════════════════════════════════════╗
+║  Settings                            ║
+╠══════════════════════════════════════╣
+║  Chunk Size: [5          ]           ║
+║  Synthesis: [ON ] / OFF                ║
+║  Update Agents: ON / [OFF]             ║
+╠══════════════════════════════════════╣
+║  LLM Model Routing                     ║
+║  Default Model: [Haiku ▼]              ║
+║  Extractor Model: [Same as default ▼] ║
+║  Synthesis Writer Model: [Sonnet ▼]   ║
+║  DOX Writer Model: [Opus ▼]            ║
+╠══════════════════════════════════════╣
+║  [ Save ]  [ Back ]                  ║
+╚══════════════════════════════════════╝
 ```
 
-**CLI flags override config file:**
-```bash
-llm-wiki-cli ingest test-wiki --chunk-size 10 --synthesis
-```
+**Inline recommendation labels:**
 
-### 2.2 Progress Logging
+Each dropdown shows a short suggestion:
 
-**File:** `src/log.ts`
+- **Extractor:** "Haiku — cheapest, good for structured JSON extraction"
+- **Synthesis Writer:** "Sonnet — better prose, fewer preservation failures"
+- **DOX Writer:** "Sonnet/Opus — strong contract writing for navigation"
 
-Replace `console.log` with a structured logger:
-- `info`: Normal progress messages.
-- `warn`: Warnings (e.g., skipped PDFs, conflicts).
-- `error`: Errors (e.g., extraction failures, invalid JSON).
-- `debug`: Detailed debug output (enabled with `--verbose`).
+**Config persistence:**
 
-**Log format:**
-```
-[2026-07-16T10:00:00Z] INFO: Processing golden-master.pdf (3 pages)
-[2026-07-16T10:00:01Z] INFO: Extracted 5 entities, 3 relationships, 2 claims
-[2026-07-16T10:00:02Z] WARN: Skipping golden-master.pdf (unchanged)
-[2026-07-16T10:00:03Z] ERROR: Extractor returned invalid JSON for chunk 001
-```
+- Save to `.llm-wiki-cli.json` under `models`:
+  ```json
+  {
+    "models": {
+      "default": "claude-haiku-4-5-20251001",
+      "extractor": null,
+      "synthesis": "claude-sonnet-4-5-20251001",
+      "dox": "claude-opus-4-20250918"
+    }
+  }
+  ```
+- `null` means "use default".
+- `callLLM` reads the model from the config via `process.env.ANTHROPIC_MODEL` as fallback.
 
-### 2.3 Error Handling
+**Files to modify:**
+- `src/tui/settings-screen.tsx` — add model routing section with dropdowns and labels
+- `src/tui/settings.ts` — extend settings schema with `models`
+- `src/llm/client.ts` — accept a model override per call or read from a global config setter
+- `src/agents/extractor.ts` — use extractor model
+- `src/agents/synthesis.ts` — use synthesis model
+- `src/dox-writer.ts` (Phase 6) — use DOX model when implemented
 
-**File:** `src/errors.ts`
+### 2.2 TUI Cleanup
 
-Define custom error classes:
-- `ExtractionError`: PDF extraction failed.
-- `ExtractorError`: LLM Extractor returned invalid output.
-- `ValidationError`: Schema or link validation failed.
-- `MaterializerError`: File I/O or folder creation failed.
+**Remove:**
+- "Run Tests" screen and menu item
+- "Test Extractor" screen and menu item
+- Any development-only debug screens
 
-Each error includes:
-- Error message.
-- Affected file/chunk.
-- Suggested fix.
-- Whether the error is fatal (abort) or non-fatal (log and continue).
+**Keep:**
+- Create New Wiki
+- Add PDFs
+- Ingest PDFs
+- View Validation Report
+- Browse Entities
+- Browse Topics
+- Browse DOX Contracts
+- Settings
+- Exit
 
-### 2.4 Performance: Large PDF Handling
+**Menu item order (production):**
+1. Create New Wiki
+2. Add PDFs
+3. Ingest PDFs
+4. View Validation Report
+5. Browse Entities
+6. Browse Topics
+7. Browse DOX Contracts
+8. Settings
+9. Exit
 
-**File:** `src/chunking/page-chunker.ts`
+### 2.3 Smoother Workflow
 
-Optimize chunking for large PDFs:
-- Estimate token count per page (heuristic: 1 page ≈ 500 tokens).
-- Adjust chunk size dynamically to fit within the LLM context window.
-- Never split a table or figure across chunks.
-- Process chunks sequentially (not in parallel) to maintain rolling memory consistency.
+**Result banners:**
+- After `init`: "Wiki '<slug>' created at `wikis/<slug>/`."
+- After `add-pdfs`: "Copied N file(s) to `wikis/<slug>/raw/`."
+- After `ingest`: "Ingest complete: X ingested, Y skipped. Synthesis: A pages written (B strict, C permissive), D conflicts."
+- After `validation`: "Validation passed" or "Validation found issues".
 
-### 2.5 Performance Metrics
+**Progress bars / ETAs:**
+- During `ingest`, show a simple textual progress indicator:
+  ```
+  Extracting text from report.pdf...
+  [████████░░] Chunk 2/12
+  ```
+- No external progress-bar library; use plain text.
+
+**Welcome splash:**
+- On first launch (no config file), show a one-line welcome:
+  ```
+  LLM Wiki CLI v2.0 — turn PDFs into citation-backed wikis.
+  Create a wiki, add PDFs, then ingest.
+  ```
+
+**Continuous workflow:**
+- After **Create New Wiki** succeeds, immediately go to **Add PDFs** (do not return to menu).
+- After **Add PDFs** succeeds, ask "Start ingesting now? [Y/n]".
+  - If yes, go to **Ingest PDFs** with the wiki pre-selected.
+  - If no, return to menu.
+
+### 2.4 Full README.md
+
+**File:** `README.md` at the project root.
+
+**Required structure:**
+
+1. **Introduction** — elevator pitch of what the app is (one paragraph).
+2. **Functional Architecture** — end-user friendly description of how the app works from the user's perspective (init → add PDFs → ingest → browse).
+3. **Step-by-Step Architecture / Flow** — mid-level developer explanation of the agent flow, orchestration, rejection loops, and rejection criteria.
+4. **Detailed Technical Architecture** — senior developer explanation of the entire app, sufficient to understand the codebase without reading other files.
+5. **Project Structure** — description of all folders and files (`src/`, `tests/`, `wikis/`, `prompts/`, `.state/`, `templates/`, `test-pdfs/`, `scripts/`).
+
+**Content rules:**
+- Describe **implemented behavior**, not planned behavior.
+- Include the synthesis fallback chain (strict → permissive → structured template).
+- Include the per-call model routing configuration.
+- Include the `.state/` log files (`llm-calls.json`, `synthesis-report.json`, `validation-report.json`, `conflicts.json`).
+- Include test commands and expected outputs.
+
+### 2.5 Performance Metrics and Logging
 
 **File:** `src/metrics.ts`
 
@@ -103,19 +170,7 @@ Track and report metrics for each ingestion run:
 
 **Output:** `.state/metrics.json` and console summary.
 
-### 2.6 README and Documentation
-
-**File:** `README.md`
-
-Write a user-facing README:
-- What the tool does.
-- Installation instructions.
-- Quick start guide.
-- Configuration options.
-- Troubleshooting.
-- Example use cases.
-
-### 2.7 E2E Test Suite
+### 2.6 E2E Test Suite
 
 **File:** `tests/e2e.test.ts`
 
@@ -134,56 +189,54 @@ This test uses real PDFs and real LLM calls. It is slow and expensive. Run it on
 
 ## 3. Technical Approval Gates
 
-### Gate 9.1: Config File Is Loaded
+### Gate 9.1: Model Routing Settings Persist
 
 ```typescript
-test('config file is loaded and respected', async () => {
-  writeFileSync('.llm-wiki-cli.json', JSON.stringify({ chunkSize: 10 }));
-  const config = await loadConfig();
-  expect(config.chunkSize).toBe(10);
+test('settings screen saves model routing to .llm-wiki-cli.json', async () => {
+  // Render settings screen, select models, save, read config file.
+  expect(config.models.extractor).toBe('claude-haiku-4-5-20251001');
+  expect(config.models.synthesis).toBe('claude-sonnet-4-5-20251001');
 });
 ```
 
-**Pass Criteria:** Config file values are loaded.
-
-### Gate 9.2: CLI Flags Override Config
+### Gate 9.2: Model Routing Is Applied to LLM Calls
 
 ```typescript
-test('CLI flags override config file', async () => {
-  writeFileSync('.llm-wiki-cli.json', JSON.stringify({ chunkSize: 10 }));
-  const config = await loadConfig({ chunkSize: 20 });
-  expect(config.chunkSize).toBe(20);
+test('extractor uses the configured extractor model', async () => {
+  // Mock callLLM and verify it receives the extractor model when set.
 });
 ```
 
-**Pass Criteria:** CLI flag takes precedence.
-
-### Gate 9.3: Logger Outputs Structured Messages
+### Gate 9.3: Test Screens Removed
 
 ```typescript
-test('logger outputs structured messages', async () => {
-  const consoleSpy = vi.spyOn(console, 'log');
-  log.info('Test message');
-  expect(consoleSpy).toHaveBeenCalledWith(expect.stringMatching(/^\[\d{4}-\d{2}-\d{2}/));
+test('menu does not show Run Tests or Test Extractor', async () => {
+  // Render menu and assert those items are absent.
 });
 ```
 
-**Pass Criteria:** Log messages include timestamps.
-
-### Gate 9.4: Errors Are Caught and Reported
+### Gate 9.4: Continuous Workflow After Init
 
 ```typescript
-test('extraction errors are caught and reported', async () => {
-  // Force an extraction error
-  const consoleSpy = vi.spyOn(console, 'error');
-  await ingest('test-wiki');
-  expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('ERROR'));
+test('after init, TUI goes to Add PDFs then prompts for ingest', async () => {
+  // Drive init flow and assert next screen is Add PDFs.
 });
 ```
 
-**Pass Criteria:** Errors are logged with "ERROR" prefix.
+### Gate 9.5: README.md Exists and Has Required Sections
 
-### Gate 9.5: Metrics Are Saved
+```typescript
+test('README.md contains all required sections', () => {
+  const readme = readFileSync('README.md', 'utf-8');
+  expect(readme).toContain('## Introduction');
+  expect(readme).toContain('## Functional Architecture');
+  expect(readme).toContain('## Step-by-Step Architecture');
+  expect(readme).toContain('## Detailed Technical Architecture');
+  expect(readme).toContain('## Project Structure');
+});
+```
+
+### Gate 9.6: Metrics Are Saved
 
 ```typescript
 test('metrics are saved to .state/metrics.json', async () => {
@@ -195,191 +248,65 @@ test('metrics are saved to .state/metrics.json', async () => {
 });
 ```
 
-**Pass Criteria:** Metrics file exists with expected fields.
-
-### Gate 9.6: E2E Test Passes
-
-```typescript
-test('e2e test passes with multiple PDFs', async () => {
-  // This test uses real LLM calls and is slow
-  await e2eTest();
-}, 60000); // 60 second timeout
-```
-
-**Pass Criteria:** E2E test completes successfully.
-
 ---
 
 ## 4. User Acceptance Tests (UAT)
 
-### UAT 9.1: I can configure the tool
+### UAT 9.1: Model routing works in Settings
 
-```bash
-cat > .llm-wiki-cli.json << 'EOF'
-{
-  "chunkSize": 10,
-  "synthesis": true
-}
-EOF
-npx tsx src/cli.ts ingest test-wiki
-```
+1. `npx tsx src/cli.ts` → Settings
+2. Change Synthesis Writer model to Sonnet
+3. Save
+4. Verify `.llm-wiki-cli.json` contains the model.
 
-**Expected:** The tool uses a chunk size of 10 pages and enables synthesis.
+### UAT 9.2: Test screens are gone
 
-### UAT 9.2: I can see progress
+1. `npx tsx src/cli.ts`
+2. Verify menu does not show "Run Tests" or "Test Extractor".
 
-```bash
-npx tsx src/cli.ts ingest test-wiki --verbose
-```
+### UAT 9.3: Continuous workflow feels smooth
 
-**Expected:** Console shows detailed progress: "Processing chunk 1/5...", "Extracted 5 entities...", "Writing entity pages...", etc.
+1. `npx tsx src/cli.ts` → Create New Wiki
+2. After success, verify it goes directly to Add PDFs.
+3. After adding PDFs, verify it asks to start ingesting.
 
-### UAT 9.3: I can see metrics
+### UAT 9.4: README is complete
 
-```bash
-cat wikis/test-wiki/.state/metrics.json | jq .
-```
-
-**Expected:** I see a JSON object with counts of entities, relationships, claims, pages, cost, and time.
-
-### UAT 9.4: I can read the README
-
-```bash
-cat README.md
-```
-
-**Expected:** I see clear installation instructions, a quick start guide, and configuration options.
+Open `README.md` and verify it explains the app, flow, architecture, and project structure.
 
 ---
 
+## 5. Approval Checklist
 
-
-## 5. TUI Updates for This Phase
-
-### 5.1 `settings-screen.tsx` (Full Implementation)
-
-**File:** `src/tui/settings-screen.tsx`
-
-A comprehensive settings screen:
-
-```
-╔══════════════════════════════════════╗
-║  Settings                            ║
-╠══════════════════════════════════════╣
-║  General                               ║
-║  ─────────                             ║
-║  Chunk Size:        [5       ▲▼]     ║
-║  Max Folder Depth:  [3       ▲▼]     ║
-║                                        ║
-║  LLM                                   ║
-║  ─────                                 ║
-║  Provider:          [Fable    ▼]     ║
-║  Model:             [default  ▼]     ║
-║  API Key:           [••••••••]       ║
-║                                        ║
-║  Features                              ║
-║  ────────                              ║
-║  Synthesis:         [ON ] / OFF        ║
-║  Update Agents:     ON / [OFF]         ║
-║  Verbose Logging:   [ON ] / OFF        ║
-║                                        ║
-║  Costs                                 ║
-║  ─────                                 ║
-║  Total spent: $12.45                   ║
-║  This session: $0.23                   ║
-╠══════════════════════════════════════╣
-║  [ Save ]  [ Back ]                  ║
-╚══════════════════════════════════════╝
-```
-
-**Behavior:**
-- All settings editable via arrow keys and text input.
-- Changes saved to `.llm-wiki-cli.json`.
-- Cost tracking read from `.state/metrics.json`.
-
-### 5.2 `metrics-screen.tsx`
-
-**File:** `src/tui/metrics-screen.tsx`
-
-A screen showing ingestion metrics:
-
-```
-╔══════════════════════════════════════╗
-║  Metrics                               ║
-╠══════════════════════════════════════╣
-║  Last Run: 2026-07-16 14:30            ║
-║                                        ║
-║  Chunks:  5 processed, 0 skipped       ║
-║  Entities: 12 new, 3 updated           ║
-║  Relationships: 8                      ║
-║  Claims: 15 (10 financial, 5 legal)    ║
-║  Pages: 20 created, 5 updated            ║
-║  Folders: 3 new                        ║
-║  Links: 45 total, 0 broken             ║
-║  Conflicts: 0                          ║
-║                                        ║
-║  Tokens: 12,450 input, 3,200 output    ║
-║  Cost: $0.23                           ║
-║  Time: 45 seconds                      ║
-╠══════════════════════════════════════╣
-║  [ Back ]                            ║
-╚══════════════════════════════════════╝
-```
-
-### 5.3 Menu Updates
-
-**File:** `src/tui/menu.tsx`
-
-Add:
-```typescript
-{ label: 'View Metrics', value: 'metrics' },
-```
-
-Ensure Settings is already present from Phase 0.
-
----
-
-## 6. Approval Checklist
-
-Before declaring the project complete, verify:
+Before moving to final sign-off, verify:
 
 - [ ] All 6 technical gates pass (`npm test` is green).
-- [ ] All 4 UAT steps pass (manual verification).
-- [ ] Config file is loaded and CLI flags override it.
-- [ ] Logger outputs structured, timestamped messages.
-- [ ] Errors are caught and reported clearly.
-- [ ] Metrics are saved and accurate.
-- [ ] E2E test passes with multiple PDFs.
-- [ ] README is complete and accurate.
-- [ ] **TUI Settings screen allows editing all config options.**
-- [ ] **TUI Metrics screen shows all ingestion statistics.**
-- [ ] Total LLM cost for this phase is $0 (unless testing E2E).
-- [ ] The system is ready for a journalist to use.
+- [ ] All 4 UAT steps pass.
+- [ ] Model routing settings persist and are applied.
+- [ ] Test screens removed from TUI.
+- [ ] Continuous workflow after init → add PDFs → ingest.
+- [ ] README.md exists with all 5 required sections.
+- [ ] Metrics file written.
+- [ ] No new LLM calls in this phase; budget $0.
+- [ ] No code for Phase 7/8 (multi-PDF compounding, AGENTS.md updater) unless already implemented.
 
 ---
 
-## 7. Integration Notes
 ## 6. Integration Notes
 
-### What Phase 9 Depends On (from Phase 8)
-- Complete wiki with multiple PDFs.
-- AGENTS.md update framework.
-- All previous phases are stable.
+### What Phase 9 Depends On (from Phases 0-8)
+- All core pipeline components implemented.
+- `.llm-wiki-cli.json` settings persistence already exists (Phase 5).
+- TUI screens and menu already exist.
 
 ### What Phase 9 Produces
-- A production-ready CLI tool.
-- User-facing documentation.
+- Production-ready TUI.
+- Per-call model routing.
+- Complete README.md for new users and contributors.
 - Performance metrics and logging.
-- Configuration system.
 
-### Final Architecture
-
-```
-PDF → Chunker → Layer 1 (Raw Pages) → Layer 2 (Extractor) → Layer 3 (Materializer) → Validation → Layer 4 (DOX Writer) → Optional: Layer 5 (Writer)
-                                    ↓
-                              Rolling Memory
-                                    ↓
-                              .state/ (hashes, extractions, memory, metrics, conflicts, proposals)
-```
-
-This is the complete system. Every layer is tested. Every layer is optional except Layer 1 and Layer 2. The journalist can use the raw document pages (Layer 1) even if every LLM call fails.
+### Contract with Final Acceptance
+- All tests green.
+- All UAT passed.
+- README.md is accurate and complete.
+- Compliance log shows no unresolved contradictions.

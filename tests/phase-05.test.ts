@@ -15,18 +15,15 @@ import * as llmClient from '../src/llm/client';
 import {
   writeEntitySynthesis,
   writeTopicSynthesis,
-  writeDocumentSynthesis,
 } from '../src/agents/synthesis';
 import {
   checkPreservation,
   checkTopicPreservation,
-  checkDocumentPreservation,
 } from '../src/validation/preservation-check';
 import { ingest } from '../src/commands/ingest';
 import { init } from '../src/commands/init';
 import type { EntityPageData } from '../src/pages/entity-page';
 import type { TopicPageData } from '../src/pages/topic-page';
-import type { DocumentPageData } from '../src/pages/document-page';
 import type { ExtractorResult } from '../src/agents/extractor';
 
 const GOLDEN_MASTER_PDF = 'test-pdfs/golden-master.pdf';
@@ -360,7 +357,6 @@ test('ingest with synthesis writes synthesized pages', async () => {
       }),
     synthesizeEntityFn: async () => synthesizedPage,
     synthesizeTopicFn: async (data) => buildCompleteTopicPage(data),
-    synthesizeDocumentFn: async (data) => buildCompleteDocumentPage(data),
   });
 
   expect(result.synthesized).toBe(1);
@@ -404,7 +400,6 @@ test('strict synthesis falls back to permissive synthesis on preservation failur
       synthesizeEntityFn: async () => 'This page is missing most content.',
       synthesizeEntityPermissiveFn: async () => permissivePage,
       synthesizeTopicFn: async (data) => buildCompleteTopicPage(data),
-      synthesizeDocumentFn: async (data) => buildCompleteDocumentPage(data),
     });
 
     expect(result.synthesized).toBe(0);
@@ -453,7 +448,6 @@ test('synthesis falls back to structured template when both strict and permissiv
       synthesizeEntityFn: async () => 'This page is missing most content.',
       synthesizeEntityPermissiveFn: async () => 'This permissive page is also missing content.',
       synthesizeTopicFn: async (data) => buildCompleteTopicPage(data),
-      synthesizeDocumentFn: async (data) => buildCompleteDocumentPage(data),
     });
 
     expect(result.synthesized).toBe(0);
@@ -499,13 +493,12 @@ test('synthesis report is written after strict and permissive attempts', async (
     synthesizeEntityFn: async () => 'This page is missing most content.',
     synthesizeEntityPermissiveFn: async () => permissivePage,
     synthesizeTopicFn: async (data) => buildCompleteTopicPage(data),
-    synthesizeDocumentFn: async (data) => buildCompleteDocumentPage(data),
   });
 
   const reportPath = join(wikiDir, '.state', 'synthesis-report.json');
   expect(existsSync(reportPath)).toBe(true);
   const report = JSON.parse(readFileSync(reportPath, 'utf-8'));
-  expect(report.entries).toHaveLength(3);
+  expect(report.entries).toHaveLength(2);
   const entityEntry = report.entries.find((e: { slug: string }) => e.slug === 'john-smith');
   expect(entityEntry).toBeDefined();
   expect(entityEntry.strict).toEqual({ attempted: true, passed: false });
@@ -538,13 +531,12 @@ test('synthesis report records structured-template fallback when both modes fail
     synthesizeEntityFn: async () => 'This page is missing most content.',
     synthesizeEntityPermissiveFn: async () => 'This permissive page is also missing content.',
     synthesizeTopicFn: async (data) => buildCompleteTopicPage(data),
-    synthesizeDocumentFn: async (data) => buildCompleteDocumentPage(data),
   });
 
   const reportPath = join(wikiDir, '.state', 'synthesis-report.json');
   expect(existsSync(reportPath)).toBe(true);
   const report = JSON.parse(readFileSync(reportPath, 'utf-8'));
-  expect(report.entries).toHaveLength(3);
+  expect(report.entries).toHaveLength(2);
   const entityEntry = report.entries.find((e: { slug: string }) => e.slug === 'john-smith');
   expect(entityEntry).toBeDefined();
   expect(entityEntry.strict).toEqual({ attempted: true, passed: false });
@@ -605,52 +597,6 @@ function buildCompleteTopicPage(data: TopicPageData): string {
   return lines.join('\n');
 }
 
-function createTestDocumentData(): DocumentPageData {
-  return {
-    title: 'golden-master-part-001',
-    slug: 'golden-master-part-001',
-    folder: 'documents',
-    wiki: 'test-wiki',
-    source: 'wikis/test-wiki/raw/golden-master.pdf',
-    pages: '1-3',
-    extractedText:
-      'This is the extracted text from the document chunk. It contains important information about Acme Corp, including revenue figures and operating expenses for the reporting period.',
-    entitySlugs: ['acme-corp'],
-    slugToTitle: { 'acme-corp': 'Acme Corp' },
-    claims: [
-      {
-        text: 'Revenue was $42.5M in Q3 2024',
-        type: 'financial',
-        entities: ['acme-corp'],
-        page: 2,
-      },
-    ],
-  };
-}
-
-function buildCompleteDocumentPage(data: DocumentPageData): string {
-  const lines: string[] = [
-    '---',
-    `title: "${data.title}"`,
-    'type: document',
-    `wiki: ${data.wiki}`,
-    `updated: ${new Date().toISOString()}`,
-    '---',
-    '',
-    'This document chunk contains information about Acme Corp. It was extracted from the golden master PDF and includes details about revenue, operating expenses, and corporate governance. The extracted text below preserves the original wording so readers can verify the summary against the source document.',
-    '',
-    '## Extracted Text',
-    '',
-    data.extractedText,
-    '',
-    '## Sources',
-    '',
-    '[^src1]: golden-master.pdf, pages 1-3',
-    '',
-  ];
-  return lines.join('\n');
-}
-
 // Gate 5.8: Topic Synthesis Returns Readable Markdown
 // ---------------------------------------------------------------------------
 test('topic synthesis returns readable markdown with synthesis', async () => {
@@ -675,28 +621,6 @@ test('topic synthesis includes all claims from data', async () => {
   }
 });
 
-// Gate 5.10: Document Synthesis Returns Readable Markdown
-// ---------------------------------------------------------------------------
-test('document synthesis returns readable markdown with synthesis', async () => {
-  vi.spyOn(llmClient, 'callLLM').mockImplementation(async () => buildCompleteDocumentPage(createTestDocumentData()));
-  const data = createTestDocumentData();
-  const page = await writeDocumentSynthesis(data, 'AGENTS.md content');
-  expect(page).toContain('## Extracted Text');
-  expect(page).toContain('## Sources');
-  const firstHeading = page.indexOf('##');
-  const synthesisLength = firstHeading > 0 ? firstHeading : page.length;
-  expect(synthesisLength).toBeGreaterThan(300);
-});
-
-// Gate 5.11: Document Synthesis Preserves Extracted Text
-// ---------------------------------------------------------------------------
-test('document synthesis preserves extracted text from data', async () => {
-  vi.spyOn(llmClient, 'callLLM').mockImplementation(async () => buildCompleteDocumentPage(createTestDocumentData()));
-  const data = createTestDocumentData();
-  const page = await writeDocumentSynthesis(data, 'AGENTS.md content');
-  expect(page).toContain(data.extractedText);
-});
-
 // Gate 5.12: Topic Preservation Check Catches Dropped Claims
 // ---------------------------------------------------------------------------
 test('topic preservation check catches dropped claims', async () => {
@@ -707,19 +631,9 @@ test('topic preservation check catches dropped claims', async () => {
   expect(check.droppedClaims.length).toBeGreaterThan(0);
 });
 
-// Gate 5.13: Document Preservation Check Catches Dropped Text
+// Supplementary: ingest with synthesis synthesizes topics
 // ---------------------------------------------------------------------------
-test('document preservation check catches dropped text', async () => {
-  const data = createTestDocumentData();
-  const badPage = 'This document contains information.';
-  const check = checkDocumentPreservation(data, badPage);
-  expect(check.passed).toBe(false);
-  expect(check.droppedText).toBe(true);
-});
-
-// Supplementary: ingest with synthesis synthesizes topics and documents
-// ---------------------------------------------------------------------------
-test('ingest with synthesis synthesizes topics and documents', async () => {
+test('ingest with synthesis synthesizes topics', async () => {
   const workspace = makeTempDir('llm-wiki-phase5-topic-doc-');
   const wikiDir = join(workspace, 'wikis', 'test-wiki');
   init('test-wiki', { workspace });
@@ -738,19 +652,11 @@ test('ingest with synthesis synthesizes topics and documents', async () => {
         jsonRelativePath: '.state/extracted/golden-master-part-001.json',
       }),
     synthesizeTopicFn: async (data) => buildCompleteTopicPage(data),
-    synthesizeDocumentFn: async (data) => buildCompleteDocumentPage(data),
   });
 
   expect(result.synthesizedTopics).toBe(1);
-  expect(result.synthesizedDocuments).toBe(1);
-  expect(result.synthesisConflicts).toBe(0);
+  expect(result.topicConflicts).toBe(0);
 
   const topicPage = readFileSync(join(wikiDir, 'topics', 'financial', 'financial.md'), 'utf-8');
   expect(topicPage).toContain('## Claims');
-
-  const documentPage = readFileSync(
-    join(wikiDir, 'documents', 'golden-master-part-001.md'),
-    'utf-8',
-  );
-  expect(documentPage).toContain('## Extracted Text');
 });

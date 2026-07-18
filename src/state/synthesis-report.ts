@@ -11,7 +11,9 @@ export interface SynthesisAttemptReport {
 export interface SynthesisReportEntry {
   /** ISO 8601 timestamp of the final decision. */
   timestamp: string;
-  /** Entity slug. */
+  /** Page type this synthesis ran on. */
+  pageType: 'entity' | 'topic';
+  /** Entity or topic slug. */
   slug: string;
   /** Strict synthesis attempt result. */
   strict: SynthesisAttemptReport;

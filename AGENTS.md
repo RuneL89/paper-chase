@@ -90,6 +90,7 @@ When the user requests a durable behavior change, record it here or in the relev
 * 2026-07-17: All core workflows must be doable from the TUI in a user-friendly manner (no manual file copying in Explorer). Established with the Phase 1 "Add PDFs" screen; applies to future phases' features too.
 * 2026-07-17: File selection in the TUI must use a graphical/native file picker (Windows OpenFileDialog), never typed or pasted paths as the primary interaction; manual path entry is only a fallback.
 * 2026-07-18: Phase 9 (Polish) productionization requirements: implement per-call LLM model routing in Settings with inline recommendation labels (Extractor → cheaper structured model, Synthesis Writer → stronger prose model, DOX Writer → strong contract-writing model); remove the 'Run Tests' and 'Test Extractor' screens from the TUI; add smoother TUI touches including result banners, progress bars/ETAs, welcome splash, and a continuous workflow where creating a new wiki immediately flows into 'Add PDFs' and then prompts to start ingesting without returning to the main menu.
+* 2026-07-18: Create New Wiki screen simplified: only Title and Workspace fields; the wiki slug is derived from the Title via `slugify` (lowercase, spaces → hyphens). No separate slug field.
 
 ## Child DOX Index
 

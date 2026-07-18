@@ -7,6 +7,7 @@ import { LoadingSpinner } from './components/spinner';
 import { ErrorBox } from './components/error-box';
 import { SuccessBox } from './components/success-box';
 import { init } from '../commands/init';
+import { slugify, isValidWikiSlug } from '../utils/slug';
 
 export interface ScreenProps {
   onBack: () => void;
@@ -18,19 +19,18 @@ export interface InitScreenProps extends ScreenProps {
   defaultWorkspace?: string;
 }
 
-type FieldName = 'slug' | 'title' | 'workspace' | 'create' | 'back';
-const FIELD_ORDER: FieldName[] = ['slug', 'title', 'workspace', 'create', 'back'];
+type FieldName = 'title' | 'workspace' | 'create' | 'back';
+const FIELD_ORDER: FieldName[] = ['title', 'workspace', 'create', 'back'];
 
 type FormStatus = 'editing' | 'busy' | 'success' | 'error';
 
 /**
- * Create New Wiki form (phase doc §5.1): Wiki Slug (required), Title
- * (optional), Workspace (default './'). Tab/arrows move between fields,
- * Enter on "Create Wiki" runs init(), Escape/Back returns to the menu.
+ * Create New Wiki form: Title (required, converted to kebab-case slug),
+ * Workspace (default './'). Tab/arrows move between fields, Enter on
+ * "Create Wiki" runs init(), Escape/Back returns to the menu.
  */
 export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitScreenProps) {
   const { isRawModeSupported } = useStdin();
-  const [slug, setSlug] = useState('');
   const [title, setTitle] = useState('');
   const [workspace, setWorkspace] = useState(defaultWorkspace);
   const [focusIndex, setFocusIndex] = useState(0);
@@ -41,16 +41,23 @@ export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitSc
   const focus = FIELD_ORDER[focusIndex];
 
   const submit = async () => {
-    if (slug.trim().length === 0) {
-      setValidationError('Wiki slug is required.');
+    const trimmedTitle = title.trim();
+    if (trimmedTitle.length === 0) {
+      setValidationError('Title is required.');
+      setFocusIndex(0);
+      return;
+    }
+    const slug = slugify(trimmedTitle);
+    if (!isValidWikiSlug(slug)) {
+      setValidationError(`Title cannot form a valid wiki slug (got "${slug}"). Use letters, digits, and spaces.`);
       setFocusIndex(0);
       return;
     }
     setValidationError('');
     setStatus('busy');
     try {
-      const result = await init(slug.trim(), {
-        title: title.trim().length > 0 ? title.trim() : undefined,
+      const result = await init(slug, {
+        title: trimmedTitle,
         workspace: workspace.trim().length > 0 ? workspace.trim() : '.',
       });
       setStatus('success');
@@ -109,12 +116,8 @@ export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitSc
         editing ? (
           <Box flexDirection="column" marginTop={1}>
             <Box>
-              <Text>Wiki Slug: </Text>
-              <TextInput value={slug} onChange={setSlug} focus={focus === 'slug'} onSubmit={() => setFocusIndex(1)} />
-            </Box>
-            <Box>
-              <Text>Title (optional): </Text>
-              <TextInput value={title} onChange={setTitle} focus={focus === 'title'} onSubmit={() => setFocusIndex(2)} />
+              <Text>Title: </Text>
+              <TextInput value={title} onChange={setTitle} focus={focus === 'title'} onSubmit={() => setFocusIndex(1)} />
             </Box>
             <Box>
               <Text>Workspace: </Text>
@@ -122,7 +125,7 @@ export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitSc
                 value={workspace}
                 onChange={setWorkspace}
                 focus={focus === 'workspace'}
-                onSubmit={() => setFocusIndex(3)}
+                onSubmit={() => setFocusIndex(2)}
               />
             </Box>
             <Box marginTop={1} gap={2}>
@@ -141,8 +144,7 @@ export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitSc
         // handling require raw mode, so render the form statically instead of
         // crashing (same contract as menu.tsx).
         <Box flexDirection="column" marginTop={1}>
-          <Text>Wiki Slug: {slug}</Text>
-          <Text>Title (optional): {title}</Text>
+          <Text>Title: {title}</Text>
           <Text>Workspace: {workspace}</Text>
           <Text>[ Create Wiki ] [ Back ]</Text>
           <Text dimColor>Interactive form requires a TTY.</Text>

@@ -71,24 +71,25 @@ program
           if (result.synthesizedTopics !== undefined) {
             console.log(`  synthesized ${result.synthesizedTopics} topic page(s)`);
           }
-          if (result.synthesizedDocuments !== undefined) {
-            console.log(`  synthesized ${result.synthesizedDocuments} document page(s)`);
-          }
         }
-        if (result.synthesisConflicts !== undefined && result.synthesisConflicts > 0) {
-          console.log(`  ${result.synthesisConflicts} synthesis conflict(s) logged`);
+        const totalConflicts = (result.synthesisConflicts ?? 0) + (result.topicConflicts ?? 0);
+        if (totalConflicts > 0) {
+          console.log(
+            `  ${totalConflicts} synthesis conflict(s) logged ` +
+              `(entities: ${result.synthesisConflicts ?? 0}, topics: ${result.topicConflicts ?? 0})`,
+          );
         }
       }
       console.log(`Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`);
       if (result.synthesized !== undefined) {
         const entityTotal = (result.synthesized ?? 0) + (result.synthesizedPermissive ?? 0);
         const topicTotal = (result.synthesizedTopics ?? 0) + (result.synthesizedTopicsPermissive ?? 0);
-        const documentTotal = (result.synthesizedDocuments ?? 0) + (result.synthesizedDocumentsPermissive ?? 0);
-        const totalSynthesized = entityTotal + topicTotal + documentTotal;
+        const totalSynthesized = entityTotal + topicTotal;
+        const totalConflicts = (result.synthesisConflicts ?? 0) + (result.topicConflicts ?? 0);
         console.log(
           `Synthesis: ${totalSynthesized} page(s) written ` +
-            `(entities: ${entityTotal}, topics: ${topicTotal}, documents: ${documentTotal}), ` +
-            `${result.synthesisConflicts} conflict(s).`,
+            `(entities: ${entityTotal}, topics: ${topicTotal}), ` +
+            `${totalConflicts} conflict(s).`,
         );
       }
     } catch (err) {

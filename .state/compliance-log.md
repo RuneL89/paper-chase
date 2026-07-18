@@ -528,3 +528,51 @@
   Tests: npx tsc --noEmit clean; npx vitest run tests/phase-05.test.ts 19 passed; npx vitest run (full suite) 166 passed + 1 skipped (gate 0.4).
   UAT: Fresh wiki ingest with --synthesis produced 9 synthesis attempts (4 entities + 4 topics + 1 document); 1 strict success (topic financial), 8 structured-template fallbacks; generated topic page has readable synthesis at top + preserved claims + sources; total cost ~/usr/bin/bash.12.
   Checked By: Main agent
+[2026-07-18 22:05] UAT-Driven Refinement: Remove Document Synthesis, Add pageType to Logs
+  Changed: `src/commands/ingest.ts` (removed document synthesis loop, removed document counters/options, added `pageType` to synthesis report and conflict entries, split `synthesisConflicts` vs `topicConflicts`), `src/cli.ts` (summary shows entity/topic totals only, per-type conflicts), `src/state/synthesis-report.ts` (`pageType` field), `src/state/conflicts.ts` (`pageType` field + optional `pageType` parameter), `tests/phase-05.test.ts` (removed document synthesis tests, updated report assertions to expect entity+topic only)
+  Vision Docs Checked: `Project Vision/04_orchestration_detailed.md` §4 (Synthesis Writer is for entity pages; document pages are deterministic Phase 1 output), `Project Vision/02_WIKI_concept_detailed.md` §3 (two-layer page for entities/topics; document pages are raw extraction containers)
+  Sections Checked: `src/commands/ingest.ts`, `src/cli.ts`, `src/state/synthesis-report.ts`, `src/state/conflicts.ts`
+  Comparison:
+    - Removing document synthesis aligns with the vision: document pages are raw extraction containers from Phase 1, not candidate synthesis targets. The Phase 1 two-layer requirement applies to entity/topic pages, not documents. COMPLIANT.
+    - Adding `pageType` to `synthesis-report.json` and `conflicts.json` makes the logs self-describing and fixes the earlier ambiguity. COMPLIANT.
+    - Splitting `synthesisConflicts` vs `topicConflicts` in the CLI summary makes the report clearer. COMPLIANT.
+  Result: COMPLIANT.
+  Tests: npx tsc --noEmit clean; npx vitest run tests/phase-05.test.ts 16 passed; npm test 163 passed + 1 skipped
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-18 22:40] Phase 9 Plan Update: Productionization Scope Locked
+  Changed: `Implementation Plan/PHASE_09_polish.md` (updated objective, scope, gates, UAT, and checklist), `Implementation Plan/IMPLEMENTATION_PLAN_MASTER_INDEX.md` (Phase 9 objective line)
+  Vision Docs Checked: `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §7 (single-user local tool), `Project Vision/04_orchestration_detailed.md` §1/§7 (Extractor, Synthesis Writer, DOX Writer are LLM calls; model routing is a user-level productionization concern), `Project Vision/03_DOX_concept_detailed.md` §6 (DOX Writer is LLM-driven)
+  Sections Checked: `Implementation Plan/PHASE_09_polish.md` full document
+  User Decisions Recorded:
+    1. Multi-model routing: per-call model selection in Settings with inline recommendation labels (Extractor → Haiku for structured JSON, Synthesis Writer → Sonnet for prose, DOX Writer → Sonnet/Opus for contracts).
+    2. TUI cleanup: remove both "Run Tests" and "Test Extractor" screens; keep production menu only.
+    3. Smooth TUI: result banners, progress bars/ETAs, welcome splash, and continuous workflow (init → Add PDFs → start ingest).
+    4. Full README.md required structure: Introduction, Functional Architecture, Step-by-Step Architecture/Flow, Detailed Technical Architecture, Project Structure.
+    5. Use AskUserQuestion tool for specific decisions in this phase.
+  Comparison:
+    - The updated Phase 9 plan reflects the user's productionization decisions and README requirement. COMPLIANT.
+    - The plan keeps the existing metrics/logging/E2E scope and adds the new productionization elements. COMPLIANT.
+  Result: COMPLIANT.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-18 22:50] User-Directed UX Change: Title-Derived Slug in Create New Wiki
+  Changed: `src/tui/init-screen.tsx` (removed Wiki Slug field; only Title and Workspace; slug derived via `slugify` from Title), `tests/tui/phase-01-screens.test.tsx` (updated tests)
+  Vision Docs Checked: `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3 (typical workflow: init with a title, copy PDFs, ingest), `Project Vision/03_DOX_concept_detailed.md` §3.3 (wiki slug must be lowercase kebab-case)
+  Sections Checked: `src/tui/init-screen.tsx` form fields and validation, `src/utils/slug.ts` `slugify` and `isValidWikiSlug`
+  Comparison:
+    - The user requested fewer fields in the Create New Wiki form: only Title (required) and Workspace. The slug is derived from the Title using `slugify` (lowercase, spaces → hyphens). This matches the vision's workflow of creating a wiki from a title and keeps the kebab-case slug contract. COMPLIANT.
+    - Validation still rejects invalid titles that cannot form a valid slug. COMPLIANT.
+  Result: COMPLIANT.
+  Tests: npx tsc --noEmit clean; npx vitest run tests/tui/phase-01-screens.test.tsx 6 passed; npm test 163 passed + 1 skipped
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-18 23:05] Phase 5 Accepted by User
+  Changed: `.state/phase-5-status.json` (status: complete → accepted; lastAction and nextAction updated)
+  Vision Docs Checked: `Project Vision/02_WIKI_concept_detailed.md` §3/§4 (two-layer pages), `Project Vision/04_orchestration_detailed.md` §4 (Synthesis Writer)
+  Sections Checked: `.state/phase-5-status.json`, `.state/phase-5-verification.md`, `tests/phase-05.test.ts`
+  User Decision: Phase 5 (Synthesis Writer) is accepted as complete. The user acknowledges the model-capability limitation (Haiku drops claims for dense entities) and defers the fix to Phase 9 per-call model routing.
+  Result: COMPLIANT — phase closed.
+  Tests: npm test 163 passed + 1 skipped; npx tsc --noEmit clean
+  Checked By: Main agent (phase orchestrator)
+

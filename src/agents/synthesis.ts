@@ -10,7 +10,6 @@ import type {
   EntityPageTimelineEvent,
 } from '../pages/entity-page';
 import type { TopicPageData, TopicPageClaim } from '../pages/topic-page';
-import type { DocumentPageData, DocumentPageClaim } from '../pages/document-page';
 
 const PROMPT_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'prompts');
 const promptCache: Record<string, string> = {};
@@ -78,18 +77,6 @@ export function formatClaims(
     .join('\n');
 }
 
-export function formatDocumentClaims(claims: DocumentPageClaim[]): string {
-  if (claims.length === 0) {
-    return '(none)';
-  }
-  return claims
-    .map((claim) => {
-      const entityList = claim.entities.length > 0 ? ` (${claim.entities.join(', ')})` : '';
-      return `- ${claim.text}${entityList}\n  Type: ${claim.type}\n  Page: ${claim.page}`;
-    })
-    .join('\n');
-}
-
 export function formatTimeline(timeline: EntityPageTimelineEvent[] | undefined): string {
   if (!timeline || timeline.length === 0) {
     return '(none)';
@@ -107,10 +94,6 @@ export function formatTopicEntities(entities: string[]): string {
     return '(none)';
   }
   return entities.map((entity) => `- ${entity}`).join('\n');
-}
-
-export function formatDocumentEntities(entities: string[]): string {
-  return formatTopicEntities(entities);
 }
 
 export function formatTopicSources(
@@ -166,18 +149,6 @@ function buildTopicSynthesisValues(topicData: TopicPageData): Record<string, str
     claims: formatClaims(topicData.claims),
     sources: formatTopicSources(sources),
     context: topicData.context ?? '(none provided)',
-  };
-}
-
-function buildDocumentSynthesisValues(documentData: DocumentPageData): Record<string, string> {
-  const entities = documentData.entitySlugs.map((slug) => documentData.slugToTitle[slug] ?? slug);
-  return {
-    title: documentData.title,
-    sourceFile: documentData.source,
-    pageRange: documentData.pages,
-    extractedText: documentData.extractedText,
-    entities: formatDocumentEntities(entities),
-    claims: formatDocumentClaims(documentData.claims),
   };
 }
 
@@ -280,48 +251,6 @@ export async function writePermissiveTopicSynthesis(
     maxTokens: 8192,
     callType: 'permissive-topic-synthesis',
     context: topicData.slug,
-    logPath,
-  });
-}
-
-/**
- * Write a synthesized two-layer markdown summary for a document chunk.
- */
-export async function writeDocumentSynthesis(
-  documentData: DocumentPageData,
-  agentsMd: string,
-  logPath?: string,
-): Promise<string> {
-  const fullPrompt = await buildSynthesisPrompt(
-    buildDocumentSynthesisValues(documentData),
-    agentsMd,
-    'synthesis-document.prompt.txt',
-  );
-  return callLLM(fullPrompt, undefined, {
-    maxTokens: 8192,
-    callType: 'document-synthesis',
-    context: documentData.slug,
-    logPath,
-  });
-}
-
-/**
- * Write a permissive hybrid synthesis for a dense document chunk.
- */
-export async function writePermissiveDocumentSynthesis(
-  documentData: DocumentPageData,
-  agentsMd: string,
-  logPath?: string,
-): Promise<string> {
-  const fullPrompt = await buildSynthesisPrompt(
-    buildDocumentSynthesisValues(documentData),
-    agentsMd,
-    'synthesis-document-permissive.prompt.txt',
-  );
-  return callLLM(fullPrompt, undefined, {
-    maxTokens: 8192,
-    callType: 'permissive-document-synthesis',
-    context: documentData.slug,
     logPath,
   });
 }

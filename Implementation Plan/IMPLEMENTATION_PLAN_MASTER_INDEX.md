@@ -34,7 +34,7 @@ This structure prevents the compounding bug problem that destroyed the previous 
 | 6 | [PHASE_06_dox_writer.md](PHASE_06_dox_writer.md) | DOX Writer: LLM-driven rich `index.md` generation | Quality-first | 4-6h |
 | 7 | [PHASE_07_multi_pdf_compounding.md](PHASE_07_multi_pdf_compounding.md) | Multi-PDF compounding, incremental ingestion, conflict detection | $5.00 | 4-5h |
 | 8 | [PHASE_08_agents_updater.md](PHASE_08_agents_updater.md) | AGENTS.md updater: proposes updates based on discovered structure | $2.00 | 3-4h |
-| 9 | [PHASE_09_polish.md](PHASE_09_polish.md) | Config, logging, metrics, error handling, README, E2E tests | $0 | 4-6h |
+| 9 | [PHASE_09_polish.md](PHASE_09_polish.md) | Productionization: per-call LLM model routing with suggestion labels, TUI cleanup, smoother workflow, full README.md, metrics, E2E tests | $0 | 4-6h |
 
 **Total Estimated LLM Cost (all phases):** Variable; baseline ~$27.00 plus quality-first DOX Writer cost per wiki.
 **Total Estimated Time:** 32-46 hours
