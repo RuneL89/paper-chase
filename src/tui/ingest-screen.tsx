@@ -92,6 +92,10 @@ export function IngestScreen({
         workspace,
         extract,
         synthesis,
+        // Phase 6: production runs are LLM-driven — the DOX Writer writes rich,
+        // content-based index.md contracts (deterministic enforcement and
+        // fallback still guarantee valid contracts without a key).
+        doxLlm: true,
         onProgress: (line: string) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
       })) as { ingested: unknown[]; skipped: unknown[]; synthesized?: number; synthesisConflicts?: number };
       let summary = `Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`;

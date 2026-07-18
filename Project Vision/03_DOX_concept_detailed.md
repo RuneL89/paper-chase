@@ -96,6 +96,7 @@ The LLM decides the folder path for each entity based on `AGENTS.md` instruction
 
 - Use lowercase with hyphens (kebab-case).
 - No spaces, no special characters.
+- Names are written in the wiki's **output language** and transliterated to ASCII kebab-case when they contain non-ASCII characters (`04_orchestration_detailed.md` §9).
 - Maximum depth: 3 levels below `entities/` or `topics/` (e.g., `entities/people/executives/` is valid; `entities/people/executives/ceos/founders/` is not).
 - The LLM may create new sub-folders, but never outside `entities/` or `topics/`.
 
@@ -265,6 +266,7 @@ No DOX contract can be written until the wiki pages exist, because the DOX Write
 **What the LLM writes:**
 
 - A rich, human-readable description of the folder's scope, based on the actual pages inside it, following the writing rules in the wiki's `AGENTS.md` (plain language, journalist test, no invented facts, `[[Page Title]]` wikilinks, etc.).
+- All prose is written in the wiki's **output language** (recorded in `AGENTS.md`, see `04_orchestration_detailed.md` §9); page titles and entity names stay verbatim regardless of language.
 - A `## Pages` catalog with `[[Page Title]]` wikilinks.
 - A `## Navigation` section with links to parent and sibling folders.
 - A `## Statistics` section with counts.

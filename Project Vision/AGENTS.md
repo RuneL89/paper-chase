@@ -9,7 +9,7 @@ Canonical vision and specification documents for LLM Wiki CLI v2.0. These seven 
 * `01_PRODUCT_VISION_AND_ARCHITECTURE.md` — product vision, architecture, workspace/wiki layout
 * `02_WIKI_concept_detailed.md` — wiki page philosophy and mechanics
 * `03_DOX_concept_detailed.md` — DOX framework adaptation (index.md contracts, AGENTS.md in wikis)
-* `04_orchestration_detailed.md` — the four-layer ingest pipeline (Extractor, Materializer, DOX Writer)
+* `04_orchestration_detailed.md` — the four-layer ingest pipeline (Extractor, Materializer, DOX Writer) and the multilingual input/output language model (§9)
 * `05_page_types_specification.md` — page types, frontmatter, naming conventions
 * `06_citation_and_provenance.md` — citation and provenance model
 * `07_validation_and_quality.md` — validation layers and quality rules

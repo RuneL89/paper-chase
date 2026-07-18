@@ -205,9 +205,10 @@ Phase documents live in `Implementation Plan/`; vision documents live in `Projec
 | 4 | `PHASE_04_link_checker.md` | `07_validation_and_quality.md`, `06_citation_and_provenance.md` | Validation layers, citation integrity |
 | 5 | `PHASE_05_synthesis_writer.md` | `02_WIKI_concept_detailed.md`, `05_page_types_specification.md` | Two-layer pages, synthesis requirements |
 | 6 | `PHASE_06_dox_writer.md` | `03_DOX_concept_detailed.md`, `05_page_types_specification.md` | DOX contracts, index.md hierarchy |
-| 7 | `PHASE_07_multi_pdf_compounding.md` | `01_PRODUCT_VISION_AND_ARCHITECTURE.md`, `04_orchestration_detailed.md` | Compounding, incremental ingestion |
-| 8 | `PHASE_08_agents_updater.md` | `03_DOX_concept_detailed.md`, `01_PRODUCT_VISION_AND_ARCHITECTURE.md` | AGENTS.md as living document |
-| 9 | `PHASE_09_polish.md` | All vision documents | Final polish, must not break any existing spec |
+| 7 | `PHASE_07_multilingual_ingestion.md` | `04_orchestration_detailed.md` §9, `02_WIKI_concept_detailed.md` §3.4, `05_page_types_specification.md` §2.1, `06_citation_and_provenance.md` §8 | Input/output language model, two-layer language rule, slug transliteration, source-language evidence |
+| 8 | `PHASE_08_multi_pdf_compounding.md` | `01_PRODUCT_VISION_AND_ARCHITECTURE.md`, `04_orchestration_detailed.md` | Compounding, incremental ingestion |
+| 9 | `PHASE_09_agents_updater.md` | `03_DOX_concept_detailed.md`, `01_PRODUCT_VISION_AND_ARCHITECTURE.md` | AGENTS.md as living document |
+| 10 | `PHASE_10_polish.md` | All vision documents | Final polish, must not break any existing spec |
 
 ---
 
@@ -340,9 +341,10 @@ Wiki v5/
     │   ├── PHASE_05_synthesis_writer.md              # Phase 5
     │   ├── PHASE_06_dox_writer.md                    # Phase 6
 
-│   ├── PHASE_07_multi_pdf_compounding.md         # Phase 7
-│   ├── PHASE_08_agents_updater.md                # Phase 8
-│   └── PHASE_09_polish.md                        # Phase 9
+│   ├── PHASE_07_multilingual_ingestion.md          # Phase 7
+│   ├── PHASE_08_multi_pdf_compounding.md           # Phase 8
+│   ├── PHASE_09_agents_updater.md                  # Phase 9
+│   └── PHASE_10_polish.md                          # Phase 10
 └── templates/
     └── AGENTS.md                                 # Template for wiki AGENTS.md (created in Phase 0)
 ```

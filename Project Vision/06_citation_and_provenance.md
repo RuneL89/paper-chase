@@ -160,3 +160,15 @@ A journalist verifying a claim follows this path:
 6. Open the PDF to pages 12-15 and verify the claim.
 
 This path must work for every citation on every page. Broken citations are treated as bugs.
+
+---
+
+## 8. Source-Language Evidence
+
+The citation model is language-anchored: **evidence is always preserved in the language of the source PDF, verbatim.**
+
+- Mention quotes, relationship evidence, claim text, and extracted passages are never translated or reworded, whatever the wiki's output language is.
+- Synthesis prose (Layer 1) may be written in the wiki's output language, but it cites — and never replaces — the source-language evidence below it.
+- The verification workflow (§7) depends on this: a reader opening the PDF to pages 12–15 must find the quoted words. A translated quote would fail that check.
+
+Cross-reference: the full input/output language model is specified in `04_orchestration_detailed.md` §9.

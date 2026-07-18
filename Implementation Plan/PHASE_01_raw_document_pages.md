@@ -37,7 +37,7 @@ Implement the `init` and `ingest` commands so that every PDF in `raw/` is extrac
 - Seed folders. The LLM discovers these from the actual content.
 - Corpus-specific rules. The LLM learns these from the content and proposes updates later.
 
-The `AGENTS.md` is **fully automatic**. The human does not edit it. The LLM uses the generic instructions and discovers the specifics during ingestion. If the LLM discovers patterns that should be documented, the AGENTS.md Updater (Phase 8) proposes updates.
+The `AGENTS.md` is **fully automatic**. The human does not edit it. The LLM uses the generic instructions and discovers the specifics during ingestion. If the LLM discovers patterns that should be documented, the AGENTS.md Updater (Phase 9) proposes updates.
 
 **CLI signature:**
 ```bash

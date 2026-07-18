@@ -359,7 +359,7 @@ Before moving to Phase 7, verify:
 - [ ] Folder descriptions are content-based, not generic templates.
 - [ ] **TUI DOX Browser shows the full contract hierarchy.**
 - [ ] LLM cost is logged per call and per phase in `.state/phase-6-status.json`.
-- [ ] No code exists for multi-PDF compounding or the AGENTS.md updater.
+- [ ] No code exists for multilingual ingestion, multi-PDF compounding, or the AGENTS.md updater.
 
 ---
 
@@ -376,13 +376,14 @@ Before moving to Phase 7, verify:
 - Complete `index.md` hierarchy with rich descriptions.
 - A navigable wiki.
 - Final validation pass confirming the DOX pages are healthy.
+- The prompt-file + `{single-brace}` placeholder pattern and the test-only LLM injections (`extractChunkFn`, `synthesize*Fn`, `writeDoxIndexFn`).
 
 ### Contract with Phase 7
 Phase 7 expects:
 - A complete wiki with all pages and contracts.
 - The DOX Writer does not modify content pages.
 
-Phase 7 adds multi-PDF compounding and rolling memory improvements.
+Phase 7 adds multilingual ingestion: per-run input language and per-wiki output language, language directives in every prompt, and transliterated slugs (vision `04` §9).
 
 ### Isolation Testing
 The DOX Writer can be tested in isolation:

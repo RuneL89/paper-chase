@@ -11,7 +11,7 @@ Controlled PDF fixtures for tests. The golden masters are the project's known-co
 ## Local Contracts
 
 * Golden master PDFs **never change** once created (`Implementation Plan/AGENTS.md`). Do not regenerate, edit, move, or delete them; tests and phases depend on their exact bytes
-* `golden-master-2.pdf` (a later phase) gets the same treatment when created
+* `golden-master-2.pdf` (Phase 8) and `golden-master-da.pdf` (Phase 7, Danish) get the same treatment when created
 * New fixtures must have fully known content and their SHA-256 recorded in the phase status file
 
 ## Work Guidance

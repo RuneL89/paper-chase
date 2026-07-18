@@ -1,10 +1,10 @@
-# Phase 8: AGENTS.md Generation and Living Updates
+# Phase 9: AGENTS.md Generation and Living Updates
 
-**Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-008`
+**Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-009`
 **Version:** 1.0.0
 **Status:** Draft
 **Date:** 2026-07-16
-**Dependencies:** Phase 0-7
+**Dependencies:** Phase 0-8
 **Estimated Time:** 3-4 hours
 **LLM Token Budget:** $2.00 (hard cap)
 
@@ -44,6 +44,7 @@ Propose updates to AGENTS.md based on what was discovered during ingestion. Focu
 1. Adding new folder examples to the "Folder Structure" section.
 2. Adding new page types to the "Page Types" section.
 3. Updating rules or conventions that were discovered to be incomplete.
+4. Preserving the "Language" section (the wiki's output language, Phase 7) verbatim.
 
 Return the complete updated AGENTS.md as markdown. Do not explain your changes.
 ```
@@ -92,7 +93,7 @@ Log format: `.state/proposals/structural-changes.json`.
 
 ## 3. Technical Approval Gates
 
-### Gate 8.1: Updater Proposes Valid AGENTS.md
+### Gate 9.1: Updater Proposes Valid AGENTS.md
 
 ```typescript
 test('updater proposes valid AGENTS.md', async () => {
@@ -106,7 +107,7 @@ test('updater proposes valid AGENTS.md', async () => {
 
 **Pass Criteria:** Proposal contains all required sections.
 
-### Gate 8.2: Proposal Includes New Folders
+### Gate 9.2: Proposal Includes New Folders
 
 ```typescript
 test('proposal includes new folders discovered during ingestion', async () => {
@@ -123,7 +124,7 @@ test('proposal includes new folders discovered during ingestion', async () => {
 
 **Pass Criteria:** Proposal mentions all new folders.
 
-### Gate 8.3: Proposal Is Saved to Disk
+### Gate 9.3: Proposal Is Saved to Disk
 
 ```typescript
 test('proposal is saved to .state/proposed-agents.md', async () => {
@@ -135,7 +136,7 @@ test('proposal is saved to .state/proposed-agents.md', async () => {
 
 **Pass Criteria:** Proposal file exists.
 
-### Gate 8.4: Original AGENTS.md Is Not Overwritten
+### Gate 9.4: Original AGENTS.md Is Not Overwritten
 
 ```typescript
 test('original AGENTS.md is not overwritten', async () => {
@@ -148,7 +149,7 @@ test('original AGENTS.md is not overwritten', async () => {
 
 **Pass Criteria:** Original file is unchanged.
 
-### Gate 8.5: Updater Does Not Run by Default
+### Gate 9.5: Updater Does Not Run by Default
 
 ```typescript
 test('updater does not run without --update-agents flag', async () => {
@@ -163,7 +164,7 @@ test('updater does not run without --update-agents flag', async () => {
 
 ## 4. User Acceptance Tests (UAT)
 
-### UAT 8.1: I can generate a proposal
+### UAT 9.1: I can generate a proposal
 
 ```bash
 npx tsx src/cli.ts ingest test-wiki --update-agents
@@ -171,7 +172,7 @@ npx tsx src/cli.ts ingest test-wiki --update-agents
 
 **Expected:** Console shows "Proposed AGENTS.md updates saved to .state/proposed-agents.md."
 
-### UAT 8.2: I can review the proposal
+### UAT 9.2: I can review the proposal
 
 ```bash
 cat wikis/test-wiki/.state/proposed-agents.md
@@ -179,7 +180,7 @@ cat wikis/test-wiki/.state/proposed-agents.md
 
 **Expected:** I see an updated AGENTS.md that includes new folder examples discovered during ingestion. The changes are sensible.
 
-### UAT 8.3: I can apply the proposal manually
+### UAT 9.3: I can apply the proposal manually
 
 ```bash
 cp wikis/test-wiki/.state/proposed-agents.md wikis/test-wiki/AGENTS.md
@@ -187,7 +188,7 @@ cp wikis/test-wiki/.state/proposed-agents.md wikis/test-wiki/AGENTS.md
 
 **Expected:** The updated AGENTS.md is now the active instruction set for future ingestion runs.
 
-### UAT 8.4: I can see structural changes
+### UAT 9.4: I can see structural changes
 
 ```bash
 cat wikis/test-wiki/.state/proposals/structural-changes.json | jq .
@@ -268,7 +269,7 @@ Add:
 
 ## 6. Approval Checklist
 
-Before moving to Phase 9, verify:
+Before moving to Phase 10, verify:
 
 - [ ] All 5 technical gates pass (`npm test` is green).
 - [ ] All 4 UAT steps pass (manual verification).
@@ -283,20 +284,19 @@ Before moving to Phase 9, verify:
 ---
 
 ## 7. Integration Notes
-## 6. Integration Notes
 
-### What Phase 8 Depends On (from Phase 7)
+### What Phase 9 Depends On (from Phase 8)
 - Complete wiki with multiple PDFs.
 - Structural change log exists.
 - DOX contracts are complete.
 
-### What Phase 8 Produces (for Phase 9)
+### What Phase 9 Produces (for Phase 10)
 - AGENTS.md update proposal framework.
 - Living documentation model.
 
-### Contract with Phase 9
-Phase 9 expects:
+### Contract with Phase 10
+Phase 10 expects:
 - The system can propose AGENTS.md updates.
 - The journalist controls when to apply them.
 
-Phase 9 is the final polish and performance optimization phase.
+Phase 10 is the final polish and performance optimization phase.

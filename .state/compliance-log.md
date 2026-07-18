@@ -576,3 +576,74 @@
   Tests: npm test 163 passed + 1 skipped; npx tsc --noEmit clean
   Checked By: Main agent (phase orchestrator)
 
+
+[2026-07-18 23:20] Phase 6 (DOX Writer) Pre-Implementation Compliance Check
+  Changed: (pre-check; no files changed yet)
+  Vision Docs Checked: Project Vision/03_DOX_concept_detailed.md, Project Vision/05_page_types_specification.md
+  Sections Checked: 03 §1-§6 (index.md contract hierarchy, the DOX Writer); 05 §1-§3 (index page type, frontmatter rules); Implementation Plan/PHASE_06_dox_writer.md §1-§9; templates/AGENTS.md (wiki constitution: "DOX Writer (LLM-driven)"); src/AGENTS.md; tests/AGENTS.md; prompts/AGENTS.md
+  Comparison:
+    - Vision 03 §6 and phase doc §3.1 require an LLM-driven DOX Writer (one call per folder, reading page contents + AGENTS.md + rolling memory, writing rich descriptions). The repo currently has a deterministic dox-writer.ts pre-landed in earlier phases with generic template descriptions and no LLM path; gates 6.1-6.6 already have deterministic tests. Phase 6 EXTENDS this with the LLM layer. Result: EXTENSION (planned, in-scope).
+    - Vision 03 §6: "The exact children list and statistics are supplied by deterministic code so the LLM cannot hallucinate files or counts." Design enforces frontmatter (title/type/wiki/updated/children) and the ## Statistics section deterministically over the LLM output. COMPLIANT.
+    - Vision 03 §6: DOX Writer does not create folders, move pages, write content pages, or decide taxonomy. The LLM path only writes index.md bodies. COMPLIANT.
+    - 05 §3.1: index frontmatter carries title, type, wiki, updated, children. Current and planned output match. COMPLIANT.
+    - Phase doc §3.5 pipeline order (materialize → synthesis → validate content pages → DOX Writer → re-validate) differs from the current ingest order (validate → synthesis → DOX, no re-validation). Phase 6 reorders the first validation after synthesis and adds result.finalValidation from a second validateWiki() pass. EXTENSION per phase doc.
+    - Gate 6.7 requires result.finalValidation with no broken links and no invalid schema after the DOX Writer; Gate 6.8 forbids the generic template description. Both will be encoded LLM-free via injected stubs per phase doc §8 isolation testing and the tests/AGENTS.md "no live LLM calls by default" contract. COMPLIANT (adaptation recorded as deviation in phase-6-status.json).
+    - Library default for writeDoxContracts stays deterministic; the CLI and TUI ingest screen enable the LLM path (doxLlm: true) with graceful fallback to deterministic contracts when no API key or on LLM failure. Production runs are LLM-driven per the phase doc; automated tests stay key-less. Deviation to be recorded.
+    - TUI §6 (dox-browser.tsx + 'Browse DOX Contracts' menu) already exists and matches the spec; Phase 6 verifies it.
+  Result: COMPLIANT — no contradictions; two planned extensions (LLM layer, pipeline re-validation) sanctioned by the phase doc and vision 03 §6.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-19 00:20] Phase 6 (DOX Writer) Post-Implementation Check
+  Changed: `prompts/dox-writer.prompt.txt` (new), `src/dox-writer.ts` (additive LLM path: doxLlm/writeDoxIndexFn/logPath options, DoxIndexContext, deterministic frontmatter+statistics enforcement over LLM output, per-folder graceful fallback, post-order folder processing), `src/commands/ingest.ts` (§3.5 pipeline order: materialize → synthesis → validate (result.validation) → writeDoxContracts → re-validate (result.finalValidation, persisted)), `src/cli.ts` (--no-dox-llm, default on), `src/tui/ingest-screen.tsx` (doxLlm: true), `tests/phase-06.test.ts` (gates 6.7/6.8 + throwing-stub fallback test, all LLM-free), DOX updates (`src/AGENTS.md`, `tests/AGENTS.md`, `prompts/AGENTS.md`, root `AGENTS.md` prompts index line), `.state/phase-6-status.json`, `.state/phase-6-verification.md`
+  Vision Docs Checked: `Project Vision/03_DOX_concept_detailed.md` §4/§6, `Project Vision/05_page_types_specification.md` §1-§3 (same mapping as pre-implementation check 2026-07-18 23:20)
+  Comparison:
+    - LLM-driven DOX Writer (one call per folder + root, page contents + wiki AGENTS.md + rolling memory in context) matches vision 03 §6 and phase doc §3.1. COMPLIANT.
+    - Deterministic enforcement: written index.md frontmatter (title/type/wiki/updated/children) and ## Statistics always come from code; LLM frontmatter discarded, LLM statistics replaced — proven by gate 6.8's hallucinating stub. Matches 03 §6 "children list and statistics are supplied by deterministic code so the LLM cannot hallucinate files or counts." COMPLIANT.
+    - DOX Writer prohibitions honored: only index.md files are written; no folder creation, page moves, content pages, or taxonomy decisions. COMPLIANT.
+    - index frontmatter shape (title/type: index/wiki/updated/children) matches 05 §3.1. COMPLIANT.
+    - Pipeline order matches phase doc §3.5 (validate content pages → DOX Writer → re-validate final wiki). COMPLIANT (planned EXTENSION from pre-check).
+    - Graceful fallback (missing key or LLM failure → deterministic contract, no crash) preserves the deterministic library default (doxLlm default false). COMPLIANT.
+    - Tests: new gates LLM-free via injected stubs per phase doc §8 isolation testing and tests/AGENTS.md contract. COMPLIANT.
+  Independent Verifier: APPROVED all 8 gates with self-produced evidence (`.state/phase-6-verification.md`): npm test 166 passed + 1 skipped, npx tsc --noEmit clean, tests/phase-06.test.ts 12/12, new tests LLM-free (no dox-writer entries in any llm-calls.json).
+  Deviations: recorded in `.state/phase-6-status.json` (9 total; includes LLM-free gates 6.7/6.8 via stubs, doxLlm default-false library posture with CLI/TUI opt-in, root prompt bounded to fresh top-folder indexes, maxTokens 2048, first validation moved after synthesis per §3.5, gate 6.5 counts content pages only per vision 03 §4.4 example).
+  Non-blocking findings (Verifier): empty top folder leaves a dangling root-children entry (pre-existing, untested edge); unparseable-LLM-output fallback branch lacks a dedicated test (throwing-LLM branch is tested).
+  LLM cost: $0.00 for Phase 6 implementation/verification (all gates LLM-free); incidental full-suite spend from pre-existing live Phase 2 gates ≈ $0.14 (counted under Phase 2 precedent).
+  Result: COMPLIANT — no unresolved contradictions.
+  Checked By: Verifier sub-agent (independent) + Main agent (phase orchestrator)
+
+[2026-07-19 00:20] Phase 6 DOX Closeout
+  Changed: `src/AGENTS.md` (LLM-driven dox-writer contract: doxLlm/writeDoxIndexFn/logPath, deterministic enforcement, graceful fallback, ingest pipeline §3.5 order, finalValidation, CLI --no-dox-llm, TUI doxLlm: true; stale "Extractor is the ONLY LLM call" line corrected), `tests/AGENTS.md` (gates 6.7/6.8 + fallback test, counts 166 passed + 1 skipped), `prompts/AGENTS.md` (owns dox-writer.prompt.txt; placeholder + behavior contract), root `AGENTS.md` (prompts/ Child DOX Index line)
+  Verifier spot-check: all four docs verified accurate against the shipped code and measured suite counts (not aspirational)
+  Docs intentionally left unchanged: `templates/AGENTS.md` (already reads "DOX Writer (LLM-driven)" since the 2026-07-18 00:40 template update), `Project Vision/AGENTS.md` (no vision content changed), `Implementation Plan/AGENTS.md` (no plan structure changed), `test-pdfs/AGENTS.md` + `scripts/AGENTS.md` (fixtures untouched), `wikis/AGENTS.md` (runtime workspace contract still accurate), `.state/AGENTS.md` (already covers phase-N status/verification records)
+  Result: COMPLIANT — DOX hierarchy matches the Phase 6 tree
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-19 12:00] Methodology Extraction (harness skill + template kit) DOX Closeout
+  Changed: `methodology/` (new: README.md, AGENTS.md, harness/SKILL.md, harness/assets/templates/{Project Vision, Implementation Plan, .state}/…), root `AGENTS.md` (Child DOX Index line for methodology/)
+  Vision Docs Checked: none — no vision-governed behavior changed; the extraction genericizes the existing methodology into templates and does not alter the live harness (Project Vision/, Implementation Plan/, .state/ live records untouched)
+  Comparison: templates verified project-agnostic — all variable parts use {{DOUBLE_BRACE}} placeholders; loop primitives, sub-agent split, compliance rule, Contradiction Protocol, Golden Rule, budgets, fixture strategy, UAT banner, and .state formats faithfully carried over from Implementation Plan/MASTER_IMPLEMENTATION_PROMPT.md, IMPLEMENTATION_PLAN_MASTER_INDEX.md, START_PHASE_PROMPT.md, PHASE_* anatomy, and .state/AGENTS.md
+  Result: COMPLIANT — no contradictions
+  Checked By: Main agent
+
+[2026-07-19 01:21] User Decision: Multilingual Ingestion + Phase Plan Insertion (Phases 7-9 Renumbered to 8-10)
+  Changed:
+    - `Project Vision/04_orchestration_detailed.md` (new §9 Multilingual Ingestion: input/output settings, binding layer-language rule, slug transliteration maps, mechanism; init/Extractor/Synthesis/DOX steps and Who-Decides table amended), `02_WIKI_concept_detailed.md` (new §3.4 language of the two layers), `05_page_types_specification.md` (new §2.1 slugs and non-ASCII names), `06_citation_and_provenance.md` (new §8 source-language evidence), `03_DOX_concept_detailed.md` (§3.3 folder naming + §6 DOX Writer output language), `01_PRODUCT_VISION_AND_ARCHITECTURE.md` (new §4.5 + Who-Decides rows), `07_validation_and_quality.md` (§2.3 verbatim-substring rule vs. translation), `Project Vision/AGENTS.md` (04 ownership line)
+    - `Implementation Plan/PHASE_07_multilingual_ingestion.md` (new phase: language model, files to build, 8 LLM-free gates, 4 UAT, TUI selectors, $3.00 budget)
+    - Renumbered via git mv: PHASE_07_multi_pdf_compounding.md → PHASE_08_*, PHASE_08_agents_updater.md → PHASE_09_*, PHASE_09_polish.md → PHASE_10_* (titles, document IDs, dependencies, gate/UAT numbers, checklists, integration notes updated; duplicated "Integration Notes" heading fixed in 08/09; stale "synthesis (Phase 6)" reference corrected to Phase 5 in 08; Phase 9 updater prompt now preserves the constitution Language section verbatim)
+    - `Implementation Plan/IMPLEMENTATION_PLAN_MASTER_INDEX.md` (11 phases 0-10, directory, budgets, fixture strategy with golden-master-da.pdf, compliance mapping, what-you-have table, files list), `MASTER_IMPLEMENTATION_PROMPT.md` (§4 mapping, §8 files), `START_PHASE_PROMPT.md` (0-10), `Implementation Plan/AGENTS.md` (eleven phases), `PHASE_06_dox_writer.md` (Phase 7 contract + checklist), `PHASE_01_raw_document_pages.md` (updater now Phase 9)
+    - Root `AGENTS.md` (Phases 0-10 index line, Phase 10 polish preference renumbered, new 2026-07-19 multilingual preference), `test-pdfs/AGENTS.md` (golden-master-da.pdf scheduled, Phase 7)
+  User decisions recorded (this entry + root AGENTS.md User Preferences 2026-07-19):
+    1. Two independent selectors: per-wiki output language (init) and per-run input language (ingest); both default English.
+    2. Accepted constraint: Layer 1 prose in the output language; Layer 2 evidence verbatim in the source language, never translated (keeps the Phase 5 preservation check and citation provenance intact).
+    3. Slug transliteration keyed to the input language (æ→ae, ø→oe, å→aa; de, sv maps; NFD diacritic stripping); English/no-language slugify stays byte-identical (Phase 0 surface freeze).
+    4. Supported set: en, da, de, fr, es, no, sv. Folder taxonomy follows the output language; existing folders always reused first.
+    5. New phase inserted after Phase 6 as Phase 7; former Phases 7/8/9 renumbered to 8/9/10.
+  Renumbering note for historical records: entries dated before 2026-07-19 that mention "Phase 7/8/9" or `PHASE_07_multi_pdf_compounding.md` / `PHASE_08_agents_updater.md` / `PHASE_09_polish.md` (including "deferred to Phase 9" items: vitest upgrade, metrics.json, Haiku→Sonnet synthesis routing) refer to the OLD numbering — old Phase 9 (polish) is now Phase 10, old Phase 7 (compounding) is now Phase 8, old Phase 8 (AGENTS.md updater) is now Phase 9. Append-only log; history not rewritten.
+  Result: COMPLIANT — vision documents remain the source of truth; the new phase and renumbering follow the established plan format and DOX contracts.
+  Checked By: Main agent
+
+[2026-07-19 12:30] Methodology Extraction Relocated Out of Project + Preference Amendment
+  Changed: `methodology/` removed from Wiki v5 — relocated to `~/.agents/skills/harness/` as a user-level skill (bootstrap now includes a guided vision-interview stage, `references/vision-interview.md`); root `AGENTS.md` (Child DOX Index line removed; User Preferences amended: Wiki v5 contains only the LLM Wiki CLI project; cross-project reusable tooling lives outside this folder, 2026-07-16 preference scoped to project artifacts)
+  Decision: user ruled the extraction does not belong in this repo — this folder is specifically for this project. Corrects the 2026-07-19 12:00 closeout entry (append-only; that entry remains as history)
+  Result: COMPLIANT — Wiki v5 tree unchanged except root AGENTS.md and this log
+  Checked By: Main agent

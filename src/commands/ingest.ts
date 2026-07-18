@@ -11,7 +11,7 @@ import { readIngestionState, writeIngestionState } from '../state/ingestion-stat
 import { writeSourcePage } from '../pages/source-page';
 import { extractDocumentChunk, type ChunkExtraction } from './extract-chunk';
 import { materialize, type MaterializeResult } from '../materializer';
-import { writeDoxContracts } from '../dox-writer';
+import { writeDoxContracts, type DoxIndexContext } from '../dox-writer';
 import { validateWiki, logValidation, type ValidationSummary } from '../validation';
 import {
   writeEntitySynthesis,
@@ -88,6 +88,21 @@ export interface IngestOptions {
     agentsMd: string,
     logPath?: string,
   ) => Promise<string>;
+  /**
+   * Phase 6: run the DOX Writer in LLM mode — one LLM call per folder plus the
+   * wiki root writes rich, content-based `index.md` descriptions. Deterministic
+   * code always re-imposes the frontmatter and statistics over the LLM output,
+   * and any LLM failure falls back to the deterministic contract. Defaults to
+   * false (the library default stays deterministic and LLM-free); production
+   * callers (CLI, TUI) pass true.
+   */
+  doxLlm?: boolean;
+  /**
+   * Injectable DOX index writer (test-only pass-through to writeDoxContracts).
+   * Defaults to the real LLM implementation; tests inject a stub to exercise
+   * `doxLlm: true` without an API key.
+   */
+  writeDoxIndexFn?: (context: DoxIndexContext) => Promise<string>;
 }
 
 export interface IngestedSource {
@@ -117,6 +132,12 @@ export interface IngestResult {
   extractions: ChunkExtractionSummary[];
   /** Phase 4: deterministic validation summary produced after materialization. */
   validation?: ValidationSummary;
+  /**
+   * Phase 6: validation summary produced AFTER the DOX Writer wrote the
+   * `index.md` contracts, so the final pass covers the DOX pages too. The
+   * persisted `.state/validation-report.json` reflects this final pass.
+   */
+  finalValidation?: ValidationSummary;
   /** Phase 5: number of entity pages successfully synthesized. */
   synthesized?: number;
   /** Phase 5: number of entity pages successfully synthesized using the permissive fallback. */
@@ -163,9 +184,13 @@ function loadAgentsMd(wikiDir: string): string {
  * (invalid JSON, schema errors, missing API key) throw and abort the ingest;
  * the system does not retry (vision `04` §6).
  *
- * Phase 5: after materialization and validation, if `synthesis` is true, the
- * Synthesis Writer runs per entity page, replacing the structured template with
- * a synthesized two-layer page only when the preservation check passes.
+ * Phase 5/6 (phase doc §3.5 pipeline order): after materialization, if
+ * `synthesis` is true, the Synthesis Writer runs per entity/topic page,
+ * replacing the structured template with a synthesized two-layer page only
+ * when the preservation check passes. Then the content pages are validated
+ * (`result.validation`), the DOX Writer writes the `index.md` contracts, and
+ * a final validation pass covers the whole wiki including the DOX pages
+ * (`result.finalValidation`).
  */
 export async function ingest(slug: string, options: IngestOptions = {}): Promise<IngestResult> {
   const pagesPerChunk = options.pagesPerChunk ?? DEFAULT_PAGES_PER_CHUNK;
@@ -332,16 +357,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
 
   await writeIngestionState(dir, state);
 
-  // Phase 4: deterministic quality gate after materialization. Runs whenever
-  // extraction was requested so the TUI and CLI always report link, citation,
-  // and schema health at the end of an ingest.
-  if (extract) {
-    const validation = await validateWiki(slug, options.workspace);
-    logValidation(validation, dir);
-    result.validation = validation;
-  }
-
-  // Phase 5: optional synthesis after validation and before DOX contracts.
+  // Phase 5: optional synthesis after materialization and before validation.
   // Order: entities first, then topics. Document pages keep their deterministic
   // Phase 1 format and are not synthesized.
   if (extract && synthesis && lastMaterializeResult) {
@@ -474,8 +490,34 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     }
   }
 
-  await writeDoxContracts(slug, { workspace: options.workspace });
+  // Phase 4/6 pipeline order (phase doc §3.5): content validation -> DOX
+  // Writer -> final validation. The first validation covers the content pages
+  // (post-materialization, post-synthesis) and runs whenever extraction was
+  // requested so the TUI and CLI always report link, citation, and schema
+  // health at the end of an ingest.
+  if (extract) {
+    const validation = await validateWiki(slug, options.workspace);
+    logValidation(validation, dir);
+    result.validation = validation;
+  }
+
+  // Phase 6: the DOX Writer writes index.md navigation contracts for every
+  // folder and the wiki root. Runs in both extract and non-extract modes; the
+  // dox options pass through so doxLlm/writeDoxIndexFn are respected either way.
+  await writeDoxContracts(slug, {
+    workspace: options.workspace,
+    doxLlm: options.doxLlm,
+    writeDoxIndexFn: options.writeDoxIndexFn,
+  });
   progress('DOX contracts updated.');
+
+  // Phase 6: final validation pass over the whole wiki, including the new DOX
+  // pages. The persisted validation-report.json reflects this final pass.
+  if (extract) {
+    const finalValidation = await validateWiki(slug, options.workspace);
+    logValidation(finalValidation, dir);
+    result.finalValidation = finalValidation;
+  }
 
   progress('Done!');
   return result;

@@ -44,6 +44,21 @@ Optional but common fields:
 
 The `type` field is free-form but must be declared in the folder-level `index.md` contract if it is not one of the six default types.
 
+### 2.1 Slugs and Non-ASCII Names
+
+All slugs (entity, topic, source, and folder names) are lowercase ASCII kebab-case. Names from non-English sources are **transliterated before slugifying**, using the ingest run's input-language map (`04_orchestration_detailed.md` §9.3):
+
+| Name | Input language | Slug |
+|---|---|---|
+| `Søren Møller` | Danish | `soeren-moeller` |
+| `København` | Danish | `koebenhavn` |
+| `Müller GmbH` | German | `mueller-gmbh` |
+| `Årsrapport 2024.pdf` | Danish | `aarsrapport-2024` (source slug) |
+
+Without transliteration, each non-ASCII character collapses to a hyphen (`Søren` → `s-ren`), which is unreadable and can collide. Page `title`s always keep the original name verbatim; only slugs are transliterated. When no input language is set (or English), slugifying behaves exactly as the original ASCII-only implementation.
+
+Folder names follow the wiki's **output language**: new sub-folders are named in the output language and transliterated to kebab-case (a Danish wiki uses `entities/personer/`; an English wiki uses `entities/people/`). Existing folders are always reused before new ones are created.
+
 ---
 
 ## 3. The `index` Page Type

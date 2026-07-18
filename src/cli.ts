@@ -44,17 +44,21 @@ program
   .option('--synthesis', 'Enable LLM synthesis for entity, topic, and document pages (Phase 5)')
   .option('--update-agents', 'Update AGENTS.md (no-op in Phase 1)')
   .option('--no-extract', 'Skip the Layer 2 Extractor (Layer 1 document pages only)')
+  .option('--no-dox-llm', 'Skip the LLM DOX Writer (deterministic index.md contracts only)')
   .option('--verbose', 'Verbose output')
-  .action(async (slug: string, options: { workspace: string; synthesis?: boolean; updateAgents?: boolean; extract?: boolean; verbose?: boolean }) => {
+  .action(async (slug: string, options: { workspace: string; synthesis?: boolean; updateAgents?: boolean; extract?: boolean; doxLlm?: boolean; verbose?: boolean }) => {
     // --synthesis is Phase 5: opt-in LLM synthesis of entity, topic, and document pages after extraction.
     // --update-agents is accepted for forward compatibility; it is a no-op here.
     // Extraction (Layer 2) is ON by default per the phase doc; --no-extract
     // opts out (e.g. offline/key-less Layer 1-only runs).
+    // The LLM DOX Writer (Phase 6) is ON by default for production runs;
+    // --no-dox-llm opts out (deterministic index.md contracts, no LLM calls).
     try {
       const result = await ingest(slug, {
         workspace: options.workspace,
         extract: options.extract,
         synthesis: options.synthesis,
+        doxLlm: options.doxLlm,
         onProgress: (message) => console.log(message),
       });
       if (options.verbose) {

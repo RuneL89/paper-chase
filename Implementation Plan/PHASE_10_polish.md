@@ -1,10 +1,10 @@
-# Phase 9: Polish and Productionization
+# Phase 10: Polish and Productionization
 
-**Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-009`
-**Version:** 1.1.0
+**Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-010`
+**Version:** 1.2.0
 **Status:** Draft
 **Date:** 2026-07-18
-**Dependencies:** Phases 0-8
+**Dependencies:** Phases 0-9
 **Estimated Time:** 4-6 hours
 **LLM Token Budget:** $0 (no new LLM calls; productionization touches only)
 
@@ -12,13 +12,56 @@
 
 ## 1. Objective
 
-Polish the CLI/TUI for production use: per-call LLM model routing with suggestion labels, TUI cleanup, smoother workflow, and a complete README.md that documents the app accurately after all implementation is done.
+Polish the CLI/TUI for production use: ship v2.0 under its final brand (**Paper Chase**, command `chase`), per-call LLM model routing with suggestion labels, TUI cleanup, smoother workflow, and a complete README.md that documents the app accurately after all implementation is done.
 
 ---
 
 ## 2. What to Build
 
-### 2.1 Per-Call LLM Model Routing
+### 2.1 Rebrand: "LLM Wiki CLI" → "Paper Chase"
+
+**Goal:** Ship v2.0 under its final brand. The product is **Paper Chase**, the CLI verb is **`chase`**, and the machine-readable form is **`paper-chase`**. "Run `chase` on the leak" is the product promise; the verb is built into the brand.
+
+**Naming rules (binding):**
+
+- Humans: **Paper Chase** (two words, title case) — README, TUI header/splash, documentation, conversation.
+- Machines: **`paper-chase`** (hyphenated, lowercase) — npm package name, GitHub repo.
+- Command: **`chase`** — the CLI verb:
+  ```
+  chase init panama-subset --title "Panama Papers Subset"
+  chase ingest panama-subset
+  chase ingest --synthesis
+  ```
+- Forbidden forms: `paperchase`, `PaperChase`, `PaperCase`. Never, anywhere.
+- Internal vocabulary is unchanged: wiki, source, entity, topic, citation, DOX contract keep their names. The theme decorates the vocabulary; it never replaces it (no "case files" for wikis, no "suspects" for entities).
+- Document IDs (e.g. `LLM-WIKI-CLI-IMPL-PHASE-010`) are stable identifiers, not branding; they keep their existing prefix.
+- Historical records stay untouched: everything under `.state/` (phase status files, verification reports, compliance log) and already-generated wikis under `wikis/<slug>/` (they pick up the new brand when regenerated from templates).
+
+**Code changes:**
+
+- `package.json` — `"name": "paper-chase"`; `"description": "The paper chase, automated. Turn PDFs into citation-backed markdown wikis."`; add `"bin": { "chase": "bin/chase.js" }`.
+- `bin/chase.js` (new) — thin launcher that runs the TypeScript CLI through tsx (no build step in this phase): spawn `npx tsx <pkgRoot>/src/cli.ts` with forwarded args, `stdio: 'inherit'`, and `shell: true` on Windows (Node ≥ 20.12.2 refuses to spawn `.cmd` files without a shell — same workaround as the `test` command in `src/cli.ts`). `npm link` puts `chase` on the PATH for local use.
+- `src/cli.ts` — `program.name('chase')`; description becomes "The paper chase, automated. Turn PDFs into citation-backed markdown wikis.".
+- `src/tui/components/header.tsx` — header text `LLM Wiki CLI v2.0` → `Paper Chase v2.0`.
+- `src/tui/settings.ts` — config file renamed to `.paper-chase.json`; the loader falls back to reading legacy `.llm-wiki-cli.json` when the new file is absent (read-only fallback); save always writes the new name.
+- `src/tui/settings-screen.tsx`, `src/tui/ingest-screen.tsx` — update user-facing strings and comments that name the config file.
+- `package-lock.json` — refresh the root `"name"` field (run `npm install` once after the `package.json` edit).
+
+**Documentation sweep (living docs only):**
+
+- Root `AGENTS.md` — project name line; canonical remote → `https://github.com/RuneL89/paper-chase`.
+- `Project Vision/` — all seven vision docs + `AGENTS.md`; `01_PRODUCT_VISION_AND_ARCHITECTURE.md` gains a one-line "formerly LLM Wiki CLI (v2.0 development name)" note.
+- `Implementation Plan/` — `IMPLEMENTATION_PLAN_MASTER_INDEX.md`, `MASTER_IMPLEMENTATION_PROMPT.md`, `START_PHASE_PROMPT.md`, `PHASE_00`–`PHASE_09` docs, `AGENTS.md`. (This document was updated as part of Phase 10 planning.)
+- `src/AGENTS.md`, `tests/AGENTS.md`, `templates/AGENTS.md`, `wikis/AGENTS.md` — name references only; `templates/AGENTS.md` stays compliant with its wiki-constitution role.
+- Excluded from the sweep: `.state/**`, `wikis/<slug>/**`, `node_modules/**`, and `package-lock.json` beyond the root name field.
+
+**GitHub repo rename (manual step, not scriptable):**
+
+1. Rename the repo to `paper-chase` in GitHub settings.
+2. `git remote set-url origin https://github.com/RuneL89/paper-chase`.
+3. Confirm the canonical-remote line in root `AGENTS.md` matches.
+
+### 2.2 Per-Call LLM Model Routing
 
 **Goal:** Let the user choose a different Anthropic model for each LLM call type (Extractor, Synthesis Writer, DOX Writer).
 
@@ -52,7 +95,7 @@ Each dropdown shows a short suggestion:
 
 **Config persistence:**
 
-- Save to `.llm-wiki-cli.json` under `models`:
+- Save to `.paper-chase.json` under `models`:
   ```json
   {
     "models": {
@@ -74,7 +117,7 @@ Each dropdown shows a short suggestion:
 - `src/agents/synthesis.ts` — use synthesis model
 - `src/dox-writer.ts` (Phase 6) — use DOX model when implemented
 
-### 2.2 TUI Cleanup
+### 2.3 TUI Cleanup
 
 **Remove:**
 - "Run Tests" screen and menu item
@@ -103,7 +146,7 @@ Each dropdown shows a short suggestion:
 8. Settings
 9. Exit
 
-### 2.3 Smoother Workflow
+### 2.4 Smoother Workflow
 
 **Result banners:**
 - After `init`: "Wiki '<slug>' created at `wikis/<slug>/`."
@@ -122,7 +165,7 @@ Each dropdown shows a short suggestion:
 **Welcome splash:**
 - On first launch (no config file), show a one-line welcome:
   ```
-  LLM Wiki CLI v2.0 — turn PDFs into citation-backed wikis.
+  Paper Chase v2.0 — the paper chase, automated.
   Create a wiki, add PDFs, then ingest.
   ```
 
@@ -132,7 +175,7 @@ Each dropdown shows a short suggestion:
   - If yes, go to **Ingest PDFs** with the wiki pre-selected.
   - If no, return to menu.
 
-### 2.4 Full README.md
+### 2.5 Full README.md
 
 **File:** `README.md` at the project root.
 
@@ -144,6 +187,13 @@ Each dropdown shows a short suggestion:
 4. **Detailed Technical Architecture** — senior developer explanation of the entire app, sufficient to understand the codebase without reading other files.
 5. **Project Structure** — description of all folders and files (`src/`, `tests/`, `wikis/`, `prompts/`, `.state/`, `templates/`, `test-pdfs/`, `scripts/`).
 
+**Branding rules:**
+- Title is `# Paper Chase` with the primary tagline: **"The paper chase, automated."**
+- Secondary taglines allowed in intro copy: "You bring the documents. It does the chasing." / "Every claim, chased back to its source page." / "Compile the paper trail into a wiki."
+- Include a one-line note: "formerly LLM Wiki CLI (v2.0 development name)".
+- All command examples use `chase` (`chase init …`, `chase ingest …`, `chase ingest --synthesis`).
+- State the naming rules once: `paper-chase` for machines (package, repo), "Paper Chase" for humans; never `paperchase` or `PaperChase`.
+
 **Content rules:**
 - Describe **implemented behavior**, not planned behavior.
 - Include the synthesis fallback chain (strict → permissive → structured template).
@@ -151,7 +201,7 @@ Each dropdown shows a short suggestion:
 - Include the `.state/` log files (`llm-calls.json`, `synthesis-report.json`, `validation-report.json`, `conflicts.json`).
 - Include test commands and expected outputs.
 
-### 2.5 Performance Metrics and Logging
+### 2.6 Performance Metrics and Logging
 
 **File:** `src/metrics.ts`
 
@@ -170,7 +220,7 @@ Track and report metrics for each ingestion run:
 
 **Output:** `.state/metrics.json` and console summary.
 
-### 2.6 E2E Test Suite
+### 2.7 E2E Test Suite
 
 **File:** `tests/e2e.test.ts`
 
@@ -189,17 +239,17 @@ This test uses real PDFs and real LLM calls. It is slow and expensive. Run it on
 
 ## 3. Technical Approval Gates
 
-### Gate 9.1: Model Routing Settings Persist
+### Gate 10.1: Model Routing Settings Persist
 
 ```typescript
-test('settings screen saves model routing to .llm-wiki-cli.json', async () => {
+test('settings screen saves model routing to .paper-chase.json', async () => {
   // Render settings screen, select models, save, read config file.
   expect(config.models.extractor).toBe('claude-haiku-4-5-20251001');
   expect(config.models.synthesis).toBe('claude-sonnet-4-5-20251001');
 });
 ```
 
-### Gate 9.2: Model Routing Is Applied to LLM Calls
+### Gate 10.2: Model Routing Is Applied to LLM Calls
 
 ```typescript
 test('extractor uses the configured extractor model', async () => {
@@ -207,7 +257,7 @@ test('extractor uses the configured extractor model', async () => {
 });
 ```
 
-### Gate 9.3: Test Screens Removed
+### Gate 10.3: Test Screens Removed
 
 ```typescript
 test('menu does not show Run Tests or Test Extractor', async () => {
@@ -215,7 +265,7 @@ test('menu does not show Run Tests or Test Extractor', async () => {
 });
 ```
 
-### Gate 9.4: Continuous Workflow After Init
+### Gate 10.4: Continuous Workflow After Init
 
 ```typescript
 test('after init, TUI goes to Add PDFs then prompts for ingest', async () => {
@@ -223,11 +273,13 @@ test('after init, TUI goes to Add PDFs then prompts for ingest', async () => {
 });
 ```
 
-### Gate 9.5: README.md Exists and Has Required Sections
+### Gate 10.5: README.md Exists and Has Required Sections
 
 ```typescript
 test('README.md contains all required sections', () => {
   const readme = readFileSync('README.md', 'utf-8');
+  expect(readme).toContain('# Paper Chase');
+  expect(readme).toContain('The paper chase, automated.');
   expect(readme).toContain('## Introduction');
   expect(readme).toContain('## Functional Architecture');
   expect(readme).toContain('## Step-by-Step Architecture');
@@ -236,7 +288,7 @@ test('README.md contains all required sections', () => {
 });
 ```
 
-### Gate 9.6: Metrics Are Saved
+### Gate 10.6: Metrics Are Saved
 
 ```typescript
 test('metrics are saved to .state/metrics.json', async () => {
@@ -248,31 +300,69 @@ test('metrics are saved to .state/metrics.json', async () => {
 });
 ```
 
+### Gate 10.7: Branding Sweep Is Complete
+
+```typescript
+test('no old branding remains in living docs or src', () => {
+  // Scan: src/, tests/, templates/, scripts/, Project Vision/, Implementation Plan/,
+  //   root AGENTS.md, README.md, package.json, wikis/AGENTS.md.
+  // Exclusions: .state/**, wikis/<slug>/**, node_modules/**, package-lock.json,
+  //   lines containing "formerly LLM Wiki CLI" (allowed historical note),
+  //   and "Document ID:" lines (stable IDs keep their prefix).
+  // Fail on /llm[-_ ]wiki[-_ ]cli/i and on forbidden forms /paperchase|PaperChase|PaperCase/.
+  expect(offenders).toEqual([]);
+});
+```
+
+### Gate 10.8: CLI Identifies as `chase`
+
+```typescript
+test('commander program is named chase', async () => {
+  const { program } = await import('../src/cli');
+  expect(program.name()).toBe('chase');
+});
+```
+
+### Gate 10.9: Legacy Config Fallback Works
+
+```typescript
+test('settings load from legacy .llm-wiki-cli.json and save to .paper-chase.json', async () => {
+  // In a temp workspace containing only .llm-wiki-cli.json:
+  // loadSettings returns its values; saveSettings writes .paper-chase.json.
+});
+```
+
 ---
 
 ## 4. User Acceptance Tests (UAT)
 
-### UAT 9.1: Model routing works in Settings
+### UAT 10.1: Model routing works in Settings
 
-1. `npx tsx src/cli.ts` → Settings
+1. `chase` → Settings
 2. Change Synthesis Writer model to Sonnet
 3. Save
-4. Verify `.llm-wiki-cli.json` contains the model.
+4. Verify `.paper-chase.json` contains the model.
 
-### UAT 9.2: Test screens are gone
+### UAT 10.2: Test screens are gone
 
-1. `npx tsx src/cli.ts`
+1. `chase`
 2. Verify menu does not show "Run Tests" or "Test Extractor".
 
-### UAT 9.3: Continuous workflow feels smooth
+### UAT 10.3: Continuous workflow feels smooth
 
-1. `npx tsx src/cli.ts` → Create New Wiki
+1. `chase` → Create New Wiki
 2. After success, verify it goes directly to Add PDFs.
 3. After adding PDFs, verify it asks to start ingesting.
 
-### UAT 9.4: README is complete
+### UAT 10.4: README is complete
 
 Open `README.md` and verify it explains the app, flow, architecture, and project structure.
+
+### UAT 10.5: Brand is Paper Chase end to end
+
+1. `npm link`, then `chase --help` — description reads "The paper chase, automated…" and commands are listed under `chase`.
+2. `chase` with no args — TUI header shows "Paper Chase v2.0"; on first launch the splash shows "Paper Chase v2.0 — the paper chase, automated."; no "LLM Wiki CLI" anywhere in the UI.
+3. Open `README.md` — titled "Paper Chase", primary tagline present, all examples use `chase`.
 
 ---
 
@@ -280,26 +370,32 @@ Open `README.md` and verify it explains the app, flow, architecture, and project
 
 Before moving to final sign-off, verify:
 
-- [ ] All 6 technical gates pass (`npm test` is green).
-- [ ] All 4 UAT steps pass.
+- [ ] All 9 technical gates pass (`npm test` is green).
+- [ ] All 5 UAT steps pass.
+- [ ] Branding sweep complete across living docs and `src/` (Gate 10.7 green); forbidden forms (`paperchase`, `PaperChase`, `PaperCase`) absent.
+- [ ] `chase` bin works via `npm link`; `program.name()` is `chase`.
+- [ ] Settings write `.paper-chase.json`; legacy `.llm-wiki-cli.json` still loads via fallback.
+- [ ] GitHub repo renamed to `paper-chase`; canonical remote in root `AGENTS.md` updated.
+- [ ] Internal vocabulary unchanged (wiki / source / entity / topic / citation / DOX); `.state/` records and generated `wikis/<slug>/` content untouched.
 - [ ] Model routing settings persist and are applied.
 - [ ] Test screens removed from TUI.
 - [ ] Continuous workflow after init → add PDFs → ingest.
-- [ ] README.md exists with all 5 required sections.
+- [ ] README.md exists with all 5 required sections, Paper Chase title, and tagline.
 - [ ] Metrics file written.
 - [ ] No new LLM calls in this phase; budget $0.
-- [ ] No code for Phase 7/8 (multi-PDF compounding, AGENTS.md updater) unless already implemented.
+- [ ] No code for Phase 8/9 (multi-PDF compounding, AGENTS.md updater) unless already implemented.
 
 ---
 
 ## 6. Integration Notes
 
-### What Phase 9 Depends On (from Phases 0-8)
+### What Phase 10 Depends On (from Phases 0-9)
 - All core pipeline components implemented.
-- `.llm-wiki-cli.json` settings persistence already exists (Phase 5).
+- Settings persistence already exists (Phase 5) — renamed to `.paper-chase.json` in this phase with legacy fallback.
 - TUI screens and menu already exist.
 
-### What Phase 9 Produces
+### What Phase 10 Produces
+- Final brand shipped: **Paper Chase** — `chase` command, `paper-chase` package and repo, `.paper-chase.json` config.
 - Production-ready TUI.
 - Per-call model routing.
 - Complete README.md for new users and contributors.
@@ -308,5 +404,6 @@ Before moving to final sign-off, verify:
 ### Contract with Final Acceptance
 - All tests green.
 - All UAT passed.
+- Branding sweep gate green; GitHub repo renamed to `paper-chase`.
 - README.md is accurate and complete.
 - Compliance log shows no unresolved contradictions.

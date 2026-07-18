@@ -63,6 +63,15 @@ This is the verification layer. If the journalist doubts a claim in the synthesi
 
 The synthesis makes the wiki readable. The preserved detail makes it trustworthy. Without synthesis, the wiki is a database dump. Without preserved detail, the wiki is a black box that the journalist cannot verify.
 
+### 3.4 The Language of the Two Layers
+
+Each layer has a fixed language rule (full model: `04_orchestration_detailed.md` §9):
+
+- **Layer 1 (synthesis)** is written in the wiki's **output language** — a per-wiki setting chosen at `init` (default: English).
+- **Layer 2 (preserved detail)** is always kept in the **source language, verbatim**. Quotes, mentions, claims, and extracted text are never translated or reworded.
+
+The reason is the same verification contract as §3.3: the journalist verifies Layer 1 against Layer 2, and Layer 2 against the original PDF. A translated quote would match neither. An English wiki built from Danish PDFs therefore has English narrative with Danish evidence sections — readable at the top, verifiable at the bottom.
+
 ---
 
 ## 4. Page Completeness and Self-Containment

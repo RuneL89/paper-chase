@@ -123,6 +123,15 @@ When the system starts a new chunk, it loads the rolling memory and passes it to
 
 PDFs are ingested as **page-based chunks**. A chunk is one or more consecutive pages that fit comfortably within the configured LLM context window. The system never splits a page, table, or figure across chunks. If a document is large, it is processed as a sequence of page-based chunks, with rolling memory carrying context across chunks.
 
+### 4.5 Multilingual Ingestion
+
+PDFs in several European languages can be ingested, and the wiki's prose language is independent of the source language. Two settings govern this (full spec: `04_orchestration_detailed.md` §9):
+
+- **Output language** (per wiki, chosen at `init`, default: English) — the language of all generated prose: synthesis, DOX index descriptions, and folder names.
+- **Input language** (per `ingest` run, default: English) — the language of the PDFs being ingested; drives slug transliteration (æ→ae, ø→oe, å→aa) so non-ASCII names produce readable slugs.
+
+The binding rule: narrative prose (Layer 1) is written in the output language; preserved evidence (Layer 2) always stays verbatim in the source language, so every citation remains verifiable against the original PDF.
+
 ---
 
 ## 5. Who Decides What
@@ -130,6 +139,8 @@ PDFs are ingested as **page-based chunks**. A chunk is one or more consecutive p
 | Decision | Authority | Mechanism |
 |---|---|---|
 | High-level wiki purpose | Human | `AGENTS.md` written at `init` time |
+| Wiki output language | Human | Chosen at `init`, recorded in `AGENTS.md` (§4.5) |
+| Input language per run | Human | `--input-language` flag or TUI selector (§4.5) |
 | Which PDFs to ingest | Human | Files placed in `raw/` |
 | Exact folder structure | LLM | Extractor proposes sub-folders under `entities/` and `topics/` |
 | Entity classification | LLM | Extractor assigns type and folder |

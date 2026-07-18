@@ -57,6 +57,8 @@ After the Synthesis Writer (Phase 5+) generates a synthesized page, the system c
 - Figures are described.
 - No material was materially altered (e.g., a number changed without a reason).
 
+The check is a **verbatim substring comparison**. Because preserved detail (Layer 2) is always kept in the source language (`02_WIKI_concept_detailed.md` §3.4), the Synthesis Writer must never translate or reword Layer 2 items — a translated mention or claim fails this check and the page falls back to the structured template.
+
 If the check fails, the synthesized page is rejected and the structured template is kept instead.
 
 ### 2.4 Deterministic Structural Checks

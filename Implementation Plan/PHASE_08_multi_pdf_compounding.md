@@ -1,10 +1,10 @@
-# Phase 7: Multi-PDF Compounding and Incremental Ingestion
+# Phase 8: Multi-PDF Compounding and Incremental Ingestion
 
-**Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-007`
+**Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-008`
 **Version:** 1.0.0
 **Status:** Draft
 **Date:** 2026-07-16
-**Dependencies:** Phase 0-6
+**Dependencies:** Phase 0-7
 **Estimated Time:** 4-5 hours
 **LLM Token Budget:** $5.00 (for testing with second PDF)
 
@@ -46,7 +46,7 @@ When an entity page already exists:
 2. Parse the existing structured data (mentions, relationships, claims).
 3. Merge new data from the new extraction JSON.
 4. Rewrite the page with the merged data.
-5. If synthesis was enabled (Phase 6), re-run the Writer with the merged data.
+5. If synthesis was enabled (Phase 5), re-run the Writer with the merged data.
 
 **Merge rules:**
 - Mentions: Append new mentions. Do not deduplicate (same text on different pages is valid).
@@ -92,7 +92,7 @@ Before updating an entity page:
 
 ## 3. Technical Approval Gates
 
-### Gate 7.1: New PDF Adds New Entities
+### Gate 8.1: New PDF Adds New Entities
 
 ```typescript
 test('new PDF adds new entities to wiki', async () => {
@@ -106,7 +106,7 @@ test('new PDF adds new entities to wiki', async () => {
 
 **Pass Criteria:** New entity from second PDF has a page.
 
-### Gate 7.2: New PDF Updates Existing Entity Pages
+### Gate 8.2: New PDF Updates Existing Entity Pages
 
 ```typescript
 test('new PDF updates existing entity pages', async () => {
@@ -124,7 +124,7 @@ test('new PDF updates existing entity pages', async () => {
 
 **Pass Criteria:** Existing entity page is longer and contains new source.
 
-### Gate 7.3: Unchanged PDFs Are Skipped
+### Gate 8.3: Unchanged PDFs Are Skipped
 
 ```typescript
 test('unchanged PDFs are skipped on re-ingest', async () => {
@@ -137,7 +137,7 @@ test('unchanged PDFs are skipped on re-ingest', async () => {
 
 **Pass Criteria:** Console shows "Skipping" for unchanged PDFs.
 
-### Gate 7.4: Rolling Memory Reflects Both PDFs
+### Gate 8.4: Rolling Memory Reflects Both PDFs
 
 ```typescript
 test('rolling memory contains entities from both PDFs', async () => {
@@ -154,7 +154,7 @@ test('rolling memory contains entities from both PDFs', async () => {
 
 **Pass Criteria:** Rolling memory contains entities from both PDFs.
 
-### Gate 7.5: Manual Edit Conflict is Detected
+### Gate 8.5: Manual Edit Conflict is Detected
 
 ```typescript
 test('manual edit conflict is detected', async () => {
@@ -175,7 +175,7 @@ test('manual edit conflict is detected', async () => {
 
 **Pass Criteria:** Conflict is logged when manual edit is detected.
 
-### Gate 7.6: No Duplicate Entity Pages
+### Gate 8.6: No Duplicate Entity Pages
 
 ```typescript
 test('no duplicate entity pages for same slug', async () => {
@@ -195,7 +195,7 @@ test('no duplicate entity pages for same slug', async () => {
 
 ## 4. User Acceptance Tests (UAT)
 
-### UAT 7.1: I can add a second PDF
+### UAT 8.1: I can add a second PDF
 
 ```bash
 cp test-pdfs/golden-master-2.pdf wikis/test-wiki/raw/
@@ -204,13 +204,13 @@ npx tsx src/cli.ts ingest test-wiki
 
 **Expected:** Console shows "Processing golden-master-2.pdf" and "Skipping golden-master.pdf (unchanged)." The wiki now has more entity pages.
 
-### UAT 7.2: Existing entity pages are richer
+### UAT 8.2: Existing entity pages are richer
 
 Open `wikis/test-wiki/entities/people/executives/john-smith.md`.
 
 **Expected:** The page now contains mentions from both PDFs. The "Sources" section lists both `golden-master.pdf` and `golden-master-2.pdf`.
 
-### UAT 7.3: New entity pages exist
+### UAT 8.3: New entity pages exist
 
 ```bash
 ls wikis/test-wiki/entities/people/executives/
@@ -218,7 +218,7 @@ ls wikis/test-wiki/entities/people/executives/
 
 **Expected:** I see `jane-doe.md` (or whatever new entity was in the second PDF).
 
-### UAT 7.4: I can see conflicts
+### UAT 8.4: I can see conflicts
 
 ```bash
 cat wikis/test-wiki/.state/conflicts.json | jq .
@@ -287,7 +287,7 @@ Add:
 
 ## 6. Approval Checklist
 
-Before moving to Phase 8, verify:
+Before moving to Phase 9, verify:
 
 - [ ] All 6 technical gates pass (`npm test` is green).
 - [ ] All 4 UAT steps pass (manual verification).
@@ -303,21 +303,21 @@ Before moving to Phase 8, verify:
 ---
 
 ## 7. Integration Notes
-## 6. Integration Notes
 
-### What Phase 7 Depends On (from Phase 6)
+### What Phase 8 Depends On (from Phase 7)
 - Entity pages exist (structured or synthesized).
 - Preservation check framework is in place.
 - DOX contracts are complete.
+- Per-wiki language metadata (`.state/language.json`) exists; this phase's changed-PDF re-processing must use the current run's input language and warn when it differs from the language the PDF was originally extracted under (vision `04` §9.3).
 
-### What Phase 7 Produces (for Phase 8)
+### What Phase 8 Produces (for Phase 9)
 - Proven incremental ingestion model.
 - Conflict detection framework.
 - Multi-PDF rolling memory.
 
-### Contract with Phase 8
-Phase 8 expects:
+### Contract with Phase 9
+Phase 9 expects:
 - The wiki compounds correctly over multiple ingestion runs.
 - Conflicts are logged and reviewable.
 
-Phase 8 adds AGENTS.md generation and updates.
+Phase 9 adds AGENTS.md generation and updates.

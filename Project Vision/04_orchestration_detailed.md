@@ -25,6 +25,7 @@ Before the pipeline runs, the user creates a wiki with the `init <slug>` command
 - Creates the top-level folders: `documents/`, `sources/`, `entities/`, `topics/`.
 - Creates `.state/` for internal tracking.
 - Copies `templates/AGENTS.md` to `wikis/<slug>/AGENTS.md`.
+- Records the wiki's output language in `AGENTS.md` and `.state/language.json` (default: English; see §9).
 - Opens `AGENTS.md` in the user's editor (or prints a message to edit it).
 
 `init` does not call the LLM. It just sets up the workspace. The user then edits `AGENTS.md` and copies PDFs into `raw/`.
@@ -87,6 +88,7 @@ For each chunk, the system calls the **Extractor** (one LLM call):
 - The page range.
 - `AGENTS.md` (full text).
 - Rolling memory (existing entities, folders, sources).
+- The language directive: the input language of the chunk and the wiki's output language (§9).
 
 **Output:** JSON saved to `.state/extracted/<chunk-id>.json`:
 ```json
@@ -162,7 +164,7 @@ After the core content pages are validated, the optional **Synthesis Writer** ru
 4. If the check passes, replace the structured page with the synthesized page.
 5. If the check fails, log a conflict and keep the structured page.
 
-This step is opt-in (`ingest --synthesis`).
+Layer 1 prose is written in the wiki's output language; Layer 2 detail is preserved verbatim in the source language (§9). This step is opt-in (`ingest --synthesis`).
 
 #### Step 10: Write DOX Contracts (Layer 5)
 
@@ -170,7 +172,7 @@ After all content pages are finalized, the **DOX Writer** runs:
 
 1. Scan the entire wiki tree.
 2. For each folder and the wiki root, read the folder contents, `AGENTS.md`, and rolling memory.
-3. Call the LLM once per folder with a structured prompt to write a rich `index.md`.
+3. Call the LLM once per folder with a structured prompt to write a rich `index.md` (prose in the wiki's output language, §9).
 4. Verify that the LLM-generated `index.md` uses the exact children list and statistics supplied by deterministic code.
 5. Write the final `index.md` files.
 6. Run a final validation pass over the entire wiki, including the new DOX pages.
@@ -241,6 +243,8 @@ If any check fails, the error is logged. The system does not retry. The user fix
 | Decision | Authority | Mechanism |
 |---|---|---|
 | High-level wiki purpose | LLM | Inferred from corpus content during ingestion |
+| Wiki output language | Human | Chosen at `init`, recorded in `AGENTS.md` and `.state/language.json` (§9) |
+| Input language per ingest run | Human | `--input-language` flag or TUI selector (§9) |
 | Which PDFs to ingest | Human | Files placed in `raw/` |
 | Exact folder structure | LLM | Extractor proposes sub-folders under `entities/` and `topics/` |
 | Entity classification | LLM | Extractor assigns type and folder |
@@ -271,3 +275,39 @@ Here is what happens to a single 100-page PDF of political-donation filings.
 7. **User opens the wiki in Obsidian.** They see a folder structure with politicians, donors, and parties that the LLM created based on the actual content. They click `[[Senator X]]` and see every donation mentioned in the PDF, with citations to exact pages.
 
 8. **User adds a second PDF and runs `ingest` again.** The system skips the first PDF (hash unchanged) and processes the second. New entities are added. Existing entity pages are updated with new mentions. The Synthesis Writer (if enabled) and the DOX Writer regenerate their outputs. The AGENTS.md updater (if enabled) proposes updates to `AGENTS.md` based on the newly discovered structure.
+
+---
+
+## 9. Multilingual Ingestion
+
+The pipeline ingests PDFs in several European languages, and the language of the wiki's prose is independent of the language of the source PDFs. Two settings govern this.
+
+### 9.1 Two Language Settings
+
+- **Output language** — the language the wiki is written in. A per-wiki setting chosen at `init` (default: English), recorded in the wiki's `AGENTS.md` constitution and in `.state/language.json`. It stays fixed for the life of the wiki so the wiki reads as one coherent document.
+- **Input language** — the language of the PDFs being ingested in one run. Chosen per `ingest` run (CLI `--input-language` flag or TUI selector; default: English). A wiki can ingest English PDFs today and Danish PDFs tomorrow.
+
+Both settings draw from a small curated set of European languages (English, Danish, German, French, Spanish, Norwegian, Swedish), each with a deterministic transliteration map (§9.3).
+
+### 9.2 The Language of Each Layer (Binding)
+
+The two-layer page model (`02_WIKI_concept_detailed.md` §3) fixes which language appears where:
+
+- **Layer 1 (synthesis prose)** is written in the **output language**. This holds for the Synthesis Writer's Layer 1 prose and for the DOX Writer's `index.md` descriptions.
+- **Layer 2 (preserved detail)** always stays in the **source language, verbatim**: mention quotes, relationship evidence, claim text, extracted text, tables. Never translated, never reworded. The preservation check (§6) is a verbatim substring check, so translating Layer 2 would fail validation — and would break provenance, because a quote the reader verifies against the PDF must match the PDF's words (`06_citation_and_provenance.md` §8).
+- **The Extractor works in the input language**: context, significance, claims, and timeline text are written in the input language; mention contexts are verbatim quotes from the chunk, as always.
+- **Folder taxonomy follows the output language**: new sub-folder names are output-language words in transliterated kebab-case. Existing folders are always reused first (unchanged rule), so a wiki whose output language never changes keeps one consistent taxonomy.
+
+Example: an English wiki ingesting a Danish PDF gets English narrative prose with Danish evidence sections — readable at the top, verifiable at the bottom.
+
+### 9.3 Slugs and Transliteration
+
+Slugs remain lowercase ASCII kebab-case (every run of non-`[a-z0-9]` characters becomes one `-`). Before slugifying, names pass through the **input language's transliteration map** so non-ASCII characters survive meaningfully instead of collapsing to hyphens: "Søren" → `soeren` (not `s-ren`), "København" → `koebenhavn`, "Müller" → `mueller`, "Årsrapport 2024.pdf" → source slug `aarsrapport-2024`.
+
+**Maps:** Danish and Norwegian æ→ae, ø→oe, å→aa; German ä→ae, ö→oe, ü→ue, ß→ss; Swedish å→a, ä→a, ö→o. After the explicit map, all languages get Unicode NFD diacritic stripping (é→e, ñ→n, ç→c). When no language (or English) is set, slugify behaves exactly as it did before multilingual support — byte-identical, protecting existing wikis, tests, and the frozen Phase 0 surface.
+
+**Mixed-language caution:** ingesting the same wiki with a different input language than a previous run can produce different slugs for the same name (slug forking → duplicate pages). The system warns when a run's input language differs from the last recorded run; re-ingests after a language change should be reviewed.
+
+### 9.4 Mechanism
+
+No per-language prompt files. Every LLM prompt template carries a `{languageDirective}` placeholder, filled at runtime from the two settings (empty when both are English, keeping default behavior byte-identical). The wiki constitution template states the output language, so every LLM call — which always reads `AGENTS.md` — inherits the rule. Deterministic code (extraction, chunking, materialization, validation) is language-neutral and unchanged.

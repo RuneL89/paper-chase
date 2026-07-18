@@ -346,3 +346,178 @@ test('ingest without extraction still writes DOX contracts', async () => {
   expect(existsSync(join(wikiDir, 'documents', 'index.md'))).toBe(true);
   expect(existsSync(join(wikiDir, 'sources', 'index.md'))).toBe(true);
 });
+
+// ---------------------------------------------------------------------------
+// Gate 6.7: DOX Pages Pass Final Validation
+// LLM-free deviation: ingest is driven by an injected extractChunkFn stub so
+// the gate verifies first + final validation without a key (phase doc §3.5:
+// validate content pages -> DOX Writer -> re-validate wiki).
+// ---------------------------------------------------------------------------
+test('DOX pages pass final validation', async () => {
+  const workspace = setupMaterializedWiki();
+  const wikiDir = join(workspace, 'wikis', 'test-wiki');
+  const stubExtraction: ExtractorResult = fakeExtraction().extraction;
+
+  const result = await ingest('test-wiki', {
+    workspace,
+    extractChunkFn: () =>
+      Promise.resolve({
+        chunkId: 'golden-master-part-001',
+        result: stubExtraction,
+        jsonPath: join(wikiDir, '.state', 'extracted', 'golden-master-part-001.json'),
+        jsonRelativePath: '.state/extracted/golden-master-part-001.json',
+      }),
+  });
+
+  // First (content-page) validation is preserved...
+  expect(result.validation).toBeDefined();
+  // ...and the final validation pass covers the wiki including the DOX pages.
+  expect(result.finalValidation).toBeDefined();
+  expect(result.finalValidation?.links.broken).toEqual([]);
+  expect(result.finalValidation?.schema.invalid).toEqual([]);
+});
+
+// ---------------------------------------------------------------------------
+// Gate 6.8: Descriptions Are Content-Based
+// LLM-free: the DOX Writer's LLM is replaced by an injected writeDoxIndexFn
+// stub returning rich, content-based prose with deliberately WRONG frontmatter
+// and statistics — proving the LLM writes the description while deterministic
+// code re-imposes children and counts (vision `03` §6).
+// ---------------------------------------------------------------------------
+function richStubIndex(context: { isRoot: boolean; title: string }): string {
+  const body = context.isRoot
+    ? [
+        '# Test Wiki',
+        '',
+        "This wiki traces executive leadership and financial performance at Acme Corp, including John Smith, the CEO of Acme Corp, and the company's quarterly revenue results.",
+        '',
+        '## Start Here',
+        '',
+        '- [[Executives]] — Executive leadership at Acme Corp, including CEO John Smith',
+        '- [[Companies]] — Acme Corp, the company whose results are presented',
+        '',
+        '## Statistics',
+        '',
+        '- Sources: 999',
+        '- Document pages: 999',
+        '- Entity pages: 999',
+        '- Topic pages: 999',
+        '',
+      ].join('\n')
+    : [
+        `# ${context.title}`,
+        '',
+        'This folder profiles executive leadership at Acme Corp: John Smith, the CEO of Acme Corp, with every mention, relationship, and claim cited back to the source PDF pages.',
+        '',
+        '## Pages',
+        '',
+        '- [[John Smith]] — CEO of Acme Corp',
+        '',
+        '## Navigation',
+        '',
+        '- Parent: [[People]]',
+        '',
+        '## Statistics',
+        '',
+        '- Pages: 999',
+        '- Sub-folders: 999',
+        '- Sources: 999',
+        '',
+      ].join('\n');
+  // Deliberately hallucinated frontmatter: enforcement must discard all of it.
+  return matter.stringify(body, {
+    title: 'Hallucinated Title',
+    type: 'entity',
+    wiki: 'wrong-wiki',
+    updated: '2020-01-01T00:00:00.000Z',
+    children: ['ghost.md'],
+  });
+}
+
+test('folder index description reflects actual content', async () => {
+  const workspace = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace });
+
+  await writeDoxContracts('test-wiki', {
+    workspace,
+    doxLlm: true,
+    writeDoxIndexFn: (context) => Promise.resolve(richStubIndex(context)),
+  });
+
+  const index = readFileSync(
+    join(workspace, 'wikis', 'test-wiki', 'entities', 'people', 'executives', 'index.md'),
+    'utf-8',
+  );
+
+  // Rich, content-based description — not the generic template.
+  expect(index.toLowerCase()).toContain('executive');
+  expect(index).toContain('CEO of Acme Corp');
+  expect(index).not.toContain('This folder contains pages and sub-folders related to');
+
+  // Deterministic enforcement: frontmatter is re-imposed even though the stub
+  // returned hallucinated frontmatter (the LLM cannot hallucinate files).
+  const parsed = matter(index);
+  expect(parsed.data.type).toBe('index');
+  expect(parsed.data.title).toBe('Executives');
+  expect(parsed.data.wiki).toBe('test-wiki');
+  expect(parsed.data.children).toEqual(['john-smith.md']);
+  expect(index).not.toContain('ghost.md');
+
+  // Deterministic enforcement: statistics are re-imposed even though the stub
+  // returned wrong counts (the LLM cannot hallucinate counts).
+  expect(index).toContain('- Pages: 1');
+  expect(index).toContain('- Sub-folders: 0');
+  expect(index).toContain('- Sources: 0');
+  expect(index).not.toContain('999');
+
+  // The same enforcement holds at the wiki root.
+  const rootIndex = readFileSync(join(workspace, 'wikis', 'test-wiki', 'index.md'), 'utf-8');
+  const parsedRoot = matter(rootIndex);
+  expect(parsedRoot.data.children).toEqual([
+    'entities/index.md',
+    'topics/index.md',
+    'documents/index.md',
+    'sources/index.md',
+  ]);
+  expect(rootIndex).toContain('- Entity pages: 2');
+  expect(rootIndex).not.toContain('999');
+});
+
+// ---------------------------------------------------------------------------
+// Supplementary: LLM failure falls back to the deterministic contract.
+// A missing API key / failed LLM call must never crash the DOX Writer — the
+// folder simply gets the deterministic contract (vision `03` §6).
+// ---------------------------------------------------------------------------
+test('DOX LLM failure falls back to the deterministic contract', async () => {
+  // Reference run: fully deterministic contracts.
+  const workspaceDeterministic = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace: workspaceDeterministic });
+  await writeDoxContracts('test-wiki', { workspace: workspaceDeterministic });
+
+  // LLM run where every LLM call throws.
+  const workspaceLlm = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace: workspaceLlm });
+  const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+  try {
+    await writeDoxContracts('test-wiki', {
+      workspace: workspaceLlm,
+      doxLlm: true,
+      writeDoxIndexFn: () => Promise.reject(new Error('LLM unavailable')),
+    });
+    expect(warnSpy).toHaveBeenCalled();
+  } finally {
+    warnSpy.mockRestore();
+  }
+
+  // The fallback contract equals the deterministic contract (ignoring the
+  // `updated` timestamp, which necessarily differs between two runs).
+  const relativeIndexPath = join('entities', 'people', 'executives', 'index.md');
+  const deterministic = readFileSync(
+    join(workspaceDeterministic, 'wikis', 'test-wiki', relativeIndexPath),
+    'utf-8',
+  );
+  const fallback = readFileSync(join(workspaceLlm, 'wikis', 'test-wiki', relativeIndexPath), 'utf-8');
+  const normalize = (text: string) => text.replace(/^updated:.*$/m, 'updated: <timestamp>');
+  expect(normalize(fallback)).toBe(normalize(deterministic));
+  expect(fallback).toContain('This folder contains pages and sub-folders related to executives.');
+});
