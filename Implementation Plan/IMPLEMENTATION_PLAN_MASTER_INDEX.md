@@ -31,7 +31,7 @@ This structure prevents the compounding bug problem that destroyed the previous 
 | 3 | [PHASE_03_materializer.md](PHASE_03_materializer.md) | Materializer: deterministic code writes entity and topic pages | $0 | 4-6h |
 | 4 | [PHASE_04_link_checker.md](PHASE_04_link_checker.md) | Link checker, citation checker, schema validator | $0 | 2-3h |
 | 5 | [PHASE_05_synthesis_writer.md](PHASE_05_synthesis_writer.md) | Synthesis Writer: optional LLM-written synthesis for entity, topic, and document pages | $10.00 | 4-6h |
-| 6 | [PHASE_06_dox_writer.md](PHASE_06_dox_writer.md) | DOX Writer: LLM-driven rich `index.md` generation | Quality-first | 4-6h |
+| 6 | [PHASE_06_dox_writer.md](PHASE_06_dox_writer.md) | DOX Writer: LLM-driven rich `index.md` generation, including the workspace-level `wikis/index-of-indexes.md` | Quality-first | 4-6h |
 | 7 | [PHASE_07_multilingual_ingestion.md](PHASE_07_multilingual_ingestion.md) | Multilingual ingestion: per-run input language, per-wiki output language, transliterated slugs | $3.00 | 4-6h |
 | 8 | [PHASE_08_multi_pdf_compounding.md](PHASE_08_multi_pdf_compounding.md) | Multi-PDF compounding, incremental ingestion, conflict detection | $5.00 | 4-5h |
 | 9 | [PHASE_09_agents_updater.md](PHASE_09_agents_updater.md) | AGENTS.md updater: proposes updates based on discovered structure | $2.00 | 3-4h |

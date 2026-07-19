@@ -8,11 +8,14 @@ export interface DoxBrowserProps extends ScreenProps {
 }
 
 /**
- * Browse the DOX contract hierarchy for a wiki.
+ * Browse the DOX contract hierarchy.
  *
- * Displays the tree of index.md files and content pages, excluding raw/
- * (source PDFs) and .state/ (tooling state). Selecting an index.md shows the
- * contract content; selecting a content page opens the file viewer.
+ * The picker opens at the workspace level: `index-of-indexes.md` (the
+ * workspace-wide contract regenerated at the end of every ingest) sits above
+ * the per-wiki entries. Choosing a wiki displays its tree of index.md files
+ * and content pages, excluding raw/ (source PDFs) and .state/ (tooling
+ * state). Selecting an index.md shows the contract content; selecting a
+ * content page opens the file viewer.
  */
 export function DoxBrowser({ onBack, workspace = '.', wiki }: DoxBrowserProps) {
   return (
@@ -24,6 +27,7 @@ export function DoxBrowser({ onBack, workspace = '.', wiki }: DoxBrowserProps) {
       title="Browse DOX Contracts"
       excludeFolders={['raw', '.state']}
       excludeFiles={['AGENTS.md']}
+      workspaceFile="index-of-indexes.md"
       onBack={onBack}
     />
   );

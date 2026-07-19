@@ -1,6 +1,7 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import { slugify } from '../utils/slug';
+import { parseWikilinkTarget } from '../utils/wikilinks';
 
 export interface LinkCheckResult {
   broken: Array<{ page: string; link: string }>;
@@ -51,20 +52,44 @@ function stripFrontmatter(content: string): string {
 /**
  * Check every wikilink in a wiki for broken targets and orphaned pages.
  *
- * A wikilink `[[Page Title]]` is converted to a slug and matched against the
- * slugs of all `.md` files in the wiki (any folder). A page is orphaned if it
- * has no incoming links and is not `index.md` or a `sources/*.md` page.
+ * Resolution semantics (pipe-aware since the 2026-07-20 user-directed change;
+ * compliance-log entry [2026-07-20 00:15]):
+ *
+ * 1. The link's inner text is split on the FIRST `|` — the part before it is
+ *    the resolution target, the rest is display text and ignored for
+ *    resolution (`[[board-of-directors|Board of Directors]]` resolves via
+ *    `board-of-directors`).
+ * 2. The target is first matched against the exact vault-relative path of a
+ *    page (without the `.md` extension, which may also be present on the
+ *    target): `[[entities/index|Entities]]` -> `entities/index.md`,
+ *    `[[index|Wiki Title]]` -> the wiki-root `index.md`.
+ * 3. Failing that, the target is slugified and matched against the slugs of
+ *    all `.md` files' basenames (case-insensitive), which also keeps every
+ *    legacy bare form resolvable: `[[Board of Directors]]`, `[[slug]]`, and
+ *    the folder-index (`[[People]]`) / wiki-root (`[[Wiki Slug]]`) fallbacks.
+ *
+ * A page is orphaned if it has no incoming links and is not `index.md` or a
+ * `sources/*.md` page.
  */
 export async function checkLinks(wikiSlug: string, workspace: string = '.'): Promise<LinkCheckResult> {
   const dir = join(workspace, 'wikis', wikiSlug);
   const pages = await findMarkdownFiles(dir, workspace, wikiSlug);
 
   const slugToPage = new Map<string, MarkdownFile>();
+  // Exact vault-relative path (without `.md`) -> page. Pipe-form folder-index
+  // and root links (`[[entities/index|Entities]]`, `[[index|Wiki Title]]`)
+  // resolve here before any slug fallback, so they are immune to the
+  // many-files-share-basename-`index` collision in the slug map.
+  const pathToPage = new Map<string, MarkdownFile>();
   for (const page of pages) {
     // If two pages share the same slug, the first one wins; this is a rare
     // situation and the link checker reports the duplicate as resolved.
     if (!slugToPage.has(page.slug)) {
       slugToPage.set(page.slug, page);
+    }
+    const pathKey = page.wikiRelative.replace(/\.md$/i, '');
+    if (!pathToPage.has(pathKey)) {
+      pathToPage.set(pathKey, page);
     }
   }
 
@@ -101,7 +126,12 @@ export async function checkLinks(wikiSlug: string, workspace: string = '.'): Pro
     while ((match = linkPattern.exec(body)) !== null) {
       totalLinks++;
       const linkText = match[1].trim();
-      const target = slugToPage.get(slugify(linkText));
+      // Pipe form: only the part before the first `|` is the resolution
+      // target; the display text is ignored. A trailing `.md` on the target
+      // is tolerated (Obsidian accepts both path forms).
+      const { target: linkTarget } = parseWikilinkTarget(linkText);
+      const pathKey = linkTarget.replace(/\.md$/i, '');
+      const target = pathToPage.get(pathKey) ?? slugToPage.get(slugify(linkTarget));
       if (target) {
         incoming[target.relative]++;
       } else {

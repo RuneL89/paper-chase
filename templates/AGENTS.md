@@ -76,6 +76,8 @@ sources:
 
 - `file` and `pages` are required on every `sources` entry; `extracted`, `sha256`, and `label` are optional.
 - Citation keys are local to the page: `src1` on one page does not have to mean the same source as `src1` on another.
+- **Wikilinks use Obsidian's native pipe form**: `[[<file-basename>|<Page Title>]]` for content pages (e.g. `[[john-smith|John Smith]]`), `[[<folder-path>/index|<Folder Title>]]` for folder indexes (e.g. `[[entities/people/index|People]]`), and `[[index|<Wiki Title>]]` for the wiki root. Use the bare form `[[name]]` only when the display text is identical to the target.
+- Optional `aliases: [<title>]` is added when the page title differs from the file basename (case-insensitive); index pages always carry their folder/wiki title as the alias. Aliases remain as Obsidian search/suggester aids — they are not the link-resolution mechanism. Omit the field when title and basename match.
 
 ## Entity Page Format
 
@@ -109,7 +111,7 @@ Every entity, topic, and document page must have two layers:
 - Write in clear, plain language suitable for an investigative journalist.
 - Do not drop any extracted detail. Every mention, relationship, and claim must appear on the page.
 - Never invent facts, sources, page numbers, or quotes.
-- Use `[[Page Title]]` wikilinks for related entities and topics.
+- Use `[[<file-basename>|<Page Title>]]` wikilinks (Obsidian-native pipe form) for related entities and topics.
 - Preserve existing citations and human-written edits when updating a page.
 - When uncertain about folder assignment, prefer the most specific existing folder.
 - If no existing folder fits, create a new sub-folder and explain why in your output.

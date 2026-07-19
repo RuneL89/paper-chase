@@ -6,12 +6,13 @@ import { extractText, getPageCount } from '../extraction/pdf';
 import { renderTablesAsMarkdown } from '../extraction/markdown-tables';
 import { sha256 } from '../utils/hash';
 import { sourceSlugForFile } from '../utils/slug';
+import { aliasesForTitle, enforceAliasesInMarkdown } from '../utils/aliases';
 import { sourcePdfPath, wikiDir, wikiRelativePath } from '../utils/paths';
 import { readIngestionState, writeIngestionState } from '../state/ingestion-state';
 import { writeSourcePage } from '../pages/source-page';
 import { extractDocumentChunk, type ChunkExtraction } from './extract-chunk';
 import { materialize, type MaterializeResult } from '../materializer';
-import { writeDoxContracts, type DoxIndexContext } from '../dox-writer';
+import { writeDoxContracts, writeWorkspaceIndex, type DoxIndexContext, type DoxWorkspaceIndexContext } from '../dox-writer';
 import { validateWiki, logValidation, type ValidationSummary } from '../validation';
 import {
   writeEntitySynthesis,
@@ -103,6 +104,16 @@ export interface IngestOptions {
    * `doxLlm: true` without an API key.
    */
   writeDoxIndexFn?: (context: DoxIndexContext) => Promise<string>;
+  /**
+   * Injectable workspace index writer (test-only pass-through to
+   * writeWorkspaceIndex). Defaults to the real LLM implementation.
+   */
+  writeWorkspaceIndexFn?: (context: DoxWorkspaceIndexContext) => Promise<string>;
+  /**
+   * Output language of this ingest run, forwarded to the DOX Writer's
+   * workspace pass (vision `04` §9; the Phase 7 hook). Defaults to English.
+   */
+  outputLanguage?: string;
 }
 
 export interface IngestedSource {
@@ -282,9 +293,15 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
 
       const part = String(chunkIndex + 1).padStart(3, '0');
       const docFileName = `${sourceSlug}-part-${part}.md`;
+      const docTitle = `${sourceSlug}-part-${part}`;
+      // Alias rule applied uniformly (UAT 6.3 fix): a document page's title
+      // always equals its chunk-id basename, so this is always undefined and
+      // document pages never carry an aliases field.
+      const docAliases = aliasesForTitle(docTitle, docFileName.replace(/\.md$/, ''));
       const frontmatter = {
-        title: `${sourceSlug}-part-${part}`,
+        title: docTitle,
         type: 'document',
+        ...(docAliases ? { aliases: docAliases } : {}),
         wiki: slug,
         sources: [
           {
@@ -383,7 +400,14 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       const check = checkPreservation(entityPage, synthesized);
       if (check.passed) {
         const folderPath = join(dir, entityPage.folder);
-        await writeFile(join(folderPath, `${entityPage.slug}.md`), synthesized, 'utf-8');
+        // UAT 6.3 fix: re-impose the aliases frontmatter field over the
+        // model-written page (deterministic; the LLM's frontmatter is not
+        // trusted for the alias rule).
+        await writeFile(
+          join(folderPath, `${entityPage.slug}.md`),
+          enforceAliasesInMarkdown(synthesized, entityPage.title, entityPage.slug),
+          'utf-8',
+        );
         result.synthesized = (result.synthesized ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
@@ -404,7 +428,11 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       const permissiveCheck = checkPreservation(entityPage, permissive);
       if (permissiveCheck.passed) {
         const folderPath = join(dir, entityPage.folder);
-        await writeFile(join(folderPath, `${entityPage.slug}.md`), permissive, 'utf-8');
+        await writeFile(
+          join(folderPath, `${entityPage.slug}.md`),
+          enforceAliasesInMarkdown(permissive, entityPage.title, entityPage.slug),
+          'utf-8',
+        );
         result.synthesizedPermissive = (result.synthesizedPermissive ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
@@ -442,7 +470,11 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       const check = checkTopicPreservation(topicPage, synthesized);
       if (check.passed) {
         const folderPath = join(dir, topicPage.folder);
-        await writeFile(join(folderPath, `${topicPage.slug}.md`), synthesized, 'utf-8');
+        await writeFile(
+          join(folderPath, `${topicPage.slug}.md`),
+          enforceAliasesInMarkdown(synthesized, topicPage.title, topicPage.slug),
+          'utf-8',
+        );
         result.synthesizedTopics = (result.synthesizedTopics ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
@@ -462,7 +494,11 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       const permissiveCheck = checkTopicPreservation(topicPage, permissive);
       if (permissiveCheck.passed) {
         const folderPath = join(dir, topicPage.folder);
-        await writeFile(join(folderPath, `${topicPage.slug}.md`), permissive, 'utf-8');
+        await writeFile(
+          join(folderPath, `${topicPage.slug}.md`),
+          enforceAliasesInMarkdown(permissive, topicPage.title, topicPage.slug),
+          'utf-8',
+        );
         result.synthesizedTopicsPermissive = (result.synthesizedTopicsPermissive ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
@@ -518,6 +554,21 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     logValidation(finalValidation, dir);
     result.finalValidation = finalValidation;
   }
+
+  // Phase 6 (2026-07-20 amendment): the workspace pass tops the bottom-up
+  // chain — folder indexes -> wiki root index -> workspace index. It runs at
+  // the end of every ingest and reads only the freshly-written wiki root
+  // contracts (never the wikis' content pages), so it always reflects the
+  // just-written root index of this wiki plus the current contracts of every
+  // other wiki in the workspace. Prose follows this run's output language.
+  await writeWorkspaceIndex({
+    workspace: options.workspace,
+    doxLlm: options.doxLlm,
+    writeWorkspaceIndexFn: options.writeWorkspaceIndexFn,
+    outputLanguage: options.outputLanguage,
+    logPath: join(dir, '.state', 'llm-calls.json'),
+  });
+  progress('Workspace index updated.');
 
   progress('Done!');
   return result;

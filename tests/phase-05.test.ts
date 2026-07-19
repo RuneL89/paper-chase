@@ -131,7 +131,9 @@ function buildCompletePage(data: EntityPageData): string {
     '',
     ...data.relationships.map(
       (r) =>
-        `- [[${data.slugToTitle[r.object] ?? r.object}]] — ${r.predicate
+        // 2026-07-20 pipe-form convention (the preservation check compares
+        // data strings, not link renderings; updated for consistency).
+        `- [[${r.object}|${data.slugToTitle[r.object] ?? r.object}]] — ${r.predicate
           .split('-')
           .map((w) => (w.length > 0 ? w[0].toUpperCase() + w.slice(1) : w))
           .join(' ')} [^src1]`,
@@ -659,4 +661,53 @@ test('ingest with synthesis synthesizes topics', async () => {
 
   const topicPage = readFileSync(join(wikiDir, 'topics', 'financial', 'financial.md'), 'utf-8');
   expect(topicPage).toContain('## Claims');
+});
+
+// ---------------------------------------------------------------------------
+// UAT 6.3 aliases fix (user decision 2026-07-19, Option A): synthesized pages
+// keep deterministic `aliases` frontmatter — ingest re-imposes the alias rule
+// over the model-written frontmatter at write time, so the LLM cannot drop
+// (or wrongly add) the field. LLM-free via injected synthesis stubs.
+// ---------------------------------------------------------------------------
+test('synthesized pages carry deterministic aliases frontmatter', async () => {
+  const workspace = makeTempDir('llm-wiki-phase5-aliases-');
+  const wikiDir = join(workspace, 'wikis', 'test-wiki');
+  init('test-wiki', { workspace });
+  mkdirSync(join(wikiDir, 'raw'), { recursive: true });
+  copyFileSync(GOLDEN_MASTER_PDF, join(wikiDir, 'raw', 'golden-master.pdf'));
+  installFakeChunk(wikiDir, fakeExtraction());
+
+  const stubData = createTestEntityData();
+  const synthesizedPage = buildCompletePage(stubData);
+
+  const result = await ingest('test-wiki', {
+    workspace,
+    synthesis: true,
+    extractChunkFn: () =>
+      Promise.resolve({
+        chunkId: 'golden-master-part-001',
+        result: fakeExtraction(),
+        jsonPath: join(wikiDir, '.state', 'extracted', 'golden-master-part-001.json'),
+        jsonRelativePath: '.state/extracted/golden-master-part-001.json',
+      }),
+    synthesizeEntityFn: async () => synthesizedPage,
+    synthesizeTopicFn: async (data) => buildCompleteTopicPage(data),
+  });
+
+  expect(result.synthesized).toBe(1);
+  expect(result.synthesizedTopics).toBe(1);
+
+  // Entity: title 'John Smith' differs from slug 'john-smith' -> alias added
+  // even though the stub's frontmatter had none.
+  const entityPage = matter(readFileSync(
+    join(wikiDir, 'entities', 'people', 'executives', 'john-smith.md'),
+    'utf-8',
+  ));
+  expect(entityPage.data.aliases).toEqual(['John Smith']);
+
+  // Topic: title 'Financial' matches slug 'financial' case-insensitively ->
+  // no aliases field on the written page.
+  const topicPage = matter(readFileSync(join(wikiDir, 'topics', 'financial', 'financial.md'), 'utf-8'));
+  expect(topicPage.data.title).toBe('Financial');
+  expect(topicPage.data.aliases).toBeUndefined();
 });

@@ -15,6 +15,11 @@ import matter from 'gray-matter';
 import { materialize } from '../src/materializer';
 import { init } from '../src/commands/init';
 import { ingest } from '../src/commands/ingest';
+import { aliasesForTitle, enforceAliasesInMarkdown } from '../src/utils/aliases';
+import { formatWikilink, parseWikilinkTarget } from '../src/utils/wikilinks';
+import { writeEntityPage } from '../src/pages/entity-page';
+import { writeTopicPage } from '../src/pages/topic-page';
+import { renderSourcePage } from '../src/pages/source-page';
 import type { ExtractorResult } from '../src/agents/extractor';
 
 const GOLDEN_MASTER_PDF = 'test-pdfs/golden-master.pdf';
@@ -192,20 +197,21 @@ test('entity page has valid YAML frontmatter', async () => {
 });
 
 // ---------------------------------------------------------------------------
-// Gate 3.2b: Entity Pages Use Page-Title Wikilinks
-// Verifier regression: relationship objects and claim entities must emit
-// [[Page Title]] rather than [[slug]].
+// Gate 3.2b: Entity Pages Use Obsidian-Native Pipe-Form Wikilinks
+// 2026-07-20 user-directed change (supersedes the 2026-07-17 title-form fix):
+// relationship objects and claim entities must emit [[slug|Page Title]].
 // ---------------------------------------------------------------------------
-test('entity page uses page-title wikilinks, not slugs', async () => {
+test('entity page uses pipe-form wikilinks, not bare titles or slugs', async () => {
   const workspace = setupMaterializedWiki();
   await materialize('test-wiki', { workspace });
   const page = readFileSync(
     join(workspace, 'wikis', 'test-wiki', 'entities/people/executives', 'john-smith.md'),
     'utf-8',
   );
-  // Relationship object and claim entity should be rendered as the entity title.
-  expect(page).toContain('[[Acme Corp]]');
+  // Relationship object and claim entity render in Obsidian's native pipe form.
+  expect(page).toContain('[[acme-corp|Acme Corp]]');
   expect(page).not.toContain('[[acme-corp]]');
+  expect(page).not.toContain('[[Acme Corp]]');
 });
 
 // ---------------------------------------------------------------------------
@@ -264,17 +270,18 @@ test('materializer creates topic pages', async () => {
 });
 
 // ---------------------------------------------------------------------------
-// Gate 3.6b: Topic Pages Use Page-Title Wikilinks
+// Gate 3.6b: Topic Pages Use Obsidian-Native Pipe-Form Wikilinks
 // ---------------------------------------------------------------------------
-test('topic page uses page-title wikilinks, not slugs', async () => {
+test('topic page uses pipe-form wikilinks, not bare titles or slugs', async () => {
   const workspace = setupMaterializedWiki();
   await materialize('test-wiki', { workspace });
   const page = readFileSync(
     join(workspace, 'wikis', 'test-wiki', 'topics', 'financial', 'financial.md'),
     'utf-8',
   );
-  expect(page).toContain('[[Acme Corp]]');
+  expect(page).toContain('[[acme-corp|Acme Corp]]');
   expect(page).not.toContain('[[acme-corp]]');
+  expect(page).not.toContain('[[Acme Corp]]');
 });
 
 // ---------------------------------------------------------------------------
@@ -334,4 +341,208 @@ test('ingest with extract:false does not remove entity pages created by material
 
   await ingest('test-wiki', { workspace, extract: false });
   expect(existsSync(join(wikiDir, 'entities/people/executives', 'john-smith.md'))).toBe(true);
+});
+
+// ---------------------------------------------------------------------------
+// UAT 6.3 aliases fix (user decision 2026-07-19, Option A): page frontmatter
+// carries `aliases: [<title>]` when the title differs from the file basename
+// (case-insensitive) so title-form [[Page Title]] wikilinks resolve in
+// Obsidian. Helper unit tests + per-writer rule tests, all LLM-free.
+// ---------------------------------------------------------------------------
+test('aliasesForTitle: exact match yields no alias', () => {
+  expect(aliasesForTitle('governance-structure', 'governance-structure')).toBeUndefined();
+});
+
+test('aliasesForTitle: case-insensitive match yields no alias', () => {
+  expect(aliasesForTitle('Secretary', 'secretary')).toBeUndefined();
+  expect(aliasesForTitle('FINANCIAL', 'financial')).toBeUndefined();
+});
+
+test('aliasesForTitle: mismatch yields the title as the single alias', () => {
+  expect(aliasesForTitle('Governance Structure', 'governance-structure')).toEqual([
+    'Governance Structure',
+  ]);
+  expect(aliasesForTitle('Entities', 'index')).toEqual(['Entities']);
+  expect(aliasesForTitle('Coca Cola Wiki', 'index')).toEqual(['Coca Cola Wiki']);
+});
+
+test('aliasesForTitle: special characters are preserved for js-yaml to escape', () => {
+  expect(aliasesForTitle('Source: Golden Master.pdf', 'golden-master')).toEqual([
+    'Source: Golden Master.pdf',
+  ]);
+  expect(aliasesForTitle('', 'anything')).toBeUndefined();
+});
+
+test('enforceAliasesInMarkdown adds, removes, and preserves as appropriate', () => {
+  const withFrontmatter = matter.stringify('\nBody text.\n', {
+    title: 'John Smith',
+    type: 'entity',
+    updated: '2026-07-19T00:00:00.000Z',
+  });
+  const enforced = matter(enforceAliasesInMarkdown(withFrontmatter, 'John Smith', 'john-smith'));
+  expect(enforced.data.aliases).toEqual(['John Smith']);
+  expect(enforced.data.title).toBe('John Smith');
+  expect(enforced.content).toContain('Body text.');
+
+  // A stale alias is removed when the title matches the slug case-insensitively.
+  const stale = matter.stringify('\nBody text.\n', {
+    title: 'Secretary',
+    type: 'entity',
+    aliases: ['Secretary'],
+    updated: '2026-07-19T00:00:00.000Z',
+  });
+  const cleaned = matter(enforceAliasesInMarkdown(stale, 'Secretary', 'secretary'));
+  expect(cleaned.data.aliases).toBeUndefined();
+
+  // Pages without a frontmatter block are returned unchanged (never invented).
+  const bare = 'No frontmatter here.\n';
+  expect(enforceAliasesInMarkdown(bare, 'Some Title', 'some-title')).toBe(bare);
+});
+
+test('entity page frontmatter carries the title alias when title differs from slug', () => {
+  const page = writeEntityPage({
+    title: 'John Smith',
+    slug: 'john-smith',
+    folder: 'entities/people',
+    type: 'person',
+    wiki: 'test-wiki',
+    mentions: [],
+    relationships: [],
+    claims: [],
+    slugToTitle: {},
+  });
+  const parsed = matter(page);
+  expect(parsed.data.aliases).toEqual(['John Smith']);
+});
+
+test('entity page frontmatter omits the alias on a case-insensitive title/slug match', () => {
+  const page = writeEntityPage({
+    title: 'Secretary',
+    slug: 'secretary',
+    folder: 'entities/people',
+    type: 'person',
+    wiki: 'test-wiki',
+    mentions: [],
+    relationships: [],
+    claims: [],
+    slugToTitle: {},
+  });
+  const parsed = matter(page);
+  expect(parsed.data.aliases).toBeUndefined();
+});
+
+test('topic page frontmatter follows the alias rule', () => {
+  const aliased = writeTopicPage({
+    title: 'Financial Performance',
+    slug: 'financial-performance',
+    folder: 'topics/financial-performance',
+    wiki: 'test-wiki',
+    claims: [],
+    slugToTitle: {},
+  });
+  expect(matter(aliased).data.aliases).toEqual(['Financial Performance']);
+
+  const matched = writeTopicPage({
+    title: 'Financial',
+    slug: 'financial',
+    folder: 'topics/financial',
+    wiki: 'test-wiki',
+    claims: [],
+    slugToTitle: {},
+  });
+  expect(matter(matched).data.aliases).toBeUndefined();
+});
+
+test('source page frontmatter carries the "Source: <file>" alias with YAML-safe escaping', () => {
+  const page = renderSourcePage({
+    wiki: 'test-wiki',
+    fileName: 'Golden Master.pdf',
+    filePath: 'wikis/test-wiki/raw/Golden Master.pdf',
+    sourceSlug: 'golden-master',
+    sha256: 'abc123',
+    pageCount: 3,
+    ingested: '2026-07-19T00:00:00.000Z',
+    updated: '2026-07-19T00:00:00.000Z',
+    warnings: [],
+    documentPages: [],
+  });
+  const parsed = matter(page);
+  expect(parsed.data.aliases).toEqual(['Source: Golden Master.pdf']);
+});
+
+test('document pages written by ingest carry no aliases field', async () => {
+  const workspace = makeTempDir('llm-wiki-phase3-aliases-doc-');
+  await init('test-wiki', { workspace });
+  const wikiDir = join(workspace, 'wikis', 'test-wiki');
+  copyFileSync(GOLDEN_MASTER_PDF, join(wikiDir, 'raw', 'golden-master.pdf'));
+
+  await ingest('test-wiki', { workspace, extract: false });
+
+  const documents = readdirSync(join(wikiDir, 'documents')).filter(
+    (name) => name.endsWith('.md') && name !== 'index.md',
+  );
+  expect(documents.length).toBeGreaterThan(0);
+  for (const name of documents) {
+    const parsed = matter(readFileSync(join(wikiDir, 'documents', name), 'utf-8'));
+    // The document page title always equals its chunk-id basename.
+    expect(parsed.data.title).toBe(name.replace(/\.md$/, ''));
+    expect(parsed.data.aliases).toBeUndefined();
+  }
+});
+
+// ---------------------------------------------------------------------------
+// 2026-07-20 user-directed change: Obsidian-native pipe-form wikilinks
+// (compliance-log entry [2026-07-20 00:15]). Unit tests for the shared helper
+// in src/utils/wikilinks.ts — the single home for link formatting/parsing.
+// ---------------------------------------------------------------------------
+test('formatWikilink emits the pipe form when display differs from target', () => {
+  expect(formatWikilink('board-of-directors', 'Board of Directors')).toBe(
+    '[[board-of-directors|Board of Directors]]',
+  );
+  expect(formatWikilink('entities/people/executives/index', 'Executives')).toBe(
+    '[[entities/people/executives/index|Executives]]',
+  );
+  expect(formatWikilink('index', 'Coca Cola Wiki')).toBe('[[index|Coca Cola Wiki]]');
+  // Case-only differences still get the pipe form (equality is exact).
+  expect(formatWikilink('secretary', 'Secretary')).toBe('[[secretary|Secretary]]');
+});
+
+test('formatWikilink emits the bare form when display is missing or equals the target', () => {
+  expect(formatWikilink('secretary', 'secretary')).toBe('[[secretary]]');
+  expect(formatWikilink('golden-master-part-001')).toBe('[[golden-master-part-001]]');
+  expect(formatWikilink('some-file', '')).toBe('[[some-file]]');
+});
+
+test('formatWikilink trims target and display', () => {
+  expect(formatWikilink('  acme-corp ', ' Acme Corp ')).toBe('[[acme-corp|Acme Corp]]');
+});
+
+test('parseWikilinkTarget splits on the first pipe only', () => {
+  expect(parseWikilinkTarget('board-of-directors|Board of Directors')).toEqual({
+    target: 'board-of-directors',
+    display: 'Board of Directors',
+  });
+  expect(parseWikilinkTarget('a|b|c')).toEqual({ target: 'a', display: 'b|c' });
+  expect(parseWikilinkTarget('Acme Corp')).toEqual({ target: 'Acme Corp' });
+});
+
+test('parseWikilinkTarget keeps special characters in the display text', () => {
+  expect(
+    parseWikilinkTarget("board-of-directors|The Coca-Cola Company's Board of Directors"),
+  ).toEqual({
+    target: 'board-of-directors',
+    display: "The Coca-Cola Company's Board of Directors",
+  });
+  expect(parseWikilinkTarget('golden-master|Source: Golden Master')).toEqual({
+    target: 'golden-master',
+    display: 'Source: Golden Master',
+  });
+});
+
+test('parseWikilinkTarget trims and treats an empty display as absent', () => {
+  expect(parseWikilinkTarget('  acme-corp | Acme Corp  ')).toEqual({
+    target: 'acme-corp',
+    display: 'Acme Corp',
+  });
+  expect(parseWikilinkTarget('acme-corp|')).toEqual({ target: 'acme-corp' });
 });

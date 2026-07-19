@@ -281,8 +281,9 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     }
   }
 
-  // Build a slug-to-title map so wikilinks can render as [[Page Title]]
-  // instead of [[slug]]. Unknown slugs fall back to the raw slug.
+  // Build a slug-to-title map so wikilinks can render in Obsidian's native
+  // pipe form [[slug|Page Title]] instead of [[slug]]. Unknown slugs fall back
+  // to the bare [[slug]] form.
   const slugToTitle: Record<string, string> = {};
   for (const [slug, entity] of entityMap.entries()) {
     slugToTitle[slug] = entity.name;

@@ -31,6 +31,6 @@ Rules:
 - Do not drop any claim from the data above.
 - Do not invent facts not present in the data.
 - Every citation [^srcN] must have a corresponding [^srcN]: definition in the Sources section.
-- Use [[Page Title]] wikilinks for related entities.
+- Use Obsidian-native wikilinks for related entities: [[<entity-slug>|<Page Title>]] — the target is the entity's slug from the data above, the display text is its title (e.g. [[acme-corp|Acme Corp]]). Use the bare form [[name]] only when the display text is identical to the target.
 - Write in clear, plain language suitable for a journalist.
 - The page must be at least 300 words of synthesis (Layer 1).

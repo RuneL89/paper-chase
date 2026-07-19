@@ -93,6 +93,7 @@ When the user requests a durable behavior change, record it here or in the relev
 * 2026-07-18: Create New Wiki screen simplified: only Title and Workspace fields; the wiki slug is derived from the Title via `slugify` (lowercase, spaces → hyphens). No separate slug field.
 * 2026-07-19: Multilingual ingestion (Phase 7): two independent language settings — per-wiki **output language** (chosen at `init`, default English) and per-run **input language** (chosen at ingest, default English). Binding rule: Layer 1 prose is written in the output language; Layer 2 evidence always stays verbatim in the source language (never translated). Slugs are transliterated with the input language's map (æ→ae, ø→oe, å→aa) before slugifying; the English default keeps byte-identical pre-Phase-7 behavior. Supported set: en, da, de, fr, es, no, sv.
 * 2026-07-19: This project folder (`Wiki v5/`) contains only the LLM Wiki CLI project. Cross-project reusable tooling (skills, template kits) is created outside this folder (e.g. `~/.agents/skills/`); the 2026-07-16 "create everything here" preference applies to project artifacts only.
+* 2026-07-20: The workspace-level `wikis/index-of-indexes.md` is a DOX Writer output written like any other parent index — the topmost step of the bottom-up chain (folder indexes → wiki root index → workspace index), synthesizing only the freshly-written child contracts (never the wikis' content pages), with deterministic children/statistics re-imposition and deterministic fallback. Regenerated at the end of every ingest; prose in the triggering ingest's output language. Ratified as a vision amendment (compliance-log [2026-07-20 02:30]); implemented under reopened Phase 6 (gates 6.9–6.11).
 
 ## Child DOX Index
 
@@ -102,7 +103,7 @@ When the user requests a durable behavior change, record it here or in the relev
 * `tests/` — vitest suites; each phase's technical gates encoded as tests. See `tests/AGENTS.md`
 * `test-pdfs/` — controlled PDF fixtures; golden masters are immutable. See `test-pdfs/AGENTS.md`
 * `templates/` — templates for generated wiki artifacts. Special case: `templates/AGENTS.md` is the **wiki constitution template artifact** required by `PHASE_00_infrastructure.md` §2.1, not a DOX contract, so this folder's rules live here: template must keep covering wiki purpose, page structure, `[^srcN]` + `sources` citation rules, and the LLM-must-follow rule; placeholders use `{{DOUBLE_BRACE}}`; changes must stay compliant with `Project Vision/06_citation_and_provenance.md` and `03_DOX_concept_detailed.md`
-* `prompts/` — LLM prompt files for the agent pipeline (`extractor.prompt.txt` since Phase 2, Synthesis Writer prompts since Phase 5, `dox-writer.prompt.txt` since Phase 6). See `prompts/AGENTS.md`
+* `prompts/` — LLM prompt files for the agent pipeline (`extractor.prompt.txt` since Phase 2, Synthesis Writer prompts since Phase 5, `dox-writer.prompt.txt` + `dox-writer-workspace.prompt.txt` since Phase 6). See `prompts/AGENTS.md`
 * `scripts/` — one-off fixture generator/verifier scripts; never re-run the golden master generator. See `scripts/AGENTS.md`
 * `.state/` — phase status files, compliance log, verification reports; the project's durable memory. See `.state/AGENTS.md`
 * `wikis/` — runtime workspace for generated wikis (Phase 1+ output of `init`/`ingest`). See `wikis/AGENTS.md`

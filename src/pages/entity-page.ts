@@ -1,4 +1,6 @@
 import matter from 'gray-matter';
+import { aliasesForTitle } from '../utils/aliases';
+import { formatWikilink } from '../utils/wikilinks';
 
 /**
  * Source reference attached to a mention, relationship, or claim. The `file`
@@ -77,8 +79,14 @@ function sourceFileName(file: string): string {
   return file.split('/').pop() ?? file;
 }
 
-function formatWikilink(slug: string, slugToTitle: Record<string, string>): string {
-  return `[[${slugToTitle[slug] ?? slug}]]`;
+/**
+ * Render a wikilink to another entity in Obsidian's native pipe form
+ * (user directive 2026-07-20): `[[<slug>|<Title>]]` for known slugs, the bare
+ * `[[slug]]` fallback for unknown slugs so the link is not lost, and the bare
+ * form when the title equals the slug exactly.
+ */
+function entityWikilink(slug: string, slugToTitle: Record<string, string>): string {
+  return formatWikilink(slug, slugToTitle[slug]);
 }
 
 /** Strip any pre-existing `[^srcN]` citations from text before adding our own. */
@@ -183,7 +191,7 @@ export function writeEntityPage(data: EntityPageData): string {
         .split('-')
         .map((word) => (word.length > 0 ? word[0].toUpperCase() + word.slice(1) : word))
         .join(' ');
-      lines.push(`- ${formatWikilink(rel.object, data.slugToTitle)} — ${predicateReadable} ${citation}`);
+      lines.push(`- ${entityWikilink(rel.object, data.slugToTitle)} — ${predicateReadable} ${citation}`);
     }
     lines.push('');
   }
@@ -193,7 +201,7 @@ export function writeEntityPage(data: EntityPageData): string {
     lines.push('## Claims', '');
     for (const claim of data.claims) {
       const citation = getCitation(citationMap, claim.source, claim.pages);
-      const entityLinks = claim.entities.map((e) => formatWikilink(e, data.slugToTitle)).join(', ');
+      const entityLinks = claim.entities.map((e) => entityWikilink(e, data.slugToTitle)).join(', ');
       lines.push(`- ${stripCitations(claim.text)} ${citation}${entityLinks ? ` (${entityLinks})` : ''}`);
     }
     lines.push('');
@@ -233,9 +241,13 @@ export function writeEntityPage(data: EntityPageData): string {
       pages: Array.from(pagesSet).sort((x, y) => x.localeCompare(y)).join(', '),
     }));
 
+  // Obsidian-resolvable title alias (UAT 6.3 fix): raw title, js-yaml escapes
+  // it; omitted when the title matches the file slug case-insensitively.
+  const aliases = aliasesForTitle(data.title, data.slug);
   const frontmatter: Record<string, unknown> = {
     title: escapeYamlString(data.title),
     type: 'entity',
+    ...(aliases ? { aliases } : {}),
     wiki: data.wiki,
     updated,
     sources: frontmatterSources,

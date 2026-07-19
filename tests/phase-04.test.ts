@@ -371,3 +371,97 @@ test('schema validator rejects missing title', async () => {
   const bad = result.invalid.find((i) => i.page.endsWith('bad.md') && i.issue.includes('title'));
   expect(bad).toBeDefined();
 });
+
+// ---------------------------------------------------------------------------
+// 2026-07-20 user-directed change: pipe-aware link checker
+// (compliance-log entry [2026-07-20 00:15]). The checker resolves the part
+// before the first `|` by exact vault-relative path first, then by the
+// slugified-basename map; legacy bare forms stay resolvable for older wikis.
+// ---------------------------------------------------------------------------
+test('pipe-form wikilinks resolve via their pre-pipe target', async () => {
+  const workspace = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace });
+
+  const pagePath = join(workspace, 'wikis', 'test-wiki', 'entities', 'companies', 'acme-corp.md');
+  const page = readFileSync(pagePath, 'utf-8');
+  writeFileSync(
+    pagePath,
+    `${page}\n\nSee also [[john-smith|John Smith]] and [[john-smith|The Coca-Cola Company's John Smith]].\n`,
+    'utf-8',
+  );
+
+  const result = await checkLinks('test-wiki', workspace);
+  expect(result.broken.filter((b) => b.page.endsWith('acme-corp.md'))).toEqual([]);
+});
+
+test('pipe-form folder-index and root links resolve by exact vault-relative path', async () => {
+  const workspace = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace });
+
+  // Lay down the index pages the DOX Writer would write.
+  const wikiDir = join(workspace, 'wikis', 'test-wiki');
+  writeFileSync(
+    join(wikiDir, 'index.md'),
+    '---\ntitle: "Test Wiki"\ntype: index\nupdated: 2026-07-16T10:00:00Z\n---\n\nRoot.\n',
+    'utf-8',
+  );
+  mkdirSync(join(wikiDir, 'entities', 'people'), { recursive: true });
+  writeFileSync(
+    join(wikiDir, 'entities', 'people', 'index.md'),
+    '---\ntitle: "People"\ntype: index\nupdated: 2026-07-16T10:00:00Z\n---\n\nPeople.\n',
+    'utf-8',
+  );
+
+  const pagePath = join(wikiDir, 'entities', 'companies', 'acme-corp.md');
+  const page = readFileSync(pagePath, 'utf-8');
+  writeFileSync(
+    pagePath,
+    `${page}\n\nNavigate: [[entities/people/index|People]], [[index|Test Wiki]], and [[entities/companies/acme-corp.md|self with .md]].\n`,
+    'utf-8',
+  );
+
+  const result = await checkLinks('test-wiki', workspace);
+  expect(result.broken.filter((b) => b.page.endsWith('acme-corp.md'))).toEqual([]);
+});
+
+test('legacy bare wikilink forms remain resolvable', async () => {
+  const workspace = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace });
+
+  const wikiDir = join(workspace, 'wikis', 'test-wiki');
+  writeFileSync(
+    join(wikiDir, 'index.md'),
+    '---\ntitle: "Test Wiki"\ntype: index\nupdated: 2026-07-16T10:00:00Z\n---\n\nRoot.\n',
+    'utf-8',
+  );
+  mkdirSync(join(wikiDir, 'entities', 'people'), { recursive: true });
+  writeFileSync(
+    join(wikiDir, 'entities', 'people', 'index.md'),
+    '---\ntitle: "People"\ntype: index\nupdated: 2026-07-16T10:00:00Z\n---\n\nPeople.\n',
+    'utf-8',
+  );
+
+  const pagePath = join(wikiDir, 'entities', 'companies', 'acme-corp.md');
+  const page = readFileSync(pagePath, 'utf-8');
+  writeFileSync(
+    pagePath,
+    `${page}\n\nLegacy: [[John Smith]] (title form), [[john-smith]] (slug form), [[People]] (folder fallback), [[Test Wiki]] (root fallback).\n`,
+    'utf-8',
+  );
+
+  const result = await checkLinks('test-wiki', workspace);
+  expect(result.broken.filter((b) => b.page.endsWith('acme-corp.md'))).toEqual([]);
+});
+
+test('pipe-form links with unresolvable targets are reported broken', async () => {
+  const workspace = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace });
+
+  const pagePath = join(workspace, 'wikis', 'test-wiki', 'entities', 'companies', 'acme-corp.md');
+  const page = readFileSync(pagePath, 'utf-8');
+  writeFileSync(pagePath, `${page}\n\nSee [[no-such-page|A Nice Display]].\n`, 'utf-8');
+
+  const result = await checkLinks('test-wiki', workspace);
+  const broken = result.broken.find((b) => b.link === 'no-such-page|A Nice Display');
+  expect(broken).toBeDefined();
+});

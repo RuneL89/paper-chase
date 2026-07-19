@@ -57,7 +57,7 @@ At the highest level, the tool works in three layers:
 
 1. **Workspace** — a directory on your computer that holds one or more wikis.
 2. **Wiki** — a logical collection of PDFs (e.g., `acme-annual-reports`) living under `wikis/<slug>/`.
-3. **Pages** — markdown files generated from the PDFs, linked together with `[[Page Title]]` wikilinks and cited with `[^srcN]` footnotes.
+3. **Pages** — markdown files generated from the PDFs, linked together with `[[page-name|Page Title]]` wikilinks and cited with `[^srcN]` footnotes.
 
 ### Typical Workflow
 
@@ -87,7 +87,7 @@ The system is built in five layers:
 | **Layer 2: Extractor** | Read chunk, return JSON with entities, relationships, claims, folder assignments | 1 | ~$0.01 per chunk |
 | **Layer 3: Materializer** | Create folders, write/update entity/topic pages, run preservation checks | 0 | $0 |
 | **Layer 4: Synthesis Writer** | Optionally rewrite entity/topic/document pages with readable synthesis | 1 | ~$0.01 per page |
-| **Layer 5: DOX Writer** | Scan completed wiki, write `index.md` navigation contracts | 1 | per folder |
+| **Layer 5: DOX Writer** | Scan completed wiki, write `index.md` navigation contracts plus the workspace-level `wikis/index-of-indexes.md` | 1 | per folder + 1 per workspace pass |
 
 **Layer 4: Synthesis Writer** (optional, Phase 5) turns structured entity, topic, and document pages into readable two-layer pages with LLM-written synthesis at the top.
 
@@ -147,7 +147,7 @@ The binding rule: narrative prose (Layer 1) is written in the output language; p
 | Page content (synthesis) | LLM | Writer generates readable pages |
 | Text extraction, hashing, file I/O | Deterministic code | `pdfjs-dist`, `fs`, `crypto` |
 | Validation | Deterministic code | Schema checks, link checks, preservation checks |
-| Navigation contracts | Deterministic code | DOX Writer reads filesystem and writes `index.md` |
+| Navigation contracts | LLM | DOX Writer reads finalized pages and writes `index.md` (plus `wikis/index-of-indexes.md` at the workspace level); children lists and statistics are supplied by deterministic code |
 | Structural change review | Human | After-the-fact via `.state/proposals/` log |
 
 ---
@@ -156,7 +156,7 @@ The binding rule: narrative prose (Layer 1) is written in the output language; p
 
 ### Use Case 1: 25 Years of Financial Reports
 
-A journalist receives annual reports for Acme Corp from 2000-2024. Instead of reading 5000 pages, they run `ingest`. The system creates entity pages for every executive, subsidiary, and auditor. It creates topic pages for revenue recognition, offshore structures, and regulatory investigations. The journalist clicks `[[John Smith]]` and sees every mention across 25 years, with citations to exact pages.
+A journalist receives annual reports for Acme Corp from 2000-2024. Instead of reading 5000 pages, they run `ingest`. The system creates entity pages for every executive, subsidiary, and auditor. It creates topic pages for revenue recognition, offshore structures, and regulatory investigations. The journalist clicks `[[john-smith|John Smith]]` and sees every mention across 25 years, with citations to exact pages.
 
 ### Use Case 2: 2000-Page Leaked Document
 

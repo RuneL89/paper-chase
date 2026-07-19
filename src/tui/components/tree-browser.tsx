@@ -116,6 +116,12 @@ export interface TreeBrowserProps {
   onBack: () => void;
   excludeFolders?: string[];
   excludeFiles?: string[];
+  /**
+   * Workspace-level file shown as the top entry of the wiki picker (e.g.
+   * 'index-of-indexes.md'). Selecting it opens the file directly from
+   * wikis/ — the workspace level above the per-wiki contract trees.
+   */
+  workspaceFile?: string;
 }
 
 export function TreeBrowser({
@@ -127,12 +133,18 @@ export function TreeBrowser({
   onBack,
   excludeFolders = [],
   excludeFiles = [],
+  workspaceFile,
 }: TreeBrowserProps) {
   const { isRawModeSupported } = useStdin();
   const wikis = useWikiList(workspace);
   const [mode, setMode] = useState<Mode>(wiki ? 'tree' : 'wiki');
   const [wikiIndex, setWikiIndex] = useState(0);
-  const selectedWiki = wikis.length > 0 ? wikis[Math.min(wikiIndex, wikis.length - 1)] : undefined;
+  const pickerOffset = workspaceFile ? 1 : 0;
+  const pickerCount = wikis.length + pickerOffset;
+  const selectedWiki =
+    wikiIndex >= pickerOffset && wikis.length > 0
+      ? wikis[Math.min(wikiIndex - pickerOffset, wikis.length - 1)]
+      : undefined;
   const [activeWiki, setActiveWiki] = useState<string | undefined>(wiki);
   const [nodes, setNodes] = useState<TreeNode[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -193,11 +205,28 @@ export function TreeBrowser({
     }
   };
 
+  const openWorkspaceFile = async () => {
+    if (!workspaceFile) {
+      return;
+    }
+    try {
+      const content = await readFile(join(workspace, 'wikis', workspaceFile), 'utf-8');
+      setError('');
+      setViewerContent(content);
+      setViewerScroll(0);
+      setMode('viewer');
+    } catch {
+      setError(`No ${workspaceFile} yet — it is written at the end of the first ingest.`);
+    }
+  };
+
   useInput(
     (_input, key) => {
       if (mode === 'viewer') {
         if (key.escape) {
-          setMode('tree');
+          // Return to the wiki picker when the viewer was opened from it
+          // (e.g. the workspace-level file); otherwise back to the tree.
+          setMode(activeWiki ? 'tree' : 'wiki');
           setViewerContent('');
           return;
         }
@@ -215,13 +244,15 @@ export function TreeBrowser({
       }
 
       if (mode === 'wiki') {
-        if (wikis.length === 0) {
+        if (pickerCount === 0) {
           return;
         }
         if (key.upArrow) {
-          setWikiIndex((index) => (index + wikis.length - 1) % wikis.length);
+          setWikiIndex((index) => (index + pickerCount - 1) % pickerCount);
         } else if (key.downArrow) {
-          setWikiIndex((index) => (index + 1) % wikis.length);
+          setWikiIndex((index) => (index + 1) % pickerCount);
+        } else if (key.return && workspaceFile && wikiIndex === 0) {
+          void openWorkspaceFile();
         } else if (key.return && selectedWiki) {
           setActiveWiki(selectedWiki);
           setMode('tree');
@@ -296,21 +327,31 @@ export function TreeBrowser({
       {!isRawModeSupported ? (
         <Box flexDirection="column" marginTop={1}>
           {activeWiki && filteredFiles.map((node) => <Text key={node.path}>{node.path}</Text>)}
+          {!activeWiki && workspaceFile && <Text>{workspaceFile} (workspace)</Text>}
           {!activeWiki && wikis.map((w) => <Text key={w}>{w}</Text>)}
           <Text dimColor>Interactive tree browsing requires a TTY.</Text>
         </Box>
       ) : mode === 'wiki' ? (
         <Box flexDirection="column" marginTop={1}>
-          {wikis.length === 0 ? (
+          {pickerCount === 0 ? (
             <Text dimColor>No wikis found. Create one first (init).</Text>
           ) : (
-            wikis.map((w, index) => (
-              <Text key={w} color={index === wikiIndex ? 'cyan' : undefined}>
-                {index === wikiIndex ? '> ' : '  '}
-                {w}
-              </Text>
-            ))
+            <>
+              {workspaceFile && (
+                <Text color={wikiIndex === 0 ? 'cyan' : undefined}>
+                  {wikiIndex === 0 ? '> ' : '  '}
+                  {workspaceFile} (workspace)
+                </Text>
+              )}
+              {wikis.map((w, index) => (
+                <Text key={w} color={index + pickerOffset === wikiIndex ? 'cyan' : undefined}>
+                  {index + pickerOffset === wikiIndex ? '> ' : '  '}
+                  {w}
+                </Text>
+              ))}
+            </>
           )}
+          {error ? <Text color="red">{error}</Text> : null}
         </Box>
       ) : mode === 'tree' ? (
         <Box flexDirection="column" marginTop={1}>

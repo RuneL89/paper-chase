@@ -29,7 +29,7 @@ A wiki page must satisfy four requirements:
 
 1. **Self-contained.** A reader should understand the page without reading the original PDF or any other page. The page contains enough context to stand alone.
 2. **Cited.** Every factual claim has an inline citation `[^srcN]` that maps to a source entry in the frontmatter.
-3. **Linked.** Pages connect to each other via `[[Page Title]]` wikilinks. No page is an island unless it is an index or source page.
+3. **Linked.** Pages connect to each other via `[[page-name|Page Title]]` wikilinks (Obsidian-native target|display form). No page is an island unless it is an index or source page.
 4. **Preserved.** The raw extracted text, tables, and figure descriptions are preserved on the page (in the "Preserved Detail" section) so the reader can verify the synthesis against the original.
 
 ---
@@ -108,7 +108,7 @@ An entity page must contain more than a list of mentions. It must contain:
 **C. Cross-Reference Context**
 - How does this entity relate to the broader story?
 - What other entities are connected? What topics are relevant?
-- Example: "Smith's role in the offshore restructuring is discussed in detail under [[Offshore Restructuring 2023]]. His relationship with auditor [[PwC]] is documented in the [[Audit Independence]] topic page."
+- Example: "Smith's role in the offshore restructuring is discussed in detail under [[offshore-restructuring-2023|Offshore Restructuring 2023]]. His relationship with auditor [[pwc|PwC]] is documented in the [[audit-independence|Audit Independence]] topic page."
 
 **D. Disambiguation**
 - If the entity name is ambiguous (e.g., two people named "John Smith"), the page must clarify which one this is.
@@ -126,7 +126,7 @@ An entity page must include every piece of information from the corpus that is r
 **B. Every Relationship**
 - Every connection to another entity, with evidence and citation.
 - Relationships must be bidirectional where possible: if Smith is CEO of Acme, the Acme page should link back to Smith.
-- Example: "CEO of [[Acme Corp]] [^src1] | Board member of [[Beta Industries]] [^src2] | Donated $10,000 to [[Senator X]] [^src3]"
+- Example: "CEO of [[acme-corp|Acme Corp]] [^src1] | Board member of [[beta-industries|Beta Industries]] [^src2] | Donated $10,000 to [[senator-x|Senator X]] [^src3]"
 
 **C. Every Claim**
 - Every factual assertion about the entity, organized by type.

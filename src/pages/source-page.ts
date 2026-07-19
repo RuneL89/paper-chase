@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import matter from 'gray-matter';
+import { aliasesForTitle } from '../utils/aliases';
 import { wikiRelativePath } from '../utils/paths';
 
 /**
@@ -36,9 +37,14 @@ export interface SourcePageData {
 
 /** Render the full source page (frontmatter + body) as a string. */
 export function renderSourcePage(data: SourcePageData): string {
+  const title = `Source: ${data.fileName}`;
+  // Obsidian-resolvable title alias (UAT 6.3 fix): the title always differs
+  // from the source slug, so source pages always carry the alias.
+  const aliases = aliasesForTitle(title, data.sourceSlug);
   const frontmatter = {
-    title: `Source: ${data.fileName}`,
+    title,
     type: 'source',
+    ...(aliases ? { aliases } : {}),
     wiki: data.wiki,
     file: data.filePath,
     sha256: data.sha256,

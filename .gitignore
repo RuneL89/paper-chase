@@ -12,6 +12,8 @@ yarn-error.log*
 
 # Runtime wikis (init/ingest output, UAT artifacts); wikis/AGENTS.md and wikis/.gitkeep stay tracked
 wikis/*/
+# Generated workspace-level DOX contract (regenerated at the end of every ingest)
+wikis/index-of-indexes.md
 
 # Phase 2 gate-test fixtures (committed per wikis/AGENTS.md): only the two files tests/phase-02.test.ts reads
 !wikis/test-wiki/

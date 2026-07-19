@@ -176,8 +176,9 @@ After all content pages are finalized, the **DOX Writer** runs:
 4. Verify that the LLM-generated `index.md` uses the exact children list and statistics supplied by deterministic code.
 5. Write the final `index.md` files.
 6. Run a final validation pass over the entire wiki, including the new DOX pages.
+7. Run the workspace pass — the topmost step of the same bottom-up chain (folder indexes → wiki root index → workspace index): read every wiki's freshly-written root `index.md` in `wikis/` (the pass's only content input — never the wikis' content pages) and call the LLM once to regenerate `wikis/index-of-indexes.md`, the workspace-level contract listing all wikis (prose in the output language of the wiki whose ingest triggered the run, §9). Deterministic code supplies and re-imposes its children list and statistics, exactly as for per-folder indexes.
 
-This is an LLM-driven step. It produces the navigation contracts that describe the finalized wiki.
+This is an LLM-driven step. It produces the navigation contracts that describe the finalized wiki and the workspace above it.
 
 #### Step 11: Update State
 
@@ -272,7 +273,7 @@ Here is what happens to a single 100-page PDF of political-donation filings.
 
 6. **DOX Writer.** After all content pages are finalized, the DOX Writer scans the wiki, reads each folder's pages and `AGENTS.md`, and calls the LLM to write rich `index.md` navigation contracts for every folder and the wiki root.
 
-7. **User opens the wiki in Obsidian.** They see a folder structure with politicians, donors, and parties that the LLM created based on the actual content. They click `[[Senator X]]` and see every donation mentioned in the PDF, with citations to exact pages.
+7. **User opens the wiki in Obsidian.** They see a folder structure with politicians, donors, and parties that the LLM created based on the actual content. They click `[[senator-x|Senator X]]` and see every donation mentioned in the PDF, with citations to exact pages.
 
 8. **User adds a second PDF and runs `ingest` again.** The system skips the first PDF (hash unchanged) and processes the second. New entities are added. Existing entity pages are updated with new mentions. The Synthesis Writer (if enabled) and the DOX Writer regenerate their outputs. The AGENTS.md updater (if enabled) proposes updates to `AGENTS.md` based on the newly discovered structure.
 
