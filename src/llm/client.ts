@@ -97,6 +97,23 @@ export interface CallLLMOptions {
    * If provided, a summary record is written after a successful call.
    */
   logPath?: string;
+  /**
+   * Phase 7 v1.1.0 amendment (user-ratified 2026-07-20; vision `04` §6,
+   * `07` §5): max EXTRA attempts on transient transport failures (HTTP
+   * 429/5xx, network errors). Deterministic failures (HTTP 4xx) always throw
+   * immediately. Default 0 — the frozen pre-amendment no-retry behavior —
+   * so every existing caller is unchanged unless it opts in.
+   */
+  maxRetries?: number;
+}
+
+/** True for transient transport failures worth retrying (429/5xx, network). */
+function isTransientStatus(statusCode: number): boolean {
+  return statusCode === 429 || statusCode >= 500;
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolvePromise) => setTimeout(resolvePromise, ms));
 }
 
 interface LlmCallLogEntry {
@@ -124,8 +141,14 @@ async function appendLlmCallLog(logPath: string | undefined, entry: LlmCallLogEn
 /**
  * Call the Anthropic Messages API with a single user prompt (and optional
  * system prompt). Logs `LLM Call | Tokens: {input}/{output} | Cost: ${amount}`
- * for every call. Returns the raw response text. No retry logic: if the API
- * call fails, this throws.
+ * for every call. Returns the raw response text.
+ *
+ * Retry policy (Phase 7 v1.1.0 amendment, vision `04` §6 / `07` §5): with
+ * `options.maxRetries > 0`, transient transport failures (HTTP 429/5xx,
+ * network errors) are retried with linear backoff up to that many EXTRA
+ * attempts; deterministic failures (HTTP 4xx, including auth errors) always
+ * throw immediately. With the default `maxRetries: 0` the behavior is the
+ * frozen pre-amendment one: any failure throws on the first attempt.
  */
 export async function callLLM(prompt: string, system?: string, options: CallLLMOptions = {}): Promise<string> {
   loadEnvFile();
@@ -151,29 +174,62 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
     requestBody.temperature = options.temperature;
   }
 
-  const { statusCode, body } = await request(ANTHROPIC_API_URL, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': ANTHROPIC_VERSION,
-    },
-    body: JSON.stringify(requestBody),
-  });
+  const maxAttempts = 1 + Math.max(0, options.maxRetries ?? 0);
+  let statusCode = 0;
+  let json: (AnthropicResponse & { error?: { message?: string } }) | undefined;
+  let lastTransportError: Error | undefined;
 
-  const json = (await body.json()) as AnthropicResponse & { error?: { message?: string } };
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    statusCode = 0;
+    json = undefined;
+    lastTransportError = undefined;
+    try {
+      const response = await request(ANTHROPIC_API_URL, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'x-api-key': apiKey,
+          'anthropic-version': ANTHROPIC_VERSION,
+        },
+        body: JSON.stringify(requestBody),
+      });
+      statusCode = response.statusCode;
+      json = (await response.body.json()) as AnthropicResponse & { error?: { message?: string } };
+    } catch (err) {
+      // Network/transport failure (DNS, socket, timeout) — transient class.
+      lastTransportError = err as Error;
+    }
+
+    const transient =
+      lastTransportError !== undefined || (statusCode !== 0 && isTransientStatus(statusCode));
+    if (!transient) {
+      break; // Success or deterministic failure — handle below, never retry.
+    }
+    if (attempt < maxAttempts) {
+      const reason =
+        lastTransportError?.message ?? `HTTP ${statusCode}`;
+      console.warn(
+        `LLM Call | Transient failure (${reason}), retrying (attempt ${attempt + 1}/${maxAttempts})...`,
+      );
+      await sleep(1000 * attempt);
+    }
+  }
+
+  if (lastTransportError !== undefined) {
+    throw new Error(`Anthropic API transport error after ${maxAttempts} attempt(s): ${lastTransportError.message}`);
+  }
 
   if (statusCode < 200 || statusCode >= 300) {
     throw new Error(`Anthropic API error (HTTP ${statusCode}): ${JSON.stringify(json)}`);
   }
 
-  const text = (json.content ?? [])
+  const text = (json?.content ?? [])
     .filter((block) => block.type === 'text' && typeof block.text === 'string')
     .map((block) => block.text as string)
     .join('');
 
-  const inputTokens = json.usage?.input_tokens ?? 0;
-  const outputTokens = json.usage?.output_tokens ?? 0;
+  const inputTokens = json?.usage?.input_tokens ?? 0;
+  const outputTokens = json?.usage?.output_tokens ?? 0;
   const prices = PRICE_PER_MTOK[model] ?? PRICE_PER_MTOK.default;
   const inputPrice = Number(process.env.ANTHROPIC_INPUT_PRICE_PER_MTOK ?? prices.input);
   const outputPrice = Number(process.env.ANTHROPIC_OUTPUT_PRICE_PER_MTOK ?? prices.output);

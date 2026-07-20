@@ -235,7 +235,7 @@ Validation runs at multiple points in the pipeline:
 4. **Content-page validation** — After materialization (and optional synthesis), do all `[[Page Title]]` links resolve, all `[^srcN]` citations map to sources, and all pages have valid frontmatter?
 5. **DOX-page validation** — After the DOX Writer writes the `index.md` contracts, do the new DOX pages have valid frontmatter, accurate children lists, and no broken links?
 
-If any check fails, the error is logged. The system does not retry. The user fixes the prompt or the PDF and re-runs `ingest`.
+If any check fails, the error is logged. **Retry policy (amended 2026-07-20, user-ratified):** the system distinguishes deterministic failures from transient and quality failures. Deterministic failures — invalid Extractor JSON, schema-validation errors, HTTP 4xx — are never retried: retrying them would mask prompt problems and burn tokens; the user fixes the prompt, the PDF, or the `AGENTS.md` and re-runs `ingest`. Transient transport failures (HTTP 429/5xx, network errors, timeouts) are retried with backoff, up to 3 total attempts per call, each attempt logged. Quality failures — a synthesis page that fails the preservation check, or a DOX Writer response that is unparseable or missing required sections — are also retried up to 3 total attempts before the deterministic fallback (structured template / deterministic index body) is used, because these failures are partly LLM variance, not necessarily prompt defects. Every fallback is still logged as before.
 
 ---
 

@@ -503,8 +503,11 @@ test('synthesis report is written after strict and permissive attempts', async (
   expect(report.entries).toHaveLength(2);
   const entityEntry = report.entries.find((e: { slug: string }) => e.slug === 'john-smith');
   expect(entityEntry).toBeDefined();
-  expect(entityEntry.strict).toEqual({ attempted: true, passed: false });
-  expect(entityEntry.permissive).toEqual({ attempted: true, passed: true });
+  // Phase 7 v1.1.0 (bounded retry amendment): the strict stub fails
+  // preservation, so it is retried to the 3-attempt cap before permissive is
+  // tried; the report records the attempt counts.
+  expect(entityEntry.strict).toEqual({ attempted: true, passed: false, attempts: 3 });
+  expect(entityEntry.permissive).toEqual({ attempted: true, passed: true, attempts: 1 });
   expect(entityEntry.finalMode).toBe('permissive-synthesis');
 });
 
@@ -541,8 +544,11 @@ test('synthesis report records structured-template fallback when both modes fail
   expect(report.entries).toHaveLength(2);
   const entityEntry = report.entries.find((e: { slug: string }) => e.slug === 'john-smith');
   expect(entityEntry).toBeDefined();
-  expect(entityEntry.strict).toEqual({ attempted: true, passed: false });
-  expect(entityEntry.permissive).toEqual({ attempted: true, passed: false });
+  // Phase 7 v1.1.0 (bounded retry amendment): both stubs fail
+  // preservation, so each is retried to the 3-attempt cap before the
+  // structured-template fallback.
+  expect(entityEntry.strict).toEqual({ attempted: true, passed: false, attempts: 3 });
+  expect(entityEntry.permissive).toEqual({ attempted: true, passed: false, attempts: 3 });
   expect(entityEntry.finalMode).toBe('structured-template');
 });
 

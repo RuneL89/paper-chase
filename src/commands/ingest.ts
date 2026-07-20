@@ -181,6 +181,46 @@ export interface IngestResult {
 
 const DEFAULT_PAGES_PER_CHUNK = 5;
 
+/**
+ * Phase 7 v1.1.0 (bounded retry amendment, vision `04` §6 / `07` §5): each
+ * synthesis mode gets up to 3 total attempts on preservation failure — a
+ * quality failure, partly LLM variance — before the chain moves to the next
+ * mode. Language-agnostic: applies to every ingest in every wiki.
+ * Deterministic LLM errors (HTTP 4xx) still abort immediately.
+ */
+const SYNTHESIS_MAX_ATTEMPTS = 3;
+
+interface SynthesisModeResult<C> {
+  /** The synthesized page when a preservation check passed, else null. */
+  page: string | null;
+  attempts: number;
+  lastCheck: C;
+}
+
+async function trySynthesisMode<C extends { passed: boolean }>(
+  runSynthesis: () => Promise<string>,
+  runCheck: (page: string) => C,
+  label: string,
+): Promise<SynthesisModeResult<C>> {
+  let attempts = 0;
+  let lastCheck: C | null = null;
+  while (attempts < SYNTHESIS_MAX_ATTEMPTS) {
+    attempts++;
+    const page = await runSynthesis();
+    const check = runCheck(page);
+    lastCheck = check;
+    if (check.passed) {
+      return { page, attempts, lastCheck };
+    }
+    if (attempts < SYNTHESIS_MAX_ATTEMPTS) {
+      console.warn(
+        `Preservation failed for ${label} (attempt ${attempts}/${SYNTHESIS_MAX_ATTEMPTS}); retrying.`,
+      );
+    }
+  }
+  return { page: null, attempts, lastCheck: lastCheck as C };
+}
+
 function loadAgentsMd(wikiDir: string): string {
   const path = join(wikiDir, 'AGENTS.md');
   try {
@@ -441,18 +481,23 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     }
 
     for (const entityPage of lastMaterializeResult.entityPages) {
-      // First attempt: strict synthesis (readable prose that preserves exact
-      // mention/relationship/claim strings).
-      const synthesized = await runEntitySynthesis(entityPage, agentsMd, llmLogPath, language);
-      const check = checkPreservation(entityPage, synthesized);
-      if (check.passed) {
+      // Strict synthesis first (readable prose that preserves exact
+      // mention/relationship/claim strings), retried up to
+      // SYNTHESIS_MAX_ATTEMPTS times on preservation failure (Phase 7
+      // v1.1.0 bounded retry amendment — applies to every language).
+      const strict = await trySynthesisMode(
+        () => runEntitySynthesis(entityPage, agentsMd, llmLogPath, language),
+        (page) => checkPreservation(entityPage, page),
+        entityPage.slug,
+      );
+      if (strict.page !== null) {
         const folderPath = join(dir, entityPage.folder);
         // UAT 6.3 fix: re-impose the aliases frontmatter field over the
         // model-written page (deterministic; the LLM's frontmatter is not
         // trusted for the alias rule).
         await writeFile(
           join(folderPath, `${entityPage.slug}.md`),
-          enforceAliasesInMarkdown(synthesized, entityPage.title, entityPage.slug),
+          enforceAliasesInMarkdown(strict.page, entityPage.title, entityPage.slug),
           'utf-8',
         );
         result.synthesized = (result.synthesized ?? 0) + 1;
@@ -460,24 +505,28 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           timestamp: new Date().toISOString(),
           pageType: 'entity',
           slug: entityPage.slug,
-          strict: { attempted: true, passed: true },
+          strict: { attempted: true, passed: true, attempts: strict.attempts },
           permissive: { attempted: false, passed: false },
           finalMode: 'strict-synthesis',
         });
         continue;
       }
 
-      // Fallback: permissive synthesis (prose summary + verbatim structured data).
+      // Fallback: permissive synthesis (prose summary + verbatim structured
+      // data), also retried up to SYNTHESIS_MAX_ATTEMPTS times.
       console.warn(
-        `Strict synthesis failed preservation for ${entityPage.slug}. Trying permissive fallback.`,
+        `Strict synthesis failed preservation for ${entityPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`,
       );
-      const permissive = await runEntityPermissiveSynthesis(entityPage, agentsMd, llmLogPath, language);
-      const permissiveCheck = checkPreservation(entityPage, permissive);
-      if (permissiveCheck.passed) {
+      const permissive = await trySynthesisMode(
+        () => runEntityPermissiveSynthesis(entityPage, agentsMd, llmLogPath, language),
+        (page) => checkPreservation(entityPage, page),
+        entityPage.slug,
+      );
+      if (permissive.page !== null) {
         const folderPath = join(dir, entityPage.folder);
         await writeFile(
           join(folderPath, `${entityPage.slug}.md`),
-          enforceAliasesInMarkdown(permissive, entityPage.title, entityPage.slug),
+          enforceAliasesInMarkdown(permissive.page, entityPage.title, entityPage.slug),
           'utf-8',
         );
         result.synthesizedPermissive = (result.synthesizedPermissive ?? 0) + 1;
@@ -485,22 +534,22 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           timestamp: new Date().toISOString(),
           pageType: 'entity',
           slug: entityPage.slug,
-          strict: { attempted: true, passed: false },
-          permissive: { attempted: true, passed: true },
+          strict: { attempted: true, passed: false, attempts: strict.attempts },
+          permissive: { attempted: true, passed: true, attempts: permissive.attempts },
           finalMode: 'permissive-synthesis',
         });
       } else {
         console.warn(
-          `Permissive synthesis also failed preservation for ${entityPage.slug}. Keeping structured template.`,
+          `Permissive synthesis also failed preservation for ${entityPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
         );
-        await logConflict(dir, entityPage.slug, permissiveCheck, 'entity');
+        await logConflict(dir, entityPage.slug, permissive.lastCheck, 'entity');
         result.synthesisConflicts = (result.synthesisConflicts ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
           pageType: 'entity',
           slug: entityPage.slug,
-          strict: { attempted: true, passed: false },
-          permissive: { attempted: true, passed: false },
+          strict: { attempted: true, passed: false, attempts: strict.attempts },
+          permissive: { attempted: true, passed: false, attempts: permissive.attempts },
           finalMode: 'structured-template',
         });
       }
@@ -513,13 +562,16 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     }
 
     for (const topicPage of lastMaterializeResult.topicPages) {
-      const synthesized = await runTopicSynthesis(topicPage, agentsMd, llmLogPath, language);
-      const check = checkTopicPreservation(topicPage, synthesized);
-      if (check.passed) {
+      const strict = await trySynthesisMode(
+        () => runTopicSynthesis(topicPage, agentsMd, llmLogPath, language),
+        (page) => checkTopicPreservation(topicPage, page),
+        `topic ${topicPage.slug}`,
+      );
+      if (strict.page !== null) {
         const folderPath = join(dir, topicPage.folder);
         await writeFile(
           join(folderPath, `${topicPage.slug}.md`),
-          enforceAliasesInMarkdown(synthesized, topicPage.title, topicPage.slug),
+          enforceAliasesInMarkdown(strict.page, topicPage.title, topicPage.slug),
           'utf-8',
         );
         result.synthesizedTopics = (result.synthesizedTopics ?? 0) + 1;
@@ -527,7 +579,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           timestamp: new Date().toISOString(),
           pageType: 'topic',
           slug: topicPage.slug,
-          strict: { attempted: true, passed: true },
+          strict: { attempted: true, passed: true, attempts: strict.attempts },
           permissive: { attempted: false, passed: false },
           finalMode: 'strict-synthesis',
         });
@@ -535,15 +587,18 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       }
 
       console.warn(
-        `Strict synthesis failed preservation for topic ${topicPage.slug}. Trying permissive fallback.`,
+        `Strict synthesis failed preservation for topic ${topicPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`,
       );
-      const permissive = await runTopicPermissiveSynthesis(topicPage, agentsMd, llmLogPath, language);
-      const permissiveCheck = checkTopicPreservation(topicPage, permissive);
-      if (permissiveCheck.passed) {
+      const permissive = await trySynthesisMode(
+        () => runTopicPermissiveSynthesis(topicPage, agentsMd, llmLogPath, language),
+        (page) => checkTopicPreservation(topicPage, page),
+        `topic ${topicPage.slug}`,
+      );
+      if (permissive.page !== null) {
         const folderPath = join(dir, topicPage.folder);
         await writeFile(
           join(folderPath, `${topicPage.slug}.md`),
-          enforceAliasesInMarkdown(permissive, topicPage.title, topicPage.slug),
+          enforceAliasesInMarkdown(permissive.page, topicPage.title, topicPage.slug),
           'utf-8',
         );
         result.synthesizedTopicsPermissive = (result.synthesizedTopicsPermissive ?? 0) + 1;
@@ -551,22 +606,22 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           timestamp: new Date().toISOString(),
           pageType: 'topic',
           slug: topicPage.slug,
-          strict: { attempted: true, passed: false },
-          permissive: { attempted: true, passed: true },
+          strict: { attempted: true, passed: false, attempts: strict.attempts },
+          permissive: { attempted: true, passed: true, attempts: permissive.attempts },
           finalMode: 'permissive-synthesis',
         });
       } else {
         console.warn(
-          `Permissive synthesis also failed preservation for topic ${topicPage.slug}. Keeping structured template.`,
+          `Permissive synthesis also failed preservation for topic ${topicPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
         );
-        await logConflict(dir, topicPage.slug, permissiveCheck, 'topic');
+        await logConflict(dir, topicPage.slug, permissive.lastCheck, 'topic');
         result.topicConflicts = (result.topicConflicts ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
           pageType: 'topic',
           slug: topicPage.slug,
-          strict: { attempted: true, passed: false },
-          permissive: { attempted: true, passed: false },
+          strict: { attempted: true, passed: false, attempts: strict.attempts },
+          permissive: { attempted: true, passed: false, attempts: permissive.attempts },
           finalMode: 'structured-template',
         });
       }

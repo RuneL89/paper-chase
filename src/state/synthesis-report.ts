@@ -6,6 +6,12 @@ export interface SynthesisAttemptReport {
   attempted: boolean;
   /** Whether the preservation check passed for this attempt. */
   passed: boolean;
+  /**
+   * Phase 7 v1.1.0 (bounded retry amendment): number of LLM calls made in
+   * this mode (≤3 on quality failures). Absent for entries written before
+   * the amendment.
+   */
+  attempts?: number;
 }
 
 export interface SynthesisReportEntry {

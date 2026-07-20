@@ -84,9 +84,12 @@ export class ExtractorError extends Error {
 // Richer JSON needs more headroom than the frozen 1024-token default, and
 // deterministic output (temperature 0) makes slugs/folders stable across runs
 // (noted adaptation 5; additive CallLLMOptions, defaults unchanged for all
-// other callers).
+// other callers). maxRetries (Phase 7 v1.1.0 amendment): transient transport
+// failures get up to 3 total attempts; invalid JSON/schema failures are
+// post-call and still never retried (vision `04` §6).
 const EXTRACTION_MAX_TOKENS = 16384;
 const EXTRACTION_TEMPERATURE = 0;
+const EXTRACTION_MAX_RETRIES = 2;
 
 let promptTemplateCache: string | null = null;
 
@@ -318,6 +321,7 @@ export async function extractChunk(
   const rawResponse = await callLLM(prompt, undefined, {
     maxTokens: EXTRACTION_MAX_TOKENS,
     temperature: EXTRACTION_TEMPERATURE,
+    maxRetries: EXTRACTION_MAX_RETRIES,
     callType: 'extractor',
     context: options?.context,
     logPath: options?.logPath,

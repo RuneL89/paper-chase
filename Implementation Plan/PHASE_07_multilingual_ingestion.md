@@ -1,9 +1,9 @@
 # Phase 7: Multilingual Ingestion (Input and Output Languages)
 
 **Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-007`
-**Version:** 1.0.0
+**Version:** 1.1.0
 **Status:** Draft
-**Date:** 2026-07-19
+**Date:** 2026-07-19 (v1.1.0 amendment 2026-07-20: bounded retry, §10)
 **Dependencies:** Phase 0, Phase 1, Phase 2, Phase 3, Phase 4, Phase 5, Phase 6
 **Estimated Time:** 4-6 hours
 **LLM Token Budget:** $3.00 (hard cap; the Danish fixture is 2 pages — one chunk, a handful of live calls)
@@ -426,6 +426,7 @@ Before moving to Phase 8, verify:
 - [ ] The slug-forking warning fires on input-language change (Gate 7.8).
 - [ ] **TUI init screen has the Output Language selector; ingest screen has both selectors with the confirm-gated warning.**
 - [ ] `test-pdfs/golden-master-da.pdf` created once, SHA-256 recorded, never regenerated.
+- [ ] **(v1.1.0)** Bounded retry: transient transport failures retried ≤3 attempts everywhere; synthesis and DOX quality failures retried ≤3 before fallback; deterministic failures (invalid JSON, schema, 4xx) never retried (gates 7.10–7.12).
 - [ ] Total LLM cost for this phase is under $3.00 and logged in `.state/phase-7-status.json`.
 - [ ] No code exists for multi-PDF compounding (Phase 8) or the AGENTS.md updater (Phase 9).
 
@@ -462,7 +463,61 @@ Pipeline-level gates use the existing injections (`extractChunkFn`, `synthesize*
 
 ---
 
-## 9. LLM Cost and Model Guidance
+## 9. v1.1.0 Amendment: Bounded Retry (user-ratified 2026-07-20)
+
+Ratified via the contradiction protocol (compliance-log [2026-07-20 23:05]). Amends vision `04` §6 and `07` §5, which previously stated "the system does not retry". The amendment distinguishes failure classes:
+
+- **Deterministic failures — never retried:** invalid Extractor JSON, schema-validation errors, HTTP 4xx. These fail immediately (the Phase 2 no-retry rule is unchanged for this class).
+- **Transient transport failures — bounded retry:** HTTP 429/5xx, network errors, timeouts. Retried with backoff, up to 3 total attempts per call, each attempt logged.
+- **Quality failures — bounded retry before fallback:** a synthesis page failing the preservation check, or a DOX Writer response that is unparseable or missing required sections. Up to 3 total attempts per page/folder before the deterministic fallback (structured template / deterministic index body). Rationale: these failures are partly LLM variance (UAT 7.2: identical extraction data produced 0 and 3 fallbacks in two runs).
+
+### What to Build
+
+- **`src/llm/client.ts`** — additive `CallLLMOptions.maxRetries?: number` (default `0`, preserving the frozen no-retry behavior for every existing caller). Only transient failures (429/5xx, undici network errors) are retried, with backoff; 4xx and successful responses never retry. Pipeline callers (extractor, synthesis ×4, DOX writer ×2) pass `maxRetries: 2` (3 total attempts).
+- **`src/commands/ingest.ts`** — the synthesis chain retries each mode up to 3 total attempts on preservation failure before moving to the next mode: strict (≤3) → permissive (≤3) → structured template. Attempt counts are recorded in `synthesis-report.json` alongside the existing mode fields.
+- **`src/dox-writer.ts`** — the per-folder LLM path and the workspace pass retry up to 3 total attempts on exception or unparseable/missing-section output before writing the deterministic contract.
+
+### Gate 7.10: `callLLM` Retries Only Transient Failures
+
+```typescript
+test('callLLM retries 5xx with backoff, never 4xx, default is no retry', async () => {
+  // Mock undici's request: 529, 529, then 200 → resolves on the 3rd attempt.
+  // A 400 throws after exactly 1 attempt. Default options (maxRetries omitted)
+  // make exactly 1 attempt on 529.
+});
+```
+
+**Pass Criteria:** Transient → retried to success; deterministic → immediate throw; default behavior unchanged.
+
+### Gate 7.11: Synthesis Chain Retries Quality Failures
+
+```typescript
+test('strict synthesis retries up to 3 before permissive, permissive up to 3 before template', async () => {
+  // ingest with stubs: strict stub fails preservation twice then passes →
+  // page written as strict-synthesis with 3 attempts recorded.
+  // Second wiki: strict fails 3×, permissive fails 3× → structured-template
+  // fallback, conflict logged, 6 total attempts recorded.
+});
+```
+
+**Pass Criteria:** Retry counts and fallback chain match; `synthesis-report.json` records attempts.
+
+### Gate 7.12: DOX Writer Retries Before Deterministic Fallback
+
+```typescript
+test('DOX writer retries unparseable output up to 3 attempts before fallback', async () => {
+  // writeDoxIndexFn stub returns garbage twice then a valid contract →
+  // the LLM body is used, 3 attempts made.
+  // Second folder/wiki: stub always throws → deterministic contract after
+  // exactly 3 attempts.
+});
+```
+
+**Pass Criteria:** Attempt counts and fallback behavior match; deterministic enforcement (children/statistics) unaffected.
+
+---
+
+## 10. LLM Cost and Model Guidance (was §9)
 
 - Use the project's default Anthropic model (configurable via `ANTHROPIC_MODEL`).
 - The only live LLM usage in this phase is the Danish UAT smoke test: one 2-page fixture = one chunk, plus a few synthesis/DOX calls. Budget $3.00 hard cap; pause at $2.40 (80%) and report.

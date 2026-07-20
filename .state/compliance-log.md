@@ -817,3 +817,23 @@
   Also logged (not Phase 7 scope; recorded in phase-7-status.json for Phase 11): extractor embeds [^srcN] in claim text (7/7 claims, both UAT runs) making synthesis preservation brittle (3 structured-template fallbacks in dansk-wiki vs 0 in danish-test on identical data — LLM variance); synthesis output lacks frontmatter re-imposition and wikilink repair (10 broken links); LLM named one folder 'danish-cities' in a Danish wiki (prompt adherence).
   Result: COMPLIANT — fix restores vision 05 §2.1 conformance; pending user re-test of UAT 7.2 on a fresh wiki.
   Checked By: Main agent (phase orchestrator)
+
+[2026-07-20 23:05] CONTRADICTION REPORT: Retry Mechanism vs "Fail Loud, Don't Retry"
+  Trigger: User request (2026-07-20): "set up a retry mechanism, both for API errors or if the permissive synthesiser fails — try again up to 3 times before fallback"
+  Canon Contradicted:
+    - `Project Vision/04_orchestration_detailed.md` §6: "If any check fails, the error is logged. The system does not retry. The user fixes the prompt or the PDF and re-runs ingest."
+    - `Project Vision/07_validation_and_quality.md` §5: "The system does **not** automatically retry LLM calls. Retries mask prompt problems and burn tokens."
+    - `Implementation Plan/PHASE_02_extractor.md` §error handling + UAT: "No retry. The user fixes the prompt or the chunk and re-runs."
+  Context: UAT 7.2 showed transient API failures (HTTP 529 overload) degrading a wiki to the deterministic fallback, and identical extraction data producing 0 vs 3 synthesis fallbacks across runs (LLM variance). The canon's rationale targets DETERMINISTIC failures (bad prompts, invalid JSON) — it predates the observed transient/variance failure class.
+  Proposed Distinction (presented to user): transient transport failures (429/5xx/network/timeout) and quality failures (preservation, unparseable DOX output) get bounded automatic retry (max 3 attempts, logged); deterministic failures (invalid JSON, schema errors, 4xx) keep fail-loud, no retry.
+  Status: HALTED pending user decision (Accept → amend vision + implement; Reject → keep canon, no retry code).
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-20 23:10] Phase 7 v1.1.0 Amendment Shipped: Bounded Retry (user-ratified)
+  Changed: `Project Vision/04_orchestration_detailed.md` (§6 retry policy: deterministic never retried; transient 429/5xx/network ≤3 attempts with backoff; quality failures ≤3 before fallback), `Project Vision/07_validation_and_quality.md` (§5 fail-loud philosophy amended with the same distinction), `Implementation Plan/PHASE_07_multilingual_ingestion.md` (v1.1.0, §9 amendment + gates 7.10–7.12 + checklist), `src/llm/client.ts` (additive CallLLMOptions.maxRetries, default 0 = frozen), `src/agents/extractor.ts` (maxRetries: 2), `src/agents/synthesis.ts` (maxRetries: 2 ×4), `src/dox-writer.ts` (maxRetries: 2 ×2 + runDoxLlmWithRetries shared helper for folder/root/workspace), `src/commands/ingest.ts` (trySynthesisMode: strict ≤3 → permissive ≤3 → structured template, language-agnostic), `src/state/synthesis-report.ts` (additive attempts field), `tests/phase-07.test.ts` (gates 7.10–7.12), `tests/phase-05.test.ts` (2 report-shape assertions updated for the additive attempts field — amendment-sanctioned, deviations recorded)
+  Vision Docs Checked: `04` §6, `07` §5 (both amended per user decision), `PHASE_02_extractor.md` error handling (no-retry rule confirmed scoped to deterministic failures — invalid JSON/schema still throw immediately post-call)
+  User Decision (2026-07-20): "Accept: full amendment" — retry for all languages, not just the Danish wiki; implemented language-agnostic at the pipeline level (no language condition anywhere in the retry code).
+  Design Invariants: deterministic failures (invalid JSON, schema, HTTP 4xx) NEVER retried; transient transport retried ≤3 total attempts with linear backoff (logged per retry); quality failures (preservation, unparseable DOX output) retried ≤3 per page/folder before the deterministic fallback; every caller opts in explicitly (extractor/synthesis/DOX pass maxRetries: 2) — all other callLLM callers keep frozen no-retry behavior.
+  Tests: gates 7.10–7.12 (14 phase-07 tests total) green; full suite 212 passed + 1 skipped with repo key; tsc clean.
+  Result: COMPLIANT — contradiction resolved by user-ratified vision amendment (accept path).
+  Checked By: Main agent (phase orchestrator)

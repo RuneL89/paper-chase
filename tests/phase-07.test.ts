@@ -12,13 +12,16 @@ import { join } from 'node:path';
 import { afterAll, afterEach, expect, test, vi } from 'vitest';
 import matter from 'gray-matter';
 import * as llmClient from '../src/llm/client';
+import { callLLM } from '../src/llm/client';
+import { request as undiciRequest } from 'undici';
 import { init } from '../src/commands/init';
 import { ingest } from '../src/commands/ingest';
 import { extractChunk, normalizeExtractorSlugs } from '../src/agents/extractor';
 import type { ExtractorResult } from '../src/agents/extractor';
 import { writeEntitySynthesis, writeTopicSynthesis } from '../src/agents/synthesis';
-import { writeDoxContracts } from '../src/dox-writer';
+import { writeDoxContracts, writeWorkspaceIndex } from '../src/dox-writer';
 import { readWikiLanguage } from '../src/state/language';
+import { readSynthesisReport } from '../src/state/synthesis-report';
 import { slugify } from '../src/utils/slug';
 import {
   applyLanguageDirective,
@@ -29,6 +32,11 @@ import {
 import type { EntityPageData } from '../src/pages/entity-page';
 import type { TopicPageData } from '../src/pages/topic-page';
 import type { ChunkExtraction } from '../src/commands/extract-chunk';
+
+// Gate 7.10 mocks the HTTP layer: undici's native exports cannot be spied on
+// ("Cannot redefine property"), so the module is mocked (hoisted by vitest).
+vi.mock('undici', () => ({ request: vi.fn() }));
+const mockUndiciRequest = vi.mocked(undiciRequest);
 
 const GOLDEN_MASTER_DA_PDF = 'test-pdfs/golden-master-da.pdf';
 const tempDirs: string[] = [];
@@ -568,4 +576,270 @@ test('gate 7.8: ingest warns when input language differs from the last run', asy
   });
   expect(spyFirst).not.toHaveBeenCalledWith(expect.stringContaining('differs from the last run'));
   spyFirst.mockRestore();
+});
+
+// ---------------------------------------------------------------------------
+// v1.1.0 AMENDMENT: Bounded Retry (user-ratified 2026-07-20; vision 04 §6 /
+// 07 §5). Language-agnostic — applies to every ingest in every wiki.
+// ---------------------------------------------------------------------------
+
+// Gate 7.10: callLLM Retries Only Transient Failures
+// ---------------------------------------------------------------------------
+test('gate 7.10: callLLM retries 429/5xx with backoff, never 4xx, default is no retry', async () => {
+  process.env.ANTHROPIC_API_KEY = 'gate-7-10-key';
+  const successBody = () => ({
+    statusCode: 200,
+    body: { json: async () => ({ content: [{ type: 'text', text: 'ok' }], usage: { input_tokens: 1, output_tokens: 1 } }) },
+  });
+  const errorBody = (statusCode: number) => ({
+    statusCode,
+    body: { json: async () => ({ error: { message: `status ${statusCode}` } }) },
+  });
+  try {
+    // Transient 529 x2 then success → resolves on the 3rd attempt.
+    mockUndiciRequest.mockReset();
+    mockUndiciRequest
+      .mockResolvedValueOnce(errorBody(529) as never)
+      .mockResolvedValueOnce(errorBody(529) as never)
+      .mockResolvedValueOnce(successBody() as never);
+    await expect(callLLM('p', undefined, { maxRetries: 2 })).resolves.toBe('ok');
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(3);
+
+    // 429 is transient too: succeeds on the 2nd attempt.
+    mockUndiciRequest.mockReset();
+    mockUndiciRequest
+      .mockResolvedValueOnce(errorBody(429) as never)
+      .mockResolvedValueOnce(successBody() as never);
+    await expect(callLLM('p', undefined, { maxRetries: 2 })).resolves.toBe('ok');
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(2);
+
+    // Deterministic 400 → immediate throw, exactly 1 attempt.
+    mockUndiciRequest.mockReset();
+    mockUndiciRequest
+      .mockResolvedValueOnce(errorBody(400) as never)
+      .mockResolvedValueOnce(successBody() as never);
+    await expect(callLLM('p', undefined, { maxRetries: 2 })).rejects.toThrow('HTTP 400');
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(1);
+
+    // Default (maxRetries omitted) → frozen no-retry behavior: 1 attempt.
+    mockUndiciRequest.mockReset();
+    mockUndiciRequest
+      .mockResolvedValueOnce(errorBody(529) as never)
+      .mockResolvedValueOnce(successBody() as never);
+    await expect(callLLM('p')).rejects.toThrow('HTTP 529');
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(1);
+
+    // Network error (undici throws) → retried, then succeeds.
+    mockUndiciRequest.mockReset();
+    mockUndiciRequest
+      .mockRejectedValueOnce(new Error('socket hang up') as never)
+      .mockResolvedValueOnce(successBody() as never);
+    await expect(callLLM('p', undefined, { maxRetries: 2 })).resolves.toBe('ok');
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(2);
+
+    mockUndiciRequest.mockReset();
+  } finally {
+    delete process.env.ANTHROPIC_API_KEY;
+  }
+}, 30000);
+
+// Gate 7.11: Synthesis Chain Retries Quality Failures
+// ---------------------------------------------------------------------------
+function singleEntityExtraction(): ExtractorResult {
+  return {
+    entities: [
+      {
+        name: 'John Smith',
+        type: 'person',
+        slug: 'john-smith',
+        folder: 'entities/people',
+        significance: 'CEO of Acme Corp',
+        mentions: [{ page: 1, context: 'John Smith, CEO of Acme Corp' }],
+      },
+    ],
+    relationships: [],
+    claims: [
+      { text: 'Revenue was $42.5M in Q3 2024', type: 'financial', entities: ['john-smith'], page: 2 },
+    ],
+    timeline: [],
+    context: 'Annual results.',
+  };
+}
+
+function completePage(wiki: string): string {
+  return [
+    '---',
+    'title: "John Smith"',
+    'type: entity',
+    `wiki: ${wiki}`,
+    `updated: ${new Date().toISOString()}`,
+    '---',
+    '',
+    'Synthesis prose. [^src1]',
+    '',
+    '## Mentions',
+    '',
+    '- Page 1: "John Smith, CEO of Acme Corp" [^src1]',
+    '',
+    '## Claims',
+    '',
+    '- Revenue was $42.5M in Q3 2024 [^src1]',
+    '',
+    '## Sources',
+    '',
+    '[^src1]: golden-master.pdf, pages 1-3',
+    '',
+  ].join('\n');
+}
+
+const INCOMPLETE_PAGE = [
+  '---',
+  'title: "John Smith"',
+  'type: entity',
+  'wiki: w',
+  `updated: ${new Date().toISOString()}`,
+  '---',
+  '',
+  'Prose that drops the claim entirely. [^src1]',
+  '',
+  '## Mentions',
+  '',
+  '- Page 1: "John Smith, CEO of Acme Corp" [^src1]',
+  '',
+  '## Sources',
+  '',
+  '[^src1]: golden-master.pdf, pages 1-3',
+  '',
+].join('\n');
+
+test('gate 7.11: strict retries up to 3 before permissive, permissive up to 3 before template', async () => {
+  // Wiki A: strict fails preservation twice, passes on the 3rd attempt.
+  const wsA = makeTempDir('p7-retry-a-');
+  await init('wiki-a', { workspace: wsA });
+  copyFileSync('test-pdfs/golden-master.pdf', join(wsA, 'wikis', 'wiki-a', 'raw', 'golden-master.pdf'));
+  let strictCallsA = 0;
+  await ingest('wiki-a', {
+    workspace: wsA,
+    synthesis: true,
+    extractChunkFn: stubExtractChunkFn(singleEntityExtraction()),
+    synthesizeEntityFn: async () => {
+      strictCallsA++;
+      return strictCallsA < 3 ? INCOMPLETE_PAGE : completePage('wiki-a');
+    },
+    synthesizeEntityPermissiveFn: async () => {
+      throw new Error('permissive must not be reached when strict succeeds on retry');
+    },
+    synthesizeTopicFn: async () => completePage('wiki-a'),
+  });
+  expect(strictCallsA).toBe(3);
+  const reportA = await readSynthesisReport(join(wsA, 'wikis', 'wiki-a'));
+  const entityEntryA = reportA.entries.find((entry) => entry.pageType === 'entity');
+  expect(entityEntryA?.finalMode).toBe('strict-synthesis');
+  expect(entityEntryA?.strict.attempts).toBe(3);
+  expect(entityEntryA?.permissive.attempted).toBe(false);
+
+  // Wiki B: strict fails 3x, permissive fails 3x → structured template.
+  const wsB = makeTempDir('p7-retry-b-');
+  await init('wiki-b', { workspace: wsB });
+  copyFileSync('test-pdfs/golden-master.pdf', join(wsB, 'wikis', 'wiki-b', 'raw', 'golden-master.pdf'));
+  let strictCallsB = 0;
+  let permissiveCallsB = 0;
+  const resultB = await ingest('wiki-b', {
+    workspace: wsB,
+    synthesis: true,
+    extractChunkFn: stubExtractChunkFn(singleEntityExtraction()),
+    synthesizeEntityFn: async () => {
+      strictCallsB++;
+      return INCOMPLETE_PAGE;
+    },
+    synthesizeEntityPermissiveFn: async () => {
+      permissiveCallsB++;
+      return INCOMPLETE_PAGE;
+    },
+    synthesizeTopicFn: async () => completePage('wiki-b'),
+  });
+  expect(strictCallsB).toBe(3);
+  expect(permissiveCallsB).toBe(3);
+  expect(resultB.synthesisConflicts).toBe(1);
+  const reportB = await readSynthesisReport(join(wsB, 'wikis', 'wiki-b'));
+  const entityEntryB = reportB.entries.find((entry) => entry.pageType === 'entity');
+  expect(entityEntryB?.finalMode).toBe('structured-template');
+  expect(entityEntryB?.strict.attempts).toBe(3);
+  expect(entityEntryB?.permissive.attempts).toBe(3);
+});
+
+// Gate 7.12: DOX Writer Retries Before Deterministic Fallback
+// ---------------------------------------------------------------------------
+async function setupDoxWiki(prefix: string): Promise<{ workspace: string; wikiDir: string }> {
+  const workspace = makeTempDir(prefix);
+  await init('dox-wiki', { workspace });
+  const wikiDir = join(workspace, 'wikis', 'dox-wiki');
+  const peopleDir = join(wikiDir, 'entities', 'people');
+  mkdirSync(peopleDir, { recursive: true });
+  writeFileSync(
+    join(peopleDir, 'john-smith.md'),
+    matter.stringify('\nPage body.\n', { title: 'John Smith', type: 'entity', updated: new Date().toISOString() }),
+    'utf-8',
+  );
+  return { workspace, wikiDir };
+}
+
+// One body that satisfies hasRequiredSections for every level (folder:
+// Pages+Navigation; root: Start Here; all: title + Statistics).
+const VALID_DOX_BODY =
+  '# People\n\nRich description of the people folder.\n\n## Pages\n\n- [[john-smith|John Smith]] — a person\n\n## Navigation\n\n- parent\n\n## Start Here\n\n- [[entities/index|Entities]] — browse\n\n## Statistics\n\n- stub counts';
+
+test('gate 7.12: DOX writer retries unparseable output up to 3 attempts before fallback', async () => {
+  // Case 1: garbage, garbage, then a valid contract → LLM body used.
+  const { workspace: ws1 } = await setupDoxWiki('p7-doxretry-1-');
+  let calls1 = 0;
+  await writeDoxContracts('dox-wiki', {
+    workspace: ws1,
+    doxLlm: true,
+    writeDoxIndexFn: async () => {
+      calls1++;
+      return calls1 <= 2 ? 'total garbage with no sections' : VALID_DOX_BODY;
+    },
+  });
+  // Deepest folder (entities/people) consumes 2 garbage + 1 valid attempt;
+  // its parent entities and the root then succeed on their first attempts.
+  expect(calls1).toBe(5);
+  const peopleIndex = readFileSync(join(ws1, 'wikis', 'dox-wiki', 'entities', 'people', 'index.md'), 'utf-8');
+  expect(peopleIndex).toContain('Rich description of the people folder.');
+
+  // Case 2: the stub always throws → deterministic contract after exactly 3
+  // attempts per target (3 targets: people, entities, root → 9 calls).
+  const { workspace: ws2 } = await setupDoxWiki('p7-doxretry-2-');
+  let calls2 = 0;
+  await writeDoxContracts('dox-wiki', {
+    workspace: ws2,
+    doxLlm: true,
+    writeDoxIndexFn: async () => {
+      calls2++;
+      throw new Error('API down');
+    },
+  });
+  expect(calls2).toBe(9);
+  const peopleIndex2 = readFileSync(join(ws2, 'wikis', 'dox-wiki', 'entities', 'people', 'index.md'), 'utf-8');
+  expect(peopleIndex2).not.toContain('Rich description');
+  expect(peopleIndex2).toContain('## Pages'); // deterministic contract written
+
+  // Case 3: the workspace pass retries too — garbage x2 then valid.
+  const ws3 = makeTempDir('p7-doxretry-3-');
+  await init('dox-wiki', { workspace: ws3 });
+  await writeDoxContracts('dox-wiki', { workspace: ws3 }); // root index exists (deterministic)
+  let calls3 = 0;
+  await writeWorkspaceIndex({
+    workspace: ws3,
+    doxLlm: true,
+    writeWorkspaceIndexFn: async () => {
+      calls3++;
+      return calls3 <= 2
+        ? 'garbage'
+        : '# Index of Indexes\n\nRich workspace prose.\n\n## Wikis\n\n- [[dox-wiki/index|Dox Wiki]] — a wiki\n\n## Statistics\n\n- stub';
+    },
+  });
+  expect(calls3).toBe(3);
+  const workspaceIndex = readFileSync(join(ws3, 'wikis', 'index-of-indexes.md'), 'utf-8');
+  expect(workspaceIndex).toContain('Rich workspace prose.');
 });

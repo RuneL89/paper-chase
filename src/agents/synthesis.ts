@@ -200,6 +200,7 @@ export async function writeEntitySynthesis(
   );
   return callLLM(fullPrompt, undefined, {
     maxTokens: 8192,
+    maxRetries: 2,
     callType: 'synthesis',
     context: entityData.slug,
     logPath,
@@ -227,6 +228,7 @@ export async function writePermissiveEntitySynthesis(
   );
   return callLLM(fullPrompt, undefined, {
     maxTokens: 8192,
+    maxRetries: 2,
     callType: 'permissive-synthesis',
     context: entityData.slug,
     logPath,
@@ -250,6 +252,7 @@ export async function writeTopicSynthesis(
   );
   return callLLM(fullPrompt, undefined, {
     maxTokens: 8192,
+    maxRetries: 2,
     callType: 'topic-synthesis',
     context: topicData.slug,
     logPath,
@@ -273,6 +276,7 @@ export async function writePermissiveTopicSynthesis(
   );
   return callLLM(fullPrompt, undefined, {
     maxTokens: 8192,
+    maxRetries: 2,
     callType: 'permissive-topic-synthesis',
     context: topicData.slug,
     logPath,

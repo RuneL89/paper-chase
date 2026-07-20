@@ -105,14 +105,16 @@ There is no human approval gate during ingestion. The system is designed for bat
 
 ## 5. Error Handling Philosophy
 
-The system follows a **fail loud, don't retry** philosophy:
+The system follows a **fail loud** philosophy, with a bounded-retry amendment (user-ratified 2026-07-20):
 
 - If the Extractor returns invalid JSON, the chunk is rejected and the error is logged.
 - If the Writer drops content, the synthesized page is rejected and the structured template is kept.
-- If a preservation check fails, the update is skipped and the conflict is logged.
-- The system does **not** automatically retry LLM calls. Retries mask prompt problems and burn tokens.
+- If a preservation check fails after the bounded retries below, the update is skipped and the conflict is logged.
+- **Deterministic failures are never retried** — invalid JSON, schema-validation errors, and HTTP 4xx responses fail immediately. Retrying those would mask prompt problems and burn tokens.
+- **Transient transport failures** (HTTP 429/5xx, network errors, timeouts) are retried with backoff, up to 3 total attempts per call, each attempt logged.
+- **Quality failures** — a preservation-check failure or an unparseable/incomplete DOX Writer response — are retried up to 3 total attempts before the deterministic fallback, because they are partly LLM variance rather than prompt defects.
 
-The user fixes the prompt, the PDF, or the `AGENTS.md` and re-runs `ingest`.
+After the bounded retries are exhausted, the user fixes the prompt, the PDF, or the `AGENTS.md` and re-runs `ingest`.
 
 ---
 

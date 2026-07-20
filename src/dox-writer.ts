@@ -455,6 +455,58 @@ function replaceStatisticsSection(body: string, statistics: string[]): string | 
 type DoxIndexLevel = 'folder' | 'root' | 'workspace';
 
 /**
+ * Phase 7 v1.1.0 (bounded retry amendment, vision `04` §6 / `07` §5): total
+ * attempts per DOX LLM target before the deterministic contract is written.
+ * Language-agnostic — applies to every folder, root, and workspace pass.
+ */
+const DOX_MAX_ATTEMPTS = 3;
+
+/**
+ * Run one DOX LLM target (folder, root, or workspace) with bounded retry:
+ * up to DOX_MAX_ATTEMPTS total attempts on quality failures — the call
+ * throwing, or the output being unparseable/missing required sections.
+ * Returns the enforced LLM body (frontmatter discarded, statistics
+ * re-imposed; wikilink repair happens at the call site), or null when every
+ * attempt failed and the caller must write the deterministic contract.
+ */
+async function runDoxLlmWithRetries(
+  runLlm: () => Promise<string>,
+  level: DoxIndexLevel,
+  statistics: string[],
+  contextLabel: string,
+): Promise<string | null> {
+  for (let attempt = 1; attempt <= DOX_MAX_ATTEMPTS; attempt++) {
+    try {
+      const llmOutput = await runLlm();
+      const enforced = enforceLlmBody(llmOutput, level, statistics);
+      if (enforced !== null) {
+        return enforced;
+      }
+      if (attempt < DOX_MAX_ATTEMPTS) {
+        console.warn(
+          `DOX Writer: LLM output for ${contextLabel} was unparseable or missing required sections (attempt ${attempt}/${DOX_MAX_ATTEMPTS}); retrying.`,
+        );
+      } else {
+        console.warn(
+          `DOX Writer: LLM output for ${contextLabel} was unparseable or missing required sections after ${DOX_MAX_ATTEMPTS} attempts; writing the deterministic contract instead.`,
+        );
+      }
+    } catch (err) {
+      if (attempt < DOX_MAX_ATTEMPTS) {
+        console.warn(
+          `DOX Writer: LLM call failed for ${contextLabel} (${(err as Error).message}) (attempt ${attempt}/${DOX_MAX_ATTEMPTS}); retrying.`,
+        );
+      } else {
+        console.warn(
+          `DOX Writer: LLM call failed for ${contextLabel} (${(err as Error).message}) after ${DOX_MAX_ATTEMPTS} attempts; writing the deterministic contract instead.`,
+        );
+      }
+    }
+  }
+  return null;
+}
+
+/**
  * Deterministic enforcement over the LLM output (vision `03` §6): the LLM's
  * frontmatter is discarded entirely (the caller writes the deterministic one)
  * and its `## Statistics` section is replaced with the deterministic counts,
@@ -802,6 +854,7 @@ async function writeDoxIndexWithLlm(context: DoxIndexContext): Promise<string> {
   );
   return callLLM(prompt, undefined, {
     maxTokens: DOX_WRITER_MAX_TOKENS,
+    maxRetries: 2,
     callType: 'dox-writer',
     context: context.contextLabel,
     logPath: context.logPath,
@@ -836,14 +889,17 @@ async function writeFolderIndexLlm(
 
   let body = deterministicBody;
   const runLlm = options.writeDoxIndexFn ?? writeDoxIndexWithLlm;
-  try {
-    const llmOutput = await runLlm(context);
-    const enforced = enforceLlmBody(llmOutput, folder.relativePath === '' ? 'root' : 'folder', statistics);
-    if (enforced === null) {
-      console.warn(
-        `DOX Writer: LLM output for ${contextLabel} was unparseable or missing required sections; writing the deterministic contract instead.`,
-      );
-    } else if (linkIndex) {
+  // Phase 7 v1.1.0: bounded retry (≤3 attempts) on quality failures before
+  // the deterministic fallback; deterministic enforcement (frontmatter,
+  // statistics) and the wikilink safeguard are unchanged.
+  const enforced = await runDoxLlmWithRetries(
+    () => runLlm(context),
+    folder.relativePath === '' ? 'root' : 'folder',
+    statistics,
+    contextLabel,
+  );
+  if (enforced !== null) {
+    if (linkIndex) {
       // Deterministic wikilink safeguard: repair or de-link any LLM wikilink
       // that the final link validation would report as broken.
       const repair = repairWikilinks(enforced, linkIndex);
@@ -856,10 +912,6 @@ async function writeFolderIndexLlm(
     } else {
       body = enforced;
     }
-  } catch (err) {
-    console.warn(
-      `DOX Writer: LLM call failed for ${contextLabel} (${(err as Error).message}); writing the deterministic contract instead.`,
-    );
   }
 
   // Frontmatter is ALWAYS the deterministically-computed one — the LLM's
@@ -1107,6 +1159,7 @@ async function writeWorkspaceIndexWithLlm(context: DoxWorkspaceIndexContext): Pr
   });
   return callLLM(prompt, undefined, {
     maxTokens: DOX_WRITER_MAX_TOKENS,
+    maxRetries: 2,
     callType: 'dox-writer',
     context: context.contextLabel,
     logPath: context.logPath,
@@ -1201,24 +1254,19 @@ export async function writeWorkspaceIndex(options?: WriteWorkspaceIndexOptions):
       logPath: options.logPath,
     };
     const runLlm = options.writeWorkspaceIndexFn ?? writeWorkspaceIndexWithLlm;
-    try {
-      const llmOutput = await runLlm(context);
-      const enforced = enforceLlmBody(llmOutput, 'workspace', statistics);
-      if (enforced === null) {
-        console.warn(
-          'DOX Writer: LLM output for (workspace) was unparseable or missing required sections; writing the deterministic contract instead.',
-        );
-      } else {
-        const repair = repairWikilinks(enforced, buildWorkspaceLinkIndex(wikis));
-        body = repair.body;
-        if (repair.repaired > 0) {
-          console.warn(`DOX Writer: repaired ${repair.repaired} unresolvable wikilink(s) in (workspace).`);
-        }
+    // Phase 7 v1.1.0: same bounded retry as the per-folder path.
+    const enforced = await runDoxLlmWithRetries(
+      () => runLlm(context),
+      'workspace',
+      statistics,
+      '(workspace)',
+    );
+    if (enforced !== null) {
+      const repair = repairWikilinks(enforced, buildWorkspaceLinkIndex(wikis));
+      body = repair.body;
+      if (repair.repaired > 0) {
+        console.warn(`DOX Writer: repaired ${repair.repaired} unresolvable wikilink(s) in (workspace).`);
       }
-    } catch (err) {
-      console.warn(
-        `DOX Writer: LLM call failed for (workspace) (${(err as Error).message}); writing the deterministic contract instead.`,
-      );
     }
   }
 

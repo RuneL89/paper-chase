@@ -2,13 +2,26 @@
   "phase": "07",
   "goal": "All 8 technical gates in PHASE_07_multilingual_ingestion.md pass (npm test is green), all 4 UAT steps are documented with expected output, compliance log shows no unresolved contradictions, and total LLM cost is under $3.00.",
   "status": "implemented-verified-pending-uat",
-  "lastAction": "Verifier sub-agent APPROVED 8/8 gates (cold, independent run); DOX pass and status file closeout",
-  "gatesPassed": ["7.1", "7.2", "7.3", "7.4", "7.5", "7.6", "7.7", "7.8", "7.9"],
+  "lastAction": "v1.1.0 bounded-retry amendment shipped (user-ratified 2026-07-20): callLLM maxRetries + synthesis/DOX quality retries, gates 7.10-7.12 green, suite 212+1",
+  "gatesPassed": [
+    "7.1",
+    "7.2",
+    "7.3",
+    "7.4",
+    "7.5",
+    "7.6",
+    "7.7",
+    "7.8",
+    "7.9",
+    "7.10",
+    "7.11",
+    "7.12"
+  ],
   "gatesFailed": [],
   "gatesPending": [],
   "uat": {
     "7.1": "passed (user + orchestrator disk verification 2026-07-20: transliterated files, verbatim Danish titles, Danish extractor output, English Layer 1/indexes, verbatim Danish Layer 2 incl. '12,5 millioner kr.' claim, language.json {en,da}; 26 LLM calls, $0.1888)",
-    "7.2": "first attempt FAILED on folder transliteration (see uat72Findings); fixed via gate 7.9 — pending user re-test on a fresh wiki",
+    "7.2": "passed (re-test on dansk-wiki-2 2026-07-20: folders all ASCII transliterated, Danish Layer 1 + verbatim Layer 2, Danish folder indexes; root index initially fell back to the English deterministic template after a TRANSIENT LLM failure — re-running ingest regenerated a rich Danish root description and the workspace entry went from generic to content-based. Gate 7.9 fix verified live.)",
     "7.3": "pending-user",
     "7.4": "pending-user"
   },
@@ -38,10 +51,25 @@
     "Latent Phase 5 defect repaired: prompts/synthesis-topic-permissive.prompt.txt had NO data placeholders (the agent code filled {topicName}/{entities}/{claims}/{sources}/{context} into a template that didn't contain them — live permissive topic synthesis would have sent a data-less prompt). Added the === TOPIC DATA === section byte-identical to synthesis-topic.prompt.txt. Verifier confirmed correct and minimal.",
     "TUI keystroke compatibility: Enter on the init screen's Output Language dropdown submits the form so the pre-Phase-7 Title → Tab → Tab → Enter flow (and its test) works unmodified; no pre-Phase-7 test was changed (gate 7.2 criterion)."
   ],
-  "llmCost": "$0.39",
-  "tokenBudgetRemaining": "$2.61",
-  "costNote": "Phase 7 gates are LLM-free by design (mocked callLLM / injected stubs). Live UAT smoke tests: UAT 7.1 danish-test $0.1888 (26 calls), UAT 7.2 dansk-wiki $0.2044 (27 calls). Full-suite runs execute the live Phase 2 gates (~$0.07/run) against the Phase 2 budget, as in previous phases.",
+  "llmCost": "$0.50",
+  "tokenBudgetRemaining": "$2.50",
+  "costNote": "Phase 7 gates are LLM-free. Live UAT: danish-test $0.1888 (26 calls), dansk-wiki $0.2044 (27), dansk-wiki-2 $0.1968 (27) + $0.1070 DOX-only re-ingest (15 calls, root-index regeneration). Full-suite live Phase 2 gates (~$0.07/run) count against Phase 2.",
   "blocker": null,
   "verification": ".state/phase-7-verification.md — APPROVED 8/8 gates, tsc clean, 10/10 phase-07 tests, 28/28 pre-Phase-7 surface tests, full suite 208 passed + 1 skipped with repo key (the 2 transient Phase 2 HTTP 529 failures passed on rerun)",
-  "nextAction": "User UAT 7.1–7.4 (presented one by one by the Reporter; UAT 7.1/7.2 make the phase's only live LLM calls — the 2-page Danish fixture keeps spend well under the $3.00 cap)"
+  "nextAction": "User UAT 7.1–7.4 (presented one by one by the Reporter; UAT 7.1/7.2 make the phase's only live LLM calls — the 2-page Danish fixture keeps spend well under the $3.00 cap)",
+  "retryAmendment": {
+    "ratified": "2026-07-20 via contradiction protocol (Accept: full amendment); applies to ALL languages (user clarification)",
+    "vision": [
+      "04 §6 amended",
+      "07 §5 amended"
+    ],
+    "gates": {
+      "7.10": "callLLM transient-only retry (429/5xx/network, backoff, 4xx immediate, default 0 frozen)",
+      "7.11": "synthesis chain strict ≤3 → permissive ≤3 → template, attempts in synthesis-report.json",
+      "7.12": "DOX writer folder/root/workspace ≤3 before deterministic fallback"
+    },
+    "deviations": [
+      "tests/phase-05.test.ts: two synthesis-report shape assertions gained the additive attempts field (amendment-sanctioned behavior change)"
+    ]
+  }
 }
