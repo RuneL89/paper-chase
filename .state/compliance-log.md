@@ -837,3 +837,13 @@
   Tests: gates 7.10–7.12 (14 phase-07 tests total) green; full suite 212 passed + 1 skipped with repo key; tsc clean.
   Result: COMPLIANT — contradiction resolved by user-ratified vision amendment (accept path).
   Checked By: Main agent (phase orchestrator)
+
+[2026-07-20 23:45] Phase 7 Closeout: ACCEPTED
+  Gates: 12/12 passed (7.1–7.9 multilingual + 7.10–7.12 bounded-retry amendment); full suite 212 passed + 1 skipped with repo key; tsc clean.
+  UAT: 4/4 passed (7.1 Danish→English TUI ingest; 7.2 Danish-output wiki — initial failure found the folder-transliteration bug, fixed via gate 7.9, re-test passed; 7.3 slug-forking warning with confirm gate; 7.4 Obsidian browse).
+  Amendments: v1.1.0 bounded retry (user-ratified 2026-07-20, vision 04 §6 + 07 §5 amended; deterministic failures never retried, transient ≤3, quality ≤3 before fallback; language-agnostic).
+  Deviations (all recorded in phase-7-status.json): gate 7.6 title asserted via parsed frontmatter; gate 7.4 dox prompt captured via mocked callLLM; two phase-05 report assertions gained the additive attempts field; latent Phase 5 topic-permissive prompt defect repaired.
+  Cost: \$0.50 / \$3.00 (three live Danish smoke ingests + one DOX-only regeneration; gates LLM-free).
+  Pre-existing issues logged for Phase 11 (Polish): synthesis frontmatter re-imposition + wikilink repair, preservation tolerance for citation-stripped claims, English-only deterministic DOX fallback prose, extractor [^srcN] embedded in claim text.
+  Result: COMPLIANT — no unresolved contradictions. Phase 7 ACCEPTED.
+  Checked By: Main agent (phase orchestrator)

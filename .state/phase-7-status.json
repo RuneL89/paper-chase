@@ -1,8 +1,8 @@
 {
   "phase": "07",
   "goal": "All 8 technical gates in PHASE_07_multilingual_ingestion.md pass (npm test is green), all 4 UAT steps are documented with expected output, compliance log shows no unresolved contradictions, and total LLM cost is under $3.00.",
-  "status": "implemented-verified-pending-uat",
-  "lastAction": "v1.1.0 bounded-retry amendment shipped (user-ratified 2026-07-20): callLLM maxRetries + synthesis/DOX quality retries, gates 7.10-7.12 green, suite 212+1",
+  "status": "complete",
+  "lastAction": "Phase 7 accepted: 12/12 gates green (suite 212+1, tsc clean), 4/4 UAT passed, compliance log clean, cost $0.50/$3.00",
   "gatesPassed": [
     "7.1",
     "7.2",
@@ -22,8 +22,8 @@
   "uat": {
     "7.1": "passed (user + orchestrator disk verification 2026-07-20: transliterated files, verbatim Danish titles, Danish extractor output, English Layer 1/indexes, verbatim Danish Layer 2 incl. '12,5 millioner kr.' claim, language.json {en,da}; 26 LLM calls, $0.1888)",
     "7.2": "passed (re-test on dansk-wiki-2 2026-07-20: folders all ASCII transliterated, Danish Layer 1 + verbatim Layer 2, Danish folder indexes; root index initially fell back to the English deterministic template after a TRANSIENT LLM failure — re-running ingest regenerated a rich Danish root description and the workspace entry went from generic to content-based. Gate 7.9 fix verified live.)",
-    "7.3": "pending-user",
-    "7.4": "pending-user"
+    "7.3": "passed (user 2026-07-20: inline warning on input-language switch, Enter gated behind explicit confirm, Escape cancels safely)",
+    "7.4": "passed (user 2026-07-20: Obsidian navigation from index.md, Danish titles render (æ/ø/å), transliterated file names readable, citations resolve to source page)"
   },
   "uat72Findings": [
     "FIXED (gate 7.9): entity.folder and claim.type bypassed transliteration — the Danish-output run created raw 'entities/companies/møbler/' and could create non-ASCII topic folders (vision 05 §2.1 violation). normalizeExtractorSlugs now transliterates folder segments and claim.type with the input language; ASCII kebab-case values pass through unchanged",
@@ -56,7 +56,7 @@
   "costNote": "Phase 7 gates are LLM-free. Live UAT: danish-test $0.1888 (26 calls), dansk-wiki $0.2044 (27), dansk-wiki-2 $0.1968 (27) + $0.1070 DOX-only re-ingest (15 calls, root-index regeneration). Full-suite live Phase 2 gates (~$0.07/run) count against Phase 2.",
   "blocker": null,
   "verification": ".state/phase-7-verification.md — APPROVED 8/8 gates, tsc clean, 10/10 phase-07 tests, 28/28 pre-Phase-7 surface tests, full suite 208 passed + 1 skipped with repo key (the 2 transient Phase 2 HTTP 529 failures passed on rerun)",
-  "nextAction": "User UAT 7.1–7.4 (presented one by one by the Reporter; UAT 7.1/7.2 make the phase's only live LLM calls — the 2-page Danish fixture keeps spend well under the $3.00 cap)",
+  "nextAction": "Start Phase 8 (multi-PDF compounding) — contract: wikis may hold content from multiple input languages; .state/language.json records the last run; carry language metadata through incremental ingestion per PHASE_07 §8 contract",
   "retryAmendment": {
     "ratified": "2026-07-20 via contradiction protocol (Accept: full amendment); applies to ALL languages (user clarification)",
     "vision": [
