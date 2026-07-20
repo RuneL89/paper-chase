@@ -2,7 +2,7 @@
   "phase": "06",
   "status": "reopened-amendment-shipped",
   "goal": "All 8 technical gates in PHASE_06_dox_writer.md pass (npm test is green), all 3 UAT steps are documented with expected output, compliance log shows no unresolved contradictions, the status file shows all gates passed and no blockers, every folder has an LLM-enriched index.md with deterministic children/statistics, and total LLM cost is logged.",
-  "lastAction": "2026-07-21 per-wiki workspace segments amendment shipped: writeWorkspaceIndex reworked (per-wiki prose segments + catalog lines, byte-for-byte preservation, per-wiki fallback, removal drops segments); gates 6.9-6.11 reworked for segment semantics; new gates 6.12-6.14 green; full suite 215 passed + 1 skipped",
+  "lastAction": "2026-07-21b prose amendment shipped: coherent cross-wiki prose regenerates ONLY on wiki-set change (or missing); per-wiki catalog lines unchanged; gates 6.15-6.16 green; full suite 217 passed + 1 skipped; workspace index rebuilt (prose in English, dansk-wiki Danish line preserved, $0.0044)",
   "gatesPassed": [
     "6.1",
     "6.2",
@@ -17,7 +17,9 @@
     "6.11",
     "6.12",
     "6.13",
-    "6.14"
+    "6.14",
+    "6.15",
+    "6.16"
   ],
   "gatesFailed": [],
   "gatesPending": [],
@@ -63,5 +65,14 @@
     ],
     "phaseDoc": "PHASE_06 v1.2.0 (gates 6.12-6.14 + checklist)",
     "migration": "workspace index cleared and rebuilt 2026-07-21: one LLM entry call per wiki in its own output language (4 calls, $0.0057); each wiki now has a marked per-wiki segment"
+  },
+  "proseAmendment": {
+    "ratified": "2026-07-21 via AskUserQuestion (\"Refresh on add/remove only\"); compliance-log [2026-07-21 01:10]",
+    "model": "two ownership rules: workspace prose = coherent synthesis over ALL root contracts, refreshed only on wiki-set change, in the regenerating run's output language; ## Wikis catalog = per-wiki owned lines refreshed per ingest",
+    "prompts": [
+      "dox-writer-workspace.prompt.txt = prose (all contracts)",
+      "dox-writer-workspace-entry.prompt.txt = per-wiki catalog line (new file)"
+    ],
+    "phaseDoc": "PHASE_06 v1.3.0 (gates 6.15-6.16 + checklist)"
   }
 }

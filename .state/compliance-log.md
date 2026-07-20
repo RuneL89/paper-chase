@@ -877,3 +877,19 @@
   Behavior Notes: (1) the wikilink safeguard no longer applies to the workspace pass — the LLM writes prose only and deterministic code adds the `[[<slug>/index|<Title>]]` links, so no LLM-authored wikilinks exist at this level; (2) files written before the segment model are migrated by seeding prose segments from existing catalog descriptions (nothing lost); (3) the fixed framing line is English (no wiki owns cross-wiki framing).
   Result: COMPLIANT — user-ratified amendment fully shipped; gates 6.12-6.14 green.
   Checked By: Main agent (phase orchestrator)
+
+[2026-07-21 01:10] AMENDMENT (user-ratified): Workspace Prose Refreshes Only on Wiki-Set Change
+  Trigger: User feedback on the 2026-07-21 per-segment build: "The 'Index of indexes' segment is just a repetition of 'Wikis'. This looks bad and is just duplicate! I want this to be richer and coherent prose. For index-of-indexes.md, the DOX writer should be looking at ALL indexes in the wiki."
+  User Decision (AskUserQuestion, 2026-07-21): "Refresh on add/remove only" — the top prose of index-of-indexes.md is a coherent cross-wiki LLM synthesis reading ALL wikis' root contracts, regenerated ONLY when the set of wikis changes (add/remove) or no prose exists yet; language = the regenerating run's output language. The `## Wikis` catalog lines stay per-wiki owned (each refreshed by that wiki's own ingest in its own language, byte-for-byte preserved otherwise). The per-wiki prose SEGMENTS (markers) are dropped — they duplicated the catalog.
+  Design: prose block wrapped in `<!-- workspace-prose -->` markers; set change detected by comparing the file's frontmatter children against the current directory scan; prose regeneration retries ≤3 then a deterministic fallback; the per-ingest per-wiki entry call (catalog line) is unchanged.
+  Canon To Amend: vision `03` §6, `04` Step 10 item 7, PHASE_06 (v1.3.0, gates 6.15–6.16).
+  Result: COMPLIANT — user-ratified amendment; proceed.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-21 01:40] Workspace Prose Model: Post-Implementation Check + Closeout
+  Changed: `src/dox-writer.ts` (WORKSPACE_PROSE_RE + workspaceProse parsing, DoxWorkspaceProseContext + writeWorkspaceProseWithLlm (ALL root contracts), set-change detection via frontmatter children vs directory scan, deterministicWorkspaceProse fallback, composeWorkspaceBody v2: prose block + per-wiki catalog lines + statistics; per-wiki prose segments dropped), `prompts/dox-writer-workspace.prompt.txt` (repurposed as the coherent-prose prompt), `prompts/dox-writer-workspace-entry.prompt.txt` (new; the per-wiki catalog-line prompt), `src/commands/ingest.ts` (writeWorkspaceProseFn pass-through), `tests/phase-06.test.ts` (workspace block rewritten for the two-rule model; gates 6.15-6.16 new), `Implementation Plan/PHASE_06_dox_writer.md` (v1.3.0 + gates 6.15-6.16 + checklist), `Project Vision/03_DOX_concept_detailed.md` §6, `Project Vision/04_orchestration_detailed.md` Step 10 item 7
+  Vision Docs Checked: `03` §6 (amended), `04` Step 10 (amended), `05` §3.3/§3.4 (unchanged — location/children/frontmatter variant untouched)
+  Tests: 42/42 phase-06+07 green; full suite 217 passed + 1 skipped with repo key; tsc clean.
+  Migration: workspace index rebuilt once (prose call $0.0031 + entry call $0.0013) — coherent English prose synthesizing all four wikis (notes the Danish Test/Dansk Wiki language-variant relationship); dansk-wiki's Danish catalog line preserved byte-for-byte from the 2026-07-21 build.
+  Result: COMPLIANT — user-ratified amendment (AskUserQuestion "Refresh on add/remove only") fully shipped; gates 6.15-6.16 green.
+  Checked By: Main agent (phase orchestrator)

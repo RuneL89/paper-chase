@@ -262,15 +262,20 @@ No DOX contract can be written until the wiki pages exist, because the DOX Write
 
 After the per-wiki contracts are written, the DOX Writer runs one final workspace-level pass at the end of every ingest. The workspace index is **the topmost parent in the same bottom-up chain** — folder indexes are written deepest-first, then the wiki root index, then the workspace index — and it follows the same rule as every other parent: **it synthesizes only the freshly-written `index.md` contract of its direct child (the triggering wiki's root index) and never re-reads the content pages inside the child wikis.**
 
-The workspace index is composed of **per-wiki segments**, and the pass writes **only the triggering wiki's own segments**, in that run's output language (`04_orchestration_detailed.md` §9). A wiki's DOX Writer never touches any other wiki's segments:
+The workspace index has two parts with different ownership (amended 2026-07-21, user-ratified):
 
-1. Lists every wiki in `wikis/` that has a root `index.md`.
-2. Reads the triggering wiki's freshly-written root `index.md` (the same bottom-up summary-of-summaries pattern — the pass's only content input).
-3. Calls the LLM once to write that wiki's description — its contribution to the workspace prose and its catalog line under `## Wikis`.
-4. Re-composes `wikis/index-of-indexes.md` deterministically: the workspace prose is a stitched sequence of per-wiki segments (the triggering wiki's replaced with the fresh one, **every other wiki's preserved byte-for-byte**), the `## Wikis` catalog follows the same per-line ownership, wikis no longer on disk lose their segments, and a wiki with a root index but no segment yet keeps a deterministic placeholder until its own ingest writes one.
-5. Deterministic code supplies and re-imposes the exact children list (`<slug>/index.md` per wiki), the statistics (wiki count plus corpus totals), and the section framing. An LLM failure falls back to a deterministic segment for the **triggering wiki only**, exactly as for per-folder indexes.
+1. **The workspace prose** — a coherent cross-wiki LLM synthesis reading **ALL** wikis' freshly-written root `index.md` contracts (the same bottom-up summary-of-summaries pattern — the pass's only content input, never the wikis' content pages). It is regenerated **only when the set of wikis changes** (a wiki is added or removed) or no prose exists yet — an ingest that changes no wiki membership preserves it byte-for-byte, so the prose is never re-translated by a routine run. When regenerated, it is written in the regenerating run's output language (`04_orchestration_detailed.md` §9).
+2. **The `## Wikis` catalog** — per-wiki segments (one line per wiki). Each line is written by that wiki's own ingest in that run's output language; an ingest refreshes **only the triggering wiki's own line**, preserving every other line byte-for-byte.
 
-Each segment is written in the **output language of the wiki it describes** (the language of the run that last ingested that wiki), so a mixed-language workspace index — English prose for an English wiki, Danish prose for a Danish wiki — is normal and correct. The file sits inside `wikis/` so the whole `wikis/` folder can be opened as a single Obsidian vault where every link resolves. A wiki only appears once it has been ingested (init alone does not create a root `index.md`).
+Mechanics:
+
+1. List every wiki in `wikis/` that has a root `index.md`.
+2. When the wiki set changed (or no prose exists): call the LLM once with ALL wikis' root contracts to write the coherent workspace prose.
+3. Call the LLM once per ingest with the triggering wiki's root contract to write that wiki's catalog line.
+4. Re-compose `wikis/index-of-indexes.md` deterministically: preserved or fresh prose (in `<!-- workspace-prose -->` markers), per-wiki catalog lines (triggering fresh, others preserved, removed wikis dropped, missing lines get a deterministic placeholder), the exact children list (`<slug>/index.md` per wiki), and the statistics (wiki count plus corpus totals) — the last two over ALL wikis every run.
+5. LLM failures are per-concern: prose regeneration falls back to a deterministic workspace paragraph; an entry failure falls back to a deterministic catalog line for the triggering wiki only.
+
+Each catalog line is written in the **output language of the wiki it describes** (the language of the run that last ingested that wiki), so mixed-language catalog lines — English for an English wiki, Danish for a Danish wiki — are normal and correct; the shared workspace prose is written once per set change in that run's language. The file sits inside `wikis/` so the whole `wikis/` folder can be opened as a single Obsidian vault where every link resolves. A wiki only appears once it has been ingested (init alone does not create a root `index.md`).
 
 **What the LLM sees for each folder:**
 

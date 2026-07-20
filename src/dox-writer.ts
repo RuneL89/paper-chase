@@ -1054,31 +1054,50 @@ export interface DoxWorkspaceEntryContext {
   logPath?: string;
 }
 
+/** Everything the workspace PROSE call needs (all wikis' root contracts). */
+export interface DoxWorkspaceProseContext {
+  /** Human label for logs: '(workspace prose)'. */
+  contextLabel: string;
+  /** Every wiki in the workspace, with its freshly-written root contract. */
+  wikis: DoxWorkspaceWikiInfo[];
+  /** Output language of the run that regenerates the prose. */
+  outputLanguage: string;
+  /** JSON-lines LLM call log path. */
+  logPath?: string;
+}
+
 export interface WriteWorkspaceIndexOptions {
   workspace?: string;
   /**
    * The wiki whose ingest triggered this pass (2026-07-21 amendment). Its
-   * prose segment and catalog line are the ONLY ones (re)written — every
-   * other wiki's segments are preserved byte-for-byte.
+   * catalog line is the ONLY one (re)written — every other wiki's line is
+   * preserved byte-for-byte.
    */
   wikiSlug: string;
   /**
-   * When true, write the triggering wiki's description with the LLM (one call
-   * per ingest). Deterministic code always re-imposes the frontmatter,
-   * children, statistics, and segment stitching, and any LLM failure falls
-   * back to a deterministic description for the triggering wiki only.
-   * Defaults to false, mirroring writeDoxContracts.
+   * When true, write the workspace prose (on wiki-set changes) and the
+   * triggering wiki's catalog line with the LLM. Deterministic code always
+   * re-imposes the frontmatter, children, statistics, and stitching; any LLM
+   * failure falls back per-concern (deterministic prose / deterministic
+   * catalog line). Defaults to false, mirroring writeDoxContracts.
    */
   doxLlm?: boolean;
   /**
    * Injectable workspace entry writer (test-only). Defaults to the real LLM
-   * implementation; returns the description text for the triggering wiki.
+   * implementation; returns the description text for the triggering wiki's
+   * catalog line.
    */
   writeWorkspaceIndexFn?: (context: DoxWorkspaceEntryContext) => Promise<string>;
   /**
-   * Output language of the triggering ingest (vision `04` §9). The triggering
-   * wiki's description is written in it; other wikis' segments keep their own
-   * languages.
+   * Injectable workspace prose writer (test-only). Defaults to the real LLM
+   * implementation; returns the coherent cross-wiki prose. Only called when
+   * the wiki set changed (or no prose exists yet).
+   */
+  writeWorkspaceProseFn?: (context: DoxWorkspaceProseContext) => Promise<string>;
+  /**
+   * Output language of the triggering ingest (vision `04` §9). Fresh prose
+   * and the triggering wiki's catalog line are written in it; other wikis'
+   * lines keep their own languages.
    */
   outputLanguage?: string;
   /** Override for the JSON-lines LLM call log path (defaults to the triggering wiki's log). */
@@ -1088,15 +1107,17 @@ export interface WriteWorkspaceIndexOptions {
 const WORKSPACE_INDEX_FILE = 'index-of-indexes.md';
 const WORKSPACE_INDEX_TITLE = 'Index of Indexes';
 const DOX_WORKSPACE_PROMPT_FILE = 'dox-writer-workspace.prompt.txt';
+const DOX_WORKSPACE_ENTRY_PROMPT_FILE = 'dox-writer-workspace-entry.prompt.txt';
 
-let cachedWorkspacePrompt: string | undefined;
+const workspacePromptCache: Record<string, string | undefined> = {};
 
-async function loadWorkspacePromptTemplate(): Promise<string> {
-  if (cachedWorkspacePrompt !== undefined) {
-    return cachedWorkspacePrompt;
+async function loadWorkspacePromptTemplate(fileName: string): Promise<string> {
+  const cached = workspacePromptCache[fileName];
+  if (cached !== undefined) {
+    return cached;
   }
-  const template = await readFile(join(PROMPT_DIR, DOX_WORKSPACE_PROMPT_FILE), 'utf-8');
-  cachedWorkspacePrompt = template;
+  const template = await readFile(join(PROMPT_DIR, fileName), 'utf-8');
+  workspacePromptCache[fileName] = template;
   return template;
 }
 
@@ -1106,33 +1127,31 @@ function wikiRootIndexLink(slug: string, title: string): string {
 }
 
 /**
- * Per-wiki segment markers in `index-of-indexes.md` (2026-07-21 amendment).
- * Invisible in Obsidian reading view; they make byte-for-byte preservation of
- * other wikis' prose segments robust.
+ * Workspace prose block marker in `index-of-indexes.md` (2026-07-21 prose
+ * amendment). Invisible in Obsidian reading view; lets deterministic code
+ * preserve the coherent cross-wiki prose byte-for-byte between wiki-set
+ * changes.
  */
-const SEGMENT_RE = /<!-- segment:([a-z0-9-]+) -->\r?\n([\s\S]*?)\r?\n?<!-- \/segment:\1 -->/g;
+const WORKSPACE_PROSE_RE = /<!-- workspace-prose -->\r?\n([\s\S]*?)\r?\n?<!-- \/workspace-prose -->/;
 const CATALOG_LINE_RE = /^- \[\[([a-z0-9-]+)\/index\|[^\]]*\]\](?:\s*[—-]\s*(.*))?$/;
 
 interface WorkspaceSegments {
-  /** slug -> prose paragraph (without markers). */
-  prose: Map<string, string>;
+  /** The coherent cross-wiki prose block (without markers), when present. */
+  workspaceProse?: string;
   /** slug -> full catalog line under `## Wikis`. */
   catalog: Map<string, string>;
 }
 
 /**
- * Parse an existing workspace index into per-wiki prose segments (via
- * markers) and per-wiki catalog lines (via their `[[<slug>/index|...]]`
- * targets). Files written before the segment model have no markers; their
- * catalog lines still parse, so nothing is lost (migration: a catalog line's
- * description seeds that wiki's prose segment).
+ * Parse an existing workspace index into the prose block and the per-wiki
+ * catalog lines (keyed by their `[[<slug>/index|...]]` targets). Files
+ * written before the prose model (per-wiki segment markers, or the original
+ * whole-file format) have no `workspace-prose` block, so the prose is
+ * regenerated on the next run while their catalog lines still parse.
  */
 export function parseWorkspaceSegments(existing: string): WorkspaceSegments {
-  const prose = new Map<string, string>();
+  const proseMatch = WORKSPACE_PROSE_RE.exec(existing);
   const catalog = new Map<string, string>();
-  for (const match of existing.matchAll(SEGMENT_RE)) {
-    prose.set(match[1], match[2].trim());
-  }
   for (const rawLine of existing.split('\n')) {
     const line = rawLine.trim();
     const match = CATALOG_LINE_RE.exec(line);
@@ -1140,18 +1159,21 @@ export function parseWorkspaceSegments(existing: string): WorkspaceSegments {
       catalog.set(match[1], line);
     }
   }
-  return { prose, catalog };
+  return {
+    workspaceProse: proseMatch ? proseMatch[1].trim() : undefined,
+    catalog,
+  };
 }
 
-/** Deterministic placeholder for a wiki with no description yet (English, fixed). */
+/** Deterministic placeholder for a wiki with no catalog description yet (English, fixed). */
 function placeholderDescription(): string {
   return "No description yet — it is written by this wiki's own ingest, in this wiki's output language.";
 }
 
 /**
- * Deterministic description for a wiki: the first prose paragraph of its root
- * index body (skipping headings and lists). Used in deterministic mode
- * (doxLlm: false) and as the per-wiki LLM fallback.
+ * Deterministic description for a wiki's catalog line: the first prose
+ * paragraph of its root index body (skipping headings and lists). Used in
+ * deterministic mode (doxLlm: false) and as the per-line LLM fallback.
  */
 function deterministicDescription(wiki: DoxWorkspaceWikiInfo): string {
   try {
@@ -1168,49 +1190,43 @@ function deterministicDescription(wiki: DoxWorkspaceWikiInfo): string {
   return placeholderDescription();
 }
 
-/** Fixed English framing line (deterministic; no wiki owns cross-wiki framing). */
-function workspaceFramingLine(wikiCount: number): string {
+/** Deterministic workspace prose (fallback when the LLM regeneration fails or doxLlm is off). */
+function deterministicWorkspaceProse(wikis: DoxWorkspaceWikiInfo[]): string {
   const base =
-    wikiCount === 1
-      ? 'This workspace holds one citation-backed wiki generated from an ingested PDF corpus.'
-      : `This workspace holds ${wikiCount} citation-backed wikis, each generated from its own ingested PDF corpus.`;
-  return `${base} Each wiki's description below is written by that wiki's own ingest, in that wiki's output language.`;
+    wikis.length === 1
+      ? 'This workspace holds one citation-backed wiki generated from an ingested PDF corpus'
+      : `This workspace holds ${wikis.length} citation-backed wikis, each generated from its own ingested PDF corpus`;
+  const titles = wikis.map((wiki) => wiki.title).join('; ');
+  return `${base}: ${titles}.`;
 }
 
 /**
- * Compose the workspace index body deterministically from per-wiki segments:
- * the triggering wiki's description is fresh; every other wiki's prose
- * segment and catalog line are preserved byte-for-byte (or seeded from its
- * existing catalog description, or a placeholder when never written).
+ * Compose the workspace index body deterministically: the coherent prose
+ * block (fresh on wiki-set changes, preserved otherwise), the per-wiki
+ * catalog lines (the triggering wiki's fresh, every other preserved
+ * byte-for-byte or placeholder), and the deterministic statistics.
  */
 function composeWorkspaceBody(
   wikis: DoxWorkspaceWikiInfo[],
   statistics: string[],
-  descriptions: Map<string, string>,
+  workspaceProse: string,
+  entryDescription: string | undefined,
+  triggeringSlug: string,
   preserved: WorkspaceSegments,
 ): string {
   const lines: string[] = [];
   lines.push(`# ${WORKSPACE_INDEX_TITLE}`);
   lines.push('');
-  lines.push(workspaceFramingLine(wikis.length));
+  lines.push('<!-- workspace-prose -->');
+  lines.push(workspaceProse);
+  lines.push('<!-- /workspace-prose -->');
   lines.push('');
-  for (const wiki of wikis) {
-    const prose =
-      descriptions.get(wiki.slug) ??
-      preserved.prose.get(wiki.slug) ??
-      catalogDescription(preserved.catalog.get(wiki.slug)) ??
-      placeholderDescription();
-    lines.push(`<!-- segment:${wiki.slug} -->`);
-    lines.push(prose);
-    lines.push(`<!-- /segment:${wiki.slug} -->`);
-    lines.push('');
-  }
   lines.push('## Wikis');
   lines.push('');
   for (const wiki of wikis) {
     const line =
-      descriptions.get(wiki.slug) !== undefined
-        ? `- ${wiki.linkText} — ${descriptions.get(wiki.slug)}`
+      wiki.slug === triggeringSlug && entryDescription !== undefined
+        ? `- ${wiki.linkText} — ${entryDescription}`
         : preserved.catalog.get(wiki.slug) ?? `- ${wiki.linkText} — ${placeholderDescription()}`;
     lines.push(line);
   }
@@ -1224,18 +1240,27 @@ function composeWorkspaceBody(
   return lines.join('\n');
 }
 
-/** Extract the description part of an existing catalog line, if any. */
-function catalogDescription(line: string | undefined): string | undefined {
-  if (!line) {
-    return undefined;
-  }
-  const match = CATALOG_LINE_RE.exec(line);
-  return match?.[2]?.trim() || undefined;
+/** Default LLM implementation: render the workspace prose prompt with ALL wikis' root contracts. */
+async function writeWorkspaceProseWithLlm(context: DoxWorkspaceProseContext): Promise<string> {
+  const template = await loadWorkspacePromptTemplate(DOX_WORKSPACE_PROMPT_FILE);
+  const prompt = fillPromptTemplate(template, {
+    outputLanguage: context.outputLanguage,
+    childIndexes: context.wikis
+      .map((wiki) => `--- ${wiki.indexPath} (wiki "${wiki.title}") ---\n${wiki.content}`)
+      .join('\n\n'),
+  });
+  return callLLM(prompt, undefined, {
+    maxTokens: DOX_WRITER_MAX_TOKENS,
+    maxRetries: 2,
+    callType: 'dox-writer',
+    context: context.contextLabel,
+    logPath: context.logPath,
+  });
 }
 
 /** Default LLM implementation: render the per-wiki workspace entry prompt and call the LLM. */
 async function writeWorkspaceEntryWithLlm(context: DoxWorkspaceEntryContext): Promise<string> {
-  const template = await loadWorkspacePromptTemplate();
+  const template = await loadWorkspacePromptTemplate(DOX_WORKSPACE_ENTRY_PROMPT_FILE);
   const prompt = fillPromptTemplate(template, {
     wikiSlug: context.wikiSlug,
     wikiTitle: context.wikiTitle,
@@ -1362,15 +1387,49 @@ export async function writeWorkspaceIndex(options: WriteWorkspaceIndexOptions): 
   ];
   const children = wikis.map((wiki) => wiki.indexPath);
 
-  // 2026-07-21 per-wiki segments amendment: parse the existing file so every
-  // other wiki's prose segment and catalog line can be preserved byte-for-byte.
+  // Parse the existing file: the coherent prose block (preserved between
+  // wiki-set changes) and the per-wiki catalog lines (preserved except the
+  // triggering wiki's).
   const existing = await readTextIfExists(join(wikisRoot, WORKSPACE_INDEX_FILE));
   const preserved = parseWorkspaceSegments(existing);
+  let existingChildren: string[] = [];
+  if (existing.length > 0) {
+    try {
+      const parsed = matter(existing);
+      if (Array.isArray(parsed.data.children)) {
+        existingChildren = parsed.data.children.filter((child): child is string => typeof child === 'string');
+      }
+    } catch {
+      // Unparseable frontmatter — treat as no prior state.
+    }
+  }
 
-  // The triggering wiki's description is the ONLY fresh content. LLM mode
-  // writes it in the run's output language; deterministic mode (and the LLM
-  // fallback) uses the first prose paragraph of the wiki's root index.
-  const descriptions = new Map<string, string>();
+  // 2026-07-21 prose amendment: the coherent cross-wiki prose regenerates
+  // ONLY when the set of wikis changed (add/remove) or no prose exists yet.
+  // A routine ingest preserves it byte-for-byte (never re-translated).
+  const wikiSetChanged =
+    existingChildren.length !== children.length ||
+    existingChildren.some((child, index) => child !== children[index]);
+  let workspaceProse = preserved.workspaceProse;
+  if (wikiSetChanged || workspaceProse === undefined) {
+    let freshProse: string | null = null;
+    if (options.doxLlm) {
+      const proseContext: DoxWorkspaceProseContext = {
+        contextLabel: '(workspace prose)',
+        wikis,
+        outputLanguage: options.outputLanguage ?? 'English',
+        logPath: options.logPath,
+      };
+      const runProse = options.writeWorkspaceProseFn ?? writeWorkspaceProseWithLlm;
+      freshProse = await runWorkspaceEntryWithRetries(() => runProse(proseContext), proseContext.contextLabel);
+    }
+    workspaceProse = freshProse ?? deterministicWorkspaceProse(wikis);
+  }
+
+  // The triggering wiki's catalog line is the ONLY fresh line (per-wiki
+  // ownership); deterministic mode and LLM failure use the first prose
+  // paragraph of its root index.
+  let entryDescription: string | undefined;
   const triggering = wikis.find((wiki) => wiki.slug === options.wikiSlug);
   if (triggering) {
     let description: string | null = null;
@@ -1387,10 +1446,17 @@ export async function writeWorkspaceIndex(options: WriteWorkspaceIndexOptions): 
       const runLlm = options.writeWorkspaceIndexFn ?? writeWorkspaceEntryWithLlm;
       description = await runWorkspaceEntryWithRetries(() => runLlm(context), context.contextLabel);
     }
-    descriptions.set(triggering.slug, description ?? deterministicDescription(triggering));
+    entryDescription = description ?? deterministicDescription(triggering);
   }
 
-  const body = composeWorkspaceBody(wikis, statistics, descriptions, preserved);
+  const body = composeWorkspaceBody(
+    wikis,
+    statistics,
+    workspaceProse,
+    entryDescription,
+    options.wikiSlug,
+    preserved,
+  );
 
   // Frontmatter is ALWAYS the deterministically-computed one — same rule as
   // per-folder indexes. No `wiki` field: this contract governs the whole

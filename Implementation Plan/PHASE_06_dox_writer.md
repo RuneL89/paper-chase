@@ -1,14 +1,16 @@
 # Phase 6: DOX Writer (Layer 6)
 
 **Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-006`
-**Version:** 1.2.0
-**Status:** Reopened (2026-07-21 amendment: per-wiki workspace segments)
+**Version:** 1.3.0
+**Status:** Reopened (2026-07-21 amendment: workspace prose refreshes only on wiki-set change)
 **Date:** 2026-07-16
 **Dependencies:** Phase 0, Phase 1, Phase 2, Phase 3, Phase 4, Phase 5
 **Estimated Time:** 4-6 hours
 **LLM Token Budget:** Quality-first; no hard cap. Use the cheapest model that produces reliable prose, and log every call.
 
-> **Amendment 2026-07-21 (user-ratified, compliance-log [2026-07-21 00:10]/[2026-07-21 00:20]):** the workspace index becomes **per-wiki owned**. The cross-wiki LLM prose is kept, but it is composed of per-wiki prose segments — each written by that wiki's own ingest, in that run's output language — and an ingest rewrites ONLY its own wiki's segments (its prose contribution and its `## Wikis` catalog line); every other wiki's segments are preserved byte-for-byte. Supersedes the whole-file regeneration model. New: Gates 6.12–6.14.
+> **Amendment 2026-07-21 (user-ratified, compliance-log [2026-07-21 00:10]/[2026-07-21 00:20]):** the workspace index becomes **per-wiki owned** for its catalog: an ingest rewrites ONLY its own wiki's `## Wikis` catalog line (in that run's output language); every other wiki's line is preserved byte-for-byte. Supersedes the whole-file regeneration model. Gates 6.12–6.14.
+>
+> **Amendment 2026-07-21b (user-ratified, compliance-log [2026-07-21 01:10]):** the workspace PROSE is a coherent cross-wiki LLM synthesis reading ALL wikis' root contracts, regenerated **only when the set of wikis changes** (add/remove) or is missing — routine ingests preserve it byte-for-byte, so it is never re-translated. The per-wiki prose SEGMENTS (which duplicated the catalog) are dropped; the prose lives in `<!-- workspace-prose -->` markers. New: Gates 6.15–6.16.
 >
 > **Amendment 2026-07-20 (user-ratified, compliance-log [2026-07-20 02:30]):** the workspace-level `wikis/index-of-indexes.md` — previously specced as deterministic in vision `03` §4.1 / `05` §3.3 but never implemented — is now a **DOX Writer output**, written the same way as every other index level: LLM prose with deterministic children/statistics re-imposition and deterministic fallback. New: §3.6, Gates 6.9–6.11, UAT 6.4.
 
@@ -56,17 +58,14 @@ async function writeWorkspaceIndex(options?: { workspace?: string }): Promise<vo
    - Write the LLM-generated markdown to `index.md` inside the folder, ensuring the deterministic children list and statistics are preserved.
 4. After all DOX pages are written, run a final `validateWiki()` pass to catch any broken links, invalid citations, or schema issues introduced by the LLM.
 
-**Algorithm (workspace pass, amendment 2026-07-21 — per-wiki segments):**
+**Algorithm (workspace pass, amendment 2026-07-21b — two ownership rules):**
 
-The workspace index is composed of per-wiki segments and re-composed deterministically at the end of every ingest. The workspace pass's only content input is the **triggering wiki's** freshly-written root `index.md` (summary-of-summaries); it must NOT read the content pages inside any wiki, and it never rewrites another wiki's segments.
+The workspace index has two parts with different ownership:
 
-1. List every directory in `wikis/` that contains a root `index.md`.
-2. Parse the existing `wikis/index-of-indexes.md` (when present) into per-wiki prose segments and per-wiki catalog lines, keyed by slug. First run after this amendment: seed missing segments from the existing catalog lines so nothing is lost.
-3. Call the LLM once with the triggering wiki's root contract to write that wiki's description (in the run's output language), used for both its prose segment and its `## Wikis` catalog line.
-4. Re-compose the file deterministically: per-wiki prose segments in slug order (triggering wiki fresh, every other preserved byte-for-byte, removed wikis dropped, missing segments get a deterministic placeholder), the `## Wikis` catalog with the same per-line ownership, the exact children list (`<slug>/index.md` per wiki), and the statistics (wiki count plus corpus totals) — the last two computed over ALL wikis every run.
-5. Any LLM failure falls back to a deterministic segment for the **triggering wiki only**; other wikis' segments are untouched.
-6. The workspace index sits inside `wikis/` so the whole `wikis/` folder can be opened as one Obsidian vault where its `[[<slug>/index|<Wiki Title>]]` links resolve natively. It is outside every single-wiki vault, so `validateWiki()` does not check it.
-7. Each segment is written in the output language of the wiki it describes, so a mixed-language workspace index is normal and correct.
+1. **Workspace prose** — a coherent cross-wiki LLM synthesis reading ALL wikis' freshly-written root `index.md` contracts (never their content pages). Regenerated ONLY when the set of wikis changed since the file's frontmatter children (add/remove) or when no prose block exists; otherwise preserved byte-for-byte inside `<!-- workspace-prose -->` markers. Written in the regenerating run's output language.
+2. **`## Wikis` catalog** — per-wiki owned lines. One LLM call per ingest writes ONLY the triggering wiki's line (in the run's output language); every other wiki's line is preserved byte-for-byte; removed wikis' lines are dropped; missing lines get a deterministic placeholder.
+
+Deterministic code re-imposes over ALL wikis every run: the exact children list (`<slug>/index.md` per wiki) and the statistics (wiki count plus corpus totals). LLM failures are per-concern: prose regeneration falls back to a deterministic workspace paragraph; an entry failure falls back to a deterministic catalog line (the first prose paragraph of the wiki's root index). Both LLM paths retry up to 3 attempts (Phase 7 v1.1.0). The workspace index sits inside `wikis/` (one Obsidian vault) and is outside every single-wiki vault, so `validateWiki()` does not check it.
 
 **Input to the LLM for each folder:**
 - Folder path and list of child files and sub-folders.
@@ -91,9 +90,13 @@ The prompt is loaded by `src/dox-writer.ts` and sent to the LLM for each folder.
 - Instruct the LLM to follow the writing rules from the supplied `AGENTS.md`.
 - Show an example of a rich folder-level `index.md` and a rich wiki-level `index.md`.
 
-**File:** `prompts/dox-writer-workspace.prompt.txt` (amendment 2026-07-20; repurposed 2026-07-21)
+**File:** `prompts/dox-writer-workspace.prompt.txt` (amendment 2026-07-20; repurposed 2026-07-21b as the workspace PROSE prompt)
 
-The workspace-pass variant, loaded for the single per-ingest workspace call. Since the 2026-07-21 amendment it is a **per-wiki entry prompt**: its only content input is the triggering wiki's freshly-written root `index.md` contract, and its output is a short description of THAT wiki (1–3 sentences, no headings, no lists, no wikilinks — deterministic code adds the `[[<slug>/index|<Title>]]` link and stitches the segments). A language directive names the run's output language. Same rules: map-not-territory, no invented facts.
+Loaded only when the workspace prose regenerates (wiki-set change or missing prose). Its inputs are ALL wikis' freshly-written root `index.md` contracts and the run's output language; its output is 3–6 sentences of coherent cross-wiki prose (no headings, lists, wikilinks, or frontmatter — deterministic code adds everything else). Rules: synthesize across contracts, no invented facts, no generic filler, durable wording (no run-specific framing).
+
+**File:** `prompts/dox-writer-workspace-entry.prompt.txt` (new 2026-07-21b; content moved from the 2026-07-21 per-wiki entry prompt)
+
+Loaded once per ingest for the triggering wiki's `## Wikis` catalog line. Its only content input is the triggering wiki's freshly-written root `index.md` contract; its output is a 1–3 sentence description of THAT wiki in the run's output language (no wikilinks — deterministic code adds the `[[<slug>/index|<Title>]]` link).
 
 ### 3.3 Folder-Level `index.md` Format
 
@@ -418,6 +421,32 @@ test('LLM failure writes a deterministic segment for the triggering wiki only; a
 
 ---
 
+### Gate 6.15: Workspace Prose Regenerates Only on Wiki-Set Change (amendment 2026-07-21b)
+
+```typescript
+test('workspace prose regenerates only when a wiki is added or removed', async () => {
+  // First run: prose written. Routine ingest (same set): prose byte-preserved,
+  // no prose call. Add a wiki: prose regenerates. Routine ingest: preserved.
+  // Remove a wiki: prose regenerates.
+});
+```
+
+**Pass Criteria:** The prose call fires exactly on set changes (and first write); routine ingests leave the prose block byte-identical.
+
+### Gate 6.16: Workspace Prose Synthesizes ALL Root Contracts (amendment 2026-07-21b)
+
+```typescript
+test('workspace prose call receives every wiki root contract', async () => {
+  // The injected writeWorkspaceProseFn context contains every wiki's
+  // freshly-written root index.md (never content pages), sorted by slug,
+  // plus the run's output language.
+});
+```
+
+**Pass Criteria:** The prose context carries ALL wikis' root contracts; catalog lines remain per-wiki owned (gate 6.12).
+
+---
+
 ## 5. User Acceptance Tests (UAT)
 
 ### UAT 6.1: I can open the wiki index
@@ -526,6 +555,12 @@ Before moving to Phase 7, verify:
 - [ ] Each segment is written in the output language of the wiki it describes — a mixed-language workspace index survives subsequent ingests in any language.
 - [ ] LLM failure on the workspace pass falls back to a deterministic description for the triggering wiki only; removed wikis lose their segments.
 - [ ] The workspace entry prompt's only content input is the triggering wiki's root contract.
+
+### Amendment 2026-07-21b (workspace prose on set change only)
+
+- [ ] Gates 6.15–6.16 pass (`npm test` is green).
+- [ ] The workspace prose is a coherent cross-wiki synthesis reading ALL wikis' root contracts — no duplication of the catalog.
+- [ ] The prose regenerates only on wiki-set changes (add/remove) or when missing; routine ingests preserve it byte-for-byte (never re-translated).
 
 ---
 

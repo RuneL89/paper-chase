@@ -7,7 +7,7 @@ Runtime workspace for generated wikis. `llm-wiki-cli init <slug>` creates `wikis
 ## Ownership
 
 * `<slug>/` — one generated wiki: `raw/` (source PDFs, never modified), `documents/` (raw extracted chunks), `sources/` (provenance pages), `entities/`, `topics/`, `.state/` (tooling state, e.g. `ingestion.json`, `language.json` — the Phase 7 per-wiki language record: `outputLanguage`, `lastInputLanguage`), and a generated `AGENTS.md` constitution (from `templates/AGENTS.md`; binding for every LLM call in that wiki, managed by the CLI — never hand-edited; includes the wiki's `## Language` section since Phase 7)
-* `index-of-indexes.md` — the workspace-level DOX contract (Phase 6, 2026-07-20 amendment; per-wiki segments 2026-07-21): lists every wiki that has a root `index.md`; composed of per-wiki prose segments (marked `<!-- segment:<slug> -->`) and catalog lines, each written by that wiki's own ingest in its own output language and preserved byte-for-byte otherwise; re-composed by the DOX Writer's workspace pass at the end of every ingest; managed by the CLI — never hand-edited
+* `index-of-indexes.md` — the workspace-level DOX contract (Phase 6, 2026-07-20 amendment; per-wiki segments 2026-07-21): lists every wiki that has a root `index.md`; composed of a coherent cross-wiki prose block (marked `<!-- workspace-prose -->`, regenerated only when the wiki set changes) and per-wiki catalog lines (each written by that wiki's own ingest in its own output language and preserved byte-for-byte otherwise); re-composed by the DOX Writer's workspace pass at the end of every ingest; managed by the CLI — never hand-edited
 
 ## Local Contracts
 
