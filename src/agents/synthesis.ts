@@ -2,6 +2,11 @@ import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { callLLM } from '../llm/client';
+import {
+  applyLanguageDirective,
+  buildLanguageDirective,
+  type LanguageCode,
+} from '../utils/language';
 import type {
   EntityPageData,
   EntityPageMention,
@@ -152,14 +157,25 @@ function buildTopicSynthesisValues(topicData: TopicPageData): Record<string, str
   };
 }
 
+/** Phase 7: the run's input/output languages (vision `04` §9); absent → en/en. */
+export interface SynthesisLanguage {
+  input: LanguageCode;
+  output: LanguageCode;
+}
+
 function buildSynthesisPrompt(
   values: Record<string, string>,
   agentsMd: string,
   promptFile: string,
+  language?: SynthesisLanguage,
 ): Promise<string> {
   return (async () => {
     const template = await loadPromptTemplate(promptFile);
-    const prompt = fillPromptTemplate(template, values);
+    const filled = fillPromptTemplate(template, values);
+    const prompt = applyLanguageDirective(
+      filled,
+      buildLanguageDirective('synthesis', language?.input ?? 'en', language?.output ?? 'en'),
+    );
     return `${prompt}\n\n=== WIKI CONSTITUTION ===\n${agentsMd.trim().length > 0 ? agentsMd : '(No AGENTS.md provided.)'}\n\nAll citations, page structure, and writing rules above must follow this constitution.`;
   })();
 }
@@ -174,11 +190,13 @@ export async function writeEntitySynthesis(
   entityData: EntityPageData,
   agentsMd: string,
   logPath?: string,
+  language?: SynthesisLanguage,
 ): Promise<string> {
   const fullPrompt = await buildSynthesisPrompt(
     buildEntitySynthesisValues(entityData),
     agentsMd,
     'synthesis.prompt.txt',
+    language,
   );
   return callLLM(fullPrompt, undefined, {
     maxTokens: 8192,
@@ -199,11 +217,13 @@ export async function writePermissiveEntitySynthesis(
   entityData: EntityPageData,
   agentsMd: string,
   logPath?: string,
+  language?: SynthesisLanguage,
 ): Promise<string> {
   const fullPrompt = await buildSynthesisPrompt(
     buildEntitySynthesisValues(entityData),
     agentsMd,
     'synthesis-permissive.prompt.txt',
+    language,
   );
   return callLLM(fullPrompt, undefined, {
     maxTokens: 8192,
@@ -220,11 +240,13 @@ export async function writeTopicSynthesis(
   topicData: TopicPageData,
   agentsMd: string,
   logPath?: string,
+  language?: SynthesisLanguage,
 ): Promise<string> {
   const fullPrompt = await buildSynthesisPrompt(
     buildTopicSynthesisValues(topicData),
     agentsMd,
     'synthesis-topic.prompt.txt',
+    language,
   );
   return callLLM(fullPrompt, undefined, {
     maxTokens: 8192,
@@ -241,11 +263,13 @@ export async function writePermissiveTopicSynthesis(
   topicData: TopicPageData,
   agentsMd: string,
   logPath?: string,
+  language?: SynthesisLanguage,
 ): Promise<string> {
   const fullPrompt = await buildSynthesisPrompt(
     buildTopicSynthesisValues(topicData),
     agentsMd,
     'synthesis-topic-permissive.prompt.txt',
+    language,
   );
   return callLLM(fullPrompt, undefined, {
     maxTokens: 8192,

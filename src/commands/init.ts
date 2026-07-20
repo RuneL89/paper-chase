@@ -3,6 +3,8 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isValidWikiSlug } from '../utils/slug';
+import { getLanguage, type LanguageCode } from '../utils/language';
+import { writeWikiLanguage } from '../state/language';
 import { wikiDir } from '../utils/paths';
 
 export interface InitOptions {
@@ -10,6 +12,13 @@ export interface InitOptions {
   title?: string;
   /** Workspace directory containing wikis/; defaults to '.'. */
   workspace?: string;
+  /**
+   * Phase 7 (vision `04` §9.1): the wiki's output language — the language of
+   * all Layer 1 synthesis prose and index.md descriptions. Recorded in the
+   * constitution's Language section and `.state/language.json`. Defaults to
+   * English.
+   */
+  outputLanguage?: LanguageCode;
 }
 
 export interface InitResult {
@@ -62,8 +71,19 @@ export async function init(slug: string, options: InitOptions = {}): Promise<Ini
   }
 
   const template = await readFile(templatePath(), 'utf-8');
-  const constitution = template.replaceAll('{{WIKI_TITLE}}', title).replaceAll('{{SLUG}}', slug);
+  const outputLanguage = getLanguage(options.outputLanguage ?? 'en');
+  const constitution = template
+    .replaceAll('{{WIKI_TITLE}}', title)
+    .replaceAll('{{SLUG}}', slug)
+    .replaceAll('{{OUTPUT_LANGUAGE}}', outputLanguage.name);
   await writeFile(join(dir, 'AGENTS.md'), constitution, 'utf-8');
+
+  // Phase 7: persist the per-wiki language state (.state/language.json). The
+  // last input language starts at English; the first ingest run updates it.
+  await writeWikiLanguage(dir, {
+    outputLanguage: outputLanguage.code,
+    lastInputLanguage: 'en',
+  });
 
   return {
     slug,

@@ -8,6 +8,7 @@ import { ErrorBox } from './components/error-box';
 import { SuccessBox } from './components/success-box';
 import { init } from '../commands/init';
 import { slugify, isValidWikiSlug } from '../utils/slug';
+import { SUPPORTED_LANGUAGES } from '../utils/language';
 
 export interface ScreenProps {
   onBack: () => void;
@@ -19,20 +20,24 @@ export interface InitScreenProps extends ScreenProps {
   defaultWorkspace?: string;
 }
 
-type FieldName = 'title' | 'workspace' | 'create' | 'back';
-const FIELD_ORDER: FieldName[] = ['title', 'workspace', 'create', 'back'];
+type FieldName = 'title' | 'workspace' | 'language' | 'create' | 'back';
+const FIELD_ORDER: FieldName[] = ['title', 'workspace', 'language', 'create', 'back'];
 
 type FormStatus = 'editing' | 'busy' | 'success' | 'error';
 
 /**
  * Create New Wiki form: Title (required, converted to kebab-case slug),
- * Workspace (default './'). Tab/arrows move between fields, Enter on
- * "Create Wiki" runs init(), Escape/Back returns to the menu.
+ * Workspace (default './'), Output Language (Phase 7 dropdown, English
+ * pre-selected; Title and Workspace remain the only text inputs per the
+ * 2026-07-18 user decision). Tab/arrows move between fields, Left/Right cycles
+ * the language dropdown, Enter on "Create Wiki" runs init(), Escape/Back
+ * returns to the menu.
  */
 export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitScreenProps) {
   const { isRawModeSupported } = useStdin();
   const [title, setTitle] = useState('');
   const [workspace, setWorkspace] = useState(defaultWorkspace);
+  const [languageIndex, setLanguageIndex] = useState(0); // English
   const [focusIndex, setFocusIndex] = useState(0);
   const [status, setStatus] = useState<FormStatus>('editing');
   const [message, setMessage] = useState('');
@@ -59,6 +64,7 @@ export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitSc
       const result = await init(slug, {
         title: trimmedTitle,
         workspace: workspace.trim().length > 0 ? workspace.trim() : '.',
+        outputLanguage: SUPPORTED_LANGUAGES[languageIndex].code,
       });
       setStatus('success');
       setMessage(result.message);
@@ -94,8 +100,15 @@ export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitSc
         setFocusIndex((focusIndex + FIELD_ORDER.length - 1) % FIELD_ORDER.length);
         return;
       }
+      if (focus === 'language' && (key.leftArrow || key.rightArrow)) {
+        const delta = key.rightArrow ? 1 : SUPPORTED_LANGUAGES.length - 1;
+        setLanguageIndex((languageIndex + delta) % SUPPORTED_LANGUAGES.length);
+        return;
+      }
       if (key.return) {
-        if (focus === 'create') {
+        if (focus === 'create' || focus === 'language') {
+          // Enter on the language dropdown (the last input) submits, keeping
+          // the Title → Tab → Tab → Enter flow from before Phase 7 intact.
           void submit();
         } else if (focus === 'back') {
           onBack();
@@ -107,6 +120,7 @@ export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitSc
   );
 
   const editing = status === 'editing' || status === 'busy';
+  const selectedLanguage = SUPPORTED_LANGUAGES[languageIndex];
 
   return (
     <Box flexDirection="column">
@@ -128,6 +142,12 @@ export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitSc
                 onSubmit={() => setFocusIndex(2)}
               />
             </Box>
+            <Box>
+              <Text>Output Language: </Text>
+              <Text inverse={focus === 'language'} color={focus === 'language' ? 'cyan' : undefined}>
+                [‹ {selectedLanguage.nativeName} ({selectedLanguage.name}) ›]
+              </Text>
+            </Box>
             <Box marginTop={1} gap={2}>
               <Text inverse={focus === 'create'} color={focus === 'create' ? 'cyan' : undefined}>
                 [ Create Wiki ]
@@ -146,6 +166,7 @@ export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitSc
         <Box flexDirection="column" marginTop={1}>
           <Text>Title: {title}</Text>
           <Text>Workspace: {workspace}</Text>
+          <Text>Output Language: {selectedLanguage.nativeName} ({selectedLanguage.name})</Text>
           <Text>[ Create Wiki ] [ Back ]</Text>
           <Text dimColor>Interactive form requires a TTY.</Text>
         </Box>
@@ -153,7 +174,7 @@ export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitSc
       {status === 'busy' && <LoadingSpinner label="Creating wiki..." />}
       {status === 'success' && <SuccessBox message={message} />}
       {status === 'error' && <ErrorBox message={message} />}
-      <Footer helpText="Tab: next field | Enter: select | Press Escape to go back" />
+      <Footer helpText="Tab: field | Left/Right: language | Enter: select | Press Escape to go back" />
     </Box>
   );
 }

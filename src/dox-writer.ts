@@ -7,6 +7,11 @@ import { formatWikilink, parseWikilinkTarget } from './utils/wikilinks';
 import { slugify } from './utils/slug';
 import { wikiDir } from './utils/paths';
 import { callLLM } from './llm/client';
+import {
+  applyLanguageDirective,
+  buildLanguageDirective,
+  type LanguageCode,
+} from './utils/language';
 
 export interface DoxIndexPageInfo {
   /** File name (e.g. 'john-smith.md'). */
@@ -98,6 +103,12 @@ export interface DoxIndexContext {
   rollingMemory: string;
   /** JSON-lines LLM call log path (defaults to the wiki's `.state/llm-calls.json`). */
   logPath?: string;
+  /**
+   * Phase 7 (vision `04` §9): the run's input language and the wiki's output
+   * language. Drives the `{languageDirective}` prompt fill; absent → en/en →
+   * empty directive (byte-identical prompt).
+   */
+  language?: { input: LanguageCode; output: LanguageCode };
 }
 
 export interface WriteDoxOptions {
@@ -119,6 +130,11 @@ export interface WriteDoxOptions {
   writeDoxIndexFn?: (context: DoxIndexContext) => Promise<string>;
   /** Override for the JSON-lines LLM call log path (defaults to `<wiki>/.state/llm-calls.json`). */
   logPath?: string;
+  /**
+   * Phase 7 (vision `04` §9): the run's input/output languages, threaded into
+   * the LLM prompt's `{languageDirective}`. Deterministic mode is unaffected.
+   */
+  language?: { input: LanguageCode; output: LanguageCode };
 }
 
 interface FileNode {
@@ -704,6 +720,7 @@ async function buildDoxIndexContext(
     agentsMd,
     rollingMemory,
     logPath: options.logPath ?? join(dir, '.state', 'llm-calls.json'),
+    language: options.language,
   };
 }
 
@@ -738,7 +755,7 @@ async function writeDoxIndexWithLlm(context: DoxIndexContext): Promise<string> {
     }
   }
 
-  const prompt = fillPromptTemplate(template, {
+  const filledPrompt = fillPromptTemplate(template, {
     wikiSlug: context.wikiSlug,
     folderPath: context.contextLabel,
     folderTitle: context.title,
@@ -777,6 +794,12 @@ async function writeDoxIndexWithLlm(context: DoxIndexContext): Promise<string> {
     rollingMemory:
       context.rollingMemory.trim().length > 0 ? context.rollingMemory : '(No rolling memory yet.)',
   });
+  // Phase 7: fill the {languageDirective} placeholder (removes the whole
+  // LANGUAGE block when both languages are English → byte-identical prompt).
+  const prompt = applyLanguageDirective(
+    filledPrompt,
+    buildLanguageDirective('dox', context.language?.input ?? 'en', context.language?.output ?? 'en'),
+  );
   return callLLM(prompt, undefined, {
     maxTokens: DOX_WRITER_MAX_TOKENS,
     callType: 'dox-writer',

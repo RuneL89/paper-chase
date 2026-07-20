@@ -1,0 +1,34 @@
+{
+  "phase": "07",
+  "goal": "All 8 technical gates in PHASE_07_multilingual_ingestion.md pass (npm test is green), all 4 UAT steps are documented with expected output, compliance log shows no unresolved contradictions, and total LLM cost is under $3.00.",
+  "status": "implemented-verified-pending-uat",
+  "lastAction": "Verifier sub-agent APPROVED 8/8 gates (cold, independent run); DOX pass and status file closeout",
+  "gatesPassed": ["7.1", "7.2", "7.3", "7.4", "7.5", "7.6", "7.7", "7.8"],
+  "gatesFailed": [],
+  "gatesPending": [],
+  "uat": {
+    "7.1": "pending-user",
+    "7.2": "pending-user",
+    "7.3": "pending-user",
+    "7.4": "pending-user"
+  },
+  "fixture": {
+    "file": "test-pdfs/golden-master-da.pdf",
+    "sha256": "55d040c7dea6e7b797614e602b25f9c77c8c4e8d48aeb593b56ae3b279b3dd29",
+    "generator": "scripts/create-golden-master-da.ts (run once 2026-07-20; never re-run)",
+    "pages": 2,
+    "knownContent": "Page 1 'Årsrapport 2024': Søren Møller presents Møbler A/S results in København, 12,5 millioner kr. revenue 2024 (+8%). Page 2 'Bestyrelse og marked': Åse Lindberg chair since 2015; new Aarhus factory Sep 2024, 3,2 millioner kr. investment, 45 jobs."
+  },
+  "deviations": [
+    "Gate 7.6 title assertion: the entity-page writer only quotes YAML-sensitive titles (escapeYamlString), so the Danish title is written unquoted ('title: Søren Møller'). The gate's pass criterion (transliterated file names, verbatim titles) is verified via parsed frontmatter instead of the literal quoted string.",
+    "Gate 7.4 dox coverage: verified via a mocked callLLM capturing the real filled prompt (stronger than the gate's suggested writeDoxIndexFn injection, which bypasses prompt construction).",
+    "Latent Phase 5 defect repaired: prompts/synthesis-topic-permissive.prompt.txt had NO data placeholders (the agent code filled {topicName}/{entities}/{claims}/{sources}/{context} into a template that didn't contain them — live permissive topic synthesis would have sent a data-less prompt). Added the === TOPIC DATA === section byte-identical to synthesis-topic.prompt.txt. Verifier confirmed correct and minimal.",
+    "TUI keystroke compatibility: Enter on the init screen's Output Language dropdown submits the form so the pre-Phase-7 Title → Tab → Tab → Enter flow (and its test) works unmodified; no pre-Phase-7 test was changed (gate 7.2 criterion)."
+  ],
+  "llmCost": "$0.00",
+  "tokenBudgetRemaining": "$3.00",
+  "costNote": "Phase 7 gates are LLM-free by design (mocked callLLM / injected stubs). No live Phase 7 LLM calls were made; the live UAT smoke test (UAT 7.1/7.2) is the only planned spend. Full-suite runs execute the live Phase 2 gates (~$0.07/run) against the Phase 2 budget, as in previous phases.",
+  "blocker": null,
+  "verification": ".state/phase-7-verification.md — APPROVED 8/8 gates, tsc clean, 10/10 phase-07 tests, 28/28 pre-Phase-7 surface tests, full suite 208 passed + 1 skipped with repo key (the 2 transient Phase 2 HTTP 529 failures passed on rerun)",
+  "nextAction": "User UAT 7.1–7.4 (presented one by one by the Reporter; UAT 7.1/7.2 make the phase's only live LLM calls — the 2-page Danish fixture keeps spend well under the $3.00 cap)"
+}

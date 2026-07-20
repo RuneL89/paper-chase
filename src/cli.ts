@@ -27,9 +27,14 @@ program
   .description('Create a new wiki')
   .option('--title <title>', 'Wiki title')
   .option('-w, --workspace <workspace>', 'Workspace directory', '.')
-  .action(async (slug: string, options: { title?: string; workspace: string }) => {
+  .option('--output-language <code>', 'Output language (en, da, de, fr, es, no, sv)', 'en')
+  .action(async (slug: string, options: { title?: string; workspace: string; outputLanguage?: string }) => {
     try {
-      const result = await init(slug, { title: options.title, workspace: options.workspace });
+      const result = await init(slug, {
+        title: options.title,
+        workspace: options.workspace,
+        outputLanguage: options.outputLanguage as import('./utils/language').LanguageCode | undefined,
+      });
       console.log(result.message);
     } catch (err) {
       console.error(`Error: ${(err as Error).message}`);
@@ -45,8 +50,10 @@ program
   .option('--update-agents', 'Update AGENTS.md (no-op in Phase 1)')
   .option('--no-extract', 'Skip the Layer 2 Extractor (Layer 1 document pages only)')
   .option('--no-dox-llm', 'Skip the LLM DOX Writer (deterministic index.md contracts only)')
+  .option('--input-language <code>', 'Input language of this run\'s PDFs (en, da, de, fr, es, no, sv)')
+  .option('--output-language <code>', 'Override the wiki output language for this run (en, da, de, fr, es, no, sv)')
   .option('--verbose', 'Verbose output')
-  .action(async (slug: string, options: { workspace: string; synthesis?: boolean; updateAgents?: boolean; extract?: boolean; doxLlm?: boolean; verbose?: boolean }) => {
+  .action(async (slug: string, options: { workspace: string; synthesis?: boolean; updateAgents?: boolean; extract?: boolean; doxLlm?: boolean; inputLanguage?: string; outputLanguage?: string; verbose?: boolean }) => {
     // --synthesis is Phase 5: opt-in LLM synthesis of entity, topic, and document pages after extraction.
     // --update-agents is accepted for forward compatibility; it is a no-op here.
     // Extraction (Layer 2) is ON by default per the phase doc; --no-extract
@@ -59,6 +66,8 @@ program
         extract: options.extract,
         synthesis: options.synthesis,
         doxLlm: options.doxLlm,
+        inputLanguage: options.inputLanguage as import('./utils/language').LanguageCode | undefined,
+        outputLanguage: options.outputLanguage as import('./utils/language').LanguageCode | undefined,
         onProgress: (message) => console.log(message),
       });
       if (options.verbose) {

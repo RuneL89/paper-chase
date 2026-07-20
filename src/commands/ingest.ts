@@ -7,8 +7,10 @@ import { renderTablesAsMarkdown } from '../extraction/markdown-tables';
 import { sha256 } from '../utils/hash';
 import { sourceSlugForFile } from '../utils/slug';
 import { aliasesForTitle, enforceAliasesInMarkdown } from '../utils/aliases';
+import { getLanguage, type LanguageCode } from '../utils/language';
 import { sourcePdfPath, wikiDir, wikiRelativePath } from '../utils/paths';
 import { readIngestionState, writeIngestionState } from '../state/ingestion-state';
+import { readWikiLanguage, writeWikiLanguage } from '../state/language';
 import { writeSourcePage } from '../pages/source-page';
 import { extractDocumentChunk, type ChunkExtraction } from './extract-chunk';
 import { materialize, type MaterializeResult } from '../materializer';
@@ -61,6 +63,7 @@ export interface IngestOptions {
     entityData: EntityPageData,
     agentsMd: string,
     logPath?: string,
+    language?: { input: LanguageCode; output: LanguageCode },
   ) => Promise<string>;
   /**
    * Injectable permissive synthesis implementation (test-only). Defaults to the
@@ -70,6 +73,7 @@ export interface IngestOptions {
     entityData: EntityPageData,
     agentsMd: string,
     logPath?: string,
+    language?: { input: LanguageCode; output: LanguageCode },
   ) => Promise<string>;
   /**
    * Injectable topic synthesis implementation (test-only). Defaults to the real
@@ -79,6 +83,7 @@ export interface IngestOptions {
     topicData: TopicPageData,
     agentsMd: string,
     logPath?: string,
+    language?: { input: LanguageCode; output: LanguageCode },
   ) => Promise<string>;
   /**
    * Injectable permissive topic synthesis implementation (test-only). Defaults to
@@ -88,6 +93,7 @@ export interface IngestOptions {
     topicData: TopicPageData,
     agentsMd: string,
     logPath?: string,
+    language?: { input: LanguageCode; output: LanguageCode },
   ) => Promise<string>;
   /**
    * Phase 6: run the DOX Writer in LLM mode — one LLM call per folder plus the
@@ -110,10 +116,18 @@ export interface IngestOptions {
    */
   writeWorkspaceIndexFn?: (context: DoxWorkspaceIndexContext) => Promise<string>;
   /**
-   * Output language of this ingest run, forwarded to the DOX Writer's
-   * workspace pass (vision `04` §9; the Phase 7 hook). Defaults to English.
+   * Phase 7 (vision `04` §9.1): input language of this run's PDFs. Resolution
+   * order: this flag → `lastInputLanguage` in `.state/language.json` → 'en'.
+   * Persisted as `lastInputLanguage` after the run.
    */
-  outputLanguage?: string;
+  inputLanguage?: LanguageCode;
+  /**
+   * Phase 7 (vision `04` §9.1): output language override for this run.
+   * Resolution order: this flag → `outputLanguage` in `.state/language.json`
+   * → 'en'. Also forwarded (as the language's English name) to the DOX
+   * Writer's workspace pass prose.
+   */
+  outputLanguage?: LanguageCode;
 }
 
 export interface IngestedSource {
@@ -161,6 +175,8 @@ export interface IngestResult {
   synthesisConflicts?: number;
   /** Phase 5: number of topic pages where preservation check failed. */
   topicConflicts?: number;
+  /** Phase 7: the resolved input/output languages of this run. */
+  languages?: { input: LanguageCode; output: LanguageCode };
 }
 
 const DEFAULT_PAGES_PER_CHUNK = 5;
@@ -221,6 +237,32 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   }
 
   const progress = options.onProgress ?? (() => {});
+
+  // Phase 7 (vision `04` §9.1): resolve the run's language pair. Output:
+  // CLI flag → .state/language.json → 'en'. Input: CLI flag →
+  // lastInputLanguage → 'en'. Invalid codes throw via getLanguage.
+  const languageState = await readWikiLanguage(dir);
+  const output = getLanguage(options.outputLanguage ?? languageState.outputLanguage).code;
+  const input = getLanguage(options.inputLanguage ?? languageState.lastInputLanguage).code;
+  const language = { input, output };
+
+  // Phase 7 (vision `04` §9.3 slug-forking caution): warn before processing
+  // when the resolved input language differs from the last run and the wiki
+  // already has extractions — the same name can slugify differently under a
+  // different input language and fork into duplicate pages.
+  if (input !== languageState.lastInputLanguage) {
+    const extractedDir = join(dir, '.state', 'extracted');
+    const hasExtractions =
+      existsSync(extractedDir) &&
+      (await readdir(extractedDir)).some((file) => file.endsWith('.json'));
+    if (hasExtractions) {
+      console.log(
+        `Warning: input language '${input}' differs from the last run ('${languageState.lastInputLanguage}'). ` +
+          `Re-ingesting the same names under a different language can create duplicate pages (slug forking).`,
+      );
+    }
+  }
+
   const pdfFiles = (await readdir(rawDir))
     .filter((file) => file.toLowerCase().endsWith('.pdf'))
     .sort();
@@ -237,10 +279,13 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     synthesizedTopicsPermissive: 0,
     synthesisConflicts: 0,
     topicConflicts: 0,
+    languages: language,
   };
 
   if (pdfFiles.length === 0) {
     progress(`No PDFs found in wikis/${slug}/raw/.`);
+    // Phase 7: remember the chosen input language even for an empty run.
+    await writeWikiLanguage(dir, { outputLanguage: languageState.outputLanguage, lastInputLanguage: input });
     return result;
   }
 
@@ -325,7 +370,9 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       // Test Extractor screen share one code path.
       if (extract) {
         const chunkId = docFileName.replace(/\.md$/, '');
-        const run = options.extractChunkFn ?? extractDocumentChunk;
+        // Phase 7: the default extraction path threads the run's language pair
+        // into the Extractor (language directive + slug transliteration).
+        const run = options.extractChunkFn ?? ((d: string, id: string) => extractDocumentChunk(d, id, language));
         const extraction = await run(dir, chunkId);
         progress(
           `Extracted ${extraction.result.entities.length} entities, ${extraction.result.relationships.length} relationships, ` +
@@ -396,7 +443,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     for (const entityPage of lastMaterializeResult.entityPages) {
       // First attempt: strict synthesis (readable prose that preserves exact
       // mention/relationship/claim strings).
-      const synthesized = await runEntitySynthesis(entityPage, agentsMd, llmLogPath);
+      const synthesized = await runEntitySynthesis(entityPage, agentsMd, llmLogPath, language);
       const check = checkPreservation(entityPage, synthesized);
       if (check.passed) {
         const folderPath = join(dir, entityPage.folder);
@@ -424,7 +471,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       console.warn(
         `Strict synthesis failed preservation for ${entityPage.slug}. Trying permissive fallback.`,
       );
-      const permissive = await runEntityPermissiveSynthesis(entityPage, agentsMd, llmLogPath);
+      const permissive = await runEntityPermissiveSynthesis(entityPage, agentsMd, llmLogPath, language);
       const permissiveCheck = checkPreservation(entityPage, permissive);
       if (permissiveCheck.passed) {
         const folderPath = join(dir, entityPage.folder);
@@ -466,7 +513,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     }
 
     for (const topicPage of lastMaterializeResult.topicPages) {
-      const synthesized = await runTopicSynthesis(topicPage, agentsMd, llmLogPath);
+      const synthesized = await runTopicSynthesis(topicPage, agentsMd, llmLogPath, language);
       const check = checkTopicPreservation(topicPage, synthesized);
       if (check.passed) {
         const folderPath = join(dir, topicPage.folder);
@@ -490,7 +537,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       console.warn(
         `Strict synthesis failed preservation for topic ${topicPage.slug}. Trying permissive fallback.`,
       );
-      const permissive = await runTopicPermissiveSynthesis(topicPage, agentsMd, llmLogPath);
+      const permissive = await runTopicPermissiveSynthesis(topicPage, agentsMd, llmLogPath, language);
       const permissiveCheck = checkTopicPreservation(topicPage, permissive);
       if (permissiveCheck.passed) {
         const folderPath = join(dir, topicPage.folder);
@@ -544,6 +591,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     workspace: options.workspace,
     doxLlm: options.doxLlm,
     writeDoxIndexFn: options.writeDoxIndexFn,
+    language,
   });
   progress('DOX contracts updated.');
 
@@ -565,10 +613,15 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     workspace: options.workspace,
     doxLlm: options.doxLlm,
     writeWorkspaceIndexFn: options.writeWorkspaceIndexFn,
-    outputLanguage: options.outputLanguage,
+    outputLanguage: getLanguage(output).name,
     logPath: join(dir, '.state', 'llm-calls.json'),
   });
   progress('Workspace index updated.');
+
+  // Phase 7: persist the run's input language for the next run's pre-selection
+  // and slug-forking detection. The stored output language is NOT overwritten
+  // by a per-run override — it stays the wiki's fixed setting (vision 04 §9.1).
+  await writeWikiLanguage(dir, { outputLanguage: languageState.outputLanguage, lastInputLanguage: input });
 
   progress('Done!');
   return result;

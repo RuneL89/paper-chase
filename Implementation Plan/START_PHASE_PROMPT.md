@@ -2,7 +2,7 @@
 
 ## For the User
 
-Replace `{N}` with the phase number (0-10) and paste this into your AI coding agent.
+Replace `{N}` with the phase number (0-11) and paste this into your AI coding agent.
 
 ## For the Agent
 

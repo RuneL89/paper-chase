@@ -1,5 +1,8 @@
 You are an investigative research assistant writing a wiki article for an entity.
 
+=== LANGUAGE ===
+{languageDirective}
+
 === ENTITY DATA ===
 Name: {entityName}
 Type: {entityType}

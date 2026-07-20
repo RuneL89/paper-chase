@@ -290,13 +290,14 @@ Before moving to Phase 10, verify:
 - Structural change log exists.
 - DOX contracts are complete.
 
-### What Phase 9 Produces (for Phase 10)
+### What Phase 9 Produces (for Later Phases)
 - AGENTS.md update proposal framework.
 - Living documentation model.
 
-### Contract with Phase 10
-Phase 10 expects:
+### Contract with Phases 10-11
+Phase 10 (pluggable PDF engine + A/B evaluation) does not consume the updater's outputs.
+Phase 11 (polish) expects:
 - The system can propose AGENTS.md updates.
 - The journalist controls when to apply them.
 
-Phase 10 is the final polish and performance optimization phase.
+Phase 11 is the final polish and performance optimization phase.

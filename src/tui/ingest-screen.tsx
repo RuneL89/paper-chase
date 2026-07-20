@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Text, useInput, useStdin } from 'ink';
+import { readdir } from 'node:fs/promises';
+import { join } from 'node:path';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import { LoadingSpinner } from './components/spinner';
@@ -9,6 +11,9 @@ import { useWikiList } from './hooks/use-wiki-list';
 import { useWikiDetails } from './hooks/use-wiki-details';
 import { ingest } from '../commands/ingest';
 import { loadSettings } from './settings';
+import { readWikiLanguage, type WikiLanguageState } from '../state/language';
+import { SUPPORTED_LANGUAGES } from '../utils/language';
+import { wikiDir } from '../utils/paths';
 import type { ScreenProps } from './init-screen';
 
 export interface IngestScreenProps extends ScreenProps {
@@ -31,12 +36,19 @@ export interface IngestScreenProps extends ScreenProps {
   ingestFn?: (slug: string, options: Record<string, unknown>) => Promise<unknown>;
 }
 
-type IngestStatus = 'idle' | 'running' | 'success' | 'error';
+type IngestStatus = 'idle' | 'confirm' | 'running' | 'success' | 'error';
+type FocusedControl = 'wiki' | 'input' | 'output';
+const FOCUS_ORDER: FocusedControl[] = ['wiki', 'input', 'output'];
 
 const MAX_PROGRESS_LINES = 8;
 
 function formatTimestamp(iso: string | null): string {
   return iso ? iso.slice(0, 16).replace('T', ' ') : 'never';
+}
+
+function languageIndexOf(code: string): number {
+  const index = SUPPORTED_LANGUAGES.findIndex((language) => language.code === code);
+  return index >= 0 ? index : 0;
 }
 
 /**
@@ -47,6 +59,14 @@ function formatTimestamp(iso: string | null): string {
  *
  * Phase 5: adds an "Enable Synthesis" checkbox pre-checked from
  * `.llm-wiki-cli.json`. When checked, ingest runs with `synthesis: true`.
+ *
+ * Phase 7 (vision `04` §9): Input Language and Output Language dropdown
+ * selectors (Tab moves focus between the wiki list and the dropdowns,
+ * Up/Down or Left/Right cycles the focused dropdown). Input pre-selects the
+ * wiki's `lastInputLanguage`, Output the wiki's `outputLanguage`. When the
+ * chosen input language differs from the last run and the wiki already has
+ * extractions, an inline slug-forking warning appears and starting requires
+ * an explicit confirm (Enter to proceed, Escape to cancel).
  */
 export function IngestScreen({
   onBack,
@@ -66,6 +86,14 @@ export function IngestScreen({
   const [progressLines, setProgressLines] = useState<string[]>([]);
   const [message, setMessage] = useState('');
   const [synthesis, setSynthesis] = useState(false);
+  const [focus, setFocus] = useState<FocusedControl>('wiki');
+  const [languageState, setLanguageState] = useState<WikiLanguageState>({
+    outputLanguage: 'en',
+    lastInputLanguage: 'en',
+  });
+  const [hasExtractions, setHasExtractions] = useState(false);
+  const [inputIndex, setInputIndex] = useState(0);
+  const [outputIndex, setOutputIndex] = useState(0);
 
   useEffect(() => {
     let mounted = true;
@@ -83,6 +111,44 @@ export function IngestScreen({
     };
   }, [workspace]);
 
+  // Phase 7: load the selected wiki's language state (.state/language.json)
+  // and whether it already has extractions (for the slug-forking warning).
+  // The selectors pre-select from the stored values whenever the wiki changes.
+  useEffect(() => {
+    let mounted = true;
+    if (!selectedWiki) {
+      return;
+    }
+    const dir = wikiDir(workspace, selectedWiki);
+    readWikiLanguage(dir)
+      .then(async (state) => {
+        let extracted = false;
+        try {
+          extracted = (await readdir(join(dir, '.state', 'extracted'))).some((file) =>
+            file.endsWith('.json'),
+          );
+        } catch {
+          // No .state/extracted yet — normal on a young wiki.
+        }
+        if (mounted) {
+          setLanguageState(state);
+          setHasExtractions(extracted);
+          setInputIndex(languageIndexOf(state.lastInputLanguage));
+          setOutputIndex(languageIndexOf(state.outputLanguage));
+        }
+      })
+      .catch(() => {
+        // Keep the English defaults on load failure.
+      });
+    return () => {
+      mounted = false;
+    };
+  }, [workspace, selectedWiki, refreshKey]);
+
+  const selectedInput = SUPPORTED_LANGUAGES[inputIndex];
+  const selectedOutput = SUPPORTED_LANGUAGES[outputIndex];
+  const slugForkingRisk = hasExtractions && selectedInput.code !== languageState.lastInputLanguage;
+
   const runIngest = async (wiki: string) => {
     setStatus('running');
     setProgressLines([]);
@@ -92,6 +158,8 @@ export function IngestScreen({
         workspace,
         extract,
         synthesis,
+        inputLanguage: selectedInput.code,
+        outputLanguage: selectedOutput.code,
         // Phase 6: production runs are LLM-driven — the DOX Writer writes rich,
         // content-based index.md contracts (deterministic enforcement and
         // fallback still guarantee valid contracts without a key).
@@ -115,13 +183,34 @@ export function IngestScreen({
     }
   };
 
+  const startIngest = (wiki: string) => {
+    // Phase 7: slug-forking caution (vision `04` §9.3) — an input-language
+    // change on a wiki with existing extractions requires explicit confirm.
+    if (slugForkingRisk) {
+      setStatus('confirm');
+      return;
+    }
+    void runIngest(wiki);
+  };
+
   useInput(
     (_input, key) => {
       if (status === 'running') {
         return;
       }
       if (key.escape) {
+        if (status === 'confirm') {
+          setStatus('idle');
+          return;
+        }
         onBack();
+        return;
+      }
+      if (status === 'confirm') {
+        // Explicit confirm gate: Enter proceeds, anything else is ignored.
+        if (key.return && selectedWiki) {
+          void runIngest(selectedWiki);
+        }
         return;
       }
       if (status === 'success' || status === 'error') {
@@ -133,12 +222,27 @@ export function IngestScreen({
       if (wikis.length === 0) {
         return;
       }
-      if (key.upArrow) {
+      if (key.tab) {
+        const current = FOCUS_ORDER.indexOf(focus);
+        const delta = key.shift ? FOCUS_ORDER.length - 1 : 1;
+        setFocus(FOCUS_ORDER[(current + delta) % FOCUS_ORDER.length]);
+        return;
+      }
+      if (focus === 'wiki' && key.upArrow) {
         setSelectedIndex((selectedIndex + wikis.length - 1) % wikis.length);
         return;
       }
-      if (key.downArrow) {
+      if (focus === 'wiki' && key.downArrow) {
         setSelectedIndex((selectedIndex + 1) % wikis.length);
+        return;
+      }
+      if (focus !== 'wiki' && (key.upArrow || key.downArrow || key.leftArrow || key.rightArrow)) {
+        const delta = key.downArrow || key.rightArrow ? 1 : SUPPORTED_LANGUAGES.length - 1;
+        if (focus === 'input') {
+          setInputIndex((inputIndex + delta) % SUPPORTED_LANGUAGES.length);
+        } else {
+          setOutputIndex((outputIndex + delta) % SUPPORTED_LANGUAGES.length);
+        }
         return;
       }
       if (_input === ' ') {
@@ -146,11 +250,14 @@ export function IngestScreen({
         return;
       }
       if (key.return && selectedWiki) {
-        void runIngest(selectedWiki);
+        startIngest(selectedWiki);
       }
     },
     { isActive: isRawModeSupported === true },
   );
+
+  const languageLabel = (language: (typeof SUPPORTED_LANGUAGES)[number]): string =>
+    `${language.nativeName} (${language.name})`;
 
   return (
     <Box flexDirection="column">
@@ -163,8 +270,8 @@ export function IngestScreen({
           <Text>Select Wiki:</Text>
           {isRawModeSupported ? (
             wikis.map((wiki, index) => (
-              <Text key={wiki} color={index === selectedIndex ? 'cyan' : undefined}>
-                {index === selectedIndex ? '> ' : '  '}
+              <Text key={wiki} color={focus === 'wiki' && index === selectedIndex ? 'cyan' : undefined}>
+                {focus === 'wiki' && index === selectedIndex ? '> ' : '  '}
                 {wiki}
               </Text>
             ))
@@ -179,8 +286,36 @@ export function IngestScreen({
             <Text>Last ingest: {formatTimestamp(details.lastIngest)}</Text>
           </Box>
           <Box flexDirection="column" marginTop={1}>
+            <Box>
+              <Text>Input Language: </Text>
+              <Text inverse={focus === 'input'} color={focus === 'input' ? 'cyan' : undefined}>
+                [‹ {languageLabel(selectedInput)} ›]
+              </Text>
+            </Box>
+            <Box>
+              <Text>Output Language: </Text>
+              <Text inverse={focus === 'output'} color={focus === 'output' ? 'cyan' : undefined}>
+                [‹ {languageLabel(selectedOutput)} ›]
+              </Text>
+            </Box>
+          </Box>
+          <Box flexDirection="column" marginTop={1}>
             <Text>[{synthesis ? '✓' : ' '}] Enable Synthesis (Space to toggle)</Text>
           </Box>
+          {slugForkingRisk && status !== 'running' ? (
+            <Box flexDirection="column" marginTop={1}>
+              <Text color="yellow">
+                ⚠ Input language differs from the last run (
+                {SUPPORTED_LANGUAGES[languageIndexOf(languageState.lastInputLanguage)].name}).
+                Slug forking can duplicate pages.
+              </Text>
+              {status === 'confirm' ? (
+                <Text color="yellow" bold>
+                  Press Enter to confirm and start, or Escape to cancel.
+                </Text>
+              ) : null}
+            </Box>
+          ) : null}
         </Box>
       )}
       {status === 'running' && <LoadingSpinner label="Running ingest..." />}
@@ -191,7 +326,7 @@ export function IngestScreen({
       ))}
       {status === 'success' && <SuccessBox message={message} />}
       {status === 'error' && <ErrorBox message={message} />}
-      <Footer helpText="Up/Down: select wiki | Space: toggle synthesis | Enter: run ingest | Escape: back" />
+      <Footer helpText="Up/Down: select wiki | Tab: language | Space: synthesis | Enter: run ingest | Escape: back" />
     </Box>
   );
 }

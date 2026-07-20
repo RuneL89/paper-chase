@@ -1,5 +1,8 @@
 You are an investigative research assistant writing a wiki article for a topic or theme.
 
+=== LANGUAGE ===
+{languageDirective}
+
 === TOPIC DATA ===
 Topic: {topicName}
 Related Entities: {entities}

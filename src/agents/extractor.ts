@@ -3,6 +3,11 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { callLLM } from '../llm/client';
 import { slugify } from '../utils/slug';
+import {
+  applyLanguageDirective,
+  buildLanguageDirective,
+  type LanguageCode,
+} from '../utils/language';
 import { validateExtractorResult } from '../validation/extractor-schema';
 
 /**
@@ -188,15 +193,20 @@ function isRecord(value: unknown): value is Record<string, unknown> {
  * This is what makes gate 2.3 (deterministic slugs) robust regardless of
  * model casing/spacing choices. Mutates the parsed object defensively.
  * Exported for tests.
+ *
+ * Phase 7: the optional `language` is the ingest run's INPUT language; its
+ * transliteration map runs before slugifying so LLM-provided slugs like
+ * `søren-møller` normalize to `soeren-moeller` (vision `04` §9.3). Omitted or
+ * 'en' keeps the byte-identical pre-Phase-7 behavior.
  */
-export function normalizeExtractorSlugs(data: unknown): void {
+export function normalizeExtractorSlugs(data: unknown, language?: LanguageCode): void {
   if (!isRecord(data)) {
     return;
   }
   if (Array.isArray(data.entities)) {
     for (const entity of data.entities) {
       if (isRecord(entity) && typeof entity.slug === 'string') {
-        entity.slug = slugify(entity.slug);
+        entity.slug = slugify(entity.slug, language);
       }
     }
   }
@@ -206,10 +216,10 @@ export function normalizeExtractorSlugs(data: unknown): void {
         continue;
       }
       if (typeof relationship.subject === 'string') {
-        relationship.subject = slugify(relationship.subject);
+        relationship.subject = slugify(relationship.subject, language);
       }
       if (typeof relationship.object === 'string') {
-        relationship.object = slugify(relationship.object);
+        relationship.object = slugify(relationship.object, language);
       }
     }
   }
@@ -219,7 +229,7 @@ export function normalizeExtractorSlugs(data: unknown): void {
     }
     for (let index = 0; index < value.length; index++) {
       if (typeof value[index] === 'string') {
-        value[index] = slugify(value[index]);
+        value[index] = slugify(value[index], language);
       }
     }
   };
@@ -252,10 +262,21 @@ export async function extractChunk(
   agentsMd: string,
   existingFolders: string[],
   existingEntities: string[],
-  options?: { logPath?: string; context?: string },
+  options?: {
+    logPath?: string;
+    context?: string;
+    /**
+     * Phase 7 (vision `04` §9): the ingest run's input language and the wiki's
+     * output language. Absent → { en, en } → empty language directive and
+     * byte-identical slug normalization.
+     */
+    language?: { input: LanguageCode; output: LanguageCode };
+  },
 ): Promise<ExtractorResult> {
+  const input = options?.language?.input ?? 'en';
+  const output = options?.language?.output ?? 'en';
   const template = await loadPromptTemplate();
-  const prompt = fillPromptTemplate(template, {
+  const filled = fillPromptTemplate(template, {
     agentsMd: agentsMd.trim().length > 0 ? agentsMd : '(No AGENTS.md provided.)',
     existingFolders:
       existingFolders.length > 0 ? existingFolders.join(', ') : '(none yet — this is the first chunk of the wiki)',
@@ -265,6 +286,10 @@ export async function extractChunk(
     pageRange,
     chunkText: chunkText.trim().length > 0 ? chunkText : '(this chunk contains no extractable text)',
   });
+  const prompt = applyLanguageDirective(
+    filled,
+    buildLanguageDirective('extractor', input, output),
+  );
 
   const rawResponse = await callLLM(prompt, undefined, {
     maxTokens: EXTRACTION_MAX_TOKENS,
@@ -275,7 +300,7 @@ export async function extractChunk(
   });
 
   const parsed = parseExtractorJson(rawResponse);
-  normalizeExtractorSlugs(parsed);
+  normalizeExtractorSlugs(parsed, input);
 
   const validation = validateExtractorResult(parsed, pageRange);
   if (!validation.valid) {

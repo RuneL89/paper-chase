@@ -2,14 +2,14 @@
 
 ## Purpose
 
-The phased implementation plan for LLM Wiki CLI v2.0: eleven phases (0-10), each a standalone deliverable with technical gates and user acceptance tests, plus the prompts that drive the implementing agent.
+The phased implementation plan for LLM Wiki CLI v2.0: twelve phases (0-11), each a standalone deliverable with technical gates and user acceptance tests, plus the prompts that drive the implementing agent.
 
 ## Ownership
 
 * `IMPLEMENTATION_PLAN_MASTER_INDEX.md` — phase directory, golden rules, approval workflow
 * `MASTER_IMPLEMENTATION_PROMPT.md` — loop engineering framework, compliance rule, sub-agent architecture, phase prompt template
 * `START_PHASE_PROMPT.md` — kickoff prompt template for starting a phase
-* `PHASE_00_infrastructure.md` … `PHASE_10_polish.md` — one document per phase: objective, files to build, gates, UAT, checklist, integration notes
+* `PHASE_00_infrastructure.md` … `PHASE_11_polish.md` — one document per phase: objective, files to build, gates, UAT, checklist, integration notes
 
 ## Local Contracts
 

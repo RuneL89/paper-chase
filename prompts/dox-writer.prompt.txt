@@ -7,6 +7,9 @@ Index pages are written BOTTOM-UP: the deepest folders are indexed first, so whe
 
 When a folder has both direct pages and child folders, BOTH modes apply to the description.
 
+=== LANGUAGE ===
+{languageDirective}
+
 === FOLDER BEING INDEXED ===
 Wiki: {wikiSlug}
 Folder: {folderPath}

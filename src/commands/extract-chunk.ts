@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import matter from 'gray-matter';
 import { extractChunk, type ExtractorResult } from '../agents/extractor';
 import { readRollingMemory } from '../state/rolling-memory';
+import type { LanguageCode } from '../utils/language';
 
 /**
  * Run the Extractor (Layer 2) on one document-page chunk already written by
@@ -27,8 +28,13 @@ export interface ChunkExtraction {
 /**
  * @param wikiDir  Absolute path of the wiki (contains documents/, AGENTS.md).
  * @param chunkId  Document page filename without `.md` (e.g. "golden-master-part-001").
+ * @param language Phase 7: the run's input/output languages (default { en, en }).
  */
-export async function extractDocumentChunk(wikiDir: string, chunkId: string): Promise<ChunkExtraction> {
+export async function extractDocumentChunk(
+  wikiDir: string,
+  chunkId: string,
+  language?: { input: LanguageCode; output: LanguageCode },
+): Promise<ChunkExtraction> {
   const documentPath = join(wikiDir, 'documents', `${chunkId}.md`);
   let rawPage: string;
   try {
@@ -63,7 +69,7 @@ export async function extractDocumentChunk(wikiDir: string, chunkId: string): Pr
     agentsMd,
     memory.folders,
     memory.entitySlugs,
-    { logPath: join(wikiDir, '.state', 'llm-calls.json'), context: chunkId },
+    { logPath: join(wikiDir, '.state', 'llm-calls.json'), context: chunkId, language },
   );
 
   const extractedDir = join(wikiDir, '.state', 'extracted');
