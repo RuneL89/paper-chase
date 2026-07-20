@@ -223,6 +223,51 @@ test('gate 7.3: normalizeExtractorSlugs transliterates with input language', () 
 });
 
 // ---------------------------------------------------------------------------
+// Gate 7.9 (UAT 7.2 extension): Folder Names and Claim Types Are Transliterated
+// UAT 7.2 surfaced that entity.folder and claim.type (the topic slug source)
+// bypassed transliteration — a Danish folder landed on disk as raw
+// 'entities/companies/møbler'. Vision `05` §2.1 requires transliterated
+// kebab-case folders.
+// ---------------------------------------------------------------------------
+test('gate 7.9: folder segments and claim types transliterate with input language', () => {
+  const data = {
+    entities: [{ slug: 'Møbler A/S', folder: 'entities/companies/Møbler' }],
+    relationships: [],
+    claims: [{ type: 'Økonomi', entities: [] }],
+    timeline: [],
+  };
+  normalizeExtractorSlugs(data, 'da');
+  expect(data.entities[0].folder).toBe('entities/companies/moebler');
+  expect(data.claims[0].type).toBe('oekonomi');
+
+  // End-to-end: a Danish-folder extraction never creates a non-ASCII folder.
+  const endToEnd = {
+    entities: [
+      { slug: 'København', folder: 'entities/locations/Danske Byer' },
+      { slug: 'Aarhus', folder: 'entities/locations/Danske Byer' },
+    ],
+    relationships: [],
+    claims: [{ type: 'Fast Ejendom', entities: ['København'] }],
+    timeline: [],
+  };
+  normalizeExtractorSlugs(endToEnd, 'da');
+  expect(endToEnd.entities[0].folder).toBe('entities/locations/danske-byer');
+  expect(endToEnd.claims[0].type).toBe('fast-ejendom');
+
+  // ASCII kebab-case folders/types pass through unchanged (existing-folder
+  // reuse and the byte-identical English path are unaffected).
+  const ascii = {
+    entities: [{ slug: 'x', folder: 'entities/people/executives' }],
+    relationships: [],
+    claims: [{ type: 'financial', entities: [] }],
+    timeline: [],
+  };
+  normalizeExtractorSlugs(ascii, 'da');
+  expect(ascii.entities[0].folder).toBe('entities/people/executives');
+  expect(ascii.claims[0].type).toBe('financial');
+});
+
+// ---------------------------------------------------------------------------
 // Gate 7.4: Language Directive Reaches Every Prompt
 // ---------------------------------------------------------------------------
 test('gate 7.4: extractor/synthesis/dox prompts contain the directive when languages are set', async () => {

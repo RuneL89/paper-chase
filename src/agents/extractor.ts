@@ -197,7 +197,11 @@ function isRecord(value: unknown): value is Record<string, unknown> {
  * Phase 7: the optional `language` is the ingest run's INPUT language; its
  * transliteration map runs before slugifying so LLM-provided slugs like
  * `søren-møller` normalize to `soeren-moeller` (vision `04` §9.3). Omitted or
- * 'en' keeps the byte-identical pre-Phase-7 behavior.
+ * 'en' keeps the byte-identical pre-Phase-7 behavior. UAT 7.2 extension:
+ * `entity.folder` segments and `claim.type` (the topic slug source) are
+ * normalized too — the folder taxonomy and topic folders must be
+ * transliterated kebab-case (vision `05` §2.1); ASCII kebab-case values pass
+ * through unchanged.
  */
 export function normalizeExtractorSlugs(data: unknown, language?: LanguageCode): void {
   if (!isRecord(data)) {
@@ -205,8 +209,22 @@ export function normalizeExtractorSlugs(data: unknown, language?: LanguageCode):
   }
   if (Array.isArray(data.entities)) {
     for (const entity of data.entities) {
-      if (isRecord(entity) && typeof entity.slug === 'string') {
+      if (!isRecord(entity)) {
+        continue;
+      }
+      if (typeof entity.slug === 'string') {
         entity.slug = slugify(entity.slug, language);
+      }
+      // Folder taxonomy follows the output language, transliterated to
+      // kebab-case (vision `05` §2.1): a Danish folder like
+      // 'entities/companies/Møbler' must land on disk as
+      // 'entities/companies/moebler', never with a raw ø. Each segment is
+      // normalized independently so the entities//topics structure survives.
+      if (typeof entity.folder === 'string') {
+        entity.folder = entity.folder
+          .split('/')
+          .map((segment) => slugify(segment, language))
+          .join('/');
       }
     }
   }
@@ -237,6 +255,12 @@ export function normalizeExtractorSlugs(data: unknown, language?: LanguageCode):
     for (const claim of data.claims) {
       if (isRecord(claim)) {
         normalizeSlugArray(claim.entities);
+        // claim.type doubles as the topic slug (materializer uses it
+        // verbatim), so it gets the same transliteration treatment — a Danish
+        // type like 'Økonomi' must become topic slug 'oekonomi'.
+        if (typeof claim.type === 'string') {
+          claim.type = slugify(claim.type, language);
+        }
       }
     }
   }

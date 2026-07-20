@@ -3,15 +3,28 @@
   "goal": "All 8 technical gates in PHASE_07_multilingual_ingestion.md pass (npm test is green), all 4 UAT steps are documented with expected output, compliance log shows no unresolved contradictions, and total LLM cost is under $3.00.",
   "status": "implemented-verified-pending-uat",
   "lastAction": "Verifier sub-agent APPROVED 8/8 gates (cold, independent run); DOX pass and status file closeout",
-  "gatesPassed": ["7.1", "7.2", "7.3", "7.4", "7.5", "7.6", "7.7", "7.8"],
+  "gatesPassed": ["7.1", "7.2", "7.3", "7.4", "7.5", "7.6", "7.7", "7.8", "7.9"],
   "gatesFailed": [],
   "gatesPending": [],
   "uat": {
-    "7.1": "pending-user",
-    "7.2": "pending-user",
+    "7.1": "passed (user + orchestrator disk verification 2026-07-20: transliterated files, verbatim Danish titles, Danish extractor output, English Layer 1/indexes, verbatim Danish Layer 2 incl. '12,5 millioner kr.' claim, language.json {en,da}; 26 LLM calls, $0.1888)",
+    "7.2": "first attempt FAILED on folder transliteration (see uat72Findings); fixed via gate 7.9 — pending user re-test on a fresh wiki",
     "7.3": "pending-user",
     "7.4": "pending-user"
   },
+  "uat72Findings": [
+    "FIXED (gate 7.9): entity.folder and claim.type bypassed transliteration — the Danish-output run created raw 'entities/companies/møbler/' and could create non-ASCII topic folders (vision 05 §2.1 violation). normalizeExtractorSlugs now transliterates folder segments and claim.type with the input language; ASCII kebab-case values pass through unchanged",
+    "PRE-EXISTING (Phase 2/5, both runs, 7/7 claims): the extractor embeds [^srcN] inside claim text; the preservation check demands the exact string, so a synthesis model that cleans up the marker fails preservation. dansk-wiki hit 3 structured-template fallbacks (moebler-as, aase-lindberg, governance) where danish-test hit 0 — LLM variance on identical data. The fallback chain worked as designed (no data lost). Polish candidate: make the preservation check tolerate the citation-marker-stripped variant",
+    "PRE-EXISTING (Phase 5): synthesis output gets no frontmatter re-imposition and no wikilink repair; dansk-wiki had 10 broken links (danish-test 4), several [[møbler-as|...]] de-transliterated by the synthesis LLM",
+    "LLM non-adherence (prompt-level): 'locations/danish-cities' is an English folder name in a Danish-output wiki despite the directive to name folders in the output language",
+    "Data-correct difference: the dansk-wiki extractor assigned every claim to moebler-as/aase-lindberg/aarhus, so soeren-moeller legitimately has '## Claims (none)' — not a bug"
+  ],
+  "uat71NonBlockingFindings": [
+    "Pre-existing Phase 5-era gap (NOT a Phase 7 regression), caught by Phase 4 validation as designed: synthesized entity pages carry no YAML frontmatter (synthesis output gets aliases re-imposition only, which no-ops without a frontmatter block — unlike the DOX Writer's full frontmatter re-imposition)",
+    "Pre-existing: broken wikilinks [[møbler-as|...]] — the synthesis LLM de-transliterated the supplied slug; synthesis output has no wikilink repair (only the DOX Writer has repairWikilinks). More visible with non-ASCII names",
+    "Pre-existing: citation definition format mismatches on LLM-written pages (undefined src2+ keys; src1 definitions not matching the citation checker's source format)",
+    "Candidates for Phase 11 (Polish): extend deterministic frontmatter re-imposition and the wikilink repair pass to synthesis output; make the preservation check tolerate the citation-marker-stripped claim variant"
+  ],
   "fixture": {
     "file": "test-pdfs/golden-master-da.pdf",
     "sha256": "55d040c7dea6e7b797614e602b25f9c77c8c4e8d48aeb593b56ae3b279b3dd29",
@@ -25,9 +38,9 @@
     "Latent Phase 5 defect repaired: prompts/synthesis-topic-permissive.prompt.txt had NO data placeholders (the agent code filled {topicName}/{entities}/{claims}/{sources}/{context} into a template that didn't contain them — live permissive topic synthesis would have sent a data-less prompt). Added the === TOPIC DATA === section byte-identical to synthesis-topic.prompt.txt. Verifier confirmed correct and minimal.",
     "TUI keystroke compatibility: Enter on the init screen's Output Language dropdown submits the form so the pre-Phase-7 Title → Tab → Tab → Enter flow (and its test) works unmodified; no pre-Phase-7 test was changed (gate 7.2 criterion)."
   ],
-  "llmCost": "$0.00",
-  "tokenBudgetRemaining": "$3.00",
-  "costNote": "Phase 7 gates are LLM-free by design (mocked callLLM / injected stubs). No live Phase 7 LLM calls were made; the live UAT smoke test (UAT 7.1/7.2) is the only planned spend. Full-suite runs execute the live Phase 2 gates (~$0.07/run) against the Phase 2 budget, as in previous phases.",
+  "llmCost": "$0.39",
+  "tokenBudgetRemaining": "$2.61",
+  "costNote": "Phase 7 gates are LLM-free by design (mocked callLLM / injected stubs). Live UAT smoke tests: UAT 7.1 danish-test $0.1888 (26 calls), UAT 7.2 dansk-wiki $0.2044 (27 calls). Full-suite runs execute the live Phase 2 gates (~$0.07/run) against the Phase 2 budget, as in previous phases.",
   "blocker": null,
   "verification": ".state/phase-7-verification.md — APPROVED 8/8 gates, tsc clean, 10/10 phase-07 tests, 28/28 pre-Phase-7 surface tests, full suite 208 passed + 1 skipped with repo key (the 2 transient Phase 2 HTTP 529 failures passed on rerun)",
   "nextAction": "User UAT 7.1–7.4 (presented one by one by the Reporter; UAT 7.1/7.2 make the phase's only live LLM calls — the 2-page Danish fixture keeps spend well under the $3.00 cap)"
