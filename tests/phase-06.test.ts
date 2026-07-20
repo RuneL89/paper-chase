@@ -16,8 +16,8 @@ import matter from 'gray-matter';
 import { init } from '../src/commands/init';
 import { ingest } from '../src/commands/ingest';
 import { materialize } from '../src/materializer';
-import { writeDoxContracts, writeWorkspaceIndex } from '../src/dox-writer';
-import type { DoxIndexContext, DoxWorkspaceIndexContext } from '../src/dox-writer';
+import { writeDoxContracts, writeWorkspaceIndex, parseWorkspaceSegments } from '../src/dox-writer';
+import type { DoxIndexContext, DoxWorkspaceEntryContext } from '../src/dox-writer';
 import { checkLinks } from '../src/validation/link-checker';
 import type { ExtractorResult } from '../src/agents/extractor';
 
@@ -820,14 +820,49 @@ test('deterministic DOX contracts use pipe-form wikilinks in catalogs and naviga
   }
   const links = await checkLinks('test-wiki', workspace);
   expect(links.broken.filter((entry) => entry.page.endsWith('index.md'))).toEqual([]);
-});
+});
 
 // ---------------------------------------------------------------------------
 // 2026-07-20 amendment (user-ratified, compliance-log [2026-07-20 02:30]):
-// the workspace-level wikis/index-of-indexes.md is a DOX Writer output —
-// the topmost parent in the same bottom-up chain, synthesizing ONLY the
-// freshly-written wiki root contracts. Gates 6.9-6.11. LLM-free.
+// the workspace-level wikis/index-of-indexes.md is a DOX Writer output.
+// 2026-07-21 amendment (user-ratified, compliance-log [2026-07-21 00:10]/
+// [2026-07-21 00:20]): PER-WIKI SEGMENTS — an ingest writes only its own
+// wiki's prose segment and catalog line (in that run's output language);
+// every other wiki's segments are preserved byte-for-byte. Gates 6.9-6.14.
+// LLM-free.
 // ---------------------------------------------------------------------------
+
+/** Build a second wiki with a hand-written root index next to test-wiki. */
+async function setupSecondWiki(workspace: string): Promise<string> {
+  const secondWikiDir = join(workspace, 'wikis', 'second-wiki');
+  await init('second-wiki', { workspace });
+  const secondRootBody = [
+    '# Second Wiki',
+    '',
+    'This wiki profiles the Danish shipping industry: maersk-line entities and freight-rate topics from three annual reports.',
+    '',
+    '## Start Here',
+    '',
+    '- [[entities/index|Entities]] — Shipping companies and executives',
+    '',
+    '## Statistics',
+    '',
+    '- Sources: 3',
+    '',
+  ].join('\n');
+  writeFileSync(
+    join(secondWikiDir, 'index.md'),
+    matter.stringify(secondRootBody, {
+      title: 'Second Wiki',
+      type: 'index',
+      wiki: 'second-wiki',
+      updated: new Date().toISOString(),
+      children: ['entities/index.md'],
+    }),
+    'utf-8',
+  );
+  return secondWikiDir;
+}
 
 // Gate 6.9: Workspace Index Exists and Lists All Wikis
 test('workspace index-of-indexes.md exists and lists all wikis', async () => {
@@ -836,7 +871,6 @@ test('workspace index-of-indexes.md exists and lists all wikis', async () => {
 
   const indexPath = join(workspace, 'wikis', 'index-of-indexes.md');
   expect(existsSync(indexPath)).toBe(true);
-
   const index = readFileSync(indexPath, 'utf-8');
   const parsed = matter(index);
   expect(parsed.data.type).toBe('index');
@@ -847,6 +881,8 @@ test('workspace index-of-indexes.md exists and lists all wikis', async () => {
   expect(parsed.data.children).toEqual(['test-wiki/index.md']);
   // Pipe-form link to the wiki root, resolvable when wikis/ is the vault.
   expect(index).toContain('[[test-wiki/index|Test Wiki]]');
+  // 2026-07-21: the wiki has its own marked prose segment.
+  expect(index).toContain('<!-- segment:test-wiki -->');
 });
 
 // Gate 6.10: Workspace Index Statistics Are Accurate
@@ -854,7 +890,7 @@ test('workspace index statistics are accurate', async () => {
   const workspace = setupMaterializedWiki();
   await materialize('test-wiki', { workspace });
   await writeDoxContracts('test-wiki', { workspace });
-  await writeWorkspaceIndex({ workspace });
+  await writeWorkspaceIndex({ workspace, wikiSlug: 'test-wiki' });
 
   const wikiDir = join(workspace, 'wikis', 'test-wiki');
   const index = readFileSync(join(workspace, 'wikis', 'index-of-indexes.md'), 'utf-8');
@@ -866,15 +902,15 @@ test('workspace index statistics are accurate', async () => {
   expect(index).toContain(`- Topic pages: ${countContentFiles(join(wikiDir, 'topics'))}`);
 });
 
-// Gate 6.11: Workspace Index Falls Back Deterministically
-test('workspace index falls back to the deterministic contract on LLM failure', async () => {
+// Gate 6.11: Workspace Index Falls Back Deterministically (per-wiki, 2026-07-21)
+test('workspace index falls back to the deterministic description on LLM failure', async () => {
   // Reference run: fully deterministic workspace index.
   const workspaceDeterministic = setupMaterializedWiki();
   await materialize('test-wiki', { workspace: workspaceDeterministic });
   await writeDoxContracts('test-wiki', { workspace: workspaceDeterministic });
-  await writeWorkspaceIndex({ workspace: workspaceDeterministic });
+  await writeWorkspaceIndex({ workspace: workspaceDeterministic, wikiSlug: 'test-wiki' });
 
-  // LLM run where the workspace LLM call throws.
+  // LLM run where the workspace entry call throws.
   const workspaceLlm = setupMaterializedWiki();
   await materialize('test-wiki', { workspace: workspaceLlm });
   await writeDoxContracts('test-wiki', { workspace: workspaceLlm });
@@ -882,6 +918,7 @@ test('workspace index falls back to the deterministic contract on LLM failure', 
   try {
     await writeWorkspaceIndex({
       workspace: workspaceLlm,
+      wikiSlug: 'test-wiki',
       doxLlm: true,
       writeWorkspaceIndexFn: () => Promise.reject(new Error('LLM unavailable')),
     });
@@ -901,105 +938,55 @@ test('workspace index falls back to the deterministic contract on LLM failure', 
   expect(fallback).toContain('- Wikis: 1');
 });
 
-// Amendment supplementary 1: bottom-up, child-index-only synthesis. The
-// workspace LLM call receives the EXACT freshly-written root index.md of
-// every wiki (its only content input — never the wikis' pages), runs after
-// the wiki's own contracts, and the deterministic frontmatter/statistics are
-// re-imposed over the LLM output.
-test('workspace pass synthesizes only the freshly-written wiki root contracts', async () => {
+// Amendment supplementary 1 (reworked 2026-07-21): the workspace entry call
+// receives ONLY the triggering wiki's freshly-written root contract (never
+// the other wiki's), and its description lands in BOTH the prose segment and
+// the catalog line; deterministic frontmatter/statistics are re-imposed.
+test('workspace entry synthesizes only the triggering wiki root contract', async () => {
   const workspace = setupMaterializedWiki();
   await materialize('test-wiki', { workspace });
   await writeDoxContracts('test-wiki', { workspace });
+  await setupSecondWiki(workspace);
 
-  // A second wiki whose root index exists (written by its own earlier ingest).
-  const secondWikiDir = join(workspace, 'wikis', 'second-wiki');
-  await init('second-wiki', { workspace });
-  const secondRootBody = [
-    '# Second Wiki',
-    '',
-    'This wiki profiles the Danish shipping industry: maersk-line entities and freight-rate topics from three annual reports.',
-    '',
-    '## Start Here',
-    '',
-    '- [[entities/index|Entities]] — Shipping companies and executives',
-    '',
-    '## Statistics',
-    '',
-    '- Sources: 3',
-    '- Document pages: 12',
-    '- Entity pages: 8',
-    '- Topic pages: 4',
-    '',
-  ].join('\n');
-  writeFileSync(
-    join(secondWikiDir, 'index.md'),
-    matter.stringify(secondRootBody, {
-      title: 'Second Wiki',
-      type: 'index',
-      wiki: 'second-wiki',
-      updated: new Date().toISOString(),
-      children: ['entities/index.md'],
-    }),
-    'utf-8',
-  );
-
-  let captured: DoxWorkspaceIndexContext | undefined;
+  let captured: DoxWorkspaceEntryContext | undefined;
   await writeWorkspaceIndex({
     workspace,
+    wikiSlug: 'test-wiki',
     doxLlm: true,
     outputLanguage: 'English',
     writeWorkspaceIndexFn: (context) => {
       captured = context;
-      // Rich prose with deliberately WRONG statistics and hallucinated
-      // frontmatter — enforcement must re-impose both (same rule as folders).
-      const body = [
-        '# Index of Indexes',
-        '',
-        'This workspace pairs the Acme fixture wiki with a Danish shipping wiki covering maersk-line entities and freight-rate topics across three annual reports.',
-        '',
-        '## Wikis',
-        '',
-        '- [[second-wiki/index|Second Wiki]] — Danish shipping: maersk-line entities and freight-rate topics',
-        '- [[test-wiki/index|Test Wiki]] — Acme Corp fixture wiki with executive and company pages',
-        '- [[ghost-wiki/index|Ghost Wiki]] — invented wiki that must be de-linked',
-        '',
-        '## Statistics',
-        '',
-        '- Wikis: 999',
-        '',
-      ].join('\n');
-      return Promise.resolve(
-        matter.stringify(body, { title: 'Hallucinated', type: 'entity', wiki: 'wrong', children: ['ghost.md'] }),
-      );
+      return Promise.resolve('Acme fixture wiki with executives, companies, and financial topics.');
     },
   });
 
-  // The context carries ONLY the wiki root contracts — the exact bytes on
-  // disk, written earlier in the chain. No page contents are involved.
   expect(captured).toBeDefined();
-  expect(captured!.contextLabel).toBe('(workspace)');
-  expect(captured!.wikis.map((wiki) => wiki.slug)).toEqual(['second-wiki', 'test-wiki']);
-  const writtenTestRoot = readFileSync(join(workspace, 'wikis', 'test-wiki', 'index.md'), 'utf-8');
-  expect(captured!.wikis.find((wiki) => wiki.slug === 'test-wiki')!.content).toBe(writtenTestRoot);
-  const writtenSecondRoot = readFileSync(join(secondWikiDir, 'index.md'), 'utf-8');
-  expect(captured!.wikis.find((wiki) => wiki.slug === 'second-wiki')!.content).toBe(writtenSecondRoot);
-  expect(captured!.wikis.find((wiki) => wiki.slug === 'second-wiki')!.title).toBe('Second Wiki');
+  expect(captured!.contextLabel).toBe('workspace entry test-wiki');
+  expect(captured!.wikiSlug).toBe('test-wiki');
+  expect(captured!.wikiTitle).toBe('Test Wiki');
   expect(captured!.outputLanguage).toBe('English');
+  // ONLY the triggering wiki's root contract is supplied — never the other
+  // wiki's (bottom-up, per-wiki rule).
+  const writtenTestRoot = readFileSync(join(workspace, 'wikis', 'test-wiki', 'index.md'), 'utf-8');
+  expect(captured!.wikiRootIndex).toBe(writtenTestRoot);
+  expect(JSON.stringify(captured)).not.toContain('maersk-line');
 
   const index = readFileSync(join(workspace, 'wikis', 'index-of-indexes.md'), 'utf-8');
-  // Rich synthesized prose was used...
-  expect(index).toContain('Danish shipping wiki');
-  // ...but deterministic ground truth is re-imposed over it.
+  const segments = parseWorkspaceSegments(index);
+  expect(segments.prose.get('test-wiki')).toBe(
+    'Acme fixture wiki with executives, companies, and financial topics.',
+  );
+  expect(segments.catalog.get('test-wiki')).toBe(
+    '- [[test-wiki/index|Test Wiki]] — Acme fixture wiki with executives, companies, and financial topics.',
+  );
+  // The non-triggering wiki gets a placeholder, not an LLM description.
+  expect(segments.prose.get('second-wiki')).toContain('No description yet');
+  // Deterministic ground truth is re-imposed.
   const parsed = matter(index);
   expect(parsed.data.title).toBe('Index of Indexes');
-  expect(parsed.data.type).toBe('index');
   expect(parsed.data.wiki).toBeUndefined();
   expect(parsed.data.children).toEqual(['second-wiki/index.md', 'test-wiki/index.md']);
   expect(index).toContain('- Wikis: 2');
-  expect(index).not.toContain('999');
-  // The invented wiki link is de-linked by the wikilink safeguard.
-  expect(index).not.toContain('[[ghost-wiki/index|Ghost Wiki]]');
-  expect(index).toContain('Ghost Wiki');
 });
 
 // Amendment supplementary 2: a wiki without a root index.md (init only,
@@ -1008,7 +995,7 @@ test('workspace pass synthesizes only the freshly-written wiki root contracts', 
 test('workspace pass skips wikis without a root index and writes nothing when none exist', async () => {
   const workspace = makeTempDir('llm-wiki-phase6-ws-');
   await init('young-wiki', { workspace });
-  await writeWorkspaceIndex({ workspace });
+  await writeWorkspaceIndex({ workspace, wikiSlug: 'young-wiki' });
   expect(existsSync(join(workspace, 'wikis', 'index-of-indexes.md'))).toBe(false);
 
   // Once one wiki has a root index, the workspace index lists only that wiki.
@@ -1024,9 +1011,132 @@ test('workspace pass skips wikis without a root index and writes nothing when no
     }),
     'utf-8',
   );
-  await writeWorkspaceIndex({ workspace });
+  await writeWorkspaceIndex({ workspace, wikiSlug: 'young-wiki' });
   const index = readFileSync(join(workspace, 'wikis', 'index-of-indexes.md'), 'utf-8');
   const parsed = matter(index);
   expect(parsed.data.children).toEqual(['young-wiki/index.md']);
   expect(index).toContain('- Wikis: 1');
+});
+
+// Gate 6.12 (2026-07-21): Workspace Pass Rewrites Only the Triggering Wiki's Segments
+test('ingest of wiki B rewrites only wiki B segments; wiki A segments are byte-identical', async () => {
+  const workspace = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace });
+  await writeDoxContracts('test-wiki', { workspace });
+  await setupSecondWiki(workspace);
+  const indexPath = join(workspace, 'wikis', 'index-of-indexes.md');
+
+  await writeWorkspaceIndex({
+    workspace,
+    wikiSlug: 'test-wiki',
+    doxLlm: true,
+    outputLanguage: 'English',
+    writeWorkspaceIndexFn: async () => 'Alpha English description.',
+  });
+  const before = parseWorkspaceSegments(readFileSync(indexPath, 'utf-8'));
+  const segmentA = before.prose.get('test-wiki');
+  const lineA = before.catalog.get('test-wiki');
+  expect(segmentA).toBe('Alpha English description.');
+
+  await writeWorkspaceIndex({
+    workspace,
+    wikiSlug: 'second-wiki',
+    doxLlm: true,
+    outputLanguage: 'Danish',
+    writeWorkspaceIndexFn: async () => 'Beta dansk beskrivelse.',
+  });
+  const after = parseWorkspaceSegments(readFileSync(indexPath, 'utf-8'));
+  // Wiki A's prose segment and catalog line are byte-identical.
+  expect(after.prose.get('test-wiki')).toBe(segmentA);
+  expect(after.catalog.get('test-wiki')).toBe(lineA);
+  // Wiki B's segments were written, in Danish.
+  expect(after.prose.get('second-wiki')).toBe('Beta dansk beskrivelse.');
+  expect(after.catalog.get('second-wiki')).toBe(
+    '- [[second-wiki/index|Second Wiki]] — Beta dansk beskrivelse.',
+  );
+});
+
+// Gate 6.13 (2026-07-21): Mixed-Language Workspace Index Survives
+test('a Danish entry survives an English wiki ingest', async () => {
+  const workspace = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace });
+  await writeDoxContracts('test-wiki', { workspace });
+  await setupSecondWiki(workspace);
+  const indexPath = join(workspace, 'wikis', 'index-of-indexes.md');
+
+  await writeWorkspaceIndex({
+    workspace,
+    wikiSlug: 'second-wiki',
+    doxLlm: true,
+    outputLanguage: 'Danish',
+    writeWorkspaceIndexFn: async () => 'Møbler A/Ss årsrapport med omsætning på 12,5 millioner kr.',
+  });
+  await writeWorkspaceIndex({
+    workspace,
+    wikiSlug: 'test-wiki',
+    doxLlm: true,
+    outputLanguage: 'English',
+    writeWorkspaceIndexFn: async () => 'Acme Corp annual results with executive entities.',
+  });
+
+  const index = readFileSync(indexPath, 'utf-8');
+  const segments = parseWorkspaceSegments(index);
+  // The Danish segment is NOT translated by the later English run.
+  expect(segments.prose.get('second-wiki')).toBe(
+    'Møbler A/Ss årsrapport med omsætning på 12,5 millioner kr.',
+  );
+  expect(segments.prose.get('test-wiki')).toBe('Acme Corp annual results with executive entities.');
+  expect(index).toContain('- Wikis: 2');
+});
+
+// Gate 6.14 (2026-07-21): Workspace Fallback Is Per-Wiki and Removals Drop Segments
+test('LLM failure writes a deterministic segment for the triggering wiki only; a removed wiki loses its segments', async () => {
+  const workspace = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace });
+  await writeDoxContracts('test-wiki', { workspace });
+  await setupSecondWiki(workspace);
+  const indexPath = join(workspace, 'wikis', 'index-of-indexes.md');
+
+  await writeWorkspaceIndex({
+    workspace,
+    wikiSlug: 'test-wiki',
+    doxLlm: true,
+    outputLanguage: 'English',
+    writeWorkspaceIndexFn: async () => 'Rich English description.',
+  });
+  const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+  try {
+    await writeWorkspaceIndex({
+      workspace,
+      wikiSlug: 'second-wiki',
+      doxLlm: true,
+      writeWorkspaceIndexFn: () => Promise.reject(new Error('LLM down')),
+    });
+  } finally {
+    warnSpy.mockRestore();
+  }
+
+  const index = readFileSync(indexPath, 'utf-8');
+  const segments = parseWorkspaceSegments(index);
+  // The other wiki's LLM-written segment is untouched by the failure...
+  expect(segments.prose.get('test-wiki')).toBe('Rich English description.');
+  // ...and the failing triggering wiki falls back to the deterministic
+  // description (first prose paragraph of its root index).
+  expect(segments.prose.get('second-wiki')).toContain('Danish shipping industry');
+
+  // Removing a wiki from disk drops its segments and children entry.
+  rmSync(join(workspace, 'wikis', 'second-wiki'), { recursive: true, force: true });
+  await writeWorkspaceIndex({
+    workspace,
+    wikiSlug: 'test-wiki',
+    doxLlm: true,
+    outputLanguage: 'English',
+    writeWorkspaceIndexFn: async () => 'Updated description.',
+  });
+  const after = readFileSync(indexPath, 'utf-8');
+  expect(after).not.toContain('second-wiki');
+  expect(after).not.toContain('Danish shipping industry');
+  expect(after).toContain('- Wikis: 1');
+  expect(after).toContain('Updated description.');
+  expect(matter(after).data.children).toEqual(['test-wiki/index.md']);
 });

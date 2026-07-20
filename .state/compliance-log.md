@@ -847,3 +847,33 @@
   Pre-existing issues logged for Phase 11 (Polish): synthesis frontmatter re-imposition + wikilink repair, preservation tolerance for citation-stripped claims, English-only deterministic DOX fallback prose, extractor [^srcN] embedded in claim text.
   Result: COMPLIANT — no unresolved contradictions. Phase 7 ACCEPTED.
   Checked By: Main agent (phase orchestrator)
+
+[2026-07-21 00:10] AMENDMENT (user-ratified): Per-Wiki Segments in index-of-indexes.md
+  Trigger: User directive (2026-07-20): "I want the DOX writer to ONLY write its own segment in index-of-indexes... a wiki's dox-writer should ONLY touch or create his own contribution to index-of-indexes and not update any others" — motivated by a Danish ingest rewriting the ENTIRE workspace index (including the English wikis' descriptions) in Danish.
+  Canon Superseded (by the same user's earlier ratification, 2026-07-20 02:30):
+    - `Project Vision/03_DOX_concept_detailed.md` §6 "The workspace pass" — one LLM call writes the whole index, prose in the triggering ingest's output language.
+    - `Project Vision/04_orchestration_detailed.md` Step 10 item 7 — same.
+    - `Implementation Plan/PHASE_06_dox_writer.md` §3.1/§3.2 workspace algorithm (whole-file regeneration).
+  New Design (ratified by the directive):
+    - The workspace index is composed of PER-WIKI SEGMENTS (one catalog line per wiki under ## Wikis). An ingest's workspace pass writes ONLY the triggering wiki's own segment, in that run's output language; every other wiki's segment is preserved BYTE-FOR-BYTE.
+    - No cross-wiki LLM prose: the workspace intro becomes a fixed deterministic line (no wiki owns prose about other wikis).
+    - Children list and statistics remain deterministic over ALL wikis (re-imposed every run); LLM failure falls back to a deterministic segment for the triggering wiki only; wikis removed from disk lose their segment (file is recomposed from the directory scan each run).
+    - One LLM call per ingest (unchanged cost); the workspace prompt becomes a per-wiki entry prompt whose only content input is the triggering wiki's root contract (bottom-up rule preserved).
+  Owning Phase: Phase 6 (workspace index was born in its 2026-07-20 amendment) — amended to v1.2.0 with gates 6.12–6.14.
+  Result: COMPLIANT — user-ratified amendment; proceed to canon edits, then implementation.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-21 00:20] AMENDMENT REFINEMENT (user directive): Cross-Wiki Prose Stays, Per-Wiki Owned
+  User clarification (2026-07-20): "No, there WILL be cross-wiki llm prose. I like how index of indexes segment looks. But the wiki's dox writer should only add to this description what is unique to his wiki, and not, as it has been done now, rewrite it and translate the whole thing to Danish."
+  Correction to the 00:10 entry: the workspace-level cross-wiki LLM prose is KEPT (the user values it). The ownership rule is the change: the workspace description is composed of per-wiki prose segments, each written by that wiki's own ingest in that run's output language; an ingest rewrites ONLY its own wiki's segment (both its prose contribution and its ## Wikis catalog line) — never the whole file. Deterministic code owns: frontmatter/children/statistics, the section framing, and the stitching (byte-for-byte preservation of other wikis' segments). LLM failure → deterministic segment for the triggering wiki only. Wikis removed from disk lose their segments.
+  Result: COMPLIANT — refined user-ratified amendment; canon edits updated accordingly.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-21 00:45] Per-Wiki Workspace Segments: Post-Implementation Check + Closeout
+  Changed: `src/dox-writer.ts` (writeWorkspaceIndex reworked: parseWorkspaceSegments with `<!-- segment:<slug> -->` markers, composeWorkspaceBody deterministic stitching, DoxWorkspaceEntryContext replacing DoxWorkspaceIndexContext, writeWorkspaceEntryWithLlm + runWorkspaceEntryWithRetries, deterministicDescription/placeholderDescription/workspaceFramingLine helpers, wikiSlug option now required), `src/commands/ingest.ts` (passes wikiSlug), `prompts/dox-writer-workspace.prompt.txt` (repurposed as per-wiki entry prompt: one wiki's root contract in, 1-3 sentence description out), `tests/phase-06.test.ts` (gates 6.9-6.11 reworked for segment semantics + supplementary 1 reworked + new gates 6.12-6.14 + setupSecondWiki helper), `tests/phase-07.test.ts` (gate 7.12 case 3 adapted to entry semantics), `Implementation Plan/PHASE_06_dox_writer.md` (v1.2.0 + gates 6.12-6.14 + checklist), `Project Vision/03_DOX_concept_detailed.md` §6, `Project Vision/04_orchestration_detailed.md` Step 10 item 7, `AGENTS.md` (preference), `.state/phase-6-status.json`
+  Vision Docs Checked: `03` §6 (amended), `04` Step 10 (amended), `05` §3.3/§3.4 (workspace row and naming exception unchanged — the file location, children, and frontmatter variant are untouched)
+  Tests: 40/40 phase-06+07 green; full suite 215 passed + 1 skipped with repo key; tsc clean.
+  Migration (user-directed step 6): cleared `wikis/index-of-indexes.md` and re-ran ONLY the workspace entry pass per wiki (4 LLM calls, $0.0057) — every wiki now has a fresh LLM-written segment in its own output language (English ×3, Danish ×1); `.obsidian/` and root-index-less folders correctly skipped.
+  Behavior Notes: (1) the wikilink safeguard no longer applies to the workspace pass — the LLM writes prose only and deterministic code adds the `[[<slug>/index|<Title>]]` links, so no LLM-authored wikilinks exist at this level; (2) files written before the segment model are migrated by seeding prose segments from existing catalog descriptions (nothing lost); (3) the fixed framing line is English (no wiki owns cross-wiki framing).
+  Result: COMPLIANT — user-ratified amendment fully shipped; gates 6.12-6.14 green.
+  Checked By: Main agent (phase orchestrator)

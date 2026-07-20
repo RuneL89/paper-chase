@@ -258,16 +258,19 @@ No DOX contract can be written until the wiki pages exist, because the DOX Write
    - Writes the LLM-generated markdown to `index.md` inside the folder.
 4. Runs a final validation pass over the wiki, including the new DOX pages, so any broken links or schema issues are caught.
 
-**The workspace pass:**
+**The workspace pass (amended 2026-07-21, user-ratified: per-wiki segments):**
 
-After the per-wiki contracts are written, the DOX Writer runs one final workspace-level pass at the end of every ingest. The workspace index is **the topmost parent in the same bottom-up chain** — folder indexes are written deepest-first, then the wiki root index, then the workspace index — and it follows the same rule as every other parent: **it synthesizes only the freshly-written `index.md` contracts of its direct children (the wiki root indexes) and never re-reads the content pages inside the child wikis.**
+After the per-wiki contracts are written, the DOX Writer runs one final workspace-level pass at the end of every ingest. The workspace index is **the topmost parent in the same bottom-up chain** — folder indexes are written deepest-first, then the wiki root index, then the workspace index — and it follows the same rule as every other parent: **it synthesizes only the freshly-written `index.md` contract of its direct child (the triggering wiki's root index) and never re-reads the content pages inside the child wikis.**
+
+The workspace index is composed of **per-wiki segments**, and the pass writes **only the triggering wiki's own segments**, in that run's output language (`04_orchestration_detailed.md` §9). A wiki's DOX Writer never touches any other wiki's segments:
 
 1. Lists every wiki in `wikis/` that has a root `index.md`.
-2. Reads each wiki's freshly-written root `index.md` (the same bottom-up summary-of-summaries pattern used for folder parents — these are the pass's only content input).
-3. Calls the LLM once to write a rich `wikis/index-of-indexes.md` describing what each wiki holds and how the workspace is organized.
-4. Deterministic code supplies and re-imposes the exact children list (`<slug>/index.md` per wiki) and the statistics (wiki count plus corpus totals); any LLM failure falls back to the deterministic contract, exactly as for per-folder indexes.
+2. Reads the triggering wiki's freshly-written root `index.md` (the same bottom-up summary-of-summaries pattern — the pass's only content input).
+3. Calls the LLM once to write that wiki's description — its contribution to the workspace prose and its catalog line under `## Wikis`.
+4. Re-composes `wikis/index-of-indexes.md` deterministically: the workspace prose is a stitched sequence of per-wiki segments (the triggering wiki's replaced with the fresh one, **every other wiki's preserved byte-for-byte**), the `## Wikis` catalog follows the same per-line ownership, wikis no longer on disk lose their segments, and a wiki with a root index but no segment yet keeps a deterministic placeholder until its own ingest writes one.
+5. Deterministic code supplies and re-imposes the exact children list (`<slug>/index.md` per wiki), the statistics (wiki count plus corpus totals), and the section framing. An LLM failure falls back to a deterministic segment for the **triggering wiki only**, exactly as for per-folder indexes.
 
-The workspace pass writes prose in the **output language of the wiki whose ingest triggered it** (`04_orchestration_detailed.md` §9). It sits inside `wikis/` so the whole `wikis/` folder can be opened as a single Obsidian vault where every link resolves. A wiki only appears once it has been ingested (init alone does not create a root `index.md`).
+Each segment is written in the **output language of the wiki it describes** (the language of the run that last ingested that wiki), so a mixed-language workspace index — English prose for an English wiki, Danish prose for a Danish wiki — is normal and correct. The file sits inside `wikis/` so the whole `wikis/` folder can be opened as a single Obsidian vault where every link resolves. A wiki only appears once it has been ingested (init alone does not create a root `index.md`).
 
 **What the LLM sees for each folder:**
 

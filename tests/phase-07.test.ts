@@ -824,22 +824,32 @@ test('gate 7.12: DOX writer retries unparseable output up to 3 attempts before f
   expect(peopleIndex2).not.toContain('Rich description');
   expect(peopleIndex2).toContain('## Pages'); // deterministic contract written
 
-  // Case 3: the workspace pass retries too — garbage x2 then valid.
+  // Case 3: the workspace entry pass retries too — exceptions x2 then valid.
+  // (2026-07-21 per-wiki segments: the entry call returns the triggering
+  // wiki's plain description text, so the retry triggers on exceptions and
+  // empty output.)
   const ws3 = makeTempDir('p7-doxretry-3-');
   await init('dox-wiki', { workspace: ws3 });
   await writeDoxContracts('dox-wiki', { workspace: ws3 }); // root index exists (deterministic)
   let calls3 = 0;
-  await writeWorkspaceIndex({
-    workspace: ws3,
-    doxLlm: true,
-    writeWorkspaceIndexFn: async () => {
-      calls3++;
-      return calls3 <= 2
-        ? 'garbage'
-        : '# Index of Indexes\n\nRich workspace prose.\n\n## Wikis\n\n- [[dox-wiki/index|Dox Wiki]] — a wiki\n\n## Statistics\n\n- stub';
-    },
-  });
+  const warnSpy3 = vi.spyOn(console, 'warn').mockImplementation(() => {});
+  try {
+    await writeWorkspaceIndex({
+      workspace: ws3,
+      wikiSlug: 'dox-wiki',
+      doxLlm: true,
+      writeWorkspaceIndexFn: async () => {
+        calls3++;
+        if (calls3 <= 2) {
+          throw new Error('API overloaded');
+        }
+        return 'Rich workspace entry prose.';
+      },
+    });
+  } finally {
+    warnSpy3.mockRestore();
+  }
   expect(calls3).toBe(3);
   const workspaceIndex = readFileSync(join(ws3, 'wikis', 'index-of-indexes.md'), 'utf-8');
-  expect(workspaceIndex).toContain('Rich workspace prose.');
+  expect(workspaceIndex).toContain('Rich workspace entry prose.');
 });

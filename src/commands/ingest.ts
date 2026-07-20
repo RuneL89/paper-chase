@@ -14,7 +14,7 @@ import { readWikiLanguage, writeWikiLanguage } from '../state/language';
 import { writeSourcePage } from '../pages/source-page';
 import { extractDocumentChunk, type ChunkExtraction } from './extract-chunk';
 import { materialize, type MaterializeResult } from '../materializer';
-import { writeDoxContracts, writeWorkspaceIndex, type DoxIndexContext, type DoxWorkspaceIndexContext } from '../dox-writer';
+import { writeDoxContracts, writeWorkspaceIndex, type DoxIndexContext, type DoxWorkspaceEntryContext } from '../dox-writer';
 import { validateWiki, logValidation, type ValidationSummary } from '../validation';
 import {
   writeEntitySynthesis,
@@ -114,7 +114,7 @@ export interface IngestOptions {
    * Injectable workspace index writer (test-only pass-through to
    * writeWorkspaceIndex). Defaults to the real LLM implementation.
    */
-  writeWorkspaceIndexFn?: (context: DoxWorkspaceIndexContext) => Promise<string>;
+  writeWorkspaceIndexFn?: (context: DoxWorkspaceEntryContext) => Promise<string>;
   /**
    * Phase 7 (vision `04` §9.1): input language of this run's PDFs. Resolution
    * order: this flag → `lastInputLanguage` in `.state/language.json` → 'en'.
@@ -658,14 +658,14 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     result.finalValidation = finalValidation;
   }
 
-  // Phase 6 (2026-07-20 amendment): the workspace pass tops the bottom-up
-  // chain — folder indexes -> wiki root index -> workspace index. It runs at
-  // the end of every ingest and reads only the freshly-written wiki root
-  // contracts (never the wikis' content pages), so it always reflects the
-  // just-written root index of this wiki plus the current contracts of every
-  // other wiki in the workspace. Prose follows this run's output language.
+  // Phase 6 (2026-07-20 amendment, per-wiki segments 2026-07-21): the
+  // workspace pass tops the bottom-up chain — folder indexes -> wiki root
+  // index -> workspace index. It runs at the end of every ingest and writes
+  // ONLY this wiki's own segment (prose in this run's output language);
+  // every other wiki's segment is preserved byte-for-byte.
   await writeWorkspaceIndex({
     workspace: options.workspace,
+    wikiSlug: slug,
     doxLlm: options.doxLlm,
     writeWorkspaceIndexFn: options.writeWorkspaceIndexFn,
     outputLanguage: getLanguage(output).name,

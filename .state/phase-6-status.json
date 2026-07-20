@@ -1,8 +1,8 @@
 {
   "phase": "06",
-  "status": "accepted",
+  "status": "reopened-amendment-shipped",
   "goal": "All 8 technical gates in PHASE_06_dox_writer.md pass (npm test is green), all 3 UAT steps are documented with expected output, compliance log shows no unresolved contradictions, the status file shows all gates passed and no blockers, every folder has an LLM-enriched index.md with deterministic children/statistics, and total LLM cost is logged.",
-  "lastAction": "2026-07-20: user ACCEPTED the reopened Phase 6 (workspace-index amendment, gates 6.1–6.11, Verifier APPROVED, UAT 6.4 covered by acceptance). Phase 6 closed; Phase 7 (multilingual ingestion) continues next.",
+  "lastAction": "2026-07-21 per-wiki workspace segments amendment shipped: writeWorkspaceIndex reworked (per-wiki prose segments + catalog lines, byte-for-byte preservation, per-wiki fallback, removal drops segments); gates 6.9-6.11 reworked for segment semantics; new gates 6.12-6.14 green; full suite 215 passed + 1 skipped",
   "gatesPassed": [
     "6.1",
     "6.2",
@@ -14,7 +14,10 @@
     "6.8",
     "6.9",
     "6.10",
-    "6.11"
+    "6.11",
+    "6.12",
+    "6.13",
+    "6.14"
   ],
   "gatesFailed": [],
   "gatesPending": [],
@@ -51,5 +54,14 @@
     "2026-07-20 user-ratified vision amendment (compliance-log [2026-07-20 02:30]): the workspace-level index-of-indexes.md — specced as deterministic in vision 03 §4.1 / 05 §3.3 but NEVER implemented (zero references in src/, tests/, prompts/, phase docs) — is now a DOX Writer output written like any other parent index: same bottom-up post-order flow, LLM prose synthesized ONLY from the freshly-written wiki root index.md contracts (never the wikis' content pages), deterministic children/statistics re-imposition, deterministic fallback on LLM failure. User decisions: (A) location wikis/index-of-indexes.md (wikis/ openable as one Obsidian mega-vault); (B) regenerated at the end of every ingest, init writes nothing until first ingest; (C) implemented under reopened Phase 6 (doc v1.1.0, gates 6.9-6.11, UAT 6.4); (D) prose in the output language of the triggering ingest (outputLanguage option, English default until Phase 7 lands per-wiki language config). Validation scope accepted trade-off: the workspace index lives outside every single-wiki vault, so validateWiki() does not check it; its [[<slug>/index|Title]] links resolve when wikis/ is opened as the vault.",
     "2026-07-20 amendment implementation notes: (1) enforceLlmBody/hasRequiredSections generalized from boolean isRoot to a three-value DoxIndexLevel ('folder'|'root'|'workspace') — behavior-preserving for folder/root (Verifier-confirmed); workspace requires '# heading + ## Wikis + ## Statistics'. (2) The workspace pass scans each wiki tree for corpus-total statistics (same semantics as wiki-root stats). (3) Wiki root title read from the root index frontmatter (title-cased slug fallback). (4) writeWorkspaceIndex is a no-op when no wiki has a root index.md (init alone writes nothing — ratified decision B). (5) TUI: TreeBrowser gained an optional workspaceFile picker entry; viewer Escape returns to the picker when no wiki is active. (6) Verifier non-blocking findings recorded: pre-existing Layer 5/6 naming mismatch between phase doc title and vision docs; cosmetic TUI viewer footer label; degenerate zero-PDF early return skips regeneration; pre-existing conservative regex asymmetry in statistics-section enforcement. None block acceptance; flagged for Phase 7/10 cleanup."
   ],
-  "nextAction": "Start Phase 7: multilingual ingestion (PHASE_07_multilingual_ingestion.md; outputLanguage hook for the workspace pass already in place)."
+  "nextAction": "Start Phase 7: multilingual ingestion (PHASE_07_multilingual_ingestion.md; outputLanguage hook for the workspace pass already in place).",
+  "perWikiSegmentsAmendment": {
+    "ratified": "2026-07-21 (user directive; compliance-log [2026-07-21 00:10] + refinement [2026-07-21 00:20]: cross-wiki LLM prose KEPT, per-wiki owned)",
+    "vision": [
+      "03 §6 amended",
+      "04 Step 10 item 7 amended"
+    ],
+    "phaseDoc": "PHASE_06 v1.2.0 (gates 6.12-6.14 + checklist)",
+    "migration": "workspace index cleared and rebuilt 2026-07-21: one LLM entry call per wiki in its own output language (4 calls, $0.0057); each wiki now has a marked per-wiki segment"
+  }
 }
