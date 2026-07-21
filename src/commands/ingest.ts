@@ -3,9 +3,8 @@ import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import matter from 'gray-matter';
-import { extractDocumentPages, resolvePdfEngine, type PdfEngine } from '../extraction/pdf';
+import { extractText, getPageCount } from '../extraction/pdf';
 import { renderTablesAsMarkdown } from '../extraction/markdown-tables';
-import { loadSettings } from '../tui/settings';
 import { sha256 } from '../utils/hash';
 import { sourceSlugForFile } from '../utils/slug';
 import { aliasesForTitle, enforceAliasesInMarkdown } from '../utils/aliases';
@@ -155,13 +154,6 @@ export interface IngestOptions {
    * `updateAgents: true` without an API key.
    */
   proposeAgentsUpdateFn?: (wikiSlug: string, options: AgentsUpdaterOptions) => Promise<string>;
-  /**
-   * Phase 10: PDF text-extraction engine for this run. Resolution order:
-   * this flag → `PDF_ENGINE` env var → `.llm-wiki-cli.json` `pdfEngine` →
-   * 'pdfjs'. 'opendataloader' requires Java 11+ on PATH and extracts each
-   * document in a single batch call (one JVM spawn per PDF).
-   */
-  pdfEngine?: PdfEngine;
 }
 
 export interface IngestedSource {
@@ -272,9 +264,7 @@ function loadAgentsMd(wikiDir: string): string {
  * Extractor on each newly-written chunk (phase doc §2.3).
  *
  * For each PDF: SHA-256 hash, skip when unchanged (`.state/ingestion.json`),
- * extract text page-by-page with the run's resolved PDF engine (Phase 10:
- * `extractDocumentPages(pdfPath, pdfEngine)` — the pdfjs path is the
- * byte-identical per-page loop; opendataloader runs one batch convert), chunk
+ * extract text page-by-page with the frozen Phase 0 `extractText`, chunk
  * consecutive whole pages (default 5 per chunk), render detected plaintext
  * tables as markdown tables, and write `documents/<source>-part-NNN.md` with
  * YAML frontmatter (gray-matter). Then refresh the deterministic source page
@@ -332,17 +322,6 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   const output = getLanguage(options.outputLanguage ?? languageState.outputLanguage).code;
   const input = getLanguage(options.inputLanguage ?? languageState.lastInputLanguage).code;
   const language = { input, output };
-
-  // Phase 10: resolve the PDF extraction engine once per run. Precedence:
-  // IngestOptions flag → PDF_ENGINE env → workspace settings → 'pdfjs'.
-  // Unknown values throw via resolvePdfEngine before any work is done.
-  const tuiSettings = await loadSettings(options.workspace ?? '.');
-  const pdfEngine = resolvePdfEngine({
-    flag: options.pdfEngine,
-    env: process.env.PDF_ENGINE,
-    settings: tuiSettings.pdfEngine,
-  });
-  progress(`PDF engine: ${pdfEngine}`);
 
   // Phase 7 (vision `04` §9.3 slug-forking caution): warn before processing
   // when the resolved input language differs from the last run and the wiki
@@ -481,20 +460,15 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     }
 
     progress(`Extracting text from ${fileName}...`);
-    // Phase 10 (Gate 10.4): honor the run's RESOLVED engine end to end —
-    // never the env-only dispatcher — so an explicit `--pdf-engine pdfjs`
-    // overrides `PDF_ENGINE=opendataloader` and vice versa. `extractDocumentPages`
-    // keeps the pdfjs per-page loop byte-identical to the pre-Phase-10 path
-    // and runs a single batch convert (one JVM spawn) for opendataloader;
-    // page fidelity is validated inside the engine. The page count comes from
-    // the extraction itself (both engines agree on it, Gate 10.3).
-    const pageTexts = await extractDocumentPages(pdfPath, pdfEngine);
-    const pageCount = pageTexts.length;
+    const pageCount = await getPageCount(pdfPath);
+    const pageTexts: string[] = [];
     const warnings: string[] = [];
     for (let pageNumber = 1; pageNumber <= pageCount; pageNumber++) {
-      if ((pageTexts[pageNumber - 1] ?? '').trim().length === 0) {
+      const pageText = await extractText(pdfPath, pageNumber, pageNumber);
+      if (pageText.trim().length === 0) {
         warnings.push(`Page ${pageNumber} extracted to empty text`);
       }
+      pageTexts.push(pageText);
     }
 
     const chunkCount = Math.max(1, Math.ceil(pageCount / pagesPerChunk));

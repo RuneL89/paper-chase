@@ -52,9 +52,8 @@ program
   .option('--no-dox-llm', 'Skip the LLM DOX Writer (deterministic index.md contracts only)')
   .option('--input-language <code>', 'Input language of this run\'s PDFs (en, da, de, fr, es, no, sv)')
   .option('--output-language <code>', 'Override the wiki output language for this run (en, da, de, fr, es, no, sv)')
-  .option('--pdf-engine <engine>', 'PDF text extraction engine (pdfjs, opendataloader); also settable via the PDF_ENGINE env var')
   .option('--verbose', 'Verbose output')
-  .action(async (slug: string, options: { workspace: string; synthesis?: boolean; updateAgents?: boolean; extract?: boolean; doxLlm?: boolean; inputLanguage?: string; outputLanguage?: string; pdfEngine?: string; verbose?: boolean }) => {
+  .action(async (slug: string, options: { workspace: string; synthesis?: boolean; updateAgents?: boolean; extract?: boolean; doxLlm?: boolean; inputLanguage?: string; outputLanguage?: string; verbose?: boolean }) => {
     // --synthesis is Phase 5: opt-in LLM synthesis of entity, topic, and document pages after extraction.
     // --update-agents is Phase 9: opt-in AGENTS.md update proposal written to
     // .state/proposed-agents.md after the ingest (never auto-applied).
@@ -71,7 +70,6 @@ program
         updateAgents: options.updateAgents,
         inputLanguage: options.inputLanguage as import('./utils/language').LanguageCode | undefined,
         outputLanguage: options.outputLanguage as import('./utils/language').LanguageCode | undefined,
-        pdfEngine: options.pdfEngine as import('./extraction/engine').PdfEngine | undefined,
         onProgress: (message) => console.log(message),
       });
       if (options.verbose) {

@@ -1,9 +1,9 @@
 # Phase 11: Polish and Productionization
 
 **Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-011`
-**Version:** 1.2.0
+**Version:** 1.3.0
 **Status:** Draft
-**Date:** 2026-07-18
+**Date:** 2026-07-21
 **Dependencies:** Phases 0-10
 **Estimated Time:** 4-6 hours
 **LLM Token Budget:** $0 (no new LLM calls; productionization touches only)
@@ -51,7 +51,7 @@ Polish the CLI/TUI for production use: ship v2.0 under its final brand (**Paper 
 
 - Root `AGENTS.md` — project name line; canonical remote → `https://github.com/RuneL89/paper-chase`.
 - `Project Vision/` — all seven vision docs + `AGENTS.md`; `01_PRODUCT_VISION_AND_ARCHITECTURE.md` gains a one-line "formerly LLM Wiki CLI (v2.0 development name)" note.
-- `Implementation Plan/` — `IMPLEMENTATION_PLAN_MASTER_INDEX.md`, `MASTER_IMPLEMENTATION_PROMPT.md`, `START_PHASE_PROMPT.md`, `PHASE_00`–`PHASE_10` docs, `AGENTS.md`. (This document was updated as part of Phase 11 planning.)
+- `Implementation Plan/` — `IMPLEMENTATION_PLAN_MASTER_INDEX.md`, `MASTER_IMPLEMENTATION_PROMPT.md`, `START_PHASE_PROMPT.md`, `PHASE_00`–`PHASE_09` docs and `PHASE_11_polish.md`, `AGENTS.md`. (This document was updated as part of Phase 11 planning.)
 - `src/AGENTS.md`, `tests/AGENTS.md`, `templates/AGENTS.md`, `wikis/AGENTS.md` — name references only; `templates/AGENTS.md` stays compliant with its wiki-constitution role.
 - Excluded from the sweep: `.state/**`, `wikis/<slug>/**`, `node_modules/**`, and `package-lock.json` beyond the root name field.
 
@@ -122,16 +122,16 @@ Each dropdown shows a short suggestion:
 **Remove:**
 - "Run Tests" screen and menu item
 - "Test Extractor" screen and menu item
+- "View Validation Report" menu item
+- "Browse Entities" menu item
+- "Browse Topics" menu item
+- "Browse DOX Contracts" menu item
 - Any development-only debug screens
 
 **Keep:**
 - Create New Wiki
 - Add PDFs
 - Ingest PDFs
-- View Validation Report
-- Browse Entities
-- Browse Topics
-- Browse DOX Contracts
 - Settings
 - Exit
 
@@ -139,12 +139,8 @@ Each dropdown shows a short suggestion:
 1. Create New Wiki
 2. Add PDFs
 3. Ingest PDFs
-4. View Validation Report
-5. Browse Entities
-6. Browse Topics
-7. Browse DOX Contracts
-8. Settings
-9. Exit
+4. Settings
+5. Exit
 
 ### 2.4 Smoother Workflow
 
@@ -257,11 +253,11 @@ test('extractor uses the configured extractor model', async () => {
 });
 ```
 
-### Gate 11.3: Test Screens Removed
+### Gate 11.3: Non-Production Menu Items Removed
 
 ```typescript
-test('menu does not show Run Tests or Test Extractor', async () => {
-  // Render menu and assert those items are absent.
+test('menu only shows production items: Create New Wiki, Add PDFs, Ingest PDFs, Settings, Exit', async () => {
+  // Render menu and assert the removed items are absent.
 });
 ```
 
@@ -343,10 +339,11 @@ test('settings load from legacy .llm-wiki-cli.json and save to .paper-chase.json
 3. Save
 4. Verify `.paper-chase.json` contains the model.
 
-### UAT 11.2: Test screens are gone
+### UAT 11.2: Production menu only
 
 1. `chase`
-2. Verify menu does not show "Run Tests" or "Test Extractor".
+2. Verify menu shows only: Create New Wiki, Add PDFs, Ingest PDFs, Settings, Exit — in that order.
+3. Verify "Run Tests", "Test Extractor", "View Validation Report", "Browse Entities", "Browse Topics", and "Browse DOX Contracts" are not present.
 
 ### UAT 11.3: Continuous workflow feels smooth
 
@@ -378,7 +375,7 @@ Before moving to final sign-off, verify:
 - [ ] GitHub repo renamed to `paper-chase`; canonical remote in root `AGENTS.md` updated.
 - [ ] Internal vocabulary unchanged (wiki / source / entity / topic / citation / DOX); `.state/` records and generated `wikis/<slug>/` content untouched.
 - [ ] Model routing settings persist and are applied.
-- [ ] Test screens removed from TUI.
+- [ ] Production menu is clean: only Create New Wiki, Add PDFs, Ingest PDFs, Settings, Exit; removed items absent.
 - [ ] Continuous workflow after init → add PDFs → ingest.
 - [ ] README.md exists with all 5 required sections, Paper Chase title, and tagline.
 - [ ] Metrics file written.

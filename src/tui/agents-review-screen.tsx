@@ -22,18 +22,17 @@ export interface AgentsReviewScreenProps extends ScreenProps {
 
 type ReviewStatus = 'idle' | 'loading' | 'ready' | 'diff' | 'done' | 'error';
 
-const DIFF_VIEWPORT_LINES = 12;
+const COMPACT_DIFF_LINES = 5;
+const FULL_DIFF_LINES = 12;
 const DIFF_LINE_STEP = 4;
 
 /**
- * Review AGENTS.md Updates screen (Phase 9, phase doc §5.1): shows a summary
- * of the proposed constitution updates (new folders, new page types, diff
- * stats), a scrollable full diff, and Apply / Discard actions.
- *
- * Apply copies `.state/proposed-agents.md` over the wiki's `AGENTS.md`
- * (UAT 9.3); Discard deletes the proposal file. The updater itself never
- * overwrites AGENTS.md — applying is always an explicit human decision
- * (vision `01` §5).
+ * Review AGENTS.md Updates screen (Phase 9, phase doc §5.1): shows the
+ * proposed constitution updates (new folders, new page types) and an inline
+ * diff between the current AGENTS.md and the proposal. Accept copies the
+ * proposal over AGENTS.md; Reject deletes the proposal file. The updater
+ * itself never overwrites AGENTS.md — applying is always an explicit human
+ * decision (vision `01` §5).
  *
  * Ink 7 conventions (src/AGENTS.md): useInput is gated on raw-mode support,
  * a static fallback renders without a TTY, Escape returns to the menu.
@@ -93,14 +92,14 @@ export function AgentsReviewScreen({ onBack, onResult, workspace = '.', wiki: in
     }
   }, [activeWiki]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const apply = async () => {
+  const accept = async () => {
     if (!activeWiki || proposal === null) {
       return;
     }
     try {
       const dir = wikiDir(workspace, activeWiki);
       await copyFile(join(dir, '.state', 'proposed-agents.md'), join(dir, 'AGENTS.md'));
-      const resultMessage = `Applied proposed AGENTS.md updates for ${activeWiki}.`;
+      const resultMessage = `Accepted proposed AGENTS.md updates for ${activeWiki}.`;
       setMessage(resultMessage);
       setStatus('done');
       onResult?.(resultMessage);
@@ -110,14 +109,14 @@ export function AgentsReviewScreen({ onBack, onResult, workspace = '.', wiki: in
     }
   };
 
-  const discard = async () => {
+  const reject = async () => {
     if (!activeWiki) {
       return;
     }
     try {
       const dir = wikiDir(workspace, activeWiki);
       await rm(join(dir, '.state', 'proposed-agents.md'), { force: true });
-      const resultMessage = `Discarded proposed AGENTS.md updates for ${activeWiki}.`;
+      const resultMessage = `Rejected proposed AGENTS.md updates for ${activeWiki}.`;
       setMessage(resultMessage);
       setStatus('done');
       onResult?.(resultMessage);
@@ -130,7 +129,8 @@ export function AgentsReviewScreen({ onBack, onResult, workspace = '.', wiki: in
   const newFolders = structural.changes.filter((change) => change.type === 'new-folder');
   const newPageTypes = structural.changes.filter((change) => change.type === 'new-page-type');
   const hunkLines = diff ? diffHunks(diff) : [];
-  const maxScroll = Math.max(0, hunkLines.length - DIFF_VIEWPORT_LINES);
+  const viewportLines = status === 'diff' ? FULL_DIFF_LINES : COMPACT_DIFF_LINES;
+  const maxScroll = Math.max(0, hunkLines.length - viewportLines);
 
   useInput(
     (input, key) => {
@@ -145,6 +145,22 @@ export function AgentsReviewScreen({ onBack, onResult, workspace = '.', wiki: in
         onBack();
         return;
       }
+      if (status === 'done' || status === 'error') {
+        if (key.return) {
+          onBack();
+        }
+        return;
+      }
+      if (proposal !== null && (status === 'ready' || status === 'diff')) {
+        if (input === 'a' || input === 'A') {
+          void accept();
+          return;
+        }
+        if (input === 'r' || input === 'R') {
+          void reject();
+          return;
+        }
+      }
       if (status === 'diff') {
         if (key.upArrow) {
           setScrollOffset((offset) => Math.max(0, offset - DIFF_LINE_STEP));
@@ -153,20 +169,14 @@ export function AgentsReviewScreen({ onBack, onResult, workspace = '.', wiki: in
         }
         return;
       }
-      if (status === 'done' || status === 'error') {
-        if (key.return) {
-          onBack();
-        }
-        return;
-      }
       if (status === 'ready') {
         if (proposal !== null) {
-          if (input === 'a' || input === 'A') {
-            void apply();
-            return;
-          }
-          if (input === 'd' || input === 'D') {
-            void discard();
+          if (key.upArrow || key.downArrow) {
+            if (key.upArrow) {
+              setScrollOffset((offset) => Math.max(0, offset - DIFF_LINE_STEP));
+            } else {
+              setScrollOffset((offset) => Math.min(maxScroll, offset + DIFF_LINE_STEP));
+            }
             return;
           }
           if (input === 'v' || input === 'V') {
@@ -246,15 +256,32 @@ export function AgentsReviewScreen({ onBack, onResult, workspace = '.', wiki: in
           <Text>
             Diff: {diff.added} lines added, {diff.removed} removed
           </Text>
+          <Box flexDirection="column" marginTop={1}>
+            <Text bold>Diff preview:</Text>
+            {hunkLines.slice(scrollOffset, scrollOffset + COMPACT_DIFF_LINES).map((line, index) => (
+              <Text
+                key={index}
+                color={line.startsWith('+') ? 'green' : line.startsWith('-') ? 'red' : undefined}
+                dimColor={line === '...' || line.startsWith('  ')}
+              >
+                {line}
+              </Text>
+            ))}
+            {hunkLines.length > COMPACT_DIFF_LINES && (
+              <Text dimColor>
+                (showing {scrollOffset + 1}-{Math.min(scrollOffset + COMPACT_DIFF_LINES, hunkLines.length)} of {hunkLines.length}; Up/Down to scroll)
+              </Text>
+            )}
+          </Box>
           <Box marginTop={1} flexDirection="column">
-            <Text>[A] Apply Changes   [D] Discard   [V] View Full Diff</Text>
+            <Text>[A] Accept   [R] Reject   [V] View Full Diff</Text>
           </Box>
         </Box>
       )}
       {status === 'diff' && diff !== null && (
         <Box flexDirection="column" marginTop={1}>
           <Text bold>Full Diff ({diff.added} added, {diff.removed} removed):</Text>
-          {hunkLines.slice(scrollOffset, scrollOffset + DIFF_VIEWPORT_LINES).map((line, index) => (
+          {hunkLines.slice(scrollOffset, scrollOffset + FULL_DIFF_LINES).map((line, index) => (
             <Text
               key={index}
               color={line.startsWith('+') ? 'green' : line.startsWith('-') ? 'red' : undefined}
@@ -263,19 +290,22 @@ export function AgentsReviewScreen({ onBack, onResult, workspace = '.', wiki: in
               {line}
             </Text>
           ))}
-          {hunkLines.length > DIFF_VIEWPORT_LINES && (
+          {hunkLines.length > FULL_DIFF_LINES && (
             <Text dimColor>
-              (showing {scrollOffset + 1}-{Math.min(scrollOffset + DIFF_VIEWPORT_LINES, hunkLines.length)} of {hunkLines.length})
+              (showing {scrollOffset + 1}-{Math.min(scrollOffset + FULL_DIFF_LINES, hunkLines.length)} of {hunkLines.length})
             </Text>
           )}
+          <Box marginTop={1}>
+            <Text>[A] Accept   [R] Reject   [Escape] Back to summary</Text>
+          </Box>
         </Box>
       )}
       <Footer
         helpText={
           status === 'diff'
-            ? 'Up/Down: scroll | Escape: back to summary'
+            ? 'Up/Down: scroll | A: accept | R: reject | Escape: back to summary'
             : activeWiki
-              ? 'A: apply | D: discard | V: view diff | Escape: back'
+              ? 'Up/Down: scroll diff | A: accept | R: reject | V: full diff | Escape: back'
               : 'Up/Down: select wiki | Enter: review | Escape: back'
         }
       />

@@ -162,14 +162,14 @@ async function waitFor(condition: () => boolean, timeoutMs = 15000): Promise<voi
   }
 }
 
-test('review screen renders the proposed-changes summary with diff stats', async () => {
+test('review screen renders the proposed-changes summary with inline diff and accept/reject', async () => {
   const workspace = makeTempDir('llm-wiki-agentsreview-');
   await makeWikiWithProposal(workspace, 'test-wiki');
 
   const screen = renderCaptured(
     <AgentsReviewScreen onBack={() => {}} workspace={workspace} wiki="test-wiki" />,
   );
-  await waitFor(() => screen.output().includes('Proposed changes'));
+  await waitFor(() => screen.output().includes('Diff preview'));
   screen.unmount();
   await tick(50);
 
@@ -179,12 +179,14 @@ test('review screen renders the proposed-changes summary with diff stats', async
   expect(frame).toContain('+ Added folder: entities/companies/offshore');
   expect(frame).toContain('+ Added page type: transaction');
   expect(frame).toMatch(/Diff: [2-9]\d* lines added, 0 removed/);
-  expect(frame).toContain('[A] Apply Changes');
-  expect(frame).toContain('[D] Discard');
+  expect(frame).toContain('[A] Accept');
+  expect(frame).toContain('[R] Reject');
   expect(frame).toContain('[V] View Full Diff');
+  expect(frame).toContain('+ Proposed addition: entities/companies/offshore folder example.');
+  expect(frame).toContain('Up/Down: scroll diff');
 });
 
-test('apply copies the proposal over AGENTS.md (UAT 9.3)', async () => {
+test('accept copies the proposal over AGENTS.md (UAT 9.3)', async () => {
   const workspace = makeTempDir('llm-wiki-agentsreview-');
   await makeWikiWithProposal(workspace, 'test-wiki');
   const dir = join(workspace, 'wikis', 'test-wiki');
@@ -194,9 +196,9 @@ test('apply copies the proposal over AGENTS.md (UAT 9.3)', async () => {
   const screen = renderCaptured(
     <AgentsReviewScreen onBack={() => {}} workspace={workspace} wiki="test-wiki" />,
   );
-  await waitFor(() => screen.output().includes('Proposed changes'));
+  await waitFor(() => screen.output().includes('Diff preview'));
   screen.stdin.write('a');
-  await waitFor(() => screen.output().includes('Applied proposed AGENTS.md updates'));
+  await waitFor(() => screen.output().includes('Accepted proposed AGENTS.md updates'));
   screen.unmount();
   await tick(50);
 
@@ -205,7 +207,7 @@ test('apply copies the proposal over AGENTS.md (UAT 9.3)', async () => {
   expect(after).toContain('## Language');
 });
 
-test('discard deletes the proposal file', async () => {
+test('reject deletes the proposal file', async () => {
   const workspace = makeTempDir('llm-wiki-agentsreview-');
   await makeWikiWithProposal(workspace, 'test-wiki');
   const proposalPath = join(workspace, 'wikis', 'test-wiki', '.state', 'proposed-agents.md');
@@ -214,28 +216,31 @@ test('discard deletes the proposal file', async () => {
   const screen = renderCaptured(
     <AgentsReviewScreen onBack={() => {}} workspace={workspace} wiki="test-wiki" />,
   );
-  await waitFor(() => screen.output().includes('Proposed changes'));
-  screen.stdin.write('d');
-  await waitFor(() => screen.output().includes('Discarded proposed AGENTS.md updates'));
+  await waitFor(() => screen.output().includes('Diff preview'));
+  screen.stdin.write('r');
+  await waitFor(() => screen.output().includes('Rejected proposed AGENTS.md updates'));
   screen.unmount();
   await tick(50);
 
   expect(existsSync(proposalPath)).toBe(false);
 });
 
-test('view full diff shows added lines and scrolls back to the summary', async () => {
+test('view full diff shows added lines, accept/reject remain available, and escape returns to summary', async () => {
   const workspace = makeTempDir('llm-wiki-agentsreview-');
   await makeWikiWithProposal(workspace, 'test-wiki');
 
   const screen = renderCaptured(
     <AgentsReviewScreen onBack={() => {}} workspace={workspace} wiki="test-wiki" />,
   );
-  await waitFor(() => screen.output().includes('Proposed changes'));
+  await waitFor(() => screen.output().includes('Diff preview'));
   screen.stdin.write('v');
-  // 'Full Diff (' (with the counts) appears ONLY in the diff view — the
+  // 'Full Diff (' (with the counts) appears ONLY in the expanded diff view — the
   // summary's '[V] View Full Diff' label must not satisfy this wait.
   await waitFor(() => screen.output().includes('Full Diff ('));
-  expect(screen.output()).toContain('+ Proposed addition: entities/companies/offshore folder example.');
+  const expanded = screen.output();
+  expect(expanded).toContain('+ Proposed addition: entities/companies/offshore folder example.');
+  expect(expanded).toContain('[A] Accept');
+  expect(expanded).toContain('[R] Reject');
   screen.stdin.write(ESC);
   await tick(300);
   screen.unmount();

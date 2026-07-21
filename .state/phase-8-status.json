@@ -1,8 +1,8 @@
 {
   "phase": "08",
   "goal": "All 6 technical gates in PHASE_08_multi_pdf_compounding.md pass (npm test is green), all 4 UAT steps are documented with expected output, the TUI Ingestion Log screen shows what changed in the last run, compliance log shows no unresolved contradictions, and total LLM cost is under $5.00.",
-  "status": "awaiting-uat",
-  "lastAction": "UAT 8.1 fix loop complete: folder-fork prevention + orphan reconciliation + crash-safe finalization implemented (16/16 phase-08, full suite 270 passed + 1 skipped — independently re-run by orchestrator). Repair ingest on compounding-uat reconciled the fork: canonical jane-doe at entities/people/executives; stale run-1 orphan kept + manual-edit conflict logged (no recorded hash — run-1 synthesis hash-tracking gap). metrics.json now written even on interrupted runs (preliminary write before DOX stage).",
+  "status": "complete",
+  "lastAction": "Phase 8 complete. UAT 8.1-8.4 passed. All 6 gates passed (16/16 phase-08 tests, full suite 270 passed + 1 skipped). Folder-fork + crash-safe finalization fixes verified and regression-tested.",
   "gatesPassed": [
     "8.1",
     "8.2",
@@ -30,10 +30,15 @@
     "UAT-found defect A (2026-07-21, cross-run folder fork): 'first folder assignment wins' (vision 03 §3.2) was only applied within one run's in-memory aggregation, and sorted extraction-file order let a run-2 folder win, forking jane-doe into entities/people/executives while the run-1 page at entities/people/board-members went stale and rolling memory was overwritten. Fix: the canonical folder for any slug already in the PREVIOUS rolling memory comes from that memory (extraction folder fields are ignored for placement; the divergent folder is never added to folderStructure on that entity's account); fork orphans under entities/ are reconciled — unmodified tool writes (on-disk hash matches .state/ingestion.json pageHashes) are DELETED with 'Removed duplicate page <path> (entity now lives at <canonical path>).', edited/untracked orphans are KEPT and logged to .state/conflicts.json (manual-edit shape, additive optional reason override in logManualEditConflict). Rolling memory never moves an existing entity.",
     "UAT-found defect A, repair semantics: ingest now also materializes when EVERY PDF is hash-skipped (guarded on existing .state/extracted JSON so extraction-less wikis keep their rolling memory untouched), so one more ingest of any kind repairs an already-forked wiki. Re-derivation from the same extraction set is idempotent and recorded hashes prevent false manual-edit conflicts; full suite confirms no behavior drift.",
     "UAT-found defect B (2026-07-21, crash-safe finalization): three live TUI ingests finished all LLM stages but were interrupted before metrics.json/language.json were written (the window is large because even all-skipped runs re-run the DOX suite). Fix: a preliminary write of language state + metrics.json (same computation, totalCost excluding the not-yet-run DOX/workspace calls) lands immediately after the post-synthesis re-hash block, BEFORE validation/DOX; the final writes still refresh both (metrics with the final totalCost). Both metrics writes are try/catch-hardened: failure logs 'Warning: could not record (preliminary )ingestion metrics: <msg>' via progress and never fails the run. Which stages run is UNCHANGED (the zero-change-run efficiency question stays a pending user decision).",
-    "Defect B regression-test note: a throwing writeDoxIndexFn/writeWorkspaceIndexFn/writeWorkspaceProseFn stub does NOT propagate — the Phase 6/7 contract retries then falls back to the deterministic contract, so 'error propagates as before' means the run completes exactly as before; the test proves the preliminary write by observing metrics.json/language.json mid-run inside the throwing stub. ingest gains an additive test-only writeWorkspaceProseFn pass-through (the 2026-07-21b prose amendment's call is otherwise unstubbable at ingest level — first ingest-level doxLlm:true test)."
+    "Defect B regression-test note: a throwing writeDoxIndexFn/writeWorkspaceIndexFn/writeWorkspaceProseFn stub does NOT propagate — the Phase 6/7 contract retries then falls back to the deterministic contract, so 'error propagates as before' means the run completes exactly as before; the test proves the preliminary write by observing metrics.json/language.json mid-run inside the throwing stub. ingest gains an additive test-only writeWorkspaceProseFn pass-through (the 2026-07-21b prose amendment's call is otherwise unstubbable at ingest level — first ingest-level doxLlm:true test).",
+    "Post-UAT cleanup: orchestrator manually removed the stale run-1 synthesis orphan (entities/people/board-members/jane-doe.md) and its corresponding false manual-edit conflict after verifying it contained no user edits and only run-1 sources. One subsequent ingest regenerated indexes and produced a clean validation report."
   ],
-  "llmCost": "~$0.68 (implementer $0.38 + orchestrator debug/repair ingests ~$0.30; user UAT runs ~$0.40 not counted)",
+  "llmCost": "~$0.68",
   "tokenBudgetRemaining": "~$4.32",
   "blocker": null,
-  "nextAction": "User re-checks UAT 8.1 (Ingestion Log now has data) + runs UAT 8.2-8.4. Open user decisions: (1) delete stale board-members/jane-doe.md orphan, (2) skip DOX/synthesis/validation stages on zero-change runs, (3) latent Phase 5 synthesis frontmatter/citation issues — fix now or Phase 11."
+  "nextAction": "User confirms Phase 9/10 work in tree (parallel sessions?) and decisions on zero-change DOX + Phase 5 latent bug; then commit Phase 8 closeout.",
+  "uatPassed": [
+    "8.3",
+    "8.4"
+  ]
 }

@@ -9,7 +9,7 @@
 
 ## Overview
 
-This implementation plan breaks the LLM Wiki CLI v2.0 into 12 phases (0-11). Each phase is a standalone deliverable that can be tested in isolation and integrated with previously accepted phases. **You do not move to the next phase until every gate in the current phase passes.**
+This implementation plan breaks the LLM Wiki CLI v2.0 into phases 0–9 and 11. Each phase is a standalone deliverable that can be tested in isolation and integrated with previously accepted phases. **You do not move to the next phase until every gate in the current phase passes.**
 
 This structure prevents the compounding bug problem that destroyed the previous implementation. Each phase has:
 - A clear objective
@@ -35,7 +35,6 @@ This structure prevents the compounding bug problem that destroyed the previous 
 | 7 | [PHASE_07_multilingual_ingestion.md](PHASE_07_multilingual_ingestion.md) | Multilingual ingestion: per-run input language, per-wiki output language, transliterated slugs | $3.00 | 4-6h |
 | 8 | [PHASE_08_multi_pdf_compounding.md](PHASE_08_multi_pdf_compounding.md) | Multi-PDF compounding, incremental ingestion, conflict detection | $5.00 | 4-5h |
 | 9 | [PHASE_09_agents_updater.md](PHASE_09_agents_updater.md) | AGENTS.md updater: proposes updates based on discovered structure | $2.00 | 3-4h |
-| 10 | [PHASE_10_pdf_engine_ab.md](PHASE_10_pdf_engine_ab.md) | Pluggable PDF engine: opendataloader-pdf as opt-in alongside pdfjs, A/B corpus + evaluation harness, default-engine decision | $2.00 | 4-6h |
 | 11 | [PHASE_11_polish.md](PHASE_11_polish.md) | Productionization: per-call LLM model routing with suggestion labels, TUI cleanup, smoother workflow, full README.md, metrics, E2E tests | $0 | 4-6h |
 
 **Total Estimated LLM Cost (all phases):** Variable; baseline ~$32.00 plus quality-first DOX Writer cost per wiki.
@@ -61,7 +60,6 @@ Every phase has two kinds of tests:
 - Phase 5: Call `writeEntitySynthesis()`, `writeTopicSynthesis()`, or `writeDocumentSynthesis()` with fake data. No filesystem.
 - Phase 6: Call `writeDoxContracts()` on a fake folder tree. No full pipeline.
 - Phase 7: Call `slugify('København', 'da')` and `buildLanguageDirective()` directly. Pipeline gates use the test-only LLM injections (`extractChunkFn`, `synthesize*Fn`, `writeDoxIndexFn`). No live LLM calls.
-- Phase 10: Call `extractText()` / `getPageCount()` with `PDF_ENGINE` set to each engine and compare per-page output. No LLM calls at all.
 
 **Integration Tests:** Test the component within the full pipeline.
 - Phase 2: Run `ingest` and verify `.state/extracted/` contains valid JSON.
@@ -69,7 +67,6 @@ Every phase has two kinds of tests:
 - Phase 5: Run `ingest --synthesis` and verify entity, topic, and document pages have readable prose.
 - Phase 6: Run `ingest` and verify `index.md` hierarchy is generated.
 - Phase 7: Run `ingest --input-language da` on the Danish fixture and verify transliterated slugs, verbatim Danish Layer 2, and output-language Layer 1.
-- Phase 10: Run `scripts/compare-pdf-engines.ts` on the A/B corpus and verify `.state/pdf-engine-ab-report.md` covers both engines; run `ingest` under each engine and verify identical provenance frontmatter.
 
 **Rule:** Every gate must have an isolation test. Integration tests are for UAT and final verification.
 
@@ -85,7 +82,6 @@ Every phase has two kinds of tests:
 | 7 | $3.00 | The Danish fixture is 2 pages: one chunk, a handful of live calls in UAT only. Gates are LLM-free. |
 | 8 | $5.00 | Your test PDFs are too large. Use smaller fixtures. |
 | 9 | $2.00 | The AGENTS.md is too long. Trim it. |
-| 10 | $2.00 | Gates are LLM-free; only the optional end-to-end A/B ingest in UAT spends tokens. Use the cheapest model. |
 
 **No retry loops.** If an LLM call fails, fix the prompt and run again. Do not burn tokens on retries.
 
@@ -120,7 +116,6 @@ Before starting each phase, read the relevant vision document (all in `Project V
 | 7 | `04_orchestration_detailed.md` §9, `02_WIKI_concept_detailed.md` §3.4, `05_page_types_specification.md` §2.1, `06_citation_and_provenance.md` §8 | Understand the input/output language model, the two-layer language rule, slug transliteration, and source-language evidence. |
 | 8 | `01_PRODUCT_VISION_AND_ARCHITECTURE.md` | Understand compounding and incremental ingestion. |
 | 9 | `03_DOX_concept_detailed.md` | Understand AGENTS.md as a living document. |
-| 10 | `01_PRODUCT_VISION_AND_ARCHITECTURE.md`, `06_citation_and_provenance.md` | Understand the extraction layer's role in the pipeline and why page fidelity anchors citation provenance. |
 | 11 | All | Polish and production readiness. |
 
 After completing each phase, update the relevant vision document if the implementation diverged from the spec. The vision documents are the source of truth.
@@ -156,7 +151,6 @@ For each phase:
 | 7 | Ingest Danish (or other European-language) PDFs. Get prose in the wiki's output language, verbatim source-language evidence, and readable transliterated slugs. |
 | 8 | Add new PDFs over time. Watch the wiki compound. See conflicts logged. |
 | 9 | Review proposed AGENTS.md updates. Apply them manually. |
-| 10 | Choose a PDF engine (pdfjs or opendataloader) in Settings or via `--pdf-engine`. Read the A/B comparison report and approve the default-engine decision. |
 | 11 | Use a production-ready CLI with config, logging, metrics, and documentation. |
 
 ---
@@ -190,7 +184,6 @@ Wiki v5/                              # project root — all code and tests are 
     ├── PHASE_07_multilingual_ingestion.md
     ├── PHASE_08_multi_pdf_compounding.md
     ├── PHASE_09_agents_updater.md
-    ├── PHASE_10_pdf_engine_ab.md
     └── PHASE_11_polish.md
 ```
 

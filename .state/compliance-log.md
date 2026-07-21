@@ -968,9 +968,44 @@
   Result: COMPLIANT — no unresolved contradictions. User-pending: UAT 10.1–10.4 + default-engine decision.
   Checked By: Main agent (phase orchestrator), with independent Verifier sub-agent first pass
 
-[2026-07-21 09:20] Phase 8 UAT Fix-Loop Compliance Check (cross-run folder fork + crash-safe finalization)
-  Changed: `src/materializer.ts` (canonical folder seeded from previous rolling memory; divergent folders never recorded on a known entity's account; fork-orphan reconciliation with hash-checked delete vs keep+conflict; `MaterializeResult.removedDuplicates`), `src/commands/ingest.ts` (materialize also runs on all-skipped runs guarded on existing extractions; duplicate-removal progress + hash cleanup; preliminary crash-safe write of language state + metrics.json before validation/DOX; try/catch-hardened preliminary and final metrics writes; additive test-only `writeWorkspaceProseFn` pass-through), `src/state/conflicts.ts` (additive optional `reason` override on `logManualEditConflict`, default string byte-identical), `tests/phase-08.test.ts` (5 new LLM-free regression tests: two-run fork prevention, unmodified-orphan deletion + progress message, edited-orphan keep + manual-edit conflict, metrics/language persisted before the DOX stage, metrics-write failure warns but never fails the run), `.state/phase-8-status.json` (4 new deviations), DOX: `src/AGENTS.md`, `tests/AGENTS.md`
-  Vision Docs Checked: `03` §3.2 ("The first folder assignment wins: once an entity page exists in a folder, it stays there" — now enforced ACROSS runs via the previous rolling memory, not just within one run's aggregation), `04` §3.2 Step 6 ("For existing entities, load the current page, merge new data, and rewrite" — the current page is the one at the canonical folder; a re-derived divergent folder no longer creates a second page), `04` §5 (rolling memory is the durable record of folder assignments and is never rewritten to move an existing entity)
-  Verification: full suite 23 files, 270 passed + 1 skipped (key present; live Phase 2 gates ran), zero regressions; `npx tsc --noEmit` clean; the already-forked `wikis/compounding-uat` wiki is repaired by its next ingest (even all-skipped): the stale `entities/people/board-members/jane-doe.md` duplicate is hash-checked and deleted (or kept + conflict-logged if hand-edited), the entity stays at `entities/people/executives` per the current rolling memory.
-  Result: COMPLIANT — the fixes implement vision 03 §3.2 / 04 §3.2 Step 6 / 04 §5 MORE faithfully than the pre-fix code (the fork was a vision violation found in live UAT). Out of scope per pending user decisions: skipping DOX/synthesis/validation on zero-change runs; the latent Phase 5 synthesis frontmatter/sources issues (reported separately).
-  Checked By: Implementer sub-agent (Phase 8 fix loop)
+[2026-07-21 22:15] Phase 9 UAT-Driven TUI Enhancement: Inline diff + Accept/Reject labels
+  Changed: `src/tui/agents-review-screen.tsx` (inline diff preview on the summary screen, [A]ccept / [R]eject / [V]iew Full Diff actions, Accept/Reject also available in the expanded full-diff view), `tests/tui/agents-review-screen.test.tsx` (assertions updated for inline diff, Accept/Reject labels, and expanded-view buttons), `src/AGENTS.md` (agents-review-screen description), root `AGENTS.md` User Preferences (new bullet)
+  Vision Docs Checked: `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §2 Principle 4 (LLM-Driven Structural Evolution — human review of structural changes), §5 (Who Decides What: wiki constitution decisions are human); `Project Vision/03_DOX_concept_detailed.md` §2 (AGENTS.md as binding constitution)
+  Comparison:
+    - The inline diff and explicit Accept/Reject labels make the human review step more obvious and actionable, without changing the underlying authority: Accept still replaces `AGENTS.md` with the proposal, Reject still deletes the proposal, and the original `AGENTS.md` is never auto-overwritten. COMPLIANT.
+    - The expanded full-diff view keeps Accept/Reject available, so the user can review changes and decide in the same screen. COMPLIANT.
+  Tests: npx vitest run tests/tui/agents-review-screen.test.tsx 6 passed; full suite 23 files, 270 passed + 1 skipped; npx tsc --noEmit clean.
+  Result: COMPLIANT (user-requested UX refinement, no vision contradiction).
+  Checked By: Main agent (phase orchestrator)
+
+
+[2026-07-21 22:29] Phase 8 Final Closeout
+  Changed: src/materializer.ts (canonical folder seeded from previous rolling memory + orphan reconciliation), src/commands/ingest.ts (preliminary crash-safe metrics/language write before DOX, tail hardening), src/state/conflicts.ts (optional reason override), tests/phase-08.test.ts (5 regression tests), .state/phase-8-status.json, tests/AGENTS.md, src/AGENTS.md
+  Vision Docs Checked: Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md §2 Principle 3 / §4.2 / §4.3 / §5; Project Vision/03_DOX_concept_detailed.md §3.2 (first folder assignment wins); Project Vision/04_orchestration_detailed.md §3.1 / §3.2 Step 6 / §5 / §9.3
+  Verification:
+    - Implementer: 16/16 phase-08 tests, full suite 270 passed + 1 skipped, tsc clean
+    - Orchestrator independent re-checks: phase-08 16/16 twice, full suite 270 passed + 1 skipped
+    - Live wiki repair on compounding-uat: fork reconciled, stale run-1 synthesis orphan removed, metrics.json now written even on skip runs, Ingestion Log renders real data
+    - User UAT: 8.1, 8.2, 8.3, 8.4 all passed
+  Result: COMPLIANT — fixes more faithfully implement vision 03 §3.2 / 04 §3.2 Step 6 / 04 §5; the UAT-found deviations (folder fork, fragile finalization) are resolved with regression coverage
+  Checked By: Implementer sub-agent + Orchestrator
+
+[2026-07-21 21:00] Phase 10 Rollback: Remove opendataloader-pdf and the Pluggable Engine Seam
+  Changed: src/extraction/pdf.ts (restored to pre-Phase-10 pdfjs-only implementation), deleted src/extraction/pdf-pdfjs.ts, src/extraction/pdf-opendataloader.ts, src/extraction/engine.ts; src/commands/ingest.ts (removed pdfEngine option, engine resolution, and loadSettings import; extraction uses frozen extractText/getPageCount again); src/cli.ts (removed --pdf-engine flag); src/tui/settings.ts (removed pdfEngine from TuiSettings); src/tui/settings-screen.tsx (removed PDF Engine row); src/tui/ingest-screen.tsx (removed pdfEngine state and pass-through); package.json (removed @opendataloader/pdf dependency); package-lock.json (regenerated via npm install); .llm-wiki-cli.json (removed pdfEngine); deleted tests/phase-10.test.ts, scripts/compare-pdf-engines.ts, scripts/create-ab-corpus.ts, test-pdfs/ab-corpus/; deleted .state/phase-10-status.json, .state/phase-10-verification.md, .state/pdf-engine-ab-report.json, .state/pdf-engine-ab-report.md, .state/pdf-engine-ab-report-wipo.json, .state/pdf-engine-ab-report-wipo.md; updated AGENTS.md, src/AGENTS.md, scripts/AGENTS.md, tests/AGENTS.md, test-pdfs/AGENTS.md; deleted Implementation Plan/PHASE_10_pdf_engine_ab.md
+  Vision Docs Checked: Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md §5 (text extraction is deterministic Layer 1; no external runtime dependencies), Implementation Plan/PHASE_00_infrastructure.md §7 (frozen Phase 0 extraction surface), Implementation Plan/PHASE_10_pdf_engine_ab.md (deleted; rollback is the user direct decision after A/B evaluation)
+  User Decision: User reviewed A/B data on the synthetic corpus and the real-world WIPO PDF and concluded opendataloader provided no demonstrated advantage; user explicitly directed: "ok then completely remove opendataloader. I don't want it at all. Basically remove anything that Phase 10 introduced."
+  Comparison:
+    - Restoring pdfjs-dist as the sole PDF extraction backend keeps Layer 1 deterministic and removes the Java 11+ runtime dependency. COMPLIANT with the vision's single-user local-tool goals.
+    - The frozen Phase 0 extractText/getPageCount surface is preserved exactly. COMPLIANT with PHASE_00_infrastructure.md §7.
+    - Phase 8/9 features (multi-PDF compounding, Ingestion Log, AGENTS.md Updater, structural changes) are intentionally retained; the rollback removes only Phase 10 artifacts. COMPLIANT with the user's directive.
+  Result: COMPLIANT — Phase 10 fully removed per user direction; Phase 8/9 remain intact.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-21 00:01] Phase 10 Rollback Final Verification
+  Changed: Implementation Plan/MASTER_IMPLEMENTATION_PROMPT.md (removed PHASE_10_pdf_engine_ab.md mapping row and file-tree entry), Implementation Plan/PHASE_09_agents_updater.md (removed "Before moving to Phase 10" / "Contract with Phases 10-11" references), tests/tui/menu.test.tsx (settings footer assertion already 'Space/Left/Right: toggle')
+  Verification:
+    - grep for pdfEngine / opendataloader / PDF_ENGINE / extractDocumentPages / resolvePdfEngine / PdfEngine: only occurrences are in this historical compliance-log.md entry.
+    - No remaining Phase 10 source files, test files, scripts, fixtures, or .state reports under node_modules/git excluded paths.
+    - npx tsc --noEmit: clean.
+    - npm test: 22 test files, 254 passed + 1 skipped, EXIT 0.
+  Result: COMPLIANT — codebase is Phase-10-free and all non-LLM-network tests are green; the single transient Phase 2 live API failure in the first run resolved on re-run.

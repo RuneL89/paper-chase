@@ -295,5 +295,5 @@ test('each screen renders its expected content', async () => {
   await tick(50);
   expect(settings.output()).toContain('Settings');
   // The settings footer wraps at 80 columns, so assert an unwrapped substring.
-  expect(settings.output()).toContain('Space/Left/Right: toggle/cycle');
+  expect(settings.output()).toContain('Space/Left/Right: toggle');
 });

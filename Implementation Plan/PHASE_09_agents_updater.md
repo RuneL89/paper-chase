@@ -269,7 +269,7 @@ Add:
 
 ## 6. Approval Checklist
 
-Before moving to Phase 10, verify:
+Before moving to Phase 11, verify:
 
 - [ ] All 5 technical gates pass (`npm test` is green).
 - [ ] All 4 UAT steps pass (manual verification).
@@ -294,8 +294,7 @@ Before moving to Phase 10, verify:
 - AGENTS.md update proposal framework.
 - Living documentation model.
 
-### Contract with Phases 10-11
-Phase 10 (pluggable PDF engine + A/B evaluation) does not consume the updater's outputs.
+### Contract with Phase 11
 Phase 11 (polish) expects:
 - The system can propose AGENTS.md updates.
 - The journalist controls when to apply them.

@@ -10,7 +10,7 @@ import { SuccessBox } from './components/success-box';
 import { useWikiList } from './hooks/use-wiki-list';
 import { useWikiDetails } from './hooks/use-wiki-details';
 import { ingest } from '../commands/ingest';
-import { loadSettings, type TuiSettings } from './settings';
+import { loadSettings } from './settings';
 import { readWikiLanguage, type WikiLanguageState } from '../state/language';
 import { SUPPORTED_LANGUAGES } from '../utils/language';
 import { wikiDir } from '../utils/paths';
@@ -99,9 +99,6 @@ export function IngestScreen({
   const [hasExtractions, setHasExtractions] = useState(false);
   const [inputIndex, setInputIndex] = useState(0);
   const [outputIndex, setOutputIndex] = useState(0);
-  // Phase 10: PDF engine from `.llm-wiki-cli.json` (undefined = resolution
-  // falls to the PDF_ENGINE env var, then the pdfjs default).
-  const [pdfEngine, setPdfEngine] = useState<TuiSettings['pdfEngine']>(undefined);
 
   useEffect(() => {
     let mounted = true;
@@ -109,7 +106,6 @@ export function IngestScreen({
       .then((s) => {
         if (mounted) {
           setSynthesis(s.synthesis);
-          setPdfEngine(s.pdfEngine);
           // Phase 9: pre-select the AGENTS.md update proposal toggle from the
           // persisted setting (same convention as Synthesis).
           setUpdateAgents(s.updateAgents);
@@ -172,8 +168,6 @@ export function IngestScreen({
         synthesis,
         inputLanguage: selectedInput.code,
         outputLanguage: selectedOutput.code,
-        // Phase 10: PDF engine from the Settings screen (.llm-wiki-cli.json).
-        pdfEngine,
         // Phase 9: opt-in AGENTS.md update proposal after the ingest.
         updateAgents,
         // Phase 6: production runs are LLM-driven — the DOX Writer writes rich,
