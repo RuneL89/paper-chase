@@ -10,9 +10,12 @@ import { SettingsScreen } from './settings-screen';
 import { EntityBrowser } from './entity-browser';
 import { TopicBrowser } from './topic-browser';
 import { ValidationReportScreen } from './validation-report-screen';
+import { CompoundingLogScreen } from './compounding-log-screen';
 import { DoxBrowser } from './dox-browser';
+import { AgentsReviewScreen } from './agents-review-screen';
+import { StructuralChangesScreen } from './structural-changes-screen';
 
-export type Screen = 'menu' | 'init' | 'ingest' | 'add-pdfs' | 'extractor-test' | 'entity-browser' | 'topic-browser' | 'dox-browser' | 'validation-report' | 'test' | 'settings' | 'exit';
+export type Screen = 'menu' | 'init' | 'ingest' | 'add-pdfs' | 'extractor-test' | 'entity-browser' | 'topic-browser' | 'dox-browser' | 'agents-review' | 'structural-changes' | 'validation-report' | 'compounding-log' | 'test' | 'settings' | 'exit';
 
 export function App() {
   const [screen, setScreen] = useState<Screen>('menu');
@@ -35,9 +38,11 @@ export function App() {
         <IngestScreen
           onBack={() => setScreen('menu')}
           onResult={setLastResult}
+          // Phase 8 (phase doc §5.2): after ingestion completes, the app
+          // automatically shows the compounding log for the ingested wiki.
           onViewReport={(wiki) => {
             setLastWiki(wiki);
-            setScreen('validation-report');
+            setScreen('compounding-log');
           }}
         />
       )}
@@ -46,8 +51,29 @@ export function App() {
       {screen === 'entity-browser' && <EntityBrowser onBack={() => setScreen('menu')} />}
       {screen === 'topic-browser' && <TopicBrowser onBack={() => setScreen('menu')} />}
       {screen === 'dox-browser' && <DoxBrowser onBack={() => setScreen('menu')} />}
+      {screen === 'agents-review' && (
+        <AgentsReviewScreen
+          onBack={() => setScreen('menu')}
+          onResult={setLastResult}
+          wiki={lastWiki}
+        />
+      )}
+      {screen === 'structural-changes' && (
+        <StructuralChangesScreen
+          onBack={() => setScreen('menu')}
+          onResult={setLastResult}
+          wiki={lastWiki}
+        />
+      )}
       {screen === 'validation-report' && (
         <ValidationReportScreen
+          onBack={() => setScreen('menu')}
+          onResult={setLastResult}
+          wiki={lastWiki}
+        />
+      )}
+      {screen === 'compounding-log' && (
+        <CompoundingLogScreen
           onBack={() => setScreen('menu')}
           onResult={setLastResult}
           wiki={lastWiki}

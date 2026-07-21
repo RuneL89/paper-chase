@@ -19,9 +19,14 @@ export const MENU_ITEMS: MenuItem[] = [
   { label: 'Add PDFs (copy into raw/)', value: 'add-pdfs' },
   // Phase 4: view deterministic validation report after ingestion.
   { label: 'View Validation Report', value: 'validation-report' },
+  // Phase 8 (phase doc §5.3): view what changed in the last ingest run.
+  { label: 'View Ingestion Log', value: 'compounding-log' },
   { label: 'Browse Entities', value: 'entity-browser' },
   { label: 'Browse Topics', value: 'topic-browser' },
   { label: 'Browse DOX Contracts', value: 'dox-browser' },
+  // Phase 9 (phase doc §5.3): AGENTS.md update review + structural change log.
+  { label: 'Review AGENTS.md Updates', value: 'agents-review' },
+  { label: 'View Structural Changes', value: 'structural-changes' },
   { label: 'Run Tests', value: 'test' },
   { label: 'Settings', value: 'settings' },
   { label: 'Exit', value: 'exit' },

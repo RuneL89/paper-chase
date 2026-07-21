@@ -1,11 +1,15 @@
-import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { createHash } from 'node:crypto';
 import matter from 'gray-matter';
-import { wikiDir } from './utils/paths';
+import { wikiDir, wikiRelativePath } from './utils/paths';
 import { writeEntityPage, type EntityPageData } from './pages/entity-page';
 import { writeTopicPage, type TopicPageData } from './pages/topic-page';
 import { type DocumentPageData } from './pages/document-page';
-import { saveRollingMemory, type RollingMemory } from './state/rolling-memory';
+import { saveRollingMemory, readFullRollingMemory, type RollingMemory } from './state/rolling-memory';
+import { logStructuralChanges, readStructuralChanges, type StructuralChange } from './state/structural-changes';
+import { logManualEditConflict } from './state/conflicts';
 import type {
   ExtractorEntity,
   ExtractorRelationship,
@@ -16,6 +20,16 @@ import type {
 
 export interface MaterializeOptions {
   workspace?: string;
+  /**
+   * Phase 8 (phase doc §2.5): wiki-relative page path -> SHA-256 of the
+   * page's content recorded at the end of the last ingestion (from
+   * `.state/ingestion.json` `pageHashes`). When an existing page's current
+   * content no longer matches its recorded hash, the page was manually
+   * edited: the update is SKIPPED and a conflict is logged to
+   * `.state/conflicts.json`. When omitted, no conflict detection runs
+   * (pre-Phase-8 callers keep their behavior).
+   */
+  pageHashes?: Record<string, string>;
 }
 
 export interface MaterializeResult {
@@ -25,6 +39,32 @@ export interface MaterializeResult {
   topicPages: TopicPageData[];
   /** Structured data for every document page written. */
   documentPages: DocumentPageData[];
+  /**
+   * Phase 8: wiki-relative path + SHA-256 of rendered content for every
+   * entity/topic page actually written (not conflict-skipped). `ingest`
+   * folds these into its working hash map between materialize calls and
+   * re-hashes from disk after synthesis so the recorded hashes always
+   * reflect the tool's own final writes.
+   */
+  writtenPages: Array<{ path: string; hash: string }>;
+  /**
+   * Phase 8: wiki-relative paths of pages whose update was skipped because
+   * a manual edit was detected (hash mismatch). These pages are excluded
+   * from `entityPages`/`topicPages` so the Synthesis Writer never
+   * overwrites a journalist's edit either.
+   */
+  conflicts: string[];
+  /**
+   * Phase 8 (UAT fork-reconciliation fix, vision `03` §3.2 + `04` §3.2
+   * Step 6): duplicate pages deleted because the entity's canonical folder
+   * (recorded in the PREVIOUS rolling memory — "first folder assignment
+   * wins" across runs) is elsewhere. Only unmodified tool writes are
+   * deleted (on-disk hash still matches the recorded page hash); edited or
+   * untracked duplicates are KEPT and logged as manual-edit conflicts
+   * instead. `ingest` removes these paths from its working hash map and
+   * logs `Removed duplicate page <path> (entity now lives at <canonical>).`.
+   */
+  removedDuplicates: Array<{ path: string; canonicalPath: string }>;
 }
 
 interface MaterializedEntity {
@@ -114,6 +154,54 @@ async function loadChunkSource(wikiDir: string, chunkId: string): Promise<ChunkS
   }
 }
 
+/** SHA-256 hex of a string (page content), matching the file-based utils/hash. */
+function hashContent(content: string): string {
+  return createHash('sha256').update(content, 'utf-8').digest('hex');
+}
+
+/**
+ * Phase 8 (phase doc §2.5, vision `04` §3.2 Step 6): decide whether an
+ * existing page may be updated. Returns 'write' for new pages and for pages
+ * whose content still matches the recorded hash; 'conflict' when the on-disk
+ * content was manually edited (hash mismatch) — the caller then skips the
+ * update. A page that predates hash tracking (no recorded hash) is updated
+ * normally and starts being tracked.
+ */
+async function checkPageConflict(
+  pagePath: string,
+  relativePath: string,
+  pageHashes: Record<string, string> | undefined,
+): Promise<'write' | 'conflict'> {
+  if (!pageHashes || !existsSync(pagePath)) {
+    return 'write';
+  }
+  const recorded = pageHashes[relativePath];
+  if (recorded === undefined) {
+    return 'write';
+  }
+  const current = hashContent(await readFile(pagePath, 'utf-8'));
+  return current === recorded ? 'write' : 'conflict';
+}
+
+/**
+ * Recursively collect every entity page under `entities/` (excluding folder
+ * `index.md` contracts) as a map of page slug -> wiki-relative paths
+ * (forward slashes, e.g. 'entities/people/executives/john-smith.md').
+ */
+async function collectEntityPageLocations(root: string, relPrefix: string, out: Map<string, string[]>): Promise<void> {
+  for (const entry of await readdir(root, { withFileTypes: true })) {
+    const rel = relPrefix === '' ? entry.name : `${relPrefix}/${entry.name}`;
+    if (entry.isDirectory()) {
+      await collectEntityPageLocations(join(root, entry.name), rel, out);
+    } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.md') && entry.name.toLowerCase() !== 'index.md') {
+      const slug = entry.name.replace(/\.md$/i, '');
+      const list = out.get(slug) ?? [];
+      list.push(`entities/${rel}`);
+      out.set(slug, list);
+    }
+  }
+}
+
 /**
  * Read every Extractor JSON result, aggregate entities/topics across chunks, and
  * write/update entity pages, topic pages, and rolling memory.
@@ -145,6 +233,21 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
   const folderStructure = new Set<string>();
   const chunkSources: Array<{ chunkId: string; file: string; pages: string }> = [];
 
+  // Phase 8 (UAT fork fix, vision `03` §3.2 "The first folder assignment
+  // wins" — applied ACROSS runs): the folder recorded in the PREVIOUS
+  // rolling memory is canonical for every entity it already knows. A later
+  // extraction that re-derives a different folder for the same slug must
+  // NOT move the page or rewrite the memory (vision `04` §3.2 Step 6:
+  // "For existing entities, load the current page, merge new data, and
+  // rewrite" — the current page lives at the canonical folder).
+  const previousMemory = await readFullRollingMemory(dir);
+  const canonicalFolderBySlug = new Map<string, string>();
+  for (const entry of previousMemory?.entities ?? []) {
+    if (entry.folder.trim().length > 0 && !canonicalFolderBySlug.has(entry.slug)) {
+      canonicalFolderBySlug.set(entry.slug, entry.folder);
+    }
+  }
+
   for (const fileName of extractionFiles) {
     const chunkId = fileName.replace(/\.json$/i, '');
     const sourceSlug = sourceSlugFromChunkId(chunkId);
@@ -164,10 +267,14 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     // Entities
     for (const entity of extracted.entities ?? []) {
       const existing = entityMap.get(entity.slug);
+      // The canonical folder comes from the previous rolling memory when the
+      // slug is already known there (cross-run "first folder assignment
+      // wins"); otherwise the first in-run assignment wins (vision 03 §3.2).
+      const effectiveFolder = canonicalFolderBySlug.get(entity.slug) ?? existing?.folder ?? entity.folder;
       const target: MaterializedEntity = existing ?? {
         name: entity.name,
         type: entity.type,
-        folder: entity.folder,
+        folder: effectiveFolder,
         significance: entity.significance ?? '',
         disambiguation: entity.disambiguation,
         contexts: new Set<string>(),
@@ -183,7 +290,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       } else {
         target.name = entity.name;
         target.type = entity.type;
-        target.folder = entity.folder;
+        target.folder = effectiveFolder;
         target.significance = entity.significance ?? '';
         target.disambiguation = entity.disambiguation;
       }
@@ -198,7 +305,9 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       }
 
       entityMap.set(entity.slug, target);
-      folderStructure.add(entity.folder);
+      // Only the entity's EFFECTIVE folder is recorded — a divergent folder
+      // from a later extraction is never added on this entity's account.
+      folderStructure.add(target.folder);
     }
 
     // Relationships (attached to the subject entity)
@@ -289,9 +398,12 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     slugToTitle[slug] = entity.name;
   }
 
-  const result: MaterializeResult = { entityPages: [], topicPages: [], documentPages: [] };
+  const result: MaterializeResult = { entityPages: [], topicPages: [], documentPages: [], writtenPages: [], conflicts: [], removedDuplicates: [] };
 
-  // Write entity pages
+  // Write entity pages (Phase 8 update mode: existing pages are re-derived
+  // from the full extraction set, which IS the merge — mentions append
+  // across chunks, relationships/claims dedupe by their content keys, and
+  // the Sources section accumulates every contributing source file).
   for (const [slug, entity] of entityMap.entries()) {
     const folderPath = join(dir, entity.folder);
     await mkdir(folderPath, { recursive: true });
@@ -319,8 +431,58 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       })),
     };
 
+    // Phase 8 §2.5: never overwrite a manually-edited page. The conflict is
+    // logged and the page is excluded from the result so the Synthesis
+    // Writer does not overwrite it either.
+    const pagePath = join(folderPath, `${slug}.md`);
+    const relativePath = wikiRelativePath(entity.folder, `${slug}.md`);
+    if ((await checkPageConflict(pagePath, relativePath, options?.pageHashes)) === 'conflict') {
+      await logManualEditConflict(dir, relativePath);
+      result.conflicts.push(relativePath);
+      continue;
+    }
+
+    const rendered = writeEntityPage(pageData);
     result.entityPages.push(pageData);
-    await writeFile(join(folderPath, `${slug}.md`), writeEntityPage(pageData), 'utf-8');
+    await writeFile(pagePath, rendered, 'utf-8');
+    result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
+  }
+
+  // Phase 8 (UAT fork-reconciliation fix): a page for the same slug at any
+  // OTHER folder than the canonical one is a duplicate left behind by a
+  // forked run. Unmodified duplicates (on-disk hash still matches the hash
+  // recorded at the last ingestion) are tool writes and are DELETED, so one
+  // more ingest repairs an already-forked wiki. Duplicates that were
+  // manually edited (hash mismatch) or have no recorded hash are KEPT and
+  // surfaced as manual-edit conflicts for the journalist to review.
+  // Empty parent folders left behind are fine: the DOX Writer regenerates
+  // folder contracts deterministically.
+  if (entityMap.size > 0) {
+    const entitiesRoot = join(dir, 'entities');
+    const slugLocations = new Map<string, string[]>();
+    if (existsSync(entitiesRoot)) {
+      await collectEntityPageLocations(entitiesRoot, '', slugLocations);
+    }
+    for (const [slug, entity] of entityMap.entries()) {
+      const canonicalPath = wikiRelativePath(entity.folder, `${slug}.md`);
+      for (const location of slugLocations.get(slug) ?? []) {
+        if (location === canonicalPath) {
+          continue;
+        }
+        const recorded = options?.pageHashes?.[location];
+        const currentHash = hashContent(await readFile(join(dir, location), 'utf-8'));
+        if (recorded !== undefined && recorded === currentHash) {
+          await rm(join(dir, location), { force: true });
+          result.removedDuplicates.push({ path: location, canonicalPath });
+        } else {
+          await logManualEditConflict(
+            dir,
+            location,
+            `Duplicate page for '${slug}' (entity now lives at ${canonicalPath}) was manually edited or has no recorded hash. Kept for review.`,
+          );
+        }
+      }
+    }
   }
 
   // Write topic pages
@@ -343,8 +505,18 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       entities: topicEntities,
     };
 
+    const pagePath = join(folderPath, `${topic.slug}.md`);
+    const relativePath = wikiRelativePath(topic.folder, `${topic.slug}.md`);
+    if ((await checkPageConflict(pagePath, relativePath, options?.pageHashes)) === 'conflict') {
+      await logManualEditConflict(dir, relativePath);
+      result.conflicts.push(relativePath);
+      continue;
+    }
+
+    const rendered = writeTopicPage(pageData);
     result.topicPages.push(pageData);
-    await writeFile(join(folderPath, `${topic.slug}.md`), writeTopicPage(pageData), 'utf-8');
+    await writeFile(pagePath, rendered, 'utf-8');
+    result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
   }
 
   // Build document page data for optional synthesis (Phase 5+)
@@ -410,6 +582,76 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     sources: Array.from(sourceSlugs).sort((a, b) => a.localeCompare(b)),
     folderStructure: Array.from(folderStructure).sort((a, b) => a.localeCompare(b)),
   };
+
+  // Phase 9 (vision `03` §5): log structural changes for after-the-fact human
+  // review — folders and entity page types that did not exist before this run.
+  // Diffed against the PREVIOUS rolling memory (folders; loaded at the top of
+  // this run for the canonical-folder rule) and the additive knownPageTypes
+  // tracker in the log itself (types), so a folder/type is logged exactly
+  // once, the first time it appears.
+  const previousFolders = new Set(previousMemory?.folderStructure ?? []);
+  const { knownPageTypes } = await readStructuralChanges(dir);
+  const knownTypes = new Set(knownPageTypes);
+  const structuralTimestamp = new Date().toISOString();
+  const structuralChanges: StructuralChange[] = [];
+  const newlySeenPageTypes: string[] = [];
+
+  for (const folder of memory.folderStructure) {
+    if (previousFolders.has(folder)) {
+      continue;
+    }
+    if (folder.startsWith('topics/')) {
+      const topic = Array.from(topicMap.values()).find((t) => t.folder === folder);
+      const claimEntities = topic
+        ? Array.from(new Set(topic.claims.flatMap((claim) => claim.entities))).sort((a, b) => a.localeCompare(b))
+        : [];
+      structuralChanges.push({
+        timestamp: structuralTimestamp,
+        type: 'new-folder',
+        path: folder,
+        reason: topic
+          ? `Topic page '${topic.slug}' created from claims of type '${topic.slug}'`
+          : `Topic folder created from extracted claims`,
+        ...(claimEntities.length > 0 ? { affectedEntities: claimEntities } : {}),
+      });
+    } else {
+      const folderEntities = Array.from(entityMap.entries())
+        .filter(([, entity]) => entity.folder === folder)
+        .map(([slug]) => slug)
+        .sort((a, b) => a.localeCompare(b));
+      structuralChanges.push({
+        timestamp: structuralTimestamp,
+        type: 'new-folder',
+        path: folder,
+        reason: `${folderEntities.length} ${folderEntities.length === 1 ? 'entity' : 'entities'} placed in this folder`,
+        ...(folderEntities.length > 0 ? { affectedEntities: folderEntities } : {}),
+      });
+    }
+  }
+
+  const typesSeen = new Set<string>();
+  for (const entity of entityMap.values()) {
+    typesSeen.add(entity.type);
+  }
+  for (const type of Array.from(typesSeen).sort((a, b) => a.localeCompare(b))) {
+    if (knownTypes.has(type)) {
+      continue;
+    }
+    newlySeenPageTypes.push(type);
+    const typeEntities = Array.from(entityMap.entries())
+      .filter(([, entity]) => entity.type === type)
+      .map(([slug]) => slug)
+      .sort((a, b) => a.localeCompare(b));
+    structuralChanges.push({
+      timestamp: structuralTimestamp,
+      type: 'new-page-type',
+      path: type,
+      reason: `New entity page type '${type}' discovered during extraction`,
+      ...(typeEntities.length > 0 ? { affectedEntities: typeEntities } : {}),
+    });
+  }
+
+  await logStructuralChanges(dir, structuralChanges, newlySeenPageTypes);
 
   await saveRollingMemory(dir, memory);
   return result;

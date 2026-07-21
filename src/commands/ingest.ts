@@ -1,9 +1,11 @@
 import { existsSync, readFileSync } from 'node:fs';
-import { mkdir, readdir, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { createHash } from 'node:crypto';
 import matter from 'gray-matter';
-import { extractText, getPageCount } from '../extraction/pdf';
+import { extractDocumentPages, resolvePdfEngine, type PdfEngine } from '../extraction/pdf';
 import { renderTablesAsMarkdown } from '../extraction/markdown-tables';
+import { loadSettings } from '../tui/settings';
 import { sha256 } from '../utils/hash';
 import { sourceSlugForFile } from '../utils/slug';
 import { aliasesForTitle, enforceAliasesInMarkdown } from '../utils/aliases';
@@ -11,10 +13,14 @@ import { getLanguage, type LanguageCode } from '../utils/language';
 import { sourcePdfPath, wikiDir, wikiRelativePath } from '../utils/paths';
 import { readIngestionState, writeIngestionState } from '../state/ingestion-state';
 import { readWikiLanguage, writeWikiLanguage } from '../state/language';
+import { readFullRollingMemory } from '../state/rolling-memory';
+import { readConflicts } from '../state/conflicts';
+import { writeMetrics, sumLlmCostSince, type IngestionMetrics } from '../state/metrics';
 import { writeSourcePage } from '../pages/source-page';
 import { extractDocumentChunk, type ChunkExtraction } from './extract-chunk';
 import { materialize, type MaterializeResult } from '../materializer';
-import { writeDoxContracts, writeWorkspaceIndex, type DoxIndexContext, type DoxWorkspaceEntryContext } from '../dox-writer';
+import { writeDoxContracts, writeWorkspaceIndex, type DoxIndexContext, type DoxWorkspaceEntryContext, type DoxWorkspaceProseContext } from '../dox-writer';
+import { proposeAgentsUpdate, type AgentsUpdaterOptions } from '../agents/agents-updater';
 import { validateWiki, logValidation, type ValidationSummary } from '../validation';
 import {
   writeEntitySynthesis,
@@ -116,6 +122,13 @@ export interface IngestOptions {
    */
   writeWorkspaceIndexFn?: (context: DoxWorkspaceEntryContext) => Promise<string>;
   /**
+   * Injectable workspace prose writer (test-only pass-through to
+   * writeWorkspaceIndex, 2026-07-21 prose amendment). Defaults to the real
+   * LLM implementation; needed so ingest-level `doxLlm: true` tests stay
+   * LLM-free when the workspace prose regenerates.
+   */
+  writeWorkspaceProseFn?: (context: DoxWorkspaceProseContext) => Promise<string>;
+  /**
    * Phase 7 (vision `04` §9.1): input language of this run's PDFs. Resolution
    * order: this flag → `lastInputLanguage` in `.state/language.json` → 'en'.
    * Persisted as `lastInputLanguage` after the run.
@@ -128,6 +141,27 @@ export interface IngestOptions {
    * Writer's workspace pass prose.
    */
   outputLanguage?: LanguageCode;
+  /**
+   * Phase 9: after the DOX contracts and workspace index are written, run the
+   * AGENTS.md Updater — one LLM call proposing an updated wiki constitution,
+   * saved to `.state/proposed-agents.md` for human review. The original
+   * AGENTS.md is never overwritten. Defaults to false (opt-in via the CLI
+   * `--update-agents` flag or the TUI ingest toggle).
+   */
+  updateAgents?: boolean;
+  /**
+   * Injectable AGENTS.md updater (test-only). Defaults to the real
+   * proposeAgentsUpdate; tests inject a deterministic stub to exercise
+   * `updateAgents: true` without an API key.
+   */
+  proposeAgentsUpdateFn?: (wikiSlug: string, options: AgentsUpdaterOptions) => Promise<string>;
+  /**
+   * Phase 10: PDF text-extraction engine for this run. Resolution order:
+   * this flag → `PDF_ENGINE` env var → `.llm-wiki-cli.json` `pdfEngine` →
+   * 'pdfjs'. 'opendataloader' requires Java 11+ on PATH and extracts each
+   * document in a single batch call (one JVM spawn per PDF).
+   */
+  pdfEngine?: PdfEngine;
 }
 
 export interface IngestedSource {
@@ -177,6 +211,8 @@ export interface IngestResult {
   topicConflicts?: number;
   /** Phase 7: the resolved input/output languages of this run. */
   languages?: { input: LanguageCode; output: LanguageCode };
+  /** Phase 9: true when the AGENTS.md Updater wrote `.state/proposed-agents.md`. */
+  agentsUpdateProposed?: boolean;
 }
 
 const DEFAULT_PAGES_PER_CHUNK = 5;
@@ -236,7 +272,9 @@ function loadAgentsMd(wikiDir: string): string {
  * Extractor on each newly-written chunk (phase doc §2.3).
  *
  * For each PDF: SHA-256 hash, skip when unchanged (`.state/ingestion.json`),
- * extract text page-by-page with the frozen Phase 0 `extractText`, chunk
+ * extract text page-by-page with the run's resolved PDF engine (Phase 10:
+ * `extractDocumentPages(pdfPath, pdfEngine)` — the pdfjs path is the
+ * byte-identical per-page loop; opendataloader runs one batch convert), chunk
  * consecutive whole pages (default 5 per chunk), render detected plaintext
  * tables as markdown tables, and write `documents/<source>-part-NNN.md` with
  * YAML frontmatter (gray-matter). Then refresh the deterministic source page
@@ -258,6 +296,15 @@ function loadAgentsMd(wikiDir: string): string {
  * (`result.validation`), the DOX Writer writes the `index.md` contracts, and
  * a final validation pass covers the whole wiki including the DOX pages
  * (`result.finalValidation`).
+ *
+ * Phase 8 (phase doc §2.2-§2.5): removed PDFs (in state, no longer in raw/)
+ * log a warning and keep their derived pages; changed PDFs are re-processed
+ * under the current run's input language (with a warning when it differs
+ * from the language they were originally extracted under) and their stale
+ * extraction JSON is deleted first; the Materializer skips manually-edited
+ * pages (content-hash mismatch vs `.state/ingestion.json` `pageHashes`) and
+ * logs them to `.state/conflicts.json`; every run ends by writing the
+ * compounding metrics to `.state/metrics.json` for the TUI Ingestion Log.
  */
 export async function ingest(slug: string, options: IngestOptions = {}): Promise<IngestResult> {
   const pagesPerChunk = options.pagesPerChunk ?? DEFAULT_PAGES_PER_CHUNK;
@@ -285,6 +332,17 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   const output = getLanguage(options.outputLanguage ?? languageState.outputLanguage).code;
   const input = getLanguage(options.inputLanguage ?? languageState.lastInputLanguage).code;
   const language = { input, output };
+
+  // Phase 10: resolve the PDF extraction engine once per run. Precedence:
+  // IngestOptions flag → PDF_ENGINE env → workspace settings → 'pdfjs'.
+  // Unknown values throw via resolvePdfEngine before any work is done.
+  const tuiSettings = await loadSettings(options.workspace ?? '.');
+  const pdfEngine = resolvePdfEngine({
+    flag: options.pdfEngine,
+    env: process.env.PDF_ENGINE,
+    settings: tuiSettings.pdfEngine,
+  });
+  progress(`PDF engine: ${pdfEngine}`);
 
   // Phase 7 (vision `04` §9.3 slug-forking caution): warn before processing
   // when the resolved input language differs from the last run and the wiki
@@ -323,6 +381,15 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   };
 
   if (pdfFiles.length === 0) {
+    // Phase 8 (phase doc §2.2): warn about removed PDFs even when raw/ is
+    // now empty — recorded sources whose files are gone are exactly the
+    // removed-PDF case. Derived pages are kept either way.
+    const emptyRunState = await readIngestionState(dir);
+    for (const recordedSlug of Object.keys(emptyRunState.sources)) {
+      progress(
+        `Warning: ${recordedSlug} is recorded in ingestion state but its PDF is no longer in raw/. Derived pages were kept.`,
+      );
+    }
     progress(`No PDFs found in wikis/${slug}/raw/.`);
     // Phase 7: remember the chosen input language even for an empty run.
     await writeWikiLanguage(dir, { outputLanguage: languageState.outputLanguage, lastInputLanguage: input });
@@ -332,6 +399,65 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   const state = await readIngestionState(dir);
   const now = new Date().toISOString();
   let lastMaterializeResult: MaterializeResult | undefined;
+
+  // Phase 8 (phase doc §2.2/§5.1): capture the run's starting point for the
+  // compounding metrics — ISO timestamp (LLM cost window), rolling memory
+  // (entity/mention diff), conflicts count, and the set of already-known
+  // source slugs (so "new PDFs" means first-time-ingested only).
+  const runStartedAt = now;
+  const memoryBefore = await readFullRollingMemory(dir);
+  const conflictsBefore = (await readConflicts(dir)).conflicts.length;
+  const knownSlugsAtStart = new Set(Object.keys(state.sources));
+
+  // Phase 8 (phase doc §2.2): removed PDFs — recorded in the ingestion state
+  // but no longer present in raw/. Warn only; derived pages are KEPT so the
+  // journalist can review before removal (nothing is deleted).
+  const presentSlugs = new Set(pdfFiles.map((file) => sourceSlugForFile(file)));
+  for (const recordedSlug of Object.keys(state.sources)) {
+    if (!presentSlugs.has(recordedSlug)) {
+      progress(
+        `Warning: ${recordedSlug} is recorded in ingestion state but its PDF is no longer in raw/. Derived pages were kept.`,
+      );
+    }
+  }
+
+  // Phase 8 (phase doc §2.5): working copy of the recorded page hashes.
+  // Updated after every materialize call so pages written earlier in THIS
+  // run are never mistaken for manual edits by a later call in the same run.
+  const workingPageHashes: Record<string, string> = { ...(state.pageHashes ?? {}) };
+  const writtenPagePaths = new Set<string>();
+  const conflictSkippedSlugs = new Set<string>();
+
+  // Layer 3 (phase doc §2.5): materialize all entity, topic, and document
+  // pages from every .state/extracted/*.json. The recorded page hashes flow
+  // in so manually-edited pages are skipped (conflict logged) instead of
+  // overwritten; the pages each call writes fold back into the working hash
+  // map for the next call.
+  const runMaterialize = async (): Promise<void> => {
+    lastMaterializeResult = await materialize(slug, {
+      workspace: options.workspace,
+      pageHashes: workingPageHashes,
+    });
+    for (const written of lastMaterializeResult.writtenPages) {
+      workingPageHashes[written.path] = written.hash;
+      writtenPagePaths.add(written.path);
+    }
+    for (const conflictPath of lastMaterializeResult.conflicts) {
+      const conflictSlug = conflictPath.split('/').pop()?.replace(/\.md$/, '');
+      if (conflictSlug) {
+        conflictSkippedSlugs.add(conflictSlug);
+      }
+      progress(`Skipping update of ${conflictPath} (manually edited). Conflict logged.`);
+    }
+    // Fork reconciliation (UAT fix): the Materializer deleted unmodified
+    // duplicate pages left behind by an earlier cross-run folder fork. Drop
+    // their recorded hashes so the deleted files are never tracked again.
+    for (const removed of lastMaterializeResult.removedDuplicates) {
+      delete workingPageHashes[removed.path];
+      progress(`Removed duplicate page ${removed.path} (entity now lives at ${removed.canonicalPath}).`);
+    }
+    progress('Materialized entity, topic, and document pages.');
+  };
 
   for (const fileName of pdfFiles) {
     const pdfPath = join(rawDir, fileName);
@@ -345,24 +471,45 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       continue;
     }
 
+    // Phase 8 (phase doc §2.2 + vision `04` §9.3): a changed PDF is
+    // re-processed under the CURRENT run's input language; warn when that
+    // differs from the language it was originally extracted under.
+    if (existing && existing.hash !== hash && existing.language && existing.language !== input) {
+      progress(
+        `Warning: ${fileName} was originally extracted under input language '${existing.language}'; re-processing under '${input}'.`,
+      );
+    }
+
     progress(`Extracting text from ${fileName}...`);
-    const pageCount = await getPageCount(pdfPath);
-    const pageTexts: string[] = [];
+    // Phase 10 (Gate 10.4): honor the run's RESOLVED engine end to end —
+    // never the env-only dispatcher — so an explicit `--pdf-engine pdfjs`
+    // overrides `PDF_ENGINE=opendataloader` and vice versa. `extractDocumentPages`
+    // keeps the pdfjs per-page loop byte-identical to the pre-Phase-10 path
+    // and runs a single batch convert (one JVM spawn) for opendataloader;
+    // page fidelity is validated inside the engine. The page count comes from
+    // the extraction itself (both engines agree on it, Gate 10.3).
+    const pageTexts = await extractDocumentPages(pdfPath, pdfEngine);
+    const pageCount = pageTexts.length;
     const warnings: string[] = [];
     for (let pageNumber = 1; pageNumber <= pageCount; pageNumber++) {
-      const pageText = await extractText(pdfPath, pageNumber, pageNumber);
-      if (pageText.trim().length === 0) {
+      if ((pageTexts[pageNumber - 1] ?? '').trim().length === 0) {
         warnings.push(`Page ${pageNumber} extracted to empty text`);
       }
-      pageTexts.push(pageText);
     }
 
     const chunkCount = Math.max(1, Math.ceil(pageCount / pagesPerChunk));
 
     // Re-ingesting a changed PDF: remove its previous document pages first so
     // a shorter PDF never leaves stale part-NNN files behind (idempotency).
+    // Phase 8 (phase doc §2.2): the old extraction JSON is replaced too —
+    // remove each old chunk's `.state/extracted/<chunk-id>.json` so stale
+    // extractions never feed the Materializer after re-processing.
     for (const oldPage of existing?.documentPages ?? []) {
       await rm(join(dir, oldPage), { force: true });
+      const oldChunkId = oldPage.split('/').pop()?.replace(/\.md$/, '');
+      if (oldChunkId) {
+        await rm(join(dir, '.state', 'extracted', `${oldChunkId}.json`), { force: true });
+      }
     }
 
     const documentPages: string[] = [];
@@ -427,11 +574,10 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       }
     }
 
-    // Layer 3 (phase doc §2.5): after a source's chunks are extracted,
-    // materialize all entity, topic, and document pages from every .state/extracted/*.json.
+    // Layer 3: after a source's chunks are extracted, materialize all
+    // entity, topic, and document pages from every .state/extracted/*.json.
     if (extract) {
-      lastMaterializeResult = await materialize(slug, { workspace: options.workspace });
-      progress('Materialized entity, topic, and document pages.');
+      await runMaterialize();
     }
 
     await writeSourcePage(dir, {
@@ -447,7 +593,9 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       documentPages,
     });
 
-    state.sources[sourceSlug] = { hash, documentPages, ingestedAt: now };
+    // Phase 8 (vision `04` §9.3): record the input language this source was
+    // extracted under so a later changed-PDF re-process can warn on drift.
+    state.sources[sourceSlug] = { hash, documentPages, ingestedAt: now, language: input };
     progress(`Ingested ${fileName} -> ${documentPages.length} document page(s)`);
     result.ingested.push({
       source: sourceSlug,
@@ -457,6 +605,22 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       warnings,
       tablesFound,
     });
+  }
+
+  // Phase 8 (UAT fork fix): materialize also runs when EVERY PDF was
+  // skipped, so an already-forked wiki is repaired by one more ingest even
+  // when nothing changed (re-deriving pages from the same extraction set is
+  // idempotent; recorded hashes prevent false manual-edit conflicts). Runs
+  // only when extractions exist so a wiki without Layer-2 data keeps its
+  // rolling memory untouched.
+  if (extract && lastMaterializeResult === undefined) {
+    const extractedDir = join(dir, '.state', 'extracted');
+    const hasExtractions =
+      existsSync(extractedDir) &&
+      (await readdir(extractedDir)).some((file) => file.toLowerCase().endsWith('.json'));
+    if (hasExtractions) {
+      await runMaterialize();
+    }
   }
 
   await writeIngestionState(dir, state);
@@ -628,6 +792,80 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     }
   }
 
+  // Phase 8 (phase doc §2.5): after synthesis (which may have replaced the
+  // structured pages the Materializer wrote), re-hash every page written
+  // this run FROM DISK so the recorded hashes always reflect the tool's own
+  // final writes — the tool's own writes are never flagged as manual edits.
+  if (extract && writtenPagePaths.size > 0) {
+    for (const relativePath of writtenPagePaths) {
+      try {
+        const content = await readFile(join(dir, relativePath), 'utf-8');
+        workingPageHashes[relativePath] = createHash('sha256').update(content, 'utf-8').digest('hex');
+      } catch {
+        // Page vanished between materialization and now; keep the old hash.
+      }
+    }
+    state.pageHashes = workingPageHashes;
+    await writeIngestionState(dir, state);
+  }
+
+  // Phase 8 (phase doc §5.1): the compounding metrics that power the TUI
+  // Ingestion Log screen. New/updated entities come from a rolling-memory
+  // diff across the whole run; updated entities whose page update was
+  // skipped (manual-edit conflict) are reported as conflicts, not updates.
+  // Computed identically for the preliminary and the final write — the only
+  // difference is the LLM cost window (the preliminary total excludes the
+  // DOX/workspace calls that have not run yet).
+  const buildRunMetrics = async (): Promise<IngestionMetrics> => {
+    const memoryAfter = await readFullRollingMemory(dir);
+    const beforeCounts = new Map((memoryBefore?.entities ?? []).map((entity) => [entity.slug, entity.mentionCount]));
+    const titleBySlug = new Map<string, string>();
+    for (const page of lastMaterializeResult?.entityPages ?? []) {
+      titleBySlug.set(page.slug, page.title);
+    }
+    const conflictsAfter = (await readConflicts(dir)).conflicts.length;
+    return {
+      run: runStartedAt,
+      newPdfs: result.ingested
+        .filter((source) => !knownSlugsAtStart.has(source.source))
+        .map((source) => source.file),
+      newEntities: (memoryAfter?.entities ?? [])
+        .filter((entity) => !beforeCounts.has(entity.slug))
+        .map((entity) => ({
+          slug: entity.slug,
+          title: titleBySlug.get(entity.slug) ?? entity.slug,
+          folder: entity.folder,
+        })),
+      updatedEntities: (memoryAfter?.entities ?? [])
+        .filter(
+          (entity) =>
+            beforeCounts.has(entity.slug) &&
+            entity.mentionCount > (beforeCounts.get(entity.slug) ?? 0) &&
+            !conflictSkippedSlugs.has(entity.slug),
+        )
+        .map((entity) => ({
+          slug: entity.slug,
+          title: titleBySlug.get(entity.slug) ?? entity.slug,
+          addedMentions: entity.mentionCount - (beforeCounts.get(entity.slug) ?? 0),
+        })),
+      conflicts: conflictsAfter - conflictsBefore,
+      totalCost: await sumLlmCostSince(dir, runStartedAt),
+    };
+  };
+
+  // Phase 8 (UAT crash-safe finalization fix): persist the end-of-run state
+  // NOW — before the validation/DOX/workspace stages, which run a full suite
+  // of LLM calls even when every PDF was skipped — so an interruption in
+  // that window never leaves the run unrecorded. Both writes are auxiliary:
+  // a failure warns and the ingest continues. The final writes below refresh
+  // the language state and re-write the metrics with the final totalCost.
+  try {
+    await writeWikiLanguage(dir, { outputLanguage: languageState.outputLanguage, lastInputLanguage: input });
+    await writeMetrics(dir, await buildRunMetrics());
+  } catch (err) {
+    progress(`Warning: could not record preliminary ingestion metrics: ${(err as Error).message}`);
+  }
+
   // Phase 4/6 pipeline order (phase doc §3.5): content validation -> DOX
   // Writer -> final validation. The first validation covers the content pages
   // (post-materialization, post-synthesis) and runs whenever extraction was
@@ -668,15 +906,38 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     wikiSlug: slug,
     doxLlm: options.doxLlm,
     writeWorkspaceIndexFn: options.writeWorkspaceIndexFn,
+    writeWorkspaceProseFn: options.writeWorkspaceProseFn,
     outputLanguage: getLanguage(output).name,
     logPath: join(dir, '.state', 'llm-calls.json'),
   });
   progress('Workspace index updated.');
 
+  // Phase 9 (phase doc §2.3): the AGENTS.md Updater runs after the DOX
+  // contracts (and the workspace pass) when explicitly opted in. It writes a
+  // PROPOSAL to .state/proposed-agents.md for human review — the original
+  // AGENTS.md is never overwritten automatically (gate 9.4).
+  if (options.updateAgents) {
+    const runPropose = options.proposeAgentsUpdateFn ?? proposeAgentsUpdate;
+    await runPropose(slug, { workspace: options.workspace });
+    result.agentsUpdateProposed = true;
+    progress('Proposed AGENTS.md updates saved to .state/proposed-agents.md. Review and apply manually.');
+  }
+
   // Phase 7: persist the run's input language for the next run's pre-selection
   // and slug-forking detection. The stored output language is NOT overwritten
   // by a per-run override — it stays the wiki's fixed setting (vision 04 §9.1).
+  // (Also written by the crash-safe preliminary pass above; harmless refresh.)
   await writeWikiLanguage(dir, { outputLanguage: languageState.outputLanguage, lastInputLanguage: input });
+
+  // Phase 8 (phase doc §5.1): persist the compounding metrics that power the
+  // TUI Ingestion Log screen, now with the FINAL totalCost (the preliminary
+  // write above ran before the DOX/workspace LLM calls). Metrics are
+  // auxiliary: a failure here must never fail an otherwise-successful run.
+  try {
+    await writeMetrics(dir, await buildRunMetrics());
+  } catch (err) {
+    progress(`Warning: could not record ingestion metrics: ${(err as Error).message}`);
+  }
 
   progress('Done!');
   return result;

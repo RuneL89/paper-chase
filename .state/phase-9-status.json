@@ -1,0 +1,21 @@
+{
+  "phase": "09",
+  "goal": "All 5 technical gates in PHASE_09_agents_updater.md pass (npm test is green), all 4 UAT steps are documented with expected output, the TUI AGENTS.md Review screen shows proposed changes and allows apply/discard, compliance log shows no unresolved contradictions, and total LLM cost is under $2.00.",
+  "status": "awaiting-uat",
+  "lastAction": "Implementation complete; Verifier sub-agent APPROVED (5/5 gates, COMPLIANT, no blockers — .state/phase-9-verification.md). DOX pass done (root AGENTS.md, src/AGENTS.md, prompts/AGENTS.md, tests/AGENTS.md). Ready for user UAT.",
+  "gatesPassed": ["9.1", "9.2", "9.3", "9.4", "9.5"],
+  "gatesFailed": [],
+  "gatesPending": [],
+  "deviations": [
+    "Phase 8 incomplete: user explicitly directed starting Phase 9 anyway (2026-07-21). Actual code touchpoints (Materializer, DOX Writer, ingest pipeline) are all landed; the structural change log is a Phase 9 deliverable itself.",
+    "PHASE_09 §2.4 claims the structural change log was 'already partially built in Phase 3' — it was not; src/state/structural-changes.ts is built fresh per vision 03 §5.",
+    "Gate 9.1's literal section name 'Ingest Workflow' does not exist in the Phase 0 wiki constitution template; the restructured gate asserts the template's actual required sections (Folder Structure, Page Types, Language, Ingest Instructions). Pass criterion preserved (Verifier-confirmed).",
+    "Gates' literal live-LLM ingest calls restructured to LLM-free temp-workspace runs with injected stubs per tests/AGENTS.md.",
+    "/goal skill is not installed in this environment; the goal loop is emulated via this status file (goal field) + todo tracking, as in prior phases.",
+    "Concurrent sessions implemented Phase 8 and Phase 10 in the same working tree during this phase; menu.test.tsx was updated for the combined 14-item menu and the Phase 10 settings footer (wrap-safe substring assertion)."
+  ],
+  "llmCost": "$0.00",
+  "tokenBudgetRemaining": "$2.00",
+  "blocker": null,
+  "nextAction": "User runs UAT 9.1-9.4 in the TUI (Reporter presents them one by one). On pass: phase closeout + commit."
+}

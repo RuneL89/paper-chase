@@ -125,6 +125,10 @@ test('TUI renders without crashing', () => {
 // added after 'Add PDFs (copy into raw/)' — the menu now has 10 items.
 // UPDATED 2026-07-17 (Phase 6, phase doc §5.2): 'Browse DOX Contracts' was
 // added after 'Browse Topics' — the menu now has 11 items.
+// UPDATED 2026-07-21 (Phase 9, phase doc §5.3): 'Review AGENTS.md Updates'
+// and 'View Structural Changes' were added — the menu now has 13 items.
+// UPDATED 2026-07-21 (Phase 8, phase doc §5.3): 'View Ingestion Log' was
+// added after 'View Validation Report' — the menu now has 14 items.
 test('TUI menu shows all options', async () => {
   const menu = renderCaptured(<MenuScreen onSelect={() => {}} lastResult="" />);
   await tick();
@@ -136,6 +140,7 @@ test('TUI menu shows all options', async () => {
   expect(frame).toContain('Test Extractor');
   expect(frame).toContain('Add PDFs');
   expect(frame).toContain('View Validation Report');
+  expect(frame).toContain('View Ingestion Log');
   expect(frame).toContain('Browse Entities');
   expect(frame).toContain('Browse Topics');
   expect(frame).toContain('Browse DOX Contracts');
@@ -176,9 +181,12 @@ test('every menu item maps to its screen', () => {
     ['extractor-test', 'extractor-test'],
     ['add-pdfs', 'add-pdfs'],
     ['validation-report', 'validation-report'],
+    ['compounding-log', 'compounding-log'],
     ['entity-browser', 'entity-browser'],
     ['topic-browser', 'topic-browser'],
     ['dox-browser', 'dox-browser'],
+    ['agents-review', 'agents-review'],
+    ['structural-changes', 'structural-changes'],
     ['test', 'test'],
     ['settings', 'settings'],
     ['exit', 'exit'],
@@ -186,16 +194,20 @@ test('every menu item maps to its screen', () => {
   for (const [value, screen] of expected) {
     expect(resolveMenuSelection(value)).toBe(screen);
   }
-  // 11 items: previous 10 + Phase 6 DOX browser.
+  // 14 items: previous 11 + Phase 8 compounding log + Phase 9 AGENTS.md review
+  // and structural changes.
   expect(MENU_ITEMS.map((item) => item.value)).toEqual([
     'init',
     'ingest',
     'extractor-test',
     'add-pdfs',
     'validation-report',
+    'compounding-log',
     'entity-browser',
     'topic-browser',
     'dox-browser',
+    'agents-review',
+    'structural-changes',
     'test',
     'settings',
     'exit',
@@ -282,5 +294,6 @@ test('each screen renders its expected content', async () => {
   settings.unmount();
   await tick(50);
   expect(settings.output()).toContain('Settings');
-  expect(settings.output()).toContain('Up/Down: select | Space: toggle | Enter: save/back | Escape: back');
+  // The settings footer wraps at 80 columns, so assert an unwrapped substring.
+  expect(settings.output()).toContain('Space/Left/Right: toggle/cycle');
 });

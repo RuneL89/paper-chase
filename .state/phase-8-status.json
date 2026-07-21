@@ -1,0 +1,39 @@
+{
+  "phase": "08",
+  "goal": "All 6 technical gates in PHASE_08_multi_pdf_compounding.md pass (npm test is green), all 4 UAT steps are documented with expected output, the TUI Ingestion Log screen shows what changed in the last run, compliance log shows no unresolved contradictions, and total LLM cost is under $5.00.",
+  "status": "awaiting-uat",
+  "lastAction": "UAT 8.1 fix loop complete: folder-fork prevention + orphan reconciliation + crash-safe finalization implemented (16/16 phase-08, full suite 270 passed + 1 skipped — independently re-run by orchestrator). Repair ingest on compounding-uat reconciled the fork: canonical jane-doe at entities/people/executives; stale run-1 orphan kept + manual-edit conflict logged (no recorded hash — run-1 synthesis hash-tracking gap). metrics.json now written even on interrupted runs (preliminary write before DOX stage).",
+  "gatesPassed": [
+    "8.1",
+    "8.2",
+    "8.3",
+    "8.4",
+    "8.5",
+    "8.6"
+  ],
+  "gatesFailed": [],
+  "gatesPending": [],
+  "deviations": [
+    "Gates 8.1/8.2/8.4/8.5/8.6 restructured per tests/AGENTS.md: literal live-LLM ingest('test-wiki') calls replaced by LLM-free temp-workspace runs with an injected extractChunkFn stub (same approach as phases 4/6/7). Pass criteria preserved.",
+    "Gate 8.3 restructured: the skip message flows through ingest's onProgress callback (Phase 1 precedent for all ingest logging); the test wires onProgress to console.log and spies console.log to assert 'Skipping golden-master.pdf (unchanged).'. Pass criterion preserved.",
+    "Gate 8.6: globSync replaced by a recursive readdir helper (the project has no glob dependency). Pass criterion preserved.",
+    "Phase doc section 5.2 shows an 'Ingestion Complete! / Viewing results...' interstitial; the implementation navigates directly to the Ingestion Log screen after a successful ingest (established Phase 4 pattern of immediate navigation; the ingest screen's onViewReport prop now routes to 'compounding-log' instead of 'validation-report').",
+    "Merge rules: the Materializer re-derives all entity/topic pages from the full extraction set on every run, which is the merge. Mention dedupe key includes page+context+source+pages so identical text on different pages is always kept (spec's 'no dedup' intent); relationship dedupe is a superset of (subject,predicate,object); claim dedupe a superset of text.",
+    "Removed-PDF detection also fires on the empty-raw/ early-return path (deleting the only remaining PDF still warns). Minor extension.",
+    "Conflict detection covers topic pages in addition to entity pages (vision 04 Step 6 says 'the page'; phase doc section 2.5 names entity pages). Minor extension.",
+    "Pages without a recorded hash (wikis created before Phase 8) are updated normally and begin being tracked; first Phase-8 run produces no false conflicts.",
+    "UATs were executed against a temp workspace (wikis/test-wiki is a committed read-only fixture used by Phase 2 tests) using the same commands with -w; live LLM output matched all four UAT expected results.",
+    "Ingestion Log total cost sums .state/llm-calls.json (synthesis/DOX/workspace calls pass logPath; extractor calls log to console only), displayed with 4 decimals.",
+    "Skip log line omits the phase doc's trailing period ('Skipping golden-master.pdf (unchanged)' vs '(unchanged).'); UAT 8.1's 'Processing' line reads 'Extracting text from...'. Cosmetic, noted by Verifier.",
+    "No dedicated compounding-log-screen component test exists; the screen is covered by the metrics supplementary test + user UAT.",
+    "/goal skill is not installed in this environment; the goal loop is emulated via this status file (goal field) + todo tracking, as in prior phases.",
+    "UAT-found defect A (2026-07-21, cross-run folder fork): 'first folder assignment wins' (vision 03 §3.2) was only applied within one run's in-memory aggregation, and sorted extraction-file order let a run-2 folder win, forking jane-doe into entities/people/executives while the run-1 page at entities/people/board-members went stale and rolling memory was overwritten. Fix: the canonical folder for any slug already in the PREVIOUS rolling memory comes from that memory (extraction folder fields are ignored for placement; the divergent folder is never added to folderStructure on that entity's account); fork orphans under entities/ are reconciled — unmodified tool writes (on-disk hash matches .state/ingestion.json pageHashes) are DELETED with 'Removed duplicate page <path> (entity now lives at <canonical path>).', edited/untracked orphans are KEPT and logged to .state/conflicts.json (manual-edit shape, additive optional reason override in logManualEditConflict). Rolling memory never moves an existing entity.",
+    "UAT-found defect A, repair semantics: ingest now also materializes when EVERY PDF is hash-skipped (guarded on existing .state/extracted JSON so extraction-less wikis keep their rolling memory untouched), so one more ingest of any kind repairs an already-forked wiki. Re-derivation from the same extraction set is idempotent and recorded hashes prevent false manual-edit conflicts; full suite confirms no behavior drift.",
+    "UAT-found defect B (2026-07-21, crash-safe finalization): three live TUI ingests finished all LLM stages but were interrupted before metrics.json/language.json were written (the window is large because even all-skipped runs re-run the DOX suite). Fix: a preliminary write of language state + metrics.json (same computation, totalCost excluding the not-yet-run DOX/workspace calls) lands immediately after the post-synthesis re-hash block, BEFORE validation/DOX; the final writes still refresh both (metrics with the final totalCost). Both metrics writes are try/catch-hardened: failure logs 'Warning: could not record (preliminary )ingestion metrics: <msg>' via progress and never fails the run. Which stages run is UNCHANGED (the zero-change-run efficiency question stays a pending user decision).",
+    "Defect B regression-test note: a throwing writeDoxIndexFn/writeWorkspaceIndexFn/writeWorkspaceProseFn stub does NOT propagate — the Phase 6/7 contract retries then falls back to the deterministic contract, so 'error propagates as before' means the run completes exactly as before; the test proves the preliminary write by observing metrics.json/language.json mid-run inside the throwing stub. ingest gains an additive test-only writeWorkspaceProseFn pass-through (the 2026-07-21b prose amendment's call is otherwise unstubbable at ingest level — first ingest-level doxLlm:true test)."
+  ],
+  "llmCost": "~$0.68 (implementer $0.38 + orchestrator debug/repair ingests ~$0.30; user UAT runs ~$0.40 not counted)",
+  "tokenBudgetRemaining": "~$4.32",
+  "blocker": null,
+  "nextAction": "User re-checks UAT 8.1 (Ingestion Log now has data) + runs UAT 8.2-8.4. Open user decisions: (1) delete stale board-members/jane-doe.md orphan, (2) skip DOX/synthesis/validation stages on zero-change runs, (3) latent Phase 5 synthesis frontmatter/citation issues — fix now or Phase 11."
+}

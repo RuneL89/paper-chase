@@ -1,0 +1,641 @@
+{
+  "generatedAt": "2026-07-20T21:40:45.950Z",
+  "javaAvailable": true,
+  "jvmStartupOverheadMs": 227.40390000000002,
+  "totals": {
+    "pdfjsWallMs": 415.6057000000013,
+    "opendataloaderWallMs": 4338.668,
+    "documents": 8
+  },
+  "documents": [
+    {
+      "filename": "multi-column.pdf",
+      "path": "C:\\Users\\atavi\\Projects\\Wiki v5\\test-pdfs\\ab-corpus\\multi-column.pdf",
+      "expectedPageCount": 1,
+      "engines": {
+        "pdfjs": {
+          "available": true,
+          "wallMs": 304.2712,
+          "fullText": "Left Column Ledger Right Column Review\nLeft column first story\nNordwind Traders report\nleft marker ALFA-113\nleft column closing note\nRight column second story\nBorealis Holdings update\nright marker BRAVO-227\nright column closing note",
+          "pageTexts": [
+            "Left Column Ledger Right Column Review\nLeft column first story\nNordwind Traders report\nleft marker ALFA-113\nleft column closing note\nRight column second story\nBorealis Holdings update\nright marker BRAVO-227\nright column closing note"
+          ],
+          "pageCount": 1,
+          "error": null
+        },
+        "opendataloader": {
+          "available": true,
+          "wallMs": 521.6784,
+          "fullText": "\r\nLeft Column Ledger Right Column Review\r\n\r\nLeft column first story\r\nNordwind Traders report\r\nleft marker ALFA-113\r\nleft column closing note\r\n\r\nRight column second story\r\nBorealis Holdings update\r\nright marker BRAVO-227\r\nright column closing note\r\n",
+          "pageTexts": [
+            "\r\nLeft Column Ledger Right Column Review\r\n\r\nLeft column first story\r\nNordwind Traders report\r\nleft marker ALFA-113\r\nleft column closing note\r\n\r\nRight column second story\r\nBorealis Holdings update\r\nright marker BRAVO-227\r\nright column closing note\r\n"
+          ],
+          "pageCount": 1,
+          "error": null
+        }
+      },
+      "expectedStrings": {
+        "ALFA-113": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "BRAVO-227": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Nordwind Traders report": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Borealis Holdings update": {
+          "pdfjs": true,
+          "opendataloader": true
+        }
+      },
+      "tables": {
+        "expected": [],
+        "detected": {
+          "pdfjs": [],
+          "opendataloader": []
+        },
+        "matched": {
+          "pdfjs": true,
+          "opendataloader": true
+        }
+      },
+      "diacritics": {
+        "pdfjs": true,
+        "opendataloader": true,
+        "missing": {
+          "pdfjs": [],
+          "opendataloader": []
+        }
+      },
+      "pageAlignment": {
+        "pageCountAgree": true,
+        "nonEmptyAgreement": true
+      }
+    },
+    {
+      "filename": "tables.pdf",
+      "path": "C:\\Users\\atavi\\Projects\\Wiki v5\\test-pdfs\\ab-corpus\\tables.pdf",
+      "expectedPageCount": 1,
+      "engines": {
+        "pdfjs": {
+          "available": true,
+          "wallMs": 17.082800000000134,
+          "fullText": "Table Fixtures\nRegion Units Margin\nNorth 1200 18%\nSouth 950 12%\nWest 1430 21%\nBorderless inventory table follows.\nProduct Price Stock\nWidget 19.99 340\nGadget 49.50 125",
+          "pageTexts": [
+            "Table Fixtures\nRegion Units Margin\nNorth 1200 18%\nSouth 950 12%\nWest 1430 21%\nBorderless inventory table follows.\nProduct Price Stock\nWidget 19.99 340\nGadget 49.50 125"
+          ],
+          "pageCount": 1,
+          "error": null
+        },
+        "opendataloader": {
+          "available": true,
+          "wallMs": 587.5853999999999,
+          "fullText": "\r\nTable Fixtures\r\n\r\nRegion Un North 120\tits Margi 0 18%\tn\r\nSouth 950\t12%\r\nWest 143\t0 21%\r\n\r\nBorderless inventory table follows.\r\n\r\nProduct Price Stock\r\nWidget 19.99 340\r\nGadget 49.50 125\r\n",
+          "pageTexts": [
+            "\r\nTable Fixtures\r\n\r\nRegion Un North 120\tits Margi 0 18%\tn\r\nSouth 950\t12%\r\nWest 143\t0 21%\r\n\r\nBorderless inventory table follows.\r\n\r\nProduct Price Stock\r\nWidget 19.99 340\r\nGadget 49.50 125\r\n"
+          ],
+          "pageCount": 1,
+          "error": null
+        }
+      },
+      "expectedStrings": {
+        "Table Fixtures": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "South 950": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Product Price Stock": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Widget 19.99 340": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Gadget 49.50 125": {
+          "pdfjs": true,
+          "opendataloader": true
+        }
+      },
+      "tables": {
+        "expected": [
+          {
+            "name": "bordered",
+            "rows": 4,
+            "cols": 3
+          },
+          {
+            "name": "borderless",
+            "rows": 3,
+            "cols": 3
+          }
+        ],
+        "detected": {
+          "pdfjs": [
+            {
+              "rows": 4,
+              "cols": 3
+            },
+            {
+              "rows": 3,
+              "cols": 3
+            }
+          ],
+          "opendataloader": [
+            {
+              "rows": 3,
+              "cols": 3
+            }
+          ]
+        },
+        "matched": {
+          "pdfjs": true,
+          "opendataloader": false
+        }
+      },
+      "diacritics": {
+        "pdfjs": true,
+        "opendataloader": true,
+        "missing": {
+          "pdfjs": [],
+          "opendataloader": []
+        }
+      },
+      "pageAlignment": {
+        "pageCountAgree": true,
+        "nonEmptyAgreement": true
+      }
+    },
+    {
+      "filename": "headers-footers.pdf",
+      "path": "C:\\Users\\atavi\\Projects\\Wiki v5\\test-pdfs\\ab-corpus\\headers-footers.pdf",
+      "expectedPageCount": 2,
+      "engines": {
+        "pdfjs": {
+          "available": true,
+          "wallMs": 20.673799999999574,
+          "fullText": "CONFIDENTIAL Meridian Annual Review\nPage 1 of 2\nBody page one discusses Meridian Analytics.\nFirst page body marker CHARLIE-331.\nThe opening section reviews quarterly onboarding.\n1 Covenant terms subject to the 2024 restatement.\nCONFIDENTIAL Meridian Annual Review\nPage 2 of 2\nBody page two covers Halcyon Partners.\nSecond page body marker DELTA-442.\nThe closing section summarises covenant terms.\n1 Covenant terms subject to the 2024 restatement.",
+          "pageTexts": [
+            "CONFIDENTIAL Meridian Annual Review\nPage 1 of 2\nBody page one discusses Meridian Analytics.\nFirst page body marker CHARLIE-331.\nThe opening section reviews quarterly onboarding.\n1 Covenant terms subject to the 2024 restatement.",
+            "CONFIDENTIAL Meridian Annual Review\nPage 2 of 2\nBody page two covers Halcyon Partners.\nSecond page body marker DELTA-442.\nThe closing section summarises covenant terms.\n1 Covenant terms subject to the 2024 restatement."
+          ],
+          "pageCount": 2,
+          "error": null
+        },
+        "opendataloader": {
+          "available": true,
+          "wallMs": 557.5464999999999,
+          "fullText": "\r\n\r\nBody page one discusses Meridian Analytics.\r\nFirst page body marker CHARLIE-331.\r\nThe opening section reviews quarterly onboarding.\r\n\r\n1 Covenant terms subject to the 2024 restatement.\r\n\r\n\r\n\n\r\n\r\nBody page two covers Halcyon Partners.\r\nSecond page body marker DELTA-442.\r\nThe closing section summarises covenant terms.\r\n\r\n1 Covenant terms subject to the 2024 restatement.\r\n\r\n",
+          "pageTexts": [
+            "\r\n\r\nBody page one discusses Meridian Analytics.\r\nFirst page body marker CHARLIE-331.\r\nThe opening section reviews quarterly onboarding.\r\n\r\n1 Covenant terms subject to the 2024 restatement.\r\n\r\n\r\n",
+            "\r\n\r\nBody page two covers Halcyon Partners.\r\nSecond page body marker DELTA-442.\r\nThe closing section summarises covenant terms.\r\n\r\n1 Covenant terms subject to the 2024 restatement.\r\n\r\n"
+          ],
+          "pageCount": 2,
+          "error": null
+        }
+      },
+      "expectedStrings": {
+        "CHARLIE-331": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "DELTA-442": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Meridian Analytics": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Halcyon Partners": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Covenant terms subject to the 2024 restatement.": {
+          "pdfjs": true,
+          "opendataloader": true
+        }
+      },
+      "tables": {
+        "expected": [],
+        "detected": {
+          "pdfjs": [],
+          "opendataloader": []
+        },
+        "matched": {
+          "pdfjs": true,
+          "opendataloader": true
+        }
+      },
+      "diacritics": {
+        "pdfjs": true,
+        "opendataloader": true,
+        "missing": {
+          "pdfjs": [],
+          "opendataloader": []
+        }
+      },
+      "pageAlignment": {
+        "pageCountAgree": true,
+        "nonEmptyAgreement": true
+      }
+    },
+    {
+      "filename": "danish-diacritics.pdf",
+      "path": "C:\\Users\\atavi\\Projects\\Wiki v5\\test-pdfs\\ab-corpus\\danish-diacritics.pdf",
+      "expectedPageCount": 1,
+      "engines": {
+        "pdfjs": {
+          "available": true,
+          "wallMs": 10.353200000000015,
+          "fullText": "Dansk Sprogprøve\nSøren Møller og Åse Lindberg mødtes i København.\nÆbleskiver serveres med fløde og rød saft.\nRødgrød med fløde er en klassisk dansk dessert.\ndiacritic marker ECHO-553 æ ø å Æ Ø Å",
+          "pageTexts": [
+            "Dansk Sprogprøve\nSøren Møller og Åse Lindberg mødtes i København.\nÆbleskiver serveres med fløde og rød saft.\nRødgrød med fløde er en klassisk dansk dessert.\ndiacritic marker ECHO-553 æ ø å Æ Ø Å"
+          ],
+          "pageCount": 1,
+          "error": null
+        },
+        "opendataloader": {
+          "available": true,
+          "wallMs": 505.29399999999987,
+          "fullText": "\r\nDansk Sprogprøve\r\n\r\nSøren Møller og Åse Lindberg mødtes i København.\r\nÆbleskiver serveres med fløde og rød saft.\r\nRødgrød med fløde er en klassisk dansk dessert.\r\ndiacritic marker ECHO-553 æ ø å Æ Ø Å\r\n",
+          "pageTexts": [
+            "\r\nDansk Sprogprøve\r\n\r\nSøren Møller og Åse Lindberg mødtes i København.\r\nÆbleskiver serveres med fløde og rød saft.\r\nRødgrød med fløde er en klassisk dansk dessert.\r\ndiacritic marker ECHO-553 æ ø å Æ Ø Å\r\n"
+          ],
+          "pageCount": 1,
+          "error": null
+        }
+      },
+      "expectedStrings": {
+        "Søren Møller": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Åse Lindberg": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "København": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Æbleskiver": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Rødgrød med fløde": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "ECHO-553": {
+          "pdfjs": true,
+          "opendataloader": true
+        }
+      },
+      "tables": {
+        "expected": [],
+        "detected": {
+          "pdfjs": [],
+          "opendataloader": []
+        },
+        "matched": {
+          "pdfjs": true,
+          "opendataloader": true
+        }
+      },
+      "diacritics": {
+        "pdfjs": true,
+        "opendataloader": true,
+        "missing": {
+          "pdfjs": [],
+          "opendataloader": []
+        }
+      },
+      "pageAlignment": {
+        "pageCountAgree": true,
+        "nonEmptyAgreement": true
+      }
+    },
+    {
+      "filename": "financial-dense.pdf",
+      "path": "C:\\Users\\atavi\\Projects\\Wiki v5\\test-pdfs\\ab-corpus\\financial-dense.pdf",
+      "expectedPageCount": 1,
+      "engines": {
+        "pdfjs": {
+          "available": true,
+          "wallMs": 15.78020000000015,
+          "fullText": "Q4 Consolidated Filing\nMeridian Analytics A/S filed form 10-K on February 28, 2025.\nNet revenue rose 14.7% to $312.6 million (2024: $272.4 million).\nOperating margin narrowed by 230 basis points to 11.2%.\nHalcyon Partners LLP holds a 7.85% equity stake as of 2025-01-31.\nLong-term debt stands at $88.1 million maturing June 30, 2029.\nfinancial marker FOXTROT-664\nSegment Revenue Margin\nNordic $148.2M 13.5%\nIberia $96.4M 9.1%\nDACH $68.0M 10.8%",
+          "pageTexts": [
+            "Q4 Consolidated Filing\nMeridian Analytics A/S filed form 10-K on February 28, 2025.\nNet revenue rose 14.7% to $312.6 million (2024: $272.4 million).\nOperating margin narrowed by 230 basis points to 11.2%.\nHalcyon Partners LLP holds a 7.85% equity stake as of 2025-01-31.\nLong-term debt stands at $88.1 million maturing June 30, 2029.\nfinancial marker FOXTROT-664\nSegment Revenue Margin\nNordic $148.2M 13.5%\nIberia $96.4M 9.1%\nDACH $68.0M 10.8%"
+          ],
+          "pageCount": 1,
+          "error": null
+        },
+        "opendataloader": {
+          "available": true,
+          "wallMs": 669.3022000000001,
+          "fullText": "\r\nQ4 Consolidated Filing\r\n\r\nMeridian Analytics A/S filed form 10-K on February 28, 2025.\r\nNet revenue rose 14.7% to $312.6 million (2024: $272.4 million).\r\nOperating margin narrowed by 230 basis points to 11.2%.\r\nHalcyon Partners LLP holds a 7.85% equity stake as of 2025-01-31.\r\nLong-term debt stands at $88.1 million maturing June 30, 2029.\r\nfinancial marker FOXTROT-664\r\n\r\nSegment Revenue Margin\r\nNordic $148.2M 13.5%\r\nIberia $96.4M 9.1%\r\nDACH $68.0M 10.8%\r\n",
+          "pageTexts": [
+            "\r\nQ4 Consolidated Filing\r\n\r\nMeridian Analytics A/S filed form 10-K on February 28, 2025.\r\nNet revenue rose 14.7% to $312.6 million (2024: $272.4 million).\r\nOperating margin narrowed by 230 basis points to 11.2%.\r\nHalcyon Partners LLP holds a 7.85% equity stake as of 2025-01-31.\r\nLong-term debt stands at $88.1 million maturing June 30, 2029.\r\nfinancial marker FOXTROT-664\r\n\r\nSegment Revenue Margin\r\nNordic $148.2M 13.5%\r\nIberia $96.4M 9.1%\r\nDACH $68.0M 10.8%\r\n"
+          ],
+          "pageCount": 1,
+          "error": null
+        }
+      },
+      "expectedStrings": {
+        "Meridian Analytics A/S": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "February 28, 2025": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "$312.6 million": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "14.7%": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "7.85%": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "$88.1 million": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "FOXTROT-664": {
+          "pdfjs": true,
+          "opendataloader": true
+        }
+      },
+      "tables": {
+        "expected": [
+          {
+            "name": "segment",
+            "rows": 4,
+            "cols": 3
+          }
+        ],
+        "detected": {
+          "pdfjs": [
+            {
+              "rows": 4,
+              "cols": 3
+            }
+          ],
+          "opendataloader": [
+            {
+              "rows": 4,
+              "cols": 3
+            }
+          ]
+        },
+        "matched": {
+          "pdfjs": true,
+          "opendataloader": true
+        }
+      },
+      "diacritics": {
+        "pdfjs": true,
+        "opendataloader": true,
+        "missing": {
+          "pdfjs": [],
+          "opendataloader": []
+        }
+      },
+      "pageAlignment": {
+        "pageCountAgree": true,
+        "nonEmptyAgreement": true
+      }
+    },
+    {
+      "filename": "scanned-page.pdf",
+      "path": "C:\\Users\\atavi\\Projects\\Wiki v5\\test-pdfs\\ab-corpus\\scanned-page.pdf",
+      "expectedPageCount": 1,
+      "engines": {
+        "pdfjs": {
+          "available": true,
+          "wallMs": 4.1784999999999854,
+          "fullText": "",
+          "pageTexts": [
+            ""
+          ],
+          "pageCount": 1,
+          "error": null
+        },
+        "opendataloader": {
+          "available": true,
+          "wallMs": 294.2745,
+          "fullText": "\r\n",
+          "pageTexts": [
+            "\r\n"
+          ],
+          "pageCount": 1,
+          "error": null
+        }
+      },
+      "expectedStrings": {},
+      "tables": {
+        "expected": [],
+        "detected": {
+          "pdfjs": [],
+          "opendataloader": []
+        },
+        "matched": {
+          "pdfjs": true,
+          "opendataloader": true
+        }
+      },
+      "diacritics": {
+        "pdfjs": true,
+        "opendataloader": true,
+        "missing": {
+          "pdfjs": [],
+          "opendataloader": []
+        }
+      },
+      "pageAlignment": {
+        "pageCountAgree": true,
+        "nonEmptyAgreement": true
+      }
+    },
+    {
+      "filename": "golden-master.pdf",
+      "path": "C:\\Users\\atavi\\Projects\\Wiki v5\\test-pdfs\\golden-master.pdf",
+      "expectedPageCount": 3,
+      "engines": {
+        "pdfjs": {
+          "available": true,
+          "wallMs": 27.512900000000627,
+          "fullText": "Executive Summary\nJohn Smith presented the annual results of Acme Corp on March 15, 2024.\nThe company reported strong performance across all divisions, with\nparticular growth in the enterprise services segment.\nRevenue by Quarter\nQuarter Revenue Growth\nQ1 $9.8M +4%\nQ2 $10.4M +6%\nQ3 $11.1M +7%\nTotal revenue for the year reached $42.5 million, exceeding the\ntarget set by the board at the start of the fiscal year.\nBoard Members\n- John Smith\n- Jane Doe\n- Robert Brown\nJohn Smith is the CEO of Acme Corp and has served on the board\nsince 2010.",
+          "pageTexts": [
+            "Executive Summary\nJohn Smith presented the annual results of Acme Corp on March 15, 2024.\nThe company reported strong performance across all divisions, with\nparticular growth in the enterprise services segment.",
+            "Revenue by Quarter\nQuarter Revenue Growth\nQ1 $9.8M +4%\nQ2 $10.4M +6%\nQ3 $11.1M +7%\nTotal revenue for the year reached $42.5 million, exceeding the\ntarget set by the board at the start of the fiscal year.",
+            "Board Members\n- John Smith\n- Jane Doe\n- Robert Brown\nJohn Smith is the CEO of Acme Corp and has served on the board\nsince 2010."
+          ],
+          "pageCount": 3,
+          "error": null
+        },
+        "opendataloader": {
+          "available": true,
+          "wallMs": 601.7192000000005,
+          "fullText": "\r\nExecutive Summary\r\n\r\nJohn Smith presented the annual results of Acme Corp on March 15, 2024.\r\nThe company reported strong performance across all divisions, with\r\nparticular growth in the enterprise services segment.\r\n\r\n\n\r\nRevenue by Quarter\r\n\r\nQuarter Revenue Growth\r\n\r\nQ1 $9.8M +4%\r\nQ2 $10.4M +6%\r\nQ3 $11.1M +7%\r\n\r\nTotal revenue for the year reached $42.5 million, exceeding the\r\ntarget set by the board at the start of the fiscal year.\r\n\r\n\n\r\nBoard Members\r\n\r\n- John Smith\r\n- Jane Doe\r\n- Robert Brown\r\n\r\nJohn Smith is the CEO of Acme Corp and has served on the board\r\nsince 2010.\r\n",
+          "pageTexts": [
+            "\r\nExecutive Summary\r\n\r\nJohn Smith presented the annual results of Acme Corp on March 15, 2024.\r\nThe company reported strong performance across all divisions, with\r\nparticular growth in the enterprise services segment.\r\n\r\n",
+            "\r\nRevenue by Quarter\r\n\r\nQuarter Revenue Growth\r\n\r\nQ1 $9.8M +4%\r\nQ2 $10.4M +6%\r\nQ3 $11.1M +7%\r\n\r\nTotal revenue for the year reached $42.5 million, exceeding the\r\ntarget set by the board at the start of the fiscal year.\r\n\r\n",
+            "\r\nBoard Members\r\n\r\n- John Smith\r\n- Jane Doe\r\n- Robert Brown\r\n\r\nJohn Smith is the CEO of Acme Corp and has served on the board\r\nsince 2010.\r\n"
+          ],
+          "pageCount": 3,
+          "error": null
+        }
+      },
+      "expectedStrings": {
+        "John Smith": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Acme Corp": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "March 15, 2024": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "$42.5 million": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Board Members": {
+          "pdfjs": true,
+          "opendataloader": true
+        }
+      },
+      "tables": {
+        "expected": [
+          {
+            "name": "quarter",
+            "rows": 4,
+            "cols": 3
+          }
+        ],
+        "detected": {
+          "pdfjs": [
+            {
+              "rows": 4,
+              "cols": 3
+            }
+          ],
+          "opendataloader": [
+            {
+              "rows": 3,
+              "cols": 3
+            }
+          ]
+        },
+        "matched": {
+          "pdfjs": true,
+          "opendataloader": false
+        }
+      },
+      "diacritics": {
+        "pdfjs": true,
+        "opendataloader": true,
+        "missing": {
+          "pdfjs": [],
+          "opendataloader": []
+        }
+      },
+      "pageAlignment": {
+        "pageCountAgree": true,
+        "nonEmptyAgreement": true
+      }
+    },
+    {
+      "filename": "golden-master-da.pdf",
+      "path": "C:\\Users\\atavi\\Projects\\Wiki v5\\test-pdfs\\golden-master-da.pdf",
+      "expectedPageCount": 2,
+      "engines": {
+        "pdfjs": {
+          "available": true,
+          "wallMs": 15.753100000000813,
+          "fullText": "Årsrapport 2024\nSøren Møller præsenterede årsresultatet for Møbler A/S den\n12. marts 2025 på hovedkontoret i København.\nVirksomheden omsatte for 12,5 millioner kr. i 2024, en stigning\npå 8 procent i forhold til året før. Resultatet blev godkendt\nenstemmigt af bestyrelsen.\nBestyrelse og marked\nÅse Lindberg er bestyrelsesformand for Møbler A/S og har siddet\ni bestyrelsen siden 2015.\nVirksomheden åbnede en ny fabrik i Aarhus i september 2024 med\nen investering på 3,2 millioner kr. Fabrikken skaber 45 nye\narbejdspladser i regionen.",
+          "pageTexts": [
+            "Årsrapport 2024\nSøren Møller præsenterede årsresultatet for Møbler A/S den\n12. marts 2025 på hovedkontoret i København.\nVirksomheden omsatte for 12,5 millioner kr. i 2024, en stigning\npå 8 procent i forhold til året før. Resultatet blev godkendt\nenstemmigt af bestyrelsen.",
+            "Bestyrelse og marked\nÅse Lindberg er bestyrelsesformand for Møbler A/S og har siddet\ni bestyrelsen siden 2015.\nVirksomheden åbnede en ny fabrik i Aarhus i september 2024 med\nen investering på 3,2 millioner kr. Fabrikken skaber 45 nye\narbejdspladser i regionen."
+          ],
+          "pageCount": 2,
+          "error": null
+        },
+        "opendataloader": {
+          "available": true,
+          "wallMs": 601.2677999999996,
+          "fullText": "\r\nÅrsrapport 2024\r\n\r\nSøren Møller præsenterede årsresultatet for Møbler A/S den\r\n\r\n12. marts 2025 på hovedkontoret i København.\r\n\r\nVirksomheden omsatte for 12,5 millioner kr. i 2024, en stigning\r\npå 8 procent i forhold til året før. Resultatet blev godkendt\r\nenstemmigt af bestyrelsen.\r\n\r\n\n\r\nBestyrelse og marked\r\n\r\nÅse Lindberg er bestyrelsesformand for Møbler A/S og har siddet\r\ni bestyrelsen siden 2015.\r\n\r\nVirksomheden åbnede en ny fabrik i Aarhus i september 2024 med\r\nen investering på 3,2 millioner kr. Fabrikken skaber 45 nye\r\narbejdspladser i regionen.\r\n",
+          "pageTexts": [
+            "\r\nÅrsrapport 2024\r\n\r\nSøren Møller præsenterede årsresultatet for Møbler A/S den\r\n\r\n12. marts 2025 på hovedkontoret i København.\r\n\r\nVirksomheden omsatte for 12,5 millioner kr. i 2024, en stigning\r\npå 8 procent i forhold til året før. Resultatet blev godkendt\r\nenstemmigt af bestyrelsen.\r\n\r\n",
+            "\r\nBestyrelse og marked\r\n\r\nÅse Lindberg er bestyrelsesformand for Møbler A/S og har siddet\r\ni bestyrelsen siden 2015.\r\n\r\nVirksomheden åbnede en ny fabrik i Aarhus i september 2024 med\r\nen investering på 3,2 millioner kr. Fabrikken skaber 45 nye\r\narbejdspladser i regionen.\r\n"
+          ],
+          "pageCount": 2,
+          "error": null
+        }
+      },
+      "expectedStrings": {
+        "Søren Møller": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "København": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "Møbler A/S": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "12,5 millioner kr.": {
+          "pdfjs": true,
+          "opendataloader": true
+        },
+        "3,2 millioner kr.": {
+          "pdfjs": true,
+          "opendataloader": true
+        }
+      },
+      "tables": {
+        "expected": [],
+        "detected": {
+          "pdfjs": [],
+          "opendataloader": []
+        },
+        "matched": {
+          "pdfjs": true,
+          "opendataloader": true
+        }
+      },
+      "diacritics": {
+        "pdfjs": true,
+        "opendataloader": true,
+        "missing": {
+          "pdfjs": [],
+          "opendataloader": []
+        }
+      },
+      "pageAlignment": {
+        "pageCountAgree": true,
+        "nonEmptyAgreement": true
+      }
+    }
+  ],
+  "recommendation": "KEEP pdfjs as the default engine. Content-check failures: pdfjs 0, opendataloader 2; opendataloader wall time is 10.4x pdfjs (JVM startup 227.40390000000002 ms) and it adds a hard Java 11+ runtime dependency. pdfjs stays the zero-dependency default; opendataloader remains opt-in."
+}

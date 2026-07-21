@@ -1,11 +1,18 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import type { PdfEngine } from '../extraction/engine';
 
 export interface TuiSettings {
   /** Phase 5: pre-check the "Enable Synthesis" option in the ingest screen. */
   synthesis: boolean;
   /** Future: pre-check the "Update AGENTS.md" option. */
   updateAgents: boolean;
+  /**
+   * Phase 10: PDF text-extraction engine. Absent (or any unknown value) =
+   * pdfjs, the zero-dependency default. 'opendataloader' is strictly opt-in
+   * and requires Java 11+ on PATH.
+   */
+  pdfEngine?: PdfEngine;
 }
 
 const DEFAULT_SETTINGS: TuiSettings = {
@@ -21,7 +28,7 @@ export function settingsPath(workspace: string): string {
  * Load TUI settings from `.llm-wiki-cli.json` in the workspace root.
  *
  * Missing or malformed files fall back to the defaults so the TUI never crashes
- * on first run.
+ * on first run. An unknown `pdfEngine` value is treated as absent (pdfjs).
  */
 export async function loadSettings(workspace: string = '.'): Promise<TuiSettings> {
   try {
@@ -30,6 +37,9 @@ export async function loadSettings(workspace: string = '.'): Promise<TuiSettings
     return {
       synthesis: Boolean(parsed.synthesis),
       updateAgents: Boolean(parsed.updateAgents),
+      ...(parsed.pdfEngine === 'pdfjs' || parsed.pdfEngine === 'opendataloader'
+        ? { pdfEngine: parsed.pdfEngine }
+        : {}),
     };
   } catch {
     return { ...DEFAULT_SETTINGS };

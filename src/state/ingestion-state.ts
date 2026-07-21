@@ -24,10 +24,23 @@ export interface SourceIngestionState {
   documentPages: string[];
   /** ISO 8601 timestamp of the first successful ingestion of this source. */
   ingestedAt: string;
+  /**
+   * Phase 8: input language this source was last extracted under (vision
+   * `04` §9.3). Used to warn when a changed PDF is re-processed under a
+   * different input language. Absent for sources ingested before Phase 8.
+   */
+  language?: string;
 }
 
 export interface IngestionState {
   sources: Record<string, SourceIngestionState>;
+  /**
+   * Phase 8 (phase doc §2.5): wiki-relative path (forward slashes) of every
+   * entity/topic page the tool wrote -> SHA-256 of its content at the end of
+   * the last ingestion. A mismatch on the next run means the page was
+   * manually edited; the Materializer skips the update and logs a conflict.
+   */
+  pageHashes?: Record<string, string>;
 }
 
 export function emptyIngestionState(): IngestionState {

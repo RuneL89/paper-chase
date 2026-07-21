@@ -1,0 +1,64 @@
+{
+  "description": "Phase 10 A/B corpus manifest. Fixtures are immutable (same discipline as the golden masters). expectedStrings are key-content/reading-order markers expected under BOTH engines; expectedTables gives the row/col shape (header + data rows, excluding the markdown separator line) of tables a correct extraction preserves; diacritics lists strings that must survive verbatim. Known per-engine divergences are documented in notes.",
+  "fixtures": [
+    {
+      "filename": "multi-column.pdf",
+      "sha256": "92824217c39c3e41575c8bace5d7cda25dc00d94e3420a0bd2a6436e4211e2a5",
+      "pageCount": 1,
+      "expectedStrings": ["ALFA-113", "BRAVO-227", "Nordwind Traders report", "Borealis Holdings update"],
+      "expectedTables": [],
+      "diacritics": [],
+      "notes": "Two-column newsletter page. Correct extraction keeps each column's text contiguous and reads the left column before the right column (both engines do: pdfjs by draw order, opendataloader via xycut reading order)."
+    },
+    {
+      "filename": "tables.pdf",
+      "sha256": "94f2f40c7d624605d2797c25705b3a1490f915f930acece4755044b12857e406",
+      "pageCount": 1,
+      "expectedStrings": ["Table Fixtures", "South 950", "Product Price Stock", "Widget 19.99 340", "Gadget 49.50 125"],
+      "expectedTables": [
+        { "name": "bordered", "rows": 4, "cols": 3 },
+        { "name": "borderless", "rows": 3, "cols": 3 }
+      ],
+      "diacritics": [],
+      "notes": "One bordered table (drawn grid: Region/Units/Margin + North/South/West rows) and one borderless table (Product/Price/Stock + Widget/Gadget rows). Known divergence: the drawn grid lines degrade opendataloader's text layer on the bordered table ('West 1430' arrives mangled as 'West 143 0'); pdfjs is unaffected because it reads the text layer only. 'South 950' survives in both. The borderless table renders as a clean 3-line run under both engines (with keepLineBreaks)."
+    },
+    {
+      "filename": "headers-footers.pdf",
+      "sha256": "7ee6a603d48f2509b31dddb8468f132a7db8a3f9f3359bc9454136df58300f91",
+      "pageCount": 2,
+      "expectedStrings": ["CHARLIE-331", "DELTA-442", "Meridian Analytics", "Halcyon Partners", "Covenant terms subject to the 2024 restatement."],
+      "expectedTables": [],
+      "diacritics": [],
+      "notes": "Running header ('CONFIDENTIAL Meridian Annual Review') and footer ('Page N of 2') plus a footnote line, with distinct body text per page. Known divergence: opendataloader EXCLUDES headers/footers by default (includeHeaderFooter defaults to false); pdfjs always includes them. Both behaviors are acceptable for Layer 1; the difference is recorded, not treated as a failure."
+    },
+    {
+      "filename": "danish-diacritics.pdf",
+      "sha256": "444781c20739d4cf6f4646daa7fdbaaee82583d935c76bd52471ae2f5b046dec",
+      "pageCount": 1,
+      "expectedStrings": ["Søren Møller", "Åse Lindberg", "København", "Æbleskiver", "Rødgrød med fløde", "ECHO-553"],
+      "expectedTables": [],
+      "diacritics": ["Søren Møller", "Åse Lindberg", "København", "mødtes", "Æbleskiver", "fløde", "Rødgrød", "æ", "ø", "å", "Æ", "Ø", "Å"],
+      "notes": "Danish text exercising æ/ø/å in both cases (extends the Phase 7 golden-master-da coverage). Correct extraction preserves every diacritic verbatim — Layer 2 evidence is never transliterated."
+    },
+    {
+      "filename": "financial-dense.pdf",
+      "sha256": "943e2092c9699025c412db0f76b07c95665b2b6a7867bc44ab0b6d740c344678",
+      "pageCount": 1,
+      "expectedStrings": ["Meridian Analytics A/S", "February 28, 2025", "$312.6 million", "14.7%", "7.85%", "$88.1 million", "FOXTROT-664"],
+      "expectedTables": [
+        { "name": "segment", "rows": 4, "cols": 3 }
+      ],
+      "diacritics": [],
+      "notes": "Dense financial/legal page (the project's target domain): figures, percentages, ISO and long-form dates, company names, and a small segment table (Segment/Revenue/Margin + Nordic/Iberia/DACH rows). Correct extraction preserves every figure verbatim."
+    },
+    {
+      "filename": "scanned-page.pdf",
+      "sha256": "dd9f1a6031443a96379e528b03a6c6d575a631cb4097198993f65df0dfcb396d",
+      "pageCount": 1,
+      "expectedStrings": [],
+      "expectedTables": [],
+      "diacritics": [],
+      "notes": "Image-only page (embedded PNG of grey 'text' stripes, no text layer) simulating a scan. Documents the OCR gap honestly: BOTH engines extract empty text here (opendataloader's OCR requires the out-of-scope hybrid backend). Empty output is a VALID data point, not a failure."
+    }
+  ]
+}

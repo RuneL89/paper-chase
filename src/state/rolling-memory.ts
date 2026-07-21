@@ -91,3 +91,49 @@ export async function saveRollingMemory(wikiDir: string, memory: RollingMemory):
   await mkdir(join(wikiDir, '.state'), { recursive: true });
   await writeFile(path, JSON.stringify(memory, null, 2) + '\n', 'utf-8');
 }
+
+/**
+ * Phase 8 (phase doc §2.4): read the FULL rolling memory (including
+ * `mentionCount` per entity), returning null when the file does not exist
+ * yet. Used to diff memory before/after an ingest run so the compounding
+ * metrics know which entities are new and which gained mentions. Malformed
+ * JSON throws, same contract as `readRollingMemory`.
+ */
+export async function readFullRollingMemory(wikiDir: string): Promise<RollingMemory | null> {
+  const path = rollingMemoryPath(wikiDir);
+  let raw: string;
+  try {
+    raw = await readFile(path, 'utf-8');
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code === 'ENOENT') {
+      return null;
+    }
+    throw err;
+  }
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error(`Rolling memory file is not valid JSON: ${path}`);
+  }
+
+  const record = (typeof parsed === 'object' && parsed !== null ? parsed : {}) as Partial<RollingMemory>;
+  return {
+    entities: Array.isArray(record.entities)
+      ? record.entities
+          .map((entry) => entry as { slug?: unknown; folder?: unknown; mentionCount?: unknown })
+          .filter((entry) => typeof entry.slug === 'string')
+          .map((entry) => ({
+            slug: entry.slug as string,
+            folder: typeof entry.folder === 'string' ? entry.folder : '',
+            mentionCount: typeof entry.mentionCount === 'number' ? entry.mentionCount : 0,
+          }))
+      : [],
+    topics: Array.isArray(record.topics) ? record.topics.filter((t): t is string => typeof t === 'string') : [],
+    sources: Array.isArray(record.sources) ? record.sources.filter((s): s is string => typeof s === 'string') : [],
+    folderStructure: Array.isArray(record.folderStructure)
+      ? record.folderStructure.filter((f): f is string => typeof f === 'string')
+      : [],
+  };
+}

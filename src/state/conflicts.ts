@@ -26,8 +26,28 @@ export interface ConflictEntry {
   };
 }
 
+/**
+ * Phase 8 (phase doc §2.5): a manually-edited page whose update was skipped.
+ * The JSON shape is fixed by the phase doc exactly:
+ * ```json
+ * {
+ *   "timestamp": "2026-07-16T10:00:00Z",
+ *   "type": "manual-edit",
+ *   "page": "entities/people/executives/john-smith.md",
+ *   "reason": "Page was manually edited since last ingestion. Skipping update."
+ * }
+ * ```
+ */
+export interface ManualEditConflictEntry {
+  timestamp: string;
+  type: 'manual-edit';
+  /** Wiki-relative path (forward slashes) of the skipped page. */
+  page: string;
+  reason: string;
+}
+
 export interface ConflictsState {
-  conflicts: ConflictEntry[];
+  conflicts: Array<ConflictEntry | ManualEditConflictEntry>;
 }
 
 function conflictsPath(wikiDir: string): string {
@@ -86,6 +106,25 @@ export async function logConflict(
   }
 
   state.conflicts.push(entry);
+  await writeConflicts(wikiDir, state);
+}
+
+/**
+ * Phase 8 (phase doc §2.5): log a manual-edit conflict. The Materializer
+ * calls this when a page's on-disk content no longer matches the hash
+ * recorded at the last ingestion; the update is skipped so the journalist's
+ * edit is never overwritten. The file is created if it does not exist.
+ * The optional `reason` overrides the default message (used by the
+ * fork-reconciliation pass when a manually-edited DUPLICATE page is kept).
+ */
+export async function logManualEditConflict(wikiDir: string, page: string, reason?: string): Promise<void> {
+  const state = await readConflicts(wikiDir);
+  state.conflicts.push({
+    timestamp: new Date().toISOString(),
+    type: 'manual-edit',
+    page,
+    reason: reason ?? 'Page was manually edited since last ingestion. Skipping update.',
+  });
   await writeConflicts(wikiDir, state);
 }
 

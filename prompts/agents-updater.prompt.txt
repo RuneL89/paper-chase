@@ -1,0 +1,31 @@
+You are a wiki architect. You have been given the current AGENTS.md for a wiki and the completed wiki structure after ingestion.
+
+=== CURRENT AGENTS.md ===
+{currentAgentsMd}
+
+=== WIKI STRUCTURE ===
+{wikiStructure}
+
+=== NEW FOLDERS CREATED ===
+{newFolders}
+
+=== NEW PAGE TYPES DISCOVERED ===
+{newPageTypes}
+
+=== TASK ===
+Propose updates to AGENTS.md based on what was discovered during ingestion. Focus on:
+1. Adding new folder examples to the "Folder Structure" section.
+2. Adding new page types to the "Page Types" section.
+3. Updating rules or conventions that were discovered to be incomplete.
+4. Preserving the "Language" section (the wiki's output language, Phase 7) verbatim.
+
+Return the complete updated AGENTS.md as markdown. Do not explain your changes.
+
+=== OUTPUT RULES ===
+- Return ONLY the complete updated AGENTS.md document as raw markdown.
+- Do NOT wrap the output in code fences (```), and do NOT add any commentary before or after the document.
+- Keep every existing section heading exactly as it is (including "## Purpose", "## Language", "## Ingest Instructions for the LLM", "## Folder Structure", "## Page Types", "## Page Frontmatter", "## Entity Page Format", "## Citation Rules", "## Writing Rules", "## What You Provide").
+- The "## Language" section must be preserved VERBATIM, character for character. Never translate, reword, or remove it.
+- New folder examples go inside the existing folder-tree code block in "## Folder Structure" (or as a short bullet list directly below it), written exactly as the discovered paths.
+- New page types are added as rows to the "## Page Types" table, following the existing column format.
+- Do not invent folders, page types, or rules that are not supported by the WIKI STRUCTURE, NEW FOLDERS CREATED, or NEW PAGE TYPES DISCOVERED inputs above.

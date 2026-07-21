@@ -10,7 +10,7 @@ import { SuccessBox } from './components/success-box';
 import { useWikiList } from './hooks/use-wiki-list';
 import { useWikiDetails } from './hooks/use-wiki-details';
 import { ingest } from '../commands/ingest';
-import { loadSettings } from './settings';
+import { loadSettings, type TuiSettings } from './settings';
 import { readWikiLanguage, type WikiLanguageState } from '../state/language';
 import { SUPPORTED_LANGUAGES } from '../utils/language';
 import { wikiDir } from '../utils/paths';
@@ -25,8 +25,10 @@ export interface IngestScreenProps extends ScreenProps {
    */
   extract?: boolean;
   /**
-   * Phase 4: called after a successful ingest so the app can navigate to the
-   * validation report for the wiki that was just ingested.
+   * Phase 4: called after a successful ingest so the app can navigate to a
+   * results view for the wiki that was just ingested. Phase 8 (phase doc
+   * §5.2): the app routes this to the Ingestion Log (compounding log)
+   * screen, superseding the Phase 4 validation-report navigation.
    */
   onViewReport?: (wiki: string) => void;
   /**
@@ -86,6 +88,9 @@ export function IngestScreen({
   const [progressLines, setProgressLines] = useState<string[]>([]);
   const [message, setMessage] = useState('');
   const [synthesis, setSynthesis] = useState(false);
+  // Phase 9: opt-in AGENTS.md update proposal (phase doc §2.3 CLI flag made
+  // TUI-accessible per the 2026-07-17 all-workflows-in-TUI user preference).
+  const [updateAgents, setUpdateAgents] = useState(false);
   const [focus, setFocus] = useState<FocusedControl>('wiki');
   const [languageState, setLanguageState] = useState<WikiLanguageState>({
     outputLanguage: 'en',
@@ -94,6 +99,9 @@ export function IngestScreen({
   const [hasExtractions, setHasExtractions] = useState(false);
   const [inputIndex, setInputIndex] = useState(0);
   const [outputIndex, setOutputIndex] = useState(0);
+  // Phase 10: PDF engine from `.llm-wiki-cli.json` (undefined = resolution
+  // falls to the PDF_ENGINE env var, then the pdfjs default).
+  const [pdfEngine, setPdfEngine] = useState<TuiSettings['pdfEngine']>(undefined);
 
   useEffect(() => {
     let mounted = true;
@@ -101,6 +109,10 @@ export function IngestScreen({
       .then((s) => {
         if (mounted) {
           setSynthesis(s.synthesis);
+          setPdfEngine(s.pdfEngine);
+          // Phase 9: pre-select the AGENTS.md update proposal toggle from the
+          // persisted setting (same convention as Synthesis).
+          setUpdateAgents(s.updateAgents);
         }
       })
       .catch(() => {
@@ -160,15 +172,22 @@ export function IngestScreen({
         synthesis,
         inputLanguage: selectedInput.code,
         outputLanguage: selectedOutput.code,
+        // Phase 10: PDF engine from the Settings screen (.llm-wiki-cli.json).
+        pdfEngine,
+        // Phase 9: opt-in AGENTS.md update proposal after the ingest.
+        updateAgents,
         // Phase 6: production runs are LLM-driven — the DOX Writer writes rich,
         // content-based index.md contracts (deterministic enforcement and
         // fallback still guarantee valid contracts without a key).
         doxLlm: true,
         onProgress: (line: string) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
-      })) as { ingested: unknown[]; skipped: unknown[]; synthesized?: number; synthesisConflicts?: number };
+      })) as { ingested: unknown[]; skipped: unknown[]; synthesized?: number; synthesisConflicts?: number; agentsUpdateProposed?: boolean };
       let summary = `Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`;
       if (result.synthesized !== undefined) {
         summary += ` Synthesis: ${result.synthesized} page(s), ${result.synthesisConflicts ?? 0} conflict(s).`;
+      }
+      if (result.agentsUpdateProposed) {
+        summary += ' AGENTS.md update proposal saved (see Review AGENTS.md Updates).';
       }
       setStatus('success');
       setMessage(summary);
@@ -249,6 +268,10 @@ export function IngestScreen({
         setSynthesis((prev) => !prev);
         return;
       }
+      if (_input === 'a' || _input === 'A') {
+        setUpdateAgents((prev) => !prev);
+        return;
+      }
       if (key.return && selectedWiki) {
         startIngest(selectedWiki);
       }
@@ -301,6 +324,7 @@ export function IngestScreen({
           </Box>
           <Box flexDirection="column" marginTop={1}>
             <Text>[{synthesis ? '✓' : ' '}] Enable Synthesis (Space to toggle)</Text>
+            <Text>[{updateAgents ? '✓' : ' '}] Propose AGENTS.md Updates (A to toggle)</Text>
           </Box>
           {slugForkingRisk && status !== 'running' ? (
             <Box flexDirection="column" marginTop={1}>
@@ -326,7 +350,7 @@ export function IngestScreen({
       ))}
       {status === 'success' && <SuccessBox message={message} />}
       {status === 'error' && <ErrorBox message={message} />}
-      <Footer helpText="Up/Down: select wiki | Tab: language | Space: synthesis | Enter: run ingest | Escape: back" />
+      <Footer helpText="Up/Down: select wiki | Tab: language | Space: synthesis | A: AGENTS.md updates | Enter: run ingest | Escape: back" />
     </Box>
   );
 }

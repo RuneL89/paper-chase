@@ -1,0 +1,54 @@
+{
+  "phase": "10",
+  "goal": "All 8 technical gates in PHASE_10_pdf_engine_ab.md pass (npm test green, JRE-gated tests run for real under Java 21), the pluggable PDF engine seam ships with pdfjs as the byte-identical default and opendataloader strictly opt-in, the A/B corpus + comparison harness produce .state/pdf-engine-ab-report.md with a data-backed default-engine recommendation, compliance log shows no unresolved contradictions, and total LLM cost is $0 for gates.",
+  "status": "gates-complete",
+  "lastAction": "Verifier re-check loop: the independent Verifier found a Gate 10.4 violation (ingest resolved the engine correctly but routed the pdfjs branch through the env-only dispatcher, so an explicit flag could not beat PDF_ENGINE). Fixed (orchestrator-applied after the Implementer sub-agent stalled and was stopped): ingest now extracts via extractDocumentPages(pdfPath, resolvedEngine) for BOTH engines — pdfjs branch remains the byte-identical per-page loop — and a new end-to-end flag-vs-env conflict test proves both directions. All 8 gates green (tests/phase-10.test.ts, 16/16 passed incl. all JRE-gated tests running for real under Temurin 21). Full suite: 23 files, 265 passed + 1 skipped; npx tsc --noEmit clean. Real A/B report at .state/pdf-engine-ab-report.md/.json (8 documents, both engines measured).",
+  "gatesPassed": ["10.1", "10.2", "10.3", "10.4", "10.5", "10.6", "10.7", "10.8"],
+  "gatesFailed": [],
+  "gatesPending": [],
+  "deviations": [
+    "Phase 9 not complete — user explicitly directed starting Phase 10 first (2026-07-21); no code interaction between Phase 9 (AGENTS.md updater) and the extraction layer.",
+    "New dependency @opendataloader/pdf@2.5.0 (Apache 2.0): the Phase 10 opt-in extraction engine. Reason: phase doc §1/§3.2 mandate shipping opendataloader-pdf as an opt-in alternative engine for the A/B evaluation; the Node SDK wraps the bundled Java CLI (JAR included in the package).",
+    "opendataloader engine passes keepLineBreaks: true (a non-default SDK option): the default paragraph-joining output breaks the line-oriented semantics the pipeline (renderTablesAsMarkdown heuristic, chunk prose) is built on; keepLineBreaks gives line-oriented output closest to pdfjs semantics. All other SDK options stay at defaults per §3.2 scope.",
+    "Gate 10.7 spawns the harness as a subprocess (node + tsx CLI, shell:false, VITEST stripped from the child env) instead of importing it, because scripts/AGENTS.md forbids importing scripts from tests; the gate's pass criterion (report with all metric sections) is preserved.",
+    "tests/tui/menu.test.tsx settings-screen footer assertion was updated (by the parallel Phase 8/9 integration work) to match the new Space/Left/Right toggle/cycle help text introduced by the PDF Engine row.",
+    "/goal skill is not installed in this environment; the goal loop is emulated via this status file (goal field) + todo tracking, as in prior phases.",
+    "Verifier-found fix (2026-07-21): Gate 10.4 was initially overstated — resolvePdfEngine precedence was correct but ingest's pdfjs branch called the env-only extractText dispatcher, so --pdf-engine pdfjs could not override PDF_ENGINE=opendataloader (proven end-to-end by the Verifier). Fixed by routing ingest extraction through extractDocumentPages(pdfPath, resolvedEngine) for both engines (pdfjs branch = byte-identical per-page loop; page count derived from the extraction, which both engines agree on per Gate 10.3) plus a new end-to-end conflict test. The Implementer sub-agent stalled mid-fix (no file activity ~35 min) and was stopped; the fix was applied by the orchestrator and is pending independent Verifier re-check."
+  ],
+  "openQuestionResolutions": {
+    "1-batch-vs-per-page": "One convert() call per document, split into per-page strings via textPageSeparator with %page-number%; per-process cache keyed by pdfPath + mtimeMs + size so the frozen per-page surface never spawns a JVM per page. JVM startup measured at ~227 ms; steady-state ~300-670 ms per document.",
+    "2-format": "format: 'text' (with keepLineBreaks: true). 'markdown' was rejected for the engine output because ingest already owns table rendering via renderTablesAsMarkdown and text keeps engine output closest to the pdfjs line semantics; 'json' (bounding boxes) deferred as future per-element citation work.",
+    "3-page-counting": "pdfjs reuse (cheap, pure JS, no JVM spawn); the opendataloader batch output is validated against the pdfjs count and throws on mismatch (citation provenance depends on it).",
+    "4-distribution": "pdfjs kept as the permanent default/fallback engine with zero system dependencies; opendataloader remains strictly opt-in (requires Java 11+). The A/B data supports this (see recommendation).",
+    "5-vendor-benchmarks": "Treated as marketing; our corpus is the arbiter. On our corpus opendataloader showed NO content advantage and two table-fidelity regressions."
+  },
+  "renderTablesAsMarkdownDecision": "OPTION A — the heuristic stays ON for both engines. Evidence (tests/phase-10.test.ts §3.5 test on the tables.pdf corpus fixture): the heuristic only inserts markdown table syntax and never drops or rewrites a word — every whitespace-separated token of both engines' raw output survives rendering; the borderless table is detected under both engines. The opendataloader engine uses format: 'text', so there is no double-processing of engine-emitted markdown tables.",
+  "abReportHeadline": {
+    "documents": 8,
+    "pdfjsTotalWallMs": 416,
+    "opendataloaderTotalWallMs": 4339,
+    "jvmStartupOverheadMs": 227,
+    "contentCheckFailures": { "pdfjs": 0, "opendataloader": 2 },
+    "opendataloaderFailures": [
+      "tables.pdf: drawn grid lines degrade opendataloader's text layer on the bordered table ('West 1430' mangled to 'West 143 0'); only the borderless table detected (3x3) vs. expected 4x3+3x3.",
+      "golden-master.pdf: opendataloader inserts a blank line between the table header and data rows, so the heuristic renders the quarter table as 3x3 (Q1 row becomes the header) instead of 4x3."
+    ],
+    "engineDivergencesRecorded": [
+      "headers-footers.pdf: opendataloader excludes running headers/footers by default (includeHeaderFooter defaults false); pdfjs includes them. Recorded, not treated as failure.",
+      "scanned-page.pdf: BOTH engines extract empty text (OCR gap documented honestly; opendataloader OCR requires the out-of-scope hybrid backend)."
+    ],
+    "recommendation": "KEEP pdfjs as the default engine. opendataloader passed all expected-string/diacritics/page-alignment checks but failed 2 table-fidelity checks, ran 10.4x slower (4339 ms vs 416 ms total, JVM startup ~227 ms), and adds a hard Java 11+ runtime dependency. Default switch NOT executed — presented to the user for decision (UAT 10.3)."
+  },
+  "abCorpusSha256": {
+    "multi-column.pdf": "92824217c39c3e41575c8bace5d7cda25dc00d94e3420a0bd2a6436e4211e2a5",
+    "tables.pdf": "94f2f40c7d624605d2797c25705b3a1490f915f930acece4755044b12857e406",
+    "headers-footers.pdf": "7ee6a603d48f2509b31dddb8468f132a7db8a3f9f3359bc9454136df58300f91",
+    "danish-diacritics.pdf": "444781c20739d4cf6f4646daa7fdbaaee82583d935c76bd52471ae2f5b046dec",
+    "financial-dense.pdf": "943e2092c9699025c412db0f76b07c95665b2b6a7867bc44ab0b6d740c344678",
+    "scanned-page.pdf": "dd9f1a6031443a96379e528b03a6c6d575a631cb4097198993f65df0dfcb396d"
+  },
+  "llmCost": "$0.00",
+  "tokenBudgetRemaining": "$2.00 (UAT-only budget untouched)",
+  "blocker": null,
+  "nextAction": "UAT 10.1-10.4 with the user (opt-in engine end-to-end ingest, missing-Java UX, A/B report review + default-engine decision, Danish fixture under opendataloader)."
+}
