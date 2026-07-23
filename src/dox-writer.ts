@@ -1,12 +1,13 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import matter from 'gray-matter';
 import { aliasesForTitle } from './utils/aliases';
 import { formatWikilink, parseWikilinkTarget } from './utils/wikilinks';
 import { slugify } from './utils/slug';
 import { wikiDir } from './utils/paths';
+import { appRoot } from './utils/app-root';
 import { callLLM } from './llm/client';
+import { runWithFeedbackRetry } from './llm/reask';
 import {
   applyLanguageDirective,
   buildLanguageDirective,
@@ -126,8 +127,11 @@ export interface WriteDoxOptions {
   /**
    * Injectable DOX index writer (test-only). Defaults to the real LLM
    * implementation; tests inject a stub to exercise `doxLlm` without an API key.
+   * Phase 12: optional trailing `feedback` (the correction block on repair
+   * attempts) and `attempt` (the 1-based attempt number) — stubs that ignore
+   * them keep working.
    */
-  writeDoxIndexFn?: (context: DoxIndexContext) => Promise<string>;
+  writeDoxIndexFn?: (context: DoxIndexContext, feedback?: string, attempt?: number) => Promise<string>;
   /** Override for the JSON-lines LLM call log path (defaults to `<wiki>/.state/llm-calls.json`). */
   logPath?: string;
   /**
@@ -154,7 +158,7 @@ interface FolderNode {
 
 const EXCLUDED_FOLDERS = new Set(['.state', 'raw']);
 
-const PROMPT_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', 'prompts');
+const PROMPT_DIR = join(appRoot(), 'prompts');
 const DOX_PROMPT_FILE = 'dox-writer.prompt.txt';
 /**
  * Max output tokens for one DOX Writer call. Index pages are small contracts
@@ -407,20 +411,34 @@ function stripCodeFences(text: string): string {
   return match ? match[1] : text;
 }
 
-function hasRequiredSections(body: string, level: DoxIndexLevel): boolean {
+/**
+ * The exact list of missing required sections/headings (Phase 12): these
+ * strings are the validator feedback for the reask loop, so each names the
+ * required section verbatim (e.g. `missing required section: ## Pages`).
+ */
+function missingRequiredSections(body: string, level: DoxIndexLevel): string[] {
+  const errors: string[] = [];
   if (!/^#\s+\S/m.test(body)) {
-    return false;
+    errors.push('missing required level-1 title heading (# <title>)');
   }
   if (!/^##\s+statistics\b/im.test(body)) {
-    return false;
+    errors.push('missing required section: ## Statistics');
   }
-  if (level === 'root') {
-    return /^##\s+start here\b/im.test(body);
+  if (level === 'root' && !/^##\s+start here\b/im.test(body)) {
+    errors.push('missing required section: ## Start Here');
   }
-  if (level === 'workspace') {
-    return /^##\s+wikis\b/im.test(body);
+  if (level === 'workspace' && !/^##\s+wikis\b/im.test(body)) {
+    errors.push('missing required section: ## Wikis');
   }
-  return /^##\s+pages\b/im.test(body) && /^##\s+navigation\b/im.test(body);
+  if (level === 'folder') {
+    if (!/^##\s+pages\b/im.test(body)) {
+      errors.push('missing required section: ## Pages');
+    }
+    if (!/^##\s+navigation\b/im.test(body)) {
+      errors.push('missing required section: ## Navigation');
+    }
+  }
+  return errors;
 }
 
 /**
@@ -458,52 +476,69 @@ type DoxIndexLevel = 'folder' | 'root' | 'workspace';
  * Phase 7 v1.1.0 (bounded retry amendment, vision `04` §6 / `07` §5): total
  * attempts per DOX LLM target before the deterministic contract is written.
  * Language-agnostic — applies to every folder, root, and workspace pass.
+ * Phase 12 (feedback-retry amendment, user-ratified 2026-07-23): retries are
+ * no longer blind — attempts 2+ carry the exact parse error / missing-section
+ * list back via runWithFeedbackRetry.
  */
 const DOX_MAX_ATTEMPTS = 3;
 
 /**
- * Run one DOX LLM target (folder, root, or workspace) with bounded retry:
- * up to DOX_MAX_ATTEMPTS total attempts on quality failures — the call
- * throwing, or the output being unparseable/missing required sections.
- * Returns the enforced LLM body (frontmatter discarded, statistics
- * re-imposed; wikilink repair happens at the call site), or null when every
- * attempt failed and the caller must write the deterministic contract.
+ * Run one DOX LLM target (folder, root, or workspace) through the Phase 12
+ * feedback-retry loop: up to DOX_MAX_ATTEMPTS total attempts on quality
+ * failures — the output being unparseable or missing required sections — with
+ * the exact enforcement errors fed back. Returns the enforced LLM body
+ * (frontmatter discarded, statistics re-imposed; wikilink repair happens at
+ * the call site), or null when every attempt failed and the caller must write
+ * the deterministic contract. A thrown LLM error (HTTP 4xx — never retried —
+ * or exhausted transient retries) is caught ONCE and also yields null: the
+ * deterministic-fallback guarantee is unchanged, but such errors are no
+ * longer quality-retried (vision `04` §6).
  */
 async function runDoxLlmWithRetries(
-  runLlm: () => Promise<string>,
+  runLlm: (feedback: string | null, attempt: number) => Promise<string>,
   level: DoxIndexLevel,
   statistics: string[],
   contextLabel: string,
 ): Promise<string | null> {
-  for (let attempt = 1; attempt <= DOX_MAX_ATTEMPTS; attempt++) {
-    try {
-      const llmOutput = await runLlm();
-      const enforced = enforceLlmBody(llmOutput, level, statistics);
-      if (enforced !== null) {
-        return enforced;
-      }
-      if (attempt < DOX_MAX_ATTEMPTS) {
-        console.warn(
-          `DOX Writer: LLM output for ${contextLabel} was unparseable or missing required sections (attempt ${attempt}/${DOX_MAX_ATTEMPTS}); retrying.`,
-        );
-      } else {
-        console.warn(
-          `DOX Writer: LLM output for ${contextLabel} was unparseable or missing required sections after ${DOX_MAX_ATTEMPTS} attempts; writing the deterministic contract instead.`,
-        );
-      }
-    } catch (err) {
-      if (attempt < DOX_MAX_ATTEMPTS) {
-        console.warn(
-          `DOX Writer: LLM call failed for ${contextLabel} (${(err as Error).message}) (attempt ${attempt}/${DOX_MAX_ATTEMPTS}); retrying.`,
-        );
-      } else {
-        console.warn(
-          `DOX Writer: LLM call failed for ${contextLabel} (${(err as Error).message}) after ${DOX_MAX_ATTEMPTS} attempts; writing the deterministic contract instead.`,
-        );
-      }
+  let attemptsMade = 0;
+  let enforced: string | null = null;
+  try {
+    const outcome = await runWithFeedbackRetry<string>(
+      (feedback, attempt) => {
+        attemptsMade = attempt;
+        return runLlm(feedback, attempt);
+      },
+      (llmOutput) => {
+        const detailed = enforceLlmBodyDetailed(llmOutput, level, statistics);
+        if (detailed.body !== null) {
+          enforced = detailed.body;
+          return { valid: true, errors: [] };
+        }
+        return { valid: false, errors: detailed.errors };
+      },
+      {
+        maxAttempts: DOX_MAX_ATTEMPTS,
+        label: `dox ${contextLabel}`,
+        onRepair: () => {
+          console.warn(
+            `DOX Writer: LLM output for ${contextLabel} was unparseable or missing required sections (attempt ${attemptsMade}/${DOX_MAX_ATTEMPTS}); retrying with validator feedback.`,
+          );
+        },
+      },
+    );
+    if (outcome.output !== null) {
+      return enforced;
     }
+    console.warn(
+      `DOX Writer: LLM output for ${contextLabel} was unparseable or missing required sections after ${DOX_MAX_ATTEMPTS} attempts; writing the deterministic contract instead.`,
+    );
+    return null;
+  } catch (err) {
+    console.warn(
+      `DOX Writer: LLM call failed for ${contextLabel} (${(err as Error).message}); writing the deterministic contract instead.`,
+    );
+    return null;
   }
-  return null;
 }
 
 /**
@@ -516,21 +551,38 @@ async function runDoxLlmWithRetries(
  * falls back to the deterministic body for that level.
  */
 function enforceLlmBody(llmOutput: string, level: DoxIndexLevel, statistics: string[]): string | null {
+  return enforceLlmBodyDetailed(llmOutput, level, statistics).body;
+}
+
+/**
+ * Phase 12 sibling of `enforceLlmBody` with the same contract PLUS the exact
+ * reasons the output was rejected (unparseable, which required section is
+ * missing) — the validator feedback for the reask loop.
+ */
+function enforceLlmBodyDetailed(
+  llmOutput: string,
+  level: DoxIndexLevel,
+  statistics: string[],
+): { body: string | null; errors: string[] } {
   let body: string;
   try {
     body = matter(stripCodeFences(llmOutput)).content;
-  } catch {
-    return null;
+  } catch (err) {
+    return {
+      body: null,
+      errors: [`output could not be parsed as markdown with frontmatter: ${(err as Error).message}`],
+    };
   }
   const trimmed = body.trim();
-  if (!hasRequiredSections(trimmed, level)) {
-    return null;
+  const missing = missingRequiredSections(trimmed, level);
+  if (missing.length > 0) {
+    return { body: null, errors: missing };
   }
   const replaced = replaceStatisticsSection(trimmed, statistics);
   if (replaced === null) {
-    return null;
+    return { body: null, errors: ['missing required section: ## Statistics'] };
   }
-  return `${replaced.replace(/\s+$/, '')}\n`;
+  return { body: `${replaced.replace(/\s+$/, '')}\n`, errors: [] };
 }
 
 /**
@@ -779,8 +831,16 @@ async function buildDoxIndexContext(
 /**
  * Default LLM implementation: render `prompts/dox-writer.prompt.txt` with the
  * folder context and call the LLM. Returns the raw markdown the model wrote.
+ * Phase 12: `feedback` (the correction block) is appended as a clearly
+ * delimited trailing section on repair attempts; without it the prompt is
+ * byte-identical to the pre-Phase-12 prompt. `attempt` numbers the
+ * llm-calls.json context (`<label>#attempt<N>`) on repairs.
  */
-async function writeDoxIndexWithLlm(context: DoxIndexContext): Promise<string> {
+async function writeDoxIndexWithLlm(
+  context: DoxIndexContext,
+  feedback?: string,
+  attempt?: number,
+): Promise<string> {
   const template = await loadDoxPromptTemplate();
 
   // Exact resolvable link forms for every catalog/navigation target, in
@@ -852,11 +912,12 @@ async function writeDoxIndexWithLlm(context: DoxIndexContext): Promise<string> {
     filledPrompt,
     buildLanguageDirective('dox', context.language?.input ?? 'en', context.language?.output ?? 'en'),
   );
-  return callLLM(prompt, undefined, {
+  return callLLM(feedback === undefined ? prompt : `${prompt}\n\n${feedback}`, undefined, {
     maxTokens: DOX_WRITER_MAX_TOKENS,
     maxRetries: 2,
     callType: 'dox-writer',
-    context: context.contextLabel,
+    context:
+      attempt !== undefined && attempt > 1 ? `${context.contextLabel}#attempt${attempt}` : context.contextLabel,
     logPath: context.logPath,
   });
 }
@@ -889,11 +950,12 @@ async function writeFolderIndexLlm(
 
   let body = deterministicBody;
   const runLlm = options.writeDoxIndexFn ?? writeDoxIndexWithLlm;
-  // Phase 7 v1.1.0: bounded retry (≤3 attempts) on quality failures before
-  // the deterministic fallback; deterministic enforcement (frontmatter,
+  // Phase 7 v1.1.0 + Phase 12: bounded feedback retry (≤3 attempts, the
+  // enforcement errors fed back verbatim) on quality failures before the
+  // deterministic fallback; deterministic enforcement (frontmatter,
   // statistics) and the wikilink safeguard are unchanged.
   const enforced = await runDoxLlmWithRetries(
-    () => runLlm(context),
+    (feedback, attempt) => runLlm(context, feedback ?? undefined, attempt),
     folder.relativePath === '' ? 'root' : 'folder',
     statistics,
     contextLabel,
@@ -1085,15 +1147,16 @@ export interface WriteWorkspaceIndexOptions {
   /**
    * Injectable workspace entry writer (test-only). Defaults to the real LLM
    * implementation; returns the description text for the triggering wiki's
-   * catalog line.
+   * catalog line. Phase 12: optional trailing `feedback` (the correction
+   * block on repairs) and `attempt` (the 1-based attempt number).
    */
-  writeWorkspaceIndexFn?: (context: DoxWorkspaceEntryContext) => Promise<string>;
+  writeWorkspaceIndexFn?: (context: DoxWorkspaceEntryContext, feedback?: string, attempt?: number) => Promise<string>;
   /**
    * Injectable workspace prose writer (test-only). Defaults to the real LLM
    * implementation; returns the coherent cross-wiki prose. Only called when
    * the wiki set changed (or no prose exists yet).
    */
-  writeWorkspaceProseFn?: (context: DoxWorkspaceProseContext) => Promise<string>;
+  writeWorkspaceProseFn?: (context: DoxWorkspaceProseContext, feedback?: string, attempt?: number) => Promise<string>;
   /**
    * Output language of the triggering ingest (vision `04` §9). Fresh prose
    * and the triggering wiki's catalog line are written in it; other wikis'
@@ -1241,7 +1304,11 @@ function composeWorkspaceBody(
 }
 
 /** Default LLM implementation: render the workspace prose prompt with ALL wikis' root contracts. */
-async function writeWorkspaceProseWithLlm(context: DoxWorkspaceProseContext): Promise<string> {
+async function writeWorkspaceProseWithLlm(
+  context: DoxWorkspaceProseContext,
+  feedback?: string,
+  attempt?: number,
+): Promise<string> {
   const template = await loadWorkspacePromptTemplate(DOX_WORKSPACE_PROMPT_FILE);
   const prompt = fillPromptTemplate(template, {
     outputLanguage: context.outputLanguage,
@@ -1249,17 +1316,22 @@ async function writeWorkspaceProseWithLlm(context: DoxWorkspaceProseContext): Pr
       .map((wiki) => `--- ${wiki.indexPath} (wiki "${wiki.title}") ---\n${wiki.content}`)
       .join('\n\n'),
   });
-  return callLLM(prompt, undefined, {
+  return callLLM(feedback === undefined ? prompt : `${prompt}\n\n${feedback}`, undefined, {
     maxTokens: DOX_WRITER_MAX_TOKENS,
     maxRetries: 2,
     callType: 'dox-writer',
-    context: context.contextLabel,
+    context:
+      attempt !== undefined && attempt > 1 ? `${context.contextLabel}#attempt${attempt}` : context.contextLabel,
     logPath: context.logPath,
   });
 }
 
 /** Default LLM implementation: render the per-wiki workspace entry prompt and call the LLM. */
-async function writeWorkspaceEntryWithLlm(context: DoxWorkspaceEntryContext): Promise<string> {
+async function writeWorkspaceEntryWithLlm(
+  context: DoxWorkspaceEntryContext,
+  feedback?: string,
+  attempt?: number,
+): Promise<string> {
   const template = await loadWorkspacePromptTemplate(DOX_WORKSPACE_ENTRY_PROMPT_FILE);
   const prompt = fillPromptTemplate(template, {
     wikiSlug: context.wikiSlug,
@@ -1267,43 +1339,65 @@ async function writeWorkspaceEntryWithLlm(context: DoxWorkspaceEntryContext): Pr
     outputLanguage: context.outputLanguage,
     wikiRootIndex: context.wikiRootIndex,
   });
-  return callLLM(prompt, undefined, {
+  return callLLM(feedback === undefined ? prompt : `${prompt}\n\n${feedback}`, undefined, {
     maxTokens: DOX_WRITER_MAX_TOKENS,
     maxRetries: 2,
     callType: 'dox-writer',
-    context: context.contextLabel,
+    context:
+      attempt !== undefined && attempt > 1 ? `${context.contextLabel}#attempt${attempt}` : context.contextLabel,
     logPath: context.logPath,
   });
 }
 
 /**
- * Bounded retry for the workspace entry call (Phase 7 v1.1.0): the entry is
- * free prose (no required sections), so the only quality failure is an empty
- * response; exceptions and empty output are retried up to DOX_MAX_ATTEMPTS
- * times before the caller falls back to the deterministic description.
+ * Bounded feedback retry for the workspace entry/prose calls (Phase 7 v1.1.0
+ * + Phase 12): the output is free prose (no required sections), so the only
+ * quality failure is an empty response — re-asked with the exact failure fed
+ * back, up to DOX_MAX_ATTEMPTS total attempts, before the caller falls back
+ * to the deterministic description/prose. A thrown LLM error (HTTP 4xx —
+ * never retried — or exhausted transient retries) is caught ONCE and also
+ * yields null: the deterministic-fallback guarantee is unchanged.
  */
 async function runWorkspaceEntryWithRetries(
-  runLlm: () => Promise<string>,
+  runLlm: (feedback: string | null, attempt: number) => Promise<string>,
   contextLabel: string,
 ): Promise<string | null> {
-  for (let attempt = 1; attempt <= DOX_MAX_ATTEMPTS; attempt++) {
-    try {
-      const output = (await runLlm()).trim();
-      if (output.length > 0) {
-        return output;
-      }
-      if (attempt < DOX_MAX_ATTEMPTS) {
-        console.warn(`DOX Writer: empty workspace entry for ${contextLabel} (attempt ${attempt}/${DOX_MAX_ATTEMPTS}); retrying.`);
-      }
-    } catch (err) {
-      if (attempt < DOX_MAX_ATTEMPTS) {
-        console.warn(`DOX Writer: workspace entry call failed for ${contextLabel} (${(err as Error).message}) (attempt ${attempt}/${DOX_MAX_ATTEMPTS}); retrying.`);
-      } else {
-        console.warn(`DOX Writer: workspace entry call failed for ${contextLabel} (${(err as Error).message}) after ${DOX_MAX_ATTEMPTS} attempts; using the deterministic description.`);
-      }
+  let attemptsMade = 0;
+  try {
+    const outcome = await runWithFeedbackRetry<string>(
+      (feedback, attempt) => {
+        attemptsMade = attempt;
+        return runLlm(feedback, attempt);
+      },
+      (rawOutput) => {
+        const output = rawOutput.trim();
+        return output.length > 0
+          ? { valid: true, errors: [] }
+          : { valid: false, errors: ['the response was empty; return the complete requested text'] };
+      },
+      {
+        maxAttempts: DOX_MAX_ATTEMPTS,
+        label: `workspace ${contextLabel}`,
+        onRepair: () => {
+          console.warn(
+            `DOX Writer: empty workspace entry for ${contextLabel} (attempt ${attemptsMade}/${DOX_MAX_ATTEMPTS}); retrying with validator feedback.`,
+          );
+        },
+      },
+    );
+    if (outcome.output !== null) {
+      return outcome.output.trim();
     }
+    console.warn(
+      `DOX Writer: workspace entry for ${contextLabel} was empty after ${DOX_MAX_ATTEMPTS} attempts; using the deterministic description.`,
+    );
+    return null;
+  } catch (err) {
+    console.warn(
+      `DOX Writer: workspace entry call failed for ${contextLabel} (${(err as Error).message}); using the deterministic description.`,
+    );
+    return null;
   }
-  return null;
 }
 
 /**
@@ -1421,7 +1515,10 @@ export async function writeWorkspaceIndex(options: WriteWorkspaceIndexOptions): 
         logPath: options.logPath,
       };
       const runProse = options.writeWorkspaceProseFn ?? writeWorkspaceProseWithLlm;
-      freshProse = await runWorkspaceEntryWithRetries(() => runProse(proseContext), proseContext.contextLabel);
+      freshProse = await runWorkspaceEntryWithRetries(
+        (feedback, attempt) => runProse(proseContext, feedback ?? undefined, attempt),
+        proseContext.contextLabel,
+      );
     }
     workspaceProse = freshProse ?? deterministicWorkspaceProse(wikis);
   }
@@ -1444,7 +1541,10 @@ export async function writeWorkspaceIndex(options: WriteWorkspaceIndexOptions): 
         logPath: options.logPath,
       };
       const runLlm = options.writeWorkspaceIndexFn ?? writeWorkspaceEntryWithLlm;
-      description = await runWorkspaceEntryWithRetries(() => runLlm(context), context.contextLabel);
+      description = await runWorkspaceEntryWithRetries(
+        (feedback, attempt) => runLlm(context, feedback ?? undefined, attempt),
+        context.contextLabel,
+      );
     }
     entryDescription = description ?? deterministicDescription(triggering);
   }

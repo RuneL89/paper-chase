@@ -1241,3 +1241,126 @@
     already matches). Security follow-up (user): rotate the OpenAI API key exposed in-session 2026-07-23.
   Result: COMPLIANT — no unresolved contradictions. Phase 11 ACCEPTED.
   Checked By: Main agent (phase orchestrator) + Verifier sub-agents + user UAT
+
+[2026-07-23 07:00] Vision Amendment Ratified — Feedback-Retry ("reask") Carve-Out
+  Trigger: UAT-era ingest failure on the ADHD corpus (Extractor schema slip: folder missing the
+    entities//topics/ prefix aborted a 5-PDF run). User assessed options and directed the reask
+    pattern: "Can't we just loop it back to the LLM agent? Send it a dynamic prompt about the issue
+    and tell it to try again. And then send that to the deterministic validator?"
+  Ratification: User approved the amendment plan verbatim on 2026-07-23 ("Approve. Change the vision
+    doc."), including: feedback-retry ≤3 total attempts with the validator's exact error list for
+    content-defect failures (Extractor JSON/schema + all quality-failure classes); HTTP 4xx stays
+    NEVER retried; transient backoff unchanged; Extractor exhaustion stays fail-loud (abort);
+    deterministic fallbacks unchanged; repair-rate warning at >25% of a run's LLM calls OR ≥5 repairs.
+  Changed: Project Vision/04_orchestration_detailed.md §6 (retry policy paragraph replaced with the
+    four-class policy), Project Vision/07_validation_and_quality.md §5 (error-handling philosophy
+    replaced), §2.1 + §2.2 (coherence clauses: rejection happens after the feedback-retry loop).
+  Supersedes: the "schema-validation errors are never retried" part of the 2026-07-20 amendment;
+    everything else from 2026-07-20 stands.
+  Implementation vehicle: new PHASE_12_validation_feedback_retry.md (canon-bootstrapped).
+  Result: COMPLIANT — amendment applied per the contradiction protocol (halted, presented, user accepted).
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-23 08:00] Phase 12 Pre-Implementation Compliance Check
+  Changed: (nothing yet — pre-implementation check; phase doc ratified by user 2026-07-23)
+  Vision Docs Checked: 04_orchestration_detailed.md §6 (four-class retry policy, as amended 2026-07-23),
+    07_validation_and_quality.md §2.1/§2.2 + §5 (feedback-retry carve-out, as amended 2026-07-23).
+  Comparison: PHASE_12_validation_feedback_retry.md v1.0.0 vs the amended vision —
+    - Shared helper with runLlm(null) first attempt (byte-identical prompts) + correction-block retries:
+      implements "the LLM receives its previous output plus the validator's exact error list and is asked
+      to correct only the listed violations". COMPLIANT.
+    - ≤3 total attempts at every site; HTTP 4xx never re-asked; transient backoff untouched; Extractor
+      exhaustion = same thrown error (abort); all deterministic fallbacks unchanged. COMPLIANT — matches
+      the amendment's explicit invariants; adds NO reject-and-continue, NO attempt-count changes.
+    - metrics.feedbackRepairs + warning at ≥5 repairs or >25% of run LLM calls: matches the ratified
+      repair-rate threshold (2026-07-23 07:00 entry). COMPLIANT.
+    - Every repair attempt logged to .state/llm-calls.json with #attemptN context: matches "each attempt
+      logged". COMPLIANT.
+    - Validators unchanged (they are the feedback source); model routing inherited per call site.
+      COMPLIANT with Phase 11 v1.4.0 routing.
+  Result: COMPLIANT — no contradictions; proceed to Implementer.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-23 03:52] Ad-hoc Compliance Check — Windows .exe packaging (user request; no phase doc)
+  Changed: (pre-implementation check; planned: package.json, scripts/build-exe.mjs [new],
+    src/utils/app-root.ts [new], src/agents/extractor.ts, src/agents/synthesis.ts,
+    src/agents/agents-updater.ts, src/dox-writer.ts, src/commands/init.ts,
+    src/extraction/pdf.ts, src/cli.ts, one new test file)
+  Vision Docs Checked: 01_PRODUCT_VISION_AND_ARCHITECTURE.md (§4.1 layered architecture, §5 Who
+    Decides What, §7 Non-Goals); Implementation Plan/PHASE_11_polish.md §2.1 (chase launcher);
+    Phase 0 frozen surface via src/AGENTS.md Local Contracts (PHASE_00 §7).
+  Comparison:
+    - Distribution mechanism: the vision is silent on packaging; §7 non-goal says "This is a CLI
+      tool" — a standalone Windows exe of the same CLI/TUI is squarely within it. EXTENSION.
+    - PHASE_11 §2.1: bin/chase.js stays the dev entry point (tsx launcher, "no build step in this
+      phase"). The exe is an ADDITIONAL distribution artifact built from src/cli.ts directly —
+      the launcher spawns an external tsx and can never work inside a packaged binary. COMPLIANT.
+    - Frozen surfaces (Phase 0 §7): extractText/getPageCount/callLLM signatures unchanged; prompt/
+      template/font resolution becomes pkg-aware additively — dev (tsx/vitest) resolution is
+      byte-identical to today. COMPLIANT.
+    - Toolchain adaptation from the user's recipe (not vision-governed): @yao-pkg/pkg fork with
+      node22-win-x64 instead of classic pkg node20 (ink@7 requires Node >=22; pdfjs-dist v4 calls
+      process.getBuiltinModule — Node 20.16+/22.3+ only — and classic pkg's node20 runtime would
+      break both), plus an esbuild pre-bundle (src is TypeScript/ESM; pkg requires a CJS entry;
+      bin/chase.js is a tsx-spawning launcher). NOTED for the user report.
+  Result: EXTENSION — packaging/distribution is not covered by the vision docs; no contradictions.
+  Checked By: Main agent
+
+[2026-07-23 09:00] Phase 12 Verification Closeout (validation feedback retry)
+  Changed: none (verification only).
+  Verification: Verifier sub-agent cold check (.state/phase-12-verification.md):
+    - 8/8 gates PASS, diff-verified against HEAD: attempt-1 prompts byte-identical at all five sites;
+      correction blocks carry invalid output + exact validator strings; ≤3 attempts; 4xx never re-asked
+      (mocked 404 = exactly 1 request); transient untouched (zero client.ts diff); #attemptN logging;
+      repair accounting at both metrics write points; warning branches all tested.
+    - Gate-7.12 re-cast verdict: LEGITIMATE — stricter where the amended vision demands (thrown errors
+      are 4xx-never-retried or transient-already-retried; site-level retry of throws would violate policy),
+      Case 1 byte-untouched, transparently annotated.
+    - npm test key-less 259 passed + 14 skipped (18 files); phase-12 suite 10/10; $0 confirmed.
+    - Nits: F1 workspace-pass reask half has no dedicated test (helper covered elsewhere); F2 user-owned
+      untracked scripts/tprobe.ts breaks repo-wide tsc (outside Phase 12 scope); F3 user-side deletions
+      in wikis/test-wiki/ (suite green regardless).
+  Result: COMPLIANT — no unresolved contradictions. Verifier recommendation: READY FOR UAT.
+  Checked By: Verifier sub-agent + Main agent (phase orchestrator)
+
+[2026-07-23 06:28] Ad-hoc Packaging Closeout — Windows .exe (launcher form)
+  Changed: src/utils/app-root.ts (new — pkg-aware app-root resolver), src/agents/extractor.ts,
+    src/agents/synthesis.ts, src/agents/agents-updater.ts, src/dox-writer.ts, src/commands/init.ts
+    (prompt/template resolution now via appRoot(); dev behavior byte-identical),
+    src/extraction/pdf.ts (packaged fonts + CJS worker via globalThis.pdfjsWorker),
+    src/cli.ts (pkg-aware parse guard), package.json (+ scripts, + devDeps @yao-pkg/pkg, esbuild),
+    pkg.config.json, pkg.config.launcher.json (new), scripts/build-exe.ts + exe-entry.ts +
+    build-launcher.ts + launcher-entry.ts + react-devtools-core-stub.js (new),
+    AGENTS.md (root), src/AGENTS.md, scripts/AGENTS.md, README.md (Windows Executable section).
+  Vision Docs Checked: same set as the 03:52 pre-check (01 §4.1/§5/§7; PHASE_11 §2.1; Phase 0
+    frozen surface). No contradictions found during implementation; frozen surfaces unchanged.
+  Deviations from the user's literal recipe (user-visible, reported):
+    - Output name `paper-chase.exe` (not llm-wiki-cli.exe — Phase 11 rebrand).
+    - @yao-pkg/pkg fork + node22-win-x64 (ink 7 requires Node >=22; pdfjs v4 needs
+      process.getBuiltinModule — classic pkg node20 fails both; node18/20 have no prebuilt binaries).
+    - esbuild pre-bundle (TypeScript/ESM source; bin/chase.js spawns external tsx — unusable in exe).
+    - LAUNCHER form: the exe extracts a real Node runtime and hands off. pkg's patched runtime
+      segfaults inside react-reconciler's commit on ink render (isolated: not yoga/WASM/stdio/
+      MessageChannel/bytecode/public/concurrent/jitless/no-opt; plain Node runs the bundle
+      flawlessly; no upstream fix). CLI subcommands work in the raw pkg exe
+      (`npm run package:win:raw`, kept for non-interactive use).
+    - bun --compile was evaluated and removed: components render but the App wedges
+      (chalk/event-loop under bun compile).
+  Verification:
+    - `npx tsc --noEmit` clean; `npm test` 260 passed / 11 failed / 2 skipped — all 11 failures are
+      the PRE-EXISTING deleted `wikis/test-wiki` fixtures (phase-02 live gates under .env key;
+      user-owned Phase 12 working-tree state, cf. the verifier's F3 nit above), zero failures
+      attributable to packaging.
+    - Launcher exe (`dist/paper-chase.exe`, ~152 MB): --help/--version OK; TUI renders the full
+      menu + footer (frame captured, clean exit); first-run extraction to
+      %LOCALAPPDATA%\paper-chase\runtime\<v> OK (marker-guarded); temp-workspace e2e OK:
+      `init smoke --title "Smoke Test Wiki"` + `ingest smoke --no-extract --no-dox-llm` →
+      "Ingest complete: 1 ingested, 0 skipped." — document page carries the verbatim golden-master
+      text with the rebuilt markdown table (proves worker + fonts + extraction inside the exe).
+      Native canvas shipped → zero pdfjs startup warnings (dev parity).
+    - Raw pkg exe: same CLI e2e green; TUI segfaults (documented limitation).
+    - Not verified here (no TTY in this shell): interactive TUI keystrokes and LLM-calling runs
+      inside the exe — left as user UAT (the runtime is real Node, same bundle as `npm run cli`).
+  Result: COMPLIANT (EXTENSION as pre-checked) — launcher exe delivered and verified; raw pkg
+    exe retained with a documented TUI limitation.
+  Checked By: Main agent

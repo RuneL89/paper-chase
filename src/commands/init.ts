@@ -1,11 +1,11 @@
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { isValidWikiSlug } from '../utils/slug';
 import { getLanguage, type LanguageCode } from '../utils/language';
 import { writeWikiLanguage } from '../state/language';
 import { wikiDir } from '../utils/paths';
+import { appRoot } from '../utils/app-root';
 
 export interface InitOptions {
   /** Wiki title; defaults to the slug when omitted. */
@@ -33,13 +33,12 @@ export interface InitResult {
 const WIKI_SUBDIRECTORIES = ['raw', 'documents', 'sources', 'entities', 'topics', '.state'] as const;
 
 /**
- * Resolve templates/AGENTS.md relative to this source file so `init` works
- * regardless of the caller's current working directory.
+ * Resolve templates/AGENTS.md from the application root so `init` works
+ * regardless of the caller's current working directory (pkg-aware: inside
+ * the packaged exe the template is read from the snapshot assets).
  */
 function templatePath(): string {
-  // src/commands/init.ts -> <project root>/templates/AGENTS.md
-  const here = dirname(fileURLToPath(import.meta.url));
-  return resolve(here, '..', '..', 'templates', 'AGENTS.md');
+  return join(appRoot(), 'templates', 'AGENTS.md');
 }
 
 /**

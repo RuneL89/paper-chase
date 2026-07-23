@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { callLLM } from '../llm/client';
+import { appRoot } from '../utils/app-root';
 import {
   applyLanguageDirective,
   buildLanguageDirective,
@@ -16,7 +16,7 @@ import type {
 } from '../pages/entity-page';
 import type { TopicPageData, TopicPageClaim } from '../pages/topic-page';
 
-const PROMPT_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'prompts');
+const PROMPT_DIR = join(appRoot(), 'prompts');
 const promptCache: Record<string, string> = {};
 
 async function loadPromptTemplate(fileName: string): Promise<string> {
@@ -185,12 +185,21 @@ function buildSynthesisPrompt(
  *
  * Reads the Phase 5 synthesis prompt, injects the entity data and the wiki
  * constitution, and calls the LLM. Returns the raw markdown string.
+ *
+ * Phase 12 (feedback-retry amendment, vision `04` §6): the optional trailing
+ * `feedback` carries the composed correction block from the preservation
+ * check's exact dropped items; when present it is appended to the prompt as a
+ * clearly delimited trailing section. When absent the prompt is byte-identical
+ * to the pre-Phase-12 prompt. `attempt` numbers the llm-calls.json context
+ * (`<slug>#attempt<N>`) on repairs.
  */
 export async function writeEntitySynthesis(
   entityData: EntityPageData,
   agentsMd: string,
   logPath?: string,
   language?: SynthesisLanguage,
+  feedback?: string,
+  attempt?: number,
 ): Promise<string> {
   const fullPrompt = await buildSynthesisPrompt(
     buildEntitySynthesisValues(entityData),
@@ -198,11 +207,11 @@ export async function writeEntitySynthesis(
     'synthesis.prompt.txt',
     language,
   );
-  return callLLM(fullPrompt, undefined, {
+  return callLLM(feedback === undefined ? fullPrompt : `${fullPrompt}\n\n${feedback}`, undefined, {
     maxTokens: 8192,
     maxRetries: 2,
     callType: 'synthesis',
-    context: entityData.slug,
+    context: attempt !== undefined && attempt > 1 ? `${entityData.slug}#attempt${attempt}` : entityData.slug,
     logPath,
   });
 }
@@ -219,6 +228,8 @@ export async function writePermissiveEntitySynthesis(
   agentsMd: string,
   logPath?: string,
   language?: SynthesisLanguage,
+  feedback?: string,
+  attempt?: number,
 ): Promise<string> {
   const fullPrompt = await buildSynthesisPrompt(
     buildEntitySynthesisValues(entityData),
@@ -226,11 +237,11 @@ export async function writePermissiveEntitySynthesis(
     'synthesis-permissive.prompt.txt',
     language,
   );
-  return callLLM(fullPrompt, undefined, {
+  return callLLM(feedback === undefined ? fullPrompt : `${fullPrompt}\n\n${feedback}`, undefined, {
     maxTokens: 8192,
     maxRetries: 2,
     callType: 'permissive-synthesis',
-    context: entityData.slug,
+    context: attempt !== undefined && attempt > 1 ? `${entityData.slug}#attempt${attempt}` : entityData.slug,
     logPath,
   });
 }
@@ -243,6 +254,8 @@ export async function writeTopicSynthesis(
   agentsMd: string,
   logPath?: string,
   language?: SynthesisLanguage,
+  feedback?: string,
+  attempt?: number,
 ): Promise<string> {
   const fullPrompt = await buildSynthesisPrompt(
     buildTopicSynthesisValues(topicData),
@@ -250,11 +263,11 @@ export async function writeTopicSynthesis(
     'synthesis-topic.prompt.txt',
     language,
   );
-  return callLLM(fullPrompt, undefined, {
+  return callLLM(feedback === undefined ? fullPrompt : `${fullPrompt}\n\n${feedback}`, undefined, {
     maxTokens: 8192,
     maxRetries: 2,
     callType: 'topic-synthesis',
-    context: topicData.slug,
+    context: attempt !== undefined && attempt > 1 ? `${topicData.slug}#attempt${attempt}` : topicData.slug,
     logPath,
   });
 }
@@ -267,6 +280,8 @@ export async function writePermissiveTopicSynthesis(
   agentsMd: string,
   logPath?: string,
   language?: SynthesisLanguage,
+  feedback?: string,
+  attempt?: number,
 ): Promise<string> {
   const fullPrompt = await buildSynthesisPrompt(
     buildTopicSynthesisValues(topicData),
@@ -274,11 +289,11 @@ export async function writePermissiveTopicSynthesis(
     'synthesis-topic-permissive.prompt.txt',
     language,
   );
-  return callLLM(fullPrompt, undefined, {
+  return callLLM(feedback === undefined ? fullPrompt : `${fullPrompt}\n\n${feedback}`, undefined, {
     maxTokens: 8192,
     maxRetries: 2,
     callType: 'permissive-topic-synthesis',
-    context: topicData.slug,
+    context: attempt !== undefined && attempt > 1 ? `${topicData.slug}#attempt${attempt}` : topicData.slug,
     logPath,
   });
 }

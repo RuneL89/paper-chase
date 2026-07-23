@@ -1,0 +1,12 @@
+{
+  "assets": [
+    "dist/chase.mjs",
+    "dist/pdf.worker.mjs",
+    "dist/runtime-node.exe",
+    "prompts/**/*",
+    "templates/**/*",
+    "node_modules/pdfjs-dist/standard_fonts/**/*",
+    "node_modules/@napi-rs/canvas/**/*",
+    "node_modules/@napi-rs/canvas-win32-x64-msvc/**/*"
+  ]
+}

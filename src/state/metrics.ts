@@ -28,7 +28,8 @@ import { join } from 'node:path';
  *   "brokenLinks": 0, "orphanedPages": 0,
  *   "conflictsManualEdit": 0, "conflictsPreservation": 0,
  *   "totalTokens": 12345,
- *   "wallClockMs": 42000
+ *   "wallClockMs": 42000,
+ *   "feedbackRepairs": 0
  * }
  * ```
  */
@@ -84,6 +85,12 @@ export interface IngestionMetrics {
   totalTokens: number;
   /** Phase 11: wall-clock duration of the run in milliseconds. */
   wallClockMs: number;
+  /**
+   * Phase 12 (feedback-retry amendment, vision `04` §6): LLM calls this run
+   * that were validator-feedback repairs (attempts 2+ of a reask loop, across
+   * all five call sites). 0 on a clean run.
+   */
+  feedbackRepairs: number;
 }
 
 export function metricsPath(wikiDir: string): string {
@@ -175,4 +182,35 @@ export async function sumLlmUsageSince(
  */
 export async function sumLlmCostSince(wikiDir: string, sinceIso: string): Promise<number> {
   return (await sumLlmUsageSince(wikiDir, sinceIso)).cost;
+}
+
+/**
+ * Count the LLM calls logged to `.state/llm-calls.json` (JSON lines, one
+ * entry per call) at or after `sinceIso`. Best-effort: a missing or partially
+ * malformed log counts only the parseable entries. Phase 12: the denominator
+ * of the repair-rate warning (vision `04` §6).
+ */
+export async function countLlmCallsSince(wikiDir: string, sinceIso: string): Promise<number> {
+  let raw: string;
+  try {
+    raw = await readFile(join(wikiDir, '.state', 'llm-calls.json'), 'utf-8');
+  } catch {
+    return 0;
+  }
+  let count = 0;
+  for (const line of raw.split('\n')) {
+    const trimmed = line.trim();
+    if (trimmed === '') {
+      continue;
+    }
+    try {
+      const entry = JSON.parse(trimmed) as { timestamp?: unknown };
+      if (typeof entry.timestamp === 'string' && entry.timestamp >= sinceIso) {
+        count++;
+      }
+    } catch {
+      // Skip malformed lines; never let logging data break an ingest.
+    }
+  }
+  return count;
 }

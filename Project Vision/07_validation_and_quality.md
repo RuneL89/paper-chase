@@ -33,7 +33,7 @@ After the Extractor returns JSON, the system validates:
 - All `page` values are within the chunk's page range.
 - All `subject` and `object` values in relationships reference existing entity slugs.
 
-If schema validation fails, the chunk is rejected and the error is logged.
+If schema validation fails, the chunk is rejected and the error is logged (after the feedback-retry loop of §5 is exhausted).
 
 ### 2.2 Folder Validation
 
@@ -44,7 +44,7 @@ Before the Materializer creates folders, the system checks:
 - Folder depth does not exceed 3 levels below `entities/` or `topics/`.
 - No duplicate slugs within the same folder.
 
-If folder validation fails, the chunk is rejected.
+If folder validation fails, the chunk is rejected (after the feedback-retry loop of §5 is exhausted).
 
 ### 2.3 Deterministic Completeness Check
 
@@ -105,14 +105,15 @@ There is no human approval gate during ingestion. The system is designed for bat
 
 ## 5. Error Handling Philosophy
 
-The system follows a **fail loud** philosophy, with a bounded-retry amendment (user-ratified 2026-07-20):
+The system follows a **fail loud** philosophy, with a bounded-retry amendment (user-ratified 2026-07-20) and a feedback-retry carve-out (user-ratified 2026-07-23):
 
-- If the Extractor returns invalid JSON, the chunk is rejected and the error is logged.
-- If the Writer drops content, the synthesized page is rejected and the structured template is kept.
+- If the Extractor returns invalid JSON or schema-violating output, the error is logged and the output is **fed back to the LLM with the validator's exact error list** for correction (the "reask" pattern), up to 3 total attempts; if still failing, the chunk is rejected and the error is logged.
+- If the Writer drops content after the bounded feedback retries below, the synthesized page is rejected and the structured template is kept.
 - If a preservation check fails after the bounded retries below, the update is skipped and the conflict is logged.
-- **Deterministic failures are never retried** — invalid JSON, schema-validation errors, and HTTP 4xx responses fail immediately. Retrying those would mask prompt problems and burn tokens.
+- **Deterministic failures are never retried** — HTTP 4xx responses fail immediately. Retrying those would mask configuration problems and burn tokens.
 - **Transient transport failures** (HTTP 429/5xx, network errors, timeouts) are retried with backoff, up to 3 total attempts per call, each attempt logged.
-- **Quality failures** — a preservation-check failure or an unparseable/incomplete DOX Writer response — are retried up to 3 total attempts before the deterministic fallback, because they are partly LLM variance rather than prompt defects.
+- **Quality failures** — a preservation-check failure, an unparseable/incomplete DOX Writer or workspace-pass response, or an incomplete AGENTS.md Updater response — are retried up to 3 total attempts **with the validator's exact findings fed back** (dropped mentions/relationships/claims/citations, missing sections) before the deterministic fallback, because they are partly LLM variance rather than prompt defects.
+- An elevated feedback-repair rate in a run (more than 25% of the run's LLM calls, or 5 or more repairs) triggers a prompt-quality warning.
 
 After the bounded retries are exhausted, the user fixes the prompt, the PDF, or the `AGENTS.md` and re-runs `ingest`.
 

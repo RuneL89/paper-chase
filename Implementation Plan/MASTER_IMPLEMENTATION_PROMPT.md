@@ -209,6 +209,7 @@ Phase documents live in `Implementation Plan/`; vision documents live in `Projec
 | 8 | `PHASE_08_multi_pdf_compounding.md` | `01_PRODUCT_VISION_AND_ARCHITECTURE.md`, `04_orchestration_detailed.md` | Compounding, incremental ingestion |
 | 9 | `PHASE_09_agents_updater.md` | `03_DOX_concept_detailed.md`, `01_PRODUCT_VISION_AND_ARCHITECTURE.md` | AGENTS.md as living document |
 | 11 | `PHASE_11_polish.md` | All vision documents | Final polish, must not break any existing spec |
+| 12 | `PHASE_12_validation_feedback_retry.md` | `04_orchestration_detailed.md` §6, `07_validation_and_quality.md` §2 + §5 | Feedback-retry (reask) carve-out: validator errors fed back to the LLM, ≤3 attempts; HTTP 4xx never retried |
 
 ---
 
@@ -344,7 +345,8 @@ Wiki v5/
 │   ├── PHASE_07_multilingual_ingestion.md          # Phase 7
 │   ├── PHASE_08_multi_pdf_compounding.md           # Phase 8
 │   ├── PHASE_09_agents_updater.md                  # Phase 9
-│   └── PHASE_11_polish.md                          # Phase 11
+│   ├── PHASE_11_polish.md                          # Phase 11
+│   └── PHASE_12_validation_feedback_retry.md       # Phase 12
 └── templates/
     └── AGENTS.md                                 # Template for wiki AGENTS.md (created in Phase 0)
 ```

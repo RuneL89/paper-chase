@@ -1,8 +1,9 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { callLLM } from '../llm/client';
+import { runWithFeedbackRetry } from '../llm/reask';
 import { slugify } from '../utils/slug';
+import { appRoot } from '../utils/app-root';
 import {
   applyLanguageDirective,
   buildLanguageDirective,
@@ -66,8 +67,10 @@ export interface ExtractorResult {
 
 /**
  * Typed extraction failure (phase doc §2.2 error handling; vision `04` §6
- * "The system does not retry"). Carries the raw LLM response when the output
- * was not valid JSON, and/or the schema issue list when validation failed.
+ * exhaustion rule: after the feedback-retry loop is exhausted the chunk is
+ * rejected and the ingest aborts — fail loud, unchanged). Carries the raw LLM
+ * response when the output was not valid JSON, and/or the schema issue list
+ * when validation failed.
  */
 export class ExtractorError extends Error {
   readonly rawResponse?: string;
@@ -85,11 +88,14 @@ export class ExtractorError extends Error {
 // deterministic output (temperature 0) makes slugs/folders stable across runs
 // (noted adaptation 5; additive CallLLMOptions, defaults unchanged for all
 // other callers). maxRetries (Phase 7 v1.1.0 amendment): transient transport
-// failures get up to 3 total attempts; invalid JSON/schema failures are
-// post-call and still never retried (vision `04` §6).
+// failures get up to 3 total attempts inside callLLM. Phase 12 (feedback-retry
+// amendment, user-ratified 2026-07-23; vision `04` §6 / `07` §5): invalid JSON
+// and schema violations are content defects re-asked with the validator's
+// exact errors fed back, up to 3 total attempts; HTTP 4xx is never retried.
 const EXTRACTION_MAX_TOKENS = 16384;
 const EXTRACTION_TEMPERATURE = 0;
 const EXTRACTION_MAX_RETRIES = 2;
+const EXTRACTION_MAX_ATTEMPTS = 3;
 
 let promptTemplateCache: string | null = null;
 
@@ -98,8 +104,7 @@ async function loadPromptTemplate(): Promise<string> {
   if (promptTemplateCache !== null) {
     return promptTemplateCache;
   }
-  const here = dirname(fileURLToPath(import.meta.url));
-  const promptPath = join(here, '..', '..', 'prompts', 'extractor.prompt.txt');
+  const promptPath = join(appRoot(), 'prompts', 'extractor.prompt.txt');
   promptTemplateCache = await readFile(promptPath, 'utf-8');
   return promptTemplateCache;
 }
@@ -154,8 +159,7 @@ export function stripCodeFences(text: string): string {
 
 async function debugWriteRawResponse(rawResponse: string): Promise<void> {
   try {
-    const here = dirname(fileURLToPath(import.meta.url));
-    const debugDir = join(here, '..', '..', '.state');
+    const debugDir = join(appRoot(), '.state');
     await mkdir(debugDir, { recursive: true });
     await writeFile(
       join(debugDir, 'debug-extractor-raw.txt'),
@@ -278,9 +282,16 @@ export function normalizeExtractorSlugs(data: unknown, language?: LanguageCode):
 
 /**
  * Run the Extractor on one chunk (phase doc §2.2): load the prompt, inject
- * the wiki context, one LLM call, parse JSON, normalize slugs, validate
- * against the schema. No retry — a failure throws ExtractorError and the user
- * fixes the prompt or the chunk and re-runs.
+ * the wiki context, then run the Phase 12 feedback-retry loop (vision `04`
+ * §6, user-ratified 2026-07-23): attempt 1 is byte-identical to the
+ * pre-Phase-12 call; when the parse or schema validation fails, the invalid
+ * output plus the validator's exact error list is appended to the SAME prompt
+ * as a clearly delimited correction block and re-asked, up to
+ * EXTRACTION_MAX_ATTEMPTS total attempts. Every attempt is logged via the
+ * existing logPath with context `<chunkId>` (attempt 1) or
+ * `<chunkId>#attempt<N>` (repairs). HTTP 4xx propagates immediately (never
+ * retried). Exhaustion throws the same ExtractorError shape as before
+ * Phase 12 — fail-loud abort, unchanged.
  */
 export async function extractChunk(
   chunkText: string,
@@ -318,25 +329,64 @@ export async function extractChunk(
     buildLanguageDirective('extractor', input, output),
   );
 
-  const rawResponse = await callLLM(prompt, undefined, {
-    maxTokens: EXTRACTION_MAX_TOKENS,
-    temperature: EXTRACTION_TEMPERATURE,
-    maxRetries: EXTRACTION_MAX_RETRIES,
-    callType: 'extractor',
-    context: options?.context,
-    logPath: options?.logPath,
-  });
+  // The last failure's full detail, captured by the validate closure so an
+  // exhausted loop can re-throw exactly the pre-Phase-12 error shape.
+  type ExtractorFailure =
+    | { kind: 'parse'; message: string; raw: string }
+    | { kind: 'schema'; issues: string[]; raw: string };
+  let parsedSuccess: ExtractorResult | null = null;
+  let lastFailure: ExtractorFailure | null = null;
 
-  const parsed = parseExtractorJson(rawResponse);
-  normalizeExtractorSlugs(parsed, input);
+  const outcome = await runWithFeedbackRetry<string>(
+    (feedback, attempt) =>
+      callLLM(feedback === null ? prompt : `${prompt}\n\n${feedback}`, undefined, {
+        maxTokens: EXTRACTION_MAX_TOKENS,
+        temperature: EXTRACTION_TEMPERATURE,
+        maxRetries: EXTRACTION_MAX_RETRIES,
+        callType: 'extractor',
+        context:
+          attempt === 1
+            ? options?.context
+            : `${options?.context ?? 'chunk'}#attempt${attempt}`,
+        logPath: options?.logPath,
+      }),
+    (rawResponse) => {
+      let parsed: unknown;
+      try {
+        parsed = parseExtractorJson(rawResponse);
+      } catch (err) {
+        const error = err as ExtractorError;
+        lastFailure = { kind: 'parse', message: error.message, raw: rawResponse };
+        return { valid: false, errors: [error.message] };
+      }
+      normalizeExtractorSlugs(parsed, input);
+      const validation = validateExtractorResult(parsed, pageRange);
+      if (!validation.valid) {
+        lastFailure = { kind: 'schema', issues: validation.issues, raw: rawResponse };
+        return { valid: false, errors: validation.issues };
+      }
+      parsedSuccess = parsed as ExtractorResult;
+      return { valid: true, errors: [] };
+    },
+    { maxAttempts: EXTRACTION_MAX_ATTEMPTS, label: options?.context ?? 'extractor chunk' },
+  );
 
-  const validation = validateExtractorResult(parsed, pageRange);
-  if (!validation.valid) {
-    throw new ExtractorError(
-      `Extractor output failed schema validation: ${validation.issues.join('; ')}`,
-      { issues: validation.issues, rawResponse },
-    );
+  if (outcome.output === null || parsedSuccess === null) {
+    // Exhaustion (vision `04` §6): reject the chunk with the same thrown
+    // error shape as before Phase 12 — the ingest aborts fail-loud. The
+    // closure-captured failure detail is typed loosely because the closure
+    // assignment is opaque to TS narrowing at this point in the control flow.
+    const failure = lastFailure as ExtractorFailure | null;
+    if (failure !== null && failure.kind === 'schema') {
+      throw new ExtractorError(
+        `Extractor output failed schema validation: ${failure.issues.join('; ')}`,
+        { issues: failure.issues, rawResponse: failure.raw },
+      );
+    }
+    const parseFailure: ExtractorFailure =
+      failure ?? { kind: 'parse', message: 'Extractor returned no output', raw: '' };
+    throw new ExtractorError(parseFailure.message, { rawResponse: parseFailure.raw });
   }
 
-  return parsed as ExtractorResult;
+  return parsedSuccess;
 }

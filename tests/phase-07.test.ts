@@ -807,8 +807,13 @@ test('gate 7.12: DOX writer retries unparseable output up to 3 attempts before f
   const peopleIndex = readFileSync(join(ws1, 'wikis', 'dox-wiki', 'entities', 'people', 'index.md'), 'utf-8');
   expect(peopleIndex).toContain('Rich description of the people folder.');
 
-  // Case 2: the stub always throws → deterministic contract after exactly 3
-  // attempts per target (3 targets: people, entities, root → 9 calls).
+  // Case 2: the stub always throws → deterministic contract after exactly 1
+  // attempt per target (3 targets: people, entities, root → 3 calls).
+  // Phase 12 (vision `04` §6): a THROWN LLM error is a deterministic transport
+  // failure (HTTP 4xx class) — never re-asked — so each target catches it once
+  // and falls straight to the deterministic contract. Only content-defect
+  // failures (unparseable / missing-section output) are re-asked up to 3
+  // total attempts; that path is covered by Case 1 and by Phase 12 gate 12.5.
   const { workspace: ws2 } = await setupDoxWiki('p7-doxretry-2-');
   let calls2 = 0;
   await writeDoxContracts('dox-wiki', {
@@ -819,15 +824,15 @@ test('gate 7.12: DOX writer retries unparseable output up to 3 attempts before f
       throw new Error('API down');
     },
   });
-  expect(calls2).toBe(9);
+  expect(calls2).toBe(3);
   const peopleIndex2 = readFileSync(join(ws2, 'wikis', 'dox-wiki', 'entities', 'people', 'index.md'), 'utf-8');
   expect(peopleIndex2).not.toContain('Rich description');
   expect(peopleIndex2).toContain('## Pages'); // deterministic contract written
 
-  // Case 3: the workspace entry pass retries too — exceptions x2 then valid.
-  // (2026-07-21 per-wiki segments: the entry call returns the triggering
-  // wiki's plain description text, so the retry triggers on exceptions and
-  // empty output.)
+  // Case 3: the workspace entry pass applies the same Phase 12 rule — a thrown
+  // error is caught once and falls back to the deterministic description (never
+  // re-asked). (2026-07-21 per-wiki segments: the entry call returns the
+  // triggering wiki's plain description text.)
   const ws3 = makeTempDir('p7-doxretry-3-');
   await init('dox-wiki', { workspace: ws3 });
   await writeDoxContracts('dox-wiki', { workspace: ws3 }); // root index exists (deterministic)
@@ -840,16 +845,14 @@ test('gate 7.12: DOX writer retries unparseable output up to 3 attempts before f
       doxLlm: true,
       writeWorkspaceIndexFn: async () => {
         calls3++;
-        if (calls3 <= 2) {
-          throw new Error('API overloaded');
-        }
-        return 'Rich workspace entry prose.';
+        throw new Error('API overloaded');
       },
     });
   } finally {
     warnSpy3.mockRestore();
   }
-  expect(calls3).toBe(3);
+  // Phase 12: exactly 1 attempt — the throw is not quality-retried.
+  expect(calls3).toBe(1);
   const workspaceIndex = readFileSync(join(ws3, 'wikis', 'index-of-indexes.md'), 'utf-8');
-  expect(workspaceIndex).toContain('Rich workspace entry prose.');
+  expect(workspaceIndex).toContain('## Wikis'); // deterministic workspace contract written
 });

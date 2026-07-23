@@ -1,0 +1,8 @@
+{
+  "assets": [
+    "prompts/**/*",
+    "templates/**/*",
+    "dist/pdf.worker.cjs",
+    "node_modules/pdfjs-dist/standard_fonts/**/*"
+  ]
+}

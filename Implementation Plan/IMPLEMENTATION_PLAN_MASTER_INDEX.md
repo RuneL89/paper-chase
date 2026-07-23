@@ -36,6 +36,7 @@ This structure prevents the compounding bug problem that destroyed the previous 
 | 8 | [PHASE_08_multi_pdf_compounding.md](PHASE_08_multi_pdf_compounding.md) | Multi-PDF compounding, incremental ingestion, conflict detection | $5.00 | 4-5h |
 | 9 | [PHASE_09_agents_updater.md](PHASE_09_agents_updater.md) | AGENTS.md updater: proposes updates based on discovered structure | $2.00 | 3-4h |
 | 11 | [PHASE_11_polish.md](PHASE_11_polish.md) | Productionization: per-call LLM model routing with suggestion labels, TUI cleanup, smoother workflow, full README.md, metrics, E2E tests | $0 | 4-6h |
+| 12 | [PHASE_12_validation_feedback_retry.md](PHASE_12_validation_feedback_retry.md) | Validation feedback retry (reask): validator errors fed back to the LLM at all five call sites, ≤3 attempts, repair-rate warning | $0 | 3-4h |
 
 **Total Estimated LLM Cost (all phases):** Variable; baseline ~$32.00 plus quality-first DOX Writer cost per wiki.
 **Total Estimated Time:** 40-58 hours
@@ -184,7 +185,8 @@ Wiki v5/                              # project root — all code and tests are 
     ├── PHASE_07_multilingual_ingestion.md
     ├── PHASE_08_multi_pdf_compounding.md
     ├── PHASE_09_agents_updater.md
-    └── PHASE_11_polish.md
+    ├── PHASE_11_polish.md
+    └── PHASE_12_validation_feedback_retry.md
 ```
 
 ---

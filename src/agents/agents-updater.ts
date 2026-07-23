@@ -1,12 +1,13 @@
 import { readFile, readdir, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, join, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { callLLM, type CallLLMOptions } from '../llm/client';
+import { runWithFeedbackRetry } from '../llm/reask';
 import { wikiDir } from '../utils/paths';
+import { appRoot } from '../utils/app-root';
 import { readStructuralChanges } from '../state/structural-changes';
 
-const PROMPT_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'prompts');
+const PROMPT_DIR = join(appRoot(), 'prompts');
 
 let promptCache: string | undefined;
 
@@ -54,12 +55,15 @@ export interface AgentsUpdaterOptions {
   /**
    * Injectable LLM implementation (test-only). Defaults to the real callLLM;
    * tests inject a deterministic stub to exercise the updater without an API
-   * key.
+   * key. Phase 12: the first argument is the COMPOSED prompt (attempt 2+
+   * carries the validator-feedback correction block appended); the options
+   * argument carries the numbered log context when the default wrapper is used.
    */
   callLLMFn?: (prompt: string, system?: string, options?: CallLLMOptions) => Promise<string>;
   /**
    * Optional path to a JSON-lines LLM call log. Defaults to the wiki's
    * `.state/llm-calls.json` (same convention as the other pipeline agents).
+   * Ignored when `callLLMFn` is injected.
    */
   logPath?: string;
 }
@@ -158,13 +162,26 @@ function enforceLanguageSection(proposal: string, currentAgentsMd: string): stri
   return proposal.replace(proposalSection, currentSection);
 }
 
-/** True when the LLM output is a plausible complete AGENTS.md proposal. */
-function isValidProposal(output: string): boolean {
+/**
+ * Phase 12 reask amendment: validate the LLM output and report the EXACT
+ * failures so they can be fed back verbatim as a correction block. A valid
+ * proposal is a plausible complete AGENTS.md: at least 200 characters and
+ * containing every required section heading.
+ */
+function validateProposal(output: string): { valid: boolean; errors: string[] } {
+  const errors: string[] = [];
   const stripped = stripCodeFences(output).trim();
   if (stripped.length < 200) {
-    return false;
+    errors.push(
+      `proposal is too short (${stripped.length} chars); a complete AGENTS.md must be at least 200 characters`,
+    );
   }
-  return REQUIRED_SECTIONS.every((section) => stripped.includes(section));
+  for (const section of REQUIRED_SECTIONS) {
+    if (!stripped.includes(section)) {
+      errors.push(`missing required section: ${section}`);
+    }
+  }
+  return { valid: errors.length === 0, errors };
 }
 
 /**
@@ -244,7 +261,7 @@ export async function proposeAgentsUpdate(
 
   const runLlm =
     options.callLLMFn ??
-    ((promptText: string) =>
+    ((promptText: string, _system?: string, callOptions?: CallLLMOptions) =>
       callLLM(promptText, undefined, {
         maxTokens: 8192,
         callType: 'agents-updater',
@@ -253,34 +270,51 @@ export async function proposeAgentsUpdate(
         // Bounded retry amendment: transient transport failures (429/5xx,
         // network) get 2 extra attempts; deterministic 4xx throws immediately.
         maxRetries: 2,
+        ...callOptions,
       }));
 
-  // Bounded retry on quality failures (vision `04` §6 / `07` §5): ≤3 total
-  // attempts, then the deterministic fallback.
+  // Phase 12 reask amendment (vision `04` §6 / `07` §5): content-defect
+  // failures — a proposal that is too short or missing required sections — are
+  // retried through the shared helper with the validator's exact errors fed
+  // back as a correction block, up to 3 total attempts, then the deterministic
+  // fallback. Attempt 1 is byte-identical to the pre-Phase-12 prompt (feedback
+  // is null). The injected callLLMFn seam receives the composed prompt as its
+  // first argument, unchanged.
   let proposal: string | null = null;
-  for (let attempt = 1; attempt <= AGENTS_UPDATER_MAX_ATTEMPTS; attempt++) {
-    try {
-      const output = await runLlm(prompt);
-      if (isValidProposal(output)) {
-        proposal = stripCodeFences(output).trim() + '\n';
-        break;
-      }
-      if (attempt < AGENTS_UPDATER_MAX_ATTEMPTS) {
-        console.warn(
-          `AGENTS.md Updater: proposal was unparseable or missing required sections (attempt ${attempt}/${AGENTS_UPDATER_MAX_ATTEMPTS}); retrying.`,
-        );
-      }
-    } catch (err) {
-      if (attempt < AGENTS_UPDATER_MAX_ATTEMPTS) {
-        console.warn(
-          `AGENTS.md Updater: LLM call failed (${(err as Error).message}) (attempt ${attempt}/${AGENTS_UPDATER_MAX_ATTEMPTS}); retrying.`,
-        );
-      } else {
-        console.warn(
-          `AGENTS.md Updater: LLM call failed (${(err as Error).message}) after ${AGENTS_UPDATER_MAX_ATTEMPTS} attempts; writing the deterministic fallback proposal instead.`,
-        );
-      }
+  let attemptsMade = 0;
+  try {
+    const outcome = await runWithFeedbackRetry<string>(
+      (feedback, attempt) => {
+        attemptsMade = attempt;
+        const composed = feedback === null ? prompt : `${prompt}\n\n${feedback}`;
+        return runLlm(composed, undefined, {
+          context: attempt === 1 ? wikiSlug : `${wikiSlug}#attempt${attempt}`,
+        });
+      },
+      (output) => validateProposal(output),
+      {
+        label: wikiSlug,
+        onRepair: (errors) => {
+          console.warn(
+            `AGENTS.md Updater: proposal failed validation (attempt ${attemptsMade}/${AGENTS_UPDATER_MAX_ATTEMPTS}); retrying with validator feedback. ${errors.join('; ')}`,
+          );
+        },
+      },
+    );
+    if (outcome.output !== null) {
+      proposal = stripCodeFences(outcome.output).trim() + '\n';
+    } else {
+      console.warn(
+        `AGENTS.md Updater: proposal failed validation after ${AGENTS_UPDATER_MAX_ATTEMPTS} attempts (${outcome.lastErrors.join('; ')}); writing the deterministic fallback proposal instead.`,
+      );
     }
+  } catch (err) {
+    // Deterministic transport failure (HTTP 4xx) or exhausted transient
+    // retries: never re-asked. Single warning, then the deterministic
+    // fallback — the fallback guarantee is unchanged.
+    console.warn(
+      `AGENTS.md Updater: LLM call failed (${(err as Error).message}); writing the deterministic fallback proposal instead.`,
+    );
   }
 
   if (proposal === null) {

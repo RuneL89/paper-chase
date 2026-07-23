@@ -8,6 +8,7 @@ import { render } from 'ink';
 import { App } from './tui/app';
 import { init } from './commands/init';
 import { ingest, formatIngestSummary } from './commands/ingest';
+import { isPackaged } from './utils/app-root';
 
 export const program = new Command();
 
@@ -116,11 +117,15 @@ program
 // Parse guard: only run program.parse() when this file is executed directly,
 // never when it is imported (e.g. by Gate 0.5 in vitest). The VITEST env var
 // check covers the test runner; the argv[1] vs import.meta.url comparison
-// covers direct execution via tsx/node. On Windows the comparison is done
-// case-insensitively because drive-letter casing can differ.
+// covers direct execution via tsx/node. In the esbuild CJS bundle import.meta
+// is empty, so argv[1] stands in for the module path (the bundle is only ever
+// executed directly); inside a pkg exe the guard short-circuits on
+// isPackaged(). On Windows the comparison is done case-insensitively because
+// drive-letter casing can differ.
 const entryPath = process.argv[1] ? resolve(process.argv[1]) : '';
-const modulePath = fileURLToPath(import.meta.url);
+const modulePath = import.meta.url ? fileURLToPath(import.meta.url) : entryPath;
 const isDirectExecution =
+  isPackaged() ||
   entryPath === modulePath ||
   (process.platform === 'win32' && entryPath.toLowerCase() === modulePath.toLowerCase());
 

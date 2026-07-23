@@ -14,8 +14,9 @@ import { readIngestionState, writeIngestionState } from '../state/ingestion-stat
 import { readWikiLanguage, writeWikiLanguage } from '../state/language';
 import { readFullRollingMemory } from '../state/rolling-memory';
 import { readConflicts } from '../state/conflicts';
-import { writeMetrics, sumLlmUsageSince, type IngestionMetrics } from '../state/metrics';
+import { writeMetrics, sumLlmUsageSince, countLlmCallsSince, type IngestionMetrics } from '../state/metrics';
 import { setModelRouting } from '../llm/client';
+import { beginReaskRun, reaskRepairs, runWithFeedbackRetry } from '../llm/reask';
 import { loadSettings } from '../tui/settings';
 import { writeSourcePage } from '../pages/source-page';
 import { extractDocumentChunk, type ChunkExtraction } from './extract-chunk';
@@ -64,13 +65,17 @@ export interface IngestOptions {
   /**
    * Injectable synthesis implementation (test-only). Defaults to the real
    * Synthesis Writer; tests can inject a deterministic stub to exercise the
-   * synthesis pipeline without an API key.
+   * synthesis pipeline without an API key. Phase 12: the trailing `feedback`
+   * (correction block on repair attempts) and `attempt` (1-based attempt
+   * number) are optional — stubs that ignore them keep working.
    */
   synthesizeEntityFn?: (
     entityData: EntityPageData,
     agentsMd: string,
     logPath?: string,
     language?: { input: LanguageCode; output: LanguageCode },
+    feedback?: string,
+    attempt?: number,
   ) => Promise<string>;
   /**
    * Injectable permissive synthesis implementation (test-only). Defaults to the
@@ -81,6 +86,8 @@ export interface IngestOptions {
     agentsMd: string,
     logPath?: string,
     language?: { input: LanguageCode; output: LanguageCode },
+    feedback?: string,
+    attempt?: number,
   ) => Promise<string>;
   /**
    * Injectable topic synthesis implementation (test-only). Defaults to the real
@@ -91,6 +98,8 @@ export interface IngestOptions {
     agentsMd: string,
     logPath?: string,
     language?: { input: LanguageCode; output: LanguageCode },
+    feedback?: string,
+    attempt?: number,
   ) => Promise<string>;
   /**
    * Injectable permissive topic synthesis implementation (test-only). Defaults to
@@ -101,6 +110,8 @@ export interface IngestOptions {
     agentsMd: string,
     logPath?: string,
     language?: { input: LanguageCode; output: LanguageCode },
+    feedback?: string,
+    attempt?: number,
   ) => Promise<string>;
   /**
    * Phase 6: run the DOX Writer in LLM mode — one LLM call per folder plus the
@@ -114,21 +125,22 @@ export interface IngestOptions {
   /**
    * Injectable DOX index writer (test-only pass-through to writeDoxContracts).
    * Defaults to the real LLM implementation; tests inject a stub to exercise
-   * `doxLlm: true` without an API key.
+   * `doxLlm: true` without an API key. Phase 12: optional trailing `feedback`
+   * (correction block on repairs) and `attempt` (1-based attempt number).
    */
-  writeDoxIndexFn?: (context: DoxIndexContext) => Promise<string>;
+  writeDoxIndexFn?: (context: DoxIndexContext, feedback?: string, attempt?: number) => Promise<string>;
   /**
    * Injectable workspace index writer (test-only pass-through to
    * writeWorkspaceIndex). Defaults to the real LLM implementation.
    */
-  writeWorkspaceIndexFn?: (context: DoxWorkspaceEntryContext) => Promise<string>;
+  writeWorkspaceIndexFn?: (context: DoxWorkspaceEntryContext, feedback?: string, attempt?: number) => Promise<string>;
   /**
    * Injectable workspace prose writer (test-only pass-through to
    * writeWorkspaceIndex, 2026-07-21 prose amendment). Defaults to the real
    * LLM implementation; needed so ingest-level `doxLlm: true` tests stay
    * LLM-free when the workspace prose regenerates.
    */
-  writeWorkspaceProseFn?: (context: DoxWorkspaceProseContext) => Promise<string>;
+  writeWorkspaceProseFn?: (context: DoxWorkspaceProseContext, feedback?: string, attempt?: number) => Promise<string>;
   /**
    * Phase 7 (vision `04` §9.1): input language of this run's PDFs. Resolution
    * order: this flag → `lastInputLanguage` in `.state/language.json` → 'en'.
@@ -223,6 +235,9 @@ const DEFAULT_PAGES_PER_CHUNK = 5;
  * quality failure, partly LLM variance — before the chain moves to the next
  * mode. Language-agnostic: applies to every ingest in every wiki.
  * Deterministic LLM errors (HTTP 4xx) still abort immediately.
+ * Phase 12 (feedback-retry amendment, user-ratified 2026-07-23): the retry is
+ * no longer blind — attempts 2+ carry the preservation check's exact dropped
+ * items back to the writer via runWithFeedbackRetry.
  */
 const SYNTHESIS_MAX_ATTEMPTS = 3;
 
@@ -230,31 +245,69 @@ interface SynthesisModeResult<C> {
   /** The synthesized page when a preservation check passed, else null. */
   page: string | null;
   attempts: number;
-  lastCheck: C;
+  /** The most recent preservation check; null only when the LLM call threw. */
+  lastCheck: C | null;
+}
+
+/**
+ * Build the validator-feedback error list from a preservation check: every
+ * dropped mention context, relationship evidence, claim text, and citation
+ * marker, verbatim (the reask prompt must carry the exact substrings the
+ * writer must restore).
+ */
+function preservationFeedbackErrors(check: { passed: boolean }): string[] {
+  const dropped = check as {
+    droppedMentions?: string[];
+    droppedRelationships?: string[];
+    droppedClaims?: string[];
+    droppedCitations?: string[];
+  };
+  const errors: string[] = [];
+  for (const mention of dropped.droppedMentions ?? []) {
+    errors.push(`Dropped mention (restore this exact text): ${mention}`);
+  }
+  for (const evidence of dropped.droppedRelationships ?? []) {
+    errors.push(`Dropped relationship evidence (restore this exact text): ${evidence}`);
+  }
+  for (const claim of dropped.droppedClaims ?? []) {
+    errors.push(`Dropped claim (restore this exact text): ${claim}`);
+  }
+  for (const citation of dropped.droppedCitations ?? []) {
+    errors.push(`Dropped citation (restore this exact marker): ${citation}`);
+  }
+  return errors.length > 0 ? errors : ['The preservation check failed; restore all dropped content verbatim.'];
 }
 
 async function trySynthesisMode<C extends { passed: boolean }>(
-  runSynthesis: () => Promise<string>,
+  runSynthesis: (feedback: string | null, attempt: number) => Promise<string>,
   runCheck: (page: string) => C,
   label: string,
 ): Promise<SynthesisModeResult<C>> {
-  let attempts = 0;
   let lastCheck: C | null = null;
-  while (attempts < SYNTHESIS_MAX_ATTEMPTS) {
-    attempts++;
-    const page = await runSynthesis();
-    const check = runCheck(page);
-    lastCheck = check;
-    if (check.passed) {
-      return { page, attempts, lastCheck };
-    }
-    if (attempts < SYNTHESIS_MAX_ATTEMPTS) {
-      console.warn(
-        `Preservation failed for ${label} (attempt ${attempts}/${SYNTHESIS_MAX_ATTEMPTS}); retrying.`,
-      );
-    }
-  }
-  return { page: null, attempts, lastCheck: lastCheck as C };
+  let attemptsMade = 0;
+  const outcome = await runWithFeedbackRetry<string>(
+    (feedback, attempt) => {
+      attemptsMade = attempt;
+      return runSynthesis(feedback, attempt);
+    },
+    (page) => {
+      const check = runCheck(page);
+      lastCheck = check;
+      return check.passed
+        ? { valid: true, errors: [] }
+        : { valid: false, errors: preservationFeedbackErrors(check) };
+    },
+    {
+      maxAttempts: SYNTHESIS_MAX_ATTEMPTS,
+      label,
+      onRepair: () => {
+        console.warn(
+          `Preservation failed for ${label} (attempt ${attemptsMade}/${SYNTHESIS_MAX_ATTEMPTS}); retrying with validator feedback.`,
+        );
+      },
+    },
+  );
+  return { page: outcome.output, attempts: outcome.attempts, lastCheck };
 }
 
 function loadAgentsMd(wikiDir: string): string {
@@ -335,6 +388,11 @@ export function formatIngestSummary(result: IngestResult): string {
  * compounding metrics to `.state/metrics.json` for the TUI Ingestion Log.
  */
 export async function ingest(slug: string, options: IngestOptions = {}): Promise<IngestResult> {
+  // Phase 12 (vision `04` §6): reset the per-run feedback-repair counter so
+  // metrics.feedbackRepairs and the end-of-run prompt-quality warning reflect
+  // exactly this run's reask activity across all five LLM call sites.
+  beginReaskRun();
+
   const pagesPerChunk = options.pagesPerChunk ?? DEFAULT_PAGES_PER_CHUNK;
   const extract = options.extract ?? true;
   const synthesis = options.synthesis ?? false;
@@ -689,7 +747,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       // SYNTHESIS_MAX_ATTEMPTS times on preservation failure (Phase 7
       // v1.1.0 bounded retry amendment — applies to every language).
       const strict = await trySynthesisMode(
-        () => runEntitySynthesis(entityPage, agentsMd, llmLogPath, language),
+        (feedback, attempt) => runEntitySynthesis(entityPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
         (page) => checkPreservation(entityPage, page),
         entityPage.slug,
       );
@@ -721,7 +779,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         `Strict synthesis failed preservation for ${entityPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`,
       );
       const permissive = await trySynthesisMode(
-        () => runEntityPermissiveSynthesis(entityPage, agentsMd, llmLogPath, language),
+        (feedback, attempt) => runEntityPermissiveSynthesis(entityPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
         (page) => checkPreservation(entityPage, page),
         entityPage.slug,
       );
@@ -745,7 +803,9 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         console.warn(
           `Permissive synthesis also failed preservation for ${entityPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
         );
-        await logConflict(dir, entityPage.slug, permissive.lastCheck, 'entity');
+        if (permissive.lastCheck !== null) {
+          await logConflict(dir, entityPage.slug, permissive.lastCheck, 'entity');
+        }
         result.synthesisConflicts = (result.synthesisConflicts ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
@@ -766,7 +826,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
 
     for (const topicPage of lastMaterializeResult.topicPages) {
       const strict = await trySynthesisMode(
-        () => runTopicSynthesis(topicPage, agentsMd, llmLogPath, language),
+        (feedback, attempt) => runTopicSynthesis(topicPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
         (page) => checkTopicPreservation(topicPage, page),
         `topic ${topicPage.slug}`,
       );
@@ -793,7 +853,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         `Strict synthesis failed preservation for topic ${topicPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`,
       );
       const permissive = await trySynthesisMode(
-        () => runTopicPermissiveSynthesis(topicPage, agentsMd, llmLogPath, language),
+        (feedback, attempt) => runTopicPermissiveSynthesis(topicPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
         (page) => checkTopicPreservation(topicPage, page),
         `topic ${topicPage.slug}`,
       );
@@ -817,7 +877,9 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         console.warn(
           `Permissive synthesis also failed preservation for topic ${topicPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
         );
-        await logConflict(dir, topicPage.slug, permissive.lastCheck, 'topic');
+        if (permissive.lastCheck !== null) {
+          await logConflict(dir, topicPage.slug, permissive.lastCheck, 'topic');
+        }
         result.topicConflicts = (result.topicConflicts ?? 0) + 1;
         await logSynthesisReport(dir, {
           timestamp: new Date().toISOString(),
@@ -946,6 +1008,9 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       conflictsPreservation,
       totalTokens: llmUsage.inputTokens + llmUsage.outputTokens,
       wallClockMs: Date.now() - runStartMs,
+      // Phase 12 (vision `04` §6): validator-feedback repairs so far this run
+      // (preliminary write = pre-DOX stages; final write = the whole run).
+      feedbackRepairs: reaskRepairs(),
     };
   };
 
@@ -1042,6 +1107,24 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     );
   } catch (err) {
     progress(`Warning: could not record ingestion metrics: ${(err as Error).message}`);
+  }
+
+  // Phase 12 (vision `04` §6 repair-rate warning): an elevated feedback-repair
+  // rate means the loop may be masking a systematic prompt defect. Warn at ≥5
+  // repairs in the run OR repairs above 25% of the run's logged LLM calls
+  // (calls counted from `.state/llm-calls.json` entries at/after run start;
+  // the ratio check is skipped when no calls were logged). Accounting is
+  // auxiliary — it must never fail the run.
+  try {
+    const repairs = reaskRepairs();
+    const llmCalls = await countLlmCallsSince(dir, runStartedAt);
+    if (repairs >= 5 || (llmCalls > 0 && repairs / llmCalls > 0.25)) {
+      progress(
+        `Warning: ${repairs} of ${llmCalls} LLM calls this run needed validator-feedback repair — the underlying prompt may need attention.`,
+      );
+    }
+  } catch {
+    // Best-effort accounting only.
   }
 
   progress('Done!');
