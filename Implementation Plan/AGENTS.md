@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The phased implementation plan for LLM Wiki CLI v2.0: phases 0–9 and 11, each a standalone deliverable with technical gates and user acceptance tests, plus the prompts that drive the implementing agent.
+The phased implementation plan for Paper Chase v.1.0: phases 0–9 and 11, each a standalone deliverable with technical gates and user acceptance tests, plus the prompts that drive the implementing agent.
 
 ## Ownership
 

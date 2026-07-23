@@ -285,7 +285,7 @@ if (config.synthesis) {
 }
 ```
 
-**Default:** `synthesis` is `false` for the first MVP. The journalist can enable it with `llm-wiki-cli ingest --synthesis`.
+**Default:** `synthesis` is `false` for the first MVP. The journalist can enable it with `chase ingest --synthesis`.
 
 ---
 
@@ -551,7 +551,7 @@ Add a synthesis toggle to the settings screen:
 ```
 
 **Behavior:**
-- Toggles saved to `.llm-wiki-cli.json`.
+- Toggles saved to `.paper-chase.json`.
 - When "Synthesis" is ON, the `ingest` screen shows a checkbox for "Enable synthesis" that is pre-checked.
 
 ### 6.2 `ingest-screen.tsx` Update

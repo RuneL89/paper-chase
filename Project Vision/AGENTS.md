@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Canonical vision and specification documents for LLM Wiki CLI v2.0. These seven documents are the source of truth for what the system must do; implementation is checked against them for compliance.
+Canonical vision and specification documents for Paper Chase v.1.0. These seven documents are the source of truth for what the system must do; implementation is checked against them for compliance.
 
 ## Ownership
 

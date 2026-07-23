@@ -1,4 +1,4 @@
-# LLM Wiki CLI v2.0 — Start Phase {N}
+# Paper Chase v.1.0 — Start Phase {N}
 
 ## For the User
 
@@ -6,7 +6,7 @@ Replace `{N}` with the phase number (0-11) and paste this into your AI coding ag
 
 ## For the Agent
 
-You are implementing **Phase {N}** of the LLM Wiki CLI v2.0.
+You are implementing **Phase {N}** of Paper Chase v.1.0.
 
 ### Step 1: Read the Master Prompt
 

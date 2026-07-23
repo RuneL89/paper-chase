@@ -1,12 +1,12 @@
-# LLM Wiki CLI — Wiki Concept (Detailed)
+# Paper Chase — Wiki Concept (Detailed)
 
-This document explains the philosophy, requirements, and mechanics of the wiki pages produced by the LLM Wiki CLI. It is written so that anyone joining the project without prior context can understand why the wiki is built the way it is, and what rules the system must follow when creating it.
+This document explains the philosophy, requirements, and mechanics of the wiki pages produced by Paper Chase. It is written so that anyone joining the project without prior context can understand why the wiki is built the way it is, and what rules the system must follow when creating it.
 
 ---
 
 ## 1. The Core Idea
 
-The LLM Wiki CLI turns a collection of PDFs into a **wiki-of-wikis**: a set of interlinked markdown pages that together form a browseable, citation-backed knowledge base.
+Paper Chase turns a collection of PDFs into a **wiki-of-wikis**: a set of interlinked markdown pages that together form a browseable, citation-backed knowledge base.
 
 The central idea is borrowed from the **LLM Wiki Gist** by Andrej Karpathy:
 

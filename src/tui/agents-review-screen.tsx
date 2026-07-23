@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Text, useInput, useStdin } from 'ink';
-import { copyFile, readFile, rm } from 'node:fs/promises';
+import { copyFile, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
@@ -27,12 +27,20 @@ const FULL_DIFF_LINES = 12;
 const DIFF_LINE_STEP = 4;
 
 /**
- * Review AGENTS.md Updates screen (Phase 9, phase doc §5.1): shows the
- * proposed constitution updates (new folders, new page types) and an inline
- * diff between the current AGENTS.md and the proposal. Accept copies the
- * proposal over AGENTS.md; Reject deletes the proposal file. The updater
- * itself never overwrites AGENTS.md — applying is always an explicit human
- * decision (vision `01` §5).
+ * Review AGENTS.md Updates screen — restored in Phase 11 v1.6.0 (user
+ * directive 2026-07-23) from the Phase 9 implementation, adapted as a
+ * FLOW-ONLY screen: it is NOT a main-menu item (the menu stays at exactly
+ * five items, gate 11.3) and is reachable ONLY from the post-ingest
+ * shortcut (the Ingest screen's `p` key when an ingest proposed AGENTS.md
+ * updates). The screen shows the proposed constitution updates (new
+ * folders, new page types) and an inline diff between the current AGENTS.md
+ * and `.state/proposed-agents.md`.
+ *
+ * v1.6.0 semantics: Accept copies the proposal over AGENTS.md; Reject is a
+ * NO-OP — nothing on the filesystem changes, the proposal file is KEPT for
+ * later manual review (this supersedes the 2026-07-21 reject-deletes
+ * preference). The updater itself never overwrites AGENTS.md — applying is
+ * always an explicit human decision (vision `01` §5).
  *
  * Ink 7 conventions (src/AGENTS.md): useInput is gated on raw-mode support,
  * a static fallback renders without a TTY, Escape returns to the menu.
@@ -114,9 +122,11 @@ export function AgentsReviewScreen({ onBack, onResult, workspace = '.', wiki: in
       return;
     }
     try {
-      const dir = wikiDir(workspace, activeWiki);
-      await rm(join(dir, '.state', 'proposed-agents.md'), { force: true });
-      const resultMessage = `Rejected proposed AGENTS.md updates for ${activeWiki}.`;
+      // Phase 11 v1.6.0 (user directive 2026-07-23): Reject is a NO-OP —
+      // AGENTS.md is untouched AND the proposal file stays on disk for
+      // later manual review (supersedes the 2026-07-21 reject-deletes
+      // preference). Nothing to do but report.
+      const resultMessage = `Rejected proposed AGENTS.md updates for ${activeWiki}. No changes made.`;
       setMessage(resultMessage);
       setStatus('done');
       onResult?.(resultMessage);

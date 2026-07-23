@@ -14,7 +14,9 @@ import { readIngestionState, writeIngestionState } from '../state/ingestion-stat
 import { readWikiLanguage, writeWikiLanguage } from '../state/language';
 import { readFullRollingMemory } from '../state/rolling-memory';
 import { readConflicts } from '../state/conflicts';
-import { writeMetrics, sumLlmCostSince, type IngestionMetrics } from '../state/metrics';
+import { writeMetrics, sumLlmUsageSince, type IngestionMetrics } from '../state/metrics';
+import { setModelRouting } from '../llm/client';
+import { loadSettings } from '../tui/settings';
 import { writeSourcePage } from '../pages/source-page';
 import { extractDocumentChunk, type ChunkExtraction } from './extract-chunk';
 import { materialize, type MaterializeResult } from '../materializer';
@@ -205,6 +207,12 @@ export interface IngestResult {
   languages?: { input: LanguageCode; output: LanguageCode };
   /** Phase 9: true when the AGENTS.md Updater wrote `.state/proposed-agents.md`. */
   agentsUpdateProposed?: boolean;
+  /**
+   * Phase 11: true when the Synthesis Writer stage ran this run (so result
+   * banners can show the Synthesis segment only then — the synthesized
+   * counters themselves are always present and zero-initialized).
+   */
+  synthesisRan?: boolean;
 }
 
 const DEFAULT_PAGES_PER_CHUNK = 5;
@@ -259,6 +267,36 @@ function loadAgentsMd(wikiDir: string): string {
 }
 
 /**
+ * Phase 11 (phase doc §2.4): the end-of-ingest result banner, shared by the
+ * CLI and the TUI so both say exactly the same thing:
+ * `Ingest complete: X ingested, Y skipped. Synthesis: A pages written
+ * (B strict, C permissive), D conflicts. Validation passed.`
+ * The Synthesis segment appears only when the Synthesis Writer stage ran;
+ * the Validation segment only when a validation pass ran.
+ */
+export function formatIngestSummary(result: IngestResult): string {
+  let summary = `Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`;
+  if (result.synthesisRan === true) {
+    const strict = (result.synthesized ?? 0) + (result.synthesizedTopics ?? 0);
+    const permissive = (result.synthesizedPermissive ?? 0) + (result.synthesizedTopicsPermissive ?? 0);
+    const conflicts = (result.synthesisConflicts ?? 0) + (result.topicConflicts ?? 0);
+    summary +=
+      ` Synthesis: ${strict + permissive} pages written ` +
+      `(${strict} strict, ${permissive} permissive), ${conflicts} conflicts.`;
+  }
+  const validation = result.finalValidation ?? result.validation;
+  if (validation) {
+    const issues =
+      validation.links.broken.length +
+      validation.citations.invalid.length +
+      validation.citations.missingSource.length +
+      validation.schema.invalid.length;
+    summary += issues === 0 ? ' Validation passed.' : ' Validation found issues.';
+  }
+  return summary;
+}
+
+/**
  * Ingest every PDF in `wikis/<slug>/raw/` into raw document pages
  * (phase doc §2.2, Layer 1) and, unless `extract: false`, run the Layer 2
  * Extractor on each newly-written chunk (phase doc §2.3).
@@ -302,6 +340,19 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   const synthesis = options.synthesis ?? false;
   if (!Number.isInteger(pagesPerChunk) || pagesPerChunk < 1) {
     throw new Error(`pagesPerChunk must be a positive integer, got ${pagesPerChunk}.`);
+  }
+
+  // Phase 11 (phase doc §2.2): per-call LLM model routing from the workspace
+  // TUI settings (`.paper-chase.json`). This is the single integration point
+  // — it covers both the CLI and the TUI because both call ingest(). A
+  // settings failure must never break an ingest, so it is best-effort.
+  // Phase 11 v1.5.0: the Settings-stored API keys ride along on the routing
+  // config (they win over the environment per provider in the client).
+  try {
+    const tuiSettings = await loadSettings(options.workspace ?? '.');
+    setModelRouting({ ...tuiSettings.models, apiKeys: tuiSettings.apiKeys });
+  } catch {
+    // Keep whatever routing was already in effect.
   }
 
   const dir = wikiDir(options.workspace, slug);
@@ -384,9 +435,16 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   // (entity/mention diff), conflicts count, and the set of already-known
   // source slugs (so "new PDFs" means first-time-ingested only).
   const runStartedAt = now;
+  const runStartMs = Date.now();
   const memoryBefore = await readFullRollingMemory(dir);
   const conflictsBefore = (await readConflicts(dir)).conflicts.length;
   const knownSlugsAtStart = new Set(Object.keys(state.sources));
+
+  // Phase 11 (phase doc §2.6): per-run extraction accumulators for the
+  // extended metrics (claims are also counted by type for claimsByType).
+  let relationshipsExtracted = 0;
+  let claimsExtracted = 0;
+  const claimsByType: Record<string, number> = {};
 
   // Phase 8 (phase doc §2.2): removed PDFs — recorded in the ingestion state
   // but no longer present in raw/. Warn only; derived pages are KEPT so the
@@ -545,6 +603,12 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           relationships: extraction.result.relationships.length,
           claims: extraction.result.claims.length,
         });
+        // Phase 11: accumulate the run's extraction metrics.
+        relationshipsExtracted += extraction.result.relationships.length;
+        claimsExtracted += extraction.result.claims.length;
+        for (const claim of extraction.result.claims) {
+          claimsByType[claim.type] = (claimsByType[claim.type] ?? 0) + 1;
+        }
       }
     }
 
@@ -603,6 +667,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   // Order: entities first, then topics. Document pages keep their deterministic
   // Phase 1 format and are not synthesized.
   if (extract && synthesis && lastMaterializeResult) {
+    result.synthesisRan = true;
     const agentsMd = loadAgentsMd(dir);
     const llmLogPath = join(dir, '.state', 'llm-calls.json');
     const runEntitySynthesis = options.synthesizeEntityFn ?? writeEntitySynthesis;
@@ -788,42 +853,99 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   // diff across the whole run; updated entities whose page update was
   // skipped (manual-edit conflict) are reported as conflicts, not updates.
   // Computed identically for the preliminary and the final write — the only
-  // difference is the LLM cost window (the preliminary total excludes the
-  // DOX/workspace calls that have not run yet).
+  // differences are the fields derived from stages that have not run yet at
+  // the preliminary point (final validation counts, the full LLM cost/token
+  // window, and the final wall-clock time).
+  // Phase 11 (phase doc §2.6): the field set is extended additively with
+  // chunk/relationship/claim/page/folder/conflict/token/wall-clock counters.
+  let memoryAfterEntityCount = 0;
   const buildRunMetrics = async (): Promise<IngestionMetrics> => {
     const memoryAfter = await readFullRollingMemory(dir);
+    memoryAfterEntityCount = memoryAfter?.entities.length ?? 0;
     const beforeCounts = new Map((memoryBefore?.entities ?? []).map((entity) => [entity.slug, entity.mentionCount]));
+    const beforeFolders = new Set(memoryBefore?.folderStructure ?? []);
     const titleBySlug = new Map<string, string>();
     for (const page of lastMaterializeResult?.entityPages ?? []) {
       titleBySlug.set(page.slug, page.title);
     }
-    const conflictsAfter = (await readConflicts(dir)).conflicts.length;
+    const conflictsState = await readConflicts(dir);
+    const conflictsAfter = conflictsState.conflicts.length;
+    // Phase 11: this run's conflicts split by kind — manual-edit entries
+    // carry `type: 'manual-edit'`; preservation failures carry a pageType.
+    let conflictsManualEdit = 0;
+    let conflictsPreservation = 0;
+    for (const entry of conflictsState.conflicts) {
+      if (entry.timestamp < runStartedAt) {
+        continue;
+      }
+      if ('type' in entry && entry.type === 'manual-edit') {
+        conflictsManualEdit += 1;
+      } else {
+        conflictsPreservation += 1;
+      }
+    }
+    const newEntities = (memoryAfter?.entities ?? [])
+      .filter((entity) => !beforeCounts.has(entity.slug))
+      .map((entity) => ({
+        slug: entity.slug,
+        title: titleBySlug.get(entity.slug) ?? entity.slug,
+        folder: entity.folder,
+      }));
+    const updatedEntities = (memoryAfter?.entities ?? [])
+      .filter(
+        (entity) =>
+          beforeCounts.has(entity.slug) &&
+          entity.mentionCount > (beforeCounts.get(entity.slug) ?? 0) &&
+          !conflictSkippedSlugs.has(entity.slug),
+      )
+      .map((entity) => ({
+        slug: entity.slug,
+        title: titleBySlug.get(entity.slug) ?? entity.slug,
+        addedMentions: entity.mentionCount - (beforeCounts.get(entity.slug) ?? 0),
+      }));
+    // Phase 11: pages created/updated this run by type — entity/topic pages
+    // actually written by the Materializer (conflict-skips excluded) plus the
+    // document pages written by this run's Layer 1 pass.
+    const pagesByType: Record<string, number> = {};
+    for (const written of lastMaterializeResult?.writtenPages ?? []) {
+      const type = written.path.split('/')[0] === 'topics' ? 'topic' : 'entity';
+      pagesByType[type] = (pagesByType[type] ?? 0) + 1;
+    }
+    const documentPagesWritten = result.ingested.reduce((count, source) => count + source.documentPages.length, 0);
+    if (documentPagesWritten > 0) {
+      pagesByType.document = documentPagesWritten;
+    }
+    const llmUsage = await sumLlmUsageSince(dir, runStartedAt);
+    const validation = result.finalValidation ?? result.validation;
     return {
       run: runStartedAt,
       newPdfs: result.ingested
         .filter((source) => !knownSlugsAtStart.has(source.source))
         .map((source) => source.file),
-      newEntities: (memoryAfter?.entities ?? [])
-        .filter((entity) => !beforeCounts.has(entity.slug))
-        .map((entity) => ({
-          slug: entity.slug,
-          title: titleBySlug.get(entity.slug) ?? entity.slug,
-          folder: entity.folder,
-        })),
-      updatedEntities: (memoryAfter?.entities ?? [])
-        .filter(
-          (entity) =>
-            beforeCounts.has(entity.slug) &&
-            entity.mentionCount > (beforeCounts.get(entity.slug) ?? 0) &&
-            !conflictSkippedSlugs.has(entity.slug),
-        )
-        .map((entity) => ({
-          slug: entity.slug,
-          title: titleBySlug.get(entity.slug) ?? entity.slug,
-          addedMentions: entity.mentionCount - (beforeCounts.get(entity.slug) ?? 0),
-        })),
+      newEntities,
+      updatedEntities,
       conflicts: conflictsAfter - conflictsBefore,
-      totalCost: await sumLlmCostSince(dir, runStartedAt),
+      totalCost: llmUsage.cost,
+      chunksProcessed: documentPagesWritten,
+      // Skipped chunks = the recorded document pages of hash-skipped PDFs.
+      chunksSkipped: result.skipped.reduce(
+        (count, sourceSlug) => count + (state.sources[sourceSlug]?.documentPages.length ?? 0),
+        0,
+      ),
+      chunksFailed: 0,
+      entitiesNew: newEntities.length,
+      entitiesUpdated: updatedEntities.length,
+      relationshipsExtracted,
+      claimsExtracted,
+      claimsByType: { ...claimsByType },
+      pagesByType,
+      foldersCreated: (memoryAfter?.folderStructure ?? []).filter((folder) => !beforeFolders.has(folder)).length,
+      brokenLinks: validation?.links.broken.length ?? 0,
+      orphanedPages: validation?.links.orphaned.length ?? 0,
+      conflictsManualEdit,
+      conflictsPreservation,
+      totalTokens: llmUsage.inputTokens + llmUsage.outputTokens,
+      wallClockMs: Date.now() - runStartMs,
     };
   };
 
@@ -907,8 +1029,17 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   // TUI Ingestion Log screen, now with the FINAL totalCost (the preliminary
   // write above ran before the DOX/workspace LLM calls). Metrics are
   // auxiliary: a failure here must never fail an otherwise-successful run.
+  // Phase 11 (phase doc §2.6): also emit a compact metrics summary line so
+  // the CLI and the TUI progress view both show the run's shape.
   try {
-    await writeMetrics(dir, await buildRunMetrics());
+    const metrics = await buildRunMetrics();
+    await writeMetrics(dir, metrics);
+    progress(
+      `Metrics: ${metrics.chunksProcessed} chunks, ${memoryAfterEntityCount} entities ` +
+        `(${metrics.entitiesNew} new), ${metrics.relationshipsExtracted} relationships, ` +
+        `${metrics.claimsExtracted} claims, $${metrics.totalCost.toFixed(4)}, ` +
+        `${Math.round(metrics.wallClockMs / 1000)}s`,
+    );
   } catch (err) {
     progress(`Warning: could not record ingestion metrics: ${(err as Error).message}`);
   }

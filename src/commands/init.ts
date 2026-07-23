@@ -89,6 +89,6 @@ export async function init(slug: string, options: InitOptions = {}): Promise<Ini
     slug,
     title,
     wikiDir: dir,
-    message: `Wiki '${slug}' created. Place PDFs in wikis/${slug}/raw/ and run ingest.`,
+    message: `Wiki '${slug}' created at wikis/${slug}/.`,
   };
 }

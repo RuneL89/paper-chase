@@ -1,8 +1,11 @@
 {
-  "name": "llm-wiki-cli",
-  "version": "2.0.0",
-  "description": "Turn PDFs into citation-backed markdown wikis",
+  "name": "paper-chase",
+  "version": "1.0.0",
+  "description": "The paper chase, automated. Turn PDFs into citation-backed markdown wikis.",
   "type": "module",
+  "bin": {
+    "chase": "bin/chase.js"
+  },
   "scripts": {
     "test": "vitest run",
     "cli": "tsx src/cli.ts"

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Box, Text, useInput, useStdin } from 'ink';
 import { readdir } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -9,7 +9,7 @@ import { ErrorBox } from './components/error-box';
 import { SuccessBox } from './components/success-box';
 import { useWikiList } from './hooks/use-wiki-list';
 import { useWikiDetails } from './hooks/use-wiki-details';
-import { ingest } from '../commands/ingest';
+import { ingest, formatIngestSummary, type IngestResult } from '../commands/ingest';
 import { loadSettings } from './settings';
 import { readWikiLanguage, type WikiLanguageState } from '../state/language';
 import { SUPPORTED_LANGUAGES } from '../utils/language';
@@ -25,17 +25,23 @@ export interface IngestScreenProps extends ScreenProps {
    */
   extract?: boolean;
   /**
-   * Phase 4: called after a successful ingest so the app can navigate to a
-   * results view for the wiki that was just ingested. Phase 8 (phase doc
-   * §5.2): the app routes this to the Ingestion Log (compounding log)
-   * screen, superseding the Phase 4 validation-report navigation.
+   * Phase 11 (phase doc §2.4, Gate 11.4): continuous workflow — pre-select
+   * this wiki in the list (set after the post-add "Start ingesting now?"
+   * prompt is confirmed).
    */
-  onViewReport?: (wiki: string) => void;
+  initialWiki?: string;
   /**
    * Injectable ingestion implementation (test-only). Defaults to the real
    * ingest command; tests can inject a stub to avoid disk I/O / LLM calls.
    */
   ingestFn?: (slug: string, options: Record<string, unknown>) => Promise<unknown>;
+  /**
+   * Phase 11 v1.6.0 (user directive 2026-07-23): post-ingest review shortcut.
+   * When a run completes with `agentsUpdateProposed: true`, the success state
+   * shows a hint and pressing `p` invokes this callback with the ingested
+   * wiki (the App routes to the flow-only AGENTS.md review screen).
+   */
+  onReviewAgents?: (wiki: string) => void;
 }
 
 type IngestStatus = 'idle' | 'confirm' | 'running' | 'success' | 'error';
@@ -53,6 +59,26 @@ function languageIndexOf(code: string): number {
   return index >= 0 ? index : 0;
 }
 
+const CHUNK_PROGRESS_PATTERN = /^Chunk (\d+)\/(\d+)/;
+const PROGRESS_BAR_CELLS = 10;
+
+/**
+ * Phase 11 (phase doc §2.4): prefix "Chunk X/Y ..." progress lines with a
+ * plain-text progress bar, e.g. "[██████████] Chunk 1/1 (pages 1-3)". No
+ * external progress-bar library; proportional fill.
+ */
+function withProgressBar(line: string): string {
+  const match = CHUNK_PROGRESS_PATTERN.exec(line);
+  if (!match) {
+    return line;
+  }
+  const current = Number(match[1]);
+  const total = Number(match[2]);
+  const filled = total > 0 ? Math.round((current / total) * PROGRESS_BAR_CELLS) : 0;
+  const bar = '█'.repeat(filled) + '░'.repeat(PROGRESS_BAR_CELLS - filled);
+  return `[${bar}] ${line}`;
+}
+
 /**
  * Ingest PDFs screen (phase doc §5.2): lists existing wikis, shows the PDF
  * count in raw/ and the last ingest timestamp for the selected wiki, and
@@ -60,7 +86,7 @@ function languageIndexOf(code: string): number {
  * ("Extracting text...", "Chunk X/Y...", "Done!").
  *
  * Phase 5: adds an "Enable Synthesis" checkbox pre-checked from
- * `.llm-wiki-cli.json`. When checked, ingest runs with `synthesis: true`.
+ * `.paper-chase.json`. When checked, ingest runs with `synthesis: true`.
  *
  * Phase 7 (vision `04` §9): Input Language and Output Language dropdown
  * selectors (Tab moves focus between the wiki list and the dropdowns,
@@ -73,10 +99,11 @@ function languageIndexOf(code: string): number {
 export function IngestScreen({
   onBack,
   onResult,
-  onViewReport,
   workspace = '.',
   extract = true,
+  initialWiki,
   ingestFn,
+  onReviewAgents,
 }: IngestScreenProps) {
   const { isRawModeSupported } = useStdin();
   const wikis = useWikiList(workspace);
@@ -99,6 +126,24 @@ export function IngestScreen({
   const [hasExtractions, setHasExtractions] = useState(false);
   const [inputIndex, setInputIndex] = useState(0);
   const [outputIndex, setOutputIndex] = useState(0);
+  // Phase 11 v1.6.0: the wiki whose last completed run proposed AGENTS.md
+  // updates (drives the post-ingest `p` review shortcut). Null when the last
+  // run wrote no proposal — no hint is shown and `p` does nothing.
+  const [proposalWiki, setProposalWiki] = useState<string | null>(null);
+  // Phase 11: apply the continuous-workflow pre-selection exactly once (the
+  // wiki list loads asynchronously).
+  const appliedInitialWiki = useRef(false);
+
+  useEffect(() => {
+    if (appliedInitialWiki.current || !initialWiki) {
+      return;
+    }
+    const index = wikis.indexOf(initialWiki);
+    if (index >= 0) {
+      setSelectedIndex(index);
+      appliedInitialWiki.current = true;
+    }
+  }, [wikis, initialWiki]);
 
   useEffect(() => {
     let mounted = true;
@@ -160,6 +205,7 @@ export function IngestScreen({
   const runIngest = async (wiki: string) => {
     setStatus('running');
     setProgressLines([]);
+    setProposalWiki(null);
     try {
       const run = ingestFn ?? ingest;
       const result = (await run(wiki, {
@@ -175,19 +221,20 @@ export function IngestScreen({
         // fallback still guarantee valid contracts without a key).
         doxLlm: true,
         onProgress: (line: string) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
-      })) as { ingested: unknown[]; skipped: unknown[]; synthesized?: number; synthesisConflicts?: number; agentsUpdateProposed?: boolean };
-      let summary = `Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`;
-      if (result.synthesized !== undefined) {
-        summary += ` Synthesis: ${result.synthesized} page(s), ${result.synthesisConflicts ?? 0} conflict(s).`;
-      }
+      })) as IngestResult & { agentsUpdateProposed?: boolean };
+      // Phase 11 (phase doc §2.4): the result banner is the shared
+      // formatIngestSummary string (same text the CLI prints).
+      let summary = formatIngestSummary(result);
       if (result.agentsUpdateProposed) {
-        summary += ' AGENTS.md update proposal saved (see Review AGENTS.md Updates).';
+        summary +=
+          ' AGENTS.md update proposal saved to .state/proposed-agents.md (review and apply manually).';
+        // Phase 11 v1.6.0: arm the post-ingest `p` review shortcut.
+        setProposalWiki(wiki);
       }
       setStatus('success');
       setMessage(summary);
       onResult?.(summary);
       setRefreshKey((key) => key + 1);
-      onViewReport?.(wiki);
     } catch (err) {
       const errorMessage = (err as Error).message;
       setStatus('error');
@@ -227,6 +274,14 @@ export function IngestScreen({
         return;
       }
       if (status === 'success' || status === 'error') {
+        // Phase 11 v1.6.0: `p` (for "proposal") opens the AGENTS.md review
+        // screen — only in the success state and only when the run actually
+        // wrote a proposal. Documented key choice: `r` was free too, but `p`
+        // reads better and never collides with a future "retry" binding.
+        if (status === 'success' && proposalWiki && (_input === 'p' || _input === 'P')) {
+          onReviewAgents?.(proposalWiki);
+          return;
+        }
         if (key.return) {
           onBack();
         }
@@ -339,10 +394,15 @@ export function IngestScreen({
       {status === 'running' && <LoadingSpinner label="Running ingest..." />}
       {progressLines.map((line, index) => (
         <Text key={index} dimColor={status === 'running'}>
-          {line}
+          {withProgressBar(line)}
         </Text>
       ))}
       {status === 'success' && <SuccessBox message={message} />}
+      {status === 'success' && proposalWiki && isRawModeSupported ? (
+        // Phase 11 v1.6.0: post-ingest review shortcut hint (only when a
+        // proposal was written; the non-TTY fallback never renders it).
+        <Text>AGENTS.md update proposed — press [P] to review the diff.</Text>
+      ) : null}
       {status === 'error' && <ErrorBox message={message} />}
       <Footer helpText="Up/Down: select wiki | Tab: language | Space: synthesis | A: AGENTS.md updates | Enter: run ingest | Escape: back" />
     </Box>

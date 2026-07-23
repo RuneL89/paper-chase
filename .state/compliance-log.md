@@ -1009,3 +1009,235 @@
     - npx tsc --noEmit: clean.
     - npm test: 22 test files, 254 passed + 1 skipped, EXIT 0.
   Result: COMPLIANT — codebase is Phase-10-free and all non-LLM-network tests are green; the single transient Phase 2 live API failure in the first run resolved on re-run.
+
+[2026-07-22 00:00] Phase 11 Pre-Implementation Compliance Check
+  Changed: (nothing yet — pre-implementation check)
+  Vision Docs Checked: ALL (Phase 11 mapping, MASTER_IMPLEMENTATION_PROMPT §4):
+    - 01_PRODUCT_VISION_AND_ARCHITECTURE.md (§1 purpose, §5 who-decides, §7 non-goals)
+    - 02_WIKI_concept_detailed.md (page requirements — untouched by Phase 11)
+    - 03_DOX_concept_detailed.md (contract hierarchy — untouched)
+    - 04_orchestration_detailed.md (§3 pipeline, §6 retry policy, §9 languages)
+    - 05_page_types_specification.md (page types — untouched)
+    - 06_citation_and_provenance.md (citations — untouched)
+    - 07_validation_and_quality.md (§6 quality metrics -> .state/metrics.json)
+  Sections Compared vs PHASE_11_polish.md v1.3.0:
+    1. Rebrand (phase doc §2.1): vision docs keep their Document IDs (stable identifiers per phase doc);
+       product name changes to Paper Chase with a "formerly LLM Wiki CLI" note in 01. Internal vocabulary
+       (wiki/source/entity/topic/citation/DOX) unchanged. .state/** and wikis/<slug>/** untouched.
+       No architectural substance changes. Result: COMPLIANT (naming EXTENSION, user-ratified in the phase doc itself).
+    2. Per-call model routing (§2.2): no vision doc pins LLM models; routing is additive with
+       ANTHROPIC_MODEL env fallback preserved. Extractor/Synthesis/DOX callTypes already exist in src.
+       Result: COMPLIANT (EXTENSION).
+    3. TUI cleanup (§2.3): menu keeps exactly 5 items (Create New Wiki, Add PDFs, Ingest PDFs, Settings,
+       Exit) — matches root AGENTS.md user preference 2026-07-21 ("Phase 11 TUI main menu (final)").
+       Phase 8/9 screens (Ingestion Log, AGENTS.md review, Structural Changes) also leave the menu per
+       the exhaustive Keep list; their DATA outputs (.state/metrics.json, conflicts.json,
+       proposed-agents.md, structural-changes.json) keep being written — review continues via files.
+       Applying AGENTS.md proposals reverts to manual copy (Phase 9 gate 9.4 allows "TUI review screen
+       OR manual copy"). Result: COMPLIANT (user-ratified simplification; noted here explicitly).
+    4. Smoother workflow (§2.4): banners/progress/splash/continuous flow — pure UX additions matching
+       root AGENTS.md preference 2026-07-18. Result: COMPLIANT.
+    5. README.md (§2.5): new doc, describes implemented behavior only. Result: COMPLIANT.
+    6. Metrics (§2.6): vision 07 §6 already mandates .state/metrics.json; Phase 11 extends the field set
+       (chunksProcessed etc.). DEVIATION (documented): phase doc says src/metrics.ts, but Phase 8 already
+       created src/state/metrics.ts — extend that module instead of creating a competing one. Additive
+       fields keep the TUI Ingestion Log reader working. Result: COMPLIANT (EXTENSION).
+    7. E2E test (§2.7): real-PDF/real-LLM suite, opt-in via RUN_E2E=1 so `npm test` stays free/green.
+       Result: COMPLIANT.
+    8. Mockup detail NOT implemented (documented decision): the §2.2 ASCII mockup shows a "Chunk Size"
+       row, but no gate, UAT, or files-to-modify entry specifies chunk-size behavior, and no vision doc
+       mentions it. Skipped; flagged to the user in the final report (user is final arbiter).
+    9. Model IDs/prices: gate examples use claude-haiku-4-5-20251001 / claude-sonnet-4-5-20251001 /
+       claude-opus-4-20250918 (phase doc §2.2). Price table gains Sonnet ($3/$15) and Opus ($15/$75)
+       per-MTok entries so cost metrics stay accurate when routing is used. Result: COMPLIANT (EXTENSION).
+  Result: COMPLIANT — no contradictions requiring the contradiction protocol.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-22 01:00] Phase 11 v1.4.0 Extension Compliance Check — Multi-Provider Model Routing (user-directed)
+  Changed: (pre-implementation check for the extension)
+  User Directive (2026-07-22): "I'd also like to be able to switch between Anthropic models and OpenAI models,
+    so add that to the model selection. You should suggest what models to use for either Anthropic or OpenAI
+    depending on which provider the user chooses."
+  Vision Docs Checked: 04_orchestration_detailed.md §3.2 (LLM calls are provider-agnostic — no vision doc pins
+    Anthropic), 01_PRODUCT_VISION_AND_ARCHITECTURE.md (no provider mention), 07_validation_and_quality.md (metrics).
+  Comparison:
+    - No vision document specifies an LLM provider; the Extractor/Synthesis/DOX calls are defined by role, not vendor.
+      Adding OpenAI as a selectable provider does not contradict any vision text. Result: EXTENSION (user-directed).
+    - Anthropic remains the DEFAULT provider: existing .paper-chase.json files (no `provider` field) resolve to
+      'anthropic' with their claude-* ids — byte-identical legacy behavior. COMPLIANT with the frozen-default rule.
+    - Bounded retry policy (vision 04 §6 / 07 §5) applies unchanged to the OpenAI transport (429/5xx transient
+      ≤3 attempts, 4xx deterministic never retried). COMPLIANT.
+    - OpenAI model lineup verified against live OpenAI docs 2026-07-22: gpt-5.6-luna ($1/$6 per MTok),
+      gpt-5.6-terra ($2.50/$15), gpt-5.6-sol ($5/$30); Chat Completions endpoint maintained;
+      max_completion_tokens required (max_tokens deprecated); temperature omitted for reasoning models.
+    - LLM budget stays $0: all new tests mock the transport; UAT 11.6 is LLM-free (Settings + config file only).
+  Decisions:
+    - Config shape: models gains `provider: 'anthropic' | 'openai'` (default 'anthropic'); the four slots hold
+      model ids for the CURRENT provider; switching provider in Settings resets the slots to that provider's
+      defaults (documented in the settings screen comment + README).
+    - Provider-aware recommendation labels mirror the Anthropic wording (cheapest structured / better prose /
+      strong contract writing).
+    - Phase doc amended to v1.4.0 with new gate 11.10 + UAT 11.6 (phase-doc amendment follows the Phase 7
+      v1.1.0 precedent for user-ratified changes).
+  Result: COMPLIANT (EXTENSION, user-directed) — no contradiction; no halt required.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-22 02:00] Phase 11 Verification Closeout (base v1.3.0 + extension v1.4.0)
+  Changed: Post-verification nit fixes only: README.md retry-class wording (invalid Extractor JSON and
+    schema errors are DETERMINISTIC — never retried; quality retries cover synthesis preservation and
+    unparseable DOX output only, per vision 04 §6 / 07 §5); src/state/metrics.ts stale comment corrected
+    (the Extractor logs per-call cost via logPath in production — extract-chunk.ts:72).
+  Vision Docs Checked: 04_orchestration_detailed.md §6 (retry classes), 07_validation_and_quality.md §5.
+  Verification:
+    - Verifier sub-agent cold check (.state/phase-11-verification.md): 10/10 gates PASS; independent
+      branding sweep 0 offenders; npx tsc --noEmit clean; npm test key-less 232 passed + 14 skipped
+      (acceptable skips: 12 live Phase-2 gates, gate 0.4, RUN_E2E e2e); bin/chase.js --version/--help
+      verified; vision Document IDs intact; .state/ and wikis/<slug>/ untouched; DOX pass confirmed.
+    - Orchestrator re-run after nit fixes: tsc clean; tests/phase-11.test.ts 20/20 green.
+  Result: COMPLIANT — no unresolved contradictions. Verifier recommendation: READY FOR UAT.
+  Non-blocking notes carried to UAT briefing: N2 (mockup-only Chunk Size row not implemented — flagged
+    to user as final arbiter), N3 (bin launcher spawn deviation accepted), N4 (existing config file at
+    project root suppresses the first-launch splash — UAT 11.5 must use a fresh workspace or rename configs).
+  Checked By: Verifier sub-agent + Main agent (phase orchestrator)
+
+[2026-07-23 00:00] Phase 11 v1.5.0 Extension Compliance Check — API Keys in Settings (user-directed)
+  Changed (pre-implementation, security precondition): .gitignore gains .paper-chase.json and
+    .llm-wiki-cli.json; legacy .llm-wiki-cli.json removed from the git INDEX (git rm --cached) but kept
+    on disk unchanged. Reason: .llm-wiki-cli.json was TRACKED; storing API keys in a tracked/committable
+    file would risk leaking secrets to the remote. Config files are local-only from here on.
+  User Directive (2026-07-23): "I want to be able to add Anthropic/openai API in Settings"
+  Vision Docs Checked: 04_orchestration_detailed.md (LLM-call definition — key SOURCE unspecified,
+    provider-agnostic), 01_PRODUCT_VISION_AND_ARCHITECTURE.md §2 (deterministic code owns file I/O;
+    single-user local tool, §7). No vision text pins how credentials reach the client. Result: EXTENSION
+    (user-directed), no contradiction.
+  Design decisions (binding for implementation):
+    - Storage: `.paper-chase.json` gains `apiKeys: { anthropic: string|null, openai: string|null }`
+      (null = not stored). Per-workspace, consistent with all other settings.
+    - Resolution order per call: stored key (routing config) → process.env (incl. .env fallback) →
+      missing-key error naming Settings + env + .env. Anthropic and OpenAI resolve independently.
+    - UI: two rows under a new "API Keys" section; masked entry (ink-text-input mask), display shows
+      source state only (configured ••••last4 / from environment / not set); empty submit clears the
+      stored key. Full keys NEVER rendered, logged, or written to llm-calls.json/metrics.
+    - ingest() picks keys up through the existing single integration point (loadSettings → setModelRouting).
+    - LLM budget stays $0: gate 11.11 tests use mocked transport + fake keys.
+    - Phase doc amended to v1.5.0 (gate 11.11 + UAT 11.7); README documents precedence + the
+      never-commit warning.
+  Result: COMPLIANT (EXTENSION, user-directed) — no contradiction; no halt required.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-23 01:00] Phase 11 v1.5.0 Verification Closeout (API keys in Settings)
+  Changed: none (verification only; no post-verification fixes required).
+  Verification: Verifier sub-agent cold check (.state/phase-11-verification.md, v1.5.0 section):
+    - Gate 11.11 PASS on all 8 sub-checks (schema tolerance, resolution order stored→env→.env,
+      wire hygiene key-only-in-auth-header, masking ≤4 chars everywhere incl. edit frames,
+      stage/clear/Esc semantics, ingest() single integration point, git hygiene — both config
+      names gitignored, legacy untracked-but-on-disk, no key material in tracked files, docs coherent).
+    - Regression PASS gates 11.1–11.10; tsc clean; npm test key-less 239 passed + 14 skipped;
+      tests/phase-11.test.ts 27/27.
+    - Security audit CLEAN (wire/masking/logs/git).
+    - Transparency note (orchestrator): the Implementer's with-key suite run executed the pre-existing
+      live Phase-2 gates against the user's key (small unbudgeted spend on legacy tests; no Phase 11
+      code made live calls). All v1.5.0 tests are mocked + fake keys.
+  Result: COMPLIANT — no unresolved contradictions. Verifier recommendation: READY FOR UAT.
+  Checked By: Verifier sub-agent + Main agent (phase orchestrator)
+
+[2026-07-23 02:00] Phase 11 v1.5.1 Amendment Compliance Check — Version rebrand to v.1.0 (user-directed)
+  User Directive (2026-07-23): "Let's not call it \"Paper Chase v2.0\" but \"Paper Chase v.1.0\" - replace everywhere"
+  Vision Docs Checked: 01_PRODUCT_VISION_AND_ARCHITECTURE.md (title), phase doc §2.1 (naming rules).
+  Comparison: the version shown in the brand is presentation, not architecture; no vision text pins a
+    product version. The historical note "formerly LLM Wiki CLI (v2.0 development name)" refers to the
+    OLD product's dev name and stays untouched (like Document IDs). Result: COMPLIANT (user-directed naming amendment).
+  Scope (binding): every "Paper Chase v2.0" string -> "Paper Chase v.1.0" (header, splash, AGENTS.md chain,
+    vision/plan docs, tests); semver fields package.json + cli.ts .version -> 1.0.0; package-lock refreshed
+    via npm install. Excluded: .state/** (except this log), wikis/<slug>/**, historical "LLM Wiki CLI v2.0"
+    references, Document IDs, package-lock dependency versions.
+  Proportionality note: applied directly by the orchestrator (mechanical string amendment, ~15 files);
+    verification = automated grep sweep (zero offenders) + tsc + key-less suite, logged here. UAT cards
+    11.2/11.5 expectations updated to the new strings.
+  Result: COMPLIANT — no contradiction.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-23 03:00] Phase 11 v1.5.2 — UAT-found spec bug: invalid Anthropic catalog IDs (user-ratified fix)
+  Found: During UAT 11.3's optional live ingest, the Synthesis Writer call failed with Anthropic HTTP 404
+    not_found_error for model claude-sonnet-4-5-20251001. The v1.3.0 phase doc's Sonnet/Opus IDs were
+    aspirational and do not exist on the user's account (GET /v1/models, 2026-07-23): available were
+    claude-sonnet-5, claude-fable-5, claude-opus-4-8, claude-opus-4-7, claude-sonnet-4-6, claude-opus-4-6,
+    claude-opus-4-5-20251101, claude-haiku-4-5-20251001, claude-sonnet-4-5-20250929. Only the Haiku ID
+    (the routing default — extraction succeeded) was valid pre-fix. The 404 was correctly treated as a
+    deterministic failure (never retried, surfaced cleanly) per vision 04 §6 / 07 §5.
+  User Decision (2026-07-23): "use model name claude-sonnet-5 and make sure opus is claude-opus-4-8".
+  Changed: src/tui/settings.ts (MODEL_CATALOG anthropic -> Haiku 4.5 / Sonnet 5 / Opus 4.8 with versioned
+    labels), src/llm/client.ts (price table -> sonnet-5 $3/$15, opus-4-8 $5/$25 Opus-4.5-era best-known,
+    env-overridable; comment updated), tests/phase-11.test.ts (IDs), README.md (IDs),
+    Implementation Plan/PHASE_11_polish.md (v1.5.2 amendment + IDs), .paper-chase.json (user's saved
+    synthesis/dox IDs corrected in place — the stored values were provably 404-broken).
+  Security incident (handled): while displaying .paper-chase.json during the fix, a real OpenAI API key
+    the user had stored via Settings was exposed in the session transcript. The file is gitignored and the
+    TUI masks keys; the exposure was orchestrator error (cat of a secrets-bearing file). User advised to
+    rotate the OpenAI key. Config files will not be printed again (masked checks only).
+  Verification: npx tsc --noEmit clean; npm test key-less 239 passed + 14 skipped (suite re-green after
+    the ID swap; no gate semantics changed).
+  Result: COMPLIANT — spec bug fixed per user ratification; vision retry semantics behaved as designed.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-23 04:00] Phase 11 v1.6.0 Extension Compliance Check — Post-ingest AGENTS.md proposal review (user-directed)
+  User Directive (2026-07-23): "at the end of the ingestion, I want a shortcut into proposed new AGENTS file
+    to be showed. It will show the diff and I can approve or reject straight there - Approve would replace
+    the existing AGENTS file with the proposed one - REJECT would do nothing"
+  Vision Docs Checked: 01_PRODUCT_VISION_AND_ARCHITECTURE.md §5 (structural-change review is a HUMAN
+    decision, after the fact), 04_orchestration_detailed.md §8 step 8 (updater proposes, never overwrites),
+    Phase 9 gate 9.4 (applying is always an explicit human action).
+  Comparison:
+    - The feature makes the human review step MORE accessible; the updater still never overwrites AGENTS.md
+      and applying remains an explicit keypress. COMPLIANT (EXTENSION, user-directed).
+    - Root AGENTS.md preference 2026-07-21 ("Reject deletes the proposal file") is SUPERSEDED by the newer
+      directive ("REJECT would do nothing") — Reject keeps the proposal file and makes no changes; the
+      preference line will be updated. Newest user directive wins; recorded here.
+    - Root preference 2026-07-21 (five-item main menu) is NOT contradicted: the review screen is reachable
+      ONLY from the post-ingest flow (no menu item); gate 11.3 keeps passing.
+    - Restoration: src/tui/agents-review-screen.tsx + src/utils/line-diff.ts (+ tests) are restored from
+      git HEAD (deleted in the Phase 11 menu cleanup) with the Reject-semantics change; the screen keeps
+      the ratified UX (inline diff, [A]/[R] same-screen, [V] full scrollable diff).
+    - LLM budget stays $0: gate 11.12 uses fixtures (AGENTS.md + proposed-agents.md), no LLM.
+  Result: COMPLIANT (EXTENSION, user-directed) — no contradiction; no halt required.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-07-23 05:00] Phase 11 v1.6.0 Verification Closeout (post-ingest AGENTS.md review)
+  Changed: none (verification only).
+  Verification: Verifier sub-agent cold check (.state/phase-11-verification.md, v1.6.0 section):
+    - Gate 11.12 PASS on all 7 sub-checks: reject is a true no-op (zero fs calls; both files byte-identical
+      after), accept copies proposal over AGENTS.md (proposal kept), shortcut hint gated to
+      agentsUpdateProposed + raw mode (p no-op otherwise), MENU_ITEMS still exactly five (agents-review
+      flow-only), line-diff.ts byte-identical to HEAD, ratified A/R + [V] UX intact, docs coherent
+      (root preference superseded explicitly).
+    - Regression PASS 11.1–11.11; tsc clean; npm test key-less 249 passed + 14 skipped (17 files);
+      phase-11 suite 31/31.
+    - Non-blocking nits: N9 (ingest summary still says "review and apply manually" — literally true,
+      left as-is; the [P] hint is the primary affordance), N10 (UAT 11.8 must press p while the success
+      state is mounted — carried into the UAT card).
+    - Transparency: the Implementer's first full run accidentally executed the 12 live Phase-2 gates
+      (~$0.14 on the user's key); authoritative key-less run was $0. Not Phase 11 code.
+  Result: COMPLIANT — no unresolved contradictions. Verifier recommendation: READY FOR UAT.
+  Checked By: Verifier sub-agent + Main agent (phase orchestrator)
+
+[2026-07-23 06:00] Phase 11 FINAL CLOSEOUT — ACCEPTED
+  Scope: PHASE_11_polish.md v1.3.0 base + user-directed amendments v1.4.0 (multi-provider routing),
+    v1.5.0 (API keys in Settings), v1.5.1 (version rebrand to v.1.0), v1.5.2 (UAT-found model-catalog
+    fix: Sonnet 5 / Opus 4.8), v1.6.0 (post-ingest AGENTS.md review shortcut, reject = no-op).
+  Gates: 12/12 PASSED (11.1-11.12) — verified cold by Verifier sub-agents across three independent
+    checks (.state/phase-11-verification.md).
+  UAT: 8/8 PASSED by the user (11.1 model routing, 11.2 production menu, 11.3 continuous workflow —
+    incl. finding the v1.5.2 catalog bug, 11.4 README, 11.5 brand end-to-end, 11.6 provider switching,
+    11.7 API keys, 11.8 post-ingest review shortcut).
+  Final state: npx tsc --noEmit clean; npm test key-less 249 passed + 14 skipped (17 files; skips =
+    12 live Phase-2 gates + gate 0.4 + RUN_E2E e2e); chase --version -> 1.0.0; branding sweep 0 offenders.
+  LLM cost: $0 for all Phase 11 implementation/verification (two accidental executions of the
+    PRE-EXISTING live Phase-2 gates by sub-agents, ~$0.14 + small earlier amount, disclosed at the time).
+  Docs updated: README.md (with user edits), phase doc to v1.6.0, root/src/tests/templates/wikis AGENTS.md,
+    all 7 vision docs + plan docs rebranded, .gitignore (config files), root preferences (2026-07-22,
+    2026-07-23 incl. reject-semantics supersession).
+  Outstanding manual step (user): rename the GitHub repo to paper-chase in settings, then
+    git remote set-url origin https://github.com/RuneL89/paper-chase (canonical remote in root AGENTS.md
+    already matches). Security follow-up (user): rotate the OpenAI API key exposed in-session 2026-07-23.
+  Result: COMPLIANT — no unresolved contradictions. Phase 11 ACCEPTED.
+  Checked By: Main agent (phase orchestrator) + Verifier sub-agents + user UAT

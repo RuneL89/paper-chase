@@ -1,4 +1,6 @@
-# LLM Wiki CLI v2.0 — Product Vision and Architecture
+# Paper Chase v.1.0 — Product Vision and Architecture
+
+> Paper Chase is formerly LLM Wiki CLI (v2.0 development name).
 
 | Attribute | Value |
 |---|---|
@@ -11,13 +13,13 @@
 
 ## 1. Purpose
 
-LLM Wiki CLI is a local, citation-backed research tool for investigative journalism. It converts collections of PDFs into a **wiki-of-wikis**: a network of linked markdown pages where every claim can be traced back to an exact location in the original source PDFs.
+Paper Chase is a local, citation-backed research tool for investigative journalism. It converts collections of PDFs into a **wiki-of-wikis**: a network of linked markdown pages where every claim can be traced back to an exact location in the original source PDFs.
 
-The primary user is an **investigative journalist** working with large collections of confidential documents, such as leaked reports (e.g., the Panama Papers), annual political-donation filings, company registries, and ownership-structure records. Today, cross-referencing these sources takes months or years: finding that a small-company board member also donated to a political party every election cycle and appears in a leaked offshore registry is a slow, manual process. LLM Wiki CLI ingests these PDFs once, compiles them into self-contained, interlinked wiki articles with rich context, and lets the journalist or a downstream research agent find those connections without re-reading the original documents or exploding the LLM context window.
+The primary user is an **investigative journalist** working with large collections of confidential documents, such as leaked reports (e.g., the Panama Papers), annual political-donation filings, company registries, and ownership-structure records. Today, cross-referencing these sources takes months or years: finding that a small-company board member also donated to a political party every election cycle and appears in a leaked offshore registry is a slow, manual process. Paper Chase ingests these PDFs once, compiles them into self-contained, interlinked wiki articles with rich context, and lets the journalist or a downstream research agent find those connections without re-reading the original documents or exploding the LLM context window.
 
-LLM Wiki CLI is inspired by the **LLM Wiki Gist** (https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) for splitting large texts that do not fit into a single context window into self-contained wiki articles, and the **DOX Framework** (https://github.com/agent0ai/dox) for organizing knowledge into sub-folders with binding contracts. The CLI is not itself a connection-finding tool: the actual cross-corpus analysis (e.g., matching a donor across Panama Papers and donation records) is performed by the journalist or a separate research agent using the compiled wiki.
+Paper Chase is inspired by the **LLM Wiki Gist** (https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) for splitting large texts that do not fit into a single context window into self-contained wiki articles, and the **DOX Framework** (https://github.com/agent0ai/dox) for organizing knowledge into sub-folders with binding contracts. The CLI is not itself a connection-finding tool: the actual cross-corpus analysis (e.g., matching a donor across Panama Papers and donation records) is performed by the journalist or a separate research agent using the compiled wiki.
 
-Unlike Retrieval-Augmented Generation (RAG), which computes answers on the fly from raw documents, LLM Wiki CLI compiles the corpus at ingestion time into a persistent, structured, navigable knowledge base that journalists and research agents can browse and query.
+Unlike Retrieval-Augmented Generation (RAG), which computes answers on the fly from raw documents, Paper Chase compiles the corpus at ingestion time into a persistent, structured, navigable knowledge base that journalists and research agents can browse and query.
 
 In one sentence: **your PDFs become a citation-backed wiki, written by an LLM, organized by contracts, and owned entirely by you.**
 
@@ -63,13 +65,13 @@ At the highest level, the tool works in three layers:
 
 1. **Create a workspace and a wiki.**
    ```bash
-   llm-wiki-cli init acme-annual-reports --title "Acme Annual Reports" -w ./my-workspace
+   chase init acme-annual-reports --title "Acme Annual Reports" -w ./my-workspace
    ```
 2. **Copy PDFs** into `my-workspace/wikis/acme-annual-reports/raw/`.
 3. **AGENTS.md is generated automatically.** This is the constitution of the wiki. Every LLM call reads and follows it.
 4. **Run `ingest`.**
    ```bash
-   llm-wiki-cli ingest acme-annual-reports
+   chase ingest acme-annual-reports
    ```
 5. **Browse the wiki** in Obsidian or any markdown viewer.
 

@@ -18,6 +18,14 @@ export interface ScreenProps {
 export interface InitScreenProps extends ScreenProps {
   /** Pre-filled value for the Workspace field (used by tests; default './'). */
   defaultWorkspace?: string;
+  /**
+   * Phase 11 (phase doc §2.4, Gate 11.4): continuous workflow — invoked with
+   * the new wiki's slug as soon as init() succeeds, so the app can navigate
+   * straight to Add PDFs instead of waiting for Enter-to-go-back. When
+   * omitted (e.g. tests rendering the screen directly), the success banner
+   * stays and Enter still goes back.
+   */
+  onCreated?: (wiki: string) => void;
 }
 
 type FieldName = 'title' | 'workspace' | 'language' | 'create' | 'back';
@@ -33,7 +41,7 @@ type FormStatus = 'editing' | 'busy' | 'success' | 'error';
  * the language dropdown, Enter on "Create Wiki" runs init(), Escape/Back
  * returns to the menu.
  */
-export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitScreenProps) {
+export function InitScreen({ onBack, onResult, defaultWorkspace = './', onCreated }: InitScreenProps) {
   const { isRawModeSupported } = useStdin();
   const [title, setTitle] = useState('');
   const [workspace, setWorkspace] = useState(defaultWorkspace);
@@ -69,6 +77,10 @@ export function InitScreen({ onBack, onResult, defaultWorkspace = './' }: InitSc
       setStatus('success');
       setMessage(result.message);
       onResult?.(result.message);
+      // Continuous workflow (Phase 11 §2.4): hand the new slug to the app so
+      // it can route straight to Add PDFs. When no callback is wired (direct
+      // renders in tests), the success banner stays and Enter goes back.
+      onCreated?.(slug);
     } catch (err) {
       const errorMessage = (err as Error).message;
       setStatus('error');

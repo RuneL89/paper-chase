@@ -1,6 +1,6 @@
-# LLM Wiki CLI — DOX Concept (Detailed)
+# Paper Chase — DOX Concept (Detailed)
 
-This document explains how the LLM Wiki CLI uses the **DOX Framework** as inspiration for organizing the wiki. It is written for anyone joining the project without prior context, so they understand the philosophy, the contract hierarchy, and the difference between the DOX original and this project's adaptation.
+This document explains how Paper Chase uses the **DOX Framework** as inspiration for organizing the wiki. It is written for anyone joining the project without prior context, so they understand the philosophy, the contract hierarchy, and the difference between the DOX original and this project's adaptation.
 
 ---
 
@@ -27,7 +27,7 @@ This project adapts these ideas, but changes the mechanism: the contracts are wr
 
 ## 2. Why `index.md` Instead of `AGENTS.md`?
 
-In the original DOX Framework, `AGENTS.md` is both the human-readable contract and the machine-readable specification. In the LLM Wiki CLI, these two roles are split:
+In the original DOX Framework, `AGENTS.md` is both the human-readable contract and the machine-readable specification. In Paper Chase, these two roles are split:
 
 | Role | File | Audience | Purpose |
 |---|---|---|---|

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Runtime workspace for generated wikis. `llm-wiki-cli init <slug>` creates `wikis/<slug>/` here (or under a custom `-w` workspace); `ingest` fills it with document pages, source pages, and state.
+Runtime workspace for generated wikis. `chase init <slug>` creates `wikis/<slug>/` here (or under a custom `-w` workspace); `ingest` fills it with document pages, source pages, and state.
 
 ## Ownership
 

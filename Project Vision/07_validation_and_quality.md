@@ -1,6 +1,6 @@
-# LLM Wiki CLI — Validation and Quality (Detailed)
+# Paper Chase — Validation and Quality (Detailed)
 
-This document specifies the validation and quality system of the LLM Wiki CLI. It explains how the system ensures that the generated wiki is complete, consistent, and trustworthy, and how it handles structural changes that require human judgment.
+This document specifies the validation and quality system of Paper Chase. It explains how the system ensures that the generated wiki is complete, consistent, and trustworthy, and how it handles structural changes that require human judgment.
 
 ---
 

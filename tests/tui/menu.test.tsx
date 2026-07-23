@@ -1,21 +1,19 @@
 import React from 'react';
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { PassThrough } from 'node:stream';
-import { afterEach, expect, test } from 'vitest';
+import { afterAll, afterEach, expect, test } from 'vitest';
 import { render, type Instance } from 'ink';
 import { App, type Screen } from '../../src/tui/app';
 import { MENU_ITEMS, MenuScreen, resolveMenuSelection } from '../../src/tui/menu';
 import { InitScreen } from '../../src/tui/init-screen';
 import { IngestScreen } from '../../src/tui/ingest-screen';
 import { AddPdfsScreen } from '../../src/tui/add-pdfs-screen';
-import { ExtractorTestScreen } from '../../src/tui/extractor-test-screen';
-import { TestScreen } from '../../src/tui/test-screen';
 import { SettingsScreen } from '../../src/tui/settings-screen';
-import { EntityBrowser } from '../../src/tui/entity-browser';
-import { TopicBrowser } from '../../src/tui/topic-browser';
-import { DoxBrowser } from '../../src/tui/dox-browser';
-import { ValidationReportScreen } from '../../src/tui/validation-report-screen';
 
 const cleanup: Array<() => void> = [];
+const tempDirs: string[] = [];
 
 afterEach(() => {
   while (cleanup.length > 0) {
@@ -27,6 +25,21 @@ afterEach(() => {
     }
   }
 });
+
+afterAll(() => {
+  while (tempDirs.length > 0) {
+    const dir = tempDirs.pop();
+    if (dir) {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+});
+
+function makeTempDir(prefix: string): string {
+  const dir = mkdtempSync(join(tmpdir(), prefix));
+  tempDirs.push(dir);
+  return dir;
+}
 
 type FakeStdin = PassThrough & {
   isTTY: boolean;
@@ -113,40 +126,31 @@ test('TUI renders without crashing', () => {
 });
 
 // Gate 0.7: TUI Menu Shows All Options
-// UPDATED 2026-07-17 (user-directed extension): the menu now has 6 items —
-// 'Add PDFs (copy into raw/)' was added after 'Ingest PDFs (ingest)' per the
-// user's request to copy files into raw/ entirely from the TUI (compliance
-// log entry "2026-07-17 10:20"). The original 5-option assertion is
-// superseded; the deviation is recorded in .state/phase-1-status.json.
-// UPDATED 2026-07-17 (Phase 2, phase doc §5.2 + compliance log 2026-07-17
-// 12:00 noted adaptation 7): 'Test Extractor' was inserted immediately after
-// 'Ingest PDFs (ingest)' — the menu now has 7 items.
-// UPDATED 2026-07-17 (Phase 4, phase doc §5.2): 'View Validation Report' was
-// added after 'Add PDFs (copy into raw/)' — the menu now has 10 items.
-// UPDATED 2026-07-17 (Phase 6, phase doc §5.2): 'Browse DOX Contracts' was
-// added after 'Browse Topics' — the menu now has 11 items.
-// UPDATED 2026-07-21 (Phase 9, phase doc §5.3): 'Review AGENTS.md Updates'
-// and 'View Structural Changes' were added — the menu now has 13 items.
-// UPDATED 2026-07-21 (Phase 8, phase doc §5.3): 'View Ingestion Log' was
-// added after 'View Validation Report' — the menu now has 14 items.
-test('TUI menu shows all options', async () => {
+// UPDATED 2026-07-22 (Phase 11, phase doc §2.3): the development and review
+// screens are gone; the production menu is exactly five items — Create New
+// Wiki, Add PDFs, Ingest PDFs, Settings, Exit — with clean labels (no
+// parenthetical command suffixes). The removed items must NOT render.
+test('TUI menu shows exactly the five production options', async () => {
   const menu = renderCaptured(<MenuScreen onSelect={() => {}} lastResult="" />);
   await tick();
   menu.unmount(); // non-interactive Ink writes the final frame on unmount
   await tick(50);
   const frame = menu.output();
   expect(frame).toContain('Create New Wiki');
-  expect(frame).toContain('Ingest PDFs');
-  expect(frame).toContain('Test Extractor');
   expect(frame).toContain('Add PDFs');
-  expect(frame).toContain('View Validation Report');
-  expect(frame).toContain('View Ingestion Log');
-  expect(frame).toContain('Browse Entities');
-  expect(frame).toContain('Browse Topics');
-  expect(frame).toContain('Browse DOX Contracts');
-  expect(frame).toContain('Run Tests');
+  expect(frame).toContain('Ingest PDFs');
   expect(frame).toContain('Settings');
   expect(frame).toContain('Exit');
+  // Removed development/review entries (Phase 11 §2.3).
+  expect(frame).not.toContain('Run Tests');
+  expect(frame).not.toContain('Test Extractor');
+  expect(frame).not.toContain('View Validation Report');
+  expect(frame).not.toContain('View Ingestion Log');
+  expect(frame).not.toContain('Browse Entities');
+  expect(frame).not.toContain('Browse Topics');
+  expect(frame).not.toContain('Browse DOX Contracts');
+  expect(frame).not.toContain('Review AGENTS.md Updates');
+  expect(frame).not.toContain('View Structural Changes');
 });
 
 // Gate 0.8: TUI Can Navigate Screens.
@@ -164,7 +168,7 @@ test('TUI menu shows all options', async () => {
 test('pressing Enter on the first menu item navigates to the init screen', async () => {
   const app = renderCaptured(<App />);
   await tick(); // let Ink mount and enter raw mode
-  app.stdin.write('\r'); // Enter on "Create New Wiki (init)"
+  app.stdin.write('\r'); // Enter on "Create New Wiki"
   await tick();
   app.unmount();
   await tick(50);
@@ -177,40 +181,22 @@ test('pressing Enter on the first menu item navigates to the init screen', async
 test('every menu item maps to its screen', () => {
   const expected: Array<[string, Screen]> = [
     ['init', 'init'],
-    ['ingest', 'ingest'],
-    ['extractor-test', 'extractor-test'],
     ['add-pdfs', 'add-pdfs'],
-    ['validation-report', 'validation-report'],
-    ['compounding-log', 'compounding-log'],
-    ['entity-browser', 'entity-browser'],
-    ['topic-browser', 'topic-browser'],
-    ['dox-browser', 'dox-browser'],
-    ['agents-review', 'agents-review'],
-    ['structural-changes', 'structural-changes'],
-    ['test', 'test'],
+    ['ingest', 'ingest'],
     ['settings', 'settings'],
     ['exit', 'exit'],
   ];
   for (const [value, screen] of expected) {
     expect(resolveMenuSelection(value)).toBe(screen);
   }
-  // 14 items: previous 11 + Phase 8 compounding log + Phase 9 AGENTS.md review
-  // and structural changes.
-  expect(MENU_ITEMS.map((item) => item.value)).toEqual([
-    'init',
-    'ingest',
-    'extractor-test',
-    'add-pdfs',
-    'validation-report',
-    'compounding-log',
-    'entity-browser',
-    'topic-browser',
-    'dox-browser',
-    'agents-review',
-    'structural-changes',
-    'test',
-    'settings',
-    'exit',
+  // Phase 11 (phase doc §2.3): exactly five items, in this order.
+  expect(MENU_ITEMS.map((item) => item.value)).toEqual(['init', 'add-pdfs', 'ingest', 'settings', 'exit']);
+  expect(MENU_ITEMS.map((item) => item.label)).toEqual([
+    'Create New Wiki',
+    'Add PDFs',
+    'Ingest PDFs',
+    'Settings',
+    'Exit',
   ]);
 });
 
@@ -224,6 +210,13 @@ test('each screen renders its expected content', async () => {
   expect(init.output()).toContain('Create New Wiki');
   expect(init.output()).toContain('Press Escape to go back');
 
+  const addPdfs = renderCaptured(<AddPdfsScreen onBack={noop} onResult={noop} />);
+  await tick();
+  addPdfs.unmount();
+  await tick(50);
+  expect(addPdfs.output()).toContain('Add PDFs');
+  expect(addPdfs.output()).toContain('Press Escape to go back');
+
   const ingest = renderCaptured(<IngestScreen onBack={noop} onResult={noop} />);
   await tick();
   ingest.unmount();
@@ -232,68 +225,42 @@ test('each screen renders its expected content', async () => {
   expect(ingest.output()).toContain('Up/Down: select wiki');
   expect(ingest.output()).toContain('Enter: run ingest');
 
-  const addPdfs = renderCaptured(<AddPdfsScreen onBack={noop} onResult={noop} />);
-  await tick();
-  addPdfs.unmount();
-  await tick(50);
-  expect(addPdfs.output()).toContain('Add PDFs');
-  expect(addPdfs.output()).toContain('Press Escape to go back');
-
-  const extractorTest = renderCaptured(<ExtractorTestScreen onBack={noop} onResult={noop} />);
-  await tick();
-  extractorTest.unmount();
-  await tick(50);
-  expect(extractorTest.output()).toContain('Test Extractor');
-  expect(extractorTest.output()).toContain('Press Escape to go back');
-
-  const entityBrowser = renderCaptured(<EntityBrowser onBack={noop} />);
-  await tick(400);
-  entityBrowser.unmount();
-  await tick(50);
-  expect(entityBrowser.output()).toContain('Browse Entities');
-  expect(entityBrowser.output()).toContain('Escape: back');
-
-  const topicBrowser = renderCaptured(<TopicBrowser onBack={noop} />);
-  await tick(400);
-  topicBrowser.unmount();
-  await tick(50);
-  expect(topicBrowser.output()).toContain('Browse Topics');
-  expect(topicBrowser.output()).toContain('Escape: back');
-
-  const doxBrowser = renderCaptured(<DoxBrowser onBack={noop} />);
-  await tick(400);
-  doxBrowser.unmount();
-  await tick(50);
-  expect(doxBrowser.output()).toContain('Browse DOX Contracts');
-  expect(doxBrowser.output()).toContain('Escape: back');
-
-  const validationReport = renderCaptured(
-    <ValidationReportScreen onBack={noop} onResult={noop} validateFn={() => Promise.resolve({
-      wikiSlug: 'test',
-      links: { broken: [], orphaned: [], totalLinks: 0, totalPages: 0 },
-      citations: { invalid: [], missingSource: [], totalCitations: 0 },
-      schema: { invalid: [], totalPages: 0 },
-    })} />,
-  );
-  await tick(400);
-  validationReport.unmount();
-  await tick(50);
-  expect(validationReport.output()).toContain('Validation Report');
-  expect(validationReport.output()).toContain('Escape: back');
-
-  // autoRun=false so this does not spawn `npm test` inside the test runner
-  const testScreen = renderCaptured(<TestScreen onBack={noop} onResult={noop} autoRun={false} />);
-  await tick();
-  testScreen.unmount();
-  await tick(50);
-  expect(testScreen.output()).toContain('Run Tests');
-  expect(testScreen.output()).toContain('Press Escape to go back');
-
   const settings = renderCaptured(<SettingsScreen onBack={noop} onResult={noop} />);
   await tick();
   settings.unmount();
   await tick(50);
   expect(settings.output()).toContain('Settings');
-  // The settings footer wraps at 80 columns, so assert an unwrapped substring.
-  expect(settings.output()).toContain('Space/Left/Right: toggle');
+  // Phase 11 (phase doc §2.2): the model routing section is present.
+  expect(settings.output()).toContain('LLM Model Routing');
+});
+
+// Phase 11 (phase doc §2.4): the welcome splash appears on first launch only
+// (neither `.paper-chase.json` nor the legacy `.llm-wiki-cli.json` present).
+test('welcome splash shows on first launch and hides once a config file exists', async () => {
+  const fresh = makeTempDir('paper-chase-menu-splash-');
+  const first = renderCaptured(<MenuScreen onSelect={() => {}} lastResult="" workspace={fresh} />);
+  await tick(300); // let the settings-file check resolve
+  first.unmount();
+  await tick(50);
+  expect(first.output()).toContain('Paper Chase v.1.0 — the paper chase, automated.');
+  expect(first.output()).toContain('Create a wiki, add PDFs, then ingest.');
+
+  writeFileSync(join(fresh, '.paper-chase.json'), '{"synthesis":true}');
+  const returning = renderCaptured(<MenuScreen onSelect={() => {}} lastResult="" workspace={fresh} />);
+  await tick(300);
+  returning.unmount();
+  await tick(50);
+  expect(returning.output()).not.toContain('the paper chase, automated.');
+});
+
+// Phase 11 (phase doc §2.4): the legacy pre-rebrand config file also
+// suppresses the splash (an existing user is not on first launch).
+test('welcome splash stays hidden when only the legacy config file exists', async () => {
+  const dir = makeTempDir('paper-chase-menu-legacy-');
+  writeFileSync(join(dir, '.llm-wiki-cli.json'), '{"synthesis":true}');
+  const menu = renderCaptured(<MenuScreen onSelect={() => {}} lastResult="" workspace={dir} />);
+  await tick(300);
+  menu.unmount();
+  await tick(50);
+  expect(menu.output()).not.toContain('the paper chase, automated.');
 });

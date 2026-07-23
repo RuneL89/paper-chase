@@ -1,4 +1,4 @@
-# LLM Wiki CLI v2.0 — Implementation Plan Master Index
+# Paper Chase v.1.0 — Implementation Plan Master Index
 
 **Document ID:** `LLM-WIKI-CLI-IMPL-MASTER`
 **Version:** 1.0.0
@@ -9,7 +9,7 @@
 
 ## Overview
 
-This implementation plan breaks the LLM Wiki CLI v2.0 into phases 0–9 and 11. Each phase is a standalone deliverable that can be tested in isolation and integrated with previously accepted phases. **You do not move to the next phase until every gate in the current phase passes.**
+This implementation plan breaks Paper Chase v.1.0 into phases 0–9 and 11. Each phase is a standalone deliverable that can be tested in isolation and integrated with previously accepted phases. **You do not move to the next phase until every gate in the current phase passes.**
 
 This structure prevents the compounding bug problem that destroyed the previous implementation. Each phase has:
 - A clear objective

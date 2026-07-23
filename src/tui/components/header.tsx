@@ -9,7 +9,7 @@ export function Header({ currentWiki }: HeaderProps) {
   return (
     <Box flexDirection="column" borderStyle="round" borderColor="cyan" paddingX={1} marginBottom={1}>
       <Text bold color="cyan">
-        LLM Wiki CLI v2.0
+        Paper Chase v.1.0
       </Text>
       {currentWiki ? <Text>Wiki: {currentWiki}</Text> : null}
     </Box>

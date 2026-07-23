@@ -9,10 +9,13 @@ import { init } from '../../src/commands/init';
 import { AgentsReviewScreen } from '../../src/tui/agents-review-screen';
 
 /**
- * Phase 9 §5.1 TUI tests: the Review AGENTS.md Updates screen renders the
- * proposed-changes summary (new folders, new page types, diff stats), applies
- * the proposal (UAT 9.3), discards it, and renders a static fallback without
- * a TTY. Hermetic temp workspaces; no LLM calls.
+ * Phase 9 §5.1 TUI tests, restored and adapted in Phase 11 v1.6.0 (user
+ * directive 2026-07-23): the Review AGENTS.md Updates screen renders the
+ * proposed-changes summary (new folders, new page types, diff stats),
+ * applies the proposal (UAT 9.3), rejects it as a NO-OP (v1.6.0: the
+ * proposal file is KEPT and AGENTS.md stays byte-identical — supersedes the
+ * 2026-07-21 reject-deletes preference), and renders a static fallback
+ * without a TTY. Hermetic temp workspaces; no LLM calls.
  */
 
 const cleanup: Array<() => void> = [];
@@ -163,7 +166,7 @@ async function waitFor(condition: () => boolean, timeoutMs = 15000): Promise<voi
 }
 
 test('review screen renders the proposed-changes summary with inline diff and accept/reject', async () => {
-  const workspace = makeTempDir('llm-wiki-agentsreview-');
+  const workspace = makeTempDir('paper-chase-agentsreview-');
   await makeWikiWithProposal(workspace, 'test-wiki');
 
   const screen = renderCaptured(
@@ -187,7 +190,7 @@ test('review screen renders the proposed-changes summary with inline diff and ac
 });
 
 test('accept copies the proposal over AGENTS.md (UAT 9.3)', async () => {
-  const workspace = makeTempDir('llm-wiki-agentsreview-');
+  const workspace = makeTempDir('paper-chase-agentsreview-');
   await makeWikiWithProposal(workspace, 'test-wiki');
   const dir = join(workspace, 'wikis', 'test-wiki');
   const before = readFileSync(join(dir, 'AGENTS.md'), 'utf-8');
@@ -205,13 +208,19 @@ test('accept copies the proposal over AGENTS.md (UAT 9.3)', async () => {
   const after = readFileSync(join(dir, 'AGENTS.md'), 'utf-8');
   expect(after).toContain('Proposed addition: entities/companies/offshore folder example.');
   expect(after).toContain('## Language');
+  // Accept semantics unchanged by v1.6.0: copyFile leaves the proposal on disk.
+  expect(existsSync(join(dir, '.state', 'proposed-agents.md'))).toBe(true);
 });
 
-test('reject deletes the proposal file', async () => {
-  const workspace = makeTempDir('llm-wiki-agentsreview-');
+test('reject is a no-op: AGENTS.md and the proposal file stay byte-identical (Phase 11 v1.6.0)', async () => {
+  const workspace = makeTempDir('paper-chase-agentsreview-');
   await makeWikiWithProposal(workspace, 'test-wiki');
-  const proposalPath = join(workspace, 'wikis', 'test-wiki', '.state', 'proposed-agents.md');
-  expect(existsSync(proposalPath)).toBe(true);
+  const dir = join(workspace, 'wikis', 'test-wiki');
+  const agentsPath = join(dir, 'AGENTS.md');
+  const proposalPath = join(dir, '.state', 'proposed-agents.md');
+  const agentsBefore = readFileSync(agentsPath, 'utf-8');
+  const proposalBefore = readFileSync(proposalPath, 'utf-8');
+  expect(proposalBefore).toContain('Proposed addition');
 
   const screen = renderCaptured(
     <AgentsReviewScreen onBack={() => {}} workspace={workspace} wiki="test-wiki" />,
@@ -222,11 +231,17 @@ test('reject deletes the proposal file', async () => {
   screen.unmount();
   await tick(50);
 
-  expect(existsSync(proposalPath)).toBe(false);
+  const frame = screen.output();
+  expect(frame).toContain('Rejected proposed AGENTS.md updates for test-wiki. No changes made.');
+  // v1.6.0 reject semantics: NOTHING changes — the proposal stays on disk
+  // for later manual review and AGENTS.md is untouched.
+  expect(existsSync(proposalPath)).toBe(true);
+  expect(readFileSync(proposalPath, 'utf-8')).toBe(proposalBefore);
+  expect(readFileSync(agentsPath, 'utf-8')).toBe(agentsBefore);
 });
 
 test('view full diff shows added lines, accept/reject remain available, and escape returns to summary', async () => {
-  const workspace = makeTempDir('llm-wiki-agentsreview-');
+  const workspace = makeTempDir('paper-chase-agentsreview-');
   await makeWikiWithProposal(workspace, 'test-wiki');
 
   const screen = renderCaptured(
@@ -248,7 +263,7 @@ test('view full diff shows added lines, accept/reject remain available, and esca
 });
 
 test('wiki without a proposal shows guidance', async () => {
-  const workspace = makeTempDir('llm-wiki-agentsreview-');
+  const workspace = makeTempDir('paper-chase-agentsreview-');
   await init('test-wiki', { workspace });
 
   const screen = renderCaptured(
@@ -262,7 +277,7 @@ test('wiki without a proposal shows guidance', async () => {
 });
 
 test('review screen renders a static fallback without a TTY', async () => {
-  const workspace = makeTempDir('llm-wiki-agentsreview-notty-');
+  const workspace = makeTempDir('paper-chase-agentsreview-notty-');
   await makeWikiWithProposal(workspace, 'test-wiki');
 
   const stdin = createFakeStdin();

@@ -41,7 +41,7 @@ The `AGENTS.md` is **fully automatic**. The human does not edit it. The LLM uses
 
 **CLI signature:**
 ```bash
-llm-wiki-cli init <slug> [--title <title>] [-w <workspace>]
+chase init <slug> [--title <title>] [-w <workspace>]
 ```
 
 **TUI equivalent:**

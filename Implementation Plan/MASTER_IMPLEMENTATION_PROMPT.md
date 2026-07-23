@@ -1,4 +1,4 @@
-# LLM Wiki CLI v2.0 — Master Implementation Prompt
+# Paper Chase v.1.0 — Master Implementation Prompt
 
 **Document ID:** `LLM-WIKI-CLI-MASTER-PROMPT`
 **Version:** 1.0.0
@@ -128,7 +128,7 @@ At the beginning of each phase, present this prompt to the agent:
 
 ## Your Goal
 
-Implement Phase {N} of the LLM Wiki CLI v2.0 per the implementation plan and vision documents.
+Implement Phase {N} of Paper Chase v.1.0 per the implementation plan and vision documents.
 
 ## Documents You Must Read
 

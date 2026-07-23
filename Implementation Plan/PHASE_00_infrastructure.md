@@ -22,7 +22,7 @@ Set up the project repository, build system, test framework, LLM client, and **T
 
 ### 2.1 Repository Structure
 
-All files and folders below are created **directly in this project folder** (`Wiki v5/` — the folder that contains `Implementation Plan/` and `Project Vision/`). Do **not** create a separate project directory (e.g. `llm-wiki-cli-v2/`) here or anywhere else.
+All files and folders below are created **directly in this project folder** (`Wiki v5/` — the folder that contains `Implementation Plan/` and `Project Vision/`). Do **not** create a separate project directory here or anywhere else.
 
 ```
 Wiki v5/                            # ← this project folder; build in place
@@ -142,7 +142,7 @@ The main menu is a selectable list:
 
 ```
 ╔══════════════════════════════════════╗
-║     LLM Wiki CLI v2.0                ║
+║     Paper Chase v.1.0                 ║
 ╠══════════════════════════════════════╣
 ║  > Create New Wiki (init)            ║
 ║    Ingest PDFs (ingest)              ║
@@ -187,7 +187,7 @@ import { App } from './tui/app';
 const program = new Command();
 
 program
-  .name('llm-wiki-cli')
+  .name('chase')
   .description('Turn PDFs into citation-backed markdown wikis')
   .version('2.0.0');
 
@@ -380,7 +380,8 @@ test('TUI can navigate between screens', async () => {
   const { stdin } = render(<App />);
 
   // Simulate pressing Enter on first menu item
-  stdin.write('');
+  stdin.write('
+');
 
   const { lastFrame } = render(<App />);
   // Should show init screen

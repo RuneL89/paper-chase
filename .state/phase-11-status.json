@@ -1,0 +1,26 @@
+{
+  "phase": "11",
+  "status": "completed",
+  "goal": "All 12 technical gates in PHASE_11_polish.md v1.6.0 pass (npm test is green), all 8 UAT steps are documented with expected output, compliance log shows no unresolved contradictions, status file shows all gates passed and no blockers, and total LLM cost is $0 (no new LLM calls in this phase).",
+  "lastAction": "v1.6.0 (user directive 2026-07-23): post-ingest AGENTS.md proposal review shortcut. Restored src/utils/line-diff.ts (byte-for-byte from HEAD) and src/tui/agents-review-screen.tsx (adapted: Reject is now a no-op keeping .state/proposed-agents.md, superseding the 2026-07-21 reject-deletes preference; Accept unchanged) as a FLOW-ONLY screen (not in MENU_ITEMS). ingest-screen.tsx shows 'AGENTS.md update proposed \u2014 press [P] to review the diff.' only when the run proposed updates; `p` routes via new onReviewAgents prop through app.tsx (Screen union gains 'agents-review'; App gains test-only ingestFn pass-through) to the review screen for the ingested wiki; onBack returns to the menu. Restored + adapted tests/tui/agents-review-screen.test.tsx (6 tests); added gate 11.12 (4 tests) to tests/phase-11.test.ts. Docs: phase doc v1.6.0 (\u00a72.4 paragraph, Gate 11.12, UAT 11.8, checklist 12 gates / 8 UATs), README, src/tests/root AGENTS.md. Verified: npx tsc --noEmit clean; key-less npm test 249 passed + 14 skipped (239 + 10 new); with-key profile 261 passed + 2 skipped.",
+  "gatesPassed": [
+    "11.1",
+    "11.2",
+    "11.3",
+    "11.4",
+    "11.5",
+    "11.6",
+    "11.7",
+    "11.8",
+    "11.9",
+    "11.10",
+    "11.11",
+    "11.12"
+  ],
+  "gatesFailed": [],
+  "gatesPending": [],
+  "llmCost": "$0.00",
+  "tokenBudgetRemaining": "$0.00 (no live LLM calls in this phase)",
+  "blocker": null,
+  "nextAction": "Verifier cold-check of the v1.6.0 post-ingest review shortcut. Scrutinize: (1) REJECT NO-OP semantics \u2014 pressing `r` must leave wikis/<slug>/AGENTS.md AND .state/proposed-agents.md byte-identical (the proposal is KEPT; the 2026-07-21 reject-deletes preference is superseded) and the done message must read 'Rejected proposed AGENTS.md updates for <wiki>. No changes made.'; (2) ACCEPT FIDELITY \u2014 `a` copies the proposal over AGENTS.md byte-identically (copyFile) and leaves the proposal on disk; (3) MENU STILL FIVE ITEMS \u2014 MENU_ITEMS is exactly [init, add-pdfs, ingest, settings, exit], 'agents-review' absent, gate 11.3 unmodified; (4) SHORTCUT ONLY WHEN PROPOSED \u2014 the hint 'AGENTS.md update proposed \u2014 press [P] to review the diff.' appears only when the run returned agentsUpdateProposed: true; otherwise no hint and `p` is a no-op; the non-TTY fallback never renders the hint; (5) the review screen is reachable only from the post-ingest flow. Re-run npx tsc --noEmit (clean) and key-less npm test (expect 249 passed + 14 skipped). After sign-off: user runs UAT 11.1-11.8 (11.8 is optional-cost \u2014 a real ingest spends money; a dry fixture variant is not possible in the TUI)."
+}

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { existsSync } from 'node:fs';
 import { Box, Text, useInput, useStdin } from 'ink';
 import SelectInput from 'ink-select-input';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
+import { legacySettingsPath, settingsPath } from './settings';
 import type { Screen } from './app';
 
 export interface MenuItem {
@@ -10,24 +12,14 @@ export interface MenuItem {
   value: Screen;
 }
 
+/**
+ * Phase 11 (phase doc §2.3): the production menu — exactly these five items,
+ * in this order, with clean labels (no parenthetical command suffixes).
+ */
 export const MENU_ITEMS: MenuItem[] = [
-  { label: 'Create New Wiki (init)', value: 'init' },
-  { label: 'Ingest PDFs (ingest)', value: 'ingest' },
-  // Phase 2 (phase doc §5.2): Test Extractor immediately after Ingest PDFs.
-  { label: 'Test Extractor', value: 'extractor-test' },
-  // User-directed extension 2026-07-17: copy PDFs into raw/ from the TUI.
-  { label: 'Add PDFs (copy into raw/)', value: 'add-pdfs' },
-  // Phase 4: view deterministic validation report after ingestion.
-  { label: 'View Validation Report', value: 'validation-report' },
-  // Phase 8 (phase doc §5.3): view what changed in the last ingest run.
-  { label: 'View Ingestion Log', value: 'compounding-log' },
-  { label: 'Browse Entities', value: 'entity-browser' },
-  { label: 'Browse Topics', value: 'topic-browser' },
-  { label: 'Browse DOX Contracts', value: 'dox-browser' },
-  // Phase 9 (phase doc §5.3): AGENTS.md update review + structural change log.
-  { label: 'Review AGENTS.md Updates', value: 'agents-review' },
-  { label: 'View Structural Changes', value: 'structural-changes' },
-  { label: 'Run Tests', value: 'test' },
+  { label: 'Create New Wiki', value: 'init' },
+  { label: 'Add PDFs', value: 'add-pdfs' },
+  { label: 'Ingest PDFs', value: 'ingest' },
   { label: 'Settings', value: 'settings' },
   { label: 'Exit', value: 'exit' },
 ];
@@ -44,12 +36,36 @@ export function resolveMenuSelection(value: string): Screen {
 export interface MenuScreenProps {
   onSelect: (screen: Screen) => void;
   lastResult: string;
+  /** Workspace directory holding the settings file (default '.'). */
+  workspace?: string;
 }
 
-export function MenuScreen({ onSelect, lastResult }: MenuScreenProps) {
+export function MenuScreen({ onSelect, lastResult, workspace = '.' }: MenuScreenProps) {
   // Only activate input handling when raw mode is available (a real TTY);
   // otherwise Ink 7 throws on non-TTY stdin (e.g. piped output, test runner).
   const { isRawModeSupported } = useStdin();
+  // Phase 11 (phase doc §2.4): first-launch welcome splash — shown only when
+  // neither `.paper-chase.json` nor the legacy `.llm-wiki-cli.json` exists in
+  // the workspace yet. Nothing extra renders while the check is in flight.
+  const [showSplash, setShowSplash] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+    Promise.resolve()
+      .then(() => {
+        const hasSettings = existsSync(settingsPath(workspace)) || existsSync(legacySettingsPath(workspace));
+        if (mounted) {
+          setShowSplash(!hasSettings);
+        }
+      })
+      .catch(() => {
+        // A settings-file check failure must never break the menu.
+      });
+    return () => {
+      mounted = false;
+    };
+  }, [workspace]);
+
   useInput(
     (_input, key) => {
       if (key.escape) {
@@ -62,6 +78,12 @@ export function MenuScreen({ onSelect, lastResult }: MenuScreenProps) {
   return (
     <Box flexDirection="column">
       <Header />
+      {showSplash ? (
+        <Box flexDirection="column" marginBottom={1}>
+          <Text>Paper Chase v.1.0 — the paper chase, automated.</Text>
+          <Text>Create a wiki, add PDFs, then ingest.</Text>
+        </Box>
+      ) : null}
       {isRawModeSupported ? (
         <SelectInput items={MENU_ITEMS} onSelect={(item: MenuItem) => onSelect(resolveMenuSelection(item.value))} />
       ) : (

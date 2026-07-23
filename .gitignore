@@ -22,3 +22,7 @@ wikis/test-wiki/*
 !wikis/test-wiki/documents/
 wikis/test-wiki/documents/*
 !wikis/test-wiki/documents/golden-master-part-001.md
+
+# Local settings files — may contain API keys (Phase 11 v1.5.0); never commit
+.paper-chase.json
+.llm-wiki-cli.json

@@ -7,14 +7,14 @@ import React from 'react';
 import { render } from 'ink';
 import { App } from './tui/app';
 import { init } from './commands/init';
-import { ingest } from './commands/ingest';
+import { ingest, formatIngestSummary } from './commands/ingest';
 
 export const program = new Command();
 
 program
-  .name('llm-wiki-cli')
-  .description('Turn PDFs into citation-backed markdown wikis')
-  .version('2.0.0');
+  .name('chase')
+  .description('The paper chase, automated. Turn PDFs into citation-backed markdown wikis.')
+  .version('1.0.0');
 
 // TUI mode (default: no subcommand)
 program.action(() => {
@@ -95,18 +95,7 @@ program
           );
         }
       }
-      console.log(`Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`);
-      if (result.synthesized !== undefined) {
-        const entityTotal = (result.synthesized ?? 0) + (result.synthesizedPermissive ?? 0);
-        const topicTotal = (result.synthesizedTopics ?? 0) + (result.synthesizedTopicsPermissive ?? 0);
-        const totalSynthesized = entityTotal + topicTotal;
-        const totalConflicts = (result.synthesisConflicts ?? 0) + (result.topicConflicts ?? 0);
-        console.log(
-          `Synthesis: ${totalSynthesized} page(s) written ` +
-            `(entities: ${entityTotal}, topics: ${topicTotal}), ` +
-            `${totalConflicts} conflict(s).`,
-        );
-      }
+      console.log(formatIngestSummary(result));
     } catch (err) {
       console.error(`Error: ${(err as Error).message}`);
       process.exitCode = 1;

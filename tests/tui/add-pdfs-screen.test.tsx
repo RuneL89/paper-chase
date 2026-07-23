@@ -199,17 +199,17 @@ test('adds a PDF via the interactive select-and-paste flow', async () => {
   screen.unmount();
   await tick(50);
 
-  expect(result).toBe('Added golden-master.pdf to add-me/raw/');
+  expect(result).toBe('Copied 1 file(s) to wikis/add-me/raw/.');
   const dest = join(workspace, 'wikis', 'add-me', 'raw', 'golden-master.pdf');
   expect(existsSync(dest)).toBe(true);
   expect(await sha256(dest)).toBe(GOLDEN_SHA256);
 
   const frame = screen.output();
-  expect(frame).toContain('Added golden-master.pdf to add-me/raw/');
+  expect(frame).toContain('Copied 1 file(s) to wikis/add-me/raw/.');
+  // Phase 11 (phase doc §2.4): a successful add asks to start ingesting.
+  expect(frame).toContain('Start ingesting now? [Y/n]');
   // Input cleared after a successful add: the pasted path is no longer shown.
   expect(frame).not.toContain(pasted);
-  // raw/ contents refreshed live after the add.
-  expect(frame).toContain('golden-master.pdf');
 }, 30000);
 
 // A bad path shows the ErrorBox and copies nothing.
@@ -339,16 +339,15 @@ test('browse flow adds every picked PDF and summarizes the batch', async () => {
   screen.unmount();
   await tick(50);
 
-  expect(result).toBe('Added 2 file(s) to add-me/raw/: first doc.pdf, second.pdf');
+  expect(result).toBe('Copied 2 file(s) to wikis/add-me/raw/.');
   for (const name of ['first doc.pdf', 'second.pdf']) {
     const dest = join(workspace, 'wikis', 'add-me', 'raw', name);
     expect(existsSync(dest)).toBe(true);
     expect(await sha256(dest)).toBe(GOLDEN_SHA256);
   }
   const frame = screen.output();
-  expect(frame).toContain('Added 2 file(s) to add-me/raw/');
-  // raw/ contents refreshed after the batch add.
-  expect(frame).toContain('second.pdf');
+  expect(frame).toContain('Copied 2 file(s) to wikis/add-me/raw/.');
+  expect(frame).toContain('Start ingesting now? [Y/n]');
 }, 30000);
 
 // Cancelling the dialog is neutral: "No files selected.", no ErrorBox.
@@ -441,14 +440,171 @@ test('mixed browse results: successes count, failures are reported', async () =>
   screen.unmount();
   await tick(50);
 
-  expect(result).toBe('Added 1 file(s) to add-me/raw/: good.pdf');
+  expect(result).toBe('Copied 1 file(s) to wikis/add-me/raw/.');
   expect(existsSync(join(workspace, 'wikis', 'add-me', 'raw', 'good.pdf'))).toBe(true);
   expect(existsSync(join(workspace, 'wikis', 'add-me', 'raw', 'missing.pdf'))).toBe(false);
   const frame = screen.output();
-  expect(frame).toContain('Added 1 file(s) to add-me/raw/: good.pdf');
+  expect(frame).toContain('Copied 1 file(s) to wikis/add-me/raw/.');
   expect(frame).toContain('Error');
   expect(frame).toContain('Could not add 1 file(s)');
   expect(frame).toContain('File not found');
+});
+
+// ---------------------------------------------------------------------------
+// Phase 11 (phase doc §2.4, Gate 11.4): the post-add "Start ingesting now?
+// [Y/n]" prompt and the initialWiki continuous-workflow entry.
+// ---------------------------------------------------------------------------
+
+// A successful add switches to the confirm-ingest prompt; 'n' goes back.
+test('after a successful add, answering n to the ingest prompt goes back', async () => {
+  const workspace = makeTempDir('llm-wiki-addpdfs-prompt-n-');
+  mkdirSync(join(workspace, 'wikis', 'add-me', 'raw'), { recursive: true });
+
+  let backCount = 0;
+  let result: string | undefined;
+  const screen = renderCaptured(
+    <AddPdfsScreen
+      onBack={() => {
+          backCount += 1;
+        }}
+      onResult={(message) => (result = message)}
+      workspace={workspace}
+      pickFiles={async () => [GOLDEN_MASTER]}
+    />,
+  );
+  await tick(400);
+  screen.stdin.write('\r'); // choose the wiki -> add mode
+  await tick(200);
+  screen.stdin.write('\r'); // Enter on Browse -> add succeeds
+  await waitFor(() => result !== undefined);
+  expect(backCount).toBe(0);
+  screen.stdin.write('n'); // "Start ingesting now? [Y/n]" -> no
+  await waitFor(() => backCount === 1);
+  screen.unmount();
+  await tick(50);
+  expect(backCount).toBe(1);
+}, 30000);
+
+// 'y' routes to the ingest screen with the wiki pre-selected.
+test('after a successful add, answering y starts ingesting that wiki', async () => {
+  const workspace = makeTempDir('llm-wiki-addpdfs-prompt-y-');
+  mkdirSync(join(workspace, 'wikis', 'add-me', 'raw'), { recursive: true });
+
+  let ingestWiki: string | undefined;
+  let result: string | undefined;
+  const screen = renderCaptured(
+    <AddPdfsScreen
+      onBack={() => {}}
+      onResult={(message) => (result = message)}
+      workspace={workspace}
+      pickFiles={async () => [GOLDEN_MASTER]}
+      onStartIngest={(wiki) => {
+          ingestWiki = wiki;
+        }}
+    />,
+  );
+  await tick(400);
+  screen.stdin.write('\r'); // choose the wiki
+  await tick(200);
+  screen.stdin.write('\r'); // Enter on Browse -> add succeeds
+  await waitFor(() => result !== undefined);
+  screen.stdin.write('y'); // "Start ingesting now? [Y/n]" -> yes
+  await waitFor(() => ingestWiki !== undefined);
+  screen.unmount();
+  await tick(50);
+  expect(ingestWiki).toBe('add-me');
+}, 30000);
+
+// Enter is the default Yes of the [Y/n] prompt.
+test('Enter on the ingest prompt is the default yes', async () => {
+  const workspace = makeTempDir('llm-wiki-addpdfs-prompt-enter-');
+  mkdirSync(join(workspace, 'wikis', 'add-me', 'raw'), { recursive: true });
+
+  let ingestWiki: string | undefined;
+  let result: string | undefined;
+  const screen = renderCaptured(
+    <AddPdfsScreen
+      onBack={() => {}}
+      onResult={(message) => (result = message)}
+      workspace={workspace}
+      pickFiles={async () => [GOLDEN_MASTER]}
+      onStartIngest={(wiki) => {
+          ingestWiki = wiki;
+        }}
+    />,
+  );
+  await tick(400);
+  screen.stdin.write('\r'); // choose the wiki
+  await tick(200);
+  screen.stdin.write('\r'); // Enter on Browse -> add succeeds
+  await waitFor(() => result !== undefined);
+  screen.stdin.write('\r'); // Enter on the [Y/n] prompt -> yes
+  await waitFor(() => ingestWiki !== undefined);
+  screen.unmount();
+  await tick(50);
+  expect(ingestWiki).toBe('add-me');
+}, 30000);
+
+// Escape on the ingest prompt is a no (back to the menu).
+test('Escape on the ingest prompt goes back without ingesting', async () => {
+  const workspace = makeTempDir('llm-wiki-addpdfs-prompt-esc-');
+  mkdirSync(join(workspace, 'wikis', 'add-me', 'raw'), { recursive: true });
+
+  let backCount = 0;
+  let ingestWiki: string | undefined;
+  let result: string | undefined;
+  const screen = renderCaptured(
+    <AddPdfsScreen
+      onBack={() => {
+          backCount += 1;
+        }}
+      onResult={(message) => (result = message)}
+      workspace={workspace}
+      pickFiles={async () => [GOLDEN_MASTER]}
+      onStartIngest={(wiki) => {
+          ingestWiki = wiki;
+        }}
+    />,
+  );
+  await tick(400);
+  screen.stdin.write('\r'); // choose the wiki
+  await tick(200);
+  screen.stdin.write('\r'); // Enter on Browse -> add succeeds
+  await waitFor(() => result !== undefined);
+  screen.stdin.write(ESCAPE);
+  await waitFor(() => backCount === 1);
+  screen.unmount();
+  await tick(50);
+  expect(ingestWiki).toBeUndefined();
+}, 30000);
+
+// Continuous workflow: initialWiki skips the selector (straight into add
+// mode) and Escape from add mode goes back to the menu.
+test('initialWiki starts in add mode and Escape goes straight back', async () => {
+  const workspace = makeTempDir('llm-wiki-addpdfs-initial-');
+  mkdirSync(join(workspace, 'wikis', 'flow-wiki', 'raw'), { recursive: true });
+
+  let backCount = 0;
+  const screen = renderCaptured(
+    <AddPdfsScreen
+      onBack={() => {
+          backCount += 1;
+        }}
+      onResult={() => {}}
+      workspace={workspace}
+      initialWiki="flow-wiki"
+    />,
+  );
+  await tick(400);
+  screen.stdin.write(ESCAPE); // add mode entered via initialWiki -> menu
+  await waitFor(() => backCount === 1);
+  screen.unmount();
+  await tick(50);
+
+  const frame = screen.output();
+  expect(frame).toContain('Adding to: flow-wiki');
+  expect(frame).toContain('[ Browse for PDFs... ]');
+  expect(backCount).toBe(1);
 });
 
 // ---------------------------------------------------------------------------

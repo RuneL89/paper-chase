@@ -1,12 +1,12 @@
-# LLM Wiki CLI — Page Types Specification (Detailed)
+# Paper Chase — Page Types Specification (Detailed)
 
-This document specifies the page types produced by the LLM Wiki CLI. It is written for implementers and contributors who need to know exactly what frontmatter, content, and naming conventions each page type requires. A reader with no prior context should be able to produce a valid page of each type after reading this document.
+This document specifies the page types produced by Paper Chase. It is written for implementers and contributors who need to know exactly what frontmatter, content, and naming conventions each page type requires. A reader with no prior context should be able to produce a valid page of each type after reading this document.
 
 ---
 
 ## 1. Overview
 
-The LLM Wiki CLI generates a wiki of interlinked markdown pages. Each page has a `type` field in its YAML frontmatter. The default page types are:
+Paper Chase generates a wiki of interlinked markdown pages. Each page has a `type` field in its YAML frontmatter. The default page types are:
 
 | Type | Purpose | Created by |
 |---|---|---|

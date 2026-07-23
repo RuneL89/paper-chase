@@ -21,9 +21,21 @@ export interface AddPdfsScreenProps extends ScreenProps {
    * (src/utils/file-dialog.ts); tests inject a stub so no real dialog spawns.
    */
   pickFiles?: () => Promise<string[] | null>;
+  /**
+   * Phase 11 (phase doc §2.4, Gate 11.4): continuous workflow — when set, the
+   * screen starts directly in add mode for this wiki (no selector), and
+   * Escape from add mode goes back to the menu.
+   */
+  initialWiki?: string;
+  /**
+   * Phase 11 (phase doc §2.4): invoked when the post-add "Start ingesting
+   * now? [Y/n]" prompt is confirmed. When omitted, confirming falls back to
+   * onBack().
+   */
+  onStartIngest?: (wiki: string) => void;
 }
 
-type Mode = 'select' | 'add';
+type Mode = 'select' | 'add' | 'confirm-ingest';
 type AddStatus = 'idle' | 'busy';
 /** Which add-mode control is focused: the native picker (primary) or the manual path input (fallback). */
 type AddFocus = 'browse' | 'manual';
@@ -71,18 +83,33 @@ function RawContents({ wiki, files }: { wiki: string | undefined; files: string[
  * path, which is stripped.
  *
  * The raw/ contents are shown live and refreshed after each add. Escape
- * leaves the add controls back to the wiki selector, and leaves the selector
- * back to the menu. Input is gated off while the dialog/copy is in flight.
+ * leaves the add controls back to the wiki selector (or straight back to the
+ * menu when the screen was entered with an initialWiki), and leaves the
+ * selector back to the menu. Input is gated off while the dialog/copy is in
+ * flight.
+ *
+ * Phase 11 (phase doc §2.4, Gate 11.4): the success banner is
+ * "Copied N file(s) to wikis/<slug>/raw/." and every successful add (one file
+ * or many) is followed by the "Start ingesting now? [Y/n]" prompt — Y/Enter
+ * routes to the Ingest screen with the wiki pre-selected, n/Escape returns
+ * to the menu.
  */
-export function AddPdfsScreen({ onBack, onResult, workspace = '.', pickFiles }: AddPdfsScreenProps) {
+export function AddPdfsScreen({
+  onBack,
+  onResult,
+  workspace = '.',
+  pickFiles,
+  initialWiki,
+  onStartIngest,
+}: AddPdfsScreenProps) {
   const { isRawModeSupported } = useStdin();
   const wikis = useWikiList(workspace);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedWiki = wikis.length > 0 ? wikis[Math.min(selectedIndex, wikis.length - 1)] : undefined;
-  const [mode, setMode] = useState<Mode>('select');
-  const [activeWiki, setActiveWiki] = useState<string | undefined>(undefined);
+  const [mode, setMode] = useState<Mode>(initialWiki ? 'add' : 'select');
+  const [activeWiki, setActiveWiki] = useState<string | undefined>(initialWiki);
   const [refreshKey, setRefreshKey] = useState(0);
-  const shownWiki = mode === 'add' ? activeWiki : selectedWiki;
+  const shownWiki = mode === 'select' ? selectedWiki : activeWiki;
   const rawFiles = useRawContents(workspace, shownWiki, refreshKey);
   const [focus, setFocus] = useState<AddFocus>('browse');
   const [pathInput, setPathInput] = useState('');
@@ -98,6 +125,19 @@ export function AddPdfsScreen({ onBack, onResult, workspace = '.', pickFiles }: 
     setNotice('');
   };
 
+  /** Record a successful add: banner + the "Start ingesting now?" prompt. */
+  const finishSuccessfulAdd = (count: number) => {
+    if (!activeWiki) {
+      return;
+    }
+    const summary = `Copied ${count} file(s) to wikis/${activeWiki}/raw/.`;
+    setSuccessMsg(summary);
+    onResult?.(summary);
+    setPathInput(''); // ready for the next file immediately
+    setRefreshKey((key) => key + 1);
+    setMode('confirm-ingest');
+  };
+
   const runAddManual = async (rawPath: string) => {
     if (!activeWiki) {
       return;
@@ -106,12 +146,8 @@ export function AddPdfsScreen({ onBack, onResult, workspace = '.', pickFiles }: 
     setBusyLabel('Copying PDF...');
     clearFeedback();
     try {
-      const result = await addPdfToWiki(wikiDir(workspace, activeWiki), rawPath);
-      const summary = `Added ${result.fileName} to ${activeWiki}/raw/`;
-      setSuccessMsg(summary);
-      onResult?.(summary);
-      setPathInput(''); // ready for the next file immediately
-      setRefreshKey((key) => key + 1);
+      await addPdfToWiki(wikiDir(workspace, activeWiki), rawPath);
+      finishSuccessfulAdd(1);
     } catch (err) {
       setErrorMsg((err as Error).message);
     } finally {
@@ -161,10 +197,7 @@ export function AddPdfsScreen({ onBack, onResult, workspace = '.', pickFiles }: 
     setStatus('idle');
 
     if (added.length > 0) {
-      const summary = `Added ${added.length} file(s) to ${activeWiki}/raw/: ${added.join(', ')}`;
-      setSuccessMsg(summary);
-      onResult?.(summary);
-      setRefreshKey((key) => key + 1);
+      finishSuccessfulAdd(added.length);
     }
     if (failures.length > 0) {
       setErrorMsg(`Could not add ${failures.length} file(s): ${failures.join('; ')}`);
@@ -190,8 +223,25 @@ export function AddPdfsScreen({ onBack, onResult, workspace = '.', pickFiles }: 
         // Input is gated off while the native dialog or a copy is in flight.
         return;
       }
+      if (mode === 'confirm-ingest') {
+        // "Start ingesting now? [Y/n]" — Y/Enter ingests (default), n/Escape
+        // returns to the menu.
+        if (key.escape || input === 'n' || input === 'N') {
+          onBack();
+          return;
+        }
+        if (key.return || input === 'y' || input === 'Y') {
+          if (activeWiki && onStartIngest) {
+            onStartIngest(activeWiki);
+          } else {
+            onBack();
+          }
+          return;
+        }
+        return;
+      }
       if (key.escape) {
-        if (mode === 'add') {
+        if (mode === 'add' && !initialWiki) {
           setMode('select');
           setFocus('browse');
           clearFeedback();
@@ -246,15 +296,17 @@ export function AddPdfsScreen({ onBack, onResult, workspace = '.', pickFiles }: 
   );
 
   const footerText =
-    mode === 'add'
-      ? 'Enter: browse for PDFs | Up/Down: switch control | Escape: back to the wiki list'
-      : 'Up/Down: select wiki | Enter: choose wiki | Press Escape to go back';
+    mode === 'confirm-ingest'
+      ? 'Y/Enter: start ingesting | n/Escape: back to menu'
+      : mode === 'add'
+        ? 'Enter: browse for PDFs | Up/Down: switch control | Escape: back'
+        : 'Up/Down: select wiki | Enter: choose wiki | Press Escape to go back';
 
   return (
     <Box flexDirection="column">
       <Header />
       <Text bold>Add PDFs</Text>
-      {wikis.length === 0 ? (
+      {wikis.length === 0 && !activeWiki ? (
         <Text dimColor>No wikis found in {workspace}/wikis. Create one first (init).</Text>
       ) : !isRawModeSupported ? (
         // Non-TTY fallback (piped output, test runner): the picker and text
@@ -263,7 +315,7 @@ export function AddPdfsScreen({ onBack, onResult, workspace = '.', pickFiles }: 
         // menu.tsx).
         <Box flexDirection="column" marginTop={1}>
           <Text>Select Wiki:</Text>
-          {wikis.map((wiki) => (
+          {(activeWiki ? [activeWiki] : wikis).map((wiki) => (
             <Text key={wiki}> {wiki}</Text>
           ))}
           <RawContents wiki={shownWiki} files={rawFiles} />
@@ -281,6 +333,12 @@ export function AddPdfsScreen({ onBack, onResult, workspace = '.', pickFiles }: 
             </Text>
           ))}
           <RawContents wiki={shownWiki} files={rawFiles} />
+        </Box>
+      ) : mode === 'confirm-ingest' ? (
+        <Box flexDirection="column" marginTop={1}>
+          <SuccessBox message={successMsg} />
+          {errorMsg.length > 0 && <ErrorBox message={errorMsg} />}
+          <Text bold>Start ingesting now? [Y/n]</Text>
         </Box>
       ) : (
         <Box flexDirection="column" marginTop={1}>

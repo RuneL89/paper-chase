@@ -1,6 +1,6 @@
-# LLM Wiki CLI — Orchestration (Detailed)
+# Paper Chase — Orchestration (Detailed)
 
-This document explains how the LLM Wiki CLI orchestrates the `ingest` flow. It is written for someone with no prior knowledge of the project, so they can understand exactly what happens to a PDF from the moment it enters the system until it becomes part of the wiki.
+This document explains how Paper Chase orchestrates the `ingest` flow. It is written for someone with no prior knowledge of the project, so they can understand exactly what happens to a PDF from the moment it enters the system until it becomes part of the wiki.
 
 ---
 

@@ -76,7 +76,7 @@ if (config.updateAgents) {
 }
 ```
 
-**Default:** `updateAgents` is `false`. The journalist can enable it with `llm-wiki-cli ingest --update-agents`.
+**Default:** `updateAgents` is `false`. The journalist can enable it with `chase ingest --update-agents`.
 
 ### 2.4 Structural Change Log
 

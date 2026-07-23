@@ -1,6 +1,6 @@
-# LLM Wiki CLI — Citation and Provenance Model (Detailed)
+# Paper Chase — Citation and Provenance Model (Detailed)
 
-This document specifies how citations and provenance work in the LLM Wiki CLI. It is written for implementers and contributors who need to understand exactly how a claim on a wiki page is traced back to an exact location in a source PDF, and how the system ensures that traceability remains intact over time.
+This document specifies how citations and provenance work in Paper Chase. It is written for implementers and contributors who need to understand exactly how a claim on a wiki page is traced back to an exact location in a source PDF, and how the system ensures that traceability remains intact over time.
 
 ---
 
