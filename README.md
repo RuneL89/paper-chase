@@ -54,6 +54,83 @@ Browse the result by opening `wikis/<slug>/` in any markdown viewer (Obsidian, V
 
 ## Step-by-Step Architecture
 
+### The Pipeline at a Glance
+
+Legend: 🤖 = LLM agent (model slot in Settings) · ⚙ = deterministic code
+
+```
+chase init <slug>            ⚙ scaffold wikis/<slug>/ + AGENTS.md constitution
+                               from the template (no LLM)
+        │
+Add PDFs                     ⚙ native file picker → wikis/<slug>/raw/
+        ▼
+INGEST  ─────────────────────────────────────────────────────────────────
+        │
+        ├─ Hash check        ⚙ SHA-256: unchanged PDFs skipped; every finished
+        │                      PDF checkpointed to .state/ingestion.json
+        ▼
+  Layer 1 · Extraction       ⚙ pdfjs-dist → page chunks
+        │                      → documents/<source>-part-NNN.md
+        ▼
+  Layer 2 · Extractor        🤖 per chunk (default: Haiku)
+        │                      chunk + rolling memory + constitution
+        │                      → strict JSON: entities, relationships,
+        │                        claims, timeline → .state/extracted/
+        │                      invalid JSON/schema → reask ≤3 with the
+        │                      validator's exact errors; exhaustion aborts
+        ▼
+  Layer 3 · Materializer     ⚙ aggregate all chunks; create folders
+        │
+        ├─ Curation          🤖 ×2 in parallel (default: Sonnet; runs when
+        │  (curate-then-write)   synthesis is on and extraction data exists)
+        │                      topics: merge duplicates / drop meta-descriptors
+        │                      entities: merge-only — name variants of the same
+        │                        real-world thing fold into one page (aliases
+        │                        kept; links rewritten)
+        │                      → deterministic validation → all-or-nothing
+        │                      → any failure: keep-all fallback, zero data loss
+        │                      → .state/curation-report.json
+        │
+        ├─ Write/update      ⚙ entity + topic pages (structured templates;
+        │   pages                sparse: true on thin pages; manual edits
+        │                        skipped → conflict log; finished synthesized
+        │                        pages preserved byte-for-byte)
+        ▼
+  Validate content pages     ⚙ links, citations, frontmatter
+        ▼
+  Layer 4 · Synthesis        🤖 per page (default: Sonnet; worker pool ×4)
+        │                      strict → preservation check → permissive →
+        │                      structured template (data never lost)
+        │                      validator feedback (reask ≤3) inside each mode
+        │                      transport failure → template fallback for that
+        │                        page only (outage detector: 5-in-a-row or
+        │                        >10% of a stage → run aborts, fail loud)
+        │                      passed pages fingerprinted →
+        │                        .state/synthesis-state.json → re-runs skip
+        │                        them; template pages are retried
+        ▼
+  Validate ────────────────  ⚙
+        ▼
+  Layer 5 · DOX Writer       🤖 per folder + wiki root (default: Sonnet;
+        │                        sequential, bottom-up)
+        │                      → index.md navigation contracts
+        │                      children/statistics re-imposed deterministically
+        │                      wikilinks repaired; deterministic fallback
+        │                      → workspace pass: wikis/index-of-indexes.md
+        ▼
+  Final validation + state   ⚙ metrics.json, rolling memory, reports
+        ▼
+  AGENTS.md Updater          🤖 opt-in (default: cheap tier) — proposes
+        │                      constitution updates → .state/proposed-agents.md
+        │                      applied ONLY by a human action (never automatic)
+        ▼
+FINISHED WIKI — open wikis/ in Obsidian: entities/, topics/, documents/,
+sources/, index.md contracts everywhere, every claim cited [^srcN]
+──────────────────────────────────────────────────────────────────────────
+```
+
+The numbered layers in detail:
+
 Ingestion is a five-layer pipeline. Each layer's output is the next layer's input, and every layer is either fully deterministic or an LLM agent with a deterministic safety net.
 
 1. **Layer 1 — Deterministic extraction.** Each PDF in `raw/` is hashed (SHA-256); files whose hash is already recorded in `.state/ingestion.json` are skipped. New PDFs are parsed with `pdfjs-dist` (the only PDF parser — the Phase 10 alternative engine was rolled back) and split into page-ranged chunks, which are written as markdown document pages under `documents/` with page-accurate source mapping.
