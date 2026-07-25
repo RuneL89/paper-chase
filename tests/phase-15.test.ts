@@ -209,6 +209,9 @@ test('gate 15.1: a 20-page run never exceeds 4 in-flight, overlaps, and complete
   const result = await ingest('test-wiki', {
     workspace,
     synthesis: true,
+    // Phase 16: disable the 250ms dispatch stagger so these pool-SEMANTICS
+    // gates keep their overlap/scramble timing (the stagger itself is gate 16.8).
+    poolStaggerMs: 0,
     ...CURATION_STUBS,
     extractChunkFn: makeExtractChunkFnStub(buildExtraction(20, ['financial', 'governance', 'audits'])),
     synthesizeEntityFn: async (data) => {
@@ -266,6 +269,8 @@ test('gate 15.2: synthesis-report entries stay in original page order under scra
     await ingest('test-wiki', {
       workspace,
       synthesis: true,
+      // Phase 16: stagger disabled — see gate 15.1 note.
+      poolStaggerMs: 0,
       ...CURATION_STUBS,
       extractChunkFn: makeExtractChunkFnStub(buildExtraction(12, ['financial', 'governance', 'audits'])),
       synthesizeEntityFn: async (data) => {
@@ -342,6 +347,8 @@ test('gate 15.3: llm-calls.json has no torn lines under the 4-worker load and co
     const result = await ingest('test-wiki', {
       workspace,
       synthesis: true,
+      // Phase 16: stagger disabled — see gate 15.1 note.
+      poolStaggerMs: 0,
       ...CURATION_STUBS,
       extractChunkFn: makeExtractChunkFnStub(buildExtraction(10, ['financial'])),
       // entity-0…4 pass strict on attempt 1; entity-5…9 fail BOTH modes
@@ -451,6 +458,9 @@ test('gate 15.4: strict/permissive/template outcomes, attempt counts, and feedba
   const result = await ingest('test-wiki', {
     workspace,
     synthesis: true,
+    // Phase 16: disable the 250ms dispatch stagger so these pool-SEMANTICS
+    // gates keep their overlap/scramble timing (the stagger itself is gate 16.8).
+    poolStaggerMs: 0,
     ...CURATION_STUBS,
     extractChunkFn: makeExtractChunkFnStub(buildExtraction(3, ['financial'])),
     synthesizeEntityFn: async (data, _agentsMd, _logPath, _language, feedback, attempt) => {
@@ -571,6 +581,9 @@ test('gate 15.5: the progress stream carries the aggregate N/M (4 workers) count
   await ingest('test-wiki', {
     workspace,
     synthesis: true,
+    // Phase 16: disable the 250ms dispatch stagger so these pool-SEMANTICS
+    // gates keep their overlap/scramble timing (the stagger itself is gate 16.8).
+    poolStaggerMs: 0,
     ...CURATION_STUBS,
     onProgress: (message) => progressLines.push(message),
     extractChunkFn: makeExtractChunkFnStub(buildExtraction(8, ['financial', 'governance', 'audits'])),
@@ -682,6 +695,9 @@ test('gate 15.6: extraction/curation/DOX/workspace/updater contain no runPool, t
   await ingest('test-wiki', {
     workspace,
     synthesis: true,
+    // Phase 16: disable the 250ms dispatch stagger so these pool-SEMANTICS
+    // gates keep their overlap/scramble timing (the stagger itself is gate 16.8).
+    poolStaggerMs: 0,
     ...CURATION_STUBS,
     pagesPerChunk: 1,
     doxLlm: true,

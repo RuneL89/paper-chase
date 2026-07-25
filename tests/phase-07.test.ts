@@ -12,7 +12,7 @@ import { join } from 'node:path';
 import { afterAll, afterEach, expect, test, vi } from 'vitest';
 import matter from 'gray-matter';
 import * as llmClient from '../src/llm/client';
-import { callLLM } from '../src/llm/client';
+import { callLLM, setTransportRetrySleeper } from '../src/llm/client';
 import { request as undiciRequest } from 'undici';
 import { init } from '../src/commands/init';
 import { ingest } from '../src/commands/ingest';
@@ -587,6 +587,10 @@ test('gate 7.8: ingest warns when input language differs from the last run', asy
 // ---------------------------------------------------------------------------
 test('gate 7.10: callLLM retries 429/5xx with backoff, never 4xx, default is no retry', async () => {
   process.env.ANTHROPIC_API_KEY = 'gate-7-10-key';
+  // Phase 16: the retry backoff is now exponential (5s/15s) — the instant
+  // sleeper keeps this attempt-count/error-class test wall-clock free (the
+  // delay sequence itself is asserted in tests/phase-16.test.ts gate 16.8).
+  setTransportRetrySleeper(async () => {});
   const successBody = () => ({
     statusCode: 200,
     body: { json: async () => ({ content: [{ type: 'text', text: 'ok' }], usage: { input_tokens: 1, output_tokens: 1 } }) },
@@ -639,6 +643,7 @@ test('gate 7.10: callLLM retries 429/5xx with backoff, never 4xx, default is no 
 
     mockUndiciRequest.mockReset();
   } finally {
+    setTransportRetrySleeper(null);
     delete process.env.ANTHROPIC_API_KEY;
   }
 }, 30000);

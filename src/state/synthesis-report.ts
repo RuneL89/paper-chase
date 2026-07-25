@@ -25,8 +25,14 @@ export interface SynthesisReportEntry {
   strict: SynthesisAttemptReport;
   /** Permissive synthesis fallback attempt result. */
   permissive: SynthesisAttemptReport;
-  /** Final mode used: the page now contains strict synthesis, permissive synthesis, or the structured template. */
-  finalMode: 'strict-synthesis' | 'permissive-synthesis' | 'structured-template';
+  /**
+   * Final mode used: the page now contains strict synthesis, permissive
+   * synthesis, or the structured template. Phase 16 (vision `04` §6):
+   * 'transport-fallback' records a page that landed on the structured
+   * template because a transient transport error was still throwing after
+   * the bounded retries (the per-page transport fallback).
+   */
+  finalMode: 'strict-synthesis' | 'permissive-synthesis' | 'structured-template' | 'transport-fallback';
 }
 
 export interface SynthesisReportState {

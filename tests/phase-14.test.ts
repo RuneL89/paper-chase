@@ -32,7 +32,7 @@ import { rewriteWikilinkTargets } from '../src/utils/wikilinks';
 import { materialize } from '../src/materializer';
 import { init } from '../src/commands/init';
 import { ingest } from '../src/commands/ingest';
-import { resolveModel, setModelRouting } from '../src/llm/client';
+import { resolveModel, setModelRouting, setTransportRetrySleeper } from '../src/llm/client';
 import { seedModelsForProvider } from '../src/tui/settings';
 import { SettingsScreen } from '../src/tui/settings-screen';
 import { curationOverridesPath, readCurationOverrides } from '../src/state/curation-overrides';
@@ -516,13 +516,18 @@ test('gate 14.1: a slug in two buckets is rejected', () => {
   expect(intoAndKeep.errors.join('\n')).toContain("slug 'alpha' appears in multiple buckets");
 });
 
-test('gate 14.1: an input slug missing from every bucket is rejected', () => {
+test('gate 14.1: a legacy keep list that contradicts the derived keep is rejected (Phase 16 keep-complement)', () => {
+  // Phase 16 (vision `04` Step 6): omission is never an error — every
+  // candidate not listed is kept automatically, so the pre-Phase-16
+  // "missing from every bucket" class exists only as a CONTRADICTION of a
+  // legacy 'keep' list against the other buckets. This legacy list leaves
+  // gamma/delta unaccounted for, so it contradicts the derived keep.
   const result = validateTopicDecisions(
     JSON.stringify({ merge: [], drop: [], keep: ['alpha', 'beta'] }),
     SLUGS,
   );
   expect(result.valid).toBe(false);
-  expect(result.errors.join('\n')).toContain('missing from every bucket');
+  expect(result.errors.join('\n')).toContain("'keep' list contradicts");
   expect(result.errors.join('\n')).toContain('delta');
   expect(result.errors.join('\n')).toContain('gamma');
 });
@@ -713,6 +718,10 @@ test('gate 14.3: transient exhaustion -> fallback only after the bounded transpo
     body: { json: async () => ({ error: { message: 'rate limited' } }) },
   } as never);
   const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+  // Phase 16: the backoff between retries is now exponential (5s/15s) — the
+  // instant sleeper keeps this attempt-count test wall-clock free (delays are
+  // asserted from the delay function in tests/phase-16.test.ts gate 16.8).
+  setTransportRetrySleeper(async () => {});
   try {
     const outcome = await curateTopics([topicCandidate('alpha')], { agentsMd: 'Test constitution.' });
     // maxRetries: 2 inside the curation transport options -> 3 total calls.
@@ -720,6 +729,7 @@ test('gate 14.3: transient exhaustion -> fallback only after the bounded transpo
     expect(outcome.decisions).toBeNull();
     expect(outcome.fallbacks).toEqual([{ scope: 'curation-topics', cause: 'transport-exhaustion' }]);
   } finally {
+    setTransportRetrySleeper(null);
     warn.mockRestore();
     if (savedKey === undefined) {
       delete process.env.ANTHROPIC_API_KEY;

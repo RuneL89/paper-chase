@@ -29,6 +29,15 @@ import { SYNTHESIS_MAX_TOKENS } from './synthesis';
  *     SAME real-world thing. The optional `unsure` bucket folds into keep
  *     (asymmetry: a false merge is far worse than a false keep).
  *
+ * Phase 16 (vision `04` Step 6 + `07` §2.3, user-ratified 2026-07-25): the
+ * output schema is SLIM — neither prompt lists a `keep` bucket; kept
+ * candidates are the deterministic complement (input minus merges, drops,
+ * and `unsure`), computed by validation code. Legacy outputs that still
+ * emit `keep` are accepted only when exactly consistent, rejected when
+ * contradictory. Bucketing triggers on candidate count (250) OR on the
+ * decision-list size estimate approaching the output ceiling, whichever
+ * comes first.
+ *
  * Every failure mode lands on the keep-all fallback: curation is skipped and
  * the materializer writes all candidates exactly as pre-Phase-14 (no data
  * loss; self-healing because the input includes the on-disk set). Decisions
@@ -75,14 +84,17 @@ export interface CurationMergeDecision {
 }
 
 /**
- * A validated, fully-collapsed decision list. Every input slug appears in
- * exactly one bucket (merge.from / merge.into / drop / keep), every `into` is
- * kept, and merge chains are already resolved by union-find.
+ * A validated, fully-collapsed decision list. Every input slug is accounted
+ * for exactly once: merge.from / merge.into / drop are explicit, and `keep`
+ * is the DERIVED complement (every candidate not merged away or dropped —
+ * Phase 16 keep-complement; `unsure` folds in, a merge's `into` is kept by
+ * surviving). Merge chains are already resolved by union-find.
  */
 export interface CurationDecisions {
   merges: CurationMergeDecision[];
   /** Topics only; always [] for entities (merge-only). */
   drops: string[];
+  /** Derived by validation — never model-listed (Phase 16 slim schema). */
   keep: string[];
 }
 
@@ -156,9 +168,36 @@ export interface DecisionValidation {
  * Phase 14 (phase doc §2.2): above this candidate count the two-round scheme
  * kicks in (deterministic lexical-stem buckets, one validated call per
  * bucket, then one global reconciliation call over the survivors). At or
- * below, one call per concern.
+ * below, one call per concern — unless the decision-list SIZE estimate says
+ * otherwise (Phase 16).
  */
 export const CURATION_SINGLE_CALL_LIMIT = 250;
+
+/**
+ * Phase 16 (vision `04` Step 6 decision-list sizing + `07` §2.3,
+ * user-ratified 2026-07-25): the two-round scheme ALSO kicks in when the
+ * estimated decision-list output approaches the output-token ceiling, even
+ * below the 250-candidate count trigger — a verbose list can overflow the
+ * ceiling well below 250 candidates, and truncation is a failure the reask
+ * cannot repair. 75% of the 32768 ceiling (a conservative fraction).
+ */
+export const CURATION_SIZE_TRIGGER_TOKENS = 24_576;
+
+/**
+ * Phase 16: conservative estimate of a decision list's output size in
+ * tokens. Worst case lists every candidate slug once (~slug length + 4 chars
+ * of quotes/comma per slug) plus per-decision JSON scaffolding and the
+ * prompt's capped justification allowance (~60 chars per candidate), at ~4
+ * chars per token. An over-estimate only ever triggers the SAFE path
+ * (bucketing), never a data-loss path.
+ */
+export function estimateDecisionListTokens(candidates: ReadonlyArray<{ slug: string }>): number {
+  let chars = 0;
+  for (const candidate of candidates) {
+    chars += candidate.slug.length + 4 + 60;
+  }
+  return Math.ceil(chars / 4);
+}
 
 /** Phase 12 reask bound: 3 total attempts per curation call (vision `07` §2.3). */
 const CURATION_MAX_ATTEMPTS = 3;
@@ -284,6 +323,43 @@ export function bucketCandidates<T extends { slug: string }>(candidates: T[], ma
   return buckets;
 }
 
+/**
+ * Phase 16 (vision `04` Step 6): the production bucketing — the same
+ * deterministic stem-ordered packing as `bucketCandidates`, but a bucket
+ * closes on EITHER constraint: the 250-candidate count limit OR the
+ * decision-list size estimate approaching the ceiling (so each bucket's own
+ * validated call also fits its output budget). For normal slug sets the
+ * count constraint binds first and the buckets are exactly the Phase 14
+ * ones; pathologically verbose sets bucket earlier.
+ */
+function bucketCandidatesSized<T extends { slug: string }>(candidates: T[]): T[][] {
+  const byStem = new Map<string, T[]>();
+  for (const candidate of candidates) {
+    const stem = bucketStem(candidate.slug);
+    const group = byStem.get(stem) ?? [];
+    group.push(candidate);
+    byStem.set(stem, group);
+  }
+  const buckets: T[][] = [];
+  let current: T[] = [];
+  for (const stem of Array.from(byStem.keys()).sort()) {
+    for (const candidate of byStem.get(stem) ?? []) {
+      const wouldExceedCount = current.length >= CURATION_SINGLE_CALL_LIMIT;
+      const wouldExceedSize =
+        current.length > 0 && estimateDecisionListTokens([...current, candidate]) >= CURATION_SIZE_TRIGGER_TOKENS;
+      if (wouldExceedCount || wouldExceedSize) {
+        buckets.push(current);
+        current = [];
+      }
+      current.push(candidate);
+    }
+  }
+  if (current.length > 0) {
+    buckets.push(current);
+  }
+  return buckets;
+}
+
 // ---------------------------------------------------------------------------
 // Deterministic decision-list validation (phase doc §2.2, vision `07` §2.3)
 // ---------------------------------------------------------------------------
@@ -333,7 +409,7 @@ function parseDecisionList(rawText: string, kind: Concern): { parsed?: ParsedDec
     return { errors: [`output is not valid JSON (${(err as Error).message}) — return only the JSON object`] };
   }
   if (typeof raw !== 'object' || raw === null || Array.isArray(raw)) {
-    return { errors: ['output must be a single JSON object with "merge", "drop" (topics), "keep" buckets'] };
+    return { errors: ['output must be a single JSON object with "merge", "drop" (topics), "unsure" (entities) buckets — kept candidates are derived automatically'] };
   }
   const obj = raw as Record<string, unknown>;
   const errors: string[] = [];
@@ -380,7 +456,10 @@ function parseDecisionList(rawText: string, kind: Concern): { parsed?: ParsedDec
   if (kind === 'entities' && Array.isArray(obj.drop) && obj.drop.length > 0) {
     errors.push('entity curation is merge-only — the "drop" bucket is not allowed; move those slugs to "keep" or "unsure"');
   }
-  const keep = stringBucket('keep', true);
+  // Phase 16 (keep-complement): the "keep" bucket is OPTIONAL — the slim
+  // schema omits it entirely and kept candidates are derived; a legacy
+  // output that still lists it is validated for consistency below.
+  const keep = stringBucket('keep', false);
   const unsure = stringBucket('unsure', false);
 
   if (errors.length > 0) {
@@ -391,12 +470,15 @@ function parseDecisionList(rawText: string, kind: Concern): { parsed?: ParsedDec
 
 /**
  * Validate a raw curation response against the candidate set. The rule
- * classes (phase doc §2.2 / gate 14.1): unknown slug; slug in two buckets;
- * input slug missing from every bucket; `into` dropped or merged-away (a
- * chain with no unique survivor); self-merge. Chains (A→B, B→C) are NOT
- * rejected — union-find collapses them to their canonical survivor first
- * (gate 14.2). neverMerge pairs are vetoed into keep before collapsing, so
- * the pair is validated like any other entry (phase doc §2.7).
+ * classes (phase doc §2.2 / gate 14.1; Phase 16 keep-complement): unknown
+ * slug; slug in two buckets; legacy-'keep' contradiction; `into` dropped or
+ * merged-away (a chain with no unique survivor); self-merge. Kept candidates
+ * are DERIVED (input minus merges/drops/unsure), so omission is never an
+ * error — a legacy 'keep' list is accepted only when exactly consistent.
+ * Chains (A→B, B→C) are NOT rejected — union-find collapses them to their
+ * canonical survivor first (gate 14.2). neverMerge pairs are vetoed into
+ * keep before collapsing, so the pair is validated like any other entry
+ * (phase doc §2.7).
  */
 function validateDecisionList(
   rawText: string,
@@ -448,17 +530,14 @@ function validateDecisionList(
   }
 
   // neverMerge vetoes (phase doc §2.7): remove vetoed edges before collapsing;
-  // the affected slugs are forced into keep below.
+  // with the edge gone, both slugs land in the derived keep automatically.
   const vetoPairs = new Set(neverMerge.map(([a, b]) => pairKey(a, b)));
   const edges: Array<{ from: string; into: string }> = [];
   const vetoes: Array<{ from: string; into: string }> = [];
-  const vetoAffected = new Set<string>();
   for (const entry of parsed.merge) {
     for (const from of entry.from) {
       if (vetoPairs.has(pairKey(from, entry.into))) {
         vetoes.push({ from, into: entry.into });
-        vetoAffected.add(from);
-        vetoAffected.add(entry.into);
       } else {
         edges.push({ from, into: entry.into });
       }
@@ -499,9 +578,12 @@ function validateDecisionList(
     return { valid: false, errors };
   }
 
-  // Bucket accounting (post-collapse): every input slug in exactly one
-  // bucket; `unsure` folds into `keep`; being a merge's `into` counts as the
-  // slug's bucket.
+  // Bucket accounting: a slug listed in TWO places is still rejected
+  // (post-collapse merge membership plus the raw drop/unsure/keep buckets).
+  // Phase 16 (keep-complement): OMISSION is no longer an error — every
+  // candidate not listed anywhere is kept automatically (the derived keep),
+  // so the old missing-from-every-bucket class exists only as a legacy-keep
+  // contradiction, checked below.
   const membership = new Map<string, Set<string>>();
   const addMembership = (slug: string, bucket: string): void => {
     const buckets = membership.get(slug) ?? new Set<string>();
@@ -521,30 +603,15 @@ function validateDecisionList(
     addMembership(slug, 'keep');
   }
   for (const slug of parsed.unsure) {
-    addMembership(slug, 'keep');
+    addMembership(slug, 'unsure');
   }
-  for (const slug of vetoAffected) {
-    if (!membership.has(slug)) {
-      addMembership(slug, 'keep');
-    }
-  }
-
-  const missing: string[] = [];
-  for (const slug of candidateSlugs) {
-    const buckets = membership.get(slug);
-    if (buckets === undefined) {
-      missing.push(slug);
-    } else if (buckets.size > 1) {
+  for (const [slug, buckets] of membership) {
+    if (buckets.size > 1) {
       errors.push(
         `slug '${slug}' appears in multiple buckets (${[...buckets].sort().join(', ')}) — every candidate ` +
-          `must appear in exactly one place; a merge's 'into' must not also appear in keep/drop`,
+          `must appear in exactly one place; a merge's 'into' must not also appear in keep/drop/unsure`,
       );
     }
-  }
-  if (missing.length > 0) {
-    errors.push(
-      `input slug(s) missing from every bucket: ${missing.sort().join(', ')} — account for every candidate exactly once`,
-    );
   }
 
   // Rule: every `into` is itself kept (not dropped; merged-away is impossible
@@ -558,19 +625,61 @@ function validateDecisionList(
     return { valid: false, errors };
   }
 
-  const keepSet = new Set<string>([...parsed.keep, ...parsed.unsure]);
-  for (const merge of merges) {
-    keepSet.add(merge.into);
-  }
-  for (const slug of vetoAffected) {
-    if (!parsed.drop.includes(slug) && !merges.some((merge) => merge.from.includes(slug))) {
-      keepSet.add(slug);
+  // Phase 16 (vision `04` Step 6 + `07` §2.3, user-ratified 2026-07-25): the
+  // kept set is DERIVED — every candidate not merged away and not dropped
+  // (a merge's 'into' is kept by surviving; 'unsure' folds into keep). A
+  // legacy output that still emits a 'keep' list is accepted only when the
+  // list is EXACTLY consistent with the raw buckets (every candidate the
+  // model did not merge away, target a merge, drop, or mark unsure) and is
+  // rejected as contradictory otherwise.
+  if (parsed.keep.length > 0) {
+    const rawFrom = new Set(parsed.merge.flatMap((entry) => entry.from));
+    const rawInto = new Set(parsed.merge.map((entry) => entry.into));
+    const expectedKeep = new Set<string>();
+    for (const slug of candidateSlugs) {
+      if (
+        !rawFrom.has(slug) &&
+        !rawInto.has(slug) &&
+        !parsed.drop.includes(slug) &&
+        !parsed.unsure.includes(slug)
+      ) {
+        expectedKeep.add(slug);
+      }
+    }
+    const emitted = new Set(parsed.keep);
+    const missing = [...expectedKeep].filter((slug) => !emitted.has(slug)).sort();
+    const unexpected = [...emitted].filter((slug) => !expectedKeep.has(slug)).sort();
+    if (missing.length > 0 || unexpected.length > 0) {
+      const parts: string[] = [];
+      if (missing.length > 0) {
+        parts.push(`kept by the other buckets but not listed: ${missing.join(', ')}`);
+      }
+      if (unexpected.length > 0) {
+        parts.push(`listed but accounted for elsewhere: ${unexpected.join(', ')}`);
+      }
+      return {
+        valid: false,
+        errors: [
+          `the 'keep' list contradicts the merge/drop/unsure buckets (${parts.join('; ')}) — ` +
+            `kept candidates are derived automatically; omit 'keep' entirely`,
+        ],
+      };
     }
   }
+
+  const mergedAway = new Set(merges.flatMap((merge) => merge.from));
+  const droppedSet = new Set(parsed.drop);
+  const keep: string[] = [];
+  for (const slug of candidateSlugs) {
+    if (!mergedAway.has(slug) && !droppedSet.has(slug)) {
+      keep.push(slug);
+    }
+  }
+  keep.sort((a, b) => a.localeCompare(b));
   return {
     valid: true,
     errors: [],
-    decisions: { merges, drops: parsed.drop, keep: [...keepSet].sort() },
+    decisions: { merges, drops: parsed.drop, keep },
     vetoes,
   };
 }
@@ -857,12 +966,14 @@ function composeDecisions(
 
 /**
  * Curate one concern (topics or entities) with the two-round scaling scheme
- * (phase doc §2.2): at or below CURATION_SINGLE_CALL_LIMIT one validated
- * call; above it, deterministic lexical-stem buckets with one validated call
- * per bucket and a single reconciliation call over the survivors. Each call
- * is independently validated with its own keep-all fallback — a bucket or
- * reconciliation failure keeps that scope's candidates and leaves the other
- * rounds' results intact, so every round strictly shrinks (or holds) the set.
+ * (phase doc §2.2; Phase 16 sizing): at or below CURATION_SINGLE_CALL_LIMIT
+ * AND below the CURATION_SIZE_TRIGGER_TOKENS estimate, one validated call;
+ * past EITHER trigger, deterministic lexical-stem buckets with one validated
+ * call per bucket and a single reconciliation call over the survivors. Each
+ * call is independently validated with its own keep-all fallback — a bucket
+ * or reconciliation failure keeps that scope's candidates and leaves the
+ * other rounds' results intact, so every round strictly shrinks (or holds)
+ * the set.
  */
 async function curateWithScaling(
   kind: Concern,
@@ -872,7 +983,13 @@ async function curateWithScaling(
   if (candidates.length === 0) {
     return { decisions: { merges: [], drops: [], keep: [] }, attempts: 0, fallbacks: [], vetoes: [] };
   }
-  if (candidates.length <= CURATION_SINGLE_CALL_LIMIT) {
+  // Phase 16 (vision `04` Step 6): the size trigger fires alongside the
+  // count trigger — a verbose decision list can approach the output ceiling
+  // well below 250 candidates, and truncation is a failure the reask cannot
+  // repair.
+  const overCount = candidates.length > CURATION_SINGLE_CALL_LIMIT;
+  const overSize = estimateDecisionListTokens(candidates) >= CURATION_SIZE_TRIGGER_TOKENS;
+  if (!overCount && !overSize) {
     const single = await curateSingleCall(kind, candidates, options, `curation-${kind}`);
     return {
       decisions: single.decisions,
@@ -882,8 +999,9 @@ async function curateWithScaling(
     };
   }
 
-  // Round 1: one validated call per deterministic lexical-stem bucket.
-  const buckets = bucketCandidates(candidates, CURATION_SINGLE_CALL_LIMIT);
+  // Round 1: one validated call per deterministic lexical-stem bucket
+  // (buckets close on the count limit OR the size estimate, whichever binds).
+  const buckets = bucketCandidatesSized(candidates);
   const roundOne: CurationDecisions[] = [];
   const fallbacks: CurationFallback[] = [];
   const vetoes: Array<{ from: string; into: string }> = [];

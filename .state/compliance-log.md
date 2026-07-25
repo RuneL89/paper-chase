@@ -1738,3 +1738,32 @@
     fail-loud preserved for 4xx, real outages, Extractor exhaustion. No contradictions found.
   Result: COMPLIANT
   Checked By: Main agent
+
+[2026-07-25 10:10] Phase 16 Compliance Check (implementation complete)
+  Changed: src/llm/client.ts (600s large-call headers timeout, exponential backoff 5s/15s/45s,
+    setTransportRetrySleeper test hook, exported isTransientTransportError), src/utils/worker-pool.ts
+    (deterministic pickup stagger), src/state/synthesis-state.ts (NEW — resume records + pageDataHash),
+    src/state/metrics.ts (additive transportFailures), src/state/synthesis-report.ts (additive
+    finalMode 'transport-fallback'), src/materializer.ts (skip-eligible byte-preservation +
+    preservedPages), src/commands/ingest.ts (per-page transport fallback + outage detector,
+    resume skip partition + reconstructed entries, per-PDF checkpoint, stagger wiring),
+    src/agents/curation.ts (keep-complement validation + legacy-keep consistency, size-based
+    bucketing trigger + sized buckets), prompts/curation-topics.prompt.txt +
+    prompts/curation-entities.prompt.txt (keep bucket removed, justification cap),
+    tests/phase-16.test.ts (NEW — gates 16.1-16.12, 17 tests, $0), tests/phase-07.test.ts +
+    tests/phase-14.test.ts + tests/phase-15.test.ts (four enumerated semantic updates),
+    DOX: src/AGENTS.md, prompts/AGENTS.md, tests/AGENTS.md, wikis/AGENTS.md, README.md.
+  Vision Docs Checked: 04_orchestration_detailed.md §6 (per-page transport fallback ONLY for
+    exhausted transient transport at the two synthesis stages; 4xx never falls back; outage
+    detector 5-consecutive OR >10%), Step 9 (fingerprinted skip; templates retried; materialize
+    byte-preservation), Step 11 (per-PDF + per-page checkpointing; end-of-run write final),
+    §1 (600s large-call timeout, ~250ms deterministic stagger, exponential backoff), Step 6
+    (keep-complement + size-based bucketing below 250), 07_validation_and_quality.md §5
+    (philosophy mirror) + §2.3 (derived keep, exactly-once preserved via complement + consistency).
+  Comparison: implementation matches the amended canon one-to-one; gates 16.1-16.12 map onto it;
+    fail-loud preserved where ratified (4xx, detector-confirmed outages, Extractor exhaustion);
+    resume encoded as a pure optimization with gate 16.11 byte-comparison. Gate 16.1's
+    "2 failures, run completes" reading documented in the status file (one failure per 10-page
+    stage = 10% at, not over, the abort threshold). No contradictions found.
+  Result: COMPLIANT
+  Checked By: Implementer sub-agent

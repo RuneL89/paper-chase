@@ -73,7 +73,7 @@ All gates are LLM-free (injected stubs, mocked undici, temp workspaces).
 
 ### Gate 16.1: Per-page transport fallback
 
-A 10-page pool run where 2 stub pages throw exhausted-transport errors: both land on the structured template with `finalMode: 'transport-fallback'` in the ordered report, loud warnings emitted, `metrics.transportFailures === 2`, run completes, all other pages synthesized normally.
+Across two 10-page stage runs, one stub page per run throws an exhausted-transport error (10% per stage — at, not over, the ratified >10% abort threshold; a 2-of-10 single-stage encoding would trip the outage detector and is NOT this gate): each failed page lands on the structured template with `finalMode: 'transport-fallback'` in the ordered report, a loud warning is emitted, `metrics.transportFailures` accumulates to 2 across the runs, each run completes, and all other pages synthesize normally.
 
 ### Gate 16.2: Outage detector — consecutive
 

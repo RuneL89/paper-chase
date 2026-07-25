@@ -12,13 +12,14 @@ Decide the fate of EVERY candidate entity, exactly once. Curation is MERGE-ONLY:
 - NEVER merge a sub-unit into its parent: an auditorium, ward, or department inside an institution is not the institution.
 - NEVER merge colocated-but-distinct things: the room is not the clinic; the day unit is not the ambulatorium; two organisations sharing an address are still two organisations.
 - UNSURE: when the evidence does not settle identity, list the slug in "unsure". Unsure is treated as keep — a false merge is far worse than a false keep.
-- KEEP: everything else.
+- KEEP: everything else. Kept candidates need no decision from you — every candidate you do not list in "merge" or "unsure" is kept automatically.
 
 Rules:
-- Every candidate slug must appear in EXACTLY ONE place: inside one merge entry's "from" list, as one merge entry's "into", in "keep", or in "unsure".
-- A merge entry's "into" slug must NOT also appear in "keep" or "unsure" — being the merge target already means it is kept.
+- Every candidate slug you list must appear in EXACTLY ONE place: inside one merge entry's "from" list, as one merge entry's "into", or in "unsure". Every candidate NOT listed is kept automatically — there is no "keep" list to write.
+- A merge entry's "into" slug must NOT also appear in "unsure" — being the merge target already means it is kept.
 - Chained merges (A into B, B into C) are allowed — they resolve to the final survivor.
 - Never merge a slug into itself.
+- Do not justify your decisions. If a justification is truly unavoidable, cap it at a few words.
 
 === WIKI CONTEXT (AGENTS.md) ===
 {agentsMd}
@@ -30,9 +31,9 @@ Rules:
 === OUTPUT FORMAT ===
 Return ONLY a single JSON object — no markdown fences, no commentary, no explanation:
 
-{ "merge": [{ "from": ["slug-x"], "into": "slug-y" }], "keep": ["slug-z"], "unsure": ["slug-w"] }
+{ "merge": [{ "from": ["slug-x"], "into": "slug-y" }], "unsure": ["slug-w"] }
 
 - "merge": one entry per merge group; "from" lists the slugs merged away, "into" is the surviving slug.
-- "keep": slugs that are definitely distinct entities.
 - "unsure": slugs you cannot settle — treated as keep.
-Empty arrays are valid. Every candidate slug must be accounted for exactly once.
+- There is NO "keep" bucket: every candidate not listed in "merge" or "unsure" is kept automatically. Do not output a "keep" list.
+Empty arrays are valid.

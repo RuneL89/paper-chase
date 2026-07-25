@@ -30,7 +30,8 @@ import { join } from 'node:path';
  *   "totalTokens": 12345,
  *   "wallClockMs": 42000,
  *   "feedbackRepairs": 0,
- *   "curationFallbacks": 0
+ *   "curationFallbacks": 0,
+ *   "transportFailures": 0
  * }
  * ```
  */
@@ -97,6 +98,15 @@ export interface IngestionMetrics {
    * entity calls, all scopes). 0 on a healthy run.
    */
   curationFallbacks: number;
+  /**
+   * Phase 16 (vision `04` §6 per-page transport fallback): synthesis pages
+   * that landed on the structured template because a transient transport
+   * error (429/5xx/network/timeout) was still throwing after the bounded
+   * retries. 0 on a healthy run; each affected page logged
+   * `Transport failure for <slug> after retries — template fallback.` and its
+   * synthesis-report entry records `finalMode: 'transport-fallback'`.
+   */
+  transportFailures: number;
 }
 
 export function metricsPath(wikiDir: string): string {

@@ -405,8 +405,65 @@ function isTransientStatus(statusCode: number): boolean {
   return statusCode === 429 || statusCode >= 500;
 }
 
+/**
+ * Phase 16 (vision `04` §1 pool transport tuning, user-ratified 2026-07-25):
+ * calls whose output ceiling reaches this many tokens are large-output calls
+ * and get the generous LARGE_CALL_HEADERS_TIMEOUT_MS headers timeout; smaller
+ * calls keep undici's default headers timeout unchanged.
+ */
+export const LARGE_CALL_MAX_TOKENS = 32768;
+
+/** Phase 16: headers timeout for large-output calls (600 seconds). */
+export const LARGE_CALL_HEADERS_TIMEOUT_MS = 600_000;
+
+/**
+ * Phase 16 (vision `04` §1): the backoff between transport retries is
+ * exponential — 5s, 15s, 45s, ... (5s x 3^(retry-1)) — instead of the old
+ * linear 1s/2s/3s. Identical attempt counts and error classes; only the wait
+ * changes. `retry` is the 1-based index of the wait (the wait after attempt 1
+ * is retry 1). Exported so tests assert the sequence without wall-clock
+ * sleeping.
+ */
+export function transportRetryDelayMs(retry: number): number {
+  return 5000 * 3 ** (Math.max(1, retry) - 1);
+}
+
 function sleep(ms: number): Promise<void> {
   return new Promise((resolvePromise) => setTimeout(resolvePromise, ms));
+}
+
+/**
+ * The sleeper used between transport retries. Module-level and replaceable
+ * ONLY so tests can observe the backoff sequence without real waiting —
+ * production code never touches this (the `setModelRouting(null)` test-hook
+ * precedent).
+ */
+let transportRetrySleeper: (ms: number) => Promise<void> = sleep;
+
+/** Test hook: replace the transport-retry sleeper; null restores the real one. */
+export function setTransportRetrySleeper(sleeper: ((ms: number) => Promise<void>) | null): void {
+  transportRetrySleeper = sleeper ?? sleep;
+}
+
+/**
+ * Phase 16 (vision `04` §6 per-page transport fallback): classify a THROWN
+ * callLLM error as an exhausted transient transport failure (HTTP 429/5xx or
+ * network/timeout after the bounded retries) — the ONLY error class the
+ * per-page synthesis fallback may catch. HTTP 4xx (never retried, thrown
+ * immediately) and every non-transport error classify false and still abort.
+ * Matches the two error shapes this module throws, for both providers:
+ * '<Provider> API transport error after N attempt(s): ...' (network/timeout)
+ * and '<Provider> API error (HTTP <status>): ...' (429/5xx after retries).
+ */
+export function isTransientTransportError(error: unknown): boolean {
+  if (!(error instanceof Error)) {
+    return false;
+  }
+  if (/API transport error after \d+ attempt\(s\)/.test(error.message)) {
+    return true;
+  }
+  const match = /API error \(HTTP (\d+)\)/.exec(error.message);
+  return match !== null && isTransientStatus(Number(match[1]));
 }
 
 interface LlmCallLogEntry {
@@ -449,11 +506,15 @@ async function appendLlmCallLog(logPath: string | undefined, entry: LlmCallLogEn
  *
  * Retry policy (Phase 7 v1.1.0 amendment, vision `04` §6 / `07` §5): with
  * `options.maxRetries > 0`, transient transport failures (HTTP 429/5xx,
- * network errors) are retried with linear backoff up to that many EXTRA
- * attempts; deterministic failures (HTTP 4xx, including auth errors) always
- * throw immediately. With the default `maxRetries: 0` the behavior is the
- * frozen pre-amendment one: any failure throws on the first attempt. The
- * policy is identical for both providers.
+ * network errors) are retried up to that many EXTRA attempts; deterministic
+ * failures (HTTP 4xx, including auth errors) always throw immediately. With
+ * the default `maxRetries: 0` the behavior is the frozen pre-amendment one:
+ * any failure throws on the first attempt. The policy is identical for both
+ * providers. Phase 16 (vision `04` §1): the wait between retries is the
+ * exponential `transportRetryDelayMs` sequence (5s/15s/45s — was linear), and
+ * large-output calls (`maxTokens >= LARGE_CALL_MAX_TOKENS`) carry the 600s
+ * `LARGE_CALL_HEADERS_TIMEOUT_MS` headers timeout while smaller calls keep
+ * undici's default.
  */
 export async function callLLM(prompt: string, system?: string, options: CallLLMOptions = {}): Promise<string> {
   loadEnvFile();
@@ -476,6 +537,10 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
     : buildAnthropicRequest(model, prompt, system, options, apiKey);
 
   const maxAttempts = 1 + Math.max(0, options.maxRetries ?? 0);
+  // Phase 16 (vision `04` §1): large-output calls (synthesis family,
+  // Extractor) stream long responses — give them a generous 600s headers
+  // timeout; smaller calls keep undici's default (no option passed).
+  const largeCall = (options.maxTokens ?? 1024) >= LARGE_CALL_MAX_TOKENS;
   let statusCode = 0;
   let json: (AnthropicResponse & OpenAIResponse & { error?: { message?: string } }) | undefined;
   let lastTransportError: Error | undefined;
@@ -489,6 +554,7 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
         method: 'POST',
         headers: providerRequest.headers,
         body: JSON.stringify(providerRequest.body),
+        ...(largeCall ? { headersTimeout: LARGE_CALL_HEADERS_TIMEOUT_MS } : {}),
       });
       statusCode = response.statusCode;
       json = (await response.body.json()) as AnthropicResponse &
@@ -509,7 +575,9 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
       console.warn(
         `LLM Call | Transient failure (${reason}), retrying (attempt ${attempt + 1}/${maxAttempts})...`,
       );
-      await sleep(1000 * attempt);
+      // Phase 16 (vision `04` §1): exponential backoff (5s/15s/45s) replaces
+      // the old linear 1s*attempt wait; attempt counts unchanged.
+      await transportRetrySleeper(transportRetryDelayMs(attempt));
     }
   }
 

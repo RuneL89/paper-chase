@@ -16,8 +16,16 @@ import { readWikiLanguage, writeWikiLanguage } from '../state/language';
 import { readFullRollingMemory } from '../state/rolling-memory';
 import { readConflicts } from '../state/conflicts';
 import { writeMetrics, sumLlmUsageSince, countLlmCallsSince, type IngestionMetrics } from '../state/metrics';
-import { setModelRouting } from '../llm/client';
+import { setModelRouting, isTransientTransportError } from '../llm/client';
 import { beginReaskRun, reaskRepairs, runWithFeedbackRetry } from '../llm/reask';
+import {
+  isSkipEligible,
+  pageDataHash,
+  readSynthesisState,
+  recordSynthesisPage,
+  synthesisPagePath,
+  type SynthesisPageRecord,
+} from '../state/synthesis-state';
 import { loadSettings } from '../tui/settings';
 import { writeSourcePage } from '../pages/source-page';
 import { extractDocumentChunk, type ChunkExtraction } from './extract-chunk';
@@ -185,6 +193,14 @@ export interface IngestOptions {
    */
   curateTopicsFn?: (candidates: TopicCurationCandidate[], options: CurateCallOptions) => Promise<TopicCurationOutcome>;
   curateEntitiesFn?: (candidates: EntityCurationCandidate[], options: CurateCallOptions) => Promise<EntityCurationOutcome>;
+  /**
+   * Phase 16 (vision `04` §1 pool transport tuning): the deterministic
+   * dispatch stagger between synthesis pool pickups, in milliseconds.
+   * Defaults to SYNTHESIS_POOL_STAGGER_MS (250); tests pass 0 so the Phase 15
+   * pool-semantics gates keep their overlap timing (the stagger is a dispatch
+   * delay only — it changes no per-page outcome).
+   */
+  poolStaggerMs?: number;
 }
 
 export interface IngestedSource {
@@ -242,6 +258,15 @@ export interface IngestResult {
    * counters themselves are always present and zero-initialized).
    */
   synthesisRan?: boolean;
+  /**
+   * Phase 16 (vision `04` Step 9 synthesis resume): entity pages skipped by
+   * the resume rule this run — a skip-eligible `.state/synthesis-state.json`
+   * record (strict/permissive pass with a matching aggregate fingerprint)
+   * meant no LLM call and no rewrite. Zero on a first run.
+   */
+  synthesisSkipped?: number;
+  /** Phase 16: topic pages skipped by the resume rule (same rule as above). */
+  synthesisTopicsSkipped?: number;
 }
 
 const DEFAULT_PAGES_PER_CHUNK = 5;
@@ -270,6 +295,68 @@ const SYNTHESIS_MAX_ATTEMPTS = 3;
  * 429/5xx retry machinery absorbs pool pressure at cap 4.
  */
 export const SYNTHESIS_POOL_SIZE = 4;
+
+/**
+ * Phase 16 (vision `04` §1 pool transport tuning, user-ratified 2026-07-25):
+ * deterministic dispatch stagger between synthesis pool pickups — pickup #n
+ * starts ~250ms after pickup #(n-1), so a stage never fires 4 large requests
+ * at the same instant. A fixed constant like the pool cap, deliberately NOT
+ * a Settings field; a dispatch delay only (no per-page semantics change).
+ */
+export const SYNTHESIS_POOL_STAGGER_MS = 250;
+
+/**
+ * Phase 16 (vision `04` §6 outage detector, user-ratified 2026-07-25): per
+ * synthesis stage, the run ABORTS with the transport error when EITHER this
+ * many transport-failed pages occur consecutively (no successful call in
+ * between — the counter resets on any page whose chain completed, including
+ * quality template fallbacks, because the LLM demonstrably answered) ...
+ */
+export const TRANSPORT_OUTAGE_CONSECUTIVE_LIMIT = 5;
+
+/**
+ * Phase 16: ... OR transport-failed pages exceed this fraction of the stage's
+ * attempted pages (strictly greater — 2 of 20 completes, 3 of 20 aborts).
+ * Below both thresholds the run completes with per-page template fallbacks
+ * and a summary warning.
+ */
+export const TRANSPORT_OUTAGE_RATE = 0.1;
+
+/**
+ * Phase 16 (vision `04` §6): per-stage outage-detector state. `total` is the
+ * number of pages the stage will ATTEMPT this run (resume-skipped pages make
+ * no calls, so they cannot witness an outage and are not counted).
+ */
+interface OutageDetector {
+  consecutive: number;
+  failed: number;
+  total: number;
+}
+
+function makeOutageDetector(total: number): OutageDetector {
+  return { consecutive: 0, failed: 0, total };
+}
+
+/** A page whose chain completed (any non-transport outcome) resets the streak. */
+function recordDetectorSuccess(detector: OutageDetector): void {
+  detector.consecutive = 0;
+}
+
+/**
+ * A transport-failed page: count it, then ABORT by rethrowing its transport
+ * error when either threshold trips (fail loud — a real outage signature, not
+ * a hiccup). Below both thresholds the caller templates just this page.
+ */
+function recordDetectorTransportFailure(detector: OutageDetector, error: unknown): void {
+  detector.failed += 1;
+  detector.consecutive += 1;
+  if (
+    detector.consecutive >= TRANSPORT_OUTAGE_CONSECUTIVE_LIMIT ||
+    detector.failed > detector.total * TRANSPORT_OUTAGE_RATE
+  ) {
+    throw error;
+  }
+}
 
 interface SynthesisModeResult<C> {
   /** The synthesized page when a preservation check passed, else null. */
@@ -536,6 +623,9 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   // Phase 14 (phase doc §2.7): keep-all curation fallbacks across this run's
   // materialize calls (additive metrics counter).
   let curationFallbacksThisRun = 0;
+  // Phase 16 (vision `04` §6): per-page transport fallbacks across this run's
+  // synthesis stages (additive metrics.transportFailures counter).
+  let transportFailuresThisRun = 0;
 
   // Phase 8 (phase doc §2.2): removed PDFs — recorded in the ingestion state
   // but no longer present in raw/. Warn only; derived pages are KEPT so the
@@ -577,6 +667,14 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     for (const written of lastMaterializeResult.writtenPages) {
       workingPageHashes[written.path] = written.hash;
       writtenPagePaths.add(written.path);
+    }
+    // Phase 16 (vision `04` Step 9): synthesis-resume-preserved pages were
+    // not rewritten; fold their current on-disk hashes into the working map
+    // so the recorded hashes converge to the preserved content (a
+    // mid-synthesis abort can otherwise leave a stale pre-synthesis hash
+    // recorded, which would false-flag the page on the next run).
+    for (const preserved of lastMaterializeResult.preservedPages) {
+      workingPageHashes[preserved.path] = preserved.hash;
     }
     for (const conflictPath of lastMaterializeResult.conflicts) {
       const conflictSlug = conflictPath.split('/').pop()?.replace(/\.md$/, '');
@@ -751,6 +849,15 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     // Phase 8 (vision `04` §9.3): record the input language this source was
     // extracted under so a later changed-PDF re-process can warn on drift.
     state.sources[sourceSlug] = { hash, documentPages, ingestedAt: now, language: input };
+    // Phase 16 (vision `04` Step 11 checkpointing, user-ratified 2026-07-25):
+    // persist this PDF's ingestion record THE MOMENT its own processing is
+    // complete (chunks extracted, per-PDF materialize done) — exactly the
+    // record the end-of-run write produces for it, with the working page
+    // hashes as currently known. An abort after this point never re-extracts
+    // a finished PDF: the resume's Phase 8 hash-skip sees the checkpoint.
+    // The end-of-run write below stays the final, complete record.
+    state.pageHashes = workingPageHashes;
+    await writeIngestionState(dir, state);
     progress(`Ingested ${fileName} -> ${documentPages.length} document page(s)`);
     result.ingested.push({
       source: sourceSlug,
@@ -796,6 +903,21 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   // re-emitted on each completion — identical for the TUI and the CLI; the
   // per-page preservation-failure WARNING lines are unchanged. Extraction,
   // curation, DOX, workspace, and updater stages stay sequential (§2.5).
+  // Phase 16 (vision `04` §6 + Step 9, user-ratified 2026-07-25): three
+  // additions ride the same pool shape. (a) PER-PAGE TRANSPORT FALLBACK: a
+  // transient transport error still throwing after the client's bounded
+  // retries is caught for THAT page — the page lands on the structured
+  // template with report finalMode 'transport-fallback', a loud warning, and
+  // a metrics.transportFailures increment; HTTP 4xx (and every other class)
+  // still aborts the run. (b) OUTAGE DETECTOR: per stage, 5 consecutive
+  // transport-failed pages OR more than 10% of the stage's attempted pages
+  // aborts the run with the transport error (fail loud). (c) SYNTHESIS
+  // RESUME: pages with a skip-eligible .state/synthesis-state.json record
+  // (strict/permissive pass, matching aggregate fingerprint, not rewritten
+  // by the Materializer this run) are skipped — no LLM call, no rewrite;
+  // template-fallback pages are retried. Every pooled page checkpoints its
+  // record as it completes (serialized queue), and skipped pages contribute
+  // reconstructed report entries so the stage's ordered report is complete.
   if (extract && synthesis && lastMaterializeResult) {
     result.synthesisRan = true;
     const agentsMd = loadAgentsMd(dir);
@@ -806,241 +928,441 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     const runTopicSynthesis = options.synthesizeTopicFn ?? writeTopicSynthesis;
     const runTopicPermissiveSynthesis =
       options.synthesizeTopicPermissiveFn ?? writePermissiveTopicSynthesis;
+    const poolStaggerMs = options.poolStaggerMs ?? SYNTHESIS_POOL_STAGGER_MS;
+
+    // Phase 16 (Step 9): the resume completion memory, read once per run.
+    const synthesisRecords = (await readSynthesisState(dir)).pages;
+    // Pages the Materializer actually REWROTE this run must re-synthesize
+    // even if a stale record matches (e.g. a skip-eligible page deleted from
+    // disk was restored as the structured template — the record's page is
+    // gone, so the record must not suppress re-synthesis).
+    const rewrittenThisRun = new Set(lastMaterializeResult.writtenPages.map((page) => page.path));
 
     interface SynthesisOutcome {
       /** The report entry appended once per stage, in original page order. */
       entry: SynthesisReportEntry;
       /** Which per-stage result counter this page lands on. */
-      kind: 'strict' | 'permissive' | 'template';
+      kind: 'strict' | 'permissive' | 'template' | 'transport';
     }
+
+    /**
+     * Phase 16 (Step 9): partition one stage's pages into resume-skipped
+     * (skip-eligible record, fingerprint match, not rewritten this run) and
+     * to-run. Skip decisions recompute the fingerprint with the SAME exported
+     * helper the Materializer's preservation check uses, so the two gates can
+     * never disagree.
+     */
+    const partitionStage = <P extends EntityPageData | TopicPageData>(
+      pages: P[],
+    ): { skipped: Map<string, SynthesisPageRecord>; toRun: P[] } => {
+      const skipped = new Map<string, SynthesisPageRecord>();
+      const toRun: P[] = [];
+      for (const page of pages) {
+        const relPath = synthesisPagePath(page);
+        const record = synthesisRecords[relPath];
+        if (
+          isSkipEligible(record) &&
+          record.dataHash === pageDataHash(page, language) &&
+          !rewrittenThisRun.has(relPath)
+        ) {
+          skipped.set(page.slug, record);
+        } else {
+          toRun.push(page);
+        }
+      }
+      return { skipped, toRun };
+    };
+
+    /**
+     * Phase 16 (Step 9): a skipped page's report entry, reconstructed from
+     * its record so the stage's ordered report covers every page (the record
+     * carries mode + timestamp; a skipped page passed in a single recorded
+     * mode, reconstructed as one attempt — the killed leg's per-attempt
+     * detail does not survive an abort by definition).
+     */
+    const reconstructedSkipEntry = (
+      pageType: 'entity' | 'topic',
+      slug: string,
+      record: SynthesisPageRecord,
+    ): SynthesisReportEntry => ({
+      timestamp: record.synthesizedAt,
+      pageType,
+      slug,
+      strict:
+        record.mode === 'strict-synthesis'
+          ? { attempted: true, passed: true, attempts: 1 }
+          : { attempted: true, passed: false, attempts: 1 },
+      permissive:
+        record.mode === 'permissive-synthesis'
+          ? { attempted: true, passed: true, attempts: 1 }
+          : { attempted: false, passed: false },
+      finalMode: record.mode,
+    });
 
     // 1. Entity synthesis. The per-page body below is the pre-Phase-15 loop
     // body verbatim, with only the report logging inverted (the entry is
-    // returned to the caller instead of appended per page).
-    const synthesizeEntityPage = async (entityPage: EntityPageData): Promise<SynthesisOutcome> => {
-      // Strict synthesis first (readable prose that preserves exact
-      // mention/relationship/claim strings), retried up to
-      // SYNTHESIS_MAX_ATTEMPTS times on preservation failure (Phase 7
-      // v1.1.0 bounded retry amendment — applies to every language).
-      const strict = await trySynthesisMode(
-        (feedback, attempt) => runEntitySynthesis(entityPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
-        (page) => checkPreservation(entityPage, page),
-        entityPage.slug,
-      );
-      if (strict.page !== null) {
-        const folderPath = join(dir, entityPage.folder);
-        // UAT 6.3 fix: re-impose the aliases frontmatter field over the
-        // model-written page (deterministic; the LLM's frontmatter is not
-        // trusted for the alias rule). Phase 13 (vision `02` §4.8): the
-        // sparse flag is re-imposed the same way from the structured page
-        // data — a model-emitted `sparse` on a non-sparse entity is removed.
-        // Phase 14 (phase doc §2.3): curation-merged variant titles ride
-        // along in the aliases.
-        await writeFile(
-          join(folderPath, `${entityPage.slug}.md`),
-          enforceSparseInMarkdown(
-            enforceAliasesInMarkdown(strict.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
-            entityPage.sparse === true,
-          ),
-          'utf-8',
+    // returned to the caller instead of appended per page) and the Phase 16
+    // transport-fallback wrap around it.
+    const synthesizeEntityPage = async (
+      entityPage: EntityPageData,
+      detector: OutageDetector,
+    ): Promise<SynthesisOutcome> => {
+      // Phase 16 (§2.1): which chain mode the page is in if a transport error
+      // throws — recorded in the transport-fallback report entry.
+      let chainPhase: 'strict' | 'permissive' = 'strict';
+      try {
+        // Strict synthesis first (readable prose that preserves exact
+        // mention/relationship/claim strings), retried up to
+        // SYNTHESIS_MAX_ATTEMPTS times on preservation failure (Phase 7
+        // v1.1.0 bounded retry amendment — applies to every language).
+        const strict = await trySynthesisMode(
+          (feedback, attempt) => runEntitySynthesis(entityPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
+          (page) => checkPreservation(entityPage, page),
+          entityPage.slug,
         );
-        return {
-          kind: 'strict',
-          entry: {
-            timestamp: new Date().toISOString(),
-            pageType: 'entity',
-            slug: entityPage.slug,
-            strict: { attempted: true, passed: true, attempts: strict.attempts },
-            permissive: { attempted: false, passed: false },
-            finalMode: 'strict-synthesis',
-          },
-        };
-      }
+        if (strict.page !== null) {
+          const folderPath = join(dir, entityPage.folder);
+          // UAT 6.3 fix: re-impose the aliases frontmatter field over the
+          // model-written page (deterministic; the LLM's frontmatter is not
+          // trusted for the alias rule). Phase 13 (vision `02` §4.8): the
+          // sparse flag is re-imposed the same way from the structured page
+          // data — a model-emitted `sparse` on a non-sparse entity is removed.
+          // Phase 14 (phase doc §2.3): curation-merged variant titles ride
+          // along in the aliases.
+          await writeFile(
+            join(folderPath, `${entityPage.slug}.md`),
+            enforceSparseInMarkdown(
+              enforceAliasesInMarkdown(strict.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
+              entityPage.sparse === true,
+            ),
+            'utf-8',
+          );
+          return {
+            kind: 'strict',
+            entry: {
+              timestamp: new Date().toISOString(),
+              pageType: 'entity',
+              slug: entityPage.slug,
+              strict: { attempted: true, passed: true, attempts: strict.attempts },
+              permissive: { attempted: false, passed: false },
+              finalMode: 'strict-synthesis',
+            },
+          };
+        }
 
-      // Fallback: permissive synthesis (prose summary + verbatim structured
-      // data), also retried up to SYNTHESIS_MAX_ATTEMPTS times.
-      console.warn(
-        `Strict synthesis failed preservation for ${entityPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`,
-      );
-      const permissive = await trySynthesisMode(
-        (feedback, attempt) => runEntityPermissiveSynthesis(entityPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
-        (page) => checkPreservation(entityPage, page),
-        entityPage.slug,
-      );
-      if (permissive.page !== null) {
-        const folderPath = join(dir, entityPage.folder);
-        // Phase 13: aliases + sparse re-imposed deterministically over the
-        // model-written page, same as the strict write point above. Phase 14:
-        // curation-merged variant titles included in the aliases.
-        await writeFile(
-          join(folderPath, `${entityPage.slug}.md`),
-          enforceSparseInMarkdown(
-            enforceAliasesInMarkdown(permissive.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
-            entityPage.sparse === true,
-          ),
-          'utf-8',
+        // Fallback: permissive synthesis (prose summary + verbatim structured
+        // data), also retried up to SYNTHESIS_MAX_ATTEMPTS times.
+        console.warn(
+          `Strict synthesis failed preservation for ${entityPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`,
         );
+        chainPhase = 'permissive';
+        const permissive = await trySynthesisMode(
+          (feedback, attempt) => runEntityPermissiveSynthesis(entityPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
+          (page) => checkPreservation(entityPage, page),
+          entityPage.slug,
+        );
+        if (permissive.page !== null) {
+          const folderPath = join(dir, entityPage.folder);
+          // Phase 13: aliases + sparse re-imposed deterministically over the
+          // model-written page, same as the strict write point above. Phase 14:
+          // curation-merged variant titles included in the aliases.
+          await writeFile(
+            join(folderPath, `${entityPage.slug}.md`),
+            enforceSparseInMarkdown(
+              enforceAliasesInMarkdown(permissive.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
+              entityPage.sparse === true,
+            ),
+            'utf-8',
+          );
+          return {
+            kind: 'permissive',
+            entry: {
+              timestamp: new Date().toISOString(),
+              pageType: 'entity',
+              slug: entityPage.slug,
+              strict: { attempted: true, passed: false, attempts: strict.attempts },
+              permissive: { attempted: true, passed: true, attempts: permissive.attempts },
+              finalMode: 'permissive-synthesis',
+            },
+          };
+        }
+
+        console.warn(
+          `Permissive synthesis also failed preservation for ${entityPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
+        );
+        if (permissive.lastCheck !== null) {
+          await logConflict(dir, entityPage.slug, permissive.lastCheck, 'entity');
+        }
         return {
-          kind: 'permissive',
+          kind: 'template',
           entry: {
             timestamp: new Date().toISOString(),
             pageType: 'entity',
             slug: entityPage.slug,
             strict: { attempted: true, passed: false, attempts: strict.attempts },
-            permissive: { attempted: true, passed: true, attempts: permissive.attempts },
-            finalMode: 'permissive-synthesis',
+            permissive: { attempted: true, passed: false, attempts: permissive.attempts },
+            finalMode: 'structured-template',
+          },
+        };
+      } catch (error) {
+        // Phase 16 (vision `04` §6, user-ratified 2026-07-25): the per-page
+        // transport fallback. ONLY an exhausted transient transport error
+        // (429/5xx/network/timeout after the client's bounded retries — the
+        // client's own classification) is caught for THIS page: the page
+        // lands on the deterministic structured template (identical to the
+        // quality-exhaustion fallback), a loud warning is emitted, the report
+        // records finalMode 'transport-fallback', and metrics gains a
+        // transport failure. HTTP 4xx NEVER falls back — it rethrows and
+        // aborts the run, as does every other error class.
+        if (!isTransientTransportError(error)) {
+          throw error;
+        }
+        // Phase 16 outage detector: past either threshold this rethrows the
+        // transport error and the pool aborts the run with it (fail loud).
+        recordDetectorTransportFailure(detector, error);
+        transportFailuresThisRun += 1;
+        console.warn(`Transport failure for ${entityPage.slug} after retries — template fallback.`);
+        return {
+          kind: 'transport',
+          entry: {
+            timestamp: new Date().toISOString(),
+            pageType: 'entity',
+            slug: entityPage.slug,
+            strict: { attempted: true, passed: false },
+            permissive:
+              chainPhase === 'permissive'
+                ? { attempted: true, passed: false }
+                : { attempted: false, passed: false },
+            finalMode: 'transport-fallback',
           },
         };
       }
-
-      console.warn(
-        `Permissive synthesis also failed preservation for ${entityPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
-      );
-      if (permissive.lastCheck !== null) {
-        await logConflict(dir, entityPage.slug, permissive.lastCheck, 'entity');
-      }
-      return {
-        kind: 'template',
-        entry: {
-          timestamp: new Date().toISOString(),
-          pageType: 'entity',
-          slug: entityPage.slug,
-          strict: { attempted: true, passed: false, attempts: strict.attempts },
-          permissive: { attempted: true, passed: false, attempts: permissive.attempts },
-          finalMode: 'structured-template',
-        },
-      };
     };
 
     const entityPages = lastMaterializeResult.entityPages;
+    const entityStage = partitionStage(entityPages);
+    const entityDetector = makeOutageDetector(entityStage.toRun.length);
     let entityCompleted = 0;
     const entityOutcomes = await runPool(
-      entityPages,
+      entityStage.toRun,
       async (entityPage) => {
-        const outcome = await synthesizeEntityPage(entityPage);
+        const outcome = await synthesizeEntityPage(entityPage, entityDetector);
+        if (outcome.kind !== 'transport') {
+          // The chain completed — the LLM answered — so the transport is
+          // healthy even when the outcome is a quality template fallback.
+          recordDetectorSuccess(entityDetector);
+        }
+        // Phase 16 (vision `04` Step 11): per-page checkpoint — the page's
+        // synthesis record is persisted as it completes (through the Phase 15
+        // serialized write queue), so an abort costs only pages in flight.
+        await recordSynthesisPage(dir, synthesisPagePath(entityPage), {
+          mode: outcome.entry.finalMode,
+          dataHash: pageDataHash(entityPage, language),
+          synthesizedAt: outcome.entry.timestamp,
+        });
         entityCompleted += 1;
         progress(
-          `Synthesis: ${entityCompleted}/${entityPages.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
+          `Synthesis: ${entityCompleted}/${entityStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
         );
         return outcome;
       },
-      { concurrency: SYNTHESIS_POOL_SIZE },
+      { concurrency: SYNTHESIS_POOL_SIZE, staggerMs: poolStaggerMs },
     );
-    for (const outcome of entityOutcomes) {
+    // Merge pooled outcomes with resume-skipped pages back into ORIGINAL page
+    // order (skipped pages contribute reconstructed entries), then tally.
+    const entityOutcomeBySlug = new Map(entityOutcomes.map((outcome) => [outcome.entry.slug, outcome]));
+    const entityEntries: SynthesisReportEntry[] = [];
+    for (const entityPage of entityPages) {
+      const skippedRecord = entityStage.skipped.get(entityPage.slug);
+      if (skippedRecord) {
+        entityEntries.push(reconstructedSkipEntry('entity', entityPage.slug, skippedRecord));
+        result.synthesisSkipped = (result.synthesisSkipped ?? 0) + 1;
+        continue;
+      }
+      const outcome = entityOutcomeBySlug.get(entityPage.slug);
+      if (!outcome) {
+        continue; // unreachable — the pool covers every non-skipped page.
+      }
+      entityEntries.push(outcome.entry);
       if (outcome.kind === 'strict') {
         result.synthesized = (result.synthesized ?? 0) + 1;
       } else if (outcome.kind === 'permissive') {
         result.synthesizedPermissive = (result.synthesizedPermissive ?? 0) + 1;
-      } else {
+      } else if (outcome.kind === 'template') {
         result.synthesisConflicts = (result.synthesisConflicts ?? 0) + 1;
       }
+      // 'transport' is counted in metrics.transportFailures, not in the
+      // preservation-conflict counters (a different failure class).
     }
-    await appendSynthesisReportEntries(
-      dir,
-      entityOutcomes.map((outcome) => outcome.entry),
-    );
+    await appendSynthesisReportEntries(dir, entityEntries);
+    if (entityStage.skipped.size > 0) {
+      progress(`Synthesis: ${entityStage.skipped.size} page(s) skipped (unchanged data).`);
+    }
 
-    // 2. Topic synthesis (same pooled shape as the entity stage).
-    const synthesizeTopicPage = async (topicPage: TopicPageData): Promise<SynthesisOutcome> => {
-      const strict = await trySynthesisMode(
-        (feedback, attempt) => runTopicSynthesis(topicPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
-        (page) => checkTopicPreservation(topicPage, page),
-        `topic ${topicPage.slug}`,
-      );
-      if (strict.page !== null) {
-        const folderPath = join(dir, topicPage.folder);
-        await writeFile(
-          join(folderPath, `${topicPage.slug}.md`),
-          enforceAliasesInMarkdown(strict.page, topicPage.title, topicPage.slug),
-          'utf-8',
+    // 2. Topic synthesis (same pooled shape as the entity stage, including
+    // the Phase 16 transport-fallback wrap).
+    const synthesizeTopicPage = async (
+      topicPage: TopicPageData,
+      detector: OutageDetector,
+    ): Promise<SynthesisOutcome> => {
+      let chainPhase: 'strict' | 'permissive' = 'strict';
+      try {
+        const strict = await trySynthesisMode(
+          (feedback, attempt) => runTopicSynthesis(topicPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
+          (page) => checkTopicPreservation(topicPage, page),
+          `topic ${topicPage.slug}`,
         );
-        return {
-          kind: 'strict',
-          entry: {
-            timestamp: new Date().toISOString(),
-            pageType: 'topic',
-            slug: topicPage.slug,
-            strict: { attempted: true, passed: true, attempts: strict.attempts },
-            permissive: { attempted: false, passed: false },
-            finalMode: 'strict-synthesis',
-          },
-        };
-      }
+        if (strict.page !== null) {
+          const folderPath = join(dir, topicPage.folder);
+          await writeFile(
+            join(folderPath, `${topicPage.slug}.md`),
+            enforceAliasesInMarkdown(strict.page, topicPage.title, topicPage.slug),
+            'utf-8',
+          );
+          return {
+            kind: 'strict',
+            entry: {
+              timestamp: new Date().toISOString(),
+              pageType: 'topic',
+              slug: topicPage.slug,
+              strict: { attempted: true, passed: true, attempts: strict.attempts },
+              permissive: { attempted: false, passed: false },
+              finalMode: 'strict-synthesis',
+            },
+          };
+        }
 
-      console.warn(
-        `Strict synthesis failed preservation for topic ${topicPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`,
-      );
-      const permissive = await trySynthesisMode(
-        (feedback, attempt) => runTopicPermissiveSynthesis(topicPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
-        (page) => checkTopicPreservation(topicPage, page),
-        `topic ${topicPage.slug}`,
-      );
-      if (permissive.page !== null) {
-        const folderPath = join(dir, topicPage.folder);
-        await writeFile(
-          join(folderPath, `${topicPage.slug}.md`),
-          enforceAliasesInMarkdown(permissive.page, topicPage.title, topicPage.slug),
-          'utf-8',
+        console.warn(
+          `Strict synthesis failed preservation for topic ${topicPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`,
         );
+        chainPhase = 'permissive';
+        const permissive = await trySynthesisMode(
+          (feedback, attempt) => runTopicPermissiveSynthesis(topicPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
+          (page) => checkTopicPreservation(topicPage, page),
+          `topic ${topicPage.slug}`,
+        );
+        if (permissive.page !== null) {
+          const folderPath = join(dir, topicPage.folder);
+          await writeFile(
+            join(folderPath, `${topicPage.slug}.md`),
+            enforceAliasesInMarkdown(permissive.page, topicPage.title, topicPage.slug),
+            'utf-8',
+          );
+          return {
+            kind: 'permissive',
+            entry: {
+              timestamp: new Date().toISOString(),
+              pageType: 'topic',
+              slug: topicPage.slug,
+              strict: { attempted: true, passed: false, attempts: strict.attempts },
+              permissive: { attempted: true, passed: true, attempts: permissive.attempts },
+              finalMode: 'permissive-synthesis',
+            },
+          };
+        }
+
+        console.warn(
+          `Permissive synthesis also failed preservation for topic ${topicPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
+        );
+        if (permissive.lastCheck !== null) {
+          await logConflict(dir, topicPage.slug, permissive.lastCheck, 'topic');
+        }
         return {
-          kind: 'permissive',
+          kind: 'template',
           entry: {
             timestamp: new Date().toISOString(),
             pageType: 'topic',
             slug: topicPage.slug,
             strict: { attempted: true, passed: false, attempts: strict.attempts },
-            permissive: { attempted: true, passed: true, attempts: permissive.attempts },
-            finalMode: 'permissive-synthesis',
+            permissive: { attempted: true, passed: false, attempts: permissive.attempts },
+            finalMode: 'structured-template',
+          },
+        };
+      } catch (error) {
+        // Phase 16 (vision `04` §6): the per-page transport fallback — only
+        // exhausted transient transport errors; 4xx and every other class
+        // rethrows and aborts the run (same contract as the entity stage).
+        if (!isTransientTransportError(error)) {
+          throw error;
+        }
+        recordDetectorTransportFailure(detector, error);
+        transportFailuresThisRun += 1;
+        console.warn(`Transport failure for ${topicPage.slug} after retries — template fallback.`);
+        return {
+          kind: 'transport',
+          entry: {
+            timestamp: new Date().toISOString(),
+            pageType: 'topic',
+            slug: topicPage.slug,
+            strict: { attempted: true, passed: false },
+            permissive:
+              chainPhase === 'permissive'
+                ? { attempted: true, passed: false }
+                : { attempted: false, passed: false },
+            finalMode: 'transport-fallback',
           },
         };
       }
-
-      console.warn(
-        `Permissive synthesis also failed preservation for topic ${topicPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
-      );
-      if (permissive.lastCheck !== null) {
-        await logConflict(dir, topicPage.slug, permissive.lastCheck, 'topic');
-      }
-      return {
-        kind: 'template',
-        entry: {
-          timestamp: new Date().toISOString(),
-          pageType: 'topic',
-          slug: topicPage.slug,
-          strict: { attempted: true, passed: false, attempts: strict.attempts },
-          permissive: { attempted: true, passed: false, attempts: permissive.attempts },
-          finalMode: 'structured-template',
-        },
-      };
     };
 
     const topicPages = lastMaterializeResult.topicPages;
+    const topicStage = partitionStage(topicPages);
+    const topicDetector = makeOutageDetector(topicStage.toRun.length);
     let topicCompleted = 0;
     const topicOutcomes = await runPool(
-      topicPages,
+      topicStage.toRun,
       async (topicPage) => {
-        const outcome = await synthesizeTopicPage(topicPage);
+        const outcome = await synthesizeTopicPage(topicPage, topicDetector);
+        if (outcome.kind !== 'transport') {
+          recordDetectorSuccess(topicDetector);
+        }
+        await recordSynthesisPage(dir, synthesisPagePath(topicPage), {
+          mode: outcome.entry.finalMode,
+          dataHash: pageDataHash(topicPage, language),
+          synthesizedAt: outcome.entry.timestamp,
+        });
         topicCompleted += 1;
         progress(
-          `Synthesis: ${topicCompleted}/${topicPages.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
+          `Synthesis: ${topicCompleted}/${topicStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
         );
         return outcome;
       },
-      { concurrency: SYNTHESIS_POOL_SIZE },
+      { concurrency: SYNTHESIS_POOL_SIZE, staggerMs: poolStaggerMs },
     );
-    for (const outcome of topicOutcomes) {
+    const topicOutcomeBySlug = new Map(topicOutcomes.map((outcome) => [outcome.entry.slug, outcome]));
+    const topicEntries: SynthesisReportEntry[] = [];
+    for (const topicPage of topicPages) {
+      const skippedRecord = topicStage.skipped.get(topicPage.slug);
+      if (skippedRecord) {
+        topicEntries.push(reconstructedSkipEntry('topic', topicPage.slug, skippedRecord));
+        result.synthesisTopicsSkipped = (result.synthesisTopicsSkipped ?? 0) + 1;
+        continue;
+      }
+      const outcome = topicOutcomeBySlug.get(topicPage.slug);
+      if (!outcome) {
+        continue; // unreachable — the pool covers every non-skipped page.
+      }
+      topicEntries.push(outcome.entry);
       if (outcome.kind === 'strict') {
         result.synthesizedTopics = (result.synthesizedTopics ?? 0) + 1;
       } else if (outcome.kind === 'permissive') {
         result.synthesizedTopicsPermissive = (result.synthesizedTopicsPermissive ?? 0) + 1;
-      } else {
+      } else if (outcome.kind === 'template') {
         result.topicConflicts = (result.topicConflicts ?? 0) + 1;
       }
     }
-    await appendSynthesisReportEntries(
-      dir,
-      topicOutcomes.map((outcome) => outcome.entry),
-    );
+    await appendSynthesisReportEntries(dir, topicEntries);
+    if (topicStage.skipped.size > 0) {
+      progress(`Synthesis: ${topicStage.skipped.size} page(s) skipped (unchanged data).`);
+    }
+
+    // Phase 16 (vision `04` §6): below both outage thresholds the run
+    // completes — with a summary warning when any page transport-fell-back.
+    if (transportFailuresThisRun > 0) {
+      progress(
+        `Warning: ${transportFailuresThisRun} page(s) fell back to the structured template after transport failures this run — re-run ingest to retry them.`,
+      );
+    }
   }
 
   // Phase 8 (phase doc §2.5): after synthesis (which may have replaced the
@@ -1164,6 +1486,9 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       // Phase 14 (phase doc §2.7): keep-all curation fallbacks this run
       // (both materialize calls; 0 on a healthy run).
       curationFallbacks: curationFallbacksThisRun,
+      // Phase 16 (vision `04` §6): per-page transport fallbacks this run
+      // (both synthesis stages; 0 on a healthy run).
+      transportFailures: transportFailuresThisRun,
     };
   };
 

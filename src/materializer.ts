@@ -12,6 +12,7 @@ import { logStructuralChanges, readStructuralChanges, type StructuralChange } fr
 import { logManualEditConflict } from './state/conflicts';
 import { readCurationOverrides } from './state/curation-overrides';
 import { writeCurationReport } from './state/curation-report';
+import { isSkipEligible, pageDataHash, readSynthesisState, synthesisPagePath } from './state/synthesis-state';
 import {
   curateEntities,
   curateTopics,
@@ -102,6 +103,17 @@ export interface MaterializeResult {
    * reflect the tool's own final writes.
    */
   writtenPages: Array<{ path: string; hash: string }>;
+  /**
+   * Phase 16 (vision `04` Step 9 synthesis resume): entity/topic pages that
+   * were NOT rewritten because a skip-eligible `.state/synthesis-state.json`
+   * record (strict/permissive pass with a matching aggregate fingerprint)
+   * covers them — the finished synthesized page is preserved byte-for-byte.
+   * The pages still appear in `entityPages`/`topicPages` (the ingest skip
+   * rule needs their data); the hash is the page's current on-disk content
+   * hash so the recorded page hashes converge to truth. Empty when no
+   * synthesis records exist — the byte-identical pre-Phase-16 path.
+   */
+  preservedPages: Array<{ path: string; hash: string }>;
   /**
    * Phase 8: wiki-relative paths of pages whose update was skipped because
    * a manual edit was detected (hash mismatch). These pages are excluded
@@ -1084,7 +1096,17 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     slugToTitle[slug] = entity.name;
   }
 
-  const result: MaterializeResult = { entityPages: [], topicPages: [], documentPages: [], writtenPages: [], conflicts: [], removedDuplicates: [] };
+  const result: MaterializeResult = { entityPages: [], topicPages: [], documentPages: [], writtenPages: [], preservedPages: [], conflicts: [], removedDuplicates: [] };
+
+  // Phase 16 (vision `04` Step 9): the synthesis completion memory. A page
+  // with a skip-eligible record (strict/permissive pass whose dataHash still
+  // matches the current aggregate fingerprint) is PRESERVED byte-for-byte —
+  // never rewritten — so an already-paid synthesized page is never clobbered,
+  // even by a run without synthesis. With no records on disk (pre-Phase-16
+  // wikis, synthesis never run) the map is empty and every check below falls
+  // through to the byte-identical pre-Phase-16 path.
+  const synthesisRecords = (await readSynthesisState(dir)).pages;
+  const resumeLanguage = options?.language ?? { input: 'en' as LanguageCode, output: 'en' as LanguageCode };
 
   // Write entity pages (Phase 8 update mode: existing pages are re-derived
   // from the full extraction set, which IS the merge — mentions append
@@ -1131,7 +1153,23 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     // logged and the page is excluded from the result so the Synthesis
     // Writer does not overwrite it either.
     const pagePath = join(folderPath, `${slug}.md`);
-    const relativePath = wikiRelativePath(entity.folder, `${slug}.md`);
+    const relativePath = synthesisPagePath(pageData);
+    // Phase 16 (vision `04` Step 9): a skip-eligible synthesis record whose
+    // fingerprint matches the current aggregate means this page's synthesis
+    // is already paid for — preserve the finished page byte-for-byte (checked
+    // BEFORE the manual-edit conflict path: preservation never overwrites
+    // anything, so a human edit to such a page is kept too). The page still
+    // lands in entityPages so the ingest skip rule sees it.
+    const synthesisRecord = synthesisRecords[relativePath];
+    if (
+      isSkipEligible(synthesisRecord) &&
+      synthesisRecord.dataHash === pageDataHash(pageData, resumeLanguage) &&
+      existsSync(pagePath)
+    ) {
+      result.entityPages.push(pageData);
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile(pagePath, 'utf-8')) });
+      continue;
+    }
     if ((await checkPageConflict(pagePath, relativePath, options?.pageHashes)) === 'conflict') {
       await logManualEditConflict(dir, relativePath);
       result.conflicts.push(relativePath);
@@ -1202,7 +1240,20 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     };
 
     const pagePath = join(folderPath, `${topic.slug}.md`);
-    const relativePath = wikiRelativePath(topic.folder, `${topic.slug}.md`);
+    const relativePath = synthesisPagePath(pageData);
+    // Phase 16 (vision `04` Step 9): same synthesis-resume preservation as
+    // the entity loop above — a skip-eligible record with a matching
+    // fingerprint preserves the finished topic page byte-for-byte.
+    const synthesisRecord = synthesisRecords[relativePath];
+    if (
+      isSkipEligible(synthesisRecord) &&
+      synthesisRecord.dataHash === pageDataHash(pageData, resumeLanguage) &&
+      existsSync(pagePath)
+    ) {
+      result.topicPages.push(pageData);
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile(pagePath, 'utf-8')) });
+      continue;
+    }
     if ((await checkPageConflict(pagePath, relativePath, options?.pageHashes)) === 'conflict') {
       await logManualEditConflict(dir, relativePath);
       result.conflicts.push(relativePath);
