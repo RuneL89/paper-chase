@@ -1799,3 +1799,15 @@
     Implementation Plan/AGENTS.md (BACKLOG.md ownership).
   Result: recorded; no code changes.
   Checked By: Main agent
+
+[2026-07-25 10:20] Phases 14, 15, 16 UAT accepted — all phases CLOSED
+  User Decision: accepted 2026-07-25 ("I'll accept all these and finish the phases for good").
+  Changed: .state/phase-14-status.json, .state/phase-15-status.json, .state/phase-16-status.json
+    (status verified-awaiting-uat → completed; uatAcceptance recorded per phase).
+  Evidence basis: run 5 (new-wiki-phase16, exit 0, $33.86/95min) for 14.1/15.1/15.2; run 4's
+    organic keep-all + gate 14.3 for 14.2; gates 16.1-16.11 for 16.1/16.2; 14.3/15.3 deferred
+    to the full-corpus package UAT per the phase docs.
+  Project state: Phases 0-9, 11-16 all completed. Open tracks live in Implementation Plan/BACKLOG.md
+    (B1-B3 Phase 17 candidates, B4-B5 residuals, B6-B7 housekeeping, B8 multi-format ingestion).
+  Result: GOLDEN RULE SATISFIED for all closed phases; no unresolved contradictions anywhere.
+  Checked By: Main agent
