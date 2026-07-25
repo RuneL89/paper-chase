@@ -2,6 +2,31 @@
 
 **The paper chase, automated.** You bring the documents. It does the chasing.
 
+## Your First Wiki — a Friendly Walkthrough
+
+Never used Paper Chase? You have a pile of PDFs and ten minutes. Here's the whole thing, end to end.
+
+**0. Launch it.** Double-click `paper-chase.exe` (Windows) or run `chase` / `npm run cli` in a terminal. A menu appears with five items — everything happens from there.
+
+**1. Settings (once).** Open **Settings** from the menu.
+- **API key:** scroll to the **API Keys** section, press Enter on your provider's row, paste your key, and **Save**. It's stored locally in `.paper-chase.json`, shown only as `••••last4` — never in full, never in logs. (Prefer the environment? `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` work too, no Settings entry needed.)
+- **Models:** the defaults are sensible — a cheap model for extraction and a stronger one for writing, with an inline recommendation label under each role. No changes needed to start.
+- **Toggles:** make sure **Synthesis** is **on** — that's what turns raw extractions into readable prose pages.
+
+**2. Create your wiki.** **Create New Wiki** → give it a **Title** (the folder slug is derived automatically) and a **Workspace** (the folder your wikis live in). Pick the **Output Language** — the language *you want to read the wiki in* (default English). Done: your wiki now exists with a `raw/` folder and its own `AGENTS.md` constitution. The app offers to take you straight to adding PDFs.
+
+**3. Add PDFs.** **Add PDFs** → **Browse…** opens your system's normal file picker — select one or many PDFs at once. They're copied into the wiki's `raw/` folder. When asked **Start ingesting now? [Y/n]**, say yes (or come back to **Ingest PDFs** anytime).
+
+**4. Ingest.** Select your wiki, then set the **Input Language** — the language *the PDFs are written in* (Danish reports? Pick Dansk). This matters for clean names and page slugs; the output language was already fixed when you created the wiki. Press Enter and watch it work: text extraction → a quick **curation** pass that merges duplicates and drops junk topics → prose writing (`Synthesis: N/M pages complete (4 workers)`) → navigation contracts. It ends with `Ingest complete: X ingested, Y skipped.` — plus what it cost (`.state/metrics.json`; a dense two-PDF run with synthesis is roughly tens of dollars and ~1–2 hours, small ones are pennies and minutes). Unchanged PDFs are skipped automatically on later runs, and anything already written is never re-bought.
+
+**5. The AGENTS.md proposal (if offered).** After an ingest, the app may have learned new structure and drafted an update to your wiki's constitution. The success screen says `press [P] to review the diff` — read the proposed changes inline, then **A** to apply them or **R** to keep the proposal on disk for later (nothing is ever applied without you).
+
+**6. Read your wiki in Obsidian.** This is the recommended way to browse: open the `wikis/` folder as an Obsidian vault (or just your one wiki's folder). Everything is plain markdown — entity and topic pages with prose up top and verbatim evidence below, `[[links]]` between pages, and a citation like `[^src1]` behind every claim that jumps you to the exact PDF page. Thin pages are honestly marked `sparse: true` so you never waste time on them.
+
+*Feeding it more later:* drop new PDFs into `raw/` and ingest again — Paper Chase only processes what's new and merges it into the pages you already have.
+
+---
+
 ## Introduction
 
 Paper Chase is a local CLI/TUI that ingests a pile of PDFs — reports, filings, transcripts, letters — and produces a structured markdown wiki: one page per entity (people, organizations, places, …), topic pages that roll entities up, document pages for every ingested PDF, and `AGENTS.md` navigation contracts (the DOX contract) throughout. Every entity, relationship, and claim on every page carries a citation of the form `\[Source Name, p. N]`, and a deterministic validation pass checks that every link resolves, every citation points at a real source page, and every page matches its schema. Re-running ingest on the same folder is incremental: unchanged PDFs (by SHA-256) are skipped, new information is merged into existing pages, and manual edits are never overwritten — they are logged as conflicts instead.
