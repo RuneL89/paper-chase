@@ -2,6 +2,24 @@
 
 **The paper chase, automated.** You bring the documents. It does the chasing.
 
+## Introduction
+
+Paper Chase is a local CLI/TUI that ingests a pile of PDFs — reports, filings, transcripts, letters — and produces a structured markdown wiki: one page per entity (people, organizations, places, …), topic pages that roll entities up, document pages for every ingested PDF, and `AGENTS.md` navigation contracts (the DOX contract) throughout. Every entity, relationship, and claim on every page carries a citation of the form `\\\[Source Name, p. N]`, and a deterministic validation pass checks that every link resolves, every citation points at a real source page, and every page matches its schema. Re-running ingest on the same folder is incremental: unchanged PDFs (by SHA-256) are skipped, new information is merged into existing pages, and manual edits are never overwritten — they are logged as conflicts instead.
+
+**Just want the app? (Windows .exe)** You don't need Node.js:
+
+1. Build it once with `npm install` + `npm run package:win` → `dist\\paper-chase.exe` (or take a prebuilt copy).
+2. Put the exe in the folder that should hold your `wikis\\` workspace and double-click it — the first launch unpacks its runtime once, then the terminal UI opens.
+3. **Create New Wiki → Add PDFs → Ingest PDFs**, then browse the generated `wikis\\<slug>\\` folder in Obsidian or any markdown viewer. (`paper-chase.exe init` / `ingest` also work from a terminal.)
+
+Details: [Windows Executable](#windows-executable). **Rebuild the exe after upgrading** — it embeds the code it was built from; `npm run package:win` refreshes it.
+
+![The Paper Chase main menu — Create New Wiki, Add PDFs, Ingest PDFs, Settings, Exit](docs/images/tui-main-menu.png)
+
+*The main menu — five items, and everything a wiki needs starts here.*
+
+\---
+
 ## Your First Wiki — a Friendly Walkthrough
 
 Never used Paper Chase? You have a pile of PDFs and ten minutes. Here's the whole thing, end to end.
@@ -9,42 +27,33 @@ Never used Paper Chase? You have a pile of PDFs and ten minutes. Here's the whol
 **0. Launch it.** Double-click `paper-chase.exe` (Windows) or run `chase` / `npm run cli` in a terminal. A menu appears with five items — everything happens from there.
 
 **1. Settings (once).** Open **Settings** from the menu.
-- **API key:** scroll to the **API Keys** section, press Enter on your provider's row, paste your key, and **Save**. It's stored locally in `.paper-chase.json`, shown only as `••••last4` — never in full, never in logs. (Prefer the environment? `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` work too, no Settings entry needed.)
-- **Models:** the defaults are sensible — a cheap model for extraction and a stronger one for writing, with an inline recommendation label under each role. No changes needed to start.
-- **Toggles:** make sure **Synthesis** is **on** — that's what turns raw extractions into readable prose pages.
+
+* **API key:** scroll to the **API Keys** section, press Enter on your provider's row, paste your key, and **Save**. It's stored locally in `.paper-chase.json`, shown only as `••••last4` — never in full, never in logs. (Prefer the environment? `ANTHROPIC\\\_API\\\_KEY` / `OPENAI\\\_API\\\_KEY` work too, no Settings entry needed.)
+* **Models:** the defaults are sensible — a cheap model for extraction and a stronger one for writing, with an inline recommendation label under each role. No changes needed to start.
+* **Toggles:** make sure **Synthesis** is **on** — that's what turns raw extractions into readable prose pages.
 
 **2. Create your wiki.** **Create New Wiki** → give it a **Title** (the folder slug is derived automatically) and a **Workspace** (the folder your wikis live in). Pick the **Output Language** — the language *you want to read the wiki in* (default English). Done: your wiki now exists with a `raw/` folder and its own `AGENTS.md` constitution. The app offers to take you straight to adding PDFs.
 
-**3. Add PDFs.** **Add PDFs** → **Browse…** opens your system's normal file picker — select one or many PDFs at once. They're copied into the wiki's `raw/` folder. When asked **Start ingesting now? [Y/n]**, say yes (or come back to **Ingest PDFs** anytime).
+**3. Add PDFs.** **Add PDFs** → **Browse…** opens your system's normal file picker — select one or many PDFs at once. They're copied into the wiki's `raw/` folder. When asked **Start ingesting now? \[Y/n]**, say yes (or come back to **Ingest PDFs** anytime).
 
-**4. Ingest.** Select your wiki, then set the **Input Language** — the language *the PDFs are written in* (Danish reports? Pick Dansk). This matters for clean names and page slugs; the output language was already fixed when you created the wiki. Press Enter and watch it work: text extraction → a quick **curation** pass that merges duplicates and drops junk topics → prose writing (`Synthesis: N/M pages complete (4 workers)`) → navigation contracts. It ends with `Ingest complete: X ingested, Y skipped.` — plus what it cost (`.state/metrics.json`; a dense two-PDF run with synthesis is roughly tens of dollars and ~1–2 hours, small ones are pennies and minutes). Unchanged PDFs are skipped automatically on later runs, and anything already written is never re-bought.
+**4. Ingest.** Select your wiki, then set the **Input Language** — the language *the PDFs are written in* (Danish reports? Pick Dansk). This matters for clean names and page slugs; the output language was already fixed when you created the wiki. Press Enter and watch it work: text extraction → a quick **curation** pass that merges duplicates and drops junk topics → prose writing (`Synthesis: N/M pages complete (4 workers)`) → navigation contracts. It ends with `Ingest complete: X ingested, Y skipped.` — plus what it cost (`.state/metrics.json`; a dense two-PDF run with synthesis is roughly tens of dollars and \~1–2 hours, small ones are pennies and minutes). Unchanged PDFs are skipped automatically on later runs, and anything already written is never re-bought.
 
-**5. The AGENTS.md proposal (if offered).** After an ingest, the app may have learned new structure and drafted an update to your wiki's constitution. The success screen says `press [P] to review the diff` — read the proposed changes inline, then **A** to apply them or **R** to keep the proposal on disk for later (nothing is ever applied without you).
+**5. The AGENTS.md proposal (if offered).** After an ingest, the app may have learned new structure and drafted an update to your wiki's constitution. The success screen says `press \\\[P] to review the diff` — read the proposed changes inline, then **A** to apply them or **R** to keep the proposal on disk for later (nothing is ever applied without you).
 
-**6. Read your wiki in Obsidian.** This is the recommended way to browse: open the `wikis/` folder as an Obsidian vault (or just your one wiki's folder). Everything is plain markdown — entity and topic pages with prose up top and verbatim evidence below, `[[links]]` between pages, and a citation like `[^src1]` behind every claim that jumps you to the exact PDF page. Thin pages are honestly marked `sparse: true` so you never waste time on them.
+**6. Read your wiki in Obsidian.** This is the recommended way to browse: open the `wikis/` folder as an Obsidian vault (or just your one wiki's folder). Everything is plain markdown — entity and topic pages with prose up top and verbatim evidence below, `\\\[\\\[links]]` between pages, and a citation like `\\\[^src1]` behind every claim that jumps you to the exact PDF page. Thin pages are honestly marked `sparse: true` so you never waste time on them.
 
 *Feeding it more later:* drop new PDFs into `raw/` and ingest again — Paper Chase only processes what's new and merges it into the pages you already have.
 
----
+\---
 
-## Introduction
 
-Paper Chase is a local CLI/TUI that ingests a pile of PDFs — reports, filings, transcripts, letters — and produces a structured markdown wiki: one page per entity (people, organizations, places, …), topic pages that roll entities up, document pages for every ingested PDF, and `AGENTS.md` navigation contracts (the DOX contract) throughout. Every entity, relationship, and claim on every page carries a citation of the form `\[Source Name, p. N]`, and a deterministic validation pass checks that every link resolves, every citation points at a real source page, and every page matches its schema. Re-running ingest on the same folder is incremental: unchanged PDFs (by SHA-256) are skipped, new information is merged into existing pages, and manual edits are never overwritten — they are logged as conflicts instead.
-
-**Just want the app? (Windows .exe)** You don't need Node.js:
-
-1. Build it once with `npm install` + `npm run package:win` → `dist\paper-chase.exe` (or take a prebuilt copy).
-2. Put the exe in the folder that should hold your `wikis\` workspace and double-click it — the first launch unpacks its runtime once, then the terminal UI opens.
-3. **Create New Wiki → Add PDFs → Ingest PDFs**, then browse the generated `wikis\<slug>\` folder in Obsidian or any markdown viewer. (`paper-chase.exe init` / `ingest` also work from a terminal.)
-
-Details: [Windows Executable](#windows-executable). **Rebuild the exe after upgrading** — it embeds the code it was built from; `npm run package:win` refreshes it.
 
 ## Known Limitations (from the Backlog)
 
 Need-to-know only; the full list with mechanisms and fix plans lives in [`Implementation Plan/BACKLOG.md`](Implementation%20Plan/BACKLOG.md).
 
 * **Validation noise on synthesized pages (fix planned, Phase 17):** some LLM-written pages get incomplete `sources` frontmatter (flagged `missingSource`), an example `updated` date copied from the wiki constitution, or a folder catalog that links the folder index instead of the page (flagged `orphaned`). Content and body citations are intact — these are metadata/navigation imperfections, not data loss.
-* **The very densest pages stay templates:** an entity/topic whose preserved evidence exceeds the model's output ceiling keeps the deterministic structured template (all data, no prose) — rare (~2% of pages).
+* **The very densest pages stay templates:** an entity/topic whose preserved evidence exceeds the model's output ceiling keeps the deterministic structured template (all data, no prose) — rare (\~2% of pages).
 * **Curation is judgment, not lookup:** topic/entity merge-drop decisions can vary between runs; merges are recorded in `.state/curation-report.json`, never-merge pairs can be pinned in `.state/curation-overrides.json`, and any run that fails curation falls back to keeping everything.
 * **PDF text only (for now):** DOCX, scanned/image-only PDFs, and standalone images are on the backlog as a future multi-format ingestion track.
 * **API keys live in `.paper-chase.json`** (gitignored) — never commit it.
@@ -55,7 +64,7 @@ From the user's seat, the app is a terminal UI with five menu items:
 
 1. **Create New Wiki** — name a wiki; Paper Chase scaffolds `wikis/<slug>/` with a `raw/` folder and the root `AGENTS.md` contract.
 2. **Add PDFs** — copy PDFs into `wikis/<slug>/raw/` using the native file picker (or by pasting a path). Afterwards the app offers to start ingesting immediately.
-3. **Ingest PDFs** — run the pipeline over every new or changed PDF in `raw/`, with live progress (`\[██████████] Chunk 1/1 ...`) and a closing summary: `Ingest complete: X ingested, Y skipped. Synthesis: A pages written (B strict, C permissive), D conflicts. Validation passed.` If the run wrote an AGENTS.md update proposal, the success screen offers a `p` shortcut into a diff review: `A` replaces the wiki's AGENTS.md with the proposal, `R` does nothing (the proposal stays on disk for later manual review). The review screen is flow-only — it has no menu entry. Cost calibration (July 2026, Anthropic mid-tier routing): a dense two-PDF Danish ingest with synthesis ran **~$34 and ~95 minutes** end-to-end — extraction is cheap (~$0.05/chunk), synthesis of prose is most of the bill, and curation costs pennies.
+3. **Ingest PDFs** — run the pipeline over every new or changed PDF in `raw/`, with live progress (`\\\[██████████] Chunk 1/1 ...`) and a closing summary: `Ingest complete: X ingested, Y skipped. Synthesis: A pages written (B strict, C permissive), D conflicts. Validation passed.` If the run wrote an AGENTS.md update proposal, the success screen offers a `p` shortcut into a diff review: `A` replaces the wiki's AGENTS.md with the proposal, `R` does nothing (the proposal stays on disk for later manual review). The review screen is flow-only — it has no menu entry. Cost calibration (July 2026, Anthropic mid-tier routing): a dense two-PDF Danish ingest with synthesis ran **\~$34 and \~95 minutes** end-to-end — extraction is cheap (\~$0.05/chunk), synthesis of prose is most of the bill, and curation costs pennies.
 4. **Settings** — toggle synthesis and AGENTS.md update proposals, pick the LLM provider (Anthropic or OpenAI), choose which model each pipeline role uses, and enter API keys (masked, stored locally). Settings persist to `.paper-chase.json`.
 5. **Exit**.
 
@@ -150,7 +159,7 @@ INGEST  ────────────────────────
         │                      applied ONLY by a human action (never automatic)
         ▼
 FINISHED WIKI — open wikis/ in Obsidian: entities/, topics/, documents/,
-sources/, index.md contracts everywhere, every claim cited [^srcN]
+sources/, index.md contracts everywhere, every claim cited \[^srcN]
 ──────────────────────────────────────────────────────────────────────────
 ```
 
@@ -196,9 +205,9 @@ Rejection loops and criteria: LLM failures fall into four bounded classes — **
 
 Switching the provider in Settings **resets the five model slots** to the new provider's defaults (cheapest tier as the default model, mid-tier — Sonnet / GPT-5.6 Terra — for Curation, "Same as default" for the other roles) so stale cross-provider ids can never persist. Config files without a `provider` field (written before the multi-provider extension) load as `'anthropic'` with unchanged behavior; config files without a `curation` entry (written before Phase 14) load with `curation: null`.
 
-At call time the model resolves in this order: an explicit per-call override → the routing entry for the call type → `models.default` → the `ANTHROPIC\_MODEL` environment variable → the built-in default (Haiku). Call types map to roles as: `extractor` → extractor; `synthesis`, `permissive-synthesis`, `topic-synthesis`, `permissive-topic-synthesis` → synthesis; `dox-writer` → dox; `curation` → curation; everything else → default. `ingest()` loads the routing from the workspace settings file once at the start of a run. The legacy `.llm-wiki-cli.json` settings file is still read as a fallback when `.paper-chase.json` is absent, but settings are only ever saved to the new name. The `ANTHROPIC\_MODEL` env fallback is anthropic-scoped; there is no `OPENAI\_MODEL` env var — OpenAI models are configured through Settings only.
+At call time the model resolves in this order: an explicit per-call override → the routing entry for the call type → `models.default` → the `ANTHROPIC\\\_MODEL` environment variable → the built-in default (Haiku). Call types map to roles as: `extractor` → extractor; `synthesis`, `permissive-synthesis`, `topic-synthesis`, `permissive-topic-synthesis` → synthesis; `dox-writer` → dox; `curation` → curation; everything else → default. `ingest()` loads the routing from the workspace settings file once at the start of a run. The legacy `.llm-wiki-cli.json` settings file is still read as a fallback when `.paper-chase.json` is absent, but settings are only ever saved to the new name. The `ANTHROPIC\\\_MODEL` env fallback is anthropic-scoped; there is no `OPENAI\\\_MODEL` env var — OpenAI models are configured through Settings only.
 
-LLM calls require the selected provider's key — `ANTHROPIC\_API\_KEY` for Anthropic, `OPENAI\_API\_KEY` for OpenAI. Each provider's key resolves per call in this order: **(1) a key stored in Settings** (the TUI Settings screen has an API Keys section below the model rows: one masked row per provider showing only the source and last 4 characters — `\[configured ••••ab12]` when stored, `\[from environment ••••ab12]` when resolvable via the environment, `\[not set]` otherwise; Enter opens a masked editor, a non-empty submit stages the key, an empty submit clears it, and `\[ Save ]` persists it to `.paper-chase.json`) → **(2) the environment variable** → **(3) a `.env` file in the project root**. OpenAI calls post to `https://api.openai.com/v1/chat/completions` with a `Bearer` token, use `max\_completion\_tokens`, never send a custom `temperature` (the GPT-5.6 reasoning models reject one), and carry the system prompt as a leading system message.
+LLM calls require the selected provider's key — `ANTHROPIC\\\_API\\\_KEY` for Anthropic, `OPENAI\\\_API\\\_KEY` for OpenAI. Each provider's key resolves per call in this order: **(1) a key stored in Settings** (the TUI Settings screen has an API Keys section below the model rows: one masked row per provider showing only the source and last 4 characters — `\\\[configured ••••ab12]` when stored, `\\\[from environment ••••ab12]` when resolvable via the environment, `\\\[not set]` otherwise; Enter opens a masked editor, a non-empty submit stages the key, an empty submit clears it, and `\\\[ Save ]` persists it to `.paper-chase.json`) → **(2) the environment variable** → **(3) a `.env` file in the project root**. OpenAI calls post to `https://api.openai.com/v1/chat/completions` with a `Bearer` token, use `max\\\_completion\\\_tokens`, never send a custom `temperature` (the GPT-5.6 reasoning models reject one), and carry the system prompt as a leading system message.
 
 **API-key security:** `.paper-chase.json` is gitignored — never commit it. Full keys are never rendered in the TUI (masked display only) and never written to any log (`llm-calls.json`, `metrics.json`, console); on the wire a key travels only in the request auth header.
 
@@ -216,11 +225,11 @@ LLM calls require the selected provider's key — `ANTHROPIC\_API\_KEY` for Anth
 * `validation-report.json` — broken links, orphaned pages, invalid/missing-source citations, schema violations.
 * `conflicts.json` — preservation-check failures and manual-edit skips.
 * `curation-report.json` — per-run topic/entity curation outcome (decisions applied, merges/drops, fallbacks with causes, override vetoes, deleted pages, rewritten wikilinks).
-* `curation-overrides.json` — user-editable `{"neverMerge": [["slug-a","slug-b"]]}` veto list (created empty on the first curation run; malformed files are ignored with a warning).
+* `curation-overrides.json` — user-editable `{"neverMerge": \[\["slug-a","slug-b"]]}` veto list (created empty on the first curation run; malformed files are ignored with a warning).
 * `metrics.json` — per-run metrics: chunks processed/skipped/failed, entities new/updated, relationships, claims (by type), pages written (by type), folders created, broken links, orphaned pages, conflicts (manual-edit vs preservation), curation fallbacks, transport failures, total tokens, total cost, wall-clock time, validator-feedback repairs. A crash-safe preliminary metrics file is written before validation/DOX and a final one at the end of the run; a one-line summary is printed at the end of ingest.
-* `ingestion.json`, `rolling-memory.json`, `language.json`, `extracted/\*.json`, `proposals/structural-changes.json`, `proposed-agents.md` — pipeline state (`ingestion.json` is checkpointed per PDF as it completes and finalized at the end of the run), saved chunk extractions, structural-change and AGENTS.md update proposals (never auto-applied). A written proposal can be reviewed straight after the ingest: press `p` on the success screen to open the review screen, which shows the diff between the current AGENTS.md and the proposal — Accept copies the proposal over AGENTS.md; Reject changes nothing and keeps `proposed-agents.md` on disk for later manual review.
+* `ingestion.json`, `rolling-memory.json`, `language.json`, `extracted/\\\*.json`, `proposals/structural-changes.json`, `proposed-agents.md` — pipeline state (`ingestion.json` is checkpointed per PDF as it completes and finalized at the end of the run), saved chunk extractions, structural-change and AGENTS.md update proposals (never auto-applied). A written proposal can be reviewed straight after the ingest: press `p` on the success screen to open the review screen, which shows the diff between the current AGENTS.md and the proposal — Accept copies the proposal over AGENTS.md; Reject changes nothing and keeps `proposed-agents.md` on disk for later manual review.
 
-**Testing.** `npm test` runs the vitest suite. The suite is LLM-free: every test that exercises LLM code paths mocks the `undici` transport, so no API key is needed and no tokens are spent; the golden-master PDF fixtures under `test-pdfs/` provide deterministic Layer 1 input. Expected output ends with all test files passing, e.g. `Test Files  N passed (N)` / `Tests  N passed`. A full end-to-end test (`tests/e2e.test.ts`) drives the real pipeline against real PDFs with real LLM calls; it is slow and costs money, so it only runs when explicitly enabled with `RUN\_E2E=1` (`RUN\_E2E=1 npm test`) — run it before releases, not in CI.
+**Testing.** `npm test` runs the vitest suite. The suite is LLM-free: every test that exercises LLM code paths mocks the `undici` transport, so no API key is needed and no tokens are spent; the golden-master PDF fixtures under `test-pdfs/` provide deterministic Layer 1 input. Expected output ends with all test files passing, e.g. `Test Files  N passed (N)` / `Tests  N passed`. A full end-to-end test (`tests/e2e.test.ts`) drives the real pipeline against real PDFs with real LLM calls; it is slow and costs money, so it only runs when explicitly enabled with `RUN\\\_E2E=1` (`RUN\\\_E2E=1 npm test`) — run it before releases, not in CI.
 
 ## Project Structure
 
@@ -252,10 +261,9 @@ Project Vision/         # Vision documents (the canon for what is built)
 Implementation Plan/    # Phase plans, prompts, and the master index
 ```
 
-Configuration: `.paper-chase.json` in the workspace root (TUI settings + provider/model routing + optionally stored API keys — gitignored, never commit it). Key resolution per provider: Settings-stored key → environment variable (`ANTHROPIC\_API\_KEY` / `OPENAI\_API\_KEY`) → `.env` file in the project root. Environment: `ANTHROPIC\_API\_KEY` (required for the Anthropic provider unless stored in Settings), `OPENAI\_API\_KEY` (required for the OpenAI provider unless stored in Settings), `ANTHROPIC\_MODEL` (optional anthropic default-model override).
+Configuration: `.paper-chase.json` in the workspace root (TUI settings + provider/model routing + optionally stored API keys — gitignored, never commit it). Key resolution per provider: Settings-stored key → environment variable (`ANTHROPIC\\\_API\\\_KEY` / `OPENAI\\\_API\\\_KEY`) → `.env` file in the project root. Environment: `ANTHROPIC\\\_API\\\_KEY` (required for the Anthropic provider unless stored in Settings), `OPENAI\\\_API\\\_KEY` (required for the OpenAI provider unless stored in Settings), `ANTHROPIC\\\_MODEL` (optional anthropic default-model override).
 
 ## Windows Executable
 
-`npm run package:win` produces a standalone `dist/paper-chase.exe` (~150 MB, no Node.js install required). On first launch it extracts its runtime (a real Node executable, the bundled app, prompts, the wiki template, the PDF fonts, and the PDF worker) to `%LOCALAPPDATA%\paper-chase\runtime\<version>` once, then runs from there — subsequent launches start immediately. Everything else works exactly like `chase`: run it from the folder that should hold your `wikis/` workspace (double-clicking opens the TUI; `paper-chase.exe init` / `ingest` work from any terminal). The exe is unsigned, so Windows SmartScreen may ask for a one-time confirmation. Why the launcher shape: pkg's patched Node runtime crashes ink's TUI renderer, so the exe extracts a real Node and hands off — CLI behavior is identical.
-
+`npm run package:win` produces a standalone `dist/paper-chase.exe` (\~150 MB, no Node.js install required). On first launch it extracts its runtime (a real Node executable, the bundled app, prompts, the wiki template, the PDF fonts, and the PDF worker) to `%LOCALAPPDATA%\\paper-chase\\runtime\\<version>` once, then runs from there — subsequent launches start immediately. Everything else works exactly like `chase`: run it from the folder that should hold your `wikis/` workspace (double-clicking opens the TUI; `paper-chase.exe init` / `ingest` work from any terminal). The exe is unsigned, so Windows SmartScreen may ask for a one-time confirmation. Why the launcher shape: pkg's patched Node runtime crashes ink's TUI renderer, so the exe extracts a real Node and hands off — CLI behavior is identical.
 
