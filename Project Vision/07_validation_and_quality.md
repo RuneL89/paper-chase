@@ -9,12 +9,12 @@ This document specifies the validation and quality system of Paper Chase. It exp
 The LLM writes the wiki, but the system does not trust the LLM blindly. Every chunk of output is checked before it is committed to the wiki. The checks are layered:
 
 1. **Schema validation** — Is the Extractor JSON valid and complete?
-2. **Deterministic checks** — Local code verifies that the output matches the source material and follows the schema.
+2. **Deterministic checks** — Local code verifies that the output matches the source material and follows the schema, including the per-ingest curation decision lists (topic merge/drop/keep, entity merges), which are validated entry-by-entry before anything is applied (§2.3).
 3. **Human review** — The user consumes the compiled wiki and reviews logged structural changes; the user can revert changes via version control or re-run commands with revised guidance.
 
 This layered approach combines the flexibility of the LLM with the reliability of deterministic validation and the judgment of the human user.
 
-**Note:** The original vision included an LLM-level Critic agent. This architecture removes the Critic in favor of deterministic validation and prompt engineering. The Critic added complexity and cost without proportional reliability gains for a solo developer.
+**Note:** The original vision included an LLM-level Critic agent. This architecture removes the Critic in favor of deterministic validation and prompt engineering. The Critic added complexity and cost without proportional reliability gains for a solo developer. The per-ingest curation pass (amended 2026-07-23, §2.3) is not the Critic returning: it is one bounded structured-output call per concern (topics, entities) whose decision list is validated deterministically and whose every failure mode lands on a deterministic keep-all fallback — no free-floating judgment over page content, at a cost of pennies per ingest.
 
 ---
 
@@ -46,7 +46,18 @@ Before the Materializer creates folders, the system checks:
 
 If folder validation fails, the chunk is rejected (after the feedback-retry loop of §5 is exhausted).
 
-### 2.3 Deterministic Completeness Check
+### 2.3 Curation Decision-List Validation
+
+After the Materializer aggregates the extraction data and before any topic or entity page is written, the per-ingest curation calls (topic merge/drop/keep; entity merge-only — `04_orchestration_detailed.md` §3.2 Step 6) return strict JSON decision lists. Deterministic code validates the complete list before anything is applied:
+
+- Every slug mentioned exists in the candidate set (which includes the existing on-disk topics and entities).
+- Every candidate slug appears in exactly one bucket — the `keep` bucket is derived by code as the complement (input minus merges, drops, and `unsure`), never listed in the output, so the decision list stays within its output-token ceiling (amended 2026-07-25, user-ratified); candidate sets whose estimated decision-list size approaches the ceiling are split into lexical-stem buckets before the call.
+- Every merge target is itself kept — not dropped, not merged away.
+- No self-merges; merge chains are resolved by union-find rather than rejected.
+
+Violations are fed back to the LLM with the exact offending entries (the §5 feedback-retry loop). If the list still fails, curation is skipped entirely — the keep-all fallback, exactly the pre-curation behavior. Decisions are applied all-or-nothing, so a malformed list can never half-merge or wrongly delete anything.
+
+### 2.4 Deterministic Completeness Check
 
 After the Synthesis Writer (Phase 5+) generates a synthesized page, the system compares the LLM-written page against the structured data to ensure:
 
@@ -61,7 +72,7 @@ The check is a **verbatim substring comparison**. Because preserved detail (Laye
 
 If the check fails, the synthesized page is rejected and the structured template is kept instead.
 
-### 2.4 Deterministic Structural Checks
+### 2.5 Deterministic Structural Checks
 
 The system also checks:
 
@@ -70,7 +81,7 @@ The system also checks:
 - **Citation integrity** — every `[^srcN]` must map to a valid `sources` entry, and the source PDF must exist.
 - **Duplicate entities** — the system flags entities with very similar names that may need to be merged.
 
-### 2.5 Schema Validation (Pages)
+### 2.6 Schema Validation (Pages)
 
 Every page must have valid YAML frontmatter and the required fields for its `type`. If a page is missing a required field or has an invalid value, the error is logged.
 
@@ -111,11 +122,14 @@ The system follows a **fail loud** philosophy, with a bounded-retry amendment (u
 - If the Writer drops content after the bounded feedback retries below, the synthesized page is rejected and the structured template is kept.
 - If a preservation check fails after the bounded retries below, the update is skipped and the conflict is logged.
 - **Deterministic failures are never retried** — HTTP 4xx responses fail immediately. Retrying those would mask configuration problems and burn tokens.
-- **Transient transport failures** (HTTP 429/5xx, network errors, timeouts) are retried with backoff, up to 3 total attempts per call, each attempt logged.
-- **Quality failures** — a preservation-check failure, an unparseable/incomplete DOX Writer or workspace-pass response, or an incomplete AGENTS.md Updater response — are retried up to 3 total attempts **with the validator's exact findings fed back** (dropped mentions/relationships/claims/citations, missing sections) before the deterministic fallback, because they are partly LLM variance rather than prompt defects.
+- **Transient transport failures** (HTTP 429/5xx, network errors, timeouts) are retried with backoff, up to 3 total attempts per call, each attempt logged. At the per-page synthesis stages, a transport failure still throwing after those retries falls back per page to the deterministic structured template (logged loudly, counted in metrics — amended 2026-07-25, user-ratified), and the run aborts only when the outage detector fires: 5 consecutive transport-failed pages, or more than 10% of a stage's pages. HTTP 4xx never falls back per page — it aborts immediately, as a configuration problem must never silently template a wiki.
+- **Quality failures** — a preservation-check failure, an unparseable/incomplete DOX Writer or workspace-pass response, or an incomplete AGENTS.md Updater response — are retried up to 3 total attempts **with the validator's exact findings fed back** (dropped mentions/relationships/claims/citations, missing sections) before the deterministic fallback, because they are partly LLM variance rather than prompt defects. A curation decision list that fails deterministic validation (§2.3) follows the same loop with the exact offending entries fed back.
+- **Curation failures never lose data** — if a curation decision list still fails validation after the bounded feedback retries, or the curation call fails transiently after backoff, or it fails deterministically (HTTP 4xx), the curation pass is skipped for that run (the keep-all fallback): every candidate topic and entity is written exactly as the uncurated aggregate produced it. The fallback is logged, and the next successful ingest re-curates everything, because the curation input includes the existing on-disk topics and entities.
 - An elevated feedback-repair rate in a run (more than 25% of the run's LLM calls, or 5 or more repairs) triggers a prompt-quality warning.
 
 After the bounded retries are exhausted, the user fixes the prompt, the PDF, or the `AGENTS.md` and re-runs `ingest`.
+
+**Output-token ceilings (amended 2026-07-23, user-ratified):** per-call output-token caps are safety ceilings, not length controllers (synthesis family 32768, DOX Writer 8192, Extractor 32768 — raised from 16384 on 2026-07-24, user-ratified). A response that hits its ceiling is truncated and is therefore treated as the quality failure it surfaces as — unparseable or missing content — under the rules above.
 
 ---
 

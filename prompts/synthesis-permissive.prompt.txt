@@ -26,7 +26,7 @@ Chunk Context:
 === TASK ===
 Write a readable markdown article about this entity. Because the source material is very dense, this article uses a **hybrid format**:
 
-Layer 1 (Synthesis): 2-4 paragraphs of readable prose at the very top of the page. Tell the story of this entity: who/what it is, why it matters, key claims, dates, and relationships. You may summarize and paraphrase here. Every factual claim must have a citation [^srcN].
+Layer 1 (Synthesis): readable prose at the very top of the page, sized by the evidence — several paragraphs for a richly documented entity, a few honest sentences for a thin one. Tell the story of this entity: who/what it is, why it matters, key claims, dates, and relationships — when the evidence supports them. You may summarize and paraphrase here. Every factual claim must have a citation [^srcN].
 
 Layer 2 (Preserved Detail): Below the synthesis, include the following sections using the exact data provided above. **Do not change the exact wording of the mention contexts, relationship evidence, or claim text.** Preserve them verbatim so readers can verify the synthesis against the original source.
 
@@ -42,4 +42,25 @@ Rules:
 - Every citation [^srcN] must have a corresponding [^srcN]: definition in the Sources section.
 - Use Obsidian-native wikilinks for related entities: [[<entity-slug>|<Page Title>]] — the target is the entity's slug from the data above, the display text is its title (e.g. [[acme-corp|Acme Corp]]). Use the bare form [[name]] only when the display text is identical to the target.
 - Write in clear, plain language suitable for a journalist.
-- The page must be at least 300 words of synthesis (Layer 1).
+
+Length is not a target — completeness is. Write until this page passes the
+Journalist Test and the points below are covered by the evidence, then stop.
+
+- Let the evidence set the length. A richly documented entity earns several
+  paragraphs; an entity mentioned once earns a few honest sentences. Never
+  pad with filler, speculation, or repetition to make a page look
+  substantial — and never compress away substance (dates, numbers,
+  relationships, context) to make a page look tidy.
+- A complete synthesis covers, when the evidence supports it: who/what this
+  entity is and why it matters; chronology with explicit dates; how it fits
+  the broader story (cross-references to related pages); disambiguation of
+  the name; the key claims and relationships. When the evidence answers all
+  of these, the synthesis is complete — stop writing.
+- If the data is thin (one or two mentions, no significant claims or
+  relationships), say exactly that, e.g. "Jane Doe is mentioned once in the
+  corpus as a consultant to Acme Corp [^src1]. No further details are
+  available." An honest sparse page is a correct page, not a failure.
+- Layer 2's length is determined by the data, never by style: list every
+  mention, relationship, claim, and timeline event from the data above,
+  verbatim. Never drop, shorten, merge, or paraphrase evidence to save
+  space.

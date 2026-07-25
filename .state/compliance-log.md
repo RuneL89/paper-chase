@@ -1364,3 +1364,377 @@
   Result: COMPLIANT (EXTENSION as pre-checked) — launcher exe delivered and verified; raw pkg
     exe retained with a documented TUI limitation.
   Checked By: Main agent
+
+[2026-07-23 23:59] Phase 12 UAT Acceptance (Golden Rule gate)
+  Changed: .state/phase-12-status.json (status verified-awaiting-uat → completed; uatAcceptance recorded)
+  UAT basis: UAT 12.1 satisfied by the 2026-07-23 adhd-wiki production ingest (5 Danish PDFs, 61 chunks,
+    packaged exe) — the reask loop ran live end-to-end, the run passed the previous failure point
+    (chunk adhd-2022-part-005) and completed; UAT 12.2/12.3 demonstrated by gate evidence
+    (tests/phase-12.test.ts, gates 12.1–12.8) per the phase doc's allowance.
+  User Decision: accepted 2026-07-23 (user confirmation in planning session for Phases 13–15).
+  Result: Phase 12 CLOSED — Golden Rule satisfied for starting Phase 13.
+  Checked By: Main agent
+
+[2026-07-23 23:59] Optimization decisions promoted to canon (L1/L1b/L2/L3/L3e/L5)
+  Changed: Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md (§4.1 curation-pass annotation,
+    §5 two Who-Decides rows), Project Vision/04_orchestration_detailed.md (§1 pipeline sentence +
+    diagram + concurrency note, §3.2 Step 6 aggregate→curate→apply→write rewrite, §6 quality-failure
+    enumeration + output-token ceilings note, §9.4 curation language rule),
+    Project Vision/05_page_types_specification.md (§2 sparse field + aliases-merge note,
+    §6 identity rule, §7 eligibility rule), Project Vision/07_validation_and_quality.md (§1 layered
+    list + no-Critic note, NEW §2.3 curation decision-list validation with 2.3→2.4→2.5→2.6 renumber,
+    §5 keep-all fallback + output-token ceilings note), Project Vision/AGENTS.md (stale 04 ownership
+    line: four-layer → five-layer + curation), Project Vision/optimizations/optimizations.md
+    (header status; §4 decision log "Promoted to canon" column — all six ratified levers marked).
+  Vision Docs Checked: 01 §4.1/§5, 02 §4.6/§4.7/§4.8 (no edit — already quality-based + sparse flag
+    specified), 03 §3.2/§6 (no edit — DOX describes the settled taxonomy), 04 §1/§3.2/§6/§9.4,
+    05 §2/§6/§7, 06 (no edit — claims/citations regrouped, never altered), 07 §1/§2/§5.
+  Basis: Project Vision/optimizations/optimizations.md §4 decision log + the ratified amendment maps
+    in L3/L3e (user-ratified 2026-07-23); application flow ratified by user as "apply, then review diffs".
+  Renumber note: 07 §2.3→§2.4 (Completeness), §2.4→§2.5 (Structural), §2.5→§2.6 (Schema Pages).
+    Live references remain valid (PHASE_12 canon basis cites §2.1/§2.2 + §5; master prompt cites
+    §2 + §5); historical compliance-log entries referencing old numbers are dated records.
+  Result: COMPLIANT (EXTENSION as pre-ratified) — curation restores 02 §4.6 "one entity = one page"
+    and 05 §7 topic semantics; caps/prompt decisions restore fidelity to 02 §4.7/§4.8; L4 rejected
+    (no canon or code change). No unresolved contradictions.
+  Checked By: Main agent
+
+[2026-07-23 23:59] Phases 13-15 planned (optimizations.md ratified package)
+  Changed: Implementation Plan/PHASE_13_output_caps_and_prompt_self_sizing.md (new — L1+L1b+L2-label),
+    Implementation Plan/PHASE_14_topic_and_entity_curation.md (new — L3+L3e),
+    Implementation Plan/PHASE_15_synthesis_concurrency.md (new — L5),
+    Implementation Plan/IMPLEMENTATION_PLAN_MASTER_INDEX.md (overview, phase directory, token budgets,
+    what-you-have rows incl. missing Phase 12 row, compliance mapping, file listing),
+    Implementation Plan/MASTER_IMPLEMENTATION_PROMPT.md (§4 mapping +3 rows, §8 file listing),
+    Implementation Plan/AGENTS.md (purpose + ownership: phases 0-9, 11-15),
+    AGENTS.md root (Child DOX Index: Implementation Plan line gains Phases 13-15).
+  Vision Docs Checked: canon as amended in the 23:59 promotion entry — each phase doc carries an
+    explicit "Canon basis" line pinning its exact amended sections; Phase 14 gates include the
+    curation-OFF byte-identity regression guard so pre-curation behavior stays the default-off truth.
+  Decomposition: user-ratified three-phase split (13 caps/prompts ~2-3h, 14 curation ~5-7h,
+    15 concurrency ~3-4h), each independently valuable, strictly ordered, $0 LLM budgets
+    (Phase-12-style mocked gates; live verification only in user-triggered UAT).
+  Result: COMPLIANT — plan matches the ratified decisions exactly (L4 rejected: no phase);
+    no contradictions. Golden Rule: Phase 12 closed at 23:59; Phase 13 may start on user command.
+  Checked By: Main agent
+
+[2026-07-24 00:15] Phase 13 Compliance Pre-Check
+  Phase Doc: Implementation Plan/PHASE_13_output_caps_and_prompt_self_sizing.md v1.0.0
+  Vision Docs Checked: 04_orchestration_detailed.md §6 (output-token ceilings — synthesis 32768,
+    DOX 8192, Extractor 16384 unchanged, no per-language split), 07_validation_and_quality.md §5
+    (same note), 02_WIKI_concept_detailed.md §4.7/§4.8 (layer-scoped targets; sparse flag spec),
+    05_page_types_specification.md §2 (sparse frontmatter field; aliases), root AGENTS.md
+    2026-07-23 model-routing preference (DOX slot → mid-tier, settings guidance only).
+  Comparison: phase scope matches the promoted canon line-for-line — caps are safety ceilings
+    (§2.1); word-count removal + verbatim-ratified self-sizing block with topic variants (§2.2);
+    DOX catalog-line quality rule, 2-5-sentence rule retained (§2.3); sparse rule = ≤2 mentions
+    AND no claims AND no relationships, deterministic, re-imposed over synthesis like aliases
+    (§2.4); TUI label-only change, no defaults touched (§2.5). L4 (rejected) is NOT in scope.
+    No contradictions found; nothing extends beyond the ratifications.
+  Result: COMPLIANT
+  Checked By: Main agent
+
+[2026-07-24 07:34] Phase 13 Implementation Compliance Check
+  Phase Doc: Implementation Plan/PHASE_13_output_caps_and_prompt_self_sizing.md v1.0.0
+  Changed: src/agents/synthesis.ts (four maxTokens literals -> one module constant
+    SYNTHESIS_MAX_TOKENS = 32768), src/dox-writer.ts (DOX_WRITER_MAX_TOKENS 2048 -> 8192;
+    EXTRACTION_MAX_TOKENS 16384 untouched), prompts/synthesis.prompt.txt +
+    prompts/synthesis-permissive.prompt.txt (word-count bullet removed; verbatim-ratified
+    self-sizing block closes the rules list), prompts/synthesis-topic.prompt.txt +
+    prompts/synthesis-topic-permissive.prompt.txt (same, with the (t) topic-adjusted variant:
+    exactly the four ratified adjustments; block first paragraph byte-identical across all
+    four), prompts/dox-writer.prompt.txt (Pages catalog-line quality rule added),
+    src/pages/entity-page.ts (EntityPageData.sparse?, exported isSparseEntity single rule,
+    exported enforceSparseInMarkdown, writer emits sparse: true after aliases before
+    wiki/sources, never sparse: false), src/materializer.ts (MaterializeResult.entityPages
+    data carries the aggregate-derived sparse boolean, recomputed per run),
+    src/commands/ingest.ts (enforceSparseInMarkdown re-imposed at both entity synthesis
+    write points, strict + permissive, composed after enforceAliasesInMarkdown; topic write
+    points untouched), src/tui/settings-screen.tsx (RECOMMENDATIONS modelDox only:
+    mid-tier labels), README.md (DOX Writer suggestion labels),
+    tests/phase-13.test.ts (new — gates 13.1-13.7, 11 tests, LLM-free),
+    src/AGENTS.md + prompts/AGENTS.md + tests/AGENTS.md (DOX pass; root AGENTS.md needed
+    no edit — no stale claims).
+  Vision Docs Checked: 04_orchestration_detailed.md §6 (ceilings are safety ceilings, never
+    length controllers; synthesis 32768, DOX 8192, Extractor 16384, no per-language split),
+    07_validation_and_quality.md §5 (same note), 02_WIKI_concept_detailed.md §4.7/§4.8
+    (sparse flag rule and field semantics), 05_page_types_specification.md §2 (sparse
+    frontmatter field), root AGENTS.md 2026-07-23 routing preference (label-only).
+  Decisions recorded: (1) the (t) topic variant applies ONLY the four literal ratified
+    adjustments — bullet 3 keeps "no significant claims or relationships" and the Jane Doe
+    example unchanged; (2) sparse enforcement helpers live in pages/entity-page.ts (entity-only
+    rule) rather than utils/aliases.ts, following the UAT 6.3 enforceAliasesInMarkdown
+    precedent; (3) gate 13.3 encoded as exact-tail match + byte-exact head invariants (durable
+    across commits, unlike git-diff); (4) tests/phase-11.test.ts:627,644 maxTokens: 2048 is a
+    fixture-local caller-supplied option for the OpenAI request-body mapping test — out of
+    Phase 13 scope, left unchanged; (5) gate 13.1 behavior test materializes one chunk before
+    writeDoxContracts because the DOX Writer's hasContent guard skips empty folders.
+  Verification: npx tsc --noEmit clean (exit 0); key-less npm test (env renamed
+    .env -> .env.bak-phase13, restored immediately after): 270 passed + 14 skipped (284)
+    across 19 test files (18 passed, 1 skipped) = Phase 12 baseline 259+14 across 18 files
+    plus 11 new phase-13 tests, zero regressions; phase-13 file alone 11/11. LLM cost $0.00 —
+    no live LLM calls under any circumstances.
+  Result: COMPLIANT — implementation matches the phase doc and the promoted canon exactly;
+    no unresolved contradictions; no changes outside phase scope.
+  Checked By: Implementer sub-agent (Phase 13)
+
+[2026-07-24 08:05] Phase 13 UAT Acceptance (Golden Rule gate)
+  Changed: .state/phase-13-status.json (status verified-awaiting-uat → completed; uatAcceptance recorded)
+  UAT basis: UAT 13.1 + 13.3 approved by the user; UAT 13.2 skipped by user choice, demonstrated by
+    gate evidence (gates 13.4/13.5) per the phase doc's allowance.
+  Result: Phase 13 CLOSED. Residual finding (user-raised at acceptance): the "2-4 paragraphs" Layer-1
+    floor persists in templates/AGENTS.md, the four synthesis prompts' Layer-1 format lines,
+    prompts/extractor.prompt.txt, vision 05 §7.2, and existing wikis' generated constitutions —
+    same C2-class floor L1b removed as word counts. Handling: scope question put to the user
+    (contradiction protocol); amendment follows their decision.
+  Checked By: Main agent
+
+[2026-07-24 10:15] Phase 13 closeout amendment: residual "2-4 paragraphs" floor removed (user-ratified)
+  Trigger: user question at Phase 13 UAT acceptance — "should the wiki-agents file generated by
+    init also be altered now?" Investigation found the Layer-1 paragraph floor at six sites.
+  User Decision (contradiction protocol, 2026-07-24): remove the floor at ALL canon/prompt sites
+    AND patch existing wikis' generated constitutions.
+  Changed: templates/AGENTS.md (Layer-1 bullets → quality-based sizing; sparse frontmatter bullet
+    next to aliases), dist/wikis/adhd-wiki/AGENTS.md (same two edits — the only existing wiki),
+    prompts/synthesis.prompt.txt + synthesis-permissive.prompt.txt + synthesis-topic.prompt.txt +
+    synthesis-topic-permissive.prompt.txt (Layer-1 format lines floor-free; the ratified
+    self-sizing block untouched), prompts/extractor.prompt.txt (page-format line floor-free),
+    Project Vision/05_page_types_specification.md §7.2 (topic Layer-1 "2–4 paragraphs" →
+    evidence-sized prose), prompts/AGENTS.md (extractor + two main synthesis bullets),
+    AGENTS.md root (templates/ entry: floor-free + sparse documentation requirement),
+    Project Vision/optimizations/optimizations.md (L1b row: extension recorded).
+  NOT changed (deliberately): Implementation Plan/PHASE_02 + PHASE_05 docs — dated historical
+    specs, not living canon; tests/phase-13.test.ts — gate 13.2/13.3 assert carrier lines +
+    the block tail, none reference the floor lines, so no test edits were needed.
+  Verification: key-less npm test AFTER all edits — 270 passed + 14 skipped across 19 files
+    (identical to post-Phase-13 baseline, zero regressions); .env stashed and restored.
+  Vision Docs Checked: 02 §4.7/§4.8 (sparse honesty doctrine), 05 §2/§7.2, 04 §9.2
+    (layer-language rule unaffected). This amendment RESTORES fidelity — the floor contradicted
+    the ratified "few honest sentences" sparse rule inside the same prompt files.
+  Result: COMPLIANT (user-ratified extension of L1b). No unresolved contradictions.
+  Checked By: Main agent
+
+[2026-07-24 10:40] Phase 14 Compliance Pre-Check
+  Phase Doc: Implementation Plan/PHASE_14_topic_and_entity_curation.md v1.0.0
+  Vision Docs Checked: 01 §4.1/§5 (curation pass annotation, Who-Decides rows), 04 §1 (pipeline
+    sentence + diagram), 04 §3.2 Step 6 (aggregate→curate→apply→write), 04 §6 (decision-list
+    failure class + keep-all fallback), 04 §9.4 (curation language rule), 05 §2 (aliases),
+    05 §6 (entity identity: merge-only, strict-identity, unsure→keep), 05 §7 (topic eligibility),
+    07 §1/§2.3/§5 (validation rules, fallback enumeration), root AGENTS.md 2026-07-23 routing
+    preference + optimizations.md L2/L3 decision 1 (curation slot: mid-tier Sonnet 5 / GPT-5.6 Terra).
+  Comparison: phase scope matches the promoted canon line-for-line — placement inside materialization
+    after aggregation before page writes (§2.4); topic merge/drop/keep + entity merge-only (§2.1-2.3);
+    validation rules = the five of 07 §2.3 (§2.2); reask via Phase 12 helper + keep-all on every
+    failure class (§2.2); exact-segment link rewrite incl. prefix-collision safety (§2.3); manual-edit
+    skip per 07 §3 (§2.5); additive routing slot with legacy byte-identity (§2.6); report/overrides/
+    metrics + rolling memory post-curation (§2.7); two-round scaling above the single-call limit
+    (§2.2). L4 (rejected) NOT in scope; L5 is Phase 15's, not here. Enablement pin (consistent with
+    phase doc §2.4 "same enablement as synthesis"): curation runs iff the run's synthesis flag is on
+    and extraction data exists — otherwise materialize() is byte-identical to pre-Phase-14 (the
+    regression guard of gate 14.14). No contradictions found.
+  Result: COMPLIANT
+  Checked By: Main agent
+
+[2026-07-23 23:55] Phase 14 Compliance Close-Out (Implementer)
+  Phase Doc: Implementation Plan/PHASE_14_topic_and_entity_curation.md v1.0.0
+  Vision Docs Checked: 01 §4.1/§5, 04 §1/§3.2 Step 6/§6/§9.4, 05 §2/§6/§7, 07 §1/§2.3/§3/§5,
+    root AGENTS.md routing preferences (2026-07-22 multi-provider, 2026-07-23 L2 mid-tier).
+  Changed: prompts/curation-topics.prompt.txt + prompts/curation-entities.prompt.txt (new, §2.1);
+    src/agents/curation.ts (new — builders, two parallel curation calls at SYNTHESIS_MAX_TOKENS,
+    deterministic validation + union-find chain collapse, reask <=3 via runWithFeedbackRetry,
+    keep-all fallback trilogy, 250-candidate two-round scaling, §2.2); src/materializer.ts
+    (aggregate→curate→apply→write restructure, topic/entity merge + drop application, wikilink
+    rewrite pass for both concerns, update-mode deletions + folder pruning, manual-edit veto,
+    MaterializeResult.curation, §2.3-2.5); src/utils/wikilinks.ts (rewriteWikilinkTargets,
+    exact-segment, prefix-collision-safe); src/utils/aliases.ts + src/pages/entity-page.ts
+    (combinedAliases/mergedAliases extras); src/llm/client.ts (additive ModelRouting.curation
+    slot + resolveModel 'curation' mapping); src/tui/settings.ts + settings-screen.tsx (Curation
+    Model row, provider defaults + labels, five-slot reset/normalize); src/state/curation-report.ts
+    + curation-overrides.ts (new) + metrics.ts (curationFallbacks) + src/commands/ingest.ts
+    (wiring, curateTopicsFn/curateEntitiesFn test seams, fallback metric accumulation, §2.7);
+    tests/phase-14.test.ts (new — 37 LLM-free tests, gates 14.1-14.14);
+    tests/phase-11.test.ts (SIX sites, all tracing to the additive fifth model slot: gate 11.1
+    navigation +1 DOWN [Save index 9→10], gate 11.9 legacy loadSettings shape gains curation:null,
+    gate 11.10 seedModelsForProvider toEqual gains curation, gate 11.10 provider-switch 7→8 DOWNs,
+    gate 11.11 masking loop 7→8 DOWNs, gate 11.11 focusAnthropicKeyRow 7→8 DOWNs);
+    DOX: src/AGENTS.md, prompts/AGENTS.md (carriers six→eight), tests/AGENTS.md, wikis/AGENTS.md,
+    root AGENTS.md, README.md (curation stage + settings row).
+  NOT changed (deliberately): scripts/, dist/, wikis/ runtime content, package*.json (no new
+    dependencies), test-pdfs/ golden masters, .state/extracted/*.json (immutability gate 14.13),
+    .env (stashed for the key-less run and restored immediately, verified at 171 bytes).
+  Verification: npx tsc --noEmit clean; key-less npm test — 307 passed + 14 skipped across
+    20 files (19 passed, 1 skipped) = 270+14 Phase 13 baseline + 37 new, zero regressions;
+    phase-14 file alone 37/37. LLM cost $0.00 (all tests stub-injected or undici-mocked).
+  Deviations: none beyond the six enumerated phase-11.test.ts sites (each required by the
+    materializer/TUI restructure; recorded in .state/phase-14-status.json).
+  Result: COMPLIANT — implementation matches the phase doc and the promoted canon exactly;
+    no unresolved contradictions; no changes outside phase scope.
+  Checked By: Implementer sub-agent (Phase 14)
+
+[2026-07-24 14:20] Correction (clerical)
+  The Phase 14 implementation close-out entry above is timestamped [2026-07-23 23:55] in error —
+  it was written 2026-07-24 after the Phase 14 pre-check ([2026-07-24 10:40]). Its facts
+  (files, gates, result COMPLIANT) stand unchanged. Per .state/AGENTS.md, errors are corrected
+  by appending, not rewriting.
+  Checked By: Main agent
+
+[2026-07-24 14:45] Phase 14 Verifier-nit closure
+  Changed: README.md (provider-switch gloss: curation seeds mid-tier on a switch — matches
+    seedModelsForProvider), tests/phase-14.test.ts (+1 test: gate 14.7 (integration, topics) —
+    dedicated topic-merge wikilink-rewrite assertion the Verifier flagged).
+  Note: the nit closure was executed by the main agent after the resumed Implementer sub-agent
+    stalled 18 minutes with zero disk writes (its session had consumed ~25M tokens in the Phase 14
+    build; stopped via TaskStop). Behavior was already Verifier-cold-checked; this added only a
+    doc gloss + one assertion on the verified path.
+  Verification: npx tsc --noEmit clean; phase-14 standalone 38/38; key-less npm test
+    308 passed + 14 skipped across 20 files (zero regressions); .env stashed + restored.
+  Result: COMPLIANT — Phase 14 stands verified-awaiting-uat.
+  Checked By: Main agent
+
+[2026-07-24 15:00] Phase 14 UAT deferred by user directive; Phase 15 Compliance Pre-Check
+  Deferral: user directed (2026-07-24) that Phase 14 UAT is deferred to a combined Phase 14+15
+    UAT session after Phase 15 completes. Phase 14 status stays verified-awaiting-uat; the
+    Golden Rule gate is waived for the Phase 15 start by the user (the final arbiter).
+  Phase Doc: Implementation Plan/PHASE_15_synthesis_concurrency.md v1.0.0
+  Vision Docs Checked: 04_orchestration_detailed.md §1 (concurrency note — bounded worker pool,
+    fixed cap 4, entity/topic synthesis only, deterministic output order; extraction, curation,
+    DOX, workspace, updater sequential), optimizations.md L5 (user-narrowed scope).
+  Comparison: phase scope matches canon exactly — runPool helper with input-order results and
+    hard in-flight cap (§2.1); only the two synthesis loops pooled, SYNTHESIS_POOL_SIZE=4 fixed
+    constant not a Settings field (§2.2); serialized JSONL appends + reports collected and
+    written in original page order (§2.3); aggregate TUI/CLI progress (§2.4); sequential stages
+    untouched (§2.5); per-page strict→permissive→template + reask semantics unchanged (Phase 12
+    composes inside each pool task). No contradictions found.
+  Result: COMPLIANT
+  Checked By: Main agent
+
+[2026-07-24 16:17] Phase 15 Implementation Close-Out Compliance Check
+  Phase Doc: Implementation Plan/PHASE_15_synthesis_concurrency.md v1.0.0
+  Vision Docs Checked: 04_orchestration_detailed.md §1 (concurrency note — bounded worker pool,
+    fixed cap 4, entity/topic synthesis only, deterministic output order; extraction, curation,
+    DOX, workspace, updater sequential), optimizations.md L5 (user-narrowed scope).
+  Changed: src/utils/worker-pool.ts (new — runPool: shared index counter, hard in-flight cap,
+    input-order results, reject-after-settle); src/utils/serialized-writes.ts (new —
+    enqueueSerializedWrite, the ONE shared per-path promise-chain queue); src/llm/client.ts
+    (logPath JSONL append inside the queue, still best-effort); src/state/conflicts.ts
+    (logConflict + logManualEditConflict read-modify-writes inside the same queue);
+    src/state/synthesis-report.ts (additive appendSynthesisReportEntries; logSynthesisReport
+    now a one-entry wrapper — report content/shape unchanged); src/commands/ingest.ts
+    (exported SYNTHESIS_POOL_SIZE = 4 fixed constant, NOT a Settings field; entity/topic
+    synthesis loops pooled with the pre-Phase-15 per-page body verbatim inside each task;
+    entries collected in memory and appended once per stage in original page order; counters
+    tallied from task outcomes; aggregate 'Synthesis: N/M pages complete (4 workers)' progress,
+    per-page WARNING lines unchanged); tests/phase-15.test.ts (new — 7 LLM-free tests,
+    gates 15.1-15.7, plus runPool unit tests);
+    DOX: src/AGENTS.md (2 new utils bullets, 4 bullet addenda, new Concurrency boundary
+    contract), tests/AGENTS.md (phase-15 entry + Verification counts), README.md (Layer 4
+    concurrency note). Root AGENTS.md intentionally unchanged — no index line is false.
+  NOT changed (deliberately): scripts/, dist/, wikis/ runtime content, package*.json (no new
+    dependencies), test-pdfs/ golden masters, pre-existing tests (zero modifications),
+    extraction/curation/DOX/workspace/updater stages (gate 15.6 proves it), .env (stashed for
+    the key-less run and restored immediately, verified at 171 bytes).
+  Verification: npx tsc --noEmit clean; phase-15 standalone 7/7; key-less npm test —
+    315 passed + 14 skipped across 21 files (20 passed, 1 skipped) = 308 Phase 14 baseline
+    (incl. the nit-closure gate-14.7 test) + 7 new, zero regressions. LLM cost $0.00 (all tests
+    stub-injected or undici-mocked; gate 15.3's real callLLM runs against a mocked transport
+    with a FAKE key).
+  Deviations: none.
+  Result: COMPLIANT — implementation matches the phase doc and the promoted canon exactly;
+    no unresolved contradictions; no changes outside phase scope.
+  Checked By: Implementer sub-agent (Phase 15)
+
+[2026-07-24 17:35] Live UAT run 1: extractor-cap boundary failure (fail-loud, as designed)
+  Run: new-wiki-phase13-14-15 (dist workspace; ADHD 2023+2024, Input da, synthesis on;
+    routing Haiku/Sonnet/Sonnet/Sonnet). Background run, monitored per the pre-agreed plan
+    (kill conditions armed; none fired — the pipeline's own fail-loud fired first).
+  Outcome: FAIL-LOUD abort at chunk adhd-2024-part-013 (pages 61-65). The extraction JSON for
+    this dense chunk exceeds EXTRACTION_MAX_TOKENS=16384 — attempts 1-3 each truncated at
+    exactly 16384 output tokens (temp 0; attempts 2/3 byte-identical 24166-in/16384-out), the
+    Phase 12 reask exhausted (reask cannot fix truncation: the correction asks for the complete
+    JSON, the model writes the same length again), ExtractorError aborted the ingest (exit 1).
+  Proven before the failure ($1.94 total: extractor $1.11, curation $0.62, reask $0.21):
+    23 chunks extracted clean (~$0.05/chunk, zero retries); first curation pass first-attempt
+    valid, no fallbacks/vetoes — 22 entity merges ALL correct (Odense clinic 3-variant merge,
+    bua-* abbreviations, region-* name variants, transliteration variants), 9 junk-topic drops
+    exactly the baseline's meta-descriptor class (statistical, trend, definitional…).
+  Finding vs canon: L1 froze the extractor cap at 16384 on the evidence "zero retries in 61
+    calls" (2026-07-23 baseline). That calibration is now falsified for dense chunks — boundary
+    variance (different rolling memory/sampling vs the baseline) lands the same chunk on either
+    side of the cap. The L1 doctrine applies verbatim: caps are safety ceilings, not length
+    controllers. Options presented to the user (contradiction protocol): (A) raise
+    EXTRACTION_MAX_TOKENS to 32768 (touches extractor.ts:95, phase-13 gate 13.1 assertion,
+    the 04 §6 / 07 §5 ceilings notes, optimizations.md L1 row — a canon amendment needing
+    ratification); (B) re-run as-is — predicted same failure at temp 0; (C) abandon the run.
+  State: ADHD_2023 fully ingested + curated; a fixed re-run skips it (hash), re-extracts 2024
+    (~$0.75), re-curates (~$0.60), then proceeds to synthesis/DOX.
+  Result: AWAITING USER DECISION
+  Checked By: Main agent
+
+[2026-07-24 20:55] Extractor ceiling raised 16384 → 32768 (user-ratified, Option A)
+  User Decision: ratified 2026-07-24 after the live-run boundary failure ([2026-07-24 17:35]).
+  Changed: src/agents/extractor.ts (EXTRACTION_MAX_TOKENS = 32768 + rationale comment),
+    tests/phase-13.test.ts (gate 13.1 assertion + annotation), src/AGENTS.md (extractor bullet +
+    ceilings Local Contract), Project Vision/04_orchestration_detailed.md §6 + 07 §5 (ceilings
+    notes), Project Vision/optimizations/optimizations.md (L1 row amendment recorded).
+  Verification: npx tsc --noEmit clean; key-less npm test 315 passed + 14 skipped across 21 files
+    (identical to the post-Phase-15 baseline, zero regressions); .env stashed + restored.
+  Result: COMPLIANT — the amendment extends the L1 ceiling doctrine to the one ceiling L1 had
+    frozen on now-falsified evidence. No unresolved contradictions.
+  Checked By: Main agent
+
+[2026-07-24 22:05] Live UAT: parallel-ingest collision incident + clean restart
+  Incident: after the user's remote-session interruption, TWO orphaned/parallel ingests wrote to
+    the test wiki concurrently: (1) run 3's own process tree — TaskStop reported success but the
+    npm→tsx-shim→tsx-loader tree survived and kept extracting; (2) a pre-existing source TUI
+    (`npm run cli`, open since 09:33) was used to start a SECOND ingest of the same wiki at
+    ~21:25, which materialized/curated run 3's PARTIAL extraction set and began synthesizing
+    (interleaved llm-calls entries). Diagnosed via full process command-line dump
+    (Get-CimInstance Win32_Process); all six PIDs killed by PID (TaskStop's tree-kill is not
+    reliable across connection drops — kill-by-PID is the reliable fallback); also found and
+    killed PID 4356, yesterday's packaged-exe app still running since 2026-07-23 08:38.
+  Cost: $3.70 contaminated (this wiki) + $1.94 (run 1) + $2.06 (run 2) ≈ $7.70 total test spend
+    sunk across attempts. Wiki wiped and recreated; run 4 launched as the only writer.
+  Process rules recorded: (a) never run two ingests on one wiki — llm-calls/synthesis-report/
+    rolling-memory are per-wiki shared files and the Phase 15 write queue is per-process;
+    (b) after a connection drop, verify process death by PID scan before restarting;
+    (c) the packaged exe's app (runtime-node chase.mjs) persists as a TUI until closed.
+  Checked By: Main agent
+
+[2026-07-25 09:20] Phase 16 vision amendments promoted (run resilience, user-ratified)
+  Basis: run-4 transport abort ([2026-07-24] live test) + the two organic findings (curation
+    decision-list output overflow at ~200 entities; pool transport pressure). User ratified
+    2026-07-25: full resilience package; outage rule = 5 consecutive or >10%; resume rule =
+    skip passed, retry templates.
+  Changed: Project Vision/04_orchestration_detailed.md (§6 per-page transport fallback + outage
+    detector + 4xx-never-falls-back; Step 9 synthesis resume with data fingerprints; Step 11
+    per-PDF checkpointing; Step 6 decision-list sizing — keep-bucket is derived complement,
+    size-based bucketing trigger; §1 pool transport tuning), Project Vision/07_validation_and_quality.md
+    (§5 philosophy mirror; §2.3 keep-complement + sizing guardrail).
+  Result: COMPLIANT (EXTENSION as pre-ratified) — the per-page fallback narrows the fail-loud
+    surface only where a fallback already exists and preserves it via the outage detector;
+    fail-loud stands for real outages, 4xx, and the Extractor.
+  Checked By: Main agent
+
+[2026-07-25 09:35] Phase 16 planned (run resilience)
+  Changed: Implementation Plan/PHASE_16_run_resilience.md (new — 12 gates, 3 UATs, $0 budget),
+    IMPLEMENTATION_PLAN_MASTER_INDEX.md (overview 11–16, directory/budget/what-you-have rows, file
+    listing), MASTER_IMPLEMENTATION_PROMPT.md (§4 mapping + §8 listing), Implementation Plan/AGENTS.md
+    (purpose + ownership), AGENTS.md root (Child DOX Index line).
+  Vision Docs Checked: canon as amended at [2026-07-25 09:20] — the phase doc's Canon basis pins
+    those exact sections. Ratifications: full package, outage rule 5-consecutive-or->10%, resume
+    skip-passed-retry-templates (user decisions 2026-07-25).
+  Result: COMPLIANT — plan matches the ratified scope exactly; no contradictions.
+  Checked By: Main agent
+
+[2026-07-25 09:36] Phase 16 Compliance Pre-Check
+  Phase Doc: Implementation Plan/PHASE_16_run_resilience.md v1.0.0
+  Vision Docs Checked: 04 §6 (per-page fallback applies ONLY to exhausted transient transport at the
+    two synthesis stages; 4xx never falls back; outage detector thresholds as ratified), 04 Step 9
+    (fingerprinted skip rule; templates retried; materialize preservation), 04 Step 11 (per-PDF
+    checkpoint equals uninterrupted-run record), 04 Step 6 + 07 §2.3 (keep-complement + size-based
+    bucketing), 04 §1 (transport tuning), 07 §5 (philosophy mirror).
+  Comparison: gates 16.1-16.12 map one-to-one onto the amended canon; the resume-purity contract
+    (gate 16.11 byte-comparison) guards the "uninterrupted run is byte-identical" invariant;
+    fail-loud preserved for 4xx, real outages, Extractor exhaustion. No contradictions found.
+  Result: COMPLIANT
+  Checked By: Main agent

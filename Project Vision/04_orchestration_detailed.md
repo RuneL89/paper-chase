@@ -6,13 +6,15 @@ This document explains how Paper Chase orchestrates the `ingest` flow. It is wri
 
 ## 1. The Pipeline
 
-The orchestrator is not a distributed system of 7 agents. It is a **five-layer pipeline** with two LLM calls per chunk (Extractor and optional Synthesis Writer) and one LLM pass at the end (DOX Writer). The optional Synthesis Writer may rewrite entity, topic, and document pages.
+The orchestrator is not a distributed system of 7 agents. It is a **five-layer pipeline** with two LLM calls per chunk (Extractor and optional Synthesis Writer), two per-ingest curation calls during materialization (topic curation and entity curation — amended 2026-07-23, user-ratified), and one LLM pass at the end (DOX Writer). The optional Synthesis Writer may rewrite entity, topic, and document pages.
 
 ```
-PDF → Chunker → Layer 1 (Raw Pages) → Layer 2 (Extractor) → Layer 3 (Materializer) → Layer 4 (Synthesis Writer) → Layer 5 (DOX Writer)
+PDF → Chunker → Layer 1 (Raw Pages) → Layer 2 (Extractor) → Layer 3 (Materializer → Curation) → Layer 4 (Synthesis Writer) → Layer 5 (DOX Writer)
 ```
 
-The local deterministic code handles the boring parts: reading files, extracting text, computing hashes, writing files, validating schemas, and checking links. The LLM handles the thinking parts: extraction, classification, synthesis, and writing navigation contracts.
+The local deterministic code handles the boring parts: reading files, extracting text, computing hashes, writing files, validating schemas, and checking links. The LLM handles the thinking parts: extraction, classification, synthesis, curation judgments, and writing navigation contracts.
+
+**Concurrency (amended 2026-07-23, user-ratified):** within Layer 4, the entity-synthesis and topic-synthesis stages may process their pages concurrently through a bounded worker pool with a fixed cap of 4 concurrent calls; pages are independent of one another, and reports and on-disk output are written in deterministic page order regardless of completion order. Everything else is always sequential: extraction (chunks share rolling-memory context), the curation calls, the DOX Writer (bottom-up level dependencies), the workspace pass, and the AGENTS.md Updater. **Transport tuning for the pool (amended 2026-07-25, user-ratified):** concurrent large-output streams put more pressure on the API than sequential calls, so transport settings account for the pool — generous header timeouts for large-output calls, slightly staggered worker dispatch instead of simultaneous starts, and backoff between transport retries.
 
 ---
 
@@ -128,13 +130,17 @@ The Extractor is the only LLM call in the core pipeline. It does everything: ent
 
 #### Step 6: Materialize Pages (Layer 3)
 
-After all chunks are extracted, the **Materializer** reads all `.state/extracted/*.json` files and writes or updates pages:
+After all chunks are extracted, the **Materializer** reads all `.state/extracted/*.json` files, aggregates them, curates the aggregate (curation amended 2026-07-23, user-ratified), and writes or updates pages:
 
 1. **Create folders:** For each entity, create the folder path (including intermediate folders) if it does not exist.
-2. **Aggregate data:** For each unique entity slug, collect all mentions, relationships, and claims across all chunks.
-3. **Write entity pages:** For new entities, create the page. For existing entities, load the current page, merge new data, and rewrite.
-4. **Write topic pages:** Group claims by type and create/update topic pages.
-5. **Update rolling memory:** Add new entities, folders, and sources.
+2. **Aggregate data:** For each unique entity slug, collect all mentions, relationships, and claims across all chunks; group claims by type into candidate topics. No topic or entity pages are written yet.
+3. **Curate the aggregate:** two per-ingest LLM calls — one **topic-curation** call and one **entity-curation** call, which may run in parallel — review the candidates together with the existing on-disk topics and entities, so update runs re-curate everything:
+   - *Topic curation* returns a strict JSON decision list (`merge` / `drop` / `keep`). Themes duplicated under different wording, plural, or form merge into one topic; candidates that are not a theme, concept, or issue a journalist would search for — meta-descriptors of the documents' rhetoric such as `statistical`, `temporal`, or `methodological` — are dropped (`05_page_types_specification.md` §7). A dropped topic's claims remain on their entity and document pages, so no evidence is lost.
+   - *Entity curation* is **merge-only** and never drops: it merges name variants, abbreviations, translations, and word-order permutations of the SAME real-world thing into one canonical page (`05_page_types_specification.md` §6). It never merges a sub-unit into its parent, never merges colocated-but-distinct things, and treats uncertain pairs as keep.
+   - Each decision list is validated deterministically before anything is applied: every slug exists in the input set, every input slug appears in exactly one bucket, every merge target is itself kept, there are no self-merges, and merge chains are resolved by union-find. Violations are retried with validator feedback (§6); on exhaustion or transport failure the curation is skipped entirely — the **keep-all fallback**, which writes all candidates exactly as the uncurated aggregate produced them (no data loss, logged, self-healing on the next successful ingest).
+   - **Decision-list sizing (amended 2026-07-25, user-ratified):** a single curation call must produce a decision list that fits its output-token ceiling, so the `keep` bucket is never listed in the output schema — kept candidates are the deterministic complement (input minus merges, drops, and `unsure`), computed by code, and any per-decision justification is capped. Above that size the candidate set is split deterministically into lexical-stem buckets (one validated call per bucket) with a single reconciliation call over the survivors — the trigger is the estimated decision-list size approaching the ceiling, not a fixed candidate count (a verbose list can overflow the ceiling well below the old ~250-candidate threshold, and truncation is a failure the reask cannot repair).
+4. **Apply and write pages:** the validated decisions are applied deterministically, all-or-nothing — topic merges union claims (deduplicated) into the kept topic; entity merges union mentions, relationships, claims, and timeline into the kept entity, rewrite relationship slug references, accumulate variant titles as `aliases`, and rewrite wikilinks to merged-away slugs across all content pages (exact target-segment match). Existing pages that were manually edited are never auto-merged (hash-mismatch skip, logged as a conflict). Then entity and topic pages are written or updated as before: for new entities/topics, create the page; for existing ones, load the current page, merge new data, and rewrite. Merged-away or dropped existing pages and folders are removed deterministically. Merges, drops, skips, and fallback events are recorded in `.state/curation-report.json` for audit, and a human-editable `.state/curation-overrides.json` never-merge list is honored on subsequent runs.
+5. **Update rolling memory:** Add new entities, folders, and sources — after curation, so the memory reflects the curated set.
 
 **Update Mode:**
 When an entity page already exists:
@@ -166,6 +172,8 @@ After the core content pages are validated, the optional **Synthesis Writer** ru
 
 Layer 1 prose is written in the wiki's output language; Layer 2 detail is preserved verbatim in the source language (§9). This step is opt-in (`ingest --synthesis`).
 
+**Synthesis resume (amended 2026-07-25, user-ratified):** every page that passes synthesis (strict or permissive) is recorded in `.state/synthesis-state.json` with a fingerprint of its underlying aggregate data. On later runs, a page whose fingerprint is unchanged is NOT re-synthesized and NOT rewritten by the Materializer — the finished page is preserved byte-for-byte (an aborted run costs only the pages still in flight, never the pages already paid for). Pages that fell back to the template are retried on the next run (a transient-caused template deserves a second chance). Any change to the page's aggregate data — new evidence, a curation merge — changes the fingerprint and re-synthesizes the page normally.
+
 #### Step 10: Write DOX Contracts (Layer 5)
 
 After all content pages are finalized, the **DOX Writer** runs:
@@ -183,6 +191,8 @@ This is an LLM-driven step. It produces the navigation contracts that describe t
 #### Step 11: Update State
 
 Write `.state/ingestion.json` and `.state/rolling-memory.json` for the next run.
+
+**Checkpointing (amended 2026-07-25, user-ratified):** state is not only written at the end of the run. Each PDF is recorded as ingested in `.state/ingestion.json` as soon as its own processing completes, so an aborted run never re-extracts finished PDFs; per-page synthesis records (Step 9) are likewise written as pages complete. The end-of-run write remains the final, complete record.
 
 ---
 
@@ -239,12 +249,14 @@ If any check fails, the error is logged. **Retry policy (amended 2026-07-20; fee
 
 - **Deterministic failures** — HTTP 4xx responses (auth failures, quota, unknown model) — are **never retried**: retrying them would mask configuration problems and burn tokens; the user fixes the key, the model, or the configuration and re-runs `ingest`.
 - **Content-defect failures** — invalid Extractor JSON, Extractor schema-validation errors, and the quality failures below — are retried with **validator feedback** (the "reask" pattern): the LLM receives its previous output plus the validator's exact error list and is asked to correct only the listed violations, up to **3 total attempts**, each attempt logged to `.state/llm-calls.json`. A feedback retry is not a blind repeat — the validator's errors are new information, and these defects are partly LLM variance, not necessarily prompt defects.
-- **Transient transport failures** (HTTP 429/5xx, network errors, timeouts) are retried with backoff, up to 3 total attempts per call, each attempt logged.
-- **Quality failures** — a synthesis page that fails the preservation check, a DOX Writer / workspace-pass response that is unparseable or missing required sections, or an AGENTS.md Updater response missing required sections — use the same feedback-retry loop (≤3 total attempts) before the deterministic fallback (structured template / deterministic index body / deterministic workspace line / deterministic updater fallback). Every fallback is still logged as before.
+- **Transient transport failures** (HTTP 429/5xx, network errors, timeouts) are retried with backoff, up to 3 total attempts per call, each attempt logged. **Per-page transport fallback (amended 2026-07-25, user-ratified):** when a transient failure is still throwing after the bounded retries at a **per-page stage** (entity or topic synthesis), the error is caught for THAT page and the page falls back to the deterministic structured template — one hiccup costs one page's prose, never the run. The fallback is logged loudly and counted in metrics. **Outage detector:** the abort returns when transport-failed pages reach **5 consecutively** (no successful call in between) or **more than 10% of a stage's pages** — that signature means a real outage, and the run aborts with the transport error (fail loud). HTTP 4xx NEVER gets a per-page fallback — a configuration problem must not silently template a whole wiki. Other stages are unchanged: the Extractor's thrown errors still abort (its per-chunk fail-loud), and DOX/workspace/updater already catch thrown errors once per target into their deterministic fallbacks.
+- **Quality failures** — a synthesis page that fails the preservation check, a DOX Writer / workspace-pass response that is unparseable or missing required sections, an AGENTS.md Updater response missing required sections, or a curation decision list that fails deterministic validation — use the same feedback-retry loop (≤3 total attempts) before the deterministic fallback (structured template / deterministic index body / deterministic workspace line / deterministic updater fallback / keep-all curation skip). Every fallback is still logged as before.
 
 **Exhaustion:** an Extractor content defect that still fails after feedback retries rejects the chunk and aborts the ingest with the validation error (fail loud — unchanged). Synthesis/DOX/workspace/updater exhaustions use their deterministic fallbacks, logged as before.
 
 **Repair-rate warning:** when an elevated share of a run's LLM calls needed feedback repair (more than 25% of the run's LLM calls, or 5 or more repairs in one run), the system warns that the underlying prompt may need attention — the loop must never silently mask a systematic prompt defect.
+
+**Output-token ceilings (amended 2026-07-23, user-ratified):** per-call `max_tokens` values are safety ceilings sized above the largest legitimate output (synthesis family 32768, DOX Writer 8192, Extractor 32768 — raised from 16384 on 2026-07-24 after a dense chunk's extraction JSON structurally exceeded it, user-ratified), never length controllers — the model does not see the ceiling, so a low ceiling yields truncated output, never shorter output. A truncated response surfaces as the quality failure it causes (unparseable JSON, missing sections, failed preservation) and follows the feedback-retry loop above; worst-case per-call cost stays bounded by the ≤3-attempt limits.
 
 ---
 
@@ -321,3 +333,5 @@ Slugs remain lowercase ASCII kebab-case (every run of non-`[a-z0-9]` characters 
 ### 9.4 Mechanism
 
 No per-language prompt files. Every LLM prompt template carries a `{languageDirective}` placeholder, filled at runtime from the two settings (empty when both are English, keeping default behavior byte-identical). The wiki constitution template states the output language, so every LLM call — which always reads `AGENTS.md` — inherits the rule. Deterministic code (extraction, chunking, materialization, validation) is language-neutral and unchanged.
+
+The per-ingest curation prompts (§3.2 Step 6) follow the same `{languageDirective}` convention. The topic identities the curation pass judges are output-language: claim types become topic folder names, and folder names follow the output language (`05_page_types_specification.md` §2.1). The sample claim and mention texts the curation pass also sees stay verbatim in the source language, as always.

@@ -29,6 +29,7 @@ type SettingRow =
   | 'modelExtractor'
   | 'modelSynthesis'
   | 'modelDox'
+  | 'modelCuration'
   | 'apiKeyAnthropic'
   | 'apiKeyOpenai'
   | 'save'
@@ -41,6 +42,7 @@ const ROW_ORDER: SettingRow[] = [
   'modelExtractor',
   'modelSynthesis',
   'modelDox',
+  'modelCuration',
   'apiKeyAnthropic',
   'apiKeyOpenai',
   'save',
@@ -65,19 +67,26 @@ const MODEL_SHORT_NAMES: Record<string, string> = Object.fromEntries(
 /**
  * Inline recommendation labels (phase doc §2.2 + the v1.4.0 provider
  * extension), rendered dim under a row. The wording mirrors across
- * providers: cheapest tier for structured extraction, mid tier for prose,
- * mid/flagship for contract writing.
+ * providers: cheapest tier for structured extraction, mid tier for prose.
+ * Phase 13 (2026-07-23 model-routing preference, root AGENTS.md; decision
+ * record `Project Vision/optimizations/optimizations.md` L2): the DOX slot
+ * recommends the MID tier — DOX contracts are structural navigation whose
+ * correctness is deterministically re-imposed, so the premium tier buys
+ * nothing. Phase 14 (phase doc §2.6): the Curation slot carries the ratified
+ * mid-tier merge/drop-judgment label.
  */
 const RECOMMENDATIONS: Record<Provider, Partial<Record<SettingRow, string>>> = {
   anthropic: {
     modelExtractor: 'Haiku — cheapest, good for structured JSON extraction',
     modelSynthesis: 'Sonnet — better prose, fewer preservation failures',
-    modelDox: 'Sonnet/Opus — strong contract writing for navigation',
+    modelDox: 'Sonnet — mid-tier; structural navigation, correctness re-imposed deterministically',
+    modelCuration: 'Sonnet — mid-tier judgment for merge/drop decisions',
   },
   openai: {
     modelExtractor: 'GPT-5.6 Luna — cheapest, good for structured JSON extraction',
     modelSynthesis: 'GPT-5.6 Terra — better prose, fewer preservation failures',
-    modelDox: 'GPT-5.6 Terra/Sol — strong contract writing for navigation',
+    modelDox: 'GPT-5.6 Terra — mid-tier; structural navigation, correctness re-imposed deterministically',
+    modelCuration: 'GPT-5.6 Terra — mid-tier judgment for merge/drop decisions',
   },
 };
 
@@ -119,12 +128,13 @@ function currentProvider(settings: TuiSettings): Provider {
  * v1.4.0 multi-provider extension) and the "API Keys" section (v1.5.0, user
  * directive 2026-07-23). A Provider row (Anthropic / OpenAI) sits above the
  * model rows; below it one Left/Right-cycling dropdown per LLM call type
- * (Default, Extractor, Synthesis Writer, DOX Writer) with inline
- * recommendation labels that follow the selected provider. Switching the
- * provider RESETS all four model slots to the new provider's defaults
- * (cheapest tier + "Same as default") so stale cross-provider model ids can
- * never persist. The per-call-type dropdowns offer "Same as default"
- * (persisted as null) plus the selected provider's catalog ids.
+ * (Default, Extractor, Synthesis Writer, DOX Writer, Curation — Phase 14
+ * §2.6) with inline recommendation labels that follow the selected provider.
+ * Switching the provider RESETS all five model slots to the new provider's
+ * defaults (cheapest tier + mid-tier curation + "Same as default") so stale
+ * cross-provider model ids can never persist. The per-call-type dropdowns
+ * offer "Same as default" (persisted as null) plus the selected provider's
+ * catalog ids.
  *
  * API Keys section (v1.5.0): one row per provider BELOW the model rows.
  * A row only ever shows the key SOURCE + last 4 characters ('configured
@@ -200,9 +210,9 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
       if (next === currentProvider(prev)) {
         return prev;
       }
-      // Reset-on-switch: all four slots re-seed to the new provider's
-      // defaults immediately (cheapest tier + nulls) so a stale model id
-      // from the other provider can never be saved.
+      // Reset-on-switch: all five slots re-seed to the new provider's
+      // defaults immediately (cheapest tier + mid-tier curation + nulls) so a
+      // stale model id from the other provider can never be saved.
       return { ...prev, models: seedModelsForProvider(next) };
     });
   };
@@ -221,6 +231,8 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
         models.synthesis = cycle(optionalChoices, models.synthesis, delta);
       } else if (row === 'modelDox') {
         models.dox = cycle(optionalChoices, models.dox, delta);
+      } else if (row === 'modelCuration') {
+        models.curation = cycle(optionalChoices, models.curation ?? null, delta);
       }
       return { ...prev, models };
     });
@@ -284,7 +296,7 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
           cycleProvider(key.rightArrow ? 1 : -1);
         }
       }
-      if (row === 'modelDefault' || row === 'modelExtractor' || row === 'modelSynthesis' || row === 'modelDox') {
+      if (row === 'modelDefault' || row === 'modelExtractor' || row === 'modelSynthesis' || row === 'modelDox' || row === 'modelCuration') {
         if (key.leftArrow || key.rightArrow) {
           cycleModel(row, key.rightArrow ? 1 : -1);
         }
@@ -401,6 +413,7 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
             {renderModelRow('modelExtractor', 'Extractor Model', settings.models.extractor)}
             {renderModelRow('modelSynthesis', 'Synthesis Writer Model', settings.models.synthesis)}
             {renderModelRow('modelDox', 'DOX Writer Model', settings.models.dox)}
+            {renderModelRow('modelCuration', 'Curation Model', settings.models.curation ?? null)}
           </Box>
           <Box flexDirection="column" marginTop={1}>
             <Text bold>API Keys</Text>
@@ -433,6 +446,8 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
           <Text dimColor>  {RECOMMENDATIONS[provider].modelSynthesis}</Text>
           <Text>DOX Writer Model: {optionalLabel(settings.models.dox)}</Text>
           <Text dimColor>  {RECOMMENDATIONS[provider].modelDox}</Text>
+          <Text>Curation Model: {optionalLabel(settings.models.curation ?? null)}</Text>
+          <Text dimColor>  {RECOMMENDATIONS[provider].modelCuration}</Text>
           <Text bold>API Keys</Text>
           <Text>Anthropic API Key: {keyStatusText('anthropic', settings.apiKeys.anthropic)}</Text>
           <Text>OpenAI API Key: {keyStatusText('openai', settings.apiKeys.openai)}</Text>

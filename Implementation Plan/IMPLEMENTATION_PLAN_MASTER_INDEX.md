@@ -9,7 +9,7 @@
 
 ## Overview
 
-This implementation plan breaks Paper Chase v.1.0 into phases 0–9 and 11. Each phase is a standalone deliverable that can be tested in isolation and integrated with previously accepted phases. **You do not move to the next phase until every gate in the current phase passes.**
+This implementation plan breaks Paper Chase v.1.0 into phases 0–9 and 11–16. Each phase is a standalone deliverable that can be tested in isolation and integrated with previously accepted phases. **You do not move to the next phase until every gate in the current phase passes.**
 
 This structure prevents the compounding bug problem that destroyed the previous implementation. Each phase has:
 - A clear objective
@@ -37,6 +37,10 @@ This structure prevents the compounding bug problem that destroyed the previous 
 | 9 | [PHASE_09_agents_updater.md](PHASE_09_agents_updater.md) | AGENTS.md updater: proposes updates based on discovered structure | $2.00 | 3-4h |
 | 11 | [PHASE_11_polish.md](PHASE_11_polish.md) | Productionization: per-call LLM model routing with suggestion labels, TUI cleanup, smoother workflow, full README.md, metrics, E2E tests | $0 | 4-6h |
 | 12 | [PHASE_12_validation_feedback_retry.md](PHASE_12_validation_feedback_retry.md) | Validation feedback retry (reask): validator errors fed back to the LLM at all five call sites, ≤3 attempts, repair-rate warning | $0 | 3-4h |
+| 13 | [PHASE_13_output_caps_and_prompt_self_sizing.md](PHASE_13_output_caps_and_prompt_self_sizing.md) | Output-token ceilings (synthesis 32768, DOX 8192), word-count removal + quality-based self-sizing in the synthesis prompts, `sparse` flag, mid-tier DOX label | $0 | 2-3h |
+| 14 | [PHASE_14_topic_and_entity_curation.md](PHASE_14_topic_and_entity_curation.md) | Curate-then-write: per-ingest LLM topic curation (merge/drop/keep) + entity curation (merge-only), deterministic validation + application, keep-all fallback, `curation` Settings slot | $0 | 5-7h |
+| 15 | [PHASE_15_synthesis_concurrency.md](PHASE_15_synthesis_concurrency.md) | Bounded worker pool (fixed cap 4) for entity/topic synthesis only; serialized state writes; deterministic report order; aggregate TUI progress | $0 | 3-4h |
+| 16 | [PHASE_16_run_resilience.md](PHASE_16_run_resilience.md) | Run resilience: per-page transport fallback + outage detector, synthesis resume (data fingerprints), per-PDF checkpointing, pool transport tuning, curation decision-list sizing | $0 | 5-8h |
 
 **Total Estimated LLM Cost (all phases):** Variable; baseline ~$32.00 plus quality-first DOX Writer cost per wiki.
 **Total Estimated Time:** 40-58 hours
@@ -83,6 +87,11 @@ Every phase has two kinds of tests:
 | 7 | $3.00 | The Danish fixture is 2 pages: one chunk, a handful of live calls in UAT only. Gates are LLM-free. |
 | 8 | $5.00 | Your test PDFs are too large. Use smaller fixtures. |
 | 9 | $2.00 | The AGENTS.md is too long. Trim it. |
+| 12 | $0 | All gate tests mock the transport; live repair calls only during real ingests. |
+| 13 | $0 | LLM-free gates (static prompt assertions, stubbed captures); live verification only during real ingests. |
+| 14 | $0 | LLM-free gates (injected curation stubs); live curation calls only during real ingests. |
+| 15 | $0 | LLM-free gates (delay-stubbed synthesis); live timing verification only during real ingests. |
+| 16 | $0 | LLM-free gates (stubbed transport + injected fingerprints); live resilience drills only during real ingests. |
 
 **No retry loops.** If an LLM call fails, fix the prompt and run again. Do not burn tokens on retries.
 
@@ -118,6 +127,10 @@ Before starting each phase, read the relevant vision document (all in `Project V
 | 8 | `01_PRODUCT_VISION_AND_ARCHITECTURE.md` | Understand compounding and incremental ingestion. |
 | 9 | `03_DOX_concept_detailed.md` | Understand AGENTS.md as a living document. |
 | 11 | All | Polish and production readiness. |
+| 12 | `04_orchestration_detailed.md` §6, `07_validation_and_quality.md` §2 + §5 | The reask carve-out (already promoted; Phase 12 canon basis). |
+| 13 | `04_orchestration_detailed.md` §6, `07_validation_and_quality.md` §5, `02_WIKI_concept_detailed.md` §4.7/§4.8, `05_page_types_specification.md` §2 | Output-token ceilings, self-sizing prompts restoring §4.7/§4.8 fidelity, the `sparse` frontmatter field. |
+| 14 | `01_PRODUCT_VISION_AND_ARCHITECTURE.md` §4.1/§5, `04_orchestration_detailed.md` §1/§3.2/§6/§9.4, `05_page_types_specification.md` §6/§7, `07_validation_and_quality.md` §1/§2.3/§5 | Curate-then-write placement, topic eligibility, entity identity, decision-list validation, keep-all fallback. |
+| 15 | `04_orchestration_detailed.md` §1 | The concurrency note (bounded pool, cap 4, deterministic order; everything else sequential). |
 
 After completing each phase, update the relevant vision document if the implementation diverged from the spec. The vision documents are the source of truth.
 
@@ -153,6 +166,11 @@ For each phase:
 | 8 | Add new PDFs over time. Watch the wiki compound. See conflicts logged. |
 | 9 | Review proposed AGENTS.md updates. Apply them manually. |
 | 11 | Use a production-ready CLI with config, logging, metrics, and documentation. |
+| 12 | Watch transient and content-defect LLM failures repair themselves via validator feedback instead of aborting the run. |
+| 13 | Read honest sparse pages on thin entities (flagged `sparse: true`) and fully synthesized dense pages that no longer truncate. |
+| 14 | Browse a curated wiki: duplicate topics merged, meta-descriptor junk gone, forked entities unified into one rich page with aliases. |
+| 15 | Wait hours less for the same wiki — entity/topic synthesis runs four pages at a time. |
+| 16 | Kill a run mid-flight and watch the re-run skip finished PDFs and already-paid pages; a network hiccup costs one page, not the run. |
 
 ---
 
@@ -186,7 +204,11 @@ Wiki v5/                              # project root — all code and tests are 
     ├── PHASE_08_multi_pdf_compounding.md
     ├── PHASE_09_agents_updater.md
     ├── PHASE_11_polish.md
-    └── PHASE_12_validation_feedback_retry.md
+    ├── PHASE_12_validation_feedback_retry.md
+    ├── PHASE_13_output_caps_and_prompt_self_sizing.md
+    ├── PHASE_14_topic_and_entity_curation.md
+    ├── PHASE_15_synthesis_concurrency.md
+    └── PHASE_16_run_resilience.md
 ```
 
 ---

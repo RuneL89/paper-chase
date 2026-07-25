@@ -92,7 +92,11 @@ export class ExtractorError extends Error {
 // amendment, user-ratified 2026-07-23; vision `04` §6 / `07` §5): invalid JSON
 // and schema violations are content defects re-asked with the validator's
 // exact errors fed back, up to 3 total attempts; HTTP 4xx is never retried.
-const EXTRACTION_MAX_TOKENS = 16384;
+// The ceiling is a safety cap, never a length controller: raised 16384 →
+// 32768 on 2026-07-24 (user-ratified) after a dense chunk's extraction JSON
+// structurally exceeded 16384 — the reask cannot repair truncation, only the
+// ceiling can (vision `04` §6 output-token ceilings note).
+const EXTRACTION_MAX_TOKENS = 32768;
 const EXTRACTION_TEMPERATURE = 0;
 const EXTRACTION_MAX_RETRIES = 2;
 const EXTRACTION_MAX_ATTEMPTS = 3;

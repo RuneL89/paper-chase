@@ -210,6 +210,10 @@ Phase documents live in `Implementation Plan/`; vision documents live in `Projec
 | 9 | `PHASE_09_agents_updater.md` | `03_DOX_concept_detailed.md`, `01_PRODUCT_VISION_AND_ARCHITECTURE.md` | AGENTS.md as living document |
 | 11 | `PHASE_11_polish.md` | All vision documents | Final polish, must not break any existing spec |
 | 12 | `PHASE_12_validation_feedback_retry.md` | `04_orchestration_detailed.md` §6, `07_validation_and_quality.md` §2 + §5 | Feedback-retry (reask) carve-out: validator errors fed back to the LLM, ≤3 attempts; HTTP 4xx never retried |
+| 13 | `PHASE_13_output_caps_and_prompt_self_sizing.md` | `04_orchestration_detailed.md` §6, `07_validation_and_quality.md` §5, `02_WIKI_concept_detailed.md` §4.7/§4.8, `05_page_types_specification.md` §2 | Output-token ceilings (synthesis 32768, DOX 8192); word-count removal + quality-based self-sizing restoring §4.7/§4.8 fidelity; the `sparse` frontmatter flag |
+| 14 | `PHASE_14_topic_and_entity_curation.md` | `01_PRODUCT_VISION_AND_ARCHITECTURE.md` §4.1/§5, `04_orchestration_detailed.md` §1/§3.2/§6/§9.4, `05_page_types_specification.md` §6/§7, `07_validation_and_quality.md` §1/§2.3/§5 | Curate-then-write: topic merge/drop/keep + entity merge-only curation, deterministic decision-list validation, keep-all fallback, `curation` routing slot |
+| 15 | `PHASE_15_synthesis_concurrency.md` | `04_orchestration_detailed.md` §1 | Bounded worker pool (fixed cap 4) for entity/topic synthesis; deterministic output order; everything else sequential |
+| 16 | `PHASE_16_run_resilience.md` | `04_orchestration_detailed.md` §1/§3.2/§6/Step 9/Step 11, `07_validation_and_quality.md` §2.3/§5 | Run resilience: per-page transport fallback + outage detector, synthesis resume, per-PDF checkpointing, pool transport tuning, curation decision-list sizing |
 
 ---
 
@@ -346,7 +350,11 @@ Wiki v5/
 │   ├── PHASE_08_multi_pdf_compounding.md           # Phase 8
 │   ├── PHASE_09_agents_updater.md                  # Phase 9
 │   ├── PHASE_11_polish.md                          # Phase 11
-│   └── PHASE_12_validation_feedback_retry.md       # Phase 12
+│   ├── PHASE_12_validation_feedback_retry.md       # Phase 12
+│   ├── PHASE_13_output_caps_and_prompt_self_sizing.md  # Phase 13
+│   ├── PHASE_14_topic_and_entity_curation.md           # Phase 14
+│   ├── PHASE_15_synthesis_concurrency.md               # Phase 15
+│   └── PHASE_16_run_resilience.md                      # Phase 16
 └── templates/
     └── AGENTS.md                                 # Template for wiki AGENTS.md (created in Phase 0)
 ```

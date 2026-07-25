@@ -60,3 +60,47 @@ export function parseWikilinkTarget(inner: string): { target: string; display?: 
   const display = inner.slice(pipeIndex + 1).trim();
   return display.length > 0 ? { target, display } : { target };
 }
+
+/**
+ * Phase 14 (phase doc §2.3, vision `04` §3.2 Step 6): the rewrite applied to a
+ * wikilink whose target was merged away by curation.
+ */
+export interface WikilinkRewrite {
+  /** The canonical (surviving) slug the link now points at. */
+  into: string;
+  /**
+   * The merged-away page's title — used as the display text when the original
+   * link was the bare form `[[from]]`, so the visible text of the link does
+   * not change: `[[from]]` → `[[into|From Title]]`.
+   */
+  fromTitle: string;
+}
+
+/**
+ * Phase 14 (phase doc §2.3 + gate 14.7): exact-segment wikilink rewrite across
+ * a page's markdown. Every link whose FULL target segment equals a merged-away
+ * slug is repointed to the canonical slug; the display text is preserved
+ * (`[[from|Display]]` → `[[into|Display]]`), and the bare form gains the
+ * merged page's title as its display (`[[from]]` → `[[into|From Title]]`).
+ *
+ * Matching is by exact target segment ONLY — never a substring — so prefix
+ * collisions are safe: rewriting `[[odense]]` leaves
+ * `[[odense-bup-auditorium|X]]` and `[[odense-2]]` untouched. Frontmatter and
+ * citation markers contain no `[[...]]` spans in our pages and are untouched.
+ */
+export function rewriteWikilinkTargets(
+  markdown: string,
+  rewrites: ReadonlyMap<string, WikilinkRewrite>,
+): string {
+  if (rewrites.size === 0) {
+    return markdown;
+  }
+  return markdown.replace(/\[\[([^\[\]]+)\]\]/g, (whole, inner: string) => {
+    const { target, display } = parseWikilinkTarget(inner);
+    const rewrite = rewrites.get(target);
+    if (!rewrite) {
+      return whole;
+    }
+    return formatWikilink(rewrite.into, display ?? rewrite.fromTitle);
+  });
+}

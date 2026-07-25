@@ -1,5 +1,5 @@
 import matter from 'gray-matter';
-import { aliasesForTitle } from '../utils/aliases';
+import { combinedAliases } from '../utils/aliases';
 import { formatWikilink } from '../utils/wikilinks';
 
 /**
@@ -69,6 +69,63 @@ export interface EntityPageData {
    * existing citations.
    */
   citations?: string[];
+  /**
+   * Phase 13 (vision `02` §4.8 + `05` §2): the sparse flag, computed by the
+   * Materializer via `isSparseEntity` so downstream consumers (the ingest
+   * synthesis-replacement path) see it without recomputing. `writeEntityPage`
+   * always derives the flag from the aggregate via the same rule, so callers
+   * that omit it still get correct frontmatter.
+   */
+  sparse?: boolean;
+  /**
+   * Phase 14 (phase doc §2.3, vision `05` §2): every variant title accumulated
+   * by curation merges into this canonical entity. Unioned into the page's
+   * frontmatter `aliases` by `writeEntityPage` (via `combinedAliases`) so
+   * `[[Variant Title]]` links resolve to the surviving page.
+   */
+  mergedAliases?: string[];
+}
+
+/**
+ * Phase 13 (vision `02` §4.8 + `05` §2, user-ratified 2026-07-23): the
+ * deterministic sparse-page rule. An entity page is sparse when its aggregate
+ * has at most two mentions AND no claims AND no relationships. The flag is
+ * derived from the aggregate only — never by the LLM. Entity pages are
+ * re-derived from the full extraction set every run (Phase 8 update mode), so
+ * the flag is recomputed correctly on every ingest: a stub that gains mentions
+ * loses the flag automatically.
+ */
+export function isSparseEntity(
+  data: Pick<EntityPageData, 'mentions' | 'relationships' | 'claims'>,
+): boolean {
+  return data.mentions.length <= 2 && data.relationships.length === 0 && data.claims.length === 0;
+}
+
+/**
+ * Deterministic sparse-flag enforcement over a fully-rendered entity page
+ * (Phase 13; the UAT 6.3 `enforceAliasesInMarkdown` precedent): re-imposes
+ * `sparse: true` when the entity is sparse and REMOVES any `sparse` field
+ * when it is not — the LLM's frontmatter is never trusted for the flag.
+ * Pages without a frontmatter block, or with unparseable frontmatter, are
+ * returned unchanged (the schema validator already flags those; this helper
+ * never invents a frontmatter block).
+ */
+export function enforceSparseInMarkdown(markdown: string, sparse: boolean): string {
+  if (!/^---[ \t]*\r?\n/.test(markdown)) {
+    return markdown;
+  }
+  let parsed: matter.GrayMatterFile<string>;
+  try {
+    parsed = matter(markdown);
+  } catch {
+    return markdown;
+  }
+  if (sparse) {
+    parsed.data.sparse = true;
+  } else {
+    delete parsed.data.sparse;
+  }
+  return matter.stringify(parsed.content, parsed.data);
 }
 
 function sourceKey(file: string, pages: string): string {
@@ -241,13 +298,17 @@ export function writeEntityPage(data: EntityPageData): string {
       pages: Array.from(pagesSet).sort((x, y) => x.localeCompare(y)).join(', '),
     }));
 
-  // Obsidian-resolvable title alias (UAT 6.3 fix): raw title, js-yaml escapes
-  // it; omitted when the title matches the file slug case-insensitively.
-  const aliases = aliasesForTitle(data.title, data.slug);
+  // Obsidian-resolvable title alias (UAT 6.3 fix) + Phase 14 curation-merged
+  // variant titles (every merged-away fork's title resolves here); js-yaml
+  // escapes them; omitted when there is nothing to alias.
+  const aliases = combinedAliases(data.title, data.slug, data.mergedAliases);
   const frontmatter: Record<string, unknown> = {
     title: escapeYamlString(data.title),
     type: 'entity',
     ...(aliases ? { aliases } : {}),
+    // Phase 13 (vision `02` §4.8): sparse flag after aliases, before sources;
+    // emitted only when true — never `sparse: false`.
+    ...(isSparseEntity(data) ? { sparse: true } : {}),
     wiki: data.wiki,
     updated,
     sources: frontmatterSources,

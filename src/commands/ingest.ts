@@ -8,6 +8,7 @@ import { renderTablesAsMarkdown } from '../extraction/markdown-tables';
 import { sha256 } from '../utils/hash';
 import { sourceSlugForFile } from '../utils/slug';
 import { aliasesForTitle, enforceAliasesInMarkdown } from '../utils/aliases';
+import { enforceSparseInMarkdown } from '../pages/entity-page';
 import { getLanguage, type LanguageCode } from '../utils/language';
 import { sourcePdfPath, wikiDir, wikiRelativePath } from '../utils/paths';
 import { readIngestionState, writeIngestionState } from '../state/ingestion-state';
@@ -20,7 +21,14 @@ import { beginReaskRun, reaskRepairs, runWithFeedbackRetry } from '../llm/reask'
 import { loadSettings } from '../tui/settings';
 import { writeSourcePage } from '../pages/source-page';
 import { extractDocumentChunk, type ChunkExtraction } from './extract-chunk';
-import { materialize, type MaterializeResult } from '../materializer';
+import { materialize, type MaterializeOptions, type MaterializeResult } from '../materializer';
+import type {
+  CurateCallOptions,
+  EntityCurationCandidate,
+  EntityCurationOutcome,
+  TopicCurationCandidate,
+  TopicCurationOutcome,
+} from '../agents/curation';
 import { writeDoxContracts, writeWorkspaceIndex, type DoxIndexContext, type DoxWorkspaceEntryContext, type DoxWorkspaceProseContext } from '../dox-writer';
 import { proposeAgentsUpdate, type AgentsUpdaterOptions } from '../agents/agents-updater';
 import { validateWiki, logValidation, type ValidationSummary } from '../validation';
@@ -32,7 +40,8 @@ import {
 } from '../agents/synthesis';
 import { checkPreservation, checkTopicPreservation } from '../validation/preservation-check';
 import { logConflict } from '../state/conflicts';
-import { logSynthesisReport } from '../state/synthesis-report';
+import { appendSynthesisReportEntries, type SynthesisReportEntry } from '../state/synthesis-report';
+import { runPool } from '../utils/worker-pool';
 import type { EntityPageData } from '../pages/entity-page';
 import type { TopicPageData } from '../pages/topic-page';
 
@@ -168,6 +177,14 @@ export interface IngestOptions {
    * `updateAgents: true` without an API key.
    */
   proposeAgentsUpdateFn?: (wikiSlug: string, options: AgentsUpdaterOptions) => Promise<string>;
+  /**
+   * Phase 14 (phase doc §2.2; the `writeDoxIndexFn` precedent): injectable
+   * topic/entity curation implementations (test-only), passed through to the
+   * materializer's curation stage so every gate stays LLM-free. Default to
+   * the real curation calls.
+   */
+  curateTopicsFn?: (candidates: TopicCurationCandidate[], options: CurateCallOptions) => Promise<TopicCurationOutcome>;
+  curateEntitiesFn?: (candidates: EntityCurationCandidate[], options: CurateCallOptions) => Promise<EntityCurationOutcome>;
 }
 
 export interface IngestedSource {
@@ -240,6 +257,19 @@ const DEFAULT_PAGES_PER_CHUNK = 5;
  * items back to the writer via runWithFeedbackRetry.
  */
 const SYNTHESIS_MAX_ATTEMPTS = 3;
+
+/**
+ * Phase 15 (vision `04` §1 concurrency note, user-ratified 2026-07-23 with
+ * the L5 user-narrowed scope in optimizations.md): the entity- and
+ * topic-synthesis stages run through a bounded worker pool with this FIXED
+ * cap of 4 concurrent calls — a constant, deliberately NOT a Settings field
+ * (ratified scope). Everything else in the pipeline stays sequential:
+ * extraction (chunks share rolling-memory context), the curation calls, the
+ * DOX Writer (bottom-up level dependencies), the workspace pass, and the
+ * AGENTS.md Updater. No cost change — same calls, same models; the existing
+ * 429/5xx retry machinery absorbs pool pressure at cap 4.
+ */
+export const SYNTHESIS_POOL_SIZE = 4;
 
 interface SynthesisModeResult<C> {
   /** The synthesized page when a preservation check passed, else null. */
@@ -503,6 +533,9 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   let relationshipsExtracted = 0;
   let claimsExtracted = 0;
   const claimsByType: Record<string, number> = {};
+  // Phase 14 (phase doc §2.7): keep-all curation fallbacks across this run's
+  // materialize calls (additive metrics counter).
+  let curationFallbacksThisRun = 0;
 
   // Phase 8 (phase doc §2.2): removed PDFs — recorded in the ingestion state
   // but no longer present in raw/. Warn only; derived pages are KEPT so the
@@ -528,10 +561,18 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   // in so manually-edited pages are skipped (conflict logged) instead of
   // overwritten; the pages each call writes fold back into the working hash
   // map for the next call.
+  // Phase 14 (phase doc §2.4): the curation stage rides the same enablement
+  // as synthesis (an LLM stage; no new flag/toggle) — `curation: synthesis`.
+  // The curate*Fn injections are the test seam (the writeDoxIndexFn
+  // precedent) that keeps every gate LLM-free.
   const runMaterialize = async (): Promise<void> => {
     lastMaterializeResult = await materialize(slug, {
       workspace: options.workspace,
       pageHashes: workingPageHashes,
+      curation: synthesis === true,
+      language: { input, output },
+      curateTopicsFn: options.curateTopicsFn,
+      curateEntitiesFn: options.curateEntitiesFn,
     });
     for (const written of lastMaterializeResult.writtenPages) {
       workingPageHashes[written.path] = written.hash;
@@ -550,6 +591,24 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     for (const removed of lastMaterializeResult.removedDuplicates) {
       delete workingPageHashes[removed.path];
       progress(`Removed duplicate page ${removed.path} (entity now lives at ${removed.canonicalPath}).`);
+    }
+    // Phase 14: fold the curation stage's effects into the run state —
+    // fallback counter (metrics), rewritten-link hashes (so the recorded
+    // hashes track the rewritten content), deleted merged-away/dropped pages
+    // (untracked), and manual-edit veto skips (already logged as conflicts).
+    const curation = lastMaterializeResult.curation;
+    if (curation) {
+      curationFallbacksThisRun += curation.fallbacks.length;
+      for (const rewritten of curation.rewrittenLinks) {
+        workingPageHashes[rewritten.path] = rewritten.hash;
+        writtenPagePaths.add(rewritten.path);
+      }
+      for (const removedPath of curation.removedPages) {
+        delete workingPageHashes[removedPath];
+      }
+      for (const skip of curation.manualEditSkips) {
+        progress(`Curation ${skip.action} skipped for ${skip.page} (manually edited). Conflict logged.`);
+      }
     }
     progress('Materialized entity, topic, and document pages.');
   };
@@ -724,6 +783,19 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   // Phase 5: optional synthesis after materialization and before validation.
   // Order: entities first, then topics. Document pages keep their deterministic
   // Phase 1 format and are not synthesized.
+  // Phase 15 (vision `04` §1, user-ratified 2026-07-23): each stage's per-page
+  // loop runs through runPool(…, { concurrency: SYNTHESIS_POOL_SIZE }). Each
+  // pool task is exactly the pre-Phase-15 per-page body — strict
+  // trySynthesisMode → permissive → structured-template fallback with the
+  // Phase 12 reask loop inside — so per-page outcomes (synthesized counts,
+  // fallbacks, attempt counts, #attemptN contexts) are byte-equivalent to the
+  // sequential loop. The task RETURNS its synthesis-report entry; entries are
+  // appended once per stage in original page order after the pool completes
+  // (deterministic, diff-friendly regardless of completion order). Progress is
+  // the aggregate `Synthesis: N/M pages complete (4 workers)` counter
+  // re-emitted on each completion — identical for the TUI and the CLI; the
+  // per-page preservation-failure WARNING lines are unchanged. Extraction,
+  // curation, DOX, workspace, and updater stages stay sequential (§2.5).
   if (extract && synthesis && lastMaterializeResult) {
     result.synthesisRan = true;
     const agentsMd = loadAgentsMd(dir);
@@ -735,13 +807,17 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     const runTopicPermissiveSynthesis =
       options.synthesizeTopicPermissiveFn ?? writePermissiveTopicSynthesis;
 
-    // 1. Entity synthesis
-    const entityCount = lastMaterializeResult.entityPages.length;
-    if (entityCount > 0) {
-      progress(`Writing synthesis for ${entityCount} entity page(s)...`);
+    interface SynthesisOutcome {
+      /** The report entry appended once per stage, in original page order. */
+      entry: SynthesisReportEntry;
+      /** Which per-stage result counter this page lands on. */
+      kind: 'strict' | 'permissive' | 'template';
     }
 
-    for (const entityPage of lastMaterializeResult.entityPages) {
+    // 1. Entity synthesis. The per-page body below is the pre-Phase-15 loop
+    // body verbatim, with only the report logging inverted (the entry is
+    // returned to the caller instead of appended per page).
+    const synthesizeEntityPage = async (entityPage: EntityPageData): Promise<SynthesisOutcome> => {
       // Strict synthesis first (readable prose that preserves exact
       // mention/relationship/claim strings), retried up to
       // SYNTHESIS_MAX_ATTEMPTS times on preservation failure (Phase 7
@@ -755,22 +831,30 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         const folderPath = join(dir, entityPage.folder);
         // UAT 6.3 fix: re-impose the aliases frontmatter field over the
         // model-written page (deterministic; the LLM's frontmatter is not
-        // trusted for the alias rule).
+        // trusted for the alias rule). Phase 13 (vision `02` §4.8): the
+        // sparse flag is re-imposed the same way from the structured page
+        // data — a model-emitted `sparse` on a non-sparse entity is removed.
+        // Phase 14 (phase doc §2.3): curation-merged variant titles ride
+        // along in the aliases.
         await writeFile(
           join(folderPath, `${entityPage.slug}.md`),
-          enforceAliasesInMarkdown(strict.page, entityPage.title, entityPage.slug),
+          enforceSparseInMarkdown(
+            enforceAliasesInMarkdown(strict.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
+            entityPage.sparse === true,
+          ),
           'utf-8',
         );
-        result.synthesized = (result.synthesized ?? 0) + 1;
-        await logSynthesisReport(dir, {
-          timestamp: new Date().toISOString(),
-          pageType: 'entity',
-          slug: entityPage.slug,
-          strict: { attempted: true, passed: true, attempts: strict.attempts },
-          permissive: { attempted: false, passed: false },
-          finalMode: 'strict-synthesis',
-        });
-        continue;
+        return {
+          kind: 'strict',
+          entry: {
+            timestamp: new Date().toISOString(),
+            pageType: 'entity',
+            slug: entityPage.slug,
+            strict: { attempted: true, passed: true, attempts: strict.attempts },
+            permissive: { attempted: false, passed: false },
+            finalMode: 'strict-synthesis',
+          },
+        };
       }
 
       // Fallback: permissive synthesis (prose summary + verbatim structured
@@ -785,46 +869,79 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       );
       if (permissive.page !== null) {
         const folderPath = join(dir, entityPage.folder);
+        // Phase 13: aliases + sparse re-imposed deterministically over the
+        // model-written page, same as the strict write point above. Phase 14:
+        // curation-merged variant titles included in the aliases.
         await writeFile(
           join(folderPath, `${entityPage.slug}.md`),
-          enforceAliasesInMarkdown(permissive.page, entityPage.title, entityPage.slug),
+          enforceSparseInMarkdown(
+            enforceAliasesInMarkdown(permissive.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
+            entityPage.sparse === true,
+          ),
           'utf-8',
         );
-        result.synthesizedPermissive = (result.synthesizedPermissive ?? 0) + 1;
-        await logSynthesisReport(dir, {
-          timestamp: new Date().toISOString(),
-          pageType: 'entity',
-          slug: entityPage.slug,
-          strict: { attempted: true, passed: false, attempts: strict.attempts },
-          permissive: { attempted: true, passed: true, attempts: permissive.attempts },
-          finalMode: 'permissive-synthesis',
-        });
-      } else {
-        console.warn(
-          `Permissive synthesis also failed preservation for ${entityPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
-        );
-        if (permissive.lastCheck !== null) {
-          await logConflict(dir, entityPage.slug, permissive.lastCheck, 'entity');
-        }
-        result.synthesisConflicts = (result.synthesisConflicts ?? 0) + 1;
-        await logSynthesisReport(dir, {
+        return {
+          kind: 'permissive',
+          entry: {
+            timestamp: new Date().toISOString(),
+            pageType: 'entity',
+            slug: entityPage.slug,
+            strict: { attempted: true, passed: false, attempts: strict.attempts },
+            permissive: { attempted: true, passed: true, attempts: permissive.attempts },
+            finalMode: 'permissive-synthesis',
+          },
+        };
+      }
+
+      console.warn(
+        `Permissive synthesis also failed preservation for ${entityPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
+      );
+      if (permissive.lastCheck !== null) {
+        await logConflict(dir, entityPage.slug, permissive.lastCheck, 'entity');
+      }
+      return {
+        kind: 'template',
+        entry: {
           timestamp: new Date().toISOString(),
           pageType: 'entity',
           slug: entityPage.slug,
           strict: { attempted: true, passed: false, attempts: strict.attempts },
           permissive: { attempted: true, passed: false, attempts: permissive.attempts },
           finalMode: 'structured-template',
-        });
+        },
+      };
+    };
+
+    const entityPages = lastMaterializeResult.entityPages;
+    let entityCompleted = 0;
+    const entityOutcomes = await runPool(
+      entityPages,
+      async (entityPage) => {
+        const outcome = await synthesizeEntityPage(entityPage);
+        entityCompleted += 1;
+        progress(
+          `Synthesis: ${entityCompleted}/${entityPages.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
+        );
+        return outcome;
+      },
+      { concurrency: SYNTHESIS_POOL_SIZE },
+    );
+    for (const outcome of entityOutcomes) {
+      if (outcome.kind === 'strict') {
+        result.synthesized = (result.synthesized ?? 0) + 1;
+      } else if (outcome.kind === 'permissive') {
+        result.synthesizedPermissive = (result.synthesizedPermissive ?? 0) + 1;
+      } else {
+        result.synthesisConflicts = (result.synthesisConflicts ?? 0) + 1;
       }
     }
+    await appendSynthesisReportEntries(
+      dir,
+      entityOutcomes.map((outcome) => outcome.entry),
+    );
 
-    // 2. Topic synthesis
-    const topicCount = lastMaterializeResult.topicPages.length;
-    if (topicCount > 0) {
-      progress(`Writing synthesis for ${topicCount} topic page(s)...`);
-    }
-
-    for (const topicPage of lastMaterializeResult.topicPages) {
+    // 2. Topic synthesis (same pooled shape as the entity stage).
+    const synthesizeTopicPage = async (topicPage: TopicPageData): Promise<SynthesisOutcome> => {
       const strict = await trySynthesisMode(
         (feedback, attempt) => runTopicSynthesis(topicPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
         (page) => checkTopicPreservation(topicPage, page),
@@ -837,16 +954,17 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           enforceAliasesInMarkdown(strict.page, topicPage.title, topicPage.slug),
           'utf-8',
         );
-        result.synthesizedTopics = (result.synthesizedTopics ?? 0) + 1;
-        await logSynthesisReport(dir, {
-          timestamp: new Date().toISOString(),
-          pageType: 'topic',
-          slug: topicPage.slug,
-          strict: { attempted: true, passed: true, attempts: strict.attempts },
-          permissive: { attempted: false, passed: false },
-          finalMode: 'strict-synthesis',
-        });
-        continue;
+        return {
+          kind: 'strict',
+          entry: {
+            timestamp: new Date().toISOString(),
+            pageType: 'topic',
+            slug: topicPage.slug,
+            strict: { attempted: true, passed: true, attempts: strict.attempts },
+            permissive: { attempted: false, passed: false },
+            finalMode: 'strict-synthesis',
+          },
+        };
       }
 
       console.warn(
@@ -864,33 +982,65 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           enforceAliasesInMarkdown(permissive.page, topicPage.title, topicPage.slug),
           'utf-8',
         );
-        result.synthesizedTopicsPermissive = (result.synthesizedTopicsPermissive ?? 0) + 1;
-        await logSynthesisReport(dir, {
-          timestamp: new Date().toISOString(),
-          pageType: 'topic',
-          slug: topicPage.slug,
-          strict: { attempted: true, passed: false, attempts: strict.attempts },
-          permissive: { attempted: true, passed: true, attempts: permissive.attempts },
-          finalMode: 'permissive-synthesis',
-        });
-      } else {
-        console.warn(
-          `Permissive synthesis also failed preservation for topic ${topicPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
-        );
-        if (permissive.lastCheck !== null) {
-          await logConflict(dir, topicPage.slug, permissive.lastCheck, 'topic');
-        }
-        result.topicConflicts = (result.topicConflicts ?? 0) + 1;
-        await logSynthesisReport(dir, {
+        return {
+          kind: 'permissive',
+          entry: {
+            timestamp: new Date().toISOString(),
+            pageType: 'topic',
+            slug: topicPage.slug,
+            strict: { attempted: true, passed: false, attempts: strict.attempts },
+            permissive: { attempted: true, passed: true, attempts: permissive.attempts },
+            finalMode: 'permissive-synthesis',
+          },
+        };
+      }
+
+      console.warn(
+        `Permissive synthesis also failed preservation for topic ${topicPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
+      );
+      if (permissive.lastCheck !== null) {
+        await logConflict(dir, topicPage.slug, permissive.lastCheck, 'topic');
+      }
+      return {
+        kind: 'template',
+        entry: {
           timestamp: new Date().toISOString(),
           pageType: 'topic',
           slug: topicPage.slug,
           strict: { attempted: true, passed: false, attempts: strict.attempts },
           permissive: { attempted: true, passed: false, attempts: permissive.attempts },
           finalMode: 'structured-template',
-        });
+        },
+      };
+    };
+
+    const topicPages = lastMaterializeResult.topicPages;
+    let topicCompleted = 0;
+    const topicOutcomes = await runPool(
+      topicPages,
+      async (topicPage) => {
+        const outcome = await synthesizeTopicPage(topicPage);
+        topicCompleted += 1;
+        progress(
+          `Synthesis: ${topicCompleted}/${topicPages.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
+        );
+        return outcome;
+      },
+      { concurrency: SYNTHESIS_POOL_SIZE },
+    );
+    for (const outcome of topicOutcomes) {
+      if (outcome.kind === 'strict') {
+        result.synthesizedTopics = (result.synthesizedTopics ?? 0) + 1;
+      } else if (outcome.kind === 'permissive') {
+        result.synthesizedTopicsPermissive = (result.synthesizedTopicsPermissive ?? 0) + 1;
+      } else {
+        result.topicConflicts = (result.topicConflicts ?? 0) + 1;
       }
     }
+    await appendSynthesisReportEntries(
+      dir,
+      topicOutcomes.map((outcome) => outcome.entry),
+    );
   }
 
   // Phase 8 (phase doc §2.5): after synthesis (which may have replaced the
@@ -1011,6 +1161,9 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       // Phase 12 (vision `04` §6): validator-feedback repairs so far this run
       // (preliminary write = pre-DOX stages; final write = the whole run).
       feedbackRepairs: reaskRepairs(),
+      // Phase 14 (phase doc §2.7): keep-all curation fallbacks this run
+      // (both materialize calls; 0 on a healthy run).
+      curationFallbacks: curationFallbacksThisRun,
     };
   };
 

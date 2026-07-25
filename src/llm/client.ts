@@ -3,6 +3,7 @@ import { mkdir, appendFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { resolve } from 'node:path';
 import { request } from 'undici';
+import { enqueueSerializedWrite } from '../utils/serialized-writes';
 
 const ANTHROPIC_API_URL = 'https://api.anthropic.com/v1/messages';
 const ANTHROPIC_VERSION = '2023-06-01';
@@ -50,6 +51,10 @@ const PRICE_PER_MTOK: Record<string, { input: number; output: number }> = {
  * in `.paper-chase.json` under its own top-level `apiKeys` block and threaded
  * in at the single integration point — `ingest()`). A stored key wins over
  * the environment for its provider; absent entries normalize to null.
+ * Phase 14 (phase doc §2.6): additive `curation` slot for the topic & entity
+ * curation calls — absent in legacy configs and normalized to null by
+ * `setModelRouting`, exactly like the v1.5.0 `apiKeys` addition (legacy
+ * resolution byte-identical).
  */
 export interface ModelRouting {
   provider?: Provider;
@@ -57,6 +62,8 @@ export interface ModelRouting {
   extractor: string | null;
   synthesis: string | null;
   dox: string | null;
+  /** Phase 14: curation call-type slot (null = "use default"). */
+  curation?: string | null;
   apiKeys?: {
     anthropic?: string | null;
     openai?: string | null;
@@ -87,6 +94,10 @@ export function setModelRouting(routing: ModelRouting | null): void {
       : {
           ...routing,
           provider: routing.provider ?? 'anthropic',
+          // Phase 14 §2.6: absent (legacy configs) normalizes to null so the
+          // curation call falls through to `default` — byte-identical.
+          curation:
+            typeof routing.curation === 'string' && routing.curation.length > 0 ? routing.curation : null,
           apiKeys: {
             anthropic: normalizeStoredKey(routing.apiKeys?.anthropic),
             openai: normalizeStoredKey(routing.apiKeys?.openai),
@@ -113,10 +124,11 @@ export function resolveProvider(): Provider {
 /**
  * Resolve the model for one LLM call. Order: explicit per-call override →
  * routing table by callType ('extractor' → extractor, the four synthesis
- * call types → synthesis, 'dox-writer' → dox, everything else → default;
- * a null routing entry means "use default") → routing default →
- * ANTHROPIC_MODEL env var → DEFAULT_MODEL. With no routing set the behavior
- * is byte-identical to the pre-Phase-11 client: env var, then DEFAULT_MODEL.
+ * call types → synthesis, 'dox-writer' → dox, 'curation' → curation,
+ * everything else → default; a null routing entry means "use default") →
+ * routing default → ANTHROPIC_MODEL env var → DEFAULT_MODEL. With no routing
+ * set the behavior is byte-identical to the pre-Phase-11 client: env var,
+ * then DEFAULT_MODEL.
  */
 export function resolveModel(callType?: string, override?: string): string {
   if (override) {
@@ -131,6 +143,10 @@ export function resolveModel(callType?: string, override?: string): string {
     }
     if (callType === 'dox-writer' && modelRouting.dox !== null) {
       return modelRouting.dox;
+    }
+    // Phase 14 §2.6: 'curation' → routing.curation → default when null.
+    if (callType === 'curation' && modelRouting.curation != null) {
+      return modelRouting.curation;
     }
     return modelRouting.default;
   }
@@ -412,12 +428,17 @@ async function appendLlmCallLog(logPath: string | undefined, entry: LlmCallLogEn
   if (!logPath) {
     return;
   }
-  try {
-    await mkdir(dirname(logPath), { recursive: true });
-    await appendFile(logPath, JSON.stringify(entry) + '\n', 'utf-8');
-  } catch {
-    // Best-effort logging; do not let a write failure break the LLM call.
-  }
+  // Phase 15 (vision `04` §1): with the synthesis pool's 4 workers, concurrent
+  // appends race — funnel every append through the per-path serialized write
+  // queue so each JSONL line lands whole, ordered by completion, never torn.
+  await enqueueSerializedWrite(logPath, async () => {
+    try {
+      await mkdir(dirname(logPath), { recursive: true });
+      await appendFile(logPath, JSON.stringify(entry) + '\n', 'utf-8');
+    } catch {
+      // Best-effort logging; do not let a write failure break the LLM call.
+    }
+  });
 }
 
 /**

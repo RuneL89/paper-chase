@@ -1,15 +1,31 @@
 import { existsSync } from 'node:fs';
 import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import matter from 'gray-matter';
 import { wikiDir, wikiRelativePath } from './utils/paths';
-import { writeEntityPage, type EntityPageData } from './pages/entity-page';
+import { writeEntityPage, isSparseEntity, type EntityPageData } from './pages/entity-page';
 import { writeTopicPage, type TopicPageData } from './pages/topic-page';
 import { type DocumentPageData } from './pages/document-page';
 import { saveRollingMemory, readFullRollingMemory, type RollingMemory } from './state/rolling-memory';
 import { logStructuralChanges, readStructuralChanges, type StructuralChange } from './state/structural-changes';
 import { logManualEditConflict } from './state/conflicts';
+import { readCurationOverrides } from './state/curation-overrides';
+import { writeCurationReport } from './state/curation-report';
+import {
+  curateEntities,
+  curateTopics,
+  truncateSample,
+  type CurateCallOptions,
+  type CurationFallbackCause,
+  type CurationMergeDecision,
+  type EntityCurationCandidate,
+  type EntityCurationOutcome,
+  type TopicCurationCandidate,
+  type TopicCurationOutcome,
+} from './agents/curation';
+import { rewriteWikilinkTargets, type WikilinkRewrite } from './utils/wikilinks';
+import type { LanguageCode } from './utils/language';
 import type {
   ExtractorEntity,
   ExtractorRelationship,
@@ -30,6 +46,45 @@ export interface MaterializeOptions {
    * (pre-Phase-8 callers keep their behavior).
    */
   pageHashes?: Record<string, string>;
+  /**
+   * Phase 14 (phase doc §2.4): run the topic & entity curation stage between
+   * aggregation and page writes (aggregate → curate → apply → write). Follows
+   * the synthesis enablement — the caller passes the ingest run's `synthesis`
+   * flag. Absent/false (or no extraction data, or nothing to curate) keeps
+   * materialize() byte-identical to pre-Phase-14.
+   */
+  curation?: boolean;
+  /** Phase 14: the run's language pair, forwarded to the curation prompts. */
+  language?: { input: LanguageCode; output: LanguageCode };
+  /**
+   * Phase 14 test seams (the `writeDoxIndexFn` precedent): injected curation
+   * implementations keep every gate LLM-free. Default to the real calls.
+   */
+  curateTopicsFn?: (candidates: TopicCurationCandidate[], options: CurateCallOptions) => Promise<TopicCurationOutcome>;
+  curateEntitiesFn?: (candidates: EntityCurationCandidate[], options: CurateCallOptions) => Promise<EntityCurationOutcome>;
+}
+
+/**
+ * Phase 14 (phase doc §2.4/§2.7): the curation stage's per-materialize
+ * summary, present on MaterializeResult only when the stage ran.
+ */
+export interface CurationSummary {
+  ran: true;
+  /** Applied (post manual-edit veto) decision lists. */
+  topicMerges: CurationMergeDecision[];
+  topicDrops: string[];
+  entityMerges: CurationMergeDecision[];
+  /** Keep-all fallback events across both concerns (console-warned too). */
+  fallbacks: Array<{ concern: 'topics' | 'entities'; scope: string; cause: CurationFallbackCause }>;
+  attempts: { topics: number; entities: number };
+  /** neverMerge pairs vetoed into keep during validation. */
+  vetoes: Array<{ concern: 'topics' | 'entities'; from: string; into: string }>;
+  /** Manually-edited/untracked from-pages kept out of a merge/drop. */
+  manualEditSkips: Array<{ page: string; concern: 'topics' | 'entities'; action: 'merge' | 'drop' }>;
+  /** On-disk pages deleted because their slug was merged away/dropped. */
+  removedPages: string[];
+  /** Pre-existing pages whose wikilinks were rewritten to canonical slugs. */
+  rewrittenLinks: Array<{ path: string; hash: string }>;
 }
 
 export interface MaterializeResult {
@@ -65,6 +120,13 @@ export interface MaterializeResult {
    * logs `Removed duplicate page <path> (entity now lives at <canonical>).`.
    */
   removedDuplicates: Array<{ path: string; canonicalPath: string }>;
+  /**
+   * Phase 14 (phase doc §2.4): curation stage summary — applied merges/drops,
+   * fallback events, manual-edit skips, deletions, rewritten links. Absent
+   * when curation did not run (disabled, no extraction data, or no
+   * candidates), which is the byte-identical pre-Phase-14 path.
+   */
+  curation?: CurationSummary;
 }
 
 interface MaterializedEntity {
@@ -78,6 +140,8 @@ interface MaterializedEntity {
   relationships: EntityPageData['relationships'];
   claims: EntityPageData['claims'];
   timeline: ExtractorTimelineEvent[];
+  /** Phase 14 (phase doc §2.3): variant titles accumulated by curation merges. */
+  aliases: string[];
 }
 
 interface MaterializedTopic {
@@ -202,6 +266,278 @@ async function collectEntityPageLocations(root: string, relPrefix: string, out: 
   }
 }
 
+// ---------------------------------------------------------------------------
+// Phase 14 curation stage helpers (phase doc §2.2–§2.5)
+// ---------------------------------------------------------------------------
+
+/** Genericized page-location walk for the curation on-disk scans. */
+async function collectSectionPageLocations(
+  root: string,
+  section: 'entities' | 'topics',
+  relPrefix: string,
+  out: Map<string, string[]>,
+): Promise<void> {
+  for (const entry of await readdir(root, { withFileTypes: true })) {
+    const rel = relPrefix === '' ? entry.name : `${relPrefix}/${entry.name}`;
+    if (entry.isDirectory()) {
+      await collectSectionPageLocations(join(root, entry.name), section, rel, out);
+    } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.md') && entry.name.toLowerCase() !== 'index.md') {
+      const slug = entry.name.replace(/\.md$/i, '');
+      const list = out.get(slug) ?? [];
+      list.push(`${section}/${rel}`);
+      out.set(slug, list);
+    }
+  }
+}
+
+/** All content pages (.md, not index.md) under a section, as wiki-relative paths. */
+async function collectContentPagePaths(root: string, section: string, relPrefix: string, out: string[]): Promise<void> {
+  for (const entry of await readdir(root, { withFileTypes: true })) {
+    const rel = relPrefix === '' ? entry.name : `${relPrefix}/${entry.name}`;
+    if (entry.isDirectory()) {
+      await collectContentPagePaths(join(root, entry.name), section, rel, out);
+    } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.md') && entry.name.toLowerCase() !== 'index.md') {
+      out.push(`${section}/${rel}`);
+    }
+  }
+}
+
+/** Bullet lines of a `## <section>` body (up to the next `## ` heading). */
+function extractSectionBullets(content: string, section: string): string[] {
+  const bullets: string[] = [];
+  let inSection = false;
+  for (const line of content.split('\n')) {
+    if (/^##\s+/.test(line)) {
+      inSection = line.trim() === `## ${section}`;
+      continue;
+    }
+    if (inSection && line.startsWith('- ')) {
+      bullets.push(line.slice(2).trim());
+    }
+  }
+  return bullets;
+}
+
+/** `- Page 3: "context" [^src1]` -> `context` (falls back to the raw bullet). */
+function extractMentionContext(bullet: string): string {
+  const match = /^Page \d+:\s+"(.*)"\s*(?:\[\^src\d+\])?$/.exec(bullet);
+  return (match?.[1] ?? bullet).trim();
+}
+
+function stripCitationMarkers(text: string): string {
+  return text.replace(/\[\^src\d+\]/g, '').trim();
+}
+
+/** The aggregation's topic-title rule, factored for the candidate builders. */
+function titleCaseSlug(slug: string): string {
+  return slug
+    .split('-')
+    .map((word) => (word.length > 0 ? word[0].toUpperCase() + word.slice(1) : word))
+    .join(' ');
+}
+
+interface OnDiskEntityMeta {
+  locations: string[];
+  folder: string;
+  title: string;
+  type: string;
+  mentionCount: number;
+  mentionSamples: string[];
+}
+
+interface OnDiskTopicMeta {
+  locations: string[];
+  folder: string;
+  title: string;
+  claimCount: number;
+  claimSamples: string[];
+}
+
+function folderOfLocation(relPath: string): string {
+  return relPath.split('/').slice(0, -1).join('/');
+}
+
+/**
+ * Read the curation-relevant metadata of an on-disk entity page (frontmatter
+ * title/tags + Mentions-section samples). Best-effort: unparseable pages
+ * contribute locations only.
+ */
+async function readOnDiskEntityMeta(dir: string, locations: string[]): Promise<OnDiskEntityMeta> {
+  const meta: OnDiskEntityMeta = {
+    locations,
+    folder: folderOfLocation(locations[0]),
+    title: '',
+    type: 'unknown',
+    mentionCount: 0,
+    mentionSamples: [],
+  };
+  try {
+    const parsed = matter(await readFile(join(dir, locations[0]), 'utf-8'));
+    if (typeof parsed.data.title === 'string') {
+      meta.title = parsed.data.title;
+    }
+    const tags = Array.isArray(parsed.data.tags)
+      ? parsed.data.tags.filter((tag): tag is string => typeof tag === 'string')
+      : [];
+    if (tags.length > 0) {
+      meta.type = tags[0];
+    }
+    const bullets = extractSectionBullets(parsed.content, 'Mentions');
+    meta.mentionCount = bullets.length;
+    meta.mentionSamples = bullets.slice(0, 2).map(extractMentionContext);
+  } catch {
+    // Unreadable/unparseable page — locations alone still drive deletions.
+  }
+  return meta;
+}
+
+/** Read the curation-relevant metadata of an on-disk topic page. */
+async function readOnDiskTopicMeta(dir: string, locations: string[]): Promise<OnDiskTopicMeta> {
+  const meta: OnDiskTopicMeta = {
+    locations,
+    folder: folderOfLocation(locations[0]),
+    title: '',
+    claimCount: 0,
+    claimSamples: [],
+  };
+  try {
+    const parsed = matter(await readFile(join(dir, locations[0]), 'utf-8'));
+    if (typeof parsed.data.title === 'string') {
+      meta.title = parsed.data.title;
+    }
+    const bullets = extractSectionBullets(parsed.content, 'Claims');
+    meta.claimCount = bullets.length;
+    meta.claimSamples = bullets.slice(0, 3).map(stripCitationMarkers);
+  } catch {
+    // Unreadable/unparseable page — locations alone still drive deletions.
+  }
+  return meta;
+}
+
+/**
+ * Build the topic curation input (phase doc §2.2): every aggregated candidate
+ * AND every on-disk-only topic (the self-healing property — update runs
+ * re-curate the full set).
+ */
+function buildTopicCandidates(
+  topicMap: Map<string, MaterializedTopic>,
+  onDiskTopics: Map<string, OnDiskTopicMeta>,
+): TopicCurationCandidate[] {
+  const candidates: TopicCurationCandidate[] = [];
+  for (const topic of topicMap.values()) {
+    const claims = dedupeClaims(topic.claims);
+    candidates.push({
+      slug: topic.slug,
+      title: topic.title,
+      folder: topic.folder,
+      claimCount: claims.length,
+      sampleClaims: claims.slice(0, 3).map((claim) => truncateSample(claim.text)),
+      onDisk: onDiskTopics.has(topic.slug),
+    });
+  }
+  for (const [slug, meta] of Array.from(onDiskTopics.entries()).sort(([a], [b]) => a.localeCompare(b))) {
+    if (topicMap.has(slug)) {
+      continue;
+    }
+    candidates.push({
+      slug,
+      title: meta.title !== '' ? meta.title : titleCaseSlug(slug),
+      folder: meta.folder,
+      claimCount: meta.claimCount,
+      sampleClaims: meta.claimSamples.map((sample) => truncateSample(sample)),
+      onDisk: true,
+    });
+  }
+  return candidates;
+}
+
+/** Build the entity curation input (phase doc §2.2), same on-disk union rule. */
+function buildEntityCandidates(
+  entityMap: Map<string, MaterializedEntity>,
+  onDiskEntities: Map<string, OnDiskEntityMeta>,
+): EntityCurationCandidate[] {
+  const candidates: EntityCurationCandidate[] = [];
+  for (const [slug, entity] of entityMap.entries()) {
+    const mentions = dedupeMentions(entity.mentions);
+    candidates.push({
+      slug,
+      title: entity.name,
+      type: entity.type,
+      folder: entity.folder,
+      mentionCount: mentions.length,
+      significance: entity.significance,
+      disambiguation: entity.disambiguation,
+      sampleMentions: mentions.slice(0, 2).map((mention) => truncateSample(mention.context)),
+      onDisk: onDiskEntities.has(slug),
+    });
+  }
+  for (const [slug, meta] of Array.from(onDiskEntities.entries()).sort(([a], [b]) => a.localeCompare(b))) {
+    if (entityMap.has(slug)) {
+      continue;
+    }
+    candidates.push({
+      slug,
+      title: meta.title !== '' ? meta.title : titleCaseSlug(slug),
+      type: meta.type,
+      folder: meta.folder,
+      mentionCount: meta.mentionCount,
+      significance: '',
+      sampleMentions: meta.mentionSamples.map((sample) => truncateSample(sample)),
+      onDisk: true,
+    });
+  }
+  return candidates;
+}
+
+/**
+ * A folder is removable when it contains only `index.md` contracts (the DOX
+ * Writer regenerates them deterministically) and removable subfolders.
+ */
+async function folderIsRemovable(path: string): Promise<boolean> {
+  let entries;
+  try {
+    entries = await readdir(path, { withFileTypes: true });
+  } catch {
+    return false;
+  }
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      if (!(await folderIsRemovable(join(path, entry.name)))) {
+        return false;
+      }
+    } else if (!(entry.isFile() && entry.name.toLowerCase() === 'index.md')) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/**
+ * Phase 14 (phase doc §2.5 + gate 14.9): delete the now-empty folder chain
+ * left behind by a deleted page, walking up from the page's folder to (but
+ * never including) the section root (`entities/` / `topics/`).
+ */
+async function pruneEmptyFolderChain(sectionRoot: string, startFolder: string): Promise<void> {
+  let current = startFolder;
+  while (current !== sectionRoot && current.startsWith(sectionRoot)) {
+    if (!(await folderIsRemovable(current))) {
+      break;
+    }
+    await rm(current, { recursive: true, force: true });
+    current = dirname(current);
+  }
+}
+
+const EMPTY_OUTCOME: { merges: CurationMergeDecision[]; drops: string[]; keep: string[] } = {
+  merges: [],
+  drops: [],
+  keep: [],
+};
+
+function emptyCurationOutcome(): TopicCurationOutcome & EntityCurationOutcome {
+  return { decisions: { ...EMPTY_OUTCOME }, attempts: 0, fallbacks: [], vetoes: [] };
+}
+
 /**
  * Read every Extractor JSON result, aggregate entities/topics across chunks, and
  * write/update entity pages, topic pages, and rolling memory.
@@ -282,6 +618,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         relationships: [],
         claims: [],
         timeline: [],
+        aliases: [],
       };
 
       if (existing) {
@@ -390,9 +727,358 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     }
   }
 
+  // ------------------------------------------------------------------
+  // Phase 14 (phase doc §2.2–§2.5, vision `04` §3.2 Step 6): CURATE.
+  // Aggregation is complete in memory; before any page write, the two
+  // curation calls (topics + entities, in parallel) return validated
+  // decision lists that are applied deterministically below. Skipped
+  // transparently unless the caller enabled it (the ingest run's synthesis
+  // flag) AND extraction data exists AND there is at least one candidate —
+  // every skip path is byte-identical to pre-Phase-14 (gate 14.14).
+  // ------------------------------------------------------------------
+  const entitySlugRemap = new Map<string, string>();
+  const mergeRewrites = new Map<string, WikilinkRewrite>();
+  let curationSummary: CurationSummary | null = null;
+  let topicOutcome: TopicCurationOutcome | null = null;
+  let entityOutcome: EntityCurationOutcome | null = null;
+
+  if (options?.curation === true && extractionFiles.length > 0) {
+    // On-disk scans: the input includes the existing sets so update runs
+    // re-curate everything (self-healing after a fallback).
+    const entityLocations = new Map<string, string[]>();
+    const entitiesRoot = join(dir, 'entities');
+    if (existsSync(entitiesRoot)) {
+      await collectSectionPageLocations(entitiesRoot, 'entities', '', entityLocations);
+    }
+    const topicLocations = new Map<string, string[]>();
+    const topicsRoot = join(dir, 'topics');
+    if (existsSync(topicsRoot)) {
+      await collectSectionPageLocations(topicsRoot, 'topics', '', topicLocations);
+    }
+    const onDiskEntities = new Map<string, OnDiskEntityMeta>();
+    for (const [slug, locations] of entityLocations.entries()) {
+      onDiskEntities.set(slug, await readOnDiskEntityMeta(dir, locations));
+    }
+    const onDiskTopics = new Map<string, OnDiskTopicMeta>();
+    for (const [slug, locations] of topicLocations.entries()) {
+      onDiskTopics.set(slug, await readOnDiskTopicMeta(dir, locations));
+    }
+
+    const topicCandidates = buildTopicCandidates(topicMap, onDiskTopics);
+    const entityCandidates = buildEntityCandidates(entityMap, onDiskEntities);
+
+    if (topicCandidates.length + entityCandidates.length > 0) {
+      const overrides = await readCurationOverrides(dir);
+      let agentsMd = '';
+      try {
+        agentsMd = await readFile(join(dir, 'AGENTS.md'), 'utf-8');
+      } catch {
+        // Best-effort — the prompt carries a placeholder when absent.
+      }
+      const callOptions: CurateCallOptions = {
+        agentsMd,
+        language: options?.language,
+        logPath: join(dir, '.state', 'llm-calls.json'),
+        neverMerge: overrides.neverMerge,
+      };
+      const topicsFn = options?.curateTopicsFn ?? curateTopics;
+      const entitiesFn = options?.curateEntitiesFn ?? curateEntities;
+      [topicOutcome, entityOutcome] = await Promise.all([
+        topicCandidates.length > 0
+          ? topicsFn(topicCandidates, callOptions)
+          : Promise.resolve<TopicCurationOutcome>(emptyCurationOutcome()),
+        entityCandidates.length > 0
+          ? entitiesFn(entityCandidates, callOptions)
+          : Promise.resolve<EntityCurationOutcome>(emptyCurationOutcome()),
+      ]);
+
+      for (const fallback of topicOutcome.fallbacks) {
+        console.warn(
+          `Warning: topic curation keep-all fallback at ${fallback.scope} (${fallback.cause}) — all topic candidates written as-is.`,
+        );
+      }
+      for (const fallback of entityOutcome.fallbacks) {
+        console.warn(
+          `Warning: entity curation keep-all fallback at ${fallback.scope} (${fallback.cause}) — all entity candidates written as-is.`,
+        );
+      }
+
+      // Keep-all fallback: a null decision list means write every candidate
+      // exactly as pre-Phase-14 (the empty-applied list below).
+      const topicDecisions = topicOutcome.decisions ?? {
+        ...EMPTY_OUTCOME,
+        keep: topicCandidates.map((candidate) => candidate.slug),
+      };
+      const entityDecisions = entityOutcome.decisions ?? {
+        ...EMPTY_OUTCOME,
+        keep: entityCandidates.map((candidate) => candidate.slug),
+      };
+
+      curationSummary = {
+        ran: true,
+        topicMerges: [],
+        topicDrops: [],
+        entityMerges: [],
+        fallbacks: [
+          ...topicOutcome.fallbacks.map((f) => ({ concern: 'topics' as const, scope: f.scope, cause: f.cause })),
+          ...entityOutcome.fallbacks.map((f) => ({ concern: 'entities' as const, scope: f.scope, cause: f.cause })),
+        ],
+        attempts: { topics: topicOutcome.attempts, entities: entityOutcome.attempts },
+        vetoes: [
+          ...topicOutcome.vetoes.map((v) => ({ concern: 'topics' as const, from: v.from, into: v.into })),
+          ...entityOutcome.vetoes.map((v) => ({ concern: 'entities' as const, from: v.from, into: v.into })),
+        ],
+        manualEditSkips: [],
+        removedPages: [],
+        rewrittenLinks: [],
+      };
+
+      // Manual-edit veto filter (phase doc §2.5): a from-page whose on-disk
+      // content no longer matches its recorded hash — or that has no recorded
+      // hash (the fork-reconciliation precedent treats untracked pages as
+      // manual edits) — is SKIPPED, logged as a conflict, and its decision is
+      // vetoed; the slug is treated as keep for the rest of the application.
+      const pageHashes = options?.pageHashes;
+      const isVetoedLocation = async (relPath: string): Promise<boolean> => {
+        if (!pageHashes) {
+          return false;
+        }
+        const absolute = join(dir, relPath);
+        if (!existsSync(absolute)) {
+          return false;
+        }
+        const recorded = pageHashes[relPath];
+        if (recorded === undefined) {
+          return true;
+        }
+        return hashContent(await readFile(absolute, 'utf-8')) !== recorded;
+      };
+      const summary = curationSummary;
+      const filterMerges = async (
+        merges: CurationMergeDecision[],
+        locations: Map<string, string[]>,
+        concern: 'topics' | 'entities',
+        intoLabel: string,
+      ): Promise<CurationMergeDecision[]> => {
+        const filtered: CurationMergeDecision[] = [];
+        for (const merge of merges) {
+          const keptFrom: string[] = [];
+          for (const from of merge.from) {
+            let vetoed = false;
+            for (const location of locations.get(from) ?? []) {
+              if (await isVetoedLocation(location)) {
+                vetoed = true;
+                await logManualEditConflict(
+                  dir,
+                  location,
+                  `Curation ${concern} merge of '${from}' into '${merge.into}' (${intoLabel}) skipped: page was manually edited or has no recorded hash. Kept for review.`,
+                );
+                summary.manualEditSkips.push({ page: location, concern, action: 'merge' });
+              }
+            }
+            if (!vetoed) {
+              keptFrom.push(from);
+            }
+          }
+          if (keptFrom.length > 0) {
+            filtered.push({ from: keptFrom, into: merge.into });
+          }
+        }
+        return filtered;
+      };
+      const filterDrops = async (
+        drops: string[],
+        locations: Map<string, string[]>,
+      ): Promise<string[]> => {
+        const filtered: string[] = [];
+        for (const slug of drops) {
+          let vetoed = false;
+          for (const location of locations.get(slug) ?? []) {
+            if (await isVetoedLocation(location)) {
+              vetoed = true;
+              await logManualEditConflict(
+                dir,
+                location,
+                `Curation topic drop of '${slug}' skipped: page was manually edited or has no recorded hash. Kept for review.`,
+              );
+              summary.manualEditSkips.push({ page: location, concern: 'topics', action: 'drop' });
+            }
+          }
+          if (!vetoed) {
+            filtered.push(slug);
+          }
+        }
+        return filtered;
+      };
+
+      const appliedEntityMerges = await filterMerges(entityDecisions.merges, entityLocations, 'entities', 'entity');
+      const appliedTopicMerges = await filterMerges(topicDecisions.merges, topicLocations, 'topics', 'topic');
+      const appliedTopicDrops = await filterDrops(topicDecisions.drops, topicLocations);
+
+      // ---- APPLY (phase doc §2.3, deterministic, all-or-nothing per the
+      // validated lists) ----
+      const entityTitleBySlug = new Map(entityCandidates.map((candidate) => [candidate.slug, candidate.title]));
+      for (const merge of appliedEntityMerges) {
+        let intoEntity = entityMap.get(merge.into);
+        if (!intoEntity) {
+          // An on-disk-only merge target gets a synthesized aggregate so the
+          // survivor page is (re-)written with the unioned content.
+          const candidate = entityCandidates.find((entry) => entry.slug === merge.into);
+          intoEntity = {
+            name: candidate?.title ?? titleCaseSlug(merge.into),
+            type: candidate?.type ?? 'unknown',
+            folder: candidate?.folder ?? 'entities',
+            significance: candidate?.significance ?? '',
+            disambiguation: candidate?.disambiguation,
+            contexts: new Set<string>(),
+            mentions: [],
+            relationships: [],
+            claims: [],
+            timeline: [],
+            aliases: [],
+          };
+          entityMap.set(merge.into, intoEntity);
+        }
+        for (const from of merge.from) {
+          const fromEntity = entityMap.get(from);
+          if (fromEntity) {
+            // Union everything; the write loops dedupe by the existing keys.
+            intoEntity.mentions.push(...fromEntity.mentions);
+            intoEntity.relationships.push(...fromEntity.relationships);
+            intoEntity.claims.push(...fromEntity.claims);
+            intoEntity.timeline.push(...fromEntity.timeline);
+            for (const context of fromEntity.contexts) {
+              intoEntity.contexts.add(context);
+            }
+            intoEntity.aliases.push(...fromEntity.aliases);
+            entityMap.delete(from);
+          }
+          // Every merged variant title becomes an alias of the canonical page.
+          const variantTitle = fromEntity?.name ?? entityTitleBySlug.get(from) ?? titleCaseSlug(from);
+          intoEntity.aliases.push(variantTitle);
+          entitySlugRemap.set(from, merge.into);
+          mergeRewrites.set(from, { into: merge.into, fromTitle: variantTitle });
+        }
+        intoEntity.aliases = Array.from(new Set(intoEntity.aliases));
+      }
+
+      for (const merge of appliedTopicMerges) {
+        let intoTopic = topicMap.get(merge.into);
+        if (!intoTopic) {
+          const candidate = topicCandidates.find((entry) => entry.slug === merge.into);
+          intoTopic = {
+            title: candidate?.title ?? titleCaseSlug(merge.into),
+            slug: merge.into,
+            folder: candidate?.folder ?? `topics/${merge.into}`,
+            claims: [],
+          };
+          topicMap.set(merge.into, intoTopic);
+        }
+        for (const from of merge.from) {
+          const fromTopic = topicMap.get(from);
+          if (fromTopic) {
+            // Union claims; identical claim TEXTS are deduped (phase doc
+            // §2.3 — the same claim filed under two duplicate topic types is
+            // one claim in the merged topic; the write-time composite-key
+            // dedupe cannot catch it because the type field differs).
+            const knownTexts = new Set(intoTopic.claims.map((claim) => claim.text));
+            for (const claim of fromTopic.claims) {
+              if (!knownTexts.has(claim.text)) {
+                knownTexts.add(claim.text);
+                intoTopic.claims.push(claim);
+              }
+            }
+            topicMap.delete(from);
+          }
+          // Merged topic pages are deleted below, so links pointing at them
+          // are repointed exactly like entity links (§2.3: the rewrite pass
+          // covers from-slug/into-slug of BOTH concerns across all content
+          // pages). Structured-reference remapping stays entity-only.
+          const fromTitle =
+            fromTopic?.title
+            ?? topicCandidates.find((entry) => entry.slug === from)?.title
+            ?? titleCaseSlug(from);
+          mergeRewrites.set(from, { into: merge.into, fromTitle });
+        }
+      }
+      for (const drop of appliedTopicDrops) {
+        // The claims themselves stay on their entity/document pages
+        // (preservation contract); only the topic grouping is discarded.
+        topicMap.delete(drop);
+      }
+
+      // Repoint every structured reference to a merged-away entity slug:
+      // relationship subject/object across ALL entities, claim entity lists,
+      // timeline event entity lists (self-loops kept — the union is literal).
+      if (entitySlugRemap.size > 0) {
+        const remapList = (slugs: string[]): string[] =>
+          Array.from(new Set(slugs.map((slug) => entitySlugRemap.get(slug) ?? slug)));
+        for (const entity of entityMap.values()) {
+          for (const relationship of entity.relationships) {
+            relationship.subject = entitySlugRemap.get(relationship.subject) ?? relationship.subject;
+            relationship.object = entitySlugRemap.get(relationship.object) ?? relationship.object;
+          }
+          for (const claim of entity.claims) {
+            claim.entities = remapList(claim.entities);
+          }
+          entity.timeline = entity.timeline.map((event) => ({ ...event, entities: remapList(event.entities) }));
+        }
+        for (const topic of topicMap.values()) {
+          for (const claim of topic.claims) {
+            claim.entities = remapList(claim.entities);
+          }
+        }
+      }
+
+      // Update-mode deletions (phase doc §2.5): every on-disk page of a
+      // merged-away or dropped slug is deleted deterministically, with the
+      // now-empty folder chain (the veto filter already kept edited/untracked
+      // pages out of the applied lists, so only tool-written pages land here).
+      const deletions: string[] = [];
+      for (const merge of appliedEntityMerges) {
+        for (const from of merge.from) {
+          deletions.push(...(entityLocations.get(from) ?? []));
+        }
+      }
+      for (const merge of appliedTopicMerges) {
+        for (const from of merge.from) {
+          deletions.push(...(topicLocations.get(from) ?? []));
+        }
+      }
+      for (const drop of appliedTopicDrops) {
+        deletions.push(...(topicLocations.get(drop) ?? []));
+      }
+      for (const location of deletions) {
+        const absolute = join(dir, location);
+        if (!existsSync(absolute)) {
+          continue;
+        }
+        await rm(absolute, { force: true });
+        curationSummary.removedPages.push(location);
+        await pruneEmptyFolderChain(join(dir, location.split('/')[0]), dirname(absolute));
+      }
+
+      // The curated maps define the folder structure from here on (rolling
+      // memory + structural changes diff); identical to the aggregated set
+      // when nothing merged/dropped, so the OFF path stays byte-identical.
+      folderStructure.clear();
+      for (const entity of entityMap.values()) {
+        folderStructure.add(entity.folder);
+      }
+      for (const topic of topicMap.values()) {
+        folderStructure.add(topic.folder);
+      }
+
+      curationSummary.entityMerges = appliedEntityMerges;
+      curationSummary.topicMerges = appliedTopicMerges;
+      curationSummary.topicDrops = appliedTopicDrops;
+    }
+  }
+
   // Build a slug-to-title map so wikilinks can render in Obsidian's native
   // pipe form [[slug|Page Title]] instead of [[slug]]. Unknown slugs fall back
-  // to the bare [[slug]] form.
+  // to the bare [[slug]] form. Built AFTER curation so it reflects the
+  // curated set (merged-away slugs are gone; survivors render canonically).
   const slugToTitle: Record<string, string> = {};
   for (const [slug, entity] of entityMap.entries()) {
     slugToTitle[slug] = entity.name;
@@ -411,15 +1097,19 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     const significance = entity.significance.trim();
     const disambiguation = entity.disambiguation?.trim();
 
+    const mentions = dedupeMentions(entity.mentions);
+    const relationships = dedupeRelationships(entity.relationships);
+    const claims = dedupeClaims(entity.claims);
+
     const pageData: EntityPageData = {
       title: entity.name,
       slug,
       folder: entity.folder,
       type: entity.type,
       wiki: wikiSlug,
-      mentions: dedupeMentions(entity.mentions),
-      relationships: dedupeRelationships(entity.relationships),
-      claims: dedupeClaims(entity.claims),
+      mentions,
+      relationships,
+      claims,
       slugToTitle,
       significance: significance.length > 0 ? significance : undefined,
       disambiguation: disambiguation && disambiguation.length > 0 ? disambiguation : undefined,
@@ -429,6 +1119,12 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         event: event.event,
         entities: event.entities,
       })),
+      // Phase 13 (vision `02` §4.8): the sparse flag, computed once from the
+      // final deduped aggregate via the single shared rule.
+      sparse: isSparseEntity({ mentions, relationships, claims }),
+      // Phase 14 (phase doc §2.3): curation-merged variant titles land in the
+      // page's frontmatter aliases (vision `05` §2).
+      mergedAliases: entity.aliases.length > 0 ? entity.aliases : undefined,
     };
 
     // Phase 8 §2.5: never overwrite a manually-edited page. The conflict is
@@ -519,6 +1215,37 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
   }
 
+  // Phase 14 (phase doc §2.3 + gate 14.7): exact-segment wikilink rewrite
+  // across ALL pre-existing content pages (entity, topic, document — not DOX
+  // indexes, which regenerate every run). Freshly-written pages are skipped
+  // (rendered from the curated aggregate, already canonical); conflict-skipped
+  // pages DO get their links rewritten (the manual-edit conflict entry
+  // stands). Matching is by exact target segment only, so prefix collisions
+  // (`[[odense]]` vs `[[odense-bup-auditorium|X]]`) are safe.
+  if (curationSummary !== null && mergeRewrites.size > 0) {
+    const writtenSet = new Set(result.writtenPages.map((page) => page.path));
+    const contentPages: string[] = [];
+    for (const section of ['entities', 'topics', 'documents']) {
+      const sectionRoot = join(dir, section);
+      if (existsSync(sectionRoot)) {
+        await collectContentPagePaths(sectionRoot, section, '', contentPages);
+      }
+    }
+    for (const relPath of contentPages.sort((a, b) => a.localeCompare(b))) {
+      if (writtenSet.has(relPath)) {
+        continue;
+      }
+      const absolute = join(dir, relPath);
+      const original = await readFile(absolute, 'utf-8');
+      const rewritten = rewriteWikilinkTargets(original, mergeRewrites);
+      if (rewritten === original) {
+        continue;
+      }
+      await writeFile(absolute, rewritten, 'utf-8');
+      curationSummary.rewrittenLinks.push({ path: relPath, hash: hashContent(rewritten) });
+    }
+  }
+
   // Build document page data for optional synthesis (Phase 5+)
   for (const { chunkId, file, pages } of chunkSources) {
     const extractionPath = join(extractedDir, `${chunkId}.json`);
@@ -538,13 +1265,16 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       continue;
     }
     const parsed = matter(documentRaw);
+    // Phase 14: entity references in the synthesis input point at canonical
+    // slugs when curation merged pages (identity map when curation was off).
+    const remapSlug = (slug: string): string => entitySlugRemap.get(slug) ?? slug;
     const entitySlugs = new Set<string>();
     for (const entity of extracted.entities ?? []) {
-      entitySlugs.add(entity.slug);
+      entitySlugs.add(remapSlug(entity.slug));
     }
     for (const claim of extracted.claims ?? []) {
       for (const slug of claim.entities ?? []) {
-        entitySlugs.add(slug);
+        entitySlugs.add(remapSlug(slug));
       }
     }
 
@@ -561,7 +1291,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       claims: (extracted.claims ?? []).map((claim) => ({
         text: claim.text,
         type: claim.type,
-        entities: claim.entities ?? [],
+        entities: Array.from(new Set((claim.entities ?? []).map(remapSlug))),
         page: claim.page,
       })),
     });
@@ -654,5 +1384,35 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
   await logStructuralChanges(dir, structuralChanges, newlySeenPageTypes);
 
   await saveRollingMemory(dir, memory);
+
+  // Phase 14 (phase doc §2.7): the per-run curation report — applied
+  // merges/drops, manual-edit skips, fallback events with cause, attempt
+  // counts, deletions, rewritten links. Written only when the stage ran;
+  // rolling memory above already reflects the curated set (written AFTER
+  // curation, vision `04` Step 6 item 5).
+  if (curationSummary !== null) {
+    result.curation = curationSummary;
+    await writeCurationReport(dir, {
+      run: new Date().toISOString(),
+      topics: {
+        merges: curationSummary.topicMerges,
+        drops: curationSummary.topicDrops,
+        attempts: curationSummary.attempts.topics,
+        fallbacks: (topicOutcome?.fallbacks ?? []).map((f) => ({ scope: f.scope, cause: f.cause })),
+        vetoes: (topicOutcome?.vetoes ?? []).map((v) => ({ from: v.from, into: v.into })),
+      },
+      entities: {
+        merges: curationSummary.entityMerges,
+        drops: [],
+        attempts: curationSummary.attempts.entities,
+        fallbacks: (entityOutcome?.fallbacks ?? []).map((f) => ({ scope: f.scope, cause: f.cause })),
+        vetoes: (entityOutcome?.vetoes ?? []).map((v) => ({ from: v.from, into: v.into })),
+      },
+      manualEditSkips: curationSummary.manualEditSkips,
+      removedPages: curationSummary.removedPages,
+      rewrittenLinks: curationSummary.rewrittenLinks,
+    });
+  }
+
   return result;
 }

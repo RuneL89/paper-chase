@@ -58,18 +58,36 @@ async function writeReport(wikiDir: string, state: SynthesisReportState): Promis
 }
 
 /**
- * Append a synthesis outcome to the per-wiki synthesis report.
+ * Append synthesis outcomes to the per-wiki synthesis report in one
+ * read-modify-write.
  *
  * The report records, for each entity, whether strict synthesis passed, whether
  * the permissive fallback was tried and passed, and what final page mode was kept.
+ * Phase 15 (vision `04` §1): pool runs COLLECT their entries in memory and
+ * append them here once per stage, in original page order (deterministic,
+ * diff-friendly output regardless of completion order).
+ */
+export async function appendSynthesisReportEntries(
+  wikiDir: string,
+  entries: SynthesisReportEntry[],
+): Promise<void> {
+  if (entries.length === 0) {
+    return;
+  }
+  const state = await readReport(wikiDir);
+  state.entries.push(...entries);
+  await writeReport(wikiDir, state);
+}
+
+/**
+ * Append a single synthesis outcome to the per-wiki synthesis report
+ * (sequential callers; pool stages use `appendSynthesisReportEntries`).
  */
 export async function logSynthesisReport(
   wikiDir: string,
   entry: SynthesisReportEntry,
 ): Promise<void> {
-  const state = await readReport(wikiDir);
-  state.entries.push(entry);
-  await writeReport(wikiDir, state);
+  await appendSynthesisReportEntries(wikiDir, [entry]);
 }
 
 export { readReport as readSynthesisReport };

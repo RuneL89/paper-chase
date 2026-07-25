@@ -161,10 +161,13 @@ const EXCLUDED_FOLDERS = new Set(['.state', 'raw']);
 const PROMPT_DIR = join(appRoot(), 'prompts');
 const DOX_PROMPT_FILE = 'dox-writer.prompt.txt';
 /**
- * Max output tokens for one DOX Writer call. Index pages are small contracts
- * (frontmatter + a handful of sections), so 2048 is generous headroom.
+ * Max output tokens for one DOX Writer call. Phase 13 (output-token ceilings,
+ * vision `04` §6 + `07` §5, user-ratified 2026-07-23): 8192 is a safety
+ * ceiling sized above the largest legitimate index contract, never a length
+ * controller — the model does not see the value, so a low ceiling yields
+ * truncated output, never shorter output.
  */
-const DOX_WRITER_MAX_TOKENS = 2048;
+const DOX_WRITER_MAX_TOKENS = 8192;
 
 let cachedDoxPrompt: string | undefined;
 

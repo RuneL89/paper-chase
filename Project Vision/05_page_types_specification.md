@@ -41,7 +41,8 @@ Optional but common fields:
 - `wiki` — the wiki slug this page belongs to.
 - `tags` — a list of tags for indexing and navigation.
 - `confidence` — `high`, `medium`, or `low`, indicating how confident the LLM is in the extracted content.
-- `aliases` — a list containing the page `title` when the title differs from the file basename (case-insensitive); an Obsidian search/suggester aid. Index pages always carry their folder/wiki title as an alias (their basename is always `index`). The primary wikilink form is `[[page-name|Page Title]]` (Obsidian-native target|display); aliases are a secondary lookup aid.
+- `aliases` — a list containing the page `title` when the title differs from the file basename (case-insensitive); an Obsidian search/suggester aid. Index pages always carry their folder/wiki title as an alias (their basename is always `index`). The primary wikilink form is `[[page-name|Page Title]]` (Obsidian-native target|display); aliases are a secondary lookup aid. When entity name variants are merged at materialization (§6), every merged variant title is added to the canonical page's `aliases`, so the old names still find the page.
+- `sparse` — `true` on thin entity pages (one or two mentions, no significant claims or relationships; `02_WIKI_concept_detailed.md` §4.8). An honest signal that the page carries little information.
 
 The `type` field is free-form but must be declared in the folder-level `index.md` contract if it is not one of the six default types.
 
@@ -204,6 +205,8 @@ The source slug is derived from the filename without extension.
 
 An `entity` page is about a named real-world thing: a person, organization, company, location, product, or other named object.
 
+**Identity (amended 2026-07-23, user-ratified):** one real-world thing has exactly one entity page (`02_WIKI_concept_detailed.md` §4.6). When the same thing is extracted under different names — different word order, dropped or added words, abbreviations, translations, spelling variants — the per-ingest entity-curation pass merges the variants into one canonical page (`04_orchestration_detailed.md` §3.2 Step 6): their evidence is unioned, relationship references are repointed to the canonical slug, wikilinks across all content pages are rewritten, and every variant title accumulates in the canonical page's `aliases` (§2). Merges are strict-identity only: a sub-unit never merges into its parent (a hospital's day unit and the hospital stay separate), colocated-but-distinct things stay separate, and uncertain pairs are never merged.
+
 ### 6.1 Frontmatter
 
 ```yaml
@@ -261,6 +264,13 @@ Example: `entities/people/executives/john-smith.md`
 
 A `topic` page is about a theme, concept, or legal issue that appears across the corpus.
 
+**Eligibility (amended 2026-07-23, user-ratified):** a topic must be a theme, concept, or issue **that a journalist would search for** in the compiled wiki. Topics emerge from the corpus — their vocabulary is never hard-coded — and two hygiene rules keep the set honest:
+
+- **Duplicates merge.** One theme appearing under different wording, plural/singular form, or grammatical form (e.g. `external-factor` and `external-factors`) is one topic; the variants merge at materialization.
+- **Meta-descriptors are not topics.** Words that describe the documents' rhetoric or the shape of the claims rather than a subject — e.g. `statistical`, `temporal`, `trend`, `methodological`, `definitional`, `historical` — are pruned at materialization. Their claims remain on the entity and document pages that carry them, so pruning loses no evidence.
+
+Because topics are grouped from the Extractor's free-form claim `type` values, eligibility is enforced by the per-ingest topic-curation pass (`04_orchestration_detailed.md` §3.2 Step 6), which merges duplicates and prunes non-topics before any topic page is written.
+
 ### 7.1 Frontmatter
 
 ```yaml
@@ -280,7 +290,7 @@ sources:
 
 **Layer 1: Synthesis**
 
-2–4 paragraphs of readable prose that explain how the topic appears across the corpus, why it matters, and how it relates to key entities. The summary must include key claims with inline citations and links to related entities and topics.
+Readable prose sized by the evidence — typically a few paragraphs, honestly a few sentences for a topic supported by a single claim — explaining how the topic appears across the corpus, why it matters, and how it relates to key entities. The summary must include key claims with inline citations and links to related entities and topics.
 
 **Layer 2: Preserved Detail**
 

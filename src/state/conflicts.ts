@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { enqueueSerializedWrite } from '../utils/serialized-writes';
 import type {
   PreservationCheckResult,
   TopicPreservationCheckResult,
@@ -78,6 +79,9 @@ async function writeConflicts(wikiDir: string, state: ConflictsState): Promise<v
  * Log a preservation-check failure to `.state/conflicts.json`.
  *
  * Conflicts are appended; the file is created if it does not exist.
+ * Phase 15 (vision `04` §1): the read-modify-write runs inside the shared
+ * per-path serialized write queue so pool workers appending conflicts
+ * concurrently never lose or interleave entries.
  */
 export async function logConflict(
   wikiDir: string,
@@ -85,28 +89,30 @@ export async function logConflict(
   check: AnyPreservationCheckResult,
   pageType: 'entity' | 'topic',
 ): Promise<void> {
-  const state = await readConflicts(wikiDir);
-  const entry: ConflictEntry = {
-    timestamp: new Date().toISOString(),
-    pageType,
-    slug,
-    dropped: {
-      citations: [],
-    },
-  };
+  await enqueueSerializedWrite(conflictsPath(wikiDir), async () => {
+    const state = await readConflicts(wikiDir);
+    const entry: ConflictEntry = {
+      timestamp: new Date().toISOString(),
+      pageType,
+      slug,
+      dropped: {
+        citations: [],
+      },
+    };
 
-  if ('droppedMentions' in check) {
-    entry.dropped.mentions = check.droppedMentions;
-    entry.dropped.relationships = check.droppedRelationships;
-    entry.dropped.claims = check.droppedClaims;
-    entry.dropped.citations = check.droppedCitations;
-  } else if ('droppedClaims' in check) {
-    entry.dropped.claims = check.droppedClaims;
-    entry.dropped.citations = check.droppedCitations;
-  }
+    if ('droppedMentions' in check) {
+      entry.dropped.mentions = check.droppedMentions;
+      entry.dropped.relationships = check.droppedRelationships;
+      entry.dropped.claims = check.droppedClaims;
+      entry.dropped.citations = check.droppedCitations;
+    } else if ('droppedClaims' in check) {
+      entry.dropped.claims = check.droppedClaims;
+      entry.dropped.citations = check.droppedCitations;
+    }
 
-  state.conflicts.push(entry);
-  await writeConflicts(wikiDir, state);
+    state.conflicts.push(entry);
+    await writeConflicts(wikiDir, state);
+  });
 }
 
 /**
@@ -118,14 +124,16 @@ export async function logConflict(
  * fork-reconciliation pass when a manually-edited DUPLICATE page is kept).
  */
 export async function logManualEditConflict(wikiDir: string, page: string, reason?: string): Promise<void> {
-  const state = await readConflicts(wikiDir);
-  state.conflicts.push({
-    timestamp: new Date().toISOString(),
-    type: 'manual-edit',
-    page,
-    reason: reason ?? 'Page was manually edited since last ingestion. Skipping update.',
+  await enqueueSerializedWrite(conflictsPath(wikiDir), async () => {
+    const state = await readConflicts(wikiDir);
+    state.conflicts.push({
+      timestamp: new Date().toISOString(),
+      type: 'manual-edit',
+      page,
+      reason: reason ?? 'Page was manually edited since last ingestion. Skipping update.',
+    });
+    await writeConflicts(wikiDir, state);
   });
-  await writeConflicts(wikiDir, state);
 }
 
 export { readConflicts, writeConflicts };

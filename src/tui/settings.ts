@@ -67,10 +67,20 @@ export const DEFAULT_MODEL_FOR_PROVIDER: Record<Provider, string> = {
 };
 
 /**
- * Re-seed the four model slots for a provider switch (Settings screen):
- * `default` becomes the new provider's cheapest model and every per-call-type
- * entry resets to null ("Same as default"), so stale cross-provider model ids
- * can never persist in `.paper-chase.json`.
+ * Phase 14 (phase doc §2.6, ratified mid-tier): the seeded `curation` slot per
+ * provider — mid-tier judgment for merge/drop decisions.
+ */
+export const CURATION_MODEL_FOR_PROVIDER: Record<Provider, string> = {
+  anthropic: 'claude-sonnet-5',
+  openai: 'gpt-5.6-terra',
+};
+
+/**
+ * Re-seed the five model slots for a provider switch (Settings screen):
+ * `default` becomes the new provider's cheapest model, `curation` its
+ * mid-tier (Phase 14 §2.6), and every other per-call-type entry resets to
+ * null ("Same as default"), so stale cross-provider model ids can never
+ * persist in `.paper-chase.json`.
  */
 export function seedModelsForProvider(provider: Provider): ModelRouting {
   return {
@@ -79,6 +89,7 @@ export function seedModelsForProvider(provider: Provider): ModelRouting {
     extractor: null,
     synthesis: null,
     dox: null,
+    curation: CURATION_MODEL_FOR_PROVIDER[provider],
   };
 }
 
@@ -119,6 +130,9 @@ function normalizeModels(parsed: Partial<ModelRouting> | undefined): ModelRoutin
     extractor: concrete(parsed?.extractor),
     synthesis: concrete(parsed?.synthesis),
     dox: concrete(parsed?.dox),
+    // Phase 14 §2.6: absent in legacy configs → null (falls through to
+    // `default` at resolve time — byte-identical legacy behavior).
+    curation: concrete(parsed?.curation),
   };
 }
 

@@ -82,14 +82,15 @@ sources:
 - Citation keys are local to the page: `src1` on one page does not have to mean the same source as `src1` on another.
 - **Wikilinks use Obsidian's native pipe form**: `[[<file-basename>|<Page Title>]]` for content pages (e.g. `[[john-smith|John Smith]]`), `[[<folder-path>/index|<Folder Title>]]` for folder indexes (e.g. `[[entities/people/index|People]]`), and `[[index|<Wiki Title>]]` for the wiki root. Use the bare form `[[name]]` only when the display text is identical to the target.
 - Optional `aliases: [<title>]` is added when the page title differs from the file basename (case-insensitive); index pages always carry their folder/wiki title as the alias. Aliases remain as Obsidian search/suggester aids — they are not the link-resolution mechanism. Omit the field when title and basename match.
+- `sparse: true` is written deterministically by the CLI on thin entity pages (one or two mentions, no significant claims or relationships) — an honest thin-page marker for the reader. Never write or remove it yourself.
 
 ## Entity Page Format
 
 Every entity, topic, and document page must have two layers:
 
 **Layer 1 — Synthesis (top of page):**
-- 2-4 paragraphs of readable prose telling the entity's story.
-- Include chronological context with explicit dates, cross-references to the broader story, and significance.
+- Readable prose telling the entity's story, sized by the evidence: a richly documented entity earns several paragraphs; a thin entity (one or two mentions, no significant claims or relationships) earns a few honest sentences saying exactly that — an honest sparse page is a correct page, and padding to look substantial is a defect.
+- Include chronological context with explicit dates, cross-references to the broader story, and significance — when the evidence supports them.
 - **Disambiguation** — if the name is ambiguous, clarify which entity this page is about (and which it is not).
 - Every factual claim must have a citation `[^srcN]`.
 

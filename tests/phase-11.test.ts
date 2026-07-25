@@ -182,10 +182,11 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
   await tick(400); // let loadSettings resolve (defaults in an empty workspace)
 
   // Rows: Synthesis, Update Agents, Provider, Default Model, Extractor Model,
-  // Synthesis Writer Model, DOX Writer Model, Anthropic API Key, OpenAI API
-  // Key, [ Save ], [ Back ] (the v1.5.0 API-key rows sit AFTER the model
-  // rows, so the Down-counts to the model rows are unchanged; [ Save ] moved
-  // from index 7 to index 9).
+  // Synthesis Writer Model, DOX Writer Model, Curation Model, Anthropic API
+  // Key, OpenAI API Key, [ Save ], [ Back ] (the v1.5.0 API-key rows sit
+  // AFTER the model rows, so the Down-counts to the model rows are unchanged;
+  // Phase 14 added the Curation Model row before the API-key rows, moving
+  // [ Save ] from index 9 to index 10).
   screen.stdin.write(DOWN);
   await tick(100);
   screen.stdin.write(DOWN);
@@ -203,6 +204,8 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
   screen.stdin.write(RIGHT); // Haiku -> Sonnet
   await tick(100);
   screen.stdin.write(DOWN); // -> DOX Writer Model
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Curation Model (Phase 14)
   await tick(100);
   screen.stdin.write(DOWN); // -> Anthropic API Key
   await tick(100);
@@ -517,8 +520,9 @@ test('gate 11.9: settings load from legacy .llm-wiki-cli.json and save to .paper
   expect(loaded.synthesis).toBe(true);
   expect(loaded.updateAgents).toBe(true);
   // Older files carry no models block — the routing defaults are filled in
-  // (provider defaults to 'anthropic', Phase 11 v1.4.0).
-  expect(loaded.models).toEqual({ provider: 'anthropic', default: HAIKU, extractor: null, synthesis: null, dox: null });
+  // (provider defaults to 'anthropic', Phase 11 v1.4.0). Phase 14: the
+  // additive curation slot normalizes to null (legacy byte-identical).
+  expect(loaded.models).toEqual({ provider: 'anthropic', default: HAIKU, extractor: null, synthesis: null, dox: null, curation: null });
 
   await saveSettings(workspace, loaded);
   expect(existsSync(join(workspace, '.paper-chase.json'))).toBe(true);
@@ -692,13 +696,14 @@ test('gate 11.10: missing OPENAI_API_KEY with provider openai throws the exact e
   }
 });
 
-test('gate 11.10: seedModelsForProvider re-seeds both providers to cheapest tier plus nulls', () => {
+test('gate 11.10: seedModelsForProvider re-seeds both providers to cheapest tier plus nulls (Phase 14: mid-tier curation)', () => {
   expect(seedModelsForProvider('openai')).toEqual({
     provider: 'openai',
     default: GPT_LUNA,
     extractor: null,
     synthesis: null,
     dox: null,
+    curation: GPT_TERRA,
   });
   expect(seedModelsForProvider('anthropic')).toEqual({
     provider: 'anthropic',
@@ -706,10 +711,11 @@ test('gate 11.10: seedModelsForProvider re-seeds both providers to cheapest tier
     extractor: null,
     synthesis: null,
     dox: null,
+    curation: SONNET,
   });
 });
 
-test('gate 11.10: switching provider in the settings screen re-seeds the four model slots', async () => {
+test('gate 11.10: switching provider in the settings screen re-seeds the five model slots', async () => {
   const workspace = makeTempDir('paper-chase-g11-10c-');
   let result: string | undefined;
   const screen = renderCaptured(
@@ -722,16 +728,17 @@ test('gate 11.10: switching provider in the settings screen re-seeds the four mo
   await tick(400); // let loadSettings resolve (defaults in an empty workspace)
 
   // Rows: Synthesis, Update Agents, Provider, Default Model, Extractor Model,
-  // Synthesis Writer Model, DOX Writer Model, Anthropic API Key, OpenAI API
-  // Key, [ Save ], [ Back ] — Provider is index 2, [ Save ] is index 9 since
-  // v1.5.0 (7 Downs between them).
+  // Synthesis Writer Model, DOX Writer Model, Curation Model, Anthropic API
+  // Key, OpenAI API Key, [ Save ], [ Back ] — Provider is index 2, [ Save ]
+  // is index 10 since Phase 14 added the Curation Model row (8 Downs between
+  // them).
   screen.stdin.write(DOWN);
   await tick(100);
   screen.stdin.write(DOWN); // -> Provider
   await tick(100);
   screen.stdin.write(RIGHT); // Anthropic -> OpenAI (slots re-seed immediately)
   await tick(100);
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < 8; i++) {
     screen.stdin.write(DOWN); // Provider -> ... -> [ Save ]
     await tick(100);
   }
@@ -741,13 +748,14 @@ test('gate 11.10: switching provider in the settings screen re-seeds the four mo
   await tick(50);
 
   const openaiConfig = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
-    models: { provider: string; default: string; extractor: string | null; synthesis: string | null; dox: string | null };
+    models: { provider: string; default: string; extractor: string | null; synthesis: string | null; dox: string | null; curation: string | null };
   };
   expect(openaiConfig.models.provider).toBe('openai');
   expect(openaiConfig.models.default).toBe(GPT_LUNA);
   expect(openaiConfig.models.extractor).toBeNull();
   expect(openaiConfig.models.synthesis).toBeNull();
   expect(openaiConfig.models.dox).toBeNull();
+  expect(openaiConfig.models.curation).toBe(GPT_TERRA);
 
   // Switch back: a fresh render loads the saved openai settings; LEFT on the
   // Provider row re-seeds to the Anthropic defaults.
@@ -766,7 +774,7 @@ test('gate 11.10: switching provider in the settings screen re-seeds the four mo
   await tick(100);
   screen2.stdin.write(LEFT); // OpenAI -> Anthropic
   await tick(100);
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < 8; i++) {
     screen2.stdin.write(DOWN);
     await tick(100);
   }
@@ -776,13 +784,14 @@ test('gate 11.10: switching provider in the settings screen re-seeds the four mo
   await tick(50);
 
   const anthropicConfig = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
-    models: { provider: string; default: string; extractor: string | null; synthesis: string | null; dox: string | null };
+    models: { provider: string; default: string; extractor: string | null; synthesis: string | null; dox: string | null; curation: string | null };
   };
   expect(anthropicConfig.models.provider).toBe('anthropic');
   expect(anthropicConfig.models.default).toBe(HAIKU);
   expect(anthropicConfig.models.extractor).toBeNull();
   expect(anthropicConfig.models.synthesis).toBeNull();
   expect(anthropicConfig.models.dox).toBeNull();
+  expect(anthropicConfig.models.curation).toBe(SONNET);
 }, 30000);
 
 test('gate 11.10: anthropic request shape is byte-identical to the pre-extension client', async () => {
@@ -1051,8 +1060,8 @@ test('gate 11.11: the settings screen masks stored keys — last4 shown, the ful
       React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
     );
     await tick(400);
-    for (let i = 0; i < 7; i++) {
-      editScreen.stdin.write(DOWN); // -> Anthropic API Key
+    for (let i = 0; i < 8; i++) {
+      editScreen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row)
       await tick(60);
     }
     editScreen.stdin.write('\r'); // open the masked editor
@@ -1088,8 +1097,8 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
       apiKeys: { anthropic: string | null; openai: string | null };
     };
   const focusAnthropicKeyRow = async (screen: CapturedRender) => {
-    for (let i = 0; i < 7; i++) {
-      screen.stdin.write(DOWN); // -> Anthropic API Key
+    for (let i = 0; i < 8; i++) {
+      screen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row)
       await tick(80);
     }
   };

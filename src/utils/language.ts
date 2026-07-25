@@ -104,7 +104,7 @@ export function applyLanguageDirective(prompt: string, directive: string): strin
  * pre-Phase-7 behavior.
  */
 export function buildLanguageDirective(
-  role: 'extractor' | 'synthesis' | 'dox',
+  role: 'extractor' | 'synthesis' | 'dox' | 'curation',
   input: LanguageCode,
   output: LanguageCode,
 ): string {
@@ -130,6 +130,17 @@ export function buildLanguageDirective(
       return (
         `Write all prose (the description, \`## Pages\` descriptions, \`## Start Here\` reasons) in ` +
         `${outputName}. Keep page titles and entity names verbatim.`
+      );
+    case 'curation':
+      // Phase 14 (vision `04` §9.4 curation language rule): topic/entity
+      // identities are judged in the OUTPUT language; the sample texts stay
+      // verbatim in the source language as evidence. A translation of the
+      // same name is still the same thing (merge signal, not a difference).
+      return (
+        `Topic and entity identities (slugs, titles, folder names) follow the wiki's output ` +
+        `language (${outputName}). The sample claim and mention texts are verbatim source ` +
+        `evidence in ${inputName} — judge theme and identity from their meaning; never translate ` +
+        `or reword them in your output. A translation of the same name is still the same thing.`
       );
   }
 }

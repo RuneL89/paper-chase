@@ -93,6 +93,8 @@ The system is built in five layers:
 
 **Layer 4: Synthesis Writer** (optional, Phase 5) turns structured entity, topic, and document pages into readable two-layer pages with LLM-written synthesis at the top.
 
+**Curation pass (amended 2026-07-23, user-ratified):** after the Materializer aggregates the extraction data and before any topic or entity page is written, two per-ingest LLM calls curate the aggregate — they may run in parallel, at a typical combined cost of ~$0.05–0.25 per ingest. The **topic-curation** call merges duplicate themes and drops meta-descriptors that are not searchable topics; the **entity-curation** call merges name variants of the same real-world thing (merge-only). Both decision lists are validated and applied deterministically; on any validation or transport failure the curation is skipped entirely (the keep-all fallback — pre-curation behavior, no data loss). Full mechanism: `04_orchestration_detailed.md` §3.2 Step 6.
+
 ### 4.2 Incremental Ingestion
 
 `ingest` is incremental. It tracks every PDF by SHA-256 hash:
@@ -146,6 +148,8 @@ The binding rule: narrative prose (Layer 1) is written in the output language; p
 | Which PDFs to ingest | Human | Files placed in `raw/` |
 | Exact folder structure | LLM | Extractor proposes sub-folders under `entities/` and `topics/` |
 | Entity classification | LLM | Extractor assigns type and folder |
+| Topic merge/drop decisions | LLM | Per-ingest topic-curation pass; decision list validated and applied deterministically (keep-all fallback) |
+| Entity identity merges | LLM | Per-ingest entity-curation pass (merge-only, strict identity); application deterministic — evidence union, aliases, wikilink rewrites |
 | Page content (synthesis) | LLM | Writer generates readable pages |
 | Text extraction, hashing, file I/O | Deterministic code | `pdfjs-dist`, `fs`, `crypto` |
 | Validation | Deterministic code | Schema checks, link checks, preservation checks |

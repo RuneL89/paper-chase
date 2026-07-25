@@ -29,7 +29,8 @@ import { join } from 'node:path';
  *   "conflictsManualEdit": 0, "conflictsPreservation": 0,
  *   "totalTokens": 12345,
  *   "wallClockMs": 42000,
- *   "feedbackRepairs": 0
+ *   "feedbackRepairs": 0,
+ *   "curationFallbacks": 0
  * }
  * ```
  */
@@ -91,6 +92,11 @@ export interface IngestionMetrics {
    * all five call sites). 0 on a clean run.
    */
   feedbackRepairs: number;
+  /**
+   * Phase 14 (phase doc §2.7): keep-all curation fallbacks this run (topic +
+   * entity calls, all scopes). 0 on a healthy run.
+   */
+  curationFallbacks: number;
 }
 
 export function metricsPath(wikiDir: string): string {

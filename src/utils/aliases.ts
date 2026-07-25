@@ -34,14 +34,51 @@ export function aliasesForTitle(title: string, fileSlug: string): string[] | und
 }
 
 /**
+ * Phase 14 (phase doc §2.3, vision `05` §2): an entity page's full alias set —
+ * the title-vs-basename base alias from `aliasesForTitle` plus every variant
+ * title accumulated by curation merges (so `[[Odense BUP]]` resolves to the
+ * canonical `odense-bup-auditorium` page after the forked pages merged into
+ * it). Extras are trimmed; empties, the basename itself (case-insensitive),
+ * the title itself, and exact duplicates are skipped.
+ */
+export function combinedAliases(title: string, fileSlug: string, extraAliases?: string[]): string[] | undefined {
+  const base = aliasesForTitle(title, fileSlug) ?? [];
+  if (!extraAliases || extraAliases.length === 0) {
+    return base.length > 0 ? base : undefined;
+  }
+  const seen = new Set(base.map((alias) => alias.toLowerCase()));
+  const combined = [...base];
+  for (const extra of extraAliases) {
+    const trimmed = extra.trim();
+    if (
+      trimmed.length === 0 ||
+      trimmed.toLowerCase() === fileSlug.toLowerCase() ||
+      trimmed.toLowerCase() === title.trim().toLowerCase() ||
+      seen.has(trimmed.toLowerCase())
+    ) {
+      continue;
+    }
+    seen.add(trimmed.toLowerCase());
+    combined.push(trimmed);
+  }
+  return combined.length > 0 ? combined : undefined;
+}
+
+/**
  * Deterministic alias enforcement over a fully-rendered markdown page (used
  * for LLM-written synthesis output, whose frontmatter is model-generated):
  * parse the page's frontmatter and set or remove the `aliases` field per
- * `aliasesForTitle`, then re-serialize. Pages without a frontmatter block, or
- * with unparseable frontmatter, are returned unchanged (the schema validator
- * already flags those; this helper never invents a frontmatter block).
+ * `combinedAliases` (Phase 14: curation-merged variant titles included), then
+ * re-serialize. Pages without a frontmatter block, or with unparseable
+ * frontmatter, are returned unchanged (the schema validator already flags
+ * those; this helper never invents a frontmatter block).
  */
-export function enforceAliasesInMarkdown(markdown: string, title: string, fileSlug: string): string {
+export function enforceAliasesInMarkdown(
+  markdown: string,
+  title: string,
+  fileSlug: string,
+  extraAliases?: string[],
+): string {
   if (!/^---[ \t]*\r?\n/.test(markdown)) {
     return markdown;
   }
@@ -51,7 +88,7 @@ export function enforceAliasesInMarkdown(markdown: string, title: string, fileSl
   } catch {
     return markdown;
   }
-  const aliases = aliasesForTitle(title, fileSlug);
+  const aliases = combinedAliases(title, fileSlug, extraAliases);
   if (aliases) {
     parsed.data.aliases = aliases;
   } else {

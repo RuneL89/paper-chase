@@ -19,6 +19,17 @@ import type { TopicPageData, TopicPageClaim } from '../pages/topic-page';
 const PROMPT_DIR = join(appRoot(), 'prompts');
 const promptCache: Record<string, string> = {};
 
+/**
+ * Phase 13 (output-token ceilings, vision `04` §6 + `07` §5, user-ratified
+ * 2026-07-23): the shared synthesis-family output-token SAFETY CEILING, sized
+ * above the largest legitimate output. It is never a length controller — the
+ * model does not see the value, so a low ceiling yields truncated output,
+ * never shorter output. No per-language split (ratified).
+ * Phase 14 (phase doc §2.2): exported — the curation agent reuses this
+ * ceiling for its decision lists (~300 topics run 5-8K output).
+ */
+export const SYNTHESIS_MAX_TOKENS = 32768;
+
 async function loadPromptTemplate(fileName: string): Promise<string> {
   if (promptCache[fileName]) {
     return promptCache[fileName];
@@ -208,7 +219,7 @@ export async function writeEntitySynthesis(
     language,
   );
   return callLLM(feedback === undefined ? fullPrompt : `${fullPrompt}\n\n${feedback}`, undefined, {
-    maxTokens: 8192,
+    maxTokens: SYNTHESIS_MAX_TOKENS,
     maxRetries: 2,
     callType: 'synthesis',
     context: attempt !== undefined && attempt > 1 ? `${entityData.slug}#attempt${attempt}` : entityData.slug,
@@ -238,7 +249,7 @@ export async function writePermissiveEntitySynthesis(
     language,
   );
   return callLLM(feedback === undefined ? fullPrompt : `${fullPrompt}\n\n${feedback}`, undefined, {
-    maxTokens: 8192,
+    maxTokens: SYNTHESIS_MAX_TOKENS,
     maxRetries: 2,
     callType: 'permissive-synthesis',
     context: attempt !== undefined && attempt > 1 ? `${entityData.slug}#attempt${attempt}` : entityData.slug,
@@ -264,7 +275,7 @@ export async function writeTopicSynthesis(
     language,
   );
   return callLLM(feedback === undefined ? fullPrompt : `${fullPrompt}\n\n${feedback}`, undefined, {
-    maxTokens: 8192,
+    maxTokens: SYNTHESIS_MAX_TOKENS,
     maxRetries: 2,
     callType: 'topic-synthesis',
     context: attempt !== undefined && attempt > 1 ? `${topicData.slug}#attempt${attempt}` : topicData.slug,
@@ -290,7 +301,7 @@ export async function writePermissiveTopicSynthesis(
     language,
   );
   return callLLM(feedback === undefined ? fullPrompt : `${fullPrompt}\n\n${feedback}`, undefined, {
-    maxTokens: 8192,
+    maxTokens: SYNTHESIS_MAX_TOKENS,
     maxRetries: 2,
     callType: 'permissive-topic-synthesis',
     context: attempt !== undefined && attempt > 1 ? `${topicData.slug}#attempt${attempt}` : topicData.slug,

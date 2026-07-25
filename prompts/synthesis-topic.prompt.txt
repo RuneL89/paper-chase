@@ -20,7 +20,7 @@ Write a readable markdown article about this topic. The article must be complete
 
 The article must have two layers:
 
-Layer 1 (Synthesis): 2-4 paragraphs of readable prose that explain how this topic appears across the corpus, why it matters, and how it relates to key entities. This is NOT a bullet list. It must include:
+Layer 1 (Synthesis): readable prose that explains how this topic appears across the corpus, why it matters, and how it relates to key entities, sized by the evidence — several paragraphs for a well-evidenced topic, a few honest sentences for a single-claim one. This is NOT a bullet list. When the evidence supports them, include:
 - Narrative flow: what this topic is and why it matters.
 - Cross-reference context: how this topic connects to broader themes and entities.
 - Key claims and relationships (use the Claim data).
@@ -36,4 +36,24 @@ Rules:
 - Every citation [^srcN] must have a corresponding [^srcN]: definition in the Sources section.
 - Use Obsidian-native wikilinks for related entities: [[<entity-slug>|<Page Title>]] — the target is the entity's slug from the data above, the display text is its title (e.g. [[acme-corp|Acme Corp]]). Use the bare form [[name]] only when the display text is identical to the target.
 - Write in clear, plain language suitable for a journalist.
-- The page must be at least 300 words of synthesis (Layer 1).
+
+Length is not a target — completeness is. Write until this page passes the
+Journalist Test and the points below are covered by the evidence, then stop.
+
+- Let the evidence set the length. A richly documented topic earns several
+  paragraphs; a topic supported by a single claim earns a few honest
+  sentences. Never pad with filler, speculation, or repetition to make a
+  page look substantial — and never compress away substance (dates,
+  numbers, relationships, context) to make a page look tidy.
+- A complete synthesis covers, when the evidence supports it: what this
+  topic is and why it matters across the corpus; which key entities are
+  involved and how; chronology with explicit dates when the evidence
+  supports it; the key claims. When the evidence answers all of these, the
+  synthesis is complete — stop writing.
+- If the data is thin (one or two claims, no significant claims or
+  relationships), say exactly that, e.g. "Jane Doe is mentioned once in the
+  corpus as a consultant to Acme Corp [^src1]. No further details are
+  available." An honest sparse page is a correct page, not a failure.
+- Layer 2's length is determined by the data, never by style: list every
+  claim from the data above, verbatim. Never drop, shorten, merge, or
+  paraphrase evidence to save space.

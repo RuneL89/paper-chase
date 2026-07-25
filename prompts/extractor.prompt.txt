@@ -16,7 +16,7 @@ You are building a citation-backed wiki. Follow these rules:
 8. If a name is ambiguous, provide disambiguation.
 
 Page format for entities:
-- Layer 1 (Synthesis): 2-4 paragraphs of readable prose with chronological context, cross-references, and significance.
+- Layer 1 (Synthesis): readable prose sized by the evidence — a few honest sentences for thin pages, several paragraphs for rich ones — with chronological context, cross-references, and significance when the evidence supports them.
 - Layer 2 (Preserved Detail): Mentions, Relationships, Claims, Timeline, Sources sections.
 
 Citation format:

@@ -1,0 +1,171 @@
+# Phase 16: Run Resilience
+
+**Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-016`
+**Version:** 1.0.0
+**Status:** Draft
+**Date:** 2026-07-25
+**Dependencies:** Phases 0-9, 11-15
+**Estimated Time:** 5-8 hours
+**LLM Token Budget:** $0 (all gate tests are LLM-free — injected stubs, mocked transport; live resilience verification only during real ingests at the user's discretion)
+
+**Canon basis (user-ratified 2026-07-25, promoted compliance-log [2026-07-25 09:20]):** `Project Vision/04_orchestration_detailed.md` §6 (per-page transport fallback + outage detector), Step 9 (synthesis resume), Step 11 (per-PDF checkpointing), Step 6 (decision-list sizing), §1 (pool transport tuning); `Project Vision/07_validation_and_quality.md` §5 + §2.3. Evidence: the 2026-07-24 live test — run 4 aborted at 54/175 on one headers-timeout after ~$16 of work; the entity curation decision list overflowed 32768 output at ~200 candidates (keep-all fallback fired). This phase implements exactly those ratifications — no more, no less.
+
+---
+
+## 1. Objective
+
+A single network hiccup must never again force a run to restart from zero. Three independent weaknesses made the 2026-07-24 run-4 abort expensive: (a) one page's transport failure killed the whole run, (b) nothing was hash-recorded until run end, (c) already-paid pages had no completion memory and would have been re-bought on resume. Fix all three — per-page transport fallback with an outage detector, per-PDF checkpointing, and content-addressed synthesis resume — plus the two organic findings: calmer pool transport, and curation decision lists that can no longer overflow the output ceiling.
+
+---
+
+## 2. What to Build
+
+### 2.1 Per-page transport fallback + outage detector (vision `04` §6)
+
+**Files:** `src/commands/ingest.ts` (the two pool loops + `trySynthesisMode`), `src/state/metrics.ts`
+
+- When a synthesis pool task throws a **transient transport error after the bounded retries are exhausted** (429/5xx/network/timeout — the client's existing classification), the error is caught for THAT page: the page lands on the deterministic structured template (identical to the quality-exhaustion fallback), a loud warning is emitted (`Transport failure for <slug> after retries — template fallback.`), the report entry records the new `finalMode: 'transport-fallback'`, and the additive `metrics.transportFailures` counter increments.
+- **HTTP 4xx NEVER falls back** — it still throws immediately and aborts the run (deterministic failure class; a config problem must not silently template a wiki).
+- **Outage detector:** per stage, track transport-failed pages. Abort the run with the transport error (fail loud) when EITHER (a) **5 consecutive** transport-failed pages occur with no successful call in between, OR (b) transport-failed pages exceed **10% of the stage's total pages**. Below both thresholds the run completes with template fallbacks and a summary warning.
+- Extractor behavior unchanged (thrown errors abort); DOX/workspace/updater catch-once behavior unchanged.
+
+### 2.2 Synthesis resume (vision `04` Step 9)
+
+**Files:** `src/state/synthesis-state.ts` (new), `src/materializer.ts`, `src/commands/ingest.ts`
+
+- New state file `.state/synthesis-state.json`:
+  ```json
+  { "pages": { "entities/people/john-smith.md": { "mode": "strict-synthesis", "dataHash": "sha256…", "synthesizedAt": "ISO" } } }
+  ```
+  Written per page as it completes (appended through the Phase 15 serialized-write queue). `dataHash` = SHA-256 over the page's canonical aggregate input (the entity/topic structured data + title + folder + the run's language pair), computed by one exported helper (`pageDataHash(pageData, language)`).
+- **Skip rule (synthesis stage):** a page with a `strict-synthesis` or `permissive-synthesis` record whose `dataHash` matches the current aggregate is SKIPPED — no LLM call, and it is counted in the stage summary as skipped. Template-fallback pages (recorded with `mode: 'template-fallback'` or unrecorded) are NOT skipped — they are retried.
+- **Materialize preservation:** the Materializer must NOT rewrite a skip-eligible page (same rule, same fingerprint check before overwriting) — the finished page is preserved byte-for-byte. Any aggregate change (new evidence, a curation merge) changes the fingerprint → normal rewrite + re-synthesis.
+- Pages are keyed by wiki-relative path; stale entries for pages that no longer exist are pruned at write time.
+
+### 2.3 Per-PDF checkpointing (vision `04` Step 11)
+
+**File:** `src/commands/ingest.ts`, `src/state/ingestion-state.ts`
+
+- As soon as a PDF's own processing completes (its chunks extracted and the per-PDF materialize done), its ingestion record (hash, language, timestamps — the same shape the end-of-run write produces) is persisted to `.state/ingestion.json`. A subsequent abort leaves completed PDFs recorded → resume skips their extraction (Phase 8 hash-skip works as designed).
+- The end-of-run write stays the final complete record; checkpoint writes are additive and must produce exactly what a completed run would have written for that PDF.
+
+### 2.4 Pool transport tuning (vision `04` §1)
+
+**Files:** `src/llm/client.ts`, `src/utils/worker-pool.ts`
+
+- Header timeout for large-output calls: calls with `maxTokens >= 32768` get a generous headers timeout (600s); smaller calls keep the current default.
+- Staggered dispatch: workers pick up items with a small deterministic jitter (~250ms between pickups) so a stage never fires 4 large requests at the same instant.
+- Backoff between transport retries becomes exponential (e.g., 5s → 15s → 45s) instead of linear — identical attempt counts and error classes, only the wait changes.
+
+### 2.5 Curation decision-list sizing (vision `04` Step 6, `07` §2.3)
+
+**Files:** `prompts/curation-topics.prompt.txt`, `prompts/curation-entities.prompt.txt`, `src/agents/curation.ts`
+
+- **Schema slimming:** the `keep` bucket is REMOVED from the output schema in both prompts — kept candidates are the deterministic complement (input minus `merge` sources, `drop`, `unsure`), computed by code. Validation still enforces "every candidate accounted for exactly once" via the derived keep. Per-decision justifications in the output are capped by the prompt (short or omitted).
+- **Size-based bucketing trigger:** before the call, estimate the decision-list output size from the candidate set; when the estimate approaches the ceiling (a conservative fraction of 32768), the lexical-stem bucketing + reconciliation scheme runs even below the old 250-candidate threshold. The candidate-count trigger stays as a second condition.
+- Backwards tolerance: if the model still emits a `keep` list, validation accepts it (checked for consistency) but never requires it.
+
+---
+
+## 3. Technical Approval Gates
+
+All gates are LLM-free (injected stubs, mocked undici, temp workspaces).
+
+### Gate 16.1: Per-page transport fallback
+
+A 10-page pool run where 2 stub pages throw exhausted-transport errors: both land on the structured template with `finalMode: 'transport-fallback'` in the ordered report, loud warnings emitted, `metrics.transportFailures === 2`, run completes, all other pages synthesized normally.
+
+### Gate 16.2: Outage detector — consecutive
+
+5 consecutive transport-failed pages → the run aborts with the transport error; 4 consecutive (then a success) → completes. Counter resets on success are proven.
+
+### Gate 16.3: Outage detector — rate
+
+3 transport-failed pages out of 20 (15%) → abort; 1 of 20 (5%) → completes.
+
+### Gate 16.4: 4xx never falls back
+
+A stubbed 404 mid-stage → immediate abort, zero template fallbacks written, exactly one call for that page (no retries).
+
+### Gate 16.5: Resume skip + template retry
+
+Run 1 synthesizes 10 pages (8 pass, 2 template) and is killed. Run 2 with identical data: the 8 are skipped (zero LLM calls for them), the 2 template pages are retried; flipping one page's aggregate changes its fingerprint → it is re-synthesized.
+
+### Gate 16.6: Materialize preserves passed pages
+
+A passed synthesized page is byte-identical after a resume materialize (never rewritten); a fingerprint-changed page is rewritten.
+
+### Gate 16.7: Per-PDF checkpoint
+
+A 2-PDF run killed after PDF 1's materialize: `.state/ingestion.json` already records PDF 1; the resume skips PDF 1's extraction entirely (no extraction calls for it) and processes only PDF 2; final state equals an uninterrupted run's.
+
+### Gate 16.8: Transport tuning
+
+Staggered dispatch: the first 4 pool pickups are not simultaneous (deterministic jitter observable via injected clock). Headers timeout: `maxTokens >= 32768` calls carry the 600s timeout, smaller calls the default. Backoff: the retry-delay sequence is exponential (asserted from the delay function, no wall-clock sleeping).
+
+### Gate 16.9: Slim decision-list schema
+
+Both prompts contain no `keep` bucket instruction; validation derives keep as the exact complement (every candidate accounted for once); a legacy output that still includes `keep` is accepted when consistent and rejected when it contradicts the other buckets.
+
+### Gate 16.10: Size-based bucketing
+
+A synthetic candidate set engineered to overflow the output estimate below 250 candidates triggers lexical-stem bucketing; each bucket call is independently validated; the reconciliation round runs over survivors; the keep-all fallback per round is intact.
+
+### Gate 16.11: Kill-and-resume integration
+
+End-to-end: a 2-PDF ingest is killed mid-synthesis (stub counts tracked), resumed with plain `ingest` (no flags): completed PDFs are not re-extracted, passed pages are not re-synthesized, template pages are retried, and the final wiki + `.state` equals an uninterrupted run's (byte-comparison of page trees and reports).
+
+### Gate 16.12: Full-suite regression
+
+`npx tsc --noEmit` clean; key-less `npm test` green. Pre-existing tests untouched except where the amended semantics REQUIRE updates (e.g. a thrown-transport-at-synthesis assertion now expects the per-page fallback; every such update is enumerated in the status file with the reason).
+
+---
+
+## 4. User Acceptance Tests (UAT)
+
+### UAT 16.1: Kill-and-resume drill (live, moderate cost)
+
+1. Start an ingest of a multi-PDF wiki with synthesis on; once synthesis is underway (~20 pages), kill the process (close the terminal / task manager).
+2. Re-run the identical ingest command.
+3. Expected: completed PDFs are NOT re-extracted (no extraction cost); already-synthesized pages are skipped (progress shows them counted as skipped); template-fallback pages are retried; the run completes; `metrics.json` reflects both legs; total second-leg cost is visibly smaller than a from-scratch run.
+
+### UAT 16.2: Transport fallback in the wild (observational)
+
+1. If a transient failure occurs during any later ingest (or is simulated by briefly disconnecting the network during synthesis): the run no longer dies — affected pages log `Transport failure … — template fallback.` and the run completes with a summary warning. Reconnect and re-run: the template pages are retried and complete.
+
+### UAT 16.3: The deferred test wiki completes (the 54/175 wiki, optional)
+
+1. Re-run `ingest new-wiki-phase13-14-15 -w dist --input-language da --synthesis`.
+2. Expected: it completes end-to-end (this validates 16.1 in the wild); note that its pre-Phase-16 crash left no checkpoints/fingerprints, so this first completion re-extracts 2024 and re-synthesizes all pages — subsequent runs are then resume-cheap.
+
+---
+
+## 5. Approval Checklist
+
+- [ ] All 12 technical gates pass (`npm test` green; full suite unregressed except enumerated semantic updates).
+- [ ] UAT 16.1 passes (16.2/16.3 may be demonstrated by gate evidence).
+- [ ] Per-page fallback ONLY for exhausted transient transport at the two synthesis stages; 4xx and all other stages unchanged.
+- [ ] Outage detector: 5 consecutive OR >10% → abort, both proven.
+- [ ] Skip rule honors only strict/permissive passes with matching fingerprints; templates retried; materialize never rewrites skip-eligible pages.
+- [ ] Per-PDF checkpoint produces exactly the uninterrupted-run state record.
+- [ ] Keep-bucket removed from both curation prompts; derived-keep validation; size-based bucketing below 250 candidates proven.
+- [ ] Compliance log shows no unresolved contradictions.
+- [ ] No new LLM calls in implementation testing; budget $0.
+
+---
+
+## 6. Integration Notes
+
+### What Phase 16 Depends On
+- Phase 12's error classification (transient vs deterministic vs content-defect) — the fallback consumes the transient class only.
+- Phase 15's pool + serialized-write queue (fallback and synthesis-state writes ride them).
+- Phase 14's curation bucketing machinery (the sizing trigger reuses it).
+- Phase 8's incremental state shapes (checkpoint writes must match them exactly).
+
+### What Phase 16 Produces
+- Per-page transport fallback + outage detector; `.state/synthesis-state.json` + `pageDataHash`; per-PDF checkpointing; 600s large-call timeout + staggered dispatch + exponential backoff; slim curation decision schema + size-based bucketing; additive `metrics.transportFailures`.
+
+### Contract with Final Acceptance
+- Fail-loud preserved where it matters: 4xx, real outages (detector), Extractor exhaustion.
+- Resume must be a pure optimization: an uninterrupted run is byte-identical with or without the resume machinery; resume correctness is proven by gate 16.11's byte-comparison.
+- DOX pass required on completion: `src/AGENTS.md` (new state module, fallback, detector, checkpoint, tuning, curation sizing), `prompts/AGENTS.md` (schema slimming), `tests/AGENTS.md` (phase-16 entry), `wikis/AGENTS.md` (`synthesis-state.json`), `README.md` (resilience section), root AGENTS.md index if applicable.
