@@ -21,7 +21,7 @@ import { spawnSync } from 'node:child_process';
 
 // Extraction-set version (NOT the app version): bump whenever the runtime
 // asset set or layout changes so existing installs re-extract.
-const VERSION = '1.0.1';
+const VERSION = '1.0.2';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');
