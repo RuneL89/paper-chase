@@ -10,6 +10,7 @@ The phased implementation plan for Paper Chase v.1.0: phases 0–9 and 11–16, 
 * `MASTER_IMPLEMENTATION_PROMPT.md` — loop engineering framework, compliance rule, sub-agent architecture, phase prompt template
 * `START_PHASE_PROMPT.md` — kickoff prompt template for starting a phase
 * `PHASE_00_infrastructure.md` … `PHASE_16_run_resilience.md` — one document per phase: objective, files to build, gates, UAT, checklist, integration notes
+* `BACKLOG.md` — living list of open issues, accepted residuals, and future tracks (multi-format ingestion since 2026-07-25); entries are unscheduled and move into a `PHASE_XX` doc when scheduled
 
 ## Local Contracts
 

@@ -1767,3 +1767,35 @@
     stage = 10% at, not over, the abort threshold). No contradictions found.
   Result: COMPLIANT
   Checked By: Implementer sub-agent
+
+[2026-07-25 09:35] Live UAT run 5 COMPLETE (new-wiki-phase16, exit 0) — Phases 13-16 end-to-end proof
+  Run: ADHD 2023+2024 (26 chunks), Input da, synthesis on, routing Haiku/Sonnet×3. Background,
+    monitored; no kill conditions fired. Total $33.86, 95 min wall, 309 calls (67 reasks, 21.7%).
+  Outcomes: extraction $1.20 zero retries (part-013 first-attempt); curation pass-2 entity
+    27 merges attempt-1 zero fallbacks (Phase 16 slim schema fixed run-4's 32768 overflow/keep-all);
+    synthesis 156 strict / 3 template (98.1% strict; templates = the 3 known pathological-dense
+    cases, bounded); DOX at Sonnet $4.87 (baseline at Opus: $61.90); zero broken links (baseline: 29);
+    per-PDF checkpoint written live; 137 synthesis-state fingerprints recorded; transportFailures 0.
+  Findings (pre-existing, now measured): (1) ~200 missingSource flags — synthesized pages' sources
+    frontmatter under-covers body citation keys (baseline adhd-wiki has 131 — same class;
+    LLM-written frontmatter not deterministically re-imposed for sources); (2) 64 pages carry the
+    constitution's example date 2026-07-17T10:00:00Z as `updated` (same un-re-imposed frontmatter);
+    (3) 10 orphaned topic pages (pass-1/pass-2 curation judgment variance, accepted residual R4).
+    Fix direction recorded for later: deterministic frontmatter re-imposition (sources + updated)
+    over synthesized pages — Phase 17 candidate.
+  Baseline comparison (scaled to 2/5 PDFs): cost ~$58 → $33.86 (-42%); wall ~4.4h → 1.58h (-64%);
+    strict-pass 82% → 98.1%; templates 45-scaled ~18 → 3.
+  Cumulative live-test spend across all attempts (runs 1-5): ~$58.21.
+  Result: Phases 13-16 validated end-to-end in production conditions. UAT 14.1/15.1/15.2 satisfied
+    by this run's evidence; 14.2 demonstrated organically by run 4's keep-all fallback.
+  Checked By: Main agent
+
+[2026-07-25 10:05] Backlog created + README end-user refresh (user-directed)
+  Changed: Implementation Plan/BACKLOG.md (new — B1-B3 Phase 17 candidates: missingSource, fake
+    updated dates, DOX catalog self-links; B4-B5 accepted residuals: pathological-dense templates,
+    curation variance; B6-B7 housekeeping: exe staleness, with-key profile; B8 future track:
+    multi-format ingestion — docx, scanned PDFs, images), README.md (Known Limitations segment
+    near top, sparse/aliases end-user notes, cost calibration line, exe rebuild note),
+    Implementation Plan/AGENTS.md (BACKLOG.md ownership).
+  Result: recorded; no code changes.
+  Checked By: Main agent

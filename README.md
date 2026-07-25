@@ -12,7 +12,17 @@ Paper Chase is a local CLI/TUI that ingests a pile of PDFs — reports, filings,
 2. Put the exe in the folder that should hold your `wikis\` workspace and double-click it — the first launch unpacks its runtime once, then the terminal UI opens.
 3. **Create New Wiki → Add PDFs → Ingest PDFs**, then browse the generated `wikis\<slug>\` folder in Obsidian or any markdown viewer. (`paper-chase.exe init` / `ingest` also work from a terminal.)
 
-Details: [Windows Executable](#windows-executable).
+Details: [Windows Executable](#windows-executable). **Rebuild the exe after upgrading** — it embeds the code it was built from; `npm run package:win` refreshes it.
+
+## Known Limitations (from the Backlog)
+
+Need-to-know only; the full list with mechanisms and fix plans lives in [`Implementation Plan/BACKLOG.md`](Implementation%20Plan/BACKLOG.md).
+
+* **Validation noise on synthesized pages (fix planned, Phase 17):** some LLM-written pages get incomplete `sources` frontmatter (flagged `missingSource`), an example `updated` date copied from the wiki constitution, or a folder catalog that links the folder index instead of the page (flagged `orphaned`). Content and body citations are intact — these are metadata/navigation imperfections, not data loss.
+* **The very densest pages stay templates:** an entity/topic whose preserved evidence exceeds the model's output ceiling keeps the deterministic structured template (all data, no prose) — rare (~2% of pages).
+* **Curation is judgment, not lookup:** topic/entity merge-drop decisions can vary between runs; merges are recorded in `.state/curation-report.json`, never-merge pairs can be pinned in `.state/curation-overrides.json`, and any run that fails curation falls back to keeping everything.
+* **PDF text only (for now):** DOCX, scanned/image-only PDFs, and standalone images are on the backlog as a future multi-format ingestion track.
+* **API keys live in `.paper-chase.json`** (gitignored) — never commit it.
 
 ## Functional Architecture
 
@@ -20,7 +30,7 @@ From the user's seat, the app is a terminal UI with five menu items:
 
 1. **Create New Wiki** — name a wiki; Paper Chase scaffolds `wikis/<slug>/` with a `raw/` folder and the root `AGENTS.md` contract.
 2. **Add PDFs** — copy PDFs into `wikis/<slug>/raw/` using the native file picker (or by pasting a path). Afterwards the app offers to start ingesting immediately.
-3. **Ingest PDFs** — run the pipeline over every new or changed PDF in `raw/`, with live progress (`\[██████████] Chunk 1/1 ...`) and a closing summary: `Ingest complete: X ingested, Y skipped. Synthesis: A pages written (B strict, C permissive), D conflicts. Validation passed.` If the run wrote an AGENTS.md update proposal, the success screen offers a `p` shortcut into a diff review: `A` replaces the wiki's AGENTS.md with the proposal, `R` does nothing (the proposal stays on disk for later manual review). The review screen is flow-only — it has no menu entry.
+3. **Ingest PDFs** — run the pipeline over every new or changed PDF in `raw/`, with live progress (`\[██████████] Chunk 1/1 ...`) and a closing summary: `Ingest complete: X ingested, Y skipped. Synthesis: A pages written (B strict, C permissive), D conflicts. Validation passed.` If the run wrote an AGENTS.md update proposal, the success screen offers a `p` shortcut into a diff review: `A` replaces the wiki's AGENTS.md with the proposal, `R` does nothing (the proposal stays on disk for later manual review). The review screen is flow-only — it has no menu entry. Cost calibration (July 2026, Anthropic mid-tier routing): a dense two-PDF Danish ingest with synthesis ran **~$34 and ~95 minutes** end-to-end — extraction is cheap (~$0.05/chunk), synthesis of prose is most of the bill, and curation costs pennies.
 4. **Settings** — toggle synthesis and AGENTS.md update proposals, pick the LLM provider (Anthropic or OpenAI), choose which model each pipeline role uses, and enter API keys (masked, stored locally). Settings persist to `.paper-chase.json`.
 5. **Exit**.
 
@@ -40,7 +50,7 @@ chase test                   # run the test suite
 
 Without `npm link`, the equivalent is `npm run cli -- …` (e.g. `npm run cli -- ingest my-case --synthesis`).
 
-Browse the result by opening `wikis/<slug>/` in any markdown viewer (Obsidian, VS Code, GitHub). `index.md` at the wiki root links the workspace-level index; entity pages live under `entities/`, topic pages under `topics/`, per-PDF pages under `documents/`, and source records under `sources/`.
+Browse the result by opening `wikis/<slug>/` in any markdown viewer (Obsidian, VS Code, GitHub). `index.md` at the wiki root links the workspace-level index; entity pages live under `entities/`, topic pages under `topics/`, per-PDF pages under `documents/`, and source records under `sources/`. Thin entity pages (one or two mentions, no significant claims or relationships) carry `sparse: true` in frontmatter and say so honestly in prose — an honest sparse page is a correct page, never padded to look substantial. Pages that absorbed name variants of the same real-world thing (curation merges) list the old names in `aliases`, so they still find the page.
 
 ## Step-by-Step Architecture
 
