@@ -10,6 +10,13 @@ import {
 } from '../utils/language';
 import { stripCodeFences } from './extractor';
 import { SYNTHESIS_MAX_TOKENS } from './synthesis';
+import {
+  curationPairKey,
+  isIndicatorSlug,
+  regionSlugStem,
+  type ProposedCluster,
+  type ProposedPair,
+} from './pre-merge';
 
 /**
  * Phase 14 (phase doc §2.2; canon: vision `04` §3.2 Step 6 aggregate → curate
@@ -37,6 +44,30 @@ import { SYNTHESIS_MAX_TOKENS } from './synthesis';
  * contradictory. Bucketing triggers on candidate count (250) OR on the
  * decision-list size estimate approaching the output ceiling, whichever
  * comes first.
+ *
+ * Phase 21 (§2.2, backlog B5): the calls gain a PROPOSED PAIRS section —
+ * deterministic pre-merge proposals (`src/agents/pre-merge.ts`) the model
+ * CONFIRMS or DENIES with a few-words justification. Confirmed pairs join
+ * the merge edges and apply exactly like model merges; denials are recorded;
+ * unjudged pairs are denials. Proposed-pair slugs leave the open candidate
+ * list (open discovery runs over the unproposed candidates only) and are
+ * always judged in exactly ONE call (the single call, or the reconciliation
+ * — signal-aware grouping replaces plain lexical-stem bucketing so a pair
+ * is never split). neverMerge vetoes apply to confirmed pairs too. With no
+ * proposed pairs the prompt and the behavior stay byte-identical.
+ *
+ * Phase 22 (§2.1, the five-class rollup amendment): the entity call gains a
+ * PROPOSED CLUSTERS section — deterministic COMPOSITE proposals (class 3
+ * indicator↔concept, class 5 region name-forms) judged confirm/deny via the
+ * additive `"clusters"` output, which also carries OPEN cluster decisions
+ * (the judgment classes 2 brand↔generic and 4 facility↔city). Deterministic
+ * validation enforces the ratified rules: every member exists, class ∈ 1-5,
+ * 2 ≤ members ≤ 4, class-3 exactly 2 members (one indicator + one concept),
+ * class-5 same slug-stem, `into` ∈ members, neverMerge pairs veto, no member
+ * in two clusters, cluster members stay out of the merge/unsure/pairs
+ * buckets, and a confirmed pair never overlaps an applied cluster. Confirmed
+ * clusters land in `decisions.clusters`; denials (unjudged included) are
+ * recorded; topics never cluster.
  *
  * Every failure mode lands on the keep-all fallback: curation is skipped and
  * the materializer writes all candidates exactly as pre-Phase-14 (no data
@@ -74,6 +105,12 @@ export interface EntityCurationCandidate {
   sampleMentions: string[];
   /** True when a page for this slug already exists on disk. */
   onDisk: boolean;
+  /**
+   * Phase 21 (§2.1 alias signal): frontmatter aliases (aggregate-merged
+   * variant titles ∪ on-disk aliases). Omitted from the prompt JSON when
+   * empty so alias-less candidates keep the pre-Phase-21 prompt bytes.
+   */
+  aliases?: string[];
 }
 
 export type CurationCandidate = TopicCurationCandidate | EntityCurationCandidate;
@@ -81,6 +118,37 @@ export type CurationCandidate = TopicCurationCandidate | EntityCurationCandidate
 export interface CurationMergeDecision {
   from: string[];
   into: string;
+}
+
+/**
+ * Phase 22 (§2.1, the five-class rollup amendment): a COMPOSITE-cluster
+ * decision — 2-4 entities that are NOT the same real-world thing but
+ * logically map to each other inside one of the five ratified rollup classes.
+ * Their identities stay in the graph (no merge); only the PAGE is shared (the
+ * composite lives at `into`'s slug). `members` carries `into` first.
+ */
+export interface CurationClusterDecision {
+  members: string[];
+  /** The ratified rollup class (1-5). */
+  class: number;
+  /** One of the members — the composite page takes its slug and folder. */
+  into: string;
+  /** The model's few-words rationale (judgment classes 2/4 especially). */
+  rationale?: string;
+}
+
+/**
+ * Phase 22 (§2.1/§2.2): the model's verdict on one deterministically
+ * proposed cluster (class 3 indicator↔concept, class 5 region name-forms).
+ * `confirm` applies the composite exactly like a model cluster; `deny` keeps
+ * every member as its own page (an unjudged proposal is a denial).
+ */
+export interface ClusterVerdict {
+  members: string[];
+  class: number;
+  into: string;
+  verdict: 'confirm' | 'deny';
+  rationale?: string;
 }
 
 /**
@@ -96,6 +164,12 @@ export interface CurationDecisions {
   drops: string[];
   /** Derived by validation — never model-listed (Phase 16 slim schema). */
   keep: string[];
+  /**
+   * Phase 22 (§2.1): validated COMPOSITE-cluster decisions (entities only —
+   * confirmed deterministic proposals plus open judgment-class clusters).
+   * Absent/empty on the pre-Phase-22 paths.
+   */
+  clusters?: CurationClusterDecision[];
 }
 
 export type TopicDecisions = CurationDecisions;
@@ -112,6 +186,18 @@ export interface CurationFallback {
   cause: CurationFallbackCause;
 }
 
+/**
+ * Phase 21 (§2.2 confirm-deny): the model's verdict on one proposed pair.
+ * `confirm` applies the merge exactly like a model merge; `deny` keeps both
+ * (a proposed pair the model did not judge is a denial without justification).
+ */
+export interface PairVerdict {
+  from: string;
+  into: string;
+  verdict: 'confirm' | 'deny';
+  justification?: string;
+}
+
 export interface CurationOutcome {
   /**
    * The validated decisions; null ONLY on the single-call path's keep-all
@@ -124,6 +210,18 @@ export interface CurationOutcome {
   fallbacks: CurationFallback[];
   /** neverMerge pairs vetoed into keep during validation. */
   vetoes: Array<{ from: string; into: string }>;
+  /**
+   * Phase 21 (§2.2): the verdicts on the proposed pairs (confirm + deny).
+   * Confirmed merges are already inside `decisions.merges`; denials are
+   * recorded here for the report. Absent when no pairs were proposed.
+   */
+  pairVerdicts?: PairVerdict[];
+  /**
+   * Phase 22 (§2.1): the verdicts on the proposed clusters (confirm + deny).
+   * Confirmed clusters are already inside `decisions.clusters`; denials are
+   * recorded here for the report. Absent when no clusters were proposed.
+   */
+  clusterVerdicts?: ClusterVerdict[];
 }
 
 export type TopicCurationOutcome = CurationOutcome;
@@ -149,6 +247,24 @@ export interface CurateCallOptions {
   logPath?: string;
   /** Human-curated never-merge pairs (`.state/curation-overrides.json`). */
   neverMerge?: Array<[string, string]>;
+  /**
+   * Phase 21 (§2.2): deterministic pre-merge proposals (from the §2.1
+   * pre-merge engine) carried in the prompt's PROPOSED PAIRS section and
+   * judged confirm/deny by the model. Proposed-pair slugs are NOT in the
+   * candidate list (open discovery runs over the unproposed candidates only)
+   * and are always co-located in ONE call — the single call, or the
+   * reconciliation call on the two-round path (signal-aware grouping).
+   */
+  proposedPairs?: ProposedPair[];
+  /**
+   * Phase 22 (§2.1): deterministic CLUSTER proposals (class 3
+   * indicator↔concept, class 5 region name-forms — from the §2.1 pre-merge
+   * engine) carried in the entity prompt's PROPOSED CLUSTERS section and
+   * judged confirm/deny via the `"clusters"` output, exactly like the pairs.
+   * Proposed-cluster members are NOT in the open candidate list and are
+   * always co-located in ONE call. Entities only — never passed for topics.
+   */
+  proposedClusters?: ProposedCluster[];
   /** Test-only transport seam (keeps every gate LLM-free). Defaults to callLLM. */
   callLLMFn?: CurationLlmFn;
 }
@@ -158,6 +274,10 @@ export interface DecisionValidation {
   errors: string[];
   decisions?: CurationDecisions;
   vetoes?: Array<{ from: string; into: string }>;
+  /** Phase 21 (§2.2): the model's verdicts on the proposed pairs. */
+  pairVerdicts?: PairVerdict[];
+  /** Phase 22 (§2.1): the model's verdicts on the proposed clusters. */
+  clusterVerdicts?: ClusterVerdict[];
 }
 
 // ---------------------------------------------------------------------------
@@ -266,9 +386,75 @@ function formatCandidatesBlock(candidates: CurationCandidate[], kind: Concern): 
       ...(entity.disambiguation !== undefined ? { disambiguation: entity.disambiguation } : {}),
       sampleMentions: entity.sampleMentions,
       onDisk: entity.onDisk,
+      // Phase 21 (§2.1): aliases only when present — alias-less candidates
+      // keep the pre-Phase-21 prompt bytes (the disambiguation precedent).
+      ...(entity.aliases !== undefined && entity.aliases.length > 0 ? { aliases: entity.aliases } : {}),
     };
   });
   return JSON.stringify(records, null, 2);
+}
+
+// ---------------------------------------------------------------------------
+// Phase 21 (§2.2): the PROPOSED PAIRS prompt section
+// ---------------------------------------------------------------------------
+
+/** Render the proposed pairs (signal + evidence) for the prompt section. */
+export function formatProposedPairsBlock(pairs: ProposedPair[]): string {
+  return JSON.stringify(
+    pairs.map((pair) => ({
+      from: pair.from,
+      into: pair.into,
+      signal: pair.signal,
+      evidence: pair.evidence,
+    })),
+    null,
+    2,
+  );
+}
+
+/**
+ * Remove the whole PROPOSED PAIRS section when no pairs were detected —
+ * the no-pairs prompt stays byte-identical to the pre-Phase-21 template
+ * (the `applyLanguageDirective` empty-block precedent, CRLF-safe).
+ */
+export function stripProposedPairsBlock(prompt: string): string {
+  return prompt
+    .split('\n=== PROPOSED PAIRS ===\n{proposedPairs}\n=== END PROPOSED PAIRS ===\n')
+    .join('')
+    .split('\r\n=== PROPOSED PAIRS ===\r\n{proposedPairs}\r\n=== END PROPOSED PAIRS ===\r\n')
+    .join('');
+}
+
+// ---------------------------------------------------------------------------
+// Phase 22 (§2.1): the PROPOSED CLUSTERS prompt section
+// ---------------------------------------------------------------------------
+
+/** Render the proposed clusters (members, class, into, signal, evidence). */
+export function formatProposedClustersBlock(clusters: ProposedCluster[]): string {
+  return JSON.stringify(
+    clusters.map((cluster) => ({
+      members: cluster.members,
+      class: cluster.class,
+      into: cluster.into,
+      signal: cluster.signal,
+      evidence: cluster.evidence,
+    })),
+    null,
+    2,
+  );
+}
+
+/**
+ * Remove the whole PROPOSED CLUSTERS section when no clusters were detected —
+ * the no-clusters prompt stays byte-identical to the pre-Phase-22 template
+ * (the `stripProposedPairsBlock` precedent, CRLF-safe).
+ */
+export function stripProposedClustersBlock(prompt: string): string {
+  return prompt
+    .split('\n=== PROPOSED CLUSTERS ===\n{proposedClusters}\n=== END PROPOSED CLUSTERS ===\n')
+    .join('')
+    .split('\r\n=== PROPOSED CLUSTERS ===\r\n{proposedClusters}\r\n=== END PROPOSED CLUSTERS ===\r\n')
+    .join('');
 }
 
 // ---------------------------------------------------------------------------
@@ -331,19 +517,102 @@ export function bucketCandidates<T extends { slug: string }>(candidates: T[], ma
  * validated call also fits its output budget). For normal slug sets the
  * count constraint binds first and the buckets are exactly the Phase 14
  * ones; pathologically verbose sets bucket earlier.
+ *
+ * Phase 21 (§2.2 signal-aware grouping): proposed-pair slugs are never
+ * split across buckets — pair edges among the bucketed slugs form
+ * union-find components that pack as units (components ordered by their
+ * smallest stem, members stem-ordered inside). With no pair edges among the
+ * bucketed slugs the algorithm is the byte-identical Phase 16 one. (In the
+ * production flow proposed-pair members leave the open candidate list
+ * entirely and are judged in one call, so they are always co-located; this
+ * guard keeps any caller that passes pair members in the candidate set
+ * equally safe.)
  */
-function bucketCandidatesSized<T extends { slug: string }>(candidates: T[]): T[][] {
-  const byStem = new Map<string, T[]>();
-  for (const candidate of candidates) {
-    const stem = bucketStem(candidate.slug);
-    const group = byStem.get(stem) ?? [];
-    group.push(candidate);
-    byStem.set(stem, group);
+function bucketCandidatesSized<T extends { slug: string }>(
+  candidates: T[],
+  proposedPairs: ProposedPair[] = [],
+  proposedClusters: ProposedCluster[] = [],
+): T[][] {
+  const present = new Set(candidates.map((candidate) => candidate.slug));
+  const pairEdges = proposedPairs.filter((pair) => present.has(pair.from) && present.has(pair.into));
+  // Phase 22: proposed-cluster members pack as one unit too (a cluster is
+  // never split across buckets) — every member pair becomes a grouping edge.
+  const clusterEdges: Array<{ from: string; into: string }> = [];
+  for (const cluster of proposedClusters) {
+    const members = cluster.members.filter((member) => present.has(member));
+    for (let i = 0; i < members.length; i++) {
+      for (let j = i + 1; j < members.length; j++) {
+        clusterEdges.push({ from: members[i], into: members[j] });
+      }
+    }
   }
+  const groupingEdges: Array<{ from: string; into: string }> = [...pairEdges, ...clusterEdges];
+  if (groupingEdges.length === 0) {
+    // Byte-identical Phase 16 algorithm.
+    const byStem = new Map<string, T[]>();
+    for (const candidate of candidates) {
+      const stem = bucketStem(candidate.slug);
+      const group = byStem.get(stem) ?? [];
+      group.push(candidate);
+      byStem.set(stem, group);
+    }
+    const buckets: T[][] = [];
+    let current: T[] = [];
+    for (const stem of Array.from(byStem.keys()).sort()) {
+      for (const candidate of byStem.get(stem) ?? []) {
+        const wouldExceedCount = current.length >= CURATION_SINGLE_CALL_LIMIT;
+        const wouldExceedSize =
+          current.length > 0 && estimateDecisionListTokens([...current, candidate]) >= CURATION_SIZE_TRIGGER_TOKENS;
+        if (wouldExceedCount || wouldExceedSize) {
+          buckets.push(current);
+          current = [];
+        }
+        current.push(candidate);
+      }
+    }
+    if (current.length > 0) {
+      buckets.push(current);
+    }
+    return buckets;
+  }
+
+  // Signal-aware grouping: union-find over the pair edges; components pack
+  // as units so a proposed pair is never split across buckets.
+  const parent = new Map<string, string>(candidates.map((candidate) => [candidate.slug, candidate.slug]));
+  const find = (slug: string): string => {
+    let root = parent.get(slug) ?? slug;
+    if (root !== slug) {
+      root = find(root);
+      parent.set(slug, root);
+    }
+    return root;
+  };
+  for (const pair of groupingEdges) {
+    const rootFrom = find(pair.from);
+    const rootInto = find(pair.into);
+    if (rootFrom !== rootInto) {
+      parent.set(rootFrom, rootInto);
+    }
+  }
+  const components = new Map<string, T[]>();
+  for (const candidate of candidates) {
+    const root = find(candidate.slug);
+    const group = components.get(root) ?? [];
+    group.push(candidate);
+    components.set(root, group);
+  }
+  const componentList = Array.from(components.values()).map((group) =>
+    [...group].sort((a, b) => bucketStem(a.slug).localeCompare(bucketStem(b.slug)) || a.slug.localeCompare(b.slug)),
+  );
+  componentList.sort((a, b) => {
+    const stemA = bucketStem(a[0].slug);
+    const stemB = bucketStem(b[0].slug);
+    return stemA.localeCompare(stemB) || a[0].slug.localeCompare(b[0].slug);
+  });
   const buckets: T[][] = [];
   let current: T[] = [];
-  for (const stem of Array.from(byStem.keys()).sort()) {
-    for (const candidate of byStem.get(stem) ?? []) {
+  for (const component of componentList) {
+    for (const candidate of component) {
       const wouldExceedCount = current.length >= CURATION_SINGLE_CALL_LIMIT;
       const wouldExceedSize =
         current.length > 0 && estimateDecisionListTokens([...current, candidate]) >= CURATION_SIZE_TRIGGER_TOKENS;
@@ -364,11 +633,32 @@ function bucketCandidatesSized<T extends { slug: string }>(candidates: T[]): T[]
 // Deterministic decision-list validation (phase doc §2.2, vision `07` §2.3)
 // ---------------------------------------------------------------------------
 
+interface ParsedPairJudgment {
+  from: string;
+  into: string;
+  confirm: boolean;
+  justification?: string;
+}
+
+/** Phase 22 (§2.1): one parsed `"clusters"` entry (proposal judgment or open decision). */
+interface ParsedClusterEntry {
+  members: string[];
+  class: number;
+  into: string;
+  /** Required on proposal judgments; absent (or true) on open decisions. */
+  confirm?: boolean;
+  rationale?: string;
+}
+
 interface ParsedDecisionList {
   merge: Array<{ from: string[]; into: string }>;
   drop: string[];
   keep: string[];
   unsure: string[];
+  /** Phase 21 (§2.2): confirm/deny judgments on the proposed pairs. */
+  pairs: ParsedPairJudgment[];
+  /** Phase 22 (§2.1): cluster judgments (proposals) + open cluster decisions. */
+  clusters: ParsedClusterEntry[];
 }
 
 /** Union-find over merge edges with path compression (chain resolution). */
@@ -398,8 +688,11 @@ class UnionFind {
 }
 
 function pairKey(a: string, b: string): string {
-  return [a, b].sort().join('0000');
+  return curationPairKey(a, b);
 }
+
+/** Phase 21 (§2.2): justifications are capped ("a few words") deterministically. */
+const PAIR_JUSTIFICATION_MAX_CHARS = 120;
 
 function parseDecisionList(rawText: string, kind: Concern): { parsed?: ParsedDecisionList; errors: string[] } {
   let raw: unknown;
@@ -462,10 +755,100 @@ function parseDecisionList(rawText: string, kind: Concern): { parsed?: ParsedDec
   const keep = stringBucket('keep', false);
   const unsure = stringBucket('unsure', false);
 
+  // Phase 21 (§2.2 confirm-deny): the optional "pairs" array — one entry per
+  // judged proposed pair { from, into, confirm, justification? }.
+  const pairs: ParsedPairJudgment[] = [];
+  if (obj.pairs !== undefined) {
+    if (!Array.isArray(obj.pairs)) {
+      errors.push('"pairs" must be an array of { "from": slug, "into": slug, "confirm": boolean, "justification"?: string } entries');
+    } else {
+      obj.pairs.forEach((entry, index) => {
+        if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) {
+          errors.push(`pairs[${index}] must be an object { "from": slug, "into": slug, "confirm": boolean }`);
+          return;
+        }
+        const record = entry as Record<string, unknown>;
+        if (typeof record.from !== 'string' || record.from.length === 0) {
+          errors.push(`pairs[${index}].from must be a slug string`);
+          return;
+        }
+        if (typeof record.into !== 'string' || record.into.length === 0) {
+          errors.push(`pairs[${index}].into must be a slug string`);
+          return;
+        }
+        if (typeof record.confirm !== 'boolean') {
+          errors.push(`pairs[${index}].confirm must be true or false`);
+          return;
+        }
+        const justification =
+          typeof record.justification === 'string' && record.justification.trim().length > 0
+            ? record.justification.trim().slice(0, PAIR_JUSTIFICATION_MAX_CHARS)
+            : undefined;
+        pairs.push({
+          from: record.from,
+          into: record.into,
+          confirm: record.confirm,
+          ...(justification !== undefined ? { justification } : {}),
+        });
+      });
+    }
+  }
+
+  // Phase 22 (§2.1): the optional "clusters" array — one entry per judged
+  // proposed cluster { members, class, into, confirm, rationale? } or per
+  // open cluster decision { members, class, into, rationale? }.
+  const clusters: ParsedClusterEntry[] = [];
+  if (obj.clusters !== undefined) {
+    if (!Array.isArray(obj.clusters)) {
+      errors.push('"clusters" must be an array of { "members": [slugs], "class": 1-5, "into": slug, "confirm"?: boolean, "rationale"?: string } entries');
+    } else if (kind === 'topics' && obj.clusters.length > 0) {
+      errors.push('topic curation does not cluster — the "clusters" output is entities-only (return "clusters": [])');
+    } else {
+      obj.clusters.forEach((entry, index) => {
+        if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) {
+          errors.push(`clusters[${index}] must be an object { "members": [slugs], "class": 1-5, "into": slug }`);
+          return;
+        }
+        const record = entry as Record<string, unknown>;
+        if (
+          !Array.isArray(record.members) ||
+          record.members.length === 0 ||
+          !record.members.every((slug) => typeof slug === 'string' && slug.length > 0)
+        ) {
+          errors.push(`clusters[${index}].members must be a non-empty array of slugs`);
+          return;
+        }
+        if (typeof record.class !== 'number' || !Number.isInteger(record.class)) {
+          errors.push(`clusters[${index}].class must be an integer (1-5)`);
+          return;
+        }
+        if (typeof record.into !== 'string' || record.into.length === 0) {
+          errors.push(`clusters[${index}].into must be a slug string`);
+          return;
+        }
+        if (record.confirm !== undefined && typeof record.confirm !== 'boolean') {
+          errors.push(`clusters[${index}].confirm must be true or false when present`);
+          return;
+        }
+        const rationale =
+          typeof record.rationale === 'string' && record.rationale.trim().length > 0
+            ? record.rationale.trim().slice(0, PAIR_JUSTIFICATION_MAX_CHARS)
+            : undefined;
+        clusters.push({
+          members: [...new Set(record.members as string[])],
+          class: record.class,
+          into: record.into,
+          ...(record.confirm !== undefined ? { confirm: record.confirm } : {}),
+          ...(rationale !== undefined ? { rationale } : {}),
+        });
+      });
+    }
+  }
+
   if (errors.length > 0) {
     return { errors };
   }
-  return { parsed: { merge, drop, keep, unsure }, errors: [] };
+  return { parsed: { merge, drop, keep, unsure, pairs, clusters }, errors: [] };
 }
 
 /**
@@ -479,18 +862,238 @@ function parseDecisionList(rawText: string, kind: Concern): { parsed?: ParsedDec
  * canonical survivor first (gate 14.2). neverMerge pairs are vetoed into
  * keep before collapsing, so the pair is validated like any other entry
  * (phase doc §2.7).
+ *
+ * Phase 21 (§2.2 confirm-deny): the optional `proposedPairs` are judged via
+ * the output's `pairs` array. Every judgment must copy a proposed pair's
+ * `from`/`into` EXACTLY (unproposed judgments and duplicates are rejected);
+ * proposed-pair slugs may NOT also appear in the merge/drop/keep/unsure
+ * buckets (they are judged in "pairs" only); a confirmed pair joins the
+ * merge edges (neverMerge vetoes apply to it too, gate 21.8); a denied or
+ * unjudged pair keeps both slugs (they land in the derived keep).
  */
 function validateDecisionList(
   rawText: string,
   candidateSlugs: ReadonlySet<string>,
   neverMerge: Array<[string, string]>,
   kind: Concern,
+  proposedPairs: ProposedPair[] = [],
+  proposedClusters: ProposedCluster[] = [],
 ): DecisionValidation {
   const { parsed, errors: parseErrors } = parseDecisionList(rawText, kind);
   if (!parsed) {
     return { valid: false, errors: parseErrors };
   }
   const errors: string[] = [];
+  const vetoPairs = new Set(neverMerge.map(([a, b]) => pairKey(a, b)));
+
+  // Phase 21 (§2.2): pair judgments must reference actually-proposed pairs,
+  // exactly once each; proposed-pair slugs are off-limits for the buckets.
+  const proposedKeys = new Set(proposedPairs.map((pair) => `${pair.from} ${pair.into}`));
+  const pairMembers = new Set<string>();
+  for (const pair of proposedPairs) {
+    pairMembers.add(pair.from);
+    pairMembers.add(pair.into);
+  }
+  const judgedKeys = new Set<string>();
+  for (const judgment of parsed.pairs) {
+    const key = `${judgment.from} ${judgment.into}`;
+    if (judgment.from === judgment.into) {
+      errors.push(`self-merge in pair judgment ${JSON.stringify(judgment)} — a slug cannot merge into itself`);
+      continue;
+    }
+    if (!proposedKeys.has(key)) {
+      errors.push(
+        `pair judgment '${judgment.from}' -> '${judgment.into}' was not proposed — judge only the pairs listed in PROPOSED PAIRS`,
+      );
+      continue;
+    }
+    if (judgedKeys.has(key)) {
+      errors.push(`pair '${judgment.from}' -> '${judgment.into}' was judged twice — each proposed pair is judged at most once`);
+      continue;
+    }
+    judgedKeys.add(key);
+  }
+  for (const entry of parsed.merge) {
+    for (const slug of [...entry.from, entry.into]) {
+      if (pairMembers.has(slug)) {
+        errors.push(`slug '${slug}' is covered by a proposed pair — judge it in "pairs", not in the merge bucket`);
+      }
+    }
+  }
+  for (const bucket of ['drop', 'keep', 'unsure'] as const) {
+    for (const slug of parsed[bucket]) {
+      if (pairMembers.has(slug)) {
+        errors.push(`slug '${slug}' is covered by a proposed pair — judge it in "pairs", not in the ${bucket} bucket`);
+      }
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Phase 22 (§2.1): CLUSTER entries — classify each as a judgment of a
+  // deterministically proposed cluster (member set must match a proposal
+  // exactly, class/into copied, judged at most once) or an OPEN decision
+  // (judgment classes 2/4, full class-rule validation). Proposed-cluster
+  // members are off-limits for the merge/drop/keep/unsure buckets and for
+  // open clusters (judge them via their proposal entry); the applied set
+  // (confirmed proposals + open decisions) must be member-disjoint and
+  // disjoint from every confirmed pair.
+  // ------------------------------------------------------------------
+  const clusterLabel = (members: string[]): string => `[${[...members].sort().join(' ')}]`;
+  const proposalByMemberSet = new Map<string, ProposedCluster>();
+  const proposedClusterMembers = new Set<string>();
+  for (const cluster of proposedClusters) {
+    proposalByMemberSet.set(clusterLabel(cluster.members), cluster);
+    for (const member of cluster.members) {
+      proposedClusterMembers.add(member);
+    }
+  }
+  const judgedProposalKeys = new Set<string>();
+  const appliedClusters: CurationClusterDecision[] = [];
+  for (const entry of parsed.clusters) {
+    const key = clusterLabel(entry.members);
+    const proposal = proposalByMemberSet.get(key);
+    if (proposal !== undefined) {
+      if (judgedProposalKeys.has(key)) {
+        errors.push(`cluster ${key} was judged twice — each proposed cluster is judged at most once`);
+        continue;
+      }
+      judgedProposalKeys.add(key);
+      if (entry.confirm === undefined) {
+        errors.push(`cluster judgment ${key} must carry "confirm": true or false`);
+        continue;
+      }
+      if (entry.class !== proposal.class) {
+        errors.push(`cluster judgment ${key} has class ${entry.class} but the proposal is class ${proposal.class} — copy the proposal exactly`);
+        continue;
+      }
+      if (entry.into !== proposal.into) {
+        errors.push(`cluster judgment ${key} has into '${entry.into}' but the proposal's into is '${proposal.into}' — copy the proposal exactly`);
+        continue;
+      }
+      if (entry.confirm) {
+        appliedClusters.push({
+          members: [...proposal.members],
+          class: proposal.class,
+          into: proposal.into,
+          ...(entry.rationale !== undefined ? { rationale: entry.rationale } : {}),
+        });
+      }
+      continue;
+    }
+    if (entry.confirm === false) {
+      errors.push(`cluster ${key} was not proposed and cannot be denied — omit a cluster you do not want`);
+      continue;
+    }
+    if (!entry.members.includes(entry.into)) {
+      errors.push(`cluster ${key} into '${entry.into}' must be one of its members — the composite page takes a member's slug`);
+      continue;
+    }
+    appliedClusters.push({
+      // Deterministic member order — `into` first, the rest sorted — so the
+      // composite (title, fingerprint) is byte-identical when the sticky
+      // record re-derives the member set on later runs.
+      members: [entry.into, ...entry.members.filter((member) => member !== entry.into).sort()],
+      class: entry.class,
+      into: entry.into,
+      ...(entry.rationale !== undefined ? { rationale: entry.rationale } : {}),
+    });
+  }
+
+  // Semantic rules over the applied clusters (gate 22.1's exact error lists).
+  for (const cluster of appliedClusters) {
+    const label = clusterLabel(cluster.members);
+    if (cluster.class < 1 || cluster.class > 5) {
+      errors.push(`cluster ${label} has class ${cluster.class} — the class must be 1-5 (the five ratified rollup classes)`);
+    }
+    if (cluster.members.length < 2 || cluster.members.length > 4) {
+      errors.push(`cluster ${label} has ${cluster.members.length} members — a composite page takes 2-4 members`);
+    }
+    if (!cluster.members.includes(cluster.into)) {
+      errors.push(`cluster ${label} into '${cluster.into}' must be one of its members — the composite page takes a member's slug`);
+    }
+    if (cluster.class === 3) {
+      if (cluster.members.length !== 2) {
+        errors.push(`class-3 cluster ${label} has ${cluster.members.length} members — indicator↔measured concept is 1:1 only (exactly 2 members)`);
+      } else {
+        const indicators = cluster.members.filter((member) => isIndicatorSlug(member));
+        if (indicators.length !== 1) {
+          errors.push(`class-3 cluster ${label} needs exactly one indicator slug (indikator-N[-name]) and one concept slug — got ${indicators.length} indicator slugs`);
+        }
+      }
+    }
+    if (cluster.class === 5) {
+      const stems = Array.from(new Set(cluster.members.map((member) => regionSlugStem(member)))).sort();
+      if (stems.length !== 1) {
+        errors.push(`class-5 cluster ${label} members must share the same slug-stem — got stems [${stems.join(', ')}]`);
+      }
+    }
+    for (const slug of cluster.members) {
+      if (!candidateSlugs.has(slug)) {
+        errors.push(`unknown slug '${slug}' in cluster ${label}`);
+      }
+      if (proposedClusterMembers.has(slug) && !judgedProposalKeys.has(label)) {
+        errors.push(`slug '${slug}' is covered by a proposed cluster — judge it in the "clusters" entry for that proposal, not in a new cluster`);
+      }
+      if (pairMembers.has(slug) && !judgedProposalKeys.has(label)) {
+        errors.push(`slug '${slug}' is covered by a proposed pair — judge it in "pairs", not in a cluster`);
+      }
+    }
+    if (!candidateSlugs.has(cluster.into)) {
+      errors.push(`unknown slug '${cluster.into}' in cluster ${label} into`);
+    }
+    for (let i = 0; i < cluster.members.length; i++) {
+      for (let j = i + 1; j < cluster.members.length; j++) {
+        if (vetoPairs.has(pairKey(cluster.members[i], cluster.members[j]))) {
+          errors.push(
+            `cluster ${label} contains the neverMerge pair '${cluster.members[i]}' + '${cluster.members[j]}' — the human veto stands; drop the cluster`,
+          );
+        }
+      }
+    }
+  }
+  // Double membership across the applied set.
+  const clusterMemberHolder = new Map<string, string>();
+  for (const cluster of appliedClusters) {
+    for (const member of cluster.members) {
+      const holder = clusterMemberHolder.get(member);
+      if (holder !== undefined) {
+        errors.push(`slug '${member}' appears in two clusters (${holder} and ${clusterLabel(cluster.members)}) — a member belongs to exactly one cluster`);
+      } else {
+        clusterMemberHolder.set(member, clusterLabel(cluster.members));
+      }
+    }
+  }
+  const appliedClusterMembers = new Set(appliedClusters.flatMap((cluster) => cluster.members));
+  // Cluster members stay out of the merge/drop/keep/unsure buckets.
+  for (const entry of parsed.merge) {
+    for (const slug of [...entry.from, entry.into]) {
+      if (proposedClusterMembers.has(slug)) {
+        errors.push(`slug '${slug}' is covered by a proposed cluster — judge it in "clusters", not in the merge bucket`);
+      } else if (appliedClusterMembers.has(slug)) {
+        errors.push(`slug '${slug}' is decided by a cluster — it must not also appear in the merge bucket`);
+      }
+    }
+  }
+  for (const bucket of ['drop', 'keep', 'unsure'] as const) {
+    for (const slug of parsed[bucket]) {
+      if (proposedClusterMembers.has(slug)) {
+        errors.push(`slug '${slug}' is covered by a proposed cluster — judge it in "clusters", not in the ${bucket} bucket`);
+      } else if (appliedClusterMembers.has(slug)) {
+        errors.push(`slug '${slug}' is decided by a cluster — it must not also appear in the ${bucket} bucket`);
+      }
+    }
+  }
+  // A confirmed pair and an applied cluster never share a slug.
+  for (const judgment of parsed.pairs) {
+    if (!judgment.confirm) {
+      continue;
+    }
+    if (appliedClusterMembers.has(judgment.from) || appliedClusterMembers.has(judgment.into)) {
+      errors.push(
+        `the confirmed pair '${judgment.from}' -> '${judgment.into}' overlaps a cluster — decide the slug in exactly one place (pair OR cluster)`,
+      );
+    }
+  }
 
   // Rule: every slug mentioned exists in the input set.
   for (const entry of parsed.merge) {
@@ -518,6 +1121,14 @@ function validateDecisionList(
       errors.push(`unknown slug '${slug}' in "unsure"`);
     }
   }
+  for (const judgment of parsed.pairs) {
+    if (!candidateSlugs.has(judgment.from)) {
+      errors.push(`unknown slug '${judgment.from}' in pair judgment`);
+    }
+    if (!candidateSlugs.has(judgment.into)) {
+      errors.push(`unknown slug '${judgment.into}' in pair judgment`);
+    }
+  }
 
   // Rule: no self-merges.
   for (const entry of parsed.merge) {
@@ -531,7 +1142,7 @@ function validateDecisionList(
 
   // neverMerge vetoes (phase doc §2.7): remove vetoed edges before collapsing;
   // with the edge gone, both slugs land in the derived keep automatically.
-  const vetoPairs = new Set(neverMerge.map(([a, b]) => pairKey(a, b)));
+  // Phase 21: confirmed pair edges take the same veto path (gate 21.8).
   const edges: Array<{ from: string; into: string }> = [];
   const vetoes: Array<{ from: string; into: string }> = [];
   for (const entry of parsed.merge) {
@@ -542,6 +1153,47 @@ function validateDecisionList(
         edges.push({ from, into: entry.into });
       }
     }
+  }
+  const confirmedJudgments = parsed.pairs.filter((judgment) => judgment.confirm);
+  for (const judgment of confirmedJudgments) {
+    if (vetoPairs.has(pairKey(judgment.from, judgment.into))) {
+      vetoes.push({ from: judgment.from, into: judgment.into });
+    } else {
+      edges.push({ from: judgment.from, into: judgment.into });
+    }
+  }
+
+  // Phase 21 (§2.2): verdict bookkeeping — every proposed pair is accounted
+  // for: judged confirm/deny, or unjudged (a denial without justification).
+  const pairVerdicts: PairVerdict[] = [];
+  for (const pair of proposedPairs) {
+    const judgment = parsed.pairs.find((entry) => entry.from === pair.from && entry.into === pair.into);
+    if (judgment === undefined) {
+      pairVerdicts.push({ from: pair.from, into: pair.into, verdict: 'deny' });
+    } else {
+      pairVerdicts.push({
+        from: pair.from,
+        into: pair.into,
+        verdict: judgment.confirm ? 'confirm' : 'deny',
+        ...(judgment.justification !== undefined ? { justification: judgment.justification } : {}),
+      });
+    }
+  }
+
+  // Phase 22 (§2.1): cluster verdict bookkeeping — every proposed cluster is
+  // accounted for: judged confirm/deny, or unjudged (a denial).
+  const clusterVerdicts: ClusterVerdict[] = [];
+  for (const proposal of proposedClusters) {
+    const key = [...proposal.members].sort().join(' ');
+    const judgment = parsed.clusters.find((entry) => [...entry.members].sort().join(' ') === key);
+    const confirmed = judgment?.confirm === true;
+    clusterVerdicts.push({
+      members: [...proposal.members],
+      class: proposal.class,
+      into: proposal.into,
+      verdict: confirmed ? 'confirm' : 'deny',
+      ...(judgment?.rationale !== undefined ? { rationale: judgment.rationale } : {}),
+    });
   }
 
   // Union-find chain resolution: components collapse to their canonical
@@ -641,7 +1293,9 @@ function validateDecisionList(
         !rawFrom.has(slug) &&
         !rawInto.has(slug) &&
         !parsed.drop.includes(slug) &&
-        !parsed.unsure.includes(slug)
+        !parsed.unsure.includes(slug) &&
+        // Phase 22: a clustered slug is decided — it is not part of the keep set.
+        !appliedClusterMembers.has(slug)
       ) {
         expectedKeep.add(slug);
       }
@@ -671,7 +1325,8 @@ function validateDecisionList(
   const droppedSet = new Set(parsed.drop);
   const keep: string[] = [];
   for (const slug of candidateSlugs) {
-    if (!mergedAway.has(slug) && !droppedSet.has(slug)) {
+    // Phase 22: clustered slugs are decided (the composite page covers them).
+    if (!mergedAway.has(slug) && !droppedSet.has(slug) && !appliedClusterMembers.has(slug)) {
       keep.push(slug);
     }
   }
@@ -679,8 +1334,17 @@ function validateDecisionList(
   return {
     valid: true,
     errors: [],
-    decisions: { merges, drops: parsed.drop, keep },
+    decisions: {
+      merges,
+      drops: parsed.drop,
+      keep,
+      // Phase 22 (§2.1): emitted only when non-empty — pre-Phase-22 decision
+      // shapes stay byte-identical.
+      ...(appliedClusters.length > 0 ? { clusters: appliedClusters } : {}),
+    },
     vetoes,
+    ...(proposedPairs.length > 0 ? { pairVerdicts } : {}),
+    ...(proposedClusters.length > 0 ? { clusterVerdicts } : {}),
   };
 }
 
@@ -689,17 +1353,20 @@ export function validateTopicDecisions(
   rawText: string,
   candidateSlugs: ReadonlySet<string>,
   neverMerge: Array<[string, string]> = [],
+  proposedPairs: ProposedPair[] = [],
 ): DecisionValidation {
-  return validateDecisionList(rawText, candidateSlugs, neverMerge, 'topics');
+  return validateDecisionList(rawText, candidateSlugs, neverMerge, 'topics', proposedPairs);
 }
 
-/** Validate an entity curation response (exported for the gate-14.1/14.2 tests). */
+/** Validate an entity curation response (exported for the gate-14.1/14.2/22.1 tests). */
 export function validateEntityDecisions(
   rawText: string,
   candidateSlugs: ReadonlySet<string>,
   neverMerge: Array<[string, string]> = [],
+  proposedPairs: ProposedPair[] = [],
+  proposedClusters: ProposedCluster[] = [],
 ): DecisionValidation {
-  return validateDecisionList(rawText, candidateSlugs, neverMerge, 'entities');
+  return validateDecisionList(rawText, candidateSlugs, neverMerge, 'entities', proposedPairs, proposedClusters);
 }
 
 // ---------------------------------------------------------------------------
@@ -723,6 +1390,10 @@ interface SingleCallResult {
   attempts: number;
   fallback: CurationFallback | null;
   vetoes: Array<{ from: string; into: string }>;
+  /** Phase 21 (§2.2): the model's verdicts on the proposed pairs of this call. */
+  pairVerdicts: PairVerdict[];
+  /** Phase 22 (§2.1): the model's verdicts on the proposed clusters of this call. */
+  clusterVerdicts: ClusterVerdict[];
 }
 
 /**
@@ -731,23 +1402,46 @@ interface SingleCallResult {
  * runWithFeedbackRetry with the exact offending entries fed back. Exhaustion
  * and every thrown transport error land on the keep-all fallback (decisions
  * null) — the caller writes the candidates as pre-Phase-14.
+ *
+ * Phase 21 (§2.2): `proposedPairs` (deterministic pre-merge proposals) fill
+ * the prompt's PROPOSED PAIRS section (removed byte-identically when empty)
+ * and extend the validation candidate set — proposed-pair slugs are judged
+ * in the "pairs" output only, never in the buckets.
  */
 async function curateSingleCall(
   kind: Concern,
   candidates: CurationCandidate[],
   options: CurateCallOptions,
   scope: string,
+  proposedPairs: ProposedPair[] = [],
+  proposedClusters: ProposedCluster[] = [],
 ): Promise<SingleCallResult> {
   const template = await loadPromptTemplate(kind);
-  const filled = fillPromptTemplate(template, {
+  let withoutEmptyBlocks =
+    proposedPairs.length === 0 ? stripProposedPairsBlock(template) : template;
+  if (proposedClusters.length === 0) {
+    withoutEmptyBlocks = stripProposedClustersBlock(withoutEmptyBlocks);
+  }
+  const filled = fillPromptTemplate(withoutEmptyBlocks, {
     agentsMd: options.agentsMd.trim().length > 0 ? options.agentsMd : '(No AGENTS.md provided.)',
     candidates: formatCandidatesBlock(candidates, kind),
+    proposedPairs: formatProposedPairsBlock(proposedPairs),
+    proposedClusters: formatProposedClustersBlock(proposedClusters),
   });
   const basePrompt = applyLanguageDirective(
     filled,
     buildLanguageDirective('curation', options.language?.input ?? 'en', options.language?.output ?? 'en'),
   );
   const candidateSlugs = new Set(candidates.map((candidate) => candidate.slug));
+  for (const pair of proposedPairs) {
+    candidateSlugs.add(pair.from);
+    candidateSlugs.add(pair.into);
+  }
+  for (const cluster of proposedClusters) {
+    for (const member of cluster.members) {
+      candidateSlugs.add(member);
+    }
+  }
   const llm: CurationLlmFn =
     options.callLLMFn ?? ((prompt, callOptions) => callLLM(prompt, undefined, callOptions));
 
@@ -776,6 +1470,8 @@ async function curateSingleCall(
           candidateSlugs,
           options.neverMerge ?? [],
           kind,
+          proposedPairs,
+          proposedClusters,
         );
         validations.push(validation);
         return { valid: validation.valid, errors: validation.errors };
@@ -795,6 +1491,8 @@ async function curateSingleCall(
       attempts: Math.max(attemptsMade, 1),
       fallback: { scope, cause: classifyFallbackCause(thrown) },
       vetoes: [],
+      pairVerdicts: [],
+      clusterVerdicts: [],
     };
   }
   if (outcome.output === null) {
@@ -803,6 +1501,8 @@ async function curateSingleCall(
       attempts: outcome.attempts,
       fallback: { scope, cause: 'validation-exhaustion' },
       vetoes: [],
+      pairVerdicts: [],
+      clusterVerdicts: [],
     };
   }
   const captured = validations[validations.length - 1];
@@ -811,6 +1511,8 @@ async function curateSingleCall(
     attempts: outcome.attempts,
     fallback: null,
     vetoes: captured?.vetoes ?? [],
+    pairVerdicts: captured?.pairVerdicts ?? [],
+    clusterVerdicts: captured?.clusterVerdicts ?? [],
   };
 }
 
@@ -828,6 +1530,7 @@ function computeSurvivors(
   const bySlug = new Map(candidates.map((candidate) => [candidate.slug, candidate]));
   const absorbedInto = new Map<string, string>();
   const dropped = new Set<string>();
+  const clustered = new Set<string>();
   for (const decisions of decisionLists) {
     for (const merge of decisions.merges) {
       for (const from of merge.from) {
@@ -837,10 +1540,17 @@ function computeSurvivors(
     for (const slug of decisions.drops) {
       dropped.add(slug);
     }
+    // Phase 22 (§2.1): clustered members are decided — they leave the
+    // reconciliation round's candidate set (the composite covers them).
+    for (const cluster of decisions.clusters ?? []) {
+      for (const member of cluster.members) {
+        clustered.add(member);
+      }
+    }
   }
   const survivors: CurationCandidate[] = [];
   for (const candidate of candidates) {
-    if (absorbedInto.has(candidate.slug) || dropped.has(candidate.slug)) {
+    if (absorbedInto.has(candidate.slug) || dropped.has(candidate.slug) || clustered.has(candidate.slug)) {
       continue;
     }
     const absorbed = [...absorbedInto.entries()]
@@ -895,6 +1605,8 @@ function composeDecisions(
 ): CurationDecisions {
   const edges: Array<{ from: string; into: string }> = [];
   const dropped = new Set<string>();
+  const clustered = new Set<string>();
+  const clusters: CurationClusterDecision[] = [];
   for (const decisions of roundOne) {
     for (const merge of decisions.merges) {
       for (const from of merge.from) {
@@ -903,6 +1615,12 @@ function composeDecisions(
     }
     for (const slug of decisions.drops) {
       dropped.add(slug);
+    }
+    for (const cluster of decisions.clusters ?? []) {
+      clusters.push(cluster);
+      for (const member of cluster.members) {
+        clustered.add(member);
+      }
     }
   }
   if (roundTwo !== null) {
@@ -913,6 +1631,12 @@ function composeDecisions(
     }
     for (const slug of roundTwo.drops) {
       dropped.add(slug);
+    }
+    for (const cluster of roundTwo.clusters ?? []) {
+      clusters.push(cluster);
+      for (const member of cluster.members) {
+        clustered.add(member);
+      }
     }
   }
 
@@ -957,11 +1681,19 @@ function composeDecisions(
 
   const keep: string[] = [];
   for (const candidate of candidates) {
-    if (!mergedAway.has(candidate.slug) && !dropped.has(candidate.slug)) {
+    if (!mergedAway.has(candidate.slug) && !dropped.has(candidate.slug) && !clustered.has(candidate.slug)) {
       keep.push(candidate.slug);
     }
   }
-  return { merges, drops: [...dropped].sort(), keep: keep.sort() };
+  return {
+    merges,
+    drops: [...dropped].sort(),
+    keep: keep.sort(),
+    // Phase 22 (§2.1): round-1 clusters plus the reconciliation's clusters —
+    // cross-round double membership is impossible by construction (clustered
+    // members leave the survivor set).
+    ...(clusters.length > 0 ? { clusters } : {}),
+  };
 }
 
 /**
@@ -974,14 +1706,23 @@ function composeDecisions(
  * or reconciliation failure keeps that scope's candidates and leaves the
  * other rounds' results intact, so every round strictly shrinks (or holds)
  * the set.
+ *
+ * Phase 21 (§2.2): the `options.proposedPairs` (deterministic pre-merge
+ * proposals) are judged in exactly ONE call — the single call, or the
+ * reconciliation call on the two-round path (signal-aware grouping: a
+ * proposed pair is never split across buckets, and the round-1 buckets carry
+ * no pairs section at all). An empty open-candidate set with proposed pairs
+ * still makes its call (the pairs must be judged).
  */
 async function curateWithScaling(
   kind: Concern,
   candidates: CurationCandidate[],
   options: CurateCallOptions,
 ): Promise<CurationOutcome> {
-  if (candidates.length === 0) {
-    return { decisions: { merges: [], drops: [], keep: [] }, attempts: 0, fallbacks: [], vetoes: [] };
+  const proposedPairs = options.proposedPairs ?? [];
+  const proposedClusters = options.proposedClusters ?? [];
+  if (candidates.length === 0 && proposedPairs.length === 0 && proposedClusters.length === 0) {
+    return { decisions: { merges: [], drops: [], keep: [] }, attempts: 0, fallbacks: [], vetoes: [], pairVerdicts: [] };
   }
   // Phase 16 (vision `04` Step 6): the size trigger fires alongside the
   // count trigger — a verbose decision list can approach the output ceiling
@@ -990,18 +1731,24 @@ async function curateWithScaling(
   const overCount = candidates.length > CURATION_SINGLE_CALL_LIMIT;
   const overSize = estimateDecisionListTokens(candidates) >= CURATION_SIZE_TRIGGER_TOKENS;
   if (!overCount && !overSize) {
-    const single = await curateSingleCall(kind, candidates, options, `curation-${kind}`);
+    const single = await curateSingleCall(kind, candidates, options, `curation-${kind}`, proposedPairs, proposedClusters);
     return {
       decisions: single.decisions,
       attempts: single.attempts,
       fallbacks: single.fallback !== null ? [single.fallback] : [],
       vetoes: single.vetoes,
+      ...(proposedPairs.length > 0 ? { pairVerdicts: single.pairVerdicts } : {}),
+      ...(proposedClusters.length > 0 ? { clusterVerdicts: single.clusterVerdicts } : {}),
     };
   }
 
   // Round 1: one validated call per deterministic lexical-stem bucket
-  // (buckets close on the count limit OR the size estimate, whichever binds).
-  const buckets = bucketCandidatesSized(candidates);
+  // (buckets close on the count limit OR the size estimate, whichever binds;
+  // Phase 21 signal-aware grouping never splits a proposed pair across
+  // buckets; Phase 22 never splits a proposed cluster either). The round-1
+  // calls carry NO proposed pairs/clusters — proposals are judged in the
+  // reconciliation call below.
+  const buckets = bucketCandidatesSized(candidates, proposedPairs, proposedClusters);
   const roundOne: CurationDecisions[] = [];
   const fallbacks: CurationFallback[] = [];
   const vetoes: Array<{ from: string; into: string }> = [];
@@ -1020,9 +1767,11 @@ async function curateWithScaling(
   }
 
   // Round 2: one reconciliation call over all survivors (global view catches
-  // cross-bucket duplicates; translation variants reconcile here).
+  // cross-bucket duplicates; translation variants reconcile here). Phase 21:
+  // the proposed pairs ride this call — judged exactly once, always
+  // co-located. Phase 22: the proposed clusters ride it the same way.
   const survivors = computeSurvivors(candidates, roundOne, kind);
-  const reconciliation = await curateSingleCall(kind, survivors, options, `curation-${kind}-reconciliation`);
+  const reconciliation = await curateSingleCall(kind, survivors, options, `curation-${kind}-reconciliation`, proposedPairs, proposedClusters);
   attempts += reconciliation.attempts;
   vetoes.push(...reconciliation.vetoes);
   if (reconciliation.fallback !== null) {
@@ -1034,6 +1783,8 @@ async function curateWithScaling(
     attempts,
     fallbacks,
     vetoes,
+    ...(proposedPairs.length > 0 ? { pairVerdicts: reconciliation.pairVerdicts } : {}),
+    ...(proposedClusters.length > 0 ? { clusterVerdicts: reconciliation.clusterVerdicts } : {}),
   };
 }
 

@@ -633,10 +633,14 @@ test('gate 15.5: the progress stream carries the aggregate N/M (4 workers) count
 // Gate 15.6: Sequential stages untouched
 // ---------------------------------------------------------------------------
 test('gate 15.6: extraction/curation/DOX/workspace/updater contain no runPool, the cap is a fixed constant, and DOX stays single-flight', async () => {
-  // Source-level proof: runPool is used exactly twice — the two synthesis
-  // stages — and never in the ratified-sequential stages.
+  // Source-level proof: runPool is used only by the synthesis stages — and
+  // never in the ratified-sequential stages. Phase 22 gate 22.10 (enumerated
+  // touch): the count grows 2 → 3 — the composite synthesis stage pools too
+  // (the same bounded-pool contract at the same fixed cap).
+  // Phase 23 (enumerated touch): the count grows 3 → 4 — the comparison
+  // synthesis stage pools too (the same bounded-pool contract, same cap).
   const ingestSource = readFileSync('src/commands/ingest.ts', 'utf-8');
-  expect(ingestSource.match(/await runPool\(/g) ?? []).toHaveLength(2);
+  expect(ingestSource.match(/await runPool\(/g) ?? []).toHaveLength(4);
   for (const file of [
     'src/materializer.ts',
     'src/dox-writer.ts',

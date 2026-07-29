@@ -11,11 +11,23 @@
  * Slug rules are checked against the normalized slugs — the Extractor runs
  * its deterministic slugify() normalization BEFORE calling this validator
  * (noted adaptation 5).
+ *
+ * Phase 23 (§2.1): the optional `tables` array (comparison tables) is
+ * validated when present — `title`/`page` (in range)/`markdown` required,
+ * dimensions and summary free-text, unknown entity slugs in a table's
+ * `entities` warn (the additive `warnings` channel) but pass.
  */
 
 export interface ExtractorValidation {
   valid: boolean;
   issues: string[];
+  /**
+   * Phase 23 (§2.1/gate 23.1): non-fatal observations — a table's `entities`
+   * naming a slug the chunk did not extract warns but PASSES (tables may
+   * mention unextracted names). Warnings never affect `valid` and never feed
+   * the reask loop.
+   */
+  warnings: string[];
 }
 
 const SLUG_PATTERN = /^[a-z0-9-]+$/;
@@ -110,13 +122,18 @@ function validateSlugList(value: unknown, label: string, issues: string[]): void
  */
 export function validateExtractorResult(data: unknown, pageRange?: string): ExtractorValidation {
   const issues: string[] = [];
+  const warnings: string[] = [];
   const range = parsePageRange(pageRange);
 
   if (!isRecord(data)) {
-    return { valid: false, issues: ['root: expected a JSON object'] };
+    return { valid: false, issues: ['root: expected a JSON object'], warnings: [] };
   }
 
   // ---- entities ----
+  // Phase 23 (§2.1): the chunk's own entity slugs are collected while
+  // validating so a table's `entities` can warn (never reject) on names the
+  // chunk did not extract.
+  const knownEntitySlugs = new Set<string>();
   if (!Array.isArray(data.entities)) {
     issues.push('entities: must be an array');
   } else {
@@ -125,6 +142,9 @@ export function validateExtractorResult(data: unknown, pageRange?: string): Extr
       if (!isRecord(entity)) {
         issues.push(`${label}: must be an object`);
         return;
+      }
+      if (typeof entity.slug === 'string') {
+        knownEntitySlugs.add(entity.slug);
       }
       if (!isNonEmptyString(entity.name)) {
         issues.push(`${label}: name must be a non-empty string`);
@@ -225,5 +245,55 @@ export function validateExtractorResult(data: unknown, pageRange?: string): Extr
     issues.push('context: must be a string');
   }
 
-  return { valid: issues.length === 0, issues };
+  // ---- tables (Phase 23 §2.1, gate 23.1) ----
+  // Optional at the schema level so pre-Phase-23 extraction JSON stays valid;
+  // when present it must be an array of well-formed tables: `title`, `page`
+  // (within the chunk range), and `markdown` non-empty are required;
+  // `subject`/dimensions/`summary` are free-text; `entities` naming slugs the
+  // chunk did not extract WARN but pass (tables may mention unextracted names).
+  if (data.tables !== undefined) {
+    if (!Array.isArray(data.tables)) {
+      issues.push('tables: must be an array');
+    } else {
+      data.tables.forEach((table, index) => {
+        const label = `tables[${index}]`;
+        if (!isRecord(table)) {
+          issues.push(`${label}: must be an object`);
+          return;
+        }
+        if (!isNonEmptyString(table.title)) {
+          issues.push(`${label}: title must be a non-empty string`);
+        }
+        validatePage(table.page, label, range, issues);
+        if (!isNonEmptyString(table.markdown)) {
+          issues.push(`${label}: markdown must be a non-empty string`);
+        }
+        if (table.subject !== undefined && typeof table.subject !== 'string') {
+          issues.push(`${label}: subject must be a string when present`);
+        }
+        for (const field of ['rowDimension', 'colDimension', 'summary'] as const) {
+          if (table[field] !== undefined && typeof table[field] !== 'string') {
+            issues.push(`${label}: ${field} must be a string when present`);
+          }
+        }
+        if (table.entities !== undefined) {
+          if (!Array.isArray(table.entities)) {
+            issues.push(`${label}.entities: must be an array of entity slugs`);
+          } else {
+            table.entities.forEach((entry, entityIndex) => {
+              if (typeof entry !== 'string') {
+                issues.push(`${label}.entities[${entityIndex}]: must be a string (entity slug)`);
+              } else if (!knownEntitySlugs.has(entry)) {
+                warnings.push(
+                  `${label}.entities[${entityIndex}]: slug "${entry}" is not an entity extracted from this chunk (allowed — the table may mention an unextracted name)`,
+                );
+              }
+            });
+          }
+        }
+      });
+    }
+  }
+
+  return { valid: issues.length === 0, issues, warnings };
 }

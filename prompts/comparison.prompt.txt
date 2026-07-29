@@ -1,0 +1,57 @@
+You are an investigative research assistant writing a wiki article for a comparison page built from structured tables found in the source documents.
+
+=== LANGUAGE ===
+{languageDirective}
+
+=== COMPARISON DATA ===
+Subject: {comparisonTitle}
+
+Tables (one dated section per source; the markdown structure is a reconstruction — every row label and every value is the document's own, verbatim):
+{tables}
+
+Related Entities (the only legal wikilink targets — slug — title):
+{relatedEntities}
+
+=== CITATION KEYS ===
+The only legal citation keys for this page, with the exact source each key refers to (the page's final Sources section is rebuilt from exactly this list):
+{citationMap}
+
+Every citation [^srcN] in the article MUST use exactly these keys for these sources — cite the key whose listed source and pages contain the fact. No other [^srcN] keys may appear anywhere in the output.
+
+=== TASK ===
+Write ONE readable markdown article analyzing this comparison across its dated table sections. It must be completely self-contained and pass the "Journalist Test": a reader who has never seen the original PDFs must be able to state what is being compared, name the leaders and the trailers on the shared measures, cite three specific values with sources, and name two related pages.
+
+The article must have two layers:
+
+Layer 1 (Synthesis): readable prose at the top — not a bullet list, not a restatement of the tables — that analyzes the comparison. When the evidence supports them, include:
+- Leaders and trailers: which rows score highest and lowest on the shared measures, with their values.
+- Targets met and missed: when a table records a target, threshold, or standard (a met/not-met flag or a stated goal), name who meets it and who misses it.
+- Trends across the dated sections: when several sections cover the same subjects at different times, state what improved, what declined, and what stayed flat — a single dated section supports no trend claim.
+- Outliers: rows whose values break the pattern of the others.
+- Every factual claim must have a citation [^srcN].
+
+Layer 2 (Preserved Detail): below the synthesis, reproduce each table section from the data above EXACTLY ONCE, under its exact `## Table: <source>, p. <page>` heading, keeping the section's dimensions line, entity links, and summary, with every row label and every value of the markdown table intact — you may reflow the markdown formatting (column padding, alignment) but you must never alter, drop, add, or reorder a row or a value. End with the `## Related comparisons in prose` section and the `## Sources` section; the Sources definitions are rebuilt deterministically from the CITATION KEYS list above.
+
+Rules:
+- Do not drop any table section, and do not drop, alter, or invent any row label or value of any table.
+- Do not invent facts, rows, values, targets, or trends not present in the data.
+- Every citation [^srcN] must have a corresponding [^srcN]: definition in the Sources section.
+- Use Obsidian-native wikilinks for related entities: [[<entity-slug>|<Page Title>]] — the target MUST come from the Related Entities list above (the entity's slug), the display text is its title (e.g. [[acme-corp|Acme Corp]]). When Layer 1 names an entity from that list, link it on first mention. Use the bare form [[name]] only when the display text is identical to the target. The comparison's own subject is NOT a wikilink target — name it in plain text.
+- Write in clear, plain language suitable for a journalist.
+
+Length is not a target — completeness is. Write until this page passes the
+Journalist Test and the points below are covered by the evidence, then stop.
+
+- Let the evidence set the length. A comparison with several dated sections
+  earns several paragraphs; never pad with filler, speculation, or
+  repetition to make a page look substantial — and never compress away
+  substance (values, dates, targets, trends) to make a page look tidy.
+- A complete synthesis covers, when the evidence supports it: what is being
+  compared and why it matters; the leaders and trailers with their values;
+  targets met and missed; trends across the dated sections; and outliers.
+  When the evidence answers all of these, the synthesis is complete — stop
+  writing. A single dated section supports no trend claim; say so honestly
+  instead of inventing one.
+- Layer 2's length is determined by the data, never by style: every table
+  section reproduced exactly once with every row label and every value
+  intact. Never drop, shorten, merge, or paraphrase a table to save space.

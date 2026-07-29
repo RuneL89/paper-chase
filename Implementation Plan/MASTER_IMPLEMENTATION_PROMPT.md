@@ -218,6 +218,9 @@ Phase documents live in `Implementation Plan/`; vision documents live in `Projec
 | 18 | `PHASE_18_citation_numbering_alignment.md` | `06_citation_and_provenance.md` §1-§3/§7, `04_orchestration_detailed.md` §4/§6, `07_validation_and_quality.md` §2.4/§5 | Deterministic citation map in synthesis prompts; off-map markers as reask-loop content defects (B18) |
 | 19 | `PHASE_19_stale_pagehash_convergence.md` | `07_validation_and_quality.md` §3, `04_orchestration_detailed.md` §3.2 Step 6/Step 11 | pageHashes leak root-cause + fix, safe convergence for provably-tool-written pages, hash-consistency invariant (B19) |
 | 20 | `PHASE_20_wikilink_repair.md` | `02_WIKI_concept_detailed.md` §2, `07_validation_and_quality.md` §2.5, `05_page_types_specification.md` §2 | Deterministic unique-prefix/alias wikilink repair + one-time remediation with hash re-convergence (B20) |
+| 21 | `PHASE_21_curation_overhaul.md` | `04_orchestration_detailed.md` §3.2 Step 6, `05_page_types_specification.md` §6/§7, `07_validation_and_quality.md` §2.3/§5 | Deterministic pre-merge, confirm-deny pair proposals, sticky curation decisions (B5) |
+| 22 | `PHASE_22_composite_pages.md` | `02_WIKI_concept_detailed.md` §2/§4.5/§4.6 (amended), `05_page_types_specification.md` §6 (amended), `07_validation_and_quality.md` §2.3-§2.6 | Composite pages within five ratified rollup classes (B22, Option C) |
+| 23 | `PHASE_23_comparison_articles.md` | `05_page_types_specification.md` §9, `03_DOX_concept_detailed.md` §3.1 (extended), `02_WIKI_concept_detailed.md` §3, `06_citation_and_provenance.md` §1-§3 | Extractor `tables` output, `comparison` page type, `comparisons/` folder (B21) |
 
 ---
 

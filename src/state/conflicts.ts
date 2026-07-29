@@ -2,19 +2,23 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { enqueueSerializedWrite } from '../utils/serialized-writes';
 import type {
+  ComparisonPreservationCheckResult,
+  CompositePreservationCheckResult,
   PreservationCheckResult,
   TopicPreservationCheckResult,
 } from '../validation/preservation-check';
 
 export type AnyPreservationCheckResult =
   | PreservationCheckResult
-  | TopicPreservationCheckResult;
+  | TopicPreservationCheckResult
+  | CompositePreservationCheckResult
+  | ComparisonPreservationCheckResult;
 
 export interface ConflictEntry {
   /** ISO 8601 timestamp when the conflict was detected. */
   timestamp: string;
-  /** Page type whose synthesis failed preservation. */
-  pageType: 'entity' | 'topic';
+  /** Page type whose synthesis failed preservation (Phase 22: 'composite' added; Phase 23: 'comparison' added). */
+  pageType: 'entity' | 'topic' | 'composite' | 'comparison';
   /** Page slug whose synthesis failed preservation. */
   slug: string;
   /** Which parts of the original data were dropped. */
@@ -87,7 +91,7 @@ export async function logConflict(
   wikiDir: string,
   slug: string,
   check: AnyPreservationCheckResult,
-  pageType: 'entity' | 'topic',
+  pageType: 'entity' | 'topic' | 'composite' | 'comparison',
 ): Promise<void> {
   await enqueueSerializedWrite(conflictsPath(wikiDir), async () => {
     const state = await readConflicts(wikiDir);
@@ -104,6 +108,12 @@ export async function logConflict(
       entry.dropped.mentions = check.droppedMentions;
       entry.dropped.relationships = check.droppedRelationships;
       entry.dropped.claims = check.droppedClaims;
+      entry.dropped.citations = check.droppedCitations;
+    } else if ('droppedRowValues' in check) {
+      // Phase 23 (gate 23.5): a comparison page's dropped/altered row values
+      // ride the `claims` channel of the dropped-shape (the closest existing
+      // vocabulary for "which content items were dropped").
+      entry.dropped.claims = check.droppedRowValues;
       entry.dropped.citations = check.droppedCitations;
     } else if ('droppedClaims' in check) {
       entry.dropped.claims = check.droppedClaims;

@@ -1913,3 +1913,111 @@
     (16/16 gates + unified verification, 375+14/26 key-less, remediation executed). No unresolved
     contradictions.
   Checked By: Main agent (recording the user's declaration)
+
+[2026-07-29 12:30] Phases 21-23 Compliance Pre-Check (the Identity & Richness arc; Option C amendment presented)
+  Changed: (planned) src/agents/curation.ts, NEW src/agents/pre-merge.ts, NEW
+    .state/curation-decisions.json contract, prompts/curation-*.prompt.txt (P21);
+    src/materializer.ts, src/pages/composite-page.ts (new), prompts/composite{,-permissive}.prompt.txt (new),
+    src/agents/synthesis.ts, validators (P22); prompts/extractor.prompt.txt, src/validation/extractor-schema.ts,
+    src/pages/comparison-page.ts (new), prompts/comparison.prompt.txt (new), templates/AGENTS.md (P23);
+    tests/phase-{21,22,23}.test.ts (new)
+  Vision Docs Checked: 02_WIKI_concept_detailed.md §2, §4.6, §4.8; 03_DOX_concept_detailed.md §3.1;
+    04_orchestration_detailed.md §3.2 Step 6; 05_page_types_specification.md §2, §6, §7, §9;
+    06_citation_and_provenance.md §1-§3; 07_validation_and_quality.md §2.1, §2.3-§2.6, §5
+  Result: COMPLIANT with EXTENSION notes + ONE CONTRADICTION presented for user resolution —
+    (a) P21 tracks 1-3 extend the 04 Step 6 curation mechanism (deterministic pre-merge + confirm-deny
+    pair proposals + sticky decisions) — extension, no contradiction; the neverMerge/keep-all-fallback
+    contracts are preserved; (b) P23 extends 03 §3.1's top-level folder list with comparisons/ and uses
+    the 05 §9 custom page-type extension point — extension; (c) CONTRADICTION -> USER-RESOLVED:
+    Option C composite pages contradict 02 §4.6 ("One entity = one page... even if they are related")
+    and 05 §6 (strict-identity merges only; never sub-unit->parent/colocated-but-distinct). The user
+    resolved it 2026-07-29 by directive: "I would rather the end-articles are longer, more detailed,
+    more rich... I don't mind that a wiki article covers several entities if the entities logically map
+    to each other." The resolution is encoded as a RATIFIED-CLASS amendment in the Phase 22 doc:
+    composites allowed ONLY within five checkable rollup classes (abbreviation/name-variant,
+    brand<->generic substance, indicator<->measured-concept 1:1, facility<->city when the facility is
+    the city's story, same-name different-type org<->location), member cap 2-4, sticky cluster records,
+    a manual split escape hatch, and validation rejecting out-of-class clusters. Vision-doc text of
+    02 §4.6 / 05 §6 to be amended with the same wording at implementation time.
+  Checked By: Main agent (planning)
+
+[2026-07-29 13:05] Phase 21 start + user-directed auto-chain (Golden Rule exception)
+  Changed: (starting) Phase 21 implementation per PHASE_21_curation_overhaul.md
+  Vision Docs Checked: 04_orchestration_detailed.md §3.2 Step 6, 05_page_types_specification.md §6/§7,
+    07_validation_and_quality.md §2.3/§5 (per the §4 mapping row)
+  Result: COMPLIANT — pre-check [2026-07-29 12:30] stands. GOLDEN RULE exception, user-directed
+    2026-07-29: the user chose strict sequence (21 -> 22 -> 23) with AUTOMATIC phase chaining — each
+    phase's canon loop (Implementer -> Verifier) completes before the next starts, and formal UAT
+    acceptance is deferred to one consolidated declaration at arc end (the Phase 17-20 pattern).
+  Checked By: Main agent
+
+[2026-07-29 14:40] Phase 22 implementation — the five-class rollup amendment APPLIED to vision docs
+  Changed: Project Vision/02_WIKI_concept_detailed.md (§4.6 gains the composite-pages amendment
+    paragraph), Project Vision/05_page_types_specification.md (§6 gains the composite carve-out
+    after the Identity paragraph); src/agents/pre-merge.ts, src/agents/curation.ts,
+    src/state/curation-decisions.ts, src/state/curation-report.ts, src/state/synthesis-state.ts,
+    src/pages/composite-page.ts (NEW), src/materializer.ts, src/agents/synthesis.ts,
+    src/validation/preservation-check.ts, src/validation/schema-validator.ts, src/dox-writer.ts,
+    prompts/curation-entities.prompt.txt, prompts/composite.prompt.txt (NEW),
+    prompts/composite-permissive.prompt.txt (NEW), scripts/launcher-entry.ts (VERSION 1.0.7)
+  Vision Docs Checked: 02_WIKI_concept_detailed.md §2, §3, §4.5, §4.6, §4.8;
+    05_page_types_specification.md §2, §6; 07_validation_and_quality.md §2.3-§2.6, §5
+  Result: AMENDMENT APPLIED per the [2026-07-29 12:30] user-resolved contradiction — the phase doc's
+    canon basis is quoted VERBATIM in both vision docs (the user directive "I would rather the
+    end-articles are longer, more detailed, more rich... I don't mind that a wiki article covers
+    several entities if the entities logically map to each other." plus the five ratified rollup
+    classes, member cap 2-4, sticky cluster records, manual split escape hatch, validation rejects
+    out-of-class clusters), each marked "amended 2026-07-29, user-ratified". The graph stays
+    entity-granular; pages become cluster-granular for the five classes only. Implementation per
+    PHASE_22_composite_pages.md §2.1-§2.4 on the Phase 21 sticky/pair machinery.
+  Checked By: Implementer sub-agent (Phase 22)
+
+[2026-07-29 16:55] Phase 23 implementation — comparison-table articles (the arc's ratified 03 §3.1 comparisons/ extension + 05 §9 custom page-type point)
+  Changed: prompts/extractor.prompt.txt (the `tables` output), src/validation/extractor-schema.ts
+    (tables validation + the additive `warnings` channel), src/agents/extractor.ts (pass-through +
+    slug normalization + the always-filled array), src/pages/comparison-page.ts (NEW — the
+    `comparison` page kind), src/materializer.ts (comparison assembly after curation),
+    prompts/comparison.prompt.txt (NEW — generic comparison Layer 1), src/agents/synthesis.ts
+    (comparison value builders + writers), src/commands/ingest.ts (the fourth pooled synthesis
+    stage), src/validation/preservation-check.ts (row-value preservation), src/validation/
+    link-checker.ts (comparisons island scope), src/validation/schema-validator.ts (known type),
+    src/dox-writer.ts (comparisons in the root children/catalog/statistics, conditional),
+    src/state/{synthesis-report,conflicts,synthesis-state}.ts (comparison unions/fingerprint),
+    templates/AGENTS.md (the type documented), scripts/launcher-entry.ts (VERSION 1.0.8),
+    tests/phase-23.test.ts (NEW), tests/phase-{13,15}.test.ts (the two enumerated count bumps)
+  Vision Docs Checked: 05_page_types_specification.md §9 (the sanctioned custom-type extension
+    point), 03_DOX_concept_detailed.md §3.1 (top-level folders — the arc's ratified comparisons/
+    extension per the [2026-07-29 12:30] pre-check), 02_WIKI_concept_detailed.md §3 (two-layer
+    pages), 06_citation_and_provenance.md §1-§3, 07_validation_and_quality.md §2.1/§5
+  Result: COMPLIANT per the [2026-07-29 12:30] extension notes (b) — the comparisons/ folder uses
+    the ratified 03 §3.1 extension and the comparison type uses the 05 §9 extension point; no
+    contradictions. The three 2026-07-29 refinements in the phase doc's Objective are implemented
+    as ratified: (a) article identity keys on the table's SUBJECT entity (canonical slug when
+    resolvable through the curated aggregate incl. curation remaps; normalized-title slug only as
+    fallback — never the drifting title); (b) cross-PDF structural drift is EMBRACED via per-source
+    dated `## Table: <source>, p. <page>` sections, never force-merged; (c) row-value preservation
+    (the extractor reconstructs text-tables into markdown — structure the extractor's, VALUES the
+    PDF's) plus the deterministic `## Related comparisons in prose` bridge. Gates 23.1-23.7 + 23.6b
+    encoded LLM-free in tests/phase-23.test.ts (31 tests); full key-less suite 456 passed + 14
+    skipped across 29 files; npx tsc --noEmit clean; LLM cost $0.00.
+  Checked By: Implementer sub-agent (Phase 23)
+
+[2026-07-29 21:15] Phase 21-23 arc implementation + verification complete
+  Changed: Implementation Plan/BACKLOG.md (B5/B21/B22 struck FIXED — implemented + independently
+    verified), PHASE_21/22/23 phase docs (Status -> Implemented + independently verified, awaiting
+    user acceptance at arc closeout)
+  Vision Docs Checked: none (closeout bookkeeping)
+  Result: arc loop complete per the user-directed auto-chain [2026-07-29 13:05]: Phase 21 VERIFIED
+    (9/9 gates, 402+14/27), Phase 22 VERIFIED (10/10 gates, 425+14/28, vision amendment 02 §4.6 /
+    05 §6 applied), Phase 23 VERIFIED (8/8 gates, 456+14/29). Each phase cold-verified by an
+    independent Verifier; diff audits clean; no unresolved contradictions. Formal UAT acceptance
+    remains with the user per the deferred-acceptance arrangement.
+  Checked By: Main agent
+
+[2026-07-29 21:40] Phase 21-23 formal acceptance
+  Changed: .state/phase-{21,22,23}-status.json (uatAcceptance recorded, status completed),
+    PHASE_21/22/23 phase docs (Status -> Complete — user-accepted 2026-07-29)
+  Vision Docs Checked: none (acceptance bookkeeping)
+  Result: user-accepted — the Identity & Richness arc (Phases 21-23) closed per the deferred-
+    acceptance arrangement [2026-07-29 13:05]. No unresolved contradictions.
+  Checked By: Main agent (recording the user's declaration)

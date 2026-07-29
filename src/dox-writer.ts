@@ -147,6 +147,11 @@ interface FileNode {
   title: string;
   /** Exact wikilink form (with brackets) used in catalogs and repair. */
   linkText: string;
+  /**
+   * Phase 22 (§2.4): for `type: composite` pages, the member names — the
+   * deterministic catalog line names them (`— composite of A, B`).
+   */
+  compositeMembers?: string[];
 }
 
 interface FolderNode {
@@ -212,6 +217,36 @@ async function readPageTitle(absolutePath: string): Promise<string> {
   return '';
 }
 
+/**
+ * Phase 22 (§2.4): the member names of a `type: composite` page (member
+ * `title` fields, slug fallback), or undefined for non-composite/unreadable
+ * pages. Drives the composite member names in the deterministic catalog line.
+ */
+async function readCompositeMembers(absolutePath: string): Promise<string[] | undefined> {
+  try {
+    const content = await readFile(absolutePath, 'utf-8');
+    const parsed = matter(content);
+    if (parsed.data.type !== 'composite' || !Array.isArray(parsed.data.members)) {
+      return undefined;
+    }
+    const names = parsed.data.members
+      .map((member: unknown) => {
+        if (typeof member !== 'object' || member === null) {
+          return undefined;
+        }
+        const record = member as Record<string, unknown>;
+        if (typeof record.title === 'string' && record.title.trim().length > 0) {
+          return record.title.trim();
+        }
+        return typeof record.slug === 'string' && record.slug.length > 0 ? record.slug : undefined;
+      })
+      .filter((name: string | undefined): name is string => name !== undefined);
+    return names.length > 0 ? names : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 async function readTextIfExists(absolutePath: string): Promise<string> {
   try {
     return await readFile(absolutePath, 'utf-8');
@@ -240,13 +275,21 @@ async function scanFolder(wikiDirPath: string, relativePath: string): Promise<Fo
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.md')) {
       const childRelativePath = relativePath ? `${relativePath}/${entry.name}` : entry.name;
       const title = await readPageTitle(join(wikiDirPath, childRelativePath));
+      // Phase 22 (§2.4): composite pages catalog with their member names.
+      const compositeMembers = await readCompositeMembers(join(wikiDirPath, childRelativePath));
       const fileSlug = entry.name.replace(/\.md$/i, '');
       // Obsidian-native pipe form (user directive 2026-07-20): content pages
       // link by basename only; index pages link by their folder path because
       // many files share the basename `index`.
       const target = fileSlug.toLowerCase() === 'index' ? childRelativePath.replace(/\.md$/i, '') : fileSlug;
       const linkText = formatWikilink(target, title || undefined);
-      files.push({ name: entry.name, relativePath: childRelativePath, title, linkText });
+      files.push({
+        name: entry.name,
+        relativePath: childRelativePath,
+        title,
+        linkText,
+        ...(compositeMembers !== undefined ? { compositeMembers } : {}),
+      });
     }
   }
 
@@ -288,7 +331,15 @@ function emptyFolder(): FolderNode {
 
 function buildChildrenList(folder: FolderNode): string[] {
   if (folder.relativePath === '') {
-    return ['entities/index.md', 'topics/index.md', 'documents/index.md', 'sources/index.md'];
+    const children = ['entities/index.md', 'topics/index.md', 'documents/index.md', 'sources/index.md'];
+    // Phase 23 (§2.4, gate 23.6): the ratified `comparisons/` top-level
+    // folder joins the root's deterministic children re-imposition when (and
+    // only when) it has content — no ghost entries for table-less wikis.
+    const comparisons = findSubFolder(folder, 'comparisons');
+    if (comparisons && (comparisons.files.length > 0 || comparisons.subFolders.length > 0)) {
+      children.push('comparisons/index.md');
+    }
+    return children;
   }
   const children: string[] = [];
   for (const subFolder of folder.subFolders) {
@@ -311,12 +362,19 @@ function buildStatisticsLines(folder: FolderNode): string[] {
     const documents = findSubFolder(folder, 'documents') ?? emptyFolder();
     const entities = findSubFolder(folder, 'entities') ?? emptyFolder();
     const topics = findSubFolder(folder, 'topics') ?? emptyFolder();
-    return [
+    const lines = [
       `Sources: ${countContentFiles(sources)}`,
       `Document pages: ${countContentFiles(documents)}`,
       `Entity pages: ${countContentFiles(entities)}`,
       `Topic pages: ${countContentFiles(topics)}`,
     ];
+    // Phase 23 (§2.4): comparison-page counts join the root statistics only
+    // when the folder has content (table-less wikis stay byte-identical).
+    const comparisons = findSubFolder(folder, 'comparisons');
+    if (comparisons && countContentFiles(comparisons) > 0) {
+      lines.push(`Comparison pages: ${countContentFiles(comparisons)}`);
+    }
+    return lines;
   }
   const pageCount = folder.files.filter((file) => file.name.toLowerCase() !== 'index.md').length;
   const subFolderCount = folder.subFolders.length;
@@ -377,6 +435,12 @@ function buildFolderBody(
     lines.push('- [[topics/index|Topics]]');
     lines.push('- [[documents/index|Documents]]');
     lines.push('- [[sources/index|Sources]]');
+    // Phase 23 (§2.4, gate 23.6): catalog the comparisons index when the
+    // folder has content (the same no-ghost rule as the children list).
+    const comparisons = findSubFolder(folder, 'comparisons');
+    if (comparisons && (comparisons.files.length > 0 || comparisons.subFolders.length > 0)) {
+      lines.push('- [[comparisons/index|Comparisons]]');
+    }
     lines.push('');
   } else {
     lines.push('## Pages');
@@ -392,7 +456,12 @@ function buildFolderBody(
         lines.push(`- ${folderIndexLink(subFolder)}`);
       }
       for (const file of contentFiles) {
-        lines.push(`- ${file.linkText}`);
+        // Phase 22 (§2.4): composites catalog with their member names in the
+        // line (the composite title already carries them; the explicit suffix
+        // makes the rollup visible even when the title format changes).
+        lines.push(
+          `- ${file.linkText}${file.compositeMembers !== undefined ? ` — composite of ${file.compositeMembers.join(', ')}` : ''}`,
+        );
       }
     }
     lines.push('');

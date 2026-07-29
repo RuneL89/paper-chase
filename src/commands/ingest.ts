@@ -56,13 +56,28 @@ import {
   writePermissiveEntitySynthesis,
   writeTopicSynthesis,
   writePermissiveTopicSynthesis,
+  writeCompositeSynthesis,
+  writePermissiveCompositeSynthesis,
+  writeComparisonSynthesis,
+  writePermissiveComparisonSynthesis,
 } from '../agents/synthesis';
-import { checkPreservation, checkTopicPreservation } from '../validation/preservation-check';
+import { checkPreservation, checkTopicPreservation, checkCompositePreservation, checkComparisonPreservation } from '../validation/preservation-check';
 import { logConflict } from '../state/conflicts';
 import { appendSynthesisReportEntries, type SynthesisReportEntry } from '../state/synthesis-report';
 import { runPool } from '../utils/worker-pool';
 import type { EntityPageData } from '../pages/entity-page';
 import type { TopicPageData } from '../pages/topic-page';
+import {
+  buildCompositeCitationMap,
+  enforceCompositeFrontmatterInMarkdown,
+  type CompositePageData,
+} from '../pages/composite-page';
+import {
+  buildComparisonCitationMap,
+  enforceComparisonBridgeInMarkdown,
+  enforceComparisonFrontmatterInMarkdown,
+  type ComparisonPageData,
+} from '../pages/comparison-page';
 
 export interface IngestOptions {
   /** Workspace directory containing wikis/; defaults to '.'. */
@@ -135,6 +150,54 @@ export interface IngestOptions {
    */
   synthesizeTopicPermissiveFn?: (
     topicData: TopicPageData,
+    agentsMd: string,
+    logPath?: string,
+    language?: { input: LanguageCode; output: LanguageCode },
+    feedback?: string,
+    attempt?: number,
+  ) => Promise<string>;
+  /**
+   * Phase 22 gate 22.10 (the five-class rollup amendment): injectable
+   * COMPOSITE synthesis implementation (test-only, the `synthesizeEntityFn`
+   * precedent). Defaults to the real composite Synthesis Writer; tests inject
+   * a deterministic stub. The composite stage mirrors the entity/topic stages
+   * exactly (strict → permissive → structured-template).
+   */
+  synthesizeCompositeFn?: (
+    compositeData: CompositePageData,
+    agentsMd: string,
+    logPath?: string,
+    language?: { input: LanguageCode; output: LanguageCode },
+    feedback?: string,
+    attempt?: number,
+  ) => Promise<string>;
+  /** Phase 22 gate 22.10: injectable permissive composite synthesis (test-only). */
+  synthesizeCompositePermissiveFn?: (
+    compositeData: CompositePageData,
+    agentsMd: string,
+    logPath?: string,
+    language?: { input: LanguageCode; output: LanguageCode },
+    feedback?: string,
+    attempt?: number,
+  ) => Promise<string>;
+  /**
+   * Phase 23 (§2.3, backlog B21): injectable COMPARISON synthesis
+   * implementations (test-only, the `synthesizeCompositeFn` precedent).
+   * Defaults to the real comparison Synthesis Writer; tests inject
+   * deterministic stubs. The comparison stage mirrors the composite stage
+   * exactly (strict → permissive → structured-template).
+   */
+  synthesizeComparisonFn?: (
+    comparisonData: ComparisonPageData,
+    agentsMd: string,
+    logPath?: string,
+    language?: { input: LanguageCode; output: LanguageCode },
+    feedback?: string,
+    attempt?: number,
+  ) => Promise<string>;
+  /** Phase 23: injectable permissive comparison synthesis (test-only). */
+  synthesizeComparisonPermissiveFn?: (
+    comparisonData: ComparisonPageData,
     agentsMd: string,
     logPath?: string,
     language?: { input: LanguageCode; output: LanguageCode },
@@ -259,6 +322,18 @@ export interface IngestResult {
   synthesisConflicts?: number;
   /** Phase 5: number of topic pages where preservation check failed. */
   topicConflicts?: number;
+  /** Phase 22 gate 22.10: composite pages successfully synthesized. */
+  synthesizedComposites?: number;
+  /** Phase 22 gate 22.10: composite pages synthesized via the permissive fallback. */
+  synthesizedCompositesPermissive?: number;
+  /** Phase 22 gate 22.10: composite pages where preservation check failed (shell kept). */
+  compositeConflicts?: number;
+  /** Phase 23 (§2.3): comparison pages successfully synthesized. */
+  synthesizedComparisons?: number;
+  /** Phase 23: comparison pages synthesized via the permissive fallback. */
+  synthesizedComparisonsPermissive?: number;
+  /** Phase 23: comparison pages where preservation check failed (shell kept). */
+  comparisonConflicts?: number;
   /** Phase 7: the resolved input/output languages of this run. */
   languages?: { input: LanguageCode; output: LanguageCode };
   /** Phase 9: true when the AGENTS.md Updater wrote `.state/proposed-agents.md`. */
@@ -278,6 +353,10 @@ export interface IngestResult {
   synthesisSkipped?: number;
   /** Phase 16: topic pages skipped by the resume rule (same rule as above). */
   synthesisTopicsSkipped?: number;
+  /** Phase 22 gate 22.10: composite pages skipped by the resume rule (same rule). */
+  synthesisCompositesSkipped?: number;
+  /** Phase 23 (§2.3): comparison pages skipped by the resume rule (same rule). */
+  synthesisComparisonsSkipped?: number;
 }
 
 const DEFAULT_PAGES_PER_CHUNK = 5;
@@ -389,6 +468,7 @@ function preservationFeedbackErrors(check: { passed: boolean }): string[] {
     droppedRelationships?: string[];
     droppedClaims?: string[];
     droppedCitations?: string[];
+    droppedRowValues?: string[]; // Phase 23 (gate 23.5)
     extraMarkers?: string[]; // Phase 18 (B18)
   };
   const errors: string[] = [];
@@ -400,6 +480,12 @@ function preservationFeedbackErrors(check: { passed: boolean }): string[] {
   }
   for (const claim of dropped.droppedClaims ?? []) {
     errors.push(`Dropped claim (restore this exact text): ${claim}`);
+  }
+  // Phase 23 (gate 23.5): a comparison page's dropped or altered row values
+  // join the feedback verbatim (the row's subject + its numbers are the PDF's
+  // own values — restoring them is the correction).
+  for (const rowValue of dropped.droppedRowValues ?? []) {
+    errors.push(`Dropped table row value (restore this exact value): ${rowValue}`);
   }
   for (const citation of dropped.droppedCitations ?? []) {
     errors.push(`Dropped citation (restore this exact marker): ${citation}`);
@@ -464,9 +550,15 @@ function loadAgentsMd(wikiDir: string): string {
 export function formatIngestSummary(result: IngestResult): string {
   let summary = `Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`;
   if (result.synthesisRan === true) {
-    const strict = (result.synthesized ?? 0) + (result.synthesizedTopics ?? 0);
-    const permissive = (result.synthesizedPermissive ?? 0) + (result.synthesizedTopicsPermissive ?? 0);
-    const conflicts = (result.synthesisConflicts ?? 0) + (result.topicConflicts ?? 0);
+    const strict =
+      (result.synthesized ?? 0) + (result.synthesizedTopics ?? 0) + (result.synthesizedComposites ?? 0) + (result.synthesizedComparisons ?? 0);
+    const permissive =
+      (result.synthesizedPermissive ?? 0) +
+      (result.synthesizedTopicsPermissive ?? 0) +
+      (result.synthesizedCompositesPermissive ?? 0) +
+      (result.synthesizedComparisonsPermissive ?? 0);
+    const conflicts =
+      (result.synthesisConflicts ?? 0) + (result.topicConflicts ?? 0) + (result.compositeConflicts ?? 0) + (result.comparisonConflicts ?? 0);
     summary +=
       ` Synthesis: ${strict + permissive} pages written ` +
       `(${strict} strict, ${permissive} permissive), ${conflicts} conflicts.`;
@@ -1012,7 +1104,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
      * helper the Materializer's preservation check uses, so the two gates can
      * never disagree.
      */
-    const partitionStage = <P extends EntityPageData | TopicPageData>(
+    const partitionStage = <P extends EntityPageData | TopicPageData | CompositePageData | ComparisonPageData>(
       pages: P[],
     ): { skipped: Map<string, SynthesisPageRecord>; toRun: P[] } => {
       const skipped = new Map<string, SynthesisPageRecord>();
@@ -1041,7 +1133,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
      * detail does not survive an abort by definition).
      */
     const reconstructedSkipEntry = (
-      pageType: 'entity' | 'topic',
+      pageType: 'entity' | 'topic' | 'composite' | 'comparison',
       slug: string,
       record: SynthesisPageRecord,
     ): SynthesisReportEntry => ({
@@ -1465,6 +1557,384 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     await appendSynthesisReportEntries(dir, topicEntries);
     if (topicStage.skipped.size > 0) {
       progress(`Synthesis: ${topicStage.skipped.size} page(s) skipped (unchanged data).`);
+    }
+
+    // 3. Composite synthesis (Phase 22 gate 22.10, the five-class rollup
+    // amendment): ONE rich article per composite page, mirroring the entity/
+    // topic stages exactly — the same pooled shape, the same strict →
+    // permissive → structured-template chain with the Phase 12 reask loop,
+    // the Phase 16 transport-fallback wrap, and the per-page checkpoint.
+    const runCompositeSynthesis = options.synthesizeCompositeFn ?? writeCompositeSynthesis;
+    const runCompositePermissiveSynthesis =
+      options.synthesizeCompositePermissiveFn ?? writePermissiveCompositeSynthesis;
+    const synthesizeCompositePage = async (
+      compositePage: CompositePageData,
+      detector: OutageDetector,
+    ): Promise<SynthesisOutcome> => {
+      let chainPhase: 'strict' | 'permissive' = 'strict';
+      try {
+        const strict = await trySynthesisMode(
+          (feedback, attempt) => runCompositeSynthesis(compositePage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
+          (page) => checkCompositePreservation(compositePage, page),
+          `composite ${compositePage.slug}`,
+        );
+        if (strict.page !== null) {
+          const folderPath = join(dir, compositePage.folder);
+          // Phase 22 gate 22.10 (the Phase 17/18/20 write-point enforcers,
+          // as applicable to the composite shell): the COMPLETE deterministic
+          // composite frontmatter (type composite, class, members block,
+          // aliases union, real updated, aggregated sources — created when
+          // absent) and the basename `## Sources` rebuild, with the Phase 20
+          // link repair outermost. The sparse enforcer is NOT applicable
+          // (sparse never applies to composites).
+          await writeFile(
+            join(folderPath, `${compositePage.slug}.md`),
+            repairPageLinks(
+              enforceSourcesSectionInMarkdown(
+                enforceCompositeFrontmatterInMarkdown(strict.page, compositePage),
+                buildCompositeCitationMap(compositePage).citationMap,
+              ),
+              `composite ${compositePage.slug}`,
+            ),
+            'utf-8',
+          );
+          return {
+            kind: 'strict',
+            entry: {
+              timestamp: new Date().toISOString(),
+              pageType: 'composite',
+              slug: compositePage.slug,
+              strict: { attempted: true, passed: true, attempts: strict.attempts },
+              permissive: { attempted: false, passed: false },
+              finalMode: 'strict-synthesis',
+            },
+          };
+        }
+
+        console.warn(
+          `Strict synthesis failed preservation for composite ${compositePage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`,
+        );
+        chainPhase = 'permissive';
+        const permissive = await trySynthesisMode(
+          (feedback, attempt) => runCompositePermissiveSynthesis(compositePage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
+          (page) => checkCompositePreservation(compositePage, page),
+          `composite ${compositePage.slug}`,
+        );
+        if (permissive.page !== null) {
+          const folderPath = join(dir, compositePage.folder);
+          await writeFile(
+            join(folderPath, `${compositePage.slug}.md`),
+            repairPageLinks(
+              enforceSourcesSectionInMarkdown(
+                enforceCompositeFrontmatterInMarkdown(permissive.page, compositePage),
+                buildCompositeCitationMap(compositePage).citationMap,
+              ),
+              `composite ${compositePage.slug}`,
+            ),
+            'utf-8',
+          );
+          return {
+            kind: 'permissive',
+            entry: {
+              timestamp: new Date().toISOString(),
+              pageType: 'composite',
+              slug: compositePage.slug,
+              strict: { attempted: true, passed: false, attempts: strict.attempts },
+              permissive: { attempted: true, passed: true, attempts: permissive.attempts },
+              finalMode: 'permissive-synthesis',
+            },
+          };
+        }
+
+        console.warn(
+          `Permissive synthesis also failed preservation for composite ${compositePage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
+        );
+        if (permissive.lastCheck !== null) {
+          await logConflict(dir, compositePage.slug, permissive.lastCheck, 'composite');
+        }
+        return {
+          kind: 'template',
+          entry: {
+            timestamp: new Date().toISOString(),
+            pageType: 'composite',
+            slug: compositePage.slug,
+            strict: { attempted: true, passed: false, attempts: strict.attempts },
+            permissive: { attempted: true, passed: false, attempts: permissive.attempts },
+            finalMode: 'structured-template',
+          },
+        };
+      } catch (error) {
+        // Phase 16 (vision `04` §6): the per-page transport fallback — only
+        // exhausted transient transport errors; 4xx and every other class
+        // rethrows and aborts the run (same contract as the other stages).
+        if (!isTransientTransportError(error)) {
+          throw error;
+        }
+        recordDetectorTransportFailure(detector, error);
+        transportFailuresThisRun += 1;
+        console.warn(`Transport failure for composite ${compositePage.slug} after retries — template fallback.`);
+        return {
+          kind: 'transport',
+          entry: {
+            timestamp: new Date().toISOString(),
+            pageType: 'composite',
+            slug: compositePage.slug,
+            strict: { attempted: true, passed: false },
+            permissive:
+              chainPhase === 'permissive'
+                ? { attempted: true, passed: false }
+                : { attempted: false, passed: false },
+            finalMode: 'transport-fallback',
+          },
+        };
+      }
+    };
+
+    const compositePages = lastMaterializeResult.compositePages;
+    const compositeStage = partitionStage(compositePages);
+    const compositeDetector = makeOutageDetector(compositeStage.toRun.length);
+    let compositeCompleted = 0;
+    const compositeOutcomes = await runPool(
+      compositeStage.toRun,
+      async (compositePage) => {
+        const outcome = await synthesizeCompositePage(compositePage, compositeDetector);
+        if (outcome.kind !== 'transport') {
+          recordDetectorSuccess(compositeDetector);
+        }
+        // Phase 16 (vision `04` Step 11): per-page checkpoint — the composite
+        // fingerprint over { members, unioned evidence, language } drives
+        // skip-eligibility on later runs (gate 22.8's resume contract).
+        await recordSynthesisPage(dir, synthesisPagePath(compositePage), {
+          mode: outcome.entry.finalMode,
+          dataHash: pageDataHash(compositePage, language),
+          synthesizedAt: outcome.entry.timestamp,
+        });
+        compositeCompleted += 1;
+        progress(
+          `Synthesis: ${compositeCompleted}/${compositeStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
+        );
+        return outcome;
+      },
+      { concurrency: SYNTHESIS_POOL_SIZE, staggerMs: poolStaggerMs },
+    );
+    const compositeOutcomeBySlug = new Map(compositeOutcomes.map((outcome) => [outcome.entry.slug, outcome]));
+    const compositeEntries: SynthesisReportEntry[] = [];
+    for (const compositePage of compositePages) {
+      const skippedRecord = compositeStage.skipped.get(compositePage.slug);
+      if (skippedRecord) {
+        compositeEntries.push(reconstructedSkipEntry('composite', compositePage.slug, skippedRecord));
+        result.synthesisCompositesSkipped = (result.synthesisCompositesSkipped ?? 0) + 1;
+        continue;
+      }
+      const outcome = compositeOutcomeBySlug.get(compositePage.slug);
+      if (!outcome) {
+        continue; // unreachable — the pool covers every non-skipped page.
+      }
+      compositeEntries.push(outcome.entry);
+      if (outcome.kind === 'strict') {
+        result.synthesizedComposites = (result.synthesizedComposites ?? 0) + 1;
+      } else if (outcome.kind === 'permissive') {
+        result.synthesizedCompositesPermissive = (result.synthesizedCompositesPermissive ?? 0) + 1;
+      } else if (outcome.kind === 'template') {
+        result.compositeConflicts = (result.compositeConflicts ?? 0) + 1;
+      }
+    }
+    await appendSynthesisReportEntries(dir, compositeEntries);
+    if (compositeStage.skipped.size > 0) {
+      progress(`Synthesis: ${compositeStage.skipped.size} page(s) skipped (unchanged data).`);
+    }
+
+    // 4. Comparison synthesis (Phase 23 §2.3, backlog B21): ONE rich
+    // comparison article per comparison-table subject, mirroring the 22.10
+    // composite stage exactly — the same pooled shape, the same strict →
+    // permissive → structured-template chain with the Phase 12 reask loop
+    // (the row-value preservation check's exact dropped values fed back),
+    // the Phase 16 transport-fallback wrap, and the per-page checkpoint.
+    const runComparisonSynthesis = options.synthesizeComparisonFn ?? writeComparisonSynthesis;
+    const runComparisonPermissiveSynthesis =
+      options.synthesizeComparisonPermissiveFn ?? writePermissiveComparisonSynthesis;
+    const synthesizeComparisonPage = async (
+      comparisonPage: ComparisonPageData,
+      detector: OutageDetector,
+    ): Promise<SynthesisOutcome> => {
+      let chainPhase: 'strict' | 'permissive' = 'strict';
+      try {
+        const strict = await trySynthesisMode(
+          (feedback, attempt) => runComparisonSynthesis(comparisonPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
+          (page) => checkComparisonPreservation(comparisonPage, page),
+          `comparison ${comparisonPage.slug}`,
+        );
+        if (strict.page !== null) {
+          const folderPath = join(dir, comparisonPage.folder);
+          // Phase 23 (the 22.10 write-point enforcers, as applicable to the
+          // comparison shell): the COMPLETE deterministic comparison
+          // frontmatter (type comparison, aliases union, real updated,
+          // aggregated sources — created when absent), the deterministic
+          // `## Related comparisons in prose` bridge re-imposed (the model's
+          // rendering of it is never trusted), and the basename `## Sources`
+          // rebuild, with the Phase 20 link repair outermost. The sparse
+          // enforcer is NOT applicable (sparse never applies to comparisons).
+          await writeFile(
+            join(folderPath, `${comparisonPage.slug}.md`),
+            repairPageLinks(
+              enforceSourcesSectionInMarkdown(
+                enforceComparisonBridgeInMarkdown(
+                  enforceComparisonFrontmatterInMarkdown(strict.page, comparisonPage),
+                  comparisonPage,
+                ),
+                buildComparisonCitationMap(comparisonPage).citationMap,
+              ),
+              `comparison ${comparisonPage.slug}`,
+            ),
+            'utf-8',
+          );
+          return {
+            kind: 'strict',
+            entry: {
+              timestamp: new Date().toISOString(),
+              pageType: 'comparison',
+              slug: comparisonPage.slug,
+              strict: { attempted: true, passed: true, attempts: strict.attempts },
+              permissive: { attempted: false, passed: false },
+              finalMode: 'strict-synthesis',
+            },
+          };
+        }
+
+        console.warn(
+          `Strict synthesis failed preservation for comparison ${comparisonPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`,
+        );
+        chainPhase = 'permissive';
+        const permissive = await trySynthesisMode(
+          (feedback, attempt) => runComparisonPermissiveSynthesis(comparisonPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
+          (page) => checkComparisonPreservation(comparisonPage, page),
+          `comparison ${comparisonPage.slug}`,
+        );
+        if (permissive.page !== null) {
+          const folderPath = join(dir, comparisonPage.folder);
+          await writeFile(
+            join(folderPath, `${comparisonPage.slug}.md`),
+            repairPageLinks(
+              enforceSourcesSectionInMarkdown(
+                enforceComparisonBridgeInMarkdown(
+                  enforceComparisonFrontmatterInMarkdown(permissive.page, comparisonPage),
+                  comparisonPage,
+                ),
+                buildComparisonCitationMap(comparisonPage).citationMap,
+              ),
+              `comparison ${comparisonPage.slug}`,
+            ),
+            'utf-8',
+          );
+          return {
+            kind: 'permissive',
+            entry: {
+              timestamp: new Date().toISOString(),
+              pageType: 'comparison',
+              slug: comparisonPage.slug,
+              strict: { attempted: true, passed: false, attempts: strict.attempts },
+              permissive: { attempted: true, passed: true, attempts: permissive.attempts },
+              finalMode: 'permissive-synthesis',
+            },
+          };
+        }
+
+        console.warn(
+          `Permissive synthesis also failed preservation for comparison ${comparisonPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`,
+        );
+        if (permissive.lastCheck !== null) {
+          await logConflict(dir, comparisonPage.slug, permissive.lastCheck, 'comparison');
+        }
+        return {
+          kind: 'template',
+          entry: {
+            timestamp: new Date().toISOString(),
+            pageType: 'comparison',
+            slug: comparisonPage.slug,
+            strict: { attempted: true, passed: false, attempts: strict.attempts },
+            permissive: { attempted: true, passed: false, attempts: permissive.attempts },
+            finalMode: 'structured-template',
+          },
+        };
+      } catch (error) {
+        // Phase 16 (vision `04` §6): the per-page transport fallback — only
+        // exhausted transient transport errors; 4xx and every other class
+        // rethrows and aborts the run (same contract as the other stages).
+        if (!isTransientTransportError(error)) {
+          throw error;
+        }
+        recordDetectorTransportFailure(detector, error);
+        transportFailuresThisRun += 1;
+        console.warn(`Transport failure for comparison ${comparisonPage.slug} after retries — template fallback.`);
+        return {
+          kind: 'transport',
+          entry: {
+            timestamp: new Date().toISOString(),
+            pageType: 'comparison',
+            slug: comparisonPage.slug,
+            strict: { attempted: true, passed: false },
+            permissive:
+              chainPhase === 'permissive'
+                ? { attempted: true, passed: false }
+                : { attempted: false, passed: false },
+            finalMode: 'transport-fallback',
+          },
+        };
+      }
+    };
+
+    const comparisonPages = lastMaterializeResult.comparisonPages;
+    const comparisonStage = partitionStage(comparisonPages);
+    const comparisonDetector = makeOutageDetector(comparisonStage.toRun.length);
+    let comparisonCompleted = 0;
+    const comparisonOutcomes = await runPool(
+      comparisonStage.toRun,
+      async (comparisonPage) => {
+        const outcome = await synthesizeComparisonPage(comparisonPage, comparisonDetector);
+        if (outcome.kind !== 'transport') {
+          recordDetectorSuccess(comparisonDetector);
+        }
+        // Phase 16 (vision `04` Step 11): per-page checkpoint — the
+        // comparison fingerprint over { subject, dated sections, bridge,
+        // language } drives skip-eligibility on later runs.
+        await recordSynthesisPage(dir, synthesisPagePath(comparisonPage), {
+          mode: outcome.entry.finalMode,
+          dataHash: pageDataHash(comparisonPage, language),
+          synthesizedAt: outcome.entry.timestamp,
+        });
+        comparisonCompleted += 1;
+        progress(
+          `Synthesis: ${comparisonCompleted}/${comparisonStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
+        );
+        return outcome;
+      },
+      { concurrency: SYNTHESIS_POOL_SIZE, staggerMs: poolStaggerMs },
+    );
+    const comparisonOutcomeBySlug = new Map(comparisonOutcomes.map((outcome) => [outcome.entry.slug, outcome]));
+    const comparisonEntries: SynthesisReportEntry[] = [];
+    for (const comparisonPage of comparisonPages) {
+      const skippedRecord = comparisonStage.skipped.get(comparisonPage.slug);
+      if (skippedRecord) {
+        comparisonEntries.push(reconstructedSkipEntry('comparison', comparisonPage.slug, skippedRecord));
+        result.synthesisComparisonsSkipped = (result.synthesisComparisonsSkipped ?? 0) + 1;
+        continue;
+      }
+      const outcome = comparisonOutcomeBySlug.get(comparisonPage.slug);
+      if (!outcome) {
+        continue; // unreachable — the pool covers every non-skipped page.
+      }
+      comparisonEntries.push(outcome.entry);
+      if (outcome.kind === 'strict') {
+        result.synthesizedComparisons = (result.synthesizedComparisons ?? 0) + 1;
+      } else if (outcome.kind === 'permissive') {
+        result.synthesizedComparisonsPermissive = (result.synthesizedComparisonsPermissive ?? 0) + 1;
+      } else if (outcome.kind === 'template') {
+        result.comparisonConflicts = (result.comparisonConflicts ?? 0) + 1;
+      }
+    }
+    await appendSynthesisReportEntries(dir, comparisonEntries);
+    if (comparisonStage.skipped.size > 0) {
+      progress(`Synthesis: ${comparisonStage.skipped.size} page(s) skipped (unchanged data).`);
     }
 
     // Phase 16 (vision `04` §6): below both outage thresholds the run

@@ -207,6 +207,16 @@ An `entity` page is about a named real-world thing: a person, organization, comp
 
 **Identity (amended 2026-07-23, user-ratified):** one real-world thing has exactly one entity page (`02_WIKI_concept_detailed.md` §4.6). When the same thing is extracted under different names — different word order, dropped or added words, abbreviations, translations, spelling variants — the per-ingest entity-curation pass merges the variants into one canonical page (`04_orchestration_detailed.md` §3.2 Step 6): their evidence is unioned, relationship references are repointed to the canonical slug, wikilinks across all content pages are rewritten, and every variant title accumulates in the canonical page's `aliases` (§2). Merges are strict-identity only: a sub-unit never merges into its parent (a hospital's day unit and the hospital stay separate), colocated-but-distinct things stay separate, and uncertain pairs are never merged.
 
+**Composite pages (amended 2026-07-29, user-ratified — the five-class rollup amendment):** the user directed (2026-07-29): *"I would rather the end-articles are longer, more detailed, more rich… I don't mind that a wiki article covers several entities if the entities logically map to each other."* This contradicts the strict-identity-only reading above (never sub-unit→parent, never colocated-but-distinct) and `02_WIKI_concept_detailed.md` §4.6 ("One entity = one page… even if they are related"). The user-resolved amendment — **composite pages are allowed ONLY within five checkable rollup classes** (member cap 2-4, sticky cluster records, manual split escape hatch, validation rejects out-of-class clusters):
+
+1. **abbreviation/name-variant** (already legal strict identity — unchanged);
+2. **brand↔generic substance** (`eliquis`↔`apixaban`);
+3. **indicator↔measured concept, 1:1 only** (`indikator-1`↔`antibiotikabehandling`);
+4. **facility↔city, only when the facility is the city's story** (`holbaek-hospital`↔`holbaek`);
+5. **same-name different-type** (organization↔location: `region-hovedstaden`).
+
+The graph stays entity-granular (relationships, extraction, identity); pages become cluster-granular for these classes only. A cluster is NOT a merge: the members' identities stay in the graph (nothing is unioned away), only the page is shared. A composite page carries `type: composite`, the ratified `class` (1-5), and a `members` block (2-4 entries with slug, title, type) in its frontmatter; it lives at one member's slug and folder (the cluster's `into`); the member pages are not written; the composite's `aliases` unions every member title so the old names still find the page; member-targeted wikilinks are rewritten to the composite slug. Clusters are decided by the per-ingest entity-curation pass (deterministic proposals for classes 3 and 5, model judgment for classes 2 and 4), validated against the class rules (out-of-class, over-cap, double-membership, and neverMerge-vetoed clusters are validation errors), recorded as sticky decisions, and pre-applied deterministically every run. The manual escape hatch is the `splits` list in `.state/curation-decisions.json`: a slug listed there dissolves its cluster at the next materialize (member pages rebuilt, composite removed, reversal logged).
+
 ### 6.1 Frontmatter
 
 ```yaml

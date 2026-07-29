@@ -174,6 +174,16 @@ If the page fails this test, it is not complete. The LLM must add more detail, m
 - "Revenue Recognition in Q3 2024" is also valid if the corpus justifies it.
 - "Financial" is too broad. It should be a folder containing specific topic pages.
 
+**Composite pages (amended 2026-07-29, user-ratified — the five-class rollup amendment):** the user directed (2026-07-29): *"I would rather the end-articles are longer, more detailed, more rich… I don't mind that a wiki article covers several entities if the entities logically map to each other."* This contradicts the strict reading of "One entity = one page… even if they are related" above and `05_page_types_specification.md` §6 (strict-identity merges only; never sub-unit→parent, never colocated-but-distinct). The user-resolved amendment — **composite pages are allowed ONLY within five checkable rollup classes** (member cap 2-4, sticky cluster records, manual split escape hatch, validation rejects out-of-class clusters):
+
+1. **abbreviation/name-variant** (already legal strict identity — unchanged);
+2. **brand↔generic substance** (`eliquis`↔`apixaban`);
+3. **indicator↔measured concept, 1:1 only** (`indikator-1`↔`antibiotikabehandling`);
+4. **facility↔city, only when the facility is the city's story** (`holbaek-hospital`↔`holbaek`);
+5. **same-name different-type** (organization↔location: `region-hovedstaden`).
+
+The graph stays entity-granular (relationships, extraction, identity); pages become cluster-granular for these classes only. A composite page (`type: composite`, see `05_page_types_specification.md` §6) pools its members' evidence into one rich article with the evidence grouped per member; member pages are not written; member names remain findable via the composite's `aliases`; member-targeted wikilinks resolve to the composite. Clusters are recorded as sticky decisions and can be dissolved by hand via the `splits` escape hatch in `.state/curation-decisions.json` (member pages rebuilt, composite removed, reversal logged). Out-of-class clustering is a validation error, never a silent judgment.
+
 ### 4.7 Page Length Guidelines
 
 - **Minimum:** A page must contain at least one paragraph of synthesis, one mention, one relationship, and one source citation. If an entity has only one mention, the page is still valid but should be flagged as "sparse" in the frontmatter.

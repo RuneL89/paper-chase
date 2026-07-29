@@ -5,19 +5,37 @@ import { createHash } from 'node:crypto';
 import matter from 'gray-matter';
 import { wikiDir, wikiRelativePath } from './utils/paths';
 import { writeEntityPage, isSparseEntity, type EntityPageData, type EntityPageIncomingRelationship } from './pages/entity-page';
+import {
+  writeCompositePage,
+  type CompositeMember,
+  type CompositeMemberEvidence,
+  type CompositePageData,
+} from './pages/composite-page';
 import { writeTopicPage, type TopicPageData } from './pages/topic-page';
+import {
+  writeComparisonPage,
+  type ComparisonBridgeEntry,
+  type ComparisonPageData,
+  type ComparisonTableSection,
+} from './pages/comparison-page';
 import { type DocumentPageData } from './pages/document-page';
 import { saveRollingMemory, readFullRollingMemory, type RollingMemory } from './state/rolling-memory';
 import { logStructuralChanges, readStructuralChanges, type StructuralChange } from './state/structural-changes';
 import { logManualEditConflict } from './state/conflicts';
 import { readCurationOverrides } from './state/curation-overrides';
 import { writeCurationReport } from './state/curation-report';
+import {
+  appendCurationDecisions,
+  readCurationDecisions,
+  type CurationDecisionRecord,
+} from './state/curation-decisions';
 import { isSkipEligible, pageDataHash, readSynthesisState, synthesisPagePath } from './state/synthesis-state';
 import {
   curateEntities,
   curateTopics,
   truncateSample,
   type CurateCallOptions,
+  type CurationClusterDecision,
   type CurationFallbackCause,
   type CurationMergeDecision,
   type EntityCurationCandidate,
@@ -25,13 +43,22 @@ import {
   type TopicCurationCandidate,
   type TopicCurationOutcome,
 } from './agents/curation';
+import {
+  curationPairKey,
+  detectPreMergePairs,
+  isIndicatorSlug,
+  type ProposedCluster,
+  type ProposedPair,
+} from './agents/pre-merge';
 import { rewriteWikilinkTargets, type WikilinkRewrite } from './utils/wikilinks';
+import { slugify } from './utils/slug';
 import type { LanguageCode } from './utils/language';
 import type {
   ExtractorEntity,
   ExtractorRelationship,
   ExtractorClaim,
   ExtractorResult,
+  ExtractorTable,
   ExtractorTimelineEvent,
 } from './agents/extractor';
 
@@ -66,33 +93,88 @@ export interface MaterializeOptions {
 }
 
 /**
+ * Phase 22 (§2.1–§2.2): an applied composite-cluster decision with its
+ * provenance (the deterministic signal that proposed it, or 'model').
+ */
+export interface AppliedCluster {
+  members: string[];
+  class: number;
+  into: string;
+  signal: string;
+  rationale?: string;
+}
+
+/**
  * Phase 14 (phase doc §2.4/§2.7): the curation stage's per-materialize
  * summary, present on MaterializeResult only when the stage ran.
  */
 export interface CurationSummary {
   ran: true;
-  /** Applied (post manual-edit veto) decision lists. */
+  /** Applied (post manual-edit veto) decision lists — decided THIS run. */
   topicMerges: CurationMergeDecision[];
   topicDrops: string[];
   entityMerges: CurationMergeDecision[];
+  /** Phase 22 (§2.1): composite clusters decided + applied THIS run. */
+  entityClusters: AppliedCluster[];
   /** Keep-all fallback events across both concerns (console-warned too). */
   fallbacks: Array<{ concern: 'topics' | 'entities'; scope: string; cause: CurationFallbackCause }>;
   attempts: { topics: number; entities: number };
-  /** neverMerge pairs vetoed into keep during validation. */
+  /** neverMerge pairs vetoed into keep during validation (incl. auto-apply vetoes). */
   vetoes: Array<{ concern: 'topics' | 'entities'; from: string; into: string }>;
-  /** Manually-edited/untracked from-pages kept out of a merge/drop. */
-  manualEditSkips: Array<{ page: string; concern: 'topics' | 'entities'; action: 'merge' | 'drop' }>;
-  /** On-disk pages deleted because their slug was merged away/dropped. */
+  /** Manually-edited/untracked from-pages kept out of a merge/drop/cluster. */
+  manualEditSkips: Array<{ page: string; concern: 'topics' | 'entities'; action: 'merge' | 'drop' | 'cluster' }>;
+  /** On-disk pages deleted because their slug was merged away/dropped/clustered. */
   removedPages: string[];
   /** Pre-existing pages whose wikilinks were rewritten to canonical slugs. */
   rewrittenLinks: Array<{ path: string; hash: string }>;
+  /**
+   * Phase 21 (§2.3): sticky merges/drops PRE-APPLIED deterministically
+   * before candidate construction (union-find seeded from
+   * `.state/curation-decisions.json`; drops removed) — the model only judged
+   * the unstuck candidates.
+   */
+  fromSticky: {
+    topicMerges: CurationMergeDecision[];
+    topicDrops: string[];
+    entityMerges: CurationMergeDecision[];
+    /** Phase 22 (§2.1): sticky cluster records pre-applied this run. */
+    entityClusters: AppliedCluster[];
+  };
+  /** Phase 21 (§2.1): auto-applied deterministic pairs (near-zero-risk signals, no LLM). */
+  autoApplied: Array<{ concern: 'topics' | 'entities'; from: string; into: string; signal: string; evidence: string }>;
+  /** Phase 21 (§2.2): the proposed pairs the model was asked to confirm/deny. */
+  proposedPairs: Array<{ concern: 'topics' | 'entities'; from: string; into: string; signal: string; evidence: string }>;
+  /** Phase 22 (§2.1): the proposed clusters the model was asked to confirm/deny (entities only). */
+  proposedClusters: Array<{ members: string[]; class: number; into: string; signal: string; evidence: string }>;
+  /** Phase 21 (§2.2): proposed pairs the model denied (or left unjudged). */
+  denials: Array<{ concern: 'topics' | 'entities'; from: string; into: string; justification?: string }>;
+  /** Phase 22 (§2.1): proposed clusters the model denied (or left unjudged). */
+  clusterDenials: Array<{ members: string[]; class: number; into: string; rationale?: string }>;
+  /**
+   * Phase 21 (§2.3): recorded decisions UN-APPLIED this run — the `splits`
+   * escape hatch (hand-edited) and neverMerge vetoes of sticky records.
+   */
+  splitReversals: Array<{ concern: 'topics' | 'entities'; from: string[]; into?: string; reason: 'split' | 'neverMerge' }>;
 }
 
 export interface MaterializeResult {
   /** Structured data for every entity page written. */
   entityPages: EntityPageData[];
+  /**
+   * Phase 22 (§2.2): structured data for every COMPOSITE page written
+   * (member pages are never written — their evidence lives here, member-
+   * tagged). Empty on the pre-Phase-22 paths.
+   */
+  compositePages: CompositePageData[];
   /** Structured data for every topic page written. */
   topicPages: TopicPageData[];
+  /**
+   * Phase 23 (§2.2, backlog B21): structured data for every COMPARISON page
+   * written — one per comparison-table subject, each source's table preserved
+   * verbatim in its own dated section. Empty when no extraction emitted
+   * tables (the byte-identical pre-Phase-23 path).
+   */
+  comparisonPages: ComparisonPageData[];
   /** Structured data for every document page written. */
   documentPages: DocumentPageData[];
   /**
@@ -407,6 +489,8 @@ interface OnDiskEntityMeta {
   type: string;
   mentionCount: number;
   mentionSamples: string[];
+  /** Phase 21 (§2.1 alias signal): the page's frontmatter aliases. */
+  aliases: string[];
 }
 
 interface OnDiskTopicMeta {
@@ -434,6 +518,7 @@ async function readOnDiskEntityMeta(dir: string, locations: string[]): Promise<O
     type: 'unknown',
     mentionCount: 0,
     mentionSamples: [],
+    aliases: [],
   };
   try {
     const parsed = matter(await readFile(join(dir, locations[0]), 'utf-8'));
@@ -445,6 +530,10 @@ async function readOnDiskEntityMeta(dir: string, locations: string[]): Promise<O
       : [];
     if (tags.length > 0) {
       meta.type = tags[0];
+    }
+    // Phase 21 (§2.1): frontmatter aliases feed the alias-match pre-merge signal.
+    if (Array.isArray(parsed.data.aliases)) {
+      meta.aliases = parsed.data.aliases.filter((alias): alias is string => typeof alias === 'string');
     }
     const bullets = extractSectionBullets(parsed.content, 'Mentions');
     meta.mentionCount = bullets.length;
@@ -519,10 +608,17 @@ function buildTopicCandidates(
 function buildEntityCandidates(
   entityMap: Map<string, MaterializedEntity>,
   onDiskEntities: Map<string, OnDiskEntityMeta>,
+  excludeSlugs?: ReadonlySet<string>,
 ): EntityCurationCandidate[] {
   const candidates: EntityCurationCandidate[] = [];
   for (const [slug, entity] of entityMap.entries()) {
+    if (excludeSlugs?.has(slug)) {
+      continue;
+    }
     const mentions = dedupeMentions(entity.mentions);
+    // Phase 21 (§2.1): aliases = sticky/curation-accumulated variant titles ∪
+    // the on-disk page's frontmatter aliases (deduped, order-stable).
+    const aliases = Array.from(new Set([...entity.aliases, ...(onDiskEntities.get(slug)?.aliases ?? [])]));
     candidates.push({
       slug,
       title: entity.name,
@@ -533,10 +629,11 @@ function buildEntityCandidates(
       disambiguation: entity.disambiguation,
       sampleMentions: mentions.slice(0, 2).map((mention) => truncateSample(mention.context)),
       onDisk: onDiskEntities.has(slug),
+      ...(aliases.length > 0 ? { aliases } : {}),
     });
   }
   for (const [slug, meta] of Array.from(onDiskEntities.entries()).sort(([a], [b]) => a.localeCompare(b))) {
-    if (entityMap.has(slug)) {
+    if (entityMap.has(slug) || excludeSlugs?.has(slug)) {
       continue;
     }
     candidates.push({
@@ -548,6 +645,7 @@ function buildEntityCandidates(
       significance: '',
       sampleMentions: meta.mentionSamples.map((sample) => truncateSample(sample)),
       onDisk: true,
+      ...(meta.aliases.length > 0 ? { aliases: meta.aliases } : {}),
     });
   }
   return candidates;
@@ -603,6 +701,72 @@ function emptyCurationOutcome(): TopicCurationOutcome & EntityCurationOutcome {
 }
 
 /**
+ * Phase 21 (§2.3): collapse the active sticky merge records for one concern
+ * through union-find into canonical merge decisions. Chains (A→B recorded in
+ * one run, B→C in a later run) resolve to the unique survivor — the recorded
+ * `into` that is never a `from`. A hand-corrupted record set with no unique
+ * survivor falls back to the lexicographically last member (deterministic;
+ * the validator's own chain rules make this unreachable for tool-written
+ * records).
+ */
+function collapseStickyMerges(
+  records: CurationDecisionRecord[],
+  concern: 'topics' | 'entities',
+): CurationMergeDecision[] {
+  const edges: Array<{ from: string; into: string }> = [];
+  for (const record of records) {
+    if (record.concern !== concern || record.action !== 'merge' || record.into === undefined) {
+      continue;
+    }
+    for (const from of record.from) {
+      if (from !== record.into) {
+        edges.push({ from, into: record.into });
+      }
+    }
+  }
+  if (edges.length === 0) {
+    return [];
+  }
+  const parent = new Map<string, string>();
+  const find = (slug: string): string => {
+    let root = parent.get(slug) ?? slug;
+    if (root !== slug) {
+      root = find(root);
+      parent.set(slug, root);
+    } else {
+      parent.set(slug, slug);
+    }
+    return root;
+  };
+  for (const edge of edges) {
+    const rootFrom = find(edge.from);
+    const rootInto = find(edge.into);
+    if (rootFrom !== rootInto) {
+      parent.set(rootFrom, rootInto);
+    }
+  }
+  const components = new Map<string, Set<string>>();
+  for (const edge of edges) {
+    for (const slug of [edge.from, edge.into]) {
+      const root = find(slug);
+      const members = components.get(root) ?? new Set<string>();
+      members.add(slug);
+      components.set(root, members);
+    }
+  }
+  const merges: CurationMergeDecision[] = [];
+  for (const members of components.values()) {
+    const survivors = [...members].filter(
+      (member) => edges.some((edge) => edge.into === member) && !edges.some((edge) => edge.from === member),
+    );
+    const into = survivors.length === 1 ? survivors[0] : [...members].sort().reverse()[0];
+    merges.push({ from: [...members].filter((member) => member !== into).sort(), into });
+  }
+  merges.sort((a, b) => a.into.localeCompare(b.into));
+  return merges;
+}
+
+/**
  * Read every Extractor JSON result, aggregate entities/topics across chunks, and
  * write/update entity pages, topic pages, and rolling memory.
  *
@@ -632,6 +796,13 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
   const sourceSlugs = new Set<string>();
   const folderStructure = new Set<string>();
   const chunkSources: Array<{ chunkId: string; file: string; pages: string }> = [];
+  /**
+   * Phase 23 (§2.1–§2.2): every extracted comparison table with its chunk's
+   * source provenance, collected during aggregation and assembled into
+   * comparison pages AFTER curation (the subject-entity identity must resolve
+   * through the canonical, post-remap slug set).
+   */
+  const rawTables: Array<{ table: ExtractorTable; source: string; pages: string }> = [];
 
   // Phase 8 (UAT fork fix, vision `03` §3.2 "The first folder assignment
   // wins" — applied ACROSS runs): the folder recorded in the PREVIOUS
@@ -816,6 +987,12 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         }
       }
     }
+
+    // Phase 23 (§2.1): comparison tables ride their chunk's source
+    // provenance; assembly happens after curation below.
+    for (const table of extracted.tables ?? []) {
+      rawTables.push({ table, source: chunkSource.file, pages: chunkSource.pages });
+    }
   }
 
   // ------------------------------------------------------------------
@@ -829,9 +1006,18 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
   // ------------------------------------------------------------------
   const entitySlugRemap = new Map<string, string>();
   const mergeRewrites = new Map<string, WikilinkRewrite>();
+  /**
+   * Phase 22 (§2.2): the active composite clusters, keyed by the `into`
+   * slug. Members are PULLED OUT of `entityMap` (their pages are never
+   * written) and pooled here, member-tagged; the composite page is written
+   * at the `into` member's folder/slug.
+   */
+  const clusterMap = new Map<string, { decision: AppliedCluster; members: Array<{ slug: string; aggregate: MaterializedEntity }> }>();
   let curationSummary: CurationSummary | null = null;
   let topicOutcome: TopicCurationOutcome | null = null;
   let entityOutcome: EntityCurationOutcome | null = null;
+  /** Phase 21 (§2.3): one timestamp per curation stage — the report's `run` and the decisions' `runId`. */
+  let curationRunTimestamp: string | null = null;
 
   if (options?.curation === true && extractionFiles.length > 0) {
     // On-disk scans: the input includes the existing sets so update runs
@@ -855,80 +1041,127 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       onDiskTopics.set(slug, await readOnDiskTopicMeta(dir, locations));
     }
 
-    const topicCandidates = buildTopicCandidates(topicMap, onDiskTopics);
-    const entityCandidates = buildEntityCandidates(entityMap, onDiskEntities);
+    // ------------------------------------------------------------------
+    // Phase 21 (§2.3): STICKY PRE-APPLICATION. Before any candidate is
+    // built, the recorded decisions in `.state/curation-decisions.json`
+    // are applied deterministically — union-find seeded from merges, drops
+    // removed — so the curation calls below judge ONLY unstuck candidates
+    // (new extractions, undecided pairs; the merged-away page can never
+    // reappear, gate 21.6). A hand-edited `splits: [slug]` entry un-applies
+    // its record (the pair returns to candidates, the reversal is logged);
+    // a neverMerge veto un-applies it too (gate 21.8).
+    // ------------------------------------------------------------------
+    const runTimestamp = new Date().toISOString();
+    curationRunTimestamp = runTimestamp;
+    const overrides = await readCurationOverrides(dir);
+    const decisionsData = await readCurationDecisions(dir);
+    const splitSlugs = new Set(decisionsData.splits);
+    const neverMergeSet = new Set(overrides.neverMerge.map(([a, b]) => curationPairKey(a, b)));
 
-    if (topicCandidates.length + entityCandidates.length > 0) {
-      const overrides = await readCurationOverrides(dir);
+    const splitReversals: Array<{
+      concern: 'topics' | 'entities';
+      from: string[];
+      into?: string;
+      reason: 'split' | 'neverMerge';
+    }> = [];
+    const activeRecords: CurationDecisionRecord[] = [];
+    // Phase 22 (§2.2/gate 22.7): the reversed cluster records — their
+    // composite pages are deleted below (member pages rebuilt) when the
+    // on-disk page at the `into` path IS a composite (frontmatter check).
+    const reversedClusterIntos = new Set<string>();
+    for (const record of decisionsData.decisions) {
+      const involved = record.into !== undefined ? [record.into, ...record.from] : [...record.from];
+      if (involved.some((slug) => splitSlugs.has(slug))) {
+        splitReversals.push({ concern: record.concern, from: record.from, into: record.into, reason: 'split' });
+        if (record.action === 'cluster' && record.into !== undefined) {
+          reversedClusterIntos.add(record.into);
+        }
+        continue;
+      }
+      if (
+        record.action === 'merge' &&
+        record.into !== undefined &&
+        record.from.some((from) => neverMergeSet.has(curationPairKey(from, record.into as string)))
+      ) {
+        splitReversals.push({ concern: record.concern, from: record.from, into: record.into, reason: 'neverMerge' });
+        continue;
+      }
+      // Phase 22 (§2.1): a neverMerge pair inside a sticky cluster record
+      // un-applies the whole composite (the human veto beats the record).
+      if (record.action === 'cluster' && record.into !== undefined) {
+        const members = [record.into, ...record.from];
+        const vetoed = members.some((a, i) =>
+          members.slice(i + 1).some((b) => neverMergeSet.has(curationPairKey(a, b))),
+        );
+        if (vetoed) {
+          splitReversals.push({ concern: record.concern, from: record.from, into: record.into, reason: 'neverMerge' });
+          reversedClusterIntos.add(record.into);
+          continue;
+        }
+      }
+      activeRecords.push(record);
+    }
+    const stickyTopicMergesAll = collapseStickyMerges(activeRecords, 'topics');
+    const stickyEntityMergesAll = collapseStickyMerges(activeRecords, 'entities');
+    const stickyTopicDropsAll = activeRecords
+      .filter((record) => record.concern === 'topics' && record.action === 'drop')
+      .flatMap((record) => record.from);
+    // Phase 22 (§2.1): sticky CLUSTER records — members re-derive as
+    // [into, ...from]; the composite is rebuilt deterministically every run.
+    const stickyEntityClustersAll: AppliedCluster[] = activeRecords
+      .filter((record) => record.concern === 'entities' && record.action === 'cluster' && record.into !== undefined)
+      .map((record) => ({
+        members: [record.into as string, ...record.from],
+        class: record.class ?? 1,
+        into: record.into as string,
+        signal: record.signal,
+        ...(record.rationale !== undefined ? { rationale: record.rationale } : {}),
+      }));
+
+    // Phase 21 widened guard: the stage runs when there are candidates
+    // (aggregate ∪ on-disk, exactly the pre-Phase-21 rule) OR sticky work to
+    // pre-apply (a sticky-only run still deletes pages and writes a report).
+    const hasCurationWork =
+      entityMap.size + topicMap.size + onDiskEntities.size + onDiskTopics.size > 0 ||
+      stickyTopicMergesAll.length + stickyEntityMergesAll.length + stickyTopicDropsAll.length +
+        stickyEntityClustersAll.length > 0;
+
+    if (hasCurationWork) {
       let agentsMd = '';
       try {
         agentsMd = await readFile(join(dir, 'AGENTS.md'), 'utf-8');
       } catch {
         // Best-effort — the prompt carries a placeholder when absent.
       }
-      const callOptions: CurateCallOptions = {
-        agentsMd,
-        language: options?.language,
-        logPath: join(dir, '.state', 'llm-calls.json'),
-        neverMerge: overrides.neverMerge,
-      };
-      const topicsFn = options?.curateTopicsFn ?? curateTopics;
-      const entitiesFn = options?.curateEntitiesFn ?? curateEntities;
-      [topicOutcome, entityOutcome] = await Promise.all([
-        topicCandidates.length > 0
-          ? topicsFn(topicCandidates, callOptions)
-          : Promise.resolve<TopicCurationOutcome>(emptyCurationOutcome()),
-        entityCandidates.length > 0
-          ? entitiesFn(entityCandidates, callOptions)
-          : Promise.resolve<EntityCurationOutcome>(emptyCurationOutcome()),
-      ]);
-
-      for (const fallback of topicOutcome.fallbacks) {
-        console.warn(
-          `Warning: topic curation keep-all fallback at ${fallback.scope} (${fallback.cause}) — all topic candidates written as-is.`,
-        );
-      }
-      for (const fallback of entityOutcome.fallbacks) {
-        console.warn(
-          `Warning: entity curation keep-all fallback at ${fallback.scope} (${fallback.cause}) — all entity candidates written as-is.`,
-        );
-      }
-
-      // Keep-all fallback: a null decision list means write every candidate
-      // exactly as pre-Phase-14 (the empty-applied list below).
-      const topicDecisions = topicOutcome.decisions ?? {
-        ...EMPTY_OUTCOME,
-        keep: topicCandidates.map((candidate) => candidate.slug),
-      };
-      const entityDecisions = entityOutcome.decisions ?? {
-        ...EMPTY_OUTCOME,
-        keep: entityCandidates.map((candidate) => candidate.slug),
-      };
 
       curationSummary = {
         ran: true,
         topicMerges: [],
         topicDrops: [],
         entityMerges: [],
-        fallbacks: [
-          ...topicOutcome.fallbacks.map((f) => ({ concern: 'topics' as const, scope: f.scope, cause: f.cause })),
-          ...entityOutcome.fallbacks.map((f) => ({ concern: 'entities' as const, scope: f.scope, cause: f.cause })),
-        ],
-        attempts: { topics: topicOutcome.attempts, entities: entityOutcome.attempts },
-        vetoes: [
-          ...topicOutcome.vetoes.map((v) => ({ concern: 'topics' as const, from: v.from, into: v.into })),
-          ...entityOutcome.vetoes.map((v) => ({ concern: 'entities' as const, from: v.from, into: v.into })),
-        ],
+        entityClusters: [],
+        fallbacks: [],
+        attempts: { topics: 0, entities: 0 },
+        vetoes: [],
         manualEditSkips: [],
         removedPages: [],
         rewrittenLinks: [],
+        fromSticky: { topicMerges: [], topicDrops: [], entityMerges: [], entityClusters: [] },
+        autoApplied: [],
+        proposedPairs: [],
+        proposedClusters: [],
+        denials: [],
+        clusterDenials: [],
+        splitReversals,
       };
+      const summary = curationSummary;
 
       // Manual-edit veto filter (phase doc §2.5): a from-page whose on-disk
       // content no longer matches its recorded hash — or that has no recorded
       // hash (the fork-reconciliation precedent treats untracked pages as
       // manual edits) — is SKIPPED, logged as a conflict, and its decision is
       // vetoed; the slug is treated as keep for the rest of the application.
+      // Shared by every Phase 21 tier (sticky, auto-apply, model).
       const pageHashes = options?.pageHashes;
       const isVetoedLocation = async (relPath: string): Promise<boolean> => {
         if (!pageHashes) {
@@ -944,13 +1177,14 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         }
         return hashContent(await readFile(absolute, 'utf-8')) !== recorded;
       };
-      const summary = curationSummary;
       const filterMerges = async (
         merges: CurationMergeDecision[],
         locations: Map<string, string[]>,
         concern: 'topics' | 'entities',
         intoLabel: string,
+        reasonLabel?: string,
       ): Promise<CurationMergeDecision[]> => {
+        const reason = reasonLabel ?? `Curation ${concern} merge`;
         const filtered: CurationMergeDecision[] = [];
         for (const merge of merges) {
           const keptFrom: string[] = [];
@@ -962,7 +1196,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
                 await logManualEditConflict(
                   dir,
                   location,
-                  `Curation ${concern} merge of '${from}' into '${merge.into}' (${intoLabel}) skipped: page was manually edited or has no recorded hash. Kept for review.`,
+                  `${reason} of '${from}' into '${merge.into}' (${intoLabel}) skipped: page was manually edited or has no recorded hash. Kept for review.`,
                 );
                 summary.manualEditSkips.push({ page: location, concern, action: 'merge' });
               }
@@ -980,6 +1214,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       const filterDrops = async (
         drops: string[],
         locations: Map<string, string[]>,
+        reasonLabel = 'Curation topic drop',
       ): Promise<string[]> => {
         const filtered: string[] = [];
         for (const slug of drops) {
@@ -990,7 +1225,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
               await logManualEditConflict(
                 dir,
                 location,
-                `Curation topic drop of '${slug}' skipped: page was manually edited or has no recorded hash. Kept for review.`,
+                `${reasonLabel} of '${slug}' skipped: page was manually edited or has no recorded hash. Kept for review.`,
               );
               summary.manualEditSkips.push({ page: location, concern: 'topics', action: 'drop' });
             }
@@ -1002,25 +1237,54 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         return filtered;
       };
 
-      const appliedEntityMerges = await filterMerges(entityDecisions.merges, entityLocations, 'entities', 'entity');
-      const appliedTopicMerges = await filterMerges(topicDecisions.merges, topicLocations, 'topics', 'topic');
-      const appliedTopicDrops = await filterDrops(topicDecisions.drops, topicLocations);
+      // Phase 22 (§2.1): the manual-edit veto for clusters is ALL-OR-NOTHING —
+      // a manually-edited/untracked MEMBER page vetoes the whole composite
+      // (partial absorption is never meaningful), exactly the merge veto's
+      // posture (logged as a conflict, members treated as keep this run).
+      const filterClusters = async (
+        clusters: AppliedCluster[],
+        locations: Map<string, string[]>,
+        reasonLabel: string,
+      ): Promise<AppliedCluster[]> => {
+        const filtered: AppliedCluster[] = [];
+        for (const cluster of clusters) {
+          let vetoed = false;
+          for (const member of cluster.members) {
+            for (const location of locations.get(member) ?? []) {
+              if (await isVetoedLocation(location)) {
+                vetoed = true;
+                await logManualEditConflict(
+                  dir,
+                  location,
+                  `${reasonLabel} of '${member}' into composite '${cluster.into}' skipped: page was manually edited or has no recorded hash. Kept for review.`,
+                );
+                summary.manualEditSkips.push({ page: location, concern: 'entities', action: 'cluster' });
+              }
+            }
+          }
+          if (!vetoed) {
+            filtered.push(cluster);
+          }
+        }
+        return filtered;
+      };
 
-      // ---- APPLY (phase doc §2.3, deterministic, all-or-nothing per the
-      // validated lists) ----
-      const entityTitleBySlug = new Map(entityCandidates.map((candidate) => [candidate.slug, candidate.title]));
-      for (const merge of appliedEntityMerges) {
+      // The merge-application closures — ONE implementation shared by the
+      // sticky pre-application, the auto-apply tier, and the model tier.
+      const entityTitleOf = (slug: string): string =>
+        entityMap.get(slug)?.name ?? onDiskEntities.get(slug)?.title ?? titleCaseSlug(slug);
+      const applyEntityMergeToMaps = (merge: CurationMergeDecision): void => {
         let intoEntity = entityMap.get(merge.into);
         if (!intoEntity) {
           // An on-disk-only merge target gets a synthesized aggregate so the
           // survivor page is (re-)written with the unioned content.
-          const candidate = entityCandidates.find((entry) => entry.slug === merge.into);
+          const onDisk = onDiskEntities.get(merge.into);
           intoEntity = {
-            name: candidate?.title ?? titleCaseSlug(merge.into),
-            type: candidate?.type ?? 'unknown',
-            folder: candidate?.folder ?? 'entities',
-            significance: candidate?.significance ?? '',
-            disambiguation: candidate?.disambiguation,
+            name: entityTitleOf(merge.into),
+            type: onDisk?.type ?? 'unknown',
+            folder: onDisk?.folder ?? 'entities',
+            significance: '',
+            disambiguation: undefined,
             contexts: new Set<string>(),
             mentions: [],
             relationships: [],
@@ -1049,22 +1313,22 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
             entityMap.delete(from);
           }
           // Every merged variant title becomes an alias of the canonical page.
-          const variantTitle = fromEntity?.name ?? entityTitleBySlug.get(from) ?? titleCaseSlug(from);
+          const variantTitle = fromEntity?.name ?? entityTitleOf(from);
           intoEntity.aliases.push(variantTitle);
           entitySlugRemap.set(from, merge.into);
           mergeRewrites.set(from, { into: merge.into, fromTitle: variantTitle });
         }
         intoEntity.aliases = Array.from(new Set(intoEntity.aliases));
-      }
-
-      for (const merge of appliedTopicMerges) {
+      };
+      const topicTitleOf = (slug: string): string =>
+        topicMap.get(slug)?.title ?? onDiskTopics.get(slug)?.title ?? titleCaseSlug(slug);
+      const applyTopicMergeToMaps = (merge: CurationMergeDecision): void => {
         let intoTopic = topicMap.get(merge.into);
         if (!intoTopic) {
-          const candidate = topicCandidates.find((entry) => entry.slug === merge.into);
           intoTopic = {
-            title: candidate?.title ?? titleCaseSlug(merge.into),
+            title: topicTitleOf(merge.into),
             slug: merge.into,
-            folder: candidate?.folder ?? `topics/${merge.into}`,
+            folder: onDiskTopics.get(merge.into)?.folder ?? `topics/${merge.into}`,
             claims: [],
           };
           topicMap.set(merge.into, intoTopic);
@@ -1089,17 +1353,367 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
           // are repointed exactly like entity links (§2.3: the rewrite pass
           // covers from-slug/into-slug of BOTH concerns across all content
           // pages). Structured-reference remapping stays entity-only.
-          const fromTitle =
-            fromTopic?.title
-            ?? topicCandidates.find((entry) => entry.slug === from)?.title
-            ?? titleCaseSlug(from);
+          const fromTitle = fromTopic?.title ?? topicTitleOf(from);
           mergeRewrites.set(from, { into: merge.into, fromTitle });
         }
+      };
+
+      // Phase 22 (§2.2): apply ONE cluster — pull every member out of
+      // entityMap (member pages are NEVER written), pool the member-tagged
+      // aggregates for the composite, and repoint every structured reference
+      // and pre-existing wikilink from a member slug to the composite slug
+      // (the merge machinery's remap/rewrite passes, shared). The composite
+      // keeps the `into` member's slug and folder. A member missing from the
+      // aggregate (on-disk-only or fully absent this run) contributes an
+      // empty evidence group — the cluster contract is sticky.
+      const applyEntityClusterToMaps = (cluster: AppliedCluster): void => {
+        if (clusterMap.has(cluster.into)) {
+          // Defensive no-op: this `into` is already pooled (the sticky
+          // pre-application ran first). Re-applying would re-pull the members
+          // from a now-empty entityMap and CLOBBER the full evidence with
+          // empty on-disk-meta aggregates. Production never reaches this
+          // (cluster members leave the candidate set, so a decided cluster
+          // can never duplicate a sticky one); the guard protects the seams.
+          return;
+        }
+        const memberAggregates: Array<{ slug: string; aggregate: MaterializedEntity }> = [];
+        for (const slug of cluster.members) {
+          let aggregate = entityMap.get(slug);
+          if (!aggregate) {
+            const onDisk = onDiskEntities.get(slug);
+            aggregate = {
+              name: entityTitleOf(slug),
+              type: onDisk?.type ?? 'unknown',
+              folder: onDisk?.folder ?? 'entities',
+              significance: '',
+              disambiguation: undefined,
+              contexts: new Set<string>(),
+              mentions: [],
+              relationships: [],
+              incomingRelationships: [],
+              claims: [],
+              timeline: [],
+              aliases: [],
+            };
+          }
+          entityMap.delete(slug);
+          memberAggregates.push({ slug, aggregate });
+        }
+        clusterMap.set(cluster.into, { decision: cluster, members: memberAggregates });
+        for (const slug of cluster.members) {
+          if (slug === cluster.into) {
+            continue;
+          }
+          entitySlugRemap.set(slug, cluster.into);
+          mergeRewrites.set(slug, { into: cluster.into, fromTitle: entityTitleOf(slug) });
+        }
+      };
+
+      // ---- STICKY PRE-APPLICATION (§2.3) ----
+      const stickyEntityMerges = await filterMerges(
+        stickyEntityMergesAll,
+        entityLocations,
+        'entities',
+        'entity',
+        'Curation entities sticky merge',
+      );
+      const stickyTopicMerges = await filterMerges(
+        stickyTopicMergesAll,
+        topicLocations,
+        'topics',
+        'topic',
+        'Curation topics sticky merge',
+      );
+      const stickyTopicDrops = await filterDrops(stickyTopicDropsAll, topicLocations, 'Curation topic sticky drop');
+      for (const merge of stickyEntityMerges) {
+        applyEntityMergeToMaps(merge);
+      }
+      for (const merge of stickyTopicMerges) {
+        applyTopicMergeToMaps(merge);
+      }
+      for (const drop of stickyTopicDrops) {
+        // The claims themselves stay on their entity/document pages
+        // (preservation contract); only the topic grouping is discarded.
+        topicMap.delete(drop);
+      }
+      // ---- Phase 22 (§2.1): STICKY CLUSTER PRE-APPLICATION ----
+      // Recorded clusters rebuild their composites deterministically BEFORE
+      // candidates are built, so cluster members never re-enter the model's
+      // input (gate 22.6 — thin member pages can never oscillate back).
+      const stickyEntityClusters = await filterClusters(
+        stickyEntityClustersAll,
+        entityLocations,
+        'Curation entities sticky cluster',
+      );
+      for (const cluster of stickyEntityClusters) {
+        applyEntityClusterToMaps(cluster);
+      }
+      const clusteredMemberSlugs = new Set<string>();
+      for (const cluster of stickyEntityClusters) {
+        for (const member of cluster.members) {
+          clusteredMemberSlugs.add(member);
+        }
+      }
+      summary.fromSticky = {
+        topicMerges: stickyTopicMerges,
+        topicDrops: stickyTopicDrops,
+        entityMerges: stickyEntityMerges,
+        entityClusters: stickyEntityClusters,
+      };
+
+      // Candidates are built AFTER the sticky pre-application, so the model
+      // only ever judges unstuck candidates (gate 21.4). Phase 22: cluster
+      // members (and the composite's `into`) are excluded the same way.
+      let topicCandidates = buildTopicCandidates(topicMap, onDiskTopics);
+      let entityCandidates = buildEntityCandidates(entityMap, onDiskEntities, clusteredMemberSlugs);
+
+      // ---- Phase 21 (§2.1): DETERMINISTIC PRE-MERGE SIGNALS ----
+      // The corpus text feeds the `Full Name (ABBR)` abbreviation mining.
+      const corpusParts: string[] = [];
+      for (const fileName of extractionFiles) {
+        const chunkId = fileName.replace(/\.json$/i, '');
+        try {
+          corpusParts.push(matter(await readFile(join(dir, 'documents', `${chunkId}.md`), 'utf-8')).content);
+        } catch {
+          // A missing document page only shrinks the abbreviation evidence.
+        }
+      }
+      const corpusText = corpusParts.join('\n');
+      const detectionOptions = {
+        language: options?.language,
+        corpusText,
+        neverMerge: overrides.neverMerge,
+        // The splits escape hatch also vetoes the auto tier: a split
+        // survivor's accumulated aliases would otherwise re-merge the pair
+        // instantly through the alias signal (gate 21.7).
+        vetoSlugs: [...splitSlugs],
+      };
+      const topicDetection = detectPreMergePairs(topicCandidates, detectionOptions);
+      const entityDetection = detectPreMergePairs(entityCandidates, detectionOptions);
+
+      // AUTO-APPLY tier (§2.1): slug-identical-after-transliteration +
+      // alias-exact pairs apply with NO LLM call (gate 21.2). neverMerge
+      // vetoes were already filtered by detection (recorded below); the
+      // manual-edit veto guards the from-pages like any other merge.
+      const autoApplied: Array<{
+        concern: 'topics' | 'entities';
+        from: string;
+        into: string;
+        signal: string;
+        evidence: string;
+      }> = [];
+      const autoApplyPairs = async (
+        concern: 'topics' | 'entities',
+        pairs: ProposedPair[],
+        locations: Map<string, string[]>,
+      ): Promise<void> => {
+        for (const pair of pairs) {
+          let vetoed = false;
+          for (const location of locations.get(pair.from) ?? []) {
+            if (await isVetoedLocation(location)) {
+              vetoed = true;
+              await logManualEditConflict(
+                dir,
+                location,
+                `Curation ${concern} auto-merge of '${pair.from}' into '${pair.into}' (${pair.signal}) skipped: page was manually edited or has no recorded hash. Kept for review.`,
+              );
+              summary.manualEditSkips.push({ page: location, concern, action: 'merge' });
+            }
+          }
+          if (vetoed) {
+            continue;
+          }
+          if (concern === 'topics') {
+            applyTopicMergeToMaps({ from: [pair.from], into: pair.into });
+          } else {
+            applyEntityMergeToMaps({ from: [pair.from], into: pair.into });
+          }
+          autoApplied.push({
+            concern,
+            from: pair.from,
+            into: pair.into,
+            signal: pair.signal,
+            evidence: pair.evidence,
+          });
+        }
+      };
+      await autoApplyPairs('topics', topicDetection.autoApply, topicLocations);
+      await autoApplyPairs('entities', entityDetection.autoApply, entityLocations);
+      summary.autoApplied = autoApplied;
+      // neverMerge vetoes of auto-tier pairs (gate 21.8 — never applied).
+      summary.vetoes.push(
+        ...topicDetection.vetoed.map((pair) => ({ concern: 'topics' as const, from: pair.from, into: pair.into })),
+        ...entityDetection.vetoed.map((pair) => ({ concern: 'entities' as const, from: pair.from, into: pair.into })),
+      );
+
+      // Auto-apply changed the maps — rebuild the candidates so the
+      // merged-away slugs vanish and the survivors carry the unioned data.
+      if (autoApplied.length > 0) {
+        topicCandidates = buildTopicCandidates(topicMap, onDiskTopics);
+        entityCandidates = buildEntityCandidates(entityMap, onDiskEntities, clusteredMemberSlugs);
+      }
+
+      // ---- Phase 21 (§2.2): PROPOSED PAIRS + residual open discovery ----
+      // Proposed-pair members leave the open candidate list: the model
+      // confirms/denies them in the pairs output, and open discovery runs
+      // over the unproposed candidates only (smaller input, fewer buckets).
+      // Phase 22 (§2.1): proposed-cluster members leave it the same way —
+      // judged confirm/deny in the clusters output (entities only).
+      const topicCandidateSlugs = new Set(topicCandidates.map((candidate) => candidate.slug));
+      const entityCandidateSlugs = new Set(entityCandidates.map((candidate) => candidate.slug));
+      const proposedTopicPairs = topicDetection.proposed.filter(
+        (pair) => topicCandidateSlugs.has(pair.from) && topicCandidateSlugs.has(pair.into),
+      );
+      const proposedEntityPairs = entityDetection.proposed.filter(
+        (pair) => entityCandidateSlugs.has(pair.from) && entityCandidateSlugs.has(pair.into),
+      );
+      const proposedEntityClusters = entityDetection.proposedClusters.filter((cluster) =>
+        cluster.members.every((member) => entityCandidateSlugs.has(member)),
+      );
+      summary.proposedPairs = [
+        ...proposedTopicPairs.map((pair) => ({ concern: 'topics' as const, ...pair })),
+        ...proposedEntityPairs.map((pair) => ({ concern: 'entities' as const, ...pair })),
+      ];
+      summary.proposedClusters = proposedEntityClusters.map((cluster) => ({
+        members: cluster.members,
+        class: cluster.class,
+        into: cluster.into,
+        signal: cluster.signal,
+        evidence: cluster.evidence,
+      }));
+      const topicPairMembers = new Set(proposedTopicPairs.flatMap((pair) => [pair.from, pair.into]));
+      const entityPairMembers = new Set(proposedEntityPairs.flatMap((pair) => [pair.from, pair.into]));
+      const entityClusterProposalMembers = new Set(proposedEntityClusters.flatMap((cluster) => cluster.members));
+      const openTopicCandidates = topicCandidates.filter((candidate) => !topicPairMembers.has(candidate.slug));
+      const openEntityCandidates = entityCandidates.filter(
+        (candidate) => !entityPairMembers.has(candidate.slug) && !entityClusterProposalMembers.has(candidate.slug),
+      );
+
+      const callOptions: CurateCallOptions = {
+        agentsMd,
+        language: options?.language,
+        logPath: join(dir, '.state', 'llm-calls.json'),
+        neverMerge: overrides.neverMerge,
+      };
+      const topicsFn = options?.curateTopicsFn ?? curateTopics;
+      const entitiesFn = options?.curateEntitiesFn ?? curateEntities;
+      [topicOutcome, entityOutcome] = await Promise.all([
+        openTopicCandidates.length + proposedTopicPairs.length > 0
+          ? topicsFn(openTopicCandidates, { ...callOptions, proposedPairs: proposedTopicPairs })
+          : Promise.resolve<TopicCurationOutcome>(emptyCurationOutcome()),
+        openEntityCandidates.length + proposedEntityPairs.length + proposedEntityClusters.length > 0
+          ? entitiesFn(openEntityCandidates, {
+              ...callOptions,
+              proposedPairs: proposedEntityPairs,
+              proposedClusters: proposedEntityClusters,
+            })
+          : Promise.resolve<EntityCurationOutcome>(emptyCurationOutcome()),
+      ]);
+
+      for (const fallback of topicOutcome.fallbacks) {
+        console.warn(
+          `Warning: topic curation keep-all fallback at ${fallback.scope} (${fallback.cause}) — all topic candidates written as-is.`,
+        );
+      }
+      for (const fallback of entityOutcome.fallbacks) {
+        console.warn(
+          `Warning: entity curation keep-all fallback at ${fallback.scope} (${fallback.cause}) — all entity candidates written as-is.`,
+        );
+      }
+
+      // Keep-all fallback: a null decision list means write every candidate
+      // exactly as pre-Phase-14 (the empty-applied list below).
+      const topicDecisions = topicOutcome.decisions ?? {
+        ...EMPTY_OUTCOME,
+        keep: topicCandidates.map((candidate) => candidate.slug),
+      };
+      const entityDecisions = entityOutcome.decisions ?? {
+        ...EMPTY_OUTCOME,
+        keep: entityCandidates.map((candidate) => candidate.slug),
+      };
+
+      summary.fallbacks = [
+        ...topicOutcome.fallbacks.map((f) => ({ concern: 'topics' as const, scope: f.scope, cause: f.cause })),
+        ...entityOutcome.fallbacks.map((f) => ({ concern: 'entities' as const, scope: f.scope, cause: f.cause })),
+      ];
+      summary.attempts = { topics: topicOutcome.attempts, entities: entityOutcome.attempts };
+      summary.vetoes.push(
+        ...topicOutcome.vetoes.map((v) => ({ concern: 'topics' as const, from: v.from, into: v.into })),
+        ...entityOutcome.vetoes.map((v) => ({ concern: 'entities' as const, from: v.from, into: v.into })),
+      );
+      // Phase 21 (§2.2): denials are recorded for audit (both pages stay).
+      summary.denials = [
+        ...(topicOutcome.pairVerdicts ?? [])
+          .filter((verdict) => verdict.verdict === 'deny')
+          .map((verdict) => ({
+            concern: 'topics' as const,
+            from: verdict.from,
+            into: verdict.into,
+            ...(verdict.justification !== undefined ? { justification: verdict.justification } : {}),
+          })),
+        ...(entityOutcome.pairVerdicts ?? [])
+          .filter((verdict) => verdict.verdict === 'deny')
+          .map((verdict) => ({
+            concern: 'entities' as const,
+            from: verdict.from,
+            into: verdict.into,
+            ...(verdict.justification !== undefined ? { justification: verdict.justification } : {}),
+          })),
+      ];
+      // Phase 22 (§2.1): cluster denials are recorded the same way (every
+      // member keeps its own page).
+      summary.clusterDenials = (entityOutcome.clusterVerdicts ?? [])
+        .filter((verdict) => verdict.verdict === 'deny')
+        .map((verdict) => ({
+          members: verdict.members,
+          class: verdict.class,
+          into: verdict.into,
+          ...(verdict.rationale !== undefined ? { rationale: verdict.rationale } : {}),
+        }));
+
+      const appliedEntityMerges = await filterMerges(entityDecisions.merges, entityLocations, 'entities', 'entity');
+      const appliedTopicMerges = await filterMerges(topicDecisions.merges, topicLocations, 'topics', 'topic');
+      const appliedTopicDrops = await filterDrops(topicDecisions.drops, topicLocations);
+
+      // ---- APPLY (phase doc §2.3, deterministic, all-or-nothing per the
+      // validated lists) — the same closures the sticky/auto tiers used. ----
+      for (const merge of appliedEntityMerges) {
+        applyEntityMergeToMaps(merge);
+      }
+      for (const merge of appliedTopicMerges) {
+        applyTopicMergeToMaps(merge);
       }
       for (const drop of appliedTopicDrops) {
         // The claims themselves stay on their entity/document pages
         // (preservation contract); only the topic grouping is discarded.
         topicMap.delete(drop);
+      }
+
+      // ---- Phase 22 (§2.1): APPLY CLUSTERS (deterministic, post-veto) ----
+      // Confirmed deterministic proposals carry their signal; open
+      // judgment-class clusters record as 'model'. The composite pools the
+      // members' evidence; member pages are never written.
+      const clusterProposalByMemberSet = new Map(
+        proposedEntityClusters.map((cluster) => [[...cluster.members].sort().join(' '), cluster] as const),
+      );
+      const decidedEntityClusters: AppliedCluster[] = (entityDecisions.clusters ?? []).map(
+        (cluster: CurationClusterDecision) => {
+          const proposal = clusterProposalByMemberSet.get([...cluster.members].sort().join(' '));
+          return {
+            members: cluster.members,
+            class: cluster.class,
+            into: cluster.into,
+            signal: proposal?.signal ?? 'model',
+            ...(cluster.rationale !== undefined ? { rationale: cluster.rationale } : {}),
+          };
+        },
+      );
+      const appliedEntityClusters = await filterClusters(decidedEntityClusters, entityLocations, 'Curation entities cluster');
+      for (const cluster of appliedEntityClusters) {
+        applyEntityClusterToMaps(cluster);
+        for (const member of cluster.members) {
+          clusteredMemberSlugs.add(member);
+        }
       }
 
       // Repoint every structured reference to a merged-away entity slug:
@@ -1134,20 +1748,59 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       // Update-mode deletions (phase doc §2.5): every on-disk page of a
       // merged-away or dropped slug is deleted deterministically, with the
       // now-empty folder chain (the veto filter already kept edited/untracked
-      // pages out of the applied lists, so only tool-written pages land here).
-      const deletions: string[] = [];
-      for (const merge of appliedEntityMerges) {
+      // pages out of the applied lists, so only tool-written pages land
+      // here). Phase 21: sticky + auto-applied merges delete identically.
+      // Phase 22 (§2.2): cluster MEMBER pages (every member except `into` —
+      // the composite takes over its path) delete identically; a reversed
+      // cluster's composite page at the `into` path is deleted only when it
+      // IS a composite page (frontmatter check — never a hand-maintained one).
+      const deletions = new Set<string>();
+      for (const merge of [...stickyEntityMerges, ...appliedEntityMerges]) {
         for (const from of merge.from) {
-          deletions.push(...(entityLocations.get(from) ?? []));
+          for (const location of entityLocations.get(from) ?? []) {
+            deletions.add(location);
+          }
         }
       }
-      for (const merge of appliedTopicMerges) {
+      for (const merge of [...stickyTopicMerges, ...appliedTopicMerges]) {
         for (const from of merge.from) {
-          deletions.push(...(topicLocations.get(from) ?? []));
+          for (const location of topicLocations.get(from) ?? []) {
+            deletions.add(location);
+          }
         }
       }
-      for (const drop of appliedTopicDrops) {
-        deletions.push(...(topicLocations.get(drop) ?? []));
+      for (const drop of [...stickyTopicDrops, ...appliedTopicDrops]) {
+        for (const location of topicLocations.get(drop) ?? []) {
+          deletions.add(location);
+        }
+      }
+      for (const entry of autoApplied) {
+        const locations = entry.concern === 'topics' ? topicLocations : entityLocations;
+        for (const location of locations.get(entry.from) ?? []) {
+          deletions.add(location);
+        }
+      }
+      for (const cluster of [...stickyEntityClusters, ...appliedEntityClusters]) {
+        for (const member of cluster.members) {
+          if (member === cluster.into) {
+            continue;
+          }
+          for (const location of entityLocations.get(member) ?? []) {
+            deletions.add(location);
+          }
+        }
+      }
+      for (const into of reversedClusterIntos) {
+        for (const location of entityLocations.get(into) ?? []) {
+          try {
+            const parsed = matter(await readFile(join(dir, location), 'utf-8'));
+            if (parsed.data.type === 'composite') {
+              deletions.add(location);
+            }
+          } catch {
+            // Unreadable page — never deleted on this path.
+          }
+        }
       }
       for (const location of deletions) {
         const absolute = join(dir, location);
@@ -1155,13 +1808,14 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
           continue;
         }
         await rm(absolute, { force: true });
-        curationSummary.removedPages.push(location);
+        summary.removedPages.push(location);
         await pruneEmptyFolderChain(join(dir, location.split('/')[0]), dirname(absolute));
       }
 
       // The curated maps define the folder structure from here on (rolling
       // memory + structural changes diff); identical to the aggregated set
       // when nothing merged/dropped, so the OFF path stays byte-identical.
+      // Phase 22: composite folders (the `into` members' folders) included.
       folderStructure.clear();
       for (const entity of entityMap.values()) {
         folderStructure.add(entity.folder);
@@ -1169,10 +1823,95 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       for (const topic of topicMap.values()) {
         folderStructure.add(topic.folder);
       }
+      for (const composite of clusterMap.values()) {
+        const intoAggregate = composite.members.find((member) => member.slug === composite.decision.into);
+        if (intoAggregate) {
+          folderStructure.add(intoAggregate.aggregate.folder);
+        }
+      }
 
-      curationSummary.entityMerges = appliedEntityMerges;
-      curationSummary.topicMerges = appliedTopicMerges;
-      curationSummary.topicDrops = appliedTopicDrops;
+      summary.entityMerges = appliedEntityMerges;
+      summary.topicMerges = appliedTopicMerges;
+      summary.topicDrops = appliedTopicDrops;
+      summary.entityClusters = appliedEntityClusters;
+
+      // ---- Phase 21 (§2.3): STICKY RECORDING. Every applied decision of
+      // this run lands in `.state/curation-decisions.json` (auto tier with
+      // its signal, confirmed pairs with theirs, open model merges and drops
+      // as 'model') — later runs pre-apply them deterministically. Split
+      // slugs touching a new record are consumed (appendCurationDecisions).
+      // ------------------------------------------------------------------
+      const newRecords: CurationDecisionRecord[] = [];
+      for (const entry of autoApplied) {
+        newRecords.push({
+          concern: entry.concern,
+          action: 'merge',
+          from: [entry.from],
+          into: entry.into,
+          signal: entry.signal,
+          decidedAt: runTimestamp,
+          runId: runTimestamp,
+        });
+      }
+      const topicPairByEdge = new Map(proposedTopicPairs.map((pair) => [`${pair.from} ${pair.into}`, pair]));
+      for (const merge of appliedTopicMerges) {
+        for (const from of merge.from) {
+          const pair = topicPairByEdge.get(`${from} ${merge.into}`);
+          newRecords.push({
+            concern: 'topics',
+            action: 'merge',
+            from: [from],
+            into: merge.into,
+            signal: pair?.signal ?? 'model',
+            decidedAt: runTimestamp,
+            runId: runTimestamp,
+          });
+        }
+      }
+      for (const drop of appliedTopicDrops) {
+        newRecords.push({
+          concern: 'topics',
+          action: 'drop',
+          from: [drop],
+          signal: 'model',
+          decidedAt: runTimestamp,
+          runId: runTimestamp,
+        });
+      }
+      const entityPairByEdge = new Map(proposedEntityPairs.map((pair) => [`${pair.from} ${pair.into}`, pair]));
+      for (const merge of appliedEntityMerges) {
+        for (const from of merge.from) {
+          const pair = entityPairByEdge.get(`${from} ${merge.into}`);
+          newRecords.push({
+            concern: 'entities',
+            action: 'merge',
+            from: [from],
+            into: merge.into,
+            signal: pair?.signal ?? 'model',
+            decidedAt: runTimestamp,
+            runId: runTimestamp,
+          });
+        }
+      }
+      // Phase 22 (§2.1): every applied cluster is recorded (`action:
+      // 'cluster'`, from = the members other than `into`, class + rationale
+      // carried) and pre-applied deterministically from the next run on.
+      for (const cluster of appliedEntityClusters) {
+        newRecords.push({
+          concern: 'entities',
+          action: 'cluster',
+          from: cluster.members.filter((member) => member !== cluster.into).sort(),
+          into: cluster.into,
+          signal: cluster.signal,
+          class: cluster.class,
+          ...(cluster.rationale !== undefined ? { rationale: cluster.rationale } : {}),
+          decidedAt: runTimestamp,
+          runId: runTimestamp,
+        });
+      }
+      if (newRecords.length > 0) {
+        await appendCurationDecisions(dir, newRecords);
+      }
     }
   }
 
@@ -1180,12 +1919,101 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
   // pipe form [[slug|Page Title]] instead of [[slug]]. Unknown slugs fall back
   // to the bare [[slug]] form. Built AFTER curation so it reflects the
   // curated set (merged-away slugs are gone; survivors render canonically).
+  // Phase 22: composites render under their `into` slug with the composite
+  // title (member titles joined ' — '); member slugs are remapped to it.
   const slugToTitle: Record<string, string> = {};
   for (const [slug, entity] of entityMap.entries()) {
     slugToTitle[slug] = entity.name;
   }
+  for (const composite of clusterMap.values()) {
+    slugToTitle[composite.decision.into] = composite.members
+      .map((member) => member.aggregate.name)
+      .join(' — ');
+  }
 
-  const result: MaterializeResult = { entityPages: [], topicPages: [], documentPages: [], writtenPages: [], preservedPages: [], conflicts: [], convergedPages: [], removedDuplicates: [] };
+  // ------------------------------------------------------------------
+  // Phase 23 (§2.2, backlog B21): COMPARISON page assembly. One page per
+  // comparison-table SUBJECT: identity = the canonical subject-entity slug
+  // when resolvable through the curated aggregate (renamed/renumbered tables
+  // reconcile onto ONE page through the entity's canonical identity — the
+  // corpus's 2023→2024 indicator renumbering pattern), the normalized-title
+  // slug only as fallback (never the drifting title alone). Cross-PDF
+  // structural drift is NEVER force-merged: each source's table keeps its own
+  // dated section, preserved verbatim as that source printed it.
+  // ------------------------------------------------------------------
+  interface ComparisonAggregate {
+    title: string;
+    slug: string;
+    subject: string;
+    sections: ComparisonTableSection[];
+    seenKeys: Set<string>;
+    tableEntities: Set<string>;
+    captions: string[];
+  }
+  const comparisonMap = new Map<string, ComparisonAggregate>();
+  const remapTableSlug = (slug: string): string => entitySlugRemap.get(slug) ?? slug;
+  for (const { table, source, pages } of rawTables) {
+    const tableTitle = table.title.trim();
+    if (tableTitle === '' || table.markdown.trim() === '') {
+      // Defensive: the schema validator rejects these; an old/hand-written
+      // extraction file could still carry one — never emit a broken page.
+      continue;
+    }
+    const rawSubject = typeof table.subject === 'string' ? table.subject.trim() : '';
+    const resolvedSubject = rawSubject !== '' ? remapTableSlug(rawSubject) : '';
+    const known = resolvedSubject !== '' && slugToTitle[resolvedSubject] !== undefined;
+    const key = known ? resolvedSubject : slugify(tableTitle, options?.language?.input);
+    if (key === '') {
+      continue;
+    }
+    const section: ComparisonTableSection = {
+      source,
+      pages,
+      page: table.page,
+      tableTitle,
+      rowDimension: table.rowDimension?.trim() ?? '',
+      colDimension: table.colDimension?.trim() ?? '',
+      entities: Array.from(new Set((table.entities ?? []).map(remapTableSlug))),
+      markdown: table.markdown,
+      summary: table.summary?.trim() ?? '',
+    };
+    const dedupeKey = `${source}|${table.page}|${tableTitle}|${table.markdown}`;
+    const existing = comparisonMap.get(key);
+    if (existing) {
+      if (!existing.seenKeys.has(dedupeKey)) {
+        existing.seenKeys.add(dedupeKey);
+        existing.sections.push(section);
+      }
+      for (const entitySlug of section.entities) {
+        existing.tableEntities.add(entitySlug);
+      }
+      if (!existing.captions.includes(tableTitle)) {
+        existing.captions.push(tableTitle);
+      }
+    } else {
+      comparisonMap.set(key, {
+        title: known ? slugToTitle[resolvedSubject] : tableTitle,
+        slug: key,
+        subject: known ? resolvedSubject : key,
+        sections: [section],
+        seenKeys: new Set([dedupeKey]),
+        tableEntities: new Set(section.entities),
+        captions: [tableTitle],
+      });
+    }
+  }
+  // Dated sections in deterministic order (source, then page).
+  for (const aggregate of comparisonMap.values()) {
+    aggregate.sections.sort((a, b) => a.source.localeCompare(b.source) || a.page - b.page);
+  }
+  if (comparisonMap.size > 0) {
+    // The ratified top-level folder (`03` §3.1 extended) joins the folder
+    // structure so rolling memory and the structural-change diff see it —
+    // added AFTER the curation stage's folderStructure rebuild above.
+    folderStructure.add('comparisons');
+  }
+
+  const result: MaterializeResult = { entityPages: [], compositePages: [], topicPages: [], comparisonPages: [], documentPages: [], writtenPages: [], preservedPages: [], conflicts: [], convergedPages: [], removedDuplicates: [] };
 
   // Phase 16 (vision `04` Step 9): the synthesis completion memory. A page
   // with a skip-eligible record (strict/permissive pass whose dataHash still
@@ -1306,6 +2134,118 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
   }
 
+  // Phase 22 (§2.2): write the COMPOSITE pages — one per active cluster, at
+  // the `into` member's folder/slug. Member pages were never written (they
+  // were pulled out of entityMap above); every evidence item keeps its
+  // member association in the per-member groups. Same Phase 16 preservation
+  // and Phase 8/19 conflict/convergence postures as the entity loop.
+  for (const composite of clusterMap.values()) {
+    const { decision, members } = composite;
+    const intoAggregate = members.find((member) => member.slug === decision.into)?.aggregate;
+    const folder = intoAggregate?.folder ?? 'entities';
+    const memberSlugs = new Set(members.map((member) => member.slug));
+
+    const memberDatas: CompositeMember[] = members.map(({ slug, aggregate }) => ({
+      slug,
+      title: aggregate.name,
+      type: aggregate.type,
+      // The class-3 role descriptor; other classes rely on the entity type.
+      ...(decision.class === 3 ? { role: isIndicatorSlug(slug) ? 'indicator' : 'concept' } : {}),
+      ...(aggregate.significance.trim().length > 0 ? { significance: aggregate.significance.trim() } : {}),
+      ...(aggregate.disambiguation !== undefined && aggregate.disambiguation.trim().length > 0
+        ? { disambiguation: aggregate.disambiguation.trim() }
+        : {}),
+      ...(aggregate.aliases.length > 0 ? { aliases: Array.from(new Set(aggregate.aliases)) } : {}),
+    }));
+
+    const memberEvidence: CompositeMemberEvidence[] = members.map(({ slug, aggregate }) => {
+      const relationships = dedupeRelationships(aggregate.relationships);
+      // Intra-cluster mirror dedupe (the entity-loop self-loop rule): when a
+      // relationship's subject AND object are both members, the record exists
+      // as outgoing in the subject's group AND incoming here — drop the
+      // incoming copy so the loop renders ONCE, as outgoing.
+      const incomingRelationships = dedupeIncomingRelationships(aggregate.incomingRelationships).filter(
+        (incoming) =>
+          !members.some(
+            (other) =>
+              other.slug !== slug &&
+              dedupeRelationships(other.aggregate.relationships).some(
+                (rel) =>
+                  rel.subject === incoming.subject &&
+                  rel.object === slug &&
+                  rel.predicate === incoming.predicate &&
+                  rel.page === incoming.page &&
+                  rel.source === incoming.source &&
+                  rel.pages === incoming.pages,
+              ),
+          ),
+      );
+      return {
+        slug,
+        mentions: dedupeMentions(aggregate.mentions),
+        relationships,
+        incomingRelationships,
+        claims: dedupeClaims(aggregate.claims),
+        timeline: dedupeTimeline(aggregate.timeline),
+        contexts: Array.from(aggregate.contexts),
+      };
+    });
+
+    const aliasExtras = Array.from(
+      new Set([
+        ...members.map((member) => member.aggregate.name),
+        ...members.flatMap((member) => member.aggregate.aliases),
+      ]),
+    );
+    const contexts = Array.from(new Set(members.flatMap((member) => member.aggregate.contexts)));
+
+    const compositeData: CompositePageData = {
+      title: members.map((member) => member.aggregate.name).join(' — '),
+      slug: decision.into,
+      folder,
+      wiki: wikiSlug,
+      class: decision.class,
+      members: memberDatas,
+      memberEvidence,
+      slugToTitle,
+      ...(aliasExtras.length > 0 ? { aliases: aliasExtras } : {}),
+      ...(contexts.length > 0 ? { context: contexts.join('\n\n') } : {}),
+    };
+
+    const folderPath = join(dir, folder);
+    await mkdir(folderPath, { recursive: true });
+    const pagePath = join(folderPath, `${decision.into}.md`);
+    const relativePath = synthesisPagePath(compositeData);
+    // Phase 16 (vision `04` Step 9): the resume contract — a skip-eligible
+    // record whose fingerprint matches the { members, unioned evidence,
+    // language } hash preserves the finished composite byte-for-byte.
+    const synthesisRecord = synthesisRecords[relativePath];
+    if (
+      isSkipEligible(synthesisRecord) &&
+      synthesisRecord.dataHash === pageDataHash(compositeData, resumeLanguage) &&
+      existsSync(pagePath)
+    ) {
+      result.compositePages.push(compositeData);
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile(pagePath, 'utf-8')) });
+      continue;
+    }
+    const rendered = writeCompositePage(compositeData);
+    const verdict = await checkPageConflict(pagePath, relativePath, options?.pageHashes, rendered);
+    if (verdict === 'conflict') {
+      await logManualEditConflict(dir, relativePath);
+      result.conflicts.push(relativePath);
+      continue;
+    }
+    if (verdict === 'converge') {
+      logHashConvergence(relativePath);
+      result.convergedPages.push(relativePath);
+    }
+
+    result.compositePages.push(compositeData);
+    await writeFile(pagePath, rendered, 'utf-8');
+    result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
+  }
+
   // Phase 8 (UAT fork-reconciliation fix): a page for the same slug at any
   // OTHER folder than the canonical one is a duplicate left behind by a
   // forked run. Unmodified duplicates (on-disk hash still matches the hash
@@ -1398,6 +2338,85 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
   }
 
+  // Phase 23 (§2.2): write the COMPARISON pages — one per comparison-table
+  // subject, at `comparisons/<slug>.md`. The bridge is computed here from the
+  // CURATED topic claims: exactly the claims sharing the table's entities
+  // (claim.entities ∩ table entities, deterministic), linking out to the live
+  // topic/entity pages where free-text comparisons already live. Same
+  // Phase 16 resume preservation and Phase 8/19 conflict/convergence
+  // postures as the entity/topic/composite loops.
+  for (const aggregate of comparisonMap.values()) {
+    const bridge: ComparisonBridgeEntry[] = [];
+    const seenBridgeClaims = new Set<string>();
+    for (const topic of topicMap.values()) {
+      for (const claim of topic.claims) {
+        const shared = Array.from(new Set(claim.entities.filter((slug) => aggregate.tableEntities.has(slug))));
+        if (shared.length === 0) {
+          continue;
+        }
+        const bridgeKey = `${claim.text}|${claim.type}|${claim.source}|${claim.pages}`;
+        if (seenBridgeClaims.has(bridgeKey)) {
+          continue;
+        }
+        seenBridgeClaims.add(bridgeKey);
+        bridge.push({
+          text: claim.text,
+          topicSlug: claim.type,
+          entities: shared,
+          source: claim.source,
+          pages: claim.pages,
+        });
+      }
+    }
+
+    const pageData: ComparisonPageData = {
+      title: aggregate.title,
+      slug: aggregate.slug,
+      folder: 'comparisons',
+      wiki: wikiSlug,
+      subject: aggregate.subject,
+      tables: aggregate.sections,
+      bridge,
+      slugToTitle,
+      // Drift aliases: every distinct caption any source gave this table —
+      // a renamed/renumbered table's old titles still find the ONE page.
+      aliases: aggregate.captions.length > 0 ? aggregate.captions : undefined,
+    };
+
+    const folderPath = join(dir, 'comparisons');
+    await mkdir(folderPath, { recursive: true });
+    const pagePath = join(folderPath, `${aggregate.slug}.md`);
+    const relativePath = synthesisPagePath(pageData);
+    // Phase 16 (vision `04` Step 9): the resume contract — a skip-eligible
+    // record whose fingerprint matches the current aggregate preserves the
+    // finished comparison page byte-for-byte.
+    const synthesisRecord = synthesisRecords[relativePath];
+    if (
+      isSkipEligible(synthesisRecord) &&
+      synthesisRecord.dataHash === pageDataHash(pageData, resumeLanguage) &&
+      existsSync(pagePath)
+    ) {
+      result.comparisonPages.push(pageData);
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile(pagePath, 'utf-8')) });
+      continue;
+    }
+    const rendered = writeComparisonPage(pageData);
+    const verdict = await checkPageConflict(pagePath, relativePath, options?.pageHashes, rendered);
+    if (verdict === 'conflict') {
+      await logManualEditConflict(dir, relativePath);
+      result.conflicts.push(relativePath);
+      continue;
+    }
+    if (verdict === 'converge') {
+      logHashConvergence(relativePath);
+      result.convergedPages.push(relativePath);
+    }
+
+    result.comparisonPages.push(pageData);
+    await writeFile(pagePath, rendered, 'utf-8');
+    result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
+  }
+
   // Phase 14 (phase doc §2.3 + gate 14.7): exact-segment wikilink rewrite
   // across ALL pre-existing content pages (entity, topic, document — not DOX
   // indexes, which regenerate every run). Freshly-written pages are skipped
@@ -1408,7 +2427,10 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
   if (curationSummary !== null && mergeRewrites.size > 0) {
     const writtenSet = new Set(result.writtenPages.map((page) => page.path));
     const contentPages: string[] = [];
-    for (const section of ['entities', 'topics', 'documents']) {
+    // Phase 23: comparison pages join the rewrite scope — a resume-preserved
+    // comparison page's entity links repoint to canonical slugs like any
+    // other pre-existing content page (freshly-written ones are skipped).
+    for (const section of ['entities', 'topics', 'documents', 'comparisons']) {
       const sectionRoot = join(dir, section);
       if (existsSync(sectionRoot)) {
         await collectContentPagePaths(sectionRoot, section, '', contentPages);
@@ -1482,13 +2504,25 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
 
   // Update rolling memory
   const memory: RollingMemory = {
-    entities: Array.from(entityMap.entries())
-      .map(([slug, entity]) => ({
+    entities: [
+      ...Array.from(entityMap.entries()).map(([slug, entity]) => ({
         slug,
         folder: entity.folder,
         mentionCount: entity.mentions.length,
-      }))
-      .sort((a, b) => a.slug.localeCompare(b.slug)),
+      })),
+      // Phase 22 (§2.2): composites are tracked at their `into` slug (the
+      // canonical-folder rule keeps covering them); member slugs are absent
+      // while clustered — extraction re-aggregates them every run and the
+      // sticky record re-clusters them before candidates.
+      ...Array.from(clusterMap.values()).map((composite) => {
+        const intoAggregate = composite.members.find((member) => member.slug === composite.decision.into)?.aggregate;
+        return {
+          slug: composite.decision.into,
+          folder: intoAggregate?.folder ?? 'entities',
+          mentionCount: composite.members.reduce((count, member) => count + member.aggregate.mentions.length, 0),
+        };
+      }),
+    ].sort((a, b) => a.slug.localeCompare(b.slug)),
     topics: Array.from(topicMap.values())
       .map((topic) => topic.folder.replace(/^topics\//, ''))
       .sort((a, b) => a.localeCompare(b)),
@@ -1511,6 +2545,27 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
 
   for (const folder of memory.folderStructure) {
     if (previousFolders.has(folder)) {
+      continue;
+    }
+    if (folder === 'comparisons') {
+      // Phase 23 (§2.2): the ratified top-level folder is logged with the
+      // comparison-page count and the tables' entities (the entity-folder
+      // branch below would misreport it — comparison pages live outside
+      // entityMap).
+      const tableEntities = Array.from(
+        new Set(
+          Array.from(comparisonMap.values()).flatMap((aggregate) =>
+            aggregate.sections.flatMap((section) => section.entities),
+          ),
+        ),
+      ).sort((a, b) => a.localeCompare(b));
+      structuralChanges.push({
+        timestamp: structuralTimestamp,
+        type: 'new-folder',
+        path: folder,
+        reason: `${comparisonMap.size} comparison ${comparisonMap.size === 1 ? 'page' : 'pages'} created from extracted comparison tables`,
+        ...(tableEntities.length > 0 ? { affectedEntities: tableEntities } : {}),
+      });
       continue;
     }
     if (folder.startsWith('topics/')) {
@@ -1572,28 +2627,136 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
   // merges/drops, manual-edit skips, fallback events with cause, attempt
   // counts, deletions, rewritten links. Written only when the stage ran;
   // rolling memory above already reflects the curated set (written AFTER
-  // curation, vision `04` Step 6 item 5).
+  // curation, vision `04` Step 6 item 5). Phase 21 (§2.1–§2.3): the report
+  // distinguishes fromSticky vs decidedThisRun (with per-merge provenance)
+  // and records proposed pairs, the no-LLM auto tier, denials, and split
+  // reversals — all additive fields over the frozen legacy shape.
   if (curationSummary !== null) {
     result.curation = curationSummary;
+    const reportRun = curationRunTimestamp ?? new Date().toISOString();
+    const decidedMerges = (
+      concern: 'topics' | 'entities',
+      merges: CurationMergeDecision[],
+    ): Array<{ from: string[]; into: string; signal: string; evidence?: string }> => {
+      const details: Array<{ from: string[]; into: string; signal: string; evidence?: string }> = [];
+      for (const entry of curationSummary.autoApplied.filter((auto) => auto.concern === concern)) {
+        details.push({ from: [entry.from], into: entry.into, signal: entry.signal, evidence: entry.evidence });
+      }
+      const pairsByEdge = new Map(
+        curationSummary.proposedPairs
+          .filter((pair) => pair.concern === concern)
+          .map((pair) => [`${pair.from} ${pair.into}`, pair]),
+      );
+      for (const merge of merges) {
+        const edgePairs = merge.from.map((from) => pairsByEdge.get(`${from} ${merge.into}`));
+        const allFromPairs =
+          edgePairs.length > 0 &&
+          edgePairs.every((pair) => pair !== undefined && pair.signal === edgePairs[0]?.signal);
+        details.push({
+          from: merge.from,
+          into: merge.into,
+          signal: allFromPairs ? (edgePairs[0]?.signal ?? 'model') : 'model',
+          ...(allFromPairs && edgePairs[0] !== undefined ? { evidence: edgePairs[0].evidence } : {}),
+        });
+      }
+      return details;
+    };
     await writeCurationReport(dir, {
-      run: new Date().toISOString(),
+      run: reportRun,
       topics: {
         merges: curationSummary.topicMerges,
         drops: curationSummary.topicDrops,
         attempts: curationSummary.attempts.topics,
         fallbacks: (topicOutcome?.fallbacks ?? []).map((f) => ({ scope: f.scope, cause: f.cause })),
-        vetoes: (topicOutcome?.vetoes ?? []).map((v) => ({ from: v.from, into: v.into })),
+        // Summary vetoes cover validation vetoes AND Phase 21 auto-tier vetoes.
+        vetoes: curationSummary.vetoes
+          .filter((veto) => veto.concern === 'topics')
+          .map((veto) => ({ from: veto.from, into: veto.into })),
+        fromSticky: { merges: curationSummary.fromSticky.topicMerges, drops: curationSummary.fromSticky.topicDrops },
+        decidedThisRun: {
+          merges: decidedMerges('topics', curationSummary.topicMerges),
+          drops: curationSummary.topicDrops,
+          denials: curationSummary.denials
+            .filter((denial) => denial.concern === 'topics')
+            .map((denial) => ({
+              from: denial.from,
+              into: denial.into,
+              ...(denial.justification !== undefined ? { justification: denial.justification } : {}),
+            })),
+        },
+        proposedPairs: curationSummary.proposedPairs
+          .filter((pair) => pair.concern === 'topics')
+          .map((pair) => ({ from: pair.from, into: pair.into, signal: pair.signal, evidence: pair.evidence })),
+        autoApplied: curationSummary.autoApplied
+          .filter((pair) => pair.concern === 'topics')
+          .map((pair) => ({ from: pair.from, into: pair.into, signal: pair.signal, evidence: pair.evidence })),
       },
       entities: {
         merges: curationSummary.entityMerges,
         drops: [],
         attempts: curationSummary.attempts.entities,
         fallbacks: (entityOutcome?.fallbacks ?? []).map((f) => ({ scope: f.scope, cause: f.cause })),
-        vetoes: (entityOutcome?.vetoes ?? []).map((v) => ({ from: v.from, into: v.into })),
+        // Summary vetoes cover validation vetoes AND Phase 21 auto-tier vetoes.
+        vetoes: curationSummary.vetoes
+          .filter((veto) => veto.concern === 'entities')
+          .map((veto) => ({ from: veto.from, into: veto.into })),
+        fromSticky: {
+          merges: curationSummary.fromSticky.entityMerges,
+          drops: [],
+          // Phase 22 (§2.1): sticky cluster records pre-applied this run.
+          clusters: curationSummary.fromSticky.entityClusters.map((cluster) => ({
+            members: cluster.members,
+            class: cluster.class,
+            into: cluster.into,
+            signal: cluster.signal,
+            ...(cluster.rationale !== undefined ? { rationale: cluster.rationale } : {}),
+          })),
+        },
+        decidedThisRun: {
+          merges: decidedMerges('entities', curationSummary.entityMerges),
+          drops: [],
+          denials: curationSummary.denials
+            .filter((denial) => denial.concern === 'entities')
+            .map((denial) => ({
+              from: denial.from,
+              into: denial.into,
+              ...(denial.justification !== undefined ? { justification: denial.justification } : {}),
+            })),
+          // Phase 22 (§2.1): clusters decided this run (with provenance) +
+          // the proposed clusters the model denied.
+          clusters: curationSummary.entityClusters.map((cluster) => ({
+            members: cluster.members,
+            class: cluster.class,
+            into: cluster.into,
+            signal: cluster.signal,
+            ...(cluster.rationale !== undefined ? { rationale: cluster.rationale } : {}),
+          })),
+          clusterDenials: curationSummary.clusterDenials.map((denial) => ({
+            members: denial.members,
+            class: denial.class,
+            into: denial.into,
+            ...(denial.rationale !== undefined ? { rationale: denial.rationale } : {}),
+          })),
+        },
+        proposedPairs: curationSummary.proposedPairs
+          .filter((pair) => pair.concern === 'entities')
+          .map((pair) => ({ from: pair.from, into: pair.into, signal: pair.signal, evidence: pair.evidence })),
+        autoApplied: curationSummary.autoApplied
+          .filter((pair) => pair.concern === 'entities')
+          .map((pair) => ({ from: pair.from, into: pair.into, signal: pair.signal, evidence: pair.evidence })),
+        // Phase 22 (§2.1): the proposed clusters the model was asked to judge.
+        proposedClusters: curationSummary.proposedClusters.map((cluster) => ({
+          members: cluster.members,
+          class: cluster.class,
+          into: cluster.into,
+          signal: cluster.signal,
+          evidence: cluster.evidence,
+        })),
       },
       manualEditSkips: curationSummary.manualEditSkips,
       removedPages: curationSummary.removedPages,
       rewrittenLinks: curationSummary.rewrittenLinks,
+      splitReversals: curationSummary.splitReversals,
     });
   }
 

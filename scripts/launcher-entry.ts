@@ -30,7 +30,19 @@ import { spawnSync } from 'node:child_process';
 // 1.0.5 (2026-07-29): Phase 18 synthesis prompt changes (the
 // === CITATION KEYS === section + {citationMap} slot in all four synthesis
 // prompts) — all four are extracted assets.
-const VERSION = '1.0.5';
+// 1.0.6 (2026-07-29): Phase 21 curation prompt changes (the PROPOSED PAIRS
+// section + confirm/deny pairs output in curation-entities.prompt.txt and
+// curation-topics.prompt.txt) — both are extracted assets.
+// 1.0.7 (2026-07-29): Phase 22 — the two NEW composite synthesis prompts
+// (composite.prompt.txt + composite-permissive.prompt.txt) and the
+// PROPOSED CLUSTERS section in curation-entities.prompt.txt — all three are
+// extracted assets (covered by the "prompts/**/*" asset glob in
+// pkg.config.launcher.json and pkg.config.json).
+// 1.0.8 (2026-07-29): Phase 23 — the NEW comparison synthesis prompt
+// (comparison.prompt.txt) and the extractor prompt's new `tables` output
+// section in extractor.prompt.txt — both are extracted assets (covered by
+// the same "prompts/**/*" asset globs, no asset-list edit needed).
+const VERSION = '1.0.8';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

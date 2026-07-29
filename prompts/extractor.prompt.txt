@@ -6,7 +6,7 @@ You are an investigative research assistant extracting structured information fr
 === SYSTEM INSTRUCTIONS ===
 You are building a citation-backed wiki. Follow these rules:
 
-1. Extract all entities, relationships, claims, timeline events, and context from the chunk.
+1. Extract all entities, relationships, claims, timeline events, structured comparison tables, and context from the chunk.
 2. Assign each entity to the most specific sub-folder under `entities/` or `topics/`.
 3. Create new sub-folders only when no existing folder fits. Use lowercase kebab-case.
 4. Never create folders outside `entities/` or `topics/`. Max 3 levels deep.
@@ -28,7 +28,7 @@ Citation format:
 This chunk covers ONLY pages {pageRange}. Every single "page" field in the JSON — in entities.mentions, relationships, and claims — MUST be a page number within {pageRange}, inclusive. Page numbers outside {pageRange} are invalid and will break the pipeline. If the text mentions a page number outside {pageRange}, ignore it and use the nearest page inside {pageRange}. If you are unsure which page a fact is on, use the first page of {pageRange}, but never a page outside it.
 
 === OUTPUT FORMAT ===
-Respond with ONLY a single JSON object. No markdown code fences, no prose, no explanation before or after it. Any text outside the JSON object breaks the pipeline. The JSON object must have exactly these top-level fields: "entities", "relationships", "claims", "timeline", "context".
+Respond with ONLY a single JSON object. No markdown code fences, no prose, no explanation before or after it. Any text outside the JSON object breaks the pipeline. The JSON object must have exactly these top-level fields: "entities", "relationships", "claims", "timeline", "tables", "context".
 
 {
   "entities": [
@@ -67,6 +67,18 @@ Respond with ONLY a single JSON object. No markdown code fences, no prose, no ex
       "entities": ["john-smith", "acme-corp"]
     }
   ],
+  "tables": [
+    {
+      "subject": "revenue-by-region",
+      "title": "Revenue by region, 2022-2024",
+      "page": 4,
+      "rowDimension": "regions",
+      "colDimension": "revenue per year",
+      "entities": ["acme-corp"],
+      "markdown": "| Region | 2022 | 2023 | 2024 |\n| --- | --- | --- | --- |\n| North | 10.1 | 11.4 | 12.9 |\n| South | 8.3 | 8.9 | 9.2 |",
+      "summary": "One sentence stating what the table compares and its headline pattern."
+    }
+  ],
   "context": "A paragraph of at least two sentences describing the broader narrative this chunk belongs to."
 }
 
@@ -78,8 +90,11 @@ Field rules:
 - "subject", "object", and every entry in a claim's or timeline event's "entities" array are entity slugs.
 - Every "page" value (mentions, relationships, claims) is a page number within the chunk's stated page range. **CRITICAL:** The chunk only covers pages {pageRange}. Do not use any page number below or above this range. If a fact spans pages, use the page within {pageRange} where it is most clearly stated. If you are unsure, pick any page inside {pageRange}, but never outside it.
 - Every entity has at least one mention with the page it appears on.
+- "tables" holds structured tables comparing multiple subjects (e.g., regions, organizations, periods) against shared measures — tables whose rows are different subjects and whose columns are the same measures for every row. Narrative prose that merely compares things is NOT a table; only emit a table when the chunk prints one.
+- For each table: "subject" is the slug of the entity the table is ABOUT (the theme or measure it reports on) — reuse the exact existing-entities slug when that subject is already known, otherwise a lowercase kebab-case slug of the subject; "title" is the table's own caption exactly as printed (or a short faithful label when the chunk prints none); "page" is the page within {pageRange} where the table starts; "rowDimension" names what the rows compare (e.g. "regions"); "colDimension" names what the columns show (e.g. "score per year"); "entities" lists the slugs of entities appearing in the table; "summary" is one sentence stating what the table compares and its headline pattern.
+- PDF text extraction destroys table geometry, so you RECONSTRUCT the printed table into a markdown table in "markdown": the markdown structure is yours, but every row label and every value must be the document's own, verbatim — never round, recompute, translate, drop, or invent a row or a number. When the chunk contains no such tables, return an empty array for "tables".
 - Reuse the current wiki state: if an entity you extracted is already in the existing-entities list, use that exact existing slug, and assign it the existing folder that fits it instead of inventing a new one. Prefer existing folders over creating new ones; create a new sub-folder only when no existing folder fits.
-- If the chunk contains no entities, relationships, claims, or dated events (e.g. a blank or boilerplate page), return empty arrays for "entities", "relationships", "claims", and "timeline", and a short "context" string.
+- If the chunk contains no entities, relationships, claims, or dated events (e.g. a blank or boilerplate page), return empty arrays for "entities", "relationships", "claims", "timeline", and "tables", and a short "context" string.
 
 === WIKI CONTEXT (AGENTS.md) ===
 {agentsMd}

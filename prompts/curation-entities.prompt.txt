@@ -21,6 +21,20 @@ Rules:
 - Never merge a slug into itself.
 - Do not justify your decisions. If a justification is truly unavoidable, cap it at a few words.
 
+Proposed pairs:
+- The PROPOSED PAIRS section (when present) lists candidate pairs already flagged by deterministic pre-merge signals, each with its signal and evidence. Judge every proposed pair: CONFIRM the merge when the pair truly is the same real-world thing in the proposed direction; DENY otherwise — a denial keeps both candidates, exactly like leaving them unlisted.
+- Proposed-pair slugs are NOT in the CANDIDATES list and must NOT appear in "merge" or "unsure" — judge them ONLY in the "pairs" output array.
+- A pair you do not judge is treated as denied. Give a few words of justification per judgment, capped at a few words.
+- The same strict-identity rules apply to proposed pairs: confirm only name variants of the SAME real-world thing, never a sub-unit into its parent, never colocated-but-distinct things. When in doubt, DENY.
+
+Composite clusters:
+- A cluster groups 2-4 entities that are NOT the same real-world thing but logically map to each other into ONE composite page. Their identities stay in the graph (nothing merges); only the page is shared. The composite takes the "into" member's slug.
+- Cluster ONLY within these five classes: (1) abbreviation/name-variant, (2) brand↔generic substance, (3) indicator↔the concept it measures (1:1 only — exactly one indicator slug and one concept slug), (4) facility↔its city, only when the facility is the city's story, (5) same-name different-type (e.g. an organization and the location it is named after — the region name-forms).
+- Every cluster needs "members" (2-4 slugs), "class" (1-5), and "into" (one of the members). Classes 2 and 4 need a few words of "rationale".
+- NEVER cluster across classes, never more than 4 members, never a member in two clusters, never a sub-unit with its parent, never colocated-but-distinct things. When in doubt, keep the entities separate.
+- The PROPOSED CLUSTERS section (when present) lists deterministic cluster proposals (class 3 indicator↔concept, class 5 region name-forms). Judge every one: CONFIRM only when the members truly fit the class; DENY otherwise — a proposal you do not judge is denied automatically. Copy "members", "class", and "into" from the proposal EXACTLY.
+- Cluster member slugs must NOT appear in "merge" or "unsure" — a clustered entity is decided. A slug covered by both a proposed pair and a proposed cluster is decided in exactly one of them (confirm at most one).
+
 === WIKI CONTEXT (AGENTS.md) ===
 {agentsMd}
 
@@ -28,12 +42,22 @@ Rules:
 {candidates}
 === END CANDIDATES ===
 
+=== PROPOSED PAIRS ===
+{proposedPairs}
+=== END PROPOSED PAIRS ===
+
+=== PROPOSED CLUSTERS ===
+{proposedClusters}
+=== END PROPOSED CLUSTERS ===
+
 === OUTPUT FORMAT ===
 Return ONLY a single JSON object — no markdown fences, no commentary, no explanation:
 
-{ "merge": [{ "from": ["slug-x"], "into": "slug-y" }], "unsure": ["slug-w"] }
+{ "merge": [{ "from": ["slug-x"], "into": "slug-y" }], "unsure": ["slug-w"], "pairs": [{ "from": "slug-a", "into": "slug-b", "confirm": true, "justification": "same clinic" }], "clusters": [{ "members": ["slug-c", "slug-d"], "class": 5, "into": "slug-c", "confirm": true, "rationale": "org and its namesake city" }] }
 
 - "merge": one entry per merge group; "from" lists the slugs merged away, "into" is the surviving slug.
 - "unsure": slugs you cannot settle — treated as keep.
 - There is NO "keep" bucket: every candidate not listed in "merge" or "unsure" is kept automatically. Do not output a "keep" list.
+- "pairs": one entry per proposed pair you judged — "from" and "into" copied EXACTLY from the proposal, "confirm" true to apply the merge, false to deny it, "justification" a few words. Pairs you do not judge are denied automatically. Return "pairs": [] when no pairs were proposed.
+- "clusters": one entry per proposed cluster you judged ("members", "class", "into" copied EXACTLY, "confirm" true to build the composite, false to deny it) plus any open cluster you propose within the five classes (no "confirm" field — proposing it IS the decision). Return "clusters": [] when you confirm or propose nothing.
 Empty arrays are valid.

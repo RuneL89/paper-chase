@@ -18,7 +18,9 @@ import { validateExtractorResult } from '../validation/extractor-schema';
  *
  * Schema per phase doc §2.2 EXTENDED per the 2026-07-17 12:00 compliance-log
  * noted adaptation 1 (gates 2.9-2.12): `timeline`, `context`, per-entity
- * `significance`, optional per-entity `disambiguation`.
+ * `significance`, optional per-entity `disambiguation`. Phase 23 (§2.1)
+ * extends it once more with the optional `tables` array (comparison tables;
+ * the agent always fills it, `[]` when the model omitted it).
  */
 
 export interface ExtractorMention {
@@ -57,11 +59,37 @@ export interface ExtractorTimelineEvent {
   entities: string[];
 }
 
+/**
+ * Phase 23 (§2.1, backlog B21 — comparison-table articles): one structured
+ * comparison table from the chunk — a table comparing multiple subjects
+ * (regions, organizations, periods) against shared measures. `subject` is the
+ * slug of the entity the table is ABOUT (canonical when resolvable);
+ * `title` the table's own caption; `rowDimension`/`colDimension` name what
+ * the rows compare and what the columns show; `entities` the slugs appearing
+ * in the table; `markdown` the extractor-RECONSTRUCTED markdown table (pdfjs
+ * destroys table geometry — the structure is the extractor's, the VALUES are
+ * the PDF's, verbatim); `summary` one sentence. Optional on the result so
+ * pre-Phase-23 fixtures/JSON stay valid; the agent always fills it ([] when
+ * the model omitted it).
+ */
+export interface ExtractorTable {
+  subject: string;
+  title: string;
+  page: number;
+  rowDimension?: string;
+  colDimension?: string;
+  entities?: string[];
+  markdown: string;
+  summary?: string;
+}
+
 export interface ExtractorResult {
   entities: ExtractorEntity[];
   relationships: ExtractorRelationship[];
   claims: ExtractorClaim[];
   timeline: ExtractorTimelineEvent[];
+  /** Phase 23 (§2.1): comparison tables; absent in pre-Phase-23 JSON, always present in agent output. */
+  tables?: ExtractorTable[];
   context: string;
 }
 
@@ -282,6 +310,20 @@ export function normalizeExtractorSlugs(data: unknown, language?: LanguageCode):
       }
     }
   }
+  // Phase 23 (§2.1): the table's subject and its entity references are slug
+  // references — the subject keys the comparison article's identity when it
+  // resolves to an entity, so it gets the same transliteration+slugify
+  // treatment as every other slug reference.
+  if (Array.isArray(data.tables)) {
+    for (const table of data.tables) {
+      if (isRecord(table)) {
+        if (typeof table.subject === 'string') {
+          table.subject = slugify(table.subject, language);
+        }
+        normalizeSlugArray(table.entities);
+      }
+    }
+  }
 }
 
 /**
@@ -370,6 +412,11 @@ export async function extractChunk(
         return { valid: false, errors: validation.issues };
       }
       parsedSuccess = parsed as ExtractorResult;
+      // Phase 23 (§2.1): the agent's result always carries the array — a model
+      // that omitted it (schema-tolerated absence) yields the empty list, so
+      // every downstream reader (extract-chunk JSON, the materializer's table
+      // assembly) sees a uniform shape.
+      parsedSuccess.tables = parsedSuccess.tables ?? [];
       return { valid: true, errors: [] };
     },
     { maxAttempts: EXTRACTION_MAX_ATTEMPTS, label: options?.context ?? 'extractor chunk' },

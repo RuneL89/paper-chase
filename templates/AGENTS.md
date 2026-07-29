@@ -39,6 +39,7 @@ entities/               -- Named real-world things
   <sub-folders>/        -- Created dynamically by you during ingestion
 topics/                 -- Themes and concepts
   <sub-folders>/        -- Created dynamically by you during ingestion
+comparisons/            -- One article per comparison-table subject, written by the CLI
 ```
 
 The wiki root also contains `AGENTS.md` (this file), `index.md` (navigation contract), and `.state/` (internal tooling state) — all managed by the CLI, never edited by hand.
@@ -58,7 +59,10 @@ The wiki root also contains `AGENTS.md` (this file), `index.md` (navigation cont
 | `source` | Provenance record for a PDF | `sources/` | Deterministic code |
 | `topic` | Theme or concept across the corpus | `topics/<subfolder>/` | Your content, assembled by the Materializer |
 | `entity` | Named person, company, organization, etc. | `entities/<subfolder>/` | Your content, assembled by the Materializer |
+| `comparison` | One article per comparison-table subject | `comparisons/` | Your extracted `tables`, assembled by the Materializer |
 | `raw` | Unparseable or scanned PDF page | Per source | Deterministic extraction |
+
+A `comparison` page is written for each structured comparison table you extract (the `tables` output): the article's identity is the table's SUBJECT entity (its canonical slug when resolvable, never the drifting caption), each source's table is preserved verbatim in its own dated `## Table: <source>, p. <page>` section — the markdown structure is reconstructed, every row label and value stays the document's own — and a deterministic `## Related comparisons in prose` section links out to the topic/entity pages where free-text comparisons live. Synthesis reads ACROSS the dated sections (leaders, trailers, targets met or missed, trends, outliers).
 
 You may introduce new page types when the corpus demands them (e.g., `timeline`, `transaction`, `case`, `claim`). New types must be documented in the folder-level `index.md` and in this `AGENTS.md`.
 

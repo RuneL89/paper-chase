@@ -12,7 +12,7 @@ interface Page {
   relative: string;
 }
 
-const KNOWN_TYPES = new Set(['entity', 'topic', 'document', 'source', 'raw', 'index']);
+const KNOWN_TYPES = new Set(['entity', 'topic', 'document', 'source', 'raw', 'index', 'composite', 'comparison']);
 
 async function findPages(wikiSlug: string, workspace: string): Promise<Page[]> {
   const dir = join(workspace, 'wikis', wikiSlug);
@@ -93,6 +93,32 @@ export async function validateSchema(wikiSlug: string, workspace: string = '.'):
       // Custom types are allowed if they are documented in index.md.
       // Phase 5 will create index.md; until then, unknown types are flagged.
       invalid.push({ page: page.relative, issue: `Unknown page type: ${data.type}` });
+    } else if (data.type === 'composite') {
+      // Phase 22 (§2.4, the five-class rollup amendment): a composite page
+      // must carry its members block (2-4 entries, each with a slug) and the
+      // ratified rollup class (integer 1-5).
+      const members = data.members;
+      if (
+        !Array.isArray(members) ||
+        members.length < 2 ||
+        members.length > 4 ||
+        !members.every(
+          (member) =>
+            typeof member === 'object' &&
+            member !== null &&
+            typeof (member as Record<string, unknown>).slug === 'string' &&
+            ((member as Record<string, unknown>).slug as string).length > 0,
+        )
+      ) {
+        invalid.push({
+          page: page.relative,
+          issue: 'type composite requires a "members" list of 2-4 entries (each with a slug)',
+        });
+      }
+      const rollupClass = data.class;
+      if (typeof rollupClass !== 'number' || !Number.isInteger(rollupClass) || rollupClass < 1 || rollupClass > 5) {
+        invalid.push({ page: page.relative, issue: 'type composite requires a "class" field (integer 1-5)' });
+      }
     }
 
     if (!isValidIsoTimestamp(data.updated)) {

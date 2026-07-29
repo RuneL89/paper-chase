@@ -5,6 +5,8 @@ import { createHash } from 'node:crypto';
 import { enqueueSerializedWrite } from '../utils/serialized-writes';
 import type { EntityPageData } from '../pages/entity-page';
 import type { TopicPageData } from '../pages/topic-page';
+import type { CompositePageData } from '../pages/composite-page';
+import type { ComparisonPageData } from '../pages/comparison-page';
 import type { LanguageCode } from '../utils/language';
 
 /**
@@ -106,7 +108,7 @@ export function isSkipEligible(record: SynthesisPageRecord | undefined): record 
 }
 
 /** Wiki-relative page path for a page-data aggregate (forward slashes). */
-export function synthesisPagePath(pageData: EntityPageData | TopicPageData): string {
+export function synthesisPagePath(pageData: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData): string {
   return `${pageData.folder}/${pageData.slug}.md`;
 }
 
@@ -142,7 +144,7 @@ function canonicalJson(value: unknown): string {
  * check and the ingest skip rule so the two can never drift apart.
  */
 export function pageDataHash(
-  pageData: EntityPageData | TopicPageData,
+  pageData: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData,
   language: { input: LanguageCode; output: LanguageCode },
 ): string {
   const { slugToTitle: _globalContext, ...aggregate } = pageData;

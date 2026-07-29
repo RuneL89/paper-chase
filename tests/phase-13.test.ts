@@ -306,7 +306,13 @@ function topicStubPage(data: TopicPageData): string {
 test('gate 13.1 (static): one 32768 synthesis constant at all four sites, DOX 8192 at all three sites, extractor 32768', () => {
   const synthesisSource = readFileSync('src/agents/synthesis.ts', 'utf-8');
   expect(synthesisSource.match(/const SYNTHESIS_MAX_TOKENS = 32768;/g)).toHaveLength(1);
-  expect(synthesisSource.match(/maxTokens: SYNTHESIS_MAX_TOKENS/g)).toHaveLength(4);
+  // Phase 22 amendment (enumerated touch): the count grows 4 → 6 — the two
+  // composite synthesis writers (composite + composite-permissive) use the
+  // same shared ceiling constant at their call sites.
+  // Phase 23 amendment (enumerated touch): the count grows 6 → 8 — the two
+  // comparison synthesis writers (comparison strict + permissive legs) use
+  // the same shared ceiling constant at their call sites.
+  expect(synthesisSource.match(/maxTokens: SYNTHESIS_MAX_TOKENS/g)).toHaveLength(8);
   expect(synthesisSource).not.toMatch(/\b8192\b/);
 
   const doxSource = readFileSync('src/dox-writer.ts', 'utf-8');

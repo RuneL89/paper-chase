@@ -292,9 +292,15 @@ export async function checkLinks(wikiSlug: string, workspace: string = '.'): Pro
   // to entities/ and topics/ pages, so the sources/documents exemptions are
   // subsumed by the scope but documented for parity with the orphan rule.
   // Detection only — same reporting posture as orphans.
+  // Phase 23 (§2.4, gate 23.6): comparison pages are content pages for
+  // link/orphan/island purposes — `comparisons/` joins the island scope.
   const islands = pages
     .filter((page) => {
-      if (!page.wikiRelative.startsWith('entities/') && !page.wikiRelative.startsWith('topics/')) {
+      if (
+        !page.wikiRelative.startsWith('entities/') &&
+        !page.wikiRelative.startsWith('topics/') &&
+        !page.wikiRelative.startsWith('comparisons/')
+      ) {
         return false;
       }
       if (page.wikiRelative.endsWith('index.md')) {
