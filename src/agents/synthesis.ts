@@ -7,13 +7,14 @@ import {
   buildLanguageDirective,
   type LanguageCode,
 } from '../utils/language';
-import type {
-  EntityPageData,
-  EntityPageMention,
-  EntityPageRelationship,
-  EntityPageIncomingRelationship,
-  EntityPageClaim,
-  EntityPageTimelineEvent,
+import {
+  buildCitationMap,
+  type EntityPageData,
+  type EntityPageMention,
+  type EntityPageRelationship,
+  type EntityPageIncomingRelationship,
+  type EntityPageClaim,
+  type EntityPageTimelineEvent,
 } from '../pages/entity-page';
 import type { TopicPageData, TopicPageClaim } from '../pages/topic-page';
 
@@ -195,6 +196,33 @@ export function formatTopicSources(
     .join('\n');
 }
 
+/** Basename of a workspace-relative source path (mirrors pages/entity-page.ts). */
+function sourceFileName(file: string): string {
+  return file.split('/').pop() ?? file;
+}
+
+/**
+ * Phase 18 (B18, vision `06` §2/§7): the `citationMap` prompt slot — the
+ * page's DETERMINISTIC citation map rendered exactly like the deterministic
+ * `## Sources` rebuild (`[^srcN]: <basename>, pages <range>` lines in
+ * assignment order), so the model's in-prose markers use the same keys the
+ * written page's definitions will carry. The documented empty form is
+ * `(none)`.
+ */
+export function formatCitationMap(citationMap: Map<string, number>): string {
+  if (citationMap.size === 0) {
+    return '(none)';
+  }
+  return Array.from(citationMap.entries())
+    .map(([key, index]) => ({ key, index }))
+    .sort((a, b) => a.index - b.index)
+    .map(({ key, index }) => {
+      const [file, pages] = key.split('|');
+      return `[^src${index}]: ${sourceFileName(file)}, pages ${pages}`;
+    })
+    .join('\n');
+}
+
 function buildEntitySynthesisValues(entityData: EntityPageData): Record<string, string> {
   return {
     entityName: entityData.title,
@@ -209,6 +237,10 @@ function buildEntitySynthesisValues(entityData: EntityPageData): Record<string, 
     // Phase 17 (B12a): the legal wikilink targets — the prompts' wikilink
     // rule requires targets to come from this list.
     relatedEntities: formatRelatedEntities(buildRelatedEntities(entityData)),
+    // Phase 18 (B18): the deterministic citation map — the prompts' CITATION
+    // KEYS rule requires in-prose markers to use exactly these keys, matching
+    // the written page's rebuilt `## Sources` definitions.
+    citationMap: formatCitationMap(buildCitationMap(entityData).citationMap),
   };
 }
 
@@ -237,6 +269,12 @@ function buildTopicSynthesisValues(topicData: TopicPageData): Record<string, str
     claims: formatClaims(topicData.claims),
     sources: formatTopicSources(sources),
     context: topicData.context ?? '(none provided)',
+    // Phase 18 (B18): the deterministic citation map over the topic's claims
+    // (first-appearance order, matching writeTopicPage and the write points'
+    // `## Sources` rebuild) — the CITATION KEYS rule's authoritative keys.
+    citationMap: formatCitationMap(
+      buildCitationMap({ mentions: [], relationships: [], claims: topicData.claims }).citationMap,
+    ),
   };
 }
 

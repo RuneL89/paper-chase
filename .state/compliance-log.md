@@ -1883,3 +1883,33 @@
   Result: user-ratified EXTENSION — the sparse rule is scoped to OUTGOING relationships (incoming
     relationships do not clear sparse); Phase 17 scheduled as drafted. No unresolved contradictions.
   Checked By: Main agent (user decision recorded)
+
+[2026-07-29 09:10] Phases 18-20 Compliance Pre-Check (B18/B19/B20 scheduling; user-directed parallel execution)
+  Changed: (planned) src/agents/synthesis.ts, prompts/synthesis{,-permissive,-topic,-topic-permissive}.prompt.txt,
+    src/validation/preservation-check.ts (P18); src/materializer.ts, src/state/ingestion-state.ts (P19);
+    NEW src/utils/wikilink-repair.ts, src/validation/link-checker.ts, NEW scripts/repair-wikilinks.ts (P20);
+    src/commands/ingest.ts (orchestrator-owned integration seams); tests/phase-{18,19,20}.test.ts (new)
+  Vision Docs Checked: 02_WIKI_concept_detailed.md §2; 04_orchestration_detailed.md §3.2 Step 6, §4, §6;
+    06_citation_and_provenance.md §1-§3, §6-§7; 07_validation_and_quality.md §2.4-§2.6, §3, §5
+  Result: COMPLIANT with EXTENSION notes, no contradictions —
+    (a) P18: showing the deterministic citation map in synthesis prompts extends 04 §4's non-exhaustive
+    ("e.g.") input list; off-map markers become content defects in the existing 04 §6/07 §5 reask loop;
+    (b) P19: strengthens 07 §3's preservation-first guard — the safe-convergence path converges ONLY
+    provably-tool-written pages (disk == deterministic render of the current aggregate); human edits still
+    conflict, guard not weakened; (c) P20: deterministic unique-prefix/alias repair extends 07 §2.5's
+    broken-link handling toward 02 §2; ambiguous targets stay broken + reported (conservative); the
+    one-time dist/wikis remediation re-converges pageHashes per modified page (B19 interaction handled);
+    (d) GOLDEN RULE exception, user-directed 2026-07-29: the three phases are independent and run in
+    PARALLEL with strict file ownership (orchestrator owns ingest.ts seams); a unified verification run
+    (cold Verifier + full key-less suite + diff audit) restores the gate before acceptance.
+  Checked By: Main agent (planning)
+
+[2026-07-29 10:05] Phases 17-20 formal acceptance + closeout
+  Changed: .state/phase-{17,18,19,20}-status.json (uatAcceptance recorded, status completed),
+    Implementation Plan/BACKLOG.md (B18/B19/B20 struck FIXED 2026-07-29 user-accepted),
+    PHASE_17/18/19/20 phase docs (Status -> Complete — user-accepted 2026-07-29)
+  Vision Docs Checked: none (closeout bookkeeping; no code/contract change)
+  Result: user-accepted — Phase 17 (13/13 gates + Verifier + UATs 17.1-17.3), Phases 18/19/20
+    (16/16 gates + unified verification, 375+14/26 key-less, remediation executed). No unresolved
+    contradictions.
+  Checked By: Main agent (recording the user's declaration)

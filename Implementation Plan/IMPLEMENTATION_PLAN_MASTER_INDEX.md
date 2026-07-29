@@ -9,7 +9,7 @@
 
 ## Overview
 
-This implementation plan breaks Paper Chase v.1.0 into phases 0–9 and 11–17. Each phase is a standalone deliverable that can be tested in isolation and integrated with previously accepted phases. **You do not move to the next phase until every gate in the current phase passes.**
+This implementation plan breaks Paper Chase v.1.0 into phases 0–9 and 11–20. Each phase is a standalone deliverable that can be tested in isolation and integrated with previously accepted phases. **You do not move to the next phase until every gate in the current phase passes.**
 
 This structure prevents the compounding bug problem that destroyed the previous implementation. Each phase has:
 - A clear objective
@@ -42,6 +42,9 @@ This structure prevents the compounding bug problem that destroyed the previous 
 | 15 | [PHASE_15_synthesis_concurrency.md](PHASE_15_synthesis_concurrency.md) | Bounded worker pool (fixed cap 4) for entity/topic synthesis only; serialized state writes; deterministic report order; aggregate TUI progress | $0 | 3-4h |
 | 16 | [PHASE_16_run_resilience.md](PHASE_16_run_resilience.md) | Run resilience: per-page transport fallback + outage detector, synthesis resume (data fingerprints), per-PDF checkpointing, pool transport tuning, curation decision-list sizing | $0 | 5-8h |
 | 17 | [PHASE_17_entity_graph_and_citation_integrity.md](PHASE_17_entity_graph_and_citation_integrity.md) | Entity graph + citation integrity: bidirectional (incoming) relationships, related-entity link targets in synthesis, island (zero-outgoing) detection, deterministic post-synthesis frontmatter + `## Sources` normalization (backlog B10/B12/B1/B2) | $0 | 4-6h |
+| 18 | [PHASE_18_citation_numbering_alignment.md](PHASE_18_citation_numbering_alignment.md) | Citation numbering alignment: deterministic citation map taught in all four synthesis prompts; off-map markers become reask-loop content defects (backlog B18) | $0 | 2-3h |
+| 19 | [PHASE_19_stale_pagehash_convergence.md](PHASE_19_stale_pagehash_convergence.md) | Stale-hash convergence: locate + fix the pageHashes leak false-flagging tool-written pages; safe convergence for provably-tool-written pages; hash-consistency invariant (backlog B19) | $0 | 2-4h |
+| 20 | [PHASE_20_wikilink_repair.md](PHASE_20_wikilink_repair.md) | Wikilink repair: deterministic unique-prefix/alias repair at synthesis write points + one-time dist/wikis remediation with hash re-convergence (backlog B20) | $0 | 2-3h |
 
 **Total Estimated LLM Cost (all phases):** Variable; baseline ~$32.00 plus quality-first DOX Writer cost per wiki.
 **Total Estimated Time:** 40-58 hours
@@ -210,7 +213,10 @@ Wiki v5/                              # project root — all code and tests are 
     ├── PHASE_14_topic_and_entity_curation.md
     ├── PHASE_15_synthesis_concurrency.md
     ├── PHASE_16_run_resilience.md
-    └── PHASE_17_entity_graph_and_citation_integrity.md
+    ├── PHASE_17_entity_graph_and_citation_integrity.md
+    ├── PHASE_18_citation_numbering_alignment.md
+    ├── PHASE_19_stale_pagehash_convergence.md
+    └── PHASE_20_wikilink_repair.md
 ```
 
 ---

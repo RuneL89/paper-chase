@@ -8,6 +8,8 @@ import { renderTablesAsMarkdown } from '../extraction/markdown-tables';
 import { sha256 } from '../utils/hash';
 import { sourceSlugForFile } from '../utils/slug';
 import { aliasesForTitle, enforceAliasesInMarkdown } from '../utils/aliases';
+import { buildSlugUniverse } from '../validation/link-checker';
+import { repairWikilinksInMarkdown } from '../utils/wikilink-repair';
 import {
   buildCitationMap,
   enforceFrontmatterInMarkdown,
@@ -387,6 +389,7 @@ function preservationFeedbackErrors(check: { passed: boolean }): string[] {
     droppedRelationships?: string[];
     droppedClaims?: string[];
     droppedCitations?: string[];
+    extraMarkers?: string[]; // Phase 18 (B18)
   };
   const errors: string[] = [];
   for (const mention of dropped.droppedMentions ?? []) {
@@ -400,6 +403,11 @@ function preservationFeedbackErrors(check: { passed: boolean }): string[] {
   }
   for (const citation of dropped.droppedCitations ?? []) {
     errors.push(`Dropped citation (restore this exact marker): ${citation}`);
+  }
+  // Phase 18 (B18, phase doc §2.2): off-map markers join the feedback so the
+  // reask corrects them (never stripped deterministically — §2.3).
+  for (const marker of dropped.extraMarkers ?? []) {
+    errors.push(`Off-map citation marker (remove it or replace it with a key from the CITATION KEYS list): ${marker}`);
   }
   return errors.length > 0 ? errors : ['The preservation check failed; restore all dropped content verbatim.'];
 }
@@ -692,6 +700,12 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
       }
       progress(`Skipping update of ${conflictPath} (manually edited). Conflict logged.`);
     }
+    // Phase 19 (B19): observability for the safe-convergence path — pages
+    // whose stale recorded hash was proven tool-written (disk == current
+    // deterministic render) and converged instead of false-flagged.
+    for (const convergedPath of lastMaterializeResult.convergedPages ?? []) {
+      progress(`Converged stale page hash for ${convergedPath} (page matches the deterministic render; not a manual edit).`);
+    }
     // Fork reconciliation (UAT fix): the Materializer deleted unmodified
     // duplicate pages left behind by an earlier cross-run folder fork. Drop
     // their recorded hashes so the deleted files are never tracked again.
@@ -894,6 +908,11 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     }
   }
 
+  // Phase 19 (B19): carry the working folds (preservedPages convergence,
+  // rewrittenLinks, removedPages deletions) into the persisted state even
+  // when no per-PDF checkpoint ran — otherwise a run that hash-skips every
+  // PDF re-persists the pre-run map and discards the convergence folds.
+  state.pageHashes = workingPageHashes;
   await writeIngestionState(dir, state);
 
   // Phase 5: optional synthesis after materialization and before validation.
@@ -927,10 +946,42 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   // template-fallback pages are retried. Every pooled page checkpoints its
   // record as it completes (serialized queue), and skipped pages contribute
   // reconstructed report entries so the stage's ordered report is complete.
+  // Phase 19 (B19): the per-PDF checkpoint persists PRE-synthesis hashes; an
+  // abort between a synthesis write and the end-of-run re-hash leaves
+  // recorded(template) != disk(synthesized) and false-flags tool-written
+  // pages next run. Re-hash from disk in a finally so even an aborting run
+  // converges what it wrote.
+  const rehashWrittenPagesFromDisk = async (): Promise<void> => {
+    if (extract && writtenPagePaths.size > 0) {
+      for (const relativePath of writtenPagePaths) {
+        try {
+          const content = await readFile(join(dir, relativePath), 'utf-8');
+          workingPageHashes[relativePath] = createHash('sha256').update(content, 'utf-8').digest('hex');
+        } catch {
+          // Page vanished between materialization and now; keep the old hash.
+        }
+      }
+      state.pageHashes = workingPageHashes;
+      await writeIngestionState(dir, state);
+    }
+  };
+
+  try {
   if (extract && synthesis && lastMaterializeResult) {
     result.synthesisRan = true;
     const agentsMd = loadAgentsMd(dir);
     const llmLogPath = join(dir, '.state', 'llm-calls.json');
+    // Phase 20 (B20): deterministic wikilink repair rides the synthesis write
+    // points — build the slug universe ONCE per run (the wiki tree is stable
+    // across the stages) and repair near-miss targets conservatively.
+    const slugUniverse = await buildSlugUniverse(slug, options.workspace, { language: input });
+    const repairPageLinks = (markdown: string, pageLabel: string): string => {
+      const { markdown: repaired, repairs, unrepairable } = repairWikilinksInMarkdown(markdown, slugUniverse);
+      if (repairs.length > 0 || unrepairable.length > 0) {
+        progress(`Link repair ${pageLabel}: ${repairs.length} repaired${unrepairable.length > 0 ? `, ${unrepairable.length} unrepairable` : ''}.`);
+      }
+      return repaired;
+    };
     const runEntitySynthesis = options.synthesizeEntityFn ?? writeEntitySynthesis;
     const runEntityPermissiveSynthesis =
       options.synthesizeEntityPermissiveFn ?? writePermissiveEntitySynthesis;
@@ -1046,15 +1097,18 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           // trusted.
           await writeFile(
             join(folderPath, `${entityPage.slug}.md`),
-            enforceSourcesSectionInMarkdown(
-              enforceFrontmatterInMarkdown(
-                enforceSparseInMarkdown(
-                  enforceAliasesInMarkdown(strict.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
-                  entityPage.sparse === true,
+            repairPageLinks(
+              enforceSourcesSectionInMarkdown(
+                enforceFrontmatterInMarkdown(
+                  enforceSparseInMarkdown(
+                    enforceAliasesInMarkdown(strict.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
+                    entityPage.sparse === true,
+                  ),
+                  entityPage,
                 ),
-                entityPage,
+                buildCitationMap(entityPage).citationMap,
               ),
-              buildCitationMap(entityPage).citationMap,
+              entityPage.slug,
             ),
             'utf-8',
           );
@@ -1091,15 +1145,18 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           // normalization, same as the strict write point above.
           await writeFile(
             join(folderPath, `${entityPage.slug}.md`),
-            enforceSourcesSectionInMarkdown(
-              enforceFrontmatterInMarkdown(
-                enforceSparseInMarkdown(
-                  enforceAliasesInMarkdown(permissive.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
-                  entityPage.sparse === true,
+            repairPageLinks(
+              enforceSourcesSectionInMarkdown(
+                enforceFrontmatterInMarkdown(
+                  enforceSparseInMarkdown(
+                    enforceAliasesInMarkdown(permissive.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
+                    entityPage.sparse === true,
+                  ),
+                  entityPage,
                 ),
-                entityPage,
+                buildCitationMap(entityPage).citationMap,
               ),
-              buildCitationMap(entityPage).citationMap,
+              entityPage.slug,
             ),
             'utf-8',
           );
@@ -1250,12 +1307,15 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           // the UAT 6.3 aliases enforcer.
           await writeFile(
             join(folderPath, `${topicPage.slug}.md`),
-            enforceTopicSourcesSectionInMarkdown(
-              enforceTopicFrontmatterInMarkdown(
-                enforceAliasesInMarkdown(strict.page, topicPage.title, topicPage.slug),
-                topicPage,
+            repairPageLinks(
+              enforceTopicSourcesSectionInMarkdown(
+                enforceTopicFrontmatterInMarkdown(
+                  enforceAliasesInMarkdown(strict.page, topicPage.title, topicPage.slug),
+                  topicPage,
+                ),
+                buildCitationMap({ mentions: [], relationships: [], claims: topicPage.claims }).citationMap,
               ),
-              buildCitationMap({ mentions: [], relationships: [], claims: topicPage.claims }).citationMap,
+              `topic ${topicPage.slug}`,
             ),
             'utf-8',
           );
@@ -1287,12 +1347,15 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           // `## Sources` normalization, same as the strict topic write point.
           await writeFile(
             join(folderPath, `${topicPage.slug}.md`),
-            enforceTopicSourcesSectionInMarkdown(
-              enforceTopicFrontmatterInMarkdown(
-                enforceAliasesInMarkdown(permissive.page, topicPage.title, topicPage.slug),
-                topicPage,
+            repairPageLinks(
+              enforceTopicSourcesSectionInMarkdown(
+                enforceTopicFrontmatterInMarkdown(
+                  enforceAliasesInMarkdown(permissive.page, topicPage.title, topicPage.slug),
+                  topicPage,
+                ),
+                buildCitationMap({ mentions: [], relationships: [], claims: topicPage.claims }).citationMap,
               ),
-              buildCitationMap({ mentions: [], relationships: [], claims: topicPage.claims }).citationMap,
+              `topic ${topicPage.slug}`,
             ),
             'utf-8',
           );
@@ -1413,21 +1476,12 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     }
   }
 
-  // Phase 8 (phase doc §2.5): after synthesis (which may have replaced the
-  // structured pages the Materializer wrote), re-hash every page written
-  // this run FROM DISK so the recorded hashes always reflect the tool's own
-  // final writes — the tool's own writes are never flagged as manual edits.
-  if (extract && writtenPagePaths.size > 0) {
-    for (const relativePath of writtenPagePaths) {
-      try {
-        const content = await readFile(join(dir, relativePath), 'utf-8');
-        workingPageHashes[relativePath] = createHash('sha256').update(content, 'utf-8').digest('hex');
-      } catch {
-        // Page vanished between materialization and now; keep the old hash.
-      }
-    }
-    state.pageHashes = workingPageHashes;
-    await writeIngestionState(dir, state);
+  } finally {
+    // Phase 8 (phase doc §2.5): after synthesis (which may have replaced the
+    // structured pages the Materializer wrote), re-hash every page written
+    // this run FROM DISK so the recorded hashes always reflect the tool's own
+    // final writes. Phase 19 (B19): in a finally so an aborted run converges.
+    await rehashWrittenPagesFromDisk();
   }
 
   // Phase 8 (phase doc §5.1): the compounding metrics that power the TUI

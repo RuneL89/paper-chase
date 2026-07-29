@@ -2,7 +2,7 @@
 
 **Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-017`
 **Version:** 1.0.0
-**Status:** Ratified 2026-07-28 (scheduled; implementation not started)
+**Status:** Complete — user-accepted 2026-07-29
 **Date:** 2026-07-28
 **Dependencies:** Phases 0-9, 11-16
 **Estimated Time:** 4-6 hours

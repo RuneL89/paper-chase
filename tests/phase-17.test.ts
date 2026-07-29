@@ -499,6 +499,17 @@ test('gate 17.5: relatedEntities is the deduplicated, sorted union of relationsh
 // ---------------------------------------------------------------------------
 
 const RELATED_SLOT = '\n\nRelated Entities (the only legal wikilink targets — slug — title):\n{relatedEntities}';
+// Phase 18 (B18): the entity prompts gained the slot-additive
+// === CITATION KEYS === section + {citationMap} slot (tests/phase-18.test.ts
+// gate 18.2); the reconstruction must remove it too to reproduce the
+// pre-Phase-17 templates byte-for-byte.
+const CITATION_SLOT =
+  '=== CITATION KEYS ===\n' +
+  "The only legal citation keys for this page, with the exact source each key refers to (the page's final Sources section is rebuilt from exactly this list):\n" +
+  '{citationMap}\n' +
+  '\n' +
+  'Every citation [^srcN] in the article MUST use exactly these keys for these sources — cite the key whose listed source and pages contain the fact. No other [^srcN] keys may appear anywhere in the output.\n' +
+  '\n';
 const NEW_WIKILINK_RULE =
   "- Use Obsidian-native wikilinks for related entities: [[<entity-slug>|<Page Title>]] — the target MUST come from the Related Entities list above (the entity's slug), the display text is its title (e.g. [[acme-corp|Acme Corp]]). When Layer 1 names an entity from that list, link it on first mention. Use the bare form [[name]] only when the display text is identical to the target.";
 const OLD_WIKILINK_RULE =
@@ -529,7 +540,7 @@ test('gate 17.6: both entity prompts carry the relatedEntities slot and the upda
     // (including the `=== LANGUAGE ===` / `{languageDirective}` block) is
     // byte-identical.
     expect(template, path).toContain('=== LANGUAGE ===\n{languageDirective}\n\n');
-    const reconstructed = template.split(RELATED_SLOT).join('').split(NEW_WIKILINK_RULE).join(OLD_WIKILINK_RULE);
+    const reconstructed = template.split(RELATED_SLOT).join('').split(CITATION_SLOT).join('').split(NEW_WIKILINK_RULE).join(OLD_WIKILINK_RULE);
     const hash = createHash('sha256').update(reconstructed, 'utf-8').digest('hex');
     expect(hash, path).toBe(PRE_PHASE_17_PROMPT_SHA256[path]);
   }

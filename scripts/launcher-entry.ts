@@ -27,7 +27,10 @@ import { spawnSync } from 'node:child_process';
 // 1.0.4 (2026-07-28): Phase 17 entity-synthesis prompt changes (the
 // {relatedEntities} slot + updated wikilink rule in synthesis.prompt.txt and
 // synthesis-permissive.prompt.txt) — both are extracted assets.
-const VERSION = '1.0.4';
+// 1.0.5 (2026-07-29): Phase 18 synthesis prompt changes (the
+// === CITATION KEYS === section + {citationMap} slot in all four synthesis
+// prompts) — all four are extracted assets.
+const VERSION = '1.0.5';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

@@ -13,6 +13,12 @@ Open issues, accepted residuals, and future tracks. Entries are **not** schedule
 
 B1–B3 are validation-noise classes found by the 2026-07-25 live test run (run 5) and share one theme: LLM-written output is trusted where a deterministic re-imposition already exists for sibling fields.
 
+### B5. Curation judgment variance across passes/runs — HIGH PRIORITY (cost driver, user-directed 2026-07-29)
+
+- **Mechanism:** per-ingest curation passes can disagree (run 5: pass 1 merged `clinical-assessment → clinical`, pass 2 did not, and the materializer re-created the topic from the unchanged extraction data). Merge-only entity monotonicity holds within a run, but merge/drop judgments oscillate across passes/runs; the "self-healing" property assumes stable judgments.
+- **Cost evidence (2026-07-28/29, three consecutive runs):** afdk main run curated one way; the afdk repair run's curation made 46 further merge/drop decisions → 54 pages re-synthesized → a planned ~$0.30 follow-up cost **$41.44**. The akdb DOX-refresh run's curation made 45 more (27 entity + 18 topic) → 28 pages re-synthesized → **$19.88** instead of ~$6. ≈$60 of the day's $163 traces to re-judged identities. The merges were *correct* each time (`lpr → landspatientregisteret`, registry name-variants unified) — the wiki improves every pass, but the same discovery is paid for repeatedly at full synthesis price.
+- **Fix direction:** sticky decisions — record each run's merges as constraints the next curation pass must honor (like auto-recorded overrides alongside `curation-overrides.json`), so a merge is paid for once and later passes build on it instead of re-deciding it. Alternative: one end-of-run curation pass (removes intra-run variance; restructures the materialize flow). Priority rationale: it fired on all three runs in one day and is the single biggest avoidable cost driver observed.
+
 ### ~~B1. Post-synthesis pages are trusted for citation definitions and frontmatter (`missingSource` + schema flags)~~ — FIXED 2026-07-28: [PHASE_17](PHASE_17_entity_graph_and_citation_integrity.md) §2.4-§2.6 (gates 17.8-17.11 + §2.6 supplementary)
 
 - **Root cause (mechanism corrected 2026-07-28):** a passing synthesis page REPLACES the deterministic page wholesale (`src/commands/ingest.ts:1032-1039` strict, `1069-1074` permissive); the only deterministic post-processing is `enforceAliasesInMarkdown` + `enforceSparseInMarkdown`, and both no-op when the model omitted the frontmatter block entirely (`src/pages/entity-page.ts:109-116`: "never invents a frontmatter block"). `title`/`type`/`wiki`/`updated`/`sources` are never re-imposed; the `## Sources` definition format is never normalized.
@@ -64,6 +70,24 @@ B1–B3 are validation-noise classes found by the 2026-07-25 live test run (run 
 - **Evidence:** 2026-07-28 (`dist/wikis/rkkp-adhd`): the 2024 chunk's significance for `adhd-foreningen` ("Patientorganisation repræsenteret i styregruppens arbejde gennem formand Trish Nymark.") was discarded in favor of the 2023 record — the only extracted sentence naming the entity's chair. The same rule picks the canonical display name (feeding B13's alias gap) and, applied independently per wiki, produces opposite canonical choices across wikis ("LPR" in rkkp-adhd vs "Landspatientregisteret" in rkkp-akdb — B14's canonical-name fork).
 - **Fix direction:** replace first-wins with update-aware rules — prefer the record with richer evidence (or concatenate differing significances), let later disambiguation fill an empty slot, and record losing name variants in `aliases` (B13's fix covers the alias side). Interacts with B10 (the discarded text may name related parties) and B14 (cross-wiki canonical forks). Note: a significance/disambiguation change alters the page's aggregate fingerprint, so affected pages re-synthesize once under the existing synthesis-resume rule.
 
+### ~~B18. The synthesis model is never shown the deterministic citation numbering~~ — FIXED 2026-07-29, user-accepted: [PHASE_18](PHASE_18_citation_numbering_alignment.md)
+
+- **Mechanism:** the deterministic citation map assigns `[^srcN]` keys by order of first appearance in a page's evidence, but the synthesis prompt never shows that map to the model — so the model improvises markers. The preservation check pins only that deterministic keys *appear*; extra model-invented markers sail through and dangle (no definition, no frontmatter coverage). Also a contributor to the ~30% reask rate.
+- **Evidence:** 2026-07-28/29 live runs: 33 dangling markers on ~13 afdk topic pages, 19 in akdb — every one caught by the Phase 17 §2.6 consistency check (`invalid`/`missingFrontmatterSource`). Predicted by the Phase 17 Verifier (design note g).
+- **Fix direction:** show the model the deterministic citation map in the synthesis prompts (all four synthesis templates); make extra/off-map markers a content defect fed into the Phase 12 reask loop.
+
+### ~~B19. Stale `pageHashes` make the manual-edit guard false-flag tool-written pages~~ — FIXED 2026-07-29, user-accepted: [PHASE_19](PHASE_19_stale_pagehash_convergence.md)
+
+- **Mechanism:** the Phase 8 manual-edit guard compares each page's on-disk hash against the recorded hash in `.state/ingestion.json`; for 8 afdk topic pages the recorded hash did not match the pipeline's own final write, so the guard treated tool output as a human edit and refused to update the pages — self-perpetuating until repaired by hand (keys deleted 2026-07-28). Root-cause stage not yet located (candidates: end-of-run re-hash coverage, per-PDF checkpoint ordering, curation link-rewrite folding). Normally masked by the Phase 16 skip-eligibility/preservedPages convergence; exposed when `synthesis-state.json` is absent.
+- **Evidence:** 2026-07-28 afdk re-ingest: 8 topic pages conflict-skipped with disk≠recorded (3 template + 5 strict pages); akdb showed 0 — the leak is stage/content-specific, not universal.
+- **Fix direction:** locate the leak with a failing-test reproduction first; make the leaking stage fold hashes; add a hash-consistency invariant (after any ingest, every tool-written content page's recorded hash equals its disk hash); add a safe convergence path so a provably tool-written page converges instead of false-flagging.
+
+### ~~B20. Model wikilinks use near-miss slugs; broken links are reported but never repaired~~ — FIXED 2026-07-29, user-accepted: [PHASE_20](PHASE_20_wikilink_repair.md)
+
+- **Mechanism:** the synthesis model writes wikilinks to slugs that almost exist (`[[indikator-2]]` vs the real `indikator-2-ekkokardiografi`); the link checker reports broken links but nothing repairs them. The `relatedEntities` slot (Phase 17) gives exact slugs, but the model still paraphrases.
+- **Evidence:** 2026-07-28/29 live runs: 12 broken links in afdk, 6 in akdb — all short-form/paraphrased variants of real indicator/topic slugs.
+- **Fix direction:** deterministic repair pass — unique-prefix and alias matching against the wiki's slug set at the synthesis write points; ambiguous targets stay broken and reported. Includes a one-time remediation over the current `dist/wikis` (repairs existing broken links AND re-converges `pageHashes` for every modified page so the fix cannot create B19-class false-flags). User-directed: the existing links must be fixed by the tool, not by hand.
+
 ---
 
 ## Accepted residuals (watch items)
@@ -74,10 +98,6 @@ B1–B3 are validation-noise classes found by the 2026-07-25 live test run (run 
 - **Options:** (A) accept — data is complete, ~2% of pages (current); (B) sub-page splitting, vision `02` §4.7's own remedy — split by source/period with an index (Phase-18-sized); (C) evidence excerpting (L6 in `Project Vision/optimizations/optimizations.md`) — biggest canon surgery.
 - **Decision trigger:** revisit after the full-corpus run shows how many pages land in this bucket.
 
-### B5. Curation judgment variance across passes/runs (R4/R7 residual)
-
-- **Mechanism:** per-PDF curation passes can disagree (run 5: pass 1 merged `clinical-assessment → clinical`, pass 2 did not, and the materializer re-created the topic from the unchanged extraction data). Merge-only entity monotonicity holds within a run, but topic merge/drop can oscillate across passes/runs; the "self-healing" property assumes stable judgments.
-- **Candidate strengtheners (if oscillation is observed in practice):** sticky decisions (the checker honors previous runs' merges as constraints, like auto-recorded overrides), or one end-of-run curation pass instead of per-PDF passes (cheaper and removes intra-run variance; restructures the materialize flow).
 
 ---
 

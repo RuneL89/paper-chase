@@ -122,6 +122,16 @@ export interface MaterializeResult {
    */
   conflicts: string[];
   /**
+   * Phase 19 (phase doc §2.3, backlog B19): pages whose recorded hash was
+   * STALE but whose on-disk content byte-matches the deterministic render of
+   * the current aggregate — provably tool-written (a human edit cannot
+   * reproduce the render). The guard CONVERGED instead of false-flagging:
+   * the update proceeded (the page is in `writtenPages`, so the caller's
+   * fold records the disk hash) and a convergence note was logged on the
+   * console — never a conflict, never an entry in `.state/conflicts.json`.
+   */
+  convergedPages: string[];
+  /**
    * Phase 8 (UAT fork-reconciliation fix, vision `03` §3.2 + `04` §3.2
    * Step 6): duplicate pages deleted because the entity's canonical folder
    * (recorded in the PREVIOUS rolling memory — "first folder assignment
@@ -259,12 +269,22 @@ function hashContent(content: string): string {
  * content was manually edited (hash mismatch) — the caller then skips the
  * update. A page that predates hash tracking (no recorded hash) is updated
  * normally and starts being tracked.
+ *
+ * Phase 19 (phase doc §2.3, backlog B19 — safe convergence): when the guard
+ * detects disk ≠ recorded, the disk content is first compared against
+ * `rendered`, the deterministic render of the CURRENT aggregate. A
+ * byte-identical match proves the page is tool-written (a human edit cannot
+ * reproduce the render byte-for-byte): the verdict is 'converge' — the
+ * caller proceeds with the update and records the disk hash, logging a
+ * convergence note rather than a conflict. Any other mismatch stays
+ * 'conflict' exactly as before: human-edit protection is NOT weakened.
  */
 async function checkPageConflict(
   pagePath: string,
   relativePath: string,
   pageHashes: Record<string, string> | undefined,
-): Promise<'write' | 'conflict'> {
+  rendered: string,
+): Promise<'write' | 'converge' | 'conflict'> {
   if (!pageHashes || !existsSync(pagePath)) {
     return 'write';
   }
@@ -273,7 +293,22 @@ async function checkPageConflict(
     return 'write';
   }
   const current = hashContent(await readFile(pagePath, 'utf-8'));
-  return current === recorded ? 'write' : 'conflict';
+  if (current === recorded) {
+    return 'write';
+  }
+  return current === hashContent(rendered) ? 'converge' : 'conflict';
+}
+
+/**
+ * Phase 19 (phase doc §2.3): the convergence note — logged for every page
+ * the guard converges (disk == deterministic render, stale recorded hash).
+ * Deliberately NOT a conflicts.json entry: this is the tool repairing its
+ * own bookkeeping, not a journalist conflict.
+ */
+function logHashConvergence(relativePath: string): void {
+  console.log(
+    `Converged stale page hash for ${relativePath} (on-disk content matches the deterministic render; recording the disk hash — not a manual edit).`,
+  );
 }
 
 /**
@@ -1150,7 +1185,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     slugToTitle[slug] = entity.name;
   }
 
-  const result: MaterializeResult = { entityPages: [], topicPages: [], documentPages: [], writtenPages: [], preservedPages: [], conflicts: [], removedDuplicates: [] };
+  const result: MaterializeResult = { entityPages: [], topicPages: [], documentPages: [], writtenPages: [], preservedPages: [], conflicts: [], convergedPages: [], removedDuplicates: [] };
 
   // Phase 16 (vision `04` Step 9): the synthesis completion memory. A page
   // with a skip-eligible record (strict/permissive pass whose dataHash still
@@ -1248,13 +1283,24 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile(pagePath, 'utf-8')) });
       continue;
     }
-    if ((await checkPageConflict(pagePath, relativePath, options?.pageHashes)) === 'conflict') {
+    // Rendered BEFORE the conflict check so the Phase 19 (§2.3) safe
+    // convergence can compare the on-disk content against the deterministic
+    // render of the current aggregate: a stale recorded hash with a
+    // byte-identical disk page is the tool's own bookkeeping leak, not a
+    // human edit — converge (proceed with the update, record the disk hash,
+    // log a convergence note) instead of false-flagging.
+    const rendered = writeEntityPage(pageData);
+    const verdict = await checkPageConflict(pagePath, relativePath, options?.pageHashes, rendered);
+    if (verdict === 'conflict') {
       await logManualEditConflict(dir, relativePath);
       result.conflicts.push(relativePath);
       continue;
     }
+    if (verdict === 'converge') {
+      logHashConvergence(relativePath);
+      result.convergedPages.push(relativePath);
+    }
 
-    const rendered = writeEntityPage(pageData);
     result.entityPages.push(pageData);
     await writeFile(pagePath, rendered, 'utf-8');
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
@@ -1332,13 +1378,21 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile(pagePath, 'utf-8')) });
       continue;
     }
-    if ((await checkPageConflict(pagePath, relativePath, options?.pageHashes)) === 'conflict') {
+    // Same Phase 19 (§2.3) safe convergence as the entity loop above: the
+    // render is computed before the conflict check so a stale recorded hash
+    // over a provably-tool-written page converges instead of false-flagging.
+    const rendered = writeTopicPage(pageData);
+    const verdict = await checkPageConflict(pagePath, relativePath, options?.pageHashes, rendered);
+    if (verdict === 'conflict') {
       await logManualEditConflict(dir, relativePath);
       result.conflicts.push(relativePath);
       continue;
     }
+    if (verdict === 'converge') {
+      logHashConvergence(relativePath);
+      result.convergedPages.push(relativePath);
+    }
 
-    const rendered = writeTopicPage(pageData);
     result.topicPages.push(pageData);
     await writeFile(pagePath, rendered, 'utf-8');
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });

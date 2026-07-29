@@ -15,6 +15,7 @@ One-off, committed utility scripts (run with `npx tsx`) that create or verify pr
 * `build-launcher.ts` — packaging step 2: stages `dist/pdf.worker.mjs` (ESM worker for the launcher child) + `dist/runtime-node.exe` (the build machine's real Node) and esbuild-bundles `launcher-entry.ts` → `dist/launcher.cjs` (plain CJS, pkg's most mature mode)
 * `launcher-entry.ts` — the paper-chase.exe payload: extracts the runtime (real node.exe, chase.mjs, prompts, template, pdfjs fonts + native canvas) once to `%LOCALAPPDATA%\paper-chase\runtime\<asset-version>` (marker-guarded) and hands off to real Node with inherited stdio — pkg's patched Node runtime segfaults inside react-reconciler's commit when ink renders, so the TUI must run under real Node (see the file's header comment for the full rationale)
 * `react-devtools-core-stub.js` — esbuild alias stub for ink's optional, guarded `react-devtools-core` import (the package is deliberately not installed)
+* `repair-wikilinks.ts` — Phase 20 one-time wikilink remediation (B20, user-directed 2026-07-29): `npx tsx scripts/repair-wikilinks.ts [wikisRoot=dist/wikis] [--dry]` walks every wiki under the root and applies the deterministic unique-prefix/alias repair (`src/utils/wikilink-repair.ts`) to every entity/topic page, rewrites changed pages, and re-converges `.state/ingestion.json` `pageHashes` from disk for every modified page (no B19-class false flags); `--dry` prints the full report without writing; per-wiki report of repairs (old → new), unrepairable + candidates, unchanged counts
 
 ## Local Contracts
 

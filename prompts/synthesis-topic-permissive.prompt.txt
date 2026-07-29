@@ -15,6 +15,12 @@ Sources:
 Chunk Context:
 {context}
 
+=== CITATION KEYS ===
+The only legal citation keys for this page, with the exact source each key refers to (the page's final Sources section is rebuilt from exactly this list):
+{citationMap}
+
+Every citation [^srcN] in the article MUST use exactly these keys for these sources — cite the key whose listed source and pages contain the fact. No other [^srcN] keys may appear anywhere in the output.
+
 Layer 1 (Synthesis): readable prose at the very top of the page, sized by the evidence — several paragraphs for a well-evidenced topic, a few honest sentences for a single-claim one. You may summarize and paraphrase here. Every factual claim must have a citation [^srcN].
 
 Layer 2 (Preserved Detail): Below the synthesis, include the following sections using the exact data provided above. **Do not change the exact wording of the claim text.** Preserve them verbatim so readers can verify the synthesis against the original source.

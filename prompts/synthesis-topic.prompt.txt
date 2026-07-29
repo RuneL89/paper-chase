@@ -15,6 +15,12 @@ Sources:
 Chunk Context:
 {context}
 
+=== CITATION KEYS ===
+The only legal citation keys for this page, with the exact source each key refers to (the page's final Sources section is rebuilt from exactly this list):
+{citationMap}
+
+Every citation [^srcN] in the article MUST use exactly these keys for these sources — cite the key whose listed source and pages contain the fact. No other [^srcN] keys may appear anywhere in the output.
+
 === TASK ===
 Write a readable markdown article about this topic. The article must be completely self-contained and pass the "Journalist Test": a reader who has never seen the original PDFs must be able to explain this topic to a colleague, cite three specific facts with sources, and name two related entities.
 
