@@ -6,6 +6,14 @@ import { parseWikilinkTarget } from '../utils/wikilinks';
 export interface LinkCheckResult {
   broken: Array<{ page: string; link: string }>;
   orphaned: string[]; // pages with no incoming links (excluding index and source pages)
+  /**
+   * Phase 17 (B12b, vision `02` §2 "no page is an island" + `07` §2.5):
+   * entity/topic pages with ZERO outgoing wikilinks — unreachable by
+   * following links. Exemptions match the orphan rule (`index.md`,
+   * `sources/*.md`) plus `documents/*.md` (raw chunk text legitimately
+   * carries no links); only `entities/` and `topics/` pages are in scope.
+   */
+  islands: string[];
   totalLinks: number;
   totalPages: number;
 }
@@ -111,8 +119,10 @@ export async function checkLinks(wikiSlug: string, workspace: string = '.'): Pro
   }
 
   const incoming: Record<string, number> = {};
+  const outgoing: Record<string, number> = {};
   for (const page of pages) {
     incoming[page.relative] = 0;
+    outgoing[page.relative] = 0;
   }
 
   const broken: Array<{ page: string; link: string }> = [];
@@ -125,6 +135,9 @@ export async function checkLinks(wikiSlug: string, workspace: string = '.'): Pro
     let match: RegExpExecArray | null;
     while ((match = linkPattern.exec(body)) !== null) {
       totalLinks++;
+      // Phase 17 (B12b): every wikilink occurrence counts as outgoing for
+      // the island tally, resolvable or not.
+      outgoing[page.relative]++;
       const linkText = match[1].trim();
       // Pipe form: only the part before the first `|` is the resolution
       // target; the display text is ignored. A trailing `.md` on the target
@@ -149,9 +162,28 @@ export async function checkLinks(wikiSlug: string, workspace: string = '.'): Pro
       return incoming[path] === 0;
     });
 
+  // Phase 17 (B12b, vision `02` §2 + `07` §2.5): island detection — an
+  // entity/topic page with zero OUTGOING wikilinks. Same exemptions as the
+  // orphan rule (`index.md`, `sources/*.md`) plus `documents/*.md`; scoped
+  // to entities/ and topics/ pages, so the sources/documents exemptions are
+  // subsumed by the scope but documented for parity with the orphan rule.
+  // Detection only — same reporting posture as orphans.
+  const islands = pages
+    .filter((page) => {
+      if (!page.wikiRelative.startsWith('entities/') && !page.wikiRelative.startsWith('topics/')) {
+        return false;
+      }
+      if (page.wikiRelative.endsWith('index.md')) {
+        return false;
+      }
+      return outgoing[page.relative] === 0;
+    })
+    .map((page) => page.relative);
+
   return {
     broken,
     orphaned,
+    islands,
     totalLinks,
     totalPages: pages.length,
   };

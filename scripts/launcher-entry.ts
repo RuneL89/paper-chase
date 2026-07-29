@@ -21,7 +21,13 @@ import { spawnSync } from 'node:child_process';
 
 // Extraction-set version (NOT the app version): bump whenever the runtime
 // asset set or layout changes so existing installs re-extract.
-const VERSION = '1.0.2';
+// 1.0.3 (2026-07-25): DOX Writer prompt navigation fix (complete index-chain
+// catalogs) — the prompt is an extracted asset, so the marker guard must not
+// reuse the stale 1.0.2 runtime.
+// 1.0.4 (2026-07-28): Phase 17 entity-synthesis prompt changes (the
+// {relatedEntities} slot + updated wikilink rule in synthesis.prompt.txt and
+// synthesis-permissive.prompt.txt) — both are extracted assets.
+const VERSION = '1.0.4';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

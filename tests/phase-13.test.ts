@@ -389,32 +389,33 @@ test('gate 13.1 (behavior): stubbed callLLM captures 32768 at the four synthesis
   init('test-wiki', { workspace });
   installChunk(wikiPath(workspace), 'golden-master-part-001', sparseExtraction());
   await materialize('test-wiki', { workspace });
-  const completeBody = [
-    '# Placeholder',
-    '',
-    'Complete prose.',
-    '',
-    '## Statistics',
-    '',
-    '- placeholder',
-    '',
-    '## Start Here',
-    '',
-    'Start reading here.',
-    '',
-    '## Pages',
-    '',
-    '- [[index|Index]]',
-    '',
-    '## Navigation',
-    '',
-    '- up',
-    '',
-  ].join('\n');
+  // Build a VALID body from the filled prompt itself (2026-07-25 catalog
+  // completeness): every supplied link target appears in `## Pages`, so the
+  // body passes on attempt 1 at every level without retries.
+  const bodyForPrompt = (prompt: string): string => {
+    const links = [...prompt.matchAll(/link as (\[\[[^\]]+\]\])/g)].map((match) => `- ${match[1]} — entry`);
+    const isRoot = prompt.includes('Folder: (root)');
+    return [
+      '# Placeholder',
+      '',
+      'Complete prose.',
+      '',
+      ...(isRoot ? ['## Start Here', '', ...links, ''] : []),
+      '## Pages',
+      '',
+      ...links,
+      '',
+      ...(isRoot ? [] : ['## Navigation', '', '- up', '']),
+      '## Statistics',
+      '',
+      '- placeholder',
+      '',
+    ].join('\n');
+  };
   vi.mocked(llmClient.callLLM).mockImplementation(
-    async (_prompt: string, _system?: string, options?: { callType?: string; context?: string; maxTokens?: number }) => {
+    async (prompt: string, _system?: string, options?: { callType?: string; context?: string; maxTokens?: number }) => {
       captured.push(options ?? {});
-      return completeBody;
+      return bodyForPrompt(prompt);
     },
   );
   await writeDoxContracts('test-wiki', { workspace, doxLlm: true });
@@ -497,7 +498,13 @@ test('gate 13.2: no word-count rules remain; the ratified block anchors are verb
 // ---------------------------------------------------------------------------
 
 test('gate 13.3: each synthesis prompt is byte-confined to the amendment (exact block tail; every other contract line intact)', () => {
-  const WIKILINK_LINE =
+  // Phase 17 (B12a): the ENTITY prompts' wikilink rule now requires targets
+  // from the new Related Entities slot and first-mention linking (the
+  // slot-additive Phase 17 change); the TOPIC prompts keep the pre-Phase-17
+  // rule byte-identically (Phase 17 scope is the two entity prompts only).
+  const WIKILINK_LINE_ENTITY =
+    "- Use Obsidian-native wikilinks for related entities: [[<entity-slug>|<Page Title>]] — the target MUST come from the Related Entities list above (the entity's slug), the display text is its title (e.g. [[acme-corp|Acme Corp]]). When Layer 1 names an entity from that list, link it on first mention. Use the bare form [[name]] only when the display text is identical to the target.";
+  const WIKILINK_LINE_TOPIC =
     "- Use Obsidian-native wikilinks for related entities: [[<entity-slug>|<Page Title>]] — the target is the entity's slug from the data above, the display text is its title (e.g. [[acme-corp|Acme Corp]]). Use the bare form [[name]] only when the display text is identical to the target.";
 
   for (const { path, kind } of SYNTHESIS_PROMPT_FILES) {
@@ -514,7 +521,7 @@ test('gate 13.3: each synthesis prompt is byte-confined to the amendment (exact 
     // {languageDirective} block, the wikilink rule, the preservation rules,
     // and the data-section placeholders.
     expect(text, path).toContain('=== LANGUAGE ===\n{languageDirective}\n');
-    expect(text, path).toContain(WIKILINK_LINE);
+    expect(text, path).toContain(kind === 'entity' ? WIKILINK_LINE_ENTITY : WIKILINK_LINE_TOPIC);
     expect(text, path).toContain('\nRules:\n');
     if (kind === 'entity') {
       expect(text, path).toContain(

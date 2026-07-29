@@ -166,6 +166,13 @@ This wiki contains 25 years of Acme Corp financial filings, organized into entit
 - [[revenue-recognition|Revenue Recognition]] — How Acme reports revenue
 - [[acme-bvi|Acme BVI]] — Offshore subsidiary
 
+## Pages
+
+- [[entities/index|Entities]] — Named real-world things: people, companies, and organizations mentioned in the corpus
+- [[topics/index|Topics]] — Cross-cutting themes and claims spanning the reports
+- [[documents/index|Documents]] — The raw extracted page chunks from the source PDFs
+- [[sources/index|Sources]] — Provenance records (file hashes, page counts) for each PDF
+
 ## Statistics
 
 - Sources: 25

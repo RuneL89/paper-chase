@@ -23,6 +23,9 @@ Timeline:
 Chunk Context:
 {context}
 
+Related Entities (the only legal wikilink targets — slug — title):
+{relatedEntities}
+
 === TASK ===
 Write a readable markdown article about this entity. The article must be completely self-contained and pass the "Journalist Test": a reader who has never seen the original PDFs must be able to explain this entity to a colleague, cite three specific facts with sources, and name two related entities.
 
@@ -47,7 +50,7 @@ Rules:
 - Do not drop any mention, relationship, claim, or timeline event from the data above.
 - Do not invent facts not present in the data.
 - Every citation [^srcN] must have a corresponding [^srcN]: definition in the Sources section.
-- Use Obsidian-native wikilinks for related entities: [[<entity-slug>|<Page Title>]] — the target is the entity's slug from the data above, the display text is its title (e.g. [[acme-corp|Acme Corp]]). Use the bare form [[name]] only when the display text is identical to the target.
+- Use Obsidian-native wikilinks for related entities: [[<entity-slug>|<Page Title>]] — the target MUST come from the Related Entities list above (the entity's slug), the display text is its title (e.g. [[acme-corp|Acme Corp]]). When Layer 1 names an entity from that list, link it on first mention. Use the bare form [[name]] only when the display text is identical to the target.
 - Write in clear, plain language suitable for a journalist.
 
 Length is not a target — completeness is. Write until this page passes the

@@ -372,7 +372,10 @@ test('zero-page parent folder synthesizes child folders instead of falling back'
       workspace,
       doxLlm: true,
       writeDoxIndexFn: (context) => {
-        if (!context.isRoot && context.pages.length === 0 && context.childIndexes.length > 0) {
+        // Scoped to entities/people (2026-07-25): any zero-page parent matched
+        // this branch before, but its body catalogs only the executives child —
+        // the catalog completeness enforcement rejects that for other folders.
+        if (context.folderPath === 'entities/people' && context.pages.length === 0 && context.childIndexes.length > 0) {
           const body = [
             `# ${context.title}`,
             '',
@@ -441,7 +444,9 @@ test('unresolvable LLM wikilinks are repaired or de-linked deterministically', a
         if (context.folderPath === 'sources') {
           // 'sources/golden-master.md' has title "Source: Golden Master", so
           // [[Source: Golden Master]] matches that page uniquely by title —
-          // the live-run failure mode this repair fixes.
+          // the live-run failure mode this repair fixes. The bare-title form
+          // is kept in the PROSE (exercising the repair); the ## Pages catalog
+          // uses the exact supplied form (2026-07-25 completeness enforcement).
           const body = [
             '# Sources',
             '',
@@ -449,7 +454,7 @@ test('unresolvable LLM wikilinks are repaired or de-linked deterministically', a
             '',
             '## Pages',
             '',
-            '- [[Source: Golden Master]] — Provenance record for the golden master PDF',
+            '- [[golden-master|Source: Golden Master]] — Provenance record for the golden master PDF',
             '',
             '## Navigation',
             '',
@@ -494,6 +499,174 @@ test('unresolvable LLM wikilinks are repaired or de-linked deterministically', a
   // The wiki's own link validation reports zero broken links on index pages.
   const links = await checkLinks('test-wiki', workspace);
   expect(links.broken.filter((entry) => entry.page.endsWith('index.md'))).toEqual([]);
+});
+
+// ---------------------------------------------------------------------------
+// Gate 6.17 (2026-07-25 navigation fix, user-ratified): catalog completeness.
+// Every index must catalog ALL its direct pages and child folders with their
+// exact supplied link forms — the wiki root included (Start Here is curated;
+// `## Pages` is complete) — and an index must never link to itself. A human
+// or agent must be able to reach every page by following only the
+// parent/child index chain (vision `03` §4.2). Completeness failures are
+// content defects named in the reask feedback; exhaustion writes the
+// fully-catalogued deterministic body.
+// ---------------------------------------------------------------------------
+test('gate 6.17a: the wiki-root LLM index catalogs all four top-area indexes', async () => {
+  const workspace = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace });
+
+  await writeDoxContracts('test-wiki', {
+    workspace,
+    doxLlm: true,
+    writeDoxIndexFn: (context) => Promise.resolve(richStubIndex(context)),
+  });
+
+  const rootIndex = readFileSync(join(workspace, 'wikis', 'test-wiki', 'index.md'), 'utf-8');
+  expect(rootIndex).toContain('## Start Here');
+  expect(rootIndex).toContain('## Pages');
+  for (const link of [
+    '[[entities/index|Entities]]',
+    '[[topics/index|Topics]]',
+    '[[documents/index|Documents]]',
+    '[[sources/index|Sources]]',
+  ]) {
+    expect(rootIndex).toContain(link);
+  }
+});
+
+test('gate 6.17b: a folder index missing a page catalog link is re-asked with the exact target named', async () => {
+  const workspace = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace });
+
+  const seenFeedback: Array<string | undefined> = [];
+  let executivesCalls = 0;
+  await writeDoxContracts('test-wiki', {
+    workspace,
+    doxLlm: true,
+    writeDoxIndexFn: (context, feedback) => {
+      if (context.folderPath !== 'entities/people/executives') {
+        return Promise.resolve(richStubIndex(context));
+      }
+      executivesCalls++;
+      seenFeedback.push(feedback);
+      if (executivesCalls === 1) {
+        // Catalogs nothing — omits the required [[john-smith|John Smith]] link.
+        return Promise.resolve(
+          [
+            '# Executives',
+            '',
+            'Prose.',
+            '',
+            '## Pages',
+            '',
+            '- No pages in this folder.',
+            '',
+            '## Navigation',
+            '',
+            '- Parent: [[entities/people/index|People]]',
+            '',
+            '## Statistics',
+            '',
+            '- placeholder',
+            '',
+          ].join('\n'),
+        );
+      }
+      return Promise.resolve(richStubIndex(context));
+    },
+  });
+
+  expect(executivesCalls).toBe(2);
+  expect(seenFeedback[0]).toBeUndefined(); // attempt 1: byte-identical prompt
+  const feedback = seenFeedback[1] ?? '';
+  expect(feedback).toContain('missing catalog link');
+  expect(feedback).toContain('"john-smith"');
+  const index = readFileSync(
+    join(workspace, 'wikis', 'test-wiki', 'entities', 'people', 'executives', 'index.md'),
+    'utf-8',
+  );
+  expect(index).toContain('[[john-smith|John Smith]]');
+});
+
+test('gate 6.17c: a self-referential catalog link is rejected and named in the feedback', async () => {
+  const workspace = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace });
+
+  // Mirrors the live 2026-07-25 defect: a single-page folder whose `## Pages`
+  // bullet links its own index (circular) instead of the content page.
+  const seenFeedback: Array<string | undefined> = [];
+  let executivesCalls = 0;
+  await writeDoxContracts('test-wiki', {
+    workspace,
+    doxLlm: true,
+    writeDoxIndexFn: (context, feedback) => {
+      if (context.folderPath !== 'entities/people/executives') {
+        return Promise.resolve(richStubIndex(context));
+      }
+      executivesCalls++;
+      seenFeedback.push(feedback);
+      if (executivesCalls === 1) {
+        return Promise.resolve(
+          [
+            '# Executives',
+            '',
+            'Prose.',
+            '',
+            '## Pages',
+            '',
+            '- [[entities/people/executives/index|Executives]] — links itself instead of the page',
+            '',
+            '## Navigation',
+            '',
+            '- Parent: [[entities/people/index|People]]',
+            '',
+            '## Statistics',
+            '',
+            '- placeholder',
+            '',
+          ].join('\n'),
+        );
+      }
+      return Promise.resolve(richStubIndex(context));
+    },
+  });
+
+  expect(executivesCalls).toBe(2);
+  const feedback = seenFeedback[1] ?? '';
+  expect(feedback).toContain('self-referential link');
+  expect(feedback).toContain('entities/people/executives/index');
+  // The missing page link is named in the same feedback.
+  expect(feedback).toContain('"john-smith"');
+});
+
+test('gate 6.17d: exhausted retries write the deterministic body — fully catalogued at every level', async () => {
+  const workspace = setupMaterializedWiki();
+  await materialize('test-wiki', { workspace });
+
+  await writeDoxContracts('test-wiki', {
+    workspace,
+    doxLlm: true,
+    writeDoxIndexFn: () => Promise.resolve('garbage with no sections'),
+  });
+
+  // The root fallback carries the complete four-child catalog.
+  const rootIndex = readFileSync(join(workspace, 'wikis', 'test-wiki', 'index.md'), 'utf-8');
+  expect(rootIndex).toContain('## Pages');
+  for (const link of [
+    '[[entities/index|Entities]]',
+    '[[topics/index|Topics]]',
+    '[[documents/index|Documents]]',
+    '[[sources/index|Sources]]',
+  ]) {
+    expect(rootIndex).toContain(link);
+  }
+
+  // A folder fallback catalogs its pages.
+  const executives = readFileSync(
+    join(workspace, 'wikis', 'test-wiki', 'entities', 'people', 'executives', 'index.md'),
+    'utf-8',
+  );
+  expect(executives).toContain('[[john-smith|John Smith]]');
 });
 
 // ---------------------------------------------------------------------------
@@ -577,9 +750,23 @@ test('DOX pages pass final validation', async () => {
 // and statistics — proving the LLM writes the description while deterministic
 // code re-imposes children and counts (vision `03` §6).
 // ---------------------------------------------------------------------------
-function richStubIndex(context: { isRoot: boolean; title: string }): string {
+function richStubIndex(context: {
+  isRoot: boolean;
+  title: string;
+  parentLinkText?: string;
+  pages?: Array<{ name: string; title: string; linkText: string }>;
+  childIndexes?: Array<{ path: string; title: string; linkText: string }>;
+}): string {
   // Links use the Obsidian-native pipe form (2026-07-20 user-directed
   // change), matching what the prompt now instructs the LLM to emit.
+  // 2026-07-25 navigation fix: the `## Pages` catalog must be COMPLETE —
+  // every direct page and every child folder with its exact supplied link
+  // form (the root catalogs its four top-area indexes too) — or the catalog
+  // completeness enforcement rejects the body as a content defect.
+  const catalogLines = [
+    ...(context.childIndexes ?? []).map((child) => `- ${child.linkText} — ${child.title} area`),
+    ...(context.pages ?? []).map((page) => `- ${page.linkText} — ${page.title || 'untitled'} page`),
+  ];
   const body = context.isRoot
     ? [
         '# Test Wiki',
@@ -590,6 +777,10 @@ function richStubIndex(context: { isRoot: boolean; title: string }): string {
         '',
         '- [[entities/people/executives/index|Executives]] — Executive leadership at Acme Corp, including CEO John Smith',
         '- [[entities/companies/index|Companies]] — Acme Corp, the company whose results are presented',
+        '',
+        '## Pages',
+        '',
+        ...catalogLines,
         '',
         '## Statistics',
         '',
@@ -606,11 +797,14 @@ function richStubIndex(context: { isRoot: boolean; title: string }): string {
         '',
         '## Pages',
         '',
-        '- [[john-smith|John Smith]] — CEO of Acme Corp',
+        ...catalogLines,
         '',
         '## Navigation',
         '',
-        '- Parent: [[entities/people/index|People]]',
+        // The real parent from the context (2026-07-25): a hardcoded parent
+        // is the folder's OWN index when the stub serves `entities/people`,
+        // and the self-link ban rejects self-referential bodies.
+        `- Parent: ${context.parentLinkText ?? '[[entities/people/index|People]]'}`,
         '',
         '## Statistics',
         '',
@@ -820,8 +1014,8 @@ test('deterministic DOX contracts use pipe-form wikilinks in catalogs and naviga
   }
   const links = await checkLinks('test-wiki', workspace);
   expect(links.broken.filter((entry) => entry.page.endsWith('index.md'))).toEqual([]);
-});
-
+});
+
 
 // ---------------------------------------------------------------------------
 // Workspace index (wikis/index-of-indexes.md) amendments:

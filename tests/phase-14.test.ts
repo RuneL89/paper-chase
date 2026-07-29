@@ -255,6 +255,10 @@ function entityStubPage(data: EntityPageData): string {
     '',
     ...data.mentions.map((mention) => `- Page ${mention.page}: "${mention.context}" [^src1]`),
     ...data.relationships.map((relationship) => `- ${relationship.evidence} [^src1]`),
+    // Phase 17: incoming relationship evidence is preservation-checked like
+    // outgoing — the Odense fixture's cross-relationships attach incoming
+    // records to odense/odense-2, so the stub emits them too.
+    ...(data.incomingRelationships ?? []).map((relationship) => `- ${relationship.evidence} [^src1]`),
     ...data.claims.map((claim) => `- ${claim.text} [^src1]`),
     '',
     '[^src1]: golden-master.pdf, pages 1-3',

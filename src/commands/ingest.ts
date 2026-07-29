@@ -8,7 +8,16 @@ import { renderTablesAsMarkdown } from '../extraction/markdown-tables';
 import { sha256 } from '../utils/hash';
 import { sourceSlugForFile } from '../utils/slug';
 import { aliasesForTitle, enforceAliasesInMarkdown } from '../utils/aliases';
-import { enforceSparseInMarkdown } from '../pages/entity-page';
+import {
+  buildCitationMap,
+  enforceFrontmatterInMarkdown,
+  enforceSourcesSectionInMarkdown,
+  enforceSparseInMarkdown,
+} from '../pages/entity-page';
+import {
+  enforceTopicFrontmatterInMarkdown,
+  enforceTopicSourcesSectionInMarkdown,
+} from '../pages/topic-page';
 import { getLanguage, type LanguageCode } from '../utils/language';
 import { sourcePdfPath, wikiDir, wikiRelativePath } from '../utils/paths';
 import { readIngestionState, writeIngestionState } from '../state/ingestion-state';
@@ -1028,12 +1037,24 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           // sparse flag is re-imposed the same way from the structured page
           // data — a model-emitted `sparse` on a non-sparse entity is removed.
           // Phase 14 (phase doc §2.3): curation-merged variant titles ride
-          // along in the aliases.
+          // along in the aliases. Phase 17 (B1 + B2, vision `05` §2 +
+          // `06` §2-§3/§7): after the aliases/sparse enforcers, the COMPLETE
+          // frontmatter is re-imposed from the page data (created when the
+          // model omitted it; `updated` is the real write time) and the
+          // `## Sources` definitions are rebuilt in resolvable basename
+          // form — the model's frontmatter and definitions are never
+          // trusted.
           await writeFile(
             join(folderPath, `${entityPage.slug}.md`),
-            enforceSparseInMarkdown(
-              enforceAliasesInMarkdown(strict.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
-              entityPage.sparse === true,
+            enforceSourcesSectionInMarkdown(
+              enforceFrontmatterInMarkdown(
+                enforceSparseInMarkdown(
+                  enforceAliasesInMarkdown(strict.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
+                  entityPage.sparse === true,
+                ),
+                entityPage,
+              ),
+              buildCitationMap(entityPage).citationMap,
             ),
             'utf-8',
           );
@@ -1065,12 +1086,20 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
           const folderPath = join(dir, entityPage.folder);
           // Phase 13: aliases + sparse re-imposed deterministically over the
           // model-written page, same as the strict write point above. Phase 14:
-          // curation-merged variant titles included in the aliases.
+          // curation-merged variant titles included in the aliases. Phase 17
+          // (B1 + B2): complete-frontmatter re-imposition and `## Sources`
+          // normalization, same as the strict write point above.
           await writeFile(
             join(folderPath, `${entityPage.slug}.md`),
-            enforceSparseInMarkdown(
-              enforceAliasesInMarkdown(permissive.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
-              entityPage.sparse === true,
+            enforceSourcesSectionInMarkdown(
+              enforceFrontmatterInMarkdown(
+                enforceSparseInMarkdown(
+                  enforceAliasesInMarkdown(permissive.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
+                  entityPage.sparse === true,
+                ),
+                entityPage,
+              ),
+              buildCitationMap(entityPage).citationMap,
             ),
             'utf-8',
           );
@@ -1214,9 +1243,20 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         );
         if (strict.page !== null) {
           const folderPath = join(dir, topicPage.folder);
+          // Phase 17 (B1 + B2, vision `05` §2 + `06` §2-§3/§7): the topic
+          // equivalent of the entity enforcement — complete deterministic
+          // frontmatter (created when absent; `updated` is the real write
+          // time) and normalized `## Sources` definitions, composed after
+          // the UAT 6.3 aliases enforcer.
           await writeFile(
             join(folderPath, `${topicPage.slug}.md`),
-            enforceAliasesInMarkdown(strict.page, topicPage.title, topicPage.slug),
+            enforceTopicSourcesSectionInMarkdown(
+              enforceTopicFrontmatterInMarkdown(
+                enforceAliasesInMarkdown(strict.page, topicPage.title, topicPage.slug),
+                topicPage,
+              ),
+              buildCitationMap({ mentions: [], relationships: [], claims: topicPage.claims }).citationMap,
+            ),
             'utf-8',
           );
           return {
@@ -1243,9 +1283,17 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         );
         if (permissive.page !== null) {
           const folderPath = join(dir, topicPage.folder);
+          // Phase 17 (B1 + B2): complete-frontmatter re-imposition and
+          // `## Sources` normalization, same as the strict topic write point.
           await writeFile(
             join(folderPath, `${topicPage.slug}.md`),
-            enforceAliasesInMarkdown(permissive.page, topicPage.title, topicPage.slug),
+            enforceTopicSourcesSectionInMarkdown(
+              enforceTopicFrontmatterInMarkdown(
+                enforceAliasesInMarkdown(permissive.page, topicPage.title, topicPage.slug),
+                topicPage,
+              ),
+              buildCitationMap({ mentions: [], relationships: [], claims: topicPage.claims }).citationMap,
+            ),
             'utf-8',
           );
           return {

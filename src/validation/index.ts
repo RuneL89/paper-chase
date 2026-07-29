@@ -31,11 +31,12 @@ export async function validateWiki(wikiSlug: string, workspace: string = '.'): P
 }
 
 function formatLinkSummary(links: LinkCheckResult): string {
-  return `Link check: ${links.totalLinks} links, ${links.broken.length} broken, ${links.orphaned.length} orphaned`;
+  return `Link check: ${links.totalLinks} links, ${links.broken.length} broken, ${links.orphaned.length} orphaned, ${links.islands.length} islands`;
 }
 
 function formatCitationSummary(citations: CitationCheckResult): string {
-  const bad = citations.invalid.length + citations.missingSource.length;
+  const bad =
+    citations.invalid.length + citations.missingSource.length + citations.missingFrontmatterSource.length;
   return `Citation check: ${citations.totalCitations} citations, ${bad} invalid`;
 }
 
@@ -81,11 +82,19 @@ export async function logValidation(
   for (const orphan of summary.links.orphaned) {
     console.warn(`Orphaned page: ${orphan}`);
   }
+  // Phase 17 (B12b): islands reported in the same posture as orphans.
+  for (const island of summary.links.islands) {
+    console.warn(`Island page (no outgoing links): ${island}`);
+  }
   for (const invalid of summary.citations.invalid) {
     console.warn(`Invalid citation in ${invalid.page}: ${invalid.citation}`);
   }
   for (const missing of summary.citations.missingSource) {
     console.warn(`Missing source in ${missing.page}: ${missing.citation}`);
+  }
+  // Phase 17 (§2.6): frontmatter-coverage warnings, same posture as missingSource.
+  for (const missing of summary.citations.missingFrontmatterSource) {
+    console.warn(`Citation not covered by frontmatter sources in ${missing.page}: ${missing.citation}`);
   }
   for (const violation of summary.schema.invalid) {
     console.warn(`Schema violation in ${violation.page}: ${violation.issue}`);

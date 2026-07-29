@@ -11,6 +11,7 @@ import type {
   EntityPageData,
   EntityPageMention,
   EntityPageRelationship,
+  EntityPageIncomingRelationship,
   EntityPageClaim,
   EntityPageTimelineEvent,
 } from '../pages/entity-page';
@@ -60,16 +61,33 @@ export function formatMentions(mentions: EntityPageMention[]): string {
     .join('\n');
 }
 
-export function formatRelationships(relationships: EntityPageRelationship[]): string {
-  if (relationships.length === 0) {
+export function formatRelationships(
+  relationships: EntityPageRelationship[],
+  incomingRelationships?: EntityPageIncomingRelationship[],
+): string {
+  const outgoing = relationships.map(
+    (rel) =>
+      `- Subject: ${rel.subject}\n  Predicate: ${rel.predicate}\n  Object: ${rel.object}\n  Evidence: "${rel.evidence}"\n  Page: ${rel.page}\n  Source: ${rel.source}, pages ${rel.pages}`,
+  );
+  // Phase 17 (B10, vision `02` §4.3 B): the incoming direction is presented
+  // alongside the outgoing one with clear direction labels, so the model
+  // knows this entity is the OBJECT of those relationships (and may say so
+  // in Layer 1 when the evidence supports it). With no incoming records the
+  // output is byte-identical to pre-Phase-17.
+  const incoming = (incomingRelationships ?? []).map(
+    (rel) =>
+      `- Subject: ${rel.subject}\n  Predicate: ${rel.predicate}\n  Object: (this entity)\n  Evidence: "${rel.evidence}"\n  Page: ${rel.page}\n  Source: ${rel.source}, pages ${rel.pages}`,
+  );
+  if (outgoing.length === 0 && incoming.length === 0) {
     return '(none)';
   }
-  return relationships
-    .map(
-      (rel) =>
-        `- Subject: ${rel.subject}\n  Predicate: ${rel.predicate}\n  Object: ${rel.object}\n  Evidence: "${rel.evidence}"\n  Page: ${rel.page}\n  Source: ${rel.source}, pages ${rel.pages}`,
-    )
-    .join('\n');
+  if (incoming.length === 0) {
+    return outgoing.join('\n');
+  }
+  if (outgoing.length === 0) {
+    return `Incoming (this entity is the OBJECT of these relationships):\n${incoming.join('\n')}`;
+  }
+  return `Outgoing (this entity is the SUBJECT of these relationships):\n${outgoing.join('\n')}\n\nIncoming (this entity is the OBJECT of these relationships):\n${incoming.join('\n')}`;
 }
 
 export function formatClaims(
@@ -112,6 +130,57 @@ export function formatTopicEntities(entities: string[]): string {
   return entities.map((entity) => `- ${entity}`).join('\n');
 }
 
+/**
+ * Phase 17 (B12a, vision `02` §2 + §4.2 C): one legal wikilink target for
+ * the entity synthesis prompts.
+ */
+export interface RelatedEntity {
+  slug: string;
+  title: string;
+}
+
+/**
+ * Phase 17 (B12a, vision `02` §2): the deterministic, deduplicated, sorted
+ * `{slug, title}` list an entity page may legally link to — every
+ * relationship subject and object (both directions) plus every co-entity in
+ * the page's claims, minus the page itself. Titles come from the page's
+ * `slugToTitle` map (an unknown slug falls back to the slug itself).
+ */
+export function buildRelatedEntities(entityData: EntityPageData): RelatedEntity[] {
+  const slugs = new Set<string>();
+  const add = (slug: string): void => {
+    if (slug !== entityData.slug) {
+      slugs.add(slug);
+    }
+  };
+  for (const rel of entityData.relationships) {
+    add(rel.subject);
+    add(rel.object);
+  }
+  for (const rel of entityData.incomingRelationships ?? []) {
+    add(rel.subject);
+  }
+  for (const claim of entityData.claims) {
+    for (const entitySlug of claim.entities) {
+      add(entitySlug);
+    }
+  }
+  return Array.from(slugs)
+    .sort((a, b) => a.localeCompare(b))
+    .map((slug) => ({ slug, title: entityData.slugToTitle[slug] ?? slug }));
+}
+
+/**
+ * The `relatedEntities` prompt slot: one `- <slug> — <Title>` line per legal
+ * link target; the documented empty form is `(none)`.
+ */
+export function formatRelatedEntities(entities: RelatedEntity[]): string {
+  if (entities.length === 0) {
+    return '(none)';
+  }
+  return entities.map((entity) => `- ${entity.slug} — ${entity.title}`).join('\n');
+}
+
 export function formatTopicSources(
   sources: Array<{ file: string; pages: string; label?: string }>,
 ): string {
@@ -133,10 +202,13 @@ function buildEntitySynthesisValues(entityData: EntityPageData): Record<string, 
     significance: entityData.significance ?? '(none provided)',
     disambiguation: entityData.disambiguation ?? '(none provided)',
     mentions: formatMentions(entityData.mentions),
-    relationships: formatRelationships(entityData.relationships),
+    relationships: formatRelationships(entityData.relationships, entityData.incomingRelationships),
     claims: formatClaims(entityData.claims),
     timeline: formatTimeline(entityData.timeline),
     context: entityData.context ?? '(none provided)',
+    // Phase 17 (B12a): the legal wikilink targets — the prompts' wikilink
+    // rule requires targets to come from this list.
+    relatedEntities: formatRelatedEntities(buildRelatedEntities(entityData)),
   };
 }
 

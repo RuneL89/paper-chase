@@ -23,6 +23,9 @@ Timeline:
 Chunk Context:
 {context}
 
+Related Entities (the only legal wikilink targets — slug — title):
+{relatedEntities}
+
 === TASK ===
 Write a readable markdown article about this entity. Because the source material is very dense, this article uses a **hybrid format**:
 
@@ -40,7 +43,7 @@ Rules:
 - Do not drop any mention, relationship, claim, or timeline event from the data above.
 - In Layer 1, you may summarize and paraphrase; in Layer 2, preserve the exact strings from the data.
 - Every citation [^srcN] must have a corresponding [^srcN]: definition in the Sources section.
-- Use Obsidian-native wikilinks for related entities: [[<entity-slug>|<Page Title>]] — the target is the entity's slug from the data above, the display text is its title (e.g. [[acme-corp|Acme Corp]]). Use the bare form [[name]] only when the display text is identical to the target.
+- Use Obsidian-native wikilinks for related entities: [[<entity-slug>|<Page Title>]] — the target MUST come from the Related Entities list above (the entity's slug), the display text is its title (e.g. [[acme-corp|Acme Corp]]). When Layer 1 names an entity from that list, link it on first mention. Use the bare form [[name]] only when the display text is identical to the target.
 - Write in clear, plain language suitable for a journalist.
 
 Length is not a target — completeness is. Write until this page passes the

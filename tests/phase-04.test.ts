@@ -246,8 +246,8 @@ test('logValidation prints summary and warnings', async () => {
   try {
     await logValidation({
       wikiSlug: 'test-wiki',
-      links: { broken: [], orphaned: [], totalLinks: 3, totalPages: 2 },
-      citations: { invalid: [], missingSource: [], totalCitations: 1 },
+      links: { broken: [], orphaned: [], islands: [], totalLinks: 3, totalPages: 2 },
+      citations: { invalid: [], missingSource: [], missingFrontmatterSource: [], totalCitations: 1 },
       schema: { invalid: [], totalPages: 2 },
     });
     expect(consoleLog).toHaveBeenCalledWith(expect.stringContaining('Link check'));
@@ -273,12 +273,14 @@ test('logValidation warns about issues', async () => {
       links: {
         broken: [{ page: 'entities/a.md', link: 'Missing' }],
         orphaned: ['entities/orphan.md'],
+        islands: [],
         totalLinks: 1,
         totalPages: 2,
       },
       citations: {
         invalid: [{ page: 'entities/a.md', citation: '[^src1]' }],
         missingSource: [{ page: 'entities/a.md', citation: '[^src2]' }],
+        missingFrontmatterSource: [],
         totalCitations: 2,
       },
       schema: {
@@ -308,8 +310,8 @@ test('logValidation writes validation-report.json when wikiDir is provided', asy
 
   const summary = {
     wikiSlug: 'test-wiki',
-    links: { broken: [], orphaned: [], totalLinks: 3, totalPages: 2 },
-    citations: { invalid: [], missingSource: [], totalCitations: 1 },
+    links: { broken: [], orphaned: [], islands: [], totalLinks: 3, totalPages: 2 },
+    citations: { invalid: [], missingSource: [], missingFrontmatterSource: [], totalCitations: 1 },
     schema: { invalid: [], totalPages: 2 },
   };
 

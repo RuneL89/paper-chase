@@ -1811,3 +1811,75 @@
     (B1-B3 Phase 17 candidates, B4-B5 residuals, B6-B7 housekeeping, B8 multi-format ingestion).
   Result: GOLDEN RULE SATISFIED for all closed phases; no unresolved contradictions anywhere.
   Checked By: Main agent
+
+[2026-07-25 18:05] DOX navigation fix — complete index-chain catalogs (user-reported on dist/wikis/rkkp-adhd; implements BACKLOG B3)
+  User report: the rkkp-adhd wiki-root index.md linked almost none of the other index.md files —
+    a human or agent could not navigate the wiki via the parent/child index chain.
+  Audit findings: (A) the root index body never linked entities/index or topics/index (prompt asked
+    only for a curated ## Start Here; the wiki-level example modeled linking past the children);
+    (B) 9 single-page topic folders catalogued a self-link to their own index instead of the page
+    (BACKLOG B3 — a self-link RESOLVES, so the wikilink repair kept it and section-presence
+    validation passed it).
+  Vision checked: 03 §4.2 (Catalog required in EVERY index.md — the fix brings implementation into
+    compliance; the contradicting §4.3 wiki-level example was updated in the same pass per the
+    contradiction-resolution convention), 03 §6 (deterministic re-imposition doctrine — extended,
+    not changed), 04 Step 10 + 07 §5 (feedback-retry classes — the new errors ride the existing
+    quality-failure class, ≤3 attempts then deterministic fallback; no retry-policy change).
+  Changed: prompts/dox-writer.prompt.txt (root: Start Here kept + complete ## Pages child catalog;
+    completeness/self-link rule; wiki-level example), src/dox-writer.ts (deterministic root
+    ## Pages in buildFolderBody; root ## Pages added to missingRequiredSections; new
+    missingCatalogLinks — every supplied page/child-index target must appear as a wikilink target,
+    self-referential index links rejected; both are content defects in the Phase 12 reask loop),
+    tests/phase-06.test.ts (richStubIndex context-aware catalogs; NEW gates 6.17a-6.17d),
+    tests/phase-07.test.ts (7.12 context-aware valid body), tests/phase-12.test.ts (12.7
+    completeDoxBody; repair counts preserved), tests/phase-13.test.ts (13.1 behavior stub builds a
+    valid body from the filled prompt; 13.3 byte-gate untouched and green), tests/phase-15.test.ts
+    (15.6 context-aware body), Project Vision/03_DOX_concept_detailed.md (§4.3 example),
+    Implementation Plan/BACKLOG.md (B3 struck — FIXED), prompts/AGENTS.md, src/AGENTS.md,
+    scripts/launcher-entry.ts (asset VERSION 1.0.2 -> 1.0.3: prompts are a packaged asset).
+  Artifact repair (deterministic, no LLM): dist/wikis/rkkp-adhd root index gained the four-child
+    ## Pages catalog; the 9 self-linking topic indexes were repointed to their content pages.
+  Verification: npx tsc --noEmit clean; affected suites (phase-06/07/12/13/15) 74/74 green; full
+    npm test 336 passed with 12 unrelated failures — 11 phase-02 live gates (pre-existing
+    environment issue: ANTHROPIC_API_KEY set but the wikis/test-wiki dev fixture is not
+    materialized; identical failures on the unmodified baseline) and 1 flaky phase-16 gate 16.2
+    (timing-sensitive outage-detector test; passes 2/3 with the changes, untouched code path).
+    Repaired wiki: audit script zero real problems; project link checker 0 broken, 0 orphaned.
+  Result: compliant; GOLDEN RULE preserved; no unresolved contradictions.
+  Checked By: Main agent
+
+[2026-07-28 16:21] Phase 17 Compliance Pre-Check (planning — B10/B12/B1/B2 scheduling)
+  Changed: (planned, no code yet) src/materializer.ts, src/pages/entity-page.ts,
+    src/pages/topic-page.ts, src/agents/synthesis.ts, src/validation/link-checker.ts,
+    src/validation/citation-checker.ts, src/commands/ingest.ts, prompts/synthesis.prompt.txt,
+    prompts/synthesis-permissive.prompt.txt, tests/phase-17.test.ts (new)
+  Vision Docs Checked: 02_WIKI_concept_detailed.md §2, §4.1-§4.5, §4.8; 03_DOX_concept_detailed.md
+    §3.2; 04_orchestration_detailed.md §3.2 Step 6, §4; 05_page_types_specification.md §2, §6;
+    06_citation_and_provenance.md §1-§3, §7; 07_validation_and_quality.md §2.5, §2.6
+  Sections Checked: as listed; every fix target traced to code (materializer.ts:662-678 subject-only
+    attach vs claims multi-attach 707-719; entity-page.ts:98-116 sparse + no-invent-frontmatter;
+    ingest.ts:1032-1039/1069-1074 synthesis replacement path; link-checker.ts:113-150 incoming-only;
+    citation-checker.ts:53-58/107-118 basename-under-raw rule)
+  Result: COMPLIANT with EXTENSION notes, no contradictions —
+    (a) incoming-relationship attachment implements 02 §4.3 B's ratified "bidirectional" rule (moves
+    code TOWARD canon); (b) the relatedEntities synthesis slot extends 04 §4's non-exhaustive ("e.g.")
+    input list; (c) island (zero-outgoing) detection extends 07 §2.5's structural checks toward 02 §2
+    "no page is an island"; (d) deterministic frontmatter + ## Sources-definition re-imposition moves
+    toward 05 §2 / 06 §2-3 / 06 §7 and follows the UAT 6.3 (aliases) + Phase 13 (sparse)
+    re-imposition precedent; (e) ONE DESIGN DECISION presented for user ratification in the phase
+    doc: 02 §4.8's sparse clause "no significant claims or relationships" is scoped to OUTGOING
+    relationships (incoming relationships do not clear sparse) — the vision predates bidirectionality
+    and is silent on the distinction.
+  Checked By: Main agent (planning)
+
+[2026-07-28 16:35] Phase 17 ratification + scheduling
+  Changed: Implementation Plan/PHASE_17_entity_graph_and_citation_integrity.md (design decision
+    recorded as ratified; status -> Ratified), Implementation Plan/IMPLEMENTATION_PLAN_MASTER_INDEX.md
+    (phase 17 row), Implementation Plan/MASTER_IMPLEMENTATION_PROMPT.md (§4 mapping row),
+    Implementation Plan/BACKLOG.md (B1/B2/B10/B12 struck — SCHEDULED Phase 17),
+    .state/phase-17-status.json (seeded)
+  Vision Docs Checked: 02_WIKI_concept_detailed.md §4.8 (sparse scope)
+  Sections Checked: §4.8 sparse flag definition
+  Result: user-ratified EXTENSION — the sparse rule is scoped to OUTGOING relationships (incoming
+    relationships do not clear sparse); Phase 17 scheduled as drafted. No unresolved contradictions.
+  Checked By: Main agent (user decision recorded)

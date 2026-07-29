@@ -18,8 +18,8 @@ export interface TopicPreservationCheckResult {
 
 /**
  * Verify that a synthesized entity page preserves every mention context,
- * relationship evidence, claim text, and source citation from the original
- * structured data.
+ * relationship evidence (outgoing and — Phase 17 — incoming), claim text,
+ * and source citation from the original structured data.
  */
 export function checkPreservation(
   originalData: EntityPageData,
@@ -37,6 +37,16 @@ export function checkPreservation(
   }
 
   for (const relationship of originalData.relationships) {
+    if (!writtenPage.includes(relationship.evidence)) {
+      droppedRelationships.push(relationship.evidence);
+    }
+  }
+
+  // Phase 17 (B10, vision `02` §4.3 B): incoming relationship evidence is
+  // preserved exactly like outgoing evidence — the object page tells both
+  // sides of the story, verbatim (data-driven; no structural change beyond
+  // the new field).
+  for (const relationship of originalData.incomingRelationships ?? []) {
     if (!writtenPage.includes(relationship.evidence)) {
       droppedRelationships.push(relationship.evidence);
     }

@@ -730,28 +730,18 @@ test('gate 15.6: extraction/curation/DOX/workspace/updater contain no runPool, t
       maxDoxInFlight = Math.max(maxDoxInFlight, doxInFlight);
       try {
         await delay(10);
-        return [
-          `# ${context.title}`,
-          '',
-          'Prose.',
-          '',
-          '## Statistics',
-          '',
-          '- placeholder',
-          '',
-          '## Start Here',
-          '',
-          '- start',
-          '',
-          '## Pages',
-          '',
-          '- [[index|Index]]',
-          '',
-          '## Navigation',
-          '',
-          '- up',
-          '',
+        // Complete catalog body (2026-07-25): every supplied target present,
+        // so the body passes on attempt 1 without validator-feedback retries.
+        const catalog = [
+          ...context.childIndexes.map((child) => `- ${child.linkText} — child area`),
+          ...context.pages.map((page) => `- ${page.linkText} — a page`),
         ].join('\n');
+        const sections = context.isRoot
+          ? `## Start Here\n\n- start\n\n## Pages\n\n${catalog}`
+          : `## Pages\n\n${catalog}\n\n## Navigation\n\n- up`;
+        return [`# ${context.title}`, '', 'Prose.', '', sections, '', '## Statistics', '', '- placeholder', ''].join(
+          '\n',
+        );
       } finally {
         doxInFlight -= 1;
       }

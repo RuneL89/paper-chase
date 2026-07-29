@@ -789,10 +789,24 @@ async function setupDoxWiki(prefix: string): Promise<{ workspace: string; wikiDi
   return { workspace, wikiDir };
 }
 
-// One body that satisfies hasRequiredSections for every level (folder:
-// Pages+Navigation; root: Start Here; all: title + Statistics).
-const VALID_DOX_BODY =
-  '# People\n\nRich description of the people folder.\n\n## Pages\n\n- [[john-smith|John Smith]] — a person\n\n## Navigation\n\n- parent\n\n## Start Here\n\n- [[entities/index|Entities]] — browse\n\n## Statistics\n\n- stub counts';
+// One body builder that satisfies the section + catalog-completeness contract
+// for every level (folder: Pages+Navigation; root: Start Here+Pages; all:
+// title + Statistics; every supplied catalog target present, no self-links).
+function validDoxBody(context: {
+  isRoot: boolean;
+  title: string;
+  pages?: Array<{ linkText: string }>;
+  childIndexes?: Array<{ linkText: string }>;
+}): string {
+  const catalog = [
+    ...(context.childIndexes ?? []).map((child) => `- ${child.linkText} — child area`),
+    ...(context.pages ?? []).map((page) => `- ${page.linkText} — a page`),
+  ].join('\n');
+  const sections = context.isRoot
+    ? `## Start Here\n\n- [[entities/index|Entities]] — browse\n\n## Pages\n\n${catalog}`
+    : `## Pages\n\n${catalog}\n\n## Navigation\n\n- parent`;
+  return `# ${context.title}\n\nRich description of the people folder.\n\n${sections}\n\n## Statistics\n\n- stub counts`;
+}
 
 test('gate 7.12: DOX writer retries unparseable output up to 3 attempts before fallback', async () => {
   // Case 1: garbage, garbage, then a valid contract → LLM body used.
@@ -801,9 +815,9 @@ test('gate 7.12: DOX writer retries unparseable output up to 3 attempts before f
   await writeDoxContracts('dox-wiki', {
     workspace: ws1,
     doxLlm: true,
-    writeDoxIndexFn: async () => {
+    writeDoxIndexFn: async (context) => {
       calls1++;
-      return calls1 <= 2 ? 'total garbage with no sections' : VALID_DOX_BODY;
+      return calls1 <= 2 ? 'total garbage with no sections' : validDoxBody(context);
     },
   });
   // Deepest folder (entities/people) consumes 2 garbage + 1 valid attempt;

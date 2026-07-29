@@ -336,6 +336,12 @@ function rootIndexLink(wikiSlug: string): string {
   return formatWikilink('index', titleCase(wikiSlug));
 }
 
+/** Extract the resolution target from a canonical link form (`[[target|Display]]` or bare `[[target]]`). */
+function linkTargetOf(linkText: string): string {
+  const inner = linkText.replace(/^\[\[\s*/, '').replace(/\s*\]\]$/, '');
+  return parseWikilinkTarget(inner).target;
+}
+
 function buildFolderBody(
   wikiSlug: string,
   folder: FolderNode,
@@ -360,6 +366,17 @@ function buildFolderBody(
     lines.push('- [[topics/index|Topics]] — Browse themes and concepts across the corpus');
     lines.push('- [[documents/index|Documents]] — Raw extracted chunks from source PDFs');
     lines.push('- [[sources/index|Sources]] — Provenance records for each PDF');
+    lines.push('');
+    // 2026-07-25 navigation fix (user-ratified): the root also carries a
+    // complete catalog of its child folders, so the whole wiki is reachable
+    // by following only the parent/child index chain (vision `03` §4.2 —
+    // every index.md has a Catalog, the root included).
+    lines.push('## Pages');
+    lines.push('');
+    lines.push('- [[entities/index|Entities]]');
+    lines.push('- [[topics/index|Topics]]');
+    lines.push('- [[documents/index|Documents]]');
+    lines.push('- [[sources/index|Sources]]');
     lines.push('');
   } else {
     lines.push('## Pages');
@@ -427,8 +444,14 @@ function missingRequiredSections(body: string, level: DoxIndexLevel): string[] {
   if (!/^##\s+statistics\b/im.test(body)) {
     errors.push('missing required section: ## Statistics');
   }
-  if (level === 'root' && !/^##\s+start here\b/im.test(body)) {
-    errors.push('missing required section: ## Start Here');
+  if (level === 'root') {
+    if (!/^##\s+start here\b/im.test(body)) {
+      errors.push('missing required section: ## Start Here');
+    }
+    // 2026-07-25 navigation fix: the root carries a complete child catalog too.
+    if (!/^##\s+pages\b/im.test(body)) {
+      errors.push('missing required section: ## Pages');
+    }
   }
   if (level === 'workspace' && !/^##\s+wikis\b/im.test(body)) {
     errors.push('missing required section: ## Wikis');
@@ -440,6 +463,55 @@ function missingRequiredSections(body: string, level: DoxIndexLevel): string[] {
     if (!/^##\s+navigation\b/im.test(body)) {
       errors.push('missing required section: ## Navigation');
     }
+  }
+  return errors;
+}
+
+/**
+ * The catalog an index body must contain (2026-07-25 navigation fix,
+ * user-ratified): the exact wikilink TARGETS of every direct content page and
+ * every direct child-folder index (the root's four top-area indexes), plus
+ * the folder's own index target for the self-link ban.
+ */
+interface CatalogExpectation {
+  /** Exact targets that must appear as a wikilink target somewhere in the body. */
+  requiredTargets: string[];
+  /** This folder's own `<folderPath>/index` target — must NOT appear (folder level only). */
+  selfIndexTarget?: string;
+}
+
+/**
+ * Catalog-completeness enforcement (2026-07-25 navigation fix, user-ratified):
+ * section PRESENCE alone does not make an index navigable — the LLM may
+ * catalog a curated subset (the defect that left `entities/index` and
+ * `topics/index` unlinked from a wiki root) or link its own index in place of
+ * a page (the single-page-folder self-link defect), and both slip past
+ * `missingRequiredSections` and the wikilink repair (a self-link RESOLVES).
+ * Every supplied catalog target must therefore appear as a wikilink target in
+ * the body, and an index must never link to itself. Failures are content
+ * defects: they join the missing-section errors fed back by the Phase 12
+ * reask loop before the deterministic fallback (which catalogs everything).
+ */
+function missingCatalogLinks(body: string, expectation: CatalogExpectation): string[] {
+  const present = new Set<string>();
+  for (const match of body.matchAll(/\[\[([^\]]+)\]\]/g)) {
+    const { target } = parseWikilinkTarget(match[1].trim());
+    if (target.length > 0) {
+      present.add(target);
+    }
+  }
+  const errors: string[] = [];
+  for (const required of expectation.requiredTargets) {
+    if (!present.has(required)) {
+      errors.push(
+        `missing catalog link: the ## Pages section must catalog every page and child folder with its exact supplied link form — no wikilink with target "${required}" appears in the body`,
+      );
+    }
+  }
+  if (expectation.selfIndexTarget !== undefined && present.has(expectation.selfIndexTarget)) {
+    errors.push(
+      `self-referential link: this index links to itself ("${expectation.selfIndexTarget}") — a page catalog entry must link the page's exact supplied form, never this folder's own index`,
+    );
   }
   return errors;
 }
@@ -502,6 +574,7 @@ async function runDoxLlmWithRetries(
   level: DoxIndexLevel,
   statistics: string[],
   contextLabel: string,
+  catalog?: CatalogExpectation,
 ): Promise<string | null> {
   let attemptsMade = 0;
   let enforced: string | null = null;
@@ -512,7 +585,7 @@ async function runDoxLlmWithRetries(
         return runLlm(feedback, attempt);
       },
       (llmOutput) => {
-        const detailed = enforceLlmBodyDetailed(llmOutput, level, statistics);
+        const detailed = enforceLlmBodyDetailed(llmOutput, level, statistics, catalog);
         if (detailed.body !== null) {
           enforced = detailed.body;
           return { valid: true, errors: [] };
@@ -553,19 +626,26 @@ async function runDoxLlmWithRetries(
  * the output is unparseable or missing required sections — the caller then
  * falls back to the deterministic body for that level.
  */
-function enforceLlmBody(llmOutput: string, level: DoxIndexLevel, statistics: string[]): string | null {
-  return enforceLlmBodyDetailed(llmOutput, level, statistics).body;
+function enforceLlmBody(
+  llmOutput: string,
+  level: DoxIndexLevel,
+  statistics: string[],
+  catalog?: CatalogExpectation,
+): string | null {
+  return enforceLlmBodyDetailed(llmOutput, level, statistics, catalog).body;
 }
 
 /**
  * Phase 12 sibling of `enforceLlmBody` with the same contract PLUS the exact
  * reasons the output was rejected (unparseable, which required section is
- * missing) — the validator feedback for the reask loop.
+ * missing, which catalog link is missing or self-referential) — the validator
+ * feedback for the reask loop.
  */
 function enforceLlmBodyDetailed(
   llmOutput: string,
   level: DoxIndexLevel,
   statistics: string[],
+  catalog?: CatalogExpectation,
 ): { body: string | null; errors: string[] } {
   let body: string;
   try {
@@ -578,6 +658,9 @@ function enforceLlmBodyDetailed(
   }
   const trimmed = body.trim();
   const missing = missingRequiredSections(trimmed, level);
+  if (catalog) {
+    missing.push(...missingCatalogLinks(trimmed, catalog));
+  }
   if (missing.length > 0) {
     return { body: null, errors: missing };
   }
@@ -953,6 +1036,16 @@ async function writeFolderIndexLlm(
 
   let body = deterministicBody;
   const runLlm = options.writeDoxIndexFn ?? writeDoxIndexWithLlm;
+  // 2026-07-25 navigation fix: the catalog the body must contain — every
+  // direct page and every direct child-folder index (the root's four
+  // top-area indexes) — plus the self-link ban for folder levels.
+  const catalogExpectation: CatalogExpectation = {
+    requiredTargets: [
+      ...context.pages.map((page) => linkTargetOf(page.linkText)),
+      ...context.childIndexes.map((child) => linkTargetOf(child.linkText)),
+    ],
+    selfIndexTarget: folder.relativePath === '' ? undefined : `${folder.relativePath}/index`,
+  };
   // Phase 7 v1.1.0 + Phase 12: bounded feedback retry (≤3 attempts, the
   // enforcement errors fed back verbatim) on quality failures before the
   // deterministic fallback; deterministic enforcement (frontmatter,
@@ -962,6 +1055,7 @@ async function writeFolderIndexLlm(
     folder.relativePath === '' ? 'root' : 'folder',
     statistics,
     contextLabel,
+    catalogExpectation,
   );
   if (enforced !== null) {
     if (linkIndex) {

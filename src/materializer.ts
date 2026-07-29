@@ -4,7 +4,7 @@ import { dirname, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import matter from 'gray-matter';
 import { wikiDir, wikiRelativePath } from './utils/paths';
-import { writeEntityPage, isSparseEntity, type EntityPageData } from './pages/entity-page';
+import { writeEntityPage, isSparseEntity, type EntityPageData, type EntityPageIncomingRelationship } from './pages/entity-page';
 import { writeTopicPage, type TopicPageData } from './pages/topic-page';
 import { type DocumentPageData } from './pages/document-page';
 import { saveRollingMemory, readFullRollingMemory, type RollingMemory } from './state/rolling-memory';
@@ -150,6 +150,8 @@ interface MaterializedEntity {
   contexts: Set<string>;
   mentions: EntityPageData['mentions'];
   relationships: EntityPageData['relationships'];
+  /** Phase 17 (B10): relationships naming this entity as the OBJECT. */
+  incomingRelationships: EntityPageIncomingRelationship[];
   claims: EntityPageData['claims'];
   timeline: ExtractorTimelineEvent[];
   /** Phase 14 (phase doc §2.3): variant titles accumulated by curation merges. */
@@ -187,6 +189,21 @@ function dedupeRelationships(list: EntityPageData['relationships']): EntityPageD
   const seen = new Set<string>();
   return list.filter((item) => {
     const key = `${item.subject}|${item.predicate}|${item.object}|${item.page}|${item.source}|${item.pages}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+/**
+ * Phase 17 (B10): the incoming mirror of `dedupeRelationships` — the object
+ * side carries no `object` field (it is the page's own entity), so the key
+ * drops it. Same evidence-insensitive semantics as the outgoing dedupe.
+ */
+function dedupeIncomingRelationships(list: EntityPageIncomingRelationship[]): EntityPageIncomingRelationship[] {
+  const seen = new Set<string>();
+  return list.filter((item) => {
+    const key = `${item.subject}|${item.predicate}|${item.page}|${item.source}|${item.pages}`;
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -628,6 +645,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         contexts: new Set<string>(),
         mentions: [],
         relationships: [],
+        incomingRelationships: [],
         claims: [],
         timeline: [],
         aliases: [],
@@ -670,6 +688,32 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         subject: relationship.subject,
         predicate: relationship.predicate,
         object: relationship.object,
+        evidence: relationship.evidence,
+        page: relationship.page,
+        source: chunkSource.file,
+        pages: chunkSource.pages,
+      });
+    }
+
+    // Phase 17 (B10, vision `02` §4.3 B "relationships must be
+    // bidirectional"): mirror the subject-attach loop — attach an INCOMING
+    // record to the OBJECT entity's page data so the object page tells its
+    // side of the story. Same skip-on-unknown guard; a self-loop attaches
+    // ONCE, as outgoing only (the claims multi-attach at ~707 is the
+    // precedent). Curation slug remaps (below) run before page assembly, so
+    // incoming records carry canonical slugs.
+    for (const relationship of extracted.relationships ?? []) {
+      if (relationship.object === relationship.subject) {
+        continue;
+      }
+      const target = entityMap.get(relationship.object);
+      if (!target) {
+        // Relationship references an unknown object; skip it.
+        continue;
+      }
+      target.incomingRelationships.push({
+        subject: relationship.subject,
+        predicate: relationship.predicate,
         evidence: relationship.evidence,
         page: relationship.page,
         source: chunkSource.file,
@@ -945,6 +989,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
             contexts: new Set<string>(),
             mentions: [],
             relationships: [],
+            incomingRelationships: [],
             claims: [],
             timeline: [],
             aliases: [],
@@ -957,6 +1002,9 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
             // Union everything; the write loops dedupe by the existing keys.
             intoEntity.mentions.push(...fromEntity.mentions);
             intoEntity.relationships.push(...fromEntity.relationships);
+            // Phase 17 (B10): incoming records union too — the survivor
+            // inherits every relationship that named a merged-away fork.
+            intoEntity.incomingRelationships.push(...fromEntity.incomingRelationships);
             intoEntity.claims.push(...fromEntity.claims);
             intoEntity.timeline.push(...fromEntity.timeline);
             for (const context of fromEntity.contexts) {
@@ -1029,6 +1077,12 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
           for (const relationship of entity.relationships) {
             relationship.subject = entitySlugRemap.get(relationship.subject) ?? relationship.subject;
             relationship.object = entitySlugRemap.get(relationship.object) ?? relationship.object;
+          }
+          // Phase 17 (B10): incoming records' subjects remap the same way,
+          // so the object page's side of a relationship also carries the
+          // canonical slug (the record's object is the entity itself).
+          for (const relationship of entity.incomingRelationships) {
+            relationship.subject = entitySlugRemap.get(relationship.subject) ?? relationship.subject;
           }
           for (const claim of entity.claims) {
             claim.entities = remapList(claim.entities);
@@ -1122,6 +1176,24 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     const mentions = dedupeMentions(entity.mentions);
     const relationships = dedupeRelationships(entity.relationships);
     const claims = dedupeClaims(entity.claims);
+    // Phase 17 (B10): the incoming mirror, deduped by the same content-key
+    // rule as the outgoing side. A curation merge can collapse a
+    // relationship's subject AND object into this same entity (both fork
+    // pages merged here): the record then exists in BOTH lists and would
+    // render twice — drop the incoming copy so the self-loop renders ONCE,
+    // as outgoing (the extraction-time rule, preserved across merges).
+    const incomingRelationships = dedupeIncomingRelationships(entity.incomingRelationships).filter(
+      (incoming) =>
+        !relationships.some(
+          (rel) =>
+            rel.subject === incoming.subject &&
+            rel.object === slug &&
+            rel.predicate === incoming.predicate &&
+            rel.page === incoming.page &&
+            rel.source === incoming.source &&
+            rel.pages === incoming.pages,
+        ),
+    );
 
     const pageData: EntityPageData = {
       title: entity.name,
@@ -1142,11 +1214,17 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         entities: event.entities,
       })),
       // Phase 13 (vision `02` §4.8): the sparse flag, computed once from the
-      // final deduped aggregate via the single shared rule.
+      // final deduped aggregate via the single shared rule. Phase 17
+      // (ratified 2026-07-28): the rule reads the OUTGOING relationships
+      // only — incoming relationships do not clear sparse.
       sparse: isSparseEntity({ mentions, relationships, claims }),
       // Phase 14 (phase doc §2.3): curation-merged variant titles land in the
       // page's frontmatter aliases (vision `05` §2).
       mergedAliases: entity.aliases.length > 0 ? entity.aliases : undefined,
+      // Phase 17 (B10): omitted when empty so the Phase 16 aggregate
+      // fingerprint of a page with no incoming edges is unchanged from
+      // pre-Phase-17 (skip-eligible pages stay byte-stable).
+      incomingRelationships: incomingRelationships.length > 0 ? incomingRelationships : undefined,
     };
 
     // Phase 8 §2.5: never overwrite a manually-edited page. The conflict is

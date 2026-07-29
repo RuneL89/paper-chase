@@ -1,6 +1,7 @@
 import matter from 'gray-matter';
 import { aliasesForTitle } from '../utils/aliases';
 import { formatWikilink } from '../utils/wikilinks';
+import { enforceSourcesSectionInMarkdown } from './entity-page';
 
 export interface TopicPageClaim {
   text: string;
@@ -46,6 +47,48 @@ function stripCitations(text: string): string {
 }
 
 /**
+ * Aggregate the frontmatter `sources` list from the topic data: one entry
+ * per source file with the unique page ranges joined (sorted).
+ */
+function buildTopicFrontmatterSources(
+  data: Pick<TopicPageData, 'claims'>,
+): Array<{ file: string; pages: string }> {
+  const sourceRanges = new Map<string, Set<string>>();
+  for (const claim of data.claims) {
+    const set = sourceRanges.get(claim.source) ?? new Set<string>();
+    set.add(claim.pages);
+    sourceRanges.set(claim.source, set);
+  }
+  return Array.from(sourceRanges.entries())
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([file, pagesSet]) => ({
+      file,
+      pages: Array.from(pagesSet).sort((x, y) => x.localeCompare(y)).join(', '),
+    }));
+}
+
+/**
+ * The complete deterministic topic-page frontmatter (vision `05` §2), shared
+ * by `writeTopicPage` and the Phase 17 `enforceTopicFrontmatterInMarkdown`
+ * re-imposition: title, type, aliases, wiki, updated, the full aggregated
+ * sources, and tags — in the writer's field order. Topic pages never carry
+ * `sparse` (entity-only rule, vision `02` §4.8).
+ */
+function buildTopicFrontmatter(data: TopicPageData, updated: string): Record<string, unknown> {
+  const tags = [data.slug].filter((tag, index, arr) => arr.indexOf(tag) === index);
+  const aliases = aliasesForTitle(data.title, data.slug);
+  return {
+    title: data.title,
+    type: 'topic',
+    ...(aliases ? { aliases } : {}),
+    wiki: data.wiki,
+    updated,
+    sources: buildTopicFrontmatterSources(data),
+    tags,
+  };
+}
+
+/**
  * Render a topic page as a markdown string with YAML frontmatter.
  *
  * Topic pages are grouped by claim type. The first-pass topic slug is the claim
@@ -53,7 +96,6 @@ function stripCitations(text: string): string {
  */
 export function writeTopicPage(data: TopicPageData): string {
   const updated = new Date().toISOString();
-  const tags = [data.slug].filter((tag, index, arr) => arr.indexOf(tag) === index);
 
   const citationMap = new Map<string, number>();
   const sourceDefinitions: Map<
@@ -94,33 +136,40 @@ export function writeTopicPage(data: TopicPageData): string {
     lines.push('');
   }
 
-  // Aggregate frontmatter sources by file, joining unique page ranges.
-  const sourceRanges = new Map<string, Set<string>>();
-  for (const claim of data.claims) {
-    const set = sourceRanges.get(claim.source) ?? new Set<string>();
-    set.add(claim.pages);
-    sourceRanges.set(claim.source, set);
-  }
-  const frontmatterSources = Array.from(sourceRanges.entries())
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([file, pagesSet]) => ({
-      file,
-      pages: Array.from(pagesSet).sort((x, y) => x.localeCompare(y)).join(', '),
-    }));
-
-  // Obsidian-resolvable title alias (UAT 6.3 fix); omitted when the title
-  // matches the file slug case-insensitively.
-  const aliases = aliasesForTitle(data.title, data.slug);
-  const frontmatter: Record<string, unknown> = {
-    title: data.title,
-    type: 'topic',
-    ...(aliases ? { aliases } : {}),
-    wiki: data.wiki,
-    updated,
-    sources: frontmatterSources,
-    tags,
-  };
-
   const body = `\n${lines.join('\n')}\n`;
-  return matter.stringify(body, frontmatter);
+  return matter.stringify(body, buildTopicFrontmatter(data, updated));
+}
+
+/**
+ * Phase 17 (B1 Defect B + B2, vision `05` §2 + `06` §2-§3): the topic-page
+ * equivalent of `enforceFrontmatterInMarkdown` — the complete deterministic
+ * frontmatter (title, type, aliases, wiki, real-write-time `updated`, the
+ * full aggregated `sources`, tags) written OVER the model's frontmatter
+ * (model-invented fields dropped), CREATED when the model omitted the block
+ * entirely. The body is preserved byte-for-byte; a page with unparseable
+ * model frontmatter is returned unchanged (the schema validator flags it).
+ */
+export function enforceTopicFrontmatterInMarkdown(markdown: string, pageData: TopicPageData): string {
+  let body = markdown;
+  if (/^---[ \t]*\r?\n/.test(markdown)) {
+    let parsed: matter.GrayMatterFile<string>;
+    try {
+      parsed = matter(markdown);
+    } catch {
+      return markdown;
+    }
+    body = parsed.content;
+  }
+  return matter.stringify(body, buildTopicFrontmatter(pageData, new Date().toISOString()));
+}
+
+/**
+ * Phase 17 (B1 Defect A, vision `06` §7): the topic-page `## Sources`
+ * definition normalization — the shared implementation lives with the entity
+ * enforcer in `pages/entity-page.ts` (basename + page-range definitions
+ * rebuilt from the page's deterministic citation map; in-prose markers
+ * byte-identical).
+ */
+export function enforceTopicSourcesSectionInMarkdown(markdown: string, citationMap: Map<string, number>): string {
+  return enforceSourcesSectionInMarkdown(markdown, citationMap);
 }

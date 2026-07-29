@@ -67,7 +67,7 @@ Output format — respond with ONLY the markdown file, no prose before or after 
 2. A body with these sections, in this order:
    - `# <Index title>` heading.
    - One rich description paragraph (2-5 sentences) written in plain language that passes the journalist test: a reader who never saw the source PDFs understands what this folder holds. Follow the two writing modes above. State only facts grounded in the page contents and child folder indexes above; never invent facts.
-   - If FOLDER is `(root)`: a `## Start Here` section with 3-6 bullet points pointing at the most useful entry points of the wiki, each formatted `- [[Exact Link Form]] — one specific reason to read it`.
+   - If FOLDER is `(root)`: TWO sections in this order — first a `## Start Here` section with 3-6 bullet points pointing at the most useful entry points of the wiki, each formatted `- [[Exact Link Form]] — one specific reason to read it`; then a `## Pages` section cataloguing EVERY child folder listed under SUB-FOLDERS above, each formatted `- [[Exact Link Form]] — one sentence on what that area contains, drawn from its index below`. Start Here is a curated shortlist; the `## Pages` catalog is complete, so a reader can reach every part of the wiki from this page alone.
    - If FOLDER is NOT `(root)`: a `## Pages` section cataloguing every direct page AND every child folder of this folder — pages formatted `- [[Exact Link Form]] — one specific, content-based description`, child folders formatted `- [[Exact Link Form]] — one sentence on what that child area contains, drawn from its index below`. A folder with sub-folders but no direct pages STILL has a `## Pages` section cataloguing the child folders; only when the folder has neither pages nor sub-folders, write a single bullet `- No pages in this folder.` Then a `## Navigation` section built from the NAVIGATION TARGETS above: a `- Parent: [[<Parent>]]` line plus one `- Sibling: [[<Sibling>]]` line per sibling folder (omit Sibling lines when there are none).
    - Each `## Pages` line must tell the reader something the page title alone does not.
    - A `## Statistics` section reproducing the EXACT statistics lines supplied above, one `- line` per line, verbatim, with no rewording and no extra counts.
@@ -75,6 +75,7 @@ Output format — respond with ONLY the markdown file, no prose before or after 
 Rules:
 - The children list and the statistics are supplied by deterministic code and are ground truth. Copy them verbatim even if they look surprising.
 - Wikilinks MUST use the exact forms listed under EXACT LINK TARGETS, character-for-character. They use Obsidian's native pipe form `[[target|Display]]` (basename target for content pages, `<folder-path>/index` target for folder indexes), so they resolve in Obsidian by pure file lookup. Never link to a page or folder you invented, and never rewrite a supplied link into a bare `[[Page Title]]` form.
+- Every page and child folder listed under PAGES IN THIS FOLDER and SUB-FOLDERS must appear in the `## Pages` catalog with its exact supplied link form. A catalog entry for a page links the PAGE (e.g. `[[john-smith|John Smith]]`) — NEVER this folder's own index. An index page never links to itself.
 - Follow every writing rule in the wiki constitution above (plain language, journalist test, no invented facts).
 - Do not add sections other than the ones specified. Do not add citations; index pages are contracts, not content.
 
@@ -166,6 +167,13 @@ This wiki was generated from the ingested PDF corpus. It contains source documen
 
 - [[entities/people/executives/index|Executives]] — Key people across all reports
 - [[topics/financial/index|Financial]] — Financial themes and claims
+
+## Pages
+
+- [[entities/index|Entities]] — Named real-world things: people, companies, and organizations mentioned in the corpus
+- [[topics/index|Topics]] — Cross-cutting themes and claims spanning the reports
+- [[documents/index|Documents]] — The raw extracted page chunks from the source PDFs
+- [[sources/index|Sources]] — Provenance records (file hashes, page counts) for each PDF
 
 ## Statistics
 

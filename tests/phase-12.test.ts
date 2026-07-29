@@ -341,11 +341,15 @@ test('gate 12.4: synthesis re-asks with the exact dropped mention in the feedbac
       if (data.slug !== 'john-smith') {
         // The other entity passes immediately (full preservation shape:
         // verbatim strings plus the citation marker the materializer derived).
+        // Phase 17: incoming relationship evidence is preserved like
+        // outgoing, so the stub emits it too (acme-corp is the object of the
+        // fixture's is-ceo-of relationship).
         return [
           `Synthesis prose for ${data.title}.`,
           '',
           ...data.mentions.map((mention) => `- Page ${mention.page}: "${mention.context}"`),
           ...data.relationships.map((relationship) => `- ${relationship.evidence}`),
+          ...(data.incomingRelationships ?? []).map((relationship) => `- ${relationship.evidence}`),
           ...data.claims.map((claim) => `- ${claim.text}`),
           '',
           '[^src1]: golden-master.pdf, pages 1-3',
@@ -552,6 +556,26 @@ test('gate 12.6: updater re-asks with the missing sections in the feedback; exha
 // ---------------------------------------------------------------------------
 // Gate 12.7: Repair-rate accounting + warning
 // ---------------------------------------------------------------------------
+
+// Context-aware complete body (2026-07-25 catalog completeness): every
+// supplied catalog target appears in `## Pages` (root: Start Here + Pages) so
+// the body passes on the attempt it is meant to pass.
+const completeDoxBody = (context: {
+  isRoot: boolean;
+  title: string;
+  pages?: Array<{ linkText: string }>;
+  childIndexes?: Array<{ linkText: string }>;
+}): string => {
+  const catalog = [
+    ...(context.childIndexes ?? []).map((child) => `- ${child.linkText} — child area`),
+    ...(context.pages ?? []).map((page) => `- ${page.linkText} — a page`),
+  ].join('\n');
+  const sections = context.isRoot
+    ? `## Start Here\n\n- start\n\n## Pages\n\n${catalog}`
+    : `## Pages\n\n${catalog}\n\n## Navigation\n\n- up`;
+  return [`# ${context.title}`, '', 'Prose.', '', sections, '', '## Statistics', '', '- placeholder', ''].join('\n');
+};
+
 test('gate 12.7: a run with >=5 repairs warns and writes metrics.feedbackRepairs; below threshold stays quiet; the 25%-of-calls branch warns', async () => {
   // -- ≥5 repairs → warning + metrics ---------------------------------------
   // Failing-once stub: every FOLDER index fails attempt 1 missing required
@@ -590,32 +614,7 @@ test('gate 12.7: a run with >=5 repairs warns and writes metrics.feedbackRepairs
       if (context.folderPath !== '' && attempt === 1) {
         return '# Broken\n\nNo required sections here.\n';
       }
-      return [
-        `# ${context.title}`,
-        '',
-        'Prose.',
-        '',
-        '## Statistics',
-        '',
-        '- placeholder',
-        '',
-        '## Start Here',
-        '',
-        '- start',
-        '',
-        '## Wikis',
-        '',
-        '- wiki',
-        '',
-        '## Pages',
-        '',
-        '- [[index|Index]]',
-        '',
-        '## Navigation',
-        '',
-        '- up',
-        '',
-      ].join('\n');
+      return completeDoxBody(context);
     },
     writeWorkspaceIndexFn: async () => 'A workspace entry description.',
     writeWorkspaceProseFn: async () => 'Cross-wiki prose.',
@@ -672,28 +671,7 @@ test('gate 12.7: a run with >=5 repairs warns and writes metrics.feedbackRepairs
       if (context.folderPath === '' && attempt === 1) {
         return '# Broken\n\nNo required sections here.\n';
       }
-      return [
-        `# ${context.title}`,
-        '',
-        'Prose.',
-        '',
-        '## Statistics',
-        '',
-        '- placeholder',
-        '',
-        '## Start Here',
-        '',
-        '- start',
-        '',
-        '## Pages',
-        '',
-        '- [[index|Index]]',
-        '',
-        '## Navigation',
-        '',
-        '- up',
-        '',
-      ].join('\n');
+      return completeDoxBody(context);
     },
     writeWorkspaceIndexFn: async () => 'A workspace entry description.',
     writeWorkspaceProseFn: async () => 'Cross-wiki prose.',

@@ -1,15 +1,25 @@
 import { access, readFile, readdir } from 'node:fs/promises';
 import { join, relative } from 'node:path';
+import matter from 'gray-matter';
 
 export interface CitationCheckResult {
   invalid: Array<{ page: string; citation: string }>;
   missingSource: Array<{ page: string; citation: string }>;
+  /**
+   * Phase 17 (§2.6, vision `07` §2.5): distinct body `[^srcN]` keys on
+   * entity/topic pages whose definition's source file is NOT covered by the
+   * page's frontmatter `sources` list. Report-only, same posture as
+   * `missingSource` — meaningful now that the Phase 17 frontmatter
+   * re-imposition guarantees a complete deterministic map on new pages.
+   */
+  missingFrontmatterSource: Array<{ page: string; citation: string }>;
   totalCitations: number;
 }
 
 interface ContentPage {
   absolute: string;
   relative: string;
+  wikiRelative: string;
 }
 
 async function findContentPages(wikiSlug: string, workspace: string): Promise<ContentPage[]> {
@@ -34,13 +44,37 @@ async function walk(root: string, current: string, workspace: string, out: Conte
       if (wikiRel === 'AGENTS.md') {
         continue;
       }
-      out.push({ absolute, relative: relative(workspace, absolute).replace(/\\/g, '/') });
+      out.push({ absolute, relative: relative(workspace, absolute).replace(/\\/g, '/'), wikiRelative: wikiRel });
     }
   }
 }
 
 function stripFrontmatter(content: string): string {
   return content.replace(/^---[\s\S]*?---/m, '');
+}
+
+/**
+ * Phase 17 (§2.6): the set of source-file BASENAMES in a page's frontmatter
+ * `sources` list. Absent or unparseable frontmatter yields an empty set (no
+ * key is covered); non-list/non-string entries are ignored.
+ */
+function frontmatterSourceFiles(content: string): Set<string> {
+  const files = new Set<string>();
+  try {
+    const parsed = matter(content);
+    const sources = (parsed.data as Record<string, unknown>).sources;
+    if (Array.isArray(sources)) {
+      for (const entry of sources) {
+        const file = (entry as Record<string, unknown> | null)?.file;
+        if (typeof file === 'string' && file.trim().length > 0) {
+          files.add(file.split('/').pop() ?? file);
+        }
+      }
+    }
+  } catch {
+    // Unparseable frontmatter — no coverage (the schema validator flags it).
+  }
+  return files;
 }
 
 /**
@@ -69,10 +103,14 @@ export async function checkCitations(wikiSlug: string, workspace: string = '.'):
   const pages = await findContentPages(wikiSlug, workspace);
   const invalid: Array<{ page: string; citation: string }> = [];
   const missingSource: Array<{ page: string; citation: string }> = [];
+  const missingFrontmatterSource: Array<{ page: string; citation: string }> = [];
   let totalCitations = 0;
 
   const citationPattern = /\[\^src(\d+)\]/g;
   const definitionPattern = /\[\^src(\d+)\]:\s*(.+)/g;
+  // Phase 17 (§2.6): in-prose markers only — definition lines are excluded
+  // by the `(?!:)` lookahead.
+  const markerPattern = /\[\^src(\d+)\](?!:)/g;
 
   for (const page of pages) {
     if (page.relative.endsWith('index.md')) {
@@ -117,7 +155,29 @@ export async function checkCitations(wikiSlug: string, workspace: string = '.'):
         missingSource.push({ page: page.relative, citation: `[^${key}]` });
       }
     }
+
+    // Phase 17 (§2.6, vision `07` §2.5): citation consistency — every
+    // distinct in-prose `[^srcN]` key on an entity/topic page must be
+    // covered by the page's frontmatter `sources`: the key's definition
+    // names a source file (basename) that appears in the frontmatter list
+    // (whose `file` entries are matched by basename too — the frontmatter
+    // carries workspace-relative paths, the definitions carry basenames).
+    if (page.wikiRelative.startsWith('entities/') || page.wikiRelative.startsWith('topics/')) {
+      const frontmatterFiles = frontmatterSourceFiles(content);
+      const markerKeys = new Set<string>();
+      let markerMatch: RegExpExecArray | null;
+      while ((markerMatch = markerPattern.exec(body)) !== null) {
+        markerKeys.add(`src${markerMatch[1]}`);
+      }
+      for (const key of markerKeys) {
+        const definition = definitions.get(key);
+        const fileName = definition ? parseSourceFilename(definition) : undefined;
+        if (!fileName || !frontmatterFiles.has(fileName)) {
+          missingFrontmatterSource.push({ page: page.relative, citation: `[^${key}]` });
+        }
+      }
+    }
   }
 
-  return { invalid, missingSource, totalCitations };
+  return { invalid, missingSource, missingFrontmatterSource, totalCitations };
 }

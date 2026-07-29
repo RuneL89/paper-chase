@@ -214,6 +214,7 @@ Phase documents live in `Implementation Plan/`; vision documents live in `Projec
 | 14 | `PHASE_14_topic_and_entity_curation.md` | `01_PRODUCT_VISION_AND_ARCHITECTURE.md` §4.1/§5, `04_orchestration_detailed.md` §1/§3.2/§6/§9.4, `05_page_types_specification.md` §6/§7, `07_validation_and_quality.md` §1/§2.3/§5 | Curate-then-write: topic merge/drop/keep + entity merge-only curation, deterministic decision-list validation, keep-all fallback, `curation` routing slot |
 | 15 | `PHASE_15_synthesis_concurrency.md` | `04_orchestration_detailed.md` §1 | Bounded worker pool (fixed cap 4) for entity/topic synthesis; deterministic output order; everything else sequential |
 | 16 | `PHASE_16_run_resilience.md` | `04_orchestration_detailed.md` §1/§3.2/§6/Step 9/Step 11, `07_validation_and_quality.md` §2.3/§5 | Run resilience: per-page transport fallback + outage detector, synthesis resume, per-PDF checkpointing, pool transport tuning, curation decision-list sizing |
+| 17 | `PHASE_17_entity_graph_and_citation_integrity.md` | `02_WIKI_concept_detailed.md` §2/§4.3/§4.5/§4.8, `05_page_types_specification.md` §2/§6, `06_citation_and_provenance.md` §1-§3/§7, `07_validation_and_quality.md` §2.5/§2.6, `04_orchestration_detailed.md` §3.2/§4 | Bidirectional (incoming) relationships, related-entity link targets in synthesis, island (zero-outgoing) detection, deterministic post-synthesis frontmatter + `## Sources` normalization (B10/B12/B1/B2) |
 
 ---
 
@@ -354,7 +355,8 @@ Wiki v5/
 │   ├── PHASE_13_output_caps_and_prompt_self_sizing.md  # Phase 13
 │   ├── PHASE_14_topic_and_entity_curation.md           # Phase 14
 │   ├── PHASE_15_synthesis_concurrency.md               # Phase 15
-│   └── PHASE_16_run_resilience.md                      # Phase 16
+│   ├── PHASE_16_run_resilience.md                      # Phase 16
+│   └── PHASE_17_entity_graph_and_citation_integrity.md # Phase 17
 └── templates/
     └── AGENTS.md                                 # Template for wiki AGENTS.md (created in Phase 0)
 ```
