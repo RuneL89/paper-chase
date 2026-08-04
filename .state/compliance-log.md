@@ -2037,7 +2037,7 @@
     providers rule), .state/compliance-log.md (this entry)
   Vision Docs Checked: none (provider extension; no vision change)
   Result: Qwen added as a third built-in provider using the DashScope OpenAI-compatible
-    endpoint (https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions). Model
+    endpoint (https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions). Model
     catalog: qwen-plus (cheap/default), qwen3.7-max (mid/synthesis/dox/curation), qwen3.8-max
     (premium/override). API key resolves Settings-stored → DASHSCOPE_API_KEY env → .env.
     Qwen prices are PLACEHOLDER (TODO: verify against the DashScope console when billing is

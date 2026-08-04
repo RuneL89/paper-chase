@@ -8,7 +8,7 @@ import { enqueueSerializedWrite } from '../utils/serialized-writes';
 const ANTHROPIC_API_URL = 'https://api.anthropic.com/v1/messages';
 const ANTHROPIC_VERSION = '2023-06-01';
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
-const QWEN_API_URL = 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions';
+const QWEN_API_URL = 'https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions';
 const DEFAULT_MODEL = 'claude-haiku-4-5-20251001';
 
 /**

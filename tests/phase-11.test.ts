@@ -43,7 +43,7 @@ const QWEN_37_MAX = 'qwen3.7-max';
 const QWEN_38_MAX = 'qwen3.8-max';
 const ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
 const OPENAI_URL = 'https://api.openai.com/v1/chat/completions';
-const QWEN_URL = 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions';
+const QWEN_URL = 'https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions';
 
 const GOLDEN_MASTER = 'test-pdfs/golden-master.pdf';
 
