@@ -1,0 +1,708 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "organization",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "AKDB er den centrale database, der indsamler og analyserer data om akut kirurgisk behandling på danske hospitaler, herunder indikatorer for antibiotikabehandling og CT-skanning.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Akut Kirurgi Databasen. Endelig version til offentliggørelse 2025.02.28"
+        },
+        {
+          "page": 12,
+          "context": "Indikator 1 beskriver andelen af patienter, der kommer i antibiotisk behandling indenfor tre timer efter ankomst til sygehus. Indikatoren afhænger af data i Sygehusmedicinregisteret, hvorfra AKDB henter informationer om antibiotika."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvasenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "Institutionen er ansvarlig for udgivelsen af AKDB-rapporten og kvalitetsudviklingen inden for akut kirurgi.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Sygehusmedicinregisteret",
+      "type": "organization",
+      "slug": "sygehusmedicinregisteret",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Registeret leverer data om antibiotikabehandling til AKDB for indikatoren om antibiotisk behandling.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Indikatoren afhænger af data i Sygehusmedicinregisteret, hvorfra AKDB henter informationer om antibiotika."
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Syddanmark havde den laveste andel patienter, der fik antibiotika indenfor tre timer (22,5 %), men har siden gjort en stor indsats med forbedringer på to cifret procentsats.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Regionalt varierede andelen af patienter, der fik antibiotika indenfor tre timer efter ankomst til sygehus fra 22,5 % i Region Syddanmark til 44,6 % i Region Midtjylland."
+        },
+        {
+          "page": 13,
+          "context": "Region Syd har lavet en stor indsats og har flyttet sig med to cifret % sats"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Midtjylland havde den højeste andel patienter, der fik antibiotika indenfor tre timer (44,6 %), hvilket viser regionens bedre performance på denne indikator.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Regionalt varierede andelen af patienter, der fik antibiotika indenfor tre timer efter ankomst til sygehus fra 22,5 % i Region Syddanmark til 44,6 % i Region Midtjylland."
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden rapporteres med CT-scanningsdata og hospitalsspecifikke resultater for indikatoren.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Hovedstaden Nej 326 / 989 0 (0) 33,0 (30,0-36,0) 30,2 23,4"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland rapporteres med CT-scanningsdata og hospitalsspecifikke resultater for indikatoren.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Sjælland Nej 141 / 545 0 (0) 25,9 (22,2-29,8) 24,9 27,0"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland rapporteres med CT-scanningsdata og hospitalsspecifikke resultater for indikatoren.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Nordjylland Nej 65 / 228 0 (0) 28,5 (22,7-34,8) 20,3 16,3"
+        }
+      ]
+    },
+    {
+      "name": "AHA studiet",
+      "type": "organization",
+      "slug": "aha-studiet",
+      "folder": "topics/clinical-research/studies",
+      "significance": "AHA-studiet demonstrerede, at tidlig antibiotikabehandling er et af de tiltag, der har forbedret mortaliteten på akut abdominal kirurgi.",
+      "mentions": [
+        {
+          "page": 13,
+          "context": "I AHA og ELPQUICK studierne, der begge har forbedret mortalitet, er tidlig antibiotikabehandling et af de tiltag, der har været med til at sænke mortaliteten på akut abdominal kirurgi."
+        }
+      ]
+    },
+    {
+      "name": "ELPQUICK studiet",
+      "type": "organization",
+      "slug": "elpquick-studiet",
+      "folder": "topics/clinical-research/studies",
+      "significance": "ELPQUICK-studiet demonstrerede, at tidlig antibiotikabehandling er et af de tiltag, der har forbedret mortaliteten på akut abdominal kirurgi.",
+      "mentions": [
+        {
+          "page": 13,
+          "context": "I AHA og ELPQUICK studierne, der begge har forbedret mortalitet, er tidlig antibiotikabehandling et af de tiltag, der har været med til at sænke mortaliteten på akut abdominal kirurgi."
+        }
+      ]
+    },
+    {
+      "name": "Randers",
+      "type": "location",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Randers er på vej til at nå målsætningen for antibiotikabehandling og viser, at det er muligt at forbedre kvaliteten på området.",
+      "mentions": [
+        {
+          "page": 13,
+          "context": "Randers er på vej i mål. Det viser at det er realistisk og muligt at flytte kvaliteten på området."
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 20,8 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Amager og Hvidovre Hospital Nej 49 / 236 0 (0) 20,8 (15,8-26,5) 13,1 16,3"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospital",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 30,9 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Bispebjerg og Frederiksberg Hospital Nej 54 / 175 0 (0) 30,9 (24,1-38,3) 31,3 23,0"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 42,3 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Bornholms Hospital Nej 11 / 26 0 (0) 42,3 (23,4-63,1) 63,0 50,0"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 43,3 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Herlev og Gentofte Hospital Nej 132 / 305 0 (0) 43,3 (37,6-49,0) 42,7 35,6"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 37,2 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Hospitalerne i Nordsjælland Nej 73 / 196 0 (0) 37,2 (30,5-44,4) 29,8 18,3"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 13,7 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Rigshospitalet Nej 7 / 51 0 (0) 13,7 (5,7-26,3) 21,1 13,0"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 37,3 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Holbæk Sygehus Nej 47 / 126 0 (0) 37,3 (28,9-46,4) 29,7 26,0"
+        }
+      ]
+    },
+    {
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagelse-ringsted-sygehuse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 28,9 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Næstved, Slagelse og Ringsted sygehuse Nej 52 / 180 0 (0) 28,9 (22,4-36,1) 20,3 26,7"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 17,6 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Sjællands Universitetshospital Nej 42 / 239 0 (0) 17,6 (13,0-23,0) 26,1 27,7"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 28,2 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Esbjerg Sygehus Grindsted Sygehus Nej 44 / 156 0 (0) 28,2 (21,3-36,0) 21,4 18,9"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital - Svendborg",
+      "type": "organization",
+      "slug": "odense-universitetshospital-svendborg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 29,5 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Odense Universitetshospital - Svendborg Nej 85 / 288 0 (0) 29,5 (24,3-35,1) 27,1 23,5"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 36,1 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Sygehus Lillebælt Nej 30 / 83 0 (0) 36,1 (25,9-47,4) 36,1 18,6"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 20,2 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Sygehus Sønderjylland Nej 22 / 109 0 (0) 20,2 (13,1-28,9) 34,2 22,8"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 43,8 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Aarhus Universitetshospital Nej 60 / 137 0 (0) 43,8 (35,3-52,5) 46,1 34,5"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 33,8 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Hospitalsenhed Midt Nej 44 / 130 0 (0) 33,8 (25,8-42,7) 42,2 26,6"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 46,4 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Regionshospitalet Gødstrup Nej 77 / 166 0 (0) 46,4 (38,6-54,3) 34,8 32,0"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 33,9 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Regionshospitalet Horsens Nej 39 / 115 0 (0) 33,9 (25,3-43,3) 31,3 33,3"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 48,8 % af patienter fik CT-skanning indenfor 2 timer, hvilket viser god fremgang.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Regionshospitalet Randers Nej 62 / 127 0 (0) 48,8 (39,9-57,8) 37,8 27,5"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 17,8 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Aalborg Universitetshospital Nej 24 / 135 0 (0) 17,8 (11,7-25,3) 19,2 17,4"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital, Thisted",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital-thisted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Aalborg Universitetshospital, Thisted 0,0"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital rapporteres med CT-scanningsdata, hvor 44,1 % af patienter fik CT-skanning indenfor 2 timer.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Regionshospital Nordjylland Nej 41 / 93 0 (0) 44,1 (33,8-54,8) 22,5 14,5"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1: Antibiotikabehandling",
+      "type": "topic",
+      "slug": "indikator-1",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikatoren måler andelen af patienter, der får antibiotika indenfor tre timer efter ankomst til sygehus, med et udviklingmål på 60 %.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Indikator 1: Antibiotikabehandling. Forest plot på afdelingsniveau"
+        },
+        {
+          "page": 12,
+          "context": "Indikator 1 beskriver andelen af patienter, der kommer i antibiotisk behandling indenfor tre timer efter ankomst til sygehus."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2: CT-skanning",
+      "type": "topic",
+      "slug": "indikator-2",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikatoren måler andelen af CT-skannede patienter, der får lavet CT-skanning indenfor to timer efter ankomst til sygehus, med et udviklingmål på 90 %.",
+      "mentions": [
+        {
+          "page": 13,
+          "context": "Indikator 2: CT-skanning"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "uses-data-from",
+      "object": "sygehusmedicinregisteret",
+      "evidence": "Indikatoren afhænger af data i Sygehusmedicinregisteret, hvorfra AKDB henter informationer om antibiotika.",
+      "page": 12
+    },
+    {
+      "subject": "aha-studiet",
+      "predicate": "demonstrated-benefit-of",
+      "object": "antibiotikabehandling",
+      "evidence": "I AHA og ELPQUICK studierne, der begge har forbedret mortalitet, er tidlig antibiotikabehandling et af de tiltag, der har været med til at sænke mortaliteten på akut abdominal kirurgi.",
+      "page": 13
+    },
+    {
+      "subject": "elpquick-studiet",
+      "predicate": "demonstrated-benefit-of",
+      "object": "antibiotikabehandling",
+      "evidence": "I AHA og ELPQUICK studierne, der begge har forbedret mortalitet, er tidlig antibiotikabehandling et af de tiltag, der har været med til at sænke mortaliteten på akut abdominal kirurgi.",
+      "page": 13
+    }
+  ],
+  "claims": [
+    {
+      "text": "I alt 1.065 patienter modtog antibiotika indenfor 3 timer ud af de 3.099 med angivet operationstidspunkt. Andelen var således på 34,4 % (95 % CI: 32,7 – 36,1), hvilket er langt fra udviklingsmålet på > 60 %.",
+      "type": "clinical-indicator",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 12
+    },
+    {
+      "text": "I seneste årsrapport blev rapporteret at 900 ud af 2.950 patienter fik antibiotika indenfor en time, svarende til 30,5 %.",
+      "type": "clinical-indicator",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 12
+    },
+    {
+      "text": "Regionalt varierede andelen af patienter, der fik antibiotika indenfor tre timer efter ankomst til sygehus fra 22,5 % i Region Syddanmark til 44,6 % i Region Midtjylland.",
+      "type": "regional-variation",
+      "entities": [
+        "region-syddanmark",
+        "region-midtjylland"
+      ],
+      "page": 12
+    },
+    {
+      "text": "Alle regioner har større andel med antibiotika indenfor tre timer i år sammenlignet med sidste år.",
+      "type": "clinical-indicator",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 12
+    },
+    {
+      "text": "Ingen af de indberettende enheder opfyldte udviklingsmålet på > 90 % i perioden.",
+      "type": "clinical-indicator",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 12
+    },
+    {
+      "text": "Supplerende analyse til indikator 1 viser, at 3.379 patienter i alt modtog antibiotika. Den mediane tid fra ankomst til antibiotika var 4,4 timer (IQR: 2,3-10,8).",
+      "type": "clinical-indicator",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 12
+    },
+    {
+      "text": "Det anbefales at man iværksætter antibiotika hurtigst muligt på patienter mistænkt for ileus, perforeret hulorgan eller iskæmi, uanset om der er feber eller påvirkede infektionstal.",
+      "type": "clinical-recommendation",
+      "entities": [
+        "antibiotikabehandling"
+      ],
+      "page": 13
+    },
+    {
+      "text": "Det væsentlige er, om patienterne får antibiotika inden operation.",
+      "type": "clinical-recommendation",
+      "entities": [
+        "antibiotikabehandling"
+      ],
+      "page": 13
+    },
+    {
+      "text": "Det blev derfor forrige år vedtaget, at tid for indgift fremadrettet skulle ændres til 3 timer i stedet for 1 time, som det har været tidligere.",
+      "type": "quality-standard",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 13
+    },
+    {
+      "text": "På nationalt plan er der sket store forbedringer af andelen af patienter, der har fået i antibiotisk behandling indenfor 3 timer efter ankomst.",
+      "type": "clinical-indicator",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 13
+    },
+    {
+      "text": "Region Syd har lavet en stor indsats og har flyttet sig med to cifret % sats og Randers er på vej i mål.",
+      "type": "regional-variation",
+      "entities": [
+        "region-syddanmark",
+        "regionshospitalet-randers"
+      ],
+      "page": 13
+    },
+    {
+      "text": "Udviklingsmålet ændres til 60 % idet lokale audits har fundet, at mange patienter ikke er septiske.",
+      "type": "quality-standard",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 13
+    },
+    {
+      "text": "Tidsgrænsen fastholdes på 3 timer efter ankomst ud fra argumentet, at det er en afvejning for at undgå forsinkelse af CT-skanning.",
+      "type": "quality-standard",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 13
+    },
+    {
+      "text": "Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor to timer (120 minutter) efter ankomst til sygehus",
+      "type": "clinical-indicator",
+      "entities": [
+        "indikator-2"
+      ],
+      "page": 13
+    },
+    {
+      "text": "I Danmark var 995 ud af 3.073 patienter (32,4 %, 95 % CI: 30,7-34,1) CT-scannet indenfor 2 timer efter ankomst.",
+      "type": "clinical-indicator",
+      "entities": [
+        "indikator-2"
+      ],
+      "page": 13
+    },
+    {
+      "text": "Eksklusion: 75 Ugyldigt CPRnummer, 198 Patienten er under 18 år, 6.232 Patienten er ikke opereret, 73 Præoperativ antibiotikaprofylakse er ikke givet, 492 Operationen er ikke den første operation i hospitalsopholdet.",
+      "type": "data-quality",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Eksklusion: 75 Ugyldigt CPRnummer, 198 Patienten er under 18 år, 6.232 Patienten er ikke opereret, 99 Patienten er ikke CT-scannet, 492 Operationen er ikke den første operation i hospitalsopholdet.",
+      "type": "data-quality",
+      "entities": [
+        "indikator-2"
+      ],
+      "page": 15
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.09.2023 - 31.08.2024",
+      "event": "Rapporteringsperiode for indikator 1 (antibiotikabehandling) og indikator 2 (CT-skanning)",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "indikator-1",
+        "indikator-2"
+      ]
+    },
+    {
+      "date": "2025.02.28",
+      "event": "Endelig version af AKDB-rapport til offentliggørelse",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "context": "Denne del af AKDB-rapporten præsenterer resultater for to centrale kvalitetsindikatorer inden for akut kirurgi: antibiotikabehandling (indikator 1) og CT-skanning (indikator 2). Rapporten dokumenterer, at selvom der er sket forbedringer på nationalt plan, ligger begge indikatorer stadig væsentligt under deres udviklingmål. Antibiotikabehandling inden for tre timer opnåede 34,4 % mod et mål på 60 %, mens CT-skanning inden for to timer opnåede 32,4 % mod et mål på 90 %. Rapporten viser betydelig regional variation, med Region Midtjylland og Region Syddanmark som henholdsvis bedst og dårligst præsterende på antibiotikabehandling. Diskussionen understreger vigtigheden af tidlig antibiotikabehandling baseret på evidens fra AHA- og ELPQUICK-studierne, som begge har demonstreret forbedret mortalitet ved implementering af disse tiltag.",
+  "tables": [
+    {
+      "subject": "indikator-1",
+      "title": "Eksklusion (indikator 1)",
+      "page": 11,
+      "rowDimension": "eksklusionsårsager",
+      "colDimension": "antal patienter",
+      "entities": [
+        "indikator-1",
+        "cpr-nummer"
+      ],
+      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 75 | Ugyldigt CPRnummer. |\n| 198 | Patienten er under 18 år. |\n| 6.232 | Patienten er ikke opereret. |\n| 73 | Præoperativ antibiotikaprofylakse er ikke givet. |\n| 492 | Operationen er ikke den første operation i hospitalsopholdet. |",
+      "summary": "Oversigten viser antallet af ekskluderede patienter fordelt på årsager for indikator 1, hvor 'Patienten er ikke opereret' med 6.232 er den klart største eksklusionsårsag."
+    },
+    {
+      "subject": "indikator-2",
+      "title": "Indikator 2: CT-skanning",
+      "page": 13,
+      "rowDimension": "regioner og hospitaler",
+      "colDimension": "andel CT-skanning indenfor 2 timer med 95% CI for aktuelle år samt andele for tidligere år",
+      "entities": [
+        "indikator-2",
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagelse-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Enhed | Standard ≥ 90% opfyldt | Tæller/nævner | Uoplyst antal (%) | Andel 95% CI (01.09.2023 - 31.08.2024) | Andel 2022/23 | Andel 2021/22 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 995 / 3.073 | 0 (0) | 32,4 (30,7-34,1) | 30,2 | 24,8 |\n| Hovedstaden | Nej | 326 / 989 | 0 (0) | 33,0 (30,0-36,0) | 30,2 | 23,4 |\n| Amager og Hvidovre Hospital | Nej | 49 / 236 | 0 (0) | 20,8 (15,8-26,5) | 13,1 | 16,3 |\n| Bispebjerg og Frederiksberg Hospital | Nej | 54 / 175 | 0 (0) | 30,9 (24,1-38,3) | 31,3 | 23,0 |\n| Bornholms Hospital | Nej | 11 / 26 | 0 (0) | 42,3 (23,4-63,1) | 63,0 | 50,0 |\n| Herlev og Gentofte Hospital | Nej | 132 / 305 | 0 (0) | 43,3 (37,6-49,0) | 42,7 | 35,6 |\n| Hospitalerne i Nordsjælland | Nej | 73 / 196 | 0 (0) | 37,2 (30,5-44,4) | 29,8 | 18,3 |\n| Rigshospitalet | Nej | 7 / 51 | 0 (0) | 13,7 (5,7-26,3) | 21,1 | 13,0 |\n| Sjælland | Nej | 141 / 545 | 0 (0) | 25,9 (22,2-29,8) | 24,9 | 27,0 |\n| Holbæk Sygehus | Nej | 47 / 126 | 0 (0) | 37,3 (28,9-46,4) | 29,7 | 26,0 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 52 / 180 | 0 (0) | 28,9 (22,4-36,1) | 20,3 | 26,7 |\n| Sjællands Universitetshospital | Nej | 42 / 239 | 0 (0) | 17,6 (13,0-23,0) | 26,1 | 27,7 |\n| Syddanmark | Nej | 181 / 636 | 0 (0) | 28,5 (25,0-32,1) | 28,9 | 21,3 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 44 / 156 | 0 (0) | 28,2 (21,3-36,0) | 21,4 | 18,9 |\n| Odense Universitetshospital - Svendborg | Nej | 85 / 288 | 0 (0) | 29,5 (24,3-35,1) | 27,1 | 23,5 |\n| Sygehus Lillebælt | Nej | 30 / 83 | 0 (0) | 36,1 (25,9-47,4) | 36,1 | 18,6 |\n| Sygehus Sønderjylland | Nej | 22 / 109 | 0 (0) | 20,2 (13,1-28,9) | 34,2 | 22,8 |\n| Midtjylland | Nej | 282 / 675 | 0 (0) | 41,8 (38,0-45,6) | 38,9 | 31,0 |\n| Aarhus Universitetshospital | Nej | 60 / 137 | 0 (0) | 43,8 (35,3-52,5) | 46,1 | 34,5 |\n| Hospitalsenhed Midt | Nej | 44 / 130 | 0 (0) | 33,8 (25,8-42,7) | 42,2 | 26,6 |\n| Regionshospitalet Gødstrup | Nej | 77 / 166 | 0 (0) | 46,4 (38,6-54,3) | 34,8 | 32,0 |\n| Regionshospitalet Horsens | Nej | 39 / 115 | 0 (0) | 33,9 (25,3-43,3) | 31,3 | 33,3 |\n| Regionshospitalet Randers | Nej | 62 / 127 | 0 (0) | 48,8 (39,9-57,8) | 37,8 | 27,5 |\n| Nordjylland | Nej | 65 / 228 | 0 (0) | 28,5 (22,7-34,8) | 20,3 | 16,3 |\n| Aalborg Universitetshospital | Nej | 24 / 135 | 0 (0) | 17,8 (11,7-25,3) | 19,2 | 17,4 |\n| Aalborg Universitetshospital, Thisted |  |  |  | 0,0 |  |  |\n| Regionshospital Nordjylland | Nej | 41 / 93 | 0 (0) | 44,1 (33,8-54,8) | 22,5 | 14,5 |",
+      "summary": "Tabellen sammenligner andelen af patienter med CT-skanning indenfor 2 timer for Danmark, regionerne og deres hospitaler i 2023/24 mod de to foregående år; ingen enhed opfylder standarden på ≥ 90 %, og Regionshospitalet Randers har den højeste andel med 48,8 %."
+    },
+    {
+      "subject": "indikator-2",
+      "title": "Eksklusion (indikator 2)",
+      "page": 15,
+      "rowDimension": "eksklusionsårsager",
+      "colDimension": "antal patienter",
+      "entities": [
+        "indikator-2",
+        "cpr-nummer",
+        "ct-skanning"
+      ],
+      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 75 | Ugyldigt CPRnummer. |\n| 198 | Patienten er under 18 år. |\n| 6.232 | Patienten er ikke opereret. |\n| 99 | Patienten er ikke CT-scannet. |\n| 492 | Operationen er ikke den første operation i hospitalsopholdet. |",
+      "summary": "Oversigten viser antallet af ekskluderede patienter fordelt på årsager for indikator 2, hvor 'Patienten er ikke opereret' med 6.232 er den største årsag, mens 99 er ekskluderet fordi patienten ikke var CT-scannet."
+    }
+  ]
+}

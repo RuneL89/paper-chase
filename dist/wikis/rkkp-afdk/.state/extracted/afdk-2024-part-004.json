@@ -1,0 +1,497 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 2: Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato",
+      "type": "quality-indicator",
+      "slug": "indikator-2-ekkokardiografi",
+      "folder": "topics/quality-indicator",
+      "significance": "Dette er en vigtig kvalitetsindikator for behandlingen af nydiagnosticerede atrieflimren-patienter, der måler andelen, som får udført ekkokardiografi inden for det fastsatte tidsvindue.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Indikator 2: Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Landspatientregisteret er en vigtig datakilde for ekkokardiografi-data i indikatoren, selvom der er problemer med manglende indrapportering fra nogle afdelinger.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "Data vedrørende ekkokardiografi stammer både fra Landspatientregisteret og fra Sygesikringsregisteret"
+        }
+      ]
+    },
+    {
+      "name": "Sygesikringsregisteret",
+      "type": "organization",
+      "slug": "sygesikringsregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sygesikringsregisteret er en vigtig datakilde for ekkokardiografi-data fra praktiserende speciallægepraksis, men har begrænsninger i tidspræcision for indberettede ydelser.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "Data vedrørende ekkokardiografi stammer både fra Landspatientregisteret og fra Sygesikringsregisteret"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsdatastyrelsen",
+      "type": "organization",
+      "slug": "sundhedsdatastyrelsen",
+      "folder": "entities/organizations/government-agencies",
+      "significance": "Sundhedsdatastyrelsen leverer data til indikatoren, men leverer ikke data fra privathospitaler, hvilket påvirker opgørelsen.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "Ekkokardiografi, som er foretaget på privathospitaler og indberettet til Landspatientregisteret, indgår ikke, da Sundhedsdatastyrelsen ikke leverer disse data"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsplatformen",
+      "type": "organization",
+      "slug": "sundhedsplatformen",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsplatformen er et IT-system, hvor afdelinger har problemer med at indrapportere ekkokardiografi-data til Landspatientregisteret, hvilket påvirker datakvaliteten.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "Valideringsarbejde udført af styregruppen har tidligere vist, at der forekommer en betydelig grad af manglende ydelses-rapportering af ekkokardiografi til Landspatientregisteret, især fra afdelinger, der arbejder under Sundhedsplatformen"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Hovedstaden opfylder ikke standarden for ekkokardiografi-indikatoren med 74,5%, men viser kontinuerlig stigning.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Hovedstaden Nej 4.589 / 6.162 0 (0) 74,5 (73,4-75,6)"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "sjaelland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Sjælland opfylder ikke standarden for ekkokardiografi-indikatoren med 78,0%, men ligger tæt på og viser positiv udvikling.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Sjælland Nej 2.831 / 3.629 0 (0) 78,0 (76,6-79,3)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Syddanmark opfylder standarden for ekkokardiografi-indikatoren med 84,4%.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Syddanmark Ja 4.129 / 4.893 0 (0) 84,4 (83,3-85,4)"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland opfylder standarden for ekkokardiografi-indikatoren med 86,5%, den højeste blandt alle regioner.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Midtjylland Ja 4.397 / 5.083 0 (0) 86,5 (85,5-87,4)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "nordjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Nordjylland opfylder standarden for ekkokardiografi-indikatoren med 80,2%.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Nordjylland Ja 1.910 / 2.381 0 (0) 80,2 (78,6-81,8)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 3: Thyreoideastimulerende hormon (TSH) måling",
+      "type": "quality-indicator",
+      "slug": "indikator-3-tsh-maaling",
+      "folder": "topics/quality-indicator",
+      "significance": "Dette er en vigtig kvalitetsindikator for atrieflimren-patienter, der måler andelen af nydiagnosticerede patienter, som får målt TSH inden for det fastsatte tidsvindue.",
+      "mentions": [
+        {
+          "page": 20,
+          "context": "Indikator 3: Thyreoideastimulerende hormon (TSH) måling. Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det geografiske område for denne kvalitetsindikator-rapport, hvor 22.148 patienter med nydiagnosticeret atrieflimren blev evalueret.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Danmark Ja 17.856 / 22.148 0 (0) 80,6 (80,1-81,1)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-2-ekkokardiografi",
+      "predicate": "measures-performance-in",
+      "object": "danmark",
+      "evidence": "Indikatoren måler andelen af nydiagnosticerede atrieflimren-patienter i Danmark, der får udført ekkokardiografi",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2-ekkokardiografi",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Data vedrørende ekkokardiografi stammer både fra Landspatientregisteret og fra Sygesikringsregisteret",
+      "page": 19
+    },
+    {
+      "subject": "indikator-2-ekkokardiografi",
+      "predicate": "uses-data-from",
+      "object": "sygesikringsregisteret",
+      "evidence": "Data vedrørende ekkokardiografi stammer både fra Landspatientregisteret og fra Sygesikringsregisteret",
+      "page": 19
+    },
+    {
+      "subject": "sundhedsplatformen",
+      "predicate": "has-data-quality-issue-with",
+      "object": "indikator-2-ekkokardiografi",
+      "evidence": "Valideringsarbejde udført af styregruppen har tidligere vist, at der forekommer en betydelig grad af manglende ydelses-rapportering af ekkokardiografi til Landspatientregisteret, især fra afdelinger, der arbejder under Sundhedsplatformen",
+      "page": 19
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "does-not-meet-standard-for",
+      "object": "indikator-2-ekkokardiografi",
+      "evidence": "Hovedstaden Nej 4.589 / 6.162 0 (0) 74,5 (73,4-75,6)",
+      "page": 16
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "does-not-meet-standard-for",
+      "object": "indikator-2-ekkokardiografi",
+      "evidence": "Sjælland Nej 2.831 / 3.629 0 (0) 78,0 (76,6-79,3)",
+      "page": 16
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "meets-standard-for",
+      "object": "indikator-2-ekkokardiografi",
+      "evidence": "Syddanmark Ja 4.129 / 4.893 0 (0) 84,4 (83,3-85,4)",
+      "page": 16
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "meets-standard-for",
+      "object": "indikator-2-ekkokardiografi",
+      "evidence": "Midtjylland Ja 4.397 / 5.083 0 (0) 86,5 (85,5-87,4)",
+      "page": 16
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "meets-standard-for",
+      "object": "indikator-2-ekkokardiografi",
+      "evidence": "Nordjylland Ja 1.910 / 2.381 0 (0) 80,2 (78,6-81,8)",
+      "page": 16
+    }
+  ],
+  "claims": [
+    {
+      "text": "Standarden for Indikator 2 er ≥ 80% [^src1]",
+      "type": "quality-standard",
+      "entities": [
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 16
+    },
+    {
+      "text": "I Danmark blev 80,6% (95% CI: 80,1-81,1) af 22.148 nydiagnosticerede atrieflimren-patienter undersøgt med ekkokardiografi fra 6 måneder før til 3 måneder efter diagnosedato i perioden 01.05.2023 - 30.04.2024 [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "danmark",
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Hovedstaden opfyldte ikke standarden med 74,5% (95% CI: 73,4-75,6) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "region-hovedstaden",
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Sjælland opfyldte ikke standarden med 78,0% (95% CI: 76,6-79,3) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sjaelland",
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Syddanmark opfyldte standarden med 84,4% (95% CI: 83,3-85,4) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "syddanmark",
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Midtjylland opfyldte standarden med 86,5% (95% CI: 85,5-87,4) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "midtjylland",
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Nordjylland opfyldte standarden med 80,2% (95% CI: 78,6-81,8) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "nordjylland",
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Data vedrørende ekkokardiografi stammer både fra Landspatientregisteret og fra Sygesikringsregisteret [^src2]",
+      "type": "data-source",
+      "entities": [
+        "landspatientregisteret",
+        "sygesikringsregisteret"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Ekkokardiografi foretaget på privathospitaler og indberettet til Landspatientregisteret indgår ikke i opgørelsen, da Sundhedsdatastyrelsen ikke leverer disse data [^src2]",
+      "type": "data-limitation",
+      "entities": [
+        "sundhedsdatastyrelsen"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Fra Sygesikringsregisteret er det kun muligt at trække oplysninger om i hvilken uge en ydelse er indberettet til registeret og ikke hvilken dato, den rent faktisk er blevet ydet [^src2]",
+      "type": "data-limitation",
+      "entities": [
+        "sygesikringsregisteret"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Den store indberetningsuge til Sygesikringsregisteret er den sidste uge i måneden, hvor knap halvdelen af hele månedens afregninger registreres [^src2]",
+      "type": "data-quality-note",
+      "entities": [
+        "sygesikringsregisteret"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Ved beregningen af indikatoren er der medtaget ekkokardiografiske undersøgelser foretaget i praktiserende speciallægepraksis og indberettet til Sygesikringsregisteret op til 4 måneder efter diagnosedatoen [^src2]",
+      "type": "methodology",
+      "entities": [
+        "indikator-2-ekkokardiografi",
+        "sygesikringsregisteret"
+      ],
+      "page": 19
+    },
+    {
+      "text": "286 patienter blev ekskluderet fordi de ikke havde bopæl i Danmark eller havde en erstatnings CPR-nummer [^src2]",
+      "type": "data-quality-note",
+      "entities": [
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 19
+    },
+    {
+      "text": "725 patienter blev ekskluderet fordi de ikke var incident (havde en anden AF-diagnose inden for de sidste 10 år) [^src2]",
+      "type": "data-quality-note",
+      "entities": [
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 19
+    },
+    {
+      "text": "8 patienter blev ekskluderet fordi deres bopælskommune var ukendt [^src2]",
+      "type": "data-quality-note",
+      "entities": [
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Af den incidente population havde 22.148 patienter tilstrækkelig opfølgningstid (3 mdr.) til at indgå i indikatoropgørelsen [^src2]",
+      "type": "clinical-statistics",
+      "entities": [
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 19
+    },
+    {
+      "text": "I alt blev 81% af patienterne undersøgt med ekkokardiografi i tiden op til eller indenfor 3 måneder efter, at diagnosen blev stillet [^src2]",
+      "type": "clinical-performance",
+      "entities": [
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Standarden på 80% er opfyldt, og der ses en kontinuerlig stigning i målopfyldelsen fra år til år [^src2]",
+      "type": "clinical-performance",
+      "entities": [
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 19
+    },
+    {
+      "text": "På regionsplan varierede andelen fra 75 - 87% [^src2]",
+      "type": "regional-variation",
+      "entities": [
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 19
+    },
+    {
+      "text": "De tre vestdanske regioner opfylder standarden (80,2-86,5%) imens de østdanske ligger lidt lavere (74,5-78%) [^src2]",
+      "type": "regional-variation",
+      "entities": [
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 19
+    },
+    {
+      "text": "De to østdanske regioner har imidlertid en kontinuerlig stigning i andelen med målopfyldelse og er nu ganske tæt på den fastsatte standard (80%) [^src2]",
+      "type": "clinical-trend",
+      "entities": [
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 19
+    },
+    {
+      "text": "På sundhedsklyngeniveau er der klynger i alle regioner, bortset fra Region Sjælland, der opfylder standarden [^src2]",
+      "type": "clinical-performance",
+      "entities": [
+        "indikator-2-ekkokardiografi",
+        "sjaelland"
+      ],
+      "page": 19
+    },
+    {
+      "text": "I region Sjælland ligger resultaterne for klyngerne imidlertid i niveauet 77-79,4% og er således ganske tæt på standarden [^src2]",
+      "type": "clinical-performance",
+      "entities": [
+        "indikator-2-ekkokardiografi",
+        "sjaelland"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Med få undtagelser ses en positiv udvikling i Region Sjælland [^src2]",
+      "type": "clinical-trend",
+      "entities": [
+        "indikator-2-ekkokardiografi",
+        "sjaelland"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Nogle afdelinger i højere grad end andre henviser deres patienter til privathospitaler, hvilket påvirker resultaterne for indikatoren [^src2]",
+      "type": "data-limitation",
+      "entities": [
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Valideringsarbejde udført af styregruppen har tidligere vist, at der forekommer en betydelig grad af manglende ydelses-rapportering af ekkokardiografi til Landspatientregisteret, især fra afdelinger, der arbejder under Sundhedsplatformen [^src2]",
+      "type": "data-quality-note",
+      "entities": [
+        "landspatientregisteret",
+        "sundhedsplatformen"
+      ],
+      "page": 19
+    },
+    {
+      "text": "RKKP er i løbende dialog med regionerne under Sundhedsplatformen vedrørende indrapportering af ekkokardiografi-data [^src2]",
+      "type": "operational",
+      "entities": [
+        "sundhedsplatformen"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Andre afdelinger opfordres til også at have fokus på indrapportering af data om udført ekkokardiografi til Landspatientregisteret [^src2]",
+      "type": "recommendation",
+      "entities": [
+        "landspatientregisteret"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Indikatoren og standarden fastholdes [^src2]",
+      "type": "indicator-status",
+      "entities": [
+        "indikator-2-ekkokardiografi"
+      ],
+      "page": 19
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.05.2023 - 30.04.2024",
+      "event": "Måleperiode for Indikator 2 ekkokardiografi-undersøgelser",
+      "entities": [
+        "indikator-2-ekkokardiografi"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere år data for Indikator 2 viser 79,0% opfyldelse i Danmark",
+      "entities": [
+        "indikator-2-ekkokardiografi",
+        "danmark"
+      ]
+    },
+    {
+      "date": "2021/22",
+      "event": "Tidligere år data for Indikator 2 viser 76,7% opfyldelse i Danmark",
+      "entities": [
+        "indikator-2-ekkokardiografi",
+        "danmark"
+      ]
+    }
+  ],
+  "context": "Dette dokument-afsnit præsenterer resultater fra Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) for atrieflimren i Danmark, specifikt fokuseret på Indikator 2 (ekkokardiografi-undersøgelser) og introduktionen af Indikator 3 (TSH-måling). Rapporten dokumenterer performance på nationalt, regionalt og sundhedsklyngeniveau for perioden 01.05.2023 - 30.04.2024, med sammenligning til tidligere år. Datagrundlaget stammer fra Landspatientregisteret og Sygesikringsregisteret, men der identificeres betydelige datakvalitetsproblemer, især manglende indrapportering fra afdelinger under Sundhedsplatformen og manglende data fra privathospitaler. Resultaterne viser, at Danmark som helhed opfylder standarden på 80% med 80,6%, men der er regional variation med vestdanske regioner (80,2-86,5%) der opfylder standarden, mens østdanske regioner (74,5-78%) ligger under, dog med kontinuerlig stigning."
+}

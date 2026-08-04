@@ -1246,7 +1246,7 @@ test('gate 14.10: a legacy routing table without the field normalizes to null (b
   }
 });
 
-test('gate 14.10: seedModelsForProvider seeds the mid-tier curation default on both providers', () => {
+test('gate 14.10: seedModelsForProvider seeds the mid-tier curation default on all providers', () => {
   expect(seedModelsForProvider('anthropic')).toEqual({
     provider: 'anthropic',
     default: HAIKU,
@@ -1263,9 +1263,17 @@ test('gate 14.10: seedModelsForProvider seeds the mid-tier curation default on b
     dox: null,
     curation: GPT_TERRA,
   });
+  expect(seedModelsForProvider('qwen')).toEqual({
+    provider: 'qwen',
+    default: 'qwen-plus',
+    extractor: null,
+    synthesis: null,
+    dox: null,
+    curation: 'qwen3.7-max',
+  });
 });
 
-test('gate 14.10: the Settings screen shows the Curation Model row with mid-tier recommendations on both providers', async () => {
+test('gate 14.10: the Settings screen shows the Curation Model row with mid-tier recommendations on all providers', async () => {
   const anthropicWorkspace = makeTempDir('paper-chase-g14-10a-');
   const anthropicOutput = await renderSettingsOutput(anthropicWorkspace);
   expect(anthropicOutput).toContain('Curation Model');
@@ -1278,13 +1286,28 @@ test('gate 14.10: the Settings screen shows the Curation Model row with mid-tier
       synthesis: true,
       updateAgents: false,
       models: { provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: null, dox: null },
-      apiKeys: { anthropic: null, openai: null },
+      apiKeys: { anthropic: null, openai: null, qwen: null },
     }),
     'utf-8',
   );
   const openaiOutput = await renderSettingsOutput(openaiWorkspace);
   expect(openaiOutput).toContain('Curation Model');
   expect(openaiOutput).toContain('GPT-5.6 Terra — mid-tier judgment for merge/drop decisions');
+
+  const qwenWorkspace = makeTempDir('paper-chase-g14-10c-');
+  writeFileSync(
+    join(qwenWorkspace, '.paper-chase.json'),
+    JSON.stringify({
+      synthesis: true,
+      updateAgents: false,
+      models: { provider: 'qwen', default: 'qwen-plus', extractor: null, synthesis: null, dox: null },
+      apiKeys: { anthropic: null, openai: null, qwen: null },
+    }),
+    'utf-8',
+  );
+  const qwenOutput = await renderSettingsOutput(qwenWorkspace);
+  expect(qwenOutput).toContain('Curation Model');
+  expect(qwenOutput).toContain('Qwen 3.7 Max — mid-tier judgment for merge/drop decisions');
 }, 30000);
 
 // ---------------------------------------------------------------------------

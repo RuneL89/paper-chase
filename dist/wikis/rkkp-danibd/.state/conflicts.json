@@ -1,0 +1,1387 @@
+{
+  "conflicts": [
+    {
+      "timestamp": "2026-07-25T15:35:28.562Z",
+      "type": "manual-edit",
+      "page": "topics/patient-education/patient-education.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-07-25T15:35:28.571Z",
+      "type": "manual-edit",
+      "page": "topics/medical-conditions/primary-sclerosing-cholangitis.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-07-25T15:35:28.573Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-measures/procedures/koloskopi.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-07-25T15:37:45.404Z",
+      "pageType": "entity",
+      "slug": "ulcerative-colitis",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Blandt nydiagnosticerede børn med IBD er 80 (42%) diagnosticeret med Colitis ulcerosa [^src1]",
+          "Blandt nydiagnosticerede voksne blev flest diagnosticeret med colitis ulcerosa (58 %) [^src1]",
+          "Colitis ulcerosa og Crohns sygdom er komplekse og multifaktorielle immun-medierede sygdomme [^src1]",
+          "\"Vælg klogt\" tilgang i pædiatrien betyder, at når endoskopi viser tydeligt colitis ulcerosa, spares barnet/den unge for yderligere invasiv diagnostik [^src3]",
+          "De praktiserende speciallæger i gastroenterologi og kirurgi har set 104 patienter med Crohns sygdom og 391 med UC i opgørelsesperioden [^src2]",
+          "125 børn (31%) med ulcerøs colitis er i behandling med BMSL [^src1]",
+          "4.444 voksne (39%) med ulcerøs colitis er i behandling med BMSL [^src1]",
+          "De nydiagnosticerede voksne har oftest colitis ulcerosa (58 %) [^src1]",
+          "Blandt tidligere diagnosticerede voksne med IBD er flest diagnosticeret med colitis ulcerosa (58 %) [^src1]",
+          "Blandt nydiagnosticerede patienter: Crohns sygdom 898 (41%), colitis ulcerosa 1.275 (58%), Primær skleroserende kolangitis 33 (1%), Korttarmssyndrom 9 (0%) [^src1]",
+          "Blandt tidligere diagnosticerede patienter: Crohns sygdom 12.529 (41%), colitis ulcerosa 17.606 (58%), Primær skleroserende kolangitis 212 (1%), Korttarmssyndrom 79 (0%) [^src1]",
+          "Ulcerøs colitis i Region Hovedstaden: 6.534 (58) [^src1]",
+          "Børn og unge med Ulcerøs colitis i BMSL-behandling: 113 (31) [^src2]",
+          "Voksne med Ulcerøs colitis i BMSL-behandling: 3.931 (39) [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:39:33.118Z",
+      "pageType": "entity",
+      "slug": "crohns-disease",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "De nydiagnosticerede børn har oftest Crohns sygdom (57 %), er hyppigst drenge (61 %) og hovedparten bliver diagnosticeret, når de er mellem 15-17 år (50 %) [^src1]",
+          "Blandt prævalente børn og unge med IBD er flest diagnosticeret med Crohns sygdom (55 %), de er drenge (53 %) og i alderen fra 15-17 år (60 %) [^src1]",
+          "De nydiagnosticerede børn har oftest Crohns sygdom (64 %), er hyppigst drenge (53 %) og hovedparten bliver diagnosticeret i aldersgruppen 10-17 år (89 %) [^src1]",
+          "ca. 75 % af patienter med Crohns sygdom bliver opereret igennem hele sygdomsforløbet [^src1]",
+          "Der er stærk anbefaling for, og deraf international enighed om, at det postoperative forløb bedst monitoreres med endoskopisk opfølgning [^src1]",
+          "Udviklingsmålet er, at mindst 80 % har fået endoskopisk opfølgning til tiden [^src1]",
+          "I alt har 179 voksne med Crohns sygdom fået foretaget ileocøkal resektion i opgørelsesperioden [^src1]",
+          "På landsplan har 65 % af patienterne fået den anbefalede opfølgning til tiden [^src1]",
+          "I Region Syddanmark får alle den anbefalede opfølgning til tiden, hvormed de som den eneste region lever op til udviklingsmålet [^src1]",
+          "For de øvrige fire regioner ses stor variation fra 74 % i Region Sjælland til 49 % i Region Hovedstaden [^src1]",
+          "For afdelinger med flere end 10 patienter er OUH Odense Medicinsk Mave-Tarm Afd. S den eneste, som har opnået udviklingsmålet [^src1]",
+          "Der er stor variation fra 55 % til 74 % for de øvrige afdelinger [^src1]",
+          "Postoperativ opfølgning af patienter med Crohns sygdom, som har haft behov for operation, er vigtigt. Recidiv af sygdommen optræder hyppigt – og ofte relativt tidligt. [^src1]",
+          "Hovedparten af patienterne i behandling med BMSL er diagnosticerede med Crohns sygdom (61 %) og medianalderen er 41 år for voksne og 15 år for børn og unge [^src1]",
+          "De praktiserende speciallæger i gastroenterologi og kirurgi har set 104 patienter med Crohns sygdom og 391 med UC i opgørelsesperioden [^src2]",
+          "282 børn (69%) med Crohns sygdom er i behandling med BMSL [^src1]",
+          "6.960 voksne (61%) med Crohns sygdom er i behandling med BMSL [^src1]",
+          "Blandt nydiagnosticerede patienter: Crohns sygdom 898 (41%), colitis ulcerosa 1.275 (58%), Primær skleroserende kolangitis 33 (1%), Korttarmssyndrom 9 (0%) [^src1]",
+          "Blandt tidligere diagnosticerede patienter: Crohns sygdom 12.529 (41%), colitis ulcerosa 17.606 (58%), Primær skleroserende kolangitis 212 (1%), Korttarmssyndrom 79 (0%) [^src1]",
+          "Hovedparten af patienterne i BMSL er diagnosticerede med Crohns sygdom (61 %)[^src1]",
+          "Både UC og CD kan debutere i alle aldre, men opstår oftest hos 20-40-årige [^src1]",
+          "Crohns sygdom i Region Hovedstaden: 4.521 (40) [^src1]",
+          "Børn og unge med Crohns sygdom i BMSL-behandling: 247 (69) [^src2]",
+          "Voksne med Crohns sygdom i BMSL-behandling: 6.184 (61) [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:39:51.555Z",
+      "pageType": "entity",
+      "slug": "inflammatory-bowel-disease",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Årsrapporten omfatter de 740 børn og unge samt 32.641 voksne med IBD, der er set på et af landets hospitaler i perioden 1. oktober 2022 til 30. september 2023 [^src1]",
+          "Der er 50.-70.000 patienter i Danmark med IBD, og dermed har næsten 50% af patienterne ikke haft kontakt til sundhedsvæsenet med deres tarmsygdom i denne periode [^src1]",
+          "Fra 1. oktober 2022 til og med 30. september 2023 har 740 børn og unge med IBD været i kontakt med en hospitalsafdeling, hvoraf 26 % af børnene er nydiagnosticerede med IBD i perioden [^src1]",
+          "IBD er kroniske uhelbredelige sygdomme, der rammer patienter i alle aldre [^src1]",
+          "Biologiske og målrettede syntetiske lægemidler (BMSL) anvendes i behandlingen af patienter med moderat til svær sygdomsaktivitet. [^src1]",
+          "Inflammatory bowel disease affects approximately 7 million people worldwide [^src1]",
+          "Approximately 70,000 Danes have inflammatory bowel disease, corresponding to approximately 1% of the population [^src1]",
+          "IBD most commonly develops in individuals aged 20-40 years [^src1]",
+          "The incidence of IBD is increasing globally [^src1]",
+          "Colorectal cancer remains one of the most common causes of death among IBD patients [^src1]",
+          "The steering group assesses that the re-operation rate is generally too high, with variation of 11-15% between regions excluding Region Sjælland, but with large variation between individual departments [^src1]",
+          "The steering group encourages internal audit at departments with high re-operation rates [^src1]",
+          "The development target for re-operation rate is assessed as still relevant at 8% [^src1]",
+          "I alt 325 patienter har været kontrolleret for PSC og IBD i perioden, hvoraf 35 er nydiagnosticerede [^src1]",
+          "IBD påvirker ca. 7. mio. mennesker på verdensplan [^src1]",
+          "i Danmark har ca. 70.000 danskere sygdommen, svarende til ca. 1% af befolkningen [^src1]",
+          "I studiet af Jacobsen et al fra 2022 findes en høj PPV for to IBD-diagnoser svarende til en PPV på 0,95 (95% CI, 0,95-0,96) [^src1]",
+          "Da DANIBD identificerer patienter med IBD ved mindst to hospitalskontakter for IBD og kun få patienter får stillet diagnosen andet sted, vil databasens dækningsgrad med stor sandsynlighed være over 90 % [^src1]",
+          "I perioden 1/10/2022 - 30/09/2023 blev der foretaget 152 laparoskopiske kolektomier og ileostomier (KJFH11), hvilket udgør 16,6 % af alle kirurgiske indgreb på IBD-patienter [^src1]",
+          "Laparoskopisk ileocækal resektion (KJFB21) blev foretaget 106 gange (11,5 %) i perioden 1/10/2022 - 30/09/2023 [^src1]",
+          "Endoskopisk dilatation af tyktarm (KJFA58) blev foretaget 100 gange (10,9 %) i perioden 1/10/2022 - 30/09/2023 [^src1]",
+          "Der blev registreret 28 re-operationer på IBD-patienter i perioden 1/10/2022 - 30/09/2023, hvor endoskopisk dilatation af tyktarm (KJFA58) og tyndtarmsresektion (KJFB00) hver udgjorde 21,4 % [^src1]",
+          "På Nordsjællands Hospital monitoreres ca. 85-90 % af IBD-patienterne via appen Constant Care [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:40:38.859Z",
+      "pageType": "entity",
+      "slug": "korttarmssyndrom",
+      "dropped": {
+        "citations": [
+          "[^src4]"
+        ],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Blandt nydiagnosticerede patienter: Crohns sygdom 898 (41%), colitis ulcerosa 1.275 (58%), Primær skleroserende kolangitis 33 (1%), Korttarmssyndrom 9 (0%) [^src1]",
+          "Blandt tidligere diagnosticerede patienter: Crohns sygdom 12.529 (41%), colitis ulcerosa 17.606 (58%), Primær skleroserende kolangitis 212 (1%), Korttarmssyndrom 79 (0%) [^src1]",
+          "20 voksne (0%) med korttarmssyndrom er i behandling med BMSL [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:42:14.668Z",
+      "pageType": "entity",
+      "slug": "primary-sclerosing-cholangitis",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "There is strong evidence and broad international agreement for offering all PSC patients annual systematic follow-up with colonoscopy [^src1]",
+          "The development target for PSC colonoscopy surveillance is that 80% of patients receive colonoscopy within 18 months [^src1]",
+          "Nationally, 81% of PSC patients received colonoscopy within 18 months during the period 01.10.2023 - 30.09.2024, meeting the development target of at least 80% [^src1]",
+          "A total of 345 PSC patients were monitored during the period, of which 31 were newly diagnosed [^src1]",
+          "PSC patients are most often men (68%) with an average age of 46 years [^src1]",
+          "All five regions achieved results meeting the development target of at least 80% for PSC colonoscopy surveillance [^src1]",
+          "Regional variation in PSC colonoscopy completion rates ranges from 79% to 85% [^src1]",
+          "Among the eight departments with more than 10 PSC patients, department variation in colonoscopy completion rates ranges from 76% to 95% [^src1]",
+          "SUH Køge Medicin improved its PSC colonoscopy completion rate by 9 percentage points compared to the previous year [^src1]",
+          "In 65% of performed colonoscopies for PSC surveillance, biopsies were taken [^src1]",
+          "All PSC surveillance colonoscopies were performed in hospital settings [^src1]",
+          "The steering group is concerned about whether all PSC patients are coded correctly and encourages departments to address this issue [^src1]",
+          "The development target for PSC colonoscopy surveillance is assessed as still relevant [^src1]",
+          "40 voksne (0%) med primær skleroserende kolangitis er i behandling med BMSL [^src1]",
+          "31 nydiagnostiserede patienter med primær skleroserende kolangitis (100%) er registreret [^src4]",
+          "På landsplan har 277 ud af 325 patienter med PSC fået foretaget koloskopi inden for 18 måneder, svarende til 85 %[^src1]",
+          "Danmark opfylder standarden på 80 % for PSC kolonoskopi opfølgning[^src1]",
+          "Region Sjælland opfylder ikke standarden med 70 % PSC kolonoskopi compliance[^src1]",
+          "OUH Svendborg Medicinsk Afd. rapporterede 0 % PSC kolonoskopi compliance[^src1]",
+          "Aarhus Børn og Unge rapporterede 0 % PSC kolonoskopi compliance[^src1]",
+          "AAUH Aalborg Med.gastroenterologisk område rapporterede 79 % PSC kolonoskopi compliance, marginalt under standarden på 80 %[^src1]",
+          "Blandt nydiagnosticerede patienter: Crohns sygdom 898 (41%), colitis ulcerosa 1.275 (58%), Primær skleroserende kolangitis 33 (1%), Korttarmssyndrom 9 (0%) [^src1]",
+          "Blandt tidligere diagnosticerede patienter: Crohns sygdom 12.529 (41%), colitis ulcerosa 17.606 (58%), Primær skleroserende kolangitis 212 (1%), Korttarmssyndrom 79 (0%) [^src1]",
+          "I alt 325 patienter har været kontrolleret for PSC og IBD i perioden, hvoraf 35 er nydiagnosticerede [^src1]",
+          "Patienter med PSC er oftest mænd (67 %) og gennemsnitsalderen er 46 år [^src1]",
+          "Der blev registreret 35 nydiagnosticerede patienter med primær skleroserende kolangitis (DK830F) i perioden 1/10/2022 - 30/09/2023 [^src1]",
+          "Der blev registreret 213 prævalente patienter med primær skleroserende kolangitis (DK830F) med en hospitalskontakt i perioden 1/10/2022 - 30/09/2023 [^src1]",
+          "Blandt 35 nydiagnosticerede PSC-patienter var 26 (74 %) mand og 9 (26 %) kvinde [^src1]",
+          "Blandt 213 prævalente PSC-patienter med hospitalskontakt var 139 (65 %) mand og 74 (35 %) kvinde [^src1]",
+          "Gennemsnitsalderen for 35 nydiagnosticerede PSC-patienter var 45 år (min 8; max 80) [^src1]",
+          "Gennemsnitsalderen for 213 prævalente PSC-patienter med hospitalskontakt var 46 år (min 17; max 88) [^src1]",
+          "Blandt 35 nydiagnosticerede PSC-patienter var 164 (63 %) fysiske fremmøder og 96 (37 %) virtuelle kontakter [^src1]",
+          "Blandt 213 prævalente PSC-patienter med hospitalskontakt var 729 (65 %) fysiske fremmøder og 396 (35 %) virtuelle kontakter [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:42:37.383Z",
+      "pageType": "entity",
+      "slug": "fecal-calprotectin",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Biomarkøren calprotectin afspejler graden af inflammatorisk aktivitet i tarmmukosa. [^src1]",
+          "Der er stærk anbefaling for og bred international enighed om, at monitorering af calprotectin en gang årligt er et minimumskriterium for opfølgning hos patienter i behandling med BMSL. [^src1]",
+          "Udviklingsmålet er, at mindst 80 % får målt F-calprotectin til tiden. [^src1]",
+          "Danmark: 9.852 / 11.871 patienter (83 %, 95% CI 82-84) fik målt F-calprotectin mindst én gang årligt i perioden 01.10.2023 - 30.09.2024. [^src1]",
+          "Hovedstaden: 2.667 / 3.367 patienter (79 %, 95% CI 78-81) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+          "Sjælland: 1.406 / 1.497 patienter (94 %, 95% CI 93-95) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+          "Syddanmark: 2.399 / 2.858 patienter (84 %, 95% CI 83-85) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+          "Midtjylland: 2.256 / 2.925 patienter (77 %, 95% CI 76-79) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+          "Nordjylland: 1.124 / 1.224 patienter (92 %, 95% CI 90-93) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+          "Rigshospitalet Mave-, Tarm- og Leversygd. rapporterer kun 16 % (43 / 263) fecal calprotectin monitoring compliance. [^src1]",
+          "Randers Medicinsk Afdeling rapporterer 99 % (333 / 338) fecal calprotectin monitoring compliance, den højeste blandt alle afdelinger. [^src1]",
+          "På landsplan har 83 % af patienterne i behandling med BMSL fået målt F-calprotectin en gang årligt, hvormed udviklingsmålet på mindst 80 % er nået [^src1]",
+          "Rigshospitalet Mave-, Tarm- og Leversygdomme har bemærkelsesværdig få patienter i behandling med BMSL, der får målt F-calprotectin en gang årligt [^src1]",
+          "Målsætningen for indikator 4 er, at 80 % af alle patienter i BMSL får målt F-calpro én gang årligt [^src3]",
+          "På landsplan har 78 % af patienterne i BMSL fået målt F-calpro en gang årligt, hvormed standarden på mindst 80 % er tæt på at være opfyldt[^src1]",
+          "I Region Sjælland har 94 % af patienterne i BMSL fået systematisk opfølgning, hvormed standarden er opfyldt[^src1]",
+          "Region Syddanmark er med en opfyldelse på 79 % marginaler fra at opfylde standarden[^src1]",
+          "Blandt de tre øvrige regioner ses en variation fra 73 % til 76 %[^src1]",
+          "På afdelingsniveau ses stor variation fra 13% til 100 %[^src1]",
+          "Ud af 31 afdelinger lever 21 afdelinger fra alle regioner op til målsætningen[^src1]",
+          "Samtlige landets pædiatriske afdelinger sikrer systematisk opfølgning på børn i BMSL (97-100 %)[^src1]",
+          "Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd. har laveste målopfyldelse med 13 %[^src1]",
+          "Nordsjælland Kirurgisk overafdeling har målopfyldelse på 52 %[^src1]",
+          "SLB Vejle Medicinsk Afdeling har målopfyldelse på 56 %[^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:43:15.750Z",
+      "pageType": "entity",
+      "slug": "bmsl",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Målsætningen for indikator 4 er, at 80 % af alle patienter i BMSL får målt F-calpro én gang årligt [^src3]",
+          "Biologiske og målrettede syntetiske lægemidler (BMSL) anvendes i behandlingen af patienter med moderat til svær sygdomsaktivitet. [^src1]",
+          "Der er stærk anbefaling for og bred international enighed om, at monitorering af calprotectin en gang årligt er et minimumskriterium for opfølgning hos patienter i behandling med BMSL. [^src1]",
+          "Et behandlingsforløb med BMSL defineres med behandlingsstart, hvor der ikke har været en behandling i perioden 12 måneder før [^src1]",
+          "I alt 11.871 patienter har været i behandling med BMSL svarende til 35 % af de patienter, der er set i opgørelsesperioden [^src1]",
+          "Heraf er 407 børn og unge i behandling med BMSL [^src1]",
+          "Hovedparten af patienterne i behandling med BMSL er diagnosticerede med Crohns sygdom (61 %) og medianalderen er 41 år for voksne og 15 år for børn og unge [^src1]",
+          "Der er givet 64.161 behandlinger med BMSL i opgørelsesperioden, hvoraf flest behandlinger er givet med infliximab (44 %) efterfulgt af adalimumab (20 %) og vedolizumab (18 %) [^src1]",
+          "Hovedparten af patienterne har fået samme (85 %) eller to forskellige behandlinger (13 %) i opgørelsesperioden [^src1]",
+          "På landsplan har 83 % af patienterne i behandling med BMSL fået målt F-calprotectin en gang årligt, hvormed udviklingsmålet på mindst 80 % er nået [^src1]",
+          "Rigshospitalet Mave-, Tarm- og Leversygdomme har bemærkelsesværdig få patienter i behandling med BMSL, der får målt F-calprotectin en gang årligt [^src1]",
+          "I alt 407 børn er i behandling med BMSL på landsplan [^src1]",
+          "I alt 11.464 voksne er i behandling med BMSL på landsplan [^src1]",
+          "282 børn (69%) med Crohns sygdom er i behandling med BMSL [^src1]",
+          "6.960 voksne (61%) med Crohns sygdom er i behandling med BMSL [^src1]",
+          "125 børn (31%) med ulcerøs colitis er i behandling med BMSL [^src1]",
+          "4.444 voksne (39%) med ulcerøs colitis er i behandling med BMSL [^src1]",
+          "40 voksne (0%) med primær skleroserende kolangitis er i behandling med BMSL [^src1]",
+          "20 voksne (0%) med korttarmssyndrom er i behandling med BMSL [^src1]",
+          "172 børn (42%) i BMSL-behandling er kvinder [^src1]",
+          "235 børn (58%) i BMSL-behandling er mænd [^src1]",
+          "5.755 voksne (50%) i BMSL-behandling er kvinder [^src1]",
+          "5.709 voksne (50%) i BMSL-behandling er mænd [^src1]",
+          "Gennemsnitsalderen for børn i BMSL-behandling er 14 år (min 0; max 18) [^src1]",
+          "Gennemsnitsalderen for voksne i BMSL-behandling er 43 år (min 17; max 97) [^src1]",
+          "Medianaldren for børn i BMSL-behandling er 15 år (Q1 13; Q3 16) [^src1]",
+          "Medianaldren for voksne i BMSL-behandling er 41 år (Q1 30; Q3 56) [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:43:37.814Z",
+      "pageType": "entity",
+      "slug": "bispebjerg",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Bispebjerg Abdominalcenter opnåede 77 % (71-83) for Indikator 1a [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:43:47.688Z",
+      "pageType": "entity",
+      "slug": "rigshospitalet",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd.: 38 / 286 patienter (13%) får målt F-calpro mindst én gang årligt [^src3]",
+          "Rigshospitalet Mave-, Tarm- og Leversygd. opnåede 43 % (10-82) for Indikator 1a [^src1]",
+          "Rigshospitalet Mave-, Tarm- og Leversygd. rapporterer kun 16 % (43 / 263) fecal calprotectin monitoring compliance. [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:43:57.644Z",
+      "pageType": "entity",
+      "slug": "bornholm",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Bornholm Medicinsk afdeling: 36 / 45 patienter (80%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:45:25.997Z",
+      "pageType": "entity",
+      "slug": "koege-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "SUH Køge Medicin: 700 / 755 patienter (93%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "SUH Køge Medicin improved its PSC colonoscopy completion rate by 9 percentage points compared to the previous year [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:45:39.962Z",
+      "pageType": "entity",
+      "slug": "hvidovre",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Hvidovre Børne- og Ungeafdelingen: 144 / 145 patienter (99%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "Hvidovre Gastroenheden: 805 / 846 patienter (95%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "Hvidovre Gastroenheden opnåede 64 % (58-70) for Indikator 1a [^src1]",
+          "Fire afdelinger (Hvidovre, OUH Svendborg, Aarhus og Gødstrup) har under 70 % af nydiagnosticerede voksne udredt med koloskopi [^src1]",
+          "De tre største universitetsafdelinger (Hvidovre, Odense og Aarhus) varetager diagnostik af de yngste børn med VEO-IBD, og der kan derfor være en bias i forhold til fravalgt MR pga. krav om 2 anæstesier med kort mellemrum [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:45:52.235Z",
+      "pageType": "entity",
+      "slug": "nordsjaelland",
+      "dropped": {
+        "citations": [
+          "[^src6]"
+        ],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Nordsjælland Kirurgisk overafdeling: 209 / 400 patienter (52%) får målt F-calpro mindst én gang årligt [^src3]",
+          "På Nordsjællands Hospital monitoreres ca. 85-90 % af IBD-patienterne via appen Constant Care [^src1]",
+          "Calprotectin-måling i Constant Care har kun en regional kode, hvilket skaber problemer med dataudtræk på nationalt plan [^src1]",
+          "Nordsjællands Hospital tilbyder patientskole to gange årligt med undervisning fra sygeplejersker, læger, diætister og socialrådgivere [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:45:54.016Z",
+      "pageType": "entity",
+      "slug": "roskilde-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "SUH Roskilde Pædiatri: 24 / 24 patienter (100%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:46:31.898Z",
+      "pageType": "entity",
+      "slug": "nykoebing-f-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "NFS Nykøbing F Medicin: 182 / 200 patienter (91%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:46:50.127Z",
+      "pageType": "entity",
+      "slug": "slagelse-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "NSR Slagelse Med. Gastroenterologi: 218 / 220 patienter (99%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:47:15.130Z",
+      "pageType": "entity",
+      "slug": "svendborg-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "OUH Svendborg Medicinsk Afd.: 225 / 240 patienter (94%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:47:33.853Z",
+      "pageType": "entity",
+      "slug": "odense-university-hospital",
+      "dropped": {
+        "citations": [
+          "[^src5]",
+          "[^src6]",
+          "[^src7]"
+        ],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "OUH Odense Børne- og Ungeafdeling H: 61 / 61 patienter (100%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "OUH Odense Medicinsk Mave-Tarm Afdeling S: 561 / 756 patienter (74%) får målt F-calpro mindst én gang årligt [^src3]",
+          "For afdelinger med flere end 10 patienter er OUH Odense Medicinsk Mave-Tarm Afd. S den eneste, som har opnået udviklingsmålet [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:47:48.437Z",
+      "pageType": "entity",
+      "slug": "esbjerg-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "EGS Esbjerg Medicinsk område: 515 / 552 patienter (93%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:48:03.051Z",
+      "pageType": "entity",
+      "slug": "toender-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "SHS Tønder Medicinsk Daghospital: 42 / 45 patienter (93%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:48:12.014Z",
+      "pageType": "entity",
+      "slug": "aabenraa-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "SHS Aabenraa Mave-tarmsygdomme: 203 / 206 patienter (99%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:48:16.084Z",
+      "pageType": "entity",
+      "slug": "kolding-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "SLB Kolding Børne- og Ungeafdeling: 25 / 25 patienter (100%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:49:24.747Z",
+      "pageType": "entity",
+      "slug": "horsens-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Horsens Medicinsk Afdeling: 268 / 356 patienter (75%) får målt F-calpro mindst én gang årligt [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:49:43.825Z",
+      "pageType": "entity",
+      "slug": "danibd",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "DANIBD gik i drift d. 1. oktober 2022 [^src1]",
+          "Årsrapporten omfatter de 740 børn og unge samt 32.641 voksne med IBD, der er set på et af landets hospitaler i perioden 1. oktober 2022 til 30. september 2023 [^src1]",
+          "78% af patienterne bliver fulgt med årlig måling af fæces calprotectin når de behandles med biologiske eller målrettede syntetiske lægemidler [^src1]",
+          "Fra 1. oktober 2022 til og med 30. september 2023 har 740 børn og unge med IBD været i kontakt med en hospitalsafdeling, hvoraf 26 % af børnene er nydiagnosticerede med IBD i perioden [^src1]",
+          "Fra 1. oktober 2022 til og med 30. september 2023 har 32.641 voksne med IBD været i kontakt med en hospitalsafdeling [^src1]",
+          "7 % af de 32.641 voksne med IBD er nydiagnosticerede med IBD [^src1]",
+          "Indikator 1.a Udredning, nydiagnosticerede voksne afventer komplet opfølgning og præsenteres derfor først i næste årsrapport [^src2]",
+          "Indikator 1.b Udredning, nydiagnosticerede børn og unge afventer komplet opfølgning og præsenteres derfor først i næste årsrapport [^src2]",
+          "Indikator 2. Undervisning, nydiagnosticerede afventer komplet opfølgning og præsenteres derfor først i næste årsrapport [^src2]",
+          "Indikator 3. Medicinsk behandling, steroid afventer komplet opfølgning og præsenteres derfor først i næste årsrapport [^src2]",
+          "Danmark: 8.199 / 10.523 patienter (78%) får målt F-calpro mindst én gang årligt, hvilket ligger under målsætningen på 80% [^src3]",
+          "I alt 10.523 patienter har været i behandling med BMSL i perioden, heraf 360 børn og unge (3 %)[^src1]",
+          "Der er givet 57.708 behandlinger med BMSL i perioden, hvoraf flest patienter er i behandling med infliximab (36 %)[^src1]",
+          "Hovedparten af patienterne i BMSL er diagnosticerede med Crohns sygdom (61 %)[^src1]",
+          "Medianalderen er 40 år for voksne og 15 år for børn og unge[^src1]",
+          "På landsplan har 78 % af patienterne i BMSL fået målt F-calpro en gang årligt, hvormed standarden på mindst 80 % er tæt på at være opfyldt[^src1]",
+          "Blandt de tre øvrige regioner ses en variation fra 73 % til 76 %[^src1]",
+          "På afdelingsniveau ses stor variation fra 13% til 100 %[^src1]",
+          "Ud af 31 afdelinger lever 21 afdelinger fra alle regioner op til målsætningen[^src1]",
+          "Samtlige landets pædiatriske afdelinger sikrer systematisk opfølgning på børn i BMSL (97-100 %)[^src1]",
+          "De nyere præparater: Ozanimod, Upadacitinib og Filgotinib (ATC-koder: L04AA38, L04AA44 og L04AA45) ikke er inkluderet i indikatoren[^src1]",
+          "Det forventes, at informationerne bliver tilgængelige i løbet af 2024, hvormed disse præparater vil indgå i den kommende årsrapport[^src1]",
+          "Der er foretaget 780 kirurgiske indgreb i perioden svarende til 722 patienter med IBD[^src1]",
+          "Der er indrapporteret i alt 918 operationskoder, hvoraf de hyppigste indgreb var laparoskopisk kolektomi, ileostomi (17%) og ileocækal resektion (12 %)[^src1]",
+          "76 % af patienterne er registreret med én procedurekode, men 17 % har to og de resterende 7 % har mellem 3-8 registrerede operationskoder[^src1]",
+          "Der er foretaget 28 re-operationer indenfor 30 dage svarende til 4 %, hvormed målsætningen om færre end 8 % er nået[^src1]",
+          "Alle regioner lever op til målsætningen, og der ses regional variation fra 2-5 %[^src1]",
+          "Alle afdelinger der har foretaget kirurgiske indgreb på patienter med IBD, fraset to, lever op til målsætningen[^src1]",
+          "Der ses en variation på afdelingsniveau fra 0-17 %[^src1]",
+          "Der er indrapporteret i alt 28 operationskoder ved re-operation, hvoraf de hyppigste indgreb var endoskopisk dilatation af tyktarm (21 %) og tyndtarmsresektion (21 %)[^src1]",
+          "Halvdelen af re-operationerne inden for de første 7 dage (54 %), mens 25 % sker inden for den anden uge[^src1]",
+          "På landsplan har 277 ud af 325 patienter med PSC fået foretaget koloskopi inden for 18 måneder, svarende til 85 %[^src1]",
+          "Danmark opfylder standarden på 80 % for PSC kolonoskopi opfølgning[^src1]",
+          "På landsplan har 85 % af patienterne fået foretaget en koloskopi inden for 18 måneder, hvoraf målsætningen på mindst 80 % er opfyldt [^src1]",
+          "I 58 % af de foretagne koloskopier er der udtaget biopsi (KUJF35) [^src1]",
+          "På afdelingsniveau lever 14 ud af 21 afdelinger op til målsætningen [^src1]",
+          "Da DANIBD identificerer patienter med IBD ved mindst to hospitalskontakter for IBD og kun få patienter får stillet diagnosen andet sted, vil databasens dækningsgrad med stor sandsynlighed være over 90 % [^src1]",
+          "Patienter i alt i Region Hovedstaden: 11.211 (100) [^src1]",
+          "Patienter i alt i Region Sjælland: 3.897 (100) [^src1]",
+          "Patienter i alt i Region Syddanmark: 7.181 (100) [^src1]",
+          "Patienter i alt i Region Midtjylland: 7.520 (100) [^src1]",
+          "Patienter i alt i Region Nordjylland: 3.572 (100) [^src1]",
+          "Patienter i behandling med BMSL blandt børn og unge: 360 (100) [^src2]",
+          "Patienter i behandling med BMSL blandt voksne: 10.163 (100) [^src2]",
+          "I perioden 1/10/2022 - 30/09/2023 blev der foretaget 152 laparoskopiske kolektomier og ileostomier (KJFH11), hvilket udgør 16,6 % af alle kirurgiske indgreb på IBD-patienter [^src1]",
+          "Laparoskopisk ileocækal resektion (KJFB21) blev foretaget 106 gange (11,5 %) i perioden 1/10/2022 - 30/09/2023 [^src1]",
+          "Endoskopisk dilatation af tyktarm (KJFA58) blev foretaget 100 gange (10,9 %) i perioden 1/10/2022 - 30/09/2023 [^src1]",
+          "Der blev registreret 28 re-operationer på IBD-patienter i perioden 1/10/2022 - 30/09/2023, hvor endoskopisk dilatation af tyktarm (KJFA58) og tyndtarmsresektion (KJFB00) hver udgjorde 21,4 % [^src1]",
+          "Der blev registreret 35 nydiagnosticerede patienter med primær skleroserende kolangitis (DK830F) i perioden 1/10/2022 - 30/09/2023 [^src1]",
+          "Der blev registreret 213 prævalente patienter med primær skleroserende kolangitis (DK830F) med en hospitalskontakt i perioden 1/10/2022 - 30/09/2023 [^src1]",
+          "Blandt 35 nydiagnosticerede PSC-patienter var 26 (74 %) mand og 9 (26 %) kvinde [^src1]",
+          "Blandt 213 prævalente PSC-patienter med hospitalskontakt var 139 (65 %) mand og 74 (35 %) kvinde [^src1]",
+          "Gennemsnitsalderen for 35 nydiagnosticerede PSC-patienter var 45 år (min 8; max 80) [^src1]",
+          "Gennemsnitsalderen for 213 prævalente PSC-patienter med hospitalskontakt var 46 år (min 17; max 88) [^src1]",
+          "Blandt 35 nydiagnosticerede PSC-patienter var 164 (63 %) fysiske fremmøder og 96 (37 %) virtuelle kontakter [^src1]",
+          "Blandt 213 prævalente PSC-patienter med hospitalskontakt var 729 (65 %) fysiske fremmøder og 396 (35 %) virtuelle kontakter [^src1]",
+          "DANIBD gik i drift 1. oktober 2022 [^src1]",
+          "Årsrapporten omfatter de 751 børn og unge samt 33.599 voksne med IBD, der er set på et af landets hospitaler i perioden 1. oktober 2023 til 30. september 2024 [^src1]",
+          "Der vurderes, at der næsten er 70.000 patienter i Danmark med IBD [^src1]",
+          "Næsten 50 % af patienterne ikke haft kontakt til sundhedsvæsenet med deres tarmsygdom i denne periode [^src1]",
+          "5.387 patienter fra sidste årsrapport figurerer ikke i denne rapport, som udtryk for, at de ikke har haft en kontakt i år [^src1]",
+          "For indikatoren 'Udredning, nydiagnosticerede børn og unge' er der en målopfyldelse på landsplan på 69 % [^src1]",
+          "I indikatoren 'Medicinsk behandling, steroid' er der kun 37 % af patienterne over 50 år på landsplan, der får foretaget DEXA scanning, når de får steroid [^src1]",
+          "Der er en målsætning om en re-operationsrate under 8 %, men meget få afdelinger opnår dette [^src1]",
+          "Siden DANIBD's start den 1. oktober 2022 har 40.083 patienter haft en kontakt til et hospital grundet IBD [^src1]",
+          "I årsrapportperioden fra 1. oktober 2023 til og med 30. september 2024 har 34.350 patienter været i kontakt med et af landets hospitaler [^src1]",
+          "751 børn og unge med IBD har været i kontakt med en hospitalsafdeling i perioden 1. oktober 2023 til og med 30. september 2024 [^src1]",
+          "27 % af børnene er nydiagnosticerede med IBD i perioden [^src1]",
+          "32.641 voksne med IBD har været i kontakt med en hospitalsafdeling fra 1. oktober 2023 til og med 30. september 2024 [^src1]",
+          "7 % af voksne patienter er nydiagnosticerede med IBD [^src1]",
+          "Halvdelen af nydiagnosticerede voksne blev diagnosticeret før de fyldte 40 år (median: 39 år) [^src1]",
+          "Blandt tidligere diagnosticerede voksne er flest diagnosticeret med colitis ulcerosa (58 %), der er flest kvinder (54 %) og medianalderen er 49 år [^src1]",
+          "Indikator 1a: Andelen af nydiagnosticerede voksne med IBD, der har fået foretaget relevant udredning har udviklet sig fra 79 % (77-81) i årsrapport 2023 til 79 % (77-81) i årsrapport 2024 [^src1]",
+          "Indikator 1b: Andelen af nydiagnosticerede børn og unge med IBD, der har fået foretaget relevant udredning var 69 % (62-75) i årsrapport 2023 [^src1]",
+          "Indikator 2: Undervisning af nydiagnosticerede var 13 % (11-14) i årsrapport 2023 [^src1]",
+          "Indikator 3: Post-operativ Crohns opfølgning var 65 % (58-72) i årsrapport 2023 [^src1]",
+          "Indikator 4: DEXA-scanning ved steroidbehandling var 37 % (34-40) i årsrapport 2023 [^src1]",
+          "Indikator 5: Fæces calprotectin måling for BMSL steg fra 79 % i årsrapport 2023 til 83 % (82-84) i årsrapport 2024 [^src1]",
+          "Indikator 6: Re-operation steg fra 11 % i årsrapport 2023 til 13 % (10-15) i årsrapport 2024 [^src1]",
+          "Indikator 7: PSC opfølgning faldt fra 85 % i årsrapport 2023 til 81 % (77-85) i årsrapport 2024 [^src1]",
+          "Udviklingsmålet for Indikator 1a er, at mindst 80 % skal have foretaget en koloskopi i udredningsforløbet [^src1]",
+          "79 % af de i alt 2385 nydiagnosticerede voksne har fået foretaget koloskopi [^src1]",
+          "Udviklingsmålet for koloskopi-udredning af voksne IBD-patienter er nået på landsplan [^src1]",
+          "I alt 69 % af de nydiagnosticerede børn og unge har fået foretaget en komplet udredning, hvormed udviklingsmålet ikke er nået [^src2]",
+          "8 ud af 14 afdelinger lever ikke op til udviklingsmålet ved denne første opgørelse af indikator 1b [^src2]",
+          "Der er stor variation på afdelingsniveau fra 38 % til 100 % i compliance med indikator 1b, når der ses bort fra afdelinger med færre end 10 patienter [^src2]",
+          "Styregruppen har valgt at fastholde indikator 1b på nuværende tidspunkt, følge udviklingen og evaluere indikator 1b igen ved næste audit primo 2026 [^src3]",
+          "Inden næste audit udarbejdes en subanalyse af, hvordan de 14 pædiatriske patienter, der ikke opfylder indikatoren, er identificeret med en IBD diagnose uden en eneste relevant procedurekode [^src3]",
+          "13 % af de nydiagnosticerede har fået undervisning i året efter, de fik diagnosen [^src1]",
+          "Blandt de afdelinger, der har registreret undervisning, ligger andelen mellem 1 % til 39 % [^src1]",
+          "16 afdelinger fordelt på de fire øvrige regioner ikke er kommet i gang med registreringen af undervisningen af nydiagnosticerede [^src1]",
+          "Blandt børneafdelingerne er det kun de to, der har registeret undervisningen på nydiagnosticerede børn og unge i opgørelsesperioden [^src1]",
+          "Indikatoren blev ført i 1. oktober 2022, hvor også koden til registrering blev tilgængelig i LPR [^src1]",
+          "Udviklingsmålet er, at mindst 80 % har fået endoskopisk opfølgning til tiden [^src1]",
+          "På landsplan har 65 % af patienterne fået den anbefalede opfølgning til tiden [^src1]",
+          "Der er stor variation fra 55 % til 74 % for de øvrige afdelinger [^src1]",
+          "Styregruppen anbefaler, at udviklingsmålet fastsættes til 80 % i næste årsrapport [^src1]",
+          "DANIBD omfatter patienter med IBD behandlet på et offentligt dansk hospital [^src1]",
+          "DANIBDs opgørelsesperiode går fra 1. oktober til 30. september [^src1]",
+          "Patienter med IBD skal have mindst to hospitalskontakter med følgende aktionsdiagnoser registreret i LPR [^src1]",
+          "De praktiserende speciallæger har udført 3,4 % af de samlede antal koloskopier (353), der er udført på patienter med IBD i opgørelsesperioden [^src2]",
+          "DANIBDs dækningsgrad med stor sandsynlighed er over 90 % [^src3]",
+          "Region Hovedstaden's health professional council for gastrointestinal, liver, and biliary diseases had no comments on the 2024 DANIBD annual report [^src1]",
+          "Region Sjælland had no comments on the DANIBD annual report for the period 01-10-2023 to 30.09.2024 [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:49:49.450Z",
+      "pageType": "entity",
+      "slug": "goedstrup-hospital",
+      "dropped": {
+        "citations": [
+          "[^src2]"
+        ],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Gødstrup Medicinsk Afdeling: 336 / 430 patienter (78%) får målt F-calpro mindst én gang årligt [^src3]",
+          "Gødstrup Medicinsk Afdeling opnåede 65 % (56-73) for Indikator 1a [^src1]",
+          "Fire afdelinger (Hvidovre, OUH Svendborg, Aarhus og Gødstrup) har under 70 % af nydiagnosticerede voksne udredt med koloskopi [^src1]",
+          "Regionshospitalet Gødstrup reviewed 7 cases of re-operation, finding surgical complications in 3 cases and no signs of surgical complications in 4 cases [^src1]",
+          "Regionshospitalet Gødstrup considers re-operation rate a poor quality measure, arguing that anastomotic leak is a better indicator as used in cancer surgery [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:50:10.305Z",
+      "pageType": "entity",
+      "slug": "silkeborg-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Silkeborg Diagnostisk Center Medicin: 278 / 284 patienter (98%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:50:11.882Z",
+      "pageType": "entity",
+      "slug": "aarhus-university-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Aarhus Børn og Unge: 101 / 102 patienter (99%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "Aarhus Lever-, Mave- og Tarmsygdomme: 623 / 1.024 patienter (61%) får målt F-calpro mindst én gang årligt [^src3]",
+          "Aarhus Lever-, Mave- og Tarmsygd. opnåede 66 % (58-73) for Indikator 1a [^src1]",
+          "Fire afdelinger (Hvidovre, OUH Svendborg, Aarhus og Gødstrup) har under 70 % af nydiagnosticerede voksne udredt med koloskopi [^src1]",
+          "De tre største universitetsafdelinger (Hvidovre, Odense og Aarhus) varetager diagnostik af de yngste børn med VEO-IBD, og der kan derfor være en bias i forhold til fravalgt MR pga. krav om 2 anæstesier med kort mellemrum [^src3]",
+          "Aarhus University Hospital found that many patients not meeting indicator 1 had sufficient diagnostic workup at other hospitals, and some patients declined colonoscopy [^src1]",
+          "Aarhus University Hospital stated that before data capture is optimized, indicator 1 does not provide an accurate picture of diagnostic quality at the hospital [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:50:23.675Z",
+      "pageType": "entity",
+      "slug": "randers-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Randers Medicinsk Afdeling opnåede 94 % (87-98) for Indikator 1a [^src1]",
+          "Randers Medicinsk Afdeling rapporterer 99 % (333 / 338) fecal calprotectin monitoring compliance, den højeste blandt alle afdelinger. [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:50:52.203Z",
+      "pageType": "entity",
+      "slug": "hjoerring-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "RHN Hjørring Medicinske Mave- og Tarmsygd.: 60 / 63 patienter (95%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:52:07.260Z",
+      "pageType": "entity",
+      "slug": "ozanimod",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "7 behandlinger med ozanimod blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "5 børn (0%) behandlet med ozanimod er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "5 børn (0%) behandlet med ozanimod (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:52:27.525Z",
+      "pageType": "entity",
+      "slug": "filgotinib",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR) [^src1]",
+          "67 behandlinger med filgotinib blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "34 børn (0%) behandlet med filgotinib er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "31 børn (0%) behandlet med filgotinib (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:52:38.466Z",
+      "pageType": "entity",
+      "slug": "upadacitinib",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "De nyere præparater: Ozanimod, Upadacitinib og Filgotinib (ATC-koder: L04AA38, L04AA44 og L04AA45) ikke er inkluderet i indikatoren[^src1]",
+          "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR) [^src1]",
+          "6 behandlinger med upadacitinib blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "368 behandlinger med upadacitinib blandt voksne (1%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "3 børn (1%) behandlet med upadacitinib er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "155 voksne (1%) behandlet med upadacitinib er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "3 børn (1%) behandlet med upadacitinib (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "123 voksne (1%) behandlet med upadacitinib (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:53:25.615Z",
+      "pageType": "entity",
+      "slug": "rigshospitalet-med-klinik-mave-tarm-leversygd",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Rigshospitalet Mave-, Tarm- og Leversygdomme har bemærkelsesværdig få patienter i behandling med BMSL, der får målt F-calprotectin en gang årligt [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:53:32.387Z",
+      "pageType": "entity",
+      "slug": "slb-vejle-medicinsk-afdeling",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "SLB Vejle Medicinsk Afdeling har målopfyldelse på 56 %[^src1]",
+          "Vejle medicinsk afdeling og Aalborg Med. Gastroenterologisk afdeling har forbedret sig markant ift. sidste år med henholdsvis 24 og 18 procentpoint [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:54:52.090Z",
+      "pageType": "entity",
+      "slug": "region-syddanmark",
+      "dropped": {
+        "citations": [],
+        "mentions": [
+          "Syddanmark | 80 | / | 212 | 38 | (31-45)",
+          "Syddanmark | 2.399 | / | 2.858 | 0 | (0) | 84 | (83-85)"
+        ],
+        "relationships": [],
+        "claims": [
+          "Region Syddanmark er med en opfyldelse på 79 % marginaler fra at opfylde standarden[^src1]",
+          "Patienter i alt i Region Syddanmark: 7.181 (100) [^src1]",
+          "Gennemsnitlig alder af patienter i Region Syddanmark: 49 år (Min;Max: 0;96) [^src1]",
+          "Region Syddanmark opnåede 80 % (75-83) for Indikator 1a [^src1]",
+          "Alle afdelinger i Region Syddanmark har registreret undervisning [^src1]",
+          "I Region Syddanmark får alle den anbefalede opfølgning til tiden, hvormed de som den eneste region lever op til udviklingsmålet [^src1]",
+          "Syddanmark: 2.399 / 2.858 patienter (84 %, 95% CI 83-85) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+          "I tre regioner Sjælland, Syddanmark og Nordjylland er udviklingsmålet nået, mens de to øvrige er tæt på [^src1]",
+          "Region Syddanmark havde 7.479 patienter i alt i opgørelsesperioden [^src4]",
+          "OUH Odense Surgical Department A conducted an internal audit and implemented measures with increased focus on steroid tapering and improved dialogue about acute patients with partner hospitals [^src1]",
+          "Syddanmark: 1.967 / 2.482 patienter (79%) får målt F-calpro mindst én gang årligt [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:55:05.841Z",
+      "pageType": "entity",
+      "slug": "region-sjaelland",
+      "dropped": {
+        "citations": [],
+        "mentions": [
+          "Sjælland | 1.406 | / | 1.497 | 0 | (0) | 94 | (93-95)"
+        ],
+        "relationships": [],
+        "claims": [
+          "Region Sjælland opfylder ikke standarden med 70 % PSC kolonoskopi compliance[^src1]",
+          "Fire ud af fem regioner lever op til målsætningen, idet Region Sjælland med 70 % ikke lever op til målsætningen [^src1]",
+          "Patienter i alt i Region Sjælland: 3.897 (100) [^src1]",
+          "Gennemsnitlig alder af patienter i Region Sjælland: 50 år (Min;Max: 0;98) [^src1]",
+          "Region Sjælland opnåede 86 % (82-90) for Indikator 1a [^src1]",
+          "Alle regioner lever op til eller er tæt på at opnå udviklingsmålet for koloskopi, med regional variation fra 76 % til 86 % i Region Sjælland [^src1]",
+          "Der ses stor regional variation i komplet IBD-udredning af børn og unge, da Region Sjælland og Midtjylland er tæt på at nå udviklingsmålet (77-78%), mens Region Nordjylland ligger langt fra med kun 38 % [^src2]",
+          "For de øvrige fire regioner ses stor variation fra 74 % i Region Sjælland til 49 % i Region Hovedstaden [^src1]",
+          "Sjælland: 1.406 / 1.497 patienter (94 %, 95% CI 93-95) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+          "I tre regioner Sjælland, Syddanmark og Nordjylland er udviklingsmålet nået, mens de to øvrige er tæt på [^src1]",
+          "Kun Region Sjælland har med 4 % et resultat under udviklingsmålet [^src2]",
+          "Region Sjælland havde 4.072 patienter i alt i opgørelsesperioden [^src4]",
+          "Region Sjælland had no comments on the DANIBD annual report for the period 01-10-2023 to 30.09.2024 [^src1]",
+          "Sjælland: 1.169 / 1.249 patienter (94%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:55:52.373Z",
+      "pageType": "entity",
+      "slug": "aauh-aalborg-med-gastroenterologisk-omraade",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Vejle medicinsk afdeling og Aalborg Med. Gastroenterologisk afdeling har forbedret sig markant ift. sidste år med henholdsvis 24 og 18 procentpoint [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:56:05.117Z",
+      "pageType": "entity",
+      "slug": "landpatientregisteret",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR) [^src1]",
+          "Patienter med IBD skal have mindst to hospitalskontakter med følgende aktionsdiagnoser registreret i LPR [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:56:10.176Z",
+      "pageType": "entity",
+      "slug": "koloskopi",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "På landsplan har 277 ud af 325 patienter med PSC fået foretaget koloskopi inden for 18 måneder, svarende til 85 %[^src1]",
+          "I udredningen er der stærk anbefaling for, og deraf bred international enighed om, at diagnoserne stilles ved koloskopi [^src1]",
+          "79 % af de i alt 2385 nydiagnosticerede voksne har fået foretaget koloskopi [^src1]",
+          "Udviklingsmålet for koloskopi-udredning af voksne IBD-patienter er nået på landsplan [^src1]",
+          "Alle regioner lever op til eller er tæt på at opnå udviklingsmålet for koloskopi, med regional variation fra 76 % til 86 % i Region Sjælland [^src1]",
+          "Fire afdelinger (Hvidovre, OUH Svendborg, Aarhus og Gødstrup) har under 70 % af nydiagnosticerede voksne udredt med koloskopi [^src1]",
+          "Udviklingsmålet for indikator 1b er, at mindst 80 % af nydiagnosticerede børn og unge skal have foretaget alle tre undersøgelser (gastroskopi, koloskopi og MR-scanning/kapselendoskopi) i udredningsforløbet [^src2]",
+          "Flere patienter er primært henvist til og udredt i kirurgisk regi med sigmoideoskopi/koloskopi alene [^src3]",
+          "Der er stærk anbefaling for, og deraf international enighed om, at det postoperative forløb bedst monitoreres med endoskopisk opfølgning [^src1]",
+          "Surveillance colonoscopies result in early diagnosis of colorectal cancer and improved survival [^src1]",
+          "There is strong evidence and broad international agreement for offering all PSC patients annual systematic follow-up with colonoscopy [^src1]",
+          "The development target for PSC colonoscopy surveillance is that 80% of patients receive colonoscopy within 18 months [^src1]",
+          "Nationally, 81% of PSC patients received colonoscopy within 18 months during the period 01.10.2023 - 30.09.2024, meeting the development target of at least 80% [^src1]",
+          "All five regions achieved results meeting the development target of at least 80% for PSC colonoscopy surveillance [^src1]",
+          "Regional variation in PSC colonoscopy completion rates ranges from 79% to 85% [^src1]",
+          "Among the eight departments with more than 10 PSC patients, department variation in colonoscopy completion rates ranges from 76% to 95% [^src1]",
+          "In 65% of performed colonoscopies for PSC surveillance, biopsies were taken [^src1]",
+          "All PSC surveillance colonoscopies were performed in hospital settings [^src1]",
+          "The development target for PSC colonoscopy surveillance is assessed as still relevant [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:58:24.002Z",
+      "pageType": "entity",
+      "slug": "region-midtjylland",
+      "dropped": {
+        "citations": [],
+        "mentions": [
+          "Midtjylland | 46 | / | 149 | 31 | (24-39)",
+          "Midtjylland | 2.256 | / | 2.925 | 0 | (0) | 77 | (76-79)"
+        ],
+        "relationships": [],
+        "claims": [
+          "Region Midtjylland opnåede 79 % (76-82) for Indikator 1a [^src1]",
+          "Der ses stor regional variation i komplet IBD-udredning af børn og unge, da Region Sjælland og Midtjylland er tæt på at nå udviklingsmålet (77-78%), mens Region Nordjylland ligger langt fra med kun 38 % [^src2]",
+          "Midtjylland: 2.256 / 2.925 patienter (77 %, 95% CI 76-79) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+          "Midtjylland: 2.101 / 2.761 patienter (76%) får målt F-calpro mindst én gang årligt [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:58:46.120Z",
+      "pageType": "entity",
+      "slug": "region-hovedstaden",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Crohns sygdom i Region Hovedstaden: 4.521 (40) [^src1]",
+          "Ulcerøs colitis i Region Hovedstaden: 6.534 (58) [^src1]",
+          "Gennemsnitlig alder af patienter i Region Hovedstaden: 47 år (Min;Max: 0;100) [^src1]",
+          "Kvinder blandt patienter i Region Hovedstaden: 6.007 (54) [^src1]",
+          "Mænd blandt patienter i Region Hovedstaden: 5.204 (46) [^src1]",
+          "Gennemsnitligt antal kontakter pr. patient i Region Hovedstaden: 11 (Min;Max: 1;51) [^src1]",
+          "Fysisk fremmøde kontakter i Region Hovedstaden: 37.039 (64) [^src1]",
+          "Virtuelle kontakter i Region Hovedstaden: 20.516 (36) [^src1]",
+          "Region Hovedstaden opnåede 76 % (73-79) for Indikator 1a [^src1]",
+          "For de øvrige fire regioner ses stor variation fra 74 % i Region Sjælland til 49 % i Region Hovedstaden [^src1]",
+          "Hovedstaden: 2.667 / 3.367 patienter (79 %, 95% CI 78-81) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+          "Region Hovedstaden havde 11.456 patienter i alt i opgørelsesperioden [^src4]",
+          "Region Hovedstaden's health professional council for gastrointestinal, liver, and biliary diseases had no comments on the 2024 DANIBD annual report [^src1]",
+          "Hovedstaden: 2.190 / 3.018 patienter (73%) får målt F-calpro mindst én gang årligt [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:58:50.677Z",
+      "pageType": "entity",
+      "slug": "region-nordjylland",
+      "dropped": {
+        "citations": [],
+        "mentions": [
+          "Nordjylland | 41 | / | 128 | 32 | (24-41)",
+          "Nordjylland | 1.124 | / | 1.224 | 0 | (0) | 92 | (90-93)"
+        ],
+        "relationships": [],
+        "claims": [
+          "Region Nordjylland opnåede 81 % (75-85) for Indikator 1a [^src1]",
+          "Der ses stor regional variation i komplet IBD-udredning af børn og unge, da Region Sjælland og Midtjylland er tæt på at nå udviklingsmålet (77-78%), mens Region Nordjylland ligger langt fra med kun 38 % [^src2]",
+          "Nordjylland: 1.124 / 1.224 patienter (92 %, 95% CI 90-93) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+          "I tre regioner Sjælland, Syddanmark og Nordjylland er udviklingsmålet nået, mens de to øvrige er tæt på [^src1]",
+          "Region Nordjylland will focus on correct registration practices for the proportion of newly diagnosed patients receiving education within one year of diagnosis [^src1]",
+          "Region Nordjylland wishes to increase its target for indicator 4 regarding DEXA scanning in patients over 50 years old receiving steroid treatment for IBD [^src1]",
+          "Region Nordjylland plans to enable nurses and secretaries in the Department of Gastrointestinal Diseases to order DEXA scans and will attempt to retroactively register and order DEXA scans for patients included in the 2025 annual report [^src1]",
+          "Nordjylland: 772 / 1.013 patienter (76%) får målt F-calpro mindst én gang årligt [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:59:30.516Z",
+      "pageType": "entity",
+      "slug": "hc-andersen-boerneafdeling",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Forløb på H.C. Andersen Børneafdeling, OUH, viste sig at være fejlkodet som IBD, hvilket påpeger behovet for større opmærksomhed på kodepraksis [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:00:27.636Z",
+      "pageType": "entity",
+      "slug": "denmark",
+      "dropped": {
+        "citations": [],
+        "mentions": [
+          "Danmark | 338 | / | 917 | 37 | (34-40)",
+          "Danmark | 9.852 | / | 11.871 | 0 | (0) | 83 | (82-84)"
+        ],
+        "relationships": [],
+        "claims": []
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:00:45.816Z",
+      "pageType": "entity",
+      "slug": "odense-kirurgisk-afdeling-a",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "OUH Odense Surgical Department A conducted an internal audit and implemented measures with increased focus on steroid tapering and improved dialogue about acute patients with partner hospitals [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:01:37.898Z",
+      "pageType": "topic",
+      "slug": "surgical-timing",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "70 % af re-operationerne blev foretaget inden for de første 7 dage [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:01:42.449Z",
+      "pageType": "topic",
+      "slug": "data-limitation",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "De nyere præparater: Ozanimod, Upadacitinib og Filgotinib (ATC-koder: L04AA38, L04AA44 og L04AA45) ikke er inkluderet i indikatoren[^src1]",
+          "Det forventes, at informationerne bliver tilgængelige i løbet af 2024, hvormed disse præparater vil indgå i den kommende årsrapport[^src1]",
+          "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR) [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:02:20.475Z",
+      "pageType": "topic",
+      "slug": "surgical-procedures",
+      "dropped": {
+        "citations": [
+          "[^src4]"
+        ],
+        "claims": [
+          "Der er indrapporteret i alt 918 operationskoder, hvoraf de hyppigste indgreb var laparoskopisk kolektomi, ileostomi (17%) og ileocækal resektion (12 %)[^src1]",
+          "Der er indrapporteret i alt 28 operationskoder ved re-operation, hvoraf de hyppigste indgreb var endoskopisk dilatation af tyktarm (21 %) og tyndtarmsresektion (21 %)[^src1]",
+          "De hyppigste indgreb var laparoskopisk ileocøkal resektion (11 %) og kolektomi og ileostomi (10 %) og efterfulgt af laparoskopi (7 %), eksplorativ laparotomi (6 %) og tyndtarmsresektion (6 %) [^src2]",
+          "De fem hyppigste procedurer ved re-operation var eksplorativ laparotomi (28 %), laparoskopi (20 %), tyndtarmsresektion (8 %), sutur af sårruptur eft. gastroenterologisk operation (8 %) og terminal enterostomi (6 %) svarende til 71 % af indgrebene [^src2]",
+          "114 laparoskopiske ileocøkale resektioner (10,8%) er foretaget på patienter med IBD i perioden 1/10/2023-30/09-2024 [^src3]",
+          "106 laparoskopiske kolektomier og ileostomier (10,1%) er foretaget på patienter med IBD i perioden 1/10/2023-30/09-2024 [^src3]",
+          "78 laparoskopier (7,4%) er foretaget på patienter med IBD i perioden 1/10/2023-30/09-2024 [^src3]",
+          "66 eksplorativ laparotomier (6,3%) er foretaget på patienter med IBD i perioden 1/10/2023-30/09-2024 [^src3]",
+          "65 tyndtarmsresektioner (6,2%) er foretaget på patienter med IBD i perioden 1/10/2023-30/09-2024 [^src3]",
+          "I perioden 1/10/2022 - 30/09/2023 blev der foretaget 152 laparoskopiske kolektomier og ileostomier (KJFH11), hvilket udgør 16,6 % af alle kirurgiske indgreb på IBD-patienter [^src1]",
+          "Laparoskopisk ileocækal resektion (KJFB21) blev foretaget 106 gange (11,5 %) i perioden 1/10/2022 - 30/09/2023 [^src1]",
+          "Endoskopisk dilatation af tyktarm (KJFA58) blev foretaget 100 gange (10,9 %) i perioden 1/10/2022 - 30/09/2023 [^src1]",
+          "Der blev registreret 28 re-operationer på IBD-patienter i perioden 1/10/2022 - 30/09/2023, hvor endoskopisk dilatation af tyktarm (KJFA58) og tyndtarmsresektion (KJFB00) hver udgjorde 21,4 % [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:02:42.535Z",
+      "pageType": "topic",
+      "slug": "diagnosis-statistics",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "Crohns sygdom i Region Hovedstaden: 4.521 (40) [^src1]",
+          "Ulcerøs colitis i Region Hovedstaden: 6.534 (58) [^src1]",
+          "282 børn (69%) med Crohns sygdom er i behandling med BMSL [^src1]",
+          "6.960 voksne (61%) med Crohns sygdom er i behandling med BMSL [^src1]",
+          "125 børn (31%) med ulcerøs colitis er i behandling med BMSL [^src1]",
+          "4.444 voksne (39%) med ulcerøs colitis er i behandling med BMSL [^src1]",
+          "40 voksne (0%) med primær skleroserende kolangitis er i behandling med BMSL [^src1]",
+          "20 voksne (0%) med korttarmssyndrom er i behandling med BMSL [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:02:56.866Z",
+      "pageType": "topic",
+      "slug": "patient-contact-statistics",
+      "dropped": {
+        "citations": [
+          "[^src2]"
+        ],
+        "claims": []
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:03:19.890Z",
+      "pageType": "topic",
+      "slug": "patient-statistics",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "Årsrapporten omfatter de 751 børn og unge samt 33.599 voksne med IBD, der er set på et af landets hospitaler i perioden 1. oktober 2023 til 30. september 2024 [^src1]",
+          "Næsten 50 % af patienterne ikke haft kontakt til sundhedsvæsenet med deres tarmsygdom i denne periode [^src1]",
+          "5.387 patienter fra sidste årsrapport figurerer ikke i denne rapport, som udtryk for, at de ikke har haft en kontakt i år [^src1]",
+          "Siden DANIBD's start den 1. oktober 2022 har 40.083 patienter haft en kontakt til et hospital grundet IBD [^src1]",
+          "I årsrapportperioden fra 1. oktober 2023 til og med 30. september 2024 har 34.350 patienter været i kontakt med et af landets hospitaler [^src1]",
+          "751 børn og unge med IBD har været i kontakt med en hospitalsafdeling i perioden 1. oktober 2023 til og med 30. september 2024 [^src1]",
+          "32.641 voksne med IBD har været i kontakt med en hospitalsafdeling fra 1. oktober 2023 til og med 30. september 2024 [^src1]",
+          "I alt 11.871 patienter har været i behandling med BMSL svarende til 35 % af de patienter, der er set i opgørelsesperioden [^src1]",
+          "Heraf er 407 børn og unge i behandling med BMSL [^src1]",
+          "Hovedparten af patienterne i behandling med BMSL er diagnosticerede med Crohns sygdom (61 %) og medianalderen er 41 år for voksne og 15 år for børn og unge [^src1]",
+          "A total of 345 PSC patients were monitored during the period, of which 31 were newly diagnosed [^src1]",
+          "De praktiserende speciallæger i gastroenterologi og kirurgi har set 104 patienter med Crohns sygdom og 391 med UC i opgørelsesperioden [^src2]",
+          "Region Hovedstaden havde 11.456 patienter i alt i opgørelsesperioden [^src4]",
+          "Region Sjælland havde 4.072 patienter i alt i opgørelsesperioden [^src4]",
+          "Region Syddanmark havde 7.479 patienter i alt i opgørelsesperioden [^src4]",
+          "Region Midtjylland havde 7.722 patienter i alt i opgørelsesperioden [^src4]",
+          "Region Nordjylland havde 3.621 patienter i alt i opgørelsesperioden [^src4]",
+          "I alt 407 børn er i behandling med BMSL på landsplan [^src1]",
+          "I alt 11.464 voksne er i behandling med BMSL på landsplan [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:03:25.590Z",
+      "pageType": "topic",
+      "slug": "contact-type-statistics",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "78 fysiske kontakter (67%) blandt nydiagnostiserede patienter med primær skleroserende kolangitis [^src4]",
+          "38 virtuelle kontakter (33%) blandt nydiagnostiserede patienter med primær skleroserende kolangitis [^src4]",
+          "829 fysiske kontakter (62%) blandt prævalente patienter med primær skleroserende kolangitis [^src4]",
+          "517 virtuelle kontakter (38%) blandt prævalente patienter med primær skleroserende kolangitis [^src4]",
+          "Blandt 35 nydiagnosticerede PSC-patienter var 164 (63 %) fysiske fremmøder og 96 (37 %) virtuelle kontakter [^src1]",
+          "Blandt 213 prævalente PSC-patienter med hospitalskontakt var 729 (65 %) fysiske fremmøder og 396 (35 %) virtuelle kontakter [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:04:11.273Z",
+      "pageType": "topic",
+      "slug": "data-quality",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "The steering group is concerned about whether all PSC patients are coded correctly and encourages departments to address this issue [^src1]",
+          "DANIBDs dækningsgrad med stor sandsynlighed er over 90 % [^src3]",
+          "I studiet af Jacobsen et al fra 2022 findes en høj PPV for to IBD-diagnoser svarende til en PPV på 0,95 (95% CI, 0,95-0,96) [^src1]",
+          "I studiet af Jacobsen et al fra 2022 findes en høj PPV for to IBD-diagnoser svarende til en PPV på 0,95 (95% CI, 0,95-0,96) [^src3]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:04:36.449Z",
+      "pageType": "topic",
+      "slug": "clinical-practice",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "I udredningen er der stærk anbefaling for, og deraf bred international enighed om, at diagnoserne stilles ved koloskopi [^src1]",
+          "Postoperativ opfølgning af patienter med Crohns sygdom, som har haft behov for operation, er vigtigt. Recidiv af sygdommen optræder hyppigt – og ofte relativt tidligt. [^src1]",
+          "Biologiske og målrettede syntetiske lægemidler (BMSL) anvendes i behandlingen af patienter med moderat til svær sygdomsaktivitet. [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:05:18.392Z",
+      "pageType": "topic",
+      "slug": "quality-concern",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "Der er generelt enighed om, at osteoporose ved steroidbehandling kan forebygges, så det er tankevækkende, at der kun er 37 % af patienterne over 50 år på landsplan, der får foretaget DEXA scanning, når de får steroid. [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:06:26.100Z",
+      "pageType": "topic",
+      "slug": "pharmaceutical-treatment-statistics",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "1.936 behandlinger med infliximab blandt børn (65%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "26.287 behandlinger med infliximab blandt voksne (43%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "470 behandlinger med adalimumab blandt børn (16%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "12.194 behandlinger med adalimumab blandt voksne (20%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "10 behandlinger med golimumab blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "1.063 behandlinger med golimumab blandt voksne (2%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "149 behandlinger med ustekinumab blandt børn (5%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "9.010 behandlinger med ustekinumab blandt voksne (15%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "365 behandlinger med vedolizumab blandt børn (12%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "10.922 behandlinger med vedolizumab blandt voksne (18%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "23 behandlinger med risankizumab blandt børn (1%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "676 behandlinger med risankizumab blandt voksne (1%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "12 behandlinger med tofacitinib blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "416 behandlinger med tofacitinib blandt voksne (1%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "6 behandlinger med upadacitinib blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "368 behandlinger med upadacitinib blandt voksne (1%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "67 behandlinger med filgotinib blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "180 behandlinger med mirikizumab blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "7 behandlinger med ozanimod blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "285 børn (57%) behandlet med infliximab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "4.542 voksne (34%) behandlet med infliximab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "99 børn (20%) behandlet med adalimumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "3.603 voksne (27%) behandlet med adalimumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "3 børn (1%) behandlet med golimumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "341 voksne (3%) behandlet med golimumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "37 børn (7%) behandlet med ustekinumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "2.186 voksne (16%) behandlet med ustekinumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "59 børn (12%) behandlet med vedolizumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "2.158 voksne (16%) behandlet med vedolizumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "9 børn (2%) behandlet med risankizumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "237 voksne (2%) behandlet med risankizumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "5 børn (1%) behandlet med tofacitinib er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "157 voksne (1%) behandlet med tofacitinib er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "3 børn (1%) behandlet med upadacitinib er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "155 voksne (1%) behandlet med upadacitinib er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "34 børn (0%) behandlet med filgotinib er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "87 børn (1%) behandlet med mirikizumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "5 børn (0%) behandlet med ozanimod er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "244 børn (60%) behandlet med infliximab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "3.874 voksne (34%) behandlet med infliximab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "78 børn (19%) behandlet med adalimumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "3.082 voksne (27%) behandlet med adalimumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "3 børn (1%) behandlet med golimumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "252 voksne (2%) behandlet med golimumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "19 børn (5%) behandlet med ustekinumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "1.853 voksne (16%) behandlet med ustekinumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "50 børn (12%) behandlet med vedolizumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "1.832 voksne (16%) behandlet med vedolizumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "8 børn (2%) behandlet med risankizumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "225 voksne (2%) behandlet med risankizumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "105 voksne (1%) behandlet med tofacitinib (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "3 børn (1%) behandlet med upadacitinib (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "123 voksne (1%) behandlet med upadacitinib (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "31 børn (0%) behandlet med filgotinib (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "82 børn (1%) behandlet med mirikizumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
+          "5 børn (0%) behandlet med ozanimod (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-07-25T16:10:33.163Z",
+      "pageType": "topic",
+      "slug": "quality-indicator",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "Danmark: 8.199 / 10.523 patienter (78%) får målt F-calpro mindst én gang årligt, hvilket ligger under målsætningen på 80% [^src3]",
+          "Hovedstaden: 2.190 / 3.018 patienter (73%) får målt F-calpro mindst én gang årligt [^src3]",
+          "Sjælland: 1.169 / 1.249 patienter (94%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "Syddanmark: 1.967 / 2.482 patienter (79%) får målt F-calpro mindst én gang årligt [^src3]",
+          "Midtjylland: 2.101 / 2.761 patienter (76%) får målt F-calpro mindst én gang årligt [^src3]",
+          "Nordjylland: 772 / 1.013 patienter (76%) får målt F-calpro mindst én gang årligt [^src3]",
+          "Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd.: 38 / 286 patienter (13%) får målt F-calpro mindst én gang årligt [^src3]",
+          "Bispebjerg Abdominalcenter K: 423 / 505 patienter (84%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "Bornholm Medicinsk afdeling: 36 / 45 patienter (80%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "Herlev Gastroenheden Kir. Med., overafd. D: 535 / 791 patienter (68%) får målt F-calpro mindst én gang årligt [^src3]",
+          "Hvidovre Børne- og Ungeafdelingen: 144 / 145 patienter (99%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "Hvidovre Gastroenheden: 805 / 846 patienter (95%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "Nordsjælland Kirurgisk overafdeling: 209 / 400 patienter (52%) får målt F-calpro mindst én gang årligt [^src3]",
+          "SUH Køge Medicin: 700 / 755 patienter (93%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "SUH Roskilde Pædiatri: 24 / 24 patienter (100%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "HOL Holbæk Medicin: 44 / 49 patienter (90%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "NFS Nykøbing F Medicin: 182 / 200 patienter (91%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "NSR Slagelse Med. Gastroenterologi: 218 / 220 patienter (99%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "NSR Slagelse Pædiatri: 100% af patienter får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "OUH Odense Børne- og Ungeafdeling H: 61 / 61 patienter (100%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "OUH Odense Medicinsk Mave-Tarm Afdeling S: 561 / 756 patienter (74%) får målt F-calpro mindst én gang årligt [^src3]",
+          "OUH Svendborg Medicinsk Afd.: 225 / 240 patienter (94%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "EGS Esbjerg Medicinsk område: 515 / 552 patienter (93%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "SHS Aabenraa Mave-tarmsygdomme: 203 / 206 patienter (99%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "SHS Tønder Medicinsk Daghospital: 42 / 45 patienter (93%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "SLB Kolding Børne- og Ungeafdeling: 25 / 25 patienter (100%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "SLB Vejle Medicinsk Afdeling: 335 / 597 patienter (56%) får målt F-calpro mindst én gang årligt [^src3]",
+          "Aarhus Børn og Unge: 101 / 102 patienter (99%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "Aarhus Lever-, Mave- og Tarmsygdomme: 623 / 1.024 patienter (61%) får målt F-calpro mindst én gang årligt [^src3]",
+          "Gødstrup Medicinsk Afdeling: 336 / 430 patienter (78%) får målt F-calpro mindst én gang årligt [^src3]",
+          "Horsens Medicinsk Afdeling: 268 / 356 patienter (75%) får målt F-calpro mindst én gang årligt [^src3]",
+          "Randers Medicinsk Afdeling: 280 / 285 patienter (98%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "Silkeborg Diagnostisk Center Medicin: 278 / 284 patienter (98%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "Viborg Medicinsk Afdeling: 215 / 280 patienter (77%) får målt F-calpro mindst én gang årligt [^src3]",
+          "AAUH Aalborg Børneområde: 35 / 36 patienter (97%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "AAUH Aalborg Med.gastroenterologisk område: 677 / 914 patienter (74%) får målt F-calpro mindst én gang årligt [^src3]",
+          "RHN Hjørring Medicinske Mave- og Tarmsygd.: 60 / 63 patienter (95%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
+          "På landsplan har 78 % af patienterne i BMSL fået målt F-calpro en gang årligt, hvormed standarden på mindst 80 % er tæt på at være opfyldt[^src1]",
+          "I Region Sjælland har 94 % af patienterne i BMSL fået systematisk opfølgning, hvormed standarden er opfyldt[^src1]",
+          "Region Syddanmark er med en opfyldelse på 79 % marginaler fra at opfylde standarden[^src1]",
+          "Blandt de tre øvrige regioner ses en variation fra 73 % til 76 %[^src1]",
+          "På afdelingsniveau ses stor variation fra 13% til 100 %[^src1]",
+          "Ud af 31 afdelinger lever 21 afdelinger fra alle regioner op til målsætningen[^src1]",
+          "Samtlige landets pædiatriske afdelinger sikrer systematisk opfølgning på børn i BMSL (97-100 %)[^src1]",
+          "Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd. har laveste målopfyldelse med 13 %[^src1]",
+          "Nordsjælland Kirurgisk overafdeling har målopfyldelse på 52 %[^src1]",
+          "SLB Vejle Medicinsk Afdeling har målopfyldelse på 56 %[^src1]",
+          "Der er foretaget 28 re-operationer indenfor 30 dage svarende til 4 %, hvormed målsætningen om færre end 8 % er nået[^src1]",
+          "Alle regioner lever op til målsætningen, og der ses regional variation fra 2-5 %[^src1]",
+          "Alle afdelinger der har foretaget kirurgiske indgreb på patienter med IBD, fraset to, lever op til målsætningen[^src1]",
+          "Der ses en variation på afdelingsniveau fra 0-17 %[^src1]",
+          "Gødstrup Mave- og Tarmkirurgi rapporterede 9 % re-operation rate, hvilket overstiger standarden på 8 %[^src1]",
+          "Horsens Medicinsk Afdeling rapporterede 17 % re-operation rate, hvilket betydeligt overstiger standarden på 8 %[^src1]",
+          "På landsplan har 277 ud af 325 patienter med PSC fået foretaget koloskopi inden for 18 måneder, svarende til 85 %[^src1]",
+          "Danmark opfylder standarden på 80 % for PSC kolonoskopi opfølgning[^src1]",
+          "Region Sjælland opfylder ikke standarden med 70 % PSC kolonoskopi compliance[^src1]",
+          "OUH Svendborg Medicinsk Afd. rapporterede 0 % PSC kolonoskopi compliance[^src1]",
+          "Aarhus Børn og Unge rapporterede 0 % PSC kolonoskopi compliance[^src1]",
+          "AAUH Aalborg Med.gastroenterologisk område rapporterede 79 % PSC kolonoskopi compliance, marginalt under standarden på 80 %[^src1]",
+          "På landsplan har 85 % af patienterne fået foretaget en koloskopi inden for 18 måneder, hvoraf målsætningen på mindst 80 % er opfyldt [^src1]",
+          "I 58 % af de foretagne koloskopier er der udtaget biopsi (KUJF35) [^src1]",
+          "Fire ud af fem regioner lever op til målsætningen, idet Region Sjælland med 70 % ikke lever op til målsætningen [^src1]",
+          "På afdelingsniveau lever 14 ud af 21 afdelinger op til målsætningen [^src1]",
+          "Da DANIBD identificerer patienter med IBD ved mindst to hospitalskontakter for IBD og kun få patienter får stillet diagnosen andet sted, vil databasens dækningsgrad med stor sandsynlighed være over 90 % [^src1]",
+          "For indikatoren 'Udredning, nydiagnosticerede børn og unge' er der en målopfyldelse på landsplan på 69 % [^src1]",
+          "I indikatoren 'Medicinsk behandling, steroid' er der kun 37 % af patienterne over 50 år på landsplan, der får foretaget DEXA scanning, når de får steroid [^src1]",
+          "Der er en målsætning om en re-operationsrate under 8 %, men meget få afdelinger opnår dette [^src1]",
+          "Indikator 1a: Andelen af nydiagnosticerede voksne med IBD, der har fået foretaget relevant udredning har udviklet sig fra 79 % (77-81) i årsrapport 2023 til 79 % (77-81) i årsrapport 2024 [^src1]",
+          "Indikator 1b: Andelen af nydiagnosticerede børn og unge med IBD, der har fået foretaget relevant udredning var 69 % (62-75) i årsrapport 2023 [^src1]",
+          "Indikator 2: Undervisning af nydiagnosticerede var 13 % (11-14) i årsrapport 2023 [^src1]",
+          "Indikator 3: Post-operativ Crohns opfølgning var 65 % (58-72) i årsrapport 2023 [^src1]",
+          "Indikator 4: DEXA-scanning ved steroidbehandling var 37 % (34-40) i årsrapport 2023 [^src1]",
+          "Indikator 5: Fæces calprotectin måling for BMSL steg fra 79 % i årsrapport 2023 til 83 % (82-84) i årsrapport 2024 [^src1]",
+          "Indikator 6: Re-operation steg fra 11 % i årsrapport 2023 til 13 % (10-15) i årsrapport 2024 [^src1]",
+          "Indikator 7: PSC opfølgning faldt fra 85 % i årsrapport 2023 til 81 % (77-85) i årsrapport 2024 [^src1]",
+          "Udviklingsmålet for Indikator 1a er, at mindst 80 % skal have foretaget en koloskopi i udredningsforløbet [^src1]",
+          "Region Hovedstaden opnåede 76 % (73-79) for Indikator 1a [^src1]",
+          "Region Sjælland opnåede 86 % (82-90) for Indikator 1a [^src1]",
+          "Region Syddanmark opnåede 80 % (75-83) for Indikator 1a [^src1]",
+          "Region Midtjylland opnåede 79 % (76-82) for Indikator 1a [^src1]",
+          "Region Nordjylland opnåede 81 % (75-85) for Indikator 1a [^src1]",
+          "Bispebjerg Abdominalcenter opnåede 77 % (71-83) for Indikator 1a [^src1]",
+          "Hvidovre Gastroenheden opnåede 64 % (58-70) for Indikator 1a [^src1]",
+          "Rigshospitalet Mave-, Tarm- og Leversygd. opnåede 43 % (10-82) for Indikator 1a [^src1]",
+          "Aarhus Lever-, Mave- og Tarmsygd. opnåede 66 % (58-73) for Indikator 1a [^src1]",
+          "Gødstrup Medicinsk Afdeling opnåede 65 % (56-73) for Indikator 1a [^src1]",
+          "Randers Medicinsk Afdeling opnåede 94 % (87-98) for Indikator 1a [^src1]",
+          "79 % af de i alt 2385 nydiagnosticerede voksne har fået foretaget koloskopi [^src1]",
+          "Udviklingsmålet for koloskopi-udredning af voksne IBD-patienter er nået på landsplan [^src1]",
+          "Alle regioner lever op til eller er tæt på at opnå udviklingsmålet for koloskopi, med regional variation fra 76 % til 86 % i Region Sjælland [^src1]",
+          "Fire afdelinger (Hvidovre, OUH Svendborg, Aarhus og Gødstrup) har under 70 % af nydiagnosticerede voksne udredt med koloskopi [^src1]",
+          "Udviklingsmålet for indikator 1b er, at mindst 80 % af nydiagnosticerede børn og unge skal have foretaget alle tre undersøgelser (gastroskopi, koloskopi og MR-scanning/kapselendoskopi) i udredningsforløbet [^src2]",
+          "I alt 69 % af de nydiagnosticerede børn og unge har fået foretaget en komplet udredning, hvormed udviklingsmålet ikke er nået [^src2]",
+          "Der ses stor regional variation i komplet IBD-udredning af børn og unge, da Region Sjælland og Midtjylland er tæt på at nå udviklingsmålet (77-78%), mens Region Nordjylland ligger langt fra med kun 38 % [^src2]",
+          "8 ud af 14 afdelinger lever ikke op til udviklingsmålet ved denne første opgørelse af indikator 1b [^src2]",
+          "Der er stor variation på afdelingsniveau fra 38 % til 100 % i compliance med indikator 1b, når der ses bort fra afdelinger med færre end 10 patienter [^src2]",
+          "Blandt de 65 nydiagnosticerede børn og unge, der ikke opfylder målet om komplet udredning til tiden, har 22 % ikke fået foretaget en eneste undersøgelse, mens 60 % mangler MR-scanning/kapselendoskopi [^src2]",
+          "14 børn/unge mangler alle tre undersøgelser, 6 mangler to undersøgelser, 39 mangler kun MR/kapselendoskopi, og 6 mangler kun gastroskopi [^src3]",
+          "Styregruppen har valgt at fastholde indikator 1b på nuværende tidspunkt, følge udviklingen og evaluere indikator 1b igen ved næste audit primo 2026 [^src3]",
+          "Der afventes nye pædiatriske IBD guidelines fra Dansk Pædiatrisk Selskab og ESPGHAN i 2025 [^src3]",
+          "Inden næste audit udarbejdes en subanalyse af, hvordan de 14 pædiatriske patienter, der ikke opfylder indikatoren, er identificeret med en IBD diagnose uden en eneste relevant procedurekode [^src3]",
+          "Der skal identificeres en forskel i anvendelsen af MR scanning hos patienter over/under 10 år [^src3]",
+          "13 % af de nydiagnosticerede har fået undervisning i året efter, de fik diagnosen [^src1]",
+          "Blandt de afdelinger, der har registreret undervisning, ligger andelen mellem 1 % til 39 % [^src1]",
+          "Alle afdelinger i Region Syddanmark har registreret undervisning [^src1]",
+          "16 afdelinger fordelt på de fire øvrige regioner ikke er kommet i gang med registreringen af undervisningen af nydiagnosticerede [^src1]",
+          "Blandt børneafdelingerne er det kun de to, der har registeret undervisningen på nydiagnosticerede børn og unge i opgørelsesperioden [^src1]",
+          "Udviklingsmålet er, at mindst 80 % har fået endoskopisk opfølgning til tiden [^src1]",
+          "I alt har 179 voksne med Crohns sygdom fået foretaget ileocøkal resektion i opgørelsesperioden [^src1]",
+          "På landsplan har 65 % af patienterne fået den anbefalede opfølgning til tiden [^src1]",
+          "I Region Syddanmark får alle den anbefalede opfølgning til tiden, hvormed de som den eneste region lever op til udviklingsmålet [^src1]",
+          "For de øvrige fire regioner ses stor variation fra 74 % i Region Sjælland til 49 % i Region Hovedstaden [^src1]",
+          "For afdelinger med flere end 10 patienter er OUH Odense Medicinsk Mave-Tarm Afd. S den eneste, som har opnået udviklingsmålet [^src1]",
+          "Der er stor variation fra 55 % til 74 % for de øvrige afdelinger [^src1]",
+          "På landsplan har 83 % af patienterne i behandling med BMSL fået målt F-calprotectin en gang årligt, hvormed udviklingsmålet på mindst 80 % er nået [^src1]",
+          "I tre regioner Sjælland, Syddanmark og Nordjylland er udviklingsmålet nået, mens de to øvrige er tæt på [^src1]",
+          "Vejle medicinsk afdeling og Aalborg Med. Gastroenterologisk afdeling har forbedret sig markant ift. sidste år med henholdsvis 24 og 18 procentpoint [^src1]",
+          "Rigshospitalet Mave-, Tarm- og Leversygdomme har bemærkelsesværdig få patienter i behandling med BMSL, der får målt F-calprotectin en gang årligt [^src1]",
+          "På landsplan er der foretaget 98 re-operationer indenfor 30 dage svarende til 13 %, hvormed udviklingsmålet om færre end 8 % ikke er nået [^src2]",
+          "Kun Region Sjælland har med 4 % et resultat under udviklingsmålet [^src2]",
+          "For de øvrige regioner er der foretaget re-operation indenfor 30 dage i forbindelse med 11 % til 15 % af indgrebene [^src2]",
+          "Køge Kirurgi og Vejle Organ- og Plastikkirurgisk afdeling er de eneste, der ligger under de 5 %, for afdelinger med flere end 10 indgreb [^src2]",
+          "The development target for PSC colonoscopy surveillance is that 80% of patients receive colonoscopy within 18 months [^src1]",
+          "Nationally, 81% of PSC patients received colonoscopy within 18 months during the period 01.10.2023 - 30.09.2024, meeting the development target of at least 80% [^src1]",
+          "All five regions achieved results meeting the development target of at least 80% for PSC colonoscopy surveillance [^src1]",
+          "Regional variation in PSC colonoscopy completion rates ranges from 79% to 85% [^src1]",
+          "Among the eight departments with more than 10 PSC patients, department variation in colonoscopy completion rates ranges from 76% to 95% [^src1]",
+          "SUH Køge Medicin improved its PSC colonoscopy completion rate by 9 percentage points compared to the previous year [^src1]",
+          "The steering group assesses that the re-operation rate is generally too high, with variation of 11-15% between regions excluding Region Sjælland, but with large variation between individual departments [^src1]",
+          "The steering group encourages internal audit at departments with high re-operation rates [^src1]",
+          "The development target for re-operation rate is assessed as still relevant at 8% [^src1]",
+          "The development target for PSC colonoscopy surveillance is assessed as still relevant [^src1]",
+          "Målsætningen for indikator 4 er, at 80 % af alle patienter i BMSL får målt F-calpro én gang årligt [^src3]",
+          "Udviklingsmålet er, at mindst 80 % skal have foretaget en DEXA-scanning, når de behandles med steroid. [^src1]",
+          "Udviklingsmålet er, at mindst 80 % får målt F-calprotectin til tiden. [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.744Z",
+      "type": "manual-edit",
+      "page": "topics/patient-education/patient-education.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-03T18:54:24.080Z",
+      "pageType": "topic",
+      "slug": "statistical",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "Blandt nydiagnosticerede patienter: Kvinde 1.139 (51%), Mand 1.076 (49%)",
+          "Blandt tidligere diagnosticerede patienter: Kvinde 16.356 (54%), Mand 14.070 (46%)",
+          "Gennemsnitsalderen for nydiagnosticerede patienter er 43 år (Min;Max: 18;91)",
+          "Gennemsnitsalderen for tidligere diagnosticerede patienter er 49 år (Min;Max: 18;100)",
+          "Medianalderen for nydiagnosticerede patienter er 39 år (Q1;Q3: 27;57)",
+          "Medianalderen for tidligere diagnosticerede patienter er 49 år (Q1;Q3: 35;62)",
+          "Blandt nydiagnosticerede patienter: 18-29 år 668 (30%), 30-39 år 443 (20%), 40-49 år 291 (13%), 50-59 år 336 (15%), 60-69 år 238 (11%), 70-79 år 184 (8%), 80-89 år 52 (2%), 90 år eller ældre 3 (0%)",
+          "Blandt tidligere diagnosticerede patienter: 18-29 år 4.601 (15%), 30-39 år 5.633 (19%), 40-49 år 5.460 (18%), 50-59 år 5.849 (19%), 60-69 år 4.519 (15%), 70-79 år 3.239 (11%), 80-89 år 1.009 (3%), 90 år eller ældre 116 (0%)",
+          "Gennemsnitligt antal kontakter for nydiagnosticerede patienter: 11 (Min;Max: 1;51)",
+          "Gennemsnitligt antal kontakter for tidligere diagnosticerede patienter: 11 (Min;Max: 1;69)",
+          "Mediantal kontakter for nydiagnosticerede patienter: 9 (Q1;Q3: 5;14)",
+          "Mediantal kontakter for tidligere diagnosticerede patienter: 9 (Q1;Q3: 5;14)",
+          "Blandt nydiagnosticerede patienter: Fysisk fremmøde 8.848 (66%), Virtuel 4.553 (34%)",
+          "Blandt tidligere diagnosticerede patienter: Fysisk fremmøde 102.714 (64%), Virtuel 56.541 (36%)"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-03T18:54:32.276Z",
+      "pageType": "topic",
+      "slug": "surgical-procedures",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "De hyppigste indgreb var laparoskopisk ileocøkal resektion (11 %) og kolektomi og ileostomi (10 %) og efterfulgt af laparoskopi (7 %), eksplorativ laparotomi (6 %) og tyndtarmsresektion (6 %)"
+        ]
+      }
+    }
+  ]
+}

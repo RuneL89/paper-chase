@@ -1,0 +1,320 @@
+{
+  "run": "2026-08-03T16:36:41.230Z",
+  "newPdfs": [
+    "AKDB_2023.pdf",
+    "AKDB_2024.pdf"
+  ],
+  "newEntities": [
+    {
+      "slug": "aha-studie",
+      "title": "AHA studie",
+      "folder": "topics/clinical-research"
+    },
+    {
+      "slug": "antibiotikabehandling",
+      "title": "Antibiotikabehandling",
+      "folder": "topics/clinical-indicators"
+    },
+    {
+      "slug": "birgitte-ruehmann",
+      "title": "Birgitte Rühmann",
+      "folder": "entities/people/healthcare-professionals"
+    },
+    {
+      "slug": "charleson-score",
+      "title": "Charleson score",
+      "folder": "topics/clinical-assessment"
+    },
+    {
+      "slug": "charlson-comorbidity-index",
+      "title": "Charlson Comorbidity index",
+      "folder": "topics/clinical-assessment"
+    },
+    {
+      "slug": "charlson-comorbidity-score",
+      "title": "Charlson Comorbidity Score",
+      "folder": "topics/clinical-assessment"
+    },
+    {
+      "slug": "ct-skanning",
+      "title": "CT-skanning",
+      "folder": "topics/clinical-indicators"
+    },
+    {
+      "slug": "hovedstaden",
+      "title": "Hovedstaden",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "hovedstaden-region",
+      "title": "Hovedstaden",
+      "folder": "entities/organizations/regions"
+    },
+    {
+      "slug": "indikator-1-antibiotikabehandling",
+      "title": "Indikator 1: Andelen af patienter, der er sat i antibiotisk behandling indenfor 3 time",
+      "folder": "topics/clinical-indicator"
+    },
+    {
+      "slug": "indikator-10-mortalitet-90-dage",
+      "title": "Indikator 10: Andelen af patienter, der dør indenfor 90 dage fra operationsdato",
+      "folder": "topics/clinical-indicator"
+    },
+    {
+      "slug": "indikator-11",
+      "title": "Indikator 11",
+      "folder": "topics/quality-indicators"
+    },
+    {
+      "slug": "indikator-2-ct-skanning",
+      "title": "Indikator 2: Andelen af CT-skannede patienter",
+      "folder": "topics/clinical-indicator"
+    },
+    {
+      "slug": "indikator-3-praeoperativ-optimering",
+      "title": "Indikator 3: Præoperativ optimering eller direkte til operation",
+      "folder": "topics/clinical-indicator"
+    },
+    {
+      "slug": "indikator-4",
+      "title": "Indikator 4",
+      "folder": "topics/quality-indicators"
+    },
+    {
+      "slug": "indikator-4-operation-indenfor-seks-timer",
+      "title": "Indikator 4: Andelen af patienter, der opereres indenfor seks timer",
+      "folder": "topics/clinical-indicator"
+    },
+    {
+      "slug": "indikator-5",
+      "title": "Indikator 5",
+      "folder": "topics/quality-indicators"
+    },
+    {
+      "slug": "indikator-5-postoperativ-monitoring",
+      "title": "Indikator 5: Andelen af ældre eller svært syge patienter, der monitoreres postoperativt",
+      "folder": "topics/clinical-indicator"
+    },
+    {
+      "slug": "indikator-6",
+      "title": "Indikator 6",
+      "folder": "topics/quality-indicators"
+    },
+    {
+      "slug": "indikator-6-tidlig-mobilisering",
+      "title": "Indikator 6: Andelen af patienter, der mobiliseres indenfor 24 timer efter operation",
+      "folder": "topics/clinical-indicator"
+    },
+    {
+      "slug": "indikator-7",
+      "title": "Indikator 7",
+      "folder": "topics/quality-indicators"
+    },
+    {
+      "slug": "indikator-7-ernaeringsgjenoptagelse",
+      "title": "Indikator 7: Andelen af patienter, der genoptager ernæring indenfor 48 timer efter operation",
+      "folder": "topics/clinical-indicator"
+    },
+    {
+      "slug": "indikator-8",
+      "title": "Indikator 8",
+      "folder": "topics/quality-indicators"
+    },
+    {
+      "slug": "indikator-8-epidural",
+      "title": "Indikator 8: Andelen af patienter, der har fået anlagt epidural",
+      "folder": "topics/clinical-indicator"
+    },
+    {
+      "slug": "indikator-9",
+      "title": "Indikator 9",
+      "folder": "topics/quality-indicators"
+    },
+    {
+      "slug": "indikator-9-mortalitet-30-dage",
+      "title": "Indikator 9: Andelen af patienter, der dør indenfor 30 dage fra operationsdato",
+      "folder": "topics/clinical-indicator"
+    },
+    {
+      "slug": "lkt-akutkirurgi",
+      "title": "LKT Akutkirurgi",
+      "folder": "entities/organizations/healthcare-programs"
+    },
+    {
+      "slug": "lpr",
+      "title": "LPR",
+      "folder": "entities/organizations/healthcare-systems"
+    },
+    {
+      "slug": "midtjylland",
+      "title": "Midtjylland",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "midtjylland-region",
+      "title": "Midtjylland",
+      "folder": "entities/organizations/regions"
+    },
+    {
+      "slug": "moeller-m-h",
+      "title": "Møller M.H",
+      "folder": "entities/people/researchers"
+    },
+    {
+      "slug": "nordjylland",
+      "title": "Nordjylland",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "nordjylland-region",
+      "title": "Nordjylland",
+      "folder": "entities/organizations/regions"
+    },
+    {
+      "slug": "nordsjaellands-hospital",
+      "title": "Nordsjællands Hospital",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "peter-olsen-svenningsen",
+      "title": "Peter Olsen Svenningsen",
+      "folder": "entities/people/healthcare-professionals"
+    },
+    {
+      "slug": "praeoperativ-optimering",
+      "title": "Præoperativ optimering",
+      "folder": "topics/clinical-indicators"
+    },
+    {
+      "slug": "rkkp",
+      "title": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/healthcare-quality"
+    },
+    {
+      "slug": "sjaelland",
+      "title": "Sjælland",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "sjaelland-region",
+      "title": "Sjælland",
+      "folder": "entities/organizations/regions"
+    },
+    {
+      "slug": "sundhedsvaesenet-kvalitetsinstitut",
+      "title": "Sundhedsvæsenets Kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality"
+    },
+    {
+      "slug": "supplerende-indikator-5x",
+      "title": "Supplerende indikator 5x",
+      "folder": "topics/quality-indicators"
+    },
+    {
+      "slug": "syddanmark",
+      "title": "Syddanmark",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "syddanmark-region",
+      "title": "Syddanmark",
+      "folder": "entities/organizations/regions"
+    }
+  ],
+  "updatedEntities": [],
+  "conflicts": 159,
+  "totalCost": 0,
+  "chunksProcessed": 41,
+  "chunksSkipped": 0,
+  "chunksFailed": 0,
+  "entitiesNew": 43,
+  "entitiesUpdated": 0,
+  "relationshipsExtracted": 477,
+  "claimsExtracted": 766,
+  "claimsByType": {
+    "temporal": 4,
+    "methodological": 9,
+    "operational": 4,
+    "outcome": 2,
+    "clinical-indicator": 74,
+    "clinical-performance": 32,
+    "patient-volume": 22,
+    "data-quality": 46,
+    "clinical-outcome": 60,
+    "clinical-evidence": 44,
+    "clinical-recommendation": 27,
+    "clinical-observation": 9,
+    "policy-change": 2,
+    "policy-decision": 1,
+    "procedural": 1,
+    "standard": 2,
+    "statistical": 57,
+    "exclusion-criteria": 6,
+    "quality-standard": 41,
+    "regional-variation": 27,
+    "quality-assessment": 1,
+    "performance": 8,
+    "trend": 4,
+    "clinical-assessment": 4,
+    "recommendation": 2,
+    "standard-setting": 2,
+    "standard-compliance": 1,
+    "analysis": 1,
+    "regional-outcome": 2,
+    "hospital-outcome": 2,
+    "methodology": 24,
+    "clinical-guideline": 2,
+    "definition": 2,
+    "standard-change": 2,
+    "compliance": 1,
+    "regulatory-approval": 1,
+    "clinical-practice": 3,
+    "mortality-outcome": 44,
+    "mortality-statistic": 16,
+    "demographic": 11,
+    "clinical-analysis": 2,
+    "purpose": 1,
+    "process": 1,
+    "status": 1,
+    "policy": 1,
+    "inclusion-criteria": 1,
+    "population-statistics": 11,
+    "data-extraction": 2,
+    "methodology-change": 1,
+    "availability": 1,
+    "validation": 1,
+    "validation-process": 1,
+    "limitation": 1,
+    "clinical-target": 8,
+    "clinical-data": 3,
+    "clinical-trend": 1,
+    "publication": 3,
+    "conference-presentation": 3,
+    "organizational": 10,
+    "administrative": 2,
+    "performance-metric": 35,
+    "quality-improvement": 1,
+    "quality-indicator": 40,
+    "clinical-research": 1,
+    "mortality": 14,
+    "clinical-procedure": 11,
+    "data-source": 4,
+    "population-definition": 1,
+    "data-availability": 1
+  },
+  "pagesByType": {
+    "entity": 152,
+    "topic": 131,
+    "document": 41
+  },
+  "foldersCreated": 45,
+  "brokenLinks": 6,
+  "orphanedPages": 19,
+  "conflictsManualEdit": 0,
+  "conflictsPreservation": 159,
+  "totalTokens": 12412048,
+  "wallClockMs": 1536637,
+  "feedbackRepairs": 638,
+  "curationFallbacks": 0,
+  "transportFailures": 0
+}

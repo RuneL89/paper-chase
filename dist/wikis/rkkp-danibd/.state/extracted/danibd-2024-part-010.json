@@ -1,0 +1,290 @@
+{
+  "entities": [
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden's health professional council reviewed the 2024 DANIBD annual report and provided no comments on the registry's performance.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Rapporten er blevet vurderet af det sundhedsfaglige råd for Mave-, tarm- og leversygdomme, som ikke har noget bemærkninger til årsrapport 2024 for DANIBD."
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland submitted a formal response confirming no comments on the DANIBD annual report for the period 01-10-2023 to 30.09.2024.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Region Sjælland har ingen kommentarer til årsrapport for Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD) for perioden 01-10-2023 til 30.09.2024."
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Syddanmark conducted an internal audit at OUH Odense Surgical Department A and implemented measures focusing on steroid tapering and improved communication with partner hospitals regarding acute patients.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "På OUH Odense Kirurgisk Afdeling A har vi, i overensstemmelse med styregruppens anbefaling, foretaget en intern audit og iværksat relevante tiltag på baggrund af resultaterne med øget fokus på steroidnedtrapning og bedre dialog om akutte patienter med vores samarbejdspartnere."
+        }
+      ]
+    },
+    {
+      "name": "OUH Odense Kirurgisk Afdeling A",
+      "type": "organization",
+      "slug": "ouh-odense-kirurgisk-afdeling-a",
+      "folder": "entities/organizations/hospitals",
+      "significance": "OUH Odense Surgical Department A conducted an internal audit and implemented quality improvement measures related to steroid tapering and patient communication as part of the DANIBD quality assurance process.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "På OUH Odense Kirurgisk Afdeling A har vi, i overensstemmelse med styregruppens anbefaling, foretaget en intern audit"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Midtjylland's hospitals conducted audits of quality indicators, with Aarhus University Hospital and Regionshospitalet Gødstrup providing detailed findings on diagnostic procedures and re-operation rates.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Aarhus Universitetshospital har gennemført audit af patienter, der ikke opfylder indikator 1"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus University Hospital conducted an audit of patients not meeting indicator 1, finding that many had sufficient diagnostic workup at other hospitals or declined colonoscopy, raising concerns about the indicator's validity for measuring diagnostic quality.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Aarhus Universitetshospital har gennemført audit af patienter, der ikke opfylder indikator 1 og kan konstatere, at der for en del af disse patienter har været sufficient udredning på andre hospitaler"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "goedstrup-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup conducted a medical record audit on indicator 6 (re-operation), reviewing 7 cases and arguing that re-operation rate is a poor quality measure compared to anastomotic leak rates used in cancer surgery.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Regionshospitalet Gødstrup har lavet journalaudit på indikator 6, Re-operation. I alt er 7 forløb med re-operation gennemgået."
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland submitted detailed responses on indicators 2 and 4, committing to improved registration practices for patient education and increased DEXA scanning for steroid-treated patients over 50 years old.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "RHN's Høringssvar til årsrapporten 2024"
+        }
+      ]
+    },
+    {
+      "name": "RHN",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "RHN (Region Nordjylland's hospital network) committed to improving registration practices for patient education and DEXA scanning procedures for IBD patients.",
+      "disambiguation": "RHN is the abbreviation for Region Nordjylland's hospital services.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "RHN's Høringssvar til årsrapporten 2024"
+        }
+      ]
+    },
+    {
+      "name": "DANIBD",
+      "type": "organization",
+      "slug": "danibd",
+      "folder": "entities/organizations/health-registries",
+      "significance": "DANIBD (Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme) is the Danish quality database for inflammatory bowel disease, receiving regional comments and audit findings from all five Danish regions on its 2024 annual report.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "årsrapport 2024 for DANIBD"
+        },
+        {
+          "page": 46,
+          "context": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "reviewed",
+      "object": "danibd",
+      "evidence": "Rapporten er blevet vurderet af det sundhedsfaglige råd for Mave-, tarm- og leversygdomme, som ikke har noget bemærkninger til årsrapport 2024 for DANIBD.",
+      "page": 46
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "submitted-comments-on",
+      "object": "danibd",
+      "evidence": "Region Sjælland har ingen kommentarer til årsrapport for Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD) for perioden 01-10-2023 til 30.09.2024.",
+      "page": 46
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "conducted-audit-at",
+      "object": "ouh-odense-kirurgisk-afdeling-a",
+      "evidence": "På OUH Odense Kirurgisk Afdeling A har vi, i overensstemmelse med styregruppens anbefaling, foretaget en intern audit",
+      "page": 46
+    },
+    {
+      "subject": "aarhus-university-hospital",
+      "predicate": "conducted-audit-for",
+      "object": "danibd",
+      "evidence": "Aarhus Universitetshospital har gennemført audit af patienter, der ikke opfylder indikator 1",
+      "page": 46
+    },
+    {
+      "subject": "goedstrup-hospital",
+      "predicate": "conducted-audit-for",
+      "object": "danibd",
+      "evidence": "Regionshospitalet Gødstrup har lavet journalaudit på indikator 6, Re-operation.",
+      "page": 46
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "submitted-response-to",
+      "object": "danibd",
+      "evidence": "RHN's Høringssvar til årsrapporten 2024",
+      "page": 47
+    }
+  ],
+  "claims": [
+    {
+      "text": "Region Hovedstaden's health professional council for gastrointestinal, liver, and biliary diseases had no comments on the 2024 DANIBD annual report [^src1]",
+      "type": "administrative",
+      "entities": [
+        "region-hovedstaden",
+        "danibd"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Region Sjælland had no comments on the DANIBD annual report for the period 01-10-2023 to 30.09.2024 [^src1]",
+      "type": "administrative",
+      "entities": [
+        "region-sjaelland",
+        "danibd"
+      ],
+      "page": 46
+    },
+    {
+      "text": "OUH Odense Surgical Department A conducted an internal audit and implemented measures with increased focus on steroid tapering and improved dialogue about acute patients with partner hospitals [^src1]",
+      "type": "quality-improvement",
+      "entities": [
+        "ouh-odense-kirurgisk-afdeling-a",
+        "region-syddanmark"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Aarhus University Hospital found that many patients not meeting indicator 1 had sufficient diagnostic workup at other hospitals, and some patients declined colonoscopy [^src1]",
+      "type": "audit-finding",
+      "entities": [
+        "aarhus-university-hospital"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Aarhus University Hospital stated that before data capture is optimized, indicator 1 does not provide an accurate picture of diagnostic quality at the hospital [^src1]",
+      "type": "quality-concern",
+      "entities": [
+        "aarhus-university-hospital"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Regionshospitalet Gødstrup reviewed 7 cases of re-operation, finding surgical complications in 3 cases and no signs of surgical complications in 4 cases [^src1]",
+      "type": "audit-finding",
+      "entities": [
+        "goedstrup-hospital"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Regionshospitalet Gødstrup considers re-operation rate a poor quality measure, arguing that anastomotic leak is a better indicator as used in cancer surgery [^src1]",
+      "type": "quality-concern",
+      "entities": [
+        "goedstrup-hospital"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Region Nordjylland will focus on correct registration practices for the proportion of newly diagnosed patients receiving education within one year of diagnosis [^src1]",
+      "type": "quality-improvement",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 47
+    },
+    {
+      "text": "Region Nordjylland wishes to increase its target for indicator 4 regarding DEXA scanning in patients over 50 years old receiving steroid treatment for IBD [^src1]",
+      "type": "quality-improvement",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 47
+    },
+    {
+      "text": "Region Nordjylland plans to enable nurses and secretaries in the Department of Gastrointestinal Diseases to order DEXA scans and will attempt to retroactively register and order DEXA scans for patients included in the 2025 annual report [^src1]",
+      "type": "quality-improvement",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 47
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024",
+      "event": "DANIBD annual report reviewed by all five Danish regions with regional comments and audit findings submitted",
+      "entities": [
+        "danibd",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ]
+    },
+    {
+      "date": "01-10-2023 to 30-09-2024",
+      "event": "Reporting period for DANIBD annual report 2024",
+      "entities": [
+        "danibd"
+      ]
+    }
+  ],
+  "context": "Appendix 2 of the DANIBD 2024 annual report contains regional comments from all five Danish regions (Hovedstaden, Sjælland, Syddanmark, Midtjylland, and Nordjylland) on the registry's performance and quality indicators. The regions report on internal audits, quality improvement initiatives, and concerns about specific quality indicators, particularly regarding diagnostic procedures, steroid management, re-operation rates, and patient education documentation. These comments reflect the collaborative quality assurance process between DANIBD and regional hospital networks across Denmark."
+}

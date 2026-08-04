@@ -1,0 +1,374 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "This is the Danish national database for atrial fibrillation that produces the annual quality report containing clinical indicators and regional performance data for atrial fibrillation care.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 57,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 58,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 59,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 60,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-programs",
+      "significance": "RKKP is the Danish regional clinical quality development program that oversees and publishes quality indicators for atrial fibrillation care across Danish regions and municipalities.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 57,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 58,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 59,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 60,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "The Danish National Patient Registry (LPR) is the primary data source used for Indicator 5, providing patient episode data on acute stroke diagnoses and treatment contacts.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "alle personer, som var i live pr. 1. juli 2022, og som havde fået diagnosen registeret i Landspatientregisteret (LPR) mindst én gang inden for de foregående 10 år"
+        },
+        {
+          "page": 58,
+          "context": "indikatoren i år opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke"
+        },
+        {
+          "page": 58,
+          "context": "Fra Landspatientregisteret er der udtrukket patientforløb med apopleksi (DI63 og DI64)"
+        }
+      ]
+    },
+    {
+      "name": "DanStroke",
+      "type": "organization",
+      "slug": "danstroke",
+      "folder": "entities/organizations/health-registries",
+      "significance": "DanStroke is a Danish stroke database previously used for Indicator 5 data collection, but was replaced by LPR data due to reporting gaps during a transition to a new reporting model.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "indikatoren i år opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke"
+        },
+        {
+          "page": 58,
+          "context": "DanStroke har været ramt af manglende indberetninger af apopleksitilfælde grundet overgangen til en ny indberetningsmodel i databasen"
+        },
+        {
+          "page": 58,
+          "context": "Ved at anvende LPR data er nærværende indikator ikke påvirket af de ovenfornævnte forhold i DanStroke"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden (Capital Region) is one of five Danish regions with atrial fibrillation patient data; it shows higher incidence of ischemic stroke (0.9-1.0%) and intracranial bleeding (0.7%) compared to other regions.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "Regionalt ses en højere andel i regionerne Hovedstaden og Sjælland (0.9-1.0%)"
+        },
+        {
+          "page": 59,
+          "context": "andelen er højere i Hovedstaden og Sjælland (ca. 37%) sammenlignet med de øvrige regioner"
+        },
+        {
+          "page": 59,
+          "context": "varierende fra 0,8% i Region Midtjylland til 1,4% i Region Hovedstaden"
+        },
+        {
+          "page": 60,
+          "context": "Hovedstaden Nej 245 / 37.128 0 (0) 0,7 (0,6-0,7)"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland (Zealand Region) is one of five Danish regions with atrial fibrillation patient data; it shows higher incidence of ischemic stroke (0.9-1.0%) and meets the intracranial bleeding standard.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "Regionalt ses en højere andel i regionerne Hovedstaden og Sjælland (0.9-1.0%)"
+        },
+        {
+          "page": 59,
+          "context": "andelen er højere i Hovedstaden og Sjælland (ca. 37%)"
+        },
+        {
+          "page": 60,
+          "context": "Sjælland Ja 103 / 22.375 0 (0) 0,5 (0,4-0,6)"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Midtjylland (Central Jutland Region) is one of five Danish regions with atrial fibrillation patient data; it shows lower incidence of ischemic stroke (0.7%) and the lowest intracranial bleeding rate (0.4%).",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Midtjylland Ja 210 / 29.513 0 (0) 0,7 (0,6-0,8)"
+        },
+        {
+          "page": 58,
+          "context": "de tre øvrige (0,7%)"
+        },
+        {
+          "page": 59,
+          "context": "varierende fra 0,8% i Region Midtjylland til 1,4% i Region Hovedstaden"
+        },
+        {
+          "page": 60,
+          "context": "Midtjylland Ja 132 / 29.513 0 (0) 0,4 (0,4-0,5)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland (North Jutland Region) is one of five Danish regions with atrial fibrillation patient data; it shows a declining trend in ischemic stroke incidence (-0.3 percentage points) and meets the intracranial bleeding standard.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Nordjylland Ja 103 / 14.523 0 (0) 0,7 (0,6-0,9)"
+        },
+        {
+          "page": 58,
+          "context": "faldende tendens hos Region Hovedstaden (-0,2 procentpoint) og Region Nordjylland (-0,3 procentpoint)"
+        },
+        {
+          "page": 60,
+          "context": "Nordjylland Ja 72 / 14.523 0 (0) 0,5 (0,4-0,6)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Syddanmark (Southern Denmark Region) is one of five Danish regions with atrial fibrillation patient data; it meets both the ischemic stroke and intracranial bleeding quality standards.",
+      "mentions": [
+        {
+          "page": 60,
+          "context": "Syddanmark Ja 159 / 31.271 0 (0) 0,5 (0,4-0,6)"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Denmark is the national context for this quality report; national-level data shows 0.8% incidence of ischemic stroke and 0.5% incidence of intracranial bleeding among atrial fibrillation patients.",
+      "mentions": [
+        {
+          "page": 60,
+          "context": "Danmark Ja 711 / 134.810 0 (0) 0,5 (0,5-0,6)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "is-managed-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark is published under Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 56
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "indikatoren i år opgjort på baggrund af data om akut apopleksi fra LPR",
+      "page": 58
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "has-higher-stroke-incidence-than",
+      "object": "region-midtjylland",
+      "evidence": "Regionalt ses en højere andel i regionerne Hovedstaden og Sjælland (0.9-1.0%) end de tre øvrige (0,7%)",
+      "page": 58
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "shows-declining-trend-in",
+      "object": "region-nordjylland",
+      "evidence": "faldende tendens hos Region Nordjylland (-0,3 procentpoint)",
+      "page": 58
+    }
+  ],
+  "claims": [
+    {
+      "text": "Blandt de prævalente patienter var der i opgørelsesperioden 0,8% der blev registreret med et tilfælde af iskæmisk apopleksi og standarden på max. 0,8% er således opfyldt [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 58
+    },
+    {
+      "text": "Andelen er faldet 0,1 procentpoint i de sidste to årsrapportsperioder [^src1]",
+      "type": "trend",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 58
+    },
+    {
+      "text": "Regionalt ses en højere andel i regionerne Hovedstaden og Sjælland (0,9-1,0%) end de tre øvrige (0,7%) [^src1]",
+      "type": "regional-comparison",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-syddanmark"
+      ],
+      "page": 58
+    },
+    {
+      "text": "I løbet af de sidste tre årsrapportsperioder ses faldende tendens hos Region Hovedstaden (-0,2 procentpoint) og Region Nordjylland (-0,3 procentpoint) [^src1]",
+      "type": "trend",
+      "entities": [
+        "region-hovedstaden",
+        "region-nordjylland"
+      ],
+      "page": 58
+    },
+    {
+      "text": "På landsplan udviklede 1,1% apopleksi varierende fra 0,8% i Region Midtjylland til 1,4% i Region Hovedstaden [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "region-midtjylland",
+        "region-hovedstaden"
+      ],
+      "page": 59
+    },
+    {
+      "text": "på landsplan var 34% af patienterne med atrieflimren ikke i aktuel antikoagulationsbehandling, da de fik deres iskæmiske apopleksi svarende til, at der var 378 iskæmiske apopleksitilfælde blandt patienter uden behandling på landsplan [^src1]",
+      "type": "treatment-gap",
+      "entities": [
+        "danmark"
+      ],
+      "page": 59
+    },
+    {
+      "text": "Der bemærkes en variation i andelen af patienter med iskæmisk apopleksi, som ikke var i antikoagulationsbehandling på tværs af regionerne, hvor andelen er højere i Hovedstaden og Sjælland (ca. 37%) sammenlignet med de øvrige regioner (29-34%) [^src1]",
+      "type": "regional-comparison",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland"
+      ],
+      "page": 59
+    },
+    {
+      "text": "Andelen af patienter med iskæmisk apopleksi er 0,89% for DOAC og 0,56% for marevan [^src1]",
+      "type": "treatment-outcome",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 59
+    },
+    {
+      "text": "Styregruppen har ud fra de aktuelle data og litteraturen vurderet, at incidensraten for iskæmisk apopleksi blandt prævalente patienter med atrieflimren bør være mindre end 1%, og har valgt at sætte en standard på ≤ 0,8 per 100 risiko år [^src1]",
+      "type": "standard-setting",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 59
+    },
+    {
+      "text": "Standard fastholdes til ≤ 0,8 per 100 risiko år [^src1]",
+      "type": "standard-setting",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 59
+    },
+    {
+      "text": "Danmark Ja 711 / 134.810 0 (0) 0,5 (0,5-0,6) for intracranial bleeding [^src2]",
+      "type": "clinical-outcome",
+      "entities": [
+        "danmark"
+      ],
+      "page": 60
+    },
+    {
+      "text": "Hovedstaden Nej 245 / 37.128 0 (0) 0,7 (0,6-0,7) for intracranial bleeding, does not meet standard [^src2]",
+      "type": "clinical-outcome",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 60
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2022-07-01",
+      "event": "Start of reporting period for Indicator 5 and Indicator 6 data collection",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "2023-06-30",
+      "event": "End of reporting period for Indicator 5 and Indicator 6 data collection",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    }
+  ],
+  "context": "This chunk presents clinical quality indicators for atrial fibrillation care in Denmark from the annual report of the Danish Atrial Fibrillation Database (Databasen for Atrieflimren i Danmark) for the period July 1, 2022 to June 30, 2023. The report, published by the Regional Clinical Quality Development Program (RKKP), contains detailed regional and municipal-level performance data on two key safety indicators: the incidence of ischemic stroke (Indicator 5) and intracranial bleeding (Indicator 6) among prevalent atrial fibrillation patients. The data reveals that Denmark as a whole meets the national quality standards for both indicators, though significant regional variation exists, with the Capital Region (Hovedstaden) and Zealand Region (Sjælland) showing higher stroke incidence rates and a notable treatment gap in anticoagulation therapy."
+}

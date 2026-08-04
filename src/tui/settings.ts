@@ -15,6 +15,61 @@ export type { Provider } from '../llm/client';
 export interface ApiKeys {
   anthropic: string | null;
   openai: string | null;
+  qwen: string | null;
+}
+
+/**
+ * Custom provider header (key-value pair; the value may use `{{apiKey}}`).
+ */
+export interface CustomProviderHeader {
+  key: string;
+  value: string;
+}
+
+/**
+ * Response template for a custom provider: dot/bracket JSON paths used to
+ * extract the response text and token counts.
+ */
+export interface CustomProviderResponseTemplate {
+  textPath: string;
+  inputTokensPath?: string;
+  outputTokensPath?: string;
+}
+
+/**
+ * Model entry for a custom provider: the persisted `id` plus a display `label`
+ * (label defaults to the id when omitted).
+ */
+export interface CustomProviderModel {
+  id: string;
+  label: string;
+}
+
+/**
+ * Phase 11 v1.8.0: a fully configurable custom provider (OpenAI-compatible by
+ * default, but with a user-defined request body template, headers, and response
+ * extraction paths so it can target OpenRouter, local vLLM, Groq, Azure OpenAI,
+ * etc.). The API key lives inside the provider config in `.paper-chase.json`
+ * (the file is already gitignored).
+ */
+export interface CustomProviderConfig {
+  /** Slug derived from the display name (e.g. 'openrouter'). */
+  id: string;
+  /** Human-readable display name (e.g. 'OpenRouter'). */
+  name: string;
+  /** Full POST endpoint URL (e.g. https://api.example.com/v1/chat/completions). */
+  baseUrl: string;
+  /** API key for this provider; null means "not set". */
+  apiKey: string | null;
+  /** Extra headers; values may contain `{{apiKey}}`. */
+  headers: CustomProviderHeader[];
+  /** JSON body template with `{{model}}`, `{{messages}}`, `{{maxTokens}}`,
+   * `{{temperature}}` (optional), and `{{apiKey}}` placeholders. */
+  requestTemplate: string;
+  /** Dot/bracket JSON paths for response extraction. */
+  responseTemplate: CustomProviderResponseTemplate;
+  /** Selectable model list for this provider. */
+  models: CustomProviderModel[];
 }
 
 export interface TuiSettings {
@@ -22,22 +77,29 @@ export interface TuiSettings {
   synthesis: boolean;
   /** Phase 9: pre-check the "Propose AGENTS.md Updates" option. */
   updateAgents: boolean;
-  /**
-   * Phase 11: per-call LLM model routing. `provider` selects the API
-   * ('anthropic' default, 'openai' opt-in — v1.4.0 multi-provider extension,
-   * user directive 2026-07-22); `default` is a concrete model id for the
-   * current provider; the per-call-type entries are either a concrete model
-   * id or null, where null means "Same as default". Older config files
-   * without a `models` block — or without `provider` inside it — load with
-   * the Anthropic defaults filled in.
-   */
+/**
+ * Phase 11: per-call LLM model routing. `provider` selects the API
+ * ('anthropic' default, 'openai' and 'qwen' opt-in — v1.4.0 multi-provider
+ * extension, user directive 2026-07-22; Qwen extension 2026-08-04);
+ * `default` is a concrete model id for the current provider; the per-call-type
+ * entries are either a concrete model id or null, where null means "Same as
+ * default". Older config files without a `models` block — or without
+ * `provider` inside it — load with the Anthropic defaults filled in.
+ */
   models: ModelRouting;
   /**
    * Phase 11 v1.5.0: stored API keys (see `ApiKeys`). Config files without
-   * an `apiKeys` block load as { anthropic: null, openai: null }; saved
-   * configs always carry the block.
+   * an `apiKeys` block load as { anthropic: null, openai: null, qwen: null };
+   * saved configs always carry the block.
    */
   apiKeys: ApiKeys;
+  /**
+   * Phase 11 v1.8.0: user-defined custom providers (OpenAI-compatible by
+   * default, fully configurable via base URL, API key, headers, request body
+   * template, response extraction paths, and model list). Config files without
+   * a `customProviders` block load as an empty array.
+   */
+  customProviders: CustomProviderConfig[];
 }
 
 /**
@@ -45,35 +107,150 @@ export interface TuiSettings {
  * dropdowns. `label` is the short display name; the persisted value is the
  * full model id. Anthropic: Haiku/Sonnet/Opus. OpenAI (lineup verified
  * against live OpenAI docs 2026-07-22 — see the compliance log): the GPT-5.6
- * family Luna/Terra/Sol.
+ * family Luna/Terra/Sol. Qwen (DashScope OpenAI-compatible endpoint,
+ * 2026-08-04): Qwen-Plus, Qwen 3.7 Max, Qwen 3.8 Max.
  */
-export const MODEL_CATALOG: Record<Provider, Array<{ id: string; label: string }>> = {
+type BuiltInProvider = 'anthropic' | 'openai' | 'qwen';
+
+export const MODEL_CATALOG: Record<BuiltInProvider, Array<{ id: string; label: string }>> = {
   anthropic: [
     { id: 'claude-haiku-4-5-20251001', label: 'Haiku 4.5' },
     { id: 'claude-sonnet-5', label: 'Sonnet 5' },
     { id: 'claude-opus-4-8', label: 'Opus 4.8' },
+    { id: '__custom__', label: 'Custom model...' },
   ],
   openai: [
     { id: 'gpt-5.6-luna', label: 'GPT-5.6 Luna' },
     { id: 'gpt-5.6-terra', label: 'GPT-5.6 Terra' },
     { id: 'gpt-5.6-sol', label: 'GPT-5.6 Sol' },
+    { id: '__custom__', label: 'Custom model...' },
+  ],
+  qwen: [
+    { id: 'qwen-plus', label: 'Qwen-Plus' },
+    { id: 'qwen3.7-max', label: 'Qwen 3.7 Max' },
+    { id: 'qwen3.8-max', label: 'Qwen 3.8 Max' },
+    { id: '__custom__', label: 'Custom model...' },
   ],
 };
 
 /** Provider-aware default model: always the provider's cheapest tier. */
-export const DEFAULT_MODEL_FOR_PROVIDER: Record<Provider, string> = {
+export const DEFAULT_MODEL_FOR_PROVIDER: Record<BuiltInProvider, string> = {
   anthropic: 'claude-haiku-4-5-20251001',
   openai: 'gpt-5.6-luna',
+  qwen: 'qwen-plus',
 };
 
 /**
  * Phase 14 (phase doc §2.6, ratified mid-tier): the seeded `curation` slot per
  * provider — mid-tier judgment for merge/drop decisions.
  */
-export const CURATION_MODEL_FOR_PROVIDER: Record<Provider, string> = {
+export const CURATION_MODEL_FOR_PROVIDER: Record<BuiltInProvider, string> = {
   anthropic: 'claude-sonnet-5',
   openai: 'gpt-5.6-terra',
+  qwen: 'qwen3.7-max',
 };
+
+/**
+ * Slugify a display name for a custom provider id (kebab-case, no spaces).
+ * If the slug already exists, append `-2`, `-3`, etc.
+ */
+export function slugifyCustomProviderId(name: string, existingIds: string[]): string {
+  const base = name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') || 'custom';
+  let candidate = base;
+  let counter = 2;
+  while (existingIds.includes(candidate)) {
+    candidate = `${base}-${counter}`;
+    counter += 1;
+  }
+  return candidate;
+}
+
+/**
+ * Create a new custom provider with OpenAI-compatible defaults.
+ */
+export function createCustomProvider(name: string, existingIds: string[]): CustomProviderConfig {
+  return {
+    id: slugifyCustomProviderId(name, existingIds),
+    name,
+    baseUrl: 'https://api.example.com/v1/chat/completions',
+    apiKey: null,
+    headers: [
+      { key: 'Authorization', value: 'Bearer {{apiKey}}' },
+      { key: 'Content-Type', value: 'application/json' },
+    ],
+    requestTemplate:
+      '{"model":"{{model}}","messages":{{messages}},"max_tokens":{{maxTokens}}}',
+    responseTemplate: {
+      textPath: 'choices[0].message.content',
+      inputTokensPath: 'usage.prompt_tokens',
+      outputTokensPath: 'usage.completion_tokens',
+    },
+    models: [],
+  };
+}
+
+/** Find a custom provider by id (the `custom:` prefix is stripped if present). */
+export function findCustomProvider(
+  provider: Provider,
+  customProviders: CustomProviderConfig[],
+): CustomProviderConfig | undefined {
+  const id = provider.startsWith('custom:') ? provider.slice(7) : provider;
+  return customProviders.find((cp) => cp.id === id);
+}
+
+/** True when the provider is one of the built-in literals. */
+export function isBuiltInProvider(provider: Provider): provider is 'anthropic' | 'openai' | 'qwen' {
+  return provider === 'anthropic' || provider === 'openai' || provider === 'qwen';
+}
+
+/**
+ * Get the model catalog for any provider. Built-in providers use the static
+ * `MODEL_CATALOG`; custom providers use their configured model list.
+ */
+export function getModelCatalog(
+  provider: Provider,
+  customProviders: CustomProviderConfig[],
+): Array<{ id: string; label: string }> {
+  if (isBuiltInProvider(provider)) {
+    return MODEL_CATALOG[provider];
+  }
+  const cp = findCustomProvider(provider, customProviders);
+  return cp?.models ?? [];
+}
+
+/**
+ * Get the default model for any provider. Built-in providers use the static
+ * map; custom providers use their first configured model.
+ */
+export function getDefaultModelForProvider(
+  provider: Provider,
+  customProviders: CustomProviderConfig[],
+): string {
+  if (isBuiltInProvider(provider)) {
+    return DEFAULT_MODEL_FOR_PROVIDER[provider];
+  }
+  const cp = findCustomProvider(provider, customProviders);
+  return cp?.models[0]?.id ?? '';
+}
+
+/**
+ * Get the mid-tier curation model for any provider. Built-in providers use the
+ * static map; custom providers use their second configured model (or the first
+ * when only one exists).
+ */
+export function getCurationModelForProvider(
+  provider: Provider,
+  customProviders: CustomProviderConfig[],
+): string {
+  if (isBuiltInProvider(provider)) {
+    return CURATION_MODEL_FOR_PROVIDER[provider];
+  }
+  const cp = findCustomProvider(provider, customProviders);
+  return cp?.models[1]?.id ?? cp?.models[0]?.id ?? '';
+}
 
 /**
  * Re-seed the five model slots for a provider switch (Settings screen):
@@ -81,15 +258,21 @@ export const CURATION_MODEL_FOR_PROVIDER: Record<Provider, string> = {
  * mid-tier (Phase 14 §2.6), and every other per-call-type entry resets to
  * null ("Same as default"), so stale cross-provider model ids can never
  * persist in `.paper-chase.json`.
+ * For custom providers (v1.8.0), the cheapest model is the first configured
+ * model and the mid-tier is the second configured model (or the first when
+ * only one exists).
  */
-export function seedModelsForProvider(provider: Provider): ModelRouting {
+export function seedModelsForProvider(
+  provider: Provider,
+  customProviders: CustomProviderConfig[] = [],
+): ModelRouting {
   return {
     provider,
-    default: DEFAULT_MODEL_FOR_PROVIDER[provider],
+    default: getDefaultModelForProvider(provider, customProviders),
     extractor: null,
     synthesis: null,
     dox: null,
-    curation: CURATION_MODEL_FOR_PROVIDER[provider],
+    curation: getCurationModelForProvider(provider, customProviders),
   };
 }
 
@@ -97,7 +280,8 @@ const DEFAULT_SETTINGS: TuiSettings = {
   synthesis: false,
   updateAgents: false,
   models: seedModelsForProvider('anthropic'),
-  apiKeys: { anthropic: null, openai: null },
+  apiKeys: { anthropic: null, openai: null, qwen: null },
+  customProviders: [],
 };
 
 /** Phase 11 rebrand: the settings file is `.paper-chase.json`. */
@@ -116,17 +300,29 @@ export function legacySettingsPath(workspace: string): string {
 /**
  * Tolerate older config files: a missing `models` block gets the defaults,
  * and a `models` block without `provider` (pre-v1.4.0) loads as 'anthropic'.
+ * Custom providers (v1.8.0) preserve their `custom:<id>` provider value and
+ * use the configured model list for defaults.
  */
-function normalizeModels(parsed: Partial<ModelRouting> | undefined): ModelRouting {
+function normalizeModels(
+  parsed: Partial<ModelRouting> | undefined,
+  customProviders: CustomProviderConfig[] = [],
+): ModelRouting {
   const concrete = (value: unknown): string | null =>
     typeof value === 'string' && value.length > 0 ? value : null;
-  const provider: Provider = parsed?.provider === 'openai' ? 'openai' : 'anthropic';
+  const provider: Provider =
+    parsed?.provider === 'openai'
+      ? 'openai'
+      : parsed?.provider === 'qwen'
+        ? 'qwen'
+        : typeof parsed?.provider === 'string' && parsed.provider.startsWith('custom:')
+          ? parsed.provider
+          : 'anthropic';
   return {
     provider,
     default:
       typeof parsed?.default === 'string' && parsed.default.length > 0
         ? parsed.default
-        : DEFAULT_MODEL_FOR_PROVIDER[provider],
+        : getDefaultModelForProvider(provider, customProviders),
     extractor: concrete(parsed?.extractor),
     synthesis: concrete(parsed?.synthesis),
     dox: concrete(parsed?.dox),
@@ -136,13 +332,43 @@ function normalizeModels(parsed: Partial<ModelRouting> | undefined): ModelRoutin
   };
 }
 
+/**
+ * Tolerate older config files: a missing `customProviders` block (pre-v1.8.0)
+ * loads as an empty array. Malformed entries are skipped (never crash).
+ */
+function normalizeCustomProviders(parsed: unknown): CustomProviderConfig[] {
+  if (!Array.isArray(parsed)) {
+    return [];
+  }
+  return parsed.filter((item): item is CustomProviderConfig => {
+    if (item === null || typeof item !== 'object') {
+      return false;
+    }
+    const cp = item as Partial<CustomProviderConfig>;
+    return (
+      typeof cp.id === 'string' &&
+      cp.id.length > 0 &&
+      typeof cp.name === 'string' &&
+      cp.name.length > 0 &&
+      typeof cp.baseUrl === 'string' &&
+      cp.baseUrl.length > 0 &&
+      typeof cp.requestTemplate === 'string' &&
+      cp.requestTemplate.length > 0 &&
+      Array.isArray(cp.headers) &&
+      Array.isArray(cp.models)
+    );
+  });
+}
+
 function parseSettings(raw: string): TuiSettings {
   const parsed = JSON.parse(raw) as Partial<TuiSettings>;
+  const customProviders = normalizeCustomProviders(parsed.customProviders);
   return {
     synthesis: Boolean(parsed.synthesis),
     updateAgents: Boolean(parsed.updateAgents),
-    models: normalizeModels(parsed.models),
+    models: normalizeModels(parsed.models, customProviders),
     apiKeys: normalizeApiKeys(parsed.apiKeys),
+    customProviders,
   };
 }
 
@@ -157,6 +383,7 @@ function normalizeApiKeys(parsed: Partial<ApiKeys> | undefined): ApiKeys {
   return {
     anthropic: concrete(parsed?.anthropic),
     openai: concrete(parsed?.openai),
+    qwen: concrete(parsed?.qwen),
   };
 }
 
@@ -165,6 +392,7 @@ function defaultSettings(): TuiSettings {
     ...DEFAULT_SETTINGS,
     models: { ...DEFAULT_SETTINGS.models },
     apiKeys: { ...DEFAULT_SETTINGS.apiKeys },
+    customProviders: [...DEFAULT_SETTINGS.customProviders],
   };
 }
 

@@ -1,0 +1,610 @@
+{
+  "entities": [
+    {
+      "name": "ADHD-databasen",
+      "type": "organization",
+      "slug": "adhd-databasen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "ADHD-databasen er den centrale database, der registrerer og analyserer behandlingsforløb, medicinforbrug og uddannelsesresultater for unge med ADHD på tværs af Danmark.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "ADHD-DATABASEN - tabel med udvikling af indikatorer for forskellige psykiatriske ambulatorier og kliniker"
+        },
+        {
+          "page": 37,
+          "context": "Indikator 6 er en opgørelse af andelen af behandlingsforløb, hvor patienten er i behandling med ADHD-medicin indenfor 120 dage efter behandlingsstart"
+        },
+        {
+          "page": 38,
+          "context": "Indikatoren er baseret på data fra Danmarks Statistik. Datakompletheden er således god da alle eksamensresultater fra folkeskoler i Danmark registreres"
+        }
+      ]
+    },
+    {
+      "name": "Odense Børne- og Ungdomspsykiatrisk Ambulatorium",
+      "type": "organization",
+      "slug": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Odense-ambulatoriet rapporterer resultater for ADHD-behandling med 57 % af patienterne i medicin inden 120 dage efter behandlingsstart i 2024/25.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) 61 / 107 0 (0) 57 (47-67)"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Børne- og Ungdomspsykiatrisk Ambulatorium",
+      "type": "organization",
+      "slug": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Esbjerg-ambulatoriet rapporterer 62 % af patienterne i ADHD-medicin inden 120 dage efter behandlingsstart i 2024/25.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) 139 / 224 0 (0) 62 (55-68)"
+        }
+      ]
+    },
+    {
+      "name": "Vejle Børne- og Ungdomspsykiatrisk Ambulatorium",
+      "type": "organization",
+      "slug": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Vejle-ambulatoriet rapporterer 74 % af patienterne i ADHD-medicin inden 120 dage efter behandlingsstart i 2024/25.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) 208 / 281 0 (0) 74 (68-79)"
+        }
+      ]
+    },
+    {
+      "name": "Aabenraa Børne- og Ungdomspsykiatrisk Ambulatorium",
+      "type": "organization",
+      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Aabenraa-ambulatoriet rapporterer 83 % af patienterne i ADHD-medicin inden 120 dage efter behandlingsstart i 2024/25, blandt de højeste resultater.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) 232 / 278 0 (0) 83 (79-88)"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Midtjylland rapporterer 58 % af ADHD-patienterne i medicin inden 120 dage efter behandlingsstart i 2024/25, og 47 % af unge i udredningspopulationen har bestået folkeskolens afgangseksamen.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Midtjylland 642 / 1.107 0 (0) 58 (55-61)"
+        },
+        {
+          "page": 37,
+          "context": "Midtjylland 517 / 1.104 47 (44-50)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Børne- og Ungdomspsykiatri - Sengeafsnit",
+      "type": "organization",
+      "slug": "bua-boerne-ungdomspsykiatri-sengeafsnit",
+      "folder": "entities/organizations/psychiatric-departments",
+      "significance": "BUA Sengeafsnit rapporterer 100 % af patienterne i ADHD-medicin inden 120 dage efter behandlingsstart i 2024/25.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "BUA Børne- og Ungdomspsykiatri - Sengeafsnit # / # 0 (0) 100 (3-100)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Skolebørn",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-skoleboern",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "BUA Skolebørn-klinik rapporterer 61 % af patienterne i ADHD-medicin inden 120 dage efter behandlingsstart i 2024/25.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "BUA Psykiatrisk Klinik for Skolebørn 313 / 517 0 (0) 61 (56-65)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Småbørn",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-smaaboern",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "BUA Småbørn-klinik rapporterer kun 5 % af patienterne i ADHD-medicin inden 120 dage efter behandlingsstart i 2024/25, blandt de laveste resultater.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "BUA Psykiatrisk Klinik for Småbørn 9 / 193 0 (0) 5 (2-9)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Unge",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-unge",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "BUA Unge-klinik rapporterer 81 % af patienterne i ADHD-medicin inden 120 dage efter behandlingsstart i 2024/25.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "BUA Psykiatrisk Klinik for Unge 317 / 393 0 (0) 81 (76-84)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Dagafsnit",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-dagafsnit",
+      "folder": "entities/organizations/psychiatric-departments",
+      "significance": "BUA Dagafsnit rapporterer 100 % af patienterne i ADHD-medicin inden 120 dage efter behandlingsstart i 2024/25.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "BUA – Psykiatrisk Dagafsnit # / # 0 (0) 100 (16-100)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Udredning",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-udredning",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "BUA Udredning-klinik rapporterer 0 % af patienterne i ADHD-medicin inden 120 dage efter behandlingsstart i 2024/25.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "BUA – Psykiatrisk Klinik for Udredning # / # 0 (0) 0 (0-98)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Nordjylland rapporterer 82 % af ADHD-patienterne i medicin inden 120 dage efter behandlingsstart i 2024/25, blandt de højeste på landsplan, og 47 % af unge i udredningspopulationen har bestået folkeskolens afgangseksamen.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Nordjylland 456 / 555 0 (0) 82 (79-85)"
+        },
+        {
+          "page": 37,
+          "context": "Nordjylland 167 / 356 47 (42-52)"
+        }
+      ]
+    },
+    {
+      "name": "Carelink Psykiatri Kolding",
+      "type": "organization",
+      "slug": "carelink-psykiatri-kolding",
+      "folder": "entities/organizations/healthcare",
+      "significance": "Carelink Psykiatri Kolding er et privathospital, der rapporterer 90 % af patienterne i ADHD-medicin inden 120 dage efter behandlingsstart i 2024/25.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Carelink Psykiatri Kolding 127 / 141 0 (0) 90 (84-94)"
+        }
+      ]
+    },
+    {
+      "name": "Carelink Psykiatri Roskilde",
+      "type": "organization",
+      "slug": "carelink-psykiatri-roskilde",
+      "folder": "entities/organizations/healthcare",
+      "significance": "Carelink Psykiatri Roskilde er et privathospital, der rapporterer 100 % af patienterne i ADHD-medicin inden 120 dage efter behandlingsstart i 2024/25.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Carelink Psykiatri Roskilde 8 / 8 0 (0) 100 (63-100)"
+        }
+      ]
+    },
+    {
+      "name": "Carelink Psykiatri Viborg",
+      "type": "organization",
+      "slug": "carelink-psykiatri-viborg",
+      "folder": "entities/organizations/healthcare",
+      "significance": "Carelink Psykiatri Viborg er et privathospital, der rapporterer 86 % af patienterne i ADHD-medicin inden 120 dage efter behandlingsstart i 2024/25.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Carelink Psykiatri Viborg 102 / 118 0 (0) 86 (79-92)"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det geografiske område for alle rapporterede ADHD-indikatorer, hvor 68 % af patienterne er i medicin inden 120 dage efter behandlingsstart på landsplan i 2024/25.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "På landsplan var 68 % af ADHD-patienterne i behandling med ADHD-medicin"
+        },
+        {
+          "page": 37,
+          "context": "Danmark 2040 / 3849 53 (51-55)"
+        },
+        {
+          "page": 38,
+          "context": "Danmark 948 / 1644 58 (55-60)"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Hovedstaden rapporterer 67 % af ADHD-patienterne i medicin inden 120 dage efter behandlingsstart i 2024/25, med stigning fra 54 % året før, og 63 % af unge i udredningspopulationen har bestået folkeskolens afgangseksamen.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "Hovedstaden har set den største stigning fra 54 % til 67 %"
+        },
+        {
+          "page": 37,
+          "context": "Hovedstaden 705 / 1115 63 (60-66)"
+        },
+        {
+          "page": 38,
+          "context": "Hovedstaden 270 / 389 69 (65-74)"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Sjælland rapporterer 56 % af ADHD-patienterne i medicin inden 120 dage efter behandlingsstart i 2024/25, blandt de laveste på landsplan, og 48 % af unge i udredningspopulationen har bestået folkeskolens afgangseksamen.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "med laveste andel i Sjælland (56 %)"
+        },
+        {
+          "page": 37,
+          "context": "Sjælland 272 / 563 48 (44-53)"
+        },
+        {
+          "page": 38,
+          "context": "Sjælland 113 / 195 58 (51-65)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Syddanmark rapporterer 53 % af unge i udredningspopulationen, der har bestået folkeskolens afgangseksamen, og 56 % af unge i behandlingspopulationen.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "Syddanmark 379 / 711 53 (50-57)"
+        },
+        {
+          "page": 38,
+          "context": "Syddanmark 193 / 345 56 (51-61)"
+        }
+      ]
+    },
+    {
+      "name": "Danmarks Statistik",
+      "type": "organization",
+      "slug": "danmarks-statistik",
+      "folder": "entities/organizations/government-agencies",
+      "significance": "Danmarks Statistik leverer data om folkeskolens afgangseksamen, som danner grundlag for indikator 7a og 7b.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Indikatoren er baseret på data fra Danmarks Statistik. Datakompletheden er således god da alle eksamensresultater fra folkeskoler i Danmark registreres"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) rapporterer resultater til ADHD-databasen",
+      "page": 36
+    },
+    {
+      "subject": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) rapporterer resultater til ADHD-databasen",
+      "page": 36
+    },
+    {
+      "subject": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) rapporterer resultater til ADHD-databasen",
+      "page": 36
+    },
+    {
+      "subject": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) rapporterer resultater til ADHD-databasen",
+      "page": 36
+    },
+    {
+      "subject": "bua-boerne-ungdomspsykiatri-sengeafsnit",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "BUA Børne- og Ungdomspsykiatri - Sengeafsnit rapporterer resultater til ADHD-databasen",
+      "page": 36
+    },
+    {
+      "subject": "bua-psykiatrisk-klinik-skoleboern",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "BUA Psykiatrisk Klinik for Skolebørn rapporterer resultater til ADHD-databasen",
+      "page": 36
+    },
+    {
+      "subject": "bua-psykiatrisk-klinik-smaaboern",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "BUA Psykiatrisk Klinik for Småbørn rapporterer resultater til ADHD-databasen",
+      "page": 36
+    },
+    {
+      "subject": "bua-psykiatrisk-klinik-unge",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "BUA Psykiatrisk Klinik for Unge rapporterer resultater til ADHD-databasen",
+      "page": 36
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "contains",
+      "object": "adhd-databasen",
+      "evidence": "Midtjylland rapporterer resultater til ADHD-databasen",
+      "page": 36
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "contains",
+      "object": "adhd-databasen",
+      "evidence": "Nordjylland rapporterer resultater til ADHD-databasen",
+      "page": 36
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "adhd-databasen",
+      "evidence": "Hovedstaden rapporterer resultater til ADHD-databasen",
+      "page": 37
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "contains",
+      "object": "adhd-databasen",
+      "evidence": "Sjælland rapporterer resultater til ADHD-databasen",
+      "page": 37
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "contains",
+      "object": "adhd-databasen",
+      "evidence": "Syddanmark rapporterer resultater til ADHD-databasen",
+      "page": 37
+    },
+    {
+      "subject": "danmark",
+      "predicate": "contains",
+      "object": "region-hovedstaden",
+      "evidence": "Region Hovedstaden er en del af Danmark",
+      "page": 37
+    },
+    {
+      "subject": "danmark",
+      "predicate": "contains",
+      "object": "region-sjaelland",
+      "evidence": "Region Sjælland er en del af Danmark",
+      "page": 37
+    },
+    {
+      "subject": "danmark",
+      "predicate": "contains",
+      "object": "region-midtjylland",
+      "evidence": "Region Midtjylland er en del af Danmark",
+      "page": 37
+    },
+    {
+      "subject": "danmark",
+      "predicate": "contains",
+      "object": "region-nordjylland",
+      "evidence": "Region Nordjylland er en del af Danmark",
+      "page": 37
+    },
+    {
+      "subject": "danmark",
+      "predicate": "contains",
+      "object": "region-syddanmark",
+      "evidence": "Region Syddanmark er en del af Danmark",
+      "page": 37
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan var 68 % af ADHD-patienterne i behandling med ADHD-medicin, hvilket er fem procentpoint mere end året forinden [^src1]",
+      "type": "medical",
+      "entities": [
+        "danmark",
+        "adhd-databasen"
+      ],
+      "page": 37
+    },
+    {
+      "text": "Der ses stor variation på tværs af regionerne, med laveste andel i Sjælland (56 %) og højeste andel i Nordjylland (82) [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-sjaelland",
+        "region-nordjylland"
+      ],
+      "page": 37
+    },
+    {
+      "text": "Hovedstaden har set den største stigning fra 54 % til 67 %, mens der i Nordjylland har været et fald på fem procentpoint [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-hovedstaden",
+        "region-nordjylland"
+      ],
+      "page": 37
+    },
+    {
+      "text": "På afdelingsniveau svinger resultaterne fra 5 % på BUA Psykiatrisk Klinik for Småbørn til 86 % på Psykiatrisk ambulatorium, børn og unge, Bornh, B37 [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "bua-psykiatrisk-klinik-smaaboern"
+      ],
+      "page": 37
+    },
+    {
+      "text": "Blandt privathospitalernes patienter behandles mellem 86 og 100 % med ADHD-medicin [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "carelink-psykiatri-kolding",
+        "carelink-psykiatri-roskilde",
+        "carelink-psykiatri-viborg"
+      ],
+      "page": 37
+    },
+    {
+      "text": "53 % af de unge, som har været udredt for ADHD på et tidspunkt i databasens levetid (start 1/1 2013), og som i 2024 blev 17 år, har bestået folkeskolens afgangsprøve [^src2]",
+      "type": "educational-outcome",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ],
+      "page": 38
+    },
+    {
+      "text": "Det skal ses i forhold til baggrundspopulationens 84 %. Der er altså et meget stort efterslæb – endnu større end i 2023. Unge, der har været udredt for ADHD, klarer sig markant dårligere [^src2]",
+      "type": "educational-outcome",
+      "entities": [
+        "danmark"
+      ],
+      "page": 38
+    },
+    {
+      "text": "En større andel (58 %) af de unge, som i 2024 blev 17 år og er startet i et ADHD-behandlingsforløb på et tidspunkt i databasens levetid (start 1/1 2013), har bestået folkeskolens afgangsprøve [^src2]",
+      "type": "educational-outcome",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ],
+      "page": 38
+    },
+    {
+      "text": "Den højeste andel af beståede afgangseksaminer ses i Hovedstaden mens den laveste ses i Nordjylland [^src2]",
+      "type": "regional-performance",
+      "entities": [
+        "region-hovedstaden",
+        "region-nordjylland"
+      ],
+      "page": 38
+    },
+    {
+      "text": "Indikator 6 er en opgørelse af andelen af behandlingsforløb, hvor patienten er i behandling med ADHD-medicin indenfor 120 dage efter behandlingsstart [^src1]",
+      "type": "clinical-standard",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 37
+    },
+    {
+      "text": "Indikatoren gælder patienter under 18 år [^src1]",
+      "type": "clinical-standard",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 37
+    },
+    {
+      "text": "Indikatoren er baseret på data fra lægemiddelstatistikdatabasen. Datakompletheden er således god, da alle indløste recepter automatisk registreres i databasen [^src1]",
+      "type": "methodology",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 37
+    },
+    {
+      "text": "Indikatoren er baseret på data fra Danmarks Statistik. Datakompletheden er således god da alle eksamensresultater fra folkeskoler i Danmark registreres [^src2]",
+      "type": "methodology",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ],
+      "page": 38
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.04.2024 - 31.03.2025",
+      "event": "Aktuelle rapporteringsperiode for ADHD-databasen med resultater for medicinforbrug og uddannelsesresultater",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "2023/24",
+      "event": "Tidligere rapporteringsperiode for ADHD-databasen",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere rapporteringsperiode for ADHD-databasen",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "01.01.2013",
+      "event": "Start af ADHD-udredningspopulationen i ADHD-databasen",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "25.05.2021",
+      "event": "Start af ADHD-behandlingspopulationen i ADHD-databasen",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "2024",
+      "event": "År hvor unge i ADHD-udredningspopulationen fyldte 17 år og blev vurderet for beståelse af folkeskolens afgangseksamen",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ]
+    }
+  ],
+  "context": "Disse sider præsenterer resultater fra ADHD-databasen for rapporteringsperioden 01.04.2024-31.03.2025, med fokus på indikator 6 (medicinforbrug inden 120 dage efter behandlingsstart) og indikator 7a og 7b (uddannelsesresultater for unge med ADHD). Dokumentet viser betydelige regionale variationer i medicinforbrug på tværs af Danmark, fra 56 % i Region Sjælland til 82 % i Region Nordjylland, samt bekymrende uddannelsesresultater hvor kun 53 % af unge i udredningspopulationen har bestået folkeskolens afgangseksamen sammenlignet med 84 % i baggrundsbefolkningen. Dataene stammer fra lægemiddelstatistikdatabasen og Danmarks Statistik, hvilket sikrer høj datakomplethedness."
+}

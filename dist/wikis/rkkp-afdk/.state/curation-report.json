@@ -1,0 +1,783 @@
+{
+  "run": "2026-08-03T18:41:07.837Z",
+  "topics": {
+    "merges": [],
+    "drops": [],
+    "attempts": 1,
+    "fallbacks": [],
+    "vetoes": [],
+    "fromSticky": {
+      "merges": [],
+      "drops": []
+    },
+    "decidedThisRun": {
+      "merges": [],
+      "drops": [],
+      "denials": [
+        {
+          "from": "atrieflimren",
+          "into": "atrial-fibrillation"
+        },
+        {
+          "from": "data-quality-note",
+          "into": "data-quality"
+        },
+        {
+          "from": "hjertesvigt",
+          "into": "heart-failure"
+        },
+        {
+          "from": "indikator-4a-antikoagulation",
+          "into": "indikator-4a"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a1"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a2"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a3"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-4a"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-4b"
+        },
+        {
+          "from": "quality-indicator-definition",
+          "into": "indicator-definition"
+        },
+        {
+          "from": "quality-indicator-definition",
+          "into": "quality-indicator"
+        },
+        {
+          "from": "quality-indicator-result",
+          "into": "quality-indicator"
+        }
+      ]
+    },
+    "proposedPairs": [
+      {
+        "from": "atrieflimren",
+        "into": "atrial-fibrillation",
+        "signal": "glossary",
+        "evidence": "domain glossary: 'atrial fibrillation' ↔ 'atrieflimren'"
+      },
+      {
+        "from": "data-quality-note",
+        "into": "data-quality",
+        "signal": "subsequence",
+        "evidence": "tokens of 'data-quality' are a subsequence of 'data-quality-note' (name parts [note] dropped)"
+      },
+      {
+        "from": "hjertesvigt",
+        "into": "heart-failure",
+        "signal": "glossary",
+        "evidence": "domain glossary: 'heart failure' ↔ 'hjertesvigt'"
+      },
+      {
+        "from": "indikator-4a-antikoagulation",
+        "into": "indikator-4a",
+        "signal": "subsequence",
+        "evidence": "tokens of 'indikator-4a' are a subsequence of 'indikator-4a-antikoagulation' (name parts [antikoagulation] dropped)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-4a' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-4a1",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-4a1' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-4a2",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-4a2' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-4a3",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-4a3' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "quality-indicator-definition",
+        "into": "indicator-definition",
+        "signal": "subsequence",
+        "evidence": "tokens of 'indicator-definition' are a subsequence of 'quality-indicator-definition' (name parts [quality] dropped)"
+      },
+      {
+        "from": "quality-indicator-definition",
+        "into": "quality-indicator",
+        "signal": "subsequence",
+        "evidence": "tokens of 'quality-indicator' are a subsequence of 'quality-indicator-definition' (name parts [definition] dropped)"
+      },
+      {
+        "from": "quality-indicator-result",
+        "into": "quality-indicator",
+        "signal": "subsequence",
+        "evidence": "tokens of 'quality-indicator' are a subsequence of 'quality-indicator-result' (name parts [result] dropped)"
+      }
+    ],
+    "autoApplied": []
+  },
+  "entities": {
+    "merges": [],
+    "drops": [],
+    "attempts": 1,
+    "fallbacks": [],
+    "vetoes": [],
+    "fromSticky": {
+      "merges": [],
+      "drops": [],
+      "clusters": []
+    },
+    "decidedThisRun": {
+      "merges": [
+        {
+          "from": [
+            "afdk"
+          ],
+          "into": "databasen-for-atrieflimren-i-danmark",
+          "signal": "alias",
+          "evidence": "title 'AFDK' is an exact frontmatter alias of 'databasen-for-atrieflimren-i-danmark'"
+        },
+        {
+          "from": [
+            "alvorlig-blodning"
+          ],
+          "into": "alvorlig-bloedning",
+          "signal": "transliteration",
+          "evidence": "slugs identical after Danish transliteration collapse ('alvorlig-blodning' ≡ 'alvorlig-bloedning')"
+        },
+        {
+          "from": [
+            "bispebjerg-og-frederiksberg-hospital"
+          ],
+          "into": "bispebjerg-og-frederiksberg-hospitaler",
+          "signal": "alias",
+          "evidence": "title 'Bispebjerg og Frederiksberg Hospital' is an exact frontmatter alias of 'bispebjerg-og-frederiksberg-hospitaler'"
+        },
+        {
+          "from": [
+            "holbaek-hospital"
+          ],
+          "into": "holbaek",
+          "signal": "alias",
+          "evidence": "title 'Holbæk Hospital' is an exact frontmatter alias of 'holbaek'"
+        },
+        {
+          "from": [
+            "laegemiddelstatistikregistret"
+          ],
+          "into": "laegemiddelstatistikregisteret",
+          "signal": "alias",
+          "evidence": "title 'Lægemiddelstatistikregistret' is an exact frontmatter alias of 'laegemiddelstatistikregisteret'"
+        },
+        {
+          "from": [
+            "landspatientregistret"
+          ],
+          "into": "landspatientregisteret",
+          "signal": "alias",
+          "evidence": "title 'Landspatientregistret' is an exact frontmatter alias of 'landspatientregisteret'"
+        },
+        {
+          "from": [
+            "naestved-hospital"
+          ],
+          "into": "naestved",
+          "signal": "alias",
+          "evidence": "title 'Næstved Hospital' is an exact frontmatter alias of 'naestved'"
+        },
+        {
+          "from": [
+            "naestved-sygehus"
+          ],
+          "into": "naestved",
+          "signal": "alias",
+          "evidence": "title 'Næstved Sygehus' is an exact frontmatter alias of 'naestved'"
+        },
+        {
+          "from": [
+            "nykoebing-falster-hospital"
+          ],
+          "into": "nykoebing-falster",
+          "signal": "alias",
+          "evidence": "title 'Nykøbing Falster Hospital' is an exact frontmatter alias of 'nykoebing-falster'"
+        },
+        {
+          "from": [
+            "odense-universitetshospital"
+          ],
+          "into": "ouh-odense-universitetshospital",
+          "signal": "alias",
+          "evidence": "title 'Odense Universitetshospital' is an exact frontmatter alias of 'ouh-odense-universitetshospital'"
+        },
+        {
+          "from": [
+            "regionshospitalet-godstrup"
+          ],
+          "into": "regionshospitalet-goedstrup",
+          "signal": "transliteration",
+          "evidence": "slugs identical after Danish transliteration collapse ('regionshospitalet-godstrup' ≡ 'regionshospitalet-goedstrup')"
+        },
+        {
+          "from": [
+            "samso-sundheds-og-akuthus"
+          ],
+          "into": "samsoe-sundheds-og-akuthus",
+          "signal": "transliteration",
+          "evidence": "slugs identical after Danish transliteration collapse ('samso-sundheds-og-akuthus' ≡ 'samsoe-sundheds-og-akuthus')"
+        },
+        {
+          "from": [
+            "slagelse-hospital"
+          ],
+          "into": "slagelse",
+          "signal": "alias",
+          "evidence": "title 'Slagelse Hospital' is an exact frontmatter alias of 'slagelse'"
+        },
+        {
+          "from": [
+            "slagelse-sygehus"
+          ],
+          "into": "slagelse",
+          "signal": "alias",
+          "evidence": "title 'Slagelse Sygehus' is an exact frontmatter alias of 'slagelse'"
+        }
+      ],
+      "drops": [],
+      "denials": [
+        {
+          "from": "aalborg-universitetshospital-thisted",
+          "into": "aalborg-universitetshospital"
+        },
+        {
+          "from": "alvorlig-bloedning",
+          "into": "serious-bleeding"
+        },
+        {
+          "from": "atrieflimren",
+          "into": "atrial-fibrillation"
+        },
+        {
+          "from": "databasen-for-atrieflimren-i-danmark",
+          "into": "atrieflimren-i-danmark"
+        },
+        {
+          "from": "ekkokardiografi",
+          "into": "echocardiography"
+        },
+        {
+          "from": "friklinikken-region-syddanmark-grindsted",
+          "into": "region-syddanmark"
+        },
+        {
+          "from": "indikator-4a-antikoagulation",
+          "into": "indikator-4a"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a1"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a2"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a3"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-4a"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-4b"
+        },
+        {
+          "from": "indikator-5-iskemisk-apopleksi",
+          "into": "indikator-5"
+        },
+        {
+          "from": "intrakraniel-bloedning",
+          "into": "intracranial-hemorrhage"
+        },
+        {
+          "from": "iskaemisk-apopleksi",
+          "into": "ischemic-stroke"
+        },
+        {
+          "from": "klynge-syd-nordjylland",
+          "into": "klynge-syd"
+        },
+        {
+          "from": "patientuddannelse",
+          "into": "patient-education"
+        },
+        {
+          "from": "rkkp",
+          "into": "regionernes-kliniske-kvalitetsudviklingsprogram"
+        },
+        {
+          "from": "sjaellands-universitetshospital-koege",
+          "into": "sjaellands-universitetshospital"
+        },
+        {
+          "from": "sjaellands-universitetshospital-roskilde",
+          "into": "sjaellands-universitetshospital"
+        },
+        {
+          "from": "sundhedsklynge-fyn",
+          "into": "sundhedsklynge-byen"
+        },
+        {
+          "from": "sundhedsklynge-fyn",
+          "into": "sundhedsklynge-syd"
+        },
+        {
+          "from": "sundhedsklynger",
+          "into": "health-clusters"
+        }
+      ],
+      "clusters": [],
+      "clusterDenials": [
+        {
+          "members": [
+            "indikator-2-echocardiography",
+            "echocardiography"
+          ],
+          "class": 3,
+          "into": "indikator-2-echocardiography"
+        },
+        {
+          "members": [
+            "indikator-2-ekkokardiografi",
+            "ekkokardiografi"
+          ],
+          "class": 3,
+          "into": "indikator-2-ekkokardiografi"
+        },
+        {
+          "members": [
+            "indikator-3-tsh-maaling",
+            "tsh-maaling"
+          ],
+          "class": 3,
+          "into": "indikator-3-tsh-maaling"
+        },
+        {
+          "members": [
+            "indikator-7-serious-bleeding",
+            "serious-bleeding"
+          ],
+          "class": 3,
+          "into": "indikator-7-serious-bleeding"
+        },
+        {
+          "members": [
+            "region-hovedstaden",
+            "hovedstaden"
+          ],
+          "class": 5,
+          "into": "region-hovedstaden"
+        },
+        {
+          "members": [
+            "region-midtjylland",
+            "midtjylland"
+          ],
+          "class": 5,
+          "into": "region-midtjylland"
+        },
+        {
+          "members": [
+            "region-nordjylland",
+            "nordjylland"
+          ],
+          "class": 5,
+          "into": "region-nordjylland"
+        },
+        {
+          "members": [
+            "region-sjaelland",
+            "sjaelland"
+          ],
+          "class": 5,
+          "into": "region-sjaelland"
+        },
+        {
+          "members": [
+            "region-syddanmark",
+            "syddanmark"
+          ],
+          "class": 5,
+          "into": "region-syddanmark"
+        }
+      ]
+    },
+    "proposedPairs": [
+      {
+        "from": "aalborg-universitetshospital-thisted",
+        "into": "aalborg-universitetshospital",
+        "signal": "subsequence",
+        "evidence": "tokens of 'aalborg-universitetshospital' are a subsequence of 'aalborg-universitetshospital-thisted' (name parts [thisted] dropped)"
+      },
+      {
+        "from": "alvorlig-bloedning",
+        "into": "serious-bleeding",
+        "signal": "glossary",
+        "evidence": "domain glossary: 'serious bleeding' ↔ 'alvorlig blødning'"
+      },
+      {
+        "from": "atrieflimren",
+        "into": "atrial-fibrillation",
+        "signal": "glossary",
+        "evidence": "domain glossary: 'atrieflimren' ↔ 'atrial fibrillation'"
+      },
+      {
+        "from": "databasen-for-atrieflimren-i-danmark",
+        "into": "atrieflimren-i-danmark",
+        "signal": "subsequence",
+        "evidence": "tokens of 'atrieflimren-i-danmark' are a subsequence of 'databasen-for-atrieflimren-i-danmark' (name parts [databasen, for] dropped)"
+      },
+      {
+        "from": "ekkokardiografi",
+        "into": "echocardiography",
+        "signal": "glossary",
+        "evidence": "domain glossary: 'echocardiography' ↔ 'ekkokardiografi'"
+      },
+      {
+        "from": "friklinikken-region-syddanmark-grindsted",
+        "into": "region-syddanmark",
+        "signal": "subsequence",
+        "evidence": "tokens of 'region-syddanmark' are a subsequence of 'friklinikken-region-syddanmark-grindsted' (name parts [friklinikken, grindsted] dropped)"
+      },
+      {
+        "from": "indikator-4a-antikoagulation",
+        "into": "indikator-4a",
+        "signal": "subsequence",
+        "evidence": "tokens of 'indikator-4a' are a subsequence of 'indikator-4a-antikoagulation' (name parts [antikoagulation] dropped)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-4a' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-4a1",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-4a1' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-4a2",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-4a2' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-4a3",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-4a3' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5-iskemisk-apopleksi",
+        "into": "indikator-5",
+        "signal": "indicator-form",
+        "evidence": "indicator number↔name family ('indikator-5' ↔ 'indikator-5-iskemisk-apopleksi')"
+      },
+      {
+        "from": "intrakraniel-bloedning",
+        "into": "intracranial-hemorrhage",
+        "signal": "glossary",
+        "evidence": "domain glossary: 'intracranial hemorrhage' ↔ 'intrakraniel blødning'"
+      },
+      {
+        "from": "iskaemisk-apopleksi",
+        "into": "ischemic-stroke",
+        "signal": "glossary",
+        "evidence": "domain glossary: 'ischemic stroke' ↔ 'iskæmisk apopleksi'"
+      },
+      {
+        "from": "klynge-syd-nordjylland",
+        "into": "klynge-syd",
+        "signal": "subsequence",
+        "evidence": "tokens of 'klynge-syd' are a subsequence of 'klynge-syd-nordjylland' (name parts [nordjylland] dropped)"
+      },
+      {
+        "from": "patientuddannelse",
+        "into": "patient-education",
+        "signal": "glossary",
+        "evidence": "domain glossary: 'patient education' ↔ 'patientuddannelse'"
+      },
+      {
+        "from": "rkkp",
+        "into": "regionernes-kliniske-kvalitetsudviklingsprogram",
+        "signal": "abbreviation",
+        "evidence": "corpus text introduces 'Regionernes Kliniske\nKvalitetsudviklingsprogram (RKKP)'"
+      },
+      {
+        "from": "sjaellands-universitetshospital-koege",
+        "into": "sjaellands-universitetshospital",
+        "signal": "subsequence",
+        "evidence": "tokens of 'sjaellands-universitetshospital' are a subsequence of 'sjaellands-universitetshospital-koege' (name parts [koege] dropped)"
+      },
+      {
+        "from": "sjaellands-universitetshospital-roskilde",
+        "into": "sjaellands-universitetshospital",
+        "signal": "subsequence",
+        "evidence": "tokens of 'sjaellands-universitetshospital' are a subsequence of 'sjaellands-universitetshospital-roskilde' (name parts [roskilde] dropped)"
+      },
+      {
+        "from": "sundhedsklynge-fyn",
+        "into": "sundhedsklynge-byen",
+        "signal": "edit-distance",
+        "evidence": "slugs 'sundhedsklynge-fyn' and 'sundhedsklynge-byen' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "sundhedsklynge-fyn",
+        "into": "sundhedsklynge-syd",
+        "signal": "edit-distance",
+        "evidence": "slugs 'sundhedsklynge-fyn' and 'sundhedsklynge-syd' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "sundhedsklynger",
+        "into": "health-clusters",
+        "signal": "glossary",
+        "evidence": "domain glossary: 'health clusters' ↔ 'sundhedsklynger'"
+      }
+    ],
+    "autoApplied": [
+      {
+        "from": "afdk",
+        "into": "databasen-for-atrieflimren-i-danmark",
+        "signal": "alias",
+        "evidence": "title 'AFDK' is an exact frontmatter alias of 'databasen-for-atrieflimren-i-danmark'"
+      },
+      {
+        "from": "alvorlig-blodning",
+        "into": "alvorlig-bloedning",
+        "signal": "transliteration",
+        "evidence": "slugs identical after Danish transliteration collapse ('alvorlig-blodning' ≡ 'alvorlig-bloedning')"
+      },
+      {
+        "from": "bispebjerg-og-frederiksberg-hospital",
+        "into": "bispebjerg-og-frederiksberg-hospitaler",
+        "signal": "alias",
+        "evidence": "title 'Bispebjerg og Frederiksberg Hospital' is an exact frontmatter alias of 'bispebjerg-og-frederiksberg-hospitaler'"
+      },
+      {
+        "from": "holbaek-hospital",
+        "into": "holbaek",
+        "signal": "alias",
+        "evidence": "title 'Holbæk Hospital' is an exact frontmatter alias of 'holbaek'"
+      },
+      {
+        "from": "laegemiddelstatistikregistret",
+        "into": "laegemiddelstatistikregisteret",
+        "signal": "alias",
+        "evidence": "title 'Lægemiddelstatistikregistret' is an exact frontmatter alias of 'laegemiddelstatistikregisteret'"
+      },
+      {
+        "from": "landspatientregistret",
+        "into": "landspatientregisteret",
+        "signal": "alias",
+        "evidence": "title 'Landspatientregistret' is an exact frontmatter alias of 'landspatientregisteret'"
+      },
+      {
+        "from": "naestved-hospital",
+        "into": "naestved",
+        "signal": "alias",
+        "evidence": "title 'Næstved Hospital' is an exact frontmatter alias of 'naestved'"
+      },
+      {
+        "from": "naestved-sygehus",
+        "into": "naestved",
+        "signal": "alias",
+        "evidence": "title 'Næstved Sygehus' is an exact frontmatter alias of 'naestved'"
+      },
+      {
+        "from": "nykoebing-falster-hospital",
+        "into": "nykoebing-falster",
+        "signal": "alias",
+        "evidence": "title 'Nykøbing Falster Hospital' is an exact frontmatter alias of 'nykoebing-falster'"
+      },
+      {
+        "from": "odense-universitetshospital",
+        "into": "ouh-odense-universitetshospital",
+        "signal": "alias",
+        "evidence": "title 'Odense Universitetshospital' is an exact frontmatter alias of 'ouh-odense-universitetshospital'"
+      },
+      {
+        "from": "regionshospitalet-godstrup",
+        "into": "regionshospitalet-goedstrup",
+        "signal": "transliteration",
+        "evidence": "slugs identical after Danish transliteration collapse ('regionshospitalet-godstrup' ≡ 'regionshospitalet-goedstrup')"
+      },
+      {
+        "from": "samso-sundheds-og-akuthus",
+        "into": "samsoe-sundheds-og-akuthus",
+        "signal": "transliteration",
+        "evidence": "slugs identical after Danish transliteration collapse ('samso-sundheds-og-akuthus' ≡ 'samsoe-sundheds-og-akuthus')"
+      },
+      {
+        "from": "slagelse-hospital",
+        "into": "slagelse",
+        "signal": "alias",
+        "evidence": "title 'Slagelse Hospital' is an exact frontmatter alias of 'slagelse'"
+      },
+      {
+        "from": "slagelse-sygehus",
+        "into": "slagelse",
+        "signal": "alias",
+        "evidence": "title 'Slagelse Sygehus' is an exact frontmatter alias of 'slagelse'"
+      }
+    ],
+    "proposedClusters": [
+      {
+        "members": [
+          "indikator-2-echocardiography",
+          "echocardiography"
+        ],
+        "class": 3,
+        "into": "indikator-2-echocardiography",
+        "signal": "indicator-form",
+        "evidence": "indicator number↔name family ('echocardiography' ↔ 'indikator-2-echocardiography')"
+      },
+      {
+        "members": [
+          "indikator-2-ekkokardiografi",
+          "ekkokardiografi"
+        ],
+        "class": 3,
+        "into": "indikator-2-ekkokardiografi",
+        "signal": "indicator-form",
+        "evidence": "indicator number↔name family ('ekkokardiografi' ↔ 'indikator-2-ekkokardiografi')"
+      },
+      {
+        "members": [
+          "indikator-3-tsh-maaling",
+          "tsh-maaling"
+        ],
+        "class": 3,
+        "into": "indikator-3-tsh-maaling",
+        "signal": "indicator-form",
+        "evidence": "indicator number↔name family ('indikator-3-tsh-maaling' ↔ 'tsh-maaling')"
+      },
+      {
+        "members": [
+          "indikator-7-serious-bleeding",
+          "serious-bleeding"
+        ],
+        "class": 3,
+        "into": "indikator-7-serious-bleeding",
+        "signal": "indicator-form",
+        "evidence": "indicator number↔name family ('indikator-7-serious-bleeding' ↔ 'serious-bleeding')"
+      },
+      {
+        "members": [
+          "region-hovedstaden",
+          "hovedstaden"
+        ],
+        "class": 5,
+        "into": "region-hovedstaden",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'hovedstaden', 2 forms)"
+      },
+      {
+        "members": [
+          "region-midtjylland",
+          "midtjylland"
+        ],
+        "class": 5,
+        "into": "region-midtjylland",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'midtjylland', 2 forms)"
+      },
+      {
+        "members": [
+          "region-nordjylland",
+          "nordjylland"
+        ],
+        "class": 5,
+        "into": "region-nordjylland",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'nordjylland', 2 forms)"
+      },
+      {
+        "members": [
+          "region-sjaelland",
+          "sjaelland"
+        ],
+        "class": 5,
+        "into": "region-sjaelland",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'sjaelland', 2 forms)"
+      },
+      {
+        "members": [
+          "region-syddanmark",
+          "syddanmark"
+        ],
+        "class": 5,
+        "into": "region-syddanmark",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'syddanmark', 2 forms)"
+      }
+    ]
+  },
+  "manualEditSkips": [],
+  "removedPages": [],
+  "rewrittenLinks": [],
+  "splitReversals": []
+}

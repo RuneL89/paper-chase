@@ -1,0 +1,633 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 11: Andelen af nydiagnosticerede patienter med atriflimren, som får alvorlig blødning inden for 1 år",
+      "type": "quality-indicator",
+      "slug": "indikator-11-serious-bleeding-newly-diagnosed",
+      "folder": "topics/quality-indicator",
+      "significance": "This indicator measures the proportion of newly diagnosed atrial fibrillation patients who develop serious bleeding within one year, a critical safety metric for anticoagulation treatment.",
+      "mentions": [
+        {
+          "page": 77,
+          "context": "Indikator 11: Andelen af nydiagnosticerede patienter med atriflimren, som får alvorlig blødning inden for 1 år"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 15: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år",
+      "type": "quality-indicator",
+      "slug": "indikator-15-heart-failure-newly-diagnosed",
+      "folder": "topics/quality-indicator",
+      "significance": "This supplementary indicator tracks the proportion of newly diagnosed atrial fibrillation patients who develop heart failure within one year, measuring a major clinical complication.",
+      "mentions": [
+        {
+          "page": 79,
+          "context": "Supplerende indikator: Hjertesvigt efter atrieflimren. Indikator 15: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år"
+        }
+      ]
+    },
+    {
+      "name": "Alvorlig blødning",
+      "type": "clinical-outcome",
+      "slug": "alvorlig-blodning",
+      "folder": "topics/clinical-outcome",
+      "significance": "Serious bleeding is a major adverse outcome in atrial fibrillation patients receiving anticoagulation therapy, tracked as a key safety indicator across all Danish health clusters.",
+      "mentions": [
+        {
+          "page": 77,
+          "context": "Supplerende analyser 7: Alvorlig blødning. Prævalente patienter med atrieflimren, der udvikler alvorlig blødning i opgørelses perioden"
+        }
+      ]
+    },
+    {
+      "name": "Hjertesvigt",
+      "type": "medical-condition",
+      "slug": "hjertesvigt",
+      "folder": "topics/medical-conditions",
+      "significance": "Heart failure is tracked as a supplementary clinical outcome in newly diagnosed atrial fibrillation patients, with national and regional variation data presented.",
+      "mentions": [
+        {
+          "page": 79,
+          "context": "Supplerende indikator: Hjertesvigt efter atrieflimren"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-11-serious-bleeding-newly-diagnosed",
+      "predicate": "measures-outcome-in",
+      "object": "atrieflimren",
+      "evidence": "Indikator 11 measures serious bleeding in newly diagnosed atrial fibrillation patients within 1 year",
+      "page": 77
+    },
+    {
+      "subject": "indikator-15-heart-failure-newly-diagnosed",
+      "predicate": "measures-outcome-in",
+      "object": "atrieflimren",
+      "evidence": "Indikator 15 measures heart failure development in newly diagnosed atrial fibrillation patients within 1 year",
+      "page": 79
+    },
+    {
+      "subject": "alvorlig-blodning",
+      "predicate": "is-tracked-by",
+      "object": "indikator-11-serious-bleeding-newly-diagnosed",
+      "evidence": "Serious bleeding is the outcome measured by Indicator 11",
+      "page": 77
+    },
+    {
+      "subject": "hjertesvigt",
+      "predicate": "is-tracked-by",
+      "object": "indikator-15-heart-failure-newly-diagnosed",
+      "evidence": "Heart failure is the outcome measured by Indicator 15",
+      "page": 79
+    }
+  ],
+  "claims": [
+    {
+      "text": "Among all prevalent atrial fibrillation patients, 2,929 (2.14%) developed serious bleeding, while 134,161 (97.86%) did not [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "atrieflimren",
+        "alvorlig-blodning"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Among patients receiving DOAC anticoagulation, 2,349 (2.30%) developed serious bleeding compared to 99,866 (97.70%) who did not [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "doac",
+        "alvorlig-blodning"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Among patients receiving Marevan, 154 (2.38%) developed serious bleeding compared to 6,321 (97.62%) who did not [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "marevan",
+        "alvorlig-blodning"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Among patients receiving both DOAC and Marevan, 69 (6.45%) developed serious bleeding compared to 1,000 (93.55%) who did not [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "doac",
+        "marevan",
+        "alvorlig-blodning"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Among patients receiving neither DOAC nor Marevan, 357 (1.31%) developed serious bleeding compared to 26,974 (98.69%) who did not [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "alvorlig-blodning"
+      ],
+      "page": 77
+    },
+    {
+      "text": "For Indicator 11 (serious bleeding in newly diagnosed patients), Denmark overall showed 691 / 21,804 patients (3.2%, 95% CI 2.9-3.4) developing serious bleeding in the period 01.07.2022 - 30.06.2023 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed",
+        "danmark"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Region Hovedstaden reported 166 / 5,905 patients (2.8%, 95% CI 2.4-3.3) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed",
+        "region-hovedstaden"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Region Sjælland reported 111 / 3,590 patients (3.1%, 95% CI 2.6-3.7) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed",
+        "sjaelland"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Region Syddanmark reported 187 / 4,972 patients (3.8%, 95% CI 3.2-4.3) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed",
+        "syddanmark"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Region Midtjylland reported 155 / 4,918 patients (3.2%, 95% CI 2.7-3.7) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed",
+        "midtjylland"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Region Nordjylland reported 72 / 2,419 patients (3.0%, 95% CI 2.3-3.7) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed",
+        "nordjylland"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Sundhedsklynge Bornholm reported 7 / 195 patients (3.6%, 95% CI 1.5-7.3) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Sundhedsklynge Byen reported 44 / 1,625 patients (2.7%, 95% CI 2.0-3.6) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Sundhedsklynge Midt reported 46 / 1,754 patients (2.6%, 95% CI 1.9-3.5) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Sundhedsklynge Nord reported 46 / 1,293 patients (3.6%, 95% CI 2.6-4.7) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Sundhedsklynge Syd reported 23 / 1,038 patients (2.2%, 95% CI 1.4-3.3) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Sundhedsklyngen Holbæk reported 18 / 751 patients (2.4%, 95% CI 1.4-3.8) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Sundhedsklyngen Nykøbing F reported 25 / 751 patients (3.3%, 95% CI 2.2-4.9) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Sundhedsklyngen SUH reported 45 / 1,169 patients (3.8%, 95% CI 2.8-5.1) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Sundhedsklyngen Slagelse reported 23 / 919 patients (2.5%, 95% CI 1.6-3.7) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Sundhedsklynge Fyn reported 82 / 1,935 patients (4.2%, 95% CI 3.4-5.2) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 78
+    },
+    {
+      "text": "Sundhedsklynge Lillebælt reported 36 / 1,086 patients (3.3%, 95% CI 2.3-4.6) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 78
+    },
+    {
+      "text": "Sundhedsklynge Sydvestjylland reported 23 / 927 patients (2.5%, 95% CI 1.6-3.7) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 78
+    },
+    {
+      "text": "Sundhedsklynge Sønderjylland reported 46 / 1,024 patients (4.5%, 95% CI 3.3-5.9) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 78
+    },
+    {
+      "text": "Aarhusklyngen reported 31 / 1,079 patients (2.9%, 95% CI 2.0-4.1) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 78
+    },
+    {
+      "text": "Gødstrupklyngen reported 33 / 1,077 patients (3.1%, 95% CI 2.1-4.3) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 78
+    },
+    {
+      "text": "Horsensklyngen reported 29 / 877 patients (3.3%, 95% CI 2.2-4.7) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 78
+    },
+    {
+      "text": "Midtklyngen reported 35 / 997 patients (3.5%, 95% CI 2.5-4.8) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 78
+    },
+    {
+      "text": "Randersklyngen reported 27 / 888 patients (3.0%, 95% CI 2.0-4.4) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 78
+    },
+    {
+      "text": "Klynge MIDT reported 22 / 866 patients (2.5%, 95% CI 1.6-3.8) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 78
+    },
+    {
+      "text": "Klynge NORD reported 25 / 820 patients (3.0%, 95% CI 2.0-4.5) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 78
+    },
+    {
+      "text": "Klynge SYD reported 13 / 459 patients (2.8%, 95% CI 1.5-4.8) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 78
+    },
+    {
+      "text": "Klynge VEST reported 12 / 274 patients (4.4%, 95% CI 2.3-7.5) with serious bleeding for Indicator 11 [^src1]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed"
+      ],
+      "page": 78
+    },
+    {
+      "text": "For Indicator 15 (heart failure in newly diagnosed patients), Denmark overall showed 1,322 / 21,804 patients (6.1%, 95% CI 5.7-6.4) developing heart failure in the period 01.07.2022 - 30.06.2023 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "danmark",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Region Hovedstaden reported 370 / 5,905 patients (6.3%, 95% CI 5.7-6.9) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "region-hovedstaden",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Region Sjælland reported 252 / 3,590 patients (7.0%, 95% CI 6.2-7.9) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "sjaelland",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Region Syddanmark reported 283 / 4,972 patients (5.7%, 95% CI 5.1-6.4) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "syddanmark",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Region Midtjylland reported 272 / 4,918 patients (5.5%, 95% CI 4.9-6.2) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "midtjylland",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Region Nordjylland reported 145 / 2,419 patients (6.0%, 95% CI 5.1-7.0) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "nordjylland",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Sundhedsklynge Bornholm reported 11 / 195 patients (5.6%, 95% CI 2.8-9.9) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Sundhedsklynge Byen reported 114 / 1,625 patients (7.0%, 95% CI 5.8-8.4) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Sundhedsklynge Midt reported 109 / 1,754 patients (6.2%, 95% CI 5.1-7.4) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Sundhedsklynge Nord reported 75 / 1,293 patients (5.8%, 95% CI 4.6-7.2) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Sundhedsklynge Syd reported 61 / 1,038 patients (5.9%, 95% CI 4.5-7.5) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Sundhedsklyngen Holbæk reported 60 / 751 patients (8.0%, 95% CI 6.2-10.2) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Sundhedsklyngen Nykøbing F reported 64 / 751 patients (8.5%, 95% CI 6.6-10.8) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Sundhedsklyngen SUH reported 59 / 1,169 patients (5.0%, 95% CI 3.9-6.5) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Sundhedsklyngen Slagelse reported 69 / 919 patients (7.5%, 95% CI 5.9-9.4) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Sundhedsklynge Fyn reported 119 / 1,935 patients (6.1%, 95% CI 5.1-7.3) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Sundhedsklynge Lillebælt reported 54 / 1,086 patients (5.0%, 95% CI 3.8-6.4) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Sundhedsklynge Sydvestjylland reported 42 / 927 patients (4.5%, 95% CI 3.3-6.1) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Sundhedsklynge Sønderjylland reported 68 / 1,024 patients (6.6%, 95% CI 5.2-8.3) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Aarhusklyngen reported 49 / 1,079 patients (4.5%, 95% CI 3.4-6.0) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Gødstrupklyngen reported 68 / 1,077 patients (6.3%, 95% CI 4.9-7.9) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Horsensklyngen reported 45 / 877 patients (5.1%, 95% CI 3.8-6.8) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Midtklyngen reported 52 / 997 patients (5.2%, 95% CI 3.9-6.8) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Randersklyngen reported 58 / 888 patients (6.5%, 95% CI 5.0-8.4) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Klynge MIDT reported 52 / 866 patients (6.0%, 95% CI 4.5-7.8) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 80
+    },
+    {
+      "text": "Klynge NORD reported 50 / 820 patients (6.1%, 95% CI 4.6-8.0) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 80
+    },
+    {
+      "text": "Klynge SYD reported 30 / 459 patients (6.5%, 95% CI 4.5-9.2) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 80
+    },
+    {
+      "text": "Klynge VEST reported 13 / 274 patients (4.7%, 95% CI 2.6-8.0) with heart failure for Indicator 15 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15-heart-failure-newly-diagnosed",
+        "hjertesvigt"
+      ],
+      "page": 80
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.07.2022 - 30.06.2023",
+      "event": "Measurement period for Indicator 11 (serious bleeding in newly diagnosed atrial fibrillation patients) and Indicator 15 (heart failure in newly diagnosed atrial fibrillation patients)",
+      "entities": [
+        "indikator-11-serious-bleeding-newly-diagnosed",
+        "indikator-15-heart-failure-newly-diagnosed",
+        "atrieflimren"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer detaljerede kvalitetsindikatorer for behandling af atrieflimren i Danmark, med fokus på to vigtige kliniske udfald: alvorlig blødning (Indikator 11) og udvikling af hjertesvigt (Indikator 15) hos nydiagnosticerede patienter inden for et år. Data er stratificeret efter region og sundhedsklynge, hvilket muliggør sammenligning af behandlingskvalitet på tværs af det danske sundhedsvæsen. Disse indikatorer er centrale for at overvåge sikkerheden og effektiviteten af antikoagulationsbehandling hos patienter med atrieflimren."
+}

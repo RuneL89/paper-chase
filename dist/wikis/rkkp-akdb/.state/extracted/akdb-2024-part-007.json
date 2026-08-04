@@ -1,0 +1,455 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "organization",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Akut Kirurgi Databasen er den danske database, der registrerer og analyserer kvalitetsindikatorer for akut kirurgisk behandling, herunder indikator 4y og indikator 5 diskuteret i dette afsnit.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Akut Kirurgi Databasen Endelig version til offentliggørelse 2025.02.28"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvasenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er ansvarlig for udgivelsen af Akut Kirurgi Databasens rapporter og kvalitetsanalyser.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland viser den laveste andel (77,2 %) af patienter opereret indenfor 24 timer for indikator 4y og 17,2 % for indikator 5, hvilket indikerer regional variation i behandlingshastighed.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Den regionale variation fra 77,2 % i Region Nordjylland til 84,6 % i Region Sjælland"
+        },
+        {
+          "page": 31,
+          "context": "Regionalt varierede andelen fra 17,2 % i Region Nordjylland til 27,0 % i Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland viser den højeste andel (84,6 %) af patienter opereret indenfor 24 timer for indikator 4y, hvilket tyder på bedre behandlingshastighed sammenlignet med andre regioner.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Den regionale variation fra 77,2 % i Region Nordjylland til 84,6 % i Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Syddanmark viser den højeste andel (27,0 %) af patienter med høj mortalitetsrisiko indlagt på intermediært afsnit for indikator 5.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Regionalt varierede andelen fra 17,2 % i Region Nordjylland til 27,0 % i Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Midtjylland har 15 % manglende informationer for indikator 5, hvilket er højere end andre regioner og påvirker datakvaliteten.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Andelen af patienter, der mangler information varierer en del fra 1 % i Region Sjælland til 15 % i Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Anæstesi Database",
+      "type": "organization",
+      "slug": "dansk-anaestesi-database",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dansk Anæstesi Database er kilden til ASA-score data for indikator 5, hvor data matches på CPR-nummer uden tidsangivelse.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "ASA-scoren er indhentet fra Dansk Anæstesi Database, hvor man ikke har en tidsangivelse for scoren"
+        }
+      ]
+    },
+    {
+      "name": "NASBO-projektet",
+      "type": "organization",
+      "slug": "nasbo-projektet",
+      "folder": "entities/organizations/professional-associations",
+      "significance": "Det britiske NASBO-projekt viser variation i klinisk praksis og ressourcer mellem hospitaler, hvilket parallelliserer fundet i danske data for indikator 4y.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Ligesom indikator 4y viser det britiske NASBO-projektet variation i klinisk praksis og ressourcer mellem forskellige hospitaler"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4y",
+      "type": "topic",
+      "slug": "indikator-4y",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 4y måler andelen af patienter opereret indenfor 24 timer efter ankomst til sygehus for ileusoperationer uden iskæmi eller perforation, med et udviklingmål på ≥ 90 %.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Diskussion og implikationer af årets resultater for indikator 4y"
+        },
+        {
+          "page": 31,
+          "context": "Årets resultater for indikator 4y viser, at 82,6 % af patienterne blev opereret indenfor 24 timer efter ankomst til sygehus"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "topic",
+      "slug": "intermediaer-indlaeggelse",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 5 måler andelen af ældre (≥ 75 år) eller svært syge (ASA ≥3) patienter, der monitoreres ≥ 24 timer postoperativt på et intermediært afsnit, med udviklingmål ≥ 80 %.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Indikator 5: Intermediær indlæggelse"
+        },
+        {
+          "page": 31,
+          "context": "Indikator 5 beskriver andelen af patienter, der får vurderet postoperativ risiko høj (ASA ≥ 3) eller har høj alder (alder ≥ 75 år)"
+        }
+      ]
+    },
+    {
+      "name": "ASA-score",
+      "type": "topic",
+      "slug": "asa-score",
+      "folder": "topics/clinical-assessment",
+      "significance": "ASA-score er en præ-operativ risikoscoring, der bruges til at identificere patienter med høj mortalitetsrisiko (ASA ≥ 3) for indikator 5.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Patienter, der får vurderet postoperativ risiko høj (ASA ≥ 3)"
+        },
+        {
+          "page": 31,
+          "context": "Præ-operative scoringer som f.eks. ASA score og Charlson Comorbidity index"
+        }
+      ]
+    },
+    {
+      "name": "P-POSSUM",
+      "type": "topic",
+      "slug": "p-possum",
+      "folder": "topics/clinical-assessment",
+      "significance": "P-POSSUM er en postoperativ risikoscoring, der tager udgangspunkt i præ-operative og inter-operative observationer, men vurderes som for omfattende til praktisk brug.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Post-operativt kan man benytte P-POSSUM, som tager udgangspunkt i bl.a. præ-operative og inter-operative observationer"
+        },
+        {
+          "page": 31,
+          "context": "Vi har vurderet at P-POSSUM og APACHE er for omfattende til praktisk brug"
+        }
+      ]
+    },
+    {
+      "name": "APACHE scoring",
+      "type": "topic",
+      "slug": "apache-scoring",
+      "folder": "topics/clinical-assessment",
+      "significance": "APACHE scoring er oprindeligt designet til intensivpatienter, men kan bruges præ-operativt til at forudsige mortalitetsrisiko for akutte mave-tarm kirurgiske patienter.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Man har også vist at APACHE scoring, som er tilegnet intensivpatienter, kan benyttes præ-operativt til at forudsige mortalitets-risiko for akutte mave-tarm kirurgiske patienter"
+        }
+      ]
+    },
+    {
+      "name": "Surgical Apgar Score",
+      "type": "topic",
+      "slug": "surgical-apgar-score",
+      "folder": "topics/clinical-assessment",
+      "significance": "Surgical Apgar Score tager udgangspunkt i inter-operative observationer, men ekskluderer risikopatienter, der ikke er fysiologisk stressede peroperativt.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Surgical Apgar Score tager kun udgangspunkt i inter-operative observationer"
+        },
+        {
+          "page": 31,
+          "context": "I forhold til surgical apgar score mener vi, at denne ekskluderer risikopatienter, der ikke er fysiologisk stressede peroperativt"
+        }
+      ]
+    },
+    {
+      "name": "Charlson Comorbidity index",
+      "type": "topic",
+      "slug": "charlson-comorbidity-index",
+      "folder": "topics/clinical-assessment",
+      "significance": "Charlson Comorbidity index er en præ-operativ risikoscoring, der tager udgangspunkt i risikofaktorer til stede ved indlæggelse.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Præ-operative scoringer som f.eks. ASA score og Charlson Comorbidity index tager udgangspunkt i risikofaktorer, der var til stede ved indlæggelse"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "publishes",
+      "object": "indikator-4y",
+      "evidence": "Akut Kirurgi Databasen rapporterer resultater for indikator 4y",
+      "page": 31
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "publishes",
+      "object": "intermediaer-indlaeggelse",
+      "evidence": "Akut Kirurgi Databasen rapporterer resultater for indikator 5",
+      "page": 31
+    },
+    {
+      "subject": "dansk-anaestesi-database",
+      "predicate": "provides-data-to",
+      "object": "intermediaer-indlaeggelse",
+      "evidence": "ASA-scoren er indhentet fra Dansk Anæstesi Database for indikator 5",
+      "page": 31
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "has-lowest-performance-on",
+      "object": "indikator-4y",
+      "evidence": "Region Nordjylland har 77,2 % af patienter opereret indenfor 24 timer",
+      "page": 31
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "has-highest-performance-on",
+      "object": "indikator-4y",
+      "evidence": "Region Sjælland har 84,6 % af patienter opereret indenfor 24 timer",
+      "page": 31
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "has-highest-performance-on",
+      "object": "intermediaer-indlaeggelse",
+      "evidence": "Region Syddanmark har 27,0 % af patienter med høj mortalitetsrisiko indlagt på intermediært afsnit",
+      "page": 31
+    }
+  ],
+  "claims": [
+    {
+      "text": "82,6 % af patienterne blev opereret indenfor 24 timer efter ankomst til sygehus for indikator 4y [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-4y"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Udviklingmålet for indikator 4y er ≥ 90 % [^src1]",
+      "type": "quality-standard",
+      "entities": [
+        "indikator-4y"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Den regionale variation for indikator 4y går fra 77,2 % i Region Nordjylland til 84,6 % i Region Sjælland [^src1]",
+      "type": "regional-variation",
+      "entities": [
+        "region-nordjylland",
+        "region-sjaelland",
+        "indikator-4y"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Ingen af de indberettende enheder opfyldte udviklingmålet for indikator 4y [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-4y"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Der er registreret postoperativ høj mortalitetsrisiko for 2.003 patienter i perioden for indikator 5 [^src1]",
+      "type": "patient-volume",
+      "entities": [
+        "intermediaer-indlaeggelse"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Andelen med høj mortalitetsrisiko, som efterfølgende blev indlagt på et intermediært eller lignende afsnit, er 22,9 % (95 % CI: 21,1-24,8), svarende til 459 patienter [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "intermediaer-indlaeggelse"
+      ],
+      "page": 31
+    },
+    {
+      "text": "5 % af observationerne mangler informationer for indikator 5, primært i Region Midtjylland [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "intermediaer-indlaeggelse",
+        "region-midtjylland"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Regionalt varierede andelen for indikator 5 fra 17,2 % i Region Nordjylland til 27,0 % i Region Syddanmark [^src1]",
+      "type": "regional-variation",
+      "entities": [
+        "region-nordjylland",
+        "region-syddanmark",
+        "intermediaer-indlaeggelse"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Andelen af patienter, der mangler information for indikator 5 varierer fra 1 % i Region Sjælland til 15 % i Region Midtjylland [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "region-sjaelland",
+        "region-midtjylland",
+        "intermediaer-indlaeggelse"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Udviklingen over tid viser en generelt stigende andel af patienter, som postoperativt indlægges intermediært [^src1]",
+      "type": "trend",
+      "entities": [
+        "intermediaer-indlaeggelse"
+      ],
+      "page": 31
+    },
+    {
+      "text": "ASA-scoren fra Dansk Anæstesi Database er matchet på CPR-nummer uden tidsangivelse [^src1]",
+      "type": "methodology",
+      "entities": [
+        "asa-score",
+        "dansk-anaestesi-database"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Det anbefales, at patienter, der er ældre end 75 år eller ASA 3 bør observeres de første 24 timer efter operation på et intensiv, intermediær- eller opvågningsafsnit [^src1]",
+      "type": "clinical-recommendation",
+      "entities": [
+        "asa-score"
+      ],
+      "page": 31
+    },
+    {
+      "text": "P-POSSUM og APACHE vurderes som for omfattende til praktisk brug [^src1]",
+      "type": "clinical-assessment",
+      "entities": [
+        "p-possum",
+        "apache-scoring"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Surgical Apgar Score ekskluderer risikopatienter, der ikke er fysiologisk stressede peroperativt [^src1]",
+      "type": "clinical-assessment",
+      "entities": [
+        "surgical-apgar-score"
+      ],
+      "page": 31
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.09.2023 - 31.08.2024",
+      "event": "Registreringsperiode for indikator 4y og indikator 5 resultater",
+      "entities": [
+        "indikator-4y",
+        "intermediaer-indlaeggelse"
+      ]
+    }
+  ],
+  "context": "Dette afsnit diskuterer resultaterne af to vigtige kvalitetsindikatorer fra Akut Kirurgi Databasen for perioden september 2023 til august 2024. Indikator 4y måler behandlingshastighed for ileusoperationer (82,6 % opereret indenfor 24 timer), mens indikator 5 måler postoperativ observation af højrisikopatienter (22,9 % indlagt på intermediært afsnit). Begge indikatorer viser regional variation mellem danske regioner og understreger behovet for forbedringer i behandlingspraksis og standardisering af risikostratificering. Afsnittet præsenterer også forskellige præ- og postoperative risikoscoringsmodeller (ASA, P-POSSUM, APACHE, Surgical Apgar Score) og anbefaler fokus på evidensbaseret praksis for at identificere patienter, der har størst gavn af intensiveret postoperativ observation.",
+  "tables": [
+    {
+      "subject": "indikator-5",
+      "title": "Indikator 5: Intermediær indlæggelse",
+      "page": 32,
+      "rowDimension": "regioner og sygehuse",
+      "colDimension": "tæller/nævner, uoplyst andel og resultat per indikatorår",
+      "entities": [
+        "indikator-5",
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagelse-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Region/Sygehus | Standard ≥ 80% opfyldt | Tæller/nævner | Uoplyst antal (%) | Andel (95% CI) 01.09.2023 - 31.08.2024 | 2022/23 Andel | 2021/22 Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 459 / 2.003 | 98 (5) | 22,9 (21,1-24,8) | 20,4 | 15,9 |\n| Hovedstaden | Nej | 127 / 631 | 10 (2) | 20,1 (17,1-23,5) | 18,1 | 11,9 |\n| Sjælland | Nej | 84 / 376 | 4 (1) | 22,3 (18,2-26,9) | 23,0 | 15,4 |\n| Syddanmark | Nej | 120 / 444 | 12 (3) | 27,0 (22,9-31,4) | 21,5 | 19,6 |\n| Midtjylland | Nej | 99 / 383 | 66 (15) | 25,8 (21,5-30,5) | 25,2 | 24,4 |\n| Nordjylland | Nej | 29 / 169 | 6 (3) | 17,2 (11,8-23,7) | 11,7 | 9,2 |\n| Amager og Hvidovre Hospital | Nej | 32 / 143 | 3 (2) | 22,4 (15,8-30,1) | 32,6 | 9,9 |\n| Bispebjerg og Frederiksberg Hospital | Nej | 25 / 115 | 1 (1) | 21,7 (14,6-30,4) | 20,3 | 12,1 |\n| Bornholms Hospital | Nej | 3 / 16 | 1 (6) | 18,8 (4,0-45,6) | 0,0 | 25,0 |\n| Herlev og Gentofte Hospital | Nej | 52 / 189 | 2 (1) | 27,5 (21,3-34,5) | 12,6 | 5,8 |\n| Hospitalerne i Nordsjælland | Nej | 7 / 120 | 3 (2) | 5,8 (2,4-11,6) | 13,0 | 14,7 |\n| Rigshospitalet | Nej | 8 / 48 | 0 (0) | 16,7 (7,5-30,2) | 14,5 | 28,0 |\n| Holbæk Sygehus | Nej | 32 / 82 | 0 (0) | 39,0 (28,4-50,4) | 25,6 | 29,3 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 32 / 129 | 1 (1) | 24,8 (17,6-33,2) | 27,3 | 15,9 |\n| Sjællands Universitetshospital | Nej | 20 / 165 | 3 (2) | 12,1 (7,6-18,1) | 16,8 | 8,9 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 29 / 112 | 2 (2) | 25,9 (18,1-35,0) | 19,5 | 22,0 |\n| Odense Universitetshospital - Svendborg | Nej | 60 / 193 | 5 (3) | 31,1 (24,6-38,1) | 29,3 | 15,1 |\n| Sygehus Lillebælt | Nej | 15 / 70 | 0 (0) | 21,4 (12,5-32,9) | 10,4 | 13,7 |\n| Sygehus Sønderjylland | Nej | 16 / 69 | 5 (7) | 23,2 (13,9-34,9) | 21,4 | 27,2 |\n| Aarhus Universitetshospital | Nej | 17 / 100 | 0 (0) | 17,0 (10,2-25,8) | 13,4 | 13,9 |\n| Hospitalsenhed Midt | Nej | 6 / 48 | 30 (38) | 12,5 (4,7-25,2) | 30,8 | 33,3 |\n| Regionshospitalet Gødstrup | Nej | 38 / 118 | 1 (1) | 32,2 (23,9-41,4) | 15,9 | 17,4 |\n| Regionshospitalet Horsens | Nej | 10 / 31 | 35 (53) | 32,3 (16,7-51,4) | 27,8 | 22,9 |\n| Regionshospitalet Randers | Nej | 28 / 86 | 0 (0) | 32,6 (22,8-43,5) | 48,8 | 46,1 |\n| Aalborg Universitetshospital | Nej | 8 / 102 | 1 (1) | 7,8 (3,4-14,9) | 7,3 | 6,6 |\n| Regionshospital Nordjylland | Nej | 21 / 67 | 5 (7) | 31,3 (20,6-43,8) | 19,4 | 12,7 |",
+      "summary": "Tabellen sammenligner andelen af højrisikopatienter monitoreret ≥ 24 timer postoperativt på intermediært afsnit på tværs af Danmark, de fem regioner og de indberettende sygehuse for 2023/24 samt de to foregående år; ingen enhed opfyldte udviklingsmålet ≥ 80 %, og andelene spænder fra 5,8 % (Hospitalerne i Nordsjælland) til 39,0 % (Holbæk Sygehus)."
+    },
+    {
+      "subject": "indikator-5",
+      "title": "Eksklusioner og uoplyste for indikator 5",
+      "page": 33,
+      "rowDimension": "eksklusions- og uoplyst-årsager",
+      "colDimension": "antal forløb",
+      "entities": [
+        "indikator-5",
+        "cpr-nummer",
+        "asa-score"
+      ],
+      "markdown": "| Kategori | Antal | Årsag |\n| --- | --- | --- |\n| Eksklusion | 75 | Ugyldigt CPRnummer. |\n| Eksklusion | 197 | Patienten er under 18 år. |\n| Eksklusion | 6.238 | Patienten er ikke opereret. |\n| Eksklusion | 7 | ASA score er ukendt. |\n| Eksklusion | 493 | Operationen er ikke den første operation i hospitalsopholdet. |\n| Eksklusion | 1.077 | Patienten er enten yngre end 75 år eller ASA score < 3 |\n| Uoplyst | 98 | Manglende registerering af ASA score. |",
+      "summary": "Tabellen viser fordelingen af eksklusionsårsager og uoplyste forløb for indikator 5, hvor 'Patienten er ikke opereret' med 6.238 forløb er den klart hyppigste eksklusionsårsag."
+    }
+  ]
+}

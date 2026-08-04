@@ -1,0 +1,573 @@
+{
+  "entities": [
+    {
+      "name": "ADHD-DATABASEN",
+      "type": "organization",
+      "slug": "adhd-databasen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En dansk kvalitetsdatabase for ADHD-udredning og behandling, der rapporterer på syv kvalitetsindikatorer på tværs af regioner og afdelinger for at måle behandlingskvalitet og patientresultater.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "ADHD-DATABASEN rapporterer indikatorresultater for perioden 01.04.2023 - 31.03.2024"
+        },
+        {
+          "page": 7,
+          "context": "Flere styregruppemedlemmer er med på tværs af DMPG og ADHD-databasen"
+        }
+      ]
+    },
+    {
+      "name": "Danske Multidisciplinære Psykiatrigrupper",
+      "type": "organization",
+      "slug": "danske-multidisciplinaere-psykiatrigrupper",
+      "folder": "entities/organizations/psychiatric-groups",
+      "significance": "Danske Multidisciplinære Psykiatrigrupper (DMPGer) har i det seneste år udført massivt arbejde med udvikling af retningslinjer for ADHD-udredning på både voksen- og børne-/ungeområdet.",
+      "mentions": [
+        {
+          "page": 7,
+          "context": "I det seneste år er der foregået et massivt arbejde i de Danske Multidisciplinære Psykiatrigrupper (DMPGer) ift. udvikling af retningslinjer bl.a. ift. udredning af ADHD på voksenområdet og på børne- og ungeområdet"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg Psykiatrisk ambulatorium, børn og unge",
+      "type": "organization",
+      "slug": "bispebjerg-psychiatric-ambulatory",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Hovedstaden-regionen, der behandler ADHD-patienter og rapporterer til ADHD-databasen.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge rapporterer 310 / 484 forløb med somatisk udredning (64%)"
+        }
+      ]
+    },
+    {
+      "name": "Bornholm Psykiatrisk ambulatorium, børn og unge",
+      "type": "organization",
+      "slug": "bornholm-psychiatric-ambulatory",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Hovedstaden-regionen med laveste opfyldelse af somatisk udredningsindikator blandt Hovedstaden-afdelingerne.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Bornholm: Psykiatrisk ambulatorium, børn og unge rapporterer 23 / 112 forløb med somatisk udredning (21%)"
+        }
+      ]
+    },
+    {
+      "name": "Glostrup Psykiatrisk ambulatorium, børn og unge",
+      "type": "organization",
+      "slug": "glostrup-psychiatric-ambulatory",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Hovedstaden-regionen med højeste patientvolumen blandt Hovedstaden-afdelingerne.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Glostrup: Psykiatrisk ambulatorium, børn og unge rapporterer 747 / 1.221 forløb med somatisk udredning (61%)"
+        }
+      ]
+    },
+    {
+      "name": "Hillerød Psykiatrisk ambulatorium, børn og unge",
+      "type": "organization",
+      "slug": "hillerod-psychiatric-ambulatory",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Hovedstaden-regionen med høj opfyldelse af somatisk udredningsindikator.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Hillerød: Psykiatrisk ambulatorium, børn og unge rapporterer 406 / 504 forløb med somatisk udredning (81%)"
+        }
+      ]
+    },
+    {
+      "name": "Børne-Unge Psyk. Afd. 40",
+      "type": "organization",
+      "slug": "boerne-unge-psyk-afd-40",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk afdeling under Sjælland-regionen, der rapporterer ADHD-behandlingsdata til databasen.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Børne-Unge Psyk. Afd. 40 rapporterer 363 / 610 forløb med somatisk udredning (60%)"
+        }
+      ]
+    },
+    {
+      "name": "Aabenraa Børne og Ungdomspsykiatrisk Ambulatorium",
+      "type": "organization",
+      "slug": "aabenraa-psychiatric-ambulatory",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Syddanmark-regionen, der opfylder standarden for somatisk udredning.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium rapporterer 257 / 286 forløb med somatisk udredning (90%)"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Børne- og Ungdomspsykiatrisk Ambulatorium",
+      "type": "organization",
+      "slug": "esbjerg-psychiatric-ambulatory",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Syddanmark-regionen med lav opfyldelse af somatisk udredningsindikator.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium rapporterer 103 / 304 forløb med somatisk udredning (34%)"
+        }
+      ]
+    },
+    {
+      "name": "Odense Børne- og Ungdomspsykiatrisk Ambulatorium",
+      "type": "organization",
+      "slug": "odense-psychiatric-ambulatory",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Syddanmark-regionen med høj opfyldelse af somatisk udredningsindikator.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium rapporterer 156 / 175 forløb med somatisk udredning (89%)"
+        }
+      ]
+    },
+    {
+      "name": "Vejle Børne- Og Ungdomspsykiatrisk Ambulatorium",
+      "type": "organization",
+      "slug": "vejle-psychiatric-ambulatory",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Syddanmark-regionen med moderat opfyldelse af somatisk udredningsindikator.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium rapporterer 209 / 406 forløb med somatisk udredning (51%)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Skolebørn",
+      "type": "organization",
+      "slug": "bua-psychiatric-clinic-schoolchildren",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børnepsykiatrisk klinik under Midtjylland-regionen, der behandler skolebørn med ADHD.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "BUA Psykiatrisk Klinik for Skolebørn rapporterer 59 / 80 forløb med somatisk udredning (74%)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Småbørn",
+      "type": "organization",
+      "slug": "bua-psychiatric-clinic-toddlers",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En småbørnepsykiatrisk klinik under Midtjylland-regionen, der behandler små børn med ADHD.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "BUA Psykiatrisk Klinik for Småbørn rapporterer 131 / 162 forløb med somatisk udredning (81%)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Udredning",
+      "type": "organization",
+      "slug": "bua-psychiatric-clinic-assessment",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En ADHD-udredningsklinik under Midtjylland-regionen med meget lav opfyldelse af somatisk udredningsindikator.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "BUA Psykiatrisk Klinik for Udredning rapporterer 58 / 433 forløb med somatisk udredning (13%)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Unge",
+      "type": "organization",
+      "slug": "bua-psychiatric-clinic-youth",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En ungepsykiatrisk klinik under Midtjylland-regionen med meget lav opfyldelse af somatisk udredningsindikator.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "BUA Psykiatrisk Klinik for Unge rapporterer meget få forløb med somatisk udredning (4%)"
+        }
+      ]
+    },
+    {
+      "name": "Børne- og ungdomspsyk. Ambulatorium",
+      "type": "organization",
+      "slug": "boerne-ungdomspsyk-ambulatorium-nordjylland",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Nordjylland-regionen, der rapporterer ADHD-behandlingsdata.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Børne- og ungdomspsyk. Ambulatorium rapporterer 265 / 412 forløb med somatisk udredning (64%)"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "hovedstaden-region",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En dansk region, der rapporterer ADHD-behandlingsdata til databasen med højeste patientvolumen blandt alle regioner.",
+      "mentions": [
+        {
+          "page": 8,
+          "context": "Hovedstaden rapporterer 1.486 / 2.321 forløb med somatisk udredning (64%)"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland-region",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En dansk region, der rapporterer ADHD-behandlingsdata til databasen.",
+      "mentions": [
+        {
+          "page": 8,
+          "context": "Sjælland rapporterer 363 / 610 forløb med somatisk udredning (60%)"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark-region",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En dansk region, der rapporterer ADHD-behandlingsdata til databasen.",
+      "mentions": [
+        {
+          "page": 8,
+          "context": "Syddanmark rapporterer 725 / 1.171 forløb med somatisk udredning (62%)"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland-region",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En dansk region, der rapporterer ADHD-behandlingsdata til databasen med laveste opfyldelse af somatisk udredningsindikator.",
+      "mentions": [
+        {
+          "page": 8,
+          "context": "Midtjylland rapporterer 249 / 701 forløb med somatisk udredning (36%)"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland-region",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En dansk region, der rapporterer ADHD-behandlingsdata til databasen.",
+      "mentions": [
+        {
+          "page": 8,
+          "context": "Nordjylland rapporterer 265 / 412 forløb med somatisk udredning (64%)"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark som helhed rapporterer nationale ADHD-behandlingsresultater til databasen.",
+      "mentions": [
+        {
+          "page": 8,
+          "context": "Danmark rapporterer 3.088 / 5.215 forløb med somatisk udredning (59%)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "bispebjerg-psychiatric-ambulatory",
+      "predicate": "is-part-of",
+      "object": "hovedstaden-region",
+      "evidence": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge er opført under Hovedstaden-regionen i indikatorresultaterne",
+      "page": 9
+    },
+    {
+      "subject": "bornholm-psychiatric-ambulatory",
+      "predicate": "is-part-of",
+      "object": "hovedstaden-region",
+      "evidence": "Bornholm: Psykiatrisk ambulatorium, børn og unge er opført under Hovedstaden-regionen",
+      "page": 9
+    },
+    {
+      "subject": "glostrup-psychiatric-ambulatory",
+      "predicate": "is-part-of",
+      "object": "hovedstaden-region",
+      "evidence": "Glostrup: Psykiatrisk ambulatorium, børn og unge er opført under Hovedstaden-regionen",
+      "page": 9
+    },
+    {
+      "subject": "hillerod-psychiatric-ambulatory",
+      "predicate": "is-part-of",
+      "object": "hovedstaden-region",
+      "evidence": "Hillerød: Psykiatrisk ambulatorium, børn og unge er opført under Hovedstaden-regionen",
+      "page": 9
+    },
+    {
+      "subject": "boerne-unge-psyk-afd-40",
+      "predicate": "is-part-of",
+      "object": "sjaelland-region",
+      "evidence": "Børne-Unge Psyk. Afd. 40 er opført under Sjælland-regionen",
+      "page": 9
+    },
+    {
+      "subject": "aabenraa-psychiatric-ambulatory",
+      "predicate": "is-part-of",
+      "object": "syddanmark-region",
+      "evidence": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium er opført under Syddanmark-regionen",
+      "page": 9
+    },
+    {
+      "subject": "esbjerg-psychiatric-ambulatory",
+      "predicate": "is-part-of",
+      "object": "syddanmark-region",
+      "evidence": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium er opført under Syddanmark-regionen",
+      "page": 9
+    },
+    {
+      "subject": "odense-psychiatric-ambulatory",
+      "predicate": "is-part-of",
+      "object": "syddanmark-region",
+      "evidence": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium er opført under Syddanmark-regionen",
+      "page": 9
+    },
+    {
+      "subject": "vejle-psychiatric-ambulatory",
+      "predicate": "is-part-of",
+      "object": "syddanmark-region",
+      "evidence": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium er opført under Syddanmark-regionen",
+      "page": 9
+    },
+    {
+      "subject": "bua-psychiatric-clinic-schoolchildren",
+      "predicate": "is-part-of",
+      "object": "midtjylland-region",
+      "evidence": "BUA Psykiatrisk Klinik for Skolebørn er opført under Midtjylland-regionen",
+      "page": 10
+    },
+    {
+      "subject": "bua-psychiatric-clinic-toddlers",
+      "predicate": "is-part-of",
+      "object": "midtjylland-region",
+      "evidence": "BUA Psykiatrisk Klinik for Småbørn er opført under Midtjylland-regionen",
+      "page": 10
+    },
+    {
+      "subject": "bua-psychiatric-clinic-assessment",
+      "predicate": "is-part-of",
+      "object": "midtjylland-region",
+      "evidence": "BUA Psykiatrisk Klinik for Udredning er opført under Midtjylland-regionen",
+      "page": 10
+    },
+    {
+      "subject": "bua-psychiatric-clinic-youth",
+      "predicate": "is-part-of",
+      "object": "midtjylland-region",
+      "evidence": "BUA Psykiatrisk Klinik for Unge er opført under Midtjylland-regionen",
+      "page": 10
+    },
+    {
+      "subject": "boerne-ungdomspsyk-ambulatorium-nordjylland",
+      "predicate": "is-part-of",
+      "object": "nordjylland-region",
+      "evidence": "Børne- og ungdomspsyk. Ambulatorium er opført under Nordjylland-regionen",
+      "page": 10
+    },
+    {
+      "subject": "danske-multidisciplinaere-psykiatrigrupper",
+      "predicate": "collaborates-with",
+      "object": "adhd-databasen",
+      "evidence": "Flere styregruppemedlemmer er med på tværs af DMPG og ADHD-databasen, så vi får samstemt os",
+      "page": 7
+    }
+  ],
+  "claims": [
+    {
+      "text": "Andelen af udredningsforløb, hvor der er foretaget somatisk udredning senest 120 dage efter start af ADHD-udredning, var 59% (95% CI: 58-61) for hele Danmark i perioden 01.04.2023 - 31.03.2024 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Standarden for somatisk udredning er ≥ 90%, men blev ikke opfyldt på landsplan [^src1]",
+      "type": "quality-standard",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning, var 59% (95% CI: 54-64) for hele Danmark [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Andelen af udredningsforløb blandt 6-17 årige, hvor der senest 120 dage efter start af ADHD-udredning er foretaget enten manualiseret diagnostisk interview eller miljøobservation, var 48% (95% CI: 47-50) for hele Danmark [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Andelen af udredningsforløb, hvor der er afholdt diagnostisk konference med deltagelse af speciallæge i børne- og ungdomspsykiatri senest 120 dage efter start af ADHD-udredning, var 21% (95% CI: 20-22) for hele Danmark [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Andelen af behandlingsforløb, hvor der er foretaget koordinerende netværksmøde senest 90 dage efter behandlingsstart, var 19% (95% CI: 18-21) for hele Danmark [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Andelen af behandlingsforløb, hvor patienten/forældre har påbegyndt ADHD-relateret psykoedukation senest 120 dage efter behandlingsstart, var 34% (95% CI: 32-36) for hele Danmark [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Andelen af behandlingsforløb, hvor patienten er i behandling med ADHD-medicin, var 62% (95% CI: 60-64) for hele Danmark [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Hovedstaden-regionen rapporterer 1.486 / 2.321 forløb med somatisk udredning (64%, 95% CI: 62-66) [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "hovedstaden-region"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Sjælland-regionen rapporterer 363 / 610 forløb med somatisk udredning (60%, 95% CI: 55-63) [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "sjaelland-region"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Syddanmark-regionen rapporterer 725 / 1.171 forløb med somatisk udredning (62%, 95% CI: 59-65) [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "syddanmark-region"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Midtjylland-regionen rapporterer 249 / 701 forløb med somatisk udredning (36%, 95% CI: 32-39) [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "midtjylland-region"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Nordjylland-regionen rapporterer 265 / 412 forløb med somatisk udredning (64%, 95% CI: 59-69) [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "nordjylland-region"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Aabenraa Børne og Ungdomspsykiatrisk Ambulatorium opfylder standarden for somatisk udredning med 90% (95% CI: 86-93) [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "aabenraa-psychiatric-ambulatory"
+      ],
+      "page": 9
+    },
+    {
+      "text": "BUA Psykiatrisk Klinik for Udredning rapporterer meget lav opfyldelse af somatisk udredningsindikator med 13% (95% CI: 10-17) [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "bua-psychiatric-clinic-assessment"
+      ],
+      "page": 10
+    },
+    {
+      "text": "I indeværende år er der begyndt at høste data fra voksenpsykiatrien, samt fra børne- og ungdomspsykiatriske private praksisser [^src2]",
+      "type": "database-expansion",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Der er foregået et massivt arbejde i de Danske Multidisciplinære Psykiatrigrupper (DMPGer) ift. udvikling af retningslinjer bl.a. ift. udredning af ADHD på voksenområdet og på børne- og ungeområdet og både i hospitals- samt privat regi [^src2]",
+      "type": "guideline-development",
+      "entities": [
+        "danske-multidisciplinaere-psykiatrigrupper"
+      ],
+      "page": 7
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.04.2023 - 31.03.2024",
+      "event": "ADHD-databasen rapporterer indikatorresultater for denne periode, viser 59% opfyldelse af somatisk udredningsindikator på landsplan [^src1]",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere år indikatorresultater viser 61% opfyldelse af somatisk udredningsindikator på landsplan [^src1]",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ]
+    },
+    {
+      "date": "2021/22",
+      "event": "Tidligere år indikatorresultater viser 70% opfyldelse af somatisk udredningsindikator på landsplan [^src1]",
+      "entities": [
+        "adhd-databasen",
+        "danmark"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer årsrapporten fra ADHD-databasen for perioden 01.04.2023 - 31.03.2024, som er en dansk kvalitetsdatabase, der måler behandlingskvalitet for ADHD-patienter på tværs af regioner og afdelinger. Rapporten viser syv kvalitetsindikatorer, hvoraf de første seks måler processer i udredning og behandling, og de sidste to måler patientresultater som f.eks. gennemførelse af folkeskolens afgangsprøve. Resultaterne viser, at de fleste indikatorer ligger betydeligt under standarden på ≥ 90%, hvilket understreger sårbarheden i denne patientgruppe og behovet for øgede ressourcer og bedre samarbejde på tværs af regioner og kommuner. Databasen er blevet udvidet til at omfatte data fra voksenpsykiatrien og private praksisser, og der er foregået massivt arbejde i de Danske Multidisciplinære Psykiatrigrupper med udvikling af retningslinjer for ADHD-udredning."
+}

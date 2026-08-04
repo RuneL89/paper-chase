@@ -1,0 +1,971 @@
+{
+  "entities": [
+    {
+      "name": "DANIBD",
+      "type": "organization",
+      "slug": "danibd",
+      "folder": "entities/organizations/health-registries",
+      "significance": "DANIBD is the Danish national registry for inflammatory bowel disease patients, tracking hospital contacts and clinical quality indicators since October 1, 2022.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Siden DANIBD's start den 1. oktober 2022 har 40.083 patienter haft en kontakt til et hospital grundet IBD"
+        },
+        {
+          "page": 6,
+          "context": "I denne årsrapportperiode fra 1. oktober 2023 til og med 30. september 2024 har 34.350 patienter været i kontakt med et af landets hospitaler"
+        }
+      ]
+    },
+    {
+      "name": "Crohns sygdom",
+      "type": "medical-condition",
+      "slug": "crohns-disease",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "significance": "Crohn's disease is a major form of IBD tracked in DANIBD, representing 64% of newly diagnosed children and 41% of newly diagnosed adults in the reporting period.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "De nydiagnosticerede børn har oftest Crohns sygdom (64 %)"
+        },
+        {
+          "page": 7,
+          "context": "DK50* Crohns sygdom 898 (41)"
+        }
+      ]
+    },
+    {
+      "name": "Ulcerøs colitis",
+      "type": "medical-condition",
+      "slug": "ulcerative-colitis",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "significance": "Ulcerative colitis is the other major form of IBD tracked in DANIBD, representing 58% of newly diagnosed adults in the reporting period.",
+      "mentions": [
+        {
+          "page": 7,
+          "context": "DK51* colitis ulcerosa 1.275 (58)"
+        },
+        {
+          "page": 6,
+          "context": "DK51* Ulcerøs colitis 71 (36)"
+        }
+      ]
+    },
+    {
+      "name": "Primær skleroserende kolangitis",
+      "type": "medical-condition",
+      "slug": "primary-sclerosing-cholangitis",
+      "folder": "topics/medical-conditions",
+      "significance": "Primary sclerosing cholangitis is a comorbid condition tracked in DANIBD, occurring in combination with Crohn's disease or ulcerative colitis in a small percentage of patients.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "DK830F Primær skleroserende kolangitis1 # (1)"
+        },
+        {
+          "page": 7,
+          "context": "DK830F Primær skleroserende kolangitis1 33 (1)"
+        }
+      ]
+    },
+    {
+      "name": "Korttarmssyndrom",
+      "type": "medical-condition",
+      "slug": "korttarmssyndrom",
+      "folder": "topics/medical-conditions",
+      "significance": "Short bowel syndrome is a rare complication tracked in DANIBD, occurring in 9 newly diagnosed and 79 prevalent adult patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 7,
+          "context": "DK912B Korttarmssyndrom1 9 (0)"
+        }
+      ]
+    },
+    {
+      "name": "Koloskopi",
+      "type": "medical-procedure",
+      "slug": "koloskopi",
+      "folder": "topics/clinical-measures/procedures",
+      "significance": "Colonoscopy is the recommended diagnostic procedure for IBD, with Indicator 1a monitoring the proportion of newly diagnosed adults who undergo this procedure.",
+      "mentions": [
+        {
+          "page": 8,
+          "context": "I udredningen er der stærk anbefaling for, og deraf bred international enighed om, at diagnoserne stilles ved koloskopi"
+        },
+        {
+          "page": 8,
+          "context": "Indikatoren monitorerer derfor andelen af nydiagnosticerede voksne, der har fået foretaget relevant udredning"
+        }
+      ]
+    },
+    {
+      "name": "Fæces calprotectin",
+      "type": "medical-test",
+      "slug": "fecal-calprotectin",
+      "folder": "topics/medical-tests",
+      "significance": "Fecal calprotectin measurement is monitored under Indicator 5 for patients on biological and targeted synthetic drugs (BMSL), with a target of ≥80% compliance.",
+      "mentions": [
+        {
+          "page": 8,
+          "context": "Indikator 5: Fæces calprotectin måling, BMSL1 ≥ 80"
+        }
+      ]
+    },
+    {
+      "name": "DEXA-scanning",
+      "type": "medical-procedure",
+      "slug": "dexa-scanning",
+      "folder": "topics/clinical-measures/procedures",
+      "significance": "DEXA scanning for bone density is monitored under Indicator 4 for patients receiving steroid treatment, with a target of ≥80% compliance.",
+      "mentions": [
+        {
+          "page": 8,
+          "context": "Indikator 4: DEXA-scanning, steroidbehandling ≥ 80"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden (Capital Region) is one of five Danish regions tracked in DANIBD, with 794 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Hovedstaden 601 / 794 76 (73-79)"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland (Zealand Region) is one of five Danish regions tracked in DANIBD, with 317 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Sjælland 273 / 317 86 (82-90)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Syddanmark (Southern Denmark Region) is one of five Danish regions tracked in DANIBD, with 445 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Syddanmark 354 / 445 80 (75-83)"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Midtjylland (Central Jutland Region) is one of five Danish regions tracked in DANIBD, with 597 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Midtjylland 472 / 597 79 (76-82)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland (Northern Jutland Region) is one of five Danish regions tracked in DANIBD, with 232 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Nordjylland 187 / 232 81 (75-85)"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg Abdominalcenter",
+      "type": "organization",
+      "slug": "bispebjerg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg Abdominalcenter is a hospital department in Region Hovedstaden participating in DANIBD, with 224 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Bispebjerg Abdominalcenter K 173 / 224 77 (71-83)"
+        }
+      ]
+    },
+    {
+      "name": "Bornholm Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "bornholm",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholm Medical Department is a hospital department in Region Hovedstaden participating in DANIBD, with 14 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Bornholm Medicinsk Afdeling 12 / 14 86 (57-98)"
+        }
+      ]
+    },
+    {
+      "name": "Herlev Mave-, Tarm- og Leversygd.",
+      "type": "organization",
+      "slug": "herlev",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev Gastroenterology Department is a hospital department in Region Hovedstaden participating in DANIBD, with 183 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Herlev Mave-, Tarm- og Leversygd. 152 / 183 83 (77-88)"
+        }
+      ]
+    },
+    {
+      "name": "Hvidovre Gastroenheden",
+      "type": "organization",
+      "slug": "hvidovre",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hvidovre Gastroenterology Unit is a hospital department in Region Hovedstaden participating in DANIBD, with 256 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Hvidovre Gastroenheden 164 / 256 64 (58-70)"
+        }
+      ]
+    },
+    {
+      "name": "Nordsjælland Kirurgisk Afdeling",
+      "type": "organization",
+      "slug": "nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Nordsjælland Surgical Department is a hospital department in Region Hovedstaden participating in DANIBD, with 110 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Nordsjælland Kirurgisk Afdeling 97 / 110 88 (81-94)"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet Mave-, Tarm- og Leversygd.",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet Gastroenterology Department is a hospital department in Region Hovedstaden participating in DANIBD, with 7 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Rigshospitalet Mave-, Tarm- og Leversygd. 3 / 7 43 (10-82)"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Hospital",
+      "type": "organization",
+      "slug": "holbaek-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Hospital is a hospital department in Region Sjælland participating in DANIBD, with 42 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "HOL Holbæk Medicin 38 / 42 90 (77-97)"
+        }
+      ]
+    },
+    {
+      "name": "Slagelse Hospital",
+      "type": "organization",
+      "slug": "slagelse-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Slagelse Hospital is a hospital department in Region Sjælland participating in DANIBD, with 88 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "NSR Slagelse Med. Gastroenterologi 71 / 88 81 (71-88)"
+        }
+      ]
+    },
+    {
+      "name": "Køge Hospital",
+      "type": "organization",
+      "slug": "koege-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Køge Hospital is a hospital department in Region Sjælland participating in DANIBD, with 129 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "SUH Køge Medicin 111 / 129 86 (79-92)"
+        }
+      ]
+    },
+    {
+      "name": "Nykøbing F. Hospital",
+      "type": "organization",
+      "slug": "nykoebing-f-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Nykøbing F. Hospital is a hospital department in Region Sjælland participating in DANIBD, with 58 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "SUH Nykøbing F. Medicin 53 / 58 91 (81-97)"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Hospital",
+      "type": "organization",
+      "slug": "esbjerg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg Hospital is a hospital department in Region Syddanmark participating in DANIBD, with 109 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "EGS Esbjerg Medicinsk Mave og Tarm Amb. 89 / 109 82 (73-88)"
+        }
+      ]
+    },
+    {
+      "name": "Odense University Hospital",
+      "type": "organization",
+      "slug": "odense-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense University Hospital is a hospital department in Region Syddanmark participating in DANIBD, with 98 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "OUH Odense Medicinsk Mave-Tarm Afd. S 81 / 98 83 (74-90)"
+        }
+      ]
+    },
+    {
+      "name": "Svendborg Hospital",
+      "type": "organization",
+      "slug": "svendborg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Svendborg Hospital is a hospital department in Region Syddanmark participating in DANIBD, with 68 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "OUH Svendborg Medicinsk Afdeling 47 / 68 69 (57-80)"
+        }
+      ]
+    },
+    {
+      "name": "Aabenraa Hospital",
+      "type": "organization",
+      "slug": "aabenraa-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aabenraa Hospital is a hospital department in Region Syddanmark participating in DANIBD, with 55 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "SHS Aabenraa Mave- og Tarmsygd. 48 / 55 87 (76-95)"
+        }
+      ]
+    },
+    {
+      "name": "Tønder Hospital",
+      "type": "organization",
+      "slug": "toender-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Tønder Hospital is a hospital department in Region Syddanmark participating in DANIBD, with 21 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "SHS Tønder Medicinsk Daghospital 18 / 21 86 (64-97)"
+        }
+      ]
+    },
+    {
+      "name": "Vejle Hospital",
+      "type": "organization",
+      "slug": "vejle-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Vejle Hospital is a hospital department in Region Syddanmark participating in DANIBD, with 94 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "SLB Vejle Medicinsk Afdeling 71 / 94 76 (66-84)"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus University Hospital",
+      "type": "organization",
+      "slug": "aarhus-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus University Hospital is a hospital department in Region Midtjylland participating in DANIBD, with 149 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Aarhus Lever-, Mave- og Tarmsygd. 98 / 149 66 (58-73)"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrup Hospital",
+      "type": "organization",
+      "slug": "goedstrup-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Gødstrup Hospital is a hospital department in Region Midtjylland participating in DANIBD, with 120 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Gødstrup Medicinsk Afdeling 78 / 120 65 (56-73)"
+        }
+      ]
+    },
+    {
+      "name": "HE Midt Klinik for Mave- og Tarmsygd.",
+      "type": "organization",
+      "slug": "he-midt-klinik",
+      "folder": "entities/organizations/hospitals",
+      "significance": "HE Midt Clinic for Gastroenterology is a hospital department in Region Midtjylland participating in DANIBD, with 122 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "HE Midt Klinik for Mave- og Tarmsygd. 109 / 122 89 (82-94)"
+        }
+      ]
+    },
+    {
+      "name": "Horsens Hospital",
+      "type": "organization",
+      "slug": "horsens-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Horsens Hospital is a hospital department in Region Midtjylland participating in DANIBD, with 120 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Horsens Medicinsk Afdeling 106 / 120 88 (81-93)"
+        }
+      ]
+    },
+    {
+      "name": "Randers Hospital",
+      "type": "organization",
+      "slug": "randers-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Randers Hospital is a hospital department in Region Midtjylland participating in DANIBD, with 86 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Randers Medicinsk Afdeling 81 / 86 94 (87-98)"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg University Hospital",
+      "type": "organization",
+      "slug": "aalborg-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg University Hospital is a hospital department in Region Nordjylland participating in DANIBD, with 119 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "AAUH Aalborg Med. Gastroenterologisk Afd. 92 / 119 77 (69-84)"
+        }
+      ]
+    },
+    {
+      "name": "Farsø Hospital",
+      "type": "organization",
+      "slug": "farsoe-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Farsø Hospital is a hospital department in Region Nordjylland participating in DANIBD, with 30 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "AAUH Farsø Medicinsk Afdeling 25 / 30 83 (65-94)"
+        }
+      ]
+    },
+    {
+      "name": "Thisted Hospital",
+      "type": "organization",
+      "slug": "thisted-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Thisted Hospital is a hospital department in Region Nordjylland participating in DANIBD, with 3 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "AAUH Thisted Medicinsk Afdeling 3 / 3 100 (29-100)"
+        }
+      ]
+    },
+    {
+      "name": "Hjørring Hospital",
+      "type": "organization",
+      "slug": "hjoerring-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hjørring Hospital is a hospital department in Region Nordjylland participating in DANIBD, with 80 newly diagnosed adult IBD patients in the reporting period.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "RHN Hjørring Med. Mave- og Tarmsygd. 67 / 80 84 (74-91)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "danibd",
+      "predicate": "tracks-patients-with",
+      "object": "crohns-disease",
+      "evidence": "Siden DANIBD's start den 1. oktober 2022 har 40.083 patienter haft en kontakt til et hospital grundet IBD",
+      "page": 6
+    },
+    {
+      "subject": "danibd",
+      "predicate": "tracks-patients-with",
+      "object": "ulcerative-colitis",
+      "evidence": "Siden DANIBD's start den 1. oktober 2022 har 40.083 patienter haft en kontakt til et hospital grundet IBD",
+      "page": 6
+    },
+    {
+      "subject": "danibd",
+      "predicate": "monitors-indicator",
+      "object": "koloskopi",
+      "evidence": "Indikatoren monitorerer derfor andelen af nydiagnosticerede voksne, der har fået foretaget relevant udredning",
+      "page": 8
+    },
+    {
+      "subject": "danibd",
+      "predicate": "monitors-indicator",
+      "object": "fecal-calprotectin",
+      "evidence": "Indikator 5: Fæces calprotectin måling, BMSL1 ≥ 80",
+      "page": 8
+    },
+    {
+      "subject": "danibd",
+      "predicate": "monitors-indicator",
+      "object": "dexa-scanning",
+      "evidence": "Indikator 4: DEXA-scanning, steroidbehandling ≥ 80",
+      "page": 8
+    },
+    {
+      "subject": "bispebjerg",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "Bispebjerg Abdominalcenter K 173 / 224 77 (71-83)",
+      "page": 9
+    },
+    {
+      "subject": "herlev",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "Herlev Mave-, Tarm- og Leversygd. 152 / 183 83 (77-88)",
+      "page": 9
+    },
+    {
+      "subject": "hvidovre",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "Hvidovre Gastroenheden 164 / 256 64 (58-70)",
+      "page": 9
+    },
+    {
+      "subject": "rigshospitalet",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "Rigshospitalet Mave-, Tarm- og Leversygd. 3 / 7 43 (10-82)",
+      "page": 9
+    },
+    {
+      "subject": "holbaek-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "HOL Holbæk Medicin 38 / 42 90 (77-97)",
+      "page": 9
+    },
+    {
+      "subject": "slagelse-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "NSR Slagelse Med. Gastroenterologi 71 / 88 81 (71-88)",
+      "page": 9
+    },
+    {
+      "subject": "koege-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "SUH Køge Medicin 111 / 129 86 (79-92)",
+      "page": 9
+    },
+    {
+      "subject": "nykoebing-f-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "SUH Nykøbing F. Medicin 53 / 58 91 (81-97)",
+      "page": 9
+    },
+    {
+      "subject": "esbjerg-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "EGS Esbjerg Medicinsk Mave og Tarm Amb. 89 / 109 82 (73-88)",
+      "page": 9
+    },
+    {
+      "subject": "odense-university-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "OUH Odense Medicinsk Mave-Tarm Afd. S 81 / 98 83 (74-90)",
+      "page": 9
+    },
+    {
+      "subject": "svendborg-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "OUH Svendborg Medicinsk Afdeling 47 / 68 69 (57-80)",
+      "page": 9
+    },
+    {
+      "subject": "aabenraa-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "SHS Aabenraa Mave- og Tarmsygd. 48 / 55 87 (76-95)",
+      "page": 9
+    },
+    {
+      "subject": "toender-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "SHS Tønder Medicinsk Daghospital 18 / 21 86 (64-97)",
+      "page": 9
+    },
+    {
+      "subject": "vejle-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "SLB Vejle Medicinsk Afdeling 71 / 94 76 (66-84)",
+      "page": 9
+    },
+    {
+      "subject": "aarhus-university-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "Aarhus Lever-, Mave- og Tarmsygd. 98 / 149 66 (58-73)",
+      "page": 10
+    },
+    {
+      "subject": "goedstrup-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "Gødstrup Medicinsk Afdeling 78 / 120 65 (56-73)",
+      "page": 10
+    },
+    {
+      "subject": "horsens-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "Horsens Medicinsk Afdeling 106 / 120 88 (81-93)",
+      "page": 10
+    },
+    {
+      "subject": "randers-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "Randers Medicinsk Afdeling 81 / 86 94 (87-98)",
+      "page": 10
+    },
+    {
+      "subject": "aalborg-university-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "AAUH Aalborg Med. Gastroenterologisk Afd. 92 / 119 77 (69-84)",
+      "page": 10
+    },
+    {
+      "subject": "hjoerring-hospital",
+      "predicate": "participates-in",
+      "object": "danibd",
+      "evidence": "RHN Hjørring Med. Mave- og Tarmsygd. 67 / 80 84 (74-91)",
+      "page": 10
+    }
+  ],
+  "claims": [
+    {
+      "text": "Siden DANIBD's start den 1. oktober 2022 har 40.083 patienter haft en kontakt til et hospital grundet IBD [^src1]",
+      "type": "patient-statistics",
+      "entities": [
+        "danibd"
+      ],
+      "page": 6
+    },
+    {
+      "text": "I årsrapportperioden fra 1. oktober 2023 til og med 30. september 2024 har 34.350 patienter været i kontakt med et af landets hospitaler [^src1]",
+      "type": "patient-statistics",
+      "entities": [
+        "danibd"
+      ],
+      "page": 6
+    },
+    {
+      "text": "751 børn og unge med IBD har været i kontakt med en hospitalsafdeling i perioden 1. oktober 2023 til og med 30. september 2024 [^src1]",
+      "type": "patient-statistics",
+      "entities": [
+        "danibd"
+      ],
+      "page": 6
+    },
+    {
+      "text": "27 % af børnene er nydiagnosticerede med IBD i perioden [^src1]",
+      "type": "diagnosis-statistics",
+      "entities": [
+        "danibd"
+      ],
+      "page": 6
+    },
+    {
+      "text": "De nydiagnosticerede børn har oftest Crohns sygdom (64 %), er hyppigst drenge (53 %) og hovedparten bliver diagnosticeret i aldersgruppen 10-17 år (89 %) [^src1]",
+      "type": "diagnosis-statistics",
+      "entities": [
+        "crohns-disease"
+      ],
+      "page": 6
+    },
+    {
+      "text": "32.641 voksne med IBD har været i kontakt med en hospitalsafdeling fra 1. oktober 2023 til og med 30. september 2024 [^src1]",
+      "type": "patient-statistics",
+      "entities": [
+        "danibd"
+      ],
+      "page": 7
+    },
+    {
+      "text": "7 % af voksne patienter er nydiagnosticerede med IBD [^src1]",
+      "type": "diagnosis-statistics",
+      "entities": [
+        "danibd"
+      ],
+      "page": 7
+    },
+    {
+      "text": "Blandt nydiagnosticerede voksne blev flest diagnosticeret med colitis ulcerosa (58 %) [^src1]",
+      "type": "diagnosis-statistics",
+      "entities": [
+        "ulcerative-colitis"
+      ],
+      "page": 7
+    },
+    {
+      "text": "Halvdelen af nydiagnosticerede voksne blev diagnosticeret før de fyldte 40 år (median: 39 år) [^src1]",
+      "type": "demographic",
+      "entities": [
+        "danibd"
+      ],
+      "page": 7
+    },
+    {
+      "text": "Blandt tidligere diagnosticerede voksne er flest diagnosticeret med colitis ulcerosa (58 %), der er flest kvinder (54 %) og medianalderen er 49 år [^src1]",
+      "type": "demographic",
+      "entities": [
+        "danibd"
+      ],
+      "page": 7
+    },
+    {
+      "text": "Indikator 1a: Andelen af nydiagnosticerede voksne med IBD, der har fået foretaget relevant udredning har udviklet sig fra 79 % (77-81) i årsrapport 2023 til 79 % (77-81) i årsrapport 2024 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 1b: Andelen af nydiagnosticerede børn og unge med IBD, der har fået foretaget relevant udredning var 69 % (62-75) i årsrapport 2023 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 2: Undervisning af nydiagnosticerede var 13 % (11-14) i årsrapport 2023 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 3: Post-operativ Crohns opfølgning var 65 % (58-72) i årsrapport 2023 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 4: DEXA-scanning ved steroidbehandling var 37 % (34-40) i årsrapport 2023 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 5: Fæces calprotectin måling for BMSL steg fra 79 % i årsrapport 2023 til 83 % (82-84) i årsrapport 2024 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 6: Re-operation steg fra 11 % i årsrapport 2023 til 13 % (10-15) i årsrapport 2024 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 7: PSC opfølgning faldt fra 85 % i årsrapport 2023 til 81 % (77-85) i årsrapport 2024 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Colitis ulcerosa og Crohns sygdom er komplekse og multifaktorielle immun-medierede sygdomme [^src1]",
+      "type": "medical-condition",
+      "entities": [
+        "ulcerative-colitis",
+        "crohns-disease"
+      ],
+      "page": 8
+    },
+    {
+      "text": "I udredningen er der stærk anbefaling for, og deraf bred international enighed om, at diagnoserne stilles ved koloskopi [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "koloskopi"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Udviklingsmålet for Indikator 1a er, at mindst 80 % skal have foretaget en koloskopi i udredningsforløbet [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Region Hovedstaden opnåede 76 % (73-79) for Indikator 1a [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Region Sjælland opnåede 86 % (82-90) for Indikator 1a [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "region-sjaelland"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Region Syddanmark opnåede 80 % (75-83) for Indikator 1a [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "region-syddanmark"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Region Midtjylland opnåede 79 % (76-82) for Indikator 1a [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "region-midtjylland"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Region Nordjylland opnåede 81 % (75-85) for Indikator 1a [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Bispebjerg Abdominalcenter opnåede 77 % (71-83) for Indikator 1a [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "bispebjerg"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Hvidovre Gastroenheden opnåede 64 % (58-70) for Indikator 1a [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "hvidovre"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Rigshospitalet Mave-, Tarm- og Leversygd. opnåede 43 % (10-82) for Indikator 1a [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "rigshospitalet"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Aarhus Lever-, Mave- og Tarmsygd. opnåede 66 % (58-73) for Indikator 1a [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "aarhus-university-hospital"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Gødstrup Medicinsk Afdeling opnåede 65 % (56-73) for Indikator 1a [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "goedstrup-hospital"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Randers Medicinsk Afdeling opnåede 94 % (87-98) for Indikator 1a [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "randers-hospital"
+      ],
+      "page": 10
+    }
+  ],
+  "timeline": [
+    {
+      "date": "October 1, 2022",
+      "event": "DANIBD registry started, beginning systematic tracking of IBD patients in Danish hospitals",
+      "entities": [
+        "danibd"
+      ]
+    },
+    {
+      "date": "October 1, 2023 – September 30, 2024",
+      "event": "Annual reporting period for DANIBD with 34,350 patients in contact with hospitals and 751 children and young people with IBD",
+      "entities": [
+        "danibd"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer DANIBD's årsrapport for perioden 1. oktober 2023 til 30. september 2024, som dokumenterer karakteristika for børn, unge og voksne med inflammatorisk tarmsygdom (IBD) i Danmark. Rapporten indeholder detaljerede patientstatistikker stratificeret efter diagnose, køn, alder og kontakttype, samt en oversigt over syv kvalitetsindikatorer, der monitorerer vigtige aspekter af IBD-behandling såsom diagnostisk udredning, patientuddannelse, post-operativ opfølgning og medicinhåndtering. Resultaterne præsenteres på landsplan, regionalt og på afdelingsniveau, hvilket giver indsigt i variationen i behandlingskvalitet på tværs af Danmarks fem regioner og deres respektive hospitalsafdelinger."
+}

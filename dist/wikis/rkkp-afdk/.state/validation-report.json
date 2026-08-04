@@ -1,0 +1,91 @@
+{
+  "wikiSlug": "rkkp-afdk",
+  "links": {
+    "broken": [],
+    "orphaned": [],
+    "islands": [
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/broenderslev.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/frederikshavn.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/hjoerring.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/ikast-brande.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/jammerbugt.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/laesoe.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/lemvig.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/mariagerfjord.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/morsoe.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/rebild.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/ringkoebing-skjern.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/samsoe.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/struer.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/thisted.md",
+      "wikis/rkkp-afdk/entities/locations/danish-municipalities/vesthimmerlands.md",
+      "wikis/rkkp-afdk/entities/organizations/health-registries/danstroke.md",
+      "wikis/rkkp-afdk/entities/organizations/professional-societies/ekvlis.md",
+      "wikis/rkkp-afdk/entities/organizations/regions/klynge-syd-nordjylland.md",
+      "wikis/rkkp-afdk/entities/people/healthcare-professionals/chresten-gamborg-puggaard.md",
+      "wikis/rkkp-afdk/entities/people/healthcare-professionals/gregory-y-h-lip.md",
+      "wikis/rkkp-afdk/entities/people/healthcare-professionals/hindricks-et-al.md",
+      "wikis/rkkp-afdk/entities/people/healthcare-professionals/louisa-marguerite-christensen.md",
+      "wikis/rkkp-afdk/entities/people/healthcare-professionals/lunde-et-al.md",
+      "wikis/rkkp-afdk/entities/people/healthcare-professionals/mccabe.md",
+      "wikis/rkkp-afdk/entities/people/healthcare-professionals/palm-et-al.md",
+      "wikis/rkkp-afdk/entities/people/healthcare-professionals/risom.md",
+      "wikis/rkkp-afdk/entities/people/healthcare-professionals/woo-et-al.md",
+      "wikis/rkkp-afdk/entities/people/medical-professionals/henrik-rasmussen.md",
+      "wikis/rkkp-afdk/entities/people/medical-professionals/jeppe-launbjerg.md",
+      "wikis/rkkp-afdk/entities/people/medical-professionals/palle-mark-christensen.md",
+      "wikis/rkkp-afdk/entities/people/patient-representatives/inge-moelgaard.md",
+      "wikis/rkkp-afdk/entities/people/patient-representatives/robert-bedsted.md",
+      "wikis/rkkp-afdk/topics/assessment/assessment.md",
+      "wikis/rkkp-afdk/topics/clinical-context/clinical-context.md",
+      "wikis/rkkp-afdk/topics/clinical-epidemiology/clinical-epidemiology.md",
+      "wikis/rkkp-afdk/topics/clinical-measures/thyroid-stimulating-hormone.md",
+      "wikis/rkkp-afdk/topics/clinical-methodology/clinical-methodology.md",
+      "wikis/rkkp-afdk/topics/clinical-outcome/intracranial-hemorrhage.md",
+      "wikis/rkkp-afdk/topics/clinical-outcome/ischemic-stroke.md",
+      "wikis/rkkp-afdk/topics/clinical-outcome/serious-bleeding.md",
+      "wikis/rkkp-afdk/topics/clinical-treatment/struktureret-patientuddannelse.md",
+      "wikis/rkkp-afdk/topics/exclusion/exclusion.md",
+      "wikis/rkkp-afdk/topics/medications/eliquis.md",
+      "wikis/rkkp-afdk/topics/medications/lixiana.md",
+      "wikis/rkkp-afdk/topics/medications/pradaxa.md",
+      "wikis/rkkp-afdk/topics/medications/xarelto.md",
+      "wikis/rkkp-afdk/topics/operational/health-clusters.md",
+      "wikis/rkkp-afdk/topics/operational/sundhedsklynger.md",
+      "wikis/rkkp-afdk/topics/population/population.md",
+      "wikis/rkkp-afdk/topics/quality-indicator/indikator-3-tsh-maaling.md",
+      "wikis/rkkp-afdk/topics/quality-indicator/indikator-4a-antikoagulation.md",
+      "wikis/rkkp-afdk/topics/standard/standard.md"
+    ],
+    "totalLinks": 5631,
+    "totalPages": 418
+  },
+  "citations": {
+    "invalid": [
+      {
+        "page": "wikis/rkkp-afdk/entities/people/healthcare-professionals/dorthe-svenstrup.md",
+        "citation": "[^src2]"
+      },
+      {
+        "page": "wikis/rkkp-afdk/entities/people/medical-professionals/ina-qvist.md",
+        "citation": "[^src2]"
+      }
+    ],
+    "missingSource": [],
+    "missingFrontmatterSource": [
+      {
+        "page": "wikis/rkkp-afdk/entities/people/healthcare-professionals/dorthe-svenstrup.md",
+        "citation": "[^src2]"
+      },
+      {
+        "page": "wikis/rkkp-afdk/entities/people/medical-professionals/ina-qvist.md",
+        "citation": "[^src2]"
+      }
+    ],
+    "totalCitations": 1231
+  },
+  "schema": {
+    "invalid": [],
+    "totalPages": 418
+  }
+}

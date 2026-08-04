@@ -1,0 +1,1048 @@
+{
+  "entities": [
+    {
+      "name": "Lone Larsen",
+      "type": "person",
+      "slug": "lone-larsen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Formand (Chair) of the DANIBD steering committee, serving as Overlæge, ph.d., and klinisk lektor at Region Nordjylland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Formand Lone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Jens Kjeldsen",
+      "type": "person",
+      "slug": "jens-kjeldsen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Ledende overlæge, professor, ph.d. at Region Syddanmark.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Jens Kjeldsen, Ledende overlæge, professor, ph.d. Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Niels Qvist",
+      "type": "person",
+      "slug": "niels-qvist",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Professor, dr. med, overlæge at Region Syddanmark.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Niels Qvist, Professor, dr. med, overlæge Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Inge Nordgaard Lassen",
+      "type": "person",
+      "slug": "inge-nordgaard-lassen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Cheflæge, dr.med. at Region Hovedstaden.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Inge Nordgaard Lassen, Cheflæge, dr.med. Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Ida Vind",
+      "type": "person",
+      "slug": "ida-vind",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Overlæge, ph.d., klinisk lektor at Region Hovedstaden.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Ida Vind, Overlæge, ph.d., klinisk lektor Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Johan Burisch",
+      "type": "person",
+      "slug": "johan-burisch",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Afdelingslæge, dr.med. ph.d. at Region Hovedstaden.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Johan Burisch, Afdelingslæge, dr.med. ph.d. Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Else Kjær Mikkelsen",
+      "type": "person",
+      "slug": "else-kjaer-mikkelsen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Specialeansvarlig sygeplejerske at Region Midtjylland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Else Kjær Mikkelsen, Specialeansvarlig sygeplejerske Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Torben Knudsen",
+      "type": "person",
+      "slug": "torben-knudsen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Klinisk professor, ledende overlæge dr.med., ph.d. at Region Syddanmark.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Torben Knudsen, Klinisk professor, ledende overlæge dr.med., ph.d. Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Henning Glerup",
+      "type": "person",
+      "slug": "henning-glerup",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Specialeansvarlig overlæge at Region Midtjylland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Henning Glerup, Specialeansvarlig overlæge Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Ole Thorlacius-Ussing",
+      "type": "person",
+      "slug": "ole-thorlacius-ussing",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Overlæge, dr.med. at Region Nordjylland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Ole Thorlacius-Ussing, Overlæge, dr.med. Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Marianne Kajbæk Vester-Andersen",
+      "type": "person",
+      "slug": "marianne-kajbaek-vester-andersen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Ledende overlæge, ph.d., klinisk lektor at Region Sjælland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Marianne Kajbæk Vester-Andersen, Ledende overlæge, ph.d., klinisk lektor Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Rasmus Gaardskær Nielsen",
+      "type": "person",
+      "slug": "rasmus-gaardskaer-nielsen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Overlæge, ph.d., klinisk lektor at Region Syddanmark.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Rasmus Gaardskær Nielsen, Overlæge, ph.d., klinisk lektor Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Mohamed Attauabi",
+      "type": "person",
+      "slug": "mohamed-attauabi",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Reservelæge at Region Hovedstaden.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Mohamed Attauabi, Reservelæge Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Jannie Jensen",
+      "type": "person",
+      "slug": "jannie-jensen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Patientrepræsentant (patient representative).",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Jannie Jensen Patientrepræsentant"
+        }
+      ]
+    },
+    {
+      "name": "Anne Mette Falstie-Jensen",
+      "type": "person",
+      "slug": "anne-mette-falstie-jensen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Epidemiolog, ph.d. at RKKP.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Anne Mette Falstie-Jensen, Epidemiolog, ph.d. RKKP"
+        }
+      ]
+    },
+    {
+      "name": "Esra Öztoprak",
+      "type": "person",
+      "slug": "esra-oeztoprak",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Kvalitetskonsulent og repræsentant for den dataansvarlige myndighed at RKKP.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Esra Öztoprak, Kvalitetskonsulent og repræsentant for den dataansvarlige myndighed RKKP og repræsentant for den dataansvarlige myndighed"
+        }
+      ]
+    },
+    {
+      "name": "Jakob Riis",
+      "type": "person",
+      "slug": "jakob-riis",
+      "folder": "entities/people/steering-committee",
+      "significance": "Steering committee member serving as Datamanager at RKKP.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Jakob Riis, Datamanager RKKP"
+        }
+      ]
+    },
+    {
+      "name": "DANIBD",
+      "type": "organization",
+      "slug": "danibd",
+      "folder": "entities/organizations/registries",
+      "significance": "Danish inflammatory bowel disease registry with a steering committee overseeing quality indicators and patient data collection across Danish regions.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Styregruppens medlemmer (Steering committee members section heading)"
+        },
+        {
+          "page": 22,
+          "context": "DANIBD 22 (page header)"
+        },
+        {
+          "page": 23,
+          "context": "DANIBD 23 (page header)"
+        },
+        {
+          "page": 24,
+          "context": "DANIBD 24 (page header)"
+        },
+        {
+          "page": 25,
+          "context": "DANIBD 25 (page header)"
+        }
+      ]
+    },
+    {
+      "name": "RKKP",
+      "type": "organization",
+      "slug": "rkkp",
+      "folder": "entities/organizations/registries",
+      "significance": "Danish Clinical Quality Program (Dansk Kvalitets- og Akkrediteringsprogram) providing epidemiological and data management support to DANIBD.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Anne Mette Falstie-Jensen, Epidemiolog, ph.d. RKKP"
+        },
+        {
+          "page": 21,
+          "context": "Esra Öztoprak, Kvalitetskonsulent og repræsentant for den dataansvarlige myndighed RKKP"
+        },
+        {
+          "page": 21,
+          "context": "Jakob Riis, Datamanager RKKP"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Danish region represented on the DANIBD steering committee with patient data from 3,572 patients treated during the reporting period.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Lone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland"
+        },
+        {
+          "page": 21,
+          "context": "Ole Thorlacius-Ussing, Overlæge, dr.med. Region Nordjylland"
+        },
+        {
+          "page": 22,
+          "context": "Behandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Danish region represented on the DANIBD steering committee with patient data from 7,181 patients treated during the reporting period.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Jens Kjeldsen, Ledende overlæge, professor, ph.d. Region Syddanmark"
+        },
+        {
+          "page": 21,
+          "context": "Niels Qvist, Professor, dr. med, overlæge Region Syddanmark"
+        },
+        {
+          "page": 21,
+          "context": "Torben Knudsen, Klinisk professor, ledende overlæge dr.med., ph.d. Region Syddanmark"
+        },
+        {
+          "page": 21,
+          "context": "Rasmus Gaardskær Nielsen, Overlæge, ph.d., klinisk lektor Region Syddanmark"
+        },
+        {
+          "page": 22,
+          "context": "Behandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Danish region represented on the DANIBD steering committee with patient data from 11,211 patients treated during the reporting period, the largest patient population.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Inge Nordgaard Lassen, Cheflæge, dr.med. Region Hovedstaden"
+        },
+        {
+          "page": 21,
+          "context": "Ida Vind, Overlæge, ph.d., klinisk lektor Region Hovedstaden"
+        },
+        {
+          "page": 21,
+          "context": "Johan Burisch, Afdelingslæge, dr.med. ph.d. Region Hovedstaden"
+        },
+        {
+          "page": 21,
+          "context": "Mohamed Attauabi, Reservelæge Region Hovedstaden"
+        },
+        {
+          "page": 22,
+          "context": "Behandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Danish region represented on the DANIBD steering committee with patient data from 7,520 patients treated during the reporting period.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Else Kjær Mikkelsen, Specialeansvarlig sygeplejerske Region Midtjylland"
+        },
+        {
+          "page": 21,
+          "context": "Henning Glerup, Specialeansvarlig overlæge Region Midtjylland"
+        },
+        {
+          "page": 22,
+          "context": "Behandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Danish region represented on the DANIBD steering committee with patient data from 3,897 patients treated during the reporting period.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Marianne Kajbæk Vester-Andersen, Ledende overlæge, ph.d., klinisk lektor Region Sjælland"
+        },
+        {
+          "page": 22,
+          "context": "Behandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Crohns sygdom",
+      "type": "medical-condition",
+      "slug": "crohns-sygdom",
+      "folder": "topics/medical-conditions/inflammatory-bowel-disease",
+      "significance": "One of the primary diagnoses tracked in DANIBD, representing 40-45% of patients across Danish regions during the reporting period.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "DK50* Crohns sygdom"
+        },
+        {
+          "page": 24,
+          "context": "DK50* Crohns sygdom 247 (69) 6.184 (61)"
+        }
+      ]
+    },
+    {
+      "name": "Ulcerøs colitis",
+      "type": "medical-condition",
+      "slug": "ulcerosus-colitis",
+      "folder": "topics/medical-conditions/inflammatory-bowel-disease",
+      "significance": "One of the primary diagnoses tracked in DANIBD, representing 55-60% of patients across Danish regions during the reporting period.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "DK51* Ulcerøs colitis"
+        },
+        {
+          "page": 24,
+          "context": "DK51* Ulcerøs colitis 113 (31) 3.931 (39)"
+        }
+      ]
+    },
+    {
+      "name": "Primær skleroserende kolangitis",
+      "type": "medical-condition",
+      "slug": "primaer-skleroserende-kolangitis",
+      "folder": "topics/medical-conditions/inflammatory-bowel-disease",
+      "significance": "A comorbid condition tracked in DANIBD affecting approximately 1% of patients across regions.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "DK830F Primær skleroserende kolangitis"
+        },
+        {
+          "page": 24,
+          "context": "DK830F Primær skleroserende kolangitis 28 (0)"
+        }
+      ]
+    },
+    {
+      "name": "Korttarmssyndrom",
+      "type": "medical-condition",
+      "slug": "korttarmssyndrom",
+      "folder": "topics/medical-conditions/inflammatory-bowel-disease",
+      "significance": "A rare complication tracked in DANIBD affecting less than 1% of patients.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "DK912B Korttarmssyndrom"
+        },
+        {
+          "page": 24,
+          "context": "DK912B Korttarmssyndrom 20 (0)"
+        }
+      ]
+    },
+    {
+      "name": "Infliximab",
+      "type": "pharmaceutical",
+      "slug": "infliximab",
+      "folder": "topics/pharmaceuticals/biologic-treatments",
+      "significance": "The most commonly used biologic treatment (BMSL) in DANIBD, accounting for 44% of adult treatments and 66% of pediatric treatments during the reporting period.",
+      "mentions": [
+        {
+          "page": 25,
+          "context": "BOHJ18A1 - Behandling med infliximab 1.351 (66) 24.293 (44)"
+        }
+      ]
+    },
+    {
+      "name": "Adalimumab",
+      "type": "pharmaceutical",
+      "slug": "adalimumab",
+      "folder": "topics/pharmaceuticals/biologic-treatments",
+      "significance": "The second most commonly used biologic treatment (BMSL) in DANIBD, accounting for 21% of adult treatments and 14% of pediatric treatments.",
+      "mentions": [
+        {
+          "page": 25,
+          "context": "BOHJ18A3 - Behandling med adalimumab 284 (14) 11.626 (21)"
+        }
+      ]
+    },
+    {
+      "name": "Golimumab",
+      "type": "pharmaceutical",
+      "slug": "golimumab",
+      "folder": "topics/pharmaceuticals/biologic-treatments",
+      "significance": "A biologic treatment (BMSL) used in DANIBD, accounting for 2% of adult treatments with minimal pediatric use.",
+      "mentions": [
+        {
+          "page": 25,
+          "context": "BOHJ18A4 - Behandling med golimumab # (0) 1.126 (2)"
+        }
+      ]
+    },
+    {
+      "name": "Ustekinumab",
+      "type": "pharmaceutical",
+      "slug": "ustekinumab",
+      "folder": "topics/pharmaceuticals/biologic-treatments",
+      "significance": "A biologic treatment (BMSL) used in DANIBD, accounting for 14% of adult treatments and 3% of pediatric treatments.",
+      "mentions": [
+        {
+          "page": 25,
+          "context": "BOHJ18B3 - Behandling med ustekinumab 69 (3) 7.589 (14)"
+        }
+      ]
+    },
+    {
+      "name": "Vedolizumab",
+      "type": "pharmaceutical",
+      "slug": "vedolizumab",
+      "folder": "topics/pharmaceuticals/biologic-treatments",
+      "significance": "A biologic treatment (BMSL) used in DANIBD, accounting for 19% of adult treatments and 16% of pediatric treatments.",
+      "mentions": [
+        {
+          "page": 25,
+          "context": "BOHJ19H4 - Behandling med vedolizumab 317 (16) 10.612 (19)"
+        }
+      ]
+    },
+    {
+      "name": "Tofacitinib",
+      "type": "pharmaceutical",
+      "slug": "tofacitinib",
+      "folder": "topics/pharmaceuticals/biologic-treatments",
+      "significance": "A biologic treatment (BMSL) used in DANIBD, accounting for 1% of both adult and pediatric treatments.",
+      "mentions": [
+        {
+          "page": 25,
+          "context": "BOHJ28D - Behandling med tofacitinib 20 (1) 420 (1)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "lone-larsen",
+      "predicate": "is-chair-of",
+      "object": "danibd",
+      "evidence": "Formand Lone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland",
+      "page": 21
+    },
+    {
+      "subject": "jens-kjeldsen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Øvrige styregruppemedlemmer Jens Kjeldsen, Ledende overlæge, professor, ph.d. Region Syddanmark",
+      "page": 21
+    },
+    {
+      "subject": "niels-qvist",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Niels Qvist, Professor, dr. med, overlæge Region Syddanmark",
+      "page": 21
+    },
+    {
+      "subject": "inge-nordgaard-lassen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Inge Nordgaard Lassen, Cheflæge, dr.med. Region Hovedstaden",
+      "page": 21
+    },
+    {
+      "subject": "ida-vind",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Ida Vind, Overlæge, ph.d., klinisk lektor Region Hovedstaden",
+      "page": 21
+    },
+    {
+      "subject": "johan-burisch",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Johan Burisch, Afdelingslæge, dr.med. ph.d. Region Hovedstaden",
+      "page": 21
+    },
+    {
+      "subject": "else-kjaer-mikkelsen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Else Kjær Mikkelsen, Specialeansvarlig sygeplejerske Region Midtjylland",
+      "page": 21
+    },
+    {
+      "subject": "torben-knudsen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Torben Knudsen, Klinisk professor, ledende overlæge dr.med., ph.d. Region Syddanmark",
+      "page": 21
+    },
+    {
+      "subject": "henning-glerup",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Henning Glerup, Specialeansvarlig overlæge Region Midtjylland",
+      "page": 21
+    },
+    {
+      "subject": "ole-thorlacius-ussing",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Ole Thorlacius-Ussing, Overlæge, dr.med. Region Nordjylland",
+      "page": 21
+    },
+    {
+      "subject": "marianne-kajbaek-vester-andersen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Marianne Kajbæk Vester-Andersen, Ledende overlæge, ph.d., klinisk lektor Region Sjælland",
+      "page": 21
+    },
+    {
+      "subject": "rasmus-gaardskaer-nielsen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Rasmus Gaardskær Nielsen, Overlæge, ph.d., klinisk lektor Region Syddanmark",
+      "page": 21
+    },
+    {
+      "subject": "mohamed-attauabi",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Mohamed Attauabi, Reservelæge Region Hovedstaden",
+      "page": 21
+    },
+    {
+      "subject": "jannie-jensen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Jannie Jensen Patientrepræsentant",
+      "page": 21
+    },
+    {
+      "subject": "anne-mette-falstie-jensen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Anne Mette Falstie-Jensen, Epidemiolog, ph.d. RKKP",
+      "page": 21
+    },
+    {
+      "subject": "esra-oeztoprak",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Esra Öztoprak, Kvalitetskonsulent og repræsentant for den dataansvarlige myndighed RKKP",
+      "page": 21
+    },
+    {
+      "subject": "jakob-riis",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Jakob Riis, Datamanager RKKP",
+      "page": 21
+    },
+    {
+      "subject": "danibd",
+      "predicate": "receives-support-from",
+      "object": "rkkp",
+      "evidence": "Anne Mette Falstie-Jensen, Epidemiolog, ph.d. RKKP; Esra Öztoprak, Kvalitetskonsulent og repræsentant for den dataansvarlige myndighed RKKP; Jakob Riis, Datamanager RKKP",
+      "page": 21
+    },
+    {
+      "subject": "lone-larsen",
+      "predicate": "works-in",
+      "object": "region-nordjylland",
+      "evidence": "Lone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland",
+      "page": 21
+    },
+    {
+      "subject": "jens-kjeldsen",
+      "predicate": "works-in",
+      "object": "region-syddanmark",
+      "evidence": "Jens Kjeldsen, Ledende overlæge, professor, ph.d. Region Syddanmark",
+      "page": 21
+    },
+    {
+      "subject": "niels-qvist",
+      "predicate": "works-in",
+      "object": "region-syddanmark",
+      "evidence": "Niels Qvist, Professor, dr. med, overlæge Region Syddanmark",
+      "page": 21
+    },
+    {
+      "subject": "inge-nordgaard-lassen",
+      "predicate": "works-in",
+      "object": "region-hovedstaden",
+      "evidence": "Inge Nordgaard Lassen, Cheflæge, dr.med. Region Hovedstaden",
+      "page": 21
+    },
+    {
+      "subject": "ida-vind",
+      "predicate": "works-in",
+      "object": "region-hovedstaden",
+      "evidence": "Ida Vind, Overlæge, ph.d., klinisk lektor Region Hovedstaden",
+      "page": 21
+    },
+    {
+      "subject": "johan-burisch",
+      "predicate": "works-in",
+      "object": "region-hovedstaden",
+      "evidence": "Johan Burisch, Afdelingslæge, dr.med. ph.d. Region Hovedstaden",
+      "page": 21
+    },
+    {
+      "subject": "else-kjaer-mikkelsen",
+      "predicate": "works-in",
+      "object": "region-midtjylland",
+      "evidence": "Else Kjær Mikkelsen, Specialeansvarlig sygeplejerske Region Midtjylland",
+      "page": 21
+    },
+    {
+      "subject": "torben-knudsen",
+      "predicate": "works-in",
+      "object": "region-syddanmark",
+      "evidence": "Torben Knudsen, Klinisk professor, ledende overlæge dr.med., ph.d. Region Syddanmark",
+      "page": 21
+    },
+    {
+      "subject": "henning-glerup",
+      "predicate": "works-in",
+      "object": "region-midtjylland",
+      "evidence": "Henning Glerup, Specialeansvarlig overlæge Region Midtjylland",
+      "page": 21
+    },
+    {
+      "subject": "ole-thorlacius-ussing",
+      "predicate": "works-in",
+      "object": "region-nordjylland",
+      "evidence": "Ole Thorlacius-Ussing, Overlæge, dr.med. Region Nordjylland",
+      "page": 21
+    },
+    {
+      "subject": "marianne-kajbaek-vester-andersen",
+      "predicate": "works-in",
+      "object": "region-sjaelland",
+      "evidence": "Marianne Kajbæk Vester-Andersen, Ledende overlæge, ph.d., klinisk lektor Region Sjælland",
+      "page": 21
+    },
+    {
+      "subject": "rasmus-gaardskaer-nielsen",
+      "predicate": "works-in",
+      "object": "region-syddanmark",
+      "evidence": "Rasmus Gaardskær Nielsen, Overlæge, ph.d., klinisk lektor Region Syddanmark",
+      "page": 21
+    },
+    {
+      "subject": "mohamed-attauabi",
+      "predicate": "works-in",
+      "object": "region-hovedstaden",
+      "evidence": "Mohamed Attauabi, Reservelæge Region Hovedstaden",
+      "page": 21
+    }
+  ],
+  "claims": [
+    {
+      "text": "Patienter i alt i Region Hovedstaden: 11.211 (100) [^src1]",
+      "type": "patient-statistics",
+      "entities": [
+        "danibd",
+        "region-hovedstaden"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Patienter i alt i Region Sjælland: 3.897 (100) [^src1]",
+      "type": "patient-statistics",
+      "entities": [
+        "danibd",
+        "region-sjaelland"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Patienter i alt i Region Syddanmark: 7.181 (100) [^src1]",
+      "type": "patient-statistics",
+      "entities": [
+        "danibd",
+        "region-syddanmark"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Patienter i alt i Region Midtjylland: 7.520 (100) [^src1]",
+      "type": "patient-statistics",
+      "entities": [
+        "danibd",
+        "region-midtjylland"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Patienter i alt i Region Nordjylland: 3.572 (100) [^src1]",
+      "type": "patient-statistics",
+      "entities": [
+        "danibd",
+        "region-nordjylland"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Crohns sygdom i Region Hovedstaden: 4.521 (40) [^src1]",
+      "type": "diagnosis-statistics",
+      "entities": [
+        "crohns-sygdom",
+        "region-hovedstaden"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Ulcerøs colitis i Region Hovedstaden: 6.534 (58) [^src1]",
+      "type": "diagnosis-statistics",
+      "entities": [
+        "ulcerosus-colitis",
+        "region-hovedstaden"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Gennemsnitlig alder af patienter i Region Hovedstaden: 47 år (Min;Max: 0;100) [^src1]",
+      "type": "patient-demographics",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Gennemsnitlig alder af patienter i Region Sjælland: 50 år (Min;Max: 0;98) [^src1]",
+      "type": "patient-demographics",
+      "entities": [
+        "region-sjaelland"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Gennemsnitlig alder af patienter i Region Syddanmark: 49 år (Min;Max: 0;96) [^src1]",
+      "type": "patient-demographics",
+      "entities": [
+        "region-syddanmark"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Gennemsnitlig alder af patienter i Region Midtjylland: 47 år (Min;Max: 2;99) [^src1]",
+      "type": "patient-demographics",
+      "entities": [
+        "region-midtjylland"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Gennemsnitlig alder af patienter i Region Nordjylland: 50 år (Min;Max: 7;95) [^src1]",
+      "type": "patient-demographics",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Kvinder blandt patienter i Region Hovedstaden: 6.007 (54) [^src1]",
+      "type": "patient-demographics",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Mænd blandt patienter i Region Hovedstaden: 5.204 (46) [^src1]",
+      "type": "patient-demographics",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Gennemsnitligt antal kontakter pr. patient i Region Hovedstaden: 11 (Min;Max: 1;51) [^src1]",
+      "type": "patient-contact-statistics",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Fysisk fremmøde kontakter i Region Hovedstaden: 37.039 (64) [^src1]",
+      "type": "contact-type-statistics",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Virtuelle kontakter i Region Hovedstaden: 20.516 (36) [^src1]",
+      "type": "contact-type-statistics",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Patienter i behandling med BMSL blandt børn og unge: 360 (100) [^src2]",
+      "type": "treatment-statistics",
+      "entities": [
+        "danibd"
+      ],
+      "page": 24
+    },
+    {
+      "text": "Patienter i behandling med BMSL blandt voksne: 10.163 (100) [^src2]",
+      "type": "treatment-statistics",
+      "entities": [
+        "danibd"
+      ],
+      "page": 24
+    },
+    {
+      "text": "Børn og unge med Crohns sygdom i BMSL-behandling: 247 (69) [^src2]",
+      "type": "diagnosis-treatment-statistics",
+      "entities": [
+        "crohns-sygdom"
+      ],
+      "page": 24
+    },
+    {
+      "text": "Voksne med Crohns sygdom i BMSL-behandling: 6.184 (61) [^src2]",
+      "type": "diagnosis-treatment-statistics",
+      "entities": [
+        "crohns-sygdom"
+      ],
+      "page": 24
+    },
+    {
+      "text": "Børn og unge med Ulcerøs colitis i BMSL-behandling: 113 (31) [^src2]",
+      "type": "diagnosis-treatment-statistics",
+      "entities": [
+        "ulcerosus-colitis"
+      ],
+      "page": 24
+    },
+    {
+      "text": "Voksne med Ulcerøs colitis i BMSL-behandling: 3.931 (39) [^src2]",
+      "type": "diagnosis-treatment-statistics",
+      "entities": [
+        "ulcerosus-colitis"
+      ],
+      "page": 24
+    },
+    {
+      "text": "Behandlinger med infliximab blandt børn og unge: 1.351 (66) [^src3]",
+      "type": "pharmaceutical-treatment-statistics",
+      "entities": [
+        "infliximab"
+      ],
+      "page": 25
+    },
+    {
+      "text": "Behandlinger med infliximab blandt voksne: 24.293 (44) [^src3]",
+      "type": "pharmaceutical-treatment-statistics",
+      "entities": [
+        "infliximab"
+      ],
+      "page": 25
+    },
+    {
+      "text": "Behandlinger med adalimumab blandt børn og unge: 284 (14) [^src3]",
+      "type": "pharmaceutical-treatment-statistics",
+      "entities": [
+        "adalimumab"
+      ],
+      "page": 25
+    },
+    {
+      "text": "Behandlinger med adalimumab blandt voksne: 11.626 (21) [^src3]",
+      "type": "pharmaceutical-treatment-statistics",
+      "entities": [
+        "adalimumab"
+      ],
+      "page": 25
+    },
+    {
+      "text": "Behandlinger med vedolizumab blandt børn og unge: 317 (16) [^src3]",
+      "type": "pharmaceutical-treatment-statistics",
+      "entities": [
+        "vedolizumab"
+      ],
+      "page": 25
+    },
+    {
+      "text": "Behandlinger med vedolizumab blandt voksne: 10.612 (19) [^src3]",
+      "type": "pharmaceutical-treatment-statistics",
+      "entities": [
+        "vedolizumab"
+      ],
+      "page": 25
+    },
+    {
+      "text": "Behandlinger med ustekinumab blandt børn og unge: 69 (3) [^src3]",
+      "type": "pharmaceutical-treatment-statistics",
+      "entities": [
+        "ustekinumab"
+      ],
+      "page": 25
+    },
+    {
+      "text": "Behandlinger med ustekinumab blandt voksne: 7.589 (14) [^src3]",
+      "type": "pharmaceutical-treatment-statistics",
+      "entities": [
+        "ustekinumab"
+      ],
+      "page": 25
+    },
+    {
+      "text": "Behandlinger med golimumab blandt voksne: 1.126 (2) [^src3]",
+      "type": "pharmaceutical-treatment-statistics",
+      "entities": [
+        "golimumab"
+      ],
+      "page": 25
+    },
+    {
+      "text": "Behandlinger med tofacitinib blandt børn og unge: 20 (1) [^src3]",
+      "type": "pharmaceutical-treatment-statistics",
+      "entities": [
+        "tofacitinib"
+      ],
+      "page": 25
+    },
+    {
+      "text": "Behandlinger med tofacitinib blandt voksne: 420 (1) [^src3]",
+      "type": "pharmaceutical-treatment-statistics",
+      "entities": [
+        "tofacitinib"
+      ],
+      "page": 25
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1/10/2022 - 30/09/2023",
+      "event": "Patientkarakteristika og behandlingsdata indsamlet for DANIBD-registeret",
+      "entities": [
+        "danibd"
+      ]
+    }
+  ],
+  "context": "Denne sektion af DANIBD-rapporten (2023) dokumenterer styregruppens medlemmer og præsenterer detaljerede appendikstabeller med patientkarakteristika, behandlingsdata og diagnostiske fordelinger på tværs af fem danske regioner. Styregruppens medlemmer repræsenterer medicin, kirurgi, sygepleje og patientrepræsentation fra alle danske regioner samt epidemiologisk og datamanagementsupport fra RKKP. Appendikstabellerne viser, at der i perioden 1. oktober 2022 til 30. september 2023 blev behandlet i alt 33.381 patienter med inflammatorisk tarmsygdom (IBD) på tværs af regionerne, med Region Hovedstaden som den største behandlende region. Biolog-behandlinger (BMSL) blev givet til 10.523 patienter, med infliximab som den mest brugte behandling."
+}

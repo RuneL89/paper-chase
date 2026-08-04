@@ -1,0 +1,1016 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "This is the Danish atrial fibrillation database that tracks clinical quality indicators and patient outcomes across Danish regions and hospitals during the reporting period.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 7,
+          "context": "I databasen er flere prævalente indikatorer, som opgøres på bopælskommuner"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-programs",
+      "significance": "This is the regional clinical quality development program (RKKP) that manages the atrial fibrillation database and publishes quality indicators for Danish healthcare.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Denmark is the geographic scope of the atrial fibrillation database and the reporting unit for national-level quality indicators.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Danmark Ja 10.010 / 10.934 0 (0) 91,5 (91,0-92,1)"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Hovedstaden (Capital Region) is one of five Danish regions reporting atrial fibrillation quality indicators in the database.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Hovedstaden Ja 2.445 / 2.716 0 (0) 90,0 (88,8-91,1)"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Sjælland (Zealand Region) is one of five Danish regions reporting atrial fibrillation quality indicators.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Sjælland Ja 1.688 / 1.863 0 (0) 90,6 (89,2-91,9)"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Syddanmark (Southern Denmark Region) is one of five Danish regions reporting atrial fibrillation quality indicators.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Syddanmark Ja 2.379 / 2.629 0 (0) 90,5 (89,3-91,6)"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Midtjylland (Central Jutland Region) is one of five Danish regions reporting atrial fibrillation quality indicators.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Midtjylland Ja 2.299 / 2.462 0 (0) 93,4 (92,3-94,3)"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Nordjylland (Northern Jutland Region) is one of five Danish regions reporting atrial fibrillation quality indicators.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Nordjylland Ja 1.199 / 1.264 0 (0) 94,9 (93,5-96,0)"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in the Capital Region reporting atrial fibrillation quality indicators; did not meet the standard for indicator 1 in the reporting period.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Amager og Hvidovre Hospital Nej 394 / 444 0 (0) 88,7 (85,4-91,5)"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospitaler",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in the Capital Region reporting atrial fibrillation quality indicators; met the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Bispebjerg og Frederiksberg Hospitaler Ja 373 / 413 0 (0) 90,3 (87,0-93,0)"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in the Capital Region reporting atrial fibrillation quality indicators; met the standard for indicator 1 with 95.5% compliance.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Bornholms Hospital Ja 107 / 112 0 (0) 95,5 (89,9-98,5)"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in the Capital Region reporting atrial fibrillation quality indicators; did not meet the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Herlev og Gentofte Hospital Nej 753 / 841 0 (0) 89,5 (87,3-91,5)"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in the Capital Region reporting atrial fibrillation quality indicators; met the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Hospitalerne i Nordsjælland Ja 520 / 565 0 (0) 92,0 (89,5-94,1)"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A major hospital in the Capital Region reporting atrial fibrillation quality indicators; did not meet the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Rigshospitalet Nej 298 / 341 0 (0) 87,4 (83,4-90,7)"
+        }
+      ]
+    },
+    {
+      "name": "Garantiklinikken",
+      "type": "organization",
+      "slug": "garantiklinikken",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A clinic in Sjælland region reporting atrial fibrillation quality indicators; met the standard for indicator 1 with 98.0% compliance.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Garantiklinikken Ja 144 / 147 0 (0) 98,0 (94,2-99,6)"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk",
+      "type": "organization",
+      "slug": "holbaek",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Sjælland region reporting atrial fibrillation quality indicators; met the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Holbæk Ja 331 / 365 0 (0) 90,7 (87,2-93,5)"
+        }
+      ]
+    },
+    {
+      "name": "Nykøbing Falster",
+      "type": "organization",
+      "slug": "nykoebing-falster",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Sjælland region reporting atrial fibrillation quality indicators; did not meet the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Nykøbing Falster Nej 279 / 332 0 (0) 84,0 (79,6-87,8)"
+        }
+      ]
+    },
+    {
+      "name": "Næstved",
+      "type": "organization",
+      "slug": "naestved",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Sjælland region reporting atrial fibrillation quality indicators; met the standard for indicator 1 with 100% compliance.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Næstved Ja 18 / 18 0 (0) 100,0 (81,5-100,0)"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital Køge",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital-koege",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A university hospital in Sjælland region reporting atrial fibrillation quality indicators; met the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Sjællands Universitetshospital Køge Ja 176 / 189 0 (0) 93,1 (88,5-96,3)"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital Roskilde",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital-roskilde",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A university hospital in Sjælland region reporting atrial fibrillation quality indicators; met the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Sjællands Universitetshospital Roskilde Ja 421 / 448 0 (0) 94,0 (91,4-96,0)"
+        }
+      ]
+    },
+    {
+      "name": "Slagelse",
+      "type": "organization",
+      "slug": "slagelse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Sjælland region reporting atrial fibrillation quality indicators; did not meet the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Slagelse Nej 319 / 364 0 (0) 87,6 (83,8-90,8)"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Syddanmark region reporting atrial fibrillation quality indicators; did not meet the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Esbjerg Sygehus Grindsted Sygehus Nej 328 / 386 0 (0) 85,0 (81,0-88,4)"
+        }
+      ]
+    },
+    {
+      "name": "Friklinikken Region Syddanmark Grindsted",
+      "type": "organization",
+      "slug": "friklinikken-region-syddanmark-grindsted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A clinic in Syddanmark region reporting atrial fibrillation quality indicators; met the standard for indicator 1 with 98.1% compliance.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Friklinikken Region Syddanmark Grindsted Ja 52 / 53 0 (0) 98,1 (89,9-100,0)"
+        }
+      ]
+    },
+    {
+      "name": "Kolding Sygehus",
+      "type": "organization",
+      "slug": "kolding-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Syddanmark region reporting atrial fibrillation quality indicators; met the standard for indicator 1 with 96.5% compliance.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Kolding Sygehus* Ja 83 / 86 0 (0) 96,5 (90,1-99,3)"
+        }
+      ]
+    },
+    {
+      "name": "OUH Odense Universitetshospital",
+      "type": "organization",
+      "slug": "ouh-odense-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A university hospital in Syddanmark region reporting atrial fibrillation quality indicators; met the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "OUH Odense Universitetshospital Ja 931 / 1.033 0 (0) 90,1 (88,1-91,9)"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Syddanmark region reporting atrial fibrillation quality indicators; did not meet the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sygehus Sønderjylland Nej 488 / 543 0 (0) 89,9 (87,0-92,3)"
+        }
+      ]
+    },
+    {
+      "name": "Vejle Sygehus",
+      "type": "organization",
+      "slug": "vejle-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Syddanmark region reporting atrial fibrillation quality indicators; met the standard for indicator 1 with 94.1% compliance.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Vejle Sygehus* Ja 497 / 528 0 (0) 94,1 (91,8-96,0)"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A university hospital in Midtjylland region reporting atrial fibrillation quality indicators; met the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Aarhus Universitetshospital Ja 496 / 547 0 (0) 90,7 (87,9-93,0)"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital unit in Midtjylland region reporting atrial fibrillation quality indicators; met the standard for indicator 1 with 95.8% compliance.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Hospitalsenhed Midt Ja 609 / 636 0 (0) 95,8 (93,9-97,2)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A regional hospital in Midtjylland region reporting atrial fibrillation quality indicators; met the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Regionshospitalet Gødstrup Ja 463 / 501 0 (0) 92,4 (89,7-94,6)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A regional hospital in Midtjylland region reporting atrial fibrillation quality indicators; met the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Regionshospitalet Horsens Ja 356 / 384 0 (0) 92,7 (89,6-95,1)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A regional hospital in Midtjylland region reporting atrial fibrillation quality indicators; met the standard for indicator 1 with 95.2% compliance.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Regionshospitalet Randers Ja 375 / 394 0 (0) 95,2 (92,6-97,1)"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A university hospital in Nordjylland region reporting atrial fibrillation quality indicators; met the standard for indicator 1.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Aalborg Universitetshospital Ja 626 / 669 0 (0) 93,6 (91,4-95,3)"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital Thisted",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital-thisted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A university hospital in Nordjylland region reporting atrial fibrillation quality indicators; met the standard for indicator 1 with 96.0% compliance.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Aalborg Universitetshospital Thisted Ja 145 / 151 0 (0) 96,0 (91,6-98,5)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland Ven",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland-ven",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A regional hospital in Nordjylland region reporting atrial fibrillation quality indicators; met the standard for indicator 1 with 96.4% compliance.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Regionshospital Nordjylland Ven Ja 428 / 444 0 (0) 96,4 (94,2-97,9)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "managed-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
+      "page": 6
+    },
+    {
+      "subject": "amager-og-hvidovre-hospital",
+      "predicate": "located-in",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Amager og Hvidovre Hospital",
+      "page": 9
+    },
+    {
+      "subject": "bispebjerg-og-frederiksberg-hospitaler",
+      "predicate": "located-in",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Bispebjerg og Frederiksberg Hospitaler",
+      "page": 9
+    },
+    {
+      "subject": "bornholms-hospital",
+      "predicate": "located-in",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Bornholms Hospital",
+      "page": 9
+    },
+    {
+      "subject": "herlev-og-gentofte-hospital",
+      "predicate": "located-in",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Herlev og Gentofte Hospital",
+      "page": 9
+    },
+    {
+      "subject": "hospitalerne-i-nordsjaelland",
+      "predicate": "located-in",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Hospitalerne i Nordsjælland",
+      "page": 9
+    },
+    {
+      "subject": "rigshospitalet",
+      "predicate": "located-in",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Rigshospitalet",
+      "page": 9
+    },
+    {
+      "subject": "garantiklinikken",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Garantiklinikken",
+      "page": 9
+    },
+    {
+      "subject": "holbaek",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Holbæk",
+      "page": 9
+    },
+    {
+      "subject": "nykoebing-falster",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Nykøbing Falster",
+      "page": 9
+    },
+    {
+      "subject": "naestved",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Næstved",
+      "page": 9
+    },
+    {
+      "subject": "sjaellands-universitetshospital-koege",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Sjællands Universitetshospital Køge",
+      "page": 9
+    },
+    {
+      "subject": "sjaellands-universitetshospital-roskilde",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Sjællands Universitetshospital Roskilde",
+      "page": 9
+    },
+    {
+      "subject": "slagelse",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Slagelse",
+      "page": 9
+    },
+    {
+      "subject": "esbjerg-sygehus-grindsted-sygehus",
+      "predicate": "located-in",
+      "object": "syddanmark",
+      "evidence": "Syddanmark Esbjerg Sygehus Grindsted Sygehus",
+      "page": 10
+    },
+    {
+      "subject": "friklinikken-region-syddanmark-grindsted",
+      "predicate": "located-in",
+      "object": "syddanmark",
+      "evidence": "Syddanmark Friklinikken Region Syddanmark Grindsted",
+      "page": 10
+    },
+    {
+      "subject": "kolding-sygehus",
+      "predicate": "located-in",
+      "object": "syddanmark",
+      "evidence": "Syddanmark Kolding Sygehus",
+      "page": 10
+    },
+    {
+      "subject": "ouh-odense-universitetshospital",
+      "predicate": "located-in",
+      "object": "syddanmark",
+      "evidence": "Syddanmark OUH Odense Universitetshospital",
+      "page": 10
+    },
+    {
+      "subject": "sygehus-soenderjylland",
+      "predicate": "located-in",
+      "object": "syddanmark",
+      "evidence": "Syddanmark Sygehus Sønderjylland",
+      "page": 10
+    },
+    {
+      "subject": "vejle-sygehus",
+      "predicate": "located-in",
+      "object": "syddanmark",
+      "evidence": "Syddanmark Vejle Sygehus",
+      "page": 10
+    },
+    {
+      "subject": "aarhus-universitetshospital",
+      "predicate": "located-in",
+      "object": "midtjylland",
+      "evidence": "Midtjylland Aarhus Universitetshospital",
+      "page": 10
+    },
+    {
+      "subject": "hospitalsenhed-midt",
+      "predicate": "located-in",
+      "object": "midtjylland",
+      "evidence": "Midtjylland Hospitalsenhed Midt",
+      "page": 10
+    },
+    {
+      "subject": "regionshospitalet-goedstrup",
+      "predicate": "located-in",
+      "object": "midtjylland",
+      "evidence": "Midtjylland Regionshospitalet Gødstrup",
+      "page": 10
+    },
+    {
+      "subject": "regionshospitalet-horsens",
+      "predicate": "located-in",
+      "object": "midtjylland",
+      "evidence": "Midtjylland Regionshospitalet Horsens",
+      "page": 10
+    },
+    {
+      "subject": "regionshospitalet-randers",
+      "predicate": "located-in",
+      "object": "midtjylland",
+      "evidence": "Midtjylland Regionshospitalet Randers",
+      "page": 10
+    },
+    {
+      "subject": "aalborg-universitetshospital",
+      "predicate": "located-in",
+      "object": "nordjylland",
+      "evidence": "Nordjylland Aalborg Universitetshospital",
+      "page": 10
+    },
+    {
+      "subject": "aalborg-universitetshospital-thisted",
+      "predicate": "located-in",
+      "object": "nordjylland",
+      "evidence": "Nordjylland Aalborg Universitetshospital Thisted",
+      "page": 10
+    },
+    {
+      "subject": "regionshospital-nordjylland-ven",
+      "predicate": "located-in",
+      "object": "nordjylland",
+      "evidence": "Nordjylland Regionshospital Nordjylland Ven",
+      "page": 10
+    }
+  ],
+  "claims": [
+    {
+      "text": "Atrieflimren-diagnosen for det store flertal af patienterne er stillet for år tilbage, og behandlingen samt kontrol varetages i vid udstrækning i almen praksis frem for hospitalsregi [^src1]",
+      "type": "clinical-context",
+      "entities": [],
+      "page": 6
+    },
+    {
+      "text": "For at følge de almindelige regler knyttet til offentliggørelse af personhenførbare helbredsoplysninger er det besluttet ikke at offentliggøre resultater med 1 eller 2 patientforløb [^src1]",
+      "type": "data-privacy",
+      "entities": [],
+      "page": 7
+    },
+    {
+      "text": "Andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations behandling (hvor antikoagulations behandling er indiceret) skal være ≥ 90% [^src2]",
+      "type": "quality-standard",
+      "entities": [],
+      "page": 7
+    },
+    {
+      "text": "Andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før, til 3 måneder efter 1. diagnosedato skal være ≥ 80% [^src2]",
+      "type": "quality-standard",
+      "entities": [],
+      "page": 7
+    },
+    {
+      "text": "Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 60 dage før, til 30 dage efter 1. diagnosedato skal være ≥ 95% [^src2]",
+      "type": "quality-standard",
+      "entities": [],
+      "page": 7
+    },
+    {
+      "text": "Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling efter 1 år skal være ≥ 90% [^src2]",
+      "type": "quality-standard",
+      "entities": [],
+      "page": 8
+    },
+    {
+      "text": "Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling efter 2 år skal være ≥ 90% [^src2]",
+      "type": "quality-standard",
+      "entities": [],
+      "page": 8
+    },
+    {
+      "text": "Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling efter 5 år skal være ≥ 90% [^src2]",
+      "type": "quality-standard",
+      "entities": [],
+      "page": 8
+    },
+    {
+      "text": "Andelen af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt skal være ≥ 95% [^src2]",
+      "type": "quality-standard",
+      "entities": [],
+      "page": 8
+    },
+    {
+      "text": "Incidens af apopleksi blandt prævalente patienter med atrieflimren skal være ≤ 0,8 [^src2]",
+      "type": "quality-standard",
+      "entities": [],
+      "page": 8
+    },
+    {
+      "text": "Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren skal være ≤ 0,6 [^src2]",
+      "type": "quality-standard",
+      "entities": [],
+      "page": 8
+    },
+    {
+      "text": "Andelen af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor 1 år efter diagnosen er stillet skal være ≥ 50% [^src2]",
+      "type": "quality-standard",
+      "entities": [],
+      "page": 8
+    },
+    {
+      "text": "Danmark opnåede 91,5% (95% CI: 91,0-92,1) for indikatoren om ventetid til antikoagulationsbehandling i perioden 01.07.2022 - 30.06.2023 [^src3]",
+      "type": "performance",
+      "entities": [
+        "danmark"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Hovedstaden opnåede 90,0% (95% CI: 88,8-91,1) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "hovedstaden"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Sjælland opnåede 90,6% (95% CI: 89,2-91,9) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Syddanmark opnåede 90,5% (95% CI: 89,3-91,6) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Midtjylland opnåede 93,4% (95% CI: 92,3-94,3) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Nordjylland opnåede 94,9% (95% CI: 93,5-96,0) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Amager og Hvidovre Hospital opnåede 88,7% (95% CI: 85,4-91,5) for indikatoren om ventetid til antikoagulationsbehandling og opfyldte ikke standarden [^src3]",
+      "type": "performance",
+      "entities": [
+        "amager-og-hvidovre-hospital"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Bispebjerg og Frederiksberg Hospitaler opnåede 90,3% (95% CI: 87,0-93,0) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "bispebjerg-og-frederiksberg-hospitaler"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Bornholms Hospital opnåede 95,5% (95% CI: 89,9-98,5) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "bornholms-hospital"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Herlev og Gentofte Hospital opnåede 89,5% (95% CI: 87,3-91,5) for indikatoren om ventetid til antikoagulationsbehandling og opfyldte ikke standarden [^src3]",
+      "type": "performance",
+      "entities": [
+        "herlev-og-gentofte-hospital"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Hospitalerne i Nordsjælland opnåede 92,0% (95% CI: 89,5-94,1) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "hospitalerne-i-nordsjaelland"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Rigshospitalet opnåede 87,4% (95% CI: 83,4-90,7) for indikatoren om ventetid til antikoagulationsbehandling og opfyldte ikke standarden [^src3]",
+      "type": "performance",
+      "entities": [
+        "rigshospitalet"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Garantiklinikken opnåede 98,0% (95% CI: 94,2-99,6) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "garantiklinikken"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Holbæk opnåede 90,7% (95% CI: 87,2-93,5) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "holbaek"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Nykøbing Falster opnåede 84,0% (95% CI: 79,6-87,8) for indikatoren om ventetid til antikoagulationsbehandling og opfyldte ikke standarden [^src3]",
+      "type": "performance",
+      "entities": [
+        "nykoebing-falster"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Næstved opnåede 100,0% (95% CI: 81,5-100,0) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "naestved"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Sjællands Universitetshospital Køge opnåede 93,1% (95% CI: 88,5-96,3) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "sjaellands-universitetshospital-koege"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Sjællands Universitetshospital Roskilde opnåede 94,0% (95% CI: 91,4-96,0) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "sjaellands-universitetshospital-roskilde"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Slagelse opnåede 87,6% (95% CI: 83,8-90,8) for indikatoren om ventetid til antikoagulationsbehandling og opfyldte ikke standarden [^src3]",
+      "type": "performance",
+      "entities": [
+        "slagelse"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Esbjerg Sygehus Grindsted Sygehus opnåede 85,0% (95% CI: 81,0-88,4) for indikatoren om ventetid til antikoagulationsbehandling og opfyldte ikke standarden [^src3]",
+      "type": "performance",
+      "entities": [
+        "esbjerg-sygehus-grindsted-sygehus"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Friklinikken Region Syddanmark Grindsted opnåede 98,1% (95% CI: 89,9-100,0) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "friklinikken-region-syddanmark-grindsted"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Kolding Sygehus opnåede 96,5% (95% CI: 90,1-99,3) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "kolding-sygehus"
+      ],
+      "page": 10
+    },
+    {
+      "text": "OUH Odense Universitetshospital opnåede 90,1% (95% CI: 88,1-91,9) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "ouh-odense-universitetshospital"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Sygehus Sønderjylland opnåede 89,9% (95% CI: 87,0-92,3) for indikatoren om ventetid til antikoagulationsbehandling og opfyldte ikke standarden [^src3]",
+      "type": "performance",
+      "entities": [
+        "sygehus-soenderjylland"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Vejle Sygehus opnåede 94,1% (95% CI: 91,8-96,0) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "vejle-sygehus"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Aarhus Universitetshospital opnåede 90,7% (95% CI: 87,9-93,0) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "aarhus-universitetshospital"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Hospitalsenhed Midt opnåede 95,8% (95% CI: 93,9-97,2) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "hospitalsenhed-midt"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Regionshospitalet Gødstrup opnåede 92,4% (95% CI: 89,7-94,6) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "regionshospitalet-goedstrup"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Regionshospitalet Horsens opnåede 92,7% (95% CI: 89,6-95,1) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "regionshospitalet-horsens"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Regionshospitalet Randers opnåede 95,2% (95% CI: 92,6-97,1) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "regionshospitalet-randers"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Aalborg Universitetshospital opnåede 93,6% (95% CI: 91,4-95,3) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "aalborg-universitetshospital"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Aalborg Universitetshospital Thisted opnåede 96,0% (95% CI: 91,6-98,5) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "aalborg-universitetshospital-thisted"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Regionshospital Nordjylland Ven opnåede 96,4% (95% CI: 94,2-97,9) for indikatoren om ventetid til antikoagulationsbehandling [^src3]",
+      "type": "performance",
+      "entities": [
+        "regionshospital-nordjylland-ven"
+      ],
+      "page": 10
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2022-07-01",
+      "event": "Rapporteringsperioden for Databasen for Atrieflimren i Danmark begynder",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "2023-06-30",
+      "event": "Rapporteringsperioden for Databasen for Atrieflimren i Danmark slutter",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk indeholder introduktion og kvalitetsindikatorer fra årsrapporten for Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023. Rapporten præsenterer otte kliniske kvalitetsindikatorer for behandling af atrieflimren-patienter, herunder ventetider til antikoagulationsbehandling, ekkokardiografi, TSH-måling, antikoagulationsbehandling, blødningsrisiko og patientuddannelse. Dokumentet indeholder detaljerede resultater for alle fem danske regioner og deres respektive hospitaler og klinikker, med sammenligninger til tidligere år og 95% konfidensintervaller for hver indikator."
+}

@@ -1,0 +1,353 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "organization",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "AKDB er den centrale database for registrering og monitorering af akut højrisiko abdominalkirurgi på danske sygehuse, med populationsdannelse baseret på LPR og kvalitetsindikatorer.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 92,
+          "context": "Patientforløb i AKDB dannes ved at samle alle LPR kontakter"
+        },
+        {
+          "page": 93,
+          "context": "Data til Akut Kirurgi Databasen dannes som beskrevet på baggrund af LPR"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "LPR er den datakilde, som AKDB er baseret på, og hvor kontakter og patientforløb identificeres gennem diagnose- og procedurekoder.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Kontakterne identificeres i LPR"
+        },
+        {
+          "page": 93,
+          "context": "Data til Akut Kirurgi Databasen dannes som beskrevet på baggrund af LPR"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Organisationsregister",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-organisationsregister",
+      "folder": "entities/organizations/registries",
+      "significance": "SOR er registeret over alle aktører i det danske sundhedsvæsen og bruges til at identificere og ekskludere afdelinger med bestemte specialer fra AKDB-populationen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Kontakter registreret på afdelinger med følgende specialer, jf. SOR"
+        },
+        {
+          "page": 91,
+          "context": "SOR står for Sundhedsvæsenets Organisationsregister og er et register over alle aktører i det danske sundhedsvæsen"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En af de regioner, hvor populationsvalidering af AKDB er foretaget ved sammenligning med lokale journalsystemer.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Således har specifikke lister været sendt til Region Nordjylland, Region Midtjylland, Region Syddanmark og Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En af de regioner, hvor populationsvalidering af AKDB er foretaget ved sammenligning med lokale journalsystemer.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Således har specifikke lister været sendt til Region Nordjylland, Region Midtjylland, Region Syddanmark og Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En af de regioner, hvor populationsvalidering af AKDB er foretaget ved sammenligning med lokale journalsystemer.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Således har specifikke lister været sendt til Region Nordjylland, Region Midtjylland, Region Syddanmark og Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En af de regioner, hvor populationsvalidering af AKDB er foretaget ved sammenligning med lokale journalsystemer.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Således har specifikke lister været sendt til Region Nordjylland, Region Midtjylland, Region Syddanmark og Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsdatastyrelsens teknikergruppe",
+      "type": "organization",
+      "slug": "sundhedsdatastyrelsens-teknikergruppe",
+      "folder": "entities/organizations/oversight",
+      "significance": "Har udgivet anbefalinger for forløbsdannelse i AKDB, som databasens analytiske definition af forløb følger.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Denne analytiske definition af forløb svarer til anbefalingerne fra Sundhedsdatastyrelsens teknikergruppe"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "Udgiver AKDB-rapporten og er ansvarlig for dokumentationen af databasens metodologi og populationskriterier.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "STPS",
+      "type": "organization",
+      "slug": "stps",
+      "folder": "entities/organizations/regulatory-bodies",
+      "significance": "Bruger AKDB til risikobaserede tilsyn af akut kirurgiske behandlinger på danske sygehuse.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Databasen understøtter STPS risikobaserede tilsyn"
+        }
+      ]
+    },
+    {
+      "name": "Danske regioner",
+      "type": "organization",
+      "slug": "danske-regioner",
+      "folder": "entities/organizations/oversight",
+      "significance": "Bruger AKDB til arbejde med lærings- og kvalitetsteams inden for akut kirurgi.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Danske regioners arbejde med lærings og kvalitets teams"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-based-on",
+      "object": "landspatientregisteret",
+      "evidence": "Data til Akut Kirurgi Databasen dannes som beskrevet på baggrund af LPR",
+      "page": 93
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "uses-classification-from",
+      "object": "sundhedsvaesenets-organisationsregister",
+      "evidence": "Kontakter registreret på afdelinger med følgende specialer, jf. SOR",
+      "page": 91
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "follows-recommendations-from",
+      "object": "sundhedsdatastyrelsens-teknikergruppe",
+      "evidence": "Denne analytiske definition af forløb svarer til anbefalingerne fra Sundhedsdatastyrelsens teknikergruppe",
+      "page": 92
+    },
+    {
+      "subject": "stps",
+      "predicate": "uses-for-oversight",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Databasen understøtter STPS risikobaserede tilsyn",
+      "page": 94
+    },
+    {
+      "subject": "danske-regioner",
+      "predicate": "uses-for-quality-improvement",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Danske regioners arbejde med lærings og kvalitets teams",
+      "page": 94
+    }
+  ],
+  "claims": [
+    {
+      "text": "Populationen omfatter alle patienter der behandles med akut højrisiko abdominalkirurgi på danske sygehuse [^src1]",
+      "type": "population-definition",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Kontakterne identificeres i LPR gennem kontakt med fysisk fremmøde [ALCA00] og prioritet 'akut' [ATA1*] [^src1]",
+      "type": "methodology",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "landspatientregisteret"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Patientforløb i AKDB dannes ved at samle alle LPR kontakter som på hinanden følgende er ≤ 4 timer mellem hinanden [^src1]",
+      "type": "methodology",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 92
+    },
+    {
+      "text": "Enheden for analyser i indikatorerne altid er forløb, således hvis den samme patient har fået flere operationer, vil kun den første operation være gældende i indikatorberegningen [^src1]",
+      "type": "methodology",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 92
+    },
+    {
+      "text": "Rapporten inkluderer 3.668 patienter, som blev opererede og 6.238 patienter med en relevant diagnose, men som ikke blev opererede i perioden 1. september 2023 til 31. august 2024 [^src1]",
+      "type": "population-statistics",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Udtrækket til analyserne er foretaget d. 14/11-2024 [^src1]",
+      "type": "data-extraction",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 93
+    },
+    {
+      "text": "I 2023-2024 var der 9.906 patienter i alt, hvoraf 3.668 var opererede og 6.238 ikke-opererede, svarende til 37% opererede [^src1]",
+      "type": "population-statistics",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 93
+    },
+    {
+      "text": "I 2022-2023 var der 10.013 patienter i alt, hvoraf 3.697 var opererede og 6.316 ikke-opererede, svarende til 37% opererede [^src1]",
+      "type": "population-statistics",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 93
+    },
+    {
+      "text": "I 2021-2022 var der 8.718 patienter i alt, hvoraf 3.134 var opererede og 5.584 ikke-opererede, svarende til 36% opererede [^src1]",
+      "type": "population-statistics",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 93
+    },
+    {
+      "text": "I 2020-2021 var der 12.389 patienter i alt, hvoraf 2.600 var opererede og 9.789 ikke-opererede, svarende til 21% opererede [^src1]",
+      "type": "population-statistics",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 93
+    },
+    {
+      "text": "I 2019-2020 var der 11.780 patienter i alt, hvoraf 6.932 var opererede og 4.848 ikke-opererede, svarende til 59% opererede [^src1]",
+      "type": "population-statistics",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Populationen er valideret ved at afdelinger har fået tilsendt lister med CPR-numre og de procedurer, der er registreret i databasen [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 94
+    },
+    {
+      "text": "Data på population og indikatorer har været tilgængelige i de regionale ledelsesinformationssystemer (LIS) siden september 2020 [^src1]",
+      "type": "data-availability",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 94
+    },
+    {
+      "text": "Kontakter registreret på afdelinger med specialerne Gynækologi og obstetrik samt Urologi ekskluderes fra AKDB [^src1]",
+      "type": "exclusion-criteria",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 91
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. september 2023 til 31. august 2024",
+      "event": "Dataperiode for AKDB-rapport med 3.668 opererede og 6.238 ikke-opererede patienter",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "14. november 2024",
+      "event": "Udtræk til analyserne foretaget",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "September 2020",
+      "event": "Data på population og indikatorer blev tilgængelige i de regionale ledelsesinformationssystemer (LIS)",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk beskriver den metodologiske grundlag for Akut Kirurgi Databasen (AKDB), herunder populationsdefinition, inklusions- og eksklusionskriterier, forløbsdannelse, og datavalidering. AKDB er en dansk kvalitetsdatabase for akut højrisiko abdominalkirurgi, baseret på data fra Landspatientregisteret (LPR), og bruges af STPS til risikobaserede tilsyn samt af danske regioner til arbejde med lærings- og kvalitetsteams. Dokumentet præsenterer også statistik over patientpopulationen fra 2019-2024, hvor andelen af opererede patienter varierer mellem 21% og 59%, samt vejledning til lokal validering af populationen på hospitalsniveau.",
+  "tables": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "title": "Antal patienter i databasen siden overgangen til LPR",
+      "page": 93,
+      "rowDimension": "år",
+      "colDimension": "antal patienter, opererede, ikke-opererede og andel opererede",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "markdown": "| År | Total | Opererede | Ikke-opererede | Andel opererede |\n| --- | --- | --- | --- | --- |\n| 2023-2024 | 9.906 | 3.668 | 6.238 | 37 % |\n| 2022-2023* | 10.013 | 3.697 | 6.316 | 37 % |\n| 2021-2022 | 8.718 | 3.134 | 5.584 | 36 % |\n| 2020-2021 | 12.389 | 2.600 | 9.789 | 21 % |\n| 2019-2020 | 11.780 | 6.932 | 4.848 | 59 % |",
+      "summary": "Tabellen sammenligner antallet af patienter i AKDB pr. år siden overgangen til LPR og viser, at andelen af opererede er faldet fra 59 % i 2019-2020 til omkring 36-37 % i de tre seneste perioder."
+    }
+  ]
+}

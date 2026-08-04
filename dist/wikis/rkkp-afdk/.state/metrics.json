@@ -1,0 +1,116 @@
+{
+  "run": "2026-08-03T18:41:07.359Z",
+  "newPdfs": [],
+  "newEntities": [
+    {
+      "slug": "database-atrieflimren-danmark",
+      "title": "Databasen for Atrieflimren i Danmark",
+      "folder": "topics/healthcare-databases"
+    },
+    {
+      "slug": "doac-anticoagulation",
+      "title": "DOAC",
+      "folder": "topics/treatments"
+    },
+    {
+      "slug": "echocardiography",
+      "title": "Ekkokardiografi",
+      "folder": "topics/clinical-measures"
+    },
+    {
+      "slug": "health-clusters",
+      "title": "Sundhedsklynger",
+      "folder": "topics/operational"
+    },
+    {
+      "slug": "indikator-2-echocardiography",
+      "title": "Indikator 2",
+      "folder": "topics/quality-indicator"
+    },
+    {
+      "slug": "indikator-3-tsh-measurement",
+      "title": "Indikator 3: Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato",
+      "folder": "topics/quality-indicator"
+    },
+    {
+      "slug": "indikator-5-iskemisk-apopleksi",
+      "title": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren",
+      "folder": "topics/quality-indicator"
+    },
+    {
+      "slug": "indikator-7-serious-bleeding",
+      "title": "Indikator 7",
+      "folder": "topics/quality-indicators"
+    },
+    {
+      "slug": "intracranial-hemorrhage",
+      "title": "Intrakraniel blødning",
+      "folder": "topics/clinical-outcome"
+    },
+    {
+      "slug": "ischemic-stroke",
+      "title": "Iskæmisk apopleksi",
+      "folder": "topics/clinical-outcome"
+    },
+    {
+      "slug": "marevan-anticoagulation",
+      "title": "Marevan",
+      "folder": "topics/treatments"
+    },
+    {
+      "slug": "patient-education",
+      "title": "Patientuddannelse",
+      "folder": "topics/clinical-treatment"
+    },
+    {
+      "slug": "rkkp",
+      "title": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-registries"
+    },
+    {
+      "slug": "s-creatinin",
+      "title": "S-creatinin",
+      "folder": "topics/clinical-measures"
+    },
+    {
+      "slug": "serious-bleeding",
+      "title": "Alvorlig blødning",
+      "folder": "topics/clinical-outcome"
+    },
+    {
+      "slug": "struktureret-patientuddannelse",
+      "title": "Struktureret patientuddannelse",
+      "folder": "topics/clinical-treatment"
+    },
+    {
+      "slug": "tsh-maaling",
+      "title": "Thyreoidea-stimulerende hormon (TSH) måling",
+      "folder": "topics/clinical-measures"
+    }
+  ],
+  "updatedEntities": [],
+  "conflicts": 1,
+  "totalCost": 0,
+  "chunksProcessed": 0,
+  "chunksSkipped": 48,
+  "chunksFailed": 0,
+  "entitiesNew": 17,
+  "entitiesUpdated": 0,
+  "relationshipsExtracted": 0,
+  "claimsExtracted": 0,
+  "claimsByType": {},
+  "pagesByType": {
+    "entity": 83,
+    "topic": 123
+  },
+  "foldersCreated": 29,
+  "brokenLinks": 0,
+  "orphanedPages": 0,
+  "conflictsManualEdit": 0,
+  "conflictsPreservation": 1,
+  "totalTokens": 3586878,
+  "wallClockMs": 431602,
+  "feedbackRepairs": 4,
+  "curationFallbacks": 0,
+  "transportFailures": 0
+}

@@ -1,0 +1,222 @@
+{
+  "main": {
+    "id": "e55830f81848018c",
+    "type": "split",
+    "children": [
+      {
+        "id": "56837d72dae46337",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "04cb895dd1248f0e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "index-of-indexes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "index-of-indexes"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6374445f3bc156d7",
+    "type": "split",
+    "children": [
+      {
+        "id": "16b18b8b2f99c2ee",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f88d75866c40b55a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "1e8747d0ccc9de26",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "1acc020f70d669d4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "2bc96c14c6373823",
+    "type": "split",
+    "children": [
+      {
+        "id": "7fa15be3b4dc1e51",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "05186006d9ef22db",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "b2013763bc562a50",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "4db37d29b35827b5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "31c4140c96718b27",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "d65d4ba739a772d9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "04cb895dd1248f0e",
+  "lastOpenFiles": [
+    "rkkp-danibd/topics/diseases/index.md",
+    "rkkp-danibd/topics/index.md",
+    "rkkp-danibd/index.md",
+    "index-of-indexes.md",
+    "rkkp-adhd/topics/index.md",
+    "rkkp-danibd/topics/treatments/index.md",
+    "rkkp-danibd/topics/treatment-statistics/index.md",
+    "rkkp-danibd/topics/surgical-timing/index.md",
+    "rkkp-danibd/topics/surgical-statistics/index.md",
+    "rkkp-danibd/topics/surgical-procedures/index.md",
+    "rkkp-danibd/topics/quality-indicator/index.md",
+    "rkkp-danibd/topics/quality-improvement/index.md",
+    "rkkp-danibd/topics/quality-concern/index.md",
+    "rkkp-danibd/topics/pharmaceutical-treatment-statistics/index.md",
+    "rkkp-danibd/topics/patient-statistics/index.md",
+    "rkkp-danibd/topics/patient-education/index.md",
+    "rkkp-danibd/topics/patient-demographics/index.md",
+    "rkkp-danibd/topics/patient-contact-statistics/index.md",
+    "rkkp-danibd/topics/medical-tests/index.md",
+    "rkkp-danibd/topics/medical-conditions/index.md",
+    "rkkp-danibd/topics/diseases/inflammatory-bowel-disease/index.md",
+    "rkkp-danibd/topics/diagnosis-treatment-statistics/index.md",
+    "rkkp-danibd/topics/diagnosis-statistics/index.md",
+    "rkkp-danibd/topics/data-quality/index.md",
+    "rkkp-danibd/topics/data-limitation/index.md",
+    "rkkp-danibd/topics/contact-type-statistics/index.md",
+    "rkkp-danibd/topics/patient-demographics",
+    "rkkp-danibd/topics/clinical-guideline",
+    "rkkp-danibd/topics/quality-concern",
+    "rkkp-danibd/topics/audit-finding",
+    "rkkp-danibd/topics/quality-improvement",
+    "rkkp-danibd/topics/surgical-statistics",
+    "rkkp-danibd/topics/data-limitation",
+    "rkkp-danibd/entities/organizations/healthcare",
+    "rkkp-danibd/entities/products/healthcare-software",
+    "rkkp-danibd/entities/products"
+  ]
+}

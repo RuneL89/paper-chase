@@ -1,0 +1,49 @@
+{
+  "decisions": [
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "sundhedsvasenets-kvalitetsinstitut"
+      ],
+      "into": "sundhedsvaesenets-kvalitetsinstitut",
+      "signal": "transliteration",
+      "decidedAt": "2026-08-03T16:37:27.599Z",
+      "runId": "2026-08-03T16:37:27.599Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "naestved-slagelse-og-ringsted-sygehuse"
+      ],
+      "into": "naestved-slagelse-ringsted-sygehuse",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T16:38:30.320Z",
+      "runId": "2026-08-03T16:38:30.320Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
+      ],
+      "into": "rkkp",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T16:38:30.320Z",
+      "runId": "2026-08-03T16:38:30.320Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "sundhedsvaesenets-kvalitetsinstitut"
+      ],
+      "into": "sundhedsvaesenet-kvalitetsinstitut",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T16:38:30.320Z",
+      "runId": "2026-08-03T16:38:30.320Z"
+    }
+  ],
+  "splits": []
+}

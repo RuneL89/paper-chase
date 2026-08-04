@@ -1,0 +1,6012 @@
+{
+  "entries": [
+    {
+      "timestamp": "2026-07-25T15:49:43.827Z",
+      "pageType": "entity",
+      "slug": "danibd",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:35:37.915Z",
+      "pageType": "entity",
+      "slug": "rkkp",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:35:37.514Z",
+      "pageType": "entity",
+      "slug": "lone-larsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:39:51.556Z",
+      "pageType": "entity",
+      "slug": "inflammatory-bowel-disease",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:39:33.119Z",
+      "pageType": "entity",
+      "slug": "crohns-disease",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:37:45.406Z",
+      "pageType": "entity",
+      "slug": "ulcerative-colitis",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:42:14.670Z",
+      "pageType": "entity",
+      "slug": "primary-sclerosing-cholangitis",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:42:37.385Z",
+      "pageType": "entity",
+      "slug": "fecal-calprotectin",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:40:38.862Z",
+      "pageType": "entity",
+      "slug": "korttarmssyndrom",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:43:15.753Z",
+      "pageType": "entity",
+      "slug": "bmsl",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:43:47.690Z",
+      "pageType": "entity",
+      "slug": "rigshospitalet",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:43:37.815Z",
+      "pageType": "entity",
+      "slug": "bispebjerg",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:43:57.645Z",
+      "pageType": "entity",
+      "slug": "bornholm",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:44:16.717Z",
+      "pageType": "entity",
+      "slug": "herlev",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:45:39.965Z",
+      "pageType": "entity",
+      "slug": "hvidovre",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:45:52.238Z",
+      "pageType": "entity",
+      "slug": "nordsjaelland",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:45:25.998Z",
+      "pageType": "entity",
+      "slug": "koege-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:45:54.017Z",
+      "pageType": "entity",
+      "slug": "roskilde-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:46:21.780Z",
+      "pageType": "entity",
+      "slug": "holbaek-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "finalMode": "permissive-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:46:31.900Z",
+      "pageType": "entity",
+      "slug": "nykoebing-f-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:46:50.130Z",
+      "pageType": "entity",
+      "slug": "slagelse-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:47:33.856Z",
+      "pageType": "entity",
+      "slug": "odense-university-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:47:15.132Z",
+      "pageType": "entity",
+      "slug": "svendborg-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:47:48.438Z",
+      "pageType": "entity",
+      "slug": "esbjerg-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:48:12.016Z",
+      "pageType": "entity",
+      "slug": "aabenraa-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:48:03.053Z",
+      "pageType": "entity",
+      "slug": "toender-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:48:16.085Z",
+      "pageType": "entity",
+      "slug": "kolding-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:48:45.389Z",
+      "pageType": "entity",
+      "slug": "vejle-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "finalMode": "permissive-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:50:11.885Z",
+      "pageType": "entity",
+      "slug": "aarhus-university-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:49:49.451Z",
+      "pageType": "entity",
+      "slug": "goedstrup-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:49:24.749Z",
+      "pageType": "entity",
+      "slug": "horsens-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:50:23.678Z",
+      "pageType": "entity",
+      "slug": "randers-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:50:10.306Z",
+      "pageType": "entity",
+      "slug": "silkeborg-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:50:15.472Z",
+      "pageType": "entity",
+      "slug": "viborg-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 3
+      },
+      "finalMode": "permissive-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:50:57.998Z",
+      "pageType": "entity",
+      "slug": "aalborg-university-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "finalMode": "permissive-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:50:52.205Z",
+      "pageType": "entity",
+      "slug": "hjoerring-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:51:22.004Z",
+      "pageType": "entity",
+      "slug": "infliximab",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "finalMode": "permissive-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:50:52.495Z",
+      "pageType": "entity",
+      "slug": "adalimumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:51:11.730Z",
+      "pageType": "entity",
+      "slug": "golimumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:51:15.662Z",
+      "pageType": "entity",
+      "slug": "ustekinumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:51:25.053Z",
+      "pageType": "entity",
+      "slug": "vedolizumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:51:53.647Z",
+      "pageType": "entity",
+      "slug": "tofacitinib",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "finalMode": "permissive-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:52:07.262Z",
+      "pageType": "entity",
+      "slug": "ozanimod",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:52:38.467Z",
+      "pageType": "entity",
+      "slug": "upadacitinib",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:52:27.526Z",
+      "pageType": "entity",
+      "slug": "filgotinib",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:55:05.842Z",
+      "pageType": "entity",
+      "slug": "region-sjaelland",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:54:52.093Z",
+      "pageType": "entity",
+      "slug": "region-syddanmark",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:53:25.617Z",
+      "pageType": "entity",
+      "slug": "rigshospitalet-med-klinik-mave-tarm-leversygd",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:52:50.059Z",
+      "pageType": "entity",
+      "slug": "nordsjaelland-kirurgisk-overafdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:53:32.388Z",
+      "pageType": "entity",
+      "slug": "slb-vejle-medicinsk-afdeling",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:54:11.293Z",
+      "pageType": "entity",
+      "slug": "sygehusmedicinregisteret",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 3
+      },
+      "finalMode": "permissive-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:10.178Z",
+      "pageType": "entity",
+      "slug": "koloskopi",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:54:20.384Z",
+      "pageType": "entity",
+      "slug": "goedstrup-mave-tarmkirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:54:29.966Z",
+      "pageType": "entity",
+      "slug": "horsens-medicinsk-afdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:54:40.975Z",
+      "pageType": "entity",
+      "slug": "ouh-svendborg-medicinsk-afd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:54:50.937Z",
+      "pageType": "entity",
+      "slug": "aarhus-boern-og-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:55:52.375Z",
+      "pageType": "entity",
+      "slug": "aauh-aalborg-med-gastroenterologisk-omraade",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:05.119Z",
+      "pageType": "entity",
+      "slug": "landpatientregisteret",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:55:13.752Z",
+      "pageType": "entity",
+      "slug": "det-centrale-personregister",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:55:20.101Z",
+      "pageType": "entity",
+      "slug": "laegemiddelstatistikregisteret",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:55:27.190Z",
+      "pageType": "entity",
+      "slug": "laboratorieregisteret",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:55:34.013Z",
+      "pageType": "entity",
+      "slug": "sygesikringsregisteret",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:55:39.140Z",
+      "pageType": "entity",
+      "slug": "dansk-selskab-for-gastroenterologi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:55:45.676Z",
+      "pageType": "entity",
+      "slug": "medicinraadet",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:01.958Z",
+      "pageType": "entity",
+      "slug": "gastrobio",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:02.417Z",
+      "pageType": "entity",
+      "slug": "jacobsen-ha",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:08.632Z",
+      "pageType": "entity",
+      "slug": "jens-kjeldsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:08.220Z",
+      "pageType": "entity",
+      "slug": "niels-qvist",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:11.589Z",
+      "pageType": "entity",
+      "slug": "inge-nordgaard-lassen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:15.272Z",
+      "pageType": "entity",
+      "slug": "ida-vind",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:17.112Z",
+      "pageType": "entity",
+      "slug": "johan-burisch",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:16.039Z",
+      "pageType": "entity",
+      "slug": "else-kjaer-mikkelsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:19.274Z",
+      "pageType": "entity",
+      "slug": "torben-knudsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:21.388Z",
+      "pageType": "entity",
+      "slug": "henning-glerup",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:23.377Z",
+      "pageType": "entity",
+      "slug": "ole-thorlacius-ussing",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:23.262Z",
+      "pageType": "entity",
+      "slug": "marianne-kajbaek-vester-andersen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:26.888Z",
+      "pageType": "entity",
+      "slug": "rasmus-gaardskaer-nielsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:27.583Z",
+      "pageType": "entity",
+      "slug": "mohamed-attauabi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:29.225Z",
+      "pageType": "entity",
+      "slug": "jannie-jensen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:32.132Z",
+      "pageType": "entity",
+      "slug": "anne-mette-falstie-jensen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:33.833Z",
+      "pageType": "entity",
+      "slug": "esra-oeztoprak",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:32.815Z",
+      "pageType": "entity",
+      "slug": "jakob-riis",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:50.680Z",
+      "pageType": "entity",
+      "slug": "region-nordjylland",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:46.123Z",
+      "pageType": "entity",
+      "slug": "region-hovedstaden",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:24.003Z",
+      "pageType": "entity",
+      "slug": "region-midtjylland",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:48.574Z",
+      "pageType": "entity",
+      "slug": "constant-care",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:57.403Z",
+      "pageType": "entity",
+      "slug": "sundhedsvasenets-kvalitetsinstitut",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:57:04.768Z",
+      "pageType": "entity",
+      "slug": "styregruppen-for-danibd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:57:10.985Z",
+      "pageType": "entity",
+      "slug": "sundks-videncenter",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:57:49.743Z",
+      "pageType": "entity",
+      "slug": "dexa-scanning",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:00.707Z",
+      "pageType": "entity",
+      "slug": "he-midt-klinik",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:07.662Z",
+      "pageType": "entity",
+      "slug": "farsoe-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:16.210Z",
+      "pageType": "entity",
+      "slug": "thisted-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:25.275Z",
+      "pageType": "entity",
+      "slug": "ouh-svendborg",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:33.802Z",
+      "pageType": "entity",
+      "slug": "rigshospitalet-paediatrisk-klinik",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:32.601Z",
+      "pageType": "entity",
+      "slug": "herlev-boern-og-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:40.017Z",
+      "pageType": "entity",
+      "slug": "nordsjaelland-boerne-og-ungeafdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:42.194Z",
+      "pageType": "entity",
+      "slug": "holbaek-paediatri",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:46.158Z",
+      "pageType": "entity",
+      "slug": "slagelse-paediatri",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:50.818Z",
+      "pageType": "entity",
+      "slug": "nykoebing-f-paediatri",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:53.546Z",
+      "pageType": "entity",
+      "slug": "roskilde-paediatri",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:00.100Z",
+      "pageType": "entity",
+      "slug": "odense-boerne-og-ungeafdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:03.990Z",
+      "pageType": "entity",
+      "slug": "kolding-boerne-og-ungeafdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:59.043Z",
+      "pageType": "entity",
+      "slug": "viborg-boern-og-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:00.900Z",
+      "pageType": "entity",
+      "slug": "aauh-aalborg-boerne-og-ungeafdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:30.518Z",
+      "pageType": "entity",
+      "slug": "hc-andersen-boerneafdeling",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:15.958Z",
+      "pageType": "entity",
+      "slug": "dansk-paediatrisk-selskab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:29.142Z",
+      "pageType": "entity",
+      "slug": "espghan",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 3
+      },
+      "finalMode": "permissive-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:19.615Z",
+      "pageType": "entity",
+      "slug": "gastroskopi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:33.197Z",
+      "pageType": "entity",
+      "slug": "mr-scanning-af-tyndtarm",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:29.971Z",
+      "pageType": "entity",
+      "slug": "kapselendoskopi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:44.874Z",
+      "pageType": "entity",
+      "slug": "sigmoideoskopi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:37.194Z",
+      "pageType": "entity",
+      "slug": "ultralyd-af-tarmen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:47.852Z",
+      "pageType": "entity",
+      "slug": "veo-ibd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:41.461Z",
+      "pageType": "entity",
+      "slug": "ileocecal-resection",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:50.828Z",
+      "pageType": "entity",
+      "slug": "patient-education",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:56.763Z",
+      "pageType": "entity",
+      "slug": "steroid",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:58.609Z",
+      "pageType": "entity",
+      "slug": "osteoporosis",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:27.637Z",
+      "pageType": "entity",
+      "slug": "denmark",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:01.702Z",
+      "pageType": "entity",
+      "slug": "risankizumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:12.635Z",
+      "pageType": "entity",
+      "slug": "mirikizumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:04.212Z",
+      "pageType": "entity",
+      "slug": "bispebjerg-abdominalcenter",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:07.571Z",
+      "pageType": "entity",
+      "slug": "bornholm-kirurgisk-afdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:09.523Z",
+      "pageType": "entity",
+      "slug": "herlev-mave-tarm-leversygd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:15.558Z",
+      "pageType": "entity",
+      "slug": "hvidovre-gastroenheden",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:16.216Z",
+      "pageType": "entity",
+      "slug": "rigshospitalet-kirurgisk-gastroenterologi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:18.536Z",
+      "pageType": "entity",
+      "slug": "holbaek-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:21.497Z",
+      "pageType": "entity",
+      "slug": "slagelse-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:26.390Z",
+      "pageType": "entity",
+      "slug": "koege-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:25.074Z",
+      "pageType": "entity",
+      "slug": "esbjerg-mave-og-tarmsygd-afd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:45.818Z",
+      "pageType": "entity",
+      "slug": "odense-kirurgisk-afdeling-a",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:31.042Z",
+      "pageType": "entity",
+      "slug": "aabenraa-mave-og-tarmsygd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:38.762Z",
+      "pageType": "entity",
+      "slug": "vejle-organ-og-plastikkirurgisk-afd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:33.522Z",
+      "pageType": "entity",
+      "slug": "aarhus-mave-og-tarmkirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:37.289Z",
+      "pageType": "entity",
+      "slug": "viborg-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:39.535Z",
+      "pageType": "entity",
+      "slug": "horsens-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:42.672Z",
+      "pageType": "entity",
+      "slug": "randers-mave-og-tarmkirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:46.409Z",
+      "pageType": "entity",
+      "slug": "aauh-mave-tarmkirurgisk-afdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:46.218Z",
+      "pageType": "entity",
+      "slug": "hjoerring-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:48.602Z",
+      "pageType": "entity",
+      "slug": "colorectal-cancer",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:50.765Z",
+      "pageType": "entity",
+      "slug": "anders-neumann",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:51.745Z",
+      "pageType": "entity",
+      "slug": "tina-fransgaard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:52.688Z",
+      "pageType": "entity",
+      "slug": "nynne-nyboe-andersen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:55.120Z",
+      "pageType": "entity",
+      "slug": "mathilde-pedersen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:56.887Z",
+      "pageType": "entity",
+      "slug": "odense-mave-tarm",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:56.195Z",
+      "pageType": "entity",
+      "slug": "sundk",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:59.929Z",
+      "pageType": "entity",
+      "slug": "amager-og-hvidovre-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:01.706Z",
+      "pageType": "entity",
+      "slug": "naestved-slagelse-ringsted",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:02.922Z",
+      "pageType": "entity",
+      "slug": "sjaellands-universitetshospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:02.561Z",
+      "pageType": "entity",
+      "slug": "sygehus-lillebaelt",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:06.573Z",
+      "pageType": "entity",
+      "slug": "sygehus-soenderjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:08.545Z",
+      "pageType": "entity",
+      "slug": "hospitalsenhed-midt",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:09.836Z",
+      "pageType": "entity",
+      "slug": "regionshospitalet-horsens",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:09.310Z",
+      "pageType": "entity",
+      "slug": "regionshospital-nordjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:10:33.166Z",
+      "pageType": "topic",
+      "slug": "quality-indicator",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:42.450Z",
+      "pageType": "topic",
+      "slug": "data-limitation",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T16:02:20.476Z",
+      "pageType": "topic",
+      "slug": "surgical-procedures",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:37.901Z",
+      "pageType": "topic",
+      "slug": "surgical-timing",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T16:03:19.892Z",
+      "pageType": "topic",
+      "slug": "patient-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T16:02:42.537Z",
+      "pageType": "topic",
+      "slug": "diagnosis-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T16:02:28.143Z",
+      "pageType": "topic",
+      "slug": "patient-demographics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:02:56.868Z",
+      "pageType": "topic",
+      "slug": "patient-contact-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T16:03:25.594Z",
+      "pageType": "topic",
+      "slug": "contact-type-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T16:03:07.937Z",
+      "pageType": "topic",
+      "slug": "treatment-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:03:25.961Z",
+      "pageType": "topic",
+      "slug": "diagnosis-treatment-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:06:26.102Z",
+      "pageType": "topic",
+      "slug": "pharmaceutical-treatment-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T16:04:36.451Z",
+      "pageType": "topic",
+      "slug": "clinical-practice",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T16:04:11.276Z",
+      "pageType": "topic",
+      "slug": "data-quality",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T16:04:21.890Z",
+      "pageType": "topic",
+      "slug": "clinical-guideline",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:04:35.816Z",
+      "pageType": "topic",
+      "slug": "surgical-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:04:59.738Z",
+      "pageType": "topic",
+      "slug": "quality-improvement",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "finalMode": "permissive-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:04:44.181Z",
+      "pageType": "topic",
+      "slug": "audit-finding",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:05:18.394Z",
+      "pageType": "topic",
+      "slug": "quality-concern",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T18:52:58.372Z",
+      "pageType": "entity",
+      "slug": "danibd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:52:58.655Z",
+      "pageType": "entity",
+      "slug": "rkkp",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:35:37.514Z",
+      "pageType": "entity",
+      "slug": "lone-larsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:52:58.948Z",
+      "pageType": "entity",
+      "slug": "inflammatory-bowel-disease",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:52:59.281Z",
+      "pageType": "entity",
+      "slug": "crohns-disease",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:00.671Z",
+      "pageType": "entity",
+      "slug": "ulcerative-colitis",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:01.026Z",
+      "pageType": "entity",
+      "slug": "primary-sclerosing-cholangitis",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:01.377Z",
+      "pageType": "entity",
+      "slug": "fecal-calprotectin",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:01.740Z",
+      "pageType": "entity",
+      "slug": "colitis-ulcerosa",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:03.036Z",
+      "pageType": "entity",
+      "slug": "crohns-sygdom",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:03.387Z",
+      "pageType": "entity",
+      "slug": "korttarmssyndrom",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:03.752Z",
+      "pageType": "entity",
+      "slug": "f-calpro",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:04.120Z",
+      "pageType": "entity",
+      "slug": "bmsl",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:05.327Z",
+      "pageType": "entity",
+      "slug": "rigshospitalet",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:05.705Z",
+      "pageType": "entity",
+      "slug": "bispebjerg",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:06.121Z",
+      "pageType": "entity",
+      "slug": "bornholm",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:06.527Z",
+      "pageType": "entity",
+      "slug": "herlev",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:07.656Z",
+      "pageType": "entity",
+      "slug": "hvidovre",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:08.039Z",
+      "pageType": "entity",
+      "slug": "nordsjaelland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:08.440Z",
+      "pageType": "entity",
+      "slug": "koege-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:08.907Z",
+      "pageType": "entity",
+      "slug": "roskilde-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:10.043Z",
+      "pageType": "entity",
+      "slug": "holbaek-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:10.378Z",
+      "pageType": "entity",
+      "slug": "nykoebing-f-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:10.810Z",
+      "pageType": "entity",
+      "slug": "slagelse-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:11.287Z",
+      "pageType": "entity",
+      "slug": "odense-university-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:12.345Z",
+      "pageType": "entity",
+      "slug": "svendborg-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:12.711Z",
+      "pageType": "entity",
+      "slug": "esbjerg-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:13.298Z",
+      "pageType": "entity",
+      "slug": "aabenraa-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:13.746Z",
+      "pageType": "entity",
+      "slug": "toender-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:14.662Z",
+      "pageType": "entity",
+      "slug": "kolding-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:15.064Z",
+      "pageType": "entity",
+      "slug": "vejle-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:15.765Z",
+      "pageType": "entity",
+      "slug": "aarhus-university-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:16.173Z",
+      "pageType": "entity",
+      "slug": "goedstrup-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:16.982Z",
+      "pageType": "entity",
+      "slug": "horsens-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:17.376Z",
+      "pageType": "entity",
+      "slug": "randers-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:18.190Z",
+      "pageType": "entity",
+      "slug": "silkeborg-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:18.585Z",
+      "pageType": "entity",
+      "slug": "viborg-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:19.386Z",
+      "pageType": "entity",
+      "slug": "aalborg-university-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:19.847Z",
+      "pageType": "entity",
+      "slug": "hjoerring-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:20.561Z",
+      "pageType": "entity",
+      "slug": "hovedstaden-region",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:21.052Z",
+      "pageType": "entity",
+      "slug": "sjaelland-region",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:21.853Z",
+      "pageType": "entity",
+      "slug": "syddanmark-region",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:22.271Z",
+      "pageType": "entity",
+      "slug": "midtjylland-region",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:23.057Z",
+      "pageType": "entity",
+      "slug": "nordjylland-region",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:23.424Z",
+      "pageType": "entity",
+      "slug": "infliximab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:24.155Z",
+      "pageType": "entity",
+      "slug": "adalimumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:24.598Z",
+      "pageType": "entity",
+      "slug": "golimumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:25.423Z",
+      "pageType": "entity",
+      "slug": "ustekinumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:25.852Z",
+      "pageType": "entity",
+      "slug": "vedolizumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:26.474Z",
+      "pageType": "entity",
+      "slug": "tofacitinib",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:26.993Z",
+      "pageType": "entity",
+      "slug": "ozanimod",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:27.859Z",
+      "pageType": "entity",
+      "slug": "upadacitinib",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:28.242Z",
+      "pageType": "entity",
+      "slug": "filgotinib",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:28.792Z",
+      "pageType": "entity",
+      "slug": "region-sjaelland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:29.317Z",
+      "pageType": "entity",
+      "slug": "region-syddanmark",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:30.248Z",
+      "pageType": "entity",
+      "slug": "rigshospitalet-med-klinik-mave-tarm-leversygd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:30.596Z",
+      "pageType": "entity",
+      "slug": "nordsjaelland-kirurgisk-overafdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:31.181Z",
+      "pageType": "entity",
+      "slug": "slb-vejle-medicinsk-afdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:31.685Z",
+      "pageType": "entity",
+      "slug": "sygehusmedicinregisteret",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:32.583Z",
+      "pageType": "entity",
+      "slug": "primaer-skleroserende-kolangitis",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:32.967Z",
+      "pageType": "entity",
+      "slug": "koloskopi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:33.471Z",
+      "pageType": "entity",
+      "slug": "goedstrup-mave-tarmkirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:34.084Z",
+      "pageType": "entity",
+      "slug": "horsens-medicinsk-afdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:34.965Z",
+      "pageType": "entity",
+      "slug": "ouh-svendborg-medicinsk-afd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:35.334Z",
+      "pageType": "entity",
+      "slug": "aarhus-boern-og-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:35.832Z",
+      "pageType": "entity",
+      "slug": "aauh-aalborg-med-gastroenterologisk-omraade",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:36.402Z",
+      "pageType": "entity",
+      "slug": "psc",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:37.301Z",
+      "pageType": "entity",
+      "slug": "ibd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:37.711Z",
+      "pageType": "entity",
+      "slug": "landpatientregisteret",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:38.205Z",
+      "pageType": "entity",
+      "slug": "det-centrale-personregister",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:38.818Z",
+      "pageType": "entity",
+      "slug": "laegemiddelstatistikregisteret",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:39.743Z",
+      "pageType": "entity",
+      "slug": "laboratorieregisteret",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:40.094Z",
+      "pageType": "entity",
+      "slug": "sygesikringsregisteret",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:40.543Z",
+      "pageType": "entity",
+      "slug": "dansk-selskab-for-gastroenterologi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:55:45.676Z",
+      "pageType": "entity",
+      "slug": "medicinraadet",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:41.271Z",
+      "pageType": "entity",
+      "slug": "gastrobio",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:42.107Z",
+      "pageType": "entity",
+      "slug": "jacobsen-ha",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:08.632Z",
+      "pageType": "entity",
+      "slug": "jens-kjeldsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:08.220Z",
+      "pageType": "entity",
+      "slug": "niels-qvist",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:11.589Z",
+      "pageType": "entity",
+      "slug": "inge-nordgaard-lassen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:15.272Z",
+      "pageType": "entity",
+      "slug": "ida-vind",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:17.112Z",
+      "pageType": "entity",
+      "slug": "johan-burisch",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:16.039Z",
+      "pageType": "entity",
+      "slug": "else-kjaer-mikkelsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:19.274Z",
+      "pageType": "entity",
+      "slug": "torben-knudsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:21.388Z",
+      "pageType": "entity",
+      "slug": "henning-glerup",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:23.377Z",
+      "pageType": "entity",
+      "slug": "ole-thorlacius-ussing",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:23.262Z",
+      "pageType": "entity",
+      "slug": "marianne-kajbaek-vester-andersen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:26.888Z",
+      "pageType": "entity",
+      "slug": "rasmus-gaardskaer-nielsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:27.583Z",
+      "pageType": "entity",
+      "slug": "mohamed-attauabi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:29.225Z",
+      "pageType": "entity",
+      "slug": "jannie-jensen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:32.132Z",
+      "pageType": "entity",
+      "slug": "anne-mette-falstie-jensen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:33.833Z",
+      "pageType": "entity",
+      "slug": "esra-oeztoprak",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:56:32.815Z",
+      "pageType": "entity",
+      "slug": "jakob-riis",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:42.409Z",
+      "pageType": "entity",
+      "slug": "region-nordjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:42.923Z",
+      "pageType": "entity",
+      "slug": "region-hovedstaden",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:43.591Z",
+      "pageType": "entity",
+      "slug": "region-midtjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:44.406Z",
+      "pageType": "entity",
+      "slug": "ulcerosus-colitis",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:44.842Z",
+      "pageType": "entity",
+      "slug": "constant-care",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:45.328Z",
+      "pageType": "entity",
+      "slug": "sundhedsvasenets-kvalitetsinstitut",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:45.991Z",
+      "pageType": "entity",
+      "slug": "styregruppen-for-danibd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:57:10.985Z",
+      "pageType": "entity",
+      "slug": "sundks-videncenter",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:46.800Z",
+      "pageType": "entity",
+      "slug": "dexa-scanning",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:47.213Z",
+      "pageType": "entity",
+      "slug": "he-midt-klinik",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:47.827Z",
+      "pageType": "entity",
+      "slug": "farsoe-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:48.383Z",
+      "pageType": "entity",
+      "slug": "thisted-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:49.199Z",
+      "pageType": "entity",
+      "slug": "ouh-svendborg",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:49.621Z",
+      "pageType": "entity",
+      "slug": "rigshospitalet-paediatrisk-klinik",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:32.601Z",
+      "pageType": "entity",
+      "slug": "herlev-boern-og-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:40.017Z",
+      "pageType": "entity",
+      "slug": "nordsjaelland-boerne-og-ungeafdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:42.194Z",
+      "pageType": "entity",
+      "slug": "holbaek-paediatri",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:46.158Z",
+      "pageType": "entity",
+      "slug": "slagelse-paediatri",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:50.818Z",
+      "pageType": "entity",
+      "slug": "nykoebing-f-paediatri",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:53.546Z",
+      "pageType": "entity",
+      "slug": "roskilde-paediatri",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:50.349Z",
+      "pageType": "entity",
+      "slug": "odense-boerne-og-ungeafdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:03.990Z",
+      "pageType": "entity",
+      "slug": "kolding-boerne-og-ungeafdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:58:59.043Z",
+      "pageType": "entity",
+      "slug": "viborg-boern-og-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:00.900Z",
+      "pageType": "entity",
+      "slug": "aauh-aalborg-boerne-og-ungeafdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:50.834Z",
+      "pageType": "entity",
+      "slug": "hc-andersen-boerneafdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:51.630Z",
+      "pageType": "entity",
+      "slug": "dansk-paediatrisk-selskab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:52.240Z",
+      "pageType": "entity",
+      "slug": "espghan",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:52.768Z",
+      "pageType": "entity",
+      "slug": "gastroskopi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:53.317Z",
+      "pageType": "entity",
+      "slug": "mr-scanning-af-tyndtarm",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:54.255Z",
+      "pageType": "entity",
+      "slug": "kapselendoskopi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:54.739Z",
+      "pageType": "entity",
+      "slug": "sigmoideoskopi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:37.194Z",
+      "pageType": "entity",
+      "slug": "ultralyd-af-tarmen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:55.327Z",
+      "pageType": "entity",
+      "slug": "veo-ibd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:55.870Z",
+      "pageType": "entity",
+      "slug": "he-midt-klinik-for-mave-og-tarmsygd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T15:59:41.461Z",
+      "pageType": "entity",
+      "slug": "ileocecal-resection",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:56.720Z",
+      "pageType": "entity",
+      "slug": "patient-education",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:57.336Z",
+      "pageType": "entity",
+      "slug": "steroid",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:58.006Z",
+      "pageType": "entity",
+      "slug": "osteoporosis",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:58.564Z",
+      "pageType": "entity",
+      "slug": "denmark",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:59.346Z",
+      "pageType": "entity",
+      "slug": "risankizumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:53:59.990Z",
+      "pageType": "entity",
+      "slug": "mirikizumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:00.615Z",
+      "pageType": "entity",
+      "slug": "rigshospitalet-mave-tarm-leversygdomme",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:04.212Z",
+      "pageType": "entity",
+      "slug": "bispebjerg-abdominalcenter",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:07.571Z",
+      "pageType": "entity",
+      "slug": "bornholm-kirurgisk-afdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:01.206Z",
+      "pageType": "entity",
+      "slug": "herlev-mave-tarm-leversygd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:01.917Z",
+      "pageType": "entity",
+      "slug": "hvidovre-gastroenheden",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:16.216Z",
+      "pageType": "entity",
+      "slug": "rigshospitalet-kirurgisk-gastroenterologi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:18.536Z",
+      "pageType": "entity",
+      "slug": "holbaek-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:21.497Z",
+      "pageType": "entity",
+      "slug": "slagelse-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:02.622Z",
+      "pageType": "entity",
+      "slug": "koege-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:25.074Z",
+      "pageType": "entity",
+      "slug": "esbjerg-mave-og-tarmsygd-afd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:03.208Z",
+      "pageType": "entity",
+      "slug": "odense-kirurgisk-afdeling-a",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:31.042Z",
+      "pageType": "entity",
+      "slug": "aabenraa-mave-og-tarmsygd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:03.774Z",
+      "pageType": "entity",
+      "slug": "vejle-organ-og-plastikkirurgisk-afd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:33.522Z",
+      "pageType": "entity",
+      "slug": "aarhus-mave-og-tarmkirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:04.458Z",
+      "pageType": "entity",
+      "slug": "goedstrup-mave-og-tarmkirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:37.289Z",
+      "pageType": "entity",
+      "slug": "viborg-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:39.535Z",
+      "pageType": "entity",
+      "slug": "horsens-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:42.672Z",
+      "pageType": "entity",
+      "slug": "randers-mave-og-tarmkirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:46.409Z",
+      "pageType": "entity",
+      "slug": "aauh-mave-tarmkirurgisk-afdeling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:46.218Z",
+      "pageType": "entity",
+      "slug": "hjoerring-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:05.200Z",
+      "pageType": "entity",
+      "slug": "colorectal-cancer",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:50.765Z",
+      "pageType": "entity",
+      "slug": "anders-neumann",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:51.745Z",
+      "pageType": "entity",
+      "slug": "tina-fransgaard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:52.688Z",
+      "pageType": "entity",
+      "slug": "nynne-nyboe-andersen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:55.120Z",
+      "pageType": "entity",
+      "slug": "mathilde-pedersen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:05.743Z",
+      "pageType": "entity",
+      "slug": "herlev-mave-tarm-lever",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:06.339Z",
+      "pageType": "entity",
+      "slug": "hvidovre-gastro",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:06.963Z",
+      "pageType": "entity",
+      "slug": "nordsjaelland-kirurgisk",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:07.678Z",
+      "pageType": "entity",
+      "slug": "rigshospitalet-paediatri",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:56.887Z",
+      "pageType": "entity",
+      "slug": "odense-mave-tarm",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:08.167Z",
+      "pageType": "entity",
+      "slug": "he-midt-mave-tarm",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:08.911Z",
+      "pageType": "entity",
+      "slug": "aauh-farsoe",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:09.545Z",
+      "pageType": "entity",
+      "slug": "aauh-thisted",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:56.195Z",
+      "pageType": "entity",
+      "slug": "sundk",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:00:59.929Z",
+      "pageType": "entity",
+      "slug": "amager-og-hvidovre-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:01.706Z",
+      "pageType": "entity",
+      "slug": "naestved-slagelse-ringsted",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:02.922Z",
+      "pageType": "entity",
+      "slug": "sjaellands-universitetshospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:02.561Z",
+      "pageType": "entity",
+      "slug": "sygehus-lillebaelt",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:06.573Z",
+      "pageType": "entity",
+      "slug": "sygehus-soenderjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:08.545Z",
+      "pageType": "entity",
+      "slug": "hospitalsenhed-midt",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:09.836Z",
+      "pageType": "entity",
+      "slug": "regionshospitalet-horsens",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T16:01:09.310Z",
+      "pageType": "entity",
+      "slug": "regionshospital-nordjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:11.814Z",
+      "pageType": "topic",
+      "slug": "operational",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:24.084Z",
+      "pageType": "topic",
+      "slug": "statistical",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:12.450Z",
+      "pageType": "topic",
+      "slug": "quality-indicator",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:12.839Z",
+      "pageType": "topic",
+      "slug": "procedural",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:14.116Z",
+      "pageType": "topic",
+      "slug": "quality-standard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:14.852Z",
+      "pageType": "topic",
+      "slug": "patient-cohort",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:15.336Z",
+      "pageType": "topic",
+      "slug": "treatment-volume",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:16.451Z",
+      "pageType": "topic",
+      "slug": "disease-prevalence",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:17.348Z",
+      "pageType": "topic",
+      "slug": "demographic",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:17.779Z",
+      "pageType": "topic",
+      "slug": "data-limitation",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:18.971Z",
+      "pageType": "topic",
+      "slug": "future-plan",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:19.790Z",
+      "pageType": "topic",
+      "slug": "surgical-volume",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:32.280Z",
+      "pageType": "topic",
+      "slug": "surgical-procedures",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:21.390Z",
+      "pageType": "topic",
+      "slug": "surgical-coding",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:22.224Z",
+      "pageType": "topic",
+      "slug": "surgical-timing",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:23.727Z",
+      "pageType": "topic",
+      "slug": "epidemiological",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:24.549Z",
+      "pageType": "topic",
+      "slug": "clinical",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:26.087Z",
+      "pageType": "topic",
+      "slug": "validation",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:26.460Z",
+      "pageType": "topic",
+      "slug": "patient-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:26.896Z",
+      "pageType": "topic",
+      "slug": "diagnosis-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:28.416Z",
+      "pageType": "topic",
+      "slug": "patient-demographics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:28.822Z",
+      "pageType": "topic",
+      "slug": "patient-contact-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:29.280Z",
+      "pageType": "topic",
+      "slug": "contact-type-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:30.733Z",
+      "pageType": "topic",
+      "slug": "treatment-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:31.233Z",
+      "pageType": "topic",
+      "slug": "diagnosis-treatment-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:31.618Z",
+      "pageType": "topic",
+      "slug": "pharmaceutical-treatment-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:33.101Z",
+      "pageType": "topic",
+      "slug": "surgical-procedure",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:33.585Z",
+      "pageType": "topic",
+      "slug": "patient-count",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:33.997Z",
+      "pageType": "topic",
+      "slug": "contact-type",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:34.721Z",
+      "pageType": "topic",
+      "slug": "clinical-practice",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:35.437Z",
+      "pageType": "topic",
+      "slug": "data-quality",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:35.903Z",
+      "pageType": "topic",
+      "slug": "medical-condition",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:36.381Z",
+      "pageType": "topic",
+      "slug": "medical",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:37.174Z",
+      "pageType": "topic",
+      "slug": "administrative",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:37.829Z",
+      "pageType": "topic",
+      "slug": "clinical-evidence",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:38.273Z",
+      "pageType": "topic",
+      "slug": "clinical-guideline",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:38.728Z",
+      "pageType": "topic",
+      "slug": "quality-target",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:39.574Z",
+      "pageType": "topic",
+      "slug": "clinical-concern",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:40.192Z",
+      "pageType": "topic",
+      "slug": "definition",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:40.641Z",
+      "pageType": "topic",
+      "slug": "regulatory",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:41.093Z",
+      "pageType": "topic",
+      "slug": "surgical-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:41.979Z",
+      "pageType": "topic",
+      "slug": "scope",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:42.558Z",
+      "pageType": "topic",
+      "slug": "inclusion-criteria",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:42.994Z",
+      "pageType": "topic",
+      "slug": "procedure-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:43.461Z",
+      "pageType": "topic",
+      "slug": "quality-improvement",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:44.361Z",
+      "pageType": "topic",
+      "slug": "audit-finding",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:54:44.919Z",
+      "pageType": "topic",
+      "slug": "quality-concern",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    }
+  ]
+}

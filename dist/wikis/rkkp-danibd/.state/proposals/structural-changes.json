@@ -1,0 +1,1080 @@
+{
+  "changes": [
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "entities/locations/danish-regions",
+      "reason": "5 entities placed in this folder",
+      "affectedEntities": [
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "entities/medications/biologics",
+      "reason": "5 entities placed in this folder",
+      "affectedEntities": [
+        "adalimumab",
+        "golimumab",
+        "infliximab",
+        "ustekinumab",
+        "vedolizumab"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "entities/medications/small-molecule-inhibitors",
+      "reason": "4 entities placed in this folder",
+      "affectedEntities": [
+        "filgotinib",
+        "ozanimod",
+        "tofacitinib",
+        "upadacitinib"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "entities/organizations/health-registries",
+      "reason": "2 entities placed in this folder",
+      "affectedEntities": [
+        "danibd",
+        "rkkp"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "entities/organizations/healthcare",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "nordsjaellands-hospital"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "entities/organizations/hospitals",
+      "reason": "29 entities placed in this folder",
+      "affectedEntities": [
+        "aabenraa-hospital",
+        "aalborg-university-hospital",
+        "aarhus-boern-og-unge",
+        "aarhus-university-hospital",
+        "aauh-aalborg-med-gastroenterologisk-omraade",
+        "bispebjerg",
+        "bornholm",
+        "esbjerg-hospital",
+        "goedstrup-hospital",
+        "goedstrup-mave-tarmkirurgi",
+        "herlev",
+        "hjoerring-hospital",
+        "holbaek-hospital",
+        "horsens-hospital",
+        "hvidovre",
+        "koege-hospital",
+        "kolding-hospital",
+        "nordsjaelland",
+        "nykoebing-f-hospital",
+        "odense-university-hospital",
+        "randers-hospital",
+        "rigshospitalet",
+        "roskilde-hospital",
+        "silkeborg-hospital",
+        "slagelse-hospital",
+        "svendborg-hospital",
+        "toender-hospital",
+        "vejle-hospital",
+        "viborg-hospital"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "entities/organizations/professional-societies",
+      "reason": "2 entities placed in this folder",
+      "affectedEntities": [
+        "dansk-selskab-for-gastroenterologi",
+        "medicinraadet"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "entities/organizations/registries",
+      "reason": "7 entities placed in this folder",
+      "affectedEntities": [
+        "det-centrale-personregister",
+        "gastrobio",
+        "laboratorieregisteret",
+        "laegemiddelstatistikregisteret",
+        "landpatientregisteret",
+        "sygehusmedicinregisteret",
+        "sygesikringsregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "entities/people/healthcare-professionals",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "lone-larsen"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "entities/people/researchers",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "jacobsen-ha"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "entities/people/steering-committee",
+      "reason": "16 entities placed in this folder",
+      "affectedEntities": [
+        "anne-mette-falstie-jensen",
+        "else-kjaer-mikkelsen",
+        "esra-oeztoprak",
+        "henning-glerup",
+        "ida-vind",
+        "inge-nordgaard-lassen",
+        "jakob-riis",
+        "jannie-jensen",
+        "jens-kjeldsen",
+        "johan-burisch",
+        "marianne-kajbaek-vester-andersen",
+        "mohamed-attauabi",
+        "niels-qvist",
+        "ole-thorlacius-ussing",
+        "rasmus-gaardskaer-nielsen",
+        "torben-knudsen"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "entities/products/healthcare-software",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "constant-care"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/clinical-measures/procedures",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/clinical-practice",
+      "reason": "Topic page 'clinical-practice' created from claims of type 'clinical-practice'",
+      "affectedEntities": [
+        "constant-care",
+        "inflammatory-bowel-disease",
+        "nordsjaellands-hospital"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/contact-type-statistics",
+      "reason": "Topic page 'contact-type-statistics' created from claims of type 'contact-type-statistics'",
+      "affectedEntities": [
+        "danibd",
+        "primary-sclerosing-cholangitis",
+        "region-hovedstaden"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/data-quality",
+      "reason": "Topic page 'data-quality' created from claims of type 'data-quality'",
+      "affectedEntities": [
+        "constant-care",
+        "danibd",
+        "filgotinib",
+        "inflammatory-bowel-disease",
+        "jacobsen-ha",
+        "nordsjaellands-hospital",
+        "ozanimod",
+        "upadacitinib"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/demographic",
+      "reason": "Topic page 'demographic' created from claims of type 'demographic'",
+      "affectedEntities": [
+        "danibd",
+        "primary-sclerosing-cholangitis",
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/diagnosis-statistics",
+      "reason": "Topic page 'diagnosis-statistics' created from claims of type 'diagnosis-statistics'",
+      "affectedEntities": [
+        "crohns-disease",
+        "region-hovedstaden",
+        "ulcerative-colitis"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/diagnosis-treatment-statistics",
+      "reason": "Topic page 'diagnosis-treatment-statistics' created from claims of type 'diagnosis-treatment-statistics'",
+      "affectedEntities": [
+        "crohns-disease",
+        "danibd",
+        "ulcerative-colitis"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/diseases/inflammatory-bowel-disease",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/epidemiological",
+      "reason": "Topic page 'epidemiological' created from claims of type 'epidemiological'",
+      "affectedEntities": [
+        "crohns-disease",
+        "inflammatory-bowel-disease",
+        "primary-sclerosing-cholangitis",
+        "ulcerative-colitis"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/medical-conditions",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/medical-tests",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/patient-contact-statistics",
+      "reason": "Topic page 'patient-contact-statistics' created from claims of type 'patient-contact-statistics'",
+      "affectedEntities": [
+        "region-hovedstaden"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/patient-education",
+      "reason": "Topic page 'patient-education' created from claims of type 'patient-education'",
+      "affectedEntities": [
+        "nordsjaellands-hospital"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/patient-statistics",
+      "reason": "Topic page 'patient-statistics' created from claims of type 'patient-statistics'",
+      "affectedEntities": [
+        "danibd",
+        "primary-sclerosing-cholangitis",
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/pharmaceutical-treatment-statistics",
+      "reason": "Topic page 'pharmaceutical-treatment-statistics' created from claims of type 'pharmaceutical-treatment-statistics'",
+      "affectedEntities": [
+        "adalimumab",
+        "danibd",
+        "golimumab",
+        "infliximab",
+        "tofacitinib",
+        "ustekinumab",
+        "vedolizumab"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/quality-indicator",
+      "reason": "Topic page 'quality-indicator' created from claims of type 'quality-indicator'",
+      "affectedEntities": [
+        "aabenraa-hospital",
+        "aalborg-university-hospital",
+        "aarhus-boern-og-unge",
+        "aarhus-university-hospital",
+        "aauh-aalborg-med-gastroenterologisk-omraade",
+        "bispebjerg",
+        "bmsl",
+        "bornholm",
+        "danibd",
+        "esbjerg-hospital",
+        "fecal-calprotectin",
+        "goedstrup-hospital",
+        "goedstrup-mave-tarmkirurgi",
+        "herlev",
+        "hjoerring-hospital",
+        "holbaek-hospital",
+        "horsens-hospital",
+        "hvidovre",
+        "inflammatory-bowel-disease",
+        "koege-hospital",
+        "kolding-hospital",
+        "koloskopi",
+        "nordsjaelland",
+        "nykoebing-f-hospital",
+        "odense-university-hospital",
+        "primary-sclerosing-cholangitis",
+        "randers-hospital",
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark",
+        "rigshospitalet",
+        "roskilde-hospital",
+        "silkeborg-hospital",
+        "slagelse-hospital",
+        "svendborg-hospital",
+        "toender-hospital",
+        "vejle-hospital",
+        "viborg-hospital"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/surgical-procedures",
+      "reason": "Topic page 'surgical-procedures' created from claims of type 'surgical-procedures'",
+      "affectedEntities": [
+        "danibd",
+        "inflammatory-bowel-disease"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/surgical-timing",
+      "reason": "Topic page 'surgical-timing' created from claims of type 'surgical-timing'",
+      "affectedEntities": [
+        "danibd"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/treatment-statistics",
+      "reason": "Topic page 'treatment-statistics' created from claims of type 'treatment-statistics'",
+      "affectedEntities": [
+        "danibd"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-folder",
+      "path": "topics/treatments",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-page-type",
+      "path": "disease",
+      "reason": "New entity page type 'disease' discovered during extraction",
+      "affectedEntities": [
+        "korttarmssyndrom"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-page-type",
+      "path": "hospital",
+      "reason": "New entity page type 'hospital' discovered during extraction",
+      "affectedEntities": [
+        "aabenraa-hospital",
+        "aalborg-university-hospital",
+        "aarhus-university-hospital",
+        "bispebjerg",
+        "bornholm",
+        "esbjerg-hospital",
+        "goedstrup-hospital",
+        "herlev",
+        "hjoerring-hospital",
+        "holbaek-hospital",
+        "horsens-hospital",
+        "hvidovre",
+        "koege-hospital",
+        "kolding-hospital",
+        "nordsjaelland",
+        "nykoebing-f-hospital",
+        "odense-university-hospital",
+        "randers-hospital",
+        "rigshospitalet",
+        "roskilde-hospital",
+        "silkeborg-hospital",
+        "slagelse-hospital",
+        "svendborg-hospital",
+        "toender-hospital",
+        "vejle-hospital",
+        "viborg-hospital"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-page-type",
+      "path": "location",
+      "reason": "New entity page type 'location' discovered during extraction",
+      "affectedEntities": [
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-page-type",
+      "path": "medical-condition",
+      "reason": "New entity page type 'medical-condition' discovered during extraction",
+      "affectedEntities": [
+        "crohns-disease",
+        "inflammatory-bowel-disease",
+        "primary-sclerosing-cholangitis",
+        "ulcerative-colitis"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-page-type",
+      "path": "medical-test",
+      "reason": "New entity page type 'medical-test' discovered during extraction",
+      "affectedEntities": [
+        "fecal-calprotectin"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-page-type",
+      "path": "medication",
+      "reason": "New entity page type 'medication' discovered during extraction",
+      "affectedEntities": [
+        "adalimumab",
+        "filgotinib",
+        "golimumab",
+        "infliximab",
+        "ozanimod",
+        "tofacitinib",
+        "upadacitinib",
+        "ustekinumab",
+        "vedolizumab"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-page-type",
+      "path": "organization",
+      "reason": "New entity page type 'organization' discovered during extraction",
+      "affectedEntities": [
+        "aarhus-boern-og-unge",
+        "aauh-aalborg-med-gastroenterologisk-omraade",
+        "danibd",
+        "dansk-selskab-for-gastroenterologi",
+        "det-centrale-personregister",
+        "gastrobio",
+        "goedstrup-mave-tarmkirurgi",
+        "laboratorieregisteret",
+        "laegemiddelstatistikregisteret",
+        "landpatientregisteret",
+        "medicinraadet",
+        "nordsjaellands-hospital",
+        "rkkp",
+        "sygehusmedicinregisteret",
+        "sygesikringsregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-page-type",
+      "path": "person",
+      "reason": "New entity page type 'person' discovered during extraction",
+      "affectedEntities": [
+        "anne-mette-falstie-jensen",
+        "else-kjaer-mikkelsen",
+        "esra-oeztoprak",
+        "henning-glerup",
+        "ida-vind",
+        "inge-nordgaard-lassen",
+        "jacobsen-ha",
+        "jakob-riis",
+        "jannie-jensen",
+        "jens-kjeldsen",
+        "johan-burisch",
+        "lone-larsen",
+        "marianne-kajbaek-vester-andersen",
+        "mohamed-attauabi",
+        "niels-qvist",
+        "ole-thorlacius-ussing",
+        "rasmus-gaardskaer-nielsen",
+        "torben-knudsen"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-page-type",
+      "path": "procedure",
+      "reason": "New entity page type 'procedure' discovered during extraction",
+      "affectedEntities": [
+        "koloskopi"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-page-type",
+      "path": "product",
+      "reason": "New entity page type 'product' discovered during extraction",
+      "affectedEntities": [
+        "constant-care"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:22:12.111Z",
+      "type": "new-page-type",
+      "path": "treatment",
+      "reason": "New entity page type 'treatment' discovered during extraction",
+      "affectedEntities": [
+        "bmsl"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:35:28.597Z",
+      "type": "new-folder",
+      "path": "topics/audit-finding",
+      "reason": "Topic page 'audit-finding' created from claims of type 'audit-finding'",
+      "affectedEntities": [
+        "aarhus-university-hospital",
+        "goedstrup-hospital"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:35:28.597Z",
+      "type": "new-folder",
+      "path": "topics/clinical-guideline",
+      "reason": "Topic page 'clinical-guideline' created from claims of type 'clinical-guideline'",
+      "affectedEntities": [
+        "bmsl",
+        "dexa-scanning",
+        "fecal-calprotectin",
+        "osteoporosis",
+        "steroid"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:35:28.597Z",
+      "type": "new-folder",
+      "path": "topics/data-limitation",
+      "reason": "Topic page 'data-limitation' created from claims of type 'data-limitation'",
+      "affectedEntities": [
+        "danibd",
+        "filgotinib",
+        "landpatientregisteret",
+        "mirikizumab",
+        "ozanimod",
+        "risankizumab",
+        "sygehusmedicinregisteret",
+        "upadacitinib"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:35:28.597Z",
+      "type": "new-folder",
+      "path": "topics/patient-demographics",
+      "reason": "Topic page 'patient-demographics' created from claims of type 'patient-demographics'",
+      "affectedEntities": [
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:35:28.597Z",
+      "type": "new-folder",
+      "path": "topics/quality-concern",
+      "reason": "Topic page 'quality-concern' created from claims of type 'quality-concern'",
+      "affectedEntities": [
+        "aarhus-university-hospital",
+        "dexa-scanning",
+        "goedstrup-hospital",
+        "osteoporosis",
+        "steroid"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:35:28.597Z",
+      "type": "new-folder",
+      "path": "topics/quality-improvement",
+      "reason": "Topic page 'quality-improvement' created from claims of type 'quality-improvement'",
+      "affectedEntities": [
+        "odense-kirurgisk-afdeling-a",
+        "region-nordjylland",
+        "region-syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:35:28.597Z",
+      "type": "new-folder",
+      "path": "topics/surgical-statistics",
+      "reason": "Topic page 'surgical-statistics' created from claims of type 'surgical-statistics'",
+      "affectedEntities": [
+        "danibd"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:35:28.597Z",
+      "type": "new-page-type",
+      "path": "medical-procedure",
+      "reason": "New entity page type 'medical-procedure' discovered during extraction",
+      "affectedEntities": [
+        "dexa-scanning",
+        "gastroskopi",
+        "ileocecal-resection",
+        "kapselendoskopi",
+        "mr-scanning-af-tyndtarm",
+        "sigmoideoskopi",
+        "ultralyd-af-tarmen"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:35:28.597Z",
+      "type": "new-page-type",
+      "path": "pharmaceutical-treatment",
+      "reason": "New entity page type 'pharmaceutical-treatment' discovered during extraction",
+      "affectedEntities": [
+        "steroid"
+      ]
+    },
+    {
+      "timestamp": "2026-07-25T15:35:28.597Z",
+      "type": "new-page-type",
+      "path": "topic",
+      "reason": "New entity page type 'topic' discovered during extraction",
+      "affectedEntities": [
+        "patient-education"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/administrative",
+      "reason": "Topic page 'administrative' created from claims of type 'administrative'",
+      "affectedEntities": [
+        "danibd",
+        "patient-education",
+        "region-hovedstaden",
+        "region-sjaelland"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/biomarkers",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/clinical",
+      "reason": "Topic page 'clinical' created from claims of type 'clinical'",
+      "affectedEntities": [
+        "colitis-ulcerosa",
+        "colorectal-cancer",
+        "crohns-sygdom",
+        "inflammatory-bowel-disease",
+        "koloskopi",
+        "primary-sclerosing-cholangitis"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/clinical-concern",
+      "reason": "Topic page 'clinical-concern' created from claims of type 'clinical-concern'",
+      "affectedEntities": [
+        "dexa-scanning",
+        "osteoporosis",
+        "steroid"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/clinical-evidence",
+      "reason": "Topic page 'clinical-evidence' created from claims of type 'clinical-evidence'",
+      "affectedEntities": [
+        "fecal-calprotectin",
+        "osteoporosis",
+        "steroid"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/contact-type",
+      "reason": "Topic page 'contact-type' created from claims of type 'contact-type'",
+      "affectedEntities": [
+        "danibd",
+        "psc"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/definition",
+      "reason": "Topic page 'definition' created from claims of type 'definition'",
+      "affectedEntities": [
+        "bmsl"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/demographic",
+      "reason": "Topic page 'demographic' created from claims of type 'demographic'",
+      "affectedEntities": [
+        "bmsl",
+        "danibd",
+        "primary-sclerosering-cholangitis",
+        "primary-sclerosing-cholangitis",
+        "psc"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/disease-prevalence",
+      "reason": "Topic page 'disease-prevalence' created from claims of type 'disease-prevalence'",
+      "affectedEntities": [
+        "crohns-sygdom",
+        "danibd"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/diseases/hepatobiliary",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/epidemiological",
+      "reason": "Topic page 'epidemiological' created from claims of type 'epidemiological'",
+      "affectedEntities": [
+        "danibd",
+        "ibd",
+        "inflammatory-bowel-disease",
+        "psc"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/future-plan",
+      "reason": "Topic page 'future-plan' created from claims of type 'future-plan'",
+      "affectedEntities": [
+        "danibd",
+        "sygehusmedicinregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/inclusion-criteria",
+      "reason": "Topic page 'inclusion-criteria' created from claims of type 'inclusion-criteria'",
+      "affectedEntities": [
+        "danibd",
+        "landpatientregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/medical",
+      "reason": "Topic page 'medical' created from claims of type 'medical'",
+      "affectedEntities": [
+        "crohns-disease",
+        "inflammatory-bowel-disease",
+        "koloskopi",
+        "patient-education"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/medical-condition",
+      "reason": "Topic page 'medical-condition' created from claims of type 'medical-condition'",
+      "affectedEntities": [
+        "crohns-disease",
+        "ulcerative-colitis"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/medical-conditions/inflammatory-bowel-disease",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/operational",
+      "reason": "Topic page 'operational' created from claims of type 'operational'",
+      "affectedEntities": [
+        "danibd"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/patient-cohort",
+      "reason": "Topic page 'patient-cohort' created from claims of type 'patient-cohort'",
+      "affectedEntities": [
+        "danibd"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/patient-count",
+      "reason": "Topic page 'patient-count' created from claims of type 'patient-count'",
+      "affectedEntities": [
+        "danibd",
+        "psc"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/procedural",
+      "reason": "Topic page 'procedural' created from claims of type 'procedural'",
+      "affectedEntities": [
+        "danibd"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/procedure-statistics",
+      "reason": "Topic page 'procedure-statistics' created from claims of type 'procedure-statistics'",
+      "affectedEntities": [
+        "danibd"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/quality-standard",
+      "reason": "Topic page 'quality-standard' created from claims of type 'quality-standard'",
+      "affectedEntities": [
+        "bmsl",
+        "f-calpro"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/quality-target",
+      "reason": "Topic page 'quality-target' created from claims of type 'quality-target'",
+      "affectedEntities": [
+        "dexa-scanning",
+        "fecal-calprotectin"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/regulatory",
+      "reason": "Topic page 'regulatory' created from claims of type 'regulatory'",
+      "affectedEntities": [
+        "filgotinib",
+        "landpatientregisteret",
+        "mirikizumab",
+        "risankizumab",
+        "upadacitinib"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/scope",
+      "reason": "Topic page 'scope' created from claims of type 'scope'",
+      "affectedEntities": [
+        "danibd"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/statistical",
+      "reason": "Topic page 'statistical' created from claims of type 'statistical'",
+      "affectedEntities": [
+        "colitis-ulcerosa",
+        "crohns-disease",
+        "crohns-sygdom",
+        "danibd",
+        "denmark",
+        "dexa-scanning",
+        "fecal-calprotectin",
+        "inflammatory-bowel-disease",
+        "korttarmssyndrom",
+        "primaer-skleroserende-kolangitis",
+        "randers-hospital",
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark",
+        "rigshospitalet",
+        "steroid",
+        "ulcerative-colitis"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/surgical-coding",
+      "reason": "Topic page 'surgical-coding' created from claims of type 'surgical-coding'",
+      "affectedEntities": [
+        "danibd"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/surgical-procedure",
+      "reason": "Topic page 'surgical-procedure' created from claims of type 'surgical-procedure'",
+      "affectedEntities": [
+        "danibd",
+        "ibd"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/surgical-volume",
+      "reason": "Topic page 'surgical-volume' created from claims of type 'surgical-volume'",
+      "affectedEntities": [
+        "danibd"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/treatment-volume",
+      "reason": "Topic page 'treatment-volume' created from claims of type 'treatment-volume'",
+      "affectedEntities": [
+        "danibd",
+        "infliximab"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-folder",
+      "path": "topics/validation",
+      "reason": "Topic page 'validation' created from claims of type 'validation'",
+      "affectedEntities": [
+        "gastrobio",
+        "ibd",
+        "jacobsen-ha"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-page-type",
+      "path": "biomarker",
+      "reason": "New entity page type 'biomarker' discovered during extraction",
+      "affectedEntities": [
+        "f-calpro"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-page-type",
+      "path": "condition",
+      "reason": "New entity page type 'condition' discovered during extraction",
+      "affectedEntities": [
+        "ibd",
+        "psc"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:52:55.856Z",
+      "type": "new-page-type",
+      "path": "region",
+      "reason": "New entity page type 'region' discovered during extraction",
+      "affectedEntities": [
+        "hovedstaden-region",
+        "midtjylland-region",
+        "nordjylland-region",
+        "sjaelland-region",
+        "syddanmark-region"
+      ]
+    }
+  ],
+  "knownPageTypes": [
+    "biomarker",
+    "condition",
+    "disease",
+    "hospital",
+    "location",
+    "medical-condition",
+    "medical-procedure",
+    "medical-test",
+    "medication",
+    "organization",
+    "person",
+    "pharmaceutical-treatment",
+    "procedure",
+    "product",
+    "region",
+    "topic",
+    "treatment"
+  ]
+}

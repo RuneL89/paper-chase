@@ -1,0 +1,1463 @@
+{
+  "changes": [
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "entities/locations/countries",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "entities/locations/danish-municipalities",
+      "reason": "4 entities placed in this folder",
+      "affectedEntities": [
+        "aalborg",
+        "aarhus",
+        "koebenhavn",
+        "odense"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "entities/locations/danish-regions",
+      "reason": "4 entities placed in this folder",
+      "affectedEntities": [
+        "midtjylland",
+        "nordjylland",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "entities/organizations/government",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "sundhedsdatastyrelsen"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "entities/organizations/government-agencies",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "sundhedsstyrelsen"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "entities/organizations/health-registries",
+      "reason": "9 entities placed in this folder",
+      "affectedEntities": [
+        "cpr-registeret",
+        "danstroke",
+        "databasen-for-atrieflimren-i-danmark",
+        "den-nationale-labdatabank",
+        "laboratorieregistret",
+        "laegemiddelstatistikregisteret",
+        "landspatientregisteret",
+        "regionernes-kliniske-kvalitetsudviklingsprogram",
+        "sygesikringsregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "entities/organizations/health-systems",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "sundhedsplatformen"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "entities/organizations/hospitals",
+      "reason": "36 entities placed in this folder",
+      "affectedEntities": [
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "aarhus-universitetshospital",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "friklinikken-region-syddanmark-grindsted",
+        "garantiklinikken",
+        "herlev-og-gentofte-hospital",
+        "holbaek",
+        "hospitalerne-i-nordsjaelland",
+        "hospitalsenhed-midt",
+        "hospitalsenheden-vest",
+        "kolding-sygehus",
+        "naestved",
+        "nykoebing-falster",
+        "ouh-odense-universitetshospital",
+        "regionshospital-nordjylland-ven",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-nordjylland",
+        "regionshospitalet-randers",
+        "regionshospitalet-silkeborg",
+        "rigshospitalet",
+        "samsoe-sundheds-og-akuthus",
+        "shs-faelles-akut-modtagelse",
+        "sjaellands-universitetshospital",
+        "sjaellands-universitetshospital-koege",
+        "sjaellands-universitetshospital-roskilde",
+        "slagelse",
+        "steno-diabetes-center",
+        "syddansk-universitetshospital",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "vejle-sygehus"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "entities/organizations/professional-societies",
+      "reason": "2 entities placed in this folder",
+      "affectedEntities": [
+        "dansk-cardiologisk-selskab",
+        "international-society-of-thrombosis-and-hemostasis"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "entities/organizations/regions",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "region-hovedstaden"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "entities/people/healthcare-professionals",
+      "reason": "4 entities placed in this folder",
+      "affectedEntities": [
+        "albert-marni-joensen",
+        "julie-andersen",
+        "lars-frost",
+        "ulla-dam-schmidt"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "entities/people/medical-professionals",
+      "reason": "11 entities placed in this folder",
+      "affectedEntities": [
+        "anders-moeller-schlunsen",
+        "axel-brandes",
+        "dorte-damgaard",
+        "henrik-rasmussen",
+        "ina-qvist",
+        "jeppe-launbjerg",
+        "margit-brinck",
+        "miriam-grijota-chousa",
+        "ole-dyg-pedersen",
+        "palle-mark-christensen",
+        "ulla-davidsen"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "entities/people/patient-representatives",
+      "reason": "2 entities placed in this folder",
+      "affectedEntities": [
+        "inge-moelgaard",
+        "robert-bedsted"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical",
+      "reason": "Topic page 'clinical' created from claims of type 'clinical'",
+      "affectedEntities": [
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "aarhus-universitetshospital",
+        "amager-og-hvidovre-hospital",
+        "atrieflimren",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "friklinikken-region-syddanmark-grindsted",
+        "garantiklinikken",
+        "herlev-og-gentofte-hospital",
+        "holbaek",
+        "hospitalerne-i-nordsjaelland",
+        "hospitalsenhed-midt",
+        "hospitalsenheden-vest",
+        "kolding-sygehus",
+        "midtjylland",
+        "naestved",
+        "nordjylland",
+        "nykoebing-falster",
+        "ouh-odense-universitetshospital",
+        "region-hovedstaden",
+        "regionshospital-nordjylland-ven",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "rigshospitalet",
+        "samsoe-sundheds-og-akuthus",
+        "sjaelland",
+        "sjaellands-universitetshospital-koege",
+        "sjaellands-universitetshospital-roskilde",
+        "slagelse",
+        "steno-diabetes-center",
+        "syddanmark",
+        "sygehus-soenderjylland",
+        "vejle-sygehus"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical-context",
+      "reason": "Topic page 'clinical-context' created from claims of type 'clinical-context'"
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical-criteria",
+      "reason": "Topic page 'clinical-criteria' created from claims of type 'clinical-criteria'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical-epidemiology",
+      "reason": "Topic page 'clinical-epidemiology' created from claims of type 'clinical-epidemiology'"
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical-finding",
+      "reason": "Topic page 'clinical-finding' created from claims of type 'clinical-finding'",
+      "affectedEntities": [
+        "cha2ds2-vasc-score",
+        "indikator-7-serious-bleeding"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical-measures",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical-outcome",
+      "reason": "Topic page 'clinical-outcome' created from claims of type 'clinical-outcome'",
+      "affectedEntities": [
+        "danmark",
+        "databasen-for-atrieflimren-i-danmark",
+        "doac",
+        "indikator-7-serious-bleeding",
+        "marevan",
+        "midtjylland",
+        "nordjylland",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical-performance",
+      "reason": "Topic page 'clinical-performance' created from claims of type 'clinical-performance'",
+      "affectedEntities": [
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "aarhus-universitetshospital",
+        "amager-og-hvidovre-hospital",
+        "atrieflimren",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "danmark",
+        "databasen-for-atrieflimren-i-danmark",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "friklinikken-region-syddanmark-grindsted",
+        "garantiklinikken",
+        "herlev-og-gentofte-hospital",
+        "holbaek",
+        "hospitalerne-i-nordsjaelland",
+        "hospitalsenhed-midt",
+        "kolding-sygehus",
+        "labka",
+        "midtjylland",
+        "naestved",
+        "nordjylland",
+        "nykoebing-falster",
+        "ouh-odense-universitetshospital",
+        "region-hovedstaden",
+        "regionshospital-nordjylland-ven",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "rigshospitalet",
+        "sjaelland",
+        "sjaellands-universitetshospital-koege",
+        "sjaellands-universitetshospital-roskilde",
+        "slagelse",
+        "syddanmark",
+        "sygehus-soenderjylland",
+        "vejle-sygehus"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical-quality",
+      "reason": "Topic page 'clinical-quality' created from claims of type 'clinical-quality'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "midtjylland",
+        "nordjylland",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical-risk",
+      "reason": "Topic page 'clinical-risk' created from claims of type 'clinical-risk'"
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical-statistics",
+      "reason": "Topic page 'clinical-statistics' created from claims of type 'clinical-statistics'",
+      "affectedEntities": [
+        "danmark",
+        "databasen-for-atrieflimren-i-danmark",
+        "midtjylland",
+        "nordjylland",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical-systems",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical-treatment",
+      "reason": "Topic page 'clinical-treatment' created from claims of type 'clinical-treatment'",
+      "affectedEntities": [
+        "danmark",
+        "midtjylland",
+        "region-hovedstaden"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/clinical-trend",
+      "reason": "Topic page 'clinical-trend' created from claims of type 'clinical-trend'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "indikator-7-serious-bleeding"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/data-collection",
+      "reason": "Topic page 'data-collection' created from claims of type 'data-collection'",
+      "affectedEntities": [
+        "den-nationale-labdatabank",
+        "midtjylland"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/data-limitation",
+      "reason": "Topic page 'data-limitation' created from claims of type 'data-limitation'",
+      "affectedEntities": [
+        "landspatientregisteret",
+        "regionernes-kliniske-kvalitetsudviklingsprogram",
+        "sundhedsdatastyrelsen",
+        "sundhedsplatformen",
+        "sygehus-soenderjylland",
+        "sygesikringsregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/data-privacy",
+      "reason": "Topic page 'data-privacy' created from claims of type 'data-privacy'"
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/data-quality",
+      "reason": "Topic page 'data-quality' created from claims of type 'data-quality'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "landspatientregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/data-quality-note",
+      "reason": "Topic page 'data-quality-note' created from claims of type 'data-quality-note'",
+      "affectedEntities": [
+        "kolding-sygehus",
+        "sygehus-lillebaelt",
+        "vejle-sygehus"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/data-source",
+      "reason": "Topic page 'data-source' created from claims of type 'data-source'",
+      "affectedEntities": [
+        "landspatientregisteret",
+        "sygesikringsregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/demographic-projection",
+      "reason": "Topic page 'demographic-projection' created from claims of type 'demographic-projection'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/epidemiological",
+      "reason": "Topic page 'epidemiological' created from claims of type 'epidemiological'",
+      "affectedEntities": [
+        "atrieflimren",
+        "danmark",
+        "databasen-for-atrieflimren-i-danmark",
+        "midtjylland",
+        "nordjylland",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/heart-failure",
+      "reason": "Topic page 'heart-failure' created from claims of type 'heart-failure'",
+      "affectedEntities": [
+        "danmark",
+        "midtjylland",
+        "nordjylland",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/indicator-definition",
+      "reason": "Topic page 'indicator-definition' created from claims of type 'indicator-definition'",
+      "affectedEntities": [
+        "antikoagulationsbehandling",
+        "atrieflimren",
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/indicator-status",
+      "reason": "Topic page 'indicator-status' created from claims of type 'indicator-status'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "indikator-7-serious-bleeding"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/limitation",
+      "reason": "Topic page 'limitation' created from claims of type 'limitation'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/medical-conditions",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/medical-treatments",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/medications",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/methodology",
+      "reason": "Topic page 'methodology' created from claims of type 'methodology'",
+      "affectedEntities": [
+        "danmark",
+        "indikator-6-intrakraniel-blodning",
+        "landspatientregisteret",
+        "sygesikringsregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/mortality",
+      "reason": "Topic page 'mortality' created from claims of type 'mortality'",
+      "affectedEntities": [
+        "danmark",
+        "midtjylland",
+        "nordjylland",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/operational",
+      "reason": "Topic page 'operational' created from claims of type 'operational'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "nordjylland",
+        "shs-faelles-akut-modtagelse",
+        "sygehus-soenderjylland"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/organizational-goal",
+      "reason": "Topic page 'organizational-goal' created from claims of type 'organizational-goal'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/patient-outcome",
+      "reason": "Topic page 'patient-outcome' created from claims of type 'patient-outcome'",
+      "affectedEntities": [
+        "danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/population",
+      "reason": "Topic page 'population' created from claims of type 'population'"
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/quality-assessment",
+      "reason": "Topic page 'quality-assessment' created from claims of type 'quality-assessment'",
+      "affectedEntities": [
+        "danmark",
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/quality-indicator",
+      "reason": "Topic page 'quality-indicator' created from claims of type 'quality-indicator'",
+      "affectedEntities": [
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "aarhus-universitetshospital",
+        "amager-og-hvidovre-hospital",
+        "atrieflimren",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "danmark",
+        "databasen-for-atrieflimren-i-danmark",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "friklinikken-region-syddanmark-grindsted",
+        "garantiklinikken",
+        "herlev-og-gentofte-hospital",
+        "holbaek",
+        "hospitalerne-i-nordsjaelland",
+        "hospitalsenhed-midt",
+        "hospitalsenheden-vest",
+        "indikator-8-structured-education",
+        "kolding-sygehus",
+        "midtjylland",
+        "naestved",
+        "nordjylland",
+        "nykoebing-falster",
+        "ouh-odense-universitetshospital",
+        "region-hovedstaden",
+        "regionshospital-nordjylland-ven",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "rigshospitalet",
+        "sjaelland",
+        "sjaellands-universitetshospital-koege",
+        "sjaellands-universitetshospital-roskilde",
+        "slagelse",
+        "syddanmark",
+        "sygehus-soenderjylland",
+        "vejle-sygehus"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/quality-indicators",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/quality-standard",
+      "reason": "Topic page 'quality-standard' created from claims of type 'quality-standard'",
+      "affectedEntities": [
+        "aalborg",
+        "aarhus",
+        "danmark",
+        "databasen-for-atrieflimren-i-danmark",
+        "koebenhavn",
+        "midtjylland",
+        "nordjylland",
+        "odense",
+        "region-hovedstaden",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/recommendation",
+      "reason": "Topic page 'recommendation' created from claims of type 'recommendation'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "landspatientregisteret",
+        "regionernes-kliniske-kvalitetsudviklingsprogram",
+        "sundhedsplatformen"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/regional-variation",
+      "reason": "Topic page 'regional-variation' created from claims of type 'regional-variation'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "indikator-7-serious-bleeding",
+        "midtjylland",
+        "nordjylland",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/result",
+      "reason": "Topic page 'result' created from claims of type 'result'",
+      "affectedEntities": [
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "aarhus-universitetshospital",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "friklinikken-region-syddanmark-grindsted",
+        "garantiklinikken",
+        "herlev-og-gentofte-hospital",
+        "holbaek",
+        "hospitalerne-i-nordsjaelland",
+        "hospitalsenhed-midt",
+        "kolding-sygehus",
+        "midtjylland",
+        "naestved",
+        "nordjylland",
+        "nykoebing-falster",
+        "ouh-odense-universitetshospital",
+        "region-hovedstaden",
+        "regionshospital-nordjylland-ven",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "rigshospitalet",
+        "sjaelland",
+        "sjaellands-universitetshospital-koege",
+        "sjaellands-universitetshospital-roskilde",
+        "slagelse",
+        "syddanmark",
+        "sygehus-soenderjylland",
+        "vejle-sygehus"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/standard-setting",
+      "reason": "Topic page 'standard-setting' created from claims of type 'standard-setting'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/treatment-gap",
+      "reason": "Topic page 'treatment-gap' created from claims of type 'treatment-gap'",
+      "affectedEntities": [
+        "danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-folder",
+      "path": "topics/treatment-outcome",
+      "reason": "Topic page 'treatment-outcome' created from claims of type 'treatment-outcome'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "doac",
+        "marevan"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-page-type",
+      "path": "location",
+      "reason": "New entity page type 'location' discovered during extraction",
+      "affectedEntities": [
+        "aalborg",
+        "aarhus",
+        "danmark",
+        "koebenhavn",
+        "midtjylland",
+        "nordjylland",
+        "odense",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-page-type",
+      "path": "medical-condition",
+      "reason": "New entity page type 'medical-condition' discovered during extraction",
+      "affectedEntities": [
+        "atrieflimren"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-page-type",
+      "path": "medical-treatment",
+      "reason": "New entity page type 'medical-treatment' discovered during extraction",
+      "affectedEntities": [
+        "antikoagulationsbehandling"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-page-type",
+      "path": "organization",
+      "reason": "New entity page type 'organization' discovered during extraction",
+      "affectedEntities": [
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "aarhus-universitetshospital",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "cpr-registeret",
+        "dansk-cardiologisk-selskab",
+        "danstroke",
+        "databasen-for-atrieflimren-i-danmark",
+        "den-nationale-labdatabank",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "friklinikken-region-syddanmark-grindsted",
+        "garantiklinikken",
+        "herlev-og-gentofte-hospital",
+        "holbaek",
+        "hospitalerne-i-nordsjaelland",
+        "hospitalsenhed-midt",
+        "hospitalsenheden-vest",
+        "international-society-of-thrombosis-and-hemostasis",
+        "kolding-sygehus",
+        "laboratorieregistret",
+        "laegemiddelstatistikregisteret",
+        "landspatientregisteret",
+        "naestved",
+        "nykoebing-falster",
+        "ouh-odense-universitetshospital",
+        "region-hovedstaden",
+        "regionernes-kliniske-kvalitetsudviklingsprogram",
+        "regionshospital-nordjylland-ven",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-nordjylland",
+        "regionshospitalet-randers",
+        "regionshospitalet-silkeborg",
+        "rigshospitalet",
+        "samsoe-sundheds-og-akuthus",
+        "shs-faelles-akut-modtagelse",
+        "sjaellands-universitetshospital",
+        "sjaellands-universitetshospital-koege",
+        "sjaellands-universitetshospital-roskilde",
+        "slagelse",
+        "steno-diabetes-center",
+        "sundhedsdatastyrelsen",
+        "sundhedsplatformen",
+        "sundhedsstyrelsen",
+        "syddansk-universitetshospital",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "sygesikringsregisteret",
+        "vejle-sygehus"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-page-type",
+      "path": "person",
+      "reason": "New entity page type 'person' discovered during extraction",
+      "affectedEntities": [
+        "albert-marni-joensen",
+        "anders-moeller-schlunsen",
+        "axel-brandes",
+        "dorte-damgaard",
+        "henrik-rasmussen",
+        "ina-qvist",
+        "inge-moelgaard",
+        "jeppe-launbjerg",
+        "julie-andersen",
+        "lars-frost",
+        "margit-brinck",
+        "miriam-grijota-chousa",
+        "ole-dyg-pedersen",
+        "palle-mark-christensen",
+        "robert-bedsted",
+        "ulla-dam-schmidt",
+        "ulla-davidsen"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-page-type",
+      "path": "system",
+      "reason": "New entity page type 'system' discovered during extraction",
+      "affectedEntities": [
+        "labka"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:13:47.423Z",
+      "type": "new-page-type",
+      "path": "topic",
+      "reason": "New entity page type 'topic' discovered during extraction",
+      "affectedEntities": [
+        "cha2ds2-vasc-score",
+        "doac",
+        "indikator-6-intrakraniel-blodning",
+        "indikator-7-serious-bleeding",
+        "indikator-8-structured-education",
+        "marevan"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:32:34.535Z",
+      "type": "new-folder",
+      "path": "topics/clinical-framework",
+      "reason": "Topic page 'clinical-framework' created from claims of type 'clinical-framework'",
+      "affectedEntities": [
+        "atrieflimren"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:32:34.535Z",
+      "type": "new-folder",
+      "path": "topics/clinical-goal",
+      "reason": "Topic page 'clinical-goal' created from claims of type 'clinical-goal'",
+      "affectedEntities": [
+        "atrieflimren"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:32:34.535Z",
+      "type": "new-folder",
+      "path": "topics/clinical-measure",
+      "reason": "Topic page 'clinical-measure' created from claims of type 'clinical-measure'",
+      "affectedEntities": [
+        "atrieflimren",
+        "cha2ds2-vasc-score",
+        "danmark",
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:32:34.535Z",
+      "type": "new-folder",
+      "path": "topics/clinical-projection",
+      "reason": "Topic page 'clinical-projection' created from claims of type 'clinical-projection'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "doac",
+        "indikator-6-intrakraniel-blodning",
+        "marevan"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:32:34.535Z",
+      "type": "new-folder",
+      "path": "topics/data-exclusion",
+      "reason": "Topic page 'data-exclusion' created from claims of type 'data-exclusion'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:32:34.535Z",
+      "type": "new-folder",
+      "path": "topics/demographic",
+      "reason": "Topic page 'demographic' created from claims of type 'demographic'",
+      "affectedEntities": [
+        "danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:32:34.535Z",
+      "type": "new-page-type",
+      "path": "clinical-measure",
+      "reason": "New entity page type 'clinical-measure' discovered during extraction",
+      "affectedEntities": [
+        "npu04998",
+        "npu18016",
+        "p-creatinin"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:32:34.535Z",
+      "type": "new-page-type",
+      "path": "product",
+      "reason": "New entity page type 'product' discovered during extraction",
+      "affectedEntities": [
+        "eliquis",
+        "lixiana",
+        "pradaxa",
+        "xarelto"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T07:32:34.535Z",
+      "type": "new-page-type",
+      "path": "quality-indicator",
+      "reason": "New entity page type 'quality-indicator' discovered during extraction",
+      "affectedEntities": [
+        "indikator-11-serious-bleeding-newly-diagnosed",
+        "indikator-15-heart-failure-newly-diagnosed",
+        "indikator-2-ekkokardiografi",
+        "indikator-3-tsh-maaling",
+        "indikator-4a-antikoagulation",
+        "indikator-4a1",
+        "indikator-4a2",
+        "indikator-4b",
+        "indikator-5",
+        "indikator-7-incidens-alvorlig-blodning"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T17:45:28.369Z",
+      "type": "new-folder",
+      "path": "topics/clinical-recommendation",
+      "reason": "Topic page 'clinical-recommendation' created from claims of type 'clinical-recommendation'",
+      "affectedEntities": [
+        "atrieflimren",
+        "esc"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T17:45:28.369Z",
+      "type": "new-folder",
+      "path": "topics/clinical-risk",
+      "reason": "Topic page 'clinical-risk' created from claims of type 'clinical-risk'",
+      "affectedEntities": [
+        "atrieflimren",
+        "hjertesvigt"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T17:45:28.369Z",
+      "type": "new-folder",
+      "path": "topics/indicator-status",
+      "reason": "Topic page 'indicator-status' created from claims of type 'indicator-status'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "indikator-2-ekkokardiografi",
+        "indikator-3-tsh-maaling",
+        "indikator-4b",
+        "indikator-7-incidens-alvorlig-blodning"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T17:45:28.369Z",
+      "type": "new-folder",
+      "path": "topics/population",
+      "reason": "Topic page 'population' created from claims of type 'population'"
+    },
+    {
+      "timestamp": "2026-07-28T19:39:43.232Z",
+      "type": "new-folder",
+      "path": "topics/clinical-indicator",
+      "reason": "Topic page 'clinical-indicator' created from claims of type 'clinical-indicator'",
+      "affectedEntities": [
+        "danmark",
+        "databasen-for-atrieflimren-i-danmark",
+        "midtjylland",
+        "nordjylland",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T19:39:43.232Z",
+      "type": "new-folder",
+      "path": "topics/heart-failure",
+      "reason": "Topic page 'heart-failure' created from claims of type 'heart-failure'",
+      "affectedEntities": [
+        "danmark",
+        "hovedstaden",
+        "midtjylland",
+        "nordjylland",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T19:39:43.232Z",
+      "type": "new-folder",
+      "path": "topics/organizational",
+      "reason": "Topic page 'organizational' created from claims of type 'organizational'",
+      "affectedEntities": [
+        "hospitalsenhed-midt"
+      ]
+    },
+    {
+      "timestamp": "2026-07-28T19:39:43.232Z",
+      "type": "new-folder",
+      "path": "topics/result",
+      "reason": "Topic page 'result' created from claims of type 'result'",
+      "affectedEntities": [
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "aarhus-universitetshospital",
+        "amager-og-hvidovre-hospital",
+        "atrieflimren-i-danmark",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "friklinikken-region-syddanmark-grindsted",
+        "garantiklinikken",
+        "herlev-og-gentofte-hospital",
+        "holbaek",
+        "hospitalerne-i-nordsjaelland",
+        "hospitalsenhed-midt",
+        "kolding-sygehus",
+        "naestved",
+        "nykoebing-falster",
+        "ouh-odense-universitetshospital",
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark",
+        "regionshospital-nordjylland-ven",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "rigshospitalet",
+        "sjaellands-universitetshospital-koege",
+        "sjaellands-universitetshospital-roskilde",
+        "slagelse",
+        "sygehus-soenderjylland",
+        "vejle-sygehus"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/action",
+      "reason": "Topic page 'action' created from claims of type 'action'",
+      "affectedEntities": [
+        "rkkp",
+        "sundhedsplatformen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/assessment",
+      "reason": "Topic page 'assessment' created from claims of type 'assessment'"
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/clinical-epidemiology",
+      "reason": "Topic page 'clinical-epidemiology' created from claims of type 'clinical-epidemiology'"
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/clinical-methodology",
+      "reason": "Topic page 'clinical-methodology' created from claims of type 'clinical-methodology'"
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/clinical-rationale",
+      "reason": "Topic page 'clinical-rationale' created from claims of type 'clinical-rationale'",
+      "affectedEntities": [
+        "doac",
+        "p-creatinin"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/clinical-recommendation",
+      "reason": "Topic page 'clinical-recommendation' created from claims of type 'clinical-recommendation'",
+      "affectedEntities": [
+        "atrieflimren",
+        "esc"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/clinical-standard",
+      "reason": "Topic page 'clinical-standard' created from claims of type 'clinical-standard'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/data-characteristic",
+      "reason": "Topic page 'data-characteristic' created from claims of type 'data-characteristic'",
+      "affectedEntities": [
+        "sygesikringsregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/definitional",
+      "reason": "Topic page 'definitional' created from claims of type 'definitional'",
+      "affectedEntities": [
+        "atrial-fibrillation",
+        "atrieflimren",
+        "databasen-for-atrieflimren-i-danmark",
+        "landspatientregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/demographic-projection",
+      "reason": "Topic page 'demographic-projection' created from claims of type 'demographic-projection'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/exclusion",
+      "reason": "Topic page 'exclusion' created from claims of type 'exclusion'"
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/finding",
+      "reason": "Topic page 'finding' created from claims of type 'finding'",
+      "affectedEntities": [
+        "landspatientregisteret",
+        "sundhedsplatformen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/healthcare-databases",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/limitation",
+      "reason": "Topic page 'limitation' created from claims of type 'limitation'",
+      "affectedEntities": [
+        "danmark",
+        "databasen-for-atrieflimren-i-danmark",
+        "indikator-8-structured-education"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/methodological",
+      "reason": "Topic page 'methodological' created from claims of type 'methodological'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "kolding-sygehus",
+        "vejle-sygehus"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/mortality-trend",
+      "reason": "Topic page 'mortality-trend' created from claims of type 'mortality-trend'",
+      "affectedEntities": [
+        "danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/note",
+      "reason": "Topic page 'note' created from claims of type 'note'",
+      "affectedEntities": [
+        "kolding-sygehus",
+        "sygehus-lillebaelt",
+        "vejle-sygehus"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/patient-count",
+      "reason": "Topic page 'patient-count' created from claims of type 'patient-count'",
+      "affectedEntities": [
+        "danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/performance",
+      "reason": "Topic page 'performance' created from claims of type 'performance'",
+      "affectedEntities": [
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "aarhus-universitetshospital",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "danmark",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "friklinikken-region-syddanmark-grindsted",
+        "garantiklinikken",
+        "herlev-og-gentofte-hospital",
+        "holbaek",
+        "hospitalerne-i-nordsjaelland",
+        "hospitalsenhed-midt",
+        "hovedstaden",
+        "kolding-sygehus",
+        "midtjylland",
+        "naestved",
+        "nordjylland",
+        "nykoebing-falster",
+        "ouh-odense-universitetshospital",
+        "regionshospital-nordjylland-ven",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "rigshospitalet",
+        "sjaelland",
+        "sjaellands-universitetshospital-koege",
+        "sjaellands-universitetshospital-roskilde",
+        "slagelse",
+        "syddanmark",
+        "sygehus-soenderjylland",
+        "vejle-sygehus"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/quality-indicator-definition",
+      "reason": "Topic page 'quality-indicator-definition' created from claims of type 'quality-indicator-definition'",
+      "affectedEntities": [
+        "antikoagulationsbehandling",
+        "atrieflimren"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/quality-indicator-result",
+      "reason": "Topic page 'quality-indicator-result' created from claims of type 'quality-indicator-result'",
+      "affectedEntities": [
+        "danmark",
+        "hjertesvigt",
+        "indikator-11-serious-bleeding-newly-diagnosed",
+        "indikator-15-heart-failure-newly-diagnosed",
+        "midtjylland",
+        "nordjylland",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/quality-performance",
+      "reason": "Topic page 'quality-performance' created from claims of type 'quality-performance'",
+      "affectedEntities": [
+        "danmark",
+        "midtjylland",
+        "nordjylland",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/regional-comparison",
+      "reason": "Topic page 'regional-comparison' created from claims of type 'regional-comparison'",
+      "affectedEntities": [
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/regional-performance",
+      "reason": "Topic page 'regional-performance' created from claims of type 'regional-performance'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/standard",
+      "reason": "Topic page 'standard' created from claims of type 'standard'"
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/technical",
+      "reason": "Topic page 'technical' created from claims of type 'technical'",
+      "affectedEntities": [
+        "rkkp",
+        "sygehus-soenderjylland"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/temporal",
+      "reason": "Topic page 'temporal' created from claims of type 'temporal'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/treatments",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-08-03T18:41:11.394Z",
+      "type": "new-folder",
+      "path": "topics/trend",
+      "reason": "Topic page 'trend' created from claims of type 'trend'",
+      "affectedEntities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "region-hovedstaden",
+        "region-nordjylland"
+      ]
+    }
+  ],
+  "knownPageTypes": [
+    "clinical-measure",
+    "location",
+    "medical-condition",
+    "medical-treatment",
+    "organization",
+    "person",
+    "product",
+    "quality-indicator",
+    "system",
+    "topic"
+  ]
+}

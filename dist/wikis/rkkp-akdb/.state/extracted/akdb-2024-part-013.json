@@ -1,0 +1,1038 @@
+{
+  "entities": [
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det nationale niveau for sammenligning af opererede og ikke-opererede patienter i akut kirurgi, hvor 37,03 % blev opereret og 62,97 % ikke blev opereret i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Danmark 9.906 100,00 3.668 37,03 6.238 62,97"
+        },
+        {
+          "page": 61,
+          "context": "Danmark 82 / 1.324 0 (0) 6,2 (5,0-7,6) 6,6 7,8"
+        },
+        {
+          "page": 61,
+          "context": "Danmark 143 / 1.144 0 (0) 12,5 (10,6-14,6) 11,3 13,8"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden Region",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Hovedstaden Region havde 41,55 % opererede patienter blandt 2.794 i alt, hvilket var højere end landsgennemsnittet på 37,03 %.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Hovedstaden Region i alt 2.794 100,00 1.161 41,55 1.633 58,45"
+        },
+        {
+          "page": 61,
+          "context": "Hovedstaden 36 / 421 0 (0) 8,6 (6,1-11,6) 6,1 6,7"
+        },
+        {
+          "page": 61,
+          "context": "Hovedstaden 40 / 366 0 (0) 10,9 (7,9-14,6) 9,3 12,0"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Amager og Hvidovre Hospital havde 45,34 % opererede blandt 622 patienter, hvilket var blandt de højeste operationsrater blandt hospitalerne i Hovedstaden Region.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Amager og Hvidovre Hospital 622 100,00 282 45,34 340 54,66"
+        },
+        {
+          "page": 61,
+          "context": "Amager og Hvidovre Hospital 7 / 101 0 (0) 6,9 (2,8-13,8) 7,3 4,6"
+        },
+        {
+          "page": 61,
+          "context": "Amager og Hvidovre Hospital 7 / 91 0 (0) 7,7 (3,1-15,2) 8,7 6,5"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospital",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg og Frederiksberg Hospital havde 40,34 % opererede blandt 466 patienter i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Bispebjerg og Frederiksberg Hospital 466 100,00 188 40,34 278 59,66"
+        },
+        {
+          "page": 61,
+          "context": "Bispebjerg og Frederiksberg Hospital 7 / 73 0 (0) 9,6 (3,9-18,8) 4,9 3,4"
+        },
+        {
+          "page": 61,
+          "context": "Bispebjerg og Frederiksberg Hospital 6 / 61 0 (0) 9,8 (3,7-20,2) 6,0 6,9"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholms Hospital havde den laveste operationsrate blandt hospitalerne i Hovedstaden Region med 30,77 % opererede blandt 91 patienter.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Bornholms Hospital 91 100,00 28 30,77 63 69,23"
+        },
+        {
+          "page": 61,
+          "context": "Bornholms Hospital 0 / 10 0 (0) 0,0 (0,0-30,8) 0,0 14,3"
+        },
+        {
+          "page": 61,
+          "context": "Bornholms Hospital #/# 0 (0) 14,3 (1,8-42,8) 0,0 12,5"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev og Gentofte Hospital havde 41,79 % opererede blandt 816 patienter, hvilket var tæt på regionalt gennemsnit.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Herlev og Gentofte Hospital 816 100,00 341 41,79 475 58,21"
+        },
+        {
+          "page": 61,
+          "context": "Herlev og Gentofte Hospital 17 / 144 0 (0) 11,8 (7,0-18,2) 3,5 4,9"
+        },
+        {
+          "page": 61,
+          "context": "Herlev og Gentofte Hospital 7 / 90 0 (0) 7,8 (3,2-15,4) 11,1 19,8"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalerne i Nordsjælland havde 38,77 % opererede blandt 583 patienter i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Hospitalerne i Nordsjælland 583 100,00 226 38,77 357 61,23"
+        },
+        {
+          "page": 61,
+          "context": "Hospitalerne i Nordsjælland 4 / 82 0 (0) 4,9 (1,3-12,0) 7,6 10,8"
+        },
+        {
+          "page": 61,
+          "context": "Hospitalerne i Nordsjælland 9 / 85 0 (0) 10,6 (5,0-19,2) 11,6 6,5"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet havde 44,44 % opererede blandt 216 patienter, hvilket var blandt de højeste operationsrater i Hovedstaden Region.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Rigshospitalet 216 100,00 96 44,44 120 55,56"
+        },
+        {
+          "page": 61,
+          "context": "Rigshospitalet #/# 0 (0) 9,1 (0,2-41,3) 30,0 36,4"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland Region",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Sjælland Region havde 40,33 % opererede blandt 1.577 patienter i alt, hvilket var tæt på landsgennemsnittet.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Sjælland Region i alt 1.577 100,00 636 40,33 941 59,67"
+        },
+        {
+          "page": 61,
+          "context": "Sjælland 9 / 241 0 (0) 3,7 (1,7-7,0) 8,0 7,1"
+        },
+        {
+          "page": 61,
+          "context": "Sjælland 29 / 204 0 (0) 14,2 (9,7-19,8) 15,4 16,4"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus havde 45,37 % opererede blandt 335 patienter, hvilket var blandt de højeste operationsrater i Sjælland Region.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Holbæk Sygehus 335 100,00 152 45,37 183 54,63"
+        },
+        {
+          "page": 61,
+          "context": "Holbæk Sygehus #/# 0 (0) 3,4 (0,4-11,9) 13,3 5,6"
+        }
+      ]
+    },
+    {
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagelse-ringsted-sygehuse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse havde 46,15 % opererede blandt 442 patienter, hvilket var blandt de højeste operationsrater i Sjælland Region.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Næstved, Slagelse og Ringsted sygehuse 442 100,00 204 46,15 238 53,85"
+        },
+        {
+          "page": 61,
+          "context": "Næstved, Slagelse og Ringsted sygehuse 5 / 80 0 (0) 6,3 (2,1-14,0) 5,2 8,6"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital havde 35,00 % opererede blandt 800 patienter, hvilket var blandt de laveste operationsrater i Sjælland Region.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Sjællands Universitetshospital 800 100,00 280 35,00 520 65,00"
+        },
+        {
+          "page": 61,
+          "context": "Sjællands Universitetshospital #/# 0 (0) 1,9 (0,2-6,8) 7,8 6,9"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark Region",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Syddanmark Region havde 37,74 % opererede blandt 2.093 patienter i alt, hvilket var tæt på landsgennemsnittet.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Syddanmark Region i alt 2.093 100,00 790 37,74 1.303 62,26"
+        },
+        {
+          "page": 61,
+          "context": "Syddanmark 17 / 250 0 (0) 6,8 (4,0-10,7) 6,8 9,1"
+        },
+        {
+          "page": 61,
+          "context": "Syddanmark 27 / 250 0 (0) 10,8 (7,2-15,3) 9,8 11,2"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus havde 51,02 % opererede blandt 392 patienter, hvilket var blandt de højeste operationsrater blandt alle hospitalerne.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Esbjerg Sygehus Grindsted Sygehus 392 100,00 200 51,02 192 48,98"
+        },
+        {
+          "page": 61,
+          "context": "Esbjerg Sygehus Grindsted Sygehus 9 / 63 0 (0) 14,3 (6,7-25,4) 2,0 7,3"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital - Svendborg",
+      "type": "organization",
+      "slug": "odense-universitetshospital-svendborg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense Universitetshospital - Svendborg havde 44,02 % opererede blandt 811 patienter i Syddanmark Region.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Odense Universitetshospital - Svendborg 811 100,00 357 44,02 454 55,98"
+        },
+        {
+          "page": 61,
+          "context": "Odense Universitetshospital - Svendborg 6 / 119 0 (0) 5,0 (1,9-10,7) 10,4 11,8"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Lillebælt havde 22,36 % opererede blandt 492 patienter, hvilket var blandt de laveste operationsrater blandt alle hospitalerne.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Sygehus Lillebælt 492 100,00 110 22,36 382 77,64"
+        },
+        {
+          "page": 61,
+          "context": "Sygehus Lillebælt #/# 0 (0) 7,7 (0,9-25,1) 0,0 4,8"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Sønderjylland havde 30,98 % opererede blandt 397 patienter i Syddanmark Region.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Sygehus Sønderjylland 397 100,00 123 30,98 274 69,02"
+        },
+        {
+          "page": 61,
+          "context": "Sygehus Sønderjylland 0 / 42 0 (0) 0,0 (0,0-8,4) 10,6 11,6"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland Region",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Midtjylland Region havde 35,48 % opererede blandt 2.300 patienter i alt, hvilket var under landsgennemsnittet.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Midtjylland Region i alt 2.300 100,00 816 35,48 1.484 64,52"
+        },
+        {
+          "page": 61,
+          "context": "Midtjylland 15 / 314 0 (0) 4,8 (2,7-7,8) 5,6 7,3"
+        },
+        {
+          "page": 61,
+          "context": "Midtjylland 32 / 235 0 (0) 13,6 (9,5-18,7) 11,0 15,8"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital havde 32,69 % opererede blandt 517 patienter i Midtjylland Region.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Aarhus Universitetshospital 517 100,00 169 32,69 348 67,31"
+        },
+        {
+          "page": 61,
+          "context": "Aarhus Universitetshospital 5 / 56 0 (0) 8,9 (3,0-19,6) 3,4 6,8"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt havde 35,33 % opererede blandt 467 patienter i Midtjylland Region.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Hospitalsenhed Midt 467 100,00 165 35,33 302 64,67"
+        },
+        {
+          "page": 61,
+          "context": "Hospitalsenhed Midt #/# 0 (0) 1,8 (0,0-9,6) 3,5 9,8"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup havde 33,51 % opererede blandt 564 patienter i Midtjylland Region.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Regionshospitalet Gødstrup 564 100,00 189 33,51 375 66,49"
+        },
+        {
+          "page": 61,
+          "context": "Regionshospitalet Gødstrup 4 / 88 0 (0) 4,5 (1,3-11,2) 1,7 6,5"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Horsens havde 40,51 % opererede blandt 353 patienter i Midtjylland Region.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Regionshospitalet Horsens 353 100,00 143 40,51 210 59,49"
+        },
+        {
+          "page": 61,
+          "context": "Regionshospitalet Horsens #/# 0 (0) 1,7 (0,0-8,9) 12,5 3,8"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Randers havde 37,59 % opererede blandt 399 patienter i Midtjylland Region.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Regionshospitalet Randers 399 100,00 150 37,59 249 62,41"
+        },
+        {
+          "page": 61,
+          "context": "Regionshospitalet Randers 4 / 54 0 (0) 7,4 (2,1-17,9) 9,1 9,6"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland Region",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Nordjylland Region havde 23,20 % opererede blandt 1.142 patienter i alt, hvilket var blandt de laveste operationsrater blandt alle regioner.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Nordjylland Region i alt 1.142 100,00 265 23,20 877 76,80"
+        },
+        {
+          "page": 61,
+          "context": "Nordjylland 5 / 98 0 (0) 5,1 (1,7-11,5) 8,1 12,5"
+        },
+        {
+          "page": 61,
+          "context": "Nordjylland 15 / 89 0 (0) 16,9 (9,8-26,3) 16,9 17,1"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital havde 21,30 % opererede blandt 737 patienter, hvilket var blandt de laveste operationsrater blandt alle hospitalerne.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Aalborg Universitetshospital 737 100,00 157 21,30 580 78,70"
+        },
+        {
+          "page": 61,
+          "context": "Aalborg Universitetshospital #/# 0 (0) 2,3 (0,1-12,0) 9,4 13,8"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital, Thisted",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital-thisted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital, Thisted havde 0 % opererede blandt 27 patienter i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Aalborg Universitetshospital, Thisted 27 100,00 0 0 27 100,00"
+        },
+        {
+          "page": 61,
+          "context": "Aalborg Universitetshospital, Thisted 0,0"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospital Nordjylland havde 28,57 % opererede blandt 378 patienter i Nordjylland Region.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Regionshospital Nordjylland 378 100,00 108 28,57 270 71,43"
+        },
+        {
+          "page": 61,
+          "context": "Regionshospital Nordjylland 4 / 54 0 (0) 7,4 (2,1-17,9) 5,3 10,0"
+        }
+      ]
+    },
+    {
+      "name": "Charlson Score",
+      "type": "topic",
+      "slug": "charlson-score",
+      "folder": "topics/clinical-assessment",
+      "significance": "Charlson Score bruges til at stratificere patienter efter komorbiditeter i mortalitetsanalyser, hvor patienter med Score = 0 og Score = 1 eller 2 analyseres separat.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Supplerende indikator til 9a: Mortalitet indenfor 30 dage efter akut kirurgi, hvis Charlson Score = 0"
+        },
+        {
+          "page": 61,
+          "context": "Supplerende indikator til 9b: Mortalitet indenfor 30 dage efter akut kirurgi, hvis Charlson Score = 1 eller 2"
+        },
+        {
+          "page": 61,
+          "context": "Diagnoser til brug i beregning af Charlson Score er hentet 10 år tilbage i tid"
+        }
+      ]
+    },
+    {
+      "name": "Mortalitet indenfor 30 dage efter akut kirurgi",
+      "type": "topic",
+      "slug": "mortalitet-indenfor-30-dage-efter-akut-kirurgi",
+      "folder": "topics/mortality-outcome",
+      "significance": "Mortalitet indenfor 30 dage efter akut kirurgi er en vigtig kvalitetsindikator, hvor 6,2 % af patienter med Charlson Score = 0 døde i perioden 01.09.2023 - 31.08.2024.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Supplerende indikator til indikator 9a beskriver andelen af patienter, der dør indenfor 30 dage fra tidspunkt for operation, for patienter med Charlson Score 0"
+        },
+        {
+          "page": 61,
+          "context": "Der indgik 1.324 patienter i indikatoranalysen i perioden. Heraf døde 6,2 % (95 % CI: 5,0-7,6) indenfor 30 dage fra operation"
+        }
+      ]
+    },
+    {
+      "name": "CPR-nummer",
+      "type": "topic",
+      "slug": "cpr-nummer",
+      "folder": "topics/data-quality",
+      "significance": "Gyldigt CPR-nummer er en eksklusionskriterium, hvor 75 patienter blev ekskluderet på grund af ugyldigt CPR-nummer.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Årsagen til at antallet af opererede og ikke-opererede ikke svarer 100 % til nævnerne, er at enkelte patienter er ekskluderede fra nævnerpopulationerne, eksempelvis ved ugyldigt CPR-nummer"
+        },
+        {
+          "page": 61,
+          "context": "Eksklusion: 75 Ugyldigt CPRnummer"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "amager-og-hvidovre-hospital",
+      "predicate": "is-part-of",
+      "object": "region-hovedstaden",
+      "evidence": "Amager og Hvidovre Hospital er opført under Hovedstaden Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "bispebjerg-og-frederiksberg-hospitaler",
+      "predicate": "is-part-of",
+      "object": "region-hovedstaden",
+      "evidence": "Bispebjerg og Frederiksberg Hospital er opført under Hovedstaden Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "bornholms-hospital",
+      "predicate": "is-part-of",
+      "object": "region-hovedstaden",
+      "evidence": "Bornholms Hospital er opført under Hovedstaden Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "herlev-og-gentofte-hospital",
+      "predicate": "is-part-of",
+      "object": "region-hovedstaden",
+      "evidence": "Herlev og Gentofte Hospital er opført under Hovedstaden Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "hospitalerne-i-nordsjaelland",
+      "predicate": "is-part-of",
+      "object": "region-hovedstaden",
+      "evidence": "Hospitalerne i Nordsjælland er opført under Hovedstaden Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "rigshospitalet",
+      "predicate": "is-part-of",
+      "object": "region-hovedstaden",
+      "evidence": "Rigshospitalet er opført under Hovedstaden Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "holbaek-sygehus",
+      "predicate": "is-part-of",
+      "object": "region-sjaelland",
+      "evidence": "Holbæk Sygehus er opført under Sjælland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "naestved-slagelse-ringsted-sygehuse",
+      "predicate": "is-part-of",
+      "object": "region-sjaelland",
+      "evidence": "Næstved, Slagelse og Ringsted sygehuse er opført under Sjælland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "sjaellands-universitetshospital",
+      "predicate": "is-part-of",
+      "object": "region-sjaelland",
+      "evidence": "Sjællands Universitetshospital er opført under Sjælland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "esbjerg-sygehus-grindsted-sygehus",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Esbjerg Sygehus Grindsted Sygehus er opført under Syddanmark Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "odense-universitetshospital-svendborg",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Odense Universitetshospital - Svendborg er opført under Syddanmark Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "sygehus-lillebaelt",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Sygehus Lillebælt er opført under Syddanmark Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "sygehus-soenderjylland",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Sygehus Sønderjylland er opført under Syddanmark Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "aarhus-universitetshospital",
+      "predicate": "is-part-of",
+      "object": "region-midtjylland",
+      "evidence": "Aarhus Universitetshospital er opført under Midtjylland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "hospitalsenhed-midt",
+      "predicate": "is-part-of",
+      "object": "region-midtjylland",
+      "evidence": "Hospitalsenhed Midt er opført under Midtjylland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "regionshospitalet-goedstrup",
+      "predicate": "is-part-of",
+      "object": "region-midtjylland",
+      "evidence": "Regionshospitalet Gødstrup er opført under Midtjylland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "regionshospitalet-horsens",
+      "predicate": "is-part-of",
+      "object": "region-midtjylland",
+      "evidence": "Regionshospitalet Horsens er opført under Midtjylland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "regionshospitalet-randers",
+      "predicate": "is-part-of",
+      "object": "region-midtjylland",
+      "evidence": "Regionshospitalet Randers er opført under Midtjylland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "aalborg-universitetshospital",
+      "predicate": "is-part-of",
+      "object": "region-nordjylland",
+      "evidence": "Aalborg Universitetshospital er opført under Nordjylland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "aalborg-universitetshospital-thisted",
+      "predicate": "is-part-of",
+      "object": "region-nordjylland",
+      "evidence": "Aalborg Universitetshospital, Thisted er opført under Nordjylland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "regionshospital-nordjylland",
+      "predicate": "is-part-of",
+      "object": "region-nordjylland",
+      "evidence": "Regionshospital Nordjylland er opført under Nordjylland Region i alt",
+      "page": 61
+    }
+  ],
+  "claims": [
+    {
+      "text": "I Danmark var der i alt 9.906 patienter i opgørelsesperioden, hvoraf 3.668 (37,03 %) blev opereret og 6.238 (62,97 %) blev ikke opereret [^src1]",
+      "type": "patient-volume",
+      "entities": [
+        "danmark"
+      ],
+      "page": 61
+    },
+    {
+      "text": "Hovedstaden Region havde 2.794 patienter i alt, hvoraf 1.161 (41,55 %) blev opereret og 1.633 (58,45 %) blev ikke opereret [^src1]",
+      "type": "patient-volume",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 61
+    },
+    {
+      "text": "Sjælland Region havde 1.577 patienter i alt, hvoraf 636 (40,33 %) blev opereret og 941 (59,67 %) blev ikke opereret [^src1]",
+      "type": "patient-volume",
+      "entities": [
+        "region-sjaelland"
+      ],
+      "page": 61
+    },
+    {
+      "text": "Syddanmark Region havde 2.093 patienter i alt, hvoraf 790 (37,74 %) blev opereret og 1.303 (62,26 %) blev ikke opereret [^src1]",
+      "type": "patient-volume",
+      "entities": [
+        "region-syddanmark"
+      ],
+      "page": 61
+    },
+    {
+      "text": "Midtjylland Region havde 2.300 patienter i alt, hvoraf 816 (35,48 %) blev opereret og 1.484 (64,52 %) blev ikke opereret [^src1]",
+      "type": "patient-volume",
+      "entities": [
+        "region-midtjylland"
+      ],
+      "page": 61
+    },
+    {
+      "text": "Nordjylland Region havde 1.142 patienter i alt, hvoraf 265 (23,20 %) blev opereret og 877 (76,80 %) blev ikke opereret [^src1]",
+      "type": "patient-volume",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 61
+    },
+    {
+      "text": "Der indgik 1.324 patienter med Charlson Score = 0 i indikatoranalysen i perioden 01.09.2023 - 31.08.2024, hvoraf 82 døde indenfor 30 dage fra operation, svarende til 6,2 % (95 % CI: 5,0-7,6) [^src1]",
+      "type": "mortality",
+      "entities": [
+        "danmark",
+        "charlson-score"
+      ],
+      "page": 61
+    },
+    {
+      "text": "I Hovedstaden Region døde 36 ud af 421 patienter med Charlson Score = 0 indenfor 30 dage fra operation, svarende til 8,6 % (95 % CI: 6,1-11,6) [^src1]",
+      "type": "mortality",
+      "entities": [
+        "region-hovedstaden",
+        "charlson-score"
+      ],
+      "page": 61
+    },
+    {
+      "text": "I Sjælland Region døde 9 ud af 241 patienter med Charlson Score = 0 indenfor 30 dage fra operation, svarende til 3,7 % (95 % CI: 1,7-7,0) [^src1]",
+      "type": "mortality",
+      "entities": [
+        "region-sjaelland",
+        "charlson-score"
+      ],
+      "page": 61
+    },
+    {
+      "text": "I Syddanmark Region døde 17 ud af 250 patienter med Charlson Score = 0 indenfor 30 dage fra operation, svarende til 6,8 % (95 % CI: 4,0-10,7) [^src1]",
+      "type": "mortality",
+      "entities": [
+        "region-syddanmark",
+        "charlson-score"
+      ],
+      "page": 61
+    },
+    {
+      "text": "I Midtjylland Region døde 15 ud af 314 patienter med Charlson Score = 0 indenfor 30 dage fra operation, svarende til 4,8 % (95 % CI: 2,7-7,8) [^src1]",
+      "type": "mortality",
+      "entities": [
+        "region-midtjylland",
+        "charlson-score"
+      ],
+      "page": 61
+    },
+    {
+      "text": "I Nordjylland Region døde 5 ud af 98 patienter med Charlson Score = 0 indenfor 30 dage fra operation, svarende til 5,1 % (95 % CI: 1,7-11,5) [^src1]",
+      "type": "mortality",
+      "entities": [
+        "region-nordjylland",
+        "charlson-score"
+      ],
+      "page": 61
+    },
+    {
+      "text": "Der indgik 1.144 patienter med Charlson Score = 1 eller 2 i indikatoranalysen i perioden 01.09.2023 - 31.08.2024, hvoraf 143 døde indenfor 30 dage fra operation, svarende til 12,5 % (95 % CI: 10,6-14,6) [^src1]",
+      "type": "mortality",
+      "entities": [
+        "danmark",
+        "charlson-score"
+      ],
+      "page": 61
+    },
+    {
+      "text": "I Hovedstaden Region døde 40 ud af 366 patienter med Charlson Score = 1 eller 2 indenfor 30 dage fra operation, svarende til 10,9 % (95 % CI: 7,9-14,6) [^src1]",
+      "type": "mortality",
+      "entities": [
+        "region-hovedstaden",
+        "charlson-score"
+      ],
+      "page": 61
+    },
+    {
+      "text": "I Sjælland Region døde 29 ud af 204 patienter med Charlson Score = 1 eller 2 indenfor 30 dage fra operation, svarende til 14,2 % (95 % CI: 9,7-19,8) [^src1]",
+      "type": "mortality",
+      "entities": [
+        "region-sjaelland",
+        "charlson-score"
+      ],
+      "page": 61
+    },
+    {
+      "text": "I Syddanmark Region døde 27 ud af 250 patienter med Charlson Score = 1 eller 2 indenfor 30 dage fra operation, svarende til 10,8 % (95 % CI: 7,2-15,3) [^src1]",
+      "type": "mortality",
+      "entities": [
+        "region-syddanmark",
+        "charlson-score"
+      ],
+      "page": 61
+    },
+    {
+      "text": "I Midtjylland Region døde 32 ud af 235 patienter med Charlson Score = 1 eller 2 indenfor 30 dage fra operation, svarende til 13,6 % (95 % CI: 9,5-18,7) [^src1]",
+      "type": "mortality",
+      "entities": [
+        "region-midtjylland",
+        "charlson-score"
+      ],
+      "page": 61
+    },
+    {
+      "text": "I Nordjylland Region døde 15 ud af 89 patienter med Charlson Score = 1 eller 2 indenfor 30 dage fra operation, svarende til 16,9 % (95 % CI: 9,8-26,3) [^src1]",
+      "type": "mortality",
+      "entities": [
+        "region-nordjylland",
+        "charlson-score"
+      ],
+      "page": 61
+    },
+    {
+      "text": "75 patienter blev ekskluderet på grund af ugyldigt CPR-nummer [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "cpr-nummer"
+      ],
+      "page": 61
+    },
+    {
+      "text": "197 patienter blev ekskluderet fordi de var under 18 år på operationstidspunktet [^src1]",
+      "type": "data-quality",
+      "entities": [],
+      "page": 61
+    },
+    {
+      "text": "6.238 patienter blev ekskluderet fordi de ikke blev opereret [^src1]",
+      "type": "data-quality",
+      "entities": [],
+      "page": 61
+    },
+    {
+      "text": "6 patienter blev ekskluderet fordi de var registreret i CPR-registeret som 'Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn' [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "cpr-nummer"
+      ],
+      "page": 61
+    },
+    {
+      "text": "493 patienter blev ekskluderet fordi operationen ikke var den første operation i hospitalsopholdet [^src1]",
+      "type": "data-quality",
+      "entities": [],
+      "page": 61
+    },
+    {
+      "text": "1.855 patienter blev ekskluderet fordi deres Charlson Comorbiditets indeks var > 0 [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "charlson-score"
+      ],
+      "page": 61
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.09.2023 - 31.08.2024",
+      "event": "Indikatoranalyse periode for mortalitet indenfor 30 dage efter akut kirurgi med Charlson Score = 0 og Charlson Score = 1 eller 2",
+      "entities": [
+        "danmark",
+        "charlson-score"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk indeholder detaljerede statistikker fra Akut Kirurgi Databasen (AKDB) vedrørende opererede og ikke-opererede patienter samt mortalitetsdata stratificeret efter Charlson Score på tværs af danske regioner og hospitaler i perioden 01.09.2023 - 31.08.2024. Dokumentet præsenterer supplerende indikatorer til indikator 9a og 9b, som måler mortalitet indenfor 30 dage efter akut kirurgi for patienter uden komorbiditet (Charlson Score = 0) og patienter med minimal komorbiditet (Charlson Score = 1 eller 2). Data viser betydelige regionale variationer i operationsrater, fra 23,20 % i Nordjylland Region til 41,55 % i Hovedstaden Region, samt variationer i 30-dages mortalitet blandt de stratificerede patientgrupper.",
+  "tables": [
+    {
+      "subject": "andel-opererede-og-ikke-opererede",
+      "title": "Supplerende opgørelse over andelen af opererede og ikke-opererede i opgørelsesperioden",
+      "page": 61,
+      "rowDimension": "enheder (land, regioner og hospitaler)",
+      "colDimension": "antal og procent for i alt, opererede og ikke-opererede",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "region-sjaelland",
+        "holbaek-sygehus",
+        "naestved-slagelse-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "region-syddanmark",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "psykiatrien-region-syddanmark",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "region-midtjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "region-nordjylland",
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Enhed | I alt Antal | I alt % | Opererede Antal | Opererede % | Ikke opererede Antal | Ikke opererede % |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 9.906 | 100,00 | 3.668 | 37,03 | 6.238 | 62,97 |\n| Hovedstaden Region i alt | 2.794 | 100,00 | 1.161 | 41,55 | 1.633 | 58,45 |\n| Amager og Hvidovre Hospital | 622 | 100,00 | 282 | 45,34 | 340 | 54,66 |\n| Bispebjerg og Frederiksberg Hospital | 466 | 100,00 | 188 | 40,34 | 278 | 59,66 |\n| Bornholms Hospital | 91 | 100,00 | 28 | 30,77 | 63 | 69,23 |\n| Herlev og Gentofte Hospital | 816 | 100,00 | 341 | 41,79 | 475 | 58,21 |\n| Hospitalerne i Nordsjælland | 583 | 100,00 | 226 | 38,77 | 357 | 61,23 |\n| Rigshospitalet | 216 | 100,00 | 96 | 44,44 | 120 | 55,56 |\n| Sjælland Region i alt | 1.577 | 100,00 | 636 | 40,33 | 941 | 59,67 |\n| Holbæk Sygehus | 335 | 100,00 | 152 | 45,37 | 183 | 54,63 |\n| Næstved, Slagelse og Ringsted sygehuse | 442 | 100,00 | 204 | 46,15 | 238 | 53,85 |\n| Sjællands Universitetshospital | 800 | 100,00 | 280 | 35,00 | 520 | 65,00 |\n| Syddanmark Region i alt | 2.093 | 100,00 | 790 | 37,74 | 1.303 | 62,26 |\n| Esbjerg Sygehus Grindsted Sygehus | 392 | 100,00 | 200 | 51,02 | 192 | 48,98 |\n| Odense Universitetshospital - Svendborg | 811 | 100,00 | 357 | 44,02 | 454 | 55,98 |\n| Psykiatrien Region Syddanmark | # | # | 0 | 0 | # | # |\n| Sygehus Lillebælt | 492 | 100,00 | 110 | 22,36 | 382 | 77,64 |\n| Sygehus Sønderjylland | 397 | 100,00 | 123 | 30,98 | 274 | 69,02 |\n| Midtjylland Region i alt | 2.300 | 100,00 | 816 | 35,48 | 1.484 | 64,52 |\n| Aarhus Universitetshospital | 517 | 100,00 | 169 | 32,69 | 348 | 67,31 |\n| Hospitalsenhed Midt | 467 | 100,00 | 165 | 35,33 | 302 | 64,67 |\n| Regionshospitalet Gødstrup | 564 | 100,00 | 189 | 33,51 | 375 | 66,49 |\n| Regionshospitalet Horsens | 353 | 100,00 | 143 | 40,51 | 210 | 59,49 |\n| Regionshospitalet Randers | 399 | 100,00 | 150 | 37,59 | 249 | 62,41 |\n| Nordjylland Region i alt | 1.142 | 100,00 | 265 | 23,20 | 877 | 76,80 |\n| Aalborg Universitetshospital | 737 | 100,00 | 157 | 21,30 | 580 | 78,70 |\n| Aalborg Universitetshospital, Thisted | 27 | 100,00 | 0 | 0 | 27 | 100,00 |\n| Regionshospital Nordjylland | 378 | 100,00 | 108 | 28,57 | 270 | 71,43 |",
+      "summary": "Tabellen sammenligner antal og andel af opererede og ikke-opererede forløb på lands-, regions- og hospitalsniveau; nationalt er 37,03 % opererede og 62,97 % ikke-opererede, med markant variation på hospitalsniveau fra 0 % opererede (Aalborg Universitetshospital, Thisted) til 51,02 % (Esbjerg Sygehus Grindsted Sygehus)."
+    },
+    {
+      "subject": "supplerende-indikator-til-9a",
+      "title": "Supplerende indikator til 9a: Mortalitet indenfor 30 dage efter akut kirurgi, hvis Charlson Score = 0. Alle opererede (med relevant diagnosekode og procedurekode)",
+      "page": 62,
+      "rowDimension": "land, regioner og hospitaler",
+      "colDimension": "tæller/nævner, uoplyst antal (%), andel med 95% CI samt andele for tidligere år",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagelse-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Enhed | Tæller/nævner | Uoplyst antal (%) | Andel | 95% CI | 2022/23 Andel | 2021/22 Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 82 / 1.324 | 0 (0) | 6,2 | (5,0-7,6) | 6,6 | 7,8 |\n| Hovedstaden | 36 / 421 | 0 (0) | 8,6 | (6,1-11,6) | 6,1 | 6,7 |\n| Sjælland | 9 / 241 | 0 (0) | 3,7 | (1,7-7,0) | 8,0 | 7,1 |\n| Syddanmark | 17 / 250 | 0 (0) | 6,8 | (4,0-10,7) | 6,8 | 9,1 |\n| Midtjylland | 15 / 314 | 0 (0) | 4,8 | (2,7-7,8) | 5,6 | 7,3 |\n| Nordjylland | 5 / 98 | 0 (0) | 5,1 | (1,7-11,5) | 8,1 | 12,5 |\n| Amager og Hvidovre Hospital | 7 / 101 | 0 (0) | 6,9 | (2,8-13,8) | 7,3 | 4,6 |\n| Bispebjerg og Frederiksberg Hospital | 7 / 73 | 0 (0) | 9,6 | (3,9-18,8) | 4,9 | 3,4 |\n| Bornholms Hospital | 0 / 10 | 0 (0) | 0,0 | (0,0-30,8) | 0,0 | 14,3 |\n| Herlev og Gentofte Hospital | 17 / 144 | 0 (0) | 11,8 | (7,0-18,2) | 3,5 | 4,9 |\n| Hospitalerne i Nordsjælland | 4 / 82 | 0 (0) | 4,9 | (1,3-12,0) | 7,6 | 10,8 |\n| Rigshospitalet | #/# | 0 (0) | 9,1 | (0,2-41,3) | 30,0 | 36,4 |\n| Holbæk Sygehus | #/# | 0 (0) | 3,4 | (0,4-11,9) | 13,3 | 5,6 |\n| Næstved, Slagelse og Ringsted sygehuse | 5 / 80 | 0 (0) | 6,3 | (2,1-14,0) | 5,2 | 8,6 |\n| Sjællands Universitetshospital | #/# | 0 (0) | 1,9 | (0,2-6,8) | 7,8 | 6,9 |\n| Esbjerg Sygehus Grindsted Sygehus | 9 / 63 | 0 (0) | 14,3 | (6,7-25,4) | 2,0 | 7,3 |\n| Odense Universitetshospital - Svendborg | 6 / 119 | 0 (0) | 5,0 | (1,9-10,7) | 10,4 | 11,8 |\n| Sygehus Lillebælt | #/# | 0 (0) | 7,7 | (0,9-25,1) | 0,0 | 4,8 |\n| Sygehus Sønderjylland | 0 / 42 | 0 (0) | 0,0 | (0,0-8,4) | 10,6 | 11,6 |\n| Aarhus Universitetshospital | 5 / 56 | 0 (0) | 8,9 | (3,0-19,6) | 3,4 | 6,8 |\n| Hospitalsenhed Midt | #/# | 0 (0) | 1,8 | (0,0-9,6) | 3,5 | 9,8 |\n| Regionshospitalet Gødstrup | 4 / 88 | 0 (0) | 4,5 | (1,3-11,2) | 1,7 | 6,5 |\n| Regionshospitalet Horsens | #/# | 0 (0) | 1,7 | (0,0-8,9) | 12,5 | 3,8 |\n| Regionshospitalet Randers | 4 / 54 | 0 (0) | 7,4 | (2,1-17,9) | 9,1 | 9,6 |\n| Aalborg Universitetshospital | #/# | 0 (0) | 2,3 | (0,1-12,0) | 9,4 | 13,8 |\n| Aalborg Universitetshospital, Thisted | 0,0 | | | | | |\n| Regionshospital Nordjylland | 4 / 54 | 0 (0) | 7,4 | (2,1-17,9) | 5,3 | 10,0 |",
+      "summary": "Tabellen sammenligner 30-dages mortalitet for opererede patienter med Charlson Score 0 på tværs af land, regioner og hospitaler; den nationale andel er 6,2 % (95 % CI: 5,0-7,6) mod 6,6 og 7,8 de to foregående år."
+    },
+    {
+      "subject": "supplerende-indikator-til-9a",
+      "title": "Eksklusion: Antal og årsag",
+      "page": 63,
+      "rowDimension": "eksklusionsårsager",
+      "colDimension": "antal patienter",
+      "entities": [
+        "cpr-nummer",
+        "cpr-registeret",
+        "charlson-score",
+        "supplerende-indikator-til-9a"
+      ],
+      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 75 | Ugyldigt CPRnummer. |\n| 197 | Patienten er under 18 år. |\n| 6.238 | Patienten er ikke opereret. |\n| 6 | Patienten er registreret i CPR-registeret som 'Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn (kommunekoderne 0010, 0011, 0012 og 0019)' |\n| 493 | Operationen er ikke den første operation i hospitalsopholdet. |\n| 1.855 | Patientens Charlson Comorbiditets indeks > 0 |",
+      "summary": "Tabellen opgør antallet af ekskluderede patienter fordelt på seks eksklusionsårsager for supplerende indikator til 9a, hvor 'Patienten er ikke opereret' (6.238) og 'Patientens Charlson Comorbiditets indeks > 0' (1.855) er de hyppigste årsager."
+    },
+    {
+      "subject": "supplerende-indikator-til-9b",
+      "title": "Supplerende indikator til 9b: Mortalitet indenfor 30 dage efter akut kirurgi, hvis Charlson Score = 1 eller 2. Alle opererede (med relevant diagnosekode og procedurekode)",
+      "page": 65,
+      "rowDimension": "land, regioner og hospitaler",
+      "colDimension": "tæller/nævner, uoplyst antal (%), andel med 95% CI samt andele for tidligere år",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland"
+      ],
+      "markdown": "| Enhed | Tæller/nævner | Uoplyst antal (%) | Andel | 95% CI | 2022/23 Andel | 2021/22 Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 143 / 1.144 | 0 (0) | 12,5 | (10,6-14,6) | 11,3 | 13,8 |\n| Hovedstaden | 40 / 366 | 0 (0) | 10,9 | (7,9-14,6) | 9,3 | 12,0 |\n| Sjælland | 29 / 204 | 0 (0) | 14,2 | (9,7-19,8) | 15,4 | 16,4 |\n| Syddanmark | 27 / 250 | 0 (0) | 10,8 | (7,2-15,3) | 9,8 | 11,2 |\n| Midtjylland | 32 / 235 | 0 (0) | 13,6 | (9,5-18,7) | 11,0 | 15,8 |\n| Nordjylland | 15 / 89 | 0 (0) | 16,9 | (9,8-26,3) | 16,9 | 17,1 |\n| Amager og Hvidovre Hospital | 7 / 91 | 0 (0) | 7,7 | (3,1-15,2) | 8,7 | 6,5 |\n| Bispebjerg og Frederiksberg Hospital | 6 / 61 | 0 (0) | 9,8 | (3,7-20,2) | 6,0 | 6,9 |\n| Bornholms Hospital | #/# | 0 (0) | 14,3 | (1,8-42,8) | 0,0 | 12,5 |\n| Herlev og Gentofte Hospital | 7 / 90 | 0 (0) | 7,8 | (3,2-15,4) | 11,1 | 19,8 |\n| Hospitalerne i Nordsjælland | 9 / 85 | 0 (0) | 10,6 | (5,0-19,2) | 11,6 | 6,5 |",
+      "summary": "Tabellen sammenligner 30-dages mortalitet for opererede patienter med Charlson Score 1 eller 2 på tværs af land, regioner og hospitaler; den nationale andel er 12,5 % (95 % CI: 10,6-14,6), og tabellen er kun delvist gengivet, da chunken slutter midt i opgørelsen."
+    }
+  ]
+}

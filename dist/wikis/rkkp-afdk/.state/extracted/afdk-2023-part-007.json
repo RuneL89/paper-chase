@@ -1,0 +1,436 @@
+{
+  "entities": [
+    {
+      "name": "Midtjylland",
+      "type": "region",
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Midtjylland er en dansk region, hvis hospitalsenhed rapporterer kvalitetsindikatorer for behandling af atrieflimren med en opfyldelsesgrad på 91,2% i den aktuelle periode.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Midtjylland Ja 1.434 / 1.573 0 (0) 91,2 (89,7-92,5)"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital er et dansk universitetshospital, der rapporterer kvalitetsindikatorer for atrieflimrenbehandling med en opfyldelsesgrad på 87,3% i den aktuelle periode.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Aarhus Universitetshospital Nej 261 / 299 0 (0) 87,3 (83,0-90,8)"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt er en hospitalsenhed i Midtjylland, der rapporterer en opfyldelsesgrad på 92,3% for antikoagulationsbehandling af atrieflimren.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Hospitalsenhed Midt Ja 398 / 431 0 (0) 92,3 (89,4-94,7)"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenheden Vest",
+      "type": "organization",
+      "slug": "hospitalsenheden-vest",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenheden Vest er en hospitalsenhed, der rapporterer en opfyldelsesgrad på 86,6% for antikoagulationsbehandling af atrieflimren.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Hospitalsenheden Vest Nej 284 / 328 0 (0) 86,6 (82,4-90,1)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-godstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup er et regionshospital, der rapporterer en opfyldelsesgrad på 93,3% for antikoagulationsbehandling af atrieflimren.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Regionshospitalet Gødstrup Ja 28 / 30 0 (0) 93,3 (77,9-99,2)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Horsens er et regionshospital, der rapporterer en opfyldelsesgrad på 96,0% for antikoagulationsbehandling af atrieflimren.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Regionshospitalet Horsens Ja 215 / 224 0 (0) 96,0 (92,5-98,1)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Randers er et regionshospital, der rapporterer en opfyldelsesgrad på 95,0% for antikoagulationsbehandling af atrieflimren.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Regionshospitalet Randers Ja 248 / 261 0 (0) 95,0 (91,6-97,3)"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "region",
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Nordjylland er en dansk region, hvis hospitalsenhed rapporterer kvalitetsindikatorer for behandling af atrieflimren med en opfyldelsesgrad på 91,6% i den aktuelle periode.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Nordjylland Ja 699 / 763 0 (0) 91,6 (89,4-93,5)"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital er et dansk universitetshospital, der rapporterer en opfyldelsesgrad på 91,1% for antikoagulationsbehandling af atrieflimren.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Aalborg Universitetshospital Ja 377 / 414 0 (0) 91,1 (87,9-93,6)"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital Thisted",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital-thisted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital Thisted er en afdeling af Aalborg Universitetshospital, der rapporterer en opfyldelsesgrad på 89,6% for antikoagulationsbehandling af atrieflimren.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Aalborg Universitetshospital Thisted Nej 69 / 77 0 (0) 89,6 (80,6-95,4)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland Ven",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland-ven",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospital Nordjylland Ven er et regionshospital, der rapporterer en opfyldelsesgrad på 93,0% for antikoagulationsbehandling af atrieflimren.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Regionshospital Nordjylland Ven Ja 253 / 272 0 (0) 93,0 (89,3-95,7)"
+        }
+      ]
+    },
+    {
+      "name": "Kolding Sygehus",
+      "type": "organization",
+      "slug": "kolding-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Kolding Sygehus er et sygehus, hvis indikatorer for atrieflimrenbehandling ikke er fordelt korrekt mellem Kolding Sygehus og Vejle Sygehus og skal tolkes samlet som Sygehus Lillebælt.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt"
+        }
+      ]
+    },
+    {
+      "name": "Vejle Sygehus",
+      "type": "organization",
+      "slug": "vejle-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Vejle Sygehus er et sygehus, hvis indikatorer for atrieflimrenbehandling ikke er fordelt korrekt mellem Vejle Sygehus og Kolding Sygehus og skal tolkes samlet som Sygehus Lillebælt.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Lillebælt er en samlet enhed, som Kolding Sygehus og Vejle Sygehus skal tolkes som i denne rapport, da deres indikatorer ikke er fordelt korrekt mellem de to enheder.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "skal derfor fortolkes samlet som ét Sygehus Lillebælt"
+        }
+      ]
+    },
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/databases",
+      "significance": "Databasen for Atrieflimren i Danmark er den database, som denne årsrapport dokumenterer, og som indeholder kvalitetsindikatorer for behandling af atrieflimren på tværs af danske hospitaler.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 32,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 33,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 34,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 35,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/quality-programs",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) er det program, som administrerer Databasen for Atrieflimren i Danmark og udgiver denne årsrapport.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 32,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 33,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 34,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 35,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "aarhus-universitetshospital",
+      "predicate": "is-part-of",
+      "object": "midtjylland",
+      "evidence": "Aarhus Universitetshospital er opført under Midtjylland-regionen i tabellen",
+      "page": 31
+    },
+    {
+      "subject": "hospitalsenhed-midt",
+      "predicate": "is-part-of",
+      "object": "midtjylland",
+      "evidence": "Hospitalsenhed Midt er opført under Midtjylland-regionen i tabellen",
+      "page": 31
+    },
+    {
+      "subject": "hospitalsenheden-vest",
+      "predicate": "is-part-of",
+      "object": "midtjylland",
+      "evidence": "Hospitalsenheden Vest er opført under Midtjylland-regionen i tabellen",
+      "page": 31
+    },
+    {
+      "subject": "regionshospitalet-godstrup",
+      "predicate": "is-part-of",
+      "object": "midtjylland",
+      "evidence": "Regionshospitalet Gødstrup er opført under Midtjylland-regionen i tabellen",
+      "page": 31
+    },
+    {
+      "subject": "regionshospitalet-horsens",
+      "predicate": "is-part-of",
+      "object": "midtjylland",
+      "evidence": "Regionshospitalet Horsens er opført under Midtjylland-regionen i tabellen",
+      "page": 31
+    },
+    {
+      "subject": "regionshospitalet-randers",
+      "predicate": "is-part-of",
+      "object": "midtjylland",
+      "evidence": "Regionshospitalet Randers er opført under Midtjylland-regionen i tabellen",
+      "page": 31
+    },
+    {
+      "subject": "aalborg-universitetshospital",
+      "predicate": "is-part-of",
+      "object": "nordjylland",
+      "evidence": "Aalborg Universitetshospital er opført under Nordjylland-regionen i tabellen",
+      "page": 31
+    },
+    {
+      "subject": "aalborg-universitetshospital-thisted",
+      "predicate": "is-part-of",
+      "object": "nordjylland",
+      "evidence": "Aalborg Universitetshospital Thisted er opført under Nordjylland-regionen i tabellen",
+      "page": 31
+    },
+    {
+      "subject": "regionshospital-nordjylland-ven",
+      "predicate": "is-part-of",
+      "object": "nordjylland",
+      "evidence": "Regionshospital Nordjylland Ven er opført under Nordjylland-regionen i tabellen",
+      "page": 31
+    },
+    {
+      "subject": "kolding-sygehus",
+      "predicate": "is-combined-with",
+      "object": "vejle-sygehus",
+      "evidence": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt",
+      "page": 31
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "is-administered-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark er administreret af Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 31
+    }
+  ],
+  "claims": [
+    {
+      "text": "Midtjylland opfyldte standarden ≥ 90% med en opfyldelsesgrad på 91,2% (89,7-92,5) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Aarhus Universitetshospital opfyldte ikke standarden ≥ 90% med en opfyldelsesgrad på 87,3% (83,0-90,8) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "aarhus-universitetshospital"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Hospitalsenhed Midt opfyldte standarden ≥ 90% med en opfyldelsesgrad på 92,3% (89,4-94,7) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "hospitalsenhed-midt"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Hospitalsenheden Vest opfyldte ikke standarden ≥ 90% med en opfyldelsesgrad på 86,6% (82,4-90,1) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "hospitalsenheden-vest"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Regionshospitalet Gødstrup opfyldte standarden ≥ 90% med en opfyldelsesgrad på 93,3% (77,9-99,2) [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "regionshospitalet-godstrup"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Regionshospitalet Horsens opfyldte standarden ≥ 90% med en opfyldelsesgrad på 96,0% (92,5-98,1) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "regionshospitalet-horsens"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Regionshospitalet Randers opfyldte standarden ≥ 90% med en opfyldelsesgrad på 95,0% (91,6-97,3) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "regionshospitalet-randers"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Nordjylland opfyldte standarden ≥ 90% med en opfyldelsesgrad på 91,6% (89,4-93,5) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Aalborg Universitetshospital opfyldte standarden ≥ 90% med en opfyldelsesgrad på 91,1% (87,9-93,6) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "aalborg-universitetshospital"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Aalborg Universitetshospital Thisted opfyldte ikke standarden ≥ 90% med en opfyldelsesgrad på 89,6% (80,6-95,4) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "aalborg-universitetshospital-thisted"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Regionshospital Nordjylland Ven opfyldte standarden ≥ 90% med en opfyldelsesgrad på 93,0% (89,3-95,7) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "regionshospital-nordjylland-ven"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Indikator 4a måler andelen af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling, 1 år efter diagnosen atrieflimren [^src1]",
+      "type": "indicator-definition",
+      "entities": [],
+      "page": 32
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. juli 2022 – 30. juni 2023",
+      "event": "Årsrapport for Databasen for Atrieflimren i Danmark dækker denne periode",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "01.07.2021 - 30.06.2022",
+      "event": "Aktuelle år for kvalitetsindikatorer rapporteret i denne årsrapport",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk indeholder kvalitetsindikatorer for behandling af atrieflimren (atrial fibrillation) på danske hospitaler og regioner, rapporteret af Databasen for Atrieflimren i Danmark under Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten dækker perioden 1. juli 2022 til 30. juni 2023 og præsenterer Indikator 4a, som måler andelen af patienter med atrieflimren, der modtager antikoagulationsbehandling 1 år efter diagnosen. Data er præsenteret på både regions- og hospitalsniveau med kontroldiagrammer, funnelplot og trenddiagrammer, hvilket giver et omfattende overblik over kvaliteten af atrieflimrenbehandling på tværs af det danske sundhedsvæsen."
+}

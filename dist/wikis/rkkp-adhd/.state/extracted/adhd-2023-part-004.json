@@ -1,0 +1,418 @@
+{
+  "entities": [
+    {
+      "name": "ADHD-DATABASEN",
+      "type": "organization",
+      "slug": "adhd-databasen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "ADHD-DATABASEN er den danske database, der registrerer og rapporterer på kvalitetsindikatorer for ADHD-udredning på tværs af regioner og kliniske enheder.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "ADHD-DATABASEN Resultater"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland viser lavest målopfyldelse for miljøobservation blandt børn under 6 år (23 %) og har fordoblet antal udredningsforløb fra 20 til 40.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Lavest målopfyldelse ses i Region Sjælland (23 %)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Syddanmark opfylder standarden for miljøobservation blandt børn under 6 år med 91 % målopfyldelse og viser høj performance på indikator 2b med 77 % andel.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "højest i Region Syddanmark (91 %)"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Midtjylland opfylder standarden for miljøobservation blandt børn under 6 år med 90 % målopfyldelse og har BUA Psykiatrisk Klinik for Småbørn, der opfylder standarden.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Region Midtjylland (90 %)"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden viser fremgang på indikator 2a til trods for betydelig stigning i antal udredningsforløb fra 196 til 228, og har 46 % andel på indikator 2b.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "I Region Hovedstaden ses fremgang til trods for, at antallet af udredningsforløb er steget betydeligt fra 196 til 228"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland har meget få førskolebørn udredt i perioden (23 i alt), hvilket vurderes at skylde forhaling i henvisning fra primærsektor muligvis grundet frygt for stigmatisering.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Region Nordjylland har meget få førskolebørn, der er udredt i perioden (23 i alt)"
+        }
+      ]
+    },
+    {
+      "name": "Børne- og Ungdomsambulatorierne i Aabenraa",
+      "type": "organization",
+      "slug": "bua-aabenraa",
+      "folder": "entities/organizations/clinical-units",
+      "significance": "Børne- og Ungdomsambulatorierne i Aabenraa opfylder standarden for miljøobservation blandt børn under 6 år og har 89 % andel på indikator 2b.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Børne- og Ungdomsambulatorierne i Aabenraa, Odense, Vejle og BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden"
+        }
+      ]
+    },
+    {
+      "name": "Børne- og Ungdomsambulatorierne i Odense",
+      "type": "organization",
+      "slug": "bua-odense",
+      "folder": "entities/organizations/clinical-units",
+      "significance": "Børne- og Ungdomsambulatorierne i Odense opfylder standarden for miljøobservation blandt børn under 6 år og har 98 % andel på indikator 2b.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Børne- og Ungdomsambulatorierne i Aabenraa, Odense, Vejle og BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden"
+        }
+      ]
+    },
+    {
+      "name": "Børne- og Ungdomsambulatorierne i Vejle",
+      "type": "organization",
+      "slug": "bua-vejle",
+      "folder": "entities/organizations/clinical-units",
+      "significance": "Børne- og Ungdomsambulatorierne i Vejle opfylder standarden for miljøobservation blandt børn under 6 år og har 58 % andel på indikator 2b.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Børne- og Ungdomsambulatorierne i Aabenraa, Odense, Vejle og BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Småbørn",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-smaaborni-midtjylland",
+      "folder": "entities/organizations/clinical-units",
+      "significance": "BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden for miljøobservation blandt børn under 6 år og har 75 % andel på indikator 2b.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2a",
+      "type": "topic",
+      "slug": "indikator-2a",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 2a måler vurdering ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning for børn under 6 år, med en standard på 90 %.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Indikator 2a drejer sig om vurdering ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2b",
+      "type": "topic",
+      "slug": "indikator-2b",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 2b måler andelen af udredningsforløb blandt 6-17 årige, hvor der senest 120 dage efter start af ADHD-udredning er foretaget enten manualiseret diagnostisk interview eller klinisk miljøobservation, med en standard på 90 %.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Indikator 2b: Diagnostisk interview eller miljøobservation for 6-17 årige"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "region-sjaelland",
+      "predicate": "has-lowest-performance-on",
+      "object": "indikator-2a",
+      "evidence": "Lavest målopfyldelse ses i Region Sjælland (23 %)",
+      "page": 16
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "meets-standard-on",
+      "object": "indikator-2a",
+      "evidence": "højest i Region Syddanmark (91 %)",
+      "page": 16
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "meets-standard-on",
+      "object": "indikator-2a",
+      "evidence": "Region Midtjylland (90 %)",
+      "page": 16
+    },
+    {
+      "subject": "bua-aabenraa",
+      "predicate": "meets-standard-on",
+      "object": "indikator-2a",
+      "evidence": "Børne- og Ungdomsambulatorierne i Aabenraa, Odense, Vejle og BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden",
+      "page": 16
+    },
+    {
+      "subject": "bua-odense",
+      "predicate": "meets-standard-on",
+      "object": "indikator-2a",
+      "evidence": "Børne- og Ungdomsambulatorierne i Aabenraa, Odense, Vejle og BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden",
+      "page": 16
+    },
+    {
+      "subject": "bua-vejle",
+      "predicate": "meets-standard-on",
+      "object": "indikator-2a",
+      "evidence": "Børne- og Ungdomsambulatorierne i Aabenraa, Odense, Vejle og BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden",
+      "page": 16
+    },
+    {
+      "subject": "bua-psykiatrisk-klinik-smaaborni-midtjylland",
+      "predicate": "meets-standard-on",
+      "object": "indikator-2a",
+      "evidence": "BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden",
+      "page": 16
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan blev der, inden for tidsfristen, gennemført miljøobservation i 59 % af udredningsforløbene [^src1]",
+      "type": "performance",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Dette er en mindre tilbagegang i forhold til tidligere (63 % i 2022/23) [^src1]",
+      "type": "performance",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Standarden for miljøobservation er 90 % [^src1]",
+      "type": "standard",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Sjælland har fordoblet antal udredningsforløb fra 20 til 40 fra sidste til nuværende opgørelsesår [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-sjaelland"
+      ],
+      "page": 16
+    },
+    {
+      "text": "I Region Hovedstaden ses fremgang til trods for, at antallet af udredningsforløb er steget betydeligt fra 196 til 228 [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Nordjylland har meget få førskolebørn, der er udredt i perioden (23 i alt) [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Indikatorpopulationen for indikator 2a er begrænset til de børn, der er yngre end 6 år på dato for udredningsstart, hvilket udgør 8 % (405 udredningsforløb) af det samlede antal udredningsforløb [^src1]",
+      "type": "methodology",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "4810 forløb ekskluderes pga. alderskriteriet for indikator 2a [^src1]",
+      "type": "methodology",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "For indikator 2b blev der blandt 6-17 årige på landsplan gennemført enten manualiseret diagnostisk interview eller miljøobservation i 48 % af udredningsforløbene (2.331 / 4.810) [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Syddanmark har 77 % andel på indikator 2b (864 / 1.118) [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-syddanmark",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Hovedstaden har 46 % andel på indikator 2b (971 / 2.093) [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-hovedstaden",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Sjælland har 31 % andel på indikator 2b (175 / 570) [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-sjaelland",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Midtjylland har 31 % andel på indikator 2b (201 / 640) [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-midtjylland",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Nordjylland har 31 % andel på indikator 2b (120 / 389) [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-nordjylland",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Børne- og Ungdomsambulatorierne i Aabenraa har 89 % andel på indikator 2b (240 / 271) [^src1]",
+      "type": "performance",
+      "entities": [
+        "bua-aabenraa",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Børne- og Ungdomsambulatorierne i Odense har 98 % andel på indikator 2b (171 / 174) [^src1]",
+      "type": "performance",
+      "entities": [
+        "bua-odense",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Børne- og Ungdomsambulatorierne i Vejle har 58 % andel på indikator 2b (229 / 392) [^src1]",
+      "type": "performance",
+      "entities": [
+        "bua-vejle",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "BUA Psykiatrisk Klinik for Småbørn har 75 % andel på indikator 2b (76 / 101) [^src1]",
+      "type": "performance",
+      "entities": [
+        "bua-psykiatrisk-klinik-smaaborni-midtjylland",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Miljøobservation skal foretages i naturlige miljø (skole, institution) og ikke blot i klinikken [^src1]",
+      "type": "methodology",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Observationen skal foretages af personale fra børne- og ungdomspsykiatrisk afdeling, hvorfor en observation fra eksempelvis ppr-psykolog ikke er sufficient [^src1]",
+      "type": "methodology",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Miljøobservation i vanligt miljø i denne aldersgruppe vurderes fortsat væsentligt ift. at sikre diagnostisk sikkerhed både ift. ADHD og evt. komorbiditet [^src1]",
+      "type": "clinical-rationale",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Indikatoren 2a vurderes fortsat relevant og standarden bibeholdes [^src1]",
+      "type": "decision",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.04.2023 - 31.03.2024",
+      "event": "Opgørelsesperiode for indikator 2a og 2b resultater",
+      "entities": [
+        "adhd-databasen",
+        "indikator-2a",
+        "indikator-2b"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere opgørelsesår hvor miljøobservation blev gennemført i 63 % af udredningsforløbene på landsplan",
+      "entities": [
+        "adhd-databasen",
+        "indikator-2a"
+      ]
+    }
+  ],
+  "context": "Denne chunk er del af en årlig rapport fra ADHD-DATABASEN, der dokumenterer kvalitetsindikatorer for ADHD-udredning blandt børn og unge i Danmark. Rapporten præsenterer resultater for indikator 2a (miljøobservation for børn under 6 år) og indikator 2b (diagnostisk interview eller miljøobservation for 6-17 årige), med sammenligning på tværs af fem danske regioner og deres kliniske enheder. Resultaterne viser betydelig regional variation i målopfyldelse, hvor nogle regioner opfylder standarden på 90 % mens andre ligger væsentligt under. Rapporten indeholder også diskussion af metodologiske krav og klinisk begrundelse for indikatorerne."
+}

@@ -1,0 +1,694 @@
+{
+  "entities": [
+    {
+      "name": "ADHD-DATABASEN",
+      "type": "database",
+      "slug": "adhd-databasen",
+      "folder": "entities/databases",
+      "significance": "En dansk database til registrering og monitorering af ADHD-udrednings- og behandlingsforløb med standardiserede indikatorer for kvalitetsmåling.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "ADHD-DATABASEN Resultater"
+        },
+        {
+          "page": 26,
+          "context": "ADHD-DATABASEN"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "En dansk region med laveste opfyldelsesprocent (10 %) for indikator 3 om diagnostiske konferencer inden for tidsfristen.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Regionsresultaterne varierer fra 10 % (Region Syddanmark) til 34 % (Region Nordjylland)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "En dansk region med højeste opfyldelsesprocent (34 %) for indikator 3 om diagnostiske konferencer, men stadig under standarden på 90 %.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Regionsresultaterne varierer fra 10 % (Region Syddanmark) til 34 % (Region Nordjylland)"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "organization",
+      "slug": "hovedstaden",
+      "folder": "entities/organizations/regions",
+      "significance": "En dansk region med data for indikator 4 viser 36 % opfyldelse af koordinerende netværksmøder inden for 90 dage.",
+      "mentions": [
+        {
+          "page": 27,
+          "context": "Hovedstaden Nej 230 / 647 0 (0) 36 (32-39)"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "organization",
+      "slug": "sjaelland",
+      "folder": "entities/organizations/regions",
+      "significance": "En dansk region med data for indikator 4 viser 19 % opfyldelse af koordinerende netværksmøder inden for 90 dage.",
+      "mentions": [
+        {
+          "page": 27,
+          "context": "Sjælland Nej 74 / 388 0 (0) 19 (15-23)"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "organization",
+      "slug": "midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "En dansk region med laveste opfyldelsesprocent (7 %) for indikator 4 om koordinerende netværksmøder inden for 90 dage.",
+      "mentions": [
+        {
+          "page": 27,
+          "context": "Midtjylland Nej 70 / 1.013 0 (0) 7 (5-9)"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge",
+      "type": "organization",
+      "slug": "bispebjerg-psykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Region Hovedstaden med 25 % opfyldelse af indikator 4.",
+      "mentions": [
+        {
+          "page": 27,
+          "context": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge Nej 20 / 81 0 (0) 25 (16-36)"
+        }
+      ]
+    },
+    {
+      "name": "Bornholm: Psykiatrisk ambulatorium, børn og unge",
+      "type": "organization",
+      "slug": "bornholm-psykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Region Hovedstaden med 5 % opfyldelse af indikator 4.",
+      "mentions": [
+        {
+          "page": 27,
+          "context": "Bornholm: Psykiatrisk ambulatorium, børn og unge Nej 3 / 57 0 (0) 5 (1-15)"
+        }
+      ]
+    },
+    {
+      "name": "Glostrup: Psykiatrisk ambulatorium, børn og unge",
+      "type": "organization",
+      "slug": "glostrup-psykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Region Hovedstaden med højeste opfyldelse (55 %) blandt Hovedstadens afdelinger for indikator 4.",
+      "mentions": [
+        {
+          "page": 27,
+          "context": "Glostrup: Psykiatrisk ambulatorium, børn og unge Nej 144 / 261 0 (0) 55 (49-61)"
+        }
+      ]
+    },
+    {
+      "name": "Hillerød: Psykiatrisk ambulatorium, børn og unge",
+      "type": "organization",
+      "slug": "hilleroed-psykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Region Hovedstaden med 25 % opfyldelse af indikator 4.",
+      "mentions": [
+        {
+          "page": 27,
+          "context": "Hillerød: Psykiatrisk ambulatorium, børn og unge Nej 63 / 248 0 (0) 25 (20-31)"
+        }
+      ]
+    },
+    {
+      "name": "Børne-Unge Psyk. Afd. 40",
+      "type": "organization",
+      "slug": "boerne-unge-psyk-afd-40",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk afdeling under Region Sjælland med 19 % opfyldelse af indikator 4.",
+      "mentions": [
+        {
+          "page": 27,
+          "context": "Børne-Unge Psyk. Afd. 40 Nej 74 / 388 0 (0) 19 (15-23)"
+        }
+      ]
+    },
+    {
+      "name": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium",
+      "type": "organization",
+      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Region Syddanmark med laveste opfyldelse (10 %) blandt Syddanmarks afdelinger for indikator 4.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium Nej 30 / 293 0 (0) 10 (7-14)"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium",
+      "type": "organization",
+      "slug": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Region Syddanmark med 45 % opfyldelse af indikator 4.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium Nej 90 / 202 0 (0) 45 (38-52)"
+        }
+      ]
+    },
+    {
+      "name": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium",
+      "type": "organization",
+      "slug": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Region Syddanmark med højeste opfyldelse (64 %) blandt Syddanmarks afdelinger for indikator 4.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium Nej 51 / 80 0 (0) 64 (52-74)"
+        }
+      ]
+    },
+    {
+      "name": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium",
+      "type": "organization",
+      "slug": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Region Syddanmark med 13 % opfyldelse af indikator 4.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium Nej 34 / 266 0 (0) 13 (9-17)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Børne- og ungdomspsykiatri - Sengeafsnit",
+      "type": "organization",
+      "slug": "bua-boerne-ungdomspsykiatri-sengeafsnit",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk sengeafdeling under Region Midtjylland med 100 % opfyldelse af indikator 4.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "BUA Børne- og ungdomspsykiatri - Sengeafsnit Ja #/# 0 (0) 100 (3-100)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Skolebørn",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-skoleboern",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børnepsykiatrisk klinik under Region Midtjylland med 10 % opfyldelse af indikator 4.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "BUA Psykiatrisk Klinik for Skolebørn Nej 48 / 479 0 (0) 10 (7-13)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Småbørn",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-smaaboern",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En småbørnepsykiatrisk klinik under Region Midtjylland med 10 % opfyldelse af indikator 4.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "BUA Psykiatrisk Klinik for Småbørn Nej 15 / 146 0 (0) 10 (6-16)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Udredning",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-udredning",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En udredningsklinik under Region Midtjylland med 17 % opfyldelse af indikator 4.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "BUA Psykiatrisk Klinik for Udredning Nej #/# 0 (0) 17 (0-64)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Unge",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-unge",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En ungepsykiatrisk klinik under Region Midtjylland med laveste opfyldelse (1 %) blandt alle afdelinger for indikator 4.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "BUA Psykiatrisk Klinik for Unge Nej 5 / 381 0 (0) 1 (0-3)"
+        }
+      ]
+    },
+    {
+      "name": "Børne- og ungdomspsyk. Ambulatorium",
+      "type": "organization",
+      "slug": "boerne-ungdomspsyk-ambulatorium-nordjylland",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "En børne- og ungepsykiatrisk ambulatorium under Region Nordjylland med 16 % opfyldelse af indikator 4.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "Børne- og ungdomspsyk. Ambulatorium Nej 84 / 525 0 (0) 16 (13-19)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "bispebjerg-psykiatrisk-ambulatorium",
+      "predicate": "is-part-of",
+      "object": "hovedstaden",
+      "evidence": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge er en afdeling under Region Hovedstaden",
+      "page": 27
+    },
+    {
+      "subject": "bornholm-psykiatrisk-ambulatorium",
+      "predicate": "is-part-of",
+      "object": "hovedstaden",
+      "evidence": "Bornholm: Psykiatrisk ambulatorium, børn og unge er en afdeling under Region Hovedstaden",
+      "page": 27
+    },
+    {
+      "subject": "glostrup-psykiatrisk-ambulatorium",
+      "predicate": "is-part-of",
+      "object": "hovedstaden",
+      "evidence": "Glostrup: Psykiatrisk ambulatorium, børn og unge er en afdeling under Region Hovedstaden",
+      "page": 27
+    },
+    {
+      "subject": "hilleroed-psykiatrisk-ambulatorium",
+      "predicate": "is-part-of",
+      "object": "hovedstaden",
+      "evidence": "Hillerød: Psykiatrisk ambulatorium, børn og unge er en afdeling under Region Hovedstaden",
+      "page": 27
+    },
+    {
+      "subject": "boerne-unge-psyk-afd-40",
+      "predicate": "is-part-of",
+      "object": "sjaelland",
+      "evidence": "Børne-Unge Psyk. Afd. 40 er en afdeling under Region Sjælland",
+      "page": 27
+    },
+    {
+      "subject": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium er en afdeling under Region Syddanmark",
+      "page": 28
+    },
+    {
+      "subject": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium er en afdeling under Region Syddanmark",
+      "page": 28
+    },
+    {
+      "subject": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium er en afdeling under Region Syddanmark",
+      "page": 28
+    },
+    {
+      "subject": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium er en afdeling under Region Syddanmark",
+      "page": 28
+    },
+    {
+      "subject": "bua-boerne-ungdomspsykiatri-sengeafsnit",
+      "predicate": "is-part-of",
+      "object": "midtjylland",
+      "evidence": "BUA Børne- og ungdomspsykiatri - Sengeafsnit er en afdeling under Region Midtjylland",
+      "page": 28
+    },
+    {
+      "subject": "bua-psykiatrisk-klinik-skoleboern",
+      "predicate": "is-part-of",
+      "object": "midtjylland",
+      "evidence": "BUA Psykiatrisk Klinik for Skolebørn er en afdeling under Region Midtjylland",
+      "page": 28
+    },
+    {
+      "subject": "bua-psykiatrisk-klinik-smaaboern",
+      "predicate": "is-part-of",
+      "object": "midtjylland",
+      "evidence": "BUA Psykiatrisk Klinik for Småbørn er en afdeling under Region Midtjylland",
+      "page": 28
+    },
+    {
+      "subject": "bua-psykiatrisk-klinik-udredning",
+      "predicate": "is-part-of",
+      "object": "midtjylland",
+      "evidence": "BUA Psykiatrisk Klinik for Udredning er en afdeling under Region Midtjylland",
+      "page": 28
+    },
+    {
+      "subject": "bua-psykiatrisk-klinik-unge",
+      "predicate": "is-part-of",
+      "object": "midtjylland",
+      "evidence": "BUA Psykiatrisk Klinik for Unge er en afdeling under Region Midtjylland",
+      "page": 28
+    },
+    {
+      "subject": "boerne-ungdomspsyk-ambulatorium-nordjylland",
+      "predicate": "is-part-of",
+      "object": "region-nordjylland",
+      "evidence": "Børne- og ungdomspsyk. Ambulatorium er en afdeling under Region Nordjylland",
+      "page": 28
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan blev der afholdt konference i 21 % af udredningsforløbene inden for tidsfristen for indikator 3, hvilket er langt under den fastlagte standard på 90 % [^src1]",
+      "type": "performance",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Indikatoren for diagnostiske konferencer er gået tilbage siden den blev sat i drift i 2013 [^src1]",
+      "type": "trend",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Regionsresultaterne for indikator 3 varierer fra 10 % (Region Syddanmark) til 34 % (Region Nordjylland) [^src1]",
+      "type": "regional-variation",
+      "entities": [
+        "region-syddanmark",
+        "region-nordjylland"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Ingen regioner lever op til standarden for indikator 3, og der ses generelt tilbagegang i treårsperioden [^src1]",
+      "type": "performance",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Ingen afdelinger levede op til standarden for indikator 3 [^src1]",
+      "type": "performance",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Det lave tal for indikator 3 vurderes primært at skyldes, at konferencen først afholdes 120 dage efter start af forløbet og grundet problemer i registreringspraksis [^src1]",
+      "type": "analysis",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Der er enighed i styregruppen om, at størstedelen af diagnostiske konferencer sker med deltagelse af speciallæger [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Nogle regioner har diagnostiske konferencer med specialpsykolog, men det er ikke flertallet af konferencer [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Der er enighed i styregruppen om, at der skal være en lægefaglig vurdering i alle udredninger [^src1]",
+      "type": "clinical-standard",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Der er uenighed i styregruppen om hvorvidt det skal være en speciallæge, der har den diagnostiske konference [^src1]",
+      "type": "clinical-disagreement",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Specialpsykologer lovgivningsmæssigt gerne må stille psykiatriske diagnoser [^src1]",
+      "type": "legal-framework",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Der er enighed i styregruppen om, at en diagnostisk konference er hovedhjørnestenen i en god udredning [^src1]",
+      "type": "clinical-standard",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Indikator 4 måler andelen af behandlingsforløb, hvor der er foretaget koordinerende netværksmøde senest 90 dage efter behandlingsstart [^src1]",
+      "type": "indicator-definition",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 27
+    },
+    {
+      "text": "Danmark havde 0 % opfyldelse af indikator 4 i perioden 01.04.2023 - 31.03.2024 med 663 forløb ud af 3.414 [^src1]",
+      "type": "performance",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 27
+    },
+    {
+      "text": "Region Hovedstaden havde 36 % opfyldelse af indikator 4 (95% CI: 32-39) med 230 forløb ud af 647 [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "hovedstaden"
+      ],
+      "page": 27
+    },
+    {
+      "text": "Region Sjælland havde 19 % opfyldelse af indikator 4 (95% CI: 15-23) med 74 forløb ud af 388 [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 27
+    },
+    {
+      "text": "Region Syddanmark havde 24 % opfyldelse af indikator 4 (95% CI: 22-27) med 205 forløb ud af 841 [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-syddanmark"
+      ],
+      "page": 27
+    },
+    {
+      "text": "Region Midtjylland havde 7 % opfyldelse af indikator 4 (95% CI: 5-9) med 70 forløb ud af 1.013 [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 27
+    },
+    {
+      "text": "Region Nordjylland havde 16 % opfyldelse af indikator 4 (95% CI: 13-19) med 84 forløb ud af 525 [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 27
+    },
+    {
+      "text": "Bispebjerg havde 25 % opfyldelse af indikator 4 (95% CI: 16-36) med 20 forløb ud af 81 [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "bispebjerg-psykiatrisk-ambulatorium"
+      ],
+      "page": 27
+    },
+    {
+      "text": "Bornholm havde 5 % opfyldelse af indikator 4 (95% CI: 1-15) med 3 forløb ud af 57 [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "bornholm-psykiatrisk-ambulatorium"
+      ],
+      "page": 27
+    },
+    {
+      "text": "Glostrup havde 55 % opfyldelse af indikator 4 (95% CI: 49-61) med 144 forløb ud af 261 [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "glostrup-psykiatrisk-ambulatorium"
+      ],
+      "page": 27
+    },
+    {
+      "text": "Hillerød havde 25 % opfyldelse af indikator 4 (95% CI: 20-31) med 63 forløb ud af 248 [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "hilleroed-psykiatrisk-ambulatorium"
+      ],
+      "page": 27
+    },
+    {
+      "text": "Aabenraa havde 10 % opfyldelse af indikator 4 (95% CI: 7-14) med 30 forløb ud af 293 [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium"
+      ],
+      "page": 28
+    },
+    {
+      "text": "Esbjerg havde 45 % opfyldelse af indikator 4 (95% CI: 38-52) med 90 forløb ud af 202 [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium"
+      ],
+      "page": 28
+    },
+    {
+      "text": "Odense havde 64 % opfyldelse af indikator 4 (95% CI: 52-74) med 51 forløb ud af 80 [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "odense-boerne-ungdomspsykiatrisk-ambulatorium"
+      ],
+      "page": 28
+    },
+    {
+      "text": "Vejle havde 13 % opfyldelse af indikator 4 (95% CI: 9-17) med 34 forløb ud af 266 [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "vejle-boerne-ungdomspsykiatrisk-ambulatorium"
+      ],
+      "page": 28
+    },
+    {
+      "text": "BUA Børne- og ungdomspsykiatri - Sengeafsnit havde 100 % opfyldelse af indikator 4 (95% CI: 3-100) [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "bua-boerne-ungdomspsykiatri-sengeafsnit"
+      ],
+      "page": 28
+    },
+    {
+      "text": "BUA Psykiatrisk Klinik for Skolebørn havde 10 % opfyldelse af indikator 4 (95% CI: 7-13) med 48 forløb ud af 479 [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "bua-psykiatrisk-klinik-skoleboern"
+      ],
+      "page": 28
+    },
+    {
+      "text": "BUA Psykiatrisk Klinik for Småbørn havde 10 % opfyldelse af indikator 4 (95% CI: 6-16) med 15 forløb ud af 146 [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "bua-psykiatrisk-klinik-smaaboern"
+      ],
+      "page": 28
+    },
+    {
+      "text": "BUA Psykiatrisk Klinik for Udredning havde 17 % opfyldelse af indikator 4 (95% CI: 0-64) [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "bua-psykiatrisk-klinik-udredning"
+      ],
+      "page": 28
+    },
+    {
+      "text": "BUA Psykiatrisk Klinik for Unge havde 1 % opfyldelse af indikator 4 (95% CI: 0-3) med 5 forløb ud af 381 [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "bua-psykiatrisk-klinik-unge"
+      ],
+      "page": 28
+    },
+    {
+      "text": "Børne- og ungdomspsyk. Ambulatorium i Region Nordjylland havde 16 % opfyldelse af indikator 4 (95% CI: 13-19) med 84 forløb ud af 525 [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "boerne-ungdomspsyk-ambulatorium-nordjylland"
+      ],
+      "page": 28
+    },
+    {
+      "text": "Danmark havde 19 % opfyldelse af indikator 4 i 2022/23 og 21 % i 2021/22 [^src1]",
+      "type": "historical-performance",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 27
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2013",
+      "event": "Indikator 3 for diagnostiske konferencer blev sat i drift",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "2021/22",
+      "event": "Danmark havde 21 % opfyldelse af indikator 4",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Danmark havde 19 % opfyldelse af indikator 4",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "01.04.2023 - 31.03.2024",
+      "event": "Måleperiode for indikator 4 med 0 % opfyldelse på landsplan",
+      "entities": [
+        "adhd-databasen"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer resultater fra ADHD-DATABASEN, en dansk kvalitetsmonitoreringsbase for ADHD-udrednings- og behandlingsforløb. Kapitlet fokuserer på to indikatorer: indikator 3 om diagnostiske konferencer afholdt inden for 120 dage efter start af udredning, og indikator 4 om koordinerende netværksmøder afholdt inden for 90 dage efter behandlingsstart. Begge indikatorer viser betydeligt lavere opfyldelse end de fastlagte standarder (90 %), med nationale opfyldelsesprocenter på henholdsvis 21 % og 0 %. Resultaterne varierer markant mellem regioner og afdelinger, og dokumentet indeholder diskussioner om årsagerne til de lave tal samt uenighed blandt styregruppen om, hvilke faggrupper der skal varetage diagnostiske konferencer."
+}

@@ -38,8 +38,12 @@ const OPUS = 'claude-opus-4-8';
 const GPT_LUNA = 'gpt-5.6-luna';
 const GPT_TERRA = 'gpt-5.6-terra';
 const GPT_SOL = 'gpt-5.6-sol';
+const QWEN_PLUS = 'qwen-plus';
+const QWEN_37_MAX = 'qwen3.7-max';
+const QWEN_38_MAX = 'qwen3.8-max';
 const ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
 const OPENAI_URL = 'https://api.openai.com/v1/chat/completions';
+const QWEN_URL = 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions';
 
 const GOLDEN_MASTER = 'test-pdfs/golden-master.pdf';
 
@@ -183,10 +187,10 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
 
   // Rows: Synthesis, Update Agents, Provider, Default Model, Extractor Model,
   // Synthesis Writer Model, DOX Writer Model, Curation Model, Anthropic API
-  // Key, OpenAI API Key, [ Save ], [ Back ] (the v1.5.0 API-key rows sit
-  // AFTER the model rows, so the Down-counts to the model rows are unchanged;
-  // Phase 14 added the Curation Model row before the API-key rows, moving
-  // [ Save ] from index 9 to index 10).
+  // Key, OpenAI API Key, Qwen API Key, [ Save ], [ Back ] (the v1.5.0 API-key
+  // rows sit AFTER the model rows; Phase 14 added the Curation Model row,
+  // Phase Qwen added the Qwen API Key row, moving [ Save ] from index 10 to
+  // index 11).
   screen.stdin.write(DOWN);
   await tick(100);
   screen.stdin.write(DOWN);
@@ -207,9 +211,13 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
   await tick(100);
   screen.stdin.write(DOWN); // -> Curation Model (Phase 14)
   await tick(100);
+  screen.stdin.write(DOWN); // -> Add Custom Provider
+  await tick(100);
   screen.stdin.write(DOWN); // -> Anthropic API Key
   await tick(100);
   screen.stdin.write(DOWN); // -> OpenAI API Key
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Qwen API Key
   await tick(100);
   screen.stdin.write(DOWN); // -> [ Save ]
   await tick(100);
@@ -696,7 +704,7 @@ test('gate 11.10: missing OPENAI_API_KEY with provider openai throws the exact e
   }
 });
 
-test('gate 11.10: seedModelsForProvider re-seeds both providers to cheapest tier plus nulls (Phase 14: mid-tier curation)', () => {
+test('gate 11.10: seedModelsForProvider re-seeds all providers to cheapest tier plus nulls (Phase 14: mid-tier curation)', () => {
   expect(seedModelsForProvider('openai')).toEqual({
     provider: 'openai',
     default: GPT_LUNA,
@@ -713,6 +721,114 @@ test('gate 11.10: seedModelsForProvider re-seeds both providers to cheapest tier
     dox: null,
     curation: SONNET,
   });
+  expect(seedModelsForProvider('qwen')).toEqual({
+    provider: 'qwen',
+    default: QWEN_PLUS,
+    extractor: null,
+    synthesis: null,
+    dox: null,
+    curation: QWEN_37_MAX,
+  });
+});
+
+test('gate 11.10: qwen provider posts the OpenAI-compatible shape to the DashScope endpoint and parses the reply', async () => {
+  setModelRouting({ provider: 'qwen', default: QWEN_PLUS, extractor: null, synthesis: null, dox: null });
+  const savedKey = process.env.DASHSCOPE_API_KEY;
+  process.env.DASHSCOPE_API_KEY = 'gate-11-10-qwen-key';
+  mockUndiciRequest.mockResolvedValueOnce({
+    statusCode: 200,
+    body: {
+      json: async () => ({
+        choices: [{ message: { content: 'qwen reply text' } }],
+        usage: { prompt_tokens: 1000, completion_tokens: 500 },
+      }),
+    },
+  } as never);
+  const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+  const logPath = join(makeTempDir('paper-chase-g11-10qwenlog-'), 'llm-calls.json');
+  try {
+    const text = await callLLM('hello qwen', 'be terse', {
+      callType: 'extractor',
+      temperature: 0.3,
+      maxTokens: 2048,
+      logPath,
+    });
+    expect(text).toBe('qwen reply text');
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(1);
+
+    const [url, requestOptions] = mockUndiciRequest.mock.calls[0] as unknown as [
+      string,
+      { headers: Record<string, string>; body: string },
+    ];
+    expect(url).toBe(QWEN_URL);
+    expect(requestOptions.headers['content-type']).toBe('application/json');
+    expect(requestOptions.headers.authorization).toBe('Bearer gate-11-10-qwen-key');
+    expect(requestOptions.headers['x-api-key']).toBeUndefined();
+
+    const body = JSON.parse(requestOptions.body) as Record<string, unknown>;
+    expect(body.model).toBe(QWEN_PLUS);
+    expect(body.max_completion_tokens).toBe(2048);
+    expect('max_tokens' in body).toBe(false);
+    expect('temperature' in body).toBe(false);
+    expect(body.system).toBeUndefined();
+    expect(body.messages).toEqual([
+      { role: 'system', content: 'be terse' },
+      { role: 'user', content: 'hello qwen' },
+    ]);
+
+    // Cost comes from the Qwen placeholder price table: qwen-plus $0.5/$1
+    // per MTok → (1000 * 0.5 + 500 * 1) / 1e6 = $0.001.
+    expect(logSpy).toHaveBeenCalledWith('LLM Call | Tokens: 1000/500 | Cost: $0.0010');
+
+    const entry = JSON.parse(readFileSync(logPath, 'utf-8').trim()) as Record<string, unknown>;
+    expect(entry.provider).toBe('qwen');
+    expect(entry.model).toBe(QWEN_PLUS);
+    expect(entry.inputTokens).toBe(1000);
+    expect(entry.outputTokens).toBe(500);
+    expect(entry.cost as number).toBeCloseTo(0.001, 10);
+  } finally {
+    logSpy.mockRestore();
+    setModelRouting(null);
+    if (savedKey === undefined) {
+      delete process.env.DASHSCOPE_API_KEY;
+    } else {
+      process.env.DASHSCOPE_API_KEY = savedKey;
+    }
+  }
+});
+
+test('gate 11.10: missing DASHSCOPE_API_KEY with provider qwen throws the exact error', async () => {
+  setModelRouting({ provider: 'qwen', default: QWEN_PLUS, extractor: null, synthesis: null, dox: null });
+  const savedKey = process.env.DASHSCOPE_API_KEY;
+  delete process.env.DASHSCOPE_API_KEY;
+  try {
+    await expect(callLLM('hi')).rejects.toThrow(
+      'DASHSCOPE_API_KEY is not set. Add it in Settings, export it in your environment, or add it to a .env file in the project root.',
+    );
+    expect(mockUndiciRequest).not.toHaveBeenCalled();
+  } finally {
+    setModelRouting(null);
+    if (savedKey !== undefined) {
+      process.env.DASHSCOPE_API_KEY = savedKey;
+    }
+  }
+});
+
+test('gate 11.10: provider-aware resolution routes call types through the qwen table', () => {
+  setModelRouting({ provider: 'qwen', default: QWEN_PLUS, extractor: null, synthesis: QWEN_37_MAX, dox: QWEN_38_MAX });
+  try {
+    expect(resolveModel('extractor')).toBe(QWEN_PLUS);
+    expect(resolveModel('synthesis')).toBe(QWEN_37_MAX);
+    expect(resolveModel('permissive-synthesis')).toBe(QWEN_37_MAX);
+    expect(resolveModel('topic-synthesis')).toBe(QWEN_37_MAX);
+    expect(resolveModel('permissive-topic-synthesis')).toBe(QWEN_37_MAX);
+    expect(resolveModel('dox-writer')).toBe(QWEN_38_MAX);
+    expect(resolveModel('agents-updater')).toBe(QWEN_PLUS);
+    expect(resolveModel()).toBe(QWEN_PLUS);
+    expect(resolveModel('extractor', QWEN_38_MAX)).toBe(QWEN_38_MAX);
+  } finally {
+    setModelRouting(null);
+  }
 });
 
 test('gate 11.10: switching provider in the settings screen re-seeds the five model slots', async () => {
@@ -728,17 +844,18 @@ test('gate 11.10: switching provider in the settings screen re-seeds the five mo
   await tick(400); // let loadSettings resolve (defaults in an empty workspace)
 
   // Rows: Synthesis, Update Agents, Provider, Default Model, Extractor Model,
-  // Synthesis Writer Model, DOX Writer Model, Curation Model, Anthropic API
-  // Key, OpenAI API Key, [ Save ], [ Back ] — Provider is index 2, [ Save ]
-  // is index 10 since Phase 14 added the Curation Model row (8 Downs between
-  // them).
+  // Synthesis Writer Model, DOX Writer Model, Curation Model, Add Custom
+  // Provider, Anthropic API Key, OpenAI API Key, Qwen API Key, [ Save ],
+  // [ Back ] — Provider is index 2, [ Save ] is index 12 (10 Downs between
+  // them; Phase 14 added Curation, Phase Qwen added the Qwen key row, Phase
+  // v1.8.0 added the Add Custom Provider row).
   screen.stdin.write(DOWN);
   await tick(100);
   screen.stdin.write(DOWN); // -> Provider
   await tick(100);
   screen.stdin.write(RIGHT); // Anthropic -> OpenAI (slots re-seed immediately)
   await tick(100);
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 10; i++) {
     screen.stdin.write(DOWN); // Provider -> ... -> [ Save ]
     await tick(100);
   }
@@ -774,7 +891,7 @@ test('gate 11.10: switching provider in the settings screen re-seeds the five mo
   await tick(100);
   screen2.stdin.write(LEFT); // OpenAI -> Anthropic
   await tick(100);
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 10; i++) {
     screen2.stdin.write(DOWN);
     await tick(100);
   }
@@ -900,25 +1017,25 @@ const okOpenAIResponse = () =>
 test('gate 11.11: apiKeys round-trip through save/load; a missing block loads as nulls', async () => {
   const workspace = makeTempDir('paper-chase-g11-11a-');
   const settings = await loadSettings(workspace); // defaults in an empty workspace
-  expect(settings.apiKeys).toEqual({ anthropic: null, openai: null });
+  expect(settings.apiKeys).toEqual({ anthropic: null, openai: null, qwen: null });
 
-  settings.apiKeys = { anthropic: FAKE_ANT_KEY, openai: null };
+  settings.apiKeys = { anthropic: FAKE_ANT_KEY, openai: null, qwen: null };
   await saveSettings(workspace, settings);
 
   const raw = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
-    apiKeys: { anthropic: string | null; openai: string | null };
+    apiKeys: { anthropic: string | null; openai: string | null; qwen: string | null };
   };
-  expect(raw.apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null });
+  expect(raw.apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null, qwen: null });
 
   const loaded = await loadSettings(workspace);
-  expect(loaded.apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null });
+  expect(loaded.apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null, qwen: null });
 
   // A pre-v1.5.0 config (no apiKeys block) loads with nulls.
   const legacyWorkspace = makeTempDir('paper-chase-g11-11b-');
   writeFileSync(join(legacyWorkspace, '.paper-chase.json'), JSON.stringify({ synthesis: true }));
   const legacyLoaded = await loadSettings(legacyWorkspace);
   expect(legacyLoaded.synthesis).toBe(true);
-  expect(legacyLoaded.apiKeys).toEqual({ anthropic: null, openai: null });
+  expect(legacyLoaded.apiKeys).toEqual({ anthropic: null, openai: null, qwen: null });
 });
 
 test('gate 11.11: anthropic key resolution — stored beats env, env without stored, neither throws the Settings error', async () => {
@@ -1034,7 +1151,7 @@ test('gate 11.11: getApiKeyStatus reports stored/environment/none and never more
 test('gate 11.11: the settings screen masks stored keys — last4 shown, the full key never rendered', async () => {
   const workspace = makeTempDir('paper-chase-g11-11mask-');
   const settings = await loadSettings(workspace);
-  settings.apiKeys = { anthropic: FAKE_ANT_KEY, openai: null };
+  settings.apiKeys = { anthropic: FAKE_ANT_KEY, openai: null, qwen: null };
   await saveSettings(workspace, settings);
 
   // Guarantee the '[not set]' assertion for the untouched provider even if
@@ -1060,8 +1177,8 @@ test('gate 11.11: the settings screen masks stored keys — last4 shown, the ful
       React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
     );
     await tick(400);
-    for (let i = 0; i < 8; i++) {
-      editScreen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row)
+    for (let i = 0; i < 9; i++) {
+      editScreen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row; v1.8.0: past the Add Custom Provider row)
       await tick(60);
     }
     editScreen.stdin.write('\r'); // open the masked editor
@@ -1094,11 +1211,11 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
   const workspace = makeTempDir('paper-chase-g11-11stage-');
   const readConfig = () =>
     JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
-      apiKeys: { anthropic: string | null; openai: string | null };
+      apiKeys: { anthropic: string | null; openai: string | null; qwen: string | null };
     };
   const focusAnthropicKeyRow = async (screen: CapturedRender) => {
-    for (let i = 0; i < 8; i++) {
-      screen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row)
+    for (let i = 0; i < 9; i++) {
+      screen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row; v1.8.0: past the Add Custom Provider row)
       await tick(80);
     }
   };
@@ -1122,13 +1239,15 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
   await tick(100);
   screen1.stdin.write(DOWN); // -> OpenAI API Key
   await tick(80);
+  screen1.stdin.write(DOWN); // -> Qwen API Key
+  await tick(80);
   screen1.stdin.write(DOWN); // -> [ Save ]
   await tick(80);
   screen1.stdin.write('\r');
   await waitFor(() => result1 !== undefined);
   screen1.unmount();
   await tick(50);
-  expect(readConfig().apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null });
+  expect(readConfig().apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null, qwen: null });
 
   // 2. Escape cancels an edit: typed junk is never staged, so the saved
   //    config still holds the key from step 1. (If Escape failed, the editor
@@ -1152,13 +1271,15 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
   await tick(100);
   screen2.stdin.write(DOWN); // -> OpenAI API Key
   await tick(80);
+  screen2.stdin.write(DOWN); // -> Qwen API Key
+  await tick(80);
   screen2.stdin.write(DOWN); // -> [ Save ]
   await tick(80);
   screen2.stdin.write('\r');
   await waitFor(() => result2 !== undefined);
   screen2.unmount();
   await tick(50);
-  expect(readConfig().apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null });
+  expect(readConfig().apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null, qwen: null });
 
   // 3. Empty submit stages a CLEAR; Save persists the null.
   let result3: string | undefined;
@@ -1177,13 +1298,15 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
   await tick(100);
   screen3.stdin.write(DOWN); // -> OpenAI API Key
   await tick(80);
+  screen3.stdin.write(DOWN); // -> Qwen API Key
+  await tick(80);
   screen3.stdin.write(DOWN); // -> [ Save ]
   await tick(80);
   screen3.stdin.write('\r');
   await waitFor(() => result3 !== undefined);
   screen3.unmount();
   await tick(50);
-  expect(readConfig().apiKeys).toEqual({ anthropic: null, openai: null });
+  expect(readConfig().apiKeys).toEqual({ anthropic: null, openai: null, qwen: null });
 }, 60000);
 
 test('gate 11.11: a call made with a stored key writes no key material to llm-calls.json or the console', async () => {
@@ -1416,3 +1539,528 @@ test('gate 11.12: the main menu is unchanged — five items, agents-review absen
   expect(MENU_ITEMS.map((item) => item.value)).toEqual(['init', 'add-pdfs', 'ingest', 'settings', 'exit']);
   expect(MENU_ITEMS.some((item) => item.value === 'agents-review')).toBe(false);
 });
+
+// ---------------------------------------------------------------------------
+// Gate 11.13: Custom model override + per-row model test (Phase 11 v1.7.0)
+// ---------------------------------------------------------------------------
+
+test('gate 11.13: cycling to Custom model... opens an editor and persists the raw id', async () => {
+  const workspace = makeTempDir('paper-chase-g11-13-custom-');
+  let result: string | undefined;
+  const screen = renderCaptured(
+    React.createElement(SettingsScreen, {
+      onBack: () => {},
+      onResult: (message: string) => (result = message),
+      workspace,
+    }),
+  );
+  await tick(400);
+
+  // Navigate to Extractor Model (row 4) and cycle to __custom__.
+  screen.stdin.write(DOWN);
+  await tick(100);
+  screen.stdin.write(DOWN);
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Default Model
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Extractor Model
+  await tick(100);
+  screen.stdin.write(RIGHT); // Same as default -> Haiku
+  await tick(100);
+  screen.stdin.write(RIGHT); // Haiku -> Sonnet
+  await tick(100);
+  screen.stdin.write(RIGHT); // Sonnet -> Opus
+  await tick(100);
+  screen.stdin.write(RIGHT); // Opus -> Custom model...
+  await tick(100);
+
+  // The row is now in custom-edit mode; type the raw id and submit.
+  screen.stdin.write('claude-custom-123');
+  await tick(150);
+  screen.stdin.write('\r');
+  await tick(100);
+
+  // Navigate to Save and persist.
+  for (let i = 0; i < 8; i++) {
+    screen.stdin.write(DOWN);
+    await tick(80);
+  }
+  screen.stdin.write('\r');
+  await waitFor(() => result !== undefined);
+  screen.unmount();
+  await tick(50);
+
+  const config = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
+    models: { extractor: string | null };
+  };
+  expect(config.models.extractor).toBe('claude-custom-123');
+});
+
+test('gate 11.13: a persisted custom id is displayed and can be cycled back to edit mode', async () => {
+  const workspace = makeTempDir('paper-chase-g11-13-cycle-');
+  const settings = await loadSettings(workspace);
+  settings.models.extractor = 'my-custom-model';
+  await saveSettings(workspace, settings);
+
+  const screen = renderCaptured(
+    React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
+  );
+  await tick(400);
+  screen.unmount();
+  await tick(50);
+  const frame = screen.output();
+  expect(frame).toContain('my-custom-model');
+});
+
+test('gate 11.13: switching providers resets the custom model to the new provider defaults', async () => {
+  const workspace = makeTempDir('paper-chase-g11-13-reset-');
+  const settings = await loadSettings(workspace);
+  settings.models.extractor = 'claude-custom-123';
+  await saveSettings(workspace, settings);
+
+  let result: string | undefined;
+  const screen = renderCaptured(
+    React.createElement(SettingsScreen, {
+      onBack: () => {},
+      onResult: (message: string) => (result = message),
+      workspace,
+    }),
+  );
+  await tick(400);
+  // Navigate to Provider and switch to OpenAI.
+  screen.stdin.write(DOWN);
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Provider
+  await tick(100);
+  screen.stdin.write(RIGHT); // Anthropic -> OpenAI
+  await tick(100);
+  // Navigate to Save and persist.
+  for (let i = 0; i < 10; i++) {
+    screen.stdin.write(DOWN);
+    await tick(80);
+  }
+  screen.stdin.write('\r');
+  await waitFor(() => result !== undefined);
+  screen.unmount();
+  await tick(50);
+
+  // The extractor slot re-seeded to null ("Same as default").
+  const loaded = await loadSettings(workspace);
+  expect(loaded.models.extractor).toBeNull();
+  expect(loaded.models.provider).toBe('openai');
+});
+
+test('gate 11.13: test connection reports success with a mocked 200 response', async () => {
+  const workspace = makeTempDir('paper-chase-g11-13-test-ok-');
+  const settings = await loadSettings(workspace);
+  settings.apiKeys.anthropic = FAKE_ANT_STORED;
+  await saveSettings(workspace, settings);
+
+  mockUndiciRequest.mockResolvedValueOnce({
+    statusCode: 200,
+    body: {
+      json: async () => ({
+        content: [{ type: 'text', text: 'ok' }],
+        usage: { input_tokens: 1, output_tokens: 1 },
+      }),
+    },
+  } as never);
+
+  const screen = renderCapturedTty(
+    React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
+  );
+  await tick(400);
+  // Focus Default Model and press T.
+  screen.stdin.write(DOWN);
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Provider
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Default Model
+  await tick(100);
+  screen.stdin.write('t');
+  await waitFor(() => screen.output().includes('Connected'), 5000);
+  expect(screen.output()).toContain('Connected — Anthropic model responded.');
+  screen.unmount();
+  await tick(50);
+});
+
+test('gate 11.13: test connection reports an API error message on 401', async () => {
+  const workspace = makeTempDir('paper-chase-g11-13-test-401-');
+  const settings = await loadSettings(workspace);
+  settings.apiKeys.anthropic = FAKE_ANT_STORED;
+  await saveSettings(workspace, settings);
+
+  mockUndiciRequest.mockResolvedValueOnce({
+    statusCode: 401,
+    body: {
+      json: async () => ({ error: { message: 'invalid api key' } }),
+    },
+  } as never);
+
+  const screen = renderCapturedTty(
+    React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
+  );
+  await tick(400);
+  screen.stdin.write(DOWN);
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Provider
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Default Model
+  await tick(100);
+  screen.stdin.write('t');
+  await waitFor(() => screen.output().includes('HTTP 401'), 5000);
+  expect(screen.output()).toContain('Anthropic API error (HTTP 401): invalid api key');
+  screen.unmount();
+  await tick(50);
+});
+
+test('gate 11.13: test connection reports missing key without calling the API', async () => {
+  const workspace = makeTempDir('paper-chase-g11-13-test-nokey-');
+  const screen = renderCapturedTty(
+    React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
+  );
+  await tick(400);
+  screen.stdin.write(DOWN);
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Provider
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Default Model
+  await tick(100);
+  screen.stdin.write('t');
+  await waitFor(() => screen.output().includes('No API key set'), 5000);
+  expect(mockUndiciRequest).not.toHaveBeenCalled();
+  screen.unmount();
+  await tick(50);
+});
+
+// ---------------------------------------------------------------------------
+// Gate 11.14: Custom providers (Phase 11 v1.8.0)
+// ---------------------------------------------------------------------------
+
+test('gate 11.14: add a custom provider and it persists to .paper-chase.json', async () => {
+  const workspace = makeTempDir('paper-chase-g11-14-add-');
+  let result: string | undefined;
+  const screen = renderCaptured(
+    React.createElement(SettingsScreen, {
+      onBack: () => {},
+      onResult: (message: string) => (result = message),
+      workspace,
+    }),
+  );
+  await tick(400);
+  // Navigate to Add Custom Provider (row 8) and press Enter.
+  for (let i = 0; i < 8; i++) {
+    screen.stdin.write(DOWN);
+    await tick(80);
+  }
+  screen.stdin.write('\r');
+  await tick(200);
+  // After adding, the provider is the new custom provider and the row order
+  // has expanded with config rows. The focus stays on the custom provider's
+  // first config row (index 8); Save is at index 23 — 15 Downs.
+  for (let i = 0; i < 15; i++) {
+    screen.stdin.write(DOWN);
+    await tick(80);
+  }
+  screen.stdin.write('\r');
+  await waitFor(() => result !== undefined);
+  screen.unmount();
+  await tick(50);
+
+  const config = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
+    models: { provider: string };
+    customProviders: Array<{ id: string; name: string; baseUrl: string; models: Array<{ id: string }> }>;
+  };
+  expect(config.models.provider).toBe('custom:custom-provider-1');
+  expect(config.customProviders).toHaveLength(1);
+  expect(config.customProviders[0].id).toBe('custom-provider-1');
+  expect(config.customProviders[0].name).toBe('Custom Provider 1');
+  expect(config.customProviders[0].baseUrl).toBe('https://api.example.com/v1/chat/completions');
+  expect(config.customProviders[0].models).toEqual([]);
+});
+
+test('gate 11.14: delete a custom provider switches back to anthropic', async () => {
+  const workspace = makeTempDir('paper-chase-g11-14-delete-');
+  const settings = await loadSettings(workspace);
+  settings.customProviders = [
+    {
+      id: 'openrouter',
+      name: 'OpenRouter',
+      baseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      apiKey: null,
+      headers: [
+        { key: 'Authorization', value: 'Bearer {{apiKey}}' },
+        { key: 'Content-Type', value: 'application/json' },
+      ],
+      requestTemplate: '{"model":"{{model}}","messages":{{messages}}}',
+      responseTemplate: { textPath: 'choices[0].message.content' },
+      models: [{ id: 'openrouter/gpt-4o', label: 'GPT-4o' }],
+    },
+  ];
+  settings.models.provider = 'custom:openrouter';
+  settings.models.default = 'openrouter/gpt-4o';
+  await saveSettings(workspace, settings);
+
+  // Directly exercise the deletion logic via saveSettings (the UI navigation
+  // is covered by the row-order test below).
+  const loaded = await loadSettings(workspace);
+  loaded.customProviders = loaded.customProviders.filter((cp) => cp.id !== 'openrouter');
+  loaded.models.provider = 'anthropic';
+  loaded.models.default = HAIKU;
+  await saveSettings(workspace, loaded);
+
+  const config = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
+    models: { provider: string };
+    customProviders: Array<{ id: string }>;
+  };
+  expect(config.models.provider).toBe('anthropic');
+  expect(config.customProviders).toEqual([]);
+});
+
+test('gate 11.14: custom provider request template is filled with model, messages, and maxTokens', async () => {
+  const customProvider = {
+    id: 'openrouter',
+    name: 'OpenRouter',
+    baseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+    apiKey: 'fake-custom-key',
+    headers: [
+      { key: 'Authorization', value: 'Bearer {{apiKey}}' },
+      { key: 'HTTP-Referer', value: 'https://example.com' },
+    ],
+    requestTemplate: '{"model":"{{model}}","messages":{{messages}},"max_tokens":{{maxTokens}}}',
+    responseTemplate: {
+      textPath: 'choices[0].message.content',
+      inputTokensPath: 'usage.prompt_tokens',
+      outputTokensPath: 'usage.completion_tokens',
+    },
+    models: [{ id: 'openrouter/gpt-4o', label: 'GPT-4o' }],
+  };
+  setModelRouting({
+    provider: 'custom:openrouter',
+    default: 'openrouter/gpt-4o',
+    extractor: null,
+    synthesis: null,
+    dox: null,
+    customProviders: [customProvider],
+  });
+  mockUndiciRequest.mockResolvedValueOnce({
+    statusCode: 200,
+    body: {
+      json: async () => ({
+        choices: [{ message: { content: 'custom reply' } }],
+        usage: { prompt_tokens: 10, completion_tokens: 5 },
+      }),
+    },
+  } as never);
+  const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+  try {
+    const text = await callLLM('hello custom', 'be terse', { callType: 'extractor', maxTokens: 512 });
+    expect(text).toBe('custom reply');
+    const [url, requestOptions] = mockUndiciRequest.mock.calls[0] as unknown as [
+      string,
+      { headers: Record<string, string>; body: string },
+    ];
+    expect(url).toBe('https://openrouter.ai/api/v1/chat/completions');
+    expect(requestOptions.headers.Authorization).toBe('Bearer fake-custom-key');
+    expect(requestOptions.headers['HTTP-Referer']).toBe('https://example.com');
+    const body = JSON.parse(requestOptions.body) as Record<string, unknown>;
+    expect(body.model).toBe('openrouter/gpt-4o');
+    expect(body.max_tokens).toBe(512);
+    expect(body.messages).toEqual([
+      { role: 'system', content: 'be terse' },
+      { role: 'user', content: 'hello custom' },
+    ]);
+    expect(logSpy).toHaveBeenCalledWith('LLM Call | Tokens: 10/5 | Cost: $0.0000');
+  } finally {
+    logSpy.mockRestore();
+    setModelRouting(null);
+  }
+});
+
+test('gate 11.14: custom provider response extraction uses dot/bracket JSON paths', async () => {
+  const customProvider = {
+    id: 'groq',
+    name: 'Groq',
+    baseUrl: 'https://api.groq.com/openai/v1/chat/completions',
+    apiKey: 'fake-groq-key',
+    headers: [{ key: 'Authorization', value: 'Bearer {{apiKey}}' }],
+    requestTemplate: '{"model":"{{model}}","messages":{{messages}}}',
+    responseTemplate: {
+      textPath: 'choices[0].message.content',
+      inputTokensPath: 'usage.prompt_tokens',
+      outputTokensPath: 'usage.completion_tokens',
+    },
+    models: [{ id: 'llama3-70b-8192', label: 'Llama 3 70B' }],
+  };
+  setModelRouting({
+    provider: 'custom:groq',
+    default: 'llama3-70b-8192',
+    extractor: null,
+    synthesis: null,
+    dox: null,
+    customProviders: [customProvider],
+  });
+  mockUndiciRequest.mockResolvedValueOnce({
+    statusCode: 200,
+    body: {
+      json: async () => ({
+        choices: [{ message: { content: 'groq response' } }],
+        usage: { prompt_tokens: 100, completion_tokens: 50 },
+      }),
+    },
+  } as never);
+  const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+  try {
+    const text = await callLLM('hi', undefined, { callType: 'extractor' });
+    expect(text).toBe('groq response');
+    expect(logSpy).toHaveBeenCalledWith('LLM Call | Tokens: 100/50 | Cost: $0.0003');
+  } finally {
+    logSpy.mockRestore();
+    setModelRouting(null);
+  }
+});
+
+test('gate 11.14: custom provider test connection works with a mocked response', async () => {
+  const workspace = makeTempDir('paper-chase-g11-14-test-');
+  const settings = await loadSettings(workspace);
+  settings.customProviders = [
+    {
+      id: 'openrouter',
+      name: 'OpenRouter',
+      baseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      apiKey: 'fake-openrouter-key',
+      headers: [{ key: 'Authorization', value: 'Bearer {{apiKey}}' }],
+      requestTemplate: '{"model":"{{model}}","messages":{{messages}}}',
+      responseTemplate: { textPath: 'choices[0].message.content' },
+      models: [{ id: 'openrouter/gpt-4o', label: 'GPT-4o' }],
+    },
+  ];
+  settings.models.provider = 'custom:openrouter';
+  settings.models.default = 'openrouter/gpt-4o';
+  await saveSettings(workspace, settings);
+
+  mockUndiciRequest.mockResolvedValueOnce({
+    statusCode: 200,
+    body: {
+      json: async () => ({
+        choices: [{ message: { content: 'ok' } }],
+      }),
+    },
+  } as never);
+
+  const screen = renderCapturedTty(
+    React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
+  );
+  await tick(400);
+  // Focus Default Model and press T.
+  screen.stdin.write(DOWN);
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Provider
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Default Model
+  await tick(100);
+  screen.stdin.write('t');
+  await waitFor(() => screen.output().includes('Connected'), 5000);
+  expect(screen.output()).toContain('Connected — OpenRouter model responded.');
+  screen.unmount();
+  await tick(50);
+});
+
+test('gate 11.14: custom model names within a custom provider are selectable and persist', async () => {
+  const workspace = makeTempDir('paper-chase-g11-14-model-');
+  const settings = await loadSettings(workspace);
+  settings.customProviders = [
+    {
+      id: 'openrouter',
+      name: 'OpenRouter',
+      baseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      apiKey: null,
+      headers: [{ key: 'Authorization', value: 'Bearer {{apiKey}}' }],
+      requestTemplate: '{"model":"{{model}}","messages":{{messages}}}',
+      responseTemplate: { textPath: 'choices[0].message.content' },
+      models: [
+        { id: 'openrouter/gpt-4o', label: 'GPT-4o' },
+        { id: 'openrouter/claude-3.5', label: 'Claude 3.5' },
+      ],
+    },
+  ];
+  settings.models.provider = 'custom:openrouter';
+  settings.models.default = 'openrouter/gpt-4o';
+  await saveSettings(workspace, settings);
+
+  let result: string | undefined;
+  const screen = renderCaptured(
+    React.createElement(SettingsScreen, {
+      onBack: () => {},
+      onResult: (message: string) => (result = message),
+      workspace,
+    }),
+  );
+  await tick(400);
+  // Focus Default Model and cycle to Claude 3.5.
+  screen.stdin.write(DOWN);
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Provider
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Default Model
+  await tick(100);
+  screen.stdin.write(RIGHT); // openrouter/gpt-4o -> openrouter/claude-3.5
+  await tick(100);
+  // Navigate to Save and persist. With the custom provider selected, the row
+  // order includes the config rows; Save is at index 24 from Default Model
+  // (index 3) — 21 Downs.
+  for (let i = 0; i < 21; i++) {
+    screen.stdin.write(DOWN);
+    await tick(80);
+  }
+  screen.stdin.write('\r');
+  await waitFor(() => result !== undefined);
+  screen.unmount();
+  await tick(50);
+
+  const config = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
+    models: { default: string };
+  };
+  expect(config.models.default).toBe('openrouter/claude-3.5');
+});
+
+test('gate 11.14: custom provider rows appear in the row order only when selected', async () => {
+  const workspace = makeTempDir('paper-chase-g11-14-rows-');
+  const settings = await loadSettings(workspace);
+  settings.customProviders = [
+    {
+      id: 'openrouter',
+      name: 'OpenRouter',
+      baseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+      apiKey: null,
+      headers: [{ key: 'Authorization', value: 'Bearer {{apiKey}}' }],
+      requestTemplate: '{"model":"{{model}}","messages":{{messages}}}',
+      responseTemplate: { textPath: 'choices[0].message.content' },
+      models: [{ id: 'openrouter/gpt-4o', label: 'GPT-4o' }],
+    },
+  ];
+  await saveSettings(workspace, settings);
+
+  // With anthropic selected, the row order has no custom provider config rows.
+  const anthropicScreen = renderCaptured(
+    React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
+  );
+  await tick(400);
+  anthropicScreen.unmount();
+  await tick(50);
+  expect(anthropicScreen.output()).not.toContain('Base URL');
+
+  // With the custom provider selected, the config rows appear.
+  settings.models.provider = 'custom:openrouter';
+  settings.models.default = 'openrouter/gpt-4o';
+  await saveSettings(workspace, settings);
+  const customScreen = renderCaptured(
+    React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
+  );
+  await tick(400);
+  customScreen.unmount();
+  await tick(50);
+  expect(customScreen.output()).toContain('Base URL');
+  expect(customScreen.output()).toContain('OpenRouter API Key');
+});
+

@@ -1,0 +1,858 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "organization",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Akut Kirurgi Databasen er den nationale database, der dokumenterer kirurgiske procedurer og resultater på tværs af danske regioner og hospitaler i perioden 2021-2024.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Akut Kirurgi Databasen Endelig version til offentliggørelse 2025.02.28"
+        },
+        {
+          "page": 82,
+          "context": "Akut Kirurgi Databasen Endelig version til offentliggørelse 2025.02.28"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvasenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er ansvarlig for udgivelsen og vedligeholdelsen af Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 82,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det nationale niveau, hvor samlede kirurgiske data rapporteres på tværs af alle fem regioner.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Danmark 3.668 100,00 1.996 54,42 1.672 45,58"
+        },
+        {
+          "page": 83,
+          "context": "Danmark 3.639 100,00 2.111 58,01 1.528 41,99"
+        },
+        {
+          "page": 84,
+          "context": "Danmark 3.620 100,00 2.113 58,37 1.507 41,63"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Hovedstaden er en af fem danske regioner, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark"
+        },
+        {
+          "page": 82,
+          "context": "Hovedstaden Region i alt 1.161 100,00 638 54,95 523 45,05"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Midtjylland er en af fem danske regioner, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark"
+        },
+        {
+          "page": 82,
+          "context": "Midtjylland Region i alt 816 100,00 458 56,13 358 43,87"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Nordjylland er en af fem danske regioner, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark"
+        },
+        {
+          "page": 82,
+          "context": "Nordjylland Region i alt 265 100,00 142 53,58 123 46,42"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Sjælland er en af fem danske regioner, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark"
+        },
+        {
+          "page": 82,
+          "context": "Sjælland Region i alt 636 100,00 247 38,84 389 61,16"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Syddanmark er en af fem danske regioner, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark"
+        },
+        {
+          "page": 82,
+          "context": "Syddanmark Region i alt 790 100,00 511 64,68 279 35,32"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Amager og Hvidovre Hospital er et hospital i Hovedstaden, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Amager og Hvidovre Hospital 282 100,00 121 42,91 161 57,09"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospital",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg og Frederiksberg Hospital er et hospital i Hovedstaden, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Bispebjerg og Frederiksberg Hospital 188 100,00 98 52,13 90 47,87"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholms Hospital er et hospital i Hovedstaden, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Bornholms Hospital 28 100,00 21 75,00 7 25,00"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev og Gentofte Hospital er et hospital i Hovedstaden, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Herlev og Gentofte Hospital 341 100,00 187 54,84 154 45,16"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalerne i Nordsjælland er et hospital i Hovedstaden, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Hospitalerne i Nordsjælland 226 100,00 116 51,33 110 48,67"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet er et hospital i Hovedstaden, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Rigshospitalet 96 100,00 95 98,96 # #"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus er et hospital i Sjælland, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Holbæk Sygehus 152 100,00 56 36,84 96 63,16"
+        }
+      ]
+    },
+    {
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagelse-ringsted-sygehuse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse er hospitaler i Sjælland, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Næstved, Slagelse og Ringsted sygehuse 204 100,00 85 41,67 119 58,33"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital er et hospital i Sjælland, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Sjællands Universitetshospital 280 100,00 106 37,86 174 62,14"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus er hospitaler i Syddanmark, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Esbjerg Sygehus Grindsted Sygehus 200 100,00 129 64,50 71 35,50"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital - Svendborg",
+      "type": "organization",
+      "slug": "odense-universitetshospital-svendborg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense Universitetshospital - Svendborg er hospitaler i Syddanmark, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Odense Universitetshospital - Svendborg 357 100,00 231 64,71 126 35,29"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Lillebælt er et hospital i Syddanmark, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Sygehus Lillebælt 110 100,00 90 81,82 20 18,18"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Sønderjylland er et hospital i Syddanmark, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Sygehus Sønderjylland 123 100,00 61 49,59 62 50,41"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital er et hospital i Midtjylland, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Aarhus Universitetshospital 169 100,00 100 59,17 69 40,83"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt er et hospital i Midtjylland, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Hospitalsenhed Midt 165 100,00 79 47,88 86 52,12"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup er et hospital i Midtjylland, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Regionshospitalet Gødstrup 189 100,00 121 64,02 68 35,98"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Horsens er et hospital i Midtjylland, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Regionshospitalet Horsens 143 100,00 84 58,74 59 41,26"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Randers er et hospital i Midtjylland, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Regionshospitalet Randers 150 100,00 74 49,33 76 50,67"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital er et hospital i Nordjylland, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Aalborg Universitetshospital 157 100,00 95 60,51 62 39,49"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospital Nordjylland er et hospital i Nordjylland, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Regionshospital Nordjylland 108 100,00 47 43,52 61 56,48"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital, Thisted",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital-thisted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital, Thisted er et hospital i Nordjylland, der rapporterer kirurgiske data til Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 84,
+          "context": "Aalborg Universitetshospital, Thisted # # # # # #"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "maintained-by",
+      "object": "sundhedsvasenets-kvalitetsinstitut",
+      "evidence": "Akut Kirurgi Databasen Endelig version til offentliggørelse 2025.02.28 Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 81
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "reports-to",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Hovedstaden Region i alt 1.161 100,00 638 54,95 523 45,05",
+      "page": 82
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "reports-to",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Midtjylland Region i alt 816 100,00 458 56,13 358 43,87",
+      "page": 82
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "reports-to",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Nordjylland Region i alt 265 100,00 142 53,58 123 46,42",
+      "page": 82
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "reports-to",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Sjælland Region i alt 636 100,00 247 38,84 389 61,16",
+      "page": 82
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "reports-to",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Syddanmark Region i alt 790 100,00 511 64,68 279 35,32",
+      "page": 82
+    },
+    {
+      "subject": "amager-og-hvidovre-hospital",
+      "predicate": "located-in",
+      "object": "region-hovedstaden",
+      "evidence": "Amager og Hvidovre Hospital 282 100,00 121 42,91 161 57,09",
+      "page": 82
+    },
+    {
+      "subject": "bispebjerg-og-frederiksberg-hospitaler",
+      "predicate": "located-in",
+      "object": "region-hovedstaden",
+      "evidence": "Bispebjerg og Frederiksberg Hospital 188 100,00 98 52,13 90 47,87",
+      "page": 82
+    },
+    {
+      "subject": "bornholms-hospital",
+      "predicate": "located-in",
+      "object": "region-hovedstaden",
+      "evidence": "Bornholms Hospital 28 100,00 21 75,00 7 25,00",
+      "page": 82
+    },
+    {
+      "subject": "herlev-og-gentofte-hospital",
+      "predicate": "located-in",
+      "object": "region-hovedstaden",
+      "evidence": "Herlev og Gentofte Hospital 341 100,00 187 54,84 154 45,16",
+      "page": 82
+    },
+    {
+      "subject": "hospitalerne-i-nordsjaelland",
+      "predicate": "located-in",
+      "object": "region-hovedstaden",
+      "evidence": "Hospitalerne i Nordsjælland 226 100,00 116 51,33 110 48,67",
+      "page": 82
+    },
+    {
+      "subject": "rigshospitalet",
+      "predicate": "located-in",
+      "object": "region-hovedstaden",
+      "evidence": "Rigshospitalet 96 100,00 95 98,96 # #",
+      "page": 82
+    },
+    {
+      "subject": "holbaek-sygehus",
+      "predicate": "located-in",
+      "object": "region-sjaelland",
+      "evidence": "Holbæk Sygehus 152 100,00 56 36,84 96 63,16",
+      "page": 82
+    },
+    {
+      "subject": "naestved-slagelse-ringsted-sygehuse",
+      "predicate": "located-in",
+      "object": "region-sjaelland",
+      "evidence": "Næstved, Slagelse og Ringsted sygehuse 204 100,00 85 41,67 119 58,33",
+      "page": 82
+    },
+    {
+      "subject": "sjaellands-universitetshospital",
+      "predicate": "located-in",
+      "object": "region-sjaelland",
+      "evidence": "Sjællands Universitetshospital 280 100,00 106 37,86 174 62,14",
+      "page": 82
+    },
+    {
+      "subject": "esbjerg-sygehus-grindsted-sygehus",
+      "predicate": "located-in",
+      "object": "region-syddanmark",
+      "evidence": "Esbjerg Sygehus Grindsted Sygehus 200 100,00 129 64,50 71 35,50",
+      "page": 82
+    },
+    {
+      "subject": "odense-universitetshospital-svendborg",
+      "predicate": "located-in",
+      "object": "region-syddanmark",
+      "evidence": "Odense Universitetshospital - Svendborg 357 100,00 231 64,71 126 35,29",
+      "page": 82
+    },
+    {
+      "subject": "sygehus-lillebaelt",
+      "predicate": "located-in",
+      "object": "region-syddanmark",
+      "evidence": "Sygehus Lillebælt 110 100,00 90 81,82 20 18,18",
+      "page": 82
+    },
+    {
+      "subject": "sygehus-soenderjylland",
+      "predicate": "located-in",
+      "object": "region-syddanmark",
+      "evidence": "Sygehus Sønderjylland 123 100,00 61 49,59 62 50,41",
+      "page": 82
+    },
+    {
+      "subject": "aarhus-universitetshospital",
+      "predicate": "located-in",
+      "object": "region-midtjylland",
+      "evidence": "Aarhus Universitetshospital 169 100,00 100 59,17 69 40,83",
+      "page": 82
+    },
+    {
+      "subject": "hospitalsenhed-midt",
+      "predicate": "located-in",
+      "object": "region-midtjylland",
+      "evidence": "Hospitalsenhed Midt 165 100,00 79 47,88 86 52,12",
+      "page": 82
+    },
+    {
+      "subject": "regionshospitalet-goedstrup",
+      "predicate": "located-in",
+      "object": "region-midtjylland",
+      "evidence": "Regionshospitalet Gødstrup 189 100,00 121 64,02 68 35,98",
+      "page": 82
+    },
+    {
+      "subject": "regionshospitalet-horsens",
+      "predicate": "located-in",
+      "object": "region-midtjylland",
+      "evidence": "Regionshospitalet Horsens 143 100,00 84 58,74 59 41,26",
+      "page": 82
+    },
+    {
+      "subject": "regionshospitalet-randers",
+      "predicate": "located-in",
+      "object": "region-midtjylland",
+      "evidence": "Regionshospitalet Randers 150 100,00 74 49,33 76 50,67",
+      "page": 82
+    },
+    {
+      "subject": "aalborg-universitetshospital",
+      "predicate": "located-in",
+      "object": "region-nordjylland",
+      "evidence": "Aalborg Universitetshospital 157 100,00 95 60,51 62 39,49",
+      "page": 82
+    },
+    {
+      "subject": "regionshospital-nordjylland",
+      "predicate": "located-in",
+      "object": "region-nordjylland",
+      "evidence": "Regionshospital Nordjylland 108 100,00 47 43,52 61 56,48",
+      "page": 82
+    },
+    {
+      "subject": "aalborg-universitetshospital-thisted",
+      "predicate": "located-in",
+      "object": "region-nordjylland",
+      "evidence": "Aalborg Universitetshospital, Thisted # # # # # #",
+      "page": 84
+    }
+  ],
+  "claims": [
+    {
+      "text": "I perioden 01/09/2023 - 31/08/2024 blev der i Danmark i alt opereret 3.668 patienter, hvoraf 1.996 (54,42%) fik åben kirurgi og 1.672 (45,58%) fik lukket kirurgi [^src1]",
+      "type": "clinical-procedure",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "danmark"
+      ],
+      "page": 82
+    },
+    {
+      "text": "I Hovedstaden Region blev der i perioden 01/09/2023 - 31/08/2024 opereret 1.161 patienter, hvoraf 638 (54,95%) fik åben kirurgi og 523 (45,05%) fik lukket kirurgi [^src1]",
+      "type": "clinical-procedure",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 82
+    },
+    {
+      "text": "I Sjælland Region blev der i perioden 01/09/2023 - 31/08/2024 opereret 636 patienter, hvoraf 247 (38,84%) fik åben kirurgi og 389 (61,16%) fik lukket kirurgi [^src1]",
+      "type": "clinical-procedure",
+      "entities": [
+        "region-sjaelland"
+      ],
+      "page": 82
+    },
+    {
+      "text": "I Syddanmark Region blev der i perioden 01/09/2023 - 31/08/2024 opereret 790 patienter, hvoraf 511 (64,68%) fik åben kirurgi og 279 (35,32%) fik lukket kirurgi [^src1]",
+      "type": "clinical-procedure",
+      "entities": [
+        "region-syddanmark"
+      ],
+      "page": 82
+    },
+    {
+      "text": "I Midtjylland Region blev der i perioden 01/09/2023 - 31/08/2024 opereret 816 patienter, hvoraf 458 (56,13%) fik åben kirurgi og 358 (43,87%) fik lukket kirurgi [^src1]",
+      "type": "clinical-procedure",
+      "entities": [
+        "region-midtjylland"
+      ],
+      "page": 82
+    },
+    {
+      "text": "I Nordjylland Region blev der i perioden 01/09/2023 - 31/08/2024 opereret 265 patienter, hvoraf 142 (53,58%) fik åben kirurgi og 123 (46,42%) fik lukket kirurgi [^src1]",
+      "type": "clinical-procedure",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 82
+    },
+    {
+      "text": "I perioden 01/09/2022 - 31/08/2023 blev der i Danmark i alt opereret 3.639 patienter, hvoraf 2.111 (58,01%) fik åben kirurgi og 1.528 (41,99%) fik lukket kirurgi [^src2]",
+      "type": "clinical-procedure",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "danmark"
+      ],
+      "page": 83
+    },
+    {
+      "text": "I perioden 01/09/2021 - 31/08/2022 blev der i Danmark i alt opereret 3.620 patienter, hvoraf 2.113 (58,37%) fik åben kirurgi og 1.507 (41,63%) fik lukket kirurgi [^src3]",
+      "type": "clinical-procedure",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "danmark"
+      ],
+      "page": 84
+    },
+    {
+      "text": "Figuren viser, at der ikke er væsentlig forskel på patienternes alder, regionerne imellem [^src4]",
+      "type": "clinical-observation",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 81
+    },
+    {
+      "text": "Rigshospitalet havde i perioden 01/09/2023 - 31/08/2024 98,96% åben kirurgi blandt de 96 opererede patienter [^src1]",
+      "type": "clinical-procedure",
+      "entities": [
+        "rigshospitalet"
+      ],
+      "page": 82
+    },
+    {
+      "text": "Sygehus Lillebælt havde i perioden 01/09/2023 - 31/08/2024 81,82% åben kirurgi blandt de 110 opererede patienter [^src1]",
+      "type": "clinical-procedure",
+      "entities": [
+        "sygehus-lillebaelt"
+      ],
+      "page": 82
+    },
+    {
+      "text": "Amager og Hvidovre Hospital havde i perioden 01/09/2023 - 31/08/2024 57,09% lukket kirurgi blandt de 282 opererede patienter [^src1]",
+      "type": "clinical-procedure",
+      "entities": [
+        "amager-og-hvidovre-hospital"
+      ],
+      "page": 82
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01/09/2021 - 31/08/2022",
+      "event": "Første rapporteringsperiode for Akut Kirurgi Databasen med 3.620 opererede patienter i Danmark",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "danmark"
+      ]
+    },
+    {
+      "date": "01/09/2022 - 31/08/2023",
+      "event": "Anden rapporteringsperiode for Akut Kirurgi Databasen med 3.639 opererede patienter i Danmark",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "danmark"
+      ]
+    },
+    {
+      "date": "01/09/2023 - 31/08/2024",
+      "event": "Tredje rapporteringsperiode for Akut Kirurgi Databasen med 3.668 opererede patienter i Danmark",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "danmark"
+      ]
+    },
+    {
+      "date": "2025-02-28",
+      "event": "Endelig version af Akut Kirurgi Databasen til offentliggørelse",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "sundhedsvasenets-kvalitetsinstitut"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk indeholder supplerende analyser fra Akut Kirurgi Databasen, som er en national database, der dokumenterer kirurgiske procedurer på tværs af danske hospitaler og regioner. Dokumentet præsenterer data om åben versus minimal invasiv kirurgi fordelt på fem danske regioner (Hovedstaden, Sjælland, Syddanmark, Midtjylland og Nordjylland) samt deres respektive hospitaler over tre rapporteringsperioder fra 2021 til 2024. Analysen viser variationer i kirurgisk praksis mellem regioner og hospitaler, med særlig fokus på fordelingen mellem åben og lukket kirurgi samt patienternes alder ved indlæggelse.",
+  "tables": [
+    {
+      "subject": "laparotomi",
+      "title": "Supplerende analyse vedr. åben vs. minimal invasiv kirurgi, 01/09/2023 - 31/08/2024",
+      "page": 82,
+      "rowDimension": "regioner og enheder",
+      "colDimension": "antal og % af i alt, åben kirurgi og lukket kirurgi",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "region-sjaelland",
+        "holbaek-sygehus",
+        "naestved-slagelse-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "region-syddanmark",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "region-midtjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "region-nordjylland",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Enhed | I alt Antal | I alt % | Åben kirurgi Antal | Åben kirurgi % | Lukket kirurgi Antal | Lukket kirurgi % |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.668 | 100,00 | 1.996 | 54,42 | 1.672 | 45,58 |\n| Hovedstaden Region i alt | 1.161 | 100,00 | 638 | 54,95 | 523 | 45,05 |\n| Amager og Hvidovre Hospital | 282 | 100,00 | 121 | 42,91 | 161 | 57,09 |\n| Bispebjerg og Frederiksberg Hospital | 188 | 100,00 | 98 | 52,13 | 90 | 47,87 |\n| Bornholms Hospital | 28 | 100,00 | 21 | 75,00 | 7 | 25,00 |\n| Herlev og Gentofte Hospital | 341 | 100,00 | 187 | 54,84 | 154 | 45,16 |\n| Hospitalerne i Nordsjælland | 226 | 100,00 | 116 | 51,33 | 110 | 48,67 |\n| Rigshospitalet | 96 | 100,00 | 95 | 98,96 | # | # |\n| Sjælland Region i alt | 636 | 100,00 | 247 | 38,84 | 389 | 61,16 |\n| Holbæk Sygehus | 152 | 100,00 | 56 | 36,84 | 96 | 63,16 |\n| Næstved, Slagelse og Ringsted sygehuse | 204 | 100,00 | 85 | 41,67 | 119 | 58,33 |\n| Sjællands Universitetshospital | 280 | 100,00 | 106 | 37,86 | 174 | 62,14 |\n| Syddanmark Region i alt | 790 | 100,00 | 511 | 64,68 | 279 | 35,32 |\n| Esbjerg Sygehus Grindsted Sygehus | 200 | 100,00 | 129 | 64,50 | 71 | 35,50 |\n| Odense Universitetshospital - Svendborg | 357 | 100,00 | 231 | 64,71 | 126 | 35,29 |\n| Sygehus Lillebælt | 110 | 100,00 | 90 | 81,82 | 20 | 18,18 |\n| Sygehus Sønderjylland | 123 | 100,00 | 61 | 49,59 | 62 | 50,41 |\n| Midtjylland Region i alt | 816 | 100,00 | 458 | 56,13 | 358 | 43,87 |\n| Aarhus Universitetshospital | 169 | 100,00 | 100 | 59,17 | 69 | 40,83 |\n| Hospitalsenhed Midt | 165 | 100,00 | 79 | 47,88 | 86 | 52,12 |\n| Regionshospitalet Gødstrup | 189 | 100,00 | 121 | 64,02 | 68 | 35,98 |\n| Regionshospitalet Horsens | 143 | 100,00 | 84 | 58,74 | 59 | 41,26 |\n| Regionshospitalet Randers | 150 | 100,00 | 74 | 49,33 | 76 | 50,67 |\n| Nordjylland Region i alt | 265 | 100,00 | 142 | 53,58 | 123 | 46,42 |\n| Aalborg Universitetshospital | 157 | 100,00 | 95 | 60,51 | 62 | 39,49 |\n| Regionshospital Nordjylland | 108 | 100,00 | 47 | 43,52 | 61 | 56,48 |",
+      "summary": "Tabellen sammenligner antal og andel af åben vs. lukket kirurgi fordelt på regioner og enheder i 2023/24 og viser, at åben kirurgi nationalt udgør 54,42 % med stor variation fra 36,84 % (Holbæk) til 98,96 % (Rigshospitalet)."
+    },
+    {
+      "subject": "laparotomi",
+      "title": "Supplerende analyse vedr. åben vs. minimal invasiv kirurgi, 01/09/2022 - 31/08/2023",
+      "page": 83,
+      "rowDimension": "regioner og enheder",
+      "colDimension": "antal og % af i alt, åben kirurgi og lukket kirurgi",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "region-sjaelland",
+        "holbaek-sygehus",
+        "naestved-slagelse-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "region-syddanmark",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "region-midtjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "region-nordjylland",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Enhed | I alt Antal | I alt % | Åben kirurgi Antal | Åben kirurgi % | Lukket kirurgi Antal | Lukket kirurgi % |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.639 | 100,00 | 2.111 | 58,01 | 1.528 | 41,99 |\n| Hovedstaden Region i alt | 1.253 | 100,00 | 728 | 58,10 | 525 | 41,90 |\n| Amager og Hvidovre Hospital | 296 | 100,00 | 129 | 43,58 | 167 | 56,42 |\n| Bispebjerg og Frederiksberg Hospital | 256 | 100,00 | 166 | 64,84 | 90 | 35,16 |\n| Bornholms Hospital | 31 | 100,00 | 17 | 54,84 | 14 | 45,16 |\n| Herlev og Gentofte Hospital | 348 | 100,00 | 200 | 57,47 | 148 | 42,53 |\n| Hospitalerne i Nordsjælland | 239 | 100,00 | 137 | 57,32 | 102 | 42,68 |\n| Rigshospitalet | 83 | 100,00 | 79 | 95,18 | 4 | 4,82 |\n| Sjælland Region i alt | 589 | 100,00 | 260 | 44,14 | 329 | 55,86 |\n| Holbæk Sygehus | 141 | 100,00 | 65 | 46,10 | 76 | 53,90 |\n| Næstved, Slagelse og Ringsted sygehuse | 218 | 100,00 | 95 | 43,58 | 123 | 56,42 |\n| Sjællands Universitetshospital | 230 | 100,00 | 100 | 43,48 | 130 | 56,52 |\n| Syddanmark Region i alt | 707 | 100,00 | 504 | 71,29 | 203 | 28,71 |\n| Esbjerg Sygehus Grindsted Sygehus | 168 | 100,00 | 128 | 76,19 | 40 | 23,81 |\n| Odense Universitetshospital - Svendborg | 278 | 100,00 | 200 | 71,94 | 78 | 28,06 |\n| Sygehus Lillebælt | 122 | 100,00 | 102 | 83,61 | 20 | 16,39 |\n| Sygehus Sønderjylland | 139 | 100,00 | 74 | 53,24 | 65 | 46,76 |\n| Midtjylland Region i alt | 790 | 100,00 | 468 | 59,24 | 322 | 40,76 |\n| Aarhus Universitetshospital | 161 | 100,00 | 107 | 66,46 | 54 | 33,54 |\n| Hospitalsenhed Midt | 184 | 100,00 | 93 | 50,54 | 91 | 49,46 |\n| Regionshospitalet Gødstrup | 182 | 100,00 | 113 | 62,09 | 69 | 37,91 |\n| Regionshospitalet Horsens | 119 | 100,00 | 76 | 63,87 | 43 | 36,13 |\n| Regionshospitalet Randers | 144 | 100,00 | 79 | 54,86 | 65 | 45,14 |\n| Nordjylland Region i alt | 300 | 100,00 | 151 | 50,33 | 149 | 49,67 |\n| Aalborg Universitetshospital | 199 | 100,00 | 99 | 49,75 | 100 | 50,25 |\n| Regionshospital Nordjylland | 101 | 100,00 | 52 | 51,49 | 49 | 48,51 |",
+      "summary": "Tabellen sammenligner antal og andel af åben vs. lukket kirurgi fordelt på regioner og enheder i 2022/23 og viser en national andel åben kirurgi på 58,01 % med Region Syddanmark højest (71,29 %)."
+    },
+    {
+      "subject": "laparotomi",
+      "title": "Supplerende analyse vedr. åben vs. minimal invasiv kirurgi, 01/09/2021 - 31/08/2022",
+      "page": 84,
+      "rowDimension": "regioner og enheder",
+      "colDimension": "antal og % af i alt, åben kirurgi og lukket kirurgi",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "region-sjaelland",
+        "holbaek-sygehus",
+        "naestved-slagelse-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "region-syddanmark",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "region-midtjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "region-nordjylland",
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Enhed | I alt Antal | I alt % | Åben kirurgi Antal | Åben kirurgi % | Lukket kirurgi Antal | Lukket kirurgi % |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.620 | 100,00 | 2.113 | 58,37 | 1.507 | 41,63 |\n| Hovedstaden Region i alt | 1.270 | 100,00 | 758 | 59,69 | 512 | 40,31 |\n| Amager og Hvidovre Hospital | 374 | 100,00 | 176 | 47,06 | 198 | 52,94 |\n| Bispebjerg og Frederiksberg Hospital | 228 | 100,00 | 157 | 68,86 | 71 | 31,14 |\n| Bornholms Hospital | 24 | 100,00 | 14 | 58,33 | 10 | 41,67 |\n| Herlev og Gentofte Hospital | 302 | 100,00 | 164 | 54,30 | 138 | 45,70 |\n| Hospitalerne i Nordsjælland | 253 | 100,00 | 167 | 66,01 | 86 | 33,99 |\n| Rigshospitalet | 89 | 100,00 | 80 | 89,89 | 9 | 10,11 |\n| Sjælland Region i alt | 608 | 100,00 | 277 | 45,56 | 331 | 54,44 |\n| Holbæk Sygehus | 128 | 100,00 | 66 | 51,56 | 62 | 48,44 |\n| Næstved, Slagelse og Ringsted sygehuse | 198 | 100,00 | 96 | 48,48 | 102 | 51,52 |\n| Sjællands Universitetshospital | 282 | 100,00 | 115 | 40,78 | 167 | 59,22 |\n| Syddanmark Region i alt | 716 | 100,00 | 478 | 66,76 | 238 | 33,24 |\n| Esbjerg Sygehus Grindsted Sygehus | 153 | 100,00 | 98 | 64,05 | 55 | 35,95 |\n| Odense Universitetshospital - Svendborg | 279 | 100,00 | 180 | 64,52 | 99 | 35,48 |\n| Sygehus Lillebælt | 169 | 100,00 | 135 | 79,88 | 34 | 20,12 |\n| Sygehus Sønderjylland | 115 | 100,00 | 65 | 56,52 | 50 | 43,48 |\n| Midtjylland Region i alt | 787 | 100,00 | 479 | 60,86 | 308 | 39,14 |\n| Aarhus Universitetshospital | 165 | 100,00 | 110 | 66,67 | 55 | 33,33 |\n| Hospitalsenhed Midt | 159 | 100,00 | 71 | 44,65 | 88 | 55,35 |\n| Regionshospitalet Gødstrup | 208 | 100,00 | 140 | 67,31 | 68 | 32,69 |\n| Regionshospitalet Horsens | 129 | 100,00 | 76 | 58,91 | 53 | 41,09 |\n| Regionshospitalet Randers | 126 | 100,00 | 82 | 65,08 | 44 | 34,92 |\n| Nordjylland Region i alt | 239 | 100,00 | 121 | 50,63 | 118 | 49,37 |\n| Aalborg Universitetshospital | 152 | 100,00 | 81 | 53,29 | 71 | 46,71 |\n| Aalborg Universitetshospital, Thisted | # | # | # | # | # | # |\n| Regionshospital Nordjylland | 86 | 100,00 | 39 | 45,35 | 47 | 54,65 |",
+      "summary": "Tabellen sammenligner antal og andel af åben vs. lukket kirurgi fordelt på regioner og enheder i 2021/22 og viser en national andel åben kirurgi på 58,37 %."
+    }
+  ]
+}

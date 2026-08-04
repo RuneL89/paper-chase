@@ -1,0 +1,506 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "This is the Danish atrial fibrillation database that produces the annual report containing the quality indicators and clinical data analyzed in this chunk.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-registries",
+      "significance": "RKKP is the Danish regional clinical quality development program that oversees and publishes the atrial fibrillation database and its quality indicators.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "The Danish National Patient Registry is the source data system used to identify atrial fibrillation diagnoses and hospitalizations for serious bleeding events in this analysis.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "alle personer, som var i live pr. 1. juli 2022, og som har fået diagnosen registeret i Landspatientregisteret mindst én gang inden for de foregående 10 år"
+        },
+        {
+          "page": 72,
+          "context": "Større blødning er defineret som en akut indlæggelse med blødning og er identificeret via data fra Landspatientregistret"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7",
+      "type": "topic",
+      "slug": "indikator-7-serious-bleeding",
+      "folder": "topics/quality-indicators",
+      "significance": "Indicator 7 measures the incidence of serious bleeding among prevalent atrial fibrillation patients using ISTH criteria, a key quality metric in the Danish atrial fibrillation database.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Indikator 7. Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 8",
+      "type": "topic",
+      "slug": "indikator-8-structured-education",
+      "folder": "topics/quality-indicators",
+      "significance": "Indicator 8 measures the proportion of newly diagnosed atrial fibrillation patients receiving structured education within one year of diagnosis, with a standard of ≥50%.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram inden for det 1. år efter at diagnosen er stillet"
+        }
+      ]
+    },
+    {
+      "name": "International Society of Thrombosis and Hemostasis",
+      "type": "organization",
+      "slug": "international-society-of-thrombosis-and-hemostasis",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "ISTH provides the clinical criteria adapted for defining serious bleeding events in the atrial fibrillation quality indicator.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "International Society of Thrombosis and Hemostasis (ISTH) kriterier"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Denmark is the geographic scope of the atrial fibrillation database and all reported quality indicators and regional variations.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Databasen for Atrieflimren i Danmark"
+        },
+        {
+          "page": 72,
+          "context": "Patienten har ikke bopæl i DK"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Hovedstaden (Capital Region) is one of the five Danish regions with reported quality indicator results for atrial fibrillation care.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Hovedstaden Nej 1.616 / 5.116 0 (0) 31,6 (30,3-32,9)"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Sjælland (Zealand Region) is one of the five Danish regions with reported quality indicator results for atrial fibrillation care.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Sjælland Nej 1.075 / 3.148 0 (0) 34,1 (32,5-35,8)"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Syddanmark (Southern Denmark Region) is one of the five Danish regions with reported quality indicator results for atrial fibrillation care.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Syddanmark Nej 1.615 / 4.614 0 (0) 35,0 (33,6-36,4)"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Midtjylland (Central Jutland Region) is one of the five Danish regions with reported quality indicator results for atrial fibrillation care.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Midtjylland Nej 1.797 / 4.201 0 (0) 42,8 (41,3-44,3)"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Nordjylland (North Jutland Region) is one of the five Danish regions with reported quality indicator results for atrial fibrillation care.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Nordjylland Nej 475 / 1.956 0 (0) 24,3 (22,4-26,2)"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet is a major teaching hospital in the Capital Region with reported Indicator 8 results showing 43.3% of newly diagnosed atrial fibrillation patients receiving structured education.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Rigshospitalet Nej 281 / 649 0 (0) 43,3 (39,4-47,2)"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt is a hospital unit in Midtjylland region that achieved 62.3% compliance with Indicator 8, exceeding the ≥50% standard.",
+      "mentions": [
+        {
+          "page": 74,
+          "context": "Hospitalsenhed Midt Ja 730 / 1.172 0 (0) 62,3 (59,4-65,1)"
+        }
+      ]
+    },
+    {
+      "name": "Slagelse",
+      "type": "organization",
+      "slug": "slagelse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Slagelse hospital in Sjælland region achieved 52.5% compliance with Indicator 8, exceeding the ≥50% standard.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Slagelse Ja 396 / 754 0 (0) 52,5 (48,9-56,1)"
+        }
+      ]
+    },
+    {
+      "name": "Næstved",
+      "type": "organization",
+      "slug": "naestved",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Næstved hospital in Sjælland region achieved 60.0% compliance with Indicator 8, exceeding the ≥50% standard.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Næstved Ja 12 / 20 0 (0) 60,0 (36,1-80,9)"
+        }
+      ]
+    },
+    {
+      "name": "DOAC",
+      "type": "topic",
+      "slug": "doac-anticoagulation",
+      "folder": "topics/treatments",
+      "significance": "Direct oral anticoagulants (DOAC) are a class of anticoagulant medications analyzed in the report, with 2.33% of DOAC-treated patients experiencing serious bleeding.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Andelen af patienter med alvorlig blødning er 2,33% for DOAC og 2,44% for marevan"
+        }
+      ]
+    },
+    {
+      "name": "Marevan",
+      "type": "topic",
+      "slug": "marevan-anticoagulation",
+      "folder": "topics/treatments",
+      "significance": "Marevan (warfarin) is a vitamin K antagonist anticoagulant analyzed in the report, with 2.44% of marevan-treated patients experiencing serious bleeding.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Andelen af patienter med alvorlig blødning er 2,33% for DOAC og 2,44% for marevan"
+        }
+      ]
+    },
+    {
+      "name": "CHA2DS2-VASc score",
+      "type": "topic",
+      "slug": "cha2ds2-vasc-score",
+      "folder": "topics/clinical-assessment",
+      "significance": "The CHA2DS2-VASc score is a stroke risk stratification tool used to categorize atrial fibrillation patients; the report notes that 43.7% of serious bleeding events occurred in patients with scores of 0 or 1.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "43,7% af blødningerne optrådte blandt patienter med en CHA2DS2-VASc score på 0 eller 1"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "predicate": "operates",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram publishes the annual report of Databasen for Atrieflimren i Danmark",
+      "page": 71
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Større blødning er identificeret via data fra Landspatientregistret",
+      "page": 72
+    },
+    {
+      "subject": "indikator-7-serious-bleeding",
+      "predicate": "uses-criteria-from",
+      "object": "international-society-of-thrombosis-and-hemostasis",
+      "evidence": "Indikator 7 uses tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier",
+      "page": 71
+    },
+    {
+      "subject": "rigshospitalet",
+      "predicate": "located-in",
+      "object": "hovedstaden",
+      "evidence": "Rigshospitalet is listed under Hovedstaden region in the Indicator 8 results table",
+      "page": 73
+    },
+    {
+      "subject": "hospitalsenhed-midt",
+      "predicate": "located-in",
+      "object": "midtjylland",
+      "evidence": "Hospitalsenhed Midt is listed under Midtjylland region in the Indicator 8 results table",
+      "page": 74
+    },
+    {
+      "subject": "slagelse",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Slagelse is listed under Sjælland region in the Indicator 8 results table",
+      "page": 73
+    },
+    {
+      "subject": "naestved",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Næstved is listed under Sjælland region in the Indicator 8 results table",
+      "page": 73
+    }
+  ],
+  "claims": [
+    {
+      "text": "I alt blev 2,2% af de prævalente patienter med atrieflimren indlagt med alvorlig blødning i løbet af opgørelsesperioden [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "indikator-7-serious-bleeding"
+      ],
+      "page": 72
+    },
+    {
+      "text": "Der ses ingen reel udvikling i andelen siden 2018-2019 trods øget anvendelse af antikoagulerende behandling [^src1]",
+      "type": "clinical-trend",
+      "entities": [
+        "indikator-7-serious-bleeding"
+      ],
+      "page": 72
+    },
+    {
+      "text": "På regionsniveau varierede andelen som blev indlagt med alvorlig blødning mellem 1,9-2,3% [^src1]",
+      "type": "regional-variation",
+      "entities": [
+        "indikator-7-serious-bleeding"
+      ],
+      "page": 72
+    },
+    {
+      "text": "43,7% af blødningerne optrådte blandt patienter med en CHA2DS2-VASc score på 0 eller 1 [^src1]",
+      "type": "clinical-finding",
+      "entities": [
+        "indikator-7-serious-bleeding",
+        "cha2ds2-vasc-score"
+      ],
+      "page": 72
+    },
+    {
+      "text": "Andelen af patienter med alvorlig blødning er 2,33% for DOAC og 2,44% for marevan [^src1]",
+      "type": "treatment-outcome",
+      "entities": [
+        "doac-anticoagulation",
+        "marevan-anticoagulation"
+      ],
+      "page": 72
+    },
+    {
+      "text": "Andelen af patienter med alvorlig blødning 1 år efter diagnosedato (incidente patienter) er på landsplan 3,1% og varierer regionalt fra 2,5-3,4% [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "indikator-7-serious-bleeding"
+      ],
+      "page": 72
+    },
+    {
+      "text": "Danmark opnåede 34,6% compliance med Indikator 8 (struktureret undervisningsprogram inden for 1. år efter diagnose) i perioden 01.07.2021 - 30.06.2022 [^src2]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-8-structured-education",
+        "danmark"
+      ],
+      "page": 73
+    },
+    {
+      "text": "Hovedstaden opnåede 31,6% compliance med Indikator 8 [^src2]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-8-structured-education",
+        "hovedstaden"
+      ],
+      "page": 73
+    },
+    {
+      "text": "Sjælland opnåede 34,1% compliance med Indikator 8 [^src2]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-8-structured-education",
+        "sjaelland"
+      ],
+      "page": 73
+    },
+    {
+      "text": "Syddanmark opnåede 35,0% compliance med Indikator 8 [^src2]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-8-structured-education",
+        "syddanmark"
+      ],
+      "page": 73
+    },
+    {
+      "text": "Midtjylland opnåede 42,8% compliance med Indikator 8 [^src2]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-8-structured-education",
+        "midtjylland"
+      ],
+      "page": 73
+    },
+    {
+      "text": "Nordjylland opnåede 24,3% compliance med Indikator 8 [^src2]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-8-structured-education",
+        "nordjylland"
+      ],
+      "page": 73
+    },
+    {
+      "text": "Rigshospitalet opnåede 43,3% compliance med Indikator 8 [^src2]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-8-structured-education",
+        "rigshospitalet"
+      ],
+      "page": 73
+    },
+    {
+      "text": "Hospitalsenhed Midt opnåede 62,3% compliance med Indikator 8, hvilket overstiger standarden på ≥50% [^src2]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-8-structured-education",
+        "hospitalsenhed-midt"
+      ],
+      "page": 74
+    },
+    {
+      "text": "Slagelse opnåede 52,5% compliance med Indikator 8, hvilket overstiger standarden på ≥50% [^src2]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-8-structured-education",
+        "slagelse"
+      ],
+      "page": 73
+    },
+    {
+      "text": "Næstved opnåede 60,0% compliance med Indikator 8, hvilket overstiger standarden på ≥50% [^src2]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-8-structured-education",
+        "naestved"
+      ],
+      "page": 73
+    },
+    {
+      "text": "Indikator 7 bibeholdes. Standard fastlægges i forbindelse med næste årsrapport [^src1]",
+      "type": "indicator-status",
+      "entities": [
+        "indikator-7-serious-bleeding"
+      ],
+      "page": 72
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2018-2019",
+      "event": "Baseline period for comparison of serious bleeding incidence in atrial fibrillation patients",
+      "entities": [
+        "indikator-7-serious-bleeding"
+      ]
+    },
+    {
+      "date": "1. juli 2022",
+      "event": "Start date for prevalent patient cohort definition and reporting period for Indicator 7",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "indikator-7-serious-bleeding"
+      ]
+    },
+    {
+      "date": "30. juni 2023",
+      "event": "End date of annual reporting period for the Danish atrial fibrillation database",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "01.07.2021 - 30.06.2022",
+      "event": "Reporting period for Indicator 8 (structured education program compliance)",
+      "entities": [
+        "indikator-8-structured-education"
+      ]
+    },
+    {
+      "date": "2020/21",
+      "event": "Previous year comparison data for Indicator 8 results",
+      "entities": [
+        "indikator-8-structured-education"
+      ]
+    },
+    {
+      "date": "2019/20",
+      "event": "Earlier year comparison data for Indicator 8 results",
+      "entities": [
+        "indikator-8-structured-education"
+      ]
+    }
+  ],
+  "context": "This chunk presents pages 71-75 of the 2023 annual report from the Danish Atrial Fibrillation Database (Databasen for Atrieflimren i Danmark), operated by the Regional Clinical Quality Development Program (RKKP). The report documents two key quality indicators for atrial fibrillation care: Indicator 7 measures the incidence of serious bleeding among prevalent patients using adapted ISTH criteria, while Indicator 8 measures the proportion of newly diagnosed patients receiving structured education within one year of diagnosis. The data reveals that 2.2% of prevalent atrial fibrillation patients experienced serious bleeding during the reporting period (1 July 2022 – 30 June 2023), with no significant improvement since 2018-2019 despite increased anticoagulant use. For Indicator 8, national compliance reached 34.6%, falling short of the ≥50% standard, with substantial regional and hospital-level variation across Denmark's five regions and numerous hospital units. The report includes detailed regional and hospital-specific results, treatment-specific bleeding rates for DOAC and marevan, and risk stratification data using the CHA2DS2-VASc score."
+}

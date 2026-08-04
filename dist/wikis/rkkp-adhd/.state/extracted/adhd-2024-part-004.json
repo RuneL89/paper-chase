@@ -1,0 +1,688 @@
+{
+  "entities": [
+    {
+      "name": "ADHD-databasen",
+      "type": "organization",
+      "slug": "adhd-databasen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "ADHD-databasen er det nationale register, der dokumenterer og måler kvalitetsindikatorer for ADHD-udredning på tværs af danske regioner og afdelinger.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "ADHD-DATABASEN - tabel med udviklingmål og resultater for forskellige afdelinger"
+        }
+      ]
+    },
+    {
+      "name": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense)",
+      "type": "organization",
+      "slug": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Odense-ambulatoriet opnåede 94 % opfyldelse af indikator 2b for diagnostisk interview eller miljøobservation blandt 6-17-årige, hvilket er tæt på udviklingmålet på 90 %.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) Ja 192 / 204 94 (90-97)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg)",
+      "type": "organization",
+      "slug": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Esbjerg-ambulatoriet viste en nedgang i opfyldelse af indikator 2b fra 81 % i 2023/24 til 75 % i den aktuelle periode.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) Nej 155 / 207 75 (68-81)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle)",
+      "type": "organization",
+      "slug": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Vejle-ambulatoriet opnåede 100 % opfyldelse af indikator 2a for miljøobservation blandt 0-5-årige, men kun 31 % for indikator 2b blandt 6-17-årige.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) Ja 18 / 18 100 (81-100) og Nej 98 / 320 31 (26-36)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)",
+      "type": "organization",
+      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Aabenraa-ambulatoriet opnåede 100 % opfyldelse af indikator 2a og 93 % af indikator 2b, hvilket demonstrerer høj kvalitet i ADHD-udredning.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) Ja 16 / 16 100 (79-100) og Ja 271 / 292 93 (89-95)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Småbørn",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-smaaboern",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "BUA Småbørn opnåede 86 % opfyldelse af indikator 2a og 94 % af indikator 2b, hvilket viser høj kvalitet i ADHD-udredning for små børn.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "BUA Psykiatrisk Klinik for Småbørn Nej 49 / 57 86 (74-94) og Ja 175 / 187 94 (89-97)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Skolebørn",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-skoleboern",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "BUA Skolebørn opnåede kun 43 % opfyldelse af indikator 2b, hvilket er betydeligt under udviklingmålet på 90 %.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "BUA Psykiatrisk Klinik for Skolebørn Nej 128 / 299 43 (37-49)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Unge",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-unge",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "BUA Unge opnåede 44 % opfyldelse af indikator 2b, hvilket er langt under udviklingmålet.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "BUA Psykiatrisk Klinik for Unge Nej 103 / 232 44 (38-51)"
+        }
+      ]
+    },
+    {
+      "name": "BUA – Psykiatrisk Klinik for Udredning",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-udredning",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "BUA Udredning opnåede 43 % opfyldelse af indikator 2b, hvilket er betydeligt under udviklingmålet.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "BUA – Psykiatrisk Klinik for Udredning Nej 40 / 93 43 (33-54)"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg",
+      "type": "organization",
+      "slug": "bispebjerg-psykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Bispebjerg-ambulatoriet opnåede 46 % opfyldelse af indikator 2b, hvilket er under udviklingmålet.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 Nej 209 / 459 46 (41-50)"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Bornholm",
+      "type": "organization",
+      "slug": "bornholm-psykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Bornholm-ambulatoriet opnåede 51 % opfyldelse af indikator 2b.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Bornh, B37 Nej 40 / 79 51 (39-62)"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Glostrup",
+      "type": "organization",
+      "slug": "glostrup-psykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Glostrup-ambulatoriet opnåede 56 % opfyldelse af indikator 2b, hvilket er under udviklingmålet.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 Nej 581 / 1.031 56 (53-59)"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Hillerød",
+      "type": "organization",
+      "slug": "hillerod-psykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Hillerød-ambulatoriet opnåede 34 % opfyldelse af indikator 2b, hvilket er betydeligt under udviklingmålet.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 Nej 147 / 436 34 (29-38)"
+        }
+      ]
+    },
+    {
+      "name": "Børne-Unge Psyk. Klinik 40.K",
+      "type": "organization",
+      "slug": "boerne-unge-psyk-afd-40",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Børne-Unge Psyk. Klinik 40.K opnåede 32 % opfyldelse af indikator 2b, hvilket er betydeligt under udviklingmålet.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Børne-Unge Psyk. Klinik 40.K Nej 219 / 690 32 (28-35)"
+        }
+      ]
+    },
+    {
+      "name": "Børne-Unge Psyk. Reg.fkt. 40.R",
+      "type": "organization",
+      "slug": "boerne-unge-psyk-reg-fkt-40-r",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Børne-Unge Psyk. Reg.fkt. 40.R opnåede 100 % opfyldelse af indikator 2b, hvilket opfylder udviklingmålet.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Børne-Unge Psyk. Reg.fkt. 40.R Ja #/# 100 (3-100)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Børne- og Ungdomspsykiatri - Sengeafsnit",
+      "type": "organization",
+      "slug": "bua-boerne-ungdomspsykiatri-sengeafsnit",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "BUA Sengeafsnit opnåede 25 % opfyldelse af indikator 2b, hvilket er betydeligt under udviklingmålet.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "BUA Børne- og Ungdomspsykiatri - Sengeafsnit Nej #/# 25 (1-81)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Spiseforstyrrelser",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-spiseforstyrrelser",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "BUA Spiseforstyrrelser opnåede 100 % opfyldelse af indikator 2b, hvilket opfylder udviklingmålet.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "BUA Psykiatrisk Klinik for Spiseforstyrrelser Ja #/# 100 (3-100)"
+        }
+      ]
+    },
+    {
+      "name": "PS Børne- og Ungdomspsykiatrisk Ambulatorier",
+      "type": "organization",
+      "slug": "ps-boerne-ungdomspsykiatrisk-ambulatorier",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PS Børne- og Ungdomspsykiatrisk Ambulatorier opnåede 39 % opfyldelse af indikator 2b, hvilket er betydeligt under udviklingmålet.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "PS Børne- og Ungdomspsykiatrisk Ambulatorier Nej 10 / 24 42 (22-63) og Nej 151 / 392 39 (34-44)"
+        }
+      ]
+    },
+    {
+      "name": "Hejmdal Privathospital Viby",
+      "type": "organization",
+      "slug": "hejmdal-privathospital-viby",
+      "folder": "entities/organizations/healthcare",
+      "significance": "Hejmdal Privathospital Viby opnåede 0 % opfyldelse af indikator 2a og 0 % af indikator 2b, hvilket indikerer manglende implementering af ADHD-udredningsstandarder.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Hejmdal Privathospital Viby, beh.afsnit Nej #/# 0 (0-98) og Hejmdal Privathospital Viby, beh.afsnit Nej 0 / 4 0 (0-60)"
+        }
+      ]
+    },
+    {
+      "name": "Hejmdal Privathospital Aalborg",
+      "type": "organization",
+      "slug": "hejmdal-privathospital-aalborg",
+      "folder": "entities/organizations/healthcare",
+      "significance": "Hejmdal Privathospital Aalborg opnåede 0 % opfyldelse af indikator 2b.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Hejmdal Privathospital Aalborg, afdeling Nej #/# 0 (0-84)"
+        }
+      ]
+    },
+    {
+      "name": "Hejmdal Privathospital Odense",
+      "type": "organization",
+      "slug": "hejmdal-privathospital-odense",
+      "folder": "entities/organizations/healthcare",
+      "significance": "Hejmdal Privathospital Odense opnåede 0 % opfyldelse af indikator 2b.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Hejmdal Privathospital Odense, afdeling Nej #/# 0 (0-98)"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Hovedstaden opnåede 49 % opfyldelse af indikator 2b, hvilket er under udviklingmålet, og har registreringsproblemer ifølge diskussionen.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Hovedstaden Nej 977 / 2.005 49 (47-51) og registreringsproblemer nævnt i diskussionen"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Sjælland opnåede kun 17 % opfyldelse af indikator 2a og 32 % af indikator 2b, hvilket er betydeligt under udviklingmålet og viser negativ udvikling.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Sjælland Nej 220 / 691 32 (28-35) og tidligere år 17 % for indikator 2a"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Syddanmark opnåede 88 % opfyldelse af indikator 2a og 70 % af indikator 2b, hvilket er blandt de højeste resultater blandt regionerne.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Syddanmark Nej 716 / 1.023 70 (67-73) og 88 % for indikator 2a"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Midtjylland opnåede 86 % opfyldelse af indikator 2a og 55 % af indikator 2b, hvilket viser variabel performance.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Midtjylland Nej 49 / 57 86 (74-94) og Nej 448 / 816 55 (51-58)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Nordjylland opnåede 42 % opfyldelse af indikator 2a og 39 % af indikator 2b, hvilket er under udviklingmålet, og har geografiske udfordringer.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Nordjylland Nej 10 / 24 42 (22-63) og Nej 151 / 392 39 (34-44)"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark som helhed opnåede 60 % opfyldelse af indikator 2a og 51 % af indikator 2b, hvilket er betydeligt under udviklingmålet på 90 %.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Danmark Nej 2.513 / 4.942 51 (49-52) og 60 % for indikator 2a"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2a",
+      "type": "topic",
+      "slug": "indikator-2a",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 2a måler andelen af ADHD-udredningsforløb blandt 0-5-årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af udredning.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2b",
+      "type": "topic",
+      "slug": "indikator-2b",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 2b måler andelen af ADHD-udredningsforløb blandt 6-17-årige, hvor der senest 120 dage efter start af udredning er foretaget enten semistruktureret diagnostisk interview eller klinisk miljøobservation.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Indikator 2b: Diagnostisk interview eller miljøobservation for 6-17-årige"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "adhd-databasen",
+      "predicate": "tracks-performance-of",
+      "object": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+      "evidence": "ADHD-databasen dokumenterer resultater for PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) med 94 % opfyldelse af indikator 2b",
+      "page": 16
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "tracks-performance-of",
+      "object": "region-hovedstaden",
+      "evidence": "ADHD-databasen dokumenterer resultater for Region Hovedstaden med 49 % opfyldelse af indikator 2b",
+      "page": 16
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "tracks-performance-of",
+      "object": "region-sjaelland",
+      "evidence": "ADHD-databasen dokumenterer resultater for Region Sjælland med 32 % opfyldelse af indikator 2b",
+      "page": 16
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "tracks-performance-of",
+      "object": "region-syddanmark",
+      "evidence": "ADHD-databasen dokumenterer resultater for Region Syddanmark med 70 % opfyldelse af indikator 2b",
+      "page": 16
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "tracks-performance-of",
+      "object": "region-midtjylland",
+      "evidence": "ADHD-databasen dokumenterer resultater for Region Midtjylland med 55 % opfyldelse af indikator 2b",
+      "page": 16
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "tracks-performance-of",
+      "object": "region-nordjylland",
+      "evidence": "ADHD-databasen dokumenterer resultater for Region Nordjylland med 39 % opfyldelse af indikator 2b",
+      "page": 16
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan blev der gennemført miljøobservation i 60 % af udredningsforløbene inden for tidsfristen for indikator 2a [^src1]",
+      "type": "performance",
+      "entities": [
+        "danmark",
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Indikatorpopulationen for indikator 2a er begrænset til de børn, der er yngre end 6 år på dato for udredningsstart, hvilket udgør 6,7 % (353 udredningsforløb) af det samlede antal udredningsforløb [^src1]",
+      "type": "methodological",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Sjælland ligger lavest med en andel på 17 % for indikator 2a, hvilket er et fald fra 25 % året før [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-sjaelland",
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Den højeste målopfyldelse for indikator 2a ses i Syddanmark (88 %) – der dog ligger et procentpoint lavere end året forinden – tæt efterfulgt af Midtjylland (86 %) [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-syddanmark",
+        "region-midtjylland",
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Privathospitalerne opnåede en andel på 0 % for indikator 2a [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) og PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) begge nåede udviklingsmålet med 100 % opfyldelse af indikator 2a, hvilket også var tilfældet både i 2023/24 og 2022/23 [^src1]",
+      "type": "performance",
+      "entities": [
+        "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
+        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Der er store forskelle mellem regioner og afdelinger ift. opfyldelse af indikator 2a [^src1]",
+      "type": "observation",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Sjælland ligger meget lavt for indikator 2a, hvilket for en stor dels vedkommende skyldes tidsfaktoren [^src1]",
+      "type": "clinical-rationale",
+      "entities": [
+        "region-sjaelland",
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "I Region Hovedstaden er der registreringsproblemer for indikator 2a [^src1]",
+      "type": "operational",
+      "entities": [
+        "region-hovedstaden",
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Der kan være geografiske udfordringer ift. muligheden for at lave observation: hvis barnet bor i lang fysisk afstand fra hospitalet, kan observation være svært gennemførligt [^src1]",
+      "type": "clinical-rationale",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Denne faktor fylder især i Region Nordjylland [^src1]",
+      "type": "observation",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Grundet varierende ventetider på tværs af regioner har flere patienter anvendt sig af muligheden for frit sygehusvalg med udredning i en anden region med kortere ventetid [^src1]",
+      "type": "observation",
+      "entities": [
+        "danmark"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Det har givet geografiske udfordringer at det ikke har været muligt at foretage miljøobservation i eksempelvis København hvis et barn udredes i Region Nordjylland pga. ventetid [^src1]",
+      "type": "observation",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Der er ifølge data modtaget fra privathospitalerne ikke foretaget klinisk miljøobservation på nogen af patientforløbene for indikator 2a [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Klinisk miljøobservation i eget miljø hos førskolebørn vurderes jævnfør DMPG-retningslinjen for ADHD-udredning væsentlig for at sikre diagnostisk sikkerhed både ift. ADHD og evt. komorbiditet [^src1]",
+      "type": "clinical-standard",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Indikatoren 2a vurderes fortsat relevant og udviklingmålet bibeholdes [^src1]",
+      "type": "decision",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 16
+    },
+    {
+      "text": "For indikator 2b blev der på landsplan gennemført diagnostisk interview eller miljøobservation i 51 % af udredningsforløbene blandt 6-17-årige inden for tidsfristen [^src1]",
+      "type": "performance",
+      "entities": [
+        "danmark",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) opnåede 94 % opfyldelse af indikator 2b [^src1]",
+      "type": "performance",
+      "entities": [
+        "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Aabenraa) opnåede 93 % opfyldelse af indikator 2b [^src1]",
+      "type": "performance",
+      "entities": [
+        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "BUA Psykiatrisk Klinik for Småbørn opnåede 94 % opfyldelse af indikator 2b [^src1]",
+      "type": "performance",
+      "entities": [
+        "bua-psykiatrisk-klinik-smaaboern",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "BUA Psykiatrisk Klinik for Spiseforstyrrelser opnåede 100 % opfyldelse af indikator 2b [^src1]",
+      "type": "performance",
+      "entities": [
+        "bua-psykiatrisk-klinik-spiseforstyrrelser",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Børne-Unge Psyk. Reg.fkt. 40.R opnåede 100 % opfyldelse af indikator 2b [^src1]",
+      "type": "performance",
+      "entities": [
+        "boerne-unge-psyk-reg-fkt-40-r",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Hovedstaden opnåede 49 % opfyldelse af indikator 2b [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-hovedstaden",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Sjælland opnåede 32 % opfyldelse af indikator 2b [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-sjaelland",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Syddanmark opnåede 70 % opfyldelse af indikator 2b [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-syddanmark",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Midtjylland opnåede 55 % opfyldelse af indikator 2b [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-midtjylland",
+        "indikator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Nordjylland opnåede 39 % opfyldelse af indikator 2b [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-nordjylland",
+        "indikator-2b"
+      ],
+      "page": 16
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.04.2024 - 31.03.2025",
+      "event": "Opgørelsesperiode for ADHD-databasen indikatorer 2a og 2b",
+      "entities": [
+        "adhd-databasen",
+        "indikator-2a",
+        "indikator-2b"
+      ]
+    },
+    {
+      "date": "2023/24",
+      "event": "Tidligere år for sammenligning af indikator 2a og 2b resultater",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere år for sammenligning af indikator 2a og 2b resultater",
+      "entities": [
+        "adhd-databasen"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer resultater fra ADHD-databasen for kvalitetsindikatorer 2a og 2b, som måler implementeringen af klinisk miljøobservation og diagnostisk interview i ADHD-udredningsforløb på tværs af danske regioner og psykiatriske afdelinger. Dokumentet viser betydelige regionale variationer i opfyldelse af udviklingsmålet på 90 %, med nogle afdelinger som Vejle og Aabenraa, der opnår 100 % for indikator 2a, mens andre som Region Sjælland og Region Nordjylland ligger betydeligt under målet. Diskussionen identificerer flere barrierer for implementering, herunder geografiske udfordringer, registreringsproblemer og varierende ventetider, som påvirker kvaliteten af ADHD-udredning på landsplan."
+}

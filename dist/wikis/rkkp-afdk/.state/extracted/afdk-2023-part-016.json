@@ -1,0 +1,296 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "AFDK er en landsdækkende klinisk kvalitetsdatabase, som skal monitorere og forbedre kvaliteten af behandlingen af atrieflimren i Danmark og indsamler sundhedsfaglige data om patienter med atrieflimren fra alle hospitaler.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 80,
+          "context": "AFDK er en landsdækkende klinisk kvalitetsdatabase, som skal monitorere og forbedre kvaliteten af behandlingen af atrieflimren i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-programs",
+      "significance": "RKKP er det program under hvilket Databasen for Atrieflimren i Danmark opererer, som angivet på alle sider af årsrapporten.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Cardiologisk Selskab",
+      "type": "organization",
+      "slug": "dansk-cardiologisk-selskab",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "AFDK er forankret i Dansk Cardiologisk Selskab (DCS) og skal medvirke til at sikre en høj kvalitet i behandlingen og plejen af patienter med atrieflimren.",
+      "mentions": [
+        {
+          "page": 80,
+          "context": "AFDK er forankret i Dansk Cardiologisk Selskab (DCS) og skal medvirke til at sikre en høj kvalitet i behandlingen og plejen"
+        }
+      ]
+    },
+    {
+      "name": "Slagelse Sygehus",
+      "type": "organization",
+      "slug": "slagelse-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Slagelse Sygehus er en af de hospitaler, hvor standarden på mindst 50% for struktureret patientundervisning er opfyldt.",
+      "mentions": [
+        {
+          "page": 79,
+          "context": "På hospitalsniveau er standarden opfyldt på Slagelse Sygehus og Hospitalsenhed Midt samt Næstved Sygehus"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt er en af de hospitaler, hvor standarden på mindst 50% for struktureret patientundervisning er opfyldt.",
+      "mentions": [
+        {
+          "page": 79,
+          "context": "På hospitalsniveau er standarden opfyldt på Slagelse Sygehus og Hospitalsenhed Midt samt Næstved Sygehus"
+        }
+      ]
+    },
+    {
+      "name": "Næstved Sygehus",
+      "type": "organization",
+      "slug": "naestved-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Næstved Sygehus er en af de hospitaler, hvor standarden på mindst 50% for struktureret patientundervisning er opfyldt, dog med et meget lille patientgrundlag.",
+      "mentions": [
+        {
+          "page": 79,
+          "context": "På hospitalsniveau er standarden opfyldt på Slagelse Sygehus og Hospitalsenhed Midt samt Næstved Sygehus der dog har et meget lille patientgrundlag (20 patienter)"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Landspatientregisteret er kilden til information omkring patienters deltagelse i struktureret undervisningsprogram og til identifikation af patienter med ICD-10 diagnosen DI48.",
+      "mentions": [
+        {
+          "page": 79,
+          "context": "Information omkring patienters deltagelse i et struktureret undervisningsprogram indhentes fra Landspatientregisteret"
+        },
+        {
+          "page": 80,
+          "context": "Patienter med atrieflimren omfatter patienter, som er blevet registreret i Landspatientregisteret med ICD-10 diagnosen DI48"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsstyrelsen",
+      "type": "organization",
+      "slug": "sundhedsstyrelsen",
+      "folder": "entities/organizations/government-agencies",
+      "significance": "Sundhedsstyrelsen har godkendt AFDK, hvilket gør det lovpligtigt for alle sygehuse og på sigt lægepraksis at indrapportere.",
+      "mentions": [
+        {
+          "page": 80,
+          "context": "Med Sundhedsstyrelsens godkendelse af AFDK bliver det ved implementeringen af databasen lovpligtigt for alle sygehuse og på sigt lægepraksis at indrapportere"
+        }
+      ]
+    },
+    {
+      "name": "Atrieflimren",
+      "type": "medical-condition",
+      "slug": "atrieflimren",
+      "folder": "topics/medical-conditions",
+      "significance": "Atrieflimren er det centrale sygdomsområde for AFDK-databasen; det er forbundet med øget risiko for slagtilfælde, hjertesvigt, demens og død, og flere end 20.000 danskere diagnosticeres årligt med sygdommen.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram inden for det 1. år efter at diagnosen er stillet"
+        },
+        {
+          "page": 80,
+          "context": "Atrieflimren er forbundet med øget risiko for slagtilfælde, hjertesvigt, demens, og død. Flere end 20.000 danskere diagnosticeres årligt med atrieflimren og flere end 130.000 danskere lever med sygdommen"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "is-anchored-in",
+      "object": "dansk-cardiologisk-selskab",
+      "evidence": "AFDK er forankret i Dansk Cardiologisk Selskab (DCS)",
+      "page": 80
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "operates-under",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
+      "page": 76
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "approved-by",
+      "object": "sundhedsstyrelsen",
+      "evidence": "Med Sundhedsstyrelsens godkendelse af AFDK bliver det ved implementeringen af databasen lovpligtigt for alle sygehuse og på sigt lægepraksis at indrapportere",
+      "page": 80
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "monitors",
+      "object": "atrieflimren",
+      "evidence": "AFDK er en landsdækkende klinisk kvalitetsdatabase, som skal monitorere og forbedre kvaliteten af behandlingen af atrieflimren i Danmark",
+      "page": 80
+    }
+  ],
+  "claims": [
+    {
+      "text": "I alt havde 35% af de nydiagnosticerede patienter med atrieflimren modtaget struktureret patientundervisning inden for det første år efter atrieflimren diagnosen blev stillet [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "atrieflimren"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Standarden på mindst 50% er således ikke opfyldt [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Der ses nationalt ingen udvikling i andelen siden 2018-2019 [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Regionalt varierede andelen fra 24-43% og ingen regioner opfylder således standarden [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 79
+    },
+    {
+      "text": "På hospitalsniveau er standarden opfyldt på Slagelse Sygehus og Hospitalsenhed Midt samt Næstved Sygehus der dog har et meget lille patientgrundlag (20 patienter) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "slagelse-sygehus",
+        "hospitalsenhed-midt",
+        "naestved-sygehus"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Antal eksklusion: 237 patienter har ikke bopæl i DK eller har et erstatnings CPRnr [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Antal eksklusion: 2.242 patienter dør inden for 1 år efter diagnosedato [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Flere end 20.000 danskere diagnosticeres årligt med atrieflimren og flere end 130.000 danskere lever med sygdommen [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "atrieflimren"
+      ],
+      "page": 80
+    },
+    {
+      "text": "Atrieflimren er forbundet med øget risiko for slagtilfælde, hjertesvigt, demens, og død [^src1]",
+      "type": "clinical",
+      "entities": [
+        "atrieflimren"
+      ],
+      "page": 80
+    },
+    {
+      "text": "Patienter med atrieflimren omfatter patienter, som er blevet registreret i Landspatientregisteret med ICD-10 diagnosen DI48 (inkl. alle subkoder) [^src1]",
+      "type": "definitional",
+      "entities": [
+        "atrieflimren",
+        "landspatientregisteret"
+      ],
+      "page": 80
+    },
+    {
+      "text": "Fra og med 1.1.2023 er det alene SKS-koden BFKB der anvendes og denne årsrapport er således den sidste hvor de øvrige indgår i beregningen [^src1]",
+      "type": "methodological",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 79
+    },
+    {
+      "text": "Indikatoren er beregnet for patienter som blev diagnosticeret i forrige opgørelsesperiode, dvs. mellem d. 1. juli 2021 til d. 30. juni 2022, da indikatoren kræver 1 års opfølgningstid [^src1]",
+      "type": "methodological",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 79
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. juli 2022 – 30. juni 2023",
+      "event": "Årsrapport periode for Databasen for Atrieflimren i Danmark",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "1. juli 2021 – 30. juni 2022",
+      "event": "Periode for patienter som blev diagnosticeret og inkluderet i Indikator 8-beregningen",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "1. januar 2023",
+      "event": "Fra denne dato er det alene SKS-koden BFKB der anvendes til registrering af struktureret undervisningsprogram",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "2018-2019",
+      "event": "Sidste tidligere periode hvor udvikling i andelen af patienter med struktureret undervisning blev målt",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    }
+  ],
+  "context": "Disse sider udgør slutningen af årsrapporten for Databasen for Atrieflimren i Danmark (AFDK) for perioden 1. juli 2022 – 30. juni 2023. Kapitlet fokuserer på Indikator 8, som måler andelen af nydiagnosticerede patienter med atrieflimren, der modtager struktureret undervisningsprogram inden for det første år efter diagnose. Rapporten præsenterer kontroldiagrammer, trendgrafer og funnelplots på hospital- og regionsniveau, samt detaljerede beregningsregler, eksklusionskriterier og resultater. Kapitlet afsluttes med en beskrivelse af AFDK som en landsdækkende klinisk kvalitetsdatabase forankret i Dansk Cardiologisk Selskab, der skal monitorere og forbedre behandlingskvaliteten af atrieflimren i Danmark."
+}

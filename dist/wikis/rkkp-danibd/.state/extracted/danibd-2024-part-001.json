@@ -1,0 +1,201 @@
+{
+  "entities": [
+    {
+      "name": "DANIBD",
+      "type": "organization",
+      "slug": "danibd",
+      "folder": "entities/organizations/health-registries",
+      "significance": "DANIBD er Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme, som monitorerer behandlingskvaliteten for patienter med IBD og udgør det centrale register for denne årsrapport.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme - DANIBD"
+        },
+        {
+          "page": 1,
+          "context": "DANIBD gik i drift 1. oktober 2022 og rapporten viser resultater for alle syv indikatorer for første gang."
+        },
+        {
+          "page": 1,
+          "context": "DANIBD har fokus på medicinsk og kirurgisk behandling, monitorering såvel som undervisning af patienter med inflammatorisk tarmsygdom."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvasenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er udgiver af DANIBD årsrapporten og ansvarlig for kvalitetsmonitorering af inflammatoriske tarmsygdomme.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Udgiver: Sundhedsvæsenets Kvalitetsinstitut, Hedeager 3, 8200 Aarhus N"
+        }
+      ]
+    },
+    {
+      "name": "Lone Larsen",
+      "type": "person",
+      "slug": "lone-larsen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Lone Larsen er formand for styregruppen for DANIBD og overlæge, ph.d., klinisk lektor, som underskriver årsrapporten.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Formand Lone Larsen, overlæge, ph.d., klinisk lektor"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen for DANIBD",
+      "type": "organization",
+      "slug": "styregruppen-for-danibd",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Styregruppen for DANIBD udarbejder årsrapporten og fremsætter konklusioner og anbefalinger for behandlingskvaliteten af IBD-patienter.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Udarbejdet af: Styregruppen for DANIBD og SundKs Videncenter"
+        },
+        {
+          "page": 1,
+          "context": "Generelt anbefaler styregruppen, at afdelingerne fortsat har fokus på kodepraksis."
+        }
+      ]
+    },
+    {
+      "name": "SundKs Videncenter",
+      "type": "organization",
+      "slug": "sundks-videncenter",
+      "folder": "entities/organizations/healthcare",
+      "significance": "SundKs Videncenter medudarbejder DANIBD årsrapporten sammen med styregruppen.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Udarbejdet af: Styregruppen for DANIBD og SundKs Videncenter"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "danibd",
+      "predicate": "published-by",
+      "object": "sundhedsvasenets-kvalitetsinstitut",
+      "evidence": "Udgiver: Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 1
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "leads",
+      "object": "danibd",
+      "evidence": "Udarbejdet af: Styregruppen for DANIBD",
+      "page": 1
+    },
+    {
+      "subject": "lone-larsen",
+      "predicate": "is-chair-of",
+      "object": "styregruppen-for-danibd",
+      "evidence": "Formand Lone Larsen, overlæge, ph.d., klinisk lektor",
+      "page": 1
+    },
+    {
+      "subject": "sundks-videncenter",
+      "predicate": "collaborates-with",
+      "object": "styregruppen-for-danibd",
+      "evidence": "Udarbejdet af: Styregruppen for DANIBD og SundKs Videncenter",
+      "page": 1
+    }
+  ],
+  "claims": [
+    {
+      "text": "DANIBD gik i drift 1. oktober 2022 [^src1]",
+      "type": "operational",
+      "entities": [
+        "danibd"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Årsrapporten omfatter de 751 børn og unge samt 33.599 voksne med IBD, der er set på et af landets hospitaler i perioden 1. oktober 2023 til 30. september 2024 [^src1]",
+      "type": "patient-statistics",
+      "entities": [
+        "danibd"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Der vurderes, at der næsten er 70.000 patienter i Danmark med IBD [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "danibd"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Næsten 50 % af patienterne ikke haft kontakt til sundhedsvæsenet med deres tarmsygdom i denne periode [^src1]",
+      "type": "patient-statistics",
+      "entities": [
+        "danibd"
+      ],
+      "page": 1
+    },
+    {
+      "text": "5.387 patienter fra sidste årsrapport figurerer ikke i denne rapport, som udtryk for, at de ikke har haft en kontakt i år [^src1]",
+      "type": "patient-statistics",
+      "entities": [
+        "danibd"
+      ],
+      "page": 1
+    },
+    {
+      "text": "For indikatoren 'Udredning, nydiagnosticerede børn og unge' er der en målopfyldelse på landsplan på 69 % [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd"
+      ],
+      "page": 1
+    },
+    {
+      "text": "I indikatoren 'Medicinsk behandling, steroid' er der kun 37 % af patienterne over 50 år på landsplan, der får foretaget DEXA scanning, når de får steroid [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Der er en målsætning om en re-operationsrate under 8 %, men meget få afdelinger opnår dette [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd"
+      ],
+      "page": 1
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. oktober 2022",
+      "event": "DANIBD gik i drift",
+      "entities": [
+        "danibd"
+      ]
+    },
+    {
+      "date": "1. oktober 2023 - 30. september 2024",
+      "event": "Rapportperiode for DANIBD årsrapport 2024, omfattende 751 børn og unge samt 33.599 voksne med IBD",
+      "entities": [
+        "danibd"
+      ]
+    },
+    {
+      "date": "28. februar 2025",
+      "event": "Versionsdato for DANIBD årsrapport 2024",
+      "entities": [
+        "danibd"
+      ]
+    }
+  ],
+  "context": "DANIBD årsrapport for 2024 præsenterer den anden årlige rapport fra Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme, som monitorerer behandlingskvaliteten for patienter med IBD på danske hospitaler. Rapporten dækker perioden 1. oktober 2023 til 30. september 2024 og omfatter 751 børn og unge samt 33.599 voksne patienter, og præsenterer resultater for alle syv kvalitetsindikatorer for første gang siden databasens opstart i oktober 2022. Styregruppen for DANIBD fremhæver flere fokuspunkter for forbedring, herunder udredning af nydiagnosticerede børn og unge, DEXA-scanning ved steroidbehandling, re-operationsrater og kodning af patienter med primær skleroserende cholangitis."
+}

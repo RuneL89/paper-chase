@@ -1,0 +1,16 @@
+{
+  "synthesis": true,
+  "updateAgents": true,
+  "models": {
+    "provider": "anthropic",
+    "default": "claude-haiku-4-5-20251001",
+    "extractor": "claude-haiku-4-5-20251001",
+    "synthesis": "claude-sonnet-5",
+    "dox": "claude-sonnet-5",
+    "curation": "claude-sonnet-5"
+  },
+  "apiKeys": {
+    "anthropic": null,
+    "openai": null
+  }
+}

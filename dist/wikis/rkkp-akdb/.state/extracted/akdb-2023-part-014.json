@@ -1,0 +1,740 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "organization",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/organizations/healthcare",
+      "significance": "Akut Kirurgi Databasen er den danske database, der registrerer og analyserer akut kirurgiske procedurer og patientresultater på tværs af regioner og hospitaler.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Akut Kirurgi Databasen Endelig version til offentliggørelse 2024.26.02"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/healthcare",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er det program under hvilket Akut Kirurgi Databasen opererer og kvalitetsindikatorer rapporteres.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det nationale niveau, hvor samlede resultater for mortalitet efter akut kirurgi rapporteres på tværs af alle regioner.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Danmark 149 / 735 0 (0) 20,3 (17,4-23,4)"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Hovedstaden er en dansk region med rapporterede resultater for mortalitet efter akut kirurgi blandt patienter med høj komorbiditetsbelastning.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Hovedstaden 51 / 250 0 (0) 20,4 (15,6-25,9)"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Sjælland er en dansk region med rapporterede resultater for mortalitet efter akut kirurgi blandt patienter med høj komorbiditetsbelastning.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Sjælland 28 / 131 0 (0) 21,4 (14,7-29,4)"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Syddanmark er en dansk region med rapporterede resultater for mortalitet efter akut kirurgi blandt patienter med høj komorbiditetsbelastning.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Syddanmark 28 / 137 0 (0) 20,4 (14,0-28,2)"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Midtjylland er en dansk region med rapporterede resultater for mortalitet efter akut kirurgi blandt patienter med høj komorbiditetsbelastning.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Midtjylland 27 / 145 0 (0) 18,6 (12,6-25,9)"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Nordjylland er en dansk region med rapporterede resultater for mortalitet efter akut kirurgi blandt patienter med høj komorbiditetsbelastning.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Nordjylland 15 / 72 0 (0) 20,8 (12,2-32,0)"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Amager og Hvidovre Hospital er et hospital i Hovedstaden-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Amager og Hvidovre Hospital 10 / 52 0 (0) 19,2 (9,6-32,5)"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospitaler",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg og Frederiksberg Hospitaler er et hospital i Hovedstaden-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Bispebjerg og Frederiksberg Hospitaler 5 / 46 0 (0) 10,9 (3,6-23,6)"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholms Hospital er et hospital i Hovedstaden-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Bornholms Hospital #/# 0 (0) 28,6 (3,7-71,0)"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev og Gentofte Hospital er et hospital i Hovedstaden-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Herlev og Gentofte Hospital 13 / 75 0 (0) 17,3 (9,6-27,8)"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalerne i Nordsjælland er et hospital i Hovedstaden-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Hospitalerne i Nordsjælland 15 / 52 0 (0) 28,8 (17,1-43,1)"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet er et hospital i Hovedstaden-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Rigshospitalet 6 / 18 0 (0) 33,3 (13,3-59,0)"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus er et hospital i Sjælland-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Holbæk Sygehus 5 / 26 0 (0) 19,2 (6,6-39,4)"
+        }
+      ]
+    },
+    {
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagelse-og-ringsted-sygehuse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse er hospitaler i Sjælland-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Næstved, Slagelse og Ringsted sygehuse 16 / 58 0 (0) 27,6 (16,7-40,9)"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital er et hospital i Sjælland-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Sjællands Universitetshospital 7 / 47 0 (0) 14,9 (6,2-28,3)"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg Sygehus er et hospital i Syddanmark-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Esbjerg Sygehus Grindsted Sygehus"
+        }
+      ]
+    },
+    {
+      "name": "Grindsted Sygehus",
+      "type": "organization",
+      "slug": "grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Grindsted Sygehus er et hospital i Syddanmark-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Grindsted Sygehus 4 / 31 0 (0) 12,9 (3,6-29,8)"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital - Svendborg",
+      "type": "organization",
+      "slug": "odense-universitetshospital-svendborg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense Universitetshospital - Svendborg er et hospital i Syddanmark-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Odense Universitetshospital - Svendborg 13 / 47 0 (0) 27,7 (15,6-42,6)"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Lillebælt er et hospital i Syddanmark-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Sygehus Lillebælt 3 / 25 0 (0) 12,0 (2,5-31,2)"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Sønderjylland er et hospital i Syddanmark-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Sygehus Sønderjylland 8 / 34 0 (0) 23,5 (10,7-41,2)"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital er et hospital i Midtjylland-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Aarhus Universitetshospital 7 / 35 0 (0) 20,0 (8,4-36,9)"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt er et hospital i Midtjylland-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Hospitalsenhed Midt 4 / 25 0 (0) 16,0 (4,5-36,1)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup er et hospital i Midtjylland-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Regionshospitalet Gødstrup 9 / 40 0 (0) 22,5 (10,8-38,5)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Horsens er et hospital i Midtjylland-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Regionshospitalet Horsens 5 / 15 0 (0) 33,3 (11,8-61,6)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Randers er et hospital i Midtjylland-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Regionshospitalet Randers #/# 0 (0) 6,7 (0,8-22,1)"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital er et hospital i Nordjylland-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Aalborg Universitetshospital 8 / 45 0 (0) 17,8 (8,0-32,1)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospital Nordjylland er et hospital i Nordjylland-regionen med rapporterede resultater for mortalitet efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Regionshospital Nordjylland 7 / 27 0 (0) 25,9 (11,1-46,3)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "operated-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Akut Kirurgi Databasen Endelig version til offentliggørelse 2024.26.02 Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 66
+    },
+    {
+      "subject": "hovedstaden",
+      "predicate": "contains",
+      "object": "amager-og-hvidovre-hospital",
+      "evidence": "Hovedstaden region includes Amager og Hvidovre Hospital",
+      "page": 66
+    },
+    {
+      "subject": "hovedstaden",
+      "predicate": "contains",
+      "object": "bispebjerg-og-frederiksberg-hospitaler",
+      "evidence": "Hovedstaden region includes Bispebjerg og Frederiksberg Hospitaler",
+      "page": 66
+    },
+    {
+      "subject": "hovedstaden",
+      "predicate": "contains",
+      "object": "bornholms-hospital",
+      "evidence": "Hovedstaden region includes Bornholms Hospital",
+      "page": 66
+    },
+    {
+      "subject": "hovedstaden",
+      "predicate": "contains",
+      "object": "herlev-og-gentofte-hospital",
+      "evidence": "Hovedstaden region includes Herlev og Gentofte Hospital",
+      "page": 66
+    },
+    {
+      "subject": "hovedstaden",
+      "predicate": "contains",
+      "object": "hospitalerne-i-nordsjaelland",
+      "evidence": "Hovedstaden region includes Hospitalerne i Nordsjælland",
+      "page": 66
+    },
+    {
+      "subject": "hovedstaden",
+      "predicate": "contains",
+      "object": "rigshospitalet",
+      "evidence": "Hovedstaden region includes Rigshospitalet",
+      "page": 66
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains",
+      "object": "holbaek-sygehus",
+      "evidence": "Sjælland region includes Holbæk Sygehus",
+      "page": 66
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains",
+      "object": "naestved-slagelse-og-ringsted-sygehuse",
+      "evidence": "Sjælland region includes Næstved, Slagelse og Ringsted sygehuse",
+      "page": 66
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains",
+      "object": "sjaellands-universitetshospital",
+      "evidence": "Sjælland region includes Sjællands Universitetshospital",
+      "page": 66
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "esbjerg-sygehus",
+      "evidence": "Syddanmark region includes Esbjerg Sygehus",
+      "page": 66
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "grindsted-sygehus",
+      "evidence": "Syddanmark region includes Grindsted Sygehus",
+      "page": 66
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "odense-universitetshospital-svendborg",
+      "evidence": "Syddanmark region includes Odense Universitetshospital - Svendborg",
+      "page": 66
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "sygehus-lillebaelt",
+      "evidence": "Syddanmark region includes Sygehus Lillebælt",
+      "page": 66
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "sygehus-soenderjylland",
+      "evidence": "Syddanmark region includes Sygehus Sønderjylland",
+      "page": 66
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "aarhus-universitetshospital",
+      "evidence": "Midtjylland region includes Aarhus Universitetshospital",
+      "page": 66
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "hospitalsenhed-midt",
+      "evidence": "Midtjylland region includes Hospitalsenhed Midt",
+      "page": 66
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "regionshospitalet-goedstrup",
+      "evidence": "Midtjylland region includes Regionshospitalet Gødstrup",
+      "page": 66
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "regionshospitalet-horsens",
+      "evidence": "Midtjylland region includes Regionshospitalet Horsens",
+      "page": 66
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "regionshospitalet-randers",
+      "evidence": "Midtjylland region includes Regionshospitalet Randers",
+      "page": 66
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "contains",
+      "object": "aalborg-universitetshospital",
+      "evidence": "Nordjylland region includes Aalborg Universitetshospital",
+      "page": 66
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "contains",
+      "object": "regionshospital-nordjylland",
+      "evidence": "Nordjylland region includes Regionshospital Nordjylland",
+      "page": 66
+    }
+  ],
+  "claims": [
+    {
+      "text": "For supplerende indikator til indikator 10c (Mortalitet indenfor 30 dage efter akut kirurgi, Charlson Score ≥ 3) indgik 1.086 patienter i indikatoranalysen i perioden, heraf døde 11,2 % (95 % CI: 9,4-13,3) indenfor 30 dage fra operation [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Danmark havde 149 / 735 patienter med død indenfor 30 dage efter akut kirurgi blandt patienter med Charlson Score ≥ 3, svarende til 20,3 % (95 % CI: 17,4-23,4) i perioden 01.09.2022 - 31.08.2023 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "danmark"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Hovedstaden havde 51 / 250 patienter med død indenfor 30 dage efter akut kirurgi blandt patienter med Charlson Score ≥ 3, svarende til 20,4 % (95 % CI: 15,6-25,9) i perioden 01.09.2022 - 31.08.2023 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "hovedstaden"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Sjælland havde 28 / 131 patienter med død indenfor 30 dage efter akut kirurgi blandt patienter med Charlson Score ≥ 3, svarende til 21,4 % (95 % CI: 14,7-29,4) i perioden 01.09.2022 - 31.08.2023 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Syddanmark havde 28 / 137 patienter med død indenfor 30 dage efter akut kirurgi blandt patienter med Charlson Score ≥ 3, svarende til 20,4 % (95 % CI: 14,0-28,2) i perioden 01.09.2022 - 31.08.2023 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Midtjylland havde 27 / 145 patienter med død indenfor 30 dage efter akut kirurgi blandt patienter med Charlson Score ≥ 3, svarende til 18,6 % (95 % CI: 12,6-25,9) i perioden 01.09.2022 - 31.08.2023 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Nordjylland havde 15 / 72 patienter med død indenfor 30 dage efter akut kirurgi blandt patienter med Charlson Score ≥ 3, svarende til 20,8 % (95 % CI: 12,2-32,0) i perioden 01.09.2022 - 31.08.2023 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Rigshospitalet havde den højeste mortalitetsrate blandt hospitalerne i Hovedstaden med 33,3 % (95 % CI: 13,3-59,0) blandt patienter med Charlson Score ≥ 3 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "rigshospitalet"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Bispebjerg og Frederiksberg Hospitaler havde den laveste mortalitetsrate blandt hospitalerne i Hovedstaden med 10,9 % (95 % CI: 3,6-23,6) blandt patienter med Charlson Score ≥ 3 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "bispebjerg-og-frederiksberg-hospitaler"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Hospitalerne i Nordsjælland havde 28,8 % (95 % CI: 17,1-43,1) mortalitet blandt patienter med Charlson Score ≥ 3 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "hospitalerne-i-nordsjaelland"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Næstved, Slagelse og Ringsted sygehuse havde 27,6 % (95 % CI: 16,7-40,9) mortalitet blandt patienter med Charlson Score ≥ 3 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "naestved-slagelse-og-ringsted-sygehuse"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Odense Universitetshospital - Svendborg havde 27,7 % (95 % CI: 15,6-42,6) mortalitet blandt patienter med Charlson Score ≥ 3 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "odense-universitetshospital-svendborg"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Regionshospitalet Horsens havde 33,3 % (95 % CI: 11,8-61,6) mortalitet blandt patienter med Charlson Score ≥ 3 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "regionshospitalet-horsens"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Regionshospitalet Randers havde 6,7 % (95 % CI: 0,8-22,1) mortalitet blandt patienter med Charlson Score ≥ 3 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "regionshospitalet-randers"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Eksklusionskriterier for indikatoranalysen omfattede 53 patienter med ugyldigt CPR-nummer, 172 patienter under 18 år, 6.186 patienter der ikke var opereret, 5 patienter registreret som inaktive i CPR-registeret, 473 patienter hvor operationen ikke var den første under hospitalsopholdet, og 2.395 patienter med Charlson Comorbiditets indeks = 0 eller > 2 [^src1]",
+      "type": "methodological",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 66
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.09.2022 - 31.08.2023",
+      "event": "Indikatoranalyse periode for supplerende indikator til indikator 10c: Mortalitet indenfor 30 dage efter akut kirurgi, Charlson Score ≥ 3",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "danmark"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer resultater fra Akut Kirurgi Databasen, som er en dansk kvalitetsdatabase under Regionernes Kliniske Kvalitetsudviklingsprogram. Chunken fokuserer på supplerende indikatorer for mortalitet indenfor 30 dage efter akut kirurgi blandt patienter med høj komorbiditetsbelastning (Charlson Score ≥ 3). Resultaterne rapporteres på både regionalt og hospitalsspecifikt niveau for perioden 01.09.2022 - 31.08.2023, med sammenligning til tidligere år (2021/22 og 2020/21). Dokumentet indeholder detaljerede eksklusionskriterier og metodologiske beskrivelser for at sikre datakvalitet og sammenlignelighed på tværs af danske hospitaler og regioner.",
+  "tables": [
+    {
+      "subject": "supplerende-indikator-10b",
+      "title": "Eksklusion: Antal og årsag (supplerende indikator til indikator 10b)",
+      "page": 66,
+      "rowDimension": "eksklusionsårsager",
+      "colDimension": "antal patienter pr. årsag",
+      "entities": [
+        "supplerende-indikator-10b",
+        "cpr-nummer",
+        "cpr-registeret",
+        "charlson-score"
+      ],
+      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 53 | Ugyldigt CPRnummer. |\n| 172 | Patienten er under 18 år. |\n| 6.186 | Patienten er ikke opereret. |\n| 5 | Patienten er registreret i CPR-registeret som 'Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn (kommunekoderne 0010, 0011, 0012 og 0019)' |\n| 473 | Operationen er ikke den første operation i hospitalsopholdet. |\n| 2.038 | Patientens Charlson Comorbiditets indeks = 0 eller > 2 |",
+      "summary": "Tabellen sammenligner eksklusionsårsagerne for indikatoranalysen bag den supplerende indikator til 10b med antallet af patienter for hver årsag; den største gruppe er patienter, der ikke er opereret (6.186)."
+    },
+    {
+      "subject": "supplerende-indikator-10c",
+      "title": "Supplerende indikator til 10c: Mortalitet indenfor 30 dage efter akut kirurgi, hvis Charlson Score ≥ 3. Alle opererede (med relevant diagnosekode og procedurekode)",
+      "page": 68,
+      "rowDimension": "land, regioner og hospitaler",
+      "colDimension": "tæller/nævner, uoplyst antal (%), andel med 95% CI for aktuelle år (01.09.2022 - 31.08.2023) samt andel for 2021/22 og 2020/21",
+      "entities": [
+        "supplerende-indikator-10c",
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagelse-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Enhed | Standard opfyldt Tæller/nævner | Uoplyst antal (%) | Aktuelle år 01.09.2022 - 31.08.2023 Andel 95% CI | Tidligere år 2021/22 Andel | Tidligere år 2020/21 Andel |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | 149 / 735 | 0 (0) | 20,3 (17,4-23,4) | 19,6 | 23,1 |\n| Hovedstaden | 51 / 250 | 0 (0) | 20,4 (15,6-25,9) | 17,9 | 17,3 |\n| Amager og Hvidovre Hospital | 10 / 52 | 0 (0) | 19,2 (9,6-32,5) | 20,0 | 14,6 |\n| Bispebjerg og Frederiksberg Hospitaler | 5 / 46 | 0 (0) | 10,9 (3,6-23,6) | 5,7 | 13,6 |\n| Bornholms Hospital | #/# | 0 (0) | 28,6 (3,7-71,0) | 0,0 | 42,9 |\n| Herlev og Gentofte Hospital | 13 / 75 | 0 (0) | 17,3 (9,6-27,8) | 17,6 | 23,0 |\n| Hospitalerne i Nordsjælland | 15 / 52 | 0 (0) | 28,8 (17,1-43,1) | 24,6 | 10,5 |\n| Rigshospitalet | 6 / 18 | 0 (0) | 33,3 (13,3-59,0) | 22,7 | 31,3 |\n| Sjælland | 28 / 131 | 0 (0) | 21,4 (14,7-29,4) | 22,3 | 28,9 |\n| Holbæk Sygehus | 5 / 26 | 0 (0) | 19,2 (6,6-39,4) | 33,3 | 26,7 |\n| Næstved, Slagelse og Ringsted sygehuse | 16 / 58 | 0 (0) | 27,6 (16,7-40,9) | 16,7 | 26,1 |\n| Sjællands Universitetshospital | 7 / 47 | 0 (0) | 14,9 (6,2-28,3) | 21,8 | 32,1 |\n| Syddanmark | 28 / 137 | 0 (0) | 20,4 (14,0-28,2) | 16,1 | 23,1 |\n| Esbjerg Sygehus Grindsted Sygehus | 4 / 31 | 0 (0) | 12,9 (3,6-29,8) | 20,0 | 13,2 |\n| Odense Universitetshospital - Svendborg | 13 / 47 | 0 (0) | 27,7 (15,6-42,6) | 15,3 | 29,1 |\n| Sygehus Lillebælt | 3 / 25 | 0 (0) | 12,0 (2,5-31,2) | 3,6 | 25,9 |\n| Sygehus Sønderjylland | 8 / 34 | 0 (0) | 23,5 (10,7-41,2) | 28,0 | 22,2 |\n| Midtjylland | 27 / 145 | 0 (0) | 18,6 (12,6-25,9) | 24,1 | 24,8 |\n| Aarhus Universitetshospital | 7 / 35 | 0 (0) | 20,0 (8,4-36,9) | 19,4 | 16,7 |\n| Hospitalsenhed Midt | 4 / 25 | 0 (0) | 16,0 (4,5-36,1) | 27,8 | 20,0 |\n| Regionshospitalet Gødstrup | 9 / 40 | 0 (0) | 22,5 (10,8-38,5) | 19,6 | 28,6 |\n| Regionshospitalet Horsens | 5 / 15 | 0 (0) | 33,3 (11,8-61,6) | 41,2 | 13,8 |\n| Regionshospitalet Randers | #/# | 0 (0) | 6,7 (0,8-22,1) | 24,0 | 52,2 |\n| Nordjylland | 15 / 72 | 0 (0) | 20,8 (12,2-32,0) | 17,5 | 32,0 |\n| Aalborg Universitetshospital | 8 / 45 | 0 (0) | 17,8 (8,0-32,1) | 21,7 | 32,1 |\n| Regionshospital Nordjylland | 7 / 27 | 0 (0) | 25,9 (11,1-46,3) | 11,8 | 31,8 |",
+      "summary": "Tabellen sammenligner 30-dages mortalitet efter akut kirurgi for patienter med Charlson Score ≥ 3 på nationalt, regionalt og hospitalsniveau for 01.09.2022 - 31.08.2023 med sammenligningstal for 2021/22 og 2020/21; Danmark ligger på 20,3 %, mens hospitalsandelene varierer fra 6,7 % (Regionshospitalet Randers) til 33,3 % (Rigshospitalet og Regionshospitalet Horsens)."
+    },
+    {
+      "subject": "supplerende-indikator-10c",
+      "title": "Eksklusion: Antal og årsag (supplerende indikator til indikator 10c)",
+      "page": 69,
+      "rowDimension": "eksklusionsårsager",
+      "colDimension": "antal patienter pr. årsag",
+      "entities": [
+        "supplerende-indikator-10c",
+        "cpr-nummer",
+        "cpr-registeret",
+        "charlson-score"
+      ],
+      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 53 | Ugyldigt CPRnummer. |\n| 172 | Patienten er under 18 år. |\n| 6.186 | Patienten er ikke opereret. |\n| 5 | Patienten er registreret i CPR-registeret som 'Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn (kommunekoderne 0010, 0011, 0012 og 0019)' |\n| 473 | Operationen er ikke den første operation i hospitalsopholdet. |\n| 2.395 | Patientens Charlson Comorbiditets indeks = 0 eller > 2 |",
+      "summary": "Tabellen sammenligner eksklusionsårsagerne for indikatoranalysen bag den supplerende indikator til 10c; den største gruppe er patienter, der ikke er opereret (6.186), efterfulgt af 2.395 patienter med Charlson Comorbiditets indeks = 0 eller > 2."
+    }
+  ]
+}

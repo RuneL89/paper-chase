@@ -1,0 +1,931 @@
+{
+  "entities": [
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Denne organisation udgør rammerne for kvalitetsindikatorer og standarder for behandling af atrieflimren i Danmark, som præsenteres i hele dette afsnit.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 32,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 33,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 34,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 35,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Atrieflimren i Danmark",
+      "type": "topic",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "topics/heart-failure",
+      "significance": "Dette er titlen på hele dokumentet og refererer til det nationale kvalitetsprogram for behandling af atrieflimren (atrial fibrillation) i Danmark.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 32,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 33,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 34,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 35,
+          "context": "Atrieflimren i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4a",
+      "type": "topic",
+      "slug": "indikator-4a",
+      "folder": "topics/quality-indicator",
+      "significance": "Denne indikator måler andelen af patienter med atrieflimren og indikation for antikoagulationsbehandling, der modtager behandling 2 år efter diagnosen.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Indikator 4a: Andel af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population, hvor det er indiceret). 2 år efter diagnosen atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4a3",
+      "type": "topic",
+      "slug": "indikator-4a3",
+      "folder": "topics/quality-indicator",
+      "significance": "Denne indikator måler andelen af patienter med atrieflimren og indikation for antikoagulationsbehandling, der modtager behandling 5 år efter indeksdato.",
+      "mentions": [
+        {
+          "page": 33,
+          "context": "Indikator 4a3: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 5 år efter indeksdato"
+        },
+        {
+          "page": 34,
+          "context": "Indikator 4a3: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 5 år efter indeksdato"
+        }
+      ]
+    },
+    {
+      "name": "Klynge SYD",
+      "type": "organization",
+      "slug": "klynge-syd",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge i Danmark, der rapporteres på for kvalitetsindikatorer vedrørende atrieflimren-behandling.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Klynge SYD Nej 164 / 184 0 (0) 89,1 (83,7-93,2)"
+        },
+        {
+          "page": 35,
+          "context": "Klynge SYD Ja 115 / 122 0 (0) 94,3 (88,5-97,7)"
+        }
+      ]
+    },
+    {
+      "name": "Klynge VEST",
+      "type": "organization",
+      "slug": "klynge-vest",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge i Danmark, der rapporteres på for kvalitetsindikatorer vedrørende atrieflimren-behandling.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Klynge VEST Ja 113 / 123 0 (0) 91,9 (85,6-96,0)"
+        },
+        {
+          "page": 35,
+          "context": "Klynge VEST Nej 69 / 83 0 (0) 83,1 (73,3-90,5)"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Hele landet Danmark rapporteres som en samlet enhed for Indikator 4a3 med 87,3% opfyldelse af antikoagulationsbehandling.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Danmark Nej 5.522 / 6.324 0 (0) 87,3 (86,5-88,1)"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regions",
+      "significance": "En af de fem danske regioner, der rapporteres på for Indikator 4a3 med 84,3% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Hovedstaden Nej 1.437 / 1.705 0 (0) 84,3 (82,5-86,0)"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "sjaelland",
+      "folder": "entities/organizations/regions",
+      "significance": "En af de fem danske regioner, der rapporteres på for Indikator 4a3 med 87,0% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sjælland Nej 984 / 1.131 0 (0) 87,0 (84,9-88,9)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "En af de fem danske regioner, der rapporteres på for Indikator 4a3 med 89,3% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Syddanmark Nej 1.324 / 1.482 0 (0) 89,3 (87,7-90,9)"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "En af de fem danske regioner, der rapporteres på for Indikator 4a3 med 87,2% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Midtjylland Nej 1.125 / 1.290 0 (0) 87,2 (85,3-89,0)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "nordjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "En af de fem danske regioner, der rapporteres på for Indikator 4a3 med 91,1% opfyldelse, hvilket opfylder standarden på ≥90%.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Nordjylland Ja 652 / 716 0 (0) 91,1 (88,7-93,0)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Bornholm",
+      "type": "organization",
+      "slug": "sundhedsklynge-bornholm",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Hovedstaden, der rapporteres på for Indikator 4a3 med 80,0% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sundhedsklynge Bornholm Nej 48 / 60 0 (0) 80,0 (67,7-89,2)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Byen",
+      "type": "organization",
+      "slug": "sundhedsklynge-byen",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Hovedstaden, der rapporteres på for Indikator 4a3 med 83,4% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sundhedsklynge Byen Nej 388 / 465 0 (0) 83,4 (79,7-86,7)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Midt",
+      "type": "organization",
+      "slug": "sundhedsklynge-midt",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Hovedstaden, der rapporteres på for Indikator 4a3 med 83,0% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sundhedsklynge Midt Nej 395 / 476 0 (0) 83,0 (79,3-86,3)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Nord",
+      "type": "organization",
+      "slug": "sundhedsklynge-nord",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Hovedstaden, der rapporteres på for Indikator 4a3 med 85,3% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sundhedsklynge Nord Nej 330 / 387 0 (0) 85,3 (81,3-88,6)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Syd",
+      "type": "organization",
+      "slug": "sundhedsklynge-syd",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Hovedstaden, der rapporteres på for Indikator 4a3 med 87,1% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sundhedsklynge Syd Nej 276 / 317 0 (0) 87,1 (82,9-90,6)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Holbæk",
+      "type": "organization",
+      "slug": "sundhedsklyngen-holbaek",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Sjælland, der rapporteres på for Indikator 4a3 med 89,7% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sundhedsklyngen Holbæk Nej 243 / 271 0 (0) 89,7 (85,4-93,0)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Nykøbing F",
+      "type": "organization",
+      "slug": "sundhedsklyngen-nykoebing-f",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Sjælland, der rapporteres på for Indikator 4a3 med 86,6% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sundhedsklyngen Nykøbing F Nej 200 / 231 0 (0) 86,6 (81,5-90,7)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen SUH",
+      "type": "organization",
+      "slug": "sundhedsklyngen-suh",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Sjælland, der rapporteres på for Indikator 4a3 med 85,3% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sundhedsklyngen SUH Nej 284 / 333 0 (0) 85,3 (81,0-88,9)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Slagelse",
+      "type": "organization",
+      "slug": "sundhedsklyngen-slagelse",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Sjælland, der rapporteres på for Indikator 4a3 med 86,8% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sundhedsklyngen Slagelse Nej 257 / 296 0 (0) 86,8 (82,4-90,5)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Fyn",
+      "type": "organization",
+      "slug": "sundhedsklynge-fyn",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Syddanmark, der rapporteres på for Indikator 4a3 med 88,6% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sundhedsklynge Fyn Nej 476 / 537 0 (0) 88,6 (85,6-91,2)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Lillebælt",
+      "type": "organization",
+      "slug": "sundhedsklynge-lillebaelt",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Syddanmark, der rapporteres på for Indikator 4a3 med 89,1% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sundhedsklynge Lillebælt Nej 278 / 312 0 (0) 89,1 (85,1-92,3)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sydvestjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-sydvestjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Syddanmark, der rapporteres på for Indikator 4a3 med 91,6% opfyldelse, hvilket opfylder standarden på ≥90%.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sundhedsklynge Sydvestjylland Ja 261 / 285 0 (0) 91,6 (87,7-94,5)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sønderjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-soenderjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Syddanmark, der rapporteres på for Indikator 4a3 med 88,8% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Sundhedsklynge Sønderjylland Nej 309 / 348 0 (0) 88,8 (85,0-91,9)"
+        }
+      ]
+    },
+    {
+      "name": "Aarhusklyngen",
+      "type": "organization",
+      "slug": "aarhusklyngen",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Midtjylland, der rapporteres på for Indikator 4a3 med 83,8% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Aarhusklyngen Nej 197 / 235 0 (0) 83,8 (78,5-88,3)"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrupklyngen",
+      "type": "organization",
+      "slug": "goedstrupklyngen",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Midtjylland, der rapporteres på for Indikator 4a3 med 91,5% opfyldelse, hvilket opfylder standarden på ≥90%.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Gødstrupklyngen Ja 280 / 306 0 (0) 91,5 (87,8-94,4)"
+        }
+      ]
+    },
+    {
+      "name": "Horsensklyngen",
+      "type": "organization",
+      "slug": "horsensklyngen",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Midtjylland, der rapporteres på for Indikator 4a3 med 88,2% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Horsensklyngen Nej 209 / 237 0 (0) 88,2 (83,4-92,0)"
+        }
+      ]
+    },
+    {
+      "name": "Midtklyngen",
+      "type": "organization",
+      "slug": "midtklyngen",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Midtjylland, der rapporteres på for Indikator 4a3 med 85,7% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Midtklyngen Nej 228 / 266 0 (0) 85,7 (80,9-89,7)"
+        }
+      ]
+    },
+    {
+      "name": "Randersklyngen",
+      "type": "organization",
+      "slug": "randersklyngen",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Midtjylland, der rapporteres på for Indikator 4a3 med 85,8% opfyldelse.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Randersklyngen Nej 211 / 246 0 (0) 85,8 (80,8-89,9)"
+        }
+      ]
+    },
+    {
+      "name": "Klynge MIDT",
+      "type": "organization",
+      "slug": "klynge-midt",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Nordjylland, der rapporteres på for Indikator 4a3 med 89,4% opfyldelse.",
+      "mentions": [
+        {
+          "page": 35,
+          "context": "Klynge MIDT Nej 244 / 273 0 (0) 89,4 (85,1-92,8)"
+        }
+      ]
+    },
+    {
+      "name": "Klynge NORD",
+      "type": "organization",
+      "slug": "klynge-nord",
+      "folder": "entities/organizations/regions",
+      "significance": "En sundhedsklynge under Region Nordjylland, der rapporteres på for Indikator 4a3 med 94,1% opfyldelse, hvilket opfylder standarden på ≥90%.",
+      "mentions": [
+        {
+          "page": 35,
+          "context": "Klynge NORD Ja 224 / 238 0 (0) 94,1 (90,3-96,7)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-4a",
+      "predicate": "measures",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Indikator 4a: Andel af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling",
+      "page": 32
+    },
+    {
+      "subject": "indikator-4a3",
+      "predicate": "measures",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Indikator 4a3: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 5 år efter indeksdato",
+      "page": 33
+    },
+    {
+      "subject": "klynge-syd",
+      "predicate": "reports-on",
+      "object": "indikator-4a3",
+      "evidence": "Klynge SYD rapporterer resultater for Indikator 4a3",
+      "page": 31
+    },
+    {
+      "subject": "klynge-vest",
+      "predicate": "reports-on",
+      "object": "indikator-4a3",
+      "evidence": "Klynge VEST rapporterer resultater for Indikator 4a3",
+      "page": 31
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "sundhedsklynge-bornholm",
+      "evidence": "Sundhedsklynge Bornholm er en del af Region Hovedstaden",
+      "page": 34
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "sundhedsklynge-byen",
+      "evidence": "Sundhedsklynge Byen er en del af Region Hovedstaden",
+      "page": 34
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "sundhedsklynge-midt",
+      "evidence": "Sundhedsklynge Midt er en del af Region Hovedstaden",
+      "page": 34
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "sundhedsklynge-nord",
+      "evidence": "Sundhedsklynge Nord er en del af Region Hovedstaden",
+      "page": 34
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "sundhedsklynge-syd",
+      "evidence": "Sundhedsklynge Syd er en del af Region Hovedstaden",
+      "page": 34
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains",
+      "object": "sundhedsklyngen-holbaek",
+      "evidence": "Sundhedsklyngen Holbæk er en del af Region Sjælland",
+      "page": 34
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains",
+      "object": "sundhedsklyngen-nykoebing-f",
+      "evidence": "Sundhedsklyngen Nykøbing F er en del af Region Sjælland",
+      "page": 34
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains",
+      "object": "sundhedsklyngen-suh",
+      "evidence": "Sundhedsklyngen SUH er en del af Region Sjælland",
+      "page": 34
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains",
+      "object": "sundhedsklyngen-slagelse",
+      "evidence": "Sundhedsklyngen Slagelse er en del af Region Sjælland",
+      "page": 34
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "sundhedsklynge-fyn",
+      "evidence": "Sundhedsklynge Fyn er en del af Region Syddanmark",
+      "page": 34
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "sundhedsklynge-lillebaelt",
+      "evidence": "Sundhedsklynge Lillebælt er en del af Region Syddanmark",
+      "page": 34
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "sundhedsklynge-sydvestjylland",
+      "evidence": "Sundhedsklynge Sydvestjylland er en del af Region Syddanmark",
+      "page": 34
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "sundhedsklynge-soenderjylland",
+      "evidence": "Sundhedsklynge Sønderjylland er en del af Region Syddanmark",
+      "page": 34
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "aarhusklyngen",
+      "evidence": "Aarhusklyngen er en del af Region Midtjylland",
+      "page": 34
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "goedstrupklyngen",
+      "evidence": "Gødstrupklyngen er en del af Region Midtjylland",
+      "page": 34
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "horsensklyngen",
+      "evidence": "Horsensklyngen er en del af Region Midtjylland",
+      "page": 34
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "midtklyngen",
+      "evidence": "Midtklyngen er en del af Region Midtjylland",
+      "page": 34
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "randersklyngen",
+      "evidence": "Randersklyngen er en del af Region Midtjylland",
+      "page": 34
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "contains",
+      "object": "klynge-midt",
+      "evidence": "Klynge MIDT er en del af Region Nordjylland",
+      "page": 35
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "contains",
+      "object": "klynge-nord",
+      "evidence": "Klynge NORD er en del af Region Nordjylland",
+      "page": 35
+    }
+  ],
+  "claims": [
+    {
+      "text": "Klynge SYD opfylder ikke standarden ≥90% for Indikator 4a med 89,1% (83,7-93,2) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "klynge-syd",
+        "indikator-4a"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Klynge VEST opfylder standarden ≥90% for Indikator 4a med 91,9% (85,6-96,0) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "klynge-vest",
+        "indikator-4a"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Danmark opfylder ikke standarden ≥90% for Indikator 4a3 med 87,3% (86,5-88,1) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danmark",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Region Hovedstaden opfylder ikke standarden ≥90% for Indikator 4a3 med 84,3% (82,5-86,0) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "region-hovedstaden",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Region Sjælland opfylder ikke standarden ≥90% for Indikator 4a3 med 87,0% (84,9-88,9) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sjaelland",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Region Syddanmark opfylder ikke standarden ≥90% for Indikator 4a3 med 89,3% (87,7-90,9) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "syddanmark",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Region Midtjylland opfylder ikke standarden ≥90% for Indikator 4a3 med 87,2% (85,3-89,0) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "midtjylland",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Region Nordjylland opfylder standarden ≥90% for Indikator 4a3 med 91,1% (88,7-93,0) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "nordjylland",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Sundhedsklynge Bornholm opfylder ikke standarden ≥90% for Indikator 4a3 med 80,0% (67,7-89,2) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sundhedsklynge-bornholm",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Sundhedsklynge Byen opfylder ikke standarden ≥90% for Indikator 4a3 med 83,4% (79,7-86,7) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sundhedsklynge-byen",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Sundhedsklynge Midt opfylder ikke standarden ≥90% for Indikator 4a3 med 83,0% (79,3-86,3) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sundhedsklynge-midt",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Sundhedsklynge Nord opfylder ikke standarden ≥90% for Indikator 4a3 med 85,3% (81,3-88,6) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sundhedsklynge-nord",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Sundhedsklynge Syd opfylder ikke standarden ≥90% for Indikator 4a3 med 87,1% (82,9-90,6) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sundhedsklynge-syd",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Sundhedsklyngen Holbæk opfylder ikke standarden ≥90% for Indikator 4a3 med 89,7% (85,4-93,0) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sundhedsklyngen-holbaek",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Sundhedsklyngen Nykøbing F opfylder ikke standarden ≥90% for Indikator 4a3 med 86,6% (81,5-90,7) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sundhedsklyngen-nykoebing-f",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Sundhedsklyngen SUH opfylder ikke standarden ≥90% for Indikator 4a3 med 85,3% (81,0-88,9) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sundhedsklyngen-suh",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Sundhedsklyngen Slagelse opfylder ikke standarden ≥90% for Indikator 4a3 med 86,8% (82,4-90,5) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sundhedsklyngen-slagelse",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Sundhedsklynge Fyn opfylder ikke standarden ≥90% for Indikator 4a3 med 88,6% (85,6-91,2) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sundhedsklynge-fyn",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Sundhedsklynge Lillebælt opfylder ikke standarden ≥90% for Indikator 4a3 med 89,1% (85,1-92,3) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sundhedsklynge-lillebaelt",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Sundhedsklynge Sydvestjylland opfylder standarden ≥90% for Indikator 4a3 med 91,6% (87,7-94,5) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sundhedsklynge-sydvestjylland",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Sundhedsklynge Sønderjylland opfylder ikke standarden ≥90% for Indikator 4a3 med 88,8% (85,0-91,9) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "sundhedsklynge-soenderjylland",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Aarhusklyngen opfylder ikke standarden ≥90% for Indikator 4a3 med 83,8% (78,5-88,3) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "aarhusklyngen",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Gødstrupklyngen opfylder standarden ≥90% for Indikator 4a3 med 91,5% (87,8-94,4) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "goedstrupklyngen",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Horsensklyngen opfylder ikke standarden ≥90% for Indikator 4a3 med 88,2% (83,4-92,0) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "horsensklyngen",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Midtklyngen opfylder ikke standarden ≥90% for Indikator 4a3 med 85,7% (80,9-89,7) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "midtklyngen",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Randersklyngen opfylder ikke standarden ≥90% for Indikator 4a3 med 85,8% (80,8-89,9) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "randersklyngen",
+        "indikator-4a3"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Klynge MIDT opfylder ikke standarden ≥90% for Indikator 4a3 med 89,4% (85,1-92,8) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "klynge-midt",
+        "indikator-4a3"
+      ],
+      "page": 35
+    },
+    {
+      "text": "Klynge NORD opfylder standarden ≥90% for Indikator 4a3 med 94,1% (90,3-96,7) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "klynge-nord",
+        "indikator-4a3"
+      ],
+      "page": 35
+    },
+    {
+      "text": "Klynge SYD opfylder standarden ≥90% for Indikator 4a3 med 94,3% (88,5-97,7) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "klynge-syd",
+        "indikator-4a3"
+      ],
+      "page": 35
+    },
+    {
+      "text": "Klynge VEST opfylder ikke standarden ≥90% for Indikator 4a3 med 83,1% (73,3-90,5) i perioden 01.07.2018 - 30.06.2019 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "klynge-vest",
+        "indikator-4a3"
+      ],
+      "page": 35
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.07.2021 - 30.06.2022",
+      "event": "Rapporteringsperiode for Indikator 4a på klyngeniveau",
+      "entities": [
+        "indikator-4a",
+        "klynge-syd",
+        "klynge-vest"
+      ]
+    },
+    {
+      "date": "01.07.2018 - 30.06.2019",
+      "event": "Rapporteringsperiode for Indikator 4a3 på regions- og klyngeniveau",
+      "entities": [
+        "indikator-4a3",
+        "danmark",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland"
+      ]
+    }
+  ],
+  "context": "Dette afsnit præsenterer detaljerede kvalitetsindikatorer for behandling af atrieflimren i Danmark under Regionernes Kliniske Kvalitetsudviklingsprogram. Dokumentet rapporterer på to hovedindikatorer: Indikator 4a, som måler andelen af patienter med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter diagnosen, og Indikator 4a3, som måler det samme 5 år efter indeksdato. Resultaterne vises på både regions- og klyngeniveau, med sammenligninger til tidligere år (2017/18 og 2016/17 for Indikator 4a3). Standarden for begge indikatorer er ≥90% opfyldelse. Dataene viser betydelig regional variation i opfyldelsen af standarden, med nogle klynger som Klynge NORD og Gødstrupklyngen, der opfylder standarden, mens andre som Sundhedsklynge Bornholm og Aarhusklyngen ligger betydeligt under."
+}

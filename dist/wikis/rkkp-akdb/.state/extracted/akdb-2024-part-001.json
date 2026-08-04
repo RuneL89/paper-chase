@@ -1,0 +1,228 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "organization",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "AKDB er den nationale database for monitorering af behandlingskvalitet inden for akut højrisiko abdominalkirurgi på danske sygehuse, baseret på data fra Landspatientregisteret.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Akut Kirurgi Databasen Årsrapport 2024"
+        },
+        {
+          "page": 1,
+          "context": "Akut Kirurgi DataBasen (AKDB) afspejler i begrænset omfang kvaliteten i behandlingen af de akutte abdomonalkirurgiske patienter i Danmark."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvasenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "Institutionen er ansvarlig for udgivelsen af AKDB-årsrapporten og kvalitetsmonitorering inden for dansk sundhedsvæsen.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "© Sundhedsvæsenets Kvalitetsinstitut, 2025"
+        }
+      ]
+    },
+    {
+      "name": "Birgitte Rühman",
+      "type": "person",
+      "slug": "birgitte-ruhman",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Birgitte Rühman er kontaktperson for Sundhedsvæsenets Kvalitetsinstitut vedrørende AKDB.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Sundk's kontaktperson: Birgitte Rühman; E-mail: BIRRUH@rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "RKKP er udgiver af AKDB-årsrapporten og ansvarlig for kvalitetsudvikling på regionalt niveau.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Udgiver: Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "LPR er den primære datakilde for AKDB, hvor hospitalerne indberetter data om patientforløb og behandlinger.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Når man som afdeling læser dette, skal man huske at datakilden er ens egen indtastning til Landspatientregisteret (LPR)."
+        }
+      ]
+    },
+    {
+      "name": "Læring- og Kvalitetsteam Akut Kirurgi",
+      "type": "organization",
+      "slug": "laerings-og-kvalitetesteam-akut-kirurgi",
+      "folder": "entities/organizations/advisory-groups",
+      "significance": "LKT i akutkirurgi var et initiativ der blev afsluttet i 2022, hvis resultater fortsat aflæses i AKDB-databasen.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Efter afslutningen på LKT i akutkirurgi i 2022, med resultater der fortsat kan aflæses i databasen"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det geografiske område hvor AKDB monitorerer behandlingskvalitet inden for akut abdominalkirurgi.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Akut Kirurgi DataBasen (AKDB) afspejler i begrænset omfang kvaliteten i behandlingen af de akutte abdomonalkirurgiske patienter i Danmark."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-managed-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram er udgiver af AKDB-årsrapporten",
+      "page": 2
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-published-by",
+      "object": "sundhedsvasenets-kvalitetsinstitut",
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut udgiver AKDB-årsrapporten",
+      "page": 2
+    },
+    {
+      "subject": "birgitte-ruhman",
+      "predicate": "is-contact-for",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Birgitte Rühman er Sundk's kontaktperson for AKDB",
+      "page": 2
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Databasen tager udgangspunkt i data fra Landspatientregisteret, som er hospitalernes egen indtastning",
+      "page": 1
+    }
+  ],
+  "claims": [
+    {
+      "text": "Opgørelsesperioden for årsrapporten er 1. september 2023 – 31. august 2024 [^src1]",
+      "type": "temporal",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Årsrapporten blev offentliggjort 28.02.2025 [^src1]",
+      "type": "temporal",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "AKDB er under omlægning og dette er fjerde år baseret på LPR [^src1]",
+      "type": "organizational",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "landspatientregisteret"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Det blev på styregruppens årsmøde i 2018 besluttet at dette var det sidste år med monitorering af blødende ulcera, fordi der på nationalt niveau har været en tilfredsstillende høj kvalitet i behandlingen og lav mortalitet [^src1]",
+      "type": "organizational",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Overordnet set er årets resultater udtryk for en positiv udvikling for alle procesindikatorer [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Mortaliteten holder sig under målet [^src1]",
+      "type": "mortality-outcome",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Fokus fra LKT i de forrige år har spillet positivt ind på udviklingen af procesindikatorer [^src1]",
+      "type": "organizational",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "laerings-og-kvalitetesteam-akut-kirurgi"
+      ],
+      "page": 1
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2018",
+      "event": "Styregruppens årsmøde besluttede at 2018 skulle være det sidste år med monitorering af blødende ulcera",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2022",
+      "event": "Læring- og Kvalitetsteam Akut Kirurgi (LKT) blev afsluttet",
+      "entities": [
+        "laerings-og-kvalitetesteam-akut-kirurgi"
+      ]
+    },
+    {
+      "date": "September 1, 2023",
+      "event": "Opgørelsesperioden for AKDB årsrapport 2024 begyndte",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "August 31, 2024",
+      "event": "Opgørelsesperioden for AKDB årsrapport 2024 sluttede",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "February 28, 2025",
+      "event": "AKDB årsrapport 2024 blev offentliggjort",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "context": "Akut Kirurgi Databasen (AKDB) er en national kvalitetsmonitoreringsbase for behandling af akutte højrisiko abdominalkirurgiske patienter på danske sygehuse. Årsrapporten for 2024 dækker perioden 1. september 2023 til 31. august 2024 og udgives af Regionernes Kliniske Kvalitetsudviklingsprogram under Sundhedsvæsenets Kvalitetsinstitut. Databasen er under omlægning til at basere sig på data fra Landspatientregisteret (LPR) og er nu i sit fjerde år med denne datakilde. Rapporten præsenterer konklusioner og anbefalinger vedrørende behandlingskvalitet, indikatorresultater, og udvikling inden for akut kirurgi, med fokus på at understøtte geografisk lighed i sundhed for alle patienter.",
+  "tables": []
+}

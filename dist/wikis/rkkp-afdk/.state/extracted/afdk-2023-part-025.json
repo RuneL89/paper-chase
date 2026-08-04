@@ -1,0 +1,291 @@
+{
+  "entities": [
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "rkkp",
+      "folder": "entities/organizations/healthcare",
+      "significance": "RKKP er den organisation, der administrerer databasen for atrieflimren i Danmark og udfører datafangst baseret på officielle NPU koder.",
+      "mentions": [
+        {
+          "page": 121,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 121,
+          "context": "TSH i \"pakken\" afrapporteres på en lokal blodprøve kode og ikke den officielle NPU kode, som RKKP anvender til datafangst"
+        },
+        {
+          "page": 121,
+          "context": "Det er fortsat ikke muligt for RKKP at sikre datafangst på disse koder"
+        },
+        {
+          "page": 121,
+          "context": "få af databasens indikatorer er tilgængelige i de løbende KKA leverancer"
+        }
+      ]
+    },
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "product",
+      "slug": "database-atrieflimren-danmark",
+      "folder": "topics/healthcare-databases",
+      "significance": "Databasen er det centrale registreringssystem for atrieflimren-patienter i Danmark, som denne årsrapport dokumenterer.",
+      "mentions": [
+        {
+          "page": 121,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 121,
+          "context": "få af databasens indikatorer er tilgængelige i de løbende KKA leverancer"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regions",
+      "significance": "En af fem danske regioner, der indrapporterer til databasen for atrieflimren; havde ingen kommentarer til årsrapporten.",
+      "mentions": [
+        {
+          "page": 121,
+          "context": "Region Hovedstaden: Ingen kommentarer"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regions",
+      "significance": "En af fem danske regioner, der indrapporterer til databasen for atrieflimren; havde ingen kommentarer til årsrapporten.",
+      "mentions": [
+        {
+          "page": 121,
+          "context": "Region Sjælland: Ingen kommentarer"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "En af fem danske regioner, der indrapporterer til databasen for atrieflimren; Region Syddanmark indeholder Sygehus Sønderjylland, som havde væsentlige kommentarer til indikator 3.",
+      "mentions": [
+        {
+          "page": 121,
+          "context": "Region Syddanmark: Sygehus Sønderjylland"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Sønderjylland identificerede en væsentlig datafangstproblem vedrørende TSH-måling, hvor lokale blodprøvepakker ikke blev registreret i RKKP-databasen.",
+      "mentions": [
+        {
+          "page": 121,
+          "context": "Sygehus Sønderjylland har identificeret at den lave målopfyldelse skyldes, at man på Sygehus Sønderjyllands Fælles Akut Modtagelse bestiller \"diagnostisk TSH\" som en del af en blodprøvepakke i stedet for TSH enkeltvis"
+        },
+        {
+          "page": 121,
+          "context": "SHS fortsætter uændret praksis på FAM, da dette vurderes mest hensigtsmæssig ift. patientforløbene"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjyllands Fælles Akut Modtagelse",
+      "type": "organization",
+      "slug": "shs-faelles-akut-modtagelse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Fælles Akut Modtagelse på Sygehus Sønderjylland er stedet, hvor TSH-måling bestilles som del af blodprøvepakker i stedet for enkeltvis, hvilket påvirker datafangsten.",
+      "mentions": [
+        {
+          "page": 121,
+          "context": "man på Sygehus Sønderjyllands Fælles Akut Modtagelse bestiller \"diagnostisk TSH\" som en del af en blodprøvepakke"
+        },
+        {
+          "page": 121,
+          "context": "SHS fortsætter uændret praksis på FAM"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "En af fem danske regioner, der indrapporterer til databasen for atrieflimren; havde ingen kommentarer til årsrapporten.",
+      "mentions": [
+        {
+          "page": 121,
+          "context": "Region Midtjylland: Ingen kommentarer"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "En af fem danske regioner, der indrapporterer til databasen for atrieflimren; Region Nordjylland havde flere kommentarer vedrørende tilgængelighed af indikatorer og TSH-datafangst.",
+      "mentions": [
+        {
+          "page": 121,
+          "context": "I Region Nordjylland er der opmærksomhed på at få af databasens indikatorer er tilgængelige i de løbende KKA leverancer"
+        },
+        {
+          "page": 121,
+          "context": "I RN er der stort fokus på løbende opfølgning på data, og derfor ønskes der bedre adgang til indikatorerne i de løbende data"
+        },
+        {
+          "page": 121,
+          "context": "I Region Nordjylland har der ifm. tidligere årsrapporter være foretaget analyse af data ift. TSH"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "sygehus-soenderjylland",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Region Syddanmark: Sygehus Sønderjylland",
+      "page": 121
+    },
+    {
+      "subject": "shs-faelles-akut-modtagelse",
+      "predicate": "is-part-of",
+      "object": "sygehus-soenderjylland",
+      "evidence": "man på Sygehus Sønderjyllands Fælles Akut Modtagelse bestiller \"diagnostisk TSH\"",
+      "page": 121
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "reports-to",
+      "object": "rkkp",
+      "evidence": "Region Hovedstaden indgår i de regionale kommentarer til Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 121
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "reports-to",
+      "object": "rkkp",
+      "evidence": "Region Sjælland indgår i de regionale kommentarer til Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 121
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "reports-to",
+      "object": "rkkp",
+      "evidence": "Region Syddanmark indgår i de regionale kommentarer til Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 121
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "reports-to",
+      "object": "rkkp",
+      "evidence": "Region Midtjylland indgår i de regionale kommentarer til Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 121
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "reports-to",
+      "object": "rkkp",
+      "evidence": "Region Nordjylland indgår i de regionale kommentarer til Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 121
+    }
+  ],
+  "claims": [
+    {
+      "text": "Sygehus Sønderjylland bestiller \"diagnostisk TSH\" som en del af en blodprøvepakke i stedet for TSH enkeltvis [^src1]",
+      "type": "operational",
+      "entities": [
+        "sygehus-soenderjylland"
+      ],
+      "page": 121
+    },
+    {
+      "text": "TSH prøver der indgår i pakker ikke er med i den datafangst der laves fra RKKP, da TSH i \"pakken\" afrapporteres på en lokal blodprøve kode og ikke den officielle NPU kode [^src1]",
+      "type": "technical",
+      "entities": [
+        "rkkp",
+        "sygehus-soenderjylland"
+      ],
+      "page": 121
+    },
+    {
+      "text": "Det er fortsat ikke muligt for RKKP at sikre datafangst på disse koder [^src1]",
+      "type": "technical",
+      "entities": [
+        "rkkp"
+      ],
+      "page": 121
+    },
+    {
+      "text": "SHS fortsætter uændret praksis på FAM, da dette vurderes mest hensigtsmæssig ift. patientforløbene [^src1]",
+      "type": "operational",
+      "entities": [
+        "sygehus-soenderjylland",
+        "shs-faelles-akut-modtagelse"
+      ],
+      "page": 121
+    },
+    {
+      "text": "I Region Nordjylland er der opmærksomhed på at få af databasens indikatorer er tilgængelige i de løbende KKA leverancer [^src1]",
+      "type": "operational",
+      "entities": [
+        "region-nordjylland",
+        "database-atrieflimren-danmark"
+      ],
+      "page": 121
+    },
+    {
+      "text": "I RN er der stort fokus på løbende opfølgning på data, og derfor ønskes der bedre adgang til indikatorerne i de løbende data [^src1]",
+      "type": "operational",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 121
+    },
+    {
+      "text": "I Region Nordjylland har der ifm. tidligere årsrapporter være foretaget analyse af data ift. TSH [^src1]",
+      "type": "operational",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 121
+    },
+    {
+      "text": "Der ønskes en tilbagemelding på om patienter der dør i perioden ekskluderes fra indikatorberegningen [^src1]",
+      "type": "operational",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 121
+    },
+    {
+      "text": "Der ønskes en tydelig definition af hvilke kriterier der gælder for patientundervisning [^src1]",
+      "type": "operational",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 121
+    },
+    {
+      "text": "Der er opmærksomhed på kommunernes rolle ift. undervisning og om der i styregruppen også er overvejelser om dette [^src1]",
+      "type": "operational",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 121
+    }
+  ],
+  "timeline": [],
+  "context": "Denne side er del af årsrapporten for Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 – 30. juni 2023. Siden indeholder regionale kommentarer fra alle fem danske regioner til RKKP vedrørende databasens indikatorer og datafangst. Særligt Sygehus Sønderjylland i Region Syddanmark og Region Nordjylland fremhæver væsentlige udfordringer med datafangst og tilgængelighed af indikatorer, som påvirker kvaliteten af den kliniske opfølgning på atrieflimren-patienter."
+}

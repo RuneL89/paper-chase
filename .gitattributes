@@ -1,0 +1,2 @@
+dist/paper-chase.exe filter=lfs diff=lfs merge=lfs -text
+dist/runtime-node.exe filter=lfs diff=lfs merge=lfs -text

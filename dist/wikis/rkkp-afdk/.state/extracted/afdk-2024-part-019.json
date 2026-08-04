@@ -1,0 +1,538 @@
+{
+  "entities": [
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det nationale niveau for alle præsenterede statistikker om atrieflimren, hvor der rapporteres på 136.420 prævalente patienter med gennemsnitsalder 70 år.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Danmark 70 12 72 0 105 0 136420 (alder ved diagnose)"
+        },
+        {
+          "page": 91,
+          "context": "Danmark 1.51 1.09 1.00 0.00 6.00 0 136420 (CHA2DS2-VASc score)"
+        },
+        {
+          "page": 91,
+          "context": "Danmark 24750 18 47816 35 39990 29 17894 13 4925 4 965 1 80 0 136420 (CHA2DS2-VASc fordeling)"
+        },
+        {
+          "page": 92,
+          "context": "Danmark 7586 13.46 20327 36.06 18260 32.39 8019 14.22 1850 3.28 308 0.55 25 0.04 56375 (køn=K)"
+        },
+        {
+          "page": 92,
+          "context": "Danmark 17164 21.44 27489 34.34 21730 27.15 9875 12.34 3075 3.84 657 0.82 55 0.07 80045 (køn=M)"
+        },
+        {
+          "page": 93,
+          "context": "Danmark 1123 5.1% (antal og andel incidente patienter hos praktiserende kardiologer)"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden er en af fem danske regioner med 37.675 prævalente atrieflimren-patienter og 13 speciallægepraksisser for praktiserende kardiologer.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Region Hovedstaden 70 13 72 0 103 0 37675 (alder ved diagnose)"
+        },
+        {
+          "page": 91,
+          "context": "Region Hovedstaden 1.46 1.10 1.00 0.00 6.00 0 37675 (CHA2DS2-VASc score)"
+        },
+        {
+          "page": 91,
+          "context": "Region Hovedstaden 7604 20 13417 36 10486 28 4541 12 1333 4 273 1 21 0 37675 (CHA2DS2-VASc fordeling)"
+        },
+        {
+          "page": 92,
+          "context": "Region Hovedstaden 2379 14.70 6068 37.50 5090 31.45 2041 12.61 505 3.12 95 0.59 5 0.03 16183 (køn=K)"
+        },
+        {
+          "page": 92,
+          "context": "Region Hovedstaden 5225 24.31 7349 34.19 5396 25.11 2500 11.63 828 3.85 178 0.83 16 0.07 21492 (køn=M)"
+        },
+        {
+          "page": 93,
+          "context": "Region Hovedstaden 836 13.5% (antal og andel incidente patienter hos praktiserende kardiologer)"
+        },
+        {
+          "page": 93,
+          "context": "Region Hovedstaden 13 (antal speciallægepraksisser)"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Sjælland er en af fem danske regioner med 22.695 prævalente atrieflimren-patienter og 2,0% incidente patienter hos praktiserende kardiologer.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Sjælland 70 12 72 0 105 0 22695 (alder ved diagnose)"
+        },
+        {
+          "page": 91,
+          "context": "Sjælland 1.57 1.11 1.00 0.00 6.00 0 22695 (CHA2DS2-VASc score)"
+        },
+        {
+          "page": 91,
+          "context": "Sjælland 3846 17 7719 34 6792 30 3184 14 945 4 193 1 16 0 22695 (CHA2DS2-VASc fordeling)"
+        },
+        {
+          "page": 92,
+          "context": "Sjælland 1215 12.89 3284 34.85 3093 32.82 1409 14.95 355 3.77 63 0.67 5 0.05 9424 (køn=K)"
+        },
+        {
+          "page": 92,
+          "context": "Sjælland 2631 19.83 4435 33.42 3699 27.87 1775 13.38 590 4.45 130 0.98 11 0.08 13271 (køn=M)"
+        },
+        {
+          "page": 93,
+          "context": "Region Sjælland 72 2.0% (antal og andel incidente patienter hos praktiserende kardiologer)"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Syddanmark er en af fem danske regioner med 31.275 prævalente atrieflimren-patienter og ingen registrerede incidente patienter hos praktiserende kardiologer i rapportsperioden.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Syddanmark 71 12 72 0 105 0 31275 (alder ved diagnose)"
+        },
+        {
+          "page": 91,
+          "context": "Syddanmark 1.56 1.09 1.00 0.00 6.00 0 31275 (CHA2DS2-VASc score)"
+        },
+        {
+          "page": 91,
+          "context": "Syddanmark 5313 17 10717 34 9435 30 4398 14 1173 4 217 1 22 0 31275 (CHA2DS2-VASc fordeling)"
+        },
+        {
+          "page": 92,
+          "context": "Syddanmark 1637 12.73 4460 34.67 4265 33.16 1975 15.35 444 3.45 75 0.58 7 0.05 12863 (køn=K)"
+        },
+        {
+          "page": 92,
+          "context": "Syddanmark 3676 19.97 6257 33.98 5170 28.08 2423 13.16 729 3.96 142 0.77 15 0.08 18412 (køn=M)"
+        },
+        {
+          "page": 93,
+          "context": "Region Syddanmark # 0.0% (antal og andel incidente patienter hos praktiserende kardiologer)"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Midtjylland er en af fem danske regioner med 29.991 prævalente atrieflimren-patienter, 2 speciallægepraksisser og 2,0% incidente patienter hos praktiserende kardiologer.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Midtjylland 70 12 72 0 104 0 29991 (alder ved diagnose)"
+        },
+        {
+          "page": 91,
+          "context": "Midtjylland 1.49 1.07 1.00 0.00 6.00 0 29991 (CHA2DS2-VASc score)"
+        },
+        {
+          "page": 91,
+          "context": "Midtjylland 5434 18 10764 36 8831 29 3770 13 976 3 203 1 13 0 29991 (CHA2DS2-VASc fordeling)"
+        },
+        {
+          "page": 92,
+          "context": "Midtjylland 1624 13.48 4411 36.62 3889 32.29 1687 14.01 371 3.08 56 0.46 6 0.05 12044 (køn=K)"
+        },
+        {
+          "page": 92,
+          "context": "Midtjylland 3810 21.23 6353 35.40 4942 27.54 2083 11.61 605 3.37 147 0.82 7 0.04 17947 (køn=M)"
+        },
+        {
+          "page": 93,
+          "context": "Region Midtjylland 2 (antal speciallægepraksisser)"
+        },
+        {
+          "page": 93,
+          "context": "Region Midtjylland 102 2.0% (antal og andel incidente patienter hos praktiserende kardiologer)"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Nordjylland er en af fem danske regioner med 14.784 prævalente atrieflimren-patienter, 1 speciallægepraksis og 4,8% incidente patienter hos praktiserende kardiologer.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Nordjylland 71 12 72 0 102 0 14784 (alder ved diagnose)"
+        },
+        {
+          "page": 91,
+          "context": "Nordjylland 1.52 1.07 1.00 0.00 6.00 0 14784 (CHA2DS2-VASc score)"
+        },
+        {
+          "page": 91,
+          "context": "Nordjylland 2553 17 5199 35 4446 30 2001 14 498 3 79 1 8 0 14784 (CHA2DS2-VASc fordeling)"
+        },
+        {
+          "page": 92,
+          "context": "Nordjylland 731 12.47 2104 35.90 1923 32.81 907 15.48 175 2.99 19 0.32 # 0.03 5861 (køn=K)"
+        },
+        {
+          "page": 92,
+          "context": "Nordjylland 1822 20.42 3095 34.69 2523 28.28 1094 12.26 323 3.62 60 0.67 6 0.07 8923 (køn=M)"
+        },
+        {
+          "page": 93,
+          "context": "Region Nordjylland 1 (antal speciallægepraksisser)"
+        },
+        {
+          "page": 93,
+          "context": "Region Nordjylland 112 4.8% (antal og andel incidente patienter hos praktiserende kardiologer)"
+        }
+      ]
+    },
+    {
+      "name": "CHA2DS2-VASc score",
+      "type": "clinical-measure",
+      "slug": "cha2ds2-vasc-score",
+      "folder": "topics/clinical-measures",
+      "significance": "CHA2DS2-VASc score er en vigtig klinisk målestok for vurdering af slagrisiko hos atrieflimren-patienter, hvor ≥2 anvendes som skæringspunkt for indikation for antikoagulationsbehandling hos begge køn.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Fordeling af CHA2DS2-VASc score blandt de prævalente patienter"
+        },
+        {
+          "page": 92,
+          "context": "Der er ved beregningen af CHA2DS2-VASc score ikke givet point for kvindekøn, og ≥2 er derfor anvendt som skæringpunkt for indikation for antikoagulationsbehandling hos begge køn."
+        }
+      ]
+    },
+    {
+      "name": "Atrieflimren i Danmark",
+      "type": "topic",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "topics/heart-failure",
+      "significance": "Atrieflimren i Danmark er det overordnede register og kvalitetsudviklingsprogram, der dokumenterer prævalente og incidente patienter, deres demografiske karakteristika og behandlingsindikatorer på tværs af fem danske regioner.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Atrieflimren i Danmark Version: Offentliggjort version Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 92,
+          "context": "Atrieflimren i Danmark Version: Offentliggjort version Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 93,
+          "context": "Atrieflimren i Danmark Version: Offentliggjort version Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er den organisatoriske ramme for registrering og rapportering af atrieflimren-data på tværs af danske regioner.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 92,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 93,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Praktiserende kardiologer",
+      "type": "topic",
+      "slug": "praktiserende-kardiologer",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Praktiserende kardiologer udgør en vigtig del af behandlingssystemet for atrieflimren-patienter, med 16 speciallægepraksisser fordelt på tre regioner og 1.123 incidente patienter (5,1%) i årsrapportsperioden.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Praktiserende kardiologer Fordelingen af praktiserende kardiologer i regionerne"
+        },
+        {
+          "page": 93,
+          "context": "Antal og andel incidente patienter hos de praktiserende kardiologer i årsrapportsperioden"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynger",
+      "type": "topic",
+      "slug": "sundhedsklynger",
+      "folder": "topics/operational",
+      "significance": "Sundhedsklynger er organisatoriske enheder, der grupperer danske kommuner for koordinering af sundhedsvæsenet, med 13 klynger dokumenteret i rapporten.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Klyngerne Fordeling af kommuner i klyngerne"
+        },
+        {
+          "page": 93,
+          "context": "Sundhedsklynge Bornholm, Sundhedsklynge Byen København, Sundhedsklynge Midt, Sundhedsklynge Nord, Sundhedsklynge Syd"
+        },
+        {
+          "page": 94,
+          "context": "Sundhedsklyngen Holbæk, Sundhedsklyngen Nykøbing F, Sundhedsklyngen Slagelse, Sundhedsklyngen SUH"
+        },
+        {
+          "page": 95,
+          "context": "Sundhedsklynge Fyn, Sundhedsklynge Sydvestjylland, Sundhedsklynge Lillebælt, Sundhedsklynge Sønderjylland, Horsensklyngen, Midtklyngen, Randersklyngen, Gødstrupklyngen"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "praktiserende-kardiologer",
+      "evidence": "Region Hovedstaden 13 (antal speciallægepraksisser)",
+      "page": 93
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "praktiserende-kardiologer",
+      "evidence": "Region Midtjylland 2 (antal speciallægepraksisser)",
+      "page": 93
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "contains",
+      "object": "praktiserende-kardiologer",
+      "evidence": "Region Nordjylland 1 (antal speciallægepraksisser)",
+      "page": 93
+    },
+    {
+      "subject": "atrieflimren-i-danmark",
+      "predicate": "managed-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Atrieflimren i Danmark Version: Offentliggjort version Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 91
+    },
+    {
+      "subject": "cha2ds2-vasc-score",
+      "predicate": "used-for",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Der er ved beregningen af CHA2DS2-VASc score ikke givet point for kvindekøn, og ≥2 er derfor anvendt som skæringpunkt for indikation for antikoagulationsbehandling hos begge køn.",
+      "page": 92
+    }
+  ],
+  "claims": [
+    {
+      "text": "Der er 136.420 prævalente atrieflimren-patienter i Danmark [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "danmark",
+        "atrieflimren-i-danmark"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Gennemsnitsalderen for atrieflimren-patienter i Danmark er 70 år med en spredning på 12 år [^src1]",
+      "type": "demographic",
+      "entities": [
+        "danmark"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Medianalderen for atrieflimren-patienter i Danmark er 72 år [^src1]",
+      "type": "demographic",
+      "entities": [
+        "danmark"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Region Hovedstaden har 37.675 prævalente atrieflimren-patienter [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Sjælland har 22.695 prævalente atrieflimren-patienter [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Syddanmark har 31.275 prævalente atrieflimren-patienter [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Midtjylland har 29.991 prævalente atrieflimren-patienter [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Nordjylland har 14.784 prævalente atrieflimren-patienter [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Gennemsnits-CHA2DS2-VASc score for Danmark er 1.51 [^src1]",
+      "type": "clinical-measure",
+      "entities": [
+        "danmark",
+        "cha2ds2-vasc-score"
+      ],
+      "page": 91
+    },
+    {
+      "text": "18% af danske atrieflimren-patienter har CHA2DS2-VASc score 0 [^src1]",
+      "type": "clinical-measure",
+      "entities": [
+        "danmark",
+        "cha2ds2-vasc-score"
+      ],
+      "page": 91
+    },
+    {
+      "text": "35% af danske atrieflimren-patienter har CHA2DS2-VASc score 1 [^src1]",
+      "type": "clinical-measure",
+      "entities": [
+        "danmark",
+        "cha2ds2-vasc-score"
+      ],
+      "page": 91
+    },
+    {
+      "text": "29% af danske atrieflimren-patienter har CHA2DS2-VASc score 2 [^src1]",
+      "type": "clinical-measure",
+      "entities": [
+        "danmark",
+        "cha2ds2-vasc-score"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Der er 13 speciallægepraksisser for praktiserende kardiologer i Region Hovedstaden [^src2]",
+      "type": "operational",
+      "entities": [
+        "region-hovedstaden",
+        "praktiserende-kardiologer"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Der er 2 speciallægepraksisser for praktiserende kardiologer i Region Midtjylland [^src2]",
+      "type": "operational",
+      "entities": [
+        "midtjylland",
+        "praktiserende-kardiologer"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Der er 1 speciallægepraksis for praktiserende kardiologer i Region Nordjylland [^src2]",
+      "type": "operational",
+      "entities": [
+        "nordjylland",
+        "praktiserende-kardiologer"
+      ],
+      "page": 93
+    },
+    {
+      "text": "1.123 incidente patienter (5,1%) blev behandlet hos praktiserende kardiologer i Danmark i årsrapportsperioden [^src2]",
+      "type": "epidemiological",
+      "entities": [
+        "danmark",
+        "praktiserende-kardiologer"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Region Hovedstaden havde 836 incidente patienter (13,5%) hos praktiserende kardiologer [^src2]",
+      "type": "epidemiological",
+      "entities": [
+        "region-hovedstaden",
+        "praktiserende-kardiologer"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Sjælland havde 72 incidente patienter (2,0%) hos praktiserende kardiologer [^src2]",
+      "type": "epidemiological",
+      "entities": [
+        "sjaelland",
+        "praktiserende-kardiologer"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Syddanmark havde 0 incidente patienter (0,0%) hos praktiserende kardiologer [^src2]",
+      "type": "epidemiological",
+      "entities": [
+        "syddanmark",
+        "praktiserende-kardiologer"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Midtjylland havde 102 incidente patienter (2,0%) hos praktiserende kardiologer [^src2]",
+      "type": "epidemiological",
+      "entities": [
+        "midtjylland",
+        "praktiserende-kardiologer"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Nordjylland havde 112 incidente patienter (4,8%) hos praktiserende kardiologer [^src2]",
+      "type": "epidemiological",
+      "entities": [
+        "nordjylland",
+        "praktiserende-kardiologer"
+      ],
+      "page": 93
+    }
+  ],
+  "timeline": [],
+  "context": "Disse sider fra AFDK 2024-rapporten præsenterer detaljerede epidemiologiske og organisatoriske data om atrieflimren i Danmark. Kapitlet dokumenterer karakteristika for 136.420 prævalente patienter fordelt på fem regioner, med fokus på aldersfordeling, CHA2DS2-VASc risikoscoring for slagrisiko og behandling hos praktiserende kardiologer. Derudover beskrives organisationen af sundhedsklynger som koordineringsenheder på tværs af danske kommuner, hvilket udgør den strukturelle ramme for patientbehandling og opfølgning."
+}

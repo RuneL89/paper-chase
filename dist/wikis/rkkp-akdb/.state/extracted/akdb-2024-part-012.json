@@ -1,0 +1,846 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 10",
+      "type": "quality-indicator",
+      "slug": "indikator-10",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 10 måler mortalitet indenfor 90 dage for opererede patienter og er en central kvalitetsmåling i Akut Kirurgi Databasen med udviklingmål på under 18 procent.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Indikator 10: Mortalitet indenfor 90 dage for opererede"
+        },
+        {
+          "page": 57,
+          "context": "Indikator 10 beskriver andelen af patienter, der dør indenfor 90 dage fra tidspunkt for operation"
+        },
+        {
+          "page": 57,
+          "context": "Resultat af indikatoranalysen for supplerende indikator 10"
+        },
+        {
+          "page": 57,
+          "context": "Diskussion og implikationer af årets resultater for indikator 10"
+        },
+        {
+          "page": 57,
+          "context": "Vurdering af indikator supplerende 10"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland havde den laveste mortalitet indenfor 90 dage på 15,7 procent blandt alle regioner i analyseperioden.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Regionalt varierede andelen fra 15,7 % i Region Sjælland til 19,6 % i Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland havde den højeste mortalitet indenfor 90 dage på 19,6 procent blandt alle regioner og opfyldte ikke udviklingmålet.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Regionalt varierede andelen fra 15,7 % i Region Sjælland til 19,6 % i Region Nordjylland"
+        },
+        {
+          "page": 57,
+          "context": "Alle andre regioner end Region Nordjylland opfyldte altså også udviklingsmålet i perioden"
+        }
+      ]
+    },
+    {
+      "name": "Danske Regioner",
+      "type": "organization",
+      "slug": "danske-regioner",
+      "folder": "entities/organizations/oversight",
+      "significance": "Danske Regioner koordinerer Lærings- og Kvalitetsteamet for Akutkirurgi, som har bidraget til forbedringer i mortalitet over de foregående to år.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Formentlig pga. kvalitetsindsatsen ved LKT Akutkirurgi via Danske Regioner"
+        }
+      ]
+    },
+    {
+      "name": "Lærings- og Kvalitetsteamet Akut Kirurgi",
+      "type": "organization",
+      "slug": "laerings-og-kvalitetesteam-akut-kirurgi",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "LKT Akutkirurgi har gennemført kvalitetsindsatser, der har medført forbedringer i overlevelse blandt opererede patienter.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "kvalitetsindsatsen ved LKT Akutkirurgi via Danske Regioner"
+        }
+      ]
+    },
+    {
+      "name": "Charlson Comorbidity Score",
+      "type": "clinical-assessment",
+      "slug": "charlson-comorbidity-score",
+      "folder": "topics/clinical-assessment",
+      "significance": "Charlson Scoren ønskes indført for at opdele mortalitetsindikatorerne baseret på komorbiditet i grupperne 0, 1-2 og ≥3 for at belyse sammenhængen mellem mortalitet og komorbiditet.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "Charlson Scoren ønskes indført, sådan at mortalitetsindikatorerne (Indikator 10, 11 og supplerende til indikator 10 og 11) kan opdeles baseret på komorbiditet"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Anæstesi Database",
+      "type": "organization",
+      "slug": "dansk-anaestesi-database",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "Dansk Anæstesi Database har hidtil været datakilde for epidural-information, men data ønskes nu suppleret fra LPR for beregning af indikator 9.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "Denne oplysning har hidtil været indsamlet med Dansk Anæstesi Database som datakilde"
+        }
+      ]
+    },
+    {
+      "name": "LPR",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "LPR (Landspatientregisteret) er datakilde for operationsdata og opdaterer indberetningsvejledningen for operationsstartidspunkt.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "ønskes nu at supplere med data fra LPR til beregning af indikator 9"
+        },
+        {
+          "page": 58,
+          "context": "Desuden er det værd at bemærke, at den LPR opdaterer indberetningsvejledningen sådan at tidspunktet for operationsstart fremover skal svare til tidspunktet for knivtid start"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1",
+      "type": "quality-indicator",
+      "slug": "indikator-1",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 1 måler antibiotikabehandling indenfor 3 timer og havde meget lav målopfyldelse, hvilket gav anledning til supplerende analyse af mediantiden.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Supplerende opgørelse til Indikator 1: Antibiotikabehandling indenfor 3 timer"
+        },
+        {
+          "page": 59,
+          "context": "Den meget lave målopfyldelse for indikator 1 har givet anledning til en supplerende analyse"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4",
+      "type": "quality-indicator",
+      "slug": "indikator-4",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 4 skal omfatte præoperativ optimering (NAAZ2-koden) for at monitorere i hvor høj grad patienter optimeres før operation.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "Oplysningen skal indgå i Indikator 4, der har været ønsket siden overgangen til LPR3"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 9",
+      "type": "quality-indicator",
+      "slug": "indikator-9",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 9 måler andelen af patienter, der har fået anlagt epidural i forbindelse med operation, og skal beregnes med data fra både Dansk Anæstesi Database og LPR.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "til beregning af indikator 9 (Andelen af patienter, der har fået anlagt epidural i forbindelse med operationen)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 11",
+      "type": "quality-indicator",
+      "slug": "indikator-11",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 11 er en mortalitetsindikator, der ønskes opdelt baseret på komorbiditet ved indførelse af Charlson Scoren.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "mortalitetsindikatorerne (Indikator 10, 11 og supplerende til indikator 10 og 11) kan opdeles baseret på komorbiditet"
+        }
+      ]
+    },
+    {
+      "name": "Supplerende Indikator 5",
+      "type": "quality-indicator",
+      "slug": "supplerende-indikator-5x",
+      "folder": "topics/quality-indicators",
+      "significance": "Supplerende indikator 5 er en kvalitetsmåling i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Supplerende Indikator 5"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus havde en median tid på 477 minutter fra ankomst til sygehus til antibiotikabehandling i analyseperioden.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Esbjerg Sygehus Grindsted Sygehus 190 264 477 1.244"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet havde den længste median tid på 503 minutter fra ankomst til antibiotikabehandling blandt hospitalerne i Region Hovedstaden.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Rigshospitalet 96 225 503 1.294"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Lillebælt havde en median tid på 439 minutter fra ankomst til antibiotikabehandling med høj tredje kvartil på 2.695 minutter.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Sygehus Lillebælt 102 165 439 2.695"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital - Svendborg",
+      "type": "organization",
+      "slug": "odense-universitetshospital-svendborg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense Universitetshospital - Svendborg havde en median tid på 392 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Odense Universitetshospital - Svendborg 336 188 392 1.349"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital havde en median tid på 201 minutter fra ankomst til antibiotikabehandling, blandt de korteste blandt større hospitaler.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Aarhus Universitetshospital 168 75 201 552"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital havde en median tid på 294 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 60,
+          "context": "Aalborg Universitetshospital 151 122 294 730"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospital Nordjylland havde en median tid på 278 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 60,
+          "context": "Regionshospital Nordjylland 107 82 278 498"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup havde en median tid på 226 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Regionshospitalet Gødstrup 187 93 226 428"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Horsens havde en median tid på 276 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Regionshospitalet Horsens 141 110 276 803"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Randers havde en median tid på 157 minutter fra ankomst til antibiotikabehandling, blandt de korteste blandt regionshospitalerne.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Regionshospitalet Randers 148 82 157 407"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt havde en median tid på 217 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Hospitalsenhed Midt 157 116 217 590"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital havde en median tid på 284 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Sjællands Universitetshospital 278 151 284 646"
+        }
+      ]
+    },
+    {
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagelse-ringsted-sygehuse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse havde en median tid på 227 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Næstved, Slagelse og Ringsted sygehuse 202 126 227 528"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus havde en median tid på 191 minutter fra ankomst til antibiotikabehandling, blandt de korteste blandt hospitalerne.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Holbæk Sygehus 152 97 191 354"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholms Hospital havde en median tid på 205 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Bornholms Hospital 28 87 205 294"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev og Gentofte Hospital havde en median tid på 248 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Herlev og Gentofte Hospital 341 179 248 424"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalerne i Nordsjælland havde en median tid på 197 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Hospitalerne i Nordsjælland 224 90 197 395"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospital",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg og Frederiksberg Hospital havde en median tid på 250 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Bispebjerg og Frederiksberg Hospital 188 166 250 603"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Amager og Hvidovre Hospital havde en median tid på 277 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Amager og Hvidovre Hospital 280 161 277 723"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Sønderjylland havde en median tid på 315 minutter fra ankomst til antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Sygehus Sønderjylland 116 173 315 1.301"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden havde 1.157 patienter i analysen af antibiotikabehandling med median tid på 251 minutter.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Region Hovedstaden Region i alt 1.157 153 251 595"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland havde 632 patienter i analysen af antibiotikabehandling med median tid på 241 minutter.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Sjælland Region i alt 632 124 241 522"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Syddanmark havde 744 patienter i analysen af antibiotikabehandling med median tid på 413 minutter.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Syddanmark Region i alt 744 190 413 1.367"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Midtjylland havde 801 patienter i analysen af antibiotikabehandling med median tid på 217 minutter.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Midtjylland Region i alt 801 92 217 528"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland havde 258 patienter i analysen af antibiotikabehandling med median tid på 287 minutter.",
+      "mentions": [
+        {
+          "page": 60,
+          "context": "Nordjylland Region i alt 258 114 287 534"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark havde 3.592 patienter i analysen af antibiotikabehandling med national median tid på 264 minutter fra ankomst til sygehus til modtagelse af antibiotika.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Danmark 3.592 137 264 648"
+        }
+      ]
+    },
+    {
+      "name": "Epidural",
+      "type": "clinical-concept",
+      "slug": "epidural",
+      "folder": "topics/clinical-concepts",
+      "significance": "Epidural anæstesi er en behandling, der ønskes monitoreret gennem koderne BABZ00 og NAAD0* for beregning af indikator 9.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "BABZ00 (Anlæggelse af epiduralkateter) og NAAD0* (Epidural blokade) angiver, om der er brugt epidural i behandlingen af patienten"
+        }
+      ]
+    },
+    {
+      "name": "Præoperativ optimering",
+      "type": "clinical-concept",
+      "slug": "praeoperativ-optimering",
+      "folder": "topics/clinical-concepts",
+      "significance": "Præoperativ optimering (NAAZ2-koden) ønskes monitoreret for at sikre, at patienter optimeres før operation, og skal indgå i indikator 4.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "NAAZ2 (Anæstesiologisk præoperativ optimering). Koden er indført på baggrund af et ønske om at sikre, patienterne optimeres præoperativt"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-10",
+      "predicate": "measures",
+      "object": "mortalitet-indenfor-90-dage",
+      "evidence": "Indikator 10 beskriver andelen af patienter, der dør indenfor 90 dage fra tidspunkt for operation",
+      "page": 57
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "had-highest-mortality-rate",
+      "object": "indikator-10",
+      "evidence": "Regionalt varierede andelen fra 15,7 % i Region Sjælland til 19,6 % i Region Nordjylland",
+      "page": 57
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "had-lowest-mortality-rate",
+      "object": "indikator-10",
+      "evidence": "Regionalt varierede andelen fra 15,7 % i Region Sjælland til 19,6 % i Region Nordjylland",
+      "page": 57
+    },
+    {
+      "subject": "laerings-og-kvalitetesteam-akut-kirurgi",
+      "predicate": "is-coordinated-by",
+      "object": "danske-regioner",
+      "evidence": "kvalitetsindsatsen ved LKT Akutkirurgi via Danske Regioner",
+      "page": 57
+    },
+    {
+      "subject": "dansk-anaestesi-database",
+      "predicate": "provides-data-for",
+      "object": "indikator-9",
+      "evidence": "Denne oplysning har hidtil været indsamlet med Dansk Anæstesi Database som datakilde, men for at optimere datagrundlaget ønskes nu at supplere med data fra LPR til beregning af indikator 9",
+      "page": 58
+    },
+    {
+      "subject": "landspatientregisteret",
+      "predicate": "provides-data-for",
+      "object": "indikator-9",
+      "evidence": "ønskes nu at supplere med data fra LPR til beregning af indikator 9",
+      "page": 58
+    },
+    {
+      "subject": "charlson-comorbidity-score",
+      "predicate": "will-stratify",
+      "object": "indikator-10",
+      "evidence": "Charlson Scoren ønskes indført, sådan at mortalitetsindikatorerne (Indikator 10, 11 og supplerende til indikator 10 og 11) kan opdeles baseret på komorbiditet",
+      "page": 58
+    },
+    {
+      "subject": "naaz2-koden",
+      "predicate": "measures",
+      "object": "praeoperativ-optimering",
+      "evidence": "NAAZ2 (Anæstesiologisk præoperativ optimering). Koden er indført på baggrund af et ønske om at sikre, patienterne optimeres præoperativt",
+      "page": 58
+    }
+  ],
+  "claims": [
+    {
+      "text": "Der indgik 3.179 patienter i indikatoranalysen i perioden. Heraf døde 529 personer, svarende til 16,6 % (95 % CI: 15,4-18,0) indenfor 90 dage fra ankomst til sygehus [^src1]",
+      "type": "mortality-outcome",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Udviklingmålet på < 18 % var opfyldt på nationalt niveau [^src1]",
+      "type": "quality-standard",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Blandt de indberettende enheder opfyldte 15 af de 20 udviklingsmålet i perioden [^src1]",
+      "type": "quality-standard",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Alle Regioner har oplevet bedring i overlevelse de forrige 2 år. Formentlig pga. kvalitetsindsatsen ved LKT Akutkirurgi via Danske Regioner [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "indikator-10",
+        "laerings-og-kvalitetesteam-akut-kirurgi"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Inden for sidste år ses desværre en stigning i mortalitet igen [^src1]",
+      "type": "mortality-outcome",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Der ses en betragtelig mortalitet i perioden fra dag 30 til dag 90 – ca. 30% af dødsfald efter indgreb er i denne periode [^src1]",
+      "type": "mortality-outcome",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Den mediane tid fra ankomst til sygehus og frem til modtagelse af antibiotika er 4,4 timer nationalt [^src2]",
+      "type": "clinical-indicator",
+      "entities": [
+        "indikator-1",
+        "danmark"
+      ],
+      "page": 59
+    },
+    {
+      "text": "Der er ganske stor spredning på afstanden mellem første og tredje kvartil (IQR), hvilket viser at der er meget stor forskel på de enkelte forløb [^src2]",
+      "type": "data-quality",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 59
+    },
+    {
+      "text": "Populationsdannelse udvides med koderne KJAK01*, KJAK03* og KJAK04* fordi det er procedurer, der på nogle sygehuse anvendes i behandlingen af de relevante patienter [^src3]",
+      "type": "methodology",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 57
+    },
+    {
+      "text": "NAAZ2 (Anæstesiologisk præoperativ optimering). Koden er indført på baggrund af et ønske om at sikre, patienterne optimeres præoperativt [^src3]",
+      "type": "methodology",
+      "entities": [
+        "indikator-4"
+      ],
+      "page": 58
+    },
+    {
+      "text": "Charlson Scoren ønskes indført, sådan at mortalitetsindikatorerne (Indikator 10, 11 og supplerende til indikator 10 og 11) kan opdeles baseret på komorbiditet i grupperne 0, 1 -2 og ≥ 3 [^src3]",
+      "type": "methodology",
+      "entities": [
+        "indikator-10",
+        "indikator-11"
+      ],
+      "page": 58
+    },
+    {
+      "text": "Den LPR opdaterer indberetningsvejledningen sådan at tidspunktet for operationsstart fremover skal svare til tidspunktet for knivtid start. Hidtil har tidspunktet været starttidspunktet for anæstesi [^src3]",
+      "type": "methodology",
+      "entities": [
+        "landspatientregisteret"
+      ],
+      "page": 58
+    },
+    {
+      "text": "I 2019-2020 var gennemsnitsalderen i begge grupper 66 år og i 2020-2021 var gennemsnitsalderen også 66 år i begge grupper [^src4]",
+      "type": "demographic",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 58
+    },
+    {
+      "text": "Der var 1,7 % operationer med koden DK65*, hvorfor den ikke blev fjernet fra databasens population [^src4]",
+      "type": "methodology",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 58
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.09.2023 - 31.08.2024",
+      "event": "Analyseperiode for indikator 10 og supplerende opgørelser",
+      "entities": [
+        "indikator-10",
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2019-2020",
+      "event": "Undersøgelse af gennemsnitsalderen blandt opererede vs ikke-opererede patienter",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2020-2021",
+      "event": "Fortsættelse af undersøgelse af gennemsnitsalderen blandt opererede vs ikke-opererede patienter",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2021",
+      "event": "Årsrapport 2021 undersøgte aldersforskel mellem opererede og ikke-opererede",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2022",
+      "event": "Årsrapport 2022 undersøgte betydningen af DK65*-koden for populationen",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "context": "Dette dokument er fra Akut Kirurgi Databasens årsrapport for 2024 og fokuserer på resultater for indikator 10 (mortalitet indenfor 90 dage) samt supplerende analyser af antibiotikabehandling og metodologiske ændringer i databasen. Rapporten dokumenterer, at mortaliteten blandt opererede patienter var 16,6 procent nationalt, hvilket opfyldte udviklingmålet på under 18 procent, men viser også en bekymrende stigning i mortalitet inden for det seneste år trods forbedringer i procesindikatorer. Dokumentet indeholder desuden detaljerede tidsanalyser af antibiotikabehandling på tværs af alle danske regioner og hospitaler, samt beskrivelser af planlagte ændringer i databasens populationsdefinition og nye kvalitetsindikatorer.",
+  "tables": [
+    {
+      "subject": "indikator-10",
+      "title": "Mortalitet indenfor 90 dage for opererede, afdelingsniveau (tabeludsnit)",
+      "page": 56,
+      "rowDimension": "regioner og sygehuse",
+      "colDimension": "målopfyldelse, tæller/nævner og andel for aktuelt og tidligere år",
+      "entities": [
+        "indikator-10",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "region-midtjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "region-nordjylland",
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Enhed | Standard opfyldt | Tæller/nævner | Antal (%) | Andel (95% CI) | Andel 2022/23 | Andel 2021/22 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Esbjerg Sygehus Grindsted Sygehus | Ja | 21 / 158 | 0 (0) | 13,3 (8,4-19,6) | 12,9 | 15,1 |\n| Odense Universitetshospital - Svendborg | Nej | 55 / 299 | 0 (0) | 18,4 (14,2-23,3) | 19,7 | 18,8 |\n| Sygehus Lillebælt | Ja | 14 / 88 | 0 (0) | 15,9 (9,0-25,2) | 6,8 | 7,3 |\n| Sygehus Sønderjylland | Ja | 15 / 113 | 0 (0) | 13,3 (7,6-20,9) | 18,9 | 26,9 |\n| Midtjylland | Ja | 125 / 701 | 0 (0) | 17,8 (15,1-20,9) | 13,1 | 18,1 |\n| Aarhus Universitetshospital | Nej | 30 / 140 | 0 (0) | 21,4 (14,9-29,2) | 12,9 | 15,8 |\n| Hospitalsenhed Midt | Nej | 27 / 139 | 0 (0) | 19,4 (13,2-27,0) | 9,5 | 13,1 |\n| Regionshospitalet Gødstrup | Ja | 30 / 172 | 0 (0) | 17,4 (12,1-24,0) | 12,7 | 19,6 |\n| Regionshospitalet Horsens | Ja | 19 / 123 | 0 (0) | 15,4 (9,6-23,1) | 20,2 | 20,9 |\n| Regionshospitalet Randers | Ja | 19 / 127 | 0 (0) | 15,0 (9,3-22,4) | 12,8 | 21,7 |\n| Nordjylland | Nej | 46 / 235 | 0 (0) | 19,6 (14,7-25,2) | 18,3 | 19,3 |\n| Aalborg Universitetshospital | Nej | 30 / 137 | 0 (0) | 21,9 (15,3-29,8) | 16,3 | 24,6 |\n| Aalborg Universitetshospital, Thisted |  |  |  | 0,0 |  |  |\n| Regionshospital Nordjylland | Ja | 16 / 98 | 0 (0) | 16,3 (9,6-25,2) | 22,1 | 10,1 |",
+      "summary": "Tabellen sammenligner afdelingers og regioners andel af patienter, der dør indenfor 90 dage, mod udviklingsmålet < 18 %; de fleste enheder opfylder målet, men Odense Universitetshospital - Svendborg, Aarhus Universitetshospital, Hospitalsenhed Midt, Nordjylland og Aalborg Universitetshospital gør ikke."
+    },
+    {
+      "subject": "indikator-1",
+      "title": "Supplerende opgørelse til Indikator 1: Antibiotikabehandling indenfor 3 timer",
+      "page": 60,
+      "rowDimension": "regioner og sygehuse",
+      "colDimension": "antal patienter samt Q1, median og Q3 i minutter fra ankomst til antibiotika",
+      "entities": [
+        "indikator-1",
+        "antibiotikabehandling",
+        "danmark",
+        "region-hovedstaden",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "region-sjaelland",
+        "holbaek-sygehus",
+        "naestved-slagelse-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "region-syddanmark",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "region-midtjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "region-nordjylland",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Enhed | Antal | Q1 | Median | Q3 |\n| --- | --- | --- | --- | --- |\n| Danmark | 3.592 | 137 | 264 | 648 |\n| Hovedstaden Region i alt | 1.157 | 153 | 251 | 595 |\n| Amager og Hvidovre Hospital | 280 | 161 | 277 | 723 |\n| Bispebjerg og Frederiksberg Hospital | 188 | 166 | 250 | 603 |\n| Bornholms Hospital | 28 | 87 | 205 | 294 |\n| Herlev og Gentofte Hospital | 341 | 179 | 248 | 424 |\n| Hospitalerne i Nordsjælland | 224 | 90 | 197 | 395 |\n| Rigshospitalet | 96 | 225 | 503 | 1.294 |\n| Sjælland Region i alt | 632 | 124 | 241 | 522 |\n| Holbæk Sygehus | 152 | 97 | 191 | 354 |\n| Næstved, Slagelse og Ringsted sygehuse | 202 | 126 | 227 | 528 |\n| Sjællands Universitetshospital | 278 | 151 | 284 | 646 |\n| Syddanmark Region i alt | 744 | 190 | 413 | 1.367 |\n| Esbjerg Sygehus Grindsted Sygehus | 190 | 264 | 477 | 1.244 |\n| Odense Universitetshospital - Svendborg | 336 | 188 | 392 | 1.349 |\n| Sygehus Lillebælt | 102 | 165 | 439 | 2.695 |\n| Sygehus Sønderjylland | 116 | 173 | 315 | 1.301 |\n| Midtjylland Region i alt | 801 | 92 | 217 | 528 |\n| Aarhus Universitetshospital | 168 | 75 | 201 | 552 |\n| Hospitalsenhed Midt | 157 | 116 | 217 | 590 |\n| Regionshospitalet Gødstrup | 187 | 93 | 226 | 428 |\n| Regionshospitalet Horsens | 141 | 110 | 276 | 803 |\n| Regionshospitalet Randers | 148 | 82 | 157 | 407 |\n| Nordjylland Region i alt | 258 | 114 | 287 | 534 |\n| Aalborg Universitetshospital | 151 | 122 | 294 | 730 |\n| Regionshospital Nordjylland | 107 | 82 | 278 | 498 |",
+      "summary": "Tabellen sammenligner tiden fra ankomst til antibiotika (i hele minutter) på tværs af regioner og hospitaler; nationalt er medianen 264 minutter (4,4 timer) med markant spredning, og Sygehus Lillebælt skiller sig ud med en Q3 på 2.695 minutter."
+    }
+  ]
+}

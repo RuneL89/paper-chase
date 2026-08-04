@@ -835,7 +835,7 @@ test('gate 13.6: OpenAI DOX row recommends mid-tier GPT-5.6 Terra (never Sol); o
         synthesis: null,
         dox: null,
       },
-      apiKeys: { anthropic: null, openai: null },
+      apiKeys: { anthropic: null, openai: null, qwen: null },
     }),
     'utf-8',
   );

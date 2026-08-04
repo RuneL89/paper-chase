@@ -8,14 +8,17 @@ import { enqueueSerializedWrite } from '../utils/serialized-writes';
 const ANTHROPIC_API_URL = 'https://api.anthropic.com/v1/messages';
 const ANTHROPIC_VERSION = '2023-06-01';
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
+const QWEN_API_URL = 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions';
 const DEFAULT_MODEL = 'claude-haiku-4-5-20251001';
 
 /**
  * Supported LLM providers (Phase 11 v1.4.0 multi-provider extension, user
- * directive 2026-07-22). Anthropic is the default; OpenAI is opt-in via the
- * Settings screen's Provider row.
+ * directive 2026-07-22; Qwen extension 2026-08-04; custom providers v1.8.0).
+ * Built-in literals: 'anthropic' (default), 'openai', 'qwen'.
+ * Custom providers use the `custom:${id}` form where `id` is the slugified
+ * custom provider name stored in `.paper-chase.json`.
  */
-export type Provider = 'anthropic' | 'openai';
+export type Provider = 'anthropic' | 'openai' | 'qwen' | `custom:${string}`;
 
 /**
  * Price table in USD per million tokens (MTok).
@@ -26,6 +29,8 @@ export type Provider = 'anthropic' | 'openai';
  * GPT-5.6 Luna: $1/$6; GPT-5.6 Terra: $2.50/$15; GPT-5.6 Sol: $5/$30
  * (Phase 11 v1.4.0 OpenAI lineup, verified against live OpenAI docs
  * 2026-07-22 — see the compliance log).
+ * Qwen (DashScope) prices are PLACEHOLDER (TODO: replace with the exact
+ * per-MTok values from your DashScope console when available).
  * Anthropic prices can be overridden via ANTHROPIC_INPUT_PRICE_PER_MTOK and
  * ANTHROPIC_OUTPUT_PRICE_PER_MTOK. Unknown models fall back to the
  * Haiku 4.5 prices.
@@ -37,6 +42,10 @@ const PRICE_PER_MTOK: Record<string, { input: number; output: number }> = {
   'gpt-5.6-luna': { input: 1, output: 6 },
   'gpt-5.6-terra': { input: 2.5, output: 15 },
   'gpt-5.6-sol': { input: 5, output: 30 },
+  // TODO(Qwen pricing): update from the DashScope console once known.
+  'qwen-plus': { input: 0.5, output: 1 },
+  'qwen3.7-max': { input: 2, output: 5 },
+  'qwen3.8-max': { input: 3, output: 6 },
   default: { input: 1, output: 5 },
 };
 
@@ -67,7 +76,12 @@ export interface ModelRouting {
   apiKeys?: {
     anthropic?: string | null;
     openai?: string | null;
+    qwen?: string | null;
   };
+  /** Phase 11 v1.8.0: custom provider configs (OpenAI-compatible by default,
+   * fully configurable). Used by `resolveApiKey`, `buildCustomProviderRequest`,
+   * and `parseCustomProviderResponse`. */
+  customProviders?: import('../tui/settings').CustomProviderConfig[];
 }
 
 /** Call types that route to the Synthesis Writer model. */
@@ -101,6 +115,7 @@ export function setModelRouting(routing: ModelRouting | null): void {
           apiKeys: {
             anthropic: normalizeStoredKey(routing.apiKeys?.anthropic),
             openai: normalizeStoredKey(routing.apiKeys?.openai),
+            qwen: normalizeStoredKey(routing.apiKeys?.qwen),
           },
         };
 }
@@ -130,25 +145,41 @@ export function resolveProvider(): Provider {
  * set the behavior is byte-identical to the pre-Phase-11 client: env var,
  * then DEFAULT_MODEL.
  */
+/**
+ * Pure model resolution for a given routing table. Used by `resolveModel`
+ * (which reads the module-level routing) and by the TUI test-connection
+ * helper (which passes the settings table explicitly).
+ */
+export function resolveModelFromRouting(
+  routing: ModelRouting,
+  callType?: string,
+  override?: string,
+): string {
+  if (override) {
+    return override;
+  }
+  if (callType === 'extractor' && routing.extractor !== null) {
+    return routing.extractor;
+  }
+  if (callType !== undefined && SYNTHESIS_CALL_TYPES.has(callType) && routing.synthesis !== null) {
+    return routing.synthesis;
+  }
+  if (callType === 'dox-writer' && routing.dox !== null) {
+    return routing.dox;
+  }
+  // Phase 14 §2.6: 'curation' → routing.curation → default when null.
+  if (callType === 'curation' && routing.curation != null) {
+    return routing.curation;
+  }
+  return routing.default;
+}
+
 export function resolveModel(callType?: string, override?: string): string {
   if (override) {
     return override;
   }
   if (modelRouting !== null) {
-    if (callType === 'extractor' && modelRouting.extractor !== null) {
-      return modelRouting.extractor;
-    }
-    if (callType !== undefined && SYNTHESIS_CALL_TYPES.has(callType) && modelRouting.synthesis !== null) {
-      return modelRouting.synthesis;
-    }
-    if (callType === 'dox-writer' && modelRouting.dox !== null) {
-      return modelRouting.dox;
-    }
-    // Phase 14 §2.6: 'curation' → routing.curation → default when null.
-    if (callType === 'curation' && modelRouting.curation != null) {
-      return modelRouting.curation;
-    }
-    return modelRouting.default;
+    return resolveModelFromRouting(modelRouting, callType, override);
   }
   return process.env.ANTHROPIC_MODEL ?? DEFAULT_MODEL;
 }
@@ -202,12 +233,48 @@ function loadEnvFile(): void {
  * loader populates process.env first). Returns null when neither exists.
  */
 function resolveApiKey(provider: Provider): string | null {
-  const stored =
-    provider === 'openai' ? modelRouting?.apiKeys?.openai : modelRouting?.apiKeys?.anthropic;
-  if (stored) {
+  if (provider.startsWith('custom:')) {
+    const id = provider.slice(7);
+    const cp = modelRouting?.customProviders?.find((c) => c.id === id);
+    return cp?.apiKey ?? null;
+  }
+  return resolveApiKeyForProvider(
+    provider as 'anthropic' | 'openai' | 'qwen',
+    modelRouting?.apiKeys?.[provider as 'anthropic' | 'openai' | 'qwen'] ?? null,
+  );
+}
+
+/**
+ * Resolve the full API key for a provider from an optional stored key, the
+ * environment, and the `.env` fallback. Used by `resolveApiKey` (which reads
+ * the module-level routing) and by the TUI test-connection helper (which
+ * passes the Settings-stored key explicitly).
+ */
+export function resolveApiKeyForTest(
+  provider: Provider,
+  storedKey?: string | null,
+  customProviders?: import('../tui/settings').CustomProviderConfig[],
+): string | null {
+  if (provider.startsWith('custom:')) {
+    const id = provider.slice(7);
+    const cp = customProviders?.find((c) => c.id === id);
+    return cp?.apiKey ?? null;
+  }
+  return resolveApiKeyForProvider(provider, storedKey ?? null);
+}
+
+function resolveApiKeyForProvider(provider: Provider, storedKey: string | null): string | null {
+  const stored = normalizeStoredKey(storedKey);
+  if (stored !== null) {
     return stored;
   }
-  return (provider === 'openai' ? process.env.OPENAI_API_KEY : process.env.ANTHROPIC_API_KEY) ?? null;
+  const envKey =
+    provider === 'openai'
+      ? process.env.OPENAI_API_KEY
+      : provider === 'qwen'
+        ? process.env.DASHSCOPE_API_KEY
+        : process.env.ANTHROPIC_API_KEY;
+  return envKey ?? null;
 }
 
 /** Source of a resolved API key, for the Settings screen's masked display. */
@@ -230,7 +297,16 @@ export function getApiKeyStatus(provider: Provider, storedKey?: string | null): 
   if (stored !== null) {
     return { source: 'stored', last4: stored.slice(-4) };
   }
-  const envKey = provider === 'openai' ? process.env.OPENAI_API_KEY : process.env.ANTHROPIC_API_KEY;
+  if (provider.startsWith('custom:')) {
+    // Custom providers have no env fallback; the key lives in the provider config.
+    return { source: 'none', last4: null };
+  }
+  const envKey =
+    provider === 'openai'
+      ? process.env.OPENAI_API_KEY
+      : provider === 'qwen'
+        ? process.env.DASHSCOPE_API_KEY
+        : process.env.ANTHROPIC_API_KEY;
   if (envKey) {
     return { source: 'environment', last4: envKey.slice(-4) };
   }
@@ -312,6 +388,7 @@ function buildAnthropicRequest(
  * `role: 'system'` message. `options.temperature` is intentionally IGNORED:
  * the GPT-5.6 reasoning models reject a custom temperature, so the field is
  * never sent for this provider.
+ * Qwen (DashScope OpenAI-compatible endpoint) uses the same request shape.
  */
 function buildOpenAIRequest(
   model: string,
@@ -319,6 +396,7 @@ function buildOpenAIRequest(
   system: string | undefined,
   options: CallLLMOptions,
   apiKey: string,
+  baseUrl: string = OPENAI_API_URL,
 ): ProviderRequest {
   const messages: Array<{ role: string; content: string }> = [];
   if (system) {
@@ -326,7 +404,7 @@ function buildOpenAIRequest(
   }
   messages.push({ role: 'user', content: prompt });
   return {
-    url: OPENAI_API_URL,
+    url: baseUrl,
     headers: {
       'content-type': 'application/json',
       authorization: `Bearer ${apiKey}`,
@@ -357,6 +435,95 @@ function parseOpenAIResponse(json: (AnthropicResponse & OpenAIResponse) | undefi
     text: typeof content === 'string' ? content : '',
     inputTokens: json?.usage?.prompt_tokens ?? 0,
     outputTokens: json?.usage?.completion_tokens ?? 0,
+  };
+}
+
+/**
+ * Fill a JSON template with placeholder values. Supported placeholders:
+ * `{{model}}`, `{{messages}}` (a JSON array string), `{{maxTokens}}`,
+ * `{{temperature}}` (replaced with the value or `null` when omitted), and
+ * `{{apiKey}}`.
+ */
+function fillTemplate(template: string, values: Record<string, string | number | null | undefined>): string {
+  return template.replace(/\{\{(\w+)\}\}/g, (_match, key: string) => {
+    const value = values[key];
+    if (value === undefined || value === null) {
+      return key === 'temperature' ? 'null' : '';
+    }
+    if (typeof value === 'number') {
+      return String(value);
+    }
+    return value;
+  });
+}
+
+/**
+ * Extract a value from a JSON object using a simple dot/bracket path
+ * (e.g., `choices[0].message.content`, `usage.prompt_tokens`). Returns
+ * `undefined` when the path does not exist.
+ */
+function getPath(obj: unknown, path: string): unknown {
+  const parts = path.replace(/\[(\d+)\]/g, '.$1').split('.').filter(Boolean);
+  let current: unknown = obj;
+  for (const part of parts) {
+    if (current === null || current === undefined || typeof current !== 'object') {
+      return undefined;
+    }
+    current = (current as Record<string, unknown>)[part];
+  }
+  return current;
+}
+
+/**
+ * Build a custom provider request from its config. The request body is the
+ * filled JSON template; the headers are the configured headers with
+ * `{{apiKey}}` filled. The URL is the configured base URL (used as-is — the
+ * user can include any path).
+ */
+function buildCustomProviderRequest(
+  config: import('../tui/settings').CustomProviderConfig,
+  model: string,
+  prompt: string,
+  system: string | undefined,
+  options: CallLLMOptions,
+  apiKey: string,
+): ProviderRequest {
+  const messages: Array<{ role: string; content: string }> = [];
+  if (system) {
+    messages.push({ role: 'system', content: system });
+  }
+  messages.push({ role: 'user', content: prompt });
+
+  const bodyStr = fillTemplate(config.requestTemplate, {
+    model,
+    messages: JSON.stringify(messages),
+    maxTokens: options.maxTokens ?? 1024,
+    temperature: options.temperature,
+    apiKey,
+  });
+
+  const body = JSON.parse(bodyStr) as Record<string, unknown>;
+
+  const headers: Record<string, string> = { 'content-type': 'application/json' };
+  for (const h of config.headers) {
+    headers[h.key] = fillTemplate(h.value, { apiKey });
+  }
+
+  return { url: config.baseUrl, headers, body };
+}
+
+/**
+ * Parse a custom provider response using its configured response template.
+ * The paths are dot/bracket JSON paths (e.g., `choices[0].message.content`).
+ */
+function parseCustomProviderResponse(
+  json: unknown,
+  responseTemplate: import('../tui/settings').CustomProviderResponseTemplate,
+): ParsedProviderResponse {
+  return {
+    text: (getPath(json, responseTemplate.textPath) as string | undefined) ?? '',
+    inputTokens: (getPath(json, responseTemplate.inputTokensPath ?? '') as number | undefined) ?? 0,
+    outputTokens: (getPath(json, responseTemplate.outputTokensPath ?? '') as number | undefined) ?? 0,
   };
 }
 
@@ -470,7 +637,7 @@ interface LlmCallLogEntry {
   timestamp: string;
   callType?: string;
   context?: string;
-  /** Phase 11 v1.4.0: additive provider field ('anthropic' | 'openai'). */
+  /** Phase 11 v1.4.0: additive provider field ('anthropic' | 'openai' | 'qwen'). */
   provider: Provider;
   model: string;
   inputTokens: number;
@@ -520,21 +687,48 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
   loadEnvFile();
 
   const provider = resolveProvider();
-  const isOpenAI = provider === 'openai';
   const apiKey = resolveApiKey(provider);
   if (!apiKey) {
+    const keyName = provider.startsWith('custom:')
+      ? `Custom provider API key (${provider.slice(7)})`
+      : provider === 'openai'
+        ? 'OPENAI_API_KEY'
+        : provider === 'qwen'
+          ? 'DASHSCOPE_API_KEY'
+          : 'ANTHROPIC_API_KEY';
     throw new Error(
-      isOpenAI
-        ? 'OPENAI_API_KEY is not set. Add it in Settings, export it in your environment, or add it to a .env file in the project root.'
-        : 'ANTHROPIC_API_KEY is not set. Add it in Settings, export it in your environment, or add it to a .env file in the project root.',
+      `${keyName} is not set. Add it in Settings, export it in your environment, or add it to a .env file in the project root.`,
     );
   }
 
   const model = resolveModel(options.callType, options.model);
-  const providerName = isOpenAI ? 'OpenAI' : 'Anthropic';
-  const providerRequest = isOpenAI
-    ? buildOpenAIRequest(model, prompt, system, options, apiKey)
-    : buildAnthropicRequest(model, prompt, system, options, apiKey);
+  const providerName = provider.startsWith('custom:')
+    ? modelRouting?.customProviders?.find((c) => c.id === provider.slice(7))?.name ?? provider
+    : provider === 'openai'
+      ? 'OpenAI'
+      : provider === 'qwen'
+        ? 'Qwen'
+        : 'Anthropic';
+
+  let providerRequest: ProviderRequest;
+  if (provider.startsWith('custom:')) {
+    const config = modelRouting?.customProviders?.find((c) => c.id === provider.slice(7));
+    if (!config) {
+      throw new Error(`Custom provider '${provider.slice(7)}' not found in settings.`);
+    }
+    providerRequest = buildCustomProviderRequest(config, model, prompt, system, options, apiKey);
+  } else if (provider === 'openai' || provider === 'qwen') {
+    providerRequest = buildOpenAIRequest(
+      model,
+      prompt,
+      system,
+      options,
+      apiKey,
+      provider === 'qwen' ? QWEN_API_URL : OPENAI_API_URL,
+    );
+  } else {
+    providerRequest = buildAnthropicRequest(model, prompt, system, options, apiKey);
+  }
 
   const maxAttempts = 1 + Math.max(0, options.maxRetries ?? 0);
   // Phase 16 (vision `04` §1): large-output calls (synthesis family,
@@ -589,7 +783,15 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
     throw new Error(`${providerName} API error (HTTP ${statusCode}): ${JSON.stringify(json)}`);
   }
 
-  const parsed = isOpenAI ? parseOpenAIResponse(json) : parseAnthropicResponse(json);
+  let parsed: ParsedProviderResponse;
+  if (provider.startsWith('custom:')) {
+    const config = modelRouting?.customProviders?.find((c) => c.id === provider.slice(7));
+    parsed = parseCustomProviderResponse(json, config?.responseTemplate ?? { textPath: '' });
+  } else if (provider === 'openai' || provider === 'qwen') {
+    parsed = parseOpenAIResponse(json);
+  } else {
+    parsed = parseAnthropicResponse(json);
+  }
   const inputTokens = parsed.inputTokens;
   const outputTokens = parsed.outputTokens;
   const prices = PRICE_PER_MTOK[model] ?? PRICE_PER_MTOK.default;
@@ -611,4 +813,91 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
   });
 
   return parsed.text;
+}
+
+/**
+ * Test whether a provider + API key + model can return a response. Sends a
+ * tiny, cheap request using the same provider-specific request builders as
+ * production, with `maxTokens: 1` and a minimal prompt. Does NOT use the
+ * module-level model routing, does NOT retry, does NOT log to
+ * `llm-calls.json`, and does NOT charge against the run's cost metrics.
+ *
+ * Returns `{ ok: true, message }` on a 2xx response with text, otherwise
+ * `{ ok: false, message }` with the HTTP status + API error message or a
+ * network/timeout description.
+ */
+export async function testModelConnection(
+  provider: Provider,
+  model: string,
+  apiKey: string,
+  customProviders?: import('../tui/settings').CustomProviderConfig[],
+): Promise<{ ok: boolean; message: string }> {
+  const providerName = provider.startsWith('custom:')
+    ? customProviders?.find((c) => c.id === provider.slice(7))?.name ?? provider
+    : provider === 'openai'
+      ? 'OpenAI'
+      : provider === 'qwen'
+        ? 'Qwen'
+        : 'Anthropic';
+
+  let providerRequest: ProviderRequest;
+  if (provider.startsWith('custom:')) {
+    const config = customProviders?.find((c) => c.id === provider.slice(7));
+    if (!config) {
+      return { ok: false, message: `Custom provider '${provider.slice(7)}' not found in settings.` };
+    }
+    providerRequest = buildCustomProviderRequest(config, model, 'hi', undefined, { maxTokens: 1 }, apiKey);
+  } else if (provider === 'openai' || provider === 'qwen') {
+    providerRequest = buildOpenAIRequest(
+      model,
+      'hi',
+      undefined,
+      { maxTokens: 1 },
+      apiKey,
+      provider === 'qwen' ? QWEN_API_URL : OPENAI_API_URL,
+    );
+  } else {
+    providerRequest = buildAnthropicRequest(model, 'hi', undefined, { maxTokens: 1 }, apiKey);
+  }
+
+  let statusCode = 0;
+  let json: (AnthropicResponse & OpenAIResponse & { error?: { message?: string } }) | undefined;
+  let lastTransportError: Error | undefined;
+
+  try {
+    const response = await request(providerRequest.url, {
+      method: 'POST',
+      headers: providerRequest.headers,
+      body: JSON.stringify(providerRequest.body),
+      headersTimeout: 30_000,
+    });
+    statusCode = response.statusCode;
+    json = (await response.body.json()) as AnthropicResponse &
+      OpenAIResponse & { error?: { message?: string } };
+  } catch (err) {
+    lastTransportError = err as Error;
+  }
+
+  if (lastTransportError !== undefined) {
+    return { ok: false, message: `${providerName} API transport error: ${lastTransportError.message}` };
+  }
+
+  if (statusCode < 200 || statusCode >= 300) {
+    const apiMessage = json?.error?.message ?? JSON.stringify(json);
+    return { ok: false, message: `${providerName} API error (HTTP ${statusCode}): ${apiMessage}` };
+  }
+
+  let parsed: ParsedProviderResponse;
+  if (provider.startsWith('custom:')) {
+    const config = customProviders?.find((c) => c.id === provider.slice(7));
+    parsed = parseCustomProviderResponse(json, config?.responseTemplate ?? { textPath: '' });
+  } else if (provider === 'openai' || provider === 'qwen') {
+    parsed = parseOpenAIResponse(json);
+  } else {
+    parsed = parseAnthropicResponse(json);
+  }
+  if (parsed.text.length === 0) {
+    return { ok: false, message: `${providerName} API returned an empty response.` };
+  }
+  return { ok: true, message: `Connected — ${providerName} model responded.` };
 }

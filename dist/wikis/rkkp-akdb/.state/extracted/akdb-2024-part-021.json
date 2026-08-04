@@ -1,0 +1,413 @@
+{
+  "entities": [
+    {
+      "name": "Peter Svenningsen",
+      "type": "person",
+      "slug": "peter-svenningsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Cheflæge og formand for styregruppens arbejde med Akut Kirurgi Databasen, tilknyttet Dansk Kirurgisk Selskab og Nordsjællands Hospital.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Peter Olsen Svenningsen, Cheflæge, Formand, Dansk Kirurgisk Selskab, Nordsjællands Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Emma Possfelt-Møller",
+      "type": "person",
+      "slug": "emma-possfelt-moller",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Afdelingslæge fra Rigshospitalet og medlem af styregruppens arbejde med Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Emma Possfelt-Møller, Afdelingslæge, Dansk Kirurgisk Selskab, Rigshospitalet, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Mette Aastrup Tolver",
+      "type": "person",
+      "slug": "mette-aastrup-tolver",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Afdelingslæge fra Sjællands Universitetshospital og medlem af styregruppens arbejde med Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Mette Aastrup Tolver, Afdelingslæge, Dansk Kirurgisk Selskab, Sjællands Universitetshospital, Køge, Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Helene Rask Dalby",
+      "type": "person",
+      "slug": "helene-rask-dalby",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Læge fra Regionshospitalet Randers og medlem af styregruppens arbejde med Akut Kirurgi Databasen, repræsentant for Dansk Selskab for Klinisk Ernæring.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Helene Rask Dalby, Læge, Dansk Selskab for Klinisk Ernæring, Regionshospitalet Randers, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Henriette Vind Thaysen",
+      "type": "person",
+      "slug": "henriette-vind-thaysen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Klinisk sygeplejespecialist fra Aarhus Universitetshospital og medlem af styregruppens arbejde med Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Henriette Vind Thaysen, Klinisk sygeplejespecialist, Dansk Selskab for Klinisk Ernæring, Aarhus Universitetshospital, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Thomas Cotzand",
+      "type": "person",
+      "slug": "thomas-cotzand",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Ledende overlæge fra Kolding Sygehus og medlem af styregruppens arbejde med Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Thomas Cotzand, Ledende overlæge, Dansk Kirurgisk Selskab, Kolding Sygehus, Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Vera Slyk",
+      "type": "person",
+      "slug": "vera-slyk",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Patientrepræsentant i styregruppens arbejde med Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Vera Slyk, Patientrepræsentant"
+        }
+      ]
+    },
+    {
+      "name": "Kolding Sygehus",
+      "type": "organization",
+      "slug": "kolding-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital i Region Syddanmark, hvor Thomas Cotzand arbejder som ledende overlæge og medlem af styregruppens arbejde med Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Kolding Sygehus, Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital i Region Sjælland, der har implementeret indsatser for præoperativ optimering og dokumentation af indikatorer 3, 5 og 6.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "På Holbæk har der i denne måleperiode været lavet en indsats, som betød at patienterne ikke længere kørte til stamafdelingen, men i stedet kørte til opvågning eller intensiv mhp. præoperativ optimering"
+        },
+        {
+          "page": 102,
+          "context": "iflg. Holbæk sygehus's lokale database (med håndholdte data, som der generelt er større tiltro til) indfries indikator 5 i 45 af 78 (79%) relevante tilfælde"
+        },
+        {
+          "page": 102,
+          "context": "kan Holbæk sygehus se at der er udfordringer med registrering, da Holbæk sygehus fra egne data ved at langt flere er mobiliseret indenfor 24 timer"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital i Region Midtjylland, der har givet kommentarer til indikatorer 4x, 4y, 5, 6 og 7 i årsrapporten.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Regionshospitalet Horsens, Overordnet indikator 4 er udgået i seneste årsrapport og erstattet af og differentieret i indikator 4x og 4y – akut og subakut"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital i Region Nordjylland, der har givet omfattende kommentarer til datagrundlag, indikatorer og registreringspraksis.",
+      "mentions": [
+        {
+          "page": 104,
+          "context": "Regionshospital Nordjylland (RHN) i Hjørring har følgende spørgsmål til hhv. indikator 1 og 3 ifm. deres grundige gennemgang af årsrapporten samt efterfølgende audit"
+        }
+      ]
+    },
+    {
+      "name": "NordEPJ",
+      "type": "product",
+      "slug": "nordeepj",
+      "folder": "topics/organizational",
+      "significance": "Elektronisk patientjournal-system i Region Nordjylland, hvor ernæringsplan-aktiviteten ikke er tilknyttet relevante procedurekoder.",
+      "mentions": [
+        {
+          "page": 103,
+          "context": "Regionalt er vi blevet bekendt med, at aktiviteten ernæringsplan i NordEPJ ikke er tilknyttet følgende procedurekoder, hvorfor data ikke høstes til AKDB"
+        }
+      ]
+    },
+    {
+      "name": "Charleson score",
+      "type": "product",
+      "slug": "charleson-score",
+      "folder": "topics/clinical-assessment",
+      "significance": "Komorbiditets-scoringssystem, der bruges til at vurdere patienters baggrundsvariabler i forbindelse med indikator 9 (30-dages mortalitet).",
+      "mentions": [
+        {
+          "page": 104,
+          "context": "I relation til Indikator 9: Andel af patienter der dør indenfor 30 dage, er der supplerende opgørelse på Charleson score"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "peter-svenningsen",
+      "predicate": "is-chairman-of",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Peter Olsen Svenningsen, Cheflæge, Formand",
+      "page": 101
+    },
+    {
+      "subject": "peter-svenningsen",
+      "predicate": "works-at",
+      "object": "nordsjaellands-hospital",
+      "evidence": "Nordsjællands Hospital, Region Hovedstaden",
+      "page": 101
+    },
+    {
+      "subject": "emma-possfelt-moller",
+      "predicate": "works-at",
+      "object": "rigshospitalet",
+      "evidence": "Rigshospitalet, Region Hovedstaden",
+      "page": 101
+    },
+    {
+      "subject": "mette-aastrup-tolver",
+      "predicate": "works-at",
+      "object": "sjaellands-universitetshospital",
+      "evidence": "Sjællands Universitetshospital, Køge, Region Sjælland",
+      "page": 101
+    },
+    {
+      "subject": "helene-rask-dalby",
+      "predicate": "works-at",
+      "object": "regionshospitalet-randers",
+      "evidence": "Regionshospitalet Randers, Region Midtjylland",
+      "page": 101
+    },
+    {
+      "subject": "henriette-vind-thaysen",
+      "predicate": "works-at",
+      "object": "aarhus-universitetshospital",
+      "evidence": "Aarhus Universitetshospital, Region Midtjylland",
+      "page": 101
+    },
+    {
+      "subject": "thomas-cotzand",
+      "predicate": "works-at",
+      "object": "kolding-sygehus",
+      "evidence": "Kolding Sygehus, Region Syddanmark",
+      "page": 101
+    },
+    {
+      "subject": "holbaek-sygehus",
+      "predicate": "is-in-region",
+      "object": "region-sjaelland",
+      "evidence": "Region Sjælland",
+      "page": 102
+    },
+    {
+      "subject": "regionshospitalet-horsens",
+      "predicate": "is-in-region",
+      "object": "region-midtjylland",
+      "evidence": "Region Midtjylland",
+      "page": 102
+    },
+    {
+      "subject": "regionshospital-nordjylland",
+      "predicate": "is-in-region",
+      "object": "region-nordjylland",
+      "evidence": "Region Nordjylland",
+      "page": 104
+    }
+  ],
+  "claims": [
+    {
+      "text": "Holbæk Sygehus har implementeret en indsats, hvor patienter ikke længere kørte til stamafdelingen, men i stedet kørte til opvågning eller intensiv mhp. præoperativ optimering [^src1]",
+      "type": "organizational",
+      "entities": [
+        "holbaek-sygehus"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Holbæk Sygehus har indført øget dokumentationskrav til anæstesilægerne, hvor de i højere detaljegrad beskriver hvad den præ-operative optimering indebar [^src1]",
+      "type": "organizational",
+      "entities": [
+        "holbaek-sygehus"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Ifølge Holbæk Sygehus's lokale database indfries indikator 5 i 45 af 78 (79%) relevante tilfælde [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "holbaek-sygehus",
+        "indikator-5"
+      ],
+      "page": 102
+    },
+    {
+      "text": "I årsrapporten indfrier Holbæk Sygehus indikator 5 i 32 af 82 (39,0%) [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "holbaek-sygehus",
+        "indikator-5"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Regionshospitalet Horsens har påpeget, at indikation for præoperativ anæstesiologisk optimering og ophold på intermediært eller intensivt afsnit fortsat er udifferentieret ift. akut eller subakut operationsindikation [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "regionshospitalet-horsens"
+      ],
+      "page": 102
+    },
+    {
+      "text": "AKDB-data fra Regionshospitalet Horsens omfatter kun 31 'højrisikopatienter' ud af 123 forløb for indikator 5 [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "regionshospitalet-horsens",
+        "indikator-5"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Manuel optælling fra Regionshospitalet Horsens viser 66 'højrisikopatienter': 10 opfyldt, 21 ikke opfyldt, 35 manglende data [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "regionshospitalet-horsens"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Audit på stikprøve af 20 forløb fra Regionshospitalet Horsens viser samlet indikatoropfyldelse på ca. 70% for indikator 5 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "regionshospitalet-horsens",
+        "indikator-5"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Audit på stikprøve af 10 patientforløb fra Regionshospitalet Horsens viser at 8 bliver mobiliseret (registreringsproblem), 1 ikke relevant (registreringsproblem), 1 bliver ikke mobiliseret for indikator 6 [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "regionshospitalet-horsens"
+      ],
+      "page": 103
+    },
+    {
+      "text": "På baggrund af stikprøves estimeres det at 94% bliver mobiliseret for indikator 6 [^src1]",
+      "type": "quality-indicator",
+      "entities": [],
+      "page": 103
+    },
+    {
+      "text": "Audit på stikprøve af 10 patientforløb fra Regionshospitalet Horsens viser at 9 har en ernæringsplan/får ernæring (registreringsproblem), 1 har ikke en ernæringsplan for indikator 7 [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "regionshospitalet-horsens"
+      ],
+      "page": 103
+    },
+    {
+      "text": "På baggrund af stikprøves estimeres det at 92% har en ernæringsplan for indikator 7 [^src1]",
+      "type": "quality-indicator",
+      "entities": [],
+      "page": 103
+    },
+    {
+      "text": "Regionshospital Nordjylland påpeger, at aktiviteten ernæringsplan i NordEPJ ikke er tilknyttet procedurekoderne ZZ2009C og ZZ2009D, hvorfor data ikke høstes til AKDB [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "regionshospital-nordjylland"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Regionshospital Nordjylland har auditeret på patienterne for indikator 9 og fundet at Charleson scorer ikke passer [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "regionshospital-nordjylland"
+      ],
+      "page": 104
+    },
+    {
+      "text": "For Danmark er opgivet et antal på 3668 opererede, men hvis nævner populationen i 4x og 4Y lægges sammen så er det blot 2452 patienter [^src1]",
+      "type": "data-quality",
+      "entities": [],
+      "page": 104
+    },
+    {
+      "text": "Nationalt datagrundlag for indikator 1 Antibiotika indenfor 3 timer er 3099 patienter [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 103
+    },
+    {
+      "text": "I den supplerende analyse af data er datagrundlaget nationalt opgjort til 3592 patienter for indikator 1 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Median tid fra ankomst til modtagelse af antibiotika er angivet som 264 min svarende til 4,4 time [^src1]",
+      "type": "clinical-indicator",
+      "entities": [],
+      "page": 103
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024-03",
+      "event": "Datadefinition fra marts 2024 beslutter, at udelukkende ZZ2009-underkoderne C og D skal bruges i indikator 7",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2023",
+      "event": "Koden 'Ernæring genoptaget' blev sendt til styregruppens vurdering",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk indeholder styregruppens medlemmer for Akut Kirurgi Databasen samt regionale kommentarer fra alle fem danske regioner til årsrapporten for 2024. Dokumentet dokumenterer implementeringen af kvalitetsindikatorer på tværs af danske hospitaler, med særlig fokus på registreringsproblemer, datagrundlag og lokale indsatser for forbedring af patientbehandling. Regionerne rapporterer om udfordringer med datakvalitet, især vedrørende indikatorerne for præoperativ optimering, intermediær indlæggelse, tidlig mobilisering og ernæring.",
+  "tables": []
+}

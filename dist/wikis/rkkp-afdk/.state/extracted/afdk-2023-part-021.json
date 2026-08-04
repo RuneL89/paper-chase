@@ -1,0 +1,1377 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "This is the Danish atrial fibrillation database that produces the annual report containing clinical quality indicators and patient outcome data analyzed in this chunk.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-registries",
+      "significance": "RKKP is the Danish regional clinical quality development program that oversees and publishes the atrial fibrillation database and its quality indicators.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "One of Denmark's five regions, reported separately in the atrial fibrillation quality indicators with specific patient outcome data.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "One of Denmark's five regions with separate reporting of atrial fibrillation patient outcomes and quality indicators.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "One of Denmark's five regions with separate reporting of atrial fibrillation patient outcomes and quality indicators.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "One of Denmark's five regions with separate reporting of atrial fibrillation patient outcomes and quality indicators.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "One of Denmark's five regions with separate reporting of atrial fibrillation patient outcomes and quality indicators.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Hovedstaden with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Amager og Hvidovre Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospitaler",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Hovedstaden with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Bispebjerg og Frederiksberg Hospitaler"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Hovedstaden with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Bornholms Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Hovedstaden with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Herlev og Gentofte Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Hovedstaden with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Hospitalerne i Nordsjælland"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A major hospital in Region Hovedstaden with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Rigshospitalet"
+        }
+      ]
+    },
+    {
+      "name": "Steno Diabetes Center",
+      "type": "organization",
+      "slug": "steno-diabetes-center",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A specialized diabetes center in Region Hovedstaden with minimal atrial fibrillation patient reporting in the database.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Steno Diabetes Center"
+        }
+      ]
+    },
+    {
+      "name": "Garantiklinikken",
+      "type": "organization",
+      "slug": "garantiklinikken",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A clinic in Sjælland region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Garantiklinikken"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk",
+      "type": "organization",
+      "slug": "holbaek-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Sjælland region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Holbæk"
+        }
+      ]
+    },
+    {
+      "name": "Nykøbing Falster",
+      "type": "organization",
+      "slug": "nykoebing-falster-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Sjælland region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Nykøbing Falster"
+        }
+      ]
+    },
+    {
+      "name": "Næstved",
+      "type": "organization",
+      "slug": "naestved-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Sjælland region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Næstved"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital Køge",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital-koege",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A university hospital in Sjælland region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Sjællands Universitetshospital Køge"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital Roskilde",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital-roskilde",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A university hospital in Sjælland region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Sjællands Universitetshospital Roskilde"
+        }
+      ]
+    },
+    {
+      "name": "Slagelse",
+      "type": "organization",
+      "slug": "slagelse-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Sjælland region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Slagelse"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Syddanmark region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Esbjerg Sygehus Grindsted Sygehus"
+        }
+      ]
+    },
+    {
+      "name": "Kolding Sygehus",
+      "type": "organization",
+      "slug": "kolding-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Syddanmark region with reported atrial fibrillation patient outcomes; results should be interpreted together with Vejle Sygehus as Sygehus Lillebælt.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Kolding Sygehus*"
+        }
+      ]
+    },
+    {
+      "name": "OUH Odense Universitetshospital",
+      "type": "organization",
+      "slug": "ouh-odense-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A university hospital in Syddanmark region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "OUH Odense Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Syddanmark region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Sygehus Sønderjylland"
+        }
+      ]
+    },
+    {
+      "name": "Vejle Sygehus",
+      "type": "organization",
+      "slug": "vejle-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Syddanmark region with reported atrial fibrillation patient outcomes; results should be interpreted together with Kolding Sygehus as Sygehus Lillebælt.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Vejle Sygehus*"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A university hospital in Midtjylland region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 102,
+          "context": "Aarhus Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Friklinikken Region Syddanmark Grindsted",
+      "type": "organization",
+      "slug": "friklinikken-region-syddanmark-grindsted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A clinic in Syddanmark region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 103,
+          "context": "Friklinikken Region Syddanmark Grindsted"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital unit in Midtjylland region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 103,
+          "context": "Hospitalsenhed Midt"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenheden Vest",
+      "type": "organization",
+      "slug": "hospitalsenheden-vest",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital unit in Midtjylland region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 103,
+          "context": "Hospitalsenheden Vest"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A regional hospital in Midtjylland with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 103,
+          "context": "Regionshospitalet Gødstrup"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A regional hospital in Midtjylland with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 103,
+          "context": "Regionshospitalet Horsens"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A regional hospital in Midtjylland with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 103,
+          "context": "Regionshospitalet Randers"
+        }
+      ]
+    },
+    {
+      "name": "Samsø Sundheds og Akuthus",
+      "type": "organization",
+      "slug": "samsoe-sundheds-og-akuthus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A health and acute care facility in Midtjylland with minimal atrial fibrillation patient reporting in the database.",
+      "mentions": [
+        {
+          "page": 103,
+          "context": "Samsø Sundheds og Akuthus"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A university hospital in Nordjylland region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 103,
+          "context": "Aalborg Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital Thisted",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital-thisted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A university hospital facility in Nordjylland region with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 103,
+          "context": "Aalborg Universitetshospital Thisted"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland Ven",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland-ven",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A regional hospital in Nordjylland with reported atrial fibrillation patient outcomes including bleeding and mortality indicators.",
+      "mentions": [
+        {
+          "page": 103,
+          "context": "Regionshospital Nordjylland Ven"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "is-managed-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
+      "page": 101
+    },
+    {
+      "subject": "amager-og-hvidovre-hospital",
+      "predicate": "is-in-region",
+      "object": "region-hovedstaden",
+      "evidence": "Amager og Hvidovre Hospital listed under Hovedstaden section",
+      "page": 102
+    },
+    {
+      "subject": "bispebjerg-og-frederiksberg-hospitaler",
+      "predicate": "is-in-region",
+      "object": "region-hovedstaden",
+      "evidence": "Bispebjerg og Frederiksberg Hospitaler listed under Hovedstaden section",
+      "page": 102
+    },
+    {
+      "subject": "bornholms-hospital",
+      "predicate": "is-in-region",
+      "object": "region-hovedstaden",
+      "evidence": "Bornholms Hospital listed under Hovedstaden section",
+      "page": 102
+    },
+    {
+      "subject": "herlev-og-gentofte-hospital",
+      "predicate": "is-in-region",
+      "object": "region-hovedstaden",
+      "evidence": "Herlev og Gentofte Hospital listed under Hovedstaden section",
+      "page": 102
+    },
+    {
+      "subject": "hospitalerne-i-nordsjaelland",
+      "predicate": "is-in-region",
+      "object": "region-hovedstaden",
+      "evidence": "Hospitalerne i Nordsjælland listed under Hovedstaden section",
+      "page": 102
+    },
+    {
+      "subject": "rigshospitalet",
+      "predicate": "is-in-region",
+      "object": "region-hovedstaden",
+      "evidence": "Rigshospitalet listed under Hovedstaden section",
+      "page": 102
+    },
+    {
+      "subject": "steno-diabetes-center",
+      "predicate": "is-in-region",
+      "object": "region-hovedstaden",
+      "evidence": "Steno Diabetes Center listed under Hovedstaden section",
+      "page": 102
+    },
+    {
+      "subject": "garantiklinikken",
+      "predicate": "is-in-region",
+      "object": "sjaelland",
+      "evidence": "Garantiklinikken listed under Sjælland section",
+      "page": 102
+    },
+    {
+      "subject": "holbaek-hospital",
+      "predicate": "is-in-region",
+      "object": "sjaelland",
+      "evidence": "Holbæk listed under Sjælland section",
+      "page": 102
+    },
+    {
+      "subject": "nykoebing-falster-hospital",
+      "predicate": "is-in-region",
+      "object": "sjaelland",
+      "evidence": "Nykøbing Falster listed under Sjælland section",
+      "page": 102
+    },
+    {
+      "subject": "naestved-hospital",
+      "predicate": "is-in-region",
+      "object": "sjaelland",
+      "evidence": "Næstved listed under Sjælland section",
+      "page": 102
+    },
+    {
+      "subject": "sjaellands-universitetshospital-koege",
+      "predicate": "is-in-region",
+      "object": "sjaelland",
+      "evidence": "Sjællands Universitetshospital Køge listed under Sjælland section",
+      "page": 102
+    },
+    {
+      "subject": "sjaellands-universitetshospital-roskilde",
+      "predicate": "is-in-region",
+      "object": "sjaelland",
+      "evidence": "Sjællands Universitetshospital Roskilde listed under Sjælland section",
+      "page": 102
+    },
+    {
+      "subject": "slagelse-hospital",
+      "predicate": "is-in-region",
+      "object": "sjaelland",
+      "evidence": "Slagelse listed under Sjælland section",
+      "page": 102
+    },
+    {
+      "subject": "esbjerg-sygehus-grindsted-sygehus",
+      "predicate": "is-in-region",
+      "object": "syddanmark",
+      "evidence": "Esbjerg Sygehus Grindsted Sygehus listed under Syddanmark section",
+      "page": 102
+    },
+    {
+      "subject": "kolding-sygehus",
+      "predicate": "is-in-region",
+      "object": "syddanmark",
+      "evidence": "Kolding Sygehus listed under Syddanmark section",
+      "page": 102
+    },
+    {
+      "subject": "ouh-odense-universitetshospital",
+      "predicate": "is-in-region",
+      "object": "syddanmark",
+      "evidence": "OUH Odense Universitetshospital listed under Syddanmark section",
+      "page": 102
+    },
+    {
+      "subject": "sygehus-soenderjylland",
+      "predicate": "is-in-region",
+      "object": "syddanmark",
+      "evidence": "Sygehus Sønderjylland listed under Syddanmark section",
+      "page": 102
+    },
+    {
+      "subject": "vejle-sygehus",
+      "predicate": "is-in-region",
+      "object": "syddanmark",
+      "evidence": "Vejle Sygehus listed under Syddanmark section",
+      "page": 102
+    },
+    {
+      "subject": "aarhus-universitetshospital",
+      "predicate": "is-in-region",
+      "object": "midtjylland",
+      "evidence": "Aarhus Universitetshospital listed under Midtjylland section",
+      "page": 102
+    },
+    {
+      "subject": "friklinikken-region-syddanmark-grindsted",
+      "predicate": "is-in-region",
+      "object": "syddanmark",
+      "evidence": "Friklinikken Region Syddanmark Grindsted listed under Syddanmark section",
+      "page": 103
+    },
+    {
+      "subject": "hospitalsenhed-midt",
+      "predicate": "is-in-region",
+      "object": "midtjylland",
+      "evidence": "Hospitalsenhed Midt listed under Midtjylland section",
+      "page": 103
+    },
+    {
+      "subject": "hospitalsenheden-vest",
+      "predicate": "is-in-region",
+      "object": "midtjylland",
+      "evidence": "Hospitalsenheden Vest listed under Midtjylland section",
+      "page": 103
+    },
+    {
+      "subject": "regionshospitalet-goedstrup",
+      "predicate": "is-in-region",
+      "object": "midtjylland",
+      "evidence": "Regionshospitalet Gødstrup listed under Midtjylland section",
+      "page": 103
+    },
+    {
+      "subject": "regionshospitalet-horsens",
+      "predicate": "is-in-region",
+      "object": "midtjylland",
+      "evidence": "Regionshospitalet Horsens listed under Midtjylland section",
+      "page": 103
+    },
+    {
+      "subject": "regionshospitalet-randers",
+      "predicate": "is-in-region",
+      "object": "midtjylland",
+      "evidence": "Regionshospitalet Randers listed under Midtjylland section",
+      "page": 103
+    },
+    {
+      "subject": "samsoe-sundheds-og-akuthus",
+      "predicate": "is-in-region",
+      "object": "midtjylland",
+      "evidence": "Samsø Sundheds og Akuthus listed under Midtjylland section",
+      "page": 103
+    },
+    {
+      "subject": "aalborg-universitetshospital",
+      "predicate": "is-in-region",
+      "object": "nordjylland",
+      "evidence": "Aalborg Universitetshospital listed under Nordjylland section",
+      "page": 103
+    },
+    {
+      "subject": "aalborg-universitetshospital-thisted",
+      "predicate": "is-in-region",
+      "object": "nordjylland",
+      "evidence": "Aalborg Universitetshospital Thisted listed under Nordjylland section",
+      "page": 103
+    },
+    {
+      "subject": "regionshospital-nordjylland-ven",
+      "predicate": "is-in-region",
+      "object": "nordjylland",
+      "evidence": "Regionshospital Nordjylland Ven listed under Nordjylland section",
+      "page": 103
+    }
+  ],
+  "claims": [
+    {
+      "text": "Der er ved beregningen af CHA2DS2-VASc score ikke givet point for kvindekøn [^src1]",
+      "type": "methodological",
+      "entities": [],
+      "page": 101
+    },
+    {
+      "text": "Danmark havde 50 prævalente atrieflimren patienter med intrakraniel blødning og CHA2DS2VASc score 0 (7,0%) [^src1]",
+      "type": "clinical",
+      "entities": [],
+      "page": 101
+    },
+    {
+      "text": "Region Hovedstaden havde 17 prævalente atrieflimren patienter med intrakraniel blødning og CHA2DS2VASc score 0 (6,9%) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 101
+    },
+    {
+      "text": "Sjælland havde 7 prævalente atrieflimren patienter med intrakraniel blødning og CHA2DS2VASc score 0 (6,8%) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 101
+    },
+    {
+      "text": "Syddanmark havde 12 prævalente atrieflimren patienter med intrakraniel blødning og CHA2DS2VASc score 0 (7,5%) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 101
+    },
+    {
+      "text": "Midtjylland havde 9 prævalente atrieflimren patienter med intrakraniel blødning og CHA2DS2VASc score 0 (7,0%) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 101
+    },
+    {
+      "text": "Nordjylland havde 5 prævalente atrieflimren patienter med intrakraniel blødning og CHA2DS2VASc score 0 (6,8%) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 101
+    },
+    {
+      "text": "Blandt alle prævalente atrieflimren patienter var 131.885 (97,83%) uden alvorlig blødning og 2.925 (2,17%) med alvorlig blødning [^src1]",
+      "type": "clinical",
+      "entities": [],
+      "page": 101
+    },
+    {
+      "text": "Blandt patienter med AK-behandling (NOAC) var 94.529 (97,67%) uden alvorlig blødning og 2.255 (2,33%) med alvorlig blødning [^src1]",
+      "type": "clinical",
+      "entities": [],
+      "page": 101
+    },
+    {
+      "text": "Blandt patienter med Marevan behandling var 8.326 (97,56%) uden alvorlig blødning og 208 (2,44%) med alvorlig blødning [^src1]",
+      "type": "clinical",
+      "entities": [],
+      "page": 101
+    },
+    {
+      "text": "Blandt patienter med både NOAC og Marevan var 1.395 (93,75%) uden alvorlig blødning og 93 (6,25%) med alvorlig blødning [^src1]",
+      "type": "clinical",
+      "entities": [],
+      "page": 101
+    },
+    {
+      "text": "Blandt patienter uden NOAC eller Marevan var 27.635 (98,68%) uden alvorlig blødning og 369 (1,32%) med alvorlig blødning [^src1]",
+      "type": "clinical",
+      "entities": [],
+      "page": 101
+    },
+    {
+      "text": "Danmark havde 644 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 21.045 (3,1%, 95% CI 2,8-3,3) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "clinical",
+      "entities": [],
+      "page": 102
+    },
+    {
+      "text": "Region Hovedstaden havde 170 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 5.628 (3,0%, 95% CI 2,6-3,5) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Sjælland havde 86 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 3.445 (2,5%, 95% CI 2,0-3,1) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Syddanmark havde 174 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 5.069 (3,4%, 95% CI 2,9-4,0) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Midtjylland havde 142 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 4.717 (3,0%, 95% CI 2,5-3,5) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Nordjylland havde 72 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 2.186 (3,3%, 95% CI 2,6-4,1) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Amager og Hvidovre Hospital havde 26 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 932 (2,8%, 95% CI 1,8-4,1) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "amager-og-hvidovre-hospital"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Bispebjerg og Frederiksberg Hospitaler havde 23 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 923 (2,5%, 95% CI 1,6-3,7) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "bispebjerg-og-frederiksberg-hospitaler"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Bornholms Hospital havde 6 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 177 (3,4%, 95% CI 1,3-7,2) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "bornholms-hospital"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Herlev og Gentofte Hospital havde 55 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 1.669 (3,3%, 95% CI 2,5-4,3) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "herlev-og-gentofte-hospital"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Hospitalerne i Nordsjælland havde 34 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 1.194 (2,8%, 95% CI 2,0-4,0) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "hospitalerne-i-nordsjaelland"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Rigshospitalet havde 26 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 728 (3,6%, 95% CI 2,3-5,2) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "rigshospitalet"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Steno Diabetes Center havde 0 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 5 (0,0%, 95% CI 0,0-52,2) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "steno-diabetes-center"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Garantiklinikken havde 7 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 248 (2,8%, 95% CI 1,1-5,7) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "garantiklinikken"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Holbæk havde 16 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 646 (2,5%, 95% CI 1,4-4,0) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "holbaek-hospital"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Nykøbing Falster havde 12 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 605 (2,0%, 95% CI 1,0-3,4) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "nykoebing-falster-hospital"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Næstved havde nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år med 5,0% (95% CI 0,1-24,9) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "naestved-hospital"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Sjællands Universitetshospital Køge havde 12 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 417 (2,9%, 95% CI 1,5-5,0) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "sjaellands-universitetshospital-koege"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Sjællands Universitetshospital Roskilde havde 17 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 692 (2,5%, 95% CI 1,4-3,9) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "sjaellands-universitetshospital-roskilde"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Slagelse havde 21 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 817 (2,6%, 95% CI 1,6-3,9) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "slagelse-hospital"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Esbjerg Sygehus Grindsted Sygehus havde 28 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 798 (3,5%, 95% CI 2,3-5,0) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "esbjerg-sygehus-grindsted-sygehus"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Kolding Sygehus havde 11 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 183 (6,0%, 95% CI 3,0-10,5) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "kolding-sygehus"
+      ],
+      "page": 102
+    },
+    {
+      "text": "OUH Odense Universitetshospital havde 72 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 1.986 (3,6%, 95% CI 2,8-4,5) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "ouh-odense-universitetshospital"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Sygehus Sønderjylland havde 28 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 999 (2,8%, 95% CI 1,9-4,0) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "sygehus-soenderjylland"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Vejle Sygehus havde 30 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 967 (3,1%, 95% CI 2,1-4,4) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "vejle-sygehus"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Aarhus Universitetshospital havde 43 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 940 (4,6%, 95% CI 3,3-6,1) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "aarhus-universitetshospital"
+      ],
+      "page": 102
+    },
+    {
+      "text": "Friklinikken Region Syddanmark Grindsted havde 5 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 136 (3,7%, 95% CI 1,2-8,4) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "friklinikken-region-syddanmark-grindsted"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Hospitalsenhed Midt havde 35 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 1.282 (2,7%, 95% CI 1,9-3,8) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "hospitalsenhed-midt"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Hospitalsenheden Vest havde 18 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 692 (2,6%, 95% CI 1,5-4,1) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "hospitalsenheden-vest"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Regionshospitalet Gødstrup havde 11 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 353 (3,1%, 95% CI 1,6-5,5) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "regionshospitalet-goedstrup"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Regionshospitalet Horsens havde 13 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 685 (1,9%, 95% CI 1,0-3,2) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "regionshospitalet-horsens"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Regionshospitalet Randers havde 22 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 758 (2,9%, 95% CI 1,8-4,4) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "regionshospitalet-randers"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Samsø Sundheds og Akuthus havde 0 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 7 (0,0%, 95% CI 0,0-41,0) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "samsoe-sundheds-og-akuthus"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Aalborg Universitetshospital havde 44 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 1.191 (3,7%, 95% CI 2,7-4,9) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "aalborg-universitetshospital"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Aalborg Universitetshospital Thisted havde nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år med 1,3% (95% CI 0,3-3,7) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "aalborg-universitetshospital-thisted"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Regionshospital Nordjylland Ven havde 25 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 760 (3,3%, 95% CI 2,1-4,8) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "regionshospital-nordjylland-ven"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt [^src1]",
+      "type": "methodological",
+      "entities": [
+        "kolding-sygehus",
+        "vejle-sygehus"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Danmark havde 2.747 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 21.045 (13,1%, 95% CI 12,6-13,5) i perioden 01.07.2021 - 30.06.2022 [^src1]",
+      "type": "clinical",
+      "entities": [],
+      "page": 104
+    },
+    {
+      "text": "Region Hovedstaden havde 707 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 5.628 (12,6%, 95% CI 11,7-13,5) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Sjælland havde 477 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 3.445 (13,8%, 95% CI 12,7-15,0) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Syddanmark havde 638 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 5.069 (12,6%, 95% CI 11,7-13,5) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Midtjylland havde 617 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 4.717 (13,1%, 95% CI 12,1-14,1) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Nordjylland havde 308 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 2.186 (14,1%, 95% CI 12,7-15,6) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Amager og Hvidovre Hospital havde 129 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 932 (13,8%, 95% CI 11,7-16,2) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "amager-og-hvidovre-hospital"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Bispebjerg og Frederiksberg Hospitaler havde 102 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 923 (11,1%, 95% CI 9,1-13,3) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "bispebjerg-og-frederiksberg-hospitaler"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Bornholms Hospital havde 16 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 177 (9,0%, 95% CI 5,3-14,3) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "bornholms-hospital"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Herlev og Gentofte Hospital havde 204 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 1.669 (12,2%, 95% CI 10,7-13,9) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "herlev-og-gentofte-hospital"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Hospitalerne i Nordsjælland havde 140 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 1.194 (11,7%, 95% CI 10,0-13,7) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "hospitalerne-i-nordsjaelland"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Rigshospitalet havde 116 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 728 (15,9%, 95% CI 13,3-18,8) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "rigshospitalet"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Steno Diabetes Center havde 0 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 5 (0,0%, 95% CI 0,0-52,2) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "steno-diabetes-center"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Garantiklinikken havde 9 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 248 (3,6%, 95% CI 1,7-6,8) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "garantiklinikken"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Holbæk havde 102 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 646 (15,8%, 95% CI 13,1-18,8) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "holbaek-hospital"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Nykøbing Falster havde 94 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 605 (15,5%, 95% CI 12,7-18,7) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "nykoebing-falster-hospital"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Næstved havde 4 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 20 (20,0%, 95% CI 5,7-43,7) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "naestved-hospital"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Sjællands Universitetshospital Køge havde 71 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 417 (17,0%, 95% CI 13,5-21,0) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "sjaellands-universitetshospital-koege"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Sjællands Universitetshospital Roskilde havde 61 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 692 (8,8%, 95% CI 6,8-11,2) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "sjaellands-universitetshospital-roskilde"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Slagelse havde 136 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 817 (16,6%, 95% CI 14,2-19,4) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "slagelse-hospital"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Esbjerg Sygehus Grindsted Sygehus havde 91 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 798 (11,4%, 95% CI 9,3-13,8) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "esbjerg-sygehus-grindsted-sygehus"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Kolding Sygehus havde 39 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 183 (21,3%, 95% CI 15,6-28,0) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "kolding-sygehus"
+      ],
+      "page": 104
+    },
+    {
+      "text": "OUH Odense Universitetshospital havde 281 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 1.986 (14,1%, 95% CI 12,6-15,8) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "ouh-odense-universitetshospital"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Sygehus Sønderjylland havde 123 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 999 (12,3%, 95% CI 10,3-14,5) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "sygehus-soenderjylland"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Vejle Sygehus havde 101 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 967 (10,4%, 95% CI 8,6-12,5) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "vejle-sygehus"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Aarhus Universitetshospital havde 154 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 940 (16,4%, 95% CI 14,1-18,9) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "aarhus-universitetshospital"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Friklinikken Region Syddanmark Grindsted havde nydiagnosticerede atrieflimren patienter, der døde inden for 1 år med 2,2% (95% CI 0,5-6,3) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "friklinikken-region-syddanmark-grindsted"
+      ],
+      "page": 105
+    },
+    {
+      "text": "Hospitalsenhed Midt havde 137 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 1.282 (10,7%, 95% CI 9,0-12,5) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "hospitalsenhed-midt"
+      ],
+      "page": 105
+    },
+    {
+      "text": "Hospitalsenheden Vest havde 90 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 692 (13,0%, 95% CI 10,6-15,7) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "hospitalsenheden-vest"
+      ],
+      "page": 105
+    },
+    {
+      "text": "Regionshospitalet Gødstrup havde 41 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 353 (11,6%, 95% CI 8,5-15,4) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "regionshospitalet-goedstrup"
+      ],
+      "page": 105
+    },
+    {
+      "text": "Regionshospitalet Horsens havde 91 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 685 (13,3%, 95% CI 10,8-16,1) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "regionshospitalet-horsens"
+      ],
+      "page": 105
+    },
+    {
+      "text": "Regionshospitalet Randers havde 104 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 758 (13,7%, 95% CI 11,3-16,4) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "regionshospitalet-randers"
+      ],
+      "page": 105
+    },
+    {
+      "text": "Samsø Sundheds og Akuthus havde 0 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 7 (0,0%, 95% CI 0,0-41,0) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "samsoe-sundheds-og-akuthus"
+      ],
+      "page": 105
+    },
+    {
+      "text": "Aalborg Universitetshospital havde 169 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 1.191 (14,2%, 95% CI 12,3-16,3) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "aalborg-universitetshospital"
+      ],
+      "page": 105
+    },
+    {
+      "text": "Aalborg Universitetshospital Thisted havde 29 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 235 (12,3%, 95% CI 8,4-17,2) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "aalborg-universitetshospital-thisted"
+      ],
+      "page": 105
+    },
+    {
+      "text": "Regionshospital Nordjylland Ven havde 110 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 760 (14,5%, 95% CI 12,0-17,2) [^src1]",
+      "type": "clinical",
+      "entities": [
+        "regionshospital-nordjylland-ven"
+      ],
+      "page": 105
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.07.2021 - 30.06.2022",
+      "event": "Indikator 12 og 13 måleperiode for nydiagnosticerede atrieflimren patienter med alvorlig blødning og mortalitet inden for 1 år",
+      "entities": []
+    }
+  ],
+  "context": "Denne dokumentchunk indeholder detaljerede kliniske kvalitetsindikatorer fra Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023. Dokumentet rapporterer på Indikator 7 (CHA2DS2-VASc score fordeling blandt prævalente patienter med intrakraniel blødning), Indikator 12 (andelen af nydiagnosticerede patienter med alvorlig blødning inden for 1 år) og Indikator 13 (mortalitet blandt nydiagnosticerede patienter inden for 1 år). Data er opdelt efter de fem danske regioner og deres respektive hospitaler, hvilket muliggør sammenligning af behandlingskvalitet og patientresultater på tværs af sundhedsvæsenet."
+}

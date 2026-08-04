@@ -1,0 +1,245 @@
+{
+  "entities": [
+    {
+      "name": "ADHD-databasen",
+      "type": "organization",
+      "slug": "adhd-databasen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "ADHD-databasen er det centrale register, der dokumenterer behandlingsforløb for voksne ADHD-patienter og deres psykoedukationsindsats på tværs af danske regioner.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "ADHD-DATABASEN Voksne Det er første gang voksne (18+ år) med ADHD er med i årsrapporten."
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Nordjylland rapporterer de laveste resultater for psykoedukation blandt voksne ADHD-patienter (18 %) og angiver registreringsmæssige udfordringer.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Regionsresultaterne varierede fra 18 % i Nordjylland til 50 % Midtjylland"
+        },
+        {
+          "page": 41,
+          "context": "Region Nordjylland oplyser at der sker en underregistrering af hvor mange, der har modtaget psykoedukation"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Hovedstaden rapporterer 32 % opfyldelse af psykoedukationsindikatoren og oplever vanskeligheder med registrering af behandlingsforløb.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Region Hovedstaden oplever vanskeligheder i forhold til registrering af antal behandlingsforløb (nævnerpopulation)"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Midtjylland opnår 50 % opfyldelse af psykoedukationsindikatoren, hvilket er blandt de højeste resultater blandt regionerne.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Regionsresultaterne varierede fra 18 % i Nordjylland til 50 % Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Sjælland rapporterer 49 % opfyldelse af psykoedukationsindikatoren, tæt på Region Midtjyllands resultat.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "med Sjælland lige under (49 %)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Syddanmark rapporterer 26 % opfyldelse af psykoedukationsindikatoren, blandt de laveste blandt regionerne.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Syddanmark Nej 287 / 1.110 26 (23-29)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Lokalpsykiatri (Tønder)",
+      "type": "organization",
+      "slug": "psy-lokalpsykiatri-tonder",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Lokalpsykiatri (Tønder) er en af tre afdelinger, der nåede eller oversteg 80 % opfyldelse af psykoedukationsindikatoren med 83 %.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "PSY Lokalpsykiatri (Tønder) (83 %)"
+        }
+      ]
+    },
+    {
+      "name": "PHO Klinik 1 for Psykiatriske Lidelser – Horsens",
+      "type": "organization",
+      "slug": "pho-klinik-1-horsens",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PHO Klinik 1 for Psykiatriske Lidelser – Horsens nåede 82 % opfyldelse af psykoedukationsindikatoren, blandt de bedste resultater.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "PHO Klinik 1 for Psykiatriske Lidelser – Horsens (82 %)"
+        }
+      ]
+    },
+    {
+      "name": "PMI Klinik for depression og mani – Midt",
+      "type": "organization",
+      "slug": "pmi-klinik-depression-mani-midt",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PMI Klinik for depression og mani – Midt nåede 80 % opfyldelse af psykoedukationsindikatoren, blandt de tre bedste afdelinger.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "PMI Klinik for depression og mani – Midt (80 %)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "region-nordjylland",
+      "predicate": "reports-underregistration-in",
+      "object": "adhd-databasen",
+      "evidence": "Region Nordjylland oplyser at der sker en underregistrering af hvor mange, der har modtaget psykoedukation (tællerpopulation)",
+      "page": 41
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "reports-registration-difficulties-in",
+      "object": "adhd-databasen",
+      "evidence": "Region Hovedstaden oplever vanskeligheder i forhold til registrering af antal behandlingsforløb (nævnerpopulation)",
+      "page": 41
+    }
+  ],
+  "claims": [
+    {
+      "text": "Det er første gang voksne (18+ år) med ADHD er med i årsrapporten [^src1]",
+      "type": "procedural",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 41
+    },
+    {
+      "text": "På landsplan påbegyndte 36 % af de voksne ADHD-patienter psykoedukation inden for tidsfristen, hvilket er betydeligt under udviklingsmålet på 90 [^src1]",
+      "type": "performance",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 41
+    },
+    {
+      "text": "Regionsresultaterne varierede fra 18 % i Nordjylland til 50 % Midtjylland, med Sjælland lige under (49 %) [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-nordjylland",
+        "region-midtjylland",
+        "region-sjaelland"
+      ],
+      "page": 41
+    },
+    {
+      "text": "Blandt afdelinger med minimum tre patienter var der ingen der nåede udviklingsmålet [^src1]",
+      "type": "performance",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 41
+    },
+    {
+      "text": "Tre afdelinger nåede en andel på/over 80 %: PSY Lokalpsykiatri (Tønder) (83 %), PHO Klinik 1 for Psykiatriske Lidelser – Horsens (82 %) og PMI Klinik for depression og mani – Midt (80 %) [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "psy-lokalpsykiatri-tonder",
+        "pho-klinik-1-horsens",
+        "pmi-klinik-depression-mani-midt"
+      ],
+      "page": 41
+    },
+    {
+      "text": "I alt lå 13 afdelinger under 20 % [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 41
+    },
+    {
+      "text": "Ingen af patienterne på privathospitalerne er registreret som påbegyndt ADHD-psykoedukation [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 41
+    },
+    {
+      "text": "Region Nordjylland oplyser at der sker en underregistrering af hvor mange, der har modtaget psykoedukation (tællerpopulation) [^src1]",
+      "type": "operational",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 41
+    },
+    {
+      "text": "Region Hovedstaden oplever vanskeligheder i forhold til registrering af antal behandlingsforløb (nævnerpopulation) [^src1]",
+      "type": "operational",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 41
+    },
+    {
+      "text": "De fleste regioner beskriver at arbejde målrettet frem mod indikatoropfyldelse [^src1]",
+      "type": "action-plan",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 41
+    },
+    {
+      "text": "Der i de fleste samtaler indgår elementer af især individuel psykoedukation, men dette i et format, der ikke lever op til kravene i datadefinitionerne og dermed ikke kan registreres [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 41
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.04.2024-31.03.2025",
+      "event": "Indikator 8 opgøres for første gang for voksne ADHD-patienter, med 36 % opfyldelse af psykoedukationskravet på landsplan",
+      "entities": [
+        "adhd-databasen"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer resultater fra Indikator 8 i ADHD-databasen, som for første gang inkluderer voksne patienter (18+ år) i årsrapporten. Indikatoren måler andelen af behandlingsforløb, hvor patienter påbegynder ADHD-relateret psykoedukation inden for 120 dage efter behandlingsstart. Resultaterne viser betydelige udfordringer med kun 36 % opfyldelse på landsplan mod et udviklingsmål på 90 %, samt store regionale variationer og registreringsmæssige problemer, især i Region Nordjylland og Region Hovedstaden."
+}

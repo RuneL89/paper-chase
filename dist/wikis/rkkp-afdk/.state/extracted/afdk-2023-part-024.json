@@ -1,0 +1,107 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er den danske database for atrieflimren (atrial fibrillation), som denne årsrapport dokumenterer, og som indeholder alle de kliniske kvalitetsindikatorer og patientforløb, der beskrives i dokumentet.",
+      "mentions": [
+        {
+          "page": 116,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-registries",
+      "significance": "RKKP er den organisation, der administrerer Databasen for Atrieflimren i Danmark og udgiver denne årsrapport med kliniske kvalitetsindikatorer.",
+      "mentions": [
+        {
+          "page": 116,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    }
+  ],
+  "relationships": [],
+  "claims": [
+    {
+      "text": "Indikatorer for ekkokardiografi omfatter transthorakal ekkokardiografi med kontrast (UXUC80C), transthorakal 3-D ekkokardiografi (UXUC80D), transthorakal ekkokardiografi med vævsdoppler (UXUC80E), transøsofageal ekkokardiografi (UXUC81) og transøsofageal ekkokardiografi med kontrast (UXUC81C) [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 116
+    },
+    {
+      "text": "TSH-måling skal foretages fra 60 dage før til 30 dage efter 1. diagnosedato for nydiagnosticerede patienter med atrieflimren [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 116
+    },
+    {
+      "text": "Antikoagulationsbehandling måles for incidente patienter med CHA2DS2-VASc ≥2, som er i live efter henholdsvis 1, 2 og 5 år efter diagnosen atrieflimren [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 117
+    },
+    {
+      "text": "Oral antikoagulationsbehandling omfatter vitamin K antagonister (B01AA), dabigatran (B01AE07), rivaroxaban (B01AF01), apixaban (B01AF02) og edoxaban (B01AF03) [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 117
+    },
+    {
+      "text": "Patienter i behandling med direkte orale antikoagulantia (DOAC) skal have mindst 1 måling af P-creatinin årligt [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 117
+    },
+    {
+      "text": "Incidens af iskæmisk apopleksi måles blandt prævalente patienter med atrieflimren ved indlæggelse for akut iskæmisk apopleksi med diagnosekoder DI63 eller DI64 [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 117
+    },
+    {
+      "text": "Incidens af intrakraniel blødning måles blandt prævalente patienter med atrieflimren ved indlæggelse med diagnosekoder DI60, DI61, DI62, DS064, DS065 eller DS066 [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 118
+    },
+    {
+      "text": "Alvorlig blødning defineres efter tilpassede International Society of Thrombosis and Hemostasis (ISTH) kriterier og omfatter intrakraniel blødning, gastrointestinal blødning og urinvejs-/lungeblødning [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 118
+    },
+    {
+      "text": "Patientuddannelse/undervisning måles som andelen af nydiagnosticerede patienter med atrieflimren, som får et struktureret undervisningsprogram indenfor 1 år efter diagnosen er stillet [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 119
+    }
+  ],
+  "timeline": [],
+  "context": "Dette dokument er en del af årsrapporten for Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 – 30. juni 2023, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Siderne 116-120 indeholder en detaljeret beskrivelse af de kliniske kvalitetsindikatorer, der bruges til at måle og overvåge behandlingen af patienter med atrieflimren i Danmark, herunder ekkokardiografi, TSH-måling, antikoagulationsbehandling, forebyggelse af slag og blødning samt patientuddannelse."
+}

@@ -1,0 +1,339 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "This is the Danish atrial fibrillation database that produced the annual report containing the clinical quality data presented in this chunk.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-registries",
+      "significance": "RKKP is the organization responsible for the Danish atrial fibrillation database and quality improvement program referenced throughout this chunk.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "One of five Danish regions included in the atrial fibrillation patient statistics presented in this chunk.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Region Hovedstaden 1.66 1.08 2.00 0.00 6.00 0 5241"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "One of five Danish regions included in the atrial fibrillation patient statistics presented in this chunk.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Sjælland 1.82 1.07 2.00 0.00 6.00 0 3202"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "One of five Danish regions included in the atrial fibrillation patient statistics presented in this chunk.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Syddanmark 1.75 1.06 2.00 0.00 6.00 0 4580"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "One of five Danish regions included in the atrial fibrillation patient statistics presented in this chunk.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Midtjylland 1.71 1.06 2.00 0.00 6.00 0 4446"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "One of five Danish regions included in the atrial fibrillation patient statistics presented in this chunk.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Nordjylland 1.75 1.07 2.00 0.00 6.00 0 2202"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Denmark is the country for which aggregate atrial fibrillation patient statistics are reported throughout this chunk.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Danmark 1.73 1.07 2.00 0.00 6.00 0 19671"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "operated-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 · Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
+      "page": 86
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "included-in",
+      "object": "danmark",
+      "evidence": "Region Hovedstaden is listed as one of five regions with separate statistics within the Danish national data",
+      "page": 86
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "included-in",
+      "object": "danmark",
+      "evidence": "Sjælland is listed as one of five regions with separate statistics within the Danish national data",
+      "page": 86
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "included-in",
+      "object": "danmark",
+      "evidence": "Syddanmark is listed as one of five regions with separate statistics within the Danish national data",
+      "page": 86
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "included-in",
+      "object": "danmark",
+      "evidence": "Midtjylland is listed as one of five regions with separate statistics within the Danish national data",
+      "page": 86
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "included-in",
+      "object": "danmark",
+      "evidence": "Nordjylland is listed as one of five regions with separate statistics within the Danish national data",
+      "page": 86
+    }
+  ],
+  "claims": [
+    {
+      "text": "For incident patients in Denmark, the mean CHA2DS2-VASc score was 1.73 with a standard deviation of 1.07, median 2.00, minimum 0.00, and maximum 6.00 across 19,671 patients [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "danmark",
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 86
+    },
+    {
+      "text": "Region Hovedstaden had 5,241 incident patients with a mean CHA2DS2-VASc score of 1.66 [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 86
+    },
+    {
+      "text": "Sjælland had 3,202 incident patients with a mean CHA2DS2-VASc score of 1.82 [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 86
+    },
+    {
+      "text": "Syddanmark had 4,580 incident patients with a mean CHA2DS2-VASc score of 1.75 [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 86
+    },
+    {
+      "text": "Midtjylland had 4,446 incident patients with a mean CHA2DS2-VASc score of 1.71 [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 86
+    },
+    {
+      "text": "Nordjylland had 2,202 incident patients with a mean CHA2DS2-VASc score of 1.75 [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 86
+    },
+    {
+      "text": "Among incident female patients in Denmark, 39.79% had a CHA2DS2-VASc score <2 and 60.21% had a score ≥2 (n=8,209) [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "danmark"
+      ],
+      "page": 87
+    },
+    {
+      "text": "Among incident male patients in Denmark, 45.18% had a CHA2DS2-VASc score <2 and 54.82% had a score ≥2 (n=11,462) [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "danmark"
+      ],
+      "page": 87
+    },
+    {
+      "text": "For prevalent patients in Denmark, the mean age at diagnosis was 70 years with a standard deviation of 12, median 72, minimum 0, and maximum 104 across 134,810 patients [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "danmark"
+      ],
+      "page": 88
+    },
+    {
+      "text": "Region Hovedstaden had 37,707 prevalent patients with a mean age at diagnosis of 69 years [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 88
+    },
+    {
+      "text": "Sjælland had 21,755 prevalent patients with a mean age at diagnosis of 70 years [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 88
+    },
+    {
+      "text": "Syddanmark had 31,541 prevalent patients with a mean age at diagnosis of 71 years [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 88
+    },
+    {
+      "text": "Midtjylland had 29,390 prevalent patients with a mean age at diagnosis of 70 years [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 88
+    },
+    {
+      "text": "Nordjylland had 14,417 prevalent patients with a mean age at diagnosis of 70 years [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 88
+    },
+    {
+      "text": "For prevalent patients in Denmark, the mean CHA2DS2-VASc score was 1.47 with a standard deviation of 1.08, median 1.00, minimum 0.00, and maximum 6.00 across 134,810 patients [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "danmark"
+      ],
+      "page": 89
+    },
+    {
+      "text": "Region Hovedstaden had 37,707 prevalent patients with a mean CHA2DS2-VASc score of 1.42 [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 89
+    },
+    {
+      "text": "Sjælland had 21,755 prevalent patients with a mean CHA2DS2-VASc score of 1.54 [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 89
+    },
+    {
+      "text": "Syddanmark had 31,541 prevalent patients with a mean CHA2DS2-VASc score of 1.52 [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 89
+    },
+    {
+      "text": "Midtjylland had 29,390 prevalent patients with a mean CHA2DS2-VASc score of 1.44 [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 89
+    },
+    {
+      "text": "Nordjylland had 14,417 prevalent patients with a mean CHA2DS2-VASc score of 1.48 [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 89
+    },
+    {
+      "text": "Among prevalent female patients in Denmark, 14.19% had a CHA2DS2-VASc score of 0, 37.57% had a score of 1, and 31.01% had a score of 2 (n=56,112) [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "danmark"
+      ],
+      "page": 90
+    },
+    {
+      "text": "Among prevalent male patients in Denmark, 22.37% had a CHA2DS2-VASc score of 0, 35.57% had a score of 1, and 25.74% had a score of 2 (n=78,698) [^src1]",
+      "type": "clinical-statistics",
+      "entities": [
+        "danmark"
+      ],
+      "page": 90
+    },
+    {
+      "text": "CHA2DS2-VASc score calculation did not award points for female sex, and a threshold of ≥2 was applied as the cutoff for anticoagulation treatment indication in both sexes [^src1]",
+      "type": "clinical-methodology",
+      "entities": [],
+      "page": 87
+    }
+  ],
+  "timeline": [],
+  "context": "Dette afsnit præsenterer detaljerede statistikker fra Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023. Dataene omfatter både incidente (nydiagnosticerede) og prævalente (eksisterende) patienter med atrieflimren fordelt på fem danske regioner: Region Hovedstaden, Sjælland, Syddanmark, Midtjylland og Nordjylland. Afsnittene dokumenterer aldersfordelingen ved diagnose og CHA2DS2-VASc-scoringer, som er en vigtig klinisk risikostratificeringsværktøj for vurdering af slagrisiko og indikation for antikoagulationsbehandling hos patienter med atrieflimren."
+}

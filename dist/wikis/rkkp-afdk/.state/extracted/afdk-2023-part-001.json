@@ -1,0 +1,341 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "AFDK er den nationale database for atrial fibrillation i Danmark, der indberetter data fra offentlige sygehuse og udgiver årlige kvalitetsrapporter baseret på procesindikatorer og resultatindikatorer.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 1,
+          "context": "Styregruppen for Databasen for atrieflimren i Danmark"
+        },
+        {
+          "page": 5,
+          "context": "Databasen for Atrieflimren i Danmark (AFDK) præsenterer hermed sin årsrapport"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-registries",
+      "significance": "RKKP er ansvarlig for at udarbejde analyser og epidemiologisk kommentering til AFDK-rapporten og administrerer databasen.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP)"
+        },
+        {
+          "page": 1,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Lars Frost",
+      "type": "person",
+      "slug": "lars-frost",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Lars Frost er overlæge og dr.med., og formand for styregruppen for Databasen for Atrieflimren i Danmark.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Lars Frost, overlæge, dr.med., Regionshospitalet Silkeborg, Hospitalsenhed Midt"
+        }
+      ]
+    },
+    {
+      "name": "Albert Marni Joensen",
+      "type": "person",
+      "slug": "albert-marni-joensen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Albert Marni Joensen er overlæge og ph.d., og medlem af formandsskabet for styregruppen for Databasen for Atrieflimren i Danmark.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Albert Marni Joensen, overlæge, ph.d., Regionshospitalet Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Ulla Dam-Schmidt",
+      "type": "person",
+      "slug": "ulla-dam-schmidt",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Ulla Dam-Schmidt er sygeplejerske med MKS-uddannelse og medlem af formandsskabet for styregruppen for Databasen for Atrieflimren i Danmark.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Ulla Dam-Schmidt, sygeplejerske, MKS, Bispebjerg og Frederiksberg Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Julie Andersen",
+      "type": "person",
+      "slug": "julie-andersen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Julie Andersen er kvalitetskonsulent ved RKKP og er kontaktperson for spørgsmål vedrørende AFDK-rapporten.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Kvalitetskonsulent Julie Andersen, Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Silkeborg",
+      "type": "organization",
+      "slug": "regionshospitalet-silkeborg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Silkeborg er en del af Hospitalsenhed Midt og er arbejdssted for formand Lars Frost.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Regionshospitalet Silkeborg, Hospitalsenhed Midt"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Nordjylland",
+      "type": "organization",
+      "slug": "regionshospitalet-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Nordjylland er arbejdssted for styregruppe-medlem Albert Marni Joensen.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Regionshospitalet Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospital",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg og Frederiksberg Hospital er arbejdssted for styregruppe-medlem Ulla Dam-Schmidt.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Bispebjerg og Frederiksberg Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Landspatientregisteret er den nationale patientdatabase hvorfra AFDK indsamler data om patienter med atrieflimren fra offentlige sygehuse.",
+      "mentions": [
+        {
+          "page": 5,
+          "context": "alle patienter med diagnosen atrieflimren indberettet til Landspatientregisteret fra offentlige sygehuse"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "predicate": "administers",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Rapportens analyser og epidemiologisk kommentering er udarbejdet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP)",
+      "page": 1
+    },
+    {
+      "subject": "lars-frost",
+      "predicate": "is-chair-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Formandsskabet for Databasen for Atrieflimren i Danmark udgøres af Lars Frost",
+      "page": 1
+    },
+    {
+      "subject": "albert-marni-joensen",
+      "predicate": "is-member-of-board",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Formandsskabet for Databasen for Atrieflimren i Danmark udgøres af ... Albert Marni Joensen",
+      "page": 1
+    },
+    {
+      "subject": "ulla-dam-schmidt",
+      "predicate": "is-member-of-board",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Formandsskabet for Databasen for Atrieflimren i Danmark udgøres af ... Ulla Dam-Schmidt",
+      "page": 1
+    },
+    {
+      "subject": "julie-andersen",
+      "predicate": "works-for",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Kvalitetskonsulent Julie Andersen, Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 1
+    },
+    {
+      "subject": "lars-frost",
+      "predicate": "works-at",
+      "object": "regionshospitalet-silkeborg",
+      "evidence": "Lars Frost, overlæge, dr.med., Regionshospitalet Silkeborg, Hospitalsenhed Midt",
+      "page": 1
+    },
+    {
+      "subject": "albert-marni-joensen",
+      "predicate": "works-at",
+      "object": "regionshospitalet-nordjylland",
+      "evidence": "Albert Marni Joensen, overlæge, ph.d., Regionshospitalet Nordjylland",
+      "page": 1
+    },
+    {
+      "subject": "ulla-dam-schmidt",
+      "predicate": "works-at",
+      "object": "bispebjerg-og-frederiksberg-hospital",
+      "evidence": "Ulla Dam-Schmidt, sygeplejerske, MKS, Bispebjerg og Frederiksberg Hospital",
+      "page": 1
+    }
+  ],
+  "claims": [
+    {
+      "text": "Der er identificeret 19.671 incidente patienter og 134.810 prævalente patienter med atrieflimren [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 5
+    },
+    {
+      "text": "Rapporten omfatter perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "temporal",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 5
+    },
+    {
+      "text": "Der er etableret tilknytning af praktiserende speciallæger i kardiologi, der siden 1. juni 2023 har opsamlet data [^src1]",
+      "type": "operational",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 5
+    },
+    {
+      "text": "Der er begyndt at indløbe data fra almen praksis i test-version [^src1]",
+      "type": "operational",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 5
+    },
+    {
+      "text": "Styregruppen har konstateret, at der er tilfælde med falsk positive diagnoser for atrieflimren i Landspatientregisteret [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "landspatientregisteret"
+      ],
+      "page": 5
+    },
+    {
+      "text": "Man har valgt at anse en 90% målopfyldelse for antikoagulationsbehandling som værende god klinisk praksis [^src1]",
+      "type": "clinical-standard",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 5
+    },
+    {
+      "text": "Den generelle kvalitet i Danmark er set over tid i bedring, og variationen mellem regionerne er i aftagende [^src1]",
+      "type": "quality-assessment",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 5
+    },
+    {
+      "text": "Dækningsgraden for AK behandling er stigende, og man opfylder standarden på såvel nationalt som regionalt niveau [^src1]",
+      "type": "quality-assessment",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 5
+    },
+    {
+      "text": "Der er faglige miljøer i Danmark, som formår at opnå en ganske høj dækningsgrad for AK behandling [^src1]",
+      "type": "quality-assessment",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 5
+    },
+    {
+      "text": "Der er regionale forskelle mellem den højeste og laveste forekomst af iskæmiske apopleksier blandt patienter med prævalent atrieflimren [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 5
+    },
+    {
+      "text": "Der er fortsat variation i den ekkokardiografiske service, om end en del af denne variation kan forklares ved mangelfuld registrering [^src1]",
+      "type": "quality-assessment",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 5
+    },
+    {
+      "text": "Struktureret patientuddannelse ydes fortsat i begrænset omfang [^src1]",
+      "type": "quality-assessment",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 5
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. juli 2022",
+      "event": "Begyndelse af rapportperiode for Databasen for Atrieflimren i Danmark årsrapport 2023",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "30. juni 2023",
+      "event": "Afslutning af rapportperiode for Databasen for Atrieflimren i Danmark årsrapport 2023",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "1. juni 2023",
+      "event": "Praktiserende speciallæger i kardiologi begynder at opsamle data til AFDK",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "28. november 2023",
+      "event": "Årsrapport 2023 for Databasen for Atrieflimren i Danmark offentliggøres",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "oktober 2023",
+      "event": "Styregruppen for Databasen for Atrieflimren i Danmark godkender konklusioner og anbefalinger",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    }
+  ],
+  "context": "Dette dokument er årsrapporten for 2023 fra Databasen for Atrieflimren i Danmark (AFDK), en national kvalitetsregister administreret af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten dækker perioden 1. juli 2022 til 30. juni 2023 og præsenterer analyser af behandlingskvalitet for patienter med atrieflimren baseret på data fra offentlige sygehuse indberettet til Landspatientregisteret. Rapporten omfatter 19.671 incidente patienter og 134.810 prævalente patienter og fokuserer på at vurdere, om kvaliteten af dansk atrieflimren-behandling opfylder fastlagte standarder, samt at identificere klinisk betydningsfuld variation mellem regioner, kommuner og hospitaler. Styregruppen for AFDK, ledet af formand Lars Frost, har udarbejdet konklusioner og anbefalinger baseret på procesindikatorer og resultatindikatorer, herunder antikoagulationsbehandling, ekkokardiografi, TSH-måling, blødningsrisiko og patientuddannelse."
+}

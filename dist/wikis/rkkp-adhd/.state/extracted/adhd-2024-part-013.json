@@ -1,0 +1,1055 @@
+{
+  "entities": [
+    {
+      "name": "Shelagh Powell",
+      "type": "person",
+      "slug": "shelagh-powell",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Overlæge og forperson for styregruppens arbejde med ADHD-databasen, repræsentant for Region Midtjylland og Børne- og Ungdomspsykiatrisk Selskab i Danmark.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Shelagh Powell Overlæge Team 2 for skolebørns psykiatri Børne- og Ungdomspsykiatrisk Afdeling (BUA) Aarhus Universitetshospital, Psykiatrien, Region Midtjylland Forperson og repræsentant for RM"
+        }
+      ]
+    },
+    {
+      "name": "Simon Hjerrild",
+      "type": "person",
+      "slug": "simon-hjerrild",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Overlæge, klinisk lektor og PhD, forperson for Dansk Psykiatrisk Selskab og medlem af styregruppens arbejde med ADHD-databasen.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Simon Hjerrild Overlæge, Klinisk lektor, PhD Team for ADHD, klinik 2, afdeling for psykoser, Aarhus Universitetshospital, Psykiatrien, Region Midtjylland Forperson Dansk Psykiatrisk Selskab"
+        }
+      ]
+    },
+    {
+      "name": "Ditte Hammerum",
+      "type": "person",
+      "slug": "ditte-hammerum",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Sygeplejerske ved Carelink psykiatri, Nærhospital Viborg, medlem af styregruppens arbejde med ADHD-databasen.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Ditte Hammerum Sygeplejerske Carelink psykiatri, Nærhospital Viborg"
+        }
+      ]
+    },
+    {
+      "name": "Jan Vestergaard",
+      "type": "person",
+      "slug": "jan-vestergaard",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Praktiserende speciallæge i psykiatri i Region Hovedstaden, repræsentant for Forening af praktiserende speciallæger i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Jan Vestergaard Praktiserende speciallæge i psykiatri Region Hovedstaden Forening af praktiserende speciallæger"
+        }
+      ]
+    },
+    {
+      "name": "Allan Hvolby",
+      "type": "person",
+      "slug": "allan-hvolby",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Speciallæge i Børne- og Ungdomspsykiatri, repræsentant for Forening af praktiserende speciallæger i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Allan Hvolby Speciallæge i Børne- og Ungdomspsykiatri Forening af praktiserende speciallæger"
+        }
+      ]
+    },
+    {
+      "name": "Mathilde Ulvsgärd-Hansted",
+      "type": "person",
+      "slug": "mathilde-ulvsgard-hansted",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Overlæge i Region Sjællands Sygehusvæsen, repræsentant for Børne- og Ungdomspsykiatrisk Selskab i Danmark i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Mathilde Ulvsgärd-Hansted Overlæge, Region Sjællands Sygehusvæsen Børne- og Ungdomspsykiatrisk Selskab i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Jeanette Wacher",
+      "type": "person",
+      "slug": "jeanette-wacher",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Overlæge i Psykiatrien Region Syddanmark, repræsentant for Børne- og Ungdomspsykiatrisk Selskab i Danmark i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Jeanette Wacher Overlæge, Psykiatrien Region Syddanmark Børne- og Ungdomspsykiatrisk Selskab i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Linda Bramsen",
+      "type": "person",
+      "slug": "linda-bramsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Ledende overlæge i Børne- og Ungdomspsykiatrien, Region Nordjylland, repræsentant for RN og Børne- og Ungdomspsykiatrisk Selskab i Danmark.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Linda Bramsen Ledende overlæge Børne- og Ungdomspsykiatrien, Region Nordjylland Repræsentant for RN Børne- og Ungdomspsykiatrisk Selskab i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Anne-Mette Lange",
+      "type": "person",
+      "slug": "anne-mette-lange",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Klinisk psykolog ved Børne- og Ungdomspsykiatrisk Center, Aarhus Universitetshospital, repræsentant for Dansk Psykolog Forening i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Anne-Mette Lange Klinisk psykolog Børne- og Ungdomspsykiatrisk Center, Aarhus Universitetshospital, Region Midtjylland Dansk Psykolog Forening"
+        }
+      ]
+    },
+    {
+      "name": "Jens Tofte",
+      "type": "person",
+      "slug": "jens-tofte",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Ledende overlæge ved Odense Universitetshospital - Svendborg, repræsentant for Dansk Psykiatrisk Selskab i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Jens Tofte Ledende overlæge, Odense Universitetshospital - Svendborg Dansk Psykiatrisk Selskab"
+        }
+      ]
+    },
+    {
+      "name": "Ib Rasmussen",
+      "type": "person",
+      "slug": "ib-rasmussen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Overlæge ved Klinik Psykiatri Syd, Aalborg Universitetshospital, Region Nordjylland, repræsentant for Dansk Psykiatrisk Selskab.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Ib Rasmussen Overlæge Klinik Psykiatri Syd, Aalborg Universitetshospital, Region Nordjylland Dansk Psykiatrisk Selskab"
+        }
+      ]
+    },
+    {
+      "name": "Tine Houmann",
+      "type": "person",
+      "slug": "tine-houmann",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Overlæge ved Børne- og Ungdomspsykiatrisk Center Glostrup, Region Hovedstaden, repræsentant for RH og Børne- og Ungdomspsykiatrisk Selskab i Danmark.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Tine Houmann Overlæge Børne- og Ungdomspsykiatrisk Center Glostrup, Region Hovedstaden. Repræsentant for RH Børne- og Ungdomspsykiatrisk Selskab i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Bolette Søndergaard",
+      "type": "person",
+      "slug": "bolette-sondergaard",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Ledende overlæge ved Psykiatrisk Center Glostrup, repræsentant for Dansk Psykiatrisk Selskab i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Bolette Søndergaard Ledende overlæge, Psykiatrisk Center Glostrup Dansk Psykiatrisk Selskab"
+        }
+      ]
+    },
+    {
+      "name": "Trish Nymark",
+      "type": "person",
+      "slug": "trish-nymark",
+      "folder": "entities/people/patient-advocates",
+      "significance": "Formand for ADHD-foreningen, pårørenderepræsentant i styregruppens arbejde med ADHD-databasen.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Trish Nymark Formand for ADHD-foreningen Pårørenderepræsentant"
+        }
+      ]
+    },
+    {
+      "name": "Stine Holmen",
+      "type": "person",
+      "slug": "stine-holmen",
+      "folder": "entities/people/patient-advocates",
+      "significance": "Konsulent og patientrepræsentant i styregruppens arbejde med ADHD-databasen.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Stine Holmen Konsulent Patientrepræsentant"
+        }
+      ]
+    },
+    {
+      "name": "Jakob Paludan",
+      "type": "person",
+      "slug": "jakob-paludan",
+      "folder": "entities/people/healthcare-administrators",
+      "significance": "Lægefaglig direktør for Psykiatrien Region Midtjylland, repræsentant for Regionssundhedsdirektørkredsen i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Jakob Paludan Lægefaglig direktør, Psykiatrien Region Midtjylland Regionssundhedsdirektørkredsen"
+        }
+      ]
+    },
+    {
+      "name": "Vibe Bolvig Hyldgård",
+      "type": "person",
+      "slug": "vibe-bolvig-hyldgard",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Epidemiolog med PhD ved Sundhedsvæsenets Kvalitetsinstitut, medlem af styregruppens arbejde med ADHD-databasen.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Vibe Bolvig Hyldgård Epidemiolog, PhD, Sundhedsvæsenets Kvalitetsinstitut Epidemiolog"
+        }
+      ]
+    },
+    {
+      "name": "Lasse Pirk",
+      "type": "person",
+      "slug": "lasse-pirk",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Datamanager ved Sundhedsvæsenets Kvalitetsinstitut, medlem af styregruppens arbejde med ADHD-databasen.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Lasse Pirk Datamanager, Sundhedsvæsenets Kvalitetsinstitut Datamanager"
+        }
+      ]
+    },
+    {
+      "name": "Mette Hedelund",
+      "type": "person",
+      "slug": "mette-hedelund",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Kvalitetskonsulent ved Sundhedsvæsenets Kvalitetsinstitut, kontaktperson og repræsentant for dataansvarlig myndighed i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Mette Hedelund Kvalitetskonsulent, Sundhedsvæsenets Kvalitetsinstitut Kontaktperson og repræsentant for dataansvarlig myndighed"
+        }
+      ]
+    },
+    {
+      "name": "ADHD-databasen",
+      "type": "organization",
+      "slug": "adhd-databasen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dansk database for ADHD-udredning og behandling, der registrerer data fra børn, unge og voksne på tværs af alle fem regioner og private hospitaler.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Styregruppens medlemmer for ADHD-databasen"
+        },
+        {
+          "page": 62,
+          "context": "ADHD-DATABASEN Appendix"
+        }
+      ]
+    },
+    {
+      "name": "Børne- og Ungdomspsykiatrisk Afdeling (BUA)",
+      "type": "organization",
+      "slug": "bua",
+      "folder": "entities/organizations/psychiatric-departments",
+      "significance": "Afdeling ved Aarhus Universitetshospital, Region Midtjylland, hvor Shelagh Powell arbejder som overlæge.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Børne- og Ungdomspsykiatrisk Afdeling (BUA) Aarhus Universitetshospital, Psykiatrien, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital, Psykiatrien",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital-psykiatrien",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Psykiatrisk afdeling ved Aarhus Universitetshospital, Region Midtjylland, hvor flere styregruppesmedlemmer arbejder.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Aarhus Universitetshospital, Psykiatrien, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Psykiatrisk Selskab",
+      "type": "organization",
+      "slug": "dansk-psykiatrisk-selskab",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Fagligt selskab repræsenteret i styregruppens arbejde med ADHD-databasen gennem flere medlemmer.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Dansk Psykiatrisk Selskab"
+        }
+      ]
+    },
+    {
+      "name": "Børne- og Ungdomspsykiatrisk Selskab i Danmark",
+      "type": "organization",
+      "slug": "boerne-og-ungdomspsykiatrisk-selskab-i-danmark",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Fagligt selskab repræsenteret i styregruppens arbejde med ADHD-databasen gennem flere medlemmer.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Børne- og Ungdomspsykiatrisk Selskab i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Forening af praktiserende speciallæger",
+      "type": "organization",
+      "slug": "forening-af-praktiserende-speciallaeger",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Fagligt selskab repræsenteret i styregruppens arbejde gennem Jan Vestergaard og Allan Hvolby.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Forening af praktiserende speciallæger"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Psykolog Forening",
+      "type": "organization",
+      "slug": "dansk-psykolog-forening",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Fagligt selskab repræsenteret i styregruppens arbejde gennem Anne-Mette Lange.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Dansk Psykolog Forening"
+        }
+      ]
+    },
+    {
+      "name": "ADHD-foreningen",
+      "type": "organization",
+      "slug": "adhd-foreningen",
+      "folder": "entities/organizations/patient-organizations",
+      "significance": "Patientorganisation repræsenteret i styregruppens arbejde gennem formand Trish Nymark.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "ADHD-foreningen"
+        }
+      ]
+    },
+    {
+      "name": "Regionssundhedsdirektørkredsen",
+      "type": "organization",
+      "slug": "regionssundhedsdirektorkredsen",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Repræsenteret i styregruppens arbejde gennem Jakob Paludan.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Regionssundhedsdirektørkredsen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-administration",
+      "significance": "Institution repræsenteret i styregruppens arbejde gennem epidemiolog Vibe Bolvig Hyldgård, datamanager Lasse Pirk og kvalitetskonsulent Mette Hedelund.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations",
+      "significance": "Region repræsenteret i styregruppens arbejde gennem Shelagh Powell og Jakob Paludan.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations",
+      "significance": "Region repræsenteret i styregruppens arbejde gennem Jan Vestergaard og Tine Houmann.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations",
+      "significance": "Region repræsenteret i styregruppens arbejde gennem Mathilde Ulvsgärd-Hansted.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations",
+      "significance": "Region repræsenteret i styregruppens arbejde gennem Jeanette Wacher.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations",
+      "significance": "Region repræsenteret i styregruppens arbejde gennem Linda Bramsen og Ib Rasmussen.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital hvor Ib Rasmussen arbejder som overlæge ved Klinik Psykiatri Syd.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Aalborg Universitetshospital, Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital",
+      "type": "organization",
+      "slug": "odense-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital hvor Jens Tofte arbejder som ledende overlæge.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Odense Universitetshospital - Svendborg"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk Center Glostrup",
+      "type": "organization",
+      "slug": "glostrup-psykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk center hvor Tine Houmann og Bolette Søndergaard arbejder.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Børne- og Ungdomspsykiatrisk Center Glostrup, Region Hovedstaden"
+        },
+        {
+          "page": 61,
+          "context": "Psykiatrisk Center Glostrup"
+        }
+      ]
+    },
+    {
+      "name": "Carelink psykiatri, Nærhospital Viborg",
+      "type": "organization",
+      "slug": "carelink-psykiatri-naerhospital-viborg",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk klinik hvor Ditte Hammerum arbejder som sygeplejerske.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Carelink psykiatri, Nærhospital Viborg"
+        }
+      ]
+    },
+    {
+      "name": "Børne- og Ungdomspsykiatrisk Center, Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "boerne-ungdomspsyk-center-aarhus",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk center hvor Anne-Mette Lange arbejder som klinisk psykolog.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Børne- og Ungdomspsykiatrisk Center, Aarhus Universitetshospital, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Klinik Psykiatri Syd, Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "klinik-psykiatri-syd-aalborg",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk klinik hvor Ib Rasmussen arbejder som overlæge.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Klinik Psykiatri Syd, Aalborg Universitetshospital, Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Skolebørn",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-skoleboern",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk klinik ved BUA, Aarhus Universitetshospital, hvor 61 ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 64,
+          "context": "BUA Psykiatrisk Klinik for Skolebørn 61"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Småbørn",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-smaaboern",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk klinik ved BUA, Aarhus Universitetshospital, hvor 38 ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 64,
+          "context": "BUA Psykiatrisk Klinik for Småbørn 38"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Unge",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-unge",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk klinik ved BUA, Aarhus Universitetshospital, hvor 31 ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 64,
+          "context": "BUA Psykiatrisk Klinik for Unge 31"
+        }
+      ]
+    },
+    {
+      "name": "BUA – Psykiatrisk Klinik for Udredning",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-udredning",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk klinik ved BUA, Aarhus Universitetshospital, hvor 12 ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 64,
+          "context": "BUA – Psykiatrisk Klinik for Udredning 12"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg",
+      "type": "organization",
+      "slug": "bispebjerg-psykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk ambulatorium i Region Hovedstaden hvor 37 ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 37"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Bornholm",
+      "type": "organization",
+      "slug": "bornholm-psykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk ambulatorium i Region Hovedstaden hvor 17 ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Bornh, B37 17"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Glostrup",
+      "type": "organization",
+      "slug": "glostrup-psykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk ambulatorium i Region Hovedstaden hvor 57 ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 57"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Hillerød",
+      "type": "organization",
+      "slug": "hillerod-psykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk ambulatorium i Region Hovedstaden hvor 7 ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 7"
+        }
+      ]
+    },
+    {
+      "name": "Børne-Unge Psyk. Klinik 40.K",
+      "type": "organization",
+      "slug": "boerne-unge-psyk-klinik-40k",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk klinik i Region Sjælland hvor 9 ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "Børne-Unge Psyk. Klinik 40.K 9"
+        }
+      ]
+    },
+    {
+      "name": "Børne-Unge Psyk. Reg.fkt. 40.R",
+      "type": "organization",
+      "slug": "boerne-unge-psyk-reg-fkt-40r",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk klinik i Region Sjælland hvor ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "Børne-Unge Psyk. Reg.fkt. 40.R"
+        }
+      ]
+    },
+    {
+      "name": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense)",
+      "type": "organization",
+      "slug": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk ambulatorium i Region Syddanmark hvor ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg)",
+      "type": "organization",
+      "slug": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk ambulatorium i Region Syddanmark hvor ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle)",
+      "type": "organization",
+      "slug": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk ambulatorium i Region Syddanmark hvor 6 ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) 6"
+        }
+      ]
+    },
+    {
+      "name": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)",
+      "type": "organization",
+      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk ambulatorium i Region Syddanmark hvor 58 ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) 58"
+        }
+      ]
+    },
+    {
+      "name": "PS Børne- og Ungdomspsykiatrisk Ambulatorier",
+      "type": "organization",
+      "slug": "boerne-ungdomspsyk-ambulatorium-nordjylland",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Psykiatrisk ambulatorium i Region Nordjylland hvor ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 64,
+          "context": "PS Børne- og Ungdomspsykiatrisk Ambulatorier"
+        }
+      ]
+    },
+    {
+      "name": "Hejmdal Privathospital Aalborg",
+      "type": "organization",
+      "slug": "hejmdal-privathospital-aalborg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Privathospital hvor ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 65,
+          "context": "Hejmdal Privathospital Aalborg, afdeling"
+        }
+      ]
+    },
+    {
+      "name": "Klinik for børn- og unge",
+      "type": "organization",
+      "slug": "klinik-for-boern-og-unge",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Privat klinik hvor ADHD-udredningsforløb blev afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 01.04.2024-31.03.2025.",
+      "mentions": [
+        {
+          "page": 65,
+          "context": "Klinik for børn- og unge"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "shelagh-powell",
+      "predicate": "works-at",
+      "object": "aarhus-universitetshospital-psykiatrien",
+      "evidence": "Shelagh Powell Overlæge Team 2 for skolebørns psykiatri Børne- og Ungdomspsykiatrisk Afdeling (BUA) Aarhus Universitetshospital, Psykiatrien, Region Midtjylland",
+      "page": 61
+    },
+    {
+      "subject": "shelagh-powell",
+      "predicate": "is-chair-of",
+      "object": "adhd-databasen",
+      "evidence": "Shelagh Powell Forperson og repræsentant for RM",
+      "page": 61
+    },
+    {
+      "subject": "simon-hjerrild",
+      "predicate": "works-at",
+      "object": "aarhus-universitetshospital-psykiatrien",
+      "evidence": "Simon Hjerrild Overlæge, Klinisk lektor, PhD Team for ADHD, klinik 2, afdeling for psykoser, Aarhus Universitetshospital, Psykiatrien, Region Midtjylland",
+      "page": 61
+    },
+    {
+      "subject": "simon-hjerrild",
+      "predicate": "is-chair-of",
+      "object": "dansk-psykiatrisk-selskab",
+      "evidence": "Simon Hjerrild Forperson Dansk Psykiatrisk Selskab",
+      "page": 61
+    },
+    {
+      "subject": "ditte-hammerum",
+      "predicate": "works-at",
+      "object": "carelink-psykiatri-naerhospital-viborg",
+      "evidence": "Ditte Hammerum Sygeplejerske Carelink psykiatri, Nærhospital Viborg",
+      "page": 61
+    },
+    {
+      "subject": "jan-vestergaard",
+      "predicate": "works-in",
+      "object": "region-hovedstaden",
+      "evidence": "Jan Vestergaard Praktiserende speciallæge i psykiatri Region Hovedstaden",
+      "page": 61
+    },
+    {
+      "subject": "linda-bramsen",
+      "predicate": "works-at",
+      "object": "region-nordjylland",
+      "evidence": "Linda Bramsen Ledende overlæge Børne- og Ungdomspsykiatrien, Region Nordjylland",
+      "page": 61
+    },
+    {
+      "subject": "anne-mette-lange",
+      "predicate": "works-at",
+      "object": "boerne-ungdomspsyk-center-aarhus",
+      "evidence": "Anne-Mette Lange Klinisk psykolog Børne- og Ungdomspsykiatrisk Center, Aarhus Universitetshospital, Region Midtjylland",
+      "page": 61
+    },
+    {
+      "subject": "jens-tofte",
+      "predicate": "works-at",
+      "object": "odense-universitetshospital",
+      "evidence": "Jens Tofte Ledende overlæge, Odense Universitetshospital - Svendborg",
+      "page": 61
+    },
+    {
+      "subject": "ib-rasmussen",
+      "predicate": "works-at",
+      "object": "klinik-psykiatri-syd-aalborg",
+      "evidence": "Ib Rasmussen Overlæge Klinik Psykiatri Syd, Aalborg Universitetshospital, Region Nordjylland",
+      "page": 61
+    },
+    {
+      "subject": "tine-houmann",
+      "predicate": "works-at",
+      "object": "glostrup-psykiatrisk-ambulatorium",
+      "evidence": "Tine Houmann Overlæge Børne- og Ungdomspsykiatrisk Center Glostrup, Region Hovedstaden",
+      "page": 61
+    },
+    {
+      "subject": "bolette-sondergaard",
+      "predicate": "works-at",
+      "object": "glostrup-psykiatrisk-ambulatorium",
+      "evidence": "Bolette Søndergaard Ledende overlæge, Psykiatrisk Center Glostrup",
+      "page": 61
+    },
+    {
+      "subject": "trish-nymark",
+      "predicate": "is-chair-of",
+      "object": "adhd-foreningen",
+      "evidence": "Trish Nymark Formand for ADHD-foreningen",
+      "page": 61
+    },
+    {
+      "subject": "jakob-paludan",
+      "predicate": "works-at",
+      "object": "region-midtjylland",
+      "evidence": "Jakob Paludan Lægefaglig direktør, Psykiatrien Region Midtjylland",
+      "page": 61
+    },
+    {
+      "subject": "vibe-bolvig-hyldgard",
+      "predicate": "works-at",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Vibe Bolvig Hyldgård Epidemiolog, PhD, Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 61
+    },
+    {
+      "subject": "lasse-pirk",
+      "predicate": "works-at",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Lasse Pirk Datamanager, Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 61
+    },
+    {
+      "subject": "mette-hedelund",
+      "predicate": "works-at",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Mette Hedelund Kvalitetskonsulent, Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 61
+    }
+  ],
+  "claims": [
+    {
+      "text": "I perioden 1. april 2024 - 31. marts 2025 var der 5.295 ADHD-udredningsforløb i alt, fordelt på 353 i alderen 0-5 år, 2.084 i alderen 6-10 år og 2.858 i alderen 11-17 år [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 62
+    },
+    {
+      "text": "Blandt børn og unge i ADHD-udredningsforløb var kønsfordelingen 58% drenge og 42% piger [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 62
+    },
+    {
+      "text": "Region Hovedstaden havde 2.183 ADHD-udredningsforløb, Region Sjælland 733, Region Syddanmark 1.074, Region Midtjylland 873 og Region Nordjylland 416 i perioden 1. april 2024 - 31. marts 2025 [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd-databasen",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "page": 62
+    },
+    {
+      "text": "I perioden 1. april 2024 - 31. marts 2025 var der 5.222 ADHD-behandlingsforløb blandt børn og unge, fordelt på 139 i alderen 0-5 år, 1.919 i alderen 6-10 år og 3.164 i alderen 11-17 år [^src2]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 62
+    },
+    {
+      "text": "Blandt børn og unge i ADHD-behandlingsforløb var kønsfordelingen 59% drenge og 41% piger [^src2]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 62
+    },
+    {
+      "text": "Region Hovedstaden havde 1.905 ADHD-behandlingsforløb blandt børn og unge, Region Sjælland 498, Region Syddanmark 890, Region Midtjylland 1.107 og Region Nordjylland 555 i perioden 1. april 2024 - 31. marts 2025 [^src2]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd-databasen",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "page": 62
+    },
+    {
+      "text": "Private hospitaler havde 267 ADHD-behandlingsforløb blandt børn og unge i perioden 1. april 2024 - 31. marts 2025 [^src2]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 62
+    },
+    {
+      "text": "I perioden 1. april 2024 - 31. marts 2025 var der 2.648 ADHD-behandlingsforløb blandt voksne, fordelt på 1.544 i alderen 18-30 år, 688 i alderen 31-40 år, 292 i alderen 41-50 år, 104 i alderen 51-60 år og 20 i alderen 61+ år [^src3]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 62
+    },
+    {
+      "text": "Blandt voksne i ADHD-behandlingsforløb var kønsfordelingen 45% mand og 55% kvinde [^src3]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 62
+    },
+    {
+      "text": "Region Hovedstaden havde 311 ADHD-behandlingsforløb blandt voksne, Region Sjælland 114, Region Syddanmark 1.110, Region Midtjylland 940 og Region Nordjylland 163 i perioden 1. april 2024 - 31. marts 2025 [^src3]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd-databasen",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "page": 62
+    },
+    {
+      "text": "I Danmark blev 339 ADHD-udredningsforløb afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 1. april 2024 - 31. marts 2025 [^src4]",
+      "type": "operational",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 63
+    },
+    {
+      "text": "Region Hovedstaden havde 118 ADHD-udredningsforløb afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 1. april 2024 - 31. marts 2025 [^src4]",
+      "type": "operational",
+      "entities": [
+        "adhd-databasen",
+        "region-hovedstaden"
+      ],
+      "page": 63
+    },
+    {
+      "text": "Region Sjælland havde 9 ADHD-udredningsforløb afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 1. april 2024 - 31. marts 2025 [^src4]",
+      "type": "operational",
+      "entities": [
+        "adhd-databasen",
+        "region-sjaelland"
+      ],
+      "page": 63
+    },
+    {
+      "text": "Region Syddanmark havde 67 ADHD-udredningsforløb afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 1. april 2024 - 31. marts 2025 [^src4]",
+      "type": "operational",
+      "entities": [
+        "adhd-databasen",
+        "region-syddanmark"
+      ],
+      "page": 63
+    },
+    {
+      "text": "Region Midtjylland havde 142 ADHD-udredningsforløb afsluttet indenfor 90 dage pga. mistanke afkræftet i perioden 1. april 2024 - 31. marts 2025 [^src4]",
+      "type": "operational",
+      "entities": [
+        "adhd-databasen",
+        "region-midtjylland"
+      ],
+      "page": 63
+    },
+    {
+      "text": "Der er store regionale forskelle på hvor meget forløbsmarkøren 'ADHD-udredning slut, mistanke afkræftet' bruges [^src5]",
+      "type": "operational",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 63
+    },
+    {
+      "text": "Forløbsmarkøren 'ADHD-udredning slut, mistanke afkræftet' skal indberettes senest 90 dage efter forløbet er startet for at stoppe forløbet, så det ikke kommer med i databasens udredningspopulation [^src5]",
+      "type": "procedural",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 63
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. april 2024 - 31. marts 2025",
+      "event": "Rapporteringsperiode for ADHD-databasen med 5.295 ADHD-udredningsforløb blandt børn og unge",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "1. april 2024 - 31. marts 2025",
+      "event": "Rapporteringsperiode for ADHD-databasen med 5.222 ADHD-behandlingsforløb blandt børn og unge",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "1. april 2024 - 31. marts 2025",
+      "event": "Rapporteringsperiode for ADHD-databasen med 2.648 ADHD-behandlingsforløb blandt voksne",
+      "entities": [
+        "adhd-databasen"
+      ]
+    }
+  ],
+  "context": "Disse sider indeholder styregruppens medlemmer for ADHD-databasen samt appendikser med detaljerede data om databasepopulationen for perioden 1. april 2024 - 31. marts 2025. Styregruppens medlemmer repræsenterer alle fem danske regioner, faglige selskaber, patientorganisationer og Sundhedsvæsenets Kvalitetsinstitut. Appendikserne dokumenterer antal og demografisk fordeling af ADHD-udrednings- og behandlingsforløb blandt børn, unge og voksne, samt regionale variationer i brugen af forløbsmarkøren for afkræftede mistanker."
+}

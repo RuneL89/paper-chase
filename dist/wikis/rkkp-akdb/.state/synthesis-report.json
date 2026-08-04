@@ -1,0 +1,4408 @@
+{
+  "entries": [
+    {
+      "timestamp": "2026-08-03T16:38:58.257Z",
+      "pageType": "entity",
+      "slug": "akut-kirurgi-databasen",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:38:38.986Z",
+      "pageType": "entity",
+      "slug": "peter-svenningsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:39:01.979Z",
+      "pageType": "entity",
+      "slug": "birgitte-ruhman",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:38:39.975Z",
+      "pageType": "entity",
+      "slug": "nordsjaellands-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:39:05.991Z",
+      "pageType": "entity",
+      "slug": "landspatientregisteret",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:39:06.819Z",
+      "pageType": "entity",
+      "slug": "danmark",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:39:25.245Z",
+      "pageType": "entity",
+      "slug": "hovedstaden",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:39:26.986Z",
+      "pageType": "entity",
+      "slug": "sjaelland",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:39:31.001Z",
+      "pageType": "entity",
+      "slug": "syddanmark",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:39:33.956Z",
+      "pageType": "entity",
+      "slug": "midtjylland",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:39:52.652Z",
+      "pageType": "entity",
+      "slug": "nordjylland",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:39:54.155Z",
+      "pageType": "entity",
+      "slug": "amager-og-hvidovre-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:40:00.143Z",
+      "pageType": "entity",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:39:59.159Z",
+      "pageType": "entity",
+      "slug": "bornholms-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:40:17.642Z",
+      "pageType": "entity",
+      "slug": "herlev-og-gentofte-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:40:19.101Z",
+      "pageType": "entity",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:40:24.238Z",
+      "pageType": "entity",
+      "slug": "rigshospitalet",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:40:27.125Z",
+      "pageType": "entity",
+      "slug": "holbaek-sygehus",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:40:42.786Z",
+      "pageType": "entity",
+      "slug": "nykoebing-f-sygehus",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:40:46.287Z",
+      "pageType": "entity",
+      "slug": "naestved-slagelse-ringsted-sygehuse",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:40:51.344Z",
+      "pageType": "entity",
+      "slug": "sjaellands-universitetshospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:40:54.495Z",
+      "pageType": "entity",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:41:10.078Z",
+      "pageType": "entity",
+      "slug": "odense-universitetshospital-svendborg",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:41:15.153Z",
+      "pageType": "entity",
+      "slug": "sygehus-lillebaelt",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:41:18.543Z",
+      "pageType": "entity",
+      "slug": "sygehus-soenderjylland",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:41:21.688Z",
+      "pageType": "entity",
+      "slug": "aarhus-universitetshospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:41:37.353Z",
+      "pageType": "entity",
+      "slug": "hospitalsenhed-midt",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:41:42.491Z",
+      "pageType": "entity",
+      "slug": "regionshospitalet-goedstrup",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:41:45.776Z",
+      "pageType": "entity",
+      "slug": "regionshospitalet-horsens",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:41:48.946Z",
+      "pageType": "entity",
+      "slug": "regionshospitalet-randers",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:42:04.660Z",
+      "pageType": "entity",
+      "slug": "aalborg-universitetshospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:41:47.073Z",
+      "pageType": "entity",
+      "slug": "aalborg-universitetshospital-thisted",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:42:14.912Z",
+      "pageType": "entity",
+      "slug": "regionshospital-nordjylland",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:42:14.404Z",
+      "pageType": "entity",
+      "slug": "sygehusmedicinregisteret",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:42:16.311Z",
+      "pageType": "entity",
+      "slug": "region-syddanmark",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:42:29.835Z",
+      "pageType": "entity",
+      "slug": "region-midtjylland",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:42:40.114Z",
+      "pageType": "entity",
+      "slug": "region-nordjylland",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:42:42.704Z",
+      "pageType": "entity",
+      "slug": "laerings-og-kvalitetesteam-akut-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:42:39.495Z",
+      "pageType": "entity",
+      "slug": "american-college-of-radiology",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:42:34.321Z",
+      "pageType": "entity",
+      "slug": "dansk-radiologisk-selskab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:43:03.872Z",
+      "pageType": "entity",
+      "slug": "aha-studiet",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:42:44.129Z",
+      "pageType": "entity",
+      "slug": "elpquick-studiet",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:43:09.972Z",
+      "pageType": "entity",
+      "slug": "region-hovedstaden",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:43:10.346Z",
+      "pageType": "entity",
+      "slug": "region-sjaelland",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:43:13.997Z",
+      "pageType": "entity",
+      "slug": "indikator-5",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:43:08.585Z",
+      "pageType": "entity",
+      "slug": "supplerende-indikator-5x",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:43:33.879Z",
+      "pageType": "entity",
+      "slug": "syddanmark-region",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:43:14.397Z",
+      "pageType": "entity",
+      "slug": "esbjerg-sygehus",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:43:14.832Z",
+      "pageType": "entity",
+      "slug": "grindsted-sygehus",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:43:39.016Z",
+      "pageType": "entity",
+      "slug": "midtjylland-region",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:43:39.581Z",
+      "pageType": "entity",
+      "slug": "nordjylland-region",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:43:42.185Z",
+      "pageType": "entity",
+      "slug": "hovedstaden-region",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:03.562Z",
+      "pageType": "entity",
+      "slug": "sjaelland-region",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:06.509Z",
+      "pageType": "entity",
+      "slug": "dansk-anaestesi-database",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:07.093Z",
+      "pageType": "entity",
+      "slug": "lkt-akutkirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:07.631Z",
+      "pageType": "entity",
+      "slug": "enhanced-recovery-after-surgery",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:08.224Z",
+      "pageType": "entity",
+      "slug": "sds",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:11.061Z",
+      "pageType": "entity",
+      "slug": "aha-studie",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:32.411Z",
+      "pageType": "entity",
+      "slug": "indikator-10",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:25.758Z",
+      "pageType": "entity",
+      "slug": "indikator-11",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:12.712Z",
+      "pageType": "entity",
+      "slug": "danske-regioner",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:36.377Z",
+      "pageType": "entity",
+      "slug": "odense-universitetshospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:17.228Z",
+      "pageType": "entity",
+      "slug": "lpr",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:44.937Z",
+      "pageType": "entity",
+      "slug": "den-nationale-labdatabank",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:48.945Z",
+      "pageType": "entity",
+      "slug": "cpr-registeret",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:39.137Z",
+      "pageType": "entity",
+      "slug": "sundhedsvaesenets-organisationsregister",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:41.135Z",
+      "pageType": "entity",
+      "slug": "sundhedsdatastyrelsens-teknikergruppe",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:41.770Z",
+      "pageType": "entity",
+      "slug": "stps",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:45:11.069Z",
+      "pageType": "entity",
+      "slug": "morten-moller",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:45:09.459Z",
+      "pageType": "entity",
+      "slug": "soeren-moeller-rosenstock",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:45:10.604Z",
+      "pageType": "entity",
+      "slug": "soeren-brok-laursen",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:51.529Z",
+      "pageType": "entity",
+      "slug": "ingrid-lolle",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:44:56.165Z",
+      "pageType": "entity",
+      "slug": "rasmus-hasselager",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:45:00.864Z",
+      "pageType": "entity",
+      "slug": "mikkel-wilhelmsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:45:05.594Z",
+      "pageType": "entity",
+      "slug": "niels-verner-knudsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:45:10.131Z",
+      "pageType": "entity",
+      "slug": "dorte-lindholm-buck",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:45:14.070Z",
+      "pageType": "entity",
+      "slug": "henrik-joergensen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:45:14.624Z",
+      "pageType": "entity",
+      "slug": "antibiotikabehandling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:45:35.683Z",
+      "pageType": "entity",
+      "slug": "ct-skanning",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:45:36.297Z",
+      "pageType": "entity",
+      "slug": "praeoperativ-optimering",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:45:39.142Z",
+      "pageType": "entity",
+      "slug": "operation-indenfor-6-timer",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:45:39.691Z",
+      "pageType": "entity",
+      "slug": "intermediaer-indlaeggelse",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:03.587Z",
+      "pageType": "entity",
+      "slug": "tidlig-mobilisering",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:04.203Z",
+      "pageType": "entity",
+      "slug": "ernaering",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:06.782Z",
+      "pageType": "entity",
+      "slug": "epidural",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:07.475Z",
+      "pageType": "entity",
+      "slug": "mortalitet-indenfor-30-dage",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:08.213Z",
+      "pageType": "entity",
+      "slug": "mortalitet-indenfor-90-dage",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:08.768Z",
+      "pageType": "entity",
+      "slug": "rkkp",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:11.340Z",
+      "pageType": "entity",
+      "slug": "peter-olsen-svenningsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:12.124Z",
+      "pageType": "entity",
+      "slug": "camilla-leidcker",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:12.790Z",
+      "pageType": "entity",
+      "slug": "halfdan-lauridsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:13.309Z",
+      "pageType": "entity",
+      "slug": "jakob-burcharth",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:15.939Z",
+      "pageType": "entity",
+      "slug": "karen-vestergaard-andersen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:16.794Z",
+      "pageType": "entity",
+      "slug": "kristian-aagaard-poulsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:17.313Z",
+      "pageType": "entity",
+      "slug": "line-rokkedal-joensson",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:17.789Z",
+      "pageType": "entity",
+      "slug": "lone-winther-jensen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:20.581Z",
+      "pageType": "entity",
+      "slug": "marianne-vinbaek",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:21.321Z",
+      "pageType": "entity",
+      "slug": "nicolai-bang-foss",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:21.853Z",
+      "pageType": "entity",
+      "slug": "rasmus-haarup-lie",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:22.283Z",
+      "pageType": "entity",
+      "slug": "rikke-therkildsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:25.218Z",
+      "pageType": "entity",
+      "slug": "rune-trangbaek",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:25.868Z",
+      "pageType": "entity",
+      "slug": "thomas-joergensen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:26.302Z",
+      "pageType": "entity",
+      "slug": "anne-kirstine-dyrvig",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:26.763Z",
+      "pageType": "entity",
+      "slug": "henrik-nielsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:27.753Z",
+      "pageType": "entity",
+      "slug": "birgitte-ruehmann",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:30.373Z",
+      "pageType": "entity",
+      "slug": "dansk-kirurgisk-selskab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:30.768Z",
+      "pageType": "entity",
+      "slug": "dansk-selskab-for-akutmedicin",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:31.224Z",
+      "pageType": "entity",
+      "slug": "dansk-selskab-for-klinisk-ernaering",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:32.375Z",
+      "pageType": "entity",
+      "slug": "dansk-sygepleje-selskab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:33.243Z",
+      "pageType": "entity",
+      "slug": "fagligt-selskab-for-gastroenterologiske-sygeplejersker",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:35.246Z",
+      "pageType": "entity",
+      "slug": "dansk-selskab-for-anaestesiologi-og-intensiv-medicin",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:35.978Z",
+      "pageType": "entity",
+      "slug": "dansk-selskab-for-fysioterapi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:37.255Z",
+      "pageType": "entity",
+      "slug": "regionssundhedsdirektoerkredsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:38.007Z",
+      "pageType": "entity",
+      "slug": "moeller-m-h",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:40.013Z",
+      "pageType": "entity",
+      "slug": "nakano-a",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:40.735Z",
+      "pageType": "entity",
+      "slug": "adamsen-s",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:42.018Z",
+      "pageType": "entity",
+      "slug": "bendix-j",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:46:42.738Z",
+      "pageType": "entity",
+      "slug": "mainz-j",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:47:06.211Z",
+      "pageType": "entity",
+      "slug": "indikator-1-antibiotikabehandling",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:47:06.231Z",
+      "pageType": "entity",
+      "slug": "indikator-2-ct-skanning",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:47:09.762Z",
+      "pageType": "entity",
+      "slug": "indikator-3-praeoperativ-optimering",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:47:10.264Z",
+      "pageType": "entity",
+      "slug": "indikator-4-operation-indenfor-seks-timer",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:47:31.442Z",
+      "pageType": "entity",
+      "slug": "indikator-5-postoperativ-monitoring",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:47:32.073Z",
+      "pageType": "entity",
+      "slug": "indikator-6-tidlig-mobilisering",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:47:34.869Z",
+      "pageType": "entity",
+      "slug": "indikator-7-ernaeringsgjenoptagelse",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:47:35.783Z",
+      "pageType": "entity",
+      "slug": "indikator-8-epidural",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:47:57.693Z",
+      "pageType": "entity",
+      "slug": "indikator-9-mortalitet-30-dage",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:47:58.471Z",
+      "pageType": "entity",
+      "slug": "indikator-10-mortalitet-90-dage",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:47:34.960Z",
+      "pageType": "entity",
+      "slug": "indikator-1",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:01.067Z",
+      "pageType": "entity",
+      "slug": "indikator-2",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:01.712Z",
+      "pageType": "entity",
+      "slug": "indikator-3",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:02.478Z",
+      "pageType": "entity",
+      "slug": "sundhedsvaesenet-kvalitetsinstitut",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:26.759Z",
+      "pageType": "entity",
+      "slug": "indikator-4x",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:29.506Z",
+      "pageType": "entity",
+      "slug": "indikator-4y",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:06.382Z",
+      "pageType": "entity",
+      "slug": "pupl-studiet",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:21.181Z",
+      "pageType": "entity",
+      "slug": "perforeret-ulcus",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:11.038Z",
+      "pageType": "entity",
+      "slug": "nasbo-projektet",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:39.765Z",
+      "pageType": "entity",
+      "slug": "asa-score",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:21.266Z",
+      "pageType": "entity",
+      "slug": "p-possum",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:26.174Z",
+      "pageType": "entity",
+      "slug": "apache-scoring",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:30.828Z",
+      "pageType": "entity",
+      "slug": "surgical-apgar-score",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:31.375Z",
+      "pageType": "entity",
+      "slug": "charlson-comorbidity-index",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:34.223Z",
+      "pageType": "entity",
+      "slug": "indikator-6",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:35.732Z",
+      "pageType": "entity",
+      "slug": "postoperative-lungekomplikationer",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:36.350Z",
+      "pageType": "entity",
+      "slug": "akut-abdominalkirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:39.037Z",
+      "pageType": "entity",
+      "slug": "indikator-7",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:40.375Z",
+      "pageType": "entity",
+      "slug": "indikator-8",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:41.053Z",
+      "pageType": "entity",
+      "slug": "laparotomi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:43.775Z",
+      "pageType": "entity",
+      "slug": "ileus",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:44.411Z",
+      "pageType": "entity",
+      "slug": "postoperativ-pneumoni",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:45.119Z",
+      "pageType": "entity",
+      "slug": "laparoskopi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:41.159Z",
+      "pageType": "entity",
+      "slug": "antikoagulerende-behandling",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:45.784Z",
+      "pageType": "entity",
+      "slug": "indikator-9",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:48.420Z",
+      "pageType": "entity",
+      "slug": "charlson-comorbidity-score",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:12.231Z",
+      "pageType": "entity",
+      "slug": "indikator-4",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:12.912Z",
+      "pageType": "entity",
+      "slug": "charlson-score",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:50.272Z",
+      "pageType": "entity",
+      "slug": "mortalitet-indenfor-30-dage-efter-akut-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:53.107Z",
+      "pageType": "entity",
+      "slug": "cpr-nummer",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:54.796Z",
+      "pageType": "entity",
+      "slug": "emma-possfelt-moller",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:57.785Z",
+      "pageType": "entity",
+      "slug": "mette-aastrup-tolver",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:48:59.467Z",
+      "pageType": "entity",
+      "slug": "helene-rask-dalby",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:02.677Z",
+      "pageType": "entity",
+      "slug": "henriette-vind-thaysen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:02.144Z",
+      "pageType": "entity",
+      "slug": "thomas-cotzand",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:06.687Z",
+      "pageType": "entity",
+      "slug": "vera-slyk",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:07.204Z",
+      "pageType": "entity",
+      "slug": "kolding-sygehus",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:09.205Z",
+      "pageType": "entity",
+      "slug": "nordeepj",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:10.197Z",
+      "pageType": "entity",
+      "slug": "charleson-score",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:09.264Z",
+      "pageType": "entity",
+      "slug": "aha-patient",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:26.291Z",
+      "pageType": "entity",
+      "slug": "anaestesiolog",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:14.914Z",
+      "pageType": "entity",
+      "slug": "naaz42-procedurekode",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:14.912Z",
+      "pageType": "entity",
+      "slug": "ima-afsnit",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:17.365Z",
+      "pageType": "entity",
+      "slug": "ita-afsnit",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:51.909Z",
+      "pageType": "topic",
+      "slug": "temporal",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:52.667Z",
+      "pageType": "topic",
+      "slug": "methodological",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:30.008Z",
+      "pageType": "topic",
+      "slug": "operational",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:30.675Z",
+      "pageType": "topic",
+      "slug": "outcome",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:58.196Z",
+      "pageType": "topic",
+      "slug": "clinical-indicator",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:49:58.774Z",
+      "pageType": "topic",
+      "slug": "clinical-performance",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:50:17.792Z",
+      "pageType": "topic",
+      "slug": "patient-volume",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:50:18.487Z",
+      "pageType": "topic",
+      "slug": "data-quality",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:50:23.930Z",
+      "pageType": "topic",
+      "slug": "clinical-outcome",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:50:24.616Z",
+      "pageType": "topic",
+      "slug": "clinical-evidence",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:50:45.866Z",
+      "pageType": "topic",
+      "slug": "clinical-recommendation",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:50:46.700Z",
+      "pageType": "topic",
+      "slug": "clinical-observation",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:50:28.631Z",
+      "pageType": "topic",
+      "slug": "policy-change",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:50:29.286Z",
+      "pageType": "topic",
+      "slug": "policy-decision",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:50:33.301Z",
+      "pageType": "topic",
+      "slug": "procedural",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:50:33.928Z",
+      "pageType": "topic",
+      "slug": "standard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:01.168Z",
+      "pageType": "topic",
+      "slug": "statistical",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:01.635Z",
+      "pageType": "topic",
+      "slug": "exclusion-criteria",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:13.801Z",
+      "pageType": "topic",
+      "slug": "quality-standard",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:14.313Z",
+      "pageType": "topic",
+      "slug": "regional-variation",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:05.712Z",
+      "pageType": "topic",
+      "slug": "quality-assessment",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:25.290Z",
+      "pageType": "topic",
+      "slug": "performance",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:31.965Z",
+      "pageType": "topic",
+      "slug": "trend",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:40.095Z",
+      "pageType": "topic",
+      "slug": "clinical-assessment",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:40.723Z",
+      "pageType": "topic",
+      "slug": "recommendation",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:29.998Z",
+      "pageType": "topic",
+      "slug": "standard-setting",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:34.758Z",
+      "pageType": "topic",
+      "slug": "standard-compliance",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:36.495Z",
+      "pageType": "topic",
+      "slug": "analysis",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:39.489Z",
+      "pageType": "topic",
+      "slug": "regional-outcome",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:41.224Z",
+      "pageType": "topic",
+      "slug": "hospital-outcome",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:05.540Z",
+      "pageType": "topic",
+      "slug": "methodology",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:58.522Z",
+      "pageType": "topic",
+      "slug": "clinical-guideline",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:07.415Z",
+      "pageType": "topic",
+      "slug": "definition",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:45.743Z",
+      "pageType": "topic",
+      "slug": "standard-change",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:50.288Z",
+      "pageType": "topic",
+      "slug": "compliance",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:51:52.892Z",
+      "pageType": "topic",
+      "slug": "regulatory-approval",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:19.044Z",
+      "pageType": "topic",
+      "slug": "clinical-practice",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:23.057Z",
+      "pageType": "topic",
+      "slug": "mortality-outcome",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:33.913Z",
+      "pageType": "topic",
+      "slug": "mortality-statistic",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:35.247Z",
+      "pageType": "topic",
+      "slug": "demographic",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:23.820Z",
+      "pageType": "topic",
+      "slug": "clinical-analysis",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:27.823Z",
+      "pageType": "topic",
+      "slug": "purpose",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:28.526Z",
+      "pageType": "topic",
+      "slug": "process",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:32.528Z",
+      "pageType": "topic",
+      "slug": "status",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:33.235Z",
+      "pageType": "topic",
+      "slug": "policy",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:37.250Z",
+      "pageType": "topic",
+      "slug": "inclusion-criteria",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:59.527Z",
+      "pageType": "topic",
+      "slug": "population-statistics",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:53:02.291Z",
+      "pageType": "topic",
+      "slug": "data-extraction",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:39.936Z",
+      "pageType": "topic",
+      "slug": "methodology-change",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:41.936Z",
+      "pageType": "topic",
+      "slug": "availability",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:43.826Z",
+      "pageType": "topic",
+      "slug": "validation",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:46.708Z",
+      "pageType": "topic",
+      "slug": "validation-process",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:48.580Z",
+      "pageType": "topic",
+      "slug": "limitation",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:51.434Z",
+      "pageType": "topic",
+      "slug": "clinical-target",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:51.434Z",
+      "pageType": "topic",
+      "slug": "clinical-data",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:54.047Z",
+      "pageType": "topic",
+      "slug": "clinical-trend",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:55.515Z",
+      "pageType": "topic",
+      "slug": "publication",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:52:58.796Z",
+      "pageType": "topic",
+      "slug": "conference-presentation",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:53:23.992Z",
+      "pageType": "topic",
+      "slug": "organizational",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:53:27.643Z",
+      "pageType": "topic",
+      "slug": "administrative",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:53:25.465Z",
+      "pageType": "topic",
+      "slug": "performance-metric",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:53:06.926Z",
+      "pageType": "topic",
+      "slug": "quality-improvement",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:53:30.938Z",
+      "pageType": "topic",
+      "slug": "quality-indicator",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:53:41.452Z",
+      "pageType": "topic",
+      "slug": "clinical-research",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:53:52.096Z",
+      "pageType": "topic",
+      "slug": "mortality",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:53:51.671Z",
+      "pageType": "topic",
+      "slug": "clinical-procedure",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:53:35.946Z",
+      "pageType": "topic",
+      "slug": "data-source",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:53:36.146Z",
+      "pageType": "topic",
+      "slug": "population-definition",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:53:40.958Z",
+      "pageType": "topic",
+      "slug": "data-availability",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T16:54:13.216Z",
+      "pageType": "comparison",
+      "slug": "akut-kirurgi-databasen",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:54:13.264Z",
+      "pageType": "comparison",
+      "slug": "indikator-1",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:54:14.048Z",
+      "pageType": "comparison",
+      "slug": "indikator-3",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:54:14.729Z",
+      "pageType": "comparison",
+      "slug": "indikator-4",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:54:28.526Z",
+      "pageType": "comparison",
+      "slug": "operation-indenfor-6-timer",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:54:35.017Z",
+      "pageType": "comparison",
+      "slug": "supplerende-indikator-5x-operation-indenfor-6-timer-360-minutter-perforation-iskaemi-bloedning",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:54:35.046Z",
+      "pageType": "comparison",
+      "slug": "supplerende-indikator-til-indikator-5x-operation-indenfor-6-timer-perforation-iskaemi-bloedning-resultater-paa-afdelingsniveau",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:54:26.193Z",
+      "pageType": "comparison",
+      "slug": "eksklusionsaarsager-for-supplerende-indikator-til-indikator-5x",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:54:44.032Z",
+      "pageType": "comparison",
+      "slug": "supplerende-indikator-til-indikator-5y-operation-indenfor-6-timer-hvor-diagnosen-ikke-er-perforation-iskaemi-bloedning-resultater-paa-afdelingsniveau",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:54:38.464Z",
+      "pageType": "comparison",
+      "slug": "eksklusionsaarsager-for-supplerende-indikator-til-indikator-5y",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:54:55.500Z",
+      "pageType": "comparison",
+      "slug": "indikator-6",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:54:56.279Z",
+      "pageType": "comparison",
+      "slug": "indikator-7",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:54:55.529Z",
+      "pageType": "comparison",
+      "slug": "indikator-8",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:55:03.191Z",
+      "pageType": "comparison",
+      "slug": "indikator-9",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:55:14.817Z",
+      "pageType": "comparison",
+      "slug": "eksklusion",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:55:14.841Z",
+      "pageType": "comparison",
+      "slug": "indikator-10",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:55:15.334Z",
+      "pageType": "comparison",
+      "slug": "indikator-11",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:55:22.478Z",
+      "pageType": "comparison",
+      "slug": "supplerende-opgoerelse-over-andelen-af-opererede-og-ikke-opererede-i-opgoerelsesperioden",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:55:33.950Z",
+      "pageType": "comparison",
+      "slug": "supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:55:34.477Z",
+      "pageType": "comparison",
+      "slug": "supplerende-indikator-til-10a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede-med-relevant-diagnosekode-og-procedurekode",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:55:33.318Z",
+      "pageType": "comparison",
+      "slug": "eksklusioner-antal-aarsag",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:55:38.649Z",
+      "pageType": "comparison",
+      "slug": "supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede-med-relevant-diagnosekode-og-procedurekode",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:55:49.989Z",
+      "pageType": "comparison",
+      "slug": "eksklusion-antal-og-aarsag-supplerende-indikator-til-indikator-10b",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:55:50.015Z",
+      "pageType": "comparison",
+      "slug": "supplerende-indikator-til-10c-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-3-alle-opererede-med-relevant-diagnosekode-og-procedurekode",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:55:58.065Z",
+      "pageType": "comparison",
+      "slug": "eksklusion-antal-og-aarsag-supplerende-indikator-til-indikator-10c",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:55:58.672Z",
+      "pageType": "comparison",
+      "slug": "fordeling-af-koen-for-opererede",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:56:09.227Z",
+      "pageType": "comparison",
+      "slug": "fordeling-af-alder-for-opererede-01-09-2020-31-08-2021",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:56:09.850Z",
+      "pageType": "comparison",
+      "slug": "fordeling-af-alder-for-opererede-01-09-2021-31-08-2022",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:56:15.887Z",
+      "pageType": "comparison",
+      "slug": "fordeling-af-alder-for-opererede-01-09-2022-31-08-2023",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:56:15.931Z",
+      "pageType": "comparison",
+      "slug": "asa-score",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:56:28.924Z",
+      "pageType": "comparison",
+      "slug": "indikator-2",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:56:29.749Z",
+      "pageType": "comparison",
+      "slug": "indikator-4x",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:56:35.672Z",
+      "pageType": "comparison",
+      "slug": "indikator-4y",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:56:36.255Z",
+      "pageType": "comparison",
+      "slug": "indikator-5",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:56:46.976Z",
+      "pageType": "comparison",
+      "slug": "mortalitet-indenfor-30-dage-efter-akut-kirurgi",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:56:47.008Z",
+      "pageType": "comparison",
+      "slug": "mortalitet-indenfor-90-dage",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:56:55.201Z",
+      "pageType": "comparison",
+      "slug": "supplerende-indikator-til-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede-med-relevant-diagnosekode-og-procedurekode",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:56:55.229Z",
+      "pageType": "comparison",
+      "slug": "eksklusion-antal-og-aarsag",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:57:06.761Z",
+      "pageType": "comparison",
+      "slug": "supplerende-indikator-til-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede-med-relevant-diagnosekode-og-procedurekode",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:57:06.788Z",
+      "pageType": "comparison",
+      "slug": "supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-charlson-score-1-eller-2-alle-opererede-resultater-paa-afdelingsniveau",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:57:12.001Z",
+      "pageType": "comparison",
+      "slug": "supplerende-indikator-til-9c-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-3-alle-opererede-med-relevant-diagnosekode-og-procedurekode",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-03T16:57:12.032Z",
+      "pageType": "comparison",
+      "slug": "laparotomi",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    }
+  ]
+}

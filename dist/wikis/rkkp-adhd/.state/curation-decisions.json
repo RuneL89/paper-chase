@@ -1,0 +1,148 @@
+{
+  "decisions": [
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "aabenraa"
+      ],
+      "into": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:48:36.158Z",
+      "runId": "2026-08-03T18:48:36.158Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "bispebjerg"
+      ],
+      "into": "bispebjerg-psykiatrisk-ambulatorium",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:48:36.158Z",
+      "runId": "2026-08-03T18:48:36.158Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "bornholm"
+      ],
+      "into": "bornholm-psykiatrisk-ambulatorium",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:48:36.158Z",
+      "runId": "2026-08-03T18:48:36.158Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "carelink-psykiatri-naerhospital-viborg"
+      ],
+      "into": "carelink-psykiatri-viborg",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:48:36.158Z",
+      "runId": "2026-08-03T18:48:36.158Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "esbjerg"
+      ],
+      "into": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:48:36.158Z",
+      "runId": "2026-08-03T18:48:36.158Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "glostrup"
+      ],
+      "into": "glostrup-psykiatrisk-ambulatorium",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:48:36.158Z",
+      "runId": "2026-08-03T18:48:36.158Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "hilleroed"
+      ],
+      "into": "hillerod-psykiatrisk-ambulatorium",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:48:36.158Z",
+      "runId": "2026-08-03T18:48:36.158Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "klinik-for-boern-og-unge"
+      ],
+      "into": "klinik-boerner-unge",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:48:36.158Z",
+      "runId": "2026-08-03T18:48:36.158Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "malene-oestergaard"
+      ],
+      "into": "malene-tousgaard-foget-ostergaard",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:48:36.158Z",
+      "runId": "2026-08-03T18:48:36.158Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "odense"
+      ],
+      "into": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:48:36.158Z",
+      "runId": "2026-08-03T18:48:36.158Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "psy-lokalpsykiatri-tonder"
+      ],
+      "into": "psy-lokalpsykiatri-toender",
+      "signal": "transliteration",
+      "decidedAt": "2026-08-03T18:48:36.158Z",
+      "runId": "2026-08-03T18:48:36.158Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "rkkp-adhd"
+      ],
+      "into": "adhd-databasen",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:48:36.158Z",
+      "runId": "2026-08-03T18:48:36.158Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "vejle"
+      ],
+      "into": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:48:36.158Z",
+      "runId": "2026-08-03T18:48:36.158Z"
+    }
+  ],
+  "splits": []
+}

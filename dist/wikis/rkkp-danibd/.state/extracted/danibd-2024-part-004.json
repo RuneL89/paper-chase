@@ -1,0 +1,560 @@
+{
+  "entities": [
+    {
+      "name": "DANIBD",
+      "type": "organization",
+      "slug": "danibd",
+      "folder": "entities/organizations/registries",
+      "significance": "DANIBD er det nationale kvalitetsregister for inflammatorisk tarmsygdom, der monitorerer indikatorer for patientundervisning og postoperativ opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "12 DANIBD"
+        },
+        {
+          "page": 16,
+          "context": "DANIBD 13"
+        },
+        {
+          "page": 16,
+          "context": "16 DANIBD"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Syddanmark er den eneste region, der opfylder udviklingsmålet på 80 % for postoperativ opfølgning af Crohns sygdom og har registreret undervisning for alle afdelinger.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Alle afdelinger i Region Syddanmark har registreret undervisning"
+        },
+        {
+          "page": 19,
+          "context": "I Region Syddanmark får alle den anbefalede opfølgning til tiden, hvormed de som den eneste region lever op til udviklingsmålet"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden har den laveste opfyldelsesgrad (49 %) for postoperativ endoskopisk opfølgning af Crohns sygdom blandt de fem regioner.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "49 % i Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland har en opfyldelsesgrad på 74 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "74 % i Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Midtjylland har en opfyldelsesgrad på 69 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "69 % i Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland har en opfyldelsesgrad på 55 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "55 % i Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Crohns sygdom",
+      "type": "medical-condition",
+      "slug": "crohns-disease",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "significance": "Crohns sygdom er en kronisk inflammatorisk tarmsygdom, hvor ca. 75 % af patienterne bliver opereret i løbet af sygdomsforløbet, og postoperativ endoskopisk opfølgning anbefales internationalt.",
+      "mentions": [
+        {
+          "page": 18,
+          "context": "Crohns sygdom er en kronisk sygdom, som har et sygdomsmønster bestående af sygdomsaktivitet afbrudt af remissionsfaser"
+        },
+        {
+          "page": 18,
+          "context": "ca. 75 % af patienter med Crohns sygdom bliver opereret igennem hele sygdomsforløbet"
+        },
+        {
+          "page": 18,
+          "context": "Indikatoren monitorerer derfor andelen af voksne med Crohns sygdom, der har fået foretaget ileocøkal resektion"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg Abdominalcenter",
+      "type": "organization",
+      "slug": "bispebjerg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg Abdominalcenter har en opfyldelsesgrad på 55 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 18,
+          "context": "Bispebjerg Abdominalcenter K 11 / 20 0 (0) 55 (32-77)"
+        }
+      ]
+    },
+    {
+      "name": "Herlev Mave-, Tarm- og Leversygd.",
+      "type": "organization",
+      "slug": "herlev",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev Mave-, Tarm- og Leversygd. har en opfyldelsesgrad på 17 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 18,
+          "context": "Herlev Mave-, Tarm- og Leversygd. # / # 0 (0) 17 (0-64)"
+        }
+      ]
+    },
+    {
+      "name": "Hvidovre Gastroenheden",
+      "type": "organization",
+      "slug": "hvidovre",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hvidovre Gastroenheden har en opfyldelsesgrad på 55 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 18,
+          "context": "Hvidovre Gastroenheden 12 / 22 0 (0) 55 (32-76)"
+        }
+      ]
+    },
+    {
+      "name": "Nordsjælland Kirurgisk Afdeling",
+      "type": "organization",
+      "slug": "nordsjaellands-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Nordsjælland Kirurgisk Afdeling har en opfyldelsesgrad på 38 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 18,
+          "context": "Nordsjælland Kirurgisk Afdeling 3 / 8 0 (0) 38 (9-76)"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet Mave-, Tarm- og Leversygd.",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet Mave-, Tarm- og Leversygd. har en opfyldelsesgrad på 100 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 18,
+          "context": "Rigshospitalet Mave-, Tarm- og Leversygd. # / # 0 (0) 100 (3-100)"
+        }
+      ]
+    },
+    {
+      "name": "SUH Køge Medicin",
+      "type": "organization",
+      "slug": "koege-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "SUH Køge Medicin har en opfyldelsesgrad på 74 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 18,
+          "context": "SUH Køge Medicin 17 / 23 0 (0) 74 (52-90)"
+        }
+      ]
+    },
+    {
+      "name": "EGS Esbjerg Medicinsk Mave og Tarm Amb.",
+      "type": "organization",
+      "slug": "esbjerg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "EGS Esbjerg Medicinsk Mave og Tarm Amb. har en opfyldelsesgrad på 100 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "EGS Esbjerg Medicinsk Mave og Tarm Amb. 9 / 9 0 (0) 100 (66-100)"
+        }
+      ]
+    },
+    {
+      "name": "OUH Odense Medicinsk Mave-Tarm Afd. S",
+      "type": "organization",
+      "slug": "odense-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "OUH Odense Medicinsk Mave-Tarm Afd. S har en opfyldelsesgrad på 83 % for postoperativ endoskopisk opfølgning af Crohns sygdom og er den eneste afdeling med mere end 10 patienter, der opnår udviklingsmålet.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "OUH Odense Medicinsk Mave-Tarm Afd. S 15 / 18 0 (0) 83 (59-96)"
+        },
+        {
+          "page": 19,
+          "context": "OUH Odense Medicinsk Mave-Tarm Afd. S den eneste, som har opnået udviklingsmålet"
+        }
+      ]
+    },
+    {
+      "name": "SLB Vejle Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "vejle-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "SLB Vejle Medicinsk Afdeling har en opfyldelsesgrad på 69 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "SLB Vejle Medicinsk Afdeling 9 / 13 0 (0) 69 (39-91)"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Lever-, Mave- og Tarmsygd.",
+      "type": "organization",
+      "slug": "aarhus-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Lever-, Mave- og Tarmsygd. har en opfyldelsesgrad på 70 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "Aarhus Lever-, Mave- og Tarmsygd. 19 / 27 0 (0) 70 (50-86)"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrup Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "goedstrup-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Gødstrup Medicinsk Afdeling har en opfyldelsesgrad på 71 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "Gødstrup Medicinsk Afdeling 12 / 17 0 (0) 71 (44-90)"
+        }
+      ]
+    },
+    {
+      "name": "HE Midt Klinik for Mave- og Tarmsygd.",
+      "type": "organization",
+      "slug": "he-midt-klinik-for-mave-og-tarmsygd",
+      "folder": "entities/organizations/hospitals",
+      "significance": "HE Midt Klinik for Mave- og Tarmsygd. har en opfyldelsesgrad på 50 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "HE Midt Klinik for Mave- og Tarmsygd. # / # 0 (0) 50 (7-93)"
+        }
+      ]
+    },
+    {
+      "name": "AAUH Aalborg Med. Gastroenterologisk Afd.",
+      "type": "organization",
+      "slug": "aauh-aalborg-med-gastroenterologisk-omraade",
+      "folder": "entities/organizations/hospitals",
+      "significance": "AAUH Aalborg Med. Gastroenterologisk Afd. har en opfyldelsesgrad på 55 % for postoperativ endoskopisk opfølgning af Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "AAUH Aalborg Med. Gastroenterologisk Afd. 6 / 11 0 (0) 55 (23-83)"
+        }
+      ]
+    },
+    {
+      "name": "Koloskopi",
+      "type": "medical-procedure",
+      "slug": "koloskopi",
+      "folder": "topics/clinical-measures/procedures",
+      "significance": "Koloskopi er den anbefalede endoskopiske opfølgningsmetode for patienter med Crohns sygdom efter ileocøkal resektion, og skal udføres inden for et år efter operationen.",
+      "mentions": [
+        {
+          "page": 18,
+          "context": "det postoperative forløb bedst monitoreres med endoskopisk opfølgning"
+        },
+        {
+          "page": 18,
+          "context": "Indikatoren monitorerer derfor andelen af voksne med Crohns sygdom, der har fået foretaget ileocøkal resektion, som bliver koloskoperet inden for ét år efter operationen"
+        }
+      ]
+    },
+    {
+      "name": "Ileocøkal resektion",
+      "type": "medical-procedure",
+      "slug": "ileocecal-resection",
+      "folder": "topics/surgical-procedures",
+      "significance": "Ileocøkal resektion er en kirurgisk procedure for Crohns sygdom, som udføres hos ca. 75 % af patienterne i løbet af sygdomsforløbet, og kræver postoperativ endoskopisk opfølgning.",
+      "mentions": [
+        {
+          "page": 18,
+          "context": "Indikatoren monitorerer derfor andelen af voksne med Crohns sygdom, der har fået foretaget ileocøkal resektion"
+        },
+        {
+          "page": 19,
+          "context": "I alt har 179 voksne med Crohns sygdom fået foretaget ileocøkal resektion i opgørelsesperioden"
+        }
+      ]
+    },
+    {
+      "name": "Patientundervisning",
+      "type": "topic",
+      "slug": "patient-education",
+      "folder": "topics/patient-education",
+      "significance": "Patientundervisning for nydiagnosticerede IBD-patienter er en vigtig kvalitetsindikator, der skal indeholde information om alarmsymptomer, medicinsk behandling, livsstilsfaktorer og kontaktoplysninger.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Indikator 2. Undervisning, nydiagnosticerede"
+        },
+        {
+          "page": 16,
+          "context": "patientundervisning betragtes derfor som et vigtigt element i håndteringen af den nyopståede sygdom"
+        },
+        {
+          "page": 17,
+          "context": "Undervisningen bør som minimum indeholde information om alarmsymptomer, medicinsk behandling, livsstilsfaktorers påvirkning på sygdommen og kontaktoplysninger"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "region-syddanmark",
+      "predicate": "achieves-development-goal",
+      "object": "crohns-disease",
+      "evidence": "I Region Syddanmark får alle den anbefalede opfølgning til tiden, hvormed de som den eneste region lever op til udviklingsmålet",
+      "page": 19
+    },
+    {
+      "subject": "odense-university-hospital",
+      "predicate": "achieves-development-goal",
+      "object": "crohns-disease",
+      "evidence": "OUH Odense Medicinsk Mave-Tarm Afd. S den eneste, som har opnået udviklingsmålet",
+      "page": 19
+    },
+    {
+      "subject": "danibd",
+      "predicate": "monitors-indicator",
+      "object": "patient-education",
+      "evidence": "Indikatoren monitorerer derfor andelen af nydiagnosticerede, der har modtaget undervisning indenfor et år efter diagnosen er stillet",
+      "page": 16
+    },
+    {
+      "subject": "danibd",
+      "predicate": "monitors-indicator",
+      "object": "crohns-disease",
+      "evidence": "Indikatoren monitorerer derfor andelen af voksne med Crohns sygdom, der har fået foretaget ileocøkal resektion, som bliver koloskoperet inden for ét år efter operationen",
+      "page": 18
+    }
+  ],
+  "claims": [
+    {
+      "text": "IBD er kroniske uhelbredelige sygdomme, der rammer patienter i alle aldre [^src1]",
+      "type": "medical",
+      "entities": [
+        "inflammatory-bowel-disease"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Der er international enighed om, at det er god kvalitet at tilbyde nydiagnosticerede patienter undervisning i egen sygdom, da det har positiv indvirkning på patienternes livskvalitet og komplians [^src1]",
+      "type": "medical",
+      "entities": [
+        "patient-education"
+      ],
+      "page": 16
+    },
+    {
+      "text": "13 % af de nydiagnosticerede har fået undervisning i året efter, de fik diagnosen [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd",
+        "patient-education"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Blandt de afdelinger, der har registreret undervisning, ligger andelen mellem 1 % til 39 % [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd",
+        "patient-education"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Alle afdelinger i Region Syddanmark har registreret undervisning [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "region-syddanmark",
+        "patient-education"
+      ],
+      "page": 17
+    },
+    {
+      "text": "16 afdelinger fordelt på de fire øvrige regioner ikke er kommet i gang med registreringen af undervisningen af nydiagnosticerede [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd",
+        "patient-education"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Blandt børneafdelingerne er det kun de to, der har registeret undervisningen på nydiagnosticerede børn og unge i opgørelsesperioden [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd",
+        "patient-education"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Indikatoren blev ført i 1. oktober 2022, hvor også koden til registrering blev tilgængelig i LPR [^src1]",
+      "type": "administrative",
+      "entities": [
+        "danibd"
+      ],
+      "page": 17
+    },
+    {
+      "text": "ca. 75 % af patienter med Crohns sygdom bliver opereret igennem hele sygdomsforløbet [^src1]",
+      "type": "medical",
+      "entities": [
+        "crohns-disease"
+      ],
+      "page": 18
+    },
+    {
+      "text": "Der er stærk anbefaling for, og deraf international enighed om, at det postoperative forløb bedst monitoreres med endoskopisk opfølgning [^src1]",
+      "type": "medical",
+      "entities": [
+        "crohns-disease",
+        "koloskopi"
+      ],
+      "page": 18
+    },
+    {
+      "text": "Udviklingsmålet er, at mindst 80 % har fået endoskopisk opfølgning til tiden [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd",
+        "crohns-disease"
+      ],
+      "page": 18
+    },
+    {
+      "text": "I alt har 179 voksne med Crohns sygdom fået foretaget ileocøkal resektion i opgørelsesperioden [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "crohns-disease"
+      ],
+      "page": 19
+    },
+    {
+      "text": "På landsplan har 65 % af patienterne fået den anbefalede opfølgning til tiden [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd",
+        "crohns-disease"
+      ],
+      "page": 19
+    },
+    {
+      "text": "I Region Syddanmark får alle den anbefalede opfølgning til tiden, hvormed de som den eneste region lever op til udviklingsmålet [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "region-syddanmark",
+        "crohns-disease"
+      ],
+      "page": 19
+    },
+    {
+      "text": "For de øvrige fire regioner ses stor variation fra 74 % i Region Sjælland til 49 % i Region Hovedstaden [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "region-sjaelland",
+        "region-hovedstaden",
+        "crohns-disease"
+      ],
+      "page": 19
+    },
+    {
+      "text": "For afdelinger med flere end 10 patienter er OUH Odense Medicinsk Mave-Tarm Afd. S den eneste, som har opnået udviklingsmålet [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "odense-university-hospital",
+        "crohns-disease"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Der er stor variation fra 55 % til 74 % for de øvrige afdelinger [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "danibd",
+        "crohns-disease"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Styregruppen anbefaler, at udviklingsmålet fastsættes til 80 % i næste årsrapport [^src1]",
+      "type": "administrative",
+      "entities": [
+        "danibd",
+        "patient-education"
+      ],
+      "page": 17
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. oktober 2022",
+      "event": "Indikatoren for patientundervisning blev ført, og koden til registrering blev tilgængelig i LPR",
+      "entities": [
+        "danibd",
+        "patient-education"
+      ]
+    },
+    {
+      "date": "september 2024",
+      "event": "Pædiaterne begyndte undervisning i indikatoren for patientundervisning",
+      "entities": [
+        "danibd",
+        "patient-education"
+      ]
+    },
+    {
+      "date": "1. oktober 2022 - 30. september 2023",
+      "event": "Opgørelsesperiode for indikator 3 om postoperativ opfølgning af Crohns sygdom",
+      "entities": [
+        "danibd",
+        "crohns-disease"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer to vigtige kvalitetsindikatorer fra DANIBD, det danske kvalitetsregister for inflammatorisk tarmsygdom. Første indikator fokuserer på patientundervisning for nydiagnosticerede IBD-patienter, hvor kun 13 % af patienterne modtog undervisning i det første år efter diagnose, med betydelig regional variation. Anden indikator vedrører postoperativ endoskopisk opfølgning af patienter med Crohns sygdom efter ileocøkal resektion, hvor 65 % på landsplan opnåede den anbefalede opfølgning inden for et år, med Region Syddanmark som den eneste region, der opfylder udviklingsmålet på 80 %. Begge indikatorer illustrerer variationen i kvaliteten af IBD-behandling på tværs af danske regioner og hospitaler."
+}

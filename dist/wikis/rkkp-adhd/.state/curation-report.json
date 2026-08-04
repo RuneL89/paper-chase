@@ -1,0 +1,1340 @@
+{
+  "run": "2026-08-03T18:48:36.158Z",
+  "topics": {
+    "merges": [],
+    "drops": [],
+    "attempts": 1,
+    "fallbacks": [],
+    "vetoes": [],
+    "fromSticky": {
+      "merges": [],
+      "drops": []
+    },
+    "decidedThisRun": {
+      "merges": [],
+      "drops": [],
+      "denials": [
+        {
+          "from": "indikator-1",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-2a",
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-2a",
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-2b",
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-2b",
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-2b",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-7a",
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-7a",
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-7a",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-7b",
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-7b",
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-7b",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-7b",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "ny-indikator-2b",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "ny-indikator-3",
+          "into": "indikator-3"
+        },
+        {
+          "from": "ny-indikator-3",
+          "into": "ny-indikator-2b"
+        },
+        {
+          "from": "quality-indicator",
+          "into": "quality-indicators"
+        }
+      ]
+    },
+    "proposedPairs": [
+      {
+        "from": "indikator-1",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2a",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2a' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2a",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2a' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2b",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2b' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2b",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2b' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2b",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2b' and 'indikator-2a' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7a",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7a' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7a",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7a' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7a",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7a' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7b",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7b' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7b",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7b' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7b",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7b' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7b",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7b' and 'indikator-7a' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "ny-indikator-2b",
+        "into": "indikator-2b",
+        "signal": "subsequence",
+        "evidence": "tokens of 'indikator-2b' are a subsequence of 'ny-indikator-2b' (name parts [ny] dropped)"
+      },
+      {
+        "from": "ny-indikator-3",
+        "into": "indikator-3",
+        "signal": "subsequence",
+        "evidence": "tokens of 'indikator-3' are a subsequence of 'ny-indikator-3' (name parts [ny] dropped)"
+      },
+      {
+        "from": "ny-indikator-3",
+        "into": "ny-indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'ny-indikator-3' and 'ny-indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "quality-indicator",
+        "into": "quality-indicators",
+        "signal": "edit-distance",
+        "evidence": "slugs 'quality-indicator' and 'quality-indicators' are edit distance 1 apart (typo variant)"
+      }
+    ],
+    "autoApplied": []
+  },
+  "entities": {
+    "merges": [],
+    "drops": [],
+    "attempts": 1,
+    "fallbacks": [],
+    "vetoes": [],
+    "fromSticky": {
+      "merges": [],
+      "drops": [],
+      "clusters": []
+    },
+    "decidedThisRun": {
+      "merges": [
+        {
+          "from": [
+            "aabenraa"
+          ],
+          "into": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
+          "signal": "alias",
+          "evidence": "title 'Aabenraa' is an exact frontmatter alias of 'aabenraa-boerne-ungdomspsykiatrisk-ambulatorium'"
+        },
+        {
+          "from": [
+            "bispebjerg"
+          ],
+          "into": "bispebjerg-psykiatrisk-ambulatorium",
+          "signal": "alias",
+          "evidence": "title 'Bispebjerg' is an exact frontmatter alias of 'bispebjerg-psykiatrisk-ambulatorium'"
+        },
+        {
+          "from": [
+            "bornholm"
+          ],
+          "into": "bornholm-psykiatrisk-ambulatorium",
+          "signal": "alias",
+          "evidence": "title 'Bornholm' is an exact frontmatter alias of 'bornholm-psykiatrisk-ambulatorium'"
+        },
+        {
+          "from": [
+            "carelink-psykiatri-naerhospital-viborg"
+          ],
+          "into": "carelink-psykiatri-viborg",
+          "signal": "alias",
+          "evidence": "title 'Carelink psykiatri, Nærhospital Viborg' is an exact frontmatter alias of 'carelink-psykiatri-viborg'"
+        },
+        {
+          "from": [
+            "esbjerg"
+          ],
+          "into": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
+          "signal": "alias",
+          "evidence": "title 'Esbjerg' is an exact frontmatter alias of 'esbjerg-boerne-ungdomspsykiatrisk-ambulatorium'"
+        },
+        {
+          "from": [
+            "glostrup"
+          ],
+          "into": "glostrup-psykiatrisk-ambulatorium",
+          "signal": "alias",
+          "evidence": "title 'Glostrup' is an exact frontmatter alias of 'glostrup-psykiatrisk-ambulatorium'"
+        },
+        {
+          "from": [
+            "hilleroed"
+          ],
+          "into": "hillerod-psykiatrisk-ambulatorium",
+          "signal": "alias",
+          "evidence": "title 'Hillerød' is an exact frontmatter alias of 'hillerod-psykiatrisk-ambulatorium'"
+        },
+        {
+          "from": [
+            "klinik-for-boern-og-unge"
+          ],
+          "into": "klinik-boerner-unge",
+          "signal": "alias",
+          "evidence": "title 'Klinik for børn- og unge' is an exact frontmatter alias of 'klinik-boerner-unge'"
+        },
+        {
+          "from": [
+            "malene-oestergaard"
+          ],
+          "into": "malene-tousgaard-foget-ostergaard",
+          "signal": "alias",
+          "evidence": "title 'Malene Østergaard' is an exact frontmatter alias of 'malene-tousgaard-foget-ostergaard'"
+        },
+        {
+          "from": [
+            "odense"
+          ],
+          "into": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+          "signal": "alias",
+          "evidence": "title 'Odense' is an exact frontmatter alias of 'odense-boerne-ungdomspsykiatrisk-ambulatorium'"
+        },
+        {
+          "from": [
+            "psy-lokalpsykiatri-tonder"
+          ],
+          "into": "psy-lokalpsykiatri-toender",
+          "signal": "transliteration",
+          "evidence": "slugs identical after Danish transliteration collapse ('psy-lokalpsykiatri-tonder' ≡ 'psy-lokalpsykiatri-toender')"
+        },
+        {
+          "from": [
+            "rkkp-adhd"
+          ],
+          "into": "adhd-databasen",
+          "signal": "alias",
+          "evidence": "title 'RKKP ADHD' is an exact frontmatter alias of 'adhd-databasen'"
+        },
+        {
+          "from": [
+            "vejle"
+          ],
+          "into": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
+          "signal": "alias",
+          "evidence": "title 'Vejle' is an exact frontmatter alias of 'vejle-boerne-ungdomspsykiatrisk-ambulatorium'"
+        }
+      ],
+      "drops": [],
+      "denials": [
+        {
+          "from": "aarhus-universitetshospital-psykiatrien",
+          "into": "aarhus-universitetshospital"
+        },
+        {
+          "from": "bispebjerg-psykiatrisk-ambulatorium-boern-unge",
+          "into": "bispebjerg-psykiatrisk-ambulatorium"
+        },
+        {
+          "from": "boerne-ungdomspsyk-ambulatorium-nordjylland",
+          "into": "boerne-ungdomspsyk-ambulatorium"
+        },
+        {
+          "from": "boerne-unge-psyk-reg-fkt-40r",
+          "into": "boerne-unge-psyk-reg-fkt-40-r"
+        },
+        {
+          "from": "bornholm-psykiatrisk-ambulatorium-boern-unge",
+          "into": "bornholm-psykiatrisk-ambulatorium"
+        },
+        {
+          "from": "bua-psykiatrisk-klinik-smaaboern",
+          "into": "bua-psykiatrisk-klinik-smaaborin"
+        },
+        {
+          "from": "bua-psykiatrisk-klinik-udredning-midtjylland",
+          "into": "bua-psykiatrisk-klinik-udredning"
+        },
+        {
+          "from": "dmpg-retningslinje",
+          "into": "dmpg-retningslinjer"
+        },
+        {
+          "from": "glostrup-psykiatrisk-ambulatorium-boern-unge",
+          "into": "glostrup-psykiatrisk-ambulatorium"
+        },
+        {
+          "from": "hillerod-psykiatrisk-ambulatorium-boern-unge",
+          "into": "hillerod-psykiatrisk-ambulatorium"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-10",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-10",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-10",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-10",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-11",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-11",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-11",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-11",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-2b",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-7a",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-7b",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-7b",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "ny-indikator-2b",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "ny-indikator-3",
+          "into": "indikator-3"
+        },
+        {
+          "from": "ny-indikator-3",
+          "into": "ny-indikator-2b"
+        },
+        {
+          "from": "privathospitaler",
+          "into": "privathospitalerne"
+        },
+        {
+          "from": "psy-boerne-ungdomspsykiatrisk-ambulatorium-odense",
+          "into": "boerne-ungdomspsykiatrisk-ambulatorium-odense"
+        }
+      ],
+      "clusters": [],
+      "clusterDenials": [
+        {
+          "members": [
+            "region-hovedstaden",
+            "hovedstaden-region",
+            "hovedstaden"
+          ],
+          "class": 5,
+          "into": "region-hovedstaden"
+        },
+        {
+          "members": [
+            "region-midtjylland",
+            "midtjylland-region",
+            "midtjylland"
+          ],
+          "class": 5,
+          "into": "region-midtjylland"
+        },
+        {
+          "members": [
+            "region-nordjylland",
+            "nordjylland-region",
+            "nordjylland"
+          ],
+          "class": 5,
+          "into": "region-nordjylland"
+        },
+        {
+          "members": [
+            "region-sjaelland",
+            "sjaelland-region",
+            "sjaelland"
+          ],
+          "class": 5,
+          "into": "region-sjaelland"
+        },
+        {
+          "members": [
+            "region-syddanmark",
+            "syddanmark-region",
+            "syddanmark"
+          ],
+          "class": 5,
+          "into": "region-syddanmark"
+        }
+      ]
+    },
+    "proposedPairs": [
+      {
+        "from": "aarhus-universitetshospital-psykiatrien",
+        "into": "aarhus-universitetshospital",
+        "signal": "subsequence",
+        "evidence": "tokens of 'aarhus-universitetshospital' are a subsequence of 'aarhus-universitetshospital-psykiatrien' (name parts [psykiatrien] dropped)"
+      },
+      {
+        "from": "bispebjerg-psykiatrisk-ambulatorium-boern-unge",
+        "into": "bispebjerg-psykiatrisk-ambulatorium",
+        "signal": "subsequence",
+        "evidence": "tokens of 'bispebjerg-psykiatrisk-ambulatorium' are a subsequence of 'bispebjerg-psykiatrisk-ambulatorium-boern-unge' (name parts [boern, unge] dropped)"
+      },
+      {
+        "from": "boerne-ungdomspsyk-ambulatorium-nordjylland",
+        "into": "boerne-ungdomspsyk-ambulatorium",
+        "signal": "subsequence",
+        "evidence": "tokens of 'boerne-ungdomspsyk-ambulatorium' are a subsequence of 'boerne-ungdomspsyk-ambulatorium-nordjylland' (name parts [nordjylland] dropped)"
+      },
+      {
+        "from": "boerne-unge-psyk-reg-fkt-40r",
+        "into": "boerne-unge-psyk-reg-fkt-40-r",
+        "signal": "edit-distance",
+        "evidence": "slugs 'boerne-unge-psyk-reg-fkt-40r' and 'boerne-unge-psyk-reg-fkt-40-r' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "bornholm-psykiatrisk-ambulatorium-boern-unge",
+        "into": "bornholm-psykiatrisk-ambulatorium",
+        "signal": "subsequence",
+        "evidence": "tokens of 'bornholm-psykiatrisk-ambulatorium' are a subsequence of 'bornholm-psykiatrisk-ambulatorium-boern-unge' (name parts [boern, unge] dropped)"
+      },
+      {
+        "from": "bua-psykiatrisk-klinik-smaaboern",
+        "into": "bua-psykiatrisk-klinik-smaaborin",
+        "signal": "edit-distance",
+        "evidence": "slugs 'bua-psykiatrisk-klinik-smaaboern' and 'bua-psykiatrisk-klinik-smaaborin' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "bua-psykiatrisk-klinik-udredning-midtjylland",
+        "into": "bua-psykiatrisk-klinik-udredning",
+        "signal": "subsequence",
+        "evidence": "tokens of 'bua-psykiatrisk-klinik-udredning' are a subsequence of 'bua-psykiatrisk-klinik-udredning-midtjylland' (name parts [midtjylland] dropped)"
+      },
+      {
+        "from": "dmpg-retningslinje",
+        "into": "dmpg-retningslinjer",
+        "signal": "edit-distance",
+        "evidence": "slugs 'dmpg-retningslinje' and 'dmpg-retningslinjer' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "glostrup-psykiatrisk-ambulatorium-boern-unge",
+        "into": "glostrup-psykiatrisk-ambulatorium",
+        "signal": "subsequence",
+        "evidence": "tokens of 'glostrup-psykiatrisk-ambulatorium' are a subsequence of 'glostrup-psykiatrisk-ambulatorium-boern-unge' (name parts [boern, unge] dropped)"
+      },
+      {
+        "from": "hillerod-psykiatrisk-ambulatorium-boern-unge",
+        "into": "hillerod-psykiatrisk-ambulatorium",
+        "signal": "subsequence",
+        "evidence": "tokens of 'hillerod-psykiatrisk-ambulatorium' are a subsequence of 'hillerod-psykiatrisk-ambulatorium-boern-unge' (name parts [boern, unge] dropped)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-10",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-10' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-10",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-10' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-10",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-10' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-10",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-10' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-11",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-11' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-11",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-11' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-11",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-11' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-11",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-11' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2b",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2b' and 'indikator-2a' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7a",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7a' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7b",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7b' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7b",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7b' and 'indikator-7a' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "ny-indikator-2b",
+        "into": "indikator-2b",
+        "signal": "subsequence",
+        "evidence": "tokens of 'indikator-2b' are a subsequence of 'ny-indikator-2b' (name parts [ny] dropped)"
+      },
+      {
+        "from": "ny-indikator-3",
+        "into": "indikator-3",
+        "signal": "subsequence",
+        "evidence": "tokens of 'indikator-3' are a subsequence of 'ny-indikator-3' (name parts [ny] dropped)"
+      },
+      {
+        "from": "ny-indikator-3",
+        "into": "ny-indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'ny-indikator-3' and 'ny-indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "privathospitaler",
+        "into": "privathospitalerne",
+        "signal": "edit-distance",
+        "evidence": "slugs 'privathospitaler' and 'privathospitalerne' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "psy-boerne-ungdomspsykiatrisk-ambulatorium-odense",
+        "into": "boerne-ungdomspsykiatrisk-ambulatorium-odense",
+        "signal": "subsequence",
+        "evidence": "tokens of 'boerne-ungdomspsykiatrisk-ambulatorium-odense' are a subsequence of 'psy-boerne-ungdomspsykiatrisk-ambulatorium-odense' (name parts [psy] dropped)"
+      }
+    ],
+    "autoApplied": [
+      {
+        "from": "aabenraa",
+        "into": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
+        "signal": "alias",
+        "evidence": "title 'Aabenraa' is an exact frontmatter alias of 'aabenraa-boerne-ungdomspsykiatrisk-ambulatorium'"
+      },
+      {
+        "from": "bispebjerg",
+        "into": "bispebjerg-psykiatrisk-ambulatorium",
+        "signal": "alias",
+        "evidence": "title 'Bispebjerg' is an exact frontmatter alias of 'bispebjerg-psykiatrisk-ambulatorium'"
+      },
+      {
+        "from": "bornholm",
+        "into": "bornholm-psykiatrisk-ambulatorium",
+        "signal": "alias",
+        "evidence": "title 'Bornholm' is an exact frontmatter alias of 'bornholm-psykiatrisk-ambulatorium'"
+      },
+      {
+        "from": "carelink-psykiatri-naerhospital-viborg",
+        "into": "carelink-psykiatri-viborg",
+        "signal": "alias",
+        "evidence": "title 'Carelink psykiatri, Nærhospital Viborg' is an exact frontmatter alias of 'carelink-psykiatri-viborg'"
+      },
+      {
+        "from": "esbjerg",
+        "into": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
+        "signal": "alias",
+        "evidence": "title 'Esbjerg' is an exact frontmatter alias of 'esbjerg-boerne-ungdomspsykiatrisk-ambulatorium'"
+      },
+      {
+        "from": "glostrup",
+        "into": "glostrup-psykiatrisk-ambulatorium",
+        "signal": "alias",
+        "evidence": "title 'Glostrup' is an exact frontmatter alias of 'glostrup-psykiatrisk-ambulatorium'"
+      },
+      {
+        "from": "hilleroed",
+        "into": "hillerod-psykiatrisk-ambulatorium",
+        "signal": "alias",
+        "evidence": "title 'Hillerød' is an exact frontmatter alias of 'hillerod-psykiatrisk-ambulatorium'"
+      },
+      {
+        "from": "klinik-for-boern-og-unge",
+        "into": "klinik-boerner-unge",
+        "signal": "alias",
+        "evidence": "title 'Klinik for børn- og unge' is an exact frontmatter alias of 'klinik-boerner-unge'"
+      },
+      {
+        "from": "malene-oestergaard",
+        "into": "malene-tousgaard-foget-ostergaard",
+        "signal": "alias",
+        "evidence": "title 'Malene Østergaard' is an exact frontmatter alias of 'malene-tousgaard-foget-ostergaard'"
+      },
+      {
+        "from": "odense",
+        "into": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+        "signal": "alias",
+        "evidence": "title 'Odense' is an exact frontmatter alias of 'odense-boerne-ungdomspsykiatrisk-ambulatorium'"
+      },
+      {
+        "from": "psy-lokalpsykiatri-tonder",
+        "into": "psy-lokalpsykiatri-toender",
+        "signal": "transliteration",
+        "evidence": "slugs identical after Danish transliteration collapse ('psy-lokalpsykiatri-tonder' ≡ 'psy-lokalpsykiatri-toender')"
+      },
+      {
+        "from": "rkkp-adhd",
+        "into": "adhd-databasen",
+        "signal": "alias",
+        "evidence": "title 'RKKP ADHD' is an exact frontmatter alias of 'adhd-databasen'"
+      },
+      {
+        "from": "vejle",
+        "into": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
+        "signal": "alias",
+        "evidence": "title 'Vejle' is an exact frontmatter alias of 'vejle-boerne-ungdomspsykiatrisk-ambulatorium'"
+      }
+    ],
+    "proposedClusters": [
+      {
+        "members": [
+          "region-hovedstaden",
+          "hovedstaden-region",
+          "hovedstaden"
+        ],
+        "class": 5,
+        "into": "region-hovedstaden",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'hovedstaden', 3 forms)"
+      },
+      {
+        "members": [
+          "region-midtjylland",
+          "midtjylland-region",
+          "midtjylland"
+        ],
+        "class": 5,
+        "into": "region-midtjylland",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'midtjylland', 3 forms)"
+      },
+      {
+        "members": [
+          "region-nordjylland",
+          "nordjylland-region",
+          "nordjylland"
+        ],
+        "class": 5,
+        "into": "region-nordjylland",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'nordjylland', 3 forms)"
+      },
+      {
+        "members": [
+          "region-sjaelland",
+          "sjaelland-region",
+          "sjaelland"
+        ],
+        "class": 5,
+        "into": "region-sjaelland",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'sjaelland', 3 forms)"
+      },
+      {
+        "members": [
+          "region-syddanmark",
+          "syddanmark-region",
+          "syddanmark"
+        ],
+        "class": 5,
+        "into": "region-syddanmark",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'syddanmark', 3 forms)"
+      }
+    ]
+  },
+  "manualEditSkips": [
+    {
+      "page": "entities/healthcare/psychiatric-clinics/hillerod-psykiatrisk-ambulatorium.md",
+      "concern": "entities",
+      "action": "merge"
+    },
+    {
+      "page": "entities/organizations/psychiatric-clinics/rpg-psykiatrisk-klinik-1-godstrup.md",
+      "concern": "entities",
+      "action": "merge"
+    }
+  ],
+  "removedPages": [
+    "entities/people/healthcare-professionals/malene-oestergaard.md"
+  ],
+  "rewrittenLinks": [],
+  "splitReversals": []
+}

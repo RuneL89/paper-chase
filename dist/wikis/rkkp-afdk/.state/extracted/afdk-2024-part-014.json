@@ -1,0 +1,524 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "AFDK er en landsdækkende klinisk kvalitetsdatabase, der skal monitorere og forbedre kvaliteten af behandlingen af atrieflimren i Danmark ved at indsamle sundhedsfaglige data fra alle hospitaler og praktiserende kardiologer.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Databasen for Atrieflimren i Danmark (AFDK) er en landsdækkende klinisk kvalitetsdatabase, som skal monitorere og forbedre kvaliteten af behandlingen af atrieflimren i Danmark."
+        },
+        {
+          "page": 67,
+          "context": "AFDK indsamler sundhedsfaglige data om patienter med atrieflimren fra alle hospitaler og praktiserende kardiologer, som behandler denne patientgruppe."
+        },
+        {
+          "page": 67,
+          "context": "AFDK er forankret i Dansk Cardiologisk Selskab (DCS) og skal medvirke til at sikre en høj kvalitet i behandlingen og plejen, samt ensrette indsatsen for patienter med atrieflimren."
+        },
+        {
+          "page": 67,
+          "context": "Med Sundhedsstyrelsens godkendelse af AFDK bliver det ved implementeringen af databasen lovpligtigt for alle sygehuse og på sigt lægepraksis at indrapportere."
+        }
+      ]
+    },
+    {
+      "name": "Dansk Cardiologisk Selskab",
+      "type": "organization",
+      "slug": "dansk-cardiologisk-selskab",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "DCS er forankringspunkt for AFDK og skal sikre høj kvalitet i behandlingen af atrieflimren samt ensrette indsatsen for denne patientgruppe.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "AFDK er forankret i Dansk Cardiologisk Selskab (DCS) og skal medvirke til at sikre en høj kvalitet i behandlingen og plejen, samt ensrette indsatsen for patienter med atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Landspatientregisteret er en kilde til patientidentifikation for AFDK, hvor patienter med atrieflimren registreres med ICD-10 diagnosen DI48.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Patienter med atrieflimren omfatter patienter, som er blevet registreret i Landspatientregisteret og i praksissystemerne hos de praktiserende kardiologer med ICD-10 diagnosen DI48 (inkl. alle subkoder)."
+        },
+        {
+          "page": 68,
+          "context": "Patienter med atrieflimren omfatter patienter, som er blevet registreret i Landspatientregistret eller i praksissystemerne hos de praktiserende kardiologer med ICD-10 diagnosen DI48 (inkl. alle subkoder) som enten aktions- eller bidiagnose."
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt har etableret en tværfaglig Atrieflimren-klinik siden 2012 med systematisk fokus på patientuddannelse og har opnået gode resultater i struktureret patientundervisning.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Her beskriver Hjertesygdomme på Hospitalsenhed Midt hvordan de har arbejdet systematisk med patientuddannelse/undervisning og opnået gode resultater."
+        },
+        {
+          "page": 66,
+          "context": "Siden etableringen af vores tværfaglige Atrieflimren-klinik i 2012 har vi haft vedvarende fokus på uddannelse af patienten og deres pårørende."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsstyrelsen",
+      "type": "organization",
+      "slug": "sundhedsstyrelsen",
+      "folder": "entities/organizations/government-agencies",
+      "significance": "Sundhedsstyrelsen har godkendt AFDK, hvilket gør det lovpligtigt for alle sygehuse og på sigt lægepraksis at indrapportere data til databasen.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Med Sundhedsstyrelsens godkendelse af AFDK bliver det ved implementeringen af databasen lovpligtigt for alle sygehuse og på sigt lægepraksis at indrapportere."
+        }
+      ]
+    },
+    {
+      "name": "Dorthe Svenstrup",
+      "type": "person",
+      "slug": "dorthe-svenstrup",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Dorthe Svenstrup er Ledende overlæge på Hjertesygdomme, Hospitalsenhed Midt, og beskriver systematisk arbejde med patientuddannelse ved Atrieflimren-klinikken samt er medlem af styregruppens øvrige medlemmer.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Dorthe Svenstrup, Ledende overlæge, Hjertesygdomme, Hospitalsenhed Midt."
+        },
+        {
+          "page": 70,
+          "context": "Dorthe Svenstrup, Ledende overlæge, ph.d., Hospitalsenhed Midt"
+        }
+      ]
+    },
+    {
+      "name": "Axel Brandes",
+      "type": "person",
+      "slug": "axel-brandes",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Axel Brandes er Professor og overlæge ved Esbjerg og Grindsted sygehus, Syddansk Universitetshospital, og fungerer som formand for styregruppens formandskab.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Axel Brandes, Professor, overlæge, dr.med. Esbjerg og Grindsted sygehus, Syddansk Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Ole Dyg Pedersen",
+      "type": "person",
+      "slug": "ole-dyg-pedersen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Ole Dyg Pedersen er Overlæge ved Sjællands Universitetshospital og medlem af styregruppens formandskab.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Ole Dyg Pedersen, Overlæge, Sjællands Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Ulla Dam-Schmidt",
+      "type": "person",
+      "slug": "ulla-dam-schmidt",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Ulla Dam-Schmidt er Sygeplejerske med klinisk specialfunktion ved Bispebjerg og Frederiksberg Hospital og medlem af styregruppens formandskab.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Ulla Dam-Schmidt, Sygeplejerske med klinisk specialfunktion, SD, MKS. Bispebjerg og Frederiksberg Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Margit Brinck",
+      "type": "person",
+      "slug": "margit-brinck",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Margit Brinck er Sygeplejerske ved Odense Universitetshospital og medlem af styregruppens øvrige medlemmer.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Margit Brinck, Sygeplejerske, Odense Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Ulla Davidsen",
+      "type": "person",
+      "slug": "ulla-davidsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Ulla Davidsen er Overlæge ved Bispebjerg og Frederiksberg Hospital og medlem af styregruppens øvrige medlemmer.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Ulla Davidsen, Overlæge, MPK Bispebjerg og Frederiksberg Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Louisa Marguerite Christensen",
+      "type": "person",
+      "slug": "louisa-marguerite-christensen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Louisa Marguerite Christensen er Overlæge, ph.d., ved Bispebjerg og Frederiksberg Hospitaler og medlem af styregruppens øvrige medlemmer.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Louisa Marguerite Christensen, Overlæge, ph.d., Bispebjerg og Frederiksberg Hospitaler"
+        }
+      ]
+    },
+    {
+      "name": "Palle Mark Christensen",
+      "type": "person",
+      "slug": "palle-mark-christensen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Palle Mark Christensen er Praktiserende læge ved Lægerne Lærkevej, Otterup, og medlem af styregruppens øvrige medlemmer.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Palle Mark Christensen, Praktiserende læge Lægerne Lærkevej, Otterup"
+        }
+      ]
+    },
+    {
+      "name": "Jeppe Launbjerg",
+      "type": "person",
+      "slug": "jeppe-launbjerg",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Jeppe Launbjerg er Praktiserende kardiolog ved Hjertelægerne i Hillerød og medlem af styregruppens øvrige medlemmer.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Jeppe Launbjerg, Praktiserende kardiolog, Hjertelægerne i Hillerød"
+        }
+      ]
+    },
+    {
+      "name": "Inge Mølgaard",
+      "type": "person",
+      "slug": "inge-moelgaard",
+      "folder": "entities/people/patient-representatives",
+      "significance": "Inge Mølgaard er Patientrepræsentant og medlem af styregruppens øvrige medlemmer.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Inge Mølgaard, Patientrepræsentant"
+        }
+      ]
+    },
+    {
+      "name": "Robert Bedsted",
+      "type": "person",
+      "slug": "robert-bedsted",
+      "folder": "entities/people/patient-representatives",
+      "significance": "Robert Bedsted er Patientrepræsentant og medlem af styregruppens øvrige medlemmer.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Robert Bedsted, Patientrepræsentant"
+        }
+      ]
+    },
+    {
+      "name": "Lars Frost",
+      "type": "person",
+      "slug": "lars-frost",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Lars Frost er Overlæge, dr. med., ved Hospitalsenhed Midt og medlem af styregruppens øvrige medlemmer.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Lars Frost, Overlæge, dr. med., Hospitalsenhed Midt"
+        }
+      ]
+    },
+    {
+      "name": "Albert Marni Joensen",
+      "type": "person",
+      "slug": "albert-marni-joensen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Albert Marni Joensen er Overlæge, ph.d., ved Regionshospitalet Nordjylland, Hjørring, og medlem af styregruppens øvrige medlemmer.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Albert Marni Joensen, Overlæge, ph.d. Regionshospitalet Nordjylland, Hjørring"
+        }
+      ]
+    },
+    {
+      "name": "Anders Møller Schlünsen",
+      "type": "person",
+      "slug": "anders-moeller-schlunsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Anders Møller Schlünsen er Epidemiolog, Ph.d., ved RKKP og fungerer som Klinisk epidemiolog for AFDK.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Anders Møller Schlünsen, Epidemiolog, Ph.d., RKKP"
+        }
+      ]
+    },
+    {
+      "name": "Miriam Grijota Chousa",
+      "type": "person",
+      "slug": "miriam-grijota-chousa",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Miriam Grijota Chousa er Biostatistiker ved RKKP og fungerer som Statistiker for AFDK.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Miriam Grijota Chousa, Biostatistiker RKKP"
+        }
+      ]
+    },
+    {
+      "name": "Chresten Gamborg Puggaard",
+      "type": "person",
+      "slug": "chresten-gamborg-puggaard",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Chresten Gamborg Puggaard er Cand. polit. og Datamanager ved RKKP for AFDK.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Chresten Gamborg Puggaard, Cand. polit., Datamanager, RKKP"
+        }
+      ]
+    },
+    {
+      "name": "Julie Andersen",
+      "type": "person",
+      "slug": "julie-andersen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Julie Andersen er Kvalitetskonsulent, cand.scient.san., ved RKKP og fungerer både som Kontaktperson og Repræsentant for den dataansvarlige myndighed (Region Midtjylland, RKKP).",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "Julie Andersen, Kvalitetskonsulent, cand.scient.san. RKKP"
+        },
+        {
+          "page": 70,
+          "context": "Julie Andersen, Kvalitetskonsulent, cand.scient.san. Region Midtjylland, RKKP"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/government",
+      "significance": "RKKP er den overordnede ramme, under hvilken AFDK opererer, og leverer personale til styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Atrieflimren",
+      "type": "medical-condition",
+      "slug": "atrieflimren",
+      "folder": "topics/medical-conditions",
+      "significance": "Atrieflimren er den centrale sygdom, som AFDK monitorerer og forbedrer behandlingen af, og er forbundet med øget risiko for slagtilfælde, hjertesvigt, demens og død.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Atrieflimren er forbundet med øget risiko for slagtilfælde, hjertesvigt, demens, og død. Flere end 20.000 danskere diagnosticeres årligt med atrieflimren og flere end 130.000 danskere lever med sygdommen."
+        }
+      ]
+    },
+    {
+      "name": "Struktureret patientuddannelse",
+      "type": "topic",
+      "slug": "struktureret-patientuddannelse",
+      "folder": "topics/clinical-treatment",
+      "significance": "Struktureret patientuddannelse er en vigtig intervention, som patientrepræsentanter ser som et stort behov kort tid efter diagnosen er stillet, for at øge patientens tryghed og selvhjulpenhed.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Patienterne ser et stort behov for et tilbud om et struktureret undervisningsforløb kort tid efter, diagnosen er stillet."
+        },
+        {
+          "page": 66,
+          "context": "Læs mere om struktureret patientuddannelse her."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 8 - Struktureret uddannelse",
+      "type": "topic",
+      "slug": "indikator-8-structured-education",
+      "folder": "topics/quality-indicator",
+      "significance": "Indikatoren for struktureret uddannelse fastholdes med en standard på 50%, hvilket afspejler målsætningen for andelen af patienter, der skal modtage struktureret patientuddannelse.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Indikator fastholdes og standard sættes til 50%."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "is-anchored-in",
+      "object": "dansk-cardiologisk-selskab",
+      "evidence": "AFDK er forankret i Dansk Cardiologisk Selskab (DCS)",
+      "page": 67
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "collects-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "AFDK indsamler sundhedsfaglige data om patienter med atrieflimren fra alle hospitaler og praktiserende kardiologer, hvor patienter er registreret i Landspatientregisteret",
+      "page": 67
+    },
+    {
+      "subject": "sundhedsstyrelsen",
+      "predicate": "approved",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Med Sundhedsstyrelsens godkendelse af AFDK bliver det ved implementeringen af databasen lovpligtigt for alle sygehuse og på sigt lægepraksis at indrapportere",
+      "page": 67
+    },
+    {
+      "subject": "hospitalsenhed-midt",
+      "predicate": "operates",
+      "object": "atrieflimren",
+      "evidence": "Siden etableringen af vores tværfaglige Atrieflimren-klinik i 2012 har vi haft vedvarende fokus på uddannelse af patienten og deres pårørende",
+      "page": 66
+    },
+    {
+      "subject": "dorthe-svenstrup",
+      "predicate": "works-at",
+      "object": "hospitalsenhed-midt",
+      "evidence": "Dorthe Svenstrup, Ledende overlæge, Hjertesygdomme, Hospitalsenhed Midt",
+      "page": 66
+    },
+    {
+      "subject": "axel-brandes",
+      "predicate": "is-chair-of",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Axel Brandes, Professor, overlæge, dr.med. som formand for styregruppens formandskab",
+      "page": 70
+    },
+    {
+      "subject": "anders-moeller-schlunsen",
+      "predicate": "works-at",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Anders Møller Schlünsen, Epidemiolog, Ph.d., RKKP",
+      "page": 70
+    },
+    {
+      "subject": "miriam-grijota-chousa",
+      "predicate": "works-at",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Miriam Grijota Chousa, Biostatistiker RKKP",
+      "page": 70
+    },
+    {
+      "subject": "julie-andersen",
+      "predicate": "works-at",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Julie Andersen, Kvalitetskonsulent, cand.scient.san. RKKP",
+      "page": 70
+    }
+  ],
+  "claims": [
+    {
+      "text": "Flere end 20.000 danskere diagnosticeres årligt med atrieflimren [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "atrieflimren"
+      ],
+      "page": 67
+    },
+    {
+      "text": "Flere end 130.000 danskere lever med atrieflimren [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "atrieflimren"
+      ],
+      "page": 67
+    },
+    {
+      "text": "Atrieflimren er forbundet med øget risiko for slagtilfælde, hjertesvigt, demens, og død [^src1]",
+      "type": "clinical",
+      "entities": [
+        "atrieflimren"
+      ],
+      "page": 67
+    },
+    {
+      "text": "AFDK blev etableret med henblik på at sikre, at de relevante patienter tilbydes behandling på korrekt indikation, samt øge efterlevelse af de kliniske retningslinjer (RADS og Dansk Cardiologisk Selskab) [^src1]",
+      "type": "organizational-goal",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 67
+    },
+    {
+      "text": "Hospitalsenhed Midt etablerede en tværfaglig Atrieflimren-klinik i 2012 [^src2]",
+      "type": "organizational",
+      "entities": [
+        "hospitalsenhed-midt"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Indikator for struktureret uddannelse fastholdes og standard sættes til 50% [^src3]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-8-structured-education"
+      ],
+      "page": 67
+    },
+    {
+      "text": "Patientregistreringen i AFDK vil kun afspejle patienter med erkendt atrieflimren, og den sande prævalens af atrieflimren undervurderes således [^src4]",
+      "type": "data-limitation",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 68
+    },
+    {
+      "text": "AFDK omfatter ikke aktuelt patienter, som udelukkende behandles i almen praksis [^src4]",
+      "type": "data-limitation",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 68
+    },
+    {
+      "text": "Patientforløb validitet skønnes meget høj på baggrund af tidligere valideringsstudier i Landspatientregisteret af atrieflimren diagnosen [^src5]",
+      "type": "data-quality",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 69
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2012",
+      "event": "Etablering af tværfaglig Atrieflimren-klinik på Hospitalsenhed Midt",
+      "entities": [
+        "hospitalsenhed-midt",
+        "atrieflimren"
+      ]
+    }
+  ],
+  "context": "Denne sektion af AFDK-rapporten (sider 66-70) dokumenterer patientrepræsentanternes perspektiver på struktureret patientuddannelse, beskriver hvordan Hospitalsenhed Midt har implementeret systematisk patientuddannelse siden 2012, og præsenterer styregruppens medlemmer samt vigtige metodologiske begrænsninger ved databasen. Kapitlet understreger behovet for struktureret undervisning kort efter diagnose for at øge patienttilfredshed og selvhjulpenhed, samtidig med at det dokumenterer AFDK's rolle som landsdækkende kvalitetsdatabase under Dansk Cardiologisk Selskab og Sundhedsstyrelsens godkendelse."
+}

@@ -1,0 +1,638 @@
+{
+  "entities": [
+    {
+      "name": "LKT Akutkirurgi",
+      "type": "organization",
+      "slug": "laerings-og-kvalitetesteam-akut-kirurgi",
+      "folder": "entities/organizations/advisory-groups",
+      "significance": "LKT Akutkirurgi har understøttet forståelse og processer omkring indikatorer for tidlig mobilisering og ernæring, og har bakket op om registreringen blandt fysioterapeuter og sygeplejersken.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Det tætte samarbejde med LKT Akutkirurgi, der har understøttet forståelse og processer omkring indikatoren"
+        },
+        {
+          "page": 41,
+          "context": "Det har været gavnligt at LKT har bakket op om registreringen, så registreringen nu i højere grad er en standard blandt fysioterapeuter og i sygeplejen"
+        },
+        {
+          "page": 45,
+          "context": "Det har været gavnligt at LKT har bakket op om registreringen, men der er plads til forbedring"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland havde den laveste andel af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation (6,8 %) blandt alle danske regioner.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Nordjylland 16 / 236 0 (0) 6,8 (3,9-10,8)"
+        },
+        {
+          "page": 44,
+          "context": "Regionalt varierede andelen fra 6,8 % i Region Nordjylland til 33,1 % i Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden havde den højeste andel af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation (33,1 %) blandt alle danske regioner.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Hovedstaden 324 / 1.014 0 (0) 32,0 (29,1-34,9)"
+        },
+        {
+          "page": 44,
+          "context": "Regionalt varierede andelen fra 6,8 % i Region Nordjylland til 33,1 % i Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland havde en andel på 33,1 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Sjælland 190 / 574 0 (0) 33,1 (29,3-37,1)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Syddanmark havde en andel på 15,8 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Syddanmark 104 / 658 0 (0) 15,8 (13,1-18,8)"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Midtjylland havde en andel på 28,4 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Midtjylland 200 / 703 0 (0) 28,4 (25,1-31,9)"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Amager og Hvidovre Hospital havde en andel på 50,0 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation, blandt de højeste blandt hospitalerne.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Amager og Hvidovre Hospital 122 / 244 0 (0) 50,0 (43,6-56,4)"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospital",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg og Frederiksberg Hospital havde en andel på 55,6 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation, blandt de højeste blandt alle hospitalerne.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Bispebjerg og Frederiksberg Hospital 100 / 180 0 (0) 55,6 (48,0-62,9)"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholms Hospital havde en andel på 23,1 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Bornholms Hospital 6 / 26 0 (0) 23,1 (9,0-43,6)"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev og Gentofte Hospital havde en andel på 7,5 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation, blandt de laveste blandt hospitalerne.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Herlev og Gentofte Hospital 23 / 307 0 (0) 7,5 (4,8-11,0)"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalerne i Nordsjælland havde en andel på 31,9 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Hospitalerne i Nordsjælland 65 / 204 0 (0) 31,9 (25,5-38,7)"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet havde en andel på 15,1 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Rigshospitalet 8 / 53 0 (0) 15,1 (6,7-27,6)"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus havde en andel på 34,4 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Holbæk Sygehus 45 / 131 0 (0) 34,4 (26,3-43,1)"
+        }
+      ]
+    },
+    {
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagelse-ringsted-sygehuse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse havde en andel på 6,3 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation, blandt de laveste blandt hospitalerne.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Næstved, Slagelse og Ringsted sygehuse 12 / 191 0 (0) 6,3 (3,3-10,7)"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital havde en andel på 52,8 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation, blandt de højeste blandt hospitalerne.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Sjællands Universitetshospital 133 / 252 0 (0) 52,8 (46,4-59,1)"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus havde en andel på 0,0 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Esbjerg Sygehus Grindsted Sygehus 0 / 158 0 (0) 0,0 (0,0-2,3)"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital - Svendborg",
+      "type": "organization",
+      "slug": "odense-universitetshospital-svendborg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense Universitetshospital - Svendborg havde en andel på 34,8 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Odense Universitetshospital - Svendborg 104 / 299 0 (0) 34,8 (29,4-40,5)"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Lillebælt havde en andel på 0,0 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Sygehus Lillebælt 0 / 88 0 (0) 0,0 (0,0-4,1)"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Sønderjylland havde en andel på 0,0 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Sygehus Sønderjylland 0 / 113 0 (0) 0,0 (0,0-3,2)"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital havde en andel på 42,1 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Aarhus Universitetshospital 59 / 140 0 (0) 42,1 (33,9-50,8)"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt havde en andel på 6,5 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Hospitalsenhed Midt 9 / 139 0 (0) 6,5 (3,0-11,9)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup havde en andel på 22,0 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Regionshospitalet Gødstrup 38 / 173 0 (0) 22,0 (16,0-28,9)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Horsens havde en andel på 20,3 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Regionshospitalet Horsens 25 / 123 0 (0) 20,3 (13,6-28,5)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Randers havde en andel på 53,9 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation, blandt de højeste blandt hospitalerne.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Regionshospitalet Randers 69 / 128 0 (0) 53,9 (44,9-62,8)"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital havde en andel på 2,2 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation, blandt de laveste blandt hospitalerne.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Aalborg Universitetshospital 3 / 137 0 (0) 2,2 (0,5-6,3)"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital, Thisted",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital-thisted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital, Thisted havde ingen registrerede patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Aalborg Universitetshospital, Thisted 0,0"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospital Nordjylland havde en andel på 13,1 % af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Regionshospital Nordjylland 13 / 99 0 (0) 13,1 (7,2-21,4)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7",
+      "type": "topic",
+      "slug": "indikator-7",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 7 måler andelen af patienter, hvor der er taget stilling til ernæring indenfor 48 timer efter operation, og er en vigtig kvalitetsindikator i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Indikator 7: Ernæring"
+        },
+        {
+          "page": 44,
+          "context": "Indikatorbeskrivelse for indikator 7"
+        },
+        {
+          "page": 44,
+          "context": "Resultater af indikatoren analysen for indikator 7"
+        },
+        {
+          "page": 44,
+          "context": "Diskussion og implikationer af årets resultater for indikator 7"
+        },
+        {
+          "page": 45,
+          "context": "Vurdering af indikator 7"
+        }
+      ]
+    },
+    {
+      "name": "Ernæring",
+      "type": "topic",
+      "slug": "ernaering",
+      "folder": "topics/clinical-practice",
+      "significance": "Ernæring er fokus for Indikator 7, hvor tidlig ernæring efter operation er dokumenteret til at nedsætte komplikationer og indlæggelsestid.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Indikator 7: Ernæring"
+        },
+        {
+          "page": 44,
+          "context": "Andelen af patienter, hvor der er taget stilling til ernæring indenfor 48 timer efter operation"
+        },
+        {
+          "page": 45,
+          "context": "Der er enighed om at det er indtaget ernæring hos patienten, der er målet"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "laerings-og-kvalitetesteam-akut-kirurgi",
+      "predicate": "supported-indicator-registration",
+      "object": "indikator-7",
+      "evidence": "Det tætte samarbejde med LKT Akutkirurgi, der har understøttet forståelse og processer omkring indikatoren",
+      "page": 41
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "had-lowest-performance",
+      "object": "indikator-7",
+      "evidence": "Regionalt varierede andelen fra 6,8 % i Region Nordjylland til 33,1 % i Region Hovedstaden",
+      "page": 44
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "had-highest-performance",
+      "object": "indikator-7",
+      "evidence": "Regionalt varierede andelen fra 6,8 % i Region Nordjylland til 33,1 % i Region Hovedstaden",
+      "page": 44
+    }
+  ],
+  "claims": [
+    {
+      "text": "I alt 834 af de 3.185 opererede patienter i opgørelsesperioden fik taget stilling til ernæring indenfor 48 timer efter operation, svarende til 26,2 % nationalt (95 % CI: 24,7-27,7) [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "indikator-7"
+      ],
+      "page": 44
+    },
+    {
+      "text": "Regionalt varierede andelen fra 6,8 % i Region Nordjylland til 33,1 % i Region Hovedstaden [^src1]",
+      "type": "regional-variation",
+      "entities": [
+        "indikator-7",
+        "region-nordjylland",
+        "region-hovedstaden"
+      ],
+      "page": 44
+    },
+    {
+      "text": "Udviklingen over tid viser, registreringen for indikatoren er forbedret over de seneste tre årsrapportperioder [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "indikator-7"
+      ],
+      "page": 44
+    },
+    {
+      "text": "Et cochrane review på 17 RCT'er med i alt 1.437 patienter viste at enteral ernæring indenfor de første 24 timer efter elektiv kirurgi muligvis nedsætter indlæggelsestid [^src1]",
+      "type": "clinical-evidence",
+      "entities": [
+        "ernaering"
+      ],
+      "page": 44
+    },
+    {
+      "text": "En meta-analyse på 15 RCT'er på i alt 1240 patienter viste at tidlig ernæring, både oral + enteral, nedsætter risikoen for post-operative komplikationer efter elektiv kirurgi [^src1]",
+      "type": "clinical-evidence",
+      "entities": [
+        "ernaering"
+      ],
+      "page": 44
+    },
+    {
+      "text": "En anden meta-analyse på 7 RCT'er med i alt 587 patienter viste at tidlig oral ernæring nedsætter komplikationer og indlæggelsestiden i forhold til traditionel ernæring [^src1]",
+      "type": "clinical-evidence",
+      "entities": [
+        "ernaering"
+      ],
+      "page": 44
+    },
+    {
+      "text": "Det anbefales at patienter så hurtigt som muligt genoptager oral ernæring [^src1]",
+      "type": "clinical-recommendation",
+      "entities": [
+        "ernaering"
+      ],
+      "page": 44
+    },
+    {
+      "text": "Bispebjerg og Frederiksberg Hospital havde en andel på 55,6 % (48,0-62,9) af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "indikator-7"
+      ],
+      "page": 42
+    },
+    {
+      "text": "Regionshospitalet Randers havde en andel på 53,9 % (44,9-62,8) af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "regionshospitalet-randers",
+        "indikator-7"
+      ],
+      "page": 43
+    },
+    {
+      "text": "Aalborg Universitetshospital havde en andel på 2,2 % (0,5-6,3) af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "aalborg-universitetshospital",
+        "indikator-7"
+      ],
+      "page": 43
+    },
+    {
+      "text": "Esbjerg Sygehus Grindsted Sygehus havde en andel på 0,0 % (0,0-2,3) af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "esbjerg-sygehus-grindsted-sygehus",
+        "indikator-7"
+      ],
+      "page": 42
+    },
+    {
+      "text": "Sygehus Lillebælt havde en andel på 0,0 % (0,0-4,1) af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "sygehus-lillebaelt",
+        "indikator-7"
+      ],
+      "page": 43
+    },
+    {
+      "text": "Sygehus Sønderjylland havde en andel på 0,0 % (0,0-3,2) af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "sygehus-soenderjylland",
+        "indikator-7"
+      ],
+      "page": 43
+    },
+    {
+      "text": "Der er enighed om at det er indtaget ernæring hos patienten, der er målet [^src1]",
+      "type": "clinical-recommendation",
+      "entities": [
+        "ernaering"
+      ],
+      "page": 45
+    },
+    {
+      "text": "Styregruppen har modtaget ønske om en kode der hedder 'Ernæring genoptaget'. En arbejdsgruppe undersøger mulighederne [^src1]",
+      "type": "organizational",
+      "entities": [
+        "indikator-7"
+      ],
+      "page": 45
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.09.2023 - 31.08.2024",
+      "event": "Opgørelsesperiode for Indikator 7 ernæring, hvor 834 af 3.185 opererede patienter fik taget stilling til ernæring indenfor 48 timer efter operation",
+      "entities": [
+        "indikator-7"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer resultater og analyse af Indikator 7 (Ernæring) fra Akut Kirurgi Databasen for perioden 01.09.2023 - 31.08.2024. Indikatoren måler andelen af patienter, hvor der er taget stilling til ernæring indenfor 48 timer efter operation, og viser betydelig regional variation fra 6,8 % i Region Nordjylland til 33,1 % i Region Hovedstaden. Dokumentet diskuterer evidensen for tidlig ernæring efter kirurgi baseret på cochrane reviews og meta-analyser, samt implementeringsudfordringer og forbedringspotentialer på tværs af danske hospitaler.",
+  "tables": [
+    {
+      "subject": "indikator-7",
+      "title": "Indikator 7: Ernæring",
+      "page": 42,
+      "rowDimension": "regioner og hospitaler",
+      "colDimension": "indikatoropfyldelse pr. årsrapportperiode",
+      "entities": [
+        "indikator-7",
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagelse-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Enhed | Standard opfyldt Tæller/nævner | Uoplyst antal (%) | Aktuelle år 01.09.2023 - 31.08.2024 Andel (95% CI) | Tidligere år Andel 2022/23 | Tidligere år Andel 2021/22 |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | 834 / 3.185 | 0 (0) | 26,2 (24,7-27,7) | 19,5 | 11,6 |\n| Hovedstaden | 324 / 1.014 | 0 (0) | 32,0 (29,1-34,9) | 32,4 | 20,2 |\n| Sjælland | 190 / 574 | 0 (0) | 33,1 (29,3-37,1) | 28,9 | 20,0 |\n| Syddanmark | 104 / 658 | 0 (0) | 15,8 (13,1-18,8) | 0,2 | 0,0 |\n| Midtjylland | 200 / 703 | 0 (0) | 28,4 (25,1-31,9) | 13,8 | 5,1 |\n| Nordjylland | 16 / 236 | 0 (0) | 6,8 (3,9-10,8) | 6,2 | 0,5 |\n| Hovedstaden | 324 / 1.014 | 0 (0) | 32,0 (29,1-34,9) | 32,4 | 20,2 |\n| Amager og Hvidovre Hospital | 122 / 244 | 0 (0) | 50,0 (43,6-56,4) | 49,0 | 22,1 |\n| Bispebjerg og Frederiksberg Hospital | 100 / 180 | 0 (0) | 55,6 (48,0-62,9) | 53,9 | 32,1 |\n| Bornholms Hospital | 6 / 26 | 0 (0) | 23,1 (9,0-43,6) | 23,3 | 17,4 |\n| Herlev og Gentofte Hospital | 23 / 307 | 0 (0) | 7,5 (4,8-11,0) | 11,1 | 14,5 |\n| Hospitalerne i Nordsjælland | 65 / 204 | 0 (0) | 31,9 (25,5-38,7) | 28,6 | 18,2 |\n| Rigshospitalet | 8 / 53 | 0 (0) | 15,1 (6,7-27,6) | 5,2 | 1,8 |\n| Sjælland | 190 / 574 | 0 (0) | 33,1 (29,3-37,1) | 28,9 | 20,0 |\n| Holbæk Sygehus | 45 / 131 | 0 (0) | 34,4 (26,3-43,1) | 32,8 | 17,8 |\n| Næstved, Slagelse og Ringsted sygehuse | 12 / 191 | 0 (0) | 6,3 (3,3-10,7) | 9,3 | 5,4 |\n| Sjællands Universitetshospital | 133 / 252 | 0 (0) | 52,8 (46,4-59,1) | 44,8 | 31,8 |\n| Syddanmark | 104 / 658 | 0 (0) | 15,8 (13,1-18,8) | 0,2 | 0,0 |\n| Esbjerg Sygehus Grindsted Sygehus | 0 / 158 | 0 (0) | 0,0 (0,0-2,3) | 0,0 | 0,0 |\n| Odense Universitetshospital - Svendborg | 104 / 299 | 0 (0) | 34,8 (29,4-40,5) | 0,4 | 0,0 |\n| Sygehus Lillebælt | 0 / 88 | 0 (0) | 0,0 (0,0-4,1) | 0,0 | 0,0 |\n| Sygehus Sønderjylland | 0 / 113 | 0 (0) | 0,0 (0,0-3,2) | 0,0 | 0,0 |\n| Midtjylland | 200 / 703 | 0 (0) | 28,4 (25,1-31,9) | 13,8 | 5,1 |\n| Aarhus Universitetshospital | 59 / 140 | 0 (0) | 42,1 (33,9-50,8) | 0,0 | 0,0 |\n| Hospitalsenhed Midt | 9 / 139 | 0 (0) | 6,5 (3,0-11,9) | 17,6 | 0,0 |\n| Regionshospitalet Gødstrup | 38 / 173 | 0 (0) | 22,0 (16,0-28,9) | 1,9 | 1,1 |\n| Regionshospitalet Horsens | 25 / 123 | 0 (0) | 20,3 (13,6-28,5) | 0,0 | 0,0 |\n| Regionshospitalet Randers | 69 / 128 | 0 (0) | 53,9 (44,9-62,8) | 50,4 | 28,7 |\n| Nordjylland | 16 / 236 | 0 (0) | 6,8 (3,9-10,8) | 6,2 | 0,5 |\n| Aalborg Universitetshospital | 3 / 137 | 0 (0) | 2,2 (0,5-6,3) | 0,0 | 0,0 |\n| Aalborg Universitetshospital, Thisted |  |  | 0,0 |  |  |\n| Regionshospital Nordjylland | 13 / 99 | 0 (0) | 13,1 (7,2-21,4) | 17,9 | 1,3 |",
+      "summary": "Tabellen sammenligner andelen af patienter med stillingtagen til ernæring indenfor 48 timer efter operation på tværs af regioner og hospitaler for 2023/24 samt de to foregående årsrapportperioder; Bispebjerg og Frederiksberg Hospital topper med 55,6 %, mens Esbjerg/Grindsted, Sygehus Lillebælt og Sygehus Sønderjylland ligger på 0,0 %."
+    },
+    {
+      "subject": "indikator-7",
+      "title": "Eksklusion",
+      "page": 43,
+      "rowDimension": "eksklusionsårsager",
+      "colDimension": "antal patienter",
+      "entities": [
+        "indikator-7",
+        "cpr-nummer"
+      ],
+      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 75 | Ugyldigt CPRnummer. |\n| 197 | Patienten er under 18 år. |\n| 6.238 | Patienten er ikke opereret. |\n| 493 | Operationen er ikke den første operation i hospitalsopholdet. |",
+      "summary": "Tabellen viser antallet af ekskluderede patienter fordelt på fire årsager, hvor 'Patienten er ikke opereret' er den klart hyppigste årsag med 6.238 patienter."
+    }
+  ]
+}

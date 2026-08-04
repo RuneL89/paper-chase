@@ -1,0 +1,993 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Denne database er det centrale register for atriefimren-patienter i Danmark og udgiver årsrapporter med kvalitetsindikatorer for behandling på tværs af regioner og hospitaler.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-programs",
+      "significance": "RKKP er det program under hvilket Databasen for Atrieflimren i Danmark opereres og kvalitetsindikatorer rapporteres.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det nationale niveau, hvor samlet data for ekkokardiografi-udførelse blandt nydiagnosticerede atrieflimren-patienter rapporteres.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Danmark Nej 12.876 / 16.252 0 (0) 79,2 (78,6-79,8)"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Hovedstaden er en dansk region med rapporterede resultater for ekkokardiografi-indikatoren blandt atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Hovedstaden Nej 3.062 / 4.316 0 (0) 70,9 (69,6-72,3)"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/regions",
+      "significance": "Sjælland er en dansk region med rapporterede resultater for ekkokardiografi-indikatoren blandt atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Sjælland Nej 1.984 / 2.613 0 (0) 75,9 (74,2-77,6)"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "Syddanmark er en dansk region, der opfylder standarden for ekkokardiografi-indikatoren med 82,2 % af nydiagnosticerede atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Syddanmark Ja 3.107 / 3.782 0 (0) 82,2 (80,9-83,4)"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Midtjylland er en dansk region, der opfylder standarden for ekkokardiografi-indikatoren med 88,5 % af nydiagnosticerede atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Midtjylland Ja 3.278 / 3.706 0 (0) 88,5 (87,4-89,5)"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Nordjylland er en dansk region med rapporterede resultater for ekkokardiografi-indikatoren blandt atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Nordjylland Nej 1.445 / 1.835 0 (0) 78,7 (76,8-80,6)"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Amager og Hvidovre Hospital er et hospital i Hovedstaden-regionen med 77,1 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Amager og Hvidovre Hospital Nej 549 / 712 0 (0) 77,1 (73,8-80,1)"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospitaler",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg og Frederiksberg Hospitaler er et hospital i Hovedstaden-regionen med 64,3 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Bispebjerg og Frederiksberg Hospitaler Nej 443 / 689 0 (0) 64,3 (60,6-67,9)"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholms Hospital er et hospital i Hovedstaden-regionen, der opfylder standarden med 80,6 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Bornholms Hospital Ja 129 / 160 0 (0) 80,6 (73,6-86,4)"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev og Gentofte Hospital er et hospital i Hovedstaden-regionen med 63,0 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Herlev og Gentofte Hospital Nej 793 / 1.259 0 (0) 63,0 (60,3-65,7)"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalerne i Nordsjælland er et hospital i Hovedstaden-regionen med 77,7 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Hospitalerne i Nordsjælland Nej 727 / 936 0 (0) 77,7 (74,9-80,3)"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet er et hospital i Hovedstaden-regionen med 75,2 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Rigshospitalet Nej 421 / 560 0 (0) 75,2 (71,4-78,7)"
+        }
+      ]
+    },
+    {
+      "name": "Garantiklinikken",
+      "type": "organization",
+      "slug": "garantiklinikken",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Garantiklinikken er en klinik i Sjælland-regionen, der opfylder standarden med 98,5 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Garantiklinikken Ja 192 / 195 0 (0) 98,5 (95,6-99,7)"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk",
+      "type": "organization",
+      "slug": "holbaek",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk er et hospital i Sjælland-regionen, der opfylder standarden med 83,8 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Holbæk Ja 429 / 512 0 (0) 83,8 (80,3-86,9)"
+        }
+      ]
+    },
+    {
+      "name": "Nykøbing Falster",
+      "type": "organization",
+      "slug": "nykoebing-falster",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Nykøbing Falster er et hospital i Sjælland-regionen med 71,0 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Nykøbing Falster Nej 319 / 449 0 (0) 71,0 (66,6-75,2)"
+        }
+      ]
+    },
+    {
+      "name": "Næstved",
+      "type": "organization",
+      "slug": "naestved",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Næstved er et hospital i Sjælland-regionen med 70,6 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Næstved Nej 12 / 17 0 (0) 70,6 (44,0-89,7)"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital Køge",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital-koege",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital Køge er et hospital i Sjælland-regionen med 45,6 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Sjællands Universitetshospital Køge Nej 144 / 316 0 (0) 45,6 (40,0-51,2)"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital Roskilde",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital-roskilde",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital Roskilde er et hospital i Sjælland-regionen, der opfylder standarden med 81,3 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Sjællands Universitetshospital Roskilde Ja 457 / 562 0 (0) 81,3 (77,8-84,5)"
+        }
+      ]
+    },
+    {
+      "name": "Slagelse",
+      "type": "organization",
+      "slug": "slagelse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Slagelse er et hospital i Sjælland-regionen med 76,7 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Slagelse Nej 431 / 562 0 (0) 76,7 (73,0-80,1)"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus er et hospital i Syddanmark-regionen med 76,5 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Esbjerg Sygehus Grindsted Sygehus Nej 416 / 544 0 (0) 76,5 (72,7-80,0)"
+        }
+      ]
+    },
+    {
+      "name": "Friklinikken Region Syddanmark Grindsted",
+      "type": "organization",
+      "slug": "friklinikken-region-syddanmark-grindsted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Friklinikken Region Syddanmark Grindsted er en klinik i Syddanmark-regionen, der opfylder standarden med 98,8 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Friklinikken Region Syddanmark Grindsted Ja 84 / 85 0 (0) 98,8 (93,6-100,0)"
+        }
+      ]
+    },
+    {
+      "name": "Kolding Sygehus",
+      "type": "organization",
+      "slug": "kolding-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Kolding Sygehus er et hospital i Syddanmark-regionen med 63,7 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Kolding Sygehus* Nej 72 / 113 0 (0) 63,7 (54,1-72,6)"
+        }
+      ]
+    },
+    {
+      "name": "OUH Odense Universitetshospital",
+      "type": "organization",
+      "slug": "ouh-odense-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "OUH Odense Universitetshospital er et hospital i Syddanmark-regionen med 79,6 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "OUH Odense Universitetshospital Nej 1.214 / 1.525 0 (0) 79,6 (77,5-81,6)"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Sønderjylland er et hospital i Syddanmark-regionen, der opfylder standarden med 83,0 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Sygehus Sønderjylland Ja 634 / 764 0 (0) 83,0 (80,1-85,6)"
+        }
+      ]
+    },
+    {
+      "name": "Vejle Sygehus",
+      "type": "organization",
+      "slug": "vejle-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Vejle Sygehus er et hospital i Syddanmark-regionen, der opfylder standarden med 91,5 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Vejle Sygehus* Ja 687 / 751 0 (0) 91,5 (89,2-93,4)"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital er et hospital i Midtjylland-regionen, der opfylder standarden med 83,5 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Aarhus Universitetshospital Ja 643 / 770 0 (0) 83,5 (80,7-86,1)"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt er et hospital i Midtjylland-regionen, der opfylder standarden med 91,9 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Hospitalsenhed Midt Ja 916 / 997 0 (0) 91,9 (90,0-93,5)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup er et hospital i Midtjylland-regionen, der opfylder standarden med 86,4 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Regionshospitalet Gødstrup Ja 653 / 756 0 (0) 86,4 (83,7-88,7)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Horsens er et hospital i Midtjylland-regionen, der opfylder standarden med 92,7 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Regionshospitalet Horsens Ja 557 / 601 0 (0) 92,7 (90,3-94,6)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Randers er et hospital i Midtjylland-regionen, der opfylder standarden med 87,5 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Regionshospitalet Randers Ja 509 / 582 0 (0) 87,5 (84,5-90,0)"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital er et hospital i Nordjylland-regionen med 74,9 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Aalborg Universitetshospital Nej 749 / 1.000 0 (0) 74,9 (72,1-77,6)"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital Thisted",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital-thisted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital Thisted er et hospital i Nordjylland-regionen med 78,2 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Aalborg Universitetshospital Thisted Nej 165 / 211 0 (0) 78,2 (72,0-83,6)"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland Ven",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland-ven",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospital Nordjylland Ven er et hospital i Nordjylland-regionen, der opfylder standarden med 85,1 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Regionshospital Nordjylland Ven Ja 531 / 624 0 (0) 85,1 (82,1-87,8)"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Lillebælt er en samlet enhed, der omfatter Kolding Sygehus og Vejle Sygehus, hvis indikatorer skal fortolkes samlet.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Sygehus Lillebælt"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "operates-under",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
+      "page": 16
+    },
+    {
+      "subject": "amager-og-hvidovre-hospital",
+      "predicate": "located-in",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Nej 3.062 / 4.316 ... Amager og Hvidovre Hospital Nej 549 / 712",
+      "page": 16
+    },
+    {
+      "subject": "bispebjerg-og-frederiksberg-hospitaler",
+      "predicate": "located-in",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Nej 3.062 / 4.316 ... Bispebjerg og Frederiksberg Hospitaler Nej 443 / 689",
+      "page": 16
+    },
+    {
+      "subject": "bornholms-hospital",
+      "predicate": "located-in",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Nej 3.062 / 4.316 ... Bornholms Hospital Ja 129 / 160",
+      "page": 16
+    },
+    {
+      "subject": "herlev-og-gentofte-hospital",
+      "predicate": "located-in",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Nej 3.062 / 4.316 ... Herlev og Gentofte Hospital Nej 793 / 1.259",
+      "page": 16
+    },
+    {
+      "subject": "hospitalerne-i-nordsjaelland",
+      "predicate": "located-in",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Nej 3.062 / 4.316 ... Hospitalerne i Nordsjælland Nej 727 / 936",
+      "page": 16
+    },
+    {
+      "subject": "rigshospitalet",
+      "predicate": "located-in",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Nej 3.062 / 4.316 ... Rigshospitalet Nej 421 / 560",
+      "page": 16
+    },
+    {
+      "subject": "garantiklinikken",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Nej 1.984 / 2.613 ... Garantiklinikken Ja 192 / 195",
+      "page": 16
+    },
+    {
+      "subject": "holbaek",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Nej 1.984 / 2.613 ... Holbæk Ja 429 / 512",
+      "page": 16
+    },
+    {
+      "subject": "nykoebing-falster",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Nej 1.984 / 2.613 ... Nykøbing Falster Nej 319 / 449",
+      "page": 16
+    },
+    {
+      "subject": "naestved",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Nej 1.984 / 2.613 ... Næstved Nej 12 / 17",
+      "page": 16
+    },
+    {
+      "subject": "sjaellands-universitetshospital-koege",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Nej 1.984 / 2.613 ... Sjællands Universitetshospital Køge Nej 144 / 316",
+      "page": 16
+    },
+    {
+      "subject": "sjaellands-universitetshospital-roskilde",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Nej 1.984 / 2.613 ... Sjællands Universitetshospital Roskilde Ja 457 / 562",
+      "page": 16
+    },
+    {
+      "subject": "slagelse",
+      "predicate": "located-in",
+      "object": "sjaelland",
+      "evidence": "Sjælland Nej 1.984 / 2.613 ... Slagelse Nej 431 / 562",
+      "page": 16
+    },
+    {
+      "subject": "esbjerg-sygehus-grindsted-sygehus",
+      "predicate": "located-in",
+      "object": "syddanmark",
+      "evidence": "Syddanmark Ja 3.107 / 3.782 ... Esbjerg Sygehus Grindsted Sygehus Nej 416 / 544",
+      "page": 17
+    },
+    {
+      "subject": "friklinikken-region-syddanmark-grindsted",
+      "predicate": "located-in",
+      "object": "syddanmark",
+      "evidence": "Syddanmark Ja 3.107 / 3.782 ... Friklinikken Region Syddanmark Grindsted Ja 84 / 85",
+      "page": 17
+    },
+    {
+      "subject": "kolding-sygehus",
+      "predicate": "located-in",
+      "object": "syddanmark",
+      "evidence": "Syddanmark Ja 3.107 / 3.782 ... Kolding Sygehus* Nej 72 / 113",
+      "page": 17
+    },
+    {
+      "subject": "ouh-odense-universitetshospital",
+      "predicate": "located-in",
+      "object": "syddanmark",
+      "evidence": "Syddanmark Ja 3.107 / 3.782 ... OUH Odense Universitetshospital Nej 1.214 / 1.525",
+      "page": 17
+    },
+    {
+      "subject": "sygehus-soenderjylland",
+      "predicate": "located-in",
+      "object": "syddanmark",
+      "evidence": "Syddanmark Ja 3.107 / 3.782 ... Sygehus Sønderjylland Ja 634 / 764",
+      "page": 17
+    },
+    {
+      "subject": "vejle-sygehus",
+      "predicate": "located-in",
+      "object": "syddanmark",
+      "evidence": "Syddanmark Ja 3.107 / 3.782 ... Vejle Sygehus* Ja 687 / 751",
+      "page": 17
+    },
+    {
+      "subject": "aarhus-universitetshospital",
+      "predicate": "located-in",
+      "object": "midtjylland",
+      "evidence": "Midtjylland Ja 3.278 / 3.706 ... Aarhus Universitetshospital Ja 643 / 770",
+      "page": 17
+    },
+    {
+      "subject": "hospitalsenhed-midt",
+      "predicate": "located-in",
+      "object": "midtjylland",
+      "evidence": "Midtjylland Ja 3.278 / 3.706 ... Hospitalsenhed Midt Ja 916 / 997",
+      "page": 17
+    },
+    {
+      "subject": "regionshospitalet-goedstrup",
+      "predicate": "located-in",
+      "object": "midtjylland",
+      "evidence": "Midtjylland Ja 3.278 / 3.706 ... Regionshospitalet Gødstrup Ja 653 / 756",
+      "page": 17
+    },
+    {
+      "subject": "regionshospitalet-horsens",
+      "predicate": "located-in",
+      "object": "midtjylland",
+      "evidence": "Midtjylland Ja 3.278 / 3.706 ... Regionshospitalet Horsens Ja 557 / 601",
+      "page": 17
+    },
+    {
+      "subject": "regionshospitalet-randers",
+      "predicate": "located-in",
+      "object": "midtjylland",
+      "evidence": "Midtjylland Ja 3.278 / 3.706 ... Regionshospitalet Randers Ja 509 / 582",
+      "page": 17
+    },
+    {
+      "subject": "aalborg-universitetshospital",
+      "predicate": "located-in",
+      "object": "nordjylland",
+      "evidence": "Nordjylland Nej 1.445 / 1.835 ... Aalborg Universitetshospital Nej 749 / 1.000",
+      "page": 17
+    },
+    {
+      "subject": "aalborg-universitetshospital-thisted",
+      "predicate": "located-in",
+      "object": "nordjylland",
+      "evidence": "Nordjylland Nej 1.445 / 1.835 ... Aalborg Universitetshospital Thisted Nej 165 / 211",
+      "page": 17
+    },
+    {
+      "subject": "regionshospital-nordjylland-ven",
+      "predicate": "located-in",
+      "object": "nordjylland",
+      "evidence": "Nordjylland Nej 1.445 / 1.835 ... Regionshospital Nordjylland Ven Ja 531 / 624",
+      "page": 17
+    },
+    {
+      "subject": "kolding-sygehus",
+      "predicate": "part-of",
+      "object": "sygehus-lillebaelt",
+      "evidence": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt",
+      "page": 17
+    },
+    {
+      "subject": "vejle-sygehus",
+      "predicate": "part-of",
+      "object": "sygehus-lillebaelt",
+      "evidence": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt",
+      "page": 17
+    }
+  ],
+  "claims": [
+    {
+      "text": "Indikator 2 måler andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før, til 3 måneder efter 1. diagnosedato [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Standarden for Indikator 2 er ≥80 % [^src1]",
+      "type": "clinical-standard",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Danmark opfylder ikke standarden med 79,2 % (95% CI: 78,6-79,8) af 16.252 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi i perioden 01.07.2022 - 30.06.2023 [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "danmark"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Hovedstaden opfylder ikke standarden med 70,9 % (95% CI: 69,6-72,3) af 4.316 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "hovedstaden"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Sjælland opfylder ikke standarden med 75,9 % (95% CI: 74,2-77,6) af 2.613 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Syddanmark opfylder standarden med 82,2 % (95% CI: 80,9-83,4) af 3.782 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Midtjylland opfylder standarden med 88,5 % (95% CI: 87,4-89,5) af 3.706 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Nordjylland opfylder ikke standarden med 78,7 % (95% CI: 76,8-80,6) af 1.835 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Amager og Hvidovre Hospital havde 77,1 % (95% CI: 73,8-80,1) af 712 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "amager-og-hvidovre-hospital"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Bispebjerg og Frederiksberg Hospitaler havde 64,3 % (95% CI: 60,6-67,9) af 689 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "bispebjerg-og-frederiksberg-hospitaler"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Bornholms Hospital opfylder standarden med 80,6 % (95% CI: 73,6-86,4) af 160 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "bornholms-hospital"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Herlev og Gentofte Hospital havde 63,0 % (95% CI: 60,3-65,7) af 1.259 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "herlev-og-gentofte-hospital"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Hospitalerne i Nordsjælland havde 77,7 % (95% CI: 74,9-80,3) af 936 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "hospitalerne-i-nordsjaelland"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Rigshospitalet havde 75,2 % (95% CI: 71,4-78,7) af 560 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "rigshospitalet"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Garantiklinikken opfylder standarden med 98,5 % (95% CI: 95,6-99,7) af 195 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "garantiklinikken"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Holbæk opfylder standarden med 83,8 % (95% CI: 80,3-86,9) af 512 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "holbaek"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Nykøbing Falster havde 71,0 % (95% CI: 66,6-75,2) af 449 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "nykoebing-falster"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Næstved havde 70,6 % (95% CI: 44,0-89,7) af 17 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "naestved"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Sjællands Universitetshospital Køge havde 45,6 % (95% CI: 40,0-51,2) af 316 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sjaellands-universitetshospital-koege"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Sjællands Universitetshospital Roskilde opfylder standarden med 81,3 % (95% CI: 77,8-84,5) af 562 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sjaellands-universitetshospital-roskilde"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Slagelse havde 76,7 % (95% CI: 73,0-80,1) af 562 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "slagelse"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Esbjerg Sygehus Grindsted Sygehus havde 76,5 % (95% CI: 72,7-80,0) af 544 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "esbjerg-sygehus-grindsted-sygehus"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Friklinikken Region Syddanmark Grindsted opfylder standarden med 98,8 % (95% CI: 93,6-100,0) af 85 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "friklinikken-region-syddanmark-grindsted"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Kolding Sygehus havde 63,7 % (95% CI: 54,1-72,6) af 113 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "kolding-sygehus"
+      ],
+      "page": 17
+    },
+    {
+      "text": "OUH Odense Universitetshospital havde 79,6 % (95% CI: 77,5-81,6) af 1.525 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "ouh-odense-universitetshospital"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Sygehus Sønderjylland opfylder standarden med 83,0 % (95% CI: 80,1-85,6) af 764 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sygehus-soenderjylland"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Vejle Sygehus opfylder standarden med 91,5 % (95% CI: 89,2-93,4) af 751 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "vejle-sygehus"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Aarhus Universitetshospital opfylder standarden med 83,5 % (95% CI: 80,7-86,1) af 770 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "aarhus-universitetshospital"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Hospitalsenhed Midt opfylder standarden med 91,9 % (95% CI: 90,0-93,5) af 997 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "hospitalsenhed-midt"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Regionshospitalet Gødstrup opfylder standarden med 86,4 % (95% CI: 83,7-88,7) af 756 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "regionshospitalet-goedstrup"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Regionshospitalet Horsens opfylder standarden med 92,7 % (95% CI: 90,3-94,6) af 601 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "regionshospitalet-horsens"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Regionshospitalet Randers opfylder standarden med 87,5 % (95% CI: 84,5-90,0) af 582 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "regionshospitalet-randers"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Aalborg Universitetshospital havde 74,9 % (95% CI: 72,1-77,6) af 1.000 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "aalborg-universitetshospital"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Aalborg Universitetshospital Thisted havde 78,2 % (95% CI: 72,0-83,6) af 211 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "aalborg-universitetshospital-thisted"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Regionshospital Nordjylland Ven opfylder standarden med 85,1 % (95% CI: 82,1-87,8) af 624 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "regionshospital-nordjylland-ven"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt [^src1]",
+      "type": "data-quality-note",
+      "entities": [
+        "kolding-sygehus",
+        "vejle-sygehus",
+        "sygehus-lillebaelt"
+      ],
+      "page": 17
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2022-07-01",
+      "event": "Begyndelse af rapporteringsperiode for Indikator 2 (01.07.2022 - 30.06.2023)",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "2023-06-30",
+      "event": "Afslutning af rapporteringsperiode for Indikator 2 (01.07.2022 - 30.06.2023)",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk indeholder Indikator 2-resultater fra Databasen for Atrieflimren i Danmark for rapporteringsperioden 1. juli 2022 til 30. juni 2023. Indikatoren måler andelen af nydiagnosticerede atrieflimren-patienter, der har fået udført ekkokardiografi inden for et tidsvindue fra 6 måneder før til 3 måneder efter diagnosedato, med en standard på ≥80 %. Resultaterne præsenteres på tre niveauer: nationalt (Danmark), regionalt (fem regioner) og hospitalsniveau (individuelle hospitaler og klinikker). Dataene viser betydelig variation i compliance med standarden på tværs af institutioner, fra så lavt som 45,6 % på Sjællands Universitetshospital Køge til så højt som 98,8 % på Friklinikken Region Syddanmark Grindsted. Kontroldiagrammer og funnelplots på regionalt og hospitalsniveau er inkluderet for at visualisere denne variation."
+}

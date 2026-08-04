@@ -1,0 +1,343 @@
+{
+  "run": "2026-08-03T18:52:52.505Z",
+  "topics": {
+    "merges": [],
+    "drops": [],
+    "attempts": 1,
+    "fallbacks": [],
+    "vetoes": [],
+    "fromSticky": {
+      "merges": [],
+      "drops": []
+    },
+    "decidedThisRun": {
+      "merges": [],
+      "drops": [],
+      "denials": [
+        {
+          "from": "contact-type-statistics",
+          "into": "contact-type"
+        },
+        {
+          "from": "diagnosis-treatment-statistics",
+          "into": "diagnosis-statistics"
+        },
+        {
+          "from": "diagnosis-treatment-statistics",
+          "into": "treatment-statistics"
+        },
+        {
+          "from": "patient-contact-statistics",
+          "into": "patient-statistics"
+        },
+        {
+          "from": "pharmaceutical-treatment-statistics",
+          "into": "treatment-statistics"
+        },
+        {
+          "from": "surgical-procedure",
+          "into": "surgical-procedures"
+        }
+      ]
+    },
+    "proposedPairs": [
+      {
+        "from": "contact-type-statistics",
+        "into": "contact-type",
+        "signal": "subsequence",
+        "evidence": "tokens of 'contact-type' are a subsequence of 'contact-type-statistics' (name parts [statistics] dropped)"
+      },
+      {
+        "from": "diagnosis-treatment-statistics",
+        "into": "diagnosis-statistics",
+        "signal": "subsequence",
+        "evidence": "tokens of 'diagnosis-statistics' are a subsequence of 'diagnosis-treatment-statistics' (name parts [treatment] dropped)"
+      },
+      {
+        "from": "diagnosis-treatment-statistics",
+        "into": "treatment-statistics",
+        "signal": "subsequence",
+        "evidence": "tokens of 'treatment-statistics' are a subsequence of 'diagnosis-treatment-statistics' (name parts [diagnosis] dropped)"
+      },
+      {
+        "from": "patient-contact-statistics",
+        "into": "patient-statistics",
+        "signal": "subsequence",
+        "evidence": "tokens of 'patient-statistics' are a subsequence of 'patient-contact-statistics' (name parts [contact] dropped)"
+      },
+      {
+        "from": "pharmaceutical-treatment-statistics",
+        "into": "treatment-statistics",
+        "signal": "subsequence",
+        "evidence": "tokens of 'treatment-statistics' are a subsequence of 'pharmaceutical-treatment-statistics' (name parts [pharmaceutical] dropped)"
+      },
+      {
+        "from": "surgical-procedure",
+        "into": "surgical-procedures",
+        "signal": "edit-distance",
+        "evidence": "slugs 'surgical-procedure' and 'surgical-procedures' are edit distance 1 apart (typo variant)"
+      }
+    ],
+    "autoApplied": []
+  },
+  "entities": {
+    "merges": [],
+    "drops": [],
+    "attempts": 1,
+    "fallbacks": [],
+    "vetoes": [],
+    "fromSticky": {
+      "merges": [],
+      "drops": [],
+      "clusters": []
+    },
+    "decidedThisRun": {
+      "merges": [
+        {
+          "from": [
+            "landspatientregisteret"
+          ],
+          "into": "landpatientregisteret",
+          "signal": "alias",
+          "evidence": "title 'landspatientregisteret' is an exact frontmatter alias of 'landpatientregisteret'"
+        },
+        {
+          "from": [
+            "nordsjaelland-kirurgisk-afdeling"
+          ],
+          "into": "nordsjaelland-kirurgisk-overafdeling",
+          "signal": "alias",
+          "evidence": "title 'Nordsjælland Kirurgisk Afdeling' is an exact frontmatter alias of 'nordsjaelland-kirurgisk-overafdeling'"
+        },
+        {
+          "from": [
+            "nordsjaellands-hospital"
+          ],
+          "into": "nordsjaelland",
+          "signal": "alias",
+          "evidence": "title 'Nordsjællands Hospital' is an exact frontmatter alias of 'nordsjaelland'"
+        },
+        {
+          "from": [
+            "ouh-odense-kirurgisk-afdeling-a"
+          ],
+          "into": "odense-kirurgisk-afdeling-a",
+          "signal": "alias",
+          "evidence": "title 'OUH Odense Kirurgisk Afdeling A' is an exact frontmatter alias of 'odense-kirurgisk-afdeling-a'"
+        },
+        {
+          "from": [
+            "primar-skleroserende-kolangitis"
+          ],
+          "into": "primaer-skleroserende-kolangitis",
+          "signal": "transliteration",
+          "evidence": "slugs identical after Danish transliteration collapse ('primar-skleroserende-kolangitis' ≡ 'primaer-skleroserende-kolangitis')"
+        },
+        {
+          "from": [
+            "sygehusmedicinregistret"
+          ],
+          "into": "sygehusmedicinregisteret",
+          "signal": "alias",
+          "evidence": "title 'Sygehusmedicinregistret' is an exact frontmatter alias of 'sygehusmedicinregisteret'"
+        },
+        {
+          "from": [
+            "vejle-medicinsk-afdeling"
+          ],
+          "into": "slb-vejle-medicinsk-afdeling",
+          "signal": "alias",
+          "evidence": "title 'Vejle medicinsk afdeling' is an exact frontmatter alias of 'slb-vejle-medicinsk-afdeling'"
+        }
+      ],
+      "drops": [],
+      "denials": [
+        {
+          "from": "goedstrup-mave-og-tarmkirurgi",
+          "into": "goedstrup-mave-tarmkirurgi"
+        },
+        {
+          "from": "he-midt-klinik-for-mave-og-tarmsygd",
+          "into": "he-midt-klinik"
+        },
+        {
+          "from": "nordsjaelland-kirurgisk-overafdeling",
+          "into": "nordsjaelland-kirurgisk"
+        },
+        {
+          "from": "ouh-svendborg-medicinsk-afd",
+          "into": "ouh-svendborg"
+        }
+      ],
+      "clusters": [],
+      "clusterDenials": [
+        {
+          "members": [
+            "region-hovedstaden",
+            "hovedstaden-region"
+          ],
+          "class": 5,
+          "into": "region-hovedstaden"
+        },
+        {
+          "members": [
+            "region-midtjylland",
+            "midtjylland-region"
+          ],
+          "class": 5,
+          "into": "region-midtjylland"
+        },
+        {
+          "members": [
+            "region-nordjylland",
+            "nordjylland-region"
+          ],
+          "class": 5,
+          "into": "region-nordjylland"
+        },
+        {
+          "members": [
+            "region-sjaelland",
+            "sjaelland-region"
+          ],
+          "class": 5,
+          "into": "region-sjaelland"
+        },
+        {
+          "members": [
+            "region-syddanmark",
+            "syddanmark-region"
+          ],
+          "class": 5,
+          "into": "region-syddanmark"
+        }
+      ]
+    },
+    "proposedPairs": [
+      {
+        "from": "goedstrup-mave-og-tarmkirurgi",
+        "into": "goedstrup-mave-tarmkirurgi",
+        "signal": "subsequence",
+        "evidence": "tokens of 'goedstrup-mave-tarmkirurgi' are a subsequence of 'goedstrup-mave-og-tarmkirurgi' (name parts [og] dropped)"
+      },
+      {
+        "from": "he-midt-klinik-for-mave-og-tarmsygd",
+        "into": "he-midt-klinik",
+        "signal": "subsequence",
+        "evidence": "tokens of 'he-midt-klinik' are a subsequence of 'he-midt-klinik-for-mave-og-tarmsygd' (name parts [for, mave, og, tarmsygd] dropped)"
+      },
+      {
+        "from": "nordsjaelland-kirurgisk-overafdeling",
+        "into": "nordsjaelland-kirurgisk",
+        "signal": "subsequence",
+        "evidence": "tokens of 'nordsjaelland-kirurgisk' are a subsequence of 'nordsjaelland-kirurgisk-overafdeling' (name parts [overafdeling] dropped)"
+      },
+      {
+        "from": "ouh-svendborg-medicinsk-afd",
+        "into": "ouh-svendborg",
+        "signal": "subsequence",
+        "evidence": "tokens of 'ouh-svendborg' are a subsequence of 'ouh-svendborg-medicinsk-afd' (name parts [medicinsk, afd] dropped)"
+      }
+    ],
+    "autoApplied": [
+      {
+        "from": "landspatientregisteret",
+        "into": "landpatientregisteret",
+        "signal": "alias",
+        "evidence": "title 'landspatientregisteret' is an exact frontmatter alias of 'landpatientregisteret'"
+      },
+      {
+        "from": "nordsjaelland-kirurgisk-afdeling",
+        "into": "nordsjaelland-kirurgisk-overafdeling",
+        "signal": "alias",
+        "evidence": "title 'Nordsjælland Kirurgisk Afdeling' is an exact frontmatter alias of 'nordsjaelland-kirurgisk-overafdeling'"
+      },
+      {
+        "from": "nordsjaellands-hospital",
+        "into": "nordsjaelland",
+        "signal": "alias",
+        "evidence": "title 'Nordsjællands Hospital' is an exact frontmatter alias of 'nordsjaelland'"
+      },
+      {
+        "from": "ouh-odense-kirurgisk-afdeling-a",
+        "into": "odense-kirurgisk-afdeling-a",
+        "signal": "alias",
+        "evidence": "title 'OUH Odense Kirurgisk Afdeling A' is an exact frontmatter alias of 'odense-kirurgisk-afdeling-a'"
+      },
+      {
+        "from": "primar-skleroserende-kolangitis",
+        "into": "primaer-skleroserende-kolangitis",
+        "signal": "transliteration",
+        "evidence": "slugs identical after Danish transliteration collapse ('primar-skleroserende-kolangitis' ≡ 'primaer-skleroserende-kolangitis')"
+      },
+      {
+        "from": "sygehusmedicinregistret",
+        "into": "sygehusmedicinregisteret",
+        "signal": "alias",
+        "evidence": "title 'Sygehusmedicinregistret' is an exact frontmatter alias of 'sygehusmedicinregisteret'"
+      },
+      {
+        "from": "vejle-medicinsk-afdeling",
+        "into": "slb-vejle-medicinsk-afdeling",
+        "signal": "alias",
+        "evidence": "title 'Vejle medicinsk afdeling' is an exact frontmatter alias of 'slb-vejle-medicinsk-afdeling'"
+      }
+    ],
+    "proposedClusters": [
+      {
+        "members": [
+          "region-hovedstaden",
+          "hovedstaden-region"
+        ],
+        "class": 5,
+        "into": "region-hovedstaden",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'hovedstaden', 2 forms)"
+      },
+      {
+        "members": [
+          "region-midtjylland",
+          "midtjylland-region"
+        ],
+        "class": 5,
+        "into": "region-midtjylland",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'midtjylland', 2 forms)"
+      },
+      {
+        "members": [
+          "region-nordjylland",
+          "nordjylland-region"
+        ],
+        "class": 5,
+        "into": "region-nordjylland",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'nordjylland', 2 forms)"
+      },
+      {
+        "members": [
+          "region-sjaelland",
+          "sjaelland-region"
+        ],
+        "class": 5,
+        "into": "region-sjaelland",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'sjaelland', 2 forms)"
+      },
+      {
+        "members": [
+          "region-syddanmark",
+          "syddanmark-region"
+        ],
+        "class": 5,
+        "into": "region-syddanmark",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'syddanmark', 2 forms)"
+      }
+    ]
+  },
+  "manualEditSkips": [],
+  "removedPages": [],
+  "rewrittenLinks": [],
+  "splitReversals": []
+}

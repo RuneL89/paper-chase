@@ -1,0 +1,1332 @@
+{
+  "entities": [
+    {
+      "name": "ADHD-databasen",
+      "type": "organization",
+      "slug": "adhd-databasen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "ADHD-databasen er den centrale database for monitorering af ADHD-behandling og -udredning i Danmark, udvidet i 2024 til at omfatte voksne patienter med fire nye behandlingsindikatorer.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "ADHD-databasen inkluderer to forløbsbaserede populationer: ADHD-udredningspopulation (bestående af børn og unge under 18 år) og ADHD-behandlingspopulation (bestående af både børn/unge og voksne med ADHD)"
+        },
+        {
+          "page": 56,
+          "context": "ADHD-databasen bruger data fra LPR, hvorved klinikerne undgår dobbeltregistreringer i en separat database"
+        },
+        {
+          "page": 56,
+          "context": "ADHD-databasen har i mange år været en udredningsdatabase, der alene monitorerede procesindikatorer med henblik på at belyse kvalitet i udredning af sygdommen. Fra 25. maj 2021 blev databasen udvidet med en ADHD-behandlingspopulation"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 11",
+      "type": "topic",
+      "slug": "indikator-11",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 11 måler andelen af voksne behandlingsforløb, hvor patienten er i behandling med ADHD-medicin inden for 120 dage efter start af pakkeforløb, og er en ny indikator for voksne.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Indikator 11: Farmakologisk behandling. Andelen af behandlingsforløb blandt voksne, hvor patienten er i behandling med ADHD-medicin"
+        },
+        {
+          "page": 57,
+          "context": "Indikator 11 drejer sig om hvorvidt patienten er i medicinsk behandling senest 120 dage efter starten af pakkeforløb. Der er intet udviklingsmål for denne indikator. Denne indikator vedrører voksne (18+ år) og da det er første gang indikatoren opgøres præsenteres den uden historik og trendgraf"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det nationale niveau for ADHD-databasen, hvor 70 % af voksne i behandling var på ADHD-medicin i opgørelsesperioden 2024-2025.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Danmark 1.859 / 2.648 70 (68-72)"
+        },
+        {
+          "page": 57,
+          "context": "På landsplan var 70 % af de voksne i behandling med ADHD-medicin"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Hovedstaden havde det laveste resultat blandt regionerne med 37 % af voksne i ADHD-behandling på medicin, hvilket formentlig skyldes registreringsvanskeligheder.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Hovedstaden 116 / 311 37 (32-43)"
+        },
+        {
+          "page": 57,
+          "context": "Hovedstaden lå væsentligt lavere end de øvrige regioner med et resultat på 37 %"
+        },
+        {
+          "page": 57,
+          "context": "disse er formentlig hovedsageligt betinget af registreringsvanskeligheder i Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Sjælland havde 81 % af voksne i ADHD-behandling på medicin, hvilket var blandt de højere resultater blandt regionerne.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Sjælland 92 / 114 81 (72-87)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Syddanmark havde 67 % af voksne i ADHD-behandling på medicin, næstlavest blandt regionerne.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Syddanmark 747 / 1.110 67 (64-70)"
+        },
+        {
+          "page": 57,
+          "context": "Næstlavest lå Syddanmark på 67 %"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Midtjylland havde 80 % af voksne i ADHD-behandling på medicin, blandt de højere resultater blandt regionerne.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Midtjylland 756 / 940 80 (78-83)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Nordjylland havde det højeste resultat blandt regionerne med 85 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Nordjylland 139 / 163 85 (79-90)"
+        },
+        {
+          "page": 57,
+          "context": "Nordjylland lå højest med 85 %"
+        }
+      ]
+    },
+    {
+      "name": "Privathospitaler",
+      "type": "organization",
+      "slug": "privathospitaler",
+      "folder": "entities/organizations/healthcare",
+      "significance": "Privathospitaler havde 90 % af voksne i ADHD-behandling på medicin, men med meget få patienter indrapporteret, hvilket gør det vanskeligt at vurdere deres kvalitet.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Privathospitaler 9 / 10 90 (55-100)"
+        },
+        {
+          "page": 57,
+          "context": "Resultaterne blandt privathospitalerne lå mellem 83 og 100 %"
+        },
+        {
+          "page": 57,
+          "context": "Det næsten ikkeeksisterende antal forløb indrapporteret fra privathospitaler gør det ikke muligt at vurdere om de lever op til kvalitetsindikatorerne"
+        }
+      ]
+    },
+    {
+      "name": "PCGL, Psyk. ambulatorium",
+      "type": "organization",
+      "slug": "pcgl-psyk-ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PCGL, Psyk. ambulatorium i Region Hovedstaden havde 50 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PCGL, Psyk. ambulatorium 78 / 156 50 (42-58)"
+        }
+      ]
+    },
+    {
+      "name": "PCK, Psykoterapeutisk klinik",
+      "type": "organization",
+      "slug": "pck-psykoterapeutisk-klinik",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PCK, Psykoterapeutisk klinik i Region Hovedstaden havde det laveste resultat blandt større afdelinger med 21 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PCK, Psykoterapeutisk klinik 28 / 135 21 (14-29)"
+        },
+        {
+          "page": 57,
+          "context": "Blandt afdelinger med mere end tre patienter fra 21 % på PCK, Psykoterapeutisk klinik i Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg",
+      "type": "organization",
+      "slug": "bispebjerg-psykiatrisk-ambulatorium",
+      "folder": "entities/healthcare/psychiatric-clinics",
+      "significance": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg havde 38 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 3 / 8 38 (9-76)"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Glostrup",
+      "type": "organization",
+      "slug": "glostrup-psykiatrisk-ambulatorium",
+      "folder": "entities/healthcare/psychiatric-clinics",
+      "significance": "Psykiatrisk ambulatorium, børn og unge, Glostrup havde 57 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 4 / 7 57 (18-90)"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Hillerød",
+      "type": "organization",
+      "slug": "hillerod-psykiatrisk-ambulatorium",
+      "folder": "entities/healthcare/psychiatric-clinics",
+      "significance": "Psykiatrisk ambulatorium, børn og unge, Hillerød havde 60 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 3 / 5 60 (15-95)"
+        }
+      ]
+    },
+    {
+      "name": "Børne-Unge Psyk. Klinik 40.K",
+      "type": "organization",
+      "slug": "boerne-unge-psyk-afd-40",
+      "folder": "entities/organizations/psychiatric-departments",
+      "significance": "Børne-Unge Psyk. Klinik 40.K i Region Sjælland havde 67 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Børne-Unge Psyk. Klinik 40.K 10 / 15 67 (38-88)"
+        }
+      ]
+    },
+    {
+      "name": "PMA Psykiatrisk Klinik",
+      "type": "organization",
+      "slug": "pma-psykiatrisk-klinik",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PMA Psykiatrisk Klinik i Region Sjælland havde 85 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PMA Psykiatrisk Klinik 82 / 97 85 (76-91)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense)",
+      "type": "organization",
+      "slug": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/healthcare/psychiatric-clinics",
+      "significance": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) i Region Syddanmark havde meget få patienter indrapporteret.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) #/# 0 (0-98)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Esbjerg)",
+      "type": "organization",
+      "slug": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/healthcare/psychiatric-clinics",
+      "significance": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Esbjerg) i Region Syddanmark havde 50 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) 4 / 8 50 (16-84)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Vejle)",
+      "type": "organization",
+      "slug": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/healthcare/psychiatric-clinics",
+      "significance": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Vejle) i Region Syddanmark havde 73 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) 8 / 11 73 (39-94)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)",
+      "type": "organization",
+      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/healthcare/psychiatric-clinics",
+      "significance": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) i Region Syddanmark havde 100 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) 3 / 3 100 (29-100)"
+        },
+        {
+          "page": 57,
+          "context": "100 % på PS Almenpsykiatrisk, Syd Ambulatorier i Nordjylland, PMI Klinik for depression og mani – Midt i Midtjylland og PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Lokalpsykiatri (Aabenraa)",
+      "type": "organization",
+      "slug": "psy-lokalpsykiatri-aabenraa",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Lokalpsykiatri (Aabenraa) i Region Syddanmark havde 82 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Lokalpsykiatri (Aabenraa) 94 / 115 82 (73-88)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Lokalpsykiatri (Brørup)",
+      "type": "organization",
+      "slug": "psy-lokalpsykiatri-brorup",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Lokalpsykiatri (Brørup) i Region Syddanmark havde 79 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Lokalpsykiatri (Brørup) 48 / 61 79 (66-88)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Lokalpsykiatri (Fredericia)",
+      "type": "organization",
+      "slug": "psy-lokalpsykiatri-fredericia",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Lokalpsykiatri (Fredericia) i Region Syddanmark havde 71 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Lokalpsykiatri (Fredericia) 45 / 63 71 (59-82)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Lokalpsykiatri (Haderslev)",
+      "type": "organization",
+      "slug": "psy-lokalpsykiatri-haderslev",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Lokalpsykiatri (Haderslev) i Region Syddanmark havde 49 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Lokalpsykiatri (Haderslev) 47 / 95 49 (39-60)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Lokalpsykiatri (Kolding)",
+      "type": "organization",
+      "slug": "psy-lokalpsykiatri-kolding",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Lokalpsykiatri (Kolding) i Region Syddanmark havde 77 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Lokalpsykiatri (Kolding) 27 / 35 77 (60-90)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Lokalpsykiatri (Sønderborg)",
+      "type": "organization",
+      "slug": "psy-lokalpsykiatri-soenderborg",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Lokalpsykiatri (Sønderborg) i Region Syddanmark havde 68 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Lokalpsykiatri (Sønderborg) 93 / 136 68 (60-76)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Lokalpsykiatri (Tønder)",
+      "type": "organization",
+      "slug": "psy-lokalpsykiatri-toender",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Lokalpsykiatri (Tønder) i Region Syddanmark havde 74 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Lokalpsykiatri (Tønder) 35 / 47 74 (60-86)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Lokalpsykiatri (Varde)",
+      "type": "organization",
+      "slug": "psy-lokalpsykiatri-varde",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Lokalpsykiatri (Varde) i Region Syddanmark havde 76 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Lokalpsykiatri (Varde) 51 / 67 76 (64-86)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Lokalpsykiatri (Vejle)",
+      "type": "organization",
+      "slug": "psy-lokalpsykiatri-vejle",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Lokalpsykiatri (Vejle) i Region Syddanmark havde 91 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Lokalpsykiatri (Vejle) 78 / 86 91 (82-96)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Lokalpsykiatri Almen (Esbjerg)",
+      "type": "organization",
+      "slug": "psy-lokalpsykiatri-almen-esbjerg",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Lokalpsykiatri Almen (Esbjerg) i Region Syddanmark havde 89 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Lokalpsykiatri Almen (Esbjerg) 62 / 70 89 (79-95)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Psykiatrisk Ambulatorium (Middelfart)",
+      "type": "organization",
+      "slug": "psy-psykiatrisk-ambulatorium-middelfart",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Psykiatrisk Ambulatorium (Middelfart) i Region Syddanmark havde 79 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Psykiatrisk Ambulatorium (Middelfart) 33 / 42 79 (63-90)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Psykiatrisk Ambulatorium (Odense)",
+      "type": "organization",
+      "slug": "psy-psykiatrisk-ambulatorium-odense",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Psykiatrisk Ambulatorium (Odense) i Region Syddanmark havde 38 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Psykiatrisk Ambulatorium (Odense) 54 / 143 38 (30-46)"
+        }
+      ]
+    },
+    {
+      "name": "PSY Psykiatrisk Ambulatorium (Svendborg)",
+      "type": "organization",
+      "slug": "psy-psykiatrisk-ambulatorium-svendborg",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PSY Psykiatrisk Ambulatorium (Svendborg) i Region Syddanmark havde 51 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PSY Psykiatrisk Ambulatorium (Svendborg) 65 / 127 51 (42-60)"
+        }
+      ]
+    },
+    {
+      "name": "ADA Psykiatriens Hus Aarhus",
+      "type": "organization",
+      "slug": "ada-psykiatriens-hus-aarhus",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "ADA Psykiatriens Hus Aarhus i Region Midtjylland havde 100 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "ADA Psykiatriens Hus Aarhus #/# 100 (3-100)"
+        }
+      ]
+    },
+    {
+      "name": "AFP Psykiatrisk Klinik 2 - AUH",
+      "type": "organization",
+      "slug": "afp-psykiatrisk-klinik-2-auh",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "AFP Psykiatrisk Klinik 2 - AUH i Region Midtjylland havde 78 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "AFP Psykiatrisk Klinik 2 - AUH 185 / 238 78 (72-83)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Unge",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-unge",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "BUA Psykiatrisk Klinik for Unge i Region Midtjylland havde 76 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "BUA Psykiatrisk Klinik for Unge 28 / 37 76 (59-88)"
+        }
+      ]
+    },
+    {
+      "name": "PHO Klinik 1 for Psykiatriske Lidelser - Horsens",
+      "type": "organization",
+      "slug": "pho-klinik-1-horsens",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PHO Klinik 1 for Psykiatriske Lidelser - Horsens i Region Midtjylland havde 86 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PHO Klinik 1 for Psykiatriske Lidelser - Horsens 128 / 148 86 (80-92)"
+        }
+      ]
+    },
+    {
+      "name": "PHO Klinik 2 for Psykiatriske Lidelser - Horsens",
+      "type": "organization",
+      "slug": "pho-klinik-2-horsens",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PHO Klinik 2 for Psykiatriske Lidelser - Horsens i Region Midtjylland havde 100 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PHO Klinik 2 for Psykiatriske Lidelser - Horsens #/# 100 (3-100)"
+        }
+      ]
+    },
+    {
+      "name": "PHO Psykiatrisk Akutenhed - Horsens",
+      "type": "organization",
+      "slug": "pho-psykiatrisk-akutenhed-horsens",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PHO Psykiatrisk Akutenhed - Horsens i Region Midtjylland havde 50 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PHO Psykiatrisk Akutenhed - Horsens #/# 50 (1-99)"
+        }
+      ]
+    },
+    {
+      "name": "PHO Sengeafsnit Regionspsykiatri Horsens",
+      "type": "organization",
+      "slug": "pho-sengeafsnit-regionspsykiatri-horsens",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PHO Sengeafsnit Regionspsykiatri Horsens i Region Midtjylland havde 0 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PHO Sengeafsnit Regionspsykiatri Horsens #/# 0 (0-98)"
+        }
+      ]
+    },
+    {
+      "name": "PMI Klinik for depression og mani - Midt",
+      "type": "organization",
+      "slug": "pmi-klinik-depression-mani-midt",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PMI Klinik for depression og mani - Midt i Region Midtjylland havde 100 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PMI Klinik for depression og mani - Midt 5 / 5 100 (48-100)"
+        },
+        {
+          "page": 57,
+          "context": "100 % på PS Almenpsykiatrisk, Syd Ambulatorier i Nordjylland, PMI Klinik for depression og mani – Midt i Midtjylland og PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)"
+        }
+      ]
+    },
+    {
+      "name": "PMI Klinik for psykoser - Midt",
+      "type": "organization",
+      "slug": "pmi-klinik-psykoser-midt",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PMI Klinik for psykoser - Midt i Region Midtjylland havde 79 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PMI Klinik for psykoser - Midt 144 / 183 79 (72-84)"
+        }
+      ]
+    },
+    {
+      "name": "PRA Psykiatrisk Klinik - Rønde",
+      "type": "organization",
+      "slug": "pra-psykiatrisk-klinik-roende",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PRA Psykiatrisk Klinik - Rønde i Region Midtjylland havde 84 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PRA Psykiatrisk Klinik - Rønde 56 / 67 84 (73-92)"
+        }
+      ]
+    },
+    {
+      "name": "PRA Psykiatrisk Klinik 2 - Randers",
+      "type": "organization",
+      "slug": "pra-psykiatrisk-klinik-2-randers",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PRA Psykiatrisk Klinik 2 - Randers i Region Midtjylland havde 55 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PRA Psykiatrisk Klinik 2 - Randers 6 / 11 55 (23-83)"
+        }
+      ]
+    },
+    {
+      "name": "RPG Psykiatrisk Klinik 1 – Gødstrup",
+      "type": "organization",
+      "slug": "rpg-psykiatrisk-klinik-1-godstrup",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "RPG Psykiatrisk Klinik 1 – Gødstrup i Region Midtjylland havde 82 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "RPG Psykiatrisk Klinik 1 – Gødstrup 201 / 246 82 (76-86)"
+        }
+      ]
+    },
+    {
+      "name": "PS Almenpsykiatrisk, Nord Ambulatorier",
+      "type": "organization",
+      "slug": "ps-almenpsykiatrisk-nord-ambulatorier",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PS Almenpsykiatrisk, Nord Ambulatorier i Region Nordjylland havde 84 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PS Almenpsykiatrisk, Nord Ambulatorier 106 / 126 84 (77-90)"
+        }
+      ]
+    },
+    {
+      "name": "PS Almenpsykiatrisk, Nord Sengeafsnit",
+      "type": "organization",
+      "slug": "ps-almenpsykiatrisk-nord-sengeafsnit",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PS Almenpsykiatrisk, Nord Sengeafsnit i Region Nordjylland havde 0 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PS Almenpsykiatrisk, Nord Sengeafsnit #/# 0 (0-84)"
+        }
+      ]
+    },
+    {
+      "name": "PS Almenpsykiatrisk, Syd Ambulatorier",
+      "type": "organization",
+      "slug": "ps-almenpsykiatrisk-syd-ambulatorier",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PS Almenpsykiatrisk, Syd Ambulatorier i Region Nordjylland havde 100 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PS Almenpsykiatrisk, Syd Ambulatorier 20 / 20 100 (83-100)"
+        },
+        {
+          "page": 57,
+          "context": "100 % på PS Almenpsykiatrisk, Syd Ambulatorier i Nordjylland, PMI Klinik for depression og mani – Midt i Midtjylland og PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)"
+        }
+      ]
+    },
+    {
+      "name": "PS Børne- og Ungdomspsykiatrisk Ambulatorier",
+      "type": "organization",
+      "slug": "ps-boerne-ungdomspsykiatrisk-ambulatorier",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PS Børne- og Ungdomspsykiatrisk Ambulatorier i Region Nordjylland havde 87 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "PS Børne- og Ungdomspsykiatrisk Ambulatorier 13 / 15 87 (60-98)"
+        }
+      ]
+    },
+    {
+      "name": "Carelink Psykiatri Kolding",
+      "type": "organization",
+      "slug": "carelink-psykiatri-kolding",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Carelink Psykiatri Kolding blandt privathospitalerne havde 100 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Carelink Psykiatri Kolding 3 / 3 100 (29-100)"
+        }
+      ]
+    },
+    {
+      "name": "Carelink Psykiatri Roskilde",
+      "type": "organization",
+      "slug": "carelink-psykiatri-roskilde",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Carelink Psykiatri Roskilde blandt privathospitalerne havde 100 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Carelink Psykiatri Roskilde #/# 100 (3-100)"
+        }
+      ]
+    },
+    {
+      "name": "Carelink Psykiatri Viborg",
+      "type": "organization",
+      "slug": "carelink-psykiatri-viborg",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Carelink Psykiatri Viborg blandt privathospitalerne havde 83 % af voksne i ADHD-behandling på medicin.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Carelink Psykiatri Viborg 5 / 6 83 (36-100)"
+        }
+      ]
+    },
+    {
+      "name": "LPR",
+      "type": "organization",
+      "slug": "lpr",
+      "folder": "entities/organizations/health-registries",
+      "significance": "LPR (Landspatientregisteret) er den database som ADHD-databasen bruger til at undgå dobbeltregistreringer, men manglende registrering kan dække over både uudførte procedurer og ikke-indberettede procedurer.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "ADHD-databasen bruger data fra LPR, hvorved klinikerne undgår dobbeltregistreringer i en separat database"
+        },
+        {
+          "page": 56,
+          "context": "Brug af LPR-data har dog den ulempe, at manglende registrering både kan dække over, at proceduren ikke er udført, eller at den ikke er registreret"
+        }
+      ]
+    },
+    {
+      "name": "ADHD",
+      "type": "topic",
+      "slug": "adhd",
+      "folder": "topics/medical-definition",
+      "significance": "ADHD (Attention Deficit Hyperactivity Disorder) eller hyperkinetisk forstyrrelse (HKD) er en neuropsykiatrisk lidelse med forstyrrelse af opmærksomhed og aktivitet, der ses hos 4,5 % af alle børn og fortsætter hos mere end halvdelen ind i voksenalderen.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Attention Deficit Hyperactivity Disorder (ADHD) eller hyperkinetisk forstyrrelse (HKD) er i følge WHO's klassifikation (ICD-10) en neuropsykiatrisk lidelse med forstyrrelse af opmærksomhed og aktivitet"
+        },
+        {
+          "page": 56,
+          "context": "Forstyrrelsen ses hos 4,5 % af alle børn. Der er langt flere drenge med diagnosen, men ifølge nyere studier kan ADHD være betydeligt underdiagnosticeret blandt piger"
+        },
+        {
+          "page": 56,
+          "context": "Forstyrrelsen fortsætter med at give problemer ind i voksenalderen hos mere end halvdelen"
+        }
+      ]
+    },
+    {
+      "name": "WHO",
+      "type": "organization",
+      "slug": "who",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "WHO's klassifikation (ICD-10) bruges til at definere ADHD som en neuropsykiatrisk lidelse.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "i følge WHO's klassifikation (ICD-10) en neuropsykiatrisk lidelse"
+        }
+      ]
+    },
+    {
+      "name": "Vidensråd for forebyggelse",
+      "type": "organization",
+      "slug": "vidensraad-for-forebyggelse",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Vidensråd for forebyggelse har peget på at hyppigheden af ADHD er stigende.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "tal fra Vidensråd for forebyggelse peger desuden på at hyppigheden er stigende"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "adhd-databasen",
+      "predicate": "uses-data-from",
+      "object": "lpr",
+      "evidence": "ADHD-databasen bruger data fra LPR, hvorved klinikerne undgår dobbeltregistreringer i en separat database",
+      "page": 56
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "has-lowest-indicator-11-result",
+      "object": "indikator-11",
+      "evidence": "Hovedstaden lå væsentligt lavere end de øvrige regioner med et resultat på 37 %",
+      "page": 57
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "has-highest-indicator-11-result",
+      "object": "indikator-11",
+      "evidence": "Nordjylland lå højest med 85 %",
+      "page": 57
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "includes-population",
+      "object": "adhd",
+      "evidence": "ADHD-databasen inkluderer to forløbsbaserede populationer: ADHD-udredningspopulation (bestående af børn og unge under 18 år) og ADHD-behandlingspopulation (bestående af både børn/unge og voksne med ADHD)",
+      "page": 56
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan var 70 % af de voksne i behandling med ADHD-medicin [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "danmark",
+        "adhd-databasen"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Hovedstaden lå væsentligt lavere end de øvrige regioner med et resultat på 37 % [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Næstlavest lå Syddanmark på 67 % [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-syddanmark"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Nordjylland lå højest med 85 % [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Blandt afdelinger med mere end tre patienter fra 21 % på PCK, Psykoterapeutisk klinik i Hovedstaden til 100 % på PS Almenpsykiatrisk, Syd Ambulatorier i Nordjylland, PMI Klinik for depression og mani – Midt i Midtjylland og PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "pck-psykoterapeutisk-klinik",
+        "ps-almenpsykiatrisk-syd-ambulatorier",
+        "pmi-klinik-depression-mani-midt",
+        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Resultaterne blandt privathospitalerne lå mellem 83 og 100 % [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "privathospitaler"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Det næsten ikkeeksisterende antal forløb indrapporteret fra privathospitaler gør det ikke muligt at vurdere om de lever op til kvalitetsindikatorerne [^src1]",
+      "type": "observation",
+      "entities": [
+        "privathospitaler"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Indikator 11 drejer sig om hvorvidt patienten er i medicinsk behandling senest 120 dage efter starten af pakkeforløb [^src1]",
+      "type": "clinical-standard",
+      "entities": [
+        "indikator-11"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Der er intet udviklingsmål for denne indikator [^src1]",
+      "type": "clinical-standard",
+      "entities": [
+        "indikator-11"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Denne indikator vedrører voksne (18+ år) og da det er første gang indikatoren opgøres præsenteres den uden historik og trendgraf [^src1]",
+      "type": "observation",
+      "entities": [
+        "indikator-11"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Indikatoren er baseret på data fra lægemiddelstatistikdatabasen. Datakompletheden er således god, da alle indløste recepter automatisk registreres i databasen [^src1]",
+      "type": "methodology",
+      "entities": [
+        "indikator-11"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Forstyrrelsen ses hos 4,5 % af alle børn [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Der er langt flere drenge med diagnosen, men ifølge nyere studier kan ADHD være betydeligt underdiagnosticeret blandt piger [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Hyppigheden kan således kan være større, og tal fra Vidensråd for forebyggelse peger desuden på at hyppigheden er stigende [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Forstyrrelsen fortsætter med at give problemer ind i voksenalderen hos mere end halvdelen [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "For at opfylde kriterierne for ADHD/HKD skal kernesymptomerne (uopmærksomhed, hyperaktivitet og impulsivitet) have været til stede før 7-års alderen og have varet i mindst seks måneder [^src1]",
+      "type": "diagnostic-criteria",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Diagnose-kriterierne er kun opfyldt, hvis symptomerne er til stede i flere sammenhænge (skole/arbejdsplads, hjem og under fritidsaktiviteter) og giver anledning til væsentlig funktionsnedsættelse [^src1]",
+      "type": "diagnostic-criteria",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Diagnosen stilles først og fremmest på det kliniske billede og en omhyggelig anamnese med deltagelse af patienten og patientens nære pårørende [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Der udspørges til samtidig anden psykiatrisk og somatisk sygdom (komorbiditet) og ofte indgår en psykologisk undersøgelse vedrørende eventuelle indlæringsvanskeligheder [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Anamnesen suppleres med spørgeskema-data vedr. symptomernes sværhedsgrad (ADHD-RS), gerne suppleret med spørgeskema om funktionspåvirkningen som følge af ADHD-symptomerne (eks. WFIRS, CGI, GAPD eller GAF, ABAS) [^src1]",
+      "type": "clinical-assessment",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "ADHD ledsages ofte af andre psykiatriske forstyrrelser; hyppigst adfærdsforstyrrelse, søvnforstyrrelser, indlæringsproblemer, motoriske vanskeligheder, angst og depression [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Hos unge og voksne er der øget risiko for misbrug, kriminalitet og personlighedsforstyrrelse [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Samlet ses andre psykiatriske diagnoser hos 70-80 % af børnene med ADHD [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Der er ikke fuld klarhed over ætiologien bag ADHD, men der er tale om mange faktorer, hvoraf den genetiske årsagskomponent spiller en væsentlig rolle [^src1]",
+      "type": "neurobiological",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "En del af kernesymptomerne kan forklares ved en ændret funktion i hjernens frontallapper på grund af et relativt underskud af transmitterstofferne dopamin og noradrenalin i synapsespalterne [^src1]",
+      "type": "neurobiological",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Desuden ses dysfunktion svarende til parietallapper, basalganglier og cerebellum samt tegn på en afvigende neurofysiologisk reaktion på stress [^src1]",
+      "type": "neurobiological",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Der er også dokumenteret en forsinket modning (myelinisering) af hjernebarken [^src1]",
+      "type": "neurobiological",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Prognosen afhænger af graden af egne ressourcer, støtte fra omgivelserne, socialisering og følgetilstande i form af øvrige psykiatriske diagnoser [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Langtidsopfølgende studier peger på at uddannelse, erhverv, familieliv, økonomi og almen funktion alle er negativt påvirkede af ADHD-diagnosen i barndom og ungdom [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "En væsentlig andel af børn og unge som diagnosticeres med ADHD har symptomer og funktionsnedsættelse i voksenalder [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "adhd"
+      ],
+      "page": 56
+    },
+    {
+      "text": "ADHD-databasen har i mange år været en udredningsdatabase, der alene monitorerede procesindikatorer med henblik på at belyse kvalitet i udredning af sygdommen [^src1]",
+      "type": "observation",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Fra 25. maj 2021 blev databasen udvidet med en ADHD-behandlingspopulation, der er beregningsgrundlag for tre indikatorer omhandlende behandlingen af børn/unge [^src1]",
+      "type": "database-expansion",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Fra 2024 blev databasen udvidet til også at omfatte voksne i behandling for ADHD [^src1]",
+      "type": "database-expansion",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Det betyder at ADHD-behandlingspopulationen nu også inkluderer voksne i ADHD-behandling [^src1]",
+      "type": "database-expansion",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "De voksne følges i fire nye behandlingsindikatorer vedrørende psykoedukation, psykoterapi, sociale støttebehov og farmakologisk behandling [^src1]",
+      "type": "quality-indicators",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Derudover indeholder databasen to resultatindikatorer, der opgør opnåelse af folkeskolens afgangseksamen inden det fyldte 17. år for både udredningspopulationen og de unge i behandlingspopulation [^src1]",
+      "type": "quality-indicators",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Desuden planlægges at inkludere PRO-data, når teknologien tillader dette [^src1]",
+      "type": "action-plan",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "ADHD-databasen inkluderer to forløbsbaserede populationer: ADHD-udredningspopulation (bestående af børn og unge under 18 år) og ADHD-behandlingspopulation (bestående af både børn/unge og voksne med ADHD) [^src1]",
+      "type": "observation",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Det er nyt at ADHD-behandlingspopulationen er udvidet med voksne og det er således første år der er indsamlet data og opgjort resultater på denne del af ADHD-patientgruppen [^src1]",
+      "type": "observation",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "ADHD-udredningspopulationen (børn/unge) danner beregningsgrundlag for indikator 1-3 og 7a [^src1]",
+      "type": "methodology",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "ADHD-behandlingspopulationen danner beregningsgrundlag for hhv. 4-6 og 7b (børn/unge) og 8-11 (voksne) [^src1]",
+      "type": "methodology",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Denne årsrapport dækker opgørelsesperioden 1. april 2024 til 31. marts 2025 [^src1]",
+      "type": "observation",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "I indikatortabellerne præsenteres også indikatorresultater for de to foregående etårsperioder: 1. april 2022 til 31. marts 2023 og 1. april 2023 til 31. marts 2024, bortset fra indikator 8-11 da det er første gang de voksne er med [^src1]",
+      "type": "observation",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Rådata til rapporten er opdateret 10. september 2025 [^src1]",
+      "type": "observation",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Brug af LPR-data har dog den ulempe, at manglende registrering både kan dække over, at proceduren ikke er udført, eller at den ikke er registreret [^src1]",
+      "type": "observation",
+      "entities": [
+        "lpr"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Når der ikke er angivet en procedurekode, tolkes det i indikatorberegningerne som, at proceduren ikke er udført, men en anden mulighed er, at proceduren er udført, men ikke indberettet, hvilket vil føre til en underestimering af det reelle indikatorresultat [^src1]",
+      "type": "observation",
+      "entities": [
+        "lpr"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Dette kan være et problem mht. fortolkningen af resultaterne, bl.a. når vi sammenligner indikatorresultater, da vi ikke ved, om variationen mellem regioner og afdelinger skyldes forskellig registreringspraksis eller reelle forskelle i klinisk praksis [^src1]",
+      "type": "observation",
+      "entities": [
+        "lpr"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Nøglekoderne for inklusion i databasen 'ADHD-udredning start' og 'ADHD-pakkeforløb start' er i LPR3-forløbsmarkører [^src1]",
+      "type": "methodology",
+      "entities": [
+        "lpr"
+      ],
+      "page": 56
+    },
+    {
+      "text": "til forløbsmarkører findes ikke direkte information om indberettende afdeling [^src1]",
+      "type": "observation",
+      "entities": [
+        "lpr"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Derfor udvælges den forløbsansvarlige afdeling efter overgangen til LPR3 som den afdeling, der har den første kontakt i udredningsforløbet/pakkeforløbet [^src1]",
+      "type": "methodology",
+      "entities": [
+        "lpr"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Dette defineres som første kontakt på eller efter dato for forløbsmarkøren [^src1]",
+      "type": "methodology",
+      "entities": [
+        "lpr"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Der inddrages i den forbindelse kun kontakter, der er givet under samme forløbselement som forløbsmarkøren og som er givet på afdelinger med enten psykiatri eller børne- og ungdomspsykiatri som speciale (begge krav skal være opfyldt) [^src1]",
+      "type": "methodology",
+      "entities": [
+        "lpr"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Der ses relativt store regionale forskelle, men disse er formentlig hovedsageligt betinget af registreringsvanskeligheder i Region Hovedstaden [^src1]",
+      "type": "observation",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Tager man de opgivne tal i betragtning er medicinsk behandling den hyppigste behandlingsmodalitet som tilbydes i den hospitalsbaserede psykiatri [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Som det er gældende i børne- og ungepopulation i ADHD-databasen er der også hos voksne tale om en såkaldt eksplorativ indikator uden mål for hvor mange, der skal sættes i medicinsk behandling [^src1]",
+      "type": "observation",
+      "entities": [
+        "indikator-11"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Imidlertid kan indikatoren bidrage med vigtig information når den holdes op mod indikatorerne om psykoedukation, psykoterapi og vurdering af sociale støttebehov [^src1]",
+      "type": "observation",
+      "entities": [
+        "indikator-11"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Det diskuteres om indikatoren bør udgå som indikator og oplysningerne i stedet skal placeres som supplerende materiale i rapporten [^src1]",
+      "type": "decision",
+      "entities": [
+        "indikator-11"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Styregruppen vil ved næste styregruppemøde tage endelig stilling til om denne indikator i stedet skal indgå som supplerende materiale [^src1]",
+      "type": "decision",
+      "entities": [
+        "indikator-11"
+      ],
+      "page": 57
+    }
+  ],
+  "timeline": [
+    {
+      "date": "25. maj 2021",
+      "event": "ADHD-databasen blev udvidet med en ADHD-behandlingspopulation, der er beregningsgrundlag for tre indikatorer omhandlende behandlingen af børn/unge",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "2024",
+      "event": "ADHD-databasen blev udvidet til også at omfatte voksne i behandling for ADHD med fire nye behandlingsindikatorer",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "1. april 2024 - 31. marts 2025",
+      "event": "Opgørelsesperiode for Indikator 11 og andre indikatorer i ADHD-databasen",
+      "entities": [
+        "adhd-databasen",
+        "indikator-11"
+      ]
+    },
+    {
+      "date": "10. september 2025",
+      "event": "Rådata til ADHD-databasen rapporten blev opdateret",
+      "entities": [
+        "adhd-databasen"
+      ]
+    }
+  ],
+  "context": "Dette dokument præsenterer resultater fra Indikator 11 i ADHD-databasen, som måler andelen af voksne behandlingsforløb, hvor patienten er i behandling med ADHD-medicin inden for 120 dage efter start af pakkeforløb. Det er første gang denne indikator opgøres for voksne, da ADHD-databasen blev udvidet i 2024 til at omfatte voksne patienter. Dokumentet indeholder detaljerede resultater på regionalt og afdelingsniveau, samt en grundig beskrivelse af ADHD som sygdomsområde, herunder epidemiologi, diagnostiske kriterier, neurobiologiske mekanismer og klinisk praksis. Resultaterne viser betydelige regionale variationer, med Region Nordjylland på 85 % og Region Hovedstaden på 37 %, hvilket formentlig skyldes registreringsvanskeligheder snarere end reelle kliniske forskelle."
+}

@@ -1,0 +1,763 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "organization",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "The acute surgery database that tracks mortality outcomes and patient demographics across Danish surgical departments, providing quality indicators for acute surgical care.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Akut Kirurgi Databasen Endelig version til offentliggørelse 2025.02.28"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvasenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "The Danish healthcare quality institute responsible for publishing and managing the acute surgery database and its quality indicators.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "The national aggregate for all surgical procedures and mortality data reported in the acute surgery database.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Danmark 3.668 100,0 1.698 46,3 1.970 53,7"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "A Danish health region with multiple hospitals reporting acute surgery data and mortality outcomes.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Hovedstaden Region i alt 1.161 100,0 530 45,7 631 54,3"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Hovedstaden reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Amager og Hvidovre Hospital 282 24,3 131 46,5 151 53,5"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospital",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Hovedstaden reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Bispebjerg og Frederiksberg Hospital 188 16,2 84 44,7 104 55,3"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Hovedstaden reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Bornholms Hospital 28 2,4 13 46,4 15 53,6"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Hovedstaden reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Herlev og Gentofte Hospital 341 29,4 137 40,2 204 59,8"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Hovedstaden reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Hospitalerne i Nordsjælland 226 19,5 111 49,1 115 50,9"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A major hospital in Region Hovedstaden reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Rigshospitalet 96 8,3 54 56,3 42 43,8"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "A Danish health region with multiple hospitals reporting acute surgery data and mortality outcomes.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Sjælland Region i alt 636 100,0 281 44,2 355 55,8"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Sjælland reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Holbæk Sygehus 152 23,9 62 40,8 90 59,2"
+        }
+      ]
+    },
+    {
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagelse-ringsted-sygehuse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Sjælland reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Næstved, Slagelse og Ringsted sygehuse 204 32,1 97 47,5 107 52,5"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Sjælland reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Sjællands Universitetshospital 280 44,0 122 43,6 158 56,4"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "A Danish health region with multiple hospitals reporting acute surgery data and mortality outcomes.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Syddanmark Region i alt 790 100,0 378 47,8 412 52,2"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Syddanmark reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Esbjerg Sygehus Grindsted Sygehus 200 25,3 81 40,5 119 59,5"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital - Svendborg",
+      "type": "organization",
+      "slug": "odense-universitetshospital-svendborg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Syddanmark reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Odense Universitetshospital - Svendborg 357 45,2 172 48,2 185 51,8"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Syddanmark reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Sygehus Lillebælt 110 13,9 58 52,7 52 47,3"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Syddanmark reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Sygehus Sønderjylland 123 15,6 67 54,5 56 45,5"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "A Danish health region with multiple hospitals reporting acute surgery data and mortality outcomes.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Midtjylland Region i alt 816 100,0 391 47,9 425 52,1"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Midtjylland reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Aarhus Universitetshospital 169 20,7 81 47,9 88 52,1"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Midtjylland reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Hospitalsenhed Midt 165 20,2 66 40,0 99 60,0"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Midtjylland reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Regionshospitalet Gødstrup 189 23,2 85 45,0 104 55,0"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Midtjylland reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Regionshospitalet Horsens 143 17,5 68 47,6 75 52,4"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Midtjylland reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Regionshospitalet Randers 150 18,4 91 60,7 59 39,3"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "A Danish health region with multiple hospitals reporting acute surgery data and mortality outcomes.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Nordjylland Region i alt 265 100,0 118 44,5 147 55,5"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Nordjylland reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Aalborg Universitetshospital 157 59,2 73 46,5 84 53,5"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital in Region Nordjylland reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Regionshospital Nordjylland 108 40,8 45 41,7 63 58,3"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital, Thisted",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital-thisted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "A hospital location in Region Nordjylland reporting acute surgery procedures and patient demographics.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Aalborg Universitetshospital, Thisted # 0,4 26,00 26,00 26,00 26,00"
+        }
+      ]
+    },
+    {
+      "name": "Charlson Score",
+      "type": "topic",
+      "slug": "charlson-score",
+      "folder": "topics/clinical-assessment",
+      "significance": "A comorbidity scoring system used to stratify patients by disease burden in the acute surgery database mortality analysis.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Supplerende indikator til indikator 9c: Mortalitet indenfor 30 dage efter akut kirurgi, Charlson Score ≥ 3"
+        }
+      ]
+    },
+    {
+      "name": "Mortalitet indenfor 30 dage",
+      "type": "topic",
+      "slug": "mortalitet-indenfor-30-dage",
+      "folder": "topics/mortality-outcome",
+      "significance": "A key quality indicator measuring 30-day mortality after acute surgery, stratified by comorbidity burden.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Supplerende indikator til indikator 9c: Mortalitet indenfor 30 dage efter akut kirurgi, Charlson Score ≥ 3"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "managed-by",
+      "object": "sundhedsvasenets-kvalitetsinstitut",
+      "evidence": "Akut Kirurgi Databasen Endelig version til offentliggørelse 2025.02.28 Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 71
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "amager-og-hvidovre-hospital",
+      "evidence": "Hovedstaden Region i alt includes Amager og Hvidovre Hospital",
+      "page": 71
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "bispebjerg-og-frederiksberg-hospitaler",
+      "evidence": "Hovedstaden Region i alt includes Bispebjerg og Frederiksberg Hospital",
+      "page": 71
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "bornholms-hospital",
+      "evidence": "Hovedstaden Region i alt includes Bornholms Hospital",
+      "page": 71
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "herlev-og-gentofte-hospital",
+      "evidence": "Hovedstaden Region i alt includes Herlev og Gentofte Hospital",
+      "page": 71
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "hospitalerne-i-nordsjaelland",
+      "evidence": "Hovedstaden Region i alt includes Hospitalerne i Nordsjælland",
+      "page": 71
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "rigshospitalet",
+      "evidence": "Hovedstaden Region i alt includes Rigshospitalet",
+      "page": 71
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "contains",
+      "object": "holbaek-sygehus",
+      "evidence": "Sjælland Region i alt includes Holbæk Sygehus",
+      "page": 71
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "contains",
+      "object": "naestved-slagelse-ringsted-sygehuse",
+      "evidence": "Sjælland Region i alt includes Næstved, Slagelse og Ringsted sygehuse",
+      "page": 71
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "contains",
+      "object": "sjaellands-universitetshospital",
+      "evidence": "Sjælland Region i alt includes Sjællands Universitetshospital",
+      "page": 71
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "contains",
+      "object": "esbjerg-sygehus-grindsted-sygehus",
+      "evidence": "Syddanmark Region i alt includes Esbjerg Sygehus Grindsted Sygehus",
+      "page": 71
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "contains",
+      "object": "odense-universitetshospital-svendborg",
+      "evidence": "Syddanmark Region i alt includes Odense Universitetshospital - Svendborg",
+      "page": 71
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "contains",
+      "object": "sygehus-lillebaelt",
+      "evidence": "Syddanmark Region i alt includes Sygehus Lillebælt",
+      "page": 71
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "contains",
+      "object": "sygehus-soenderjylland",
+      "evidence": "Syddanmark Region i alt includes Sygehus Sønderjylland",
+      "page": 71
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "contains",
+      "object": "aarhus-universitetshospital",
+      "evidence": "Midtjylland Region i alt includes Aarhus Universitetshospital",
+      "page": 71
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "contains",
+      "object": "hospitalsenhed-midt",
+      "evidence": "Midtjylland Region i alt includes Hospitalsenhed Midt",
+      "page": 71
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "contains",
+      "object": "regionshospitalet-goedstrup",
+      "evidence": "Midtjylland Region i alt includes Regionshospitalet Gødstrup",
+      "page": 71
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "contains",
+      "object": "regionshospitalet-horsens",
+      "evidence": "Midtjylland Region i alt includes Regionshospitalet Horsens",
+      "page": 71
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "contains",
+      "object": "regionshospitalet-randers",
+      "evidence": "Midtjylland Region i alt includes Regionshospitalet Randers",
+      "page": 71
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "contains",
+      "object": "aalborg-universitetshospital",
+      "evidence": "Nordjylland Region i alt includes Aalborg Universitetshospital",
+      "page": 71
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "contains",
+      "object": "regionshospital-nordjylland",
+      "evidence": "Nordjylland Region i alt includes Regionshospital Nordjylland",
+      "page": 71
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "contains",
+      "object": "aalborg-universitetshospital-thisted",
+      "evidence": "Nordjylland Region i alt includes Aalborg Universitetshospital, Thisted",
+      "page": 71
+    }
+  ],
+  "claims": [
+    {
+      "text": "Supplerende indikator til indikator 9c beskriver andelen af patienter, der dør indenfor 30 dage fra tidspunkt for operation, for patienter med Charlson Score ≥ 3, svarende til høj registreret komorbiditet [^src1]",
+      "type": "clinical-indicator",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "charlson-score",
+        "mortalitet-indenfor-30-dage"
+      ],
+      "page": 71
+    },
+    {
+      "text": "Diagnoser til brug i beregning af Charlson Score er hentet 10 år tilbage i tid [^src1]",
+      "type": "methodology",
+      "entities": [
+        "charlson-score"
+      ],
+      "page": 71
+    },
+    {
+      "text": "Der indgik 711 patienter i indikatoranalysen i perioden. Heraf døde 151, svarende til 21,2 % (95 % CI: 18,3-24,4) indenfor 30 dage fra operation [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "mortalitet-indenfor-30-dage"
+      ],
+      "page": 71
+    },
+    {
+      "text": "Danmark i alt: 3.668 opererede, heraf 1.698 mand (46,3 %) og 1.970 kvinde (53,7 %) [^src2]",
+      "type": "demographic",
+      "entities": [
+        "danmark"
+      ],
+      "page": 71
+    },
+    {
+      "text": "Region Hovedstaden i alt: 1.161 opererede, heraf 530 mand (45,7 %) og 631 kvinde (54,3 %) [^src2]",
+      "type": "demographic",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 71
+    },
+    {
+      "text": "Danmark aldersfordeling 01/09/2021 - 31/08/2022: 3.718 opererede, Q1: 58,00, Median: 70,00, Mean: 66,22, Q3: 79,00 [^src3]",
+      "type": "demographic",
+      "entities": [
+        "danmark"
+      ],
+      "page": 71
+    },
+    {
+      "text": "Danmark aldersfordeling 01/09/2022 - 31/08/2023: 3.745 opererede, Q1: 56,00, Median: 70,00, Mean: 65,46, Q3: 78,00 [^src4]",
+      "type": "demographic",
+      "entities": [
+        "danmark"
+      ],
+      "page": 71
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01/09/2019 - 31/08/2020",
+      "event": "Mortalitet efter Charlson Score ≥ 3 målt i perioden",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "charlson-score"
+      ]
+    },
+    {
+      "date": "01/09/2021 - 31/08/2022",
+      "event": "Aldersfordeling for opererede registreret i perioden",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "01/09/2022 - 31/08/2023",
+      "event": "Aldersfordeling for opererede registreret i perioden",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer detaljerede demografiske og kliniske data fra Akut Kirurgi Databasen for perioden omkring 2021-2023, med fokus på mortalitet indenfor 30 dage efter akut kirurgi blandt patienter med høj komorbiditet (Charlson Score ≥ 3). Dataene er organiseret efter køn, alder og geografisk region, hvilket giver indsigt i patientsammensetningen og resultater på tværs af alle fem danske regioner og deres respektive hospitaler. Dokumentet er en del af Sundhedsvæsenets Kvalitetsinstituts løbende overvågning af kirurgisk kvalitet og patientresultater i Danmark.",
+  "tables": [
+    {
+      "subject": "koensfordeling-opererede",
+      "title": "Fordeling af køn for opererede",
+      "page": 72,
+      "rowDimension": "regioner og hospitaler",
+      "colDimension": "antal og procent fordelt på køn",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "region-sjaelland",
+        "holbaek-sygehus",
+        "naestved-slagelse-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "region-syddanmark",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "region-midtjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "region-nordjylland",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Enhed | I alt Antal | I alt % | Mand Antal | Mand % | Kvinde Antal | Kvinde % |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.668 | 100,0 | 1.698 | 46,3 | 1.970 | 53,7 |\n| Hovedstaden Region i alt | 1.161 | 100,0 | 530 | 45,7 | 631 | 54,3 |\n| Amager og Hvidovre Hospital | 282 | 24,3 | 131 | 46,5 | 151 | 53,5 |\n| Bispebjerg og Frederiksberg Hospital | 188 | 16,2 | 84 | 44,7 | 104 | 55,3 |\n| Bornholms Hospital | 28 | 2,4 | 13 | 46,4 | 15 | 53,6 |\n| Herlev og Gentofte Hospital | 341 | 29,4 | 137 | 40,2 | 204 | 59,8 |\n| Hospitalerne i Nordsjælland | 226 | 19,5 | 111 | 49,1 | 115 | 50,9 |\n| Rigshospitalet | 96 | 8,3 | 54 | 56,3 | 42 | 43,8 |\n| Sjælland Region i alt | 636 | 100,0 | 281 | 44,2 | 355 | 55,8 |\n| Holbæk Sygehus | 152 | 23,9 | 62 | 40,8 | 90 | 59,2 |\n| Næstved, Slagelse og Ringsted sygehuse | 204 | 32,1 | 97 | 47,5 | 107 | 52,5 |\n| Sjællands Universitetshospital | 280 | 44,0 | 122 | 43,6 | 158 | 56,4 |\n| Syddanmark Region i alt | 790 | 100,0 | 378 | 47,8 | 412 | 52,2 |\n| Esbjerg Sygehus Grindsted Sygehus | 200 | 25,3 | 81 | 40,5 | 119 | 59,5 |\n| Odense Universitetshospital - Svendborg | 357 | 45,2 | 172 | 48,2 | 185 | 51,8 |\n| Sygehus Lillebælt | 110 | 13,9 | 58 | 52,7 | 52 | 47,3 |\n| Sygehus Sønderjylland | 123 | 15,6 | 67 | 54,5 | 56 | 45,5 |\n| Midtjylland Region i alt | 816 | 100,0 | 391 | 47,9 | 425 | 52,1 |\n| Aarhus Universitetshospital | 169 | 20,7 | 81 | 47,9 | 88 | 52,1 |\n| Hospitalsenhed Midt | 165 | 20,2 | 66 | 40,0 | 99 | 60,0 |\n| Regionshospitalet Gødstrup | 189 | 23,2 | 85 | 45,0 | 104 | 55,0 |\n| Regionshospitalet Horsens | 143 | 17,5 | 68 | 47,6 | 75 | 52,4 |\n| Regionshospitalet Randers | 150 | 18,4 | 91 | 60,7 | 59 | 39,3 |\n| Nordjylland Region i alt | 265 | 100,0 | 118 | 44,5 | 147 | 55,5 |\n| Aalborg Universitetshospital | 157 | 59,2 | 73 | 46,5 | 84 | 53,5 |\n| Regionshospital Nordjylland | 108 | 40,8 | 45 | 41,7 | 63 | 58,3 |",
+      "summary": "Tabellen sammenligner kønsfordelingen af opererede på tværs af regioner og hospitaler; nationalt er 53,7 % kvinder, med variation fra 43,8 % kvinder på Rigshospitalet til 60,7 % mænd på Regionshospitalet Randers."
+    },
+    {
+      "subject": "aldersfordeling-opererede",
+      "title": "Fordeling af alder for opererede 01/09/2021 - 31/08/2022",
+      "page": 73,
+      "rowDimension": "regioner og hospitaler",
+      "colDimension": "aldersstatistik (antal, %, Q1, median, mean, Q3)",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "region-sjaelland",
+        "holbaek-sygehus",
+        "naestved-slagelse-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "region-syddanmark",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "region-midtjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "region-nordjylland",
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Enhed | Antal | % | Q1 | Median | Mean | Q3 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.718 | 100,0 | 58,00 | 70,00 | 66,22 | 79,00 |\n| Hovedstaden Region i alt | 1.306 | 100,0 | 57,00 | 69,00 | 64,71 | 78,00 |\n| Amager og Hvidovre Hospital | 381 | 29,2 | 53,00 | 66,00 | 63,01 | 77,00 |\n| Bispebjerg og Frederiksberg Hospital | 230 | 17,6 | 55,00 | 68,00 | 64,46 | 77,00 |\n| Bornholms Hospital | 24 | 1,8 | 53,00 | 60,50 | 62,96 | 77,00 |\n| Herlev og Gentofte Hospital | 307 | 23,5 | 57,00 | 70,00 | 65,59 | 78,00 |\n| Hospitalerne i Nordsjælland | 258 | 19,8 | 62,00 | 72,00 | 69,52 | 81,00 |\n| Rigshospitalet | 106 | 8,1 | 54,00 | 68,50 | 57,64 | 76,00 |\n| Sjælland Region i alt | 612 | 100,0 | 62,00 | 73,00 | 69,36 | 79,00 |\n| Holbæk Sygehus | 130 | 21,2 | 65,00 | 73,00 | 70,05 | 78,00 |\n| Næstved, Slagelse og Ringsted sygehuse | 199 | 32,5 | 61,00 | 73,00 | 70,02 | 80,00 |\n| Sjællands Universitetshospital | 283 | 46,2 | 61,00 | 72,00 | 68,57 | 79,00 |\n| Syddanmark Region i alt | 743 | 100,0 | 57,00 | 70,00 | 65,55 | 79,00 |\n| Esbjerg Sygehus Grindsted Sygehus | 157 | 21,1 | 56,00 | 69,00 | 66,26 | 79,00 |\n| Odense Universitetshospital - Svendborg | 297 | 40,0 | 57,00 | 68,00 | 63,42 | 76,00 |\n| Sygehus Lillebælt | 172 | 23,1 | 54,50 | 68,50 | 64,16 | 77,50 |\n| Sygehus Sønderjylland | 117 | 15,7 | 64,00 | 77,00 | 72,06 | 84,00 |\n| Midtjylland Region i alt | 808 | 100,0 | 58,00 | 71,00 | 66,78 | 79,00 |\n| Aarhus Universitetshospital | 182 | 22,5 | 49,00 | 68,00 | 60,90 | 79,00 |\n| Hospitalsenhed Midt | 159 | 19,7 | 55,00 | 66,00 | 65,50 | 76,00 |\n| Regionshospitalet Gødstrup | 209 | 25,9 | 65,50 | 73,00 | 70,05 | 79,00 |\n| Regionshospitalet Horsens | 131 | 16,2 | 59,00 | 73,00 | 68,13 | 81,00 |\n| Regionshospitalet Randers | 127 | 15,7 | 61,00 | 73,50 | 70,13 | 81,00 |\n| Nordjylland Region i alt | 249 | 100,0 | 60,00 | 70,00 | 66,63 | 78,00 |\n| Aalborg Universitetshospital | 158 | 63,5 | 58,00 | 69,00 | 64,99 | 78,00 |\n| Aalborg Universitetshospital, Thisted | # | 0,4 | 26,00 | 26,00 | 26,00 | 26,00 |\n| Regionshospital Nordjylland | 90 | 36,1 | 64,50 | 72,50 | 69,98 | 80,00 |",
+      "summary": "Tabellen sammenligner aldersfordelingen for opererede i 2021/22 på tværs af regioner og hospitaler; national medianalder er 70 år, med laveste middelalder på Rigshospitalet (57,64) og højeste på Sygehus Sønderjylland (72,06)."
+    },
+    {
+      "subject": "aldersfordeling-opererede",
+      "title": "Fordeling af alder for opererede 01/09/2022 - 31/08/2023",
+      "page": 74,
+      "rowDimension": "regioner og hospitaler",
+      "colDimension": "aldersstatistik (antal, %, Q1, median, mean, Q3)",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "region-sjaelland",
+        "holbaek-sygehus",
+        "naestved-slagelse-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "region-syddanmark",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "region-midtjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "region-nordjylland",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Enhed | Antal | % | Q1 | Median | Mean | Q3 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.745 | 100,0 | 56,00 | 70,00 | 65,46 | 78,00 |\n| Hovedstaden Region i alt | 1.296 | 100,0 | 53,50 | 69,00 | 64,28 | 78,00 |\n| Amager og Hvidovre Hospital | 303 | 23,4 | 48,50 | 65,00 | 61,60 | 76,00 |\n| Bispebjerg og Frederiksberg Hospital | 257 | 19,8 | 52,50 | 71,50 | 65,50 | 78,00 |\n| Bornholms Hospital | 32 | 2,5 | 47,00 | 68,00 | 64,48 | 82,00 |\n| Herlev og Gentofte Hospital | 355 | 27,4 | 60,00 | 71,00 | 67,18 | 79,00 |\n| Hospitalerne i Nordsjælland | 240 | 18,5 | 58,00 | 71,00 | 67,95 | 79,00 |\n| Rigshospitalet | 109 | 8,4 | 38,00 | 63,00 | 51,22 | 74,00 |\n| Sjælland Region i alt | 595 | 100,0 | 59,00 | 70,00 | 66,72 | 78,00 |\n| Holbæk Sygehus | 143 | 24,0 | 60,00 | 72,00 | 67,83 | 77,00 |\n| Næstved, Slagelse og Ringsted sygehuse | 220 | 37,0 | 56,00 | 67,50 | 65,24 | 77,00 |\n| Sjællands Universitetshospital | 232 | 39,0 | 59,00 | 70,00 | 67,44 | 79,00 |\n| Syddanmark Region i alt | 737 | 100,0 | 56,00 | 70,00 | 65,63 | 79,00 |\n| Esbjerg Sygehus Grindsted Sygehus | 174 | 23,6 | 53,00 | 65,00 | 63,29 | 76,00 |\n| Odense Universitetshospital - Svendborg | 300 | 40,7 | 56,00 | 71,00 | 64,83 | 79,00 |\n| Sygehus Lillebælt | 122 | 16,6 | 55,00 | 70,00 | 65,82 | 79,00 |\n| Sygehus Sønderjylland | 141 | 19,1 | 63,00 | 74,00 | 70,08 | 81,00 |\n| Midtjylland Region i alt | 807 | 100,0 | 56,00 | 70,00 | 65,97 | 78,00 |\n| Aarhus Universitetshospital | 172 | 21,3 | 54,50 | 71,00 | 63,17 | 78,00 |\n| Hospitalsenhed Midt | 185 | 22,9 | 51,00 | 66,00 | 62,81 | 76,00 |\n| Regionshospitalet Gødstrup | 186 | 23,0 | 58,00 | 72,00 | 67,79 | 79,00 |\n| Regionshospitalet Horsens | 119 | 14,7 | 64,00 | 71,00 | 69,72 | 80,00 |\n| Regionshospitalet Randers | 145 | 18,0 | 60,00 | 71,00 | 67,93 | 80,00 |\n| Nordjylland Region i alt | 310 | 100,0 | 56,00 | 70,00 | 66,21 | 78,00 |\n| Aalborg Universitetshospital | 208 | 67,1 | 54,00 | 69,00 | 63,99 | 77,00 |\n| Regionshospital Nordjylland | 102 | 32,9 | 63,00 | 74,00 | 70,71 | 80,00 |",
+      "summary": "Tabellen sammenligner aldersfordelingen for opererede i 2022/23 på tværs af regioner og hospitaler; national medianalder er 70 år, mens Rigshospitalet skiller sig ud med markant lavere middelalder (51,22)."
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "run": "2026-08-03T18:52:52.296Z",
+  "newPdfs": [],
+  "newEntities": [
+    {
+      "slug": "aauh-farsoe",
+      "title": "AAUH Farsø Medicinsk Afdeling",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "aauh-thisted",
+      "title": "AAUH Thisted Medicinsk Afdeling",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "colitis-ulcerosa",
+      "title": "Colitis ulcerosa",
+      "folder": "topics/diseases/inflammatory-bowel-disease"
+    },
+    {
+      "slug": "crohns-sygdom",
+      "title": "Crohns sygdom",
+      "folder": "topics/diseases/inflammatory-bowel-disease"
+    },
+    {
+      "slug": "f-calpro",
+      "title": "F-calpro",
+      "folder": "topics/biomarkers"
+    },
+    {
+      "slug": "goedstrup-mave-og-tarmkirurgi",
+      "title": "Gødstrup Mave- og Tarmkirurgi",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "he-midt-klinik-for-mave-og-tarmsygd",
+      "title": "HE Midt Klinik for Mave- og Tarmsygd.",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "he-midt-mave-tarm",
+      "title": "HE Midt Klinik for Mave- og Tarmsygd.",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "herlev-mave-tarm-lever",
+      "title": "Herlev Mave-, Tarm- og Leversygd.",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "hovedstaden-region",
+      "title": "Hovedstaden Region",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "hvidovre-gastro",
+      "title": "Hvidovre Gastroenheden",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "ibd",
+      "title": "IBD",
+      "folder": "topics/medical-conditions"
+    },
+    {
+      "slug": "midtjylland-region",
+      "title": "Midtjylland Region",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "nordjylland-region",
+      "title": "Nordjylland Region",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "nordsjaelland-kirurgisk",
+      "title": "Nordsjælland Kirurgisk Afdeling",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "primaer-skleroserende-kolangitis",
+      "title": "primær skleroserende kolangitis",
+      "folder": "topics/diseases/hepatobiliary"
+    },
+    {
+      "slug": "psc",
+      "title": "PSC",
+      "folder": "topics/medical-conditions"
+    },
+    {
+      "slug": "rigshospitalet-mave-tarm-leversygdomme",
+      "title": "Rigshospitalet Mave-, Tarm- og Leversygdomme",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "rigshospitalet-paediatri",
+      "title": "Rigshospitalet Pædiatrisk Klinik",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "sjaelland-region",
+      "title": "Sjælland Region",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "syddanmark-region",
+      "title": "Syddanmark Region",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "ulcerosus-colitis",
+      "title": "Ulcerøs colitis",
+      "folder": "topics/medical-conditions/inflammatory-bowel-disease"
+    }
+  ],
+  "updatedEntities": [],
+  "conflicts": 3,
+  "totalCost": 0,
+  "chunksProcessed": 0,
+  "chunksSkipped": 16,
+  "chunksFailed": 0,
+  "entitiesNew": 22,
+  "entitiesUpdated": 0,
+  "relationshipsExtracted": 0,
+  "claimsExtracted": 0,
+  "claimsByType": {},
+  "pagesByType": {
+    "entity": 95,
+    "topic": 71
+  },
+  "foldersCreated": 31,
+  "brokenLinks": 19,
+  "orphanedPages": 0,
+  "conflictsManualEdit": 1,
+  "conflictsPreservation": 2,
+  "totalTokens": 2061663,
+  "wallClockMs": 306405,
+  "feedbackRepairs": 8,
+  "curationFallbacks": 0,
+  "transportFailures": 0
+}

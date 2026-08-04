@@ -1,0 +1,283 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "This is the Danish atrial fibrillation database that tracks clinical quality indicators and publishes annual reports on patient outcomes and regional performance metrics.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-registries",
+      "significance": "RKKP is the Danish regional clinical quality development program that oversees the atrial fibrillation database and publishes quality indicators for healthcare regions.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "DOAC",
+      "type": "product",
+      "slug": "doac",
+      "folder": "entities/products/medications",
+      "significance": "Direct oral anticoagulants (DOAC) are mentioned as having lower risk for intracranial bleeding complications compared to Marevan, representing an important therapeutic advancement in atrial fibrillation treatment.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "risikoen for intrakraniel blødning vil aftage over tid som følge af introduktionen af DOAC (direkte orale antikoagulantia), der har lavere risiko for komplicerende intrakraniel blødning sammenlignet med Marevan"
+        }
+      ]
+    },
+    {
+      "name": "Marevan",
+      "type": "product",
+      "slug": "marevan",
+      "folder": "entities/products/medications",
+      "significance": "Marevan is a traditional anticoagulant referenced as having higher risk for intracranial bleeding complications compared to newer DOAC medications in atrial fibrillation treatment.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "der har lavere risiko for komplicerende intrakraniel blødning sammenlignet med Marevan"
+        }
+      ]
+    },
+    {
+      "name": "International Society of Thrombosis and Hemostasis",
+      "type": "organization",
+      "slug": "international-society-of-thrombosis-and-hemostasis",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "ISTH provides the clinical criteria (adapted) used to define and measure serious bleeding incidents among atrial fibrillation patients in the Danish database.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Indikator 7: Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier)"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Denmark is the national jurisdiction covered by the atrial fibrillation database, with aggregated national data and regional breakdowns across five health regions.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Databasen for Atrieflimren i Danmark"
+        },
+        {
+          "page": 67,
+          "context": "Danmark 2.925 / 134.810 0 (0) 2,2 (2,1-2,2)"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Hovedstaden (Capital Region) is one of five Danish health regions tracked in the atrial fibrillation database, with 37,128 prevalent patients and 859 serious bleeding incidents during the reporting period.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Hovedstaden 859 / 37.128 0 (0) 2,3 (2,2-2,5)"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Sjælland (Zealand Region) is one of five Danish health regions in the database, with 22,375 prevalent patients and 459 serious bleeding incidents during the reporting period.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Sjælland 459 / 22.375 0 (0) 2,1 (1,9-2,2)"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Syddanmark (Southern Denmark Region) is one of five Danish health regions tracked in the database, with 31,271 prevalent patients and 729 serious bleeding incidents during the reporting period.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Syddanmark 729 / 31.271 0 (0) 2,3 (2,2-2,5)"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Midtjylland (Central Jutland Region) is one of five Danish health regions in the database, with 29,513 prevalent patients and 561 serious bleeding incidents during the reporting period.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Midtjylland 561 / 29.513 0 (0) 1,9 (1,7-2,1)"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Nordjylland (Northern Jutland Region) is one of five Danish health regions tracked in the database, with 14,523 prevalent patients and 317 serious bleeding incidents during the reporting period.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Nordjylland 317 / 14.523 0 (0) 2,2 (2,0-2,4)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "is-managed-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk appears as the managing organization on the database annual report",
+      "page": 66
+    },
+    {
+      "subject": "doac",
+      "predicate": "has-lower-risk-than",
+      "object": "marevan",
+      "evidence": "DOAC (direkte orale antikoagulantia), der har lavere risiko for komplicerende intrakraniel blødning sammenlignet med Marevan",
+      "page": 66
+    },
+    {
+      "subject": "international-society-of-thrombosis-and-hemostasis",
+      "predicate": "provides-criteria-for",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Indikator 7 uses tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier for measuring serious bleeding",
+      "page": 67
+    }
+  ],
+  "claims": [
+    {
+      "text": "Risikoen for intrakraniel blødning forventes at aftage over tid som følge af introduktionen af DOAC, der har lavere risiko for komplicerende intrakraniel blødning sammenlignet med Marevan [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "doac",
+        "marevan"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Øget opmærksomhed på ikke at anvende pladehæmmere og NSAID samt bedre kontrol af blodtryk og reduktion af befolkningens alkoholforbrug vil lede til færre intrakranielle blødninger [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Der må på grund af den demografisk udvikling forventes flere intrakranielle blødninger i fremtiden [^src1]",
+      "type": "demographic-projection",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Standarden for incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren fastsættes til ≤ 0,6 per 100 risiko år [^src1]",
+      "type": "quality-standard",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Standarden for incidens af intrakraniel blødning er opfyldt nationalt og i alle regioner [^src1]",
+      "type": "quality-assessment",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "danmark"
+      ],
+      "page": 66
+    },
+    {
+      "text": "Danmark havde 2.925 tilfælde af alvorlig blødning blandt 134.810 prævalente patienter med atrieflimren i perioden 01.07.2022 - 30.06.2023, svarende til 2,2% (95% CI 2,1-2,2) [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "danmark"
+      ],
+      "page": 67
+    },
+    {
+      "text": "Hovedstaden havde 859 tilfælde af alvorlig blødning blandt 37.128 prævalente patienter med atrieflimren i perioden 01.07.2022 - 30.06.2023, svarende til 2,3% (95% CI 2,2-2,5) [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "hovedstaden"
+      ],
+      "page": 67
+    },
+    {
+      "text": "Sjælland havde 459 tilfælde af alvorlig blødning blandt 22.375 prævalente patienter med atrieflimren i perioden 01.07.2022 - 30.06.2023, svarende til 2,1% (95% CI 1,9-2,2) [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 67
+    },
+    {
+      "text": "Syddanmark havde 729 tilfælde af alvorlig blødning blandt 31.271 prævalente patienter med atrieflimren i perioden 01.07.2022 - 30.06.2023, svarende til 2,3% (95% CI 2,2-2,5) [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 67
+    },
+    {
+      "text": "Midtjylland havde 561 tilfælde af alvorlig blødning blandt 29.513 prævalente patienter med atrieflimren i perioden 01.07.2022 - 30.06.2023, svarende til 1,9% (95% CI 1,7-2,1) [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 67
+    },
+    {
+      "text": "Nordjylland havde 317 tilfælde af alvorlig blødning blandt 14.523 prævalente patienter med atrieflimren i perioden 01.07.2022 - 30.06.2023, svarende til 2,2% (95% CI 2,0-2,4) [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 67
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2022-07-01",
+      "event": "Begyndelse af rapporteringsperiode for Indikator 7 (incidens af alvorlig blødning blandt prævalente patienter med atrieflimren)",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "2023-06-30",
+      "event": "Afslutning af rapporteringsperiode for Indikator 7 og publikation af årsrapport",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk udgør dele af årsrapporten for Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten præsenterer detaljerede epidemiologiske data og kvalitetsindikatorer for behandling af atrieflimren (atrial fibrillation) på tværs af Danmark, med fokus på incidens af alvorlig blødning som en vigtig sikkerhedsmål. Dokumentet indeholder nationale og regionale sammenligninger samt data på kommuneniveau, hvilket giver et omfattende billede af blødningsrisici blandt patienter med atrieflimren og effekten af forskellige terapeutiske interventioner såsom introduktionen af direkte orale antikoagulantia (DOAC)."
+}

@@ -1,0 +1,1116 @@
+{
+  "entities": [
+    {
+      "name": "Atrieflimren i Danmark",
+      "type": "topic",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "topics/heart-failure",
+      "significance": "Dette er hovedemnet for hele dokumentet, som præsenterer kvalitetsindikatorer og resultater for behandling af nydiagnosticerede patienter med atrieflimren i Danmark.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Atrieflimren i Danmark, Version: Offentliggjort version, Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1",
+      "type": "topic",
+      "slug": "indikator-1-antikoagulation-waiting-time",
+      "folder": "topics/quality-indicator",
+      "significance": "Indikator 1 måler andelen af nydiagnosticerede atrieflimren-patienter, der påbegynder antikoagulationsbehandling inden for maksimalt 30 dage fra diagnosticering, hvor behandling er indiceret.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Indikator 1: Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations behandling"
+        },
+        {
+          "page": 13,
+          "context": "Indikator 1: Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulationsbehandling"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2",
+      "type": "topic",
+      "slug": "indikator-2-echocardiography",
+      "folder": "topics/quality-indicator",
+      "significance": "Indikator 2 måler andelen af nydiagnosticerede atrieflimren-patienter, der har fået udført ekkokardiografi inden for 6 måneder før til 3 måneder efter diagnosedato.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Indikator 2: Ekkokardiografi. Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato."
+        }
+      ]
+    },
+    {
+      "name": "CHA2DS2-VASc score",
+      "type": "topic",
+      "slug": "cha2ds2-vasc-score",
+      "folder": "topics/clinical-criteria",
+      "significance": "CHA2DS2-VASc score bruges til at vurdere indikation for antikoagulationsbehandling hos atrieflimren-patienter; en score ≥2 indikerer behandling.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Indikator 1 undersøger ventetiden fra diagnosticering til opstart i antikoagulationsbehandling (AK-behandling) blandt patienter nydiagnosticeret med atrieflimren og CHA2DS2-VASc score ≥2"
+        }
+      ]
+    },
+    {
+      "name": "Lægemiddelstatistikregistret",
+      "type": "organization",
+      "slug": "laegemiddelstatistikregistret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Lægemiddelstatistikregistret er en af de vigtigste datakilder for Indikator 1, da det indeholder data om ordinering og indløsning af oral antikoagulationsbehandling.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Indikatoren er baseret på data fra Lægemiddelstatistikregistret og Landspatientregisteret (LPR)"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Landspatientregisteret (LPR) er en vigtig datakilde for Indikator 1, da det indeholder diagnosedatoer for atrieflimren og hospitalsudskrivelsesdatoer.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Indikatoren er baseret på data fra Lægemiddelstatistikregistret og Landspatientregisteret (LPR)"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det geografiske område, som alle resultaterne i dokumentet dækker, med data på landsplan, regionsniveau og sundhedsklyngeniveau.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Danmark Ja 11.432 / 12.485 0 (0) 91,6 (91,1-92,0)"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Hovedstaden er en af fem danske regioner, hvis resultater for Indikator 1 vises i dokumentet med 90,9% opfyldelse af standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Hovedstaden Ja 3.102 / 3.414 0 (0) 90,9 (89,8-91,8)"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "sjaelland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Sjælland er en af fem danske regioner med resultater for Indikator 1 på 90,9% opfyldelse af standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sjælland Ja 1.908 / 2.098 0 (0) 90,9 (89,6-92,1)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Syddanmark er en af fem danske regioner med resultater for Indikator 1 på 90,8% opfyldelse af standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Syddanmark Ja 2.525 / 2.782 0 (0) 90,8 (89,6-91,8)"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland er en af fem danske regioner med højeste resultater for Indikator 1 på 92,9% opfyldelse af standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Midtjylland Ja 2.635 / 2.836 0 (0) 92,9 (91,9-93,8)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "nordjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Nordjylland er en af fem danske regioner med højeste resultater for Indikator 1 på 93,1% opfyldelse af standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Nordjylland Ja 1.262 / 1.355 0 (0) 93,1 (91,7-94,4)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Bornholm",
+      "type": "organization",
+      "slug": "sundhedsklynge-bornholm",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsklynge Bornholm er en sundhedsklynge under Region Hovedstaden med 91,0% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsklynge Bornholm Ja 121 / 133 0 (0) 91,0 (84,8-95,3)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Byen",
+      "type": "organization",
+      "slug": "sundhedsklynge-byen",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsklynge Byen er en sundhedsklynge under Region Hovedstaden, som ikke opfylder standarden med 88,5% opfyldelse af Indikator 1.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsklynge Byen Nej 752 / 850 0 (0) 88,5 (86,1-90,5)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Midt",
+      "type": "organization",
+      "slug": "sundhedsklynge-midt",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsklynge Midt er en sundhedsklynge under Region Hovedstaden med 91,9% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsklynge Midt Ja 941 / 1.024 0 (0) 91,9 (90,1-93,5)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Nord",
+      "type": "organization",
+      "slug": "sundhedsklynge-nord",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsklynge Nord er en sundhedsklynge under Region Hovedstaden med 92,7% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsklynge Nord Ja 761 / 821 0 (0) 92,7 (90,7-94,4)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Syd",
+      "type": "organization",
+      "slug": "sundhedsklynge-syd",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsklynge Syd er en sundhedsklynge under Region Hovedstaden, som ikke opfylder standarden med 89,9% opfyldelse af Indikator 1.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsklynge Syd Nej 527 / 586 0 (0) 89,9 (87,2-92,2)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Holbæk",
+      "type": "organization",
+      "slug": "sundhedsklyngen-holbaek",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsklyngen Holbæk er en sundhedsklynge under Region Sjælland med 90,8% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsklyngen Holbæk Ja 445 / 490 0 (0) 90,8 (87,9-93,2)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Nykøbing F",
+      "type": "organization",
+      "slug": "sundhedsklyngen-nykoebing-f",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsklyngen Nykøbing F er en sundhedsklynge under Region Sjælland, som ikke opfylder standarden med 87,5% opfyldelse af Indikator 1.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsklyngen Nykøbing F Nej 384 / 439 0 (0) 87,5 (84,0-90,4)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen SUH",
+      "type": "organization",
+      "slug": "sundhedsklyngen-suh",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsklyngen SUH er en sundhedsklynge under Region Sjælland med 91,5% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsklyngen SUH Ja 626 / 684 0 (0) 91,5 (89,2-93,5)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Slagelse",
+      "type": "organization",
+      "slug": "sundhedsklyngen-slagelse",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsklyngen Slagelse er en sundhedsklynge under Region Sjælland med 93,4% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsklyngen Slagelse Ja 453 / 485 0 (0) 93,4 (90,8-95,4)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Fyn",
+      "type": "organization",
+      "slug": "sundhedsklynge-fyn",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsklynge Fyn er en sundhedsklynge under Region Syddanmark med 90,7% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsklynge Fyn Ja 949 / 1.046 0 (0) 90,7 (88,8-92,4)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Lillebælt",
+      "type": "organization",
+      "slug": "sundhedsklynge-lillebaelt",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsklynge Lillebælt er en sundhedsklynge under Region Syddanmark med 91,3% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsklynge Lillebælt Ja 513 / 562 0 (0) 91,3 (88,6-93,5)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sydvestjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-sydvestjylland",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsklynge Sydvestjylland er en sundhedsklynge under Region Syddanmark, som ikke opfylder standarden med 87,9% opfyldelse af Indikator 1.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsklynge Sydvestjylland Nej 459 / 522 0 (0) 87,9 (84,8-90,6)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sønderjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-soenderjylland",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Sundhedsklynge Sønderjylland er en sundhedsklynge under Region Syddanmark med 92,6% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsklynge Sønderjylland Ja 604 / 652 0 (0) 92,6 (90,4-94,5)"
+        }
+      ]
+    },
+    {
+      "name": "Aarhusklyngen",
+      "type": "organization",
+      "slug": "aarhusklyngen",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Aarhusklyngen er en sundhedsklynge under Region Midtjylland med 92,4% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Aarhusklyngen Ja 551 / 596 0 (0) 92,4 (90,0-94,4)"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrupklyngen",
+      "type": "organization",
+      "slug": "goedstrupklyngen",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Gødstrupklyngen er en sundhedsklynge under Region Midtjylland med 92,9% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Gødstrupklyngen Ja 639 / 688 0 (0) 92,9 (90,7-94,7)"
+        }
+      ]
+    },
+    {
+      "name": "Horsensklyngen",
+      "type": "organization",
+      "slug": "horsensklyngen",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Horsensklyngen er en sundhedsklynge under Region Midtjylland med 92,9% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Horsensklyngen Ja 404 / 435 0 (0) 92,9 (90,0-95,1)"
+        }
+      ]
+    },
+    {
+      "name": "Midtklyngen",
+      "type": "organization",
+      "slug": "midtklyngen",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Midtklyngen er en sundhedsklynge under Region Midtjylland med 92,9% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Midtklyngen Ja 521 / 561 0 (0) 92,9 (90,4-94,9)"
+        }
+      ]
+    },
+    {
+      "name": "Randersklyngen",
+      "type": "organization",
+      "slug": "randersklyngen",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Randersklyngen er en sundhedsklynge under Region Midtjylland med 93,5% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Randersklyngen Ja 520 / 556 0 (0) 93,5 (91,1-95,4)"
+        }
+      ]
+    },
+    {
+      "name": "Klynge MIDT",
+      "type": "organization",
+      "slug": "klynge-midt",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Klynge MIDT er en sundhedsklynge under Region Nordjylland med 93,9% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Klynge MIDT Ja 505 / 538 0 (0) 93,9 (91,5-95,7)"
+        }
+      ]
+    },
+    {
+      "name": "Klynge NORD",
+      "type": "organization",
+      "slug": "klynge-nord",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Klynge NORD er en sundhedsklynge under Region Nordjylland med 92,2% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Klynge NORD Ja 403 / 437 0 (0) 92,2 (89,3-94,6)"
+        }
+      ]
+    },
+    {
+      "name": "Klynge SYD",
+      "type": "organization",
+      "slug": "klynge-syd",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Klynge SYD er en sundhedsklynge under Region Nordjylland med 92,9% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Klynge SYD Ja 236 / 254 0 (0) 92,9 (89,0-95,7)"
+        }
+      ]
+    },
+    {
+      "name": "Klynge VEST",
+      "type": "organization",
+      "slug": "klynge-vest",
+      "folder": "entities/organizations/health-systems",
+      "significance": "Klynge VEST er en sundhedsklynge under Region Nordjylland med 93,7% opfyldelse af Indikator 1-standarden.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Klynge VEST Ja 118 / 126 0 (0) 93,7 (87,9-97,2)"
+        }
+      ]
+    },
+    {
+      "name": "Antikoagulationsbehandling",
+      "type": "topic",
+      "slug": "antikoagulationsbehandling",
+      "folder": "topics/medical-treatments",
+      "significance": "Antikoagulationsbehandling er den centrale behandling, som Indikator 1 måler, og skal påbegyndes inden for 30 dage efter atrieflimren-diagnose hos patienter med CHA2DS2-VASc score ≥2.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations behandling"
+        }
+      ]
+    },
+    {
+      "name": "Oral antikoagulationsbehandling",
+      "type": "topic",
+      "slug": "oral-antikoagulationsbehandling",
+      "folder": "topics/medications",
+      "significance": "Oral antikoagulationsbehandling er den specifikke form for antikoagulation, som måles i Indikator 1, og data om ordinering og indløsning af recepter registreres i Lægemiddelstatistikregistret.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "alle recepter vedrørende oral AK-behandling, som er indløst op til 120 dage før diagnosedatoen for atrieflimren i LPR, er medtaget"
+        }
+      ]
+    },
+    {
+      "name": "Ekkokardiografi",
+      "type": "topic",
+      "slug": "ekkokardiografi",
+      "folder": "topics/clinical-measures",
+      "significance": "Ekkokardiografi er det diagnostiske billeddannelsestest, som Indikator 2 måler, og skal udføres inden for 6 måneder før til 3 måneder efter atrieflimren-diagnosedato.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Indikator 2: Ekkokardiografi. Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato."
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er den organisation, som står bag udviklingen og rapporteringen af kvalitetsindikatorer for atrieflimren-behandling i Danmark.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-1-antikoagulation-waiting-time",
+      "predicate": "measures",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Indikator 1 undersøger ventetiden fra diagnosticering til opstart i antikoagulationsbehandling (AK-behandling) blandt patienter nydiagnosticeret med atrieflimren",
+      "page": 14
+    },
+    {
+      "subject": "indikator-1-antikoagulation-waiting-time",
+      "predicate": "uses-score",
+      "object": "cha2ds2-vasc-score",
+      "evidence": "Indikator 1 undersøger ventetiden fra diagnosticering til opstart i antikoagulationsbehandling (AK-behandling) blandt patienter nydiagnosticeret med atrieflimren og CHA2DS2-VASc score ≥2",
+      "page": 14
+    },
+    {
+      "subject": "indikator-1-antikoagulation-waiting-time",
+      "predicate": "uses-data-from",
+      "object": "laegemiddelstatistikregistret",
+      "evidence": "Indikatoren er baseret på data fra Lægemiddelstatistikregistret og Landspatientregisteret (LPR)",
+      "page": 14
+    },
+    {
+      "subject": "indikator-1-antikoagulation-waiting-time",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Indikatoren er baseret på data fra Lægemiddelstatistikregistret og Landspatientregisteret (LPR)",
+      "page": 14
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "sundhedsklynge-bornholm",
+      "evidence": "Sundhedsklynge Bornholm er oplistet under Hovedstaden i tabel",
+      "page": 11
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "sundhedsklynge-byen",
+      "evidence": "Sundhedsklynge Byen er oplistet under Hovedstaden i tabel",
+      "page": 11
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "sundhedsklynge-midt",
+      "evidence": "Sundhedsklynge Midt er oplistet under Hovedstaden i tabel",
+      "page": 11
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "sundhedsklynge-nord",
+      "evidence": "Sundhedsklynge Nord er oplistet under Hovedstaden i tabel",
+      "page": 11
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "sundhedsklynge-syd",
+      "evidence": "Sundhedsklynge Syd er oplistet under Hovedstaden i tabel",
+      "page": 11
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains",
+      "object": "sundhedsklyngen-holbaek",
+      "evidence": "Sundhedsklyngen Holbæk er oplistet under Sjælland i tabel",
+      "page": 11
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains",
+      "object": "sundhedsklyngen-nykoebing-f",
+      "evidence": "Sundhedsklyngen Nykøbing F er oplistet under Sjælland i tabel",
+      "page": 11
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains",
+      "object": "sundhedsklyngen-suh",
+      "evidence": "Sundhedsklyngen SUH er oplistet under Sjælland i tabel",
+      "page": 11
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains",
+      "object": "sundhedsklyngen-slagelse",
+      "evidence": "Sundhedsklyngen Slagelse er oplistet under Sjælland i tabel",
+      "page": 11
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "sundhedsklynge-fyn",
+      "evidence": "Sundhedsklynge Fyn er oplistet under Syddanmark i tabel",
+      "page": 11
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "sundhedsklynge-lillebaelt",
+      "evidence": "Sundhedsklynge Lillebælt er oplistet under Syddanmark i tabel",
+      "page": 11
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "sundhedsklynge-sydvestjylland",
+      "evidence": "Sundhedsklynge Sydvestjylland er oplistet under Syddanmark i tabel",
+      "page": 11
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "sundhedsklynge-soenderjylland",
+      "evidence": "Sundhedsklynge Sønderjylland er oplistet under Syddanmark i tabel",
+      "page": 11
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "aarhusklyngen",
+      "evidence": "Aarhusklyngen er oplistet under Midtjylland i tabel",
+      "page": 11
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "goedstrupklyngen",
+      "evidence": "Gødstrupklyngen er oplistet under Midtjylland i tabel",
+      "page": 11
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "horsensklyngen",
+      "evidence": "Horsensklyngen er oplistet under Midtjylland i tabel",
+      "page": 11
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "midtklyngen",
+      "evidence": "Midtklyngen er oplistet under Midtjylland i tabel",
+      "page": 11
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "randersklyngen",
+      "evidence": "Randersklyngen er oplistet under Midtjylland i tabel",
+      "page": 11
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "contains",
+      "object": "klynge-midt",
+      "evidence": "Klynge MIDT er oplistet under Nordjylland i tabel",
+      "page": 11
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "contains",
+      "object": "klynge-nord",
+      "evidence": "Klynge NORD er oplistet under Nordjylland i tabel",
+      "page": 11
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "contains",
+      "object": "klynge-syd",
+      "evidence": "Klynge SYD er oplistet under Nordjylland i tabel",
+      "page": 11
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "contains",
+      "object": "klynge-vest",
+      "evidence": "Klynge VEST er oplistet under Nordjylland i tabel",
+      "page": 12
+    },
+    {
+      "subject": "indikator-2-echocardiography",
+      "predicate": "measures",
+      "object": "ekkokardiografi",
+      "evidence": "Indikator 2: Ekkokardiografi. Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato.",
+      "page": 15
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan blev 92% af de nydiagnosticerede atrieflimren patienter med en CHA2DS2-VASc score ≥2 sat i oral AK-behandling senest 30 dage efter diagnosticering [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "danmark",
+        "atrieflimren-i-danmark",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Standarden på ≥ 90% er således opfyldt på landsplan og har ligget kontinuerligt over grænsen de sidste tre årsrapportsperioder [^src1]",
+      "type": "quality-standard",
+      "entities": [
+        "danmark",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 14
+    },
+    {
+      "text": "På regionsplan varierede andelen mellem 91 – 93% og standarden er således opfyldt i alle regioner [^src1]",
+      "type": "regional-variation",
+      "entities": [
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Midtjylland og Nordjylland har marginalt højere målopfyldelse (ca. 93%) end de øvrige (ca. 91%) [^src1]",
+      "type": "regional-variation",
+      "entities": [
+        "midtjylland",
+        "nordjylland",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 14
+    },
+    {
+      "text": "På Sundhedklyngeniveau opfylder langt størstedelen af klyngerne (18/22) standarden [^src1]",
+      "type": "quality-standard",
+      "entities": [
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 14
+    },
+    {
+      "text": "I de fire klynger hvor standarden ikke er opfyldt ligger målopfyldelsen i niveauet 87,5-89,9% og er således ganske tæt på standarden [^src1]",
+      "type": "quality-standard",
+      "entities": [
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Ca. 56% af patienterne havde indløst en recept vedrørende oral AK-behandling inden for 120 dage op til diagnosen stilles i hospitalsregi [^src1]",
+      "type": "clinical-finding",
+      "entities": [
+        "oral-antikoagulationsbehandling",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Regionalt varierer andelen fra 54,7-56,9% [^src1]",
+      "type": "regional-variation",
+      "entities": [
+        "oral-antikoagulationsbehandling"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Indikator 1 undersøger ventetiden fra diagnosticering til opstart i antikoagulationsbehandling (AK-behandling) blandt patienter nydiagnosticeret med atrieflimren og CHA2DS2-VASc score ≥2 i perioden 1. juli 2022 til 30. juni 2023 [^src1]",
+      "type": "indicator-definition",
+      "entities": [
+        "indikator-1-antikoagulation-waiting-time",
+        "cha2ds2-vasc-score"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Patienter med en ventetid på max. 30 dage fra diagnosticering til opstart i AK-behandling opfylder indikatoren [^src1]",
+      "type": "indicator-definition",
+      "entities": [
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Der er ved beregningen af scoren ikke givet point for kvindekøn, og grænsen for scoren på ≥2 er derfor indikation for AK-behandling hos begge køn [^src1]",
+      "type": "clinical-criteria",
+      "entities": [
+        "cha2ds2-vasc-score"
+      ],
+      "page": 14
+    },
+    {
+      "text": "En forudsætning for at indgå i indikatorberegningen er, at patienter er i live 30 dage efter diagnosedato [^src1]",
+      "type": "indicator-definition",
+      "entities": [
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Af den incidente population med CHA2DS2-VASc score ≥2 havde 12.485 patienter tilstrækkelig opfølgningstid (30 dage) til at indgå i indikatoropgørelsen [^src1]",
+      "type": "clinical-finding",
+      "entities": [
+        "indikator-1-antikoagulation-waiting-time",
+        "cha2ds2-vasc-score"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Danmark Ja 11.432 / 12.485 0 (0) 91,6 (91,1-92,0) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "danmark",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Hovedstaden Ja 3.102 / 3.414 0 (0) 90,9 (89,8-91,8) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "region-hovedstaden",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sjælland Ja 1.908 / 2.098 0 (0) 90,9 (89,6-92,1) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sjaelland",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Syddanmark Ja 2.525 / 2.782 0 (0) 90,8 (89,6-91,8) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "syddanmark",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Midtjylland Ja 2.635 / 2.836 0 (0) 92,9 (91,9-93,8) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "midtjylland",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Nordjylland Ja 1.262 / 1.355 0 (0) 93,1 (91,7-94,4) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "nordjylland",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sundhedsklynge Bornholm Ja 121 / 133 0 (0) 91,0 (84,8-95,3) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sundhedsklynge-bornholm",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sundhedsklynge Byen Nej 752 / 850 0 (0) 88,5 (86,1-90,5) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sundhedsklynge-byen",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sundhedsklynge Midt Ja 941 / 1.024 0 (0) 91,9 (90,1-93,5) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sundhedsklynge-midt",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sundhedsklynge Nord Ja 761 / 821 0 (0) 92,7 (90,7-94,4) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sundhedsklynge-nord",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sundhedsklynge Syd Nej 527 / 586 0 (0) 89,9 (87,2-92,2) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sundhedsklynge-syd",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sundhedsklyngen Holbæk Ja 445 / 490 0 (0) 90,8 (87,9-93,2) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sundhedsklyngen-holbaek",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sundhedsklyngen Nykøbing F Nej 384 / 439 0 (0) 87,5 (84,0-90,4) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sundhedsklyngen-nykoebing-f",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sundhedsklyngen SUH Ja 626 / 684 0 (0) 91,5 (89,2-93,5) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sundhedsklyngen-suh",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sundhedsklyngen Slagelse Ja 453 / 485 0 (0) 93,4 (90,8-95,4) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sundhedsklyngen-slagelse",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sundhedsklynge Fyn Ja 949 / 1.046 0 (0) 90,7 (88,8-92,4) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sundhedsklynge-fyn",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sundhedsklynge Lillebælt Ja 513 / 562 0 (0) 91,3 (88,6-93,5) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sundhedsklynge-lillebaelt",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sundhedsklynge Sydvestjylland Nej 459 / 522 0 (0) 87,9 (84,8-90,6) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sundhedsklynge-sydvestjylland",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Sundhedsklynge Sønderjylland Ja 604 / 652 0 (0) 92,6 (90,4-94,5) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "sundhedsklynge-soenderjylland",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Aarhusklyngen Ja 551 / 596 0 (0) 92,4 (90,0-94,4) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "aarhusklyngen",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Gødstrupklyngen Ja 639 / 688 0 (0) 92,9 (90,7-94,7) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "goedstrupklyngen",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Horsensklyngen Ja 404 / 435 0 (0) 92,9 (90,0-95,1) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "horsensklyngen",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Midtklyngen Ja 521 / 561 0 (0) 92,9 (90,4-94,9) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "midtklyngen",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Randersklyngen Ja 520 / 556 0 (0) 93,5 (91,1-95,4) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "randersklyngen",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Klynge MIDT Ja 505 / 538 0 (0) 93,9 (91,5-95,7) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "klynge-midt",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Klynge NORD Ja 403 / 437 0 (0) 92,2 (89,3-94,6) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "klynge-nord",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Klynge SYD Ja 236 / 254 0 (0) 92,9 (89,0-95,7) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "klynge-syd",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Klynge VEST Ja 118 / 126 0 (0) 93,7 (87,9-97,2) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "klynge-vest",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 12
+    },
+    {
+      "text": "Standarden for antikoagulationsbehandling er nu opfyldt i alle regioner [^src1]",
+      "type": "quality-standard",
+      "entities": [
+        "antikoagulationsbehandling",
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 14
+    },
+    {
+      "text": "For nogle af sundhedsklyngerne, som er tæt på målopfyldelsen, ses der også stigende tendens [^src1]",
+      "type": "clinical-trend",
+      "entities": [
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Indikatoren og standarden fastholdes [^src1]",
+      "type": "quality-standard",
+      "entities": [
+        "indikator-1-antikoagulation-waiting-time"
+      ],
+      "page": 14
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.07.2023 - 30.06.2024",
+      "event": "Måleperiode for Indikator 1 - andel af nydiagnosticerede atrieflimren-patienter med ventetid på max. 30 dage til antikoagulationsbehandling",
+      "entities": [
+        "indikator-1-antikoagulation-waiting-time",
+        "atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere måleperiode for Indikator 1 med resultater på 91,5% på landsplan",
+      "entities": [
+        "indikator-1-antikoagulation-waiting-time",
+        "danmark"
+      ]
+    },
+    {
+      "date": "2021/22",
+      "event": "Tidligere måleperiode for Indikator 1 med resultater på 91,0% på landsplan",
+      "entities": [
+        "indikator-1-antikoagulation-waiting-time",
+        "danmark"
+      ]
+    }
+  ],
+  "context": "Dette dokumentchunk præsenterer resultater fra Regionernes Kliniske Kvalitetsudviklingsprogram for behandling af atrieflimren i Danmark. Dokumentet fokuserer på to kvalitetsindikatorer: Indikator 1 måler andelen af nydiagnosticerede atrieflimren-patienter, der påbegynder antikoagulationsbehandling inden for 30 dage fra diagnosticering (hvor behandling er indiceret baseret på CHA2DS2-VASc score ≥2), og Indikator 2 måler andelen, der får udført ekkokardiografi inden for 6 måneder før til 3 måneder efter diagnose. Resultaterne vises på tre niveauer: landsplan, regionsniveau og sundhedsklyngeniveau, med detaljerede tabeller og kontroldiagrammer. Dokumentet indeholder også metodologisk information om datakilder, eksklusionskriterier og beregningsregler for indikatorerne."
+}

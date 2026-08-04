@@ -1,0 +1,740 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "organization",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "AKDB er en dansk national database for akut kirurgi, der indsamler og analyserer data om akutte kirurgiske indgreb på tværs af regioner for at udvikle kvalitetsindikatorer.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Akut Kirurgi Databasen Endelig version til offentliggørelse 2024.26.02"
+        },
+        {
+          "page": 92,
+          "context": "Vi har rådført os med styregruppen i AKDB"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "rkkp",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "RKKP er det overordnede program under hvilket AKDB opererer, og administrerer kvalitetsudviklingsinitiativerne på tværs af danske regioner.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 92,
+          "context": "Afdeling 1, RKKP's Videncenter"
+        }
+      ]
+    },
+    {
+      "name": "Peter Olsen Svenningsen",
+      "type": "person",
+      "slug": "peter-olsen-svenningsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Cheflæge og formand for styregruppens arbejde med AKDB, repræsenterer Dansk Kirurgisk Selskab.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Peter Olsen Svenningsen Cheflæge, Formand Dansk Kirurgisk Selskab, Nordsjællands Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Camilla Leidcker",
+      "type": "person",
+      "slug": "camilla-leidcker",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Klinisk udviklingssygeplejerske repræsenterer Fagligt selskab for Gastroenterologiske sygeplejersker i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Camilla Leidcker Klinisk udviklingssygeplejerske Fagligt selskab for Gastroenterologiske sygeplejersker, Hvidovre Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Halfdan Lauridsen",
+      "type": "person",
+      "slug": "halfdan-lauridsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Ledende overlæge repræsenterer Dansk Selskab for Akutmedicin i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Halfdan Lauridsen Ledende overlæge Dansk Selskab for Akutmedicin, Nordsjællands Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Jakob Burcharth",
+      "type": "person",
+      "slug": "jakob-burcharth",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Afdelingslæge repræsenterer Dansk Selskab for Klinisk Ernæring i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Jakob Burcharth Afdelingslæge Dansk Selskab for Klinisk Ernæring, Herlev og Gentofte Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Karen Vestergaard Andersen",
+      "type": "person",
+      "slug": "karen-vestergaard-andersen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Klinisk sygeplejespecialist repræsenterer Dansk Sygepleje Selskab i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Karen Vestergaard Andersen Klinisk sygeplejespecialist Dansk Sygepleje Selskab, Aarhus Universitetshospital, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Kristian Aagaard Poulsen",
+      "type": "person",
+      "slug": "kristian-aagaard-poulsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Overlæge repræsenterer Dansk Kirurgisk Selskab i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Kristian Aagaard Poulsen Overlæge Dansk Kirurgisk Selskab, Odense Universitetshospital, Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Line Rokkedal Jønsson",
+      "type": "person",
+      "slug": "line-rokkedal-joensson",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Udviklingsfysioterapeut repræsenterer Dansk Selskab for Fysioterapi i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Line Rokkedal Jønsson Udviklingsfysioterapeut, Cand. Scient. I fysioterapi Dansk Selskab for Fysioterapi, Amager og Hvidovre Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Lone Winther Jensen",
+      "type": "person",
+      "slug": "lone-winther-jensen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Lægefaglig direktør og ledelsesrepræsentant for Regionssundhedsdirektørkredsen i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Lone Winther Jensen Lægefaglig direktør, Ledelsesrepræsentant Regionssundhedsdirektørkredsen, Regionshospitalet Randers, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Marianne Vinbæk",
+      "type": "person",
+      "slug": "marianne-vinbaek",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Overlæge repræsenterer Dansk Kirurgisk Selskab i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Marianne Vinbæk Overlæge Dansk Kirurgisk Selskab, Aalborg Universitetshospital, Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Nicolai Bang Foss",
+      "type": "person",
+      "slug": "nicolai-bang-foss",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Klinisk Professor, overlæge og dr. med. repræsenterer Dansk Selskab for Anæstesiologi og Intensiv Medicin i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Nicolai Bang Foss Klinisk Professor , overlæge, dr. med. Dansk Selskab for Anæstesiologi og Intensiv Medicin, Amager og Hvidovre Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Rasmus Haarup Lie",
+      "type": "person",
+      "slug": "rasmus-haarup-lie",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Anæstesiolog repræsenterer Dansk Selskab for Anæstesiologi og Intensiv Medicin i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Rasmus Haarup Lie Anæstesiolog Dansk Selskab for Anæstesiologi og Intensiv Medicin, Aarhus Universitetshospital, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Rikke Therkildsen",
+      "type": "person",
+      "slug": "rikke-therkildsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Overlæge repræsenterer Dansk Kirurgisk Selskab i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Rikke Therkildsen Overlæge Dansk Kirurgisk Selskab, Aarhus Universitetshospital, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Rune Trangbæk",
+      "type": "person",
+      "slug": "rune-trangbaek",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Læge og Evidensspecialist repræsenterer Dansk Kirurgisk Selskab i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Rune Trangbæk Læge, Evidensspecialist Dansk Kirurgisk Selskab, Sjællands Universitetshospital, Køge, Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Thomas Jørgensen",
+      "type": "person",
+      "slug": "thomas-joergensen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Funktionsansvarlig overlæge repræsenterer Dansk Kirurgisk Selskab i styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Thomas Jørgensen Funktionsansvarlig overlæge Dansk Kirurgisk Selskab, Sjællands Universitetshospital, Køge, Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Anne-Kirstine Dyrvig",
+      "type": "person",
+      "slug": "anne-kirstine-dyrvig",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Epidemiolog ved Afdeling 1, RKKP's Videncenter, bidrager til styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Anne-Kirstine Dyrvig Epidemiolog Afdeling 1, RKKP's Videncenter"
+        }
+      ]
+    },
+    {
+      "name": "Henrik Nielsen",
+      "type": "person",
+      "slug": "henrik-nielsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Biostatistiker og Datamanager ved Afdeling 1, RKKP's Videncenter, bidrager til styregruppens arbejde.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Henrik Nielsen Biostatistiker, Datamanager Afdeling 1, RKKP's Videncenter"
+        }
+      ]
+    },
+    {
+      "name": "Birgitte Rühmann",
+      "type": "person",
+      "slug": "birgitte-ruehmann",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Oversygeplejerske og repræsentant for den dataansvarlige myndighed ved Afdeling 1, RKKP's Videncenter.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Birgitte Rühmann Oversygeplejerske, Repræsentant for den dataansvarlige myndighed/kontaktperson Afdeling 1, RKKP's Videncenter"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En af de danske regioner, der indrapporterer data til AKDB og har givet kommentarer til årsrapporten.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Region Hovedstaden På vegne af Afdelingen for Mave-, Tarm og Leversygdomme, Herlev og Gentofte Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En af de danske regioner, der indrapporterer data til AKDB og har bekræftet ingen bemærkninger til årsrapporten.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Region Sjælland Region Sjælland har ingen bemærkninger til årsrapport 2023"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En af de danske regioner, der indrapporterer data til AKDB og har givet kommentarer til årsrapporten.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Region Syddanmark Kommentar fra Odense Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En af de danske regioner, der indrapporterer data til AKDB og har givet kommentarer til årsrapporten.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Region Midtjylland Kommentar fra Regionshospitalet Horsens"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "En af de danske regioner, der indrapporterer data til AKDB og har bekræftet ingen kommentarer til årsrapporten.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Region Nordjylland Region Nordjylland har meldt tilbage, at der ingen kommentarer er til årsrapporten"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital i Region Hovedstaden, der indrapporterer data til AKDB og har givet detaljerede kommentarer om indrapporteringsudfordringer.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Afdelingen for Mave-, Tarm og Leversygdomme, Herlev og Gentofte Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital",
+      "type": "organization",
+      "slug": "odense-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital i Region Syddanmark, der har givet kommentarer om kompleksiteten i akut kirurgiske forløb og registreringsudfordringer.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Kommentar fra Odense Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital i Region Midtjylland, der har givet detaljerede kommentarer om tekniske udfordringer med antibiotikaregistrering og ernæringsregistrering.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Kommentar fra Regionshospitalet Horsens"
+        }
+      ]
+    },
+    {
+      "name": "Sygehusmedicinregisteret",
+      "type": "organization",
+      "slug": "sygehusmedicinregisteret",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "Dansk register for hospitalsmedicin, etableret i 2018, som bruges til at indsamle data om antibiotikabehandling for AKDB.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Antibiotikabehandling indenfor 3 timer er baseret på data fra Sygehusmedicinregisteret (SMR)"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Kirurgisk Selskab",
+      "type": "organization",
+      "slug": "dansk-kirurgisk-selskab",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Dansk fagselskab for kirurger, repræsenteret i styregruppens arbejde med AKDB.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Dansk Kirurgisk Selskab, Nordsjællands Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Selskab for Akutmedicin",
+      "type": "organization",
+      "slug": "dansk-selskab-for-akutmedicin",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Dansk fagselskab for akutmedicin, repræsenteret i styregruppens arbejde med AKDB.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Dansk Selskab for Akutmedicin, Nordsjællands Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Selskab for Klinisk Ernæring",
+      "type": "organization",
+      "slug": "dansk-selskab-for-klinisk-ernaering",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Dansk fagselskab for klinisk ernæring, repræsenteret i styregruppens arbejde med AKDB.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Dansk Selskab for Klinisk Ernæring, Herlev og Gentofte Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Sygepleje Selskab",
+      "type": "organization",
+      "slug": "dansk-sygepleje-selskab",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Dansk fagselskab for sygeplejersker, repræsenteret i styregruppens arbejde med AKDB.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Dansk Sygepleje Selskab, Aarhus Universitetshospital, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Fagligt selskab for Gastroenterologiske sygeplejersker",
+      "type": "organization",
+      "slug": "fagligt-selskab-for-gastroenterologiske-sygeplejersker",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Dansk fagselskab for gastroenterologiske sygeplejersker, repræsenteret i styregruppens arbejde med AKDB.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Fagligt selskab for Gastroenterologiske sygeplejersker, Hvidovre Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Selskab for Anæstesiologi og Intensiv Medicin",
+      "type": "organization",
+      "slug": "dansk-selskab-for-anaestesiologi-og-intensiv-medicin",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Dansk fagselskab for anæstesiologi og intensiv medicin, repræsenteret i styregruppens arbejde med AKDB.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Dansk Selskab for Anæstesiologi og Intensiv Medicin, Amager og Hvidovre Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Selskab for Fysioterapi",
+      "type": "organization",
+      "slug": "dansk-selskab-for-fysioterapi",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Dansk fagselskab for fysioterapeuter, repræsenteret i styregruppens arbejde med AKDB.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Dansk Selskab for Fysioterapi, Amager og Hvidovre Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Regionssundhedsdirektørkredsen",
+      "type": "organization",
+      "slug": "regionssundhedsdirektoerkredsen",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Netværk af regionssundhedsdirektører, repræsenteret i styregruppens arbejde med AKDB.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Regionssundhedsdirektørkredsen, Regionshospitalet Randers, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Møller M.H",
+      "type": "person",
+      "slug": "moeller-m-h",
+      "folder": "entities/people/researchers",
+      "significance": "Forsker, der har publiceret flere artikler om præoperativt delay og perforeret ulcus i forbindelse med AKDB-arbejdet.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Møller M.H, Nørgård B., Mehnert F., Bendix J., Nielsen A., Nakano A., Adamsen S. and Thomsen R.W. Præoperativt delay hos patienter med perforeret ulcus"
+        }
+      ]
+    },
+    {
+      "name": "Nakano A.",
+      "type": "person",
+      "slug": "nakano-a",
+      "folder": "entities/people/researchers",
+      "significance": "Forsker, der har publiceret flere artikler om perforeret peptic ulcer og kvalitetsudvikling i forbindelse med AKDB-arbejdet.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Nakano A., Bendix J., Adamsen S., Buck D., Mainz J., Bartels P., Nørgård B. 30-days mortality in patients with perforated peptic ulcer"
+        }
+      ]
+    },
+    {
+      "name": "Adamsen S.",
+      "type": "person",
+      "slug": "adamsen-s",
+      "folder": "entities/people/researchers",
+      "significance": "Forsker, der har publiceret flere artikler om peptic ulcer blødning og rebleeding i forbindelse med AKDB-arbejdet.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Adamsen S, Nørgård B, Bendix J, Buck D, Nakano A. Prediction of rebleeding and mortality after endoscopic hemostasis for peptic ulcer bleeding"
+        }
+      ]
+    },
+    {
+      "name": "Bendix J.",
+      "type": "person",
+      "slug": "bendix-j",
+      "folder": "entities/people/researchers",
+      "significance": "Forsker, der har publiceret flere artikler om perforeret peptic ulcer og blødning i forbindelse med AKDB-arbejdet.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Bendix J., Adamsen S., Buck D., Nakano A. 30-days mortality in patients with perforated peptic ulcer"
+        }
+      ]
+    },
+    {
+      "name": "Mainz J.",
+      "type": "person",
+      "slug": "mainz-j",
+      "folder": "entities/people/researchers",
+      "significance": "Forsker, der har publiceret flere artikler om perforeret peptic ulcer og kvalitetsudvikling i forbindelse med AKDB-arbejdet.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Mainz J., Bartels P., Nørgård B. 30-days mortality in patients with perforated peptic ulcer"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-part-of",
+      "object": "rkkp",
+      "evidence": "Akut Kirurgi Databasen opererer under Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 91
+    },
+    {
+      "subject": "peter-olsen-svenningsen",
+      "predicate": "is-chairman-of",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Peter Olsen Svenningsen Cheflæge, Formand",
+      "page": 92
+    },
+    {
+      "subject": "herlev-og-gentofte-hospital",
+      "predicate": "is-located-in",
+      "object": "region-hovedstaden",
+      "evidence": "Herlev og Gentofte Hospital, Region Hovedstaden",
+      "page": 93
+    },
+    {
+      "subject": "odense-universitetshospital",
+      "predicate": "is-located-in",
+      "object": "region-syddanmark",
+      "evidence": "Odense Universitetshospital, Region Syddanmark",
+      "page": 93
+    },
+    {
+      "subject": "regionshospitalet-horsens",
+      "predicate": "is-located-in",
+      "object": "region-midtjylland",
+      "evidence": "Regionshospitalet Horsens, Region Midtjylland",
+      "page": 93
+    },
+    {
+      "subject": "sygehusmedicinregisteret",
+      "predicate": "provides-data-to",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Antibiotikabehandling indenfor 3 timer er baseret på data fra Sygehusmedicinregisteret (SMR)",
+      "page": 93
+    }
+  ],
+  "claims": [
+    {
+      "text": "Møller M.H og kollegaer publicerede artikel om præoperativt delay hos patienter med perforeret ulcus i Ugeskrift For Læger 2009;171:3605-10 [^src1]",
+      "type": "publication",
+      "entities": [
+        "moeller-m-h"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Nakano A. og kollegaer publicerede artikel om 30-dages mortalitet hos patienter med perforeret peptic ulcer i Risk Management and Health Care Policy 2008:1 1-8 [^src1]",
+      "type": "publication",
+      "entities": [
+        "nakano-a"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Møller M.H og kollegaer præsenterede poster om lægens gebyr og tid til første undersøgelse ved UEGW 16th United European Gastroenterology Week i Wien i oktober 2008 [^src1]",
+      "type": "conference-presentation",
+      "entities": [
+        "moeller-m-h"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Nakano A. og kollegaer præsenterede poster om sygeplejekvalitet og postoperativ monitorering ved UEGW 16th United European Gastroenterology Week i Wien i oktober 2008 [^src1]",
+      "type": "conference-presentation",
+      "entities": [
+        "nakano-a"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Nakano A. og kollegaer præsenterede mundtlig præsentation om national dansk audit ved ISQua 24th International Conference i Boston i oktober 2007 [^src1]",
+      "type": "conference-presentation",
+      "entities": [
+        "nakano-a"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Adamsen S. og kollegaer publicerede artikel om rebleeding efter endoskopisk hemostase i Gastrointest Endosc 2006; 63(5):AB 147 [^src1]",
+      "type": "publication",
+      "entities": [
+        "adamsen-s"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Afdelingen for Mave-, Tarm og Leversygdomme på Herlev og Gentofte Hospital har øget indrapporteringsfrekvensen fra ca. 65% til 75% over de seneste +2 år [^src2]",
+      "type": "operational",
+      "entities": [
+        "herlev-og-gentofte-hospital"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Patienter der venter 12 til 24 timer udgør 20% af alle opererede inden for 24 timer på Herlev og Gentofte Hospital [^src2]",
+      "type": "operational",
+      "entities": [
+        "herlev-og-gentofte-hospital"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Sygehusmedicinregisteret (SMR) blev etableret i 2018 [^src3]",
+      "type": "organizational",
+      "entities": [
+        "sygehusmedicinregisteret"
+      ],
+      "page": 93
+    },
+    {
+      "text": "En ny registreringsvejledning til SMR blev udgivet 1. juli 2022 og forventes fuldt implementeret i løbet af 2023 [^src3]",
+      "type": "organizational",
+      "entities": [
+        "sygehusmedicinregisteret"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Region Sjælland har ingen bemærkninger til årsrapport 2023 for Akut Kirurgi Databasen for perioden 1. september 2022 til 31. august 2023 [^src4]",
+      "type": "administrative",
+      "entities": [
+        "region-sjaelland"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Region Nordjylland har meldt tilbage, at der ingen kommentarer er til årsrapporten [^src5]",
+      "type": "administrative",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 95
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2008",
+      "event": "Møller M.H og kollegaer præsenterede poster om lægens gebyr og tid til første undersøgelse ved UEGW 16th United European Gastroenterology Week i Wien",
+      "entities": [
+        "moeller-m-h"
+      ]
+    },
+    {
+      "date": "Oktober 2008",
+      "event": "Nakano A. og kollegaer præsenterede poster om sygeplejekvalitet ved UEGW 16th United European Gastroenterology Week i Wien",
+      "entities": [
+        "nakano-a"
+      ]
+    },
+    {
+      "date": "November 2008",
+      "event": "Møller M.H og kollegaer præsenterede poster ved ISQua 25th International Conference i København",
+      "entities": [
+        "moeller-m-h"
+      ]
+    },
+    {
+      "date": "Oktober 2007",
+      "event": "Nakano A. og kollegaer præsenterede mundtlig præsentation ved ISQua 24th International Conference i Boston",
+      "entities": [
+        "nakano-a"
+      ]
+    },
+    {
+      "date": "2018",
+      "event": "Sygehusmedicinregisteret (SMR) blev etableret",
+      "entities": [
+        "sygehusmedicinregisteret"
+      ]
+    },
+    {
+      "date": "1. juli 2022",
+      "event": "Ny registreringsvejledning til SMR blev udgivet",
+      "entities": [
+        "sygehusmedicinregisteret"
+      ]
+    },
+    {
+      "date": "1. september 2022 til 31. august 2023",
+      "event": "Rapporteringsperiode for årsrapport 2023 for Akut Kirurgi Databasen",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "context": "Disse sider indeholder styregruppens medlemmer for Akut Kirurgi Databasen (AKDB), som er en dansk national database under Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP), samt regionale kommentarer til årsrapporten 2023. Styregruppens medlemmer repræsenterer forskellige fagselskaber og regioner, og dokumentet viser også en omfattende liste over publikationer og konferencepræsentationer relateret til AKDB-arbejdet, især omkring perforeret peptic ulcer og kvalitetsudvikling. De regionale kommentarer fra fem danske regioner dokumenterer udfordringer med indrapportering af data, registreringsproblemer og tekniske vanskeligheder med elektroniske patientjournaler og medicindatabaser.",
+  "tables": []
+}

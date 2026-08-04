@@ -1,0 +1,256 @@
+{
+  "run": "2026-08-03T18:48:35.912Z",
+  "newPdfs": [],
+  "newEntities": [
+    {
+      "slug": "aabenraa-psychiatric-ambulatory",
+      "title": "Aabenraa Børne og Ungdomspsykiatrisk Ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "bispebjerg-psychiatric-ambulatory",
+      "title": "Bispebjerg Psykiatrisk ambulatorium, børn og unge",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "bispebjerg-psykiatrisk-ambulatorium-boern-unge",
+      "title": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge",
+      "folder": "entities/organizations/psychiatric-departments"
+    },
+    {
+      "slug": "boerne-ungdomspsyk-ambulatorium",
+      "title": "Børne- og ungdomspsyk. Ambulatorium",
+      "folder": "entities/organizations/clinics"
+    },
+    {
+      "slug": "boerne-ungdomspsykiatrisk-ambulatorium-odense",
+      "title": "Børne- og Ungdomspsykiatrisk Ambulatorium, Odense",
+      "folder": "entities/healthcare/psychiatric-clinics"
+    },
+    {
+      "slug": "boerne-unge-psyk-reg-fkt-40r",
+      "title": "Børne-Unge Psyk. Reg.fkt. 40.R",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "bornholm-psychiatric-ambulatory",
+      "title": "Bornholm Psykiatrisk ambulatorium, børn og unge",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "bornholm-psykiatrisk-ambulatorium-boern-unge",
+      "title": "Bornholm: Psykiatrisk ambulatorium, børn og unge",
+      "folder": "entities/organizations/psychiatric-departments"
+    },
+    {
+      "slug": "bua-aabenraa",
+      "title": "Børne- og Ungdomsambulatorierne i Aabenraa",
+      "folder": "entities/organizations/clinical-units"
+    },
+    {
+      "slug": "bua-odense",
+      "title": "Børne- og Ungdomsambulatorierne i Odense",
+      "folder": "entities/organizations/clinical-units"
+    },
+    {
+      "slug": "bua-psychiatric-clinic-assessment",
+      "title": "BUA Psykiatrisk Klinik for Udredning",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "bua-psychiatric-clinic-schoolchildren",
+      "title": "BUA Psykiatrisk Klinik for Skolebørn",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "bua-psychiatric-clinic-toddlers",
+      "title": "BUA Psykiatrisk Klinik for Småbørn",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "bua-psychiatric-clinic-youth",
+      "title": "BUA Psykiatrisk Klinik for Unge",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "bua-psykiatrisk-klinik-smaaborin",
+      "title": "BUA Psykiatrisk Klinik for Småbørn",
+      "folder": "entities/organizations/psychiatric-departments"
+    },
+    {
+      "slug": "bua-psykiatrisk-klinik-smaaborni-midtjylland",
+      "title": "BUA Psykiatrisk Klinik for Småbørn",
+      "folder": "entities/organizations/clinical-units"
+    },
+    {
+      "slug": "bua-psykiatrisk-klinik-udredning-midtjylland",
+      "title": "BUA Psykiatrisk Klinik for Udredning i Midtjylland",
+      "folder": "entities/healthcare/psychiatric-clinics"
+    },
+    {
+      "slug": "bua-vejle",
+      "title": "Børne- og Ungdomsambulatorierne i Vejle",
+      "folder": "entities/organizations/clinical-units"
+    },
+    {
+      "slug": "dmpg-retningslinjen-adhd",
+      "title": "DMPG-retningslinjen for ADHD",
+      "folder": "topics/clinical-standard"
+    },
+    {
+      "slug": "esbjerg-psychiatric-ambulatory",
+      "title": "Esbjerg Børne- og Ungdomspsykiatrisk Ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "glostrup-psychiatric-ambulatory",
+      "title": "Glostrup Psykiatrisk ambulatorium, børn og unge",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "glostrup-psykiatrisk-ambulatorium-boern-unge",
+      "title": "Glostrup: Psykiatrisk ambulatorium, børn og unge",
+      "folder": "entities/organizations/psychiatric-departments"
+    },
+    {
+      "slug": "hillerod-psychiatric-ambulatory",
+      "title": "Hillerød Psykiatrisk ambulatorium, børn og unge",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "hillerod-psykiatrisk-ambulatorium-boern-unge",
+      "title": "Hillerød: Psykiatrisk ambulatorium, børn og unge",
+      "folder": "entities/organizations/psychiatric-departments"
+    },
+    {
+      "slug": "hilleroed-psykiatrisk-ambulatorium",
+      "title": "Hillerød: Psykiatrisk ambulatorium, børn og unge",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "hovedstaden",
+      "title": "Hovedstaden",
+      "folder": "entities/organizations/regions"
+    },
+    {
+      "slug": "hovedstaden-region",
+      "title": "Hovedstaden",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "midtjylland",
+      "title": "Midtjylland",
+      "folder": "entities/organizations/regions"
+    },
+    {
+      "slug": "midtjylland-region",
+      "title": "Midtjylland",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "nordjylland",
+      "title": "Nordjylland",
+      "folder": "entities/locations/regions"
+    },
+    {
+      "slug": "nordjylland-region",
+      "title": "Nordjylland",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "odense-psychiatric-ambulatory",
+      "title": "Odense Børne- og Ungdomspsykiatrisk Ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-aabenraa",
+      "title": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-odense",
+      "title": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense)",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-vejle",
+      "title": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle)",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "psykiatrisk-ambulatorium-boern-unge-bispebjerg-b19",
+      "title": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "psykiatrisk-ambulatorium-boern-unge-glostrup-b29",
+      "title": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "psykiatrisk-ambulatorium-boern-unge-hillerod-b39",
+      "title": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "rpg-psykiatrisk-klinik-1-goedstrup",
+      "title": "RPG Psykiatrisk Klinik 1 – Gødstrup",
+      "folder": "entities/organizations/psychiatric-clinics"
+    },
+    {
+      "slug": "sjaelland",
+      "title": "Sjælland",
+      "folder": "entities/organizations/regions"
+    },
+    {
+      "slug": "sjaelland-region",
+      "title": "Sjælland",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "sundk",
+      "title": "Sundhedsvæsenets Kvalitetsinstitut",
+      "folder": "entities/organizations/health-administration"
+    },
+    {
+      "slug": "syddanmark",
+      "title": "Syddanmark",
+      "folder": "entities/locations/regions"
+    },
+    {
+      "slug": "syddanmark-region",
+      "title": "Syddanmark",
+      "folder": "entities/locations/danish-regions"
+    },
+    {
+      "slug": "vejle-psychiatric-ambulatory",
+      "title": "Vejle Børne- Og Ungdomspsykiatrisk Ambulatorium",
+      "folder": "entities/organizations/psychiatric-clinics"
+    }
+  ],
+  "updatedEntities": [],
+  "conflicts": 140,
+  "totalCost": 0,
+  "chunksProcessed": 0,
+  "chunksSkipped": 26,
+  "chunksFailed": 0,
+  "entitiesNew": 45,
+  "entitiesUpdated": 0,
+  "relationshipsExtracted": 0,
+  "claimsExtracted": 0,
+  "claimsByType": {},
+  "pagesByType": {
+    "entity": 44,
+    "topic": 44
+  },
+  "foldersCreated": 27,
+  "brokenLinks": 0,
+  "orphanedPages": 1,
+  "conflictsManualEdit": 140,
+  "conflictsPreservation": 0,
+  "totalTokens": 1674368,
+  "wallClockMs": 236274,
+  "feedbackRepairs": 0,
+  "curationFallbacks": 0,
+  "transportFailures": 0
+}

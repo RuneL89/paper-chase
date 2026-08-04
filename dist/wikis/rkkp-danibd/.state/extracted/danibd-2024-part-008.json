@@ -1,0 +1,1241 @@
+{
+  "entities": [
+    {
+      "name": "DANIBD",
+      "type": "organization",
+      "slug": "danibd",
+      "folder": "entities/organizations/registries",
+      "significance": "DANIBD er den nationale database for inflammatoriske tarmsygdomme i Danmark, der omfatter patienter med IBD behandlet på offentlige danske hospitaler med opgørelsesperiode fra 1. oktober til 30. september.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "DANIBD omfatter patienter med IBD behandlet på et offentligt dansk hospital. DANIBDs opgørelsesperiode går fra 1. oktober til 30. september."
+        },
+        {
+          "page": 36,
+          "context": "DANIBD omfatter alle patienter med IBD i Danmark."
+        },
+        {
+          "page": 37,
+          "context": "DANIBD identificerer patienter med IBD ved mindst to hospitalskontakter for IBD"
+        }
+      ]
+    },
+    {
+      "name": "Landpatientregisteret",
+      "type": "organization",
+      "slug": "landpatientregisteret",
+      "folder": "entities/organizations/registries",
+      "significance": "LPR er en af de nationale registre, hvorfra DANIBD indberetter data om patienter med IBD, og det er det register, hvor det organisatoriske tilhørsforhold bestemmes ved hospitalskontakter for IBD.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Landpatientregisteret (LPR)"
+        },
+        {
+          "page": 36,
+          "context": "Det organisatoriske tilhørsforhold er som udgangspunkt bestemt ved den enhed, hvor patienten har haft en hospitalskontakt for IBD i LPR"
+        }
+      ]
+    },
+    {
+      "name": "Det Centrale Personregister",
+      "type": "organization",
+      "slug": "det-centrale-personregister",
+      "folder": "entities/organizations/registries",
+      "significance": "CPR er en af de nationale registre, hvorfra DANIBD indberetter data om patienter med IBD.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Landpatientregisteret (LPR), Det Centrale Personregister (CPR)"
+        }
+      ]
+    },
+    {
+      "name": "Lægemiddelstatistikregisteret",
+      "type": "organization",
+      "slug": "laegemiddelstatistikregisteret",
+      "folder": "entities/organizations/registries",
+      "significance": "LSR er en af de nationale registre, hvorfra DANIBD indberetter data om patienter med IBD.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Lægemiddelstatistikregisteret (LSR)"
+        }
+      ]
+    },
+    {
+      "name": "Sygehusmedicinregistret",
+      "type": "organization",
+      "slug": "sygehusmedicinregistret",
+      "folder": "entities/organizations/registries",
+      "significance": "SMR er en af de nationale registre, hvorfra DANIBD indberetter data om patienter med IBD.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Sygehusmedicinregistret (SMR)"
+        }
+      ]
+    },
+    {
+      "name": "Laboratorieregisteret",
+      "type": "organization",
+      "slug": "laboratorieregisteret",
+      "folder": "entities/organizations/registries",
+      "significance": "LABKA er en af de nationale registre, hvorfra DANIBD indberetter data om patienter med IBD.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Laboratorieregisteret (LABKA)"
+        }
+      ]
+    },
+    {
+      "name": "Sygesikringsregisteret",
+      "type": "organization",
+      "slug": "sygesikringsregisteret",
+      "folder": "entities/organizations/registries",
+      "significance": "SSR er en af de nationale registre, hvorfra DANIBD indberetter data om patienter med IBD.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Sygesikringsregisteret (SSR)"
+        }
+      ]
+    },
+    {
+      "name": "Crohns sygdom",
+      "type": "medical-condition",
+      "slug": "crohns-disease",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "significance": "Crohns sygdom (DK50*) er en af de primære IBD-diagnoser, som DANIBD registrerer, og patienter skal have mindst to hospitalskontakter med denne diagnose for at blive inkluderet.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "DK50* 'Crohns sygdom' (CD)"
+        },
+        {
+          "page": 36,
+          "context": "De praktiserende speciallæger i gastroenterologi og kirurgi har set 104 patienter med Crohns sygdom"
+        }
+      ]
+    },
+    {
+      "name": "Ulcerøs colitis",
+      "type": "medical-condition",
+      "slug": "ulcerative-colitis",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "significance": "Ulcerøs colitis (DK51*) er en af de primære IBD-diagnoser, som DANIBD registrerer, og patienter skal have mindst to hospitalskontakter med denne diagnose for at blive inkluderet.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "DK51* 'Ulcerøs colitis' (UC)"
+        },
+        {
+          "page": 36,
+          "context": "De praktiserende speciallæger i gastroenterologi og kirurgi har set 391 med UC"
+        }
+      ]
+    },
+    {
+      "name": "Korttarmssyndrom",
+      "type": "medical-condition",
+      "slug": "korttarmssyndrom",
+      "folder": "topics/medical-conditions",
+      "significance": "Korttarmssyndrom (DK912B) er en af de IBD-relaterede diagnoser, som DANIBD registrerer, når det er kombineret med DK50* eller DK51* som b-diagnose.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "DK912B 'Korttarmssyndrom' med DK50* eller DK51* som b-diagnose"
+        }
+      ]
+    },
+    {
+      "name": "Primær skleroserende kolangitis",
+      "type": "medical-condition",
+      "slug": "primary-sclerosing-cholangitis",
+      "folder": "topics/medical-conditions",
+      "significance": "Primær skleroserende kolangitis (DK830F) er en IBD-relateret diagnose, som DANIBD registrerer, når den er kombineret med DK50* eller DK51* som b-diagnose eller når patienten har tidligere kontakter for disse diagnoser.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "DK830F 'Primær skleroserende kolangitis': med DK50* eller DK51* som b-diagnose"
+        }
+      ]
+    },
+    {
+      "name": "GASTROBIO",
+      "type": "organization",
+      "slug": "gastrobio",
+      "folder": "entities/organizations/registries",
+      "significance": "GASTROBIO er en regional IBD-database i Region Nordjylland, der anvender journalgennemgang til at verificere patienter med IBD og blev brugt til validering af DANIBD-diagnoser.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "I studiet af Jacobsen et al fra 2022 undersøges den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR ift. den regionale IBD database GASTROBIO. GASTROBIO anvender journalgennemgang til at verificere patienter med IBD behandlet i Region Nordjylland."
+        }
+      ]
+    },
+    {
+      "name": "Jacobsen HA",
+      "type": "person",
+      "slug": "jacobsen-ha",
+      "folder": "entities/people/researchers",
+      "significance": "Jacobsen HA er forfatter af et validationsstudie fra 2022, der undersøgte den positive prædiktive værdi af IBD-diagnoser i LPR sammenlignet med GASTROBIO-databasen.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "I studiet af Jacobsen et al fra 2022 undersøges den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR ift. den regionale IBD database GASTROBIO."
+        }
+      ]
+    },
+    {
+      "name": "Lone Larsen",
+      "type": "person",
+      "slug": "lone-larsen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Lone Larsen er formand for DANIBD's styrgruppe og arbejder som overlæge, ph.d. og klinisk lektor i Region Nordjylland.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Lone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Ole Thorlacius-Ussing",
+      "type": "person",
+      "slug": "ole-thorlacius-ussing",
+      "folder": "entities/people/steering-committee",
+      "significance": "Ole Thorlacius-Ussing er medlem af DANIBD's styrgruppe som overlæge og dr.med. i Region Nordjylland.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Ole Thorlacius-Ussing, Overlæge, dr.med. Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Else Kjær Mikkelsen",
+      "type": "person",
+      "slug": "else-kjaer-mikkelsen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Else Kjær Mikkelsen er medlem af DANIBD's styrgruppe som specialeansvarlig sygeplejerske i Region Midtjylland.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Else Kjær Mikkelsen, Specialeansvarlig sygeplejerske Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Anders Neumann",
+      "type": "person",
+      "slug": "anders-neumann",
+      "folder": "entities/people/steering-committee",
+      "significance": "Anders Neumann er medlem af DANIBD's styrgruppe som ledende overlæge i Region Midtjylland.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Anders Neumann, Ledende overlæge Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Jens Kjeldsen",
+      "type": "person",
+      "slug": "jens-kjeldsen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Jens Kjeldsen er medlem af DANIBD's styrgruppe som ledende overlæge, professor og ph.d. i Region Syddanmark.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Jens Kjeldsen, Ledende overlæge, professor, ph.d. Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Torben Knudsen",
+      "type": "person",
+      "slug": "torben-knudsen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Torben Knudsen er medlem af DANIBD's styrgruppe som klinisk professor, ledende overlæge, dr.med. og ph.d. i Region Syddanmark.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Torben Knudsen, Klinisk professor, ledende overlæge dr.med., ph.d. Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Rasmus Gaardskær Nielsen",
+      "type": "person",
+      "slug": "rasmus-gaardskaer-nielsen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Rasmus Gaardskær Nielsen er medlem af DANIBD's styrgruppe som overlæge, ph.d. og klinisk lektor i Region Syddanmark.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Rasmus Gaardskær Nielsen, Overlæge, ph.d., klinisk lektor Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Ida Vind",
+      "type": "person",
+      "slug": "ida-vind",
+      "folder": "entities/people/steering-committee",
+      "significance": "Ida Vind er medlem af DANIBD's styrgruppe som overlæge, ph.d. og klinisk lektor i Region Hovedstaden.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Ida Vind, Overlæge, ph.d., klinisk lektor Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Johan Burisch",
+      "type": "person",
+      "slug": "johan-burisch",
+      "folder": "entities/people/steering-committee",
+      "significance": "Johan Burisch er medlem af DANIBD's styrgruppe som overlæge, dr.med., ph.d. og professor i Region Hovedstaden.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Johan Burisch, Overlæge, dr.med., ph.d., professor Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Mohamed Attauabi",
+      "type": "person",
+      "slug": "mohamed-attauabi",
+      "folder": "entities/people/steering-committee",
+      "significance": "Mohamed Attauabi er medlem af DANIBD's styrgruppe som reservelæge og ph.d. i Region Hovedstaden.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Mohamed Attauabi, Reservelæge, ph.d. Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Tina Fransgård",
+      "type": "person",
+      "slug": "tina-fransgaard",
+      "folder": "entities/people/steering-committee",
+      "significance": "Tina Fransgård er medlem af DANIBD's styrgruppe som afdelingslæge og ph.d. i Region Sjælland.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Tina Fransgård, Afdelingslæge, ph.d. Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Nynne Nyboe Andersen",
+      "type": "person",
+      "slug": "nynne-nyboe-andersen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Nynne Nyboe Andersen er medlem af DANIBD's styrgruppe som afdelingslæge, ph.d. og klinisk lektor i Region Sjælland.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Nynne Nyboe Andersen, Afdelingslæge, ph.d., klinisk lektor Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Jannie Jensen",
+      "type": "person",
+      "slug": "jannie-jensen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Jannie Jensen er medlem af DANIBD's styrgruppe som patientrepræsentant.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Jannie Jensen Patientrepræsentant"
+        }
+      ]
+    },
+    {
+      "name": "Anne Mette Falstie-Jensen",
+      "type": "person",
+      "slug": "anne-mette-falstie-jensen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Anne Mette Falstie-Jensen er medlem af DANIBD's styrgruppe som seniorepidemiolog og ph.d. fra SundK.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Anne Mette Falstie-Jensen, Seniorepidemiolog, ph.d. SundK"
+        }
+      ]
+    },
+    {
+      "name": "Jakob Riis",
+      "type": "person",
+      "slug": "jakob-riis",
+      "folder": "entities/people/steering-committee",
+      "significance": "Jakob Riis er medlem af DANIBD's styrgruppe som datamanager fra SundK.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Jakob Riis, Datamanager SundK"
+        }
+      ]
+    },
+    {
+      "name": "Mathilde Pedersen",
+      "type": "person",
+      "slug": "mathilde-pedersen",
+      "folder": "entities/people/steering-committee",
+      "significance": "Mathilde Pedersen er medlem af DANIBD's styrgruppe som kvalitetskonsulent og repræsentant for dataansvarlig myndighed fra SundK.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Mathilde Pedersen, Kvalitetskonsulent og repræsentant for dataansvarlig myndighed SundK og repræsentant for dataansvarlig myndighed"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden er en af de fem danske regioner, der indberetter data til DANIBD, og havde 11.456 patienter i alt i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Hovedstaden 11.456 (100)"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland er en af de fem danske regioner, der indberetter data til DANIBD, og havde 4.072 patienter i alt i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Sjælland 4.072 (100)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Syddanmark er en af de fem danske regioner, der indberetter data til DANIBD, og havde 7.479 patienter i alt i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Syddanmark 7.479 (100)"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Midtjylland er en af de fem danske regioner, der indberetter data til DANIBD, og havde 7.722 patienter i alt i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Midtjylland 7.722 (100)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland er en af de fem danske regioner, der indberetter data til DANIBD, og havde 3.621 patienter i alt i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Nordjylland 3.621 (100)"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg Abdominalcenter",
+      "type": "organization",
+      "slug": "bispebjerg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg Abdominalcenter er en hospitalsenhed i Region Hovedstaden, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Bispebjerg Abdominalcenter K 36 / 224"
+        }
+      ]
+    },
+    {
+      "name": "Bornholm Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "bornholm",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholm Medicinsk Afdeling er en hospitalsenhed i Region Hovedstaden, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Bornholm Medicinsk Afdeling 5 / 14"
+        }
+      ]
+    },
+    {
+      "name": "Herlev Børn og Unge",
+      "type": "organization",
+      "slug": "herlev",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev Børn og Unge er en hospitalsenhed i Region Hovedstaden, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Herlev Børn og Unge # / #"
+        }
+      ]
+    },
+    {
+      "name": "Herlev Mave-, Tarm- og Leversygd.",
+      "type": "organization",
+      "slug": "herlev-mave-tarm-lever",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev Mave-, Tarm- og Leversygd. er en hospitalsenhed i Region Hovedstaden, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Herlev Mave-, Tarm- og Leversygd. 38 / 183"
+        }
+      ]
+    },
+    {
+      "name": "Hvidovre Børne- og Ungeafdeling",
+      "type": "organization",
+      "slug": "hvidovre",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hvidovre Børne- og Ungeafdeling er en hospitalsenhed i Region Hovedstaden, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Hvidovre Børne- og Ungeafdeling 0 / 42"
+        }
+      ]
+    },
+    {
+      "name": "Hvidovre Gastroenheden",
+      "type": "organization",
+      "slug": "hvidovre-gastro",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hvidovre Gastroenheden er en hospitalsenhed i Region Hovedstaden, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Hvidovre Gastroenheden 9 / 256"
+        }
+      ]
+    },
+    {
+      "name": "Nordsjælland Børne- og Ungeafdeling",
+      "type": "organization",
+      "slug": "nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Nordsjælland Børne- og Ungeafdeling er en hospitalsenhed i Region Hovedstaden, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Nordsjælland Børne- og Ungeafdeling 0 / 16"
+        }
+      ]
+    },
+    {
+      "name": "Nordsjælland Kirurgisk Afdeling",
+      "type": "organization",
+      "slug": "nordsjaelland-kirurgisk",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Nordsjælland Kirurgisk Afdeling er en hospitalsenhed i Region Hovedstaden, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Nordsjælland Kirurgisk Afdeling # / #"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet Mave-, Tarm- og Leversygd.",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet Mave-, Tarm- og Leversygd. er en hospitalsenhed i Region Hovedstaden, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Rigshospitalet Mave-, Tarm- og Leversygd. 0 / 7"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet Pædiatrisk Klinik",
+      "type": "organization",
+      "slug": "rigshospitalet-paediatri",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet Pædiatrisk Klinik, GGK er en hospitalsenhed i Region Hovedstaden, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Rigshospitalet Pædiatrisk Klinik, GGK 0 / 3"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Medicin",
+      "type": "organization",
+      "slug": "holbaek-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Medicin er en hospitalsenhed i Region Sjælland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "HOL Holbæk Medicin 0 / 42"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Pædiatri",
+      "type": "organization",
+      "slug": "holbaek-paediatri",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Pædiatri er en hospitalsenhed i Region Sjælland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "HOL Holbæk Pædiatri 0 / 5"
+        }
+      ]
+    },
+    {
+      "name": "Slagelse Med. Gastroenterologi",
+      "type": "organization",
+      "slug": "slagelse-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Slagelse Med. Gastroenterologi er en hospitalsenhed i Region Sjælland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "NSR Slagelse Med. Gastroenterologi 0 / 88"
+        }
+      ]
+    },
+    {
+      "name": "Slagelse Pædiatri",
+      "type": "organization",
+      "slug": "slagelse-paediatri",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Slagelse Pædiatri er en hospitalsenhed i Region Sjælland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "NSR Slagelse Pædiatri 0 / 3"
+        }
+      ]
+    },
+    {
+      "name": "Køge Medicin",
+      "type": "organization",
+      "slug": "koege-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Køge Medicin er en hospitalsenhed i Region Sjælland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "SUH Køge Medicin 3 / 129"
+        }
+      ]
+    },
+    {
+      "name": "Nykøbing F. Medicin",
+      "type": "organization",
+      "slug": "nykoebing-f-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Nykøbing F. Medicin er en hospitalsenhed i Region Sjælland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "SUH Nykøbing F. Medicin # / #"
+        }
+      ]
+    },
+    {
+      "name": "Nykøbing F. Pædiatri",
+      "type": "organization",
+      "slug": "nykoebing-f-paediatri",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Nykøbing F. Pædiatri er en hospitalsenhed i Region Sjælland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "SUH Nykøbing F. Pædiatri 0 / 3"
+        }
+      ]
+    },
+    {
+      "name": "Roskilde Pædiatri",
+      "type": "organization",
+      "slug": "roskilde-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Roskilde Pædiatri er en hospitalsenhed i Region Sjælland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "SUH Roskilde Pædiatri 0 / 22"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Medicinsk Mave og Tarm Amb.",
+      "type": "organization",
+      "slug": "esbjerg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg Medicinsk Mave og Tarm Amb. er en hospitalsenhed i Region Syddanmark, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "EGS Esbjerg Medicinsk Mave og Tarm Amb. 28 / 109"
+        }
+      ]
+    },
+    {
+      "name": "Odense Børne- og Ungeafdeling",
+      "type": "organization",
+      "slug": "odense-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense Børne- og Ungeafdeling er en hospitalsenhed i Region Syddanmark, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "OUH Odense Børne- og Ungeafdeling H 5 / 21"
+        }
+      ]
+    },
+    {
+      "name": "Odense Medicinsk Mave-Tarm Afd.",
+      "type": "organization",
+      "slug": "odense-mave-tarm",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense Medicinsk Mave-Tarm Afd. er en hospitalsenhed i Region Syddanmark, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "OUH Odense Medicinsk Mave-Tarm Afd. S # / #"
+        }
+      ]
+    },
+    {
+      "name": "Svendborg Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "svendborg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Svendborg Medicinsk Afdeling er en hospitalsenhed i Region Syddanmark, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "OUH Svendborg Medicinsk Afdeling 3 / 68"
+        }
+      ]
+    },
+    {
+      "name": "Aabenraa Mave- og Tarmsygd.",
+      "type": "organization",
+      "slug": "aabenraa-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aabenraa Mave- og Tarmsygd. er en hospitalsenhed i Region Syddanmark, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "SHS Aabenraa Mave- og Tarmsygd. 5 / 55"
+        }
+      ]
+    },
+    {
+      "name": "Tønder Medicinsk Daghospital",
+      "type": "organization",
+      "slug": "toender-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Tønder Medicinsk Daghospital er en hospitalsenhed i Region Syddanmark, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "SHS Tønder Medicinsk Daghospital # / #"
+        }
+      ]
+    },
+    {
+      "name": "Kolding Børne- og Ungeafdeling",
+      "type": "organization",
+      "slug": "kolding-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Kolding Børne- og Ungeafdeling er en hospitalsenhed i Region Syddanmark, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "SLB Kolding Børne- og Ungeafdeling 6 / 23"
+        }
+      ]
+    },
+    {
+      "name": "Vejle Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "vejle-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Vejle Medicinsk Afdeling er en hospitalsenhed i Region Syddanmark, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "SLB Vejle Medicinsk Afdeling 22 / 94"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Børn og Unge",
+      "type": "organization",
+      "slug": "aarhus-boern-og-unge",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Børn og Unge er en hospitalsenhed i Region Midtjylland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "Aarhus Børn og Unge 0 / 33"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Lever-, Mave- og Tarmsygd.",
+      "type": "organization",
+      "slug": "aarhus-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Lever-, Mave- og Tarmsygd. er en hospitalsenhed i Region Midtjylland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "Aarhus Lever-, Mave- og Tarmsygd. 58 / 149"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrup Børn og Unge",
+      "type": "organization",
+      "slug": "goedstrup-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Gødstrup Børn og Unge er en hospitalsenhed i Region Midtjylland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "Gødstrup Børn og Unge 0 / 6"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrup Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "goedstrup-mave-tarmkirurgi",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Gødstrup Medicinsk Afdeling er en hospitalsenhed i Region Midtjylland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "Gødstrup Medicinsk Afdeling 31 / 120"
+        }
+      ]
+    },
+    {
+      "name": "HE Midt Klinik for Mave- og Tarmsygd.",
+      "type": "organization",
+      "slug": "he-midt-mave-tarm",
+      "folder": "entities/organizations/hospitals",
+      "significance": "HE Midt Klinik for Mave- og Tarmsygd. er en hospitalsenhed i Region Midtjylland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "HE Midt Klinik for Mave- og Tarmsygd. 25 / 122"
+        }
+      ]
+    },
+    {
+      "name": "HE Midt Viborg Børn og Unge",
+      "type": "organization",
+      "slug": "viborg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "HE Midt Viborg Børn og Unge er en hospitalsenhed i Region Midtjylland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "HE Midt Viborg Børn og Unge 0 / 11"
+        }
+      ]
+    },
+    {
+      "name": "Horsens Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "horsens-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Horsens Medicinsk Afdeling er en hospitalsenhed i Region Midtjylland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "Horsens Medicinsk Afdeling 24 / 121"
+        }
+      ]
+    },
+    {
+      "name": "Randers Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "randers-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Randers Medicinsk Afdeling er en hospitalsenhed i Region Midtjylland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "Randers Medicinsk Afdeling 4 / 86"
+        }
+      ]
+    },
+    {
+      "name": "AAUH Aalborg Børne- og Ungeafdeling",
+      "type": "organization",
+      "slug": "aalborg-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "AAUH Aalborg Børne- og Ungeafdeling er en hospitalsenhed i Region Nordjylland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "AAUH Aalborg Børne- og Ungeafdeling 0 / 21"
+        }
+      ]
+    },
+    {
+      "name": "AAUH Aalborg Med. Gastroenterologisk Afd.",
+      "type": "organization",
+      "slug": "aauh-aalborg-med-gastroenterologisk-omraade",
+      "folder": "entities/organizations/hospitals",
+      "significance": "AAUH Aalborg Med. Gastroenterologisk Afd. er en hospitalsenhed i Region Nordjylland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "AAUH Aalborg Med. Gastroenterologisk Afd. 17 / 119"
+        }
+      ]
+    },
+    {
+      "name": "AAUH Farsø Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "aauh-farsoe",
+      "folder": "entities/organizations/hospitals",
+      "significance": "AAUH Farsø Medicinsk Afdeling er en hospitalsenhed i Region Nordjylland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "AAUH Farsø Medicinsk Afdeling # / #"
+        }
+      ]
+    },
+    {
+      "name": "AAUH Thisted Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "aauh-thisted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "AAUH Thisted Medicinsk Afdeling er en hospitalsenhed i Region Nordjylland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "AAUH Thisted Medicinsk Afdeling 0 / 3"
+        }
+      ]
+    },
+    {
+      "name": "RHN Hjørring Med. Mave- og Tarmsygd.",
+      "type": "organization",
+      "slug": "hjoerring-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "RHN Hjørring Med. Mave- og Tarmsygd. er en hospitalsenhed i Region Nordjylland, der behandler IBD-patienter og indberetter data til DANIBD.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "RHN Hjørring Med. Mave- og Tarmsygd. 3 / 80"
+        }
+      ]
+    },
+    {
+      "name": "SundK",
+      "type": "organization",
+      "slug": "sundk",
+      "folder": "entities/organizations/healthcare",
+      "significance": "SundK er organisationen, som Anne Mette Falstie-Jensen, Jakob Riis og Mathilde Pedersen arbejder for som medlemmer af DANIBD's styrgruppe.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Anne Mette Falstie-Jensen, Seniorepidemiolog, ph.d. SundK"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "danibd",
+      "predicate": "uses-data-from",
+      "object": "landpatientregisteret",
+      "evidence": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Landpatientregisteret (LPR)",
+      "page": 36
+    },
+    {
+      "subject": "danibd",
+      "predicate": "uses-data-from",
+      "object": "det-centrale-personregister",
+      "evidence": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Det Centrale Personregister (CPR)",
+      "page": 36
+    },
+    {
+      "subject": "danibd",
+      "predicate": "uses-data-from",
+      "object": "laegemiddelstatistikregisteret",
+      "evidence": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Lægemiddelstatistikregisteret (LSR)",
+      "page": 36
+    },
+    {
+      "subject": "danibd",
+      "predicate": "uses-data-from",
+      "object": "sygehusmedicinregistret",
+      "evidence": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Sygehusmedicinregistret (SMR)",
+      "page": 36
+    },
+    {
+      "subject": "danibd",
+      "predicate": "uses-data-from",
+      "object": "laboratorieregisteret",
+      "evidence": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Laboratorieregisteret (LABKA)",
+      "page": 36
+    },
+    {
+      "subject": "danibd",
+      "predicate": "uses-data-from",
+      "object": "sygesikringsregisteret",
+      "evidence": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Sygesikringsregisteret (SSR)",
+      "page": 36
+    },
+    {
+      "subject": "lone-larsen",
+      "predicate": "is-chair-of",
+      "object": "danibd",
+      "evidence": "Lone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland [Formand]",
+      "page": 38
+    },
+    {
+      "subject": "ole-thorlacius-ussing",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Ole Thorlacius-Ussing, Overlæge, dr.med. Region Nordjylland",
+      "page": 38
+    },
+    {
+      "subject": "else-kjaer-mikkelsen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Else Kjær Mikkelsen, Specialeansvarlig sygeplejerske Region Midtjylland",
+      "page": 38
+    },
+    {
+      "subject": "jens-kjeldsen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Jens Kjeldsen, Ledende overlæge, professor, ph.d. Region Syddanmark",
+      "page": 38
+    },
+    {
+      "subject": "torben-knudsen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Torben Knudsen, Klinisk professor, ledende overlæge dr.med., ph.d. Region Syddanmark",
+      "page": 38
+    },
+    {
+      "subject": "rasmus-gaardskaer-nielsen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Rasmus Gaardskær Nielsen, Overlæge, ph.d., klinisk lektor Region Syddanmark",
+      "page": 38
+    },
+    {
+      "subject": "ida-vind",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Ida Vind, Overlæge, ph.d., klinisk lektor Region Hovedstaden",
+      "page": 38
+    },
+    {
+      "subject": "johan-burisch",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Johan Burisch, Overlæge, dr.med., ph.d., professor Region Hovedstaden",
+      "page": 38
+    },
+    {
+      "subject": "mohamed-attauabi",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Mohamed Attauabi, Reservelæge, ph.d. Region Hovedstaden",
+      "page": 38
+    },
+    {
+      "subject": "jannie-jensen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Jannie Jensen Patientrepræsentant",
+      "page": 38
+    },
+    {
+      "subject": "anne-mette-falstie-jensen",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Anne Mette Falstie-Jensen, Seniorepidemiolog, ph.d. SundK",
+      "page": 38
+    },
+    {
+      "subject": "jakob-riis",
+      "predicate": "is-member-of",
+      "object": "danibd",
+      "evidence": "Jakob Riis, Datamanager SundK",
+      "page": 38
+    },
+    {
+      "subject": "jacobsen-ha",
+      "predicate": "validated",
+      "object": "gastrobio",
+      "evidence": "I studiet af Jacobsen et al fra 2022 undersøges den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR ift. den regionale IBD database GASTROBIO.",
+      "page": 37
+    }
+  ],
+  "claims": [
+    {
+      "text": "DANIBD omfatter patienter med IBD behandlet på et offentligt dansk hospital [^src1]",
+      "type": "scope",
+      "entities": [
+        "danibd"
+      ],
+      "page": 36
+    },
+    {
+      "text": "DANIBDs opgørelsesperiode går fra 1. oktober til 30. september [^src1]",
+      "type": "administrative",
+      "entities": [
+        "danibd"
+      ],
+      "page": 36
+    },
+    {
+      "text": "Patienter med IBD skal have mindst to hospitalskontakter med følgende aktionsdiagnoser registreret i LPR [^src1]",
+      "type": "inclusion-criteria",
+      "entities": [
+        "danibd",
+        "landpatientregisteret"
+      ],
+      "page": 36
+    },
+    {
+      "text": "De praktiserende speciallæger i gastroenterologi og kirurgi har set 104 patienter med Crohns sygdom og 391 med UC i opgørelsesperioden [^src2]",
+      "type": "patient-statistics",
+      "entities": [
+        "crohns-disease",
+        "ulcerative-colitis"
+      ],
+      "page": 37
+    },
+    {
+      "text": "De praktiserende speciallæger har udført 3,4 % af de samlede antal koloskopier (353), der er udført på patienter med IBD i opgørelsesperioden [^src2]",
+      "type": "procedure-statistics",
+      "entities": [
+        "danibd"
+      ],
+      "page": 37
+    },
+    {
+      "text": "I studiet af Jacobsen et al fra 2022 findes en høj PPV for to IBD-diagnoser svarende til en PPV på 0,95 (95% CI, 0,95-0,96) [^src3]",
+      "type": "validation",
+      "entities": [
+        "jacobsen-ha",
+        "gastrobio"
+      ],
+      "page": 37
+    },
+    {
+      "text": "DANIBDs dækningsgrad med stor sandsynlighed er over 90 % [^src3]",
+      "type": "data-quality",
+      "entities": [
+        "danibd"
+      ],
+      "page": 37
+    },
+    {
+      "text": "Region Hovedstaden havde 11.456 patienter i alt i opgørelsesperioden [^src4]",
+      "type": "patient-statistics",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 39
+    },
+    {
+      "text": "Region Sjælland havde 4.072 patienter i alt i opgørelsesperioden [^src4]",
+      "type": "patient-statistics",
+      "entities": [
+        "region-sjaelland"
+      ],
+      "page": 39
+    },
+    {
+      "text": "Region Syddanmark havde 7.479 patienter i alt i opgørelsesperioden [^src4]",
+      "type": "patient-statistics",
+      "entities": [
+        "region-syddanmark"
+      ],
+      "page": 39
+    },
+    {
+      "text": "Region Midtjylland havde 7.722 patienter i alt i opgørelsesperioden [^src4]",
+      "type": "patient-statistics",
+      "entities": [
+        "region-midtjylland"
+      ],
+      "page": 39
+    },
+    {
+      "text": "Region Nordjylland havde 3.621 patienter i alt i opgørelsesperioden [^src4]",
+      "type": "patient-statistics",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 39
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. oktober 2022 - 30. september 2023",
+      "event": "DANIBD opgørelsesperiode for indikator 2 (patientuddannelse) [^src5]",
+      "entities": [
+        "danibd"
+      ]
+    },
+    {
+      "date": "2022",
+      "event": "Jacobsen et al publicerer validationsstudie af IBD-diagnoser i LPR sammenlignet med GASTROBIO [^src3]",
+      "entities": [
+        "jacobsen-ha",
+        "gastrobio",
+        "landpatientregisteret"
+      ]
+    }
+  ],
+  "context": "Dette afsnit beskriver DANIBD's datagrundlag, dækningsgrad og styregruppens sammensætning. DANIBD er Danmarks nationale database for inflammatoriske tarmsygdomme, der omfatter patienter med IBD behandlet på offentlige danske hospitaler. Databasen indberetter data via seks nationale registre og inkluderer patienter med mindst to hospitalskontakter for Crohns sygdom, ulcerøs colitis, korttarmssyndrom eller primær skleroserende kolangitis. Afsnittet dokumenterer, at databasens dækningsgrad sandsynligvis overstiger 90 %, baseret på validering mod den regionale GASTROBIO-database. Styregruppens medlemmer repræsenterer alle fem danske regioner samt patientrepræsentanter og dataadministratorer fra SundK."
+}

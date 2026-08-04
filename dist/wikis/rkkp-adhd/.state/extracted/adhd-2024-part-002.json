@@ -1,0 +1,582 @@
+{
+  "entities": [
+    {
+      "name": "ADHD-databasen",
+      "type": "organization",
+      "slug": "adhd-databasen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "ADHD-databasen er det nationale kvalitetsregister, der rapporterer på 11 kvalitetsindikatorer for ADHD-udredning og -behandling på tværs af Danmark.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Der er et pågående arbejde med revision af indikatorsættet, så det bedre afspejler klinisk praksis og vurderes at måle kvaliteten bedre."
+        },
+        {
+          "page": 7,
+          "context": "Indikatoroversigt - Nedenfor vises det samlede sæt af kvalitetsindikatorer, der afrapporteres i denne årsrapport."
+        },
+        {
+          "page": 8,
+          "context": "De samlede indikatorresultater - Tabellen viser en oversigt over alle indikatorresultaterne på landsplan for den aktuelle årsrapport (data fra 1/4 2024 til 31/3 2025)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1",
+      "type": "quality-indicator",
+      "slug": "indikator-1",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 1 måler andelen af ADHD-udredningsforløb, hvor der er foretaget somatisk udredning senest 120 dage efter start, med udviklingmål på ≥ 90 %.",
+      "mentions": [
+        {
+          "page": 7,
+          "context": "Indikator 1: Andelen af udredningsforløb, hvor der er foretaget somatisk udredning senest 120 dage efter start af ADHD-udredning"
+        },
+        {
+          "page": 8,
+          "context": "Indikator 1 opfyldelse: 65 (63-66) % for 01.04.2024 - 31.03.2025, 59 % for 2023/24, 60 % for 2022/23"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2a",
+      "type": "quality-indicator",
+      "slug": "indikator-2a",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 2a måler andelen af ADHD-udredningsforløb blandt 0-5-årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start.",
+      "mentions": [
+        {
+          "page": 7,
+          "context": "Indikator 2a: Andelen af udredningsforløb blandt 0-5-årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning"
+        },
+        {
+          "page": 8,
+          "context": "Indikator 2a opfyldelse: 60 (55-65) % for 01.04.2024 - 31.03.2025, 59 % for 2023/24, 63 % for 2022/23"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2b",
+      "type": "quality-indicator",
+      "slug": "indikator-2b",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 2b blev tidligere delt i to indikatorer for at bedre afspejle de to vigtige udredningselementer: professionel skoleobservation eller manualiseret diagnostisk interview blandt 6-17-årige.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 2b, som tidligere har dækket over enten professionel skoleobservation eller manualiseret diagnostisk interview af + 6-årige bliver fremover delt i 2 indikatorer idet den dækkede over 2 udredningselementer der begge anses for vigtige i udredningen."
+        },
+        {
+          "page": 7,
+          "context": "Indikator 2b: Andelen af udredningsforløb blandt 6-17-årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation"
+        },
+        {
+          "page": 8,
+          "context": "Indikator 2b opfyldelse: 51 (49-52) % for 01.04.2024 - 31.03.2025, 49 % for 2023/24, 43 % for 2022/23"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 3",
+      "type": "quality-indicator",
+      "slug": "indikator-3",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 3 måler andelen af ADHD-udredningsforløb, hvor der er afholdt diagnostisk konference med deltagelse af speciallæge i børne- og ungdomspsykiatri senest 120 dage efter start.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 3 om afholdelse af diagnostisk konference med speciallæge vil være et fokuspunkt for styregruppen i det kommende år."
+        },
+        {
+          "page": 7,
+          "context": "Indikator 3: Andelen af udredningsforløb, hvor der er afholdt diagnostisk konference med deltagelse af speciallæge i børne- og ungdomspsykiatri senest 120 dage efter start af ADHD-udredning"
+        },
+        {
+          "page": 8,
+          "context": "Indikator 3 opfyldelse: 27 (25-28) % for 01.04.2024 - 31.03.2025, 23 % for 2023/24, 25 % for 2022/23"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4",
+      "type": "quality-indicator",
+      "slug": "indikator-4",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 4 blev udvidet til at omfatte bredere tværsektorielt samarbejde og ændret fra behandlingsindikator til udredningsindikator for at etablere kontakt til primær sektor så tidligt som muligt.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 4 om netværksmøde er blevet udvidet til at omfatte et bredere tværsektorielt samarbejde samt ændret fra at være en behandlingsindikator til en udredningsindikator, med henblik på at få etableret kontakt til primær sektor så tidligt som muligt."
+        },
+        {
+          "page": 7,
+          "context": "Indikator 4: Andelen af behandlingsforløb, hvor der er foretaget koordinerende netværksmøde senest 90 dage efter behandlingsstart"
+        },
+        {
+          "page": 8,
+          "context": "Indikator 4 opfyldelse: 20 (19-21) % for 01.04.2024 - 31.03.2025, 19 % for 2023/24, 20 % for 2022/23"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "quality-indicator",
+      "slug": "indikator-5",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 5 måler andelen af behandlingsforløb, hvor patienten/forældre har påbegyndt ADHD-relateret psykoedukation senest 120 dage efter behandlingsstart.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Behandlingsindikator 5 om psykoedukation vil også i det kommende år have fokus i styregruppen."
+        },
+        {
+          "page": 7,
+          "context": "Indikator 5: Andelen af behandlingsforløb, hvor patienten/forældre har påbegyndt ADHD-relateret psykoedukation senest 120 dage efter behandlingsstart"
+        },
+        {
+          "page": 8,
+          "context": "Indikator 5 opfyldelse: 33 (32-35) % for 01.04.2024 - 31.03.2025, 33 % for 2023/24, 35 % for 2022/23"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 6",
+      "type": "quality-indicator",
+      "slug": "indikator-6",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 6 måler andelen af behandlingsforløb, hvor patienten er i behandling med ADHD-medicin.",
+      "mentions": [
+        {
+          "page": 7,
+          "context": "Indikator 6: Andelen af behandlingsforløb, hvor patienten er i behandling med ADHD-medicin"
+        },
+        {
+          "page": 8,
+          "context": "Indikator 6 opfyldelse: 68 (66-69) % for 01.04.2024 - 31.03.2025, 63 % for 2023/24, 63 % for 2022/23"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7a",
+      "type": "quality-indicator",
+      "slug": "indikator-7a",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 7a måler andelen af unge i ADHD-udredningspopulation, der har bestået folkeskolens afgangseksamen inden de er fyldt 17 år.",
+      "mentions": [
+        {
+          "page": 7,
+          "context": "Indikator 7a: Andelen af unge i 'ADHD-udredningspopulation', der har bestået folkeskolens afgangseksamen inden han/hun er fyldt 17 år"
+        },
+        {
+          "page": 8,
+          "context": "Indikator 7a opfyldelse: 53 (51-55) % for 01.04.2024 - 31.03.2025, 57 % for 2023/24, 59 % for 2022/23"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7b",
+      "type": "quality-indicator",
+      "slug": "indikator-7b",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 7b måler andelen af unge i ADHD-behandlingspopulation, der har bestået folkeskolens afgangseksamen inden de er fyldt 17 år.",
+      "mentions": [
+        {
+          "page": 7,
+          "context": "Indikator 7b: Andelen af unge i 'ADHD-behandlingspopulation', der har bestået folkeskolens afgangseksamen inden han/hun er fyldt 17 år"
+        },
+        {
+          "page": 8,
+          "context": "Indikator 7b opfyldelse: 58 (55-60) % for 01.04.2024 - 31.03.2025, 66 % for 2023/24, 67 % for 2022/23"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 8",
+      "type": "quality-indicator",
+      "slug": "indikator-8",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 8 måler andelen af behandlingsforløb blandt voksne med ADHD-diagnose, hvor patienten har påbegyndt ADHD-relateret psykoedukation senest 120 dage efter behandlingsstart.",
+      "mentions": [
+        {
+          "page": 7,
+          "context": "Indikator 8: Andelen af behandlingsforløb, hvor patienten har påbegyndt ADHD-relateret psykoedukation senest 120 dage efter behandlingsstart"
+        },
+        {
+          "page": 8,
+          "context": "Indikator 8 opfyldelse: 36 (34-38) % for 01.04.2024 - 31.03.2025. Det er første gang denne patientgruppe og tilhørende indikatorer og resultaterne præsenteres derfor uden historik."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 9",
+      "type": "quality-indicator",
+      "slug": "indikator-9",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 9 måler andelen af behandlingsforløb blandt voksne, hvor psykoterapi er vurderet relevant, og hvor patienten har modtaget psykoterapi under ADHD pakkeforløb indenfor et år fra behandlingsstart.",
+      "mentions": [
+        {
+          "page": 7,
+          "context": "Indikator 9: Andelen af behandlingsforløb, hvor psykoterapi er vurderet relevant, og hvor patienten har modtaget psykoterapi under ADHD pakkeforløb indenfor et år fra behandlingsstart"
+        },
+        {
+          "page": 9,
+          "context": "Indikator 9 opfyldelse: 1 (1-2) % for 01.04.2024 - 31.03.2025"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 10",
+      "type": "quality-indicator",
+      "slug": "indikator-10",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 10 måler andelen af behandlingsforløb blandt voksne, hvor patientens sociale støttebehov er vurderet senest 120 dage efter behandlingsstart.",
+      "mentions": [
+        {
+          "page": 7,
+          "context": "Indikator 10: Andelen af behandlingsforløb, hvor patientens sociale støttebehov er vurderet senest 120 dage efter behandlingsstart"
+        },
+        {
+          "page": 9,
+          "context": "Indikator 10 opfyldelse: 37 (35-38) % for 01.04.2024 - 31.03.2025"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 11",
+      "type": "quality-indicator",
+      "slug": "indikator-11",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 11 måler andelen af behandlingsforløb blandt voksne, hvor patienten er i behandling med ADHD-medicin.",
+      "mentions": [
+        {
+          "page": 7,
+          "context": "Indikator 11: Andelen af behandlingsforløb, hvor patienten er i behandling med ADHD-medicin"
+        },
+        {
+          "page": 10,
+          "context": "Indikator 11 opfyldelse: 70 (68-72) % for 01.04.2024 - 31.03.2025"
+        }
+      ]
+    },
+    {
+      "name": "DMPG",
+      "type": "organization",
+      "slug": "danske-multidisciplinaere-psykiatrigrupper",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "DMPG arbejder på retningslinjer for nonfarmakologisk behandling af ADHD, som vil informere arbejdet med at gøre indikator 5 mere skarp og meningsfuld.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Den kommende DMPG-retningslinje om nonfarmakologisk behandling af ADHD vil give os mere viden, som vi vil anvende i arbejdet med at gøre denne indikator mere skarp og meningsfuld."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "indikator-1",
+      "evidence": "ADHD-databasen rapporterer på Indikator 1 som del af sit samlede sæt af kvalitetsindikatorer",
+      "page": 7
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "indikator-2a",
+      "evidence": "ADHD-databasen rapporterer på Indikator 2a som del af sit samlede sæt af kvalitetsindikatorer",
+      "page": 7
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "indikator-2b",
+      "evidence": "ADHD-databasen rapporterer på Indikator 2b som del af sit samlede sæt af kvalitetsindikatorer",
+      "page": 7
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "indikator-3",
+      "evidence": "ADHD-databasen rapporterer på Indikator 3 som del af sit samlede sæt af kvalitetsindikatorer",
+      "page": 7
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "indikator-4",
+      "evidence": "ADHD-databasen rapporterer på Indikator 4 som del af sit samlede sæt af kvalitetsindikatorer",
+      "page": 7
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "indikator-5",
+      "evidence": "ADHD-databasen rapporterer på Indikator 5 som del af sit samlede sæt af kvalitetsindikatorer",
+      "page": 7
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "indikator-6",
+      "evidence": "ADHD-databasen rapporterer på Indikator 6 som del af sit samlede sæt af kvalitetsindikatorer",
+      "page": 7
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "indikator-7a",
+      "evidence": "ADHD-databasen rapporterer på Indikator 7a som del af sit samlede sæt af kvalitetsindikatorer",
+      "page": 7
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "indikator-7b",
+      "evidence": "ADHD-databasen rapporterer på Indikator 7b som del af sit samlede sæt af kvalitetsindikatorer",
+      "page": 7
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "indikator-8",
+      "evidence": "ADHD-databasen rapporterer på Indikator 8 som del af sit samlede sæt af kvalitetsindikatorer for voksne med ADHD-diagnose",
+      "page": 7
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "indikator-9",
+      "evidence": "ADHD-databasen rapporterer på Indikator 9 som del af sit samlede sæt af kvalitetsindikatorer for voksne med ADHD-diagnose",
+      "page": 7
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "indikator-10",
+      "evidence": "ADHD-databasen rapporterer på Indikator 10 som del af sit samlede sæt af kvalitetsindikatorer for voksne med ADHD-diagnose",
+      "page": 7
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "indikator-11",
+      "evidence": "ADHD-databasen rapporterer på Indikator 11 som del af sit samlede sæt af kvalitetsindikatorer for voksne med ADHD-diagnose",
+      "page": 7
+    },
+    {
+      "subject": "danske-multidisciplinaere-psykiatrigrupper",
+      "predicate": "develops-guideline-for",
+      "object": "adhd-databasen",
+      "evidence": "Den kommende DMPG-retningslinje om nonfarmakologisk behandling af ADHD vil give viden, som vil anvendes i arbejdet med at gøre indikator 5 mere skarp og meningsfuld",
+      "page": 6
+    }
+  ],
+  "claims": [
+    {
+      "text": "Der er et pågående arbejde med revision af indikatorsættet, så det bedre afspejler klinisk praksis og vurderes at måle kvaliteten bedre [^src1]",
+      "type": "procedural-change",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Indikator 2b blev delt i 2 indikatorer idet den dækkede over 2 udredningselementer der begge anses for vigtige i udredningen [^src1]",
+      "type": "procedural-change",
+      "entities": [
+        "indikator-2b"
+      ],
+      "page": 6
+    },
+    {
+      "text": "For begge indikatorer har vi ændret kriterierne således, at det giver muligheden for at graduere indsatserne i udredningsforløbene, så man i mere komplekse sager kan gøre mere og i mindre komplekse sager mindre [^src1]",
+      "type": "procedural-change",
+      "entities": [
+        "indikator-2a",
+        "indikator-2b"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Indikator 4 om netværksmøde er blevet udvidet til at omfatte et bredere tværsektorielt samarbejde samt ændret fra at være en behandlingsindikator til en udredningsindikator [^src1]",
+      "type": "procedural-change",
+      "entities": [
+        "indikator-4"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Indikator 3 om afholdelse af diagnostisk konference med speciallæge vil være et fokuspunkt for styregruppen i det kommende år [^src1]",
+      "type": "decision",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Det stigende patientantal, manglen på speciallæger samt en lovgivning, som har åbnet muligheden for, at specialpsykologer må stille psykiatriske diagnoser gør det nødvendigt at revurdere denne indikator [^src1]",
+      "type": "clinical-rationale",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Behandlingsindikator 5 om psykoedukation vil også i det kommende år have fokus i styregruppen [^src1]",
+      "type": "decision",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Den kommende DMPG-retningslinje om nonfarmakologisk behandling af ADHD vil give os mere viden, som vi vil anvende i arbejdet med at gøre denne indikator mere skarp og meningsfuld [^src1]",
+      "type": "guideline-development",
+      "entities": [
+        "indikator-5",
+        "danske-multidisciplinaere-psykiatrigrupper"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Indikator 1 opfyldelse var 65 (63-66) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 59 % for 2023/24 og 60 % for 2022/23 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 2a opfyldelse var 60 (55-65) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 59 % for 2023/24 og 63 % for 2022/23 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-2a"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 2b opfyldelse var 51 (49-52) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 49 % for 2023/24 og 43 % for 2022/23 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-2b"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 3 opfyldelse var 27 (25-28) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 23 % for 2023/24 og 25 % for 2022/23 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 4 opfyldelse var 20 (19-21) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 19 % for 2023/24 og 20 % for 2022/23 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 5 opfyldelse var 33 (32-35) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 33 % for 2023/24 og 35 % for 2022/23 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 6 opfyldelse var 68 (66-69) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 63 % for 2023/24 og 63 % for 2022/23 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-6"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 7a opfyldelse var 53 (51-55) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 57 % for 2023/24 og 59 % for 2022/23 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-7a"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 7b opfyldelse var 58 (55-60) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 66 % for 2023/24 og 67 % for 2022/23 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-7b"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 8-11 vedrører voksne med en ADHD-diagnose. Det er første gang denne patientgruppe og tilhørende indikatorer og resultaterne præsenteres derfor uden historik [^src1]",
+      "type": "observation",
+      "entities": [
+        "indikator-8",
+        "indikator-9",
+        "indikator-10",
+        "indikator-11"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 8 opfyldelse var 36 (34-38) % for perioden 01.04.2024 - 31.03.2025 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-8"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Indikator 9 opfyldelse var 1 (1-2) % for perioden 01.04.2024 - 31.03.2025 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Indikator 10 opfyldelse var 37 (35-38) % for perioden 01.04.2024 - 31.03.2025 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 9
+    },
+    {
+      "text": "Indikator 11 opfyldelse var 70 (68-72) % for perioden 01.04.2024 - 31.03.2025 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-11"
+      ],
+      "page": 10
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.04.2024 - 31.03.2025",
+      "event": "Rapporteringsperiode for ADHD-databasens kvalitetsindikatorer",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "2023/24",
+      "event": "Tidligere rapporteringsperiode for ADHD-databasens kvalitetsindikatorer",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere rapporteringsperiode for ADHD-databasens kvalitetsindikatorer",
+      "entities": [
+        "adhd-databasen"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer ADHD-databasens årsrapport for perioden 1. april 2024 til 31. marts 2025, med fokus på revision og udvikling af kvalitetsindikatorerne for ADHD-udredning og -behandling i Danmark. Dokumentet beskriver igangværende arbejde med at forbedre indikatorsættet, så det bedre afspejler klinisk praksis, samt præsenterer detaljerede resultater for 11 kvalitetsindikatorer, herunder nye indikatorer for voksne patienter med ADHD-diagnose. Rapporten viser, at de fleste indikatorer ligger betydeligt under udviklingmålet på ≥ 90 %, hvilket understreger behovet for forbedringer inden for ADHD-udredning og -behandling på tværs af det danske sundhedsvæsen."
+}

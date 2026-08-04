@@ -1,0 +1,540 @@
+{
+  "entities": [
+    {
+      "name": "Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "AFDK er den nationale database for atrieflimren-patienter i Danmark, der indberetter data fra offentlige sygehuse, praktiserende kardiologer og almen praksis, og udgiver denne årsrapport for perioden 1. juli 2023 – 30. juni 2024.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Atrieflimren i Danmark, Version: Offentliggjort version, Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 2,
+          "context": "Databasen for Atrieflimren i Danmark (AFDK) præsenterer hermed sin årsrapport"
+        },
+        {
+          "page": 5,
+          "context": "Databasen Atrieflimren i Danmark (AFDK) har i mange år haft sit afsæt i hospitalssektoren"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/government-agencies",
+      "significance": "RKKP er den organisation, der udarbejder og udgiver årsrapporten for Atrieflimren i Danmark og har sit Videncenter, som udfører analyserne.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram, Atrieflimren i Danmark, Årsrapport 2024"
+        },
+        {
+          "page": 2,
+          "context": "Rapportens analyser er udarbejdet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) ved RKKP's Videncenter"
+        }
+      ]
+    },
+    {
+      "name": "Ulla Dam-Schmidt",
+      "type": "person",
+      "slug": "ulla-dam-schmidt",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Ulla Dam-Schmidt er sygeplejerske og MKS ved Bispebjerg og Frederiksberg Hospital, og er forperson for databasen Atrieflimren i Danmark.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Ulla Dam-Schmidt, sygeplejerske, MKS, Bispebjerg og Frederiksberg Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Axel Brandes",
+      "type": "person",
+      "slug": "axel-brandes",
+      "folder": "entities/people/medical-professionals",
+      "significance": "Axel Brandes er Professor, overlæge og dr.med. ved Esbjerg og Grindsted sygehus, Syddansk Universitetshospital, og er forperson for databasen Atrieflimren i Danmark.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Axel Brandes, Professor, overlæge, dr.med., Esbjerg og Grindsted sygehus, Syddansk Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Ole Dyg Pedersen",
+      "type": "person",
+      "slug": "ole-dyg-pedersen",
+      "folder": "entities/people/medical-professionals",
+      "significance": "Ole Dyg Pedersen er Overlæge ved Sjællands Universitetshospital og er forperson for databasen Atrieflimren i Danmark.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Ole Dyg Pedersen, Overlæge, Sjællands Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Julie Andersen",
+      "type": "person",
+      "slug": "julie-andersen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Julie Andersen er RKKP's kontaktperson for Atrieflimren i Danmark og kan kontaktes på juland@rkkp.dk.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Julie Andersen, Regionernes Kliniske Kvalitetsudviklingsprogram, juland@rkkp.dk, tlf: 2478 7018"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospital",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg og Frederiksberg Hospital er en af de institutioner, der indberetter data til AFDK, og hvor forperson Ulla Dam-Schmidt arbejder.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Bispebjerg og Frederiksberg Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg og Grindsted sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg og Grindsted sygehus, som er del af Syddansk Universitetshospital, er en af de institutioner, der indberetter data til AFDK, og hvor forperson Axel Brandes arbejder.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Esbjerg og Grindsted sygehus, Syddansk Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Syddansk Universitetshospital",
+      "type": "organization",
+      "slug": "syddansk-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Syddansk Universitetshospital er en af de institutioner, der indberetter data til AFDK.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Syddansk Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital er en af de institutioner, der indberetter data til AFDK, og hvor forperson Ole Dyg Pedersen arbejder.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Sjællands Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Landspatientregisteret er den kilde, hvorfra alle patienter med diagnosen atrieflimren indberettes til AFDK fra offentlige sygehuse.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Rapporten omfatter alle patienter med diagnosen atrieflimren indberettet til Landspatientregisteret fra offentlige sygehuse"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det geografiske område, som AFDK dækker, og hvor kvaliteten af atrieflimren-behandling evalueres på nationalt, regionalt og hospitalsniveau.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Om der er klinisk betydningsfuld variation i kvaliteten af atrieflimren behandling mellem regioner, kommuner og hospitaler i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus",
+      "type": "location",
+      "slug": "aarhus",
+      "folder": "entities/locations/danish-municipalities",
+      "significance": "Aarhus er byen, hvor RKKP's hovedkontor er placeret på Hedeager 3, 8200 Aarhus N.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram, Hedeager 3, 8200 Aarhus N"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden er den region, hvor langt de fleste af de 15 praktiserende kardiologer, der indberetter til AFDK, er placeret.",
+      "mentions": [
+        {
+          "page": 5,
+          "context": "I denne årsrapportsperiode var 15 praktiserende kardiologer, heraf langt de fleste placeret i Region Hovedstaden, involveret i 5% af de incidente patientforløb"
+        }
+      ]
+    },
+    {
+      "name": "Antikoagulationsbehandling",
+      "type": "topic",
+      "slug": "antikoagulationsbehandling",
+      "folder": "topics/medical-treatments",
+      "significance": "Antikoagulationsbehandling er en central behandlingsform for atrieflimren-patienter, og dækningsgraden for denne behandling er en vigtig kvalitetsindikator i AFDK.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Indikator 1: Ventetid til antikoagulations behandling"
+        },
+        {
+          "page": 2,
+          "context": "Styregruppen har med baggrund i tidligere valideringsarbejde udført på tilfældigt udtrukne patienter konstateret, at der er tilfælde med falsk positive diagnoser for atrieflimren i Landspatientregisteret, og vi har konstateret, at der er patienter, hvor behandling ikke giver mening på grund af andre lidelser i terminalstadiet. Derfor har man valgt at anse en 90% målopfyldelse for antikoagulationsbehandling som værende god klinisk praksis"
+        }
+      ]
+    },
+    {
+      "name": "Atrieflimren",
+      "type": "topic",
+      "slug": "atrieflimren",
+      "folder": "topics/medical-conditions",
+      "significance": "Atrieflimren er den medicinske tilstand, som AFDK fokuserer på, og som påvirker 22.073 incidente patienter og 136.420 prævalente patienter i Danmark i rapportperioden.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "I alt er der identificeret 22.073 incidente patienter og 136.420 prævalente patienter med atrieflimren"
+        }
+      ]
+    },
+    {
+      "name": "Ekkokardiografi",
+      "type": "topic",
+      "slug": "echocardiography",
+      "folder": "topics/clinical-measures",
+      "significance": "Ekkokardiografi er en diagnostisk procedure, der er en vigtig kvalitetsindikator (Indikator 2) i AFDK, og der ses variation i den ekkokardiografiske service mellem institutioner.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Indikator 2: Ekkokardiografi"
+        },
+        {
+          "page": 4,
+          "context": "Der er fortsat variation i den ekkokardiografiske service, om end en del af denne variation kan forklares ved mangelfuld registrering"
+        }
+      ]
+    },
+    {
+      "name": "Thyreoideastimulerende hormon",
+      "type": "topic",
+      "slug": "thyroid-stimulating-hormone",
+      "folder": "topics/clinical-measures",
+      "significance": "TSH-måling er en vigtig kvalitetsindikator (Indikator 3) for atrieflimren-patienter, og der bør være fokus på, at patienter får målt TSH på diagnosetidspunktet.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Indikator 3: Thyreoideastimulerende hormon (TSH) måling"
+        },
+        {
+          "page": 4,
+          "context": "Der bør fortsat være fokus på, at patienter med atrieflimren får målt TSH på diagnosetidspunktet"
+        }
+      ]
+    },
+    {
+      "name": "DOAC",
+      "type": "topic",
+      "slug": "doac",
+      "folder": "topics/medications",
+      "significance": "DOAC (direkte oral antikoagulantia) er en type antikoagulationsbehandling for atrieflimren-patienter, og der bør være fokus på, at patienter i relevant DOAC-behandling får undersøgt nyrefunktion mindst én gang om året.",
+      "mentions": [
+        {
+          "page": 4,
+          "context": "patienter i relevant DOAC-behandling får undersøgt nyrefunktion mindst én gang om året"
+        }
+      ]
+    },
+    {
+      "name": "Iskæmisk apopleksi",
+      "type": "topic",
+      "slug": "ischemic-stroke",
+      "folder": "topics/clinical-outcome",
+      "significance": "Iskæmisk apopleksi er en vigtig komplikation blandt atrieflimren-patienter, og der er regionale forskelle i forekomsten af iskæmiske apopleksier blandt patienter med prævalent atrieflimren.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Indikator 5: Incidens Iskæmisk Apopleksi"
+        },
+        {
+          "page": 4,
+          "context": "Der er regionale forskelle mellem den højeste og laveste forekomst af iskæmiske apopleksier blandt patienter med prævalent atrieflimren"
+        }
+      ]
+    },
+    {
+      "name": "Intrakraniel blødning",
+      "type": "topic",
+      "slug": "intracranial-hemorrhage",
+      "folder": "topics/clinical-outcome",
+      "significance": "Intrakraniel blødning er en vigtig komplikation blandt atrieflimren-patienter under antikoagulationsbehandling, og er en kvalitetsindikator (Indikator 6) i AFDK.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Indikator 6: Incidens Intrakraniel blødning"
+        }
+      ]
+    },
+    {
+      "name": "Alvorlig blødning",
+      "type": "topic",
+      "slug": "serious-bleeding",
+      "folder": "topics/clinical-outcome",
+      "significance": "Alvorlig blødning er en vigtig komplikation blandt atrieflimren-patienter under antikoagulationsbehandling, og er en kvalitetsindikator (Indikator 7) i AFDK.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Indikator 7: Incidens alvorlig blødning"
+        }
+      ]
+    },
+    {
+      "name": "Patientuddannelse",
+      "type": "topic",
+      "slug": "patient-education",
+      "folder": "topics/clinical-treatment",
+      "significance": "Struktureret patientuddannelse er en vigtig kvalitetsindikator (Indikator 8) for atrieflimren-patienter, og ydes fortsat i begrænset omfang, men patientrepræsentanterne fremhæver dens store værdi.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Indikator 8: Patientuddannelse/undervisning"
+        },
+        {
+          "page": 4,
+          "context": "Struktureret patientuddannelse ydes fortsat i begrænset omfang"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynger",
+      "type": "topic",
+      "slug": "health-clusters",
+      "folder": "topics/operational",
+      "significance": "De 21 sundhedsklynger er de organisatoriske enheder, hvor alle sektorer (almen praksis, hospitaler og praktiserende kardiologer) har til opgave at samarbejde om det samlede populationsansvar for patienter med atrieflimren.",
+      "mentions": [
+        {
+          "page": 5,
+          "context": "afrapporteres databasens resultater fremadrettet primært med afsæt i patienternes bopæl i de 21 sundhedsklynger"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "is-managed-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Rapportens analyser er udarbejdet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) ved RKKP's Videncenter",
+      "page": 2
+    },
+    {
+      "subject": "ulla-dam-schmidt",
+      "predicate": "is-database-leader-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Forpersoner for databasen: Ulla Dam-Schmidt, sygeplejerske, MKS, Bispebjerg og Frederiksberg Hospital",
+      "page": 2
+    },
+    {
+      "subject": "axel-brandes",
+      "predicate": "is-database-leader-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Forpersoner for databasen: Axel Brandes, Professor, overlæge, dr.med., Esbjerg og Grindsted sygehus, Syddansk Universitetshospital",
+      "page": 2
+    },
+    {
+      "subject": "ole-dyg-pedersen",
+      "predicate": "is-database-leader-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Forpersoner for databasen: Ole Dyg Pedersen, Overlæge, Sjællands Universitetshospital",
+      "page": 2
+    },
+    {
+      "subject": "julie-andersen",
+      "predicate": "is-contact-person-for",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "RKKP's kontaktperson: Julie Andersen, Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 2
+    },
+    {
+      "subject": "ulla-dam-schmidt",
+      "predicate": "works-at",
+      "object": "bispebjerg-og-frederiksberg-hospitaler",
+      "evidence": "Ulla Dam-Schmidt, sygeplejerske, MKS, Bispebjerg og Frederiksberg Hospital",
+      "page": 2
+    },
+    {
+      "subject": "axel-brandes",
+      "predicate": "works-at",
+      "object": "esbjerg-sygehus-grindsted-sygehus",
+      "evidence": "Axel Brandes, Professor, overlæge, dr.med., Esbjerg og Grindsted sygehus, Syddansk Universitetshospital",
+      "page": 2
+    },
+    {
+      "subject": "ole-dyg-pedersen",
+      "predicate": "works-at",
+      "object": "sjaellands-universitetshospital",
+      "evidence": "Ole Dyg Pedersen, Overlæge, Sjællands Universitetshospital",
+      "page": 2
+    },
+    {
+      "subject": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "predicate": "is-located-in",
+      "object": "aarhus",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram, Hedeager 3, 8200 Aarhus N",
+      "page": 2
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "collects-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Rapporten omfatter alle patienter med diagnosen atrieflimren indberettet til Landspatientregisteret fra offentlige sygehuse",
+      "page": 2
+    }
+  ],
+  "claims": [
+    {
+      "text": "I alt er der identificeret 22.073 incidente patienter og 136.420 prævalente patienter med atrieflimren [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "atrieflimren"
+      ],
+      "page": 2
+    },
+    {
+      "text": "Rapporten omfatter perioden 1. juli 2023 – 30. juni 2024 [^src1]",
+      "type": "temporal",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 2
+    },
+    {
+      "text": "Der er nu etableret tilknytning af praktiserende speciallæger i kardiologi, der siden 1. juni 2023 har opsamlet data, som for første gang indgår i denne årsrapport [^src1]",
+      "type": "operational",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 2
+    },
+    {
+      "text": "I denne årsrapportsperiode var 15 praktiserende kardiologer, heraf langt de fleste placeret i Region Hovedstaden, involveret i 5% af de incidente patientforløb [^src1]",
+      "type": "operational",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 5
+    },
+    {
+      "text": "Man har valgt at anse en 90% målopfyldelse for antikoagulationsbehandling som værende god klinisk praksis [^src1]",
+      "type": "quality-standard",
+      "entities": [
+        "antikoagulationsbehandling"
+      ],
+      "page": 2
+    },
+    {
+      "text": "Den generelle kvalitet i Danmark er set over tid i bedring, og variationen mellem regionerne er i aftagende [^src1]",
+      "type": "quality-assessment",
+      "entities": [
+        "danmark"
+      ],
+      "page": 4
+    },
+    {
+      "text": "Dækningsgraden for AK behandling er fortsat på højt niveau, og man opfylder standarden på såvel nationalt som regionalt niveau [^src1]",
+      "type": "quality-assessment",
+      "entities": [
+        "antikoagulationsbehandling"
+      ],
+      "page": 4
+    },
+    {
+      "text": "Der er regionale forskelle mellem den højeste og laveste forekomst af iskæmiske apopleksier blandt patienter med prævalent atrieflimren [^src1]",
+      "type": "regional-variation",
+      "entities": [
+        "iskaemisk-apopleksi"
+      ],
+      "page": 4
+    },
+    {
+      "text": "Der er fortsat variation i den ekkokardiografiske service, om end en del af denne variation kan forklares ved mangelfuld registrering [^src1]",
+      "type": "quality-assessment",
+      "entities": [
+        "echocardiography"
+      ],
+      "page": 4
+    },
+    {
+      "text": "Struktureret patientuddannelse ydes fortsat i begrænset omfang [^src1]",
+      "type": "quality-assessment",
+      "entities": [
+        "patient-education"
+      ],
+      "page": 4
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. juni 2023",
+      "event": "Praktiserende speciallæger i kardiologi begyndte at opsamle data til AFDK [^src1]",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "1. juli 2023",
+      "event": "Begyndelse af rapportperioden for årsrapporten 2024 [^src1]",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "30. juni 2024",
+      "event": "Afslutning af rapportperioden for årsrapporten 2024 [^src1]",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "Oktober 2024",
+      "event": "Styregruppen for AFDK godkendte rapporten [^src1]",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "16. december 2024",
+      "event": "Årsrapporten 2024 blev offentliggjort [^src1]",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    }
+  ],
+  "context": "Denne rapport er årsrapporten 2024 fra Databasen for Atrieflimren i Danmark (AFDK), som er en del af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten dækker perioden 1. juli 2023 til 30. juni 2024 og præsenterer for første gang data fra praktiserende kardiologer, der siden 1. juni 2023 har indberettet data til databasen. Rapporten omfatter 22.073 incidente patienter og 136.420 prævalente patienter med atrieflimren og evaluerer kvaliteten af behandlingen gennem otte hovedindikatorer samt supplerende analyser. Rapporten henvender sig primært til sundhedsfaglige miljøer og søger at belyse, om kvaliteten af den danske atrieflimren-behandling opfylder fastlagte standarder, og om der er klinisk betydningsfuld variation mellem regioner, kommuner og hospitaler i Danmark."
+}

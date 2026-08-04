@@ -1,0 +1,1160 @@
+{
+  "entities": [
+    {
+      "slug": "aalborg",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "aalborg-universitetshospital-thisted",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "aarhus",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 2
+    },
+    {
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 10
+    },
+    {
+      "slug": "aarhusklyngen",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 7
+    },
+    {
+      "slug": "albert-marni-joensen",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 3
+    },
+    {
+      "slug": "alvorlig-bloedning",
+      "folder": "topics/clinical-outcome",
+      "mentionCount": 3
+    },
+    {
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "anders-moeller-schlunsen",
+      "folder": "entities/people/medical-professionals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "antikoagulationsbehandling",
+      "folder": "topics/medical-treatments",
+      "mentionCount": 14
+    },
+    {
+      "slug": "apixaban",
+      "folder": "topics/medications",
+      "mentionCount": 2
+    },
+    {
+      "slug": "atrial-fibrillation",
+      "folder": "topics/medical-conditions",
+      "mentionCount": 2
+    },
+    {
+      "slug": "atrieflimren",
+      "folder": "topics/medical-conditions",
+      "mentionCount": 21
+    },
+    {
+      "slug": "atrieflimren-i-danmark",
+      "folder": "topics/heart-failure",
+      "mentionCount": 30
+    },
+    {
+      "slug": "axel-brandes",
+      "folder": "entities/people/medical-professionals",
+      "mentionCount": 3
+    },
+    {
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 12
+    },
+    {
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "broenderslev",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "cha2ds2-vasc-score",
+      "folder": "topics/clinical-measures",
+      "mentionCount": 14
+    },
+    {
+      "slug": "chresten-gamborg-puggaard",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "cpr-registeret",
+      "folder": "entities/organizations/health-registries",
+      "mentionCount": 2
+    },
+    {
+      "slug": "dabigatran",
+      "folder": "topics/medications",
+      "mentionCount": 2
+    },
+    {
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "mentionCount": 52
+    },
+    {
+      "slug": "dansk-cardiologisk-selskab",
+      "folder": "entities/organizations/professional-societies",
+      "mentionCount": 2
+    },
+    {
+      "slug": "danstroke",
+      "folder": "entities/organizations/health-registries",
+      "mentionCount": 6
+    },
+    {
+      "slug": "database-atrieflimren-danmark",
+      "folder": "topics/healthcare-databases",
+      "mentionCount": 2
+    },
+    {
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "mentionCount": 52
+    },
+    {
+      "slug": "den-nationale-labdatabank",
+      "folder": "entities/organizations/health-registries",
+      "mentionCount": 4
+    },
+    {
+      "slug": "doac",
+      "folder": "topics/medications",
+      "mentionCount": 13
+    },
+    {
+      "slug": "doac-anticoagulation",
+      "folder": "topics/treatments",
+      "mentionCount": 1
+    },
+    {
+      "slug": "dorte-damgaard",
+      "folder": "entities/people/medical-professionals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "dorthe-svenstrup",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "echocardiography",
+      "folder": "topics/clinical-measures",
+      "mentionCount": 2
+    },
+    {
+      "slug": "edoxaban",
+      "folder": "topics/medications",
+      "mentionCount": 2
+    },
+    {
+      "slug": "ekkokardiografi",
+      "folder": "topics/clinical-measures",
+      "mentionCount": 3
+    },
+    {
+      "slug": "ekvlis",
+      "folder": "entities/organizations/professional-societies",
+      "mentionCount": 1
+    },
+    {
+      "slug": "eliquis",
+      "folder": "topics/medications",
+      "mentionCount": 1
+    },
+    {
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 10
+    },
+    {
+      "slug": "esc",
+      "folder": "entities/organizations/professional-societies",
+      "mentionCount": 2
+    },
+    {
+      "slug": "esc-guidelines",
+      "folder": "entities/organizations/professional-societies",
+      "mentionCount": 2
+    },
+    {
+      "slug": "frederikshavn",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "friklinikken-region-syddanmark-grindsted",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "garantiklinikken",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "goedstrupklyngen",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 7
+    },
+    {
+      "slug": "gregory-y-h-lip",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "health-clusters",
+      "folder": "topics/operational",
+      "mentionCount": 1
+    },
+    {
+      "slug": "henrik-rasmussen",
+      "folder": "entities/people/medical-professionals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "hindricks-et-al",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "hjertesvigt",
+      "folder": "topics/medical-conditions",
+      "mentionCount": 3
+    },
+    {
+      "slug": "hjoerring",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "holbaek",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "horsensklyngen",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 9
+    },
+    {
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 13
+    },
+    {
+      "slug": "hospitalsenheden-vest",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 6
+    },
+    {
+      "slug": "hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 10
+    },
+    {
+      "slug": "ikast-brande",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "ina-qvist",
+      "folder": "entities/people/medical-professionals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "indikator-1-antikoagulation-waiting-time",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 2
+    },
+    {
+      "slug": "indikator-11-serious-bleeding-newly-diagnosed",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 1
+    },
+    {
+      "slug": "indikator-15-heart-failure-newly-diagnosed",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 1
+    },
+    {
+      "slug": "indikator-2-echocardiography",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 1
+    },
+    {
+      "slug": "indikator-2-ekkokardiografi",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 1
+    },
+    {
+      "slug": "indikator-3-tsh-maaling",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 1
+    },
+    {
+      "slug": "indikator-3-tsh-measurement",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 1
+    },
+    {
+      "slug": "indikator-4a",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 1
+    },
+    {
+      "slug": "indikator-4a-antikoagulation",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 1
+    },
+    {
+      "slug": "indikator-4a1",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 1
+    },
+    {
+      "slug": "indikator-4a2",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 1
+    },
+    {
+      "slug": "indikator-4a3",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 2
+    },
+    {
+      "slug": "indikator-4b",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 2
+    },
+    {
+      "slug": "indikator-5",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 2
+    },
+    {
+      "slug": "indikator-5-iskemisk-apopleksi",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 2
+    },
+    {
+      "slug": "indikator-6-intrakraniel-blodning",
+      "folder": "topics/quality-indicators",
+      "mentionCount": 7
+    },
+    {
+      "slug": "indikator-7-incidens-alvorlig-blodning",
+      "folder": "topics/quality-indicator",
+      "mentionCount": 4
+    },
+    {
+      "slug": "indikator-7-serious-bleeding",
+      "folder": "topics/quality-indicators",
+      "mentionCount": 1
+    },
+    {
+      "slug": "indikator-8-structured-education",
+      "folder": "topics/quality-indicators",
+      "mentionCount": 2
+    },
+    {
+      "slug": "inge-moelgaard",
+      "folder": "entities/people/patient-representatives",
+      "mentionCount": 2
+    },
+    {
+      "slug": "international-society-of-thrombosis-and-hemostasis",
+      "folder": "entities/organizations/professional-societies",
+      "mentionCount": 8
+    },
+    {
+      "slug": "intracranial-hemorrhage",
+      "folder": "topics/clinical-outcome",
+      "mentionCount": 1
+    },
+    {
+      "slug": "intrakraniel-bloedning",
+      "folder": "topics/medical-conditions",
+      "mentionCount": 6
+    },
+    {
+      "slug": "ischemic-stroke",
+      "folder": "topics/clinical-outcome",
+      "mentionCount": 2
+    },
+    {
+      "slug": "iskaemisk-apopleksi",
+      "folder": "topics/medical-conditions",
+      "mentionCount": 8
+    },
+    {
+      "slug": "jammerbugt",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "jeppe-launbjerg",
+      "folder": "entities/people/medical-professionals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "julie-andersen",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 6
+    },
+    {
+      "slug": "klynge-midt",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 8
+    },
+    {
+      "slug": "klynge-nord",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 8
+    },
+    {
+      "slug": "klynge-syd",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 8
+    },
+    {
+      "slug": "klynge-syd-nordjylland",
+      "folder": "entities/organizations/regions",
+      "mentionCount": 1
+    },
+    {
+      "slug": "klynge-vest",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 8
+    },
+    {
+      "slug": "koebenhavn",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "kolding-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 11
+    },
+    {
+      "slug": "labka",
+      "folder": "topics/clinical-systems",
+      "mentionCount": 2
+    },
+    {
+      "slug": "laboratoriedatabasen",
+      "folder": "entities/organizations/health-registries",
+      "mentionCount": 2
+    },
+    {
+      "slug": "laboratorieregistret",
+      "folder": "entities/organizations/health-registries",
+      "mentionCount": 2
+    },
+    {
+      "slug": "laegemiddelstatistikregisteret",
+      "folder": "entities/organizations/health-registries",
+      "mentionCount": 6
+    },
+    {
+      "slug": "laesoe",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-registries",
+      "mentionCount": 38
+    },
+    {
+      "slug": "lars-frost",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 3
+    },
+    {
+      "slug": "lemvig",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "lixiana",
+      "folder": "topics/medications",
+      "mentionCount": 1
+    },
+    {
+      "slug": "louisa-marguerite-christensen",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "lunde-et-al",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "marevan",
+      "folder": "topics/medications",
+      "mentionCount": 9
+    },
+    {
+      "slug": "marevan-anticoagulation",
+      "folder": "topics/treatments",
+      "mentionCount": 1
+    },
+    {
+      "slug": "margit-brinck",
+      "folder": "entities/people/medical-professionals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "mariagerfjord",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "mccabe",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 50
+    },
+    {
+      "slug": "midtklyngen",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 8
+    },
+    {
+      "slug": "miriam-grijota-chousa",
+      "folder": "entities/people/medical-professionals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "morsoe",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "naestved",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 11
+    },
+    {
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 47
+    },
+    {
+      "slug": "npu04998",
+      "folder": "topics/clinical-measures",
+      "mentionCount": 1
+    },
+    {
+      "slug": "npu18016",
+      "folder": "topics/clinical-measures",
+      "mentionCount": 1
+    },
+    {
+      "slug": "nykoebing-falster",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "odense",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "ole-dyg-pedersen",
+      "folder": "entities/people/medical-professionals",
+      "mentionCount": 3
+    },
+    {
+      "slug": "oral-antikoagulationsbehandling",
+      "folder": "topics/medications",
+      "mentionCount": 1
+    },
+    {
+      "slug": "ouh-odense-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 10
+    },
+    {
+      "slug": "p-creatinin",
+      "folder": "topics/clinical-measures",
+      "mentionCount": 4
+    },
+    {
+      "slug": "palle-mark-christensen",
+      "folder": "entities/people/medical-professionals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "palm-et-al",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 4
+    },
+    {
+      "slug": "patient-education",
+      "folder": "topics/clinical-treatment",
+      "mentionCount": 2
+    },
+    {
+      "slug": "patientuddannelse",
+      "folder": "topics/clinical-treatment",
+      "mentionCount": 2
+    },
+    {
+      "slug": "pradaxa",
+      "folder": "topics/medications",
+      "mentionCount": 1
+    },
+    {
+      "slug": "praktiserende-kardiologer",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "randersklyngen",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 8
+    },
+    {
+      "slug": "rebild",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regions",
+      "mentionCount": 54
+    },
+    {
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regions",
+      "mentionCount": 17
+    },
+    {
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regions",
+      "mentionCount": 18
+    },
+    {
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regions",
+      "mentionCount": 16
+    },
+    {
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regions",
+      "mentionCount": 15
+    },
+    {
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-registries",
+      "mentionCount": 79
+    },
+    {
+      "slug": "regionshospital-nordjylland-ven",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 7
+    },
+    {
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 10
+    },
+    {
+      "slug": "regionshospitalet-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "regionshospitalet-silkeborg",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 10
+    },
+    {
+      "slug": "ringkoebing-skjern",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "risom",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 3
+    },
+    {
+      "slug": "rivaroxaban",
+      "folder": "topics/medications",
+      "mentionCount": 2
+    },
+    {
+      "slug": "rkkp",
+      "folder": "entities/organizations/health-registries",
+      "mentionCount": 10
+    },
+    {
+      "slug": "robert-bedsted",
+      "folder": "entities/people/patient-representatives",
+      "mentionCount": 2
+    },
+    {
+      "slug": "s-creatinin",
+      "folder": "topics/clinical-measures",
+      "mentionCount": 1
+    },
+    {
+      "slug": "samsoe",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "samsoe-sundheds-og-akuthus",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 3
+    },
+    {
+      "slug": "serious-bleeding",
+      "folder": "topics/clinical-outcome",
+      "mentionCount": 1
+    },
+    {
+      "slug": "shs-faelles-akut-modtagelse",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "sig-atrieflimren",
+      "folder": "entities/organizations/professional-societies",
+      "mentionCount": 2
+    },
+    {
+      "slug": "sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 43
+    },
+    {
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "sjaellands-universitetshospital-koege",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "sjaellands-universitetshospital-roskilde",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 9
+    },
+    {
+      "slug": "slagelse",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 11
+    },
+    {
+      "slug": "steno-diabetes-center",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 3
+    },
+    {
+      "slug": "struer",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "struktureret-patientuddannelse",
+      "folder": "topics/clinical-treatment",
+      "mentionCount": 2
+    },
+    {
+      "slug": "sundhedsdatastyrelsen",
+      "folder": "entities/organizations/government",
+      "mentionCount": 6
+    },
+    {
+      "slug": "sundhedsklynge-bornholm",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 8
+    },
+    {
+      "slug": "sundhedsklynge-byen",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 7
+    },
+    {
+      "slug": "sundhedsklynge-fyn",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 7
+    },
+    {
+      "slug": "sundhedsklynge-lillebaelt",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 8
+    },
+    {
+      "slug": "sundhedsklynge-midt",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 7
+    },
+    {
+      "slug": "sundhedsklynge-nord",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 7
+    },
+    {
+      "slug": "sundhedsklynge-soenderjylland",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 10
+    },
+    {
+      "slug": "sundhedsklynge-syd",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 7
+    },
+    {
+      "slug": "sundhedsklynge-sydvestjylland",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 7
+    },
+    {
+      "slug": "sundhedsklyngen-holbaek",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 7
+    },
+    {
+      "slug": "sundhedsklyngen-nykoebing-f",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 9
+    },
+    {
+      "slug": "sundhedsklyngen-slagelse",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 7
+    },
+    {
+      "slug": "sundhedsklyngen-suh",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 7
+    },
+    {
+      "slug": "sundhedsklynger",
+      "folder": "topics/operational",
+      "mentionCount": 4
+    },
+    {
+      "slug": "sundhedsplatformen",
+      "folder": "entities/organizations/health-systems",
+      "mentionCount": 3
+    },
+    {
+      "slug": "sundhedsstyrelsen",
+      "folder": "entities/organizations/government-agencies",
+      "mentionCount": 2
+    },
+    {
+      "slug": "syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 44
+    },
+    {
+      "slug": "syddansk-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 7
+    },
+    {
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 11
+    },
+    {
+      "slug": "sygesikringsregisteret",
+      "folder": "entities/organizations/health-registries",
+      "mentionCount": 4
+    },
+    {
+      "slug": "thisted",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "thyroid-stimulating-hormone",
+      "folder": "topics/clinical-measures",
+      "mentionCount": 2
+    },
+    {
+      "slug": "tsh-maaling",
+      "folder": "topics/clinical-measures",
+      "mentionCount": 1
+    },
+    {
+      "slug": "ulla-dam-schmidt",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 4
+    },
+    {
+      "slug": "ulla-davidsen",
+      "folder": "entities/people/medical-professionals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "vejle-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 11
+    },
+    {
+      "slug": "vesthimmerlands",
+      "folder": "entities/locations/danish-municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "vitamin-k-antagonister",
+      "folder": "topics/medications",
+      "mentionCount": 2
+    },
+    {
+      "slug": "woo-et-al",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "xarelto",
+      "folder": "topics/medications",
+      "mentionCount": 1
+    }
+  ],
+  "topics": [
+    "action",
+    "assessment",
+    "clinical",
+    "clinical-context",
+    "clinical-criteria",
+    "clinical-epidemiology",
+    "clinical-finding",
+    "clinical-framework",
+    "clinical-goal",
+    "clinical-indicator",
+    "clinical-measure",
+    "clinical-methodology",
+    "clinical-outcome",
+    "clinical-performance",
+    "clinical-projection",
+    "clinical-quality",
+    "clinical-rationale",
+    "clinical-recommendation",
+    "clinical-risk",
+    "clinical-standard",
+    "clinical-statistics",
+    "clinical-treatment",
+    "clinical-trend",
+    "data-characteristic",
+    "data-collection",
+    "data-exclusion",
+    "data-limitation",
+    "data-privacy",
+    "data-quality",
+    "data-quality-note",
+    "data-source",
+    "definitional",
+    "demographic",
+    "demographic-projection",
+    "epidemiological",
+    "exclusion",
+    "finding",
+    "heart-failure",
+    "indicator-definition",
+    "indicator-status",
+    "limitation",
+    "methodological",
+    "methodology",
+    "mortality",
+    "mortality-trend",
+    "note",
+    "operational",
+    "organizational",
+    "organizational-goal",
+    "patient-count",
+    "patient-outcome",
+    "performance",
+    "population",
+    "quality-assessment",
+    "quality-indicator",
+    "quality-indicator-definition",
+    "quality-indicator-result",
+    "quality-performance",
+    "quality-standard",
+    "recommendation",
+    "regional-comparison",
+    "regional-performance",
+    "regional-variation",
+    "result",
+    "standard",
+    "standard-setting",
+    "technical",
+    "temporal",
+    "treatment-gap",
+    "treatment-outcome",
+    "trend"
+  ],
+  "sources": [
+    "afdk-2023",
+    "afdk-2024"
+  ],
+  "folderStructure": [
+    "entities/locations/countries",
+    "entities/locations/danish-municipalities",
+    "entities/locations/danish-regions",
+    "entities/organizations/government",
+    "entities/organizations/government-agencies",
+    "entities/organizations/health-registries",
+    "entities/organizations/health-systems",
+    "entities/organizations/hospitals",
+    "entities/organizations/professional-societies",
+    "entities/organizations/regions",
+    "entities/people/healthcare-professionals",
+    "entities/people/medical-professionals",
+    "entities/people/patient-representatives",
+    "topics/action",
+    "topics/assessment",
+    "topics/clinical",
+    "topics/clinical-context",
+    "topics/clinical-criteria",
+    "topics/clinical-epidemiology",
+    "topics/clinical-finding",
+    "topics/clinical-framework",
+    "topics/clinical-goal",
+    "topics/clinical-indicator",
+    "topics/clinical-measure",
+    "topics/clinical-measures",
+    "topics/clinical-methodology",
+    "topics/clinical-outcome",
+    "topics/clinical-performance",
+    "topics/clinical-projection",
+    "topics/clinical-quality",
+    "topics/clinical-rationale",
+    "topics/clinical-recommendation",
+    "topics/clinical-risk",
+    "topics/clinical-standard",
+    "topics/clinical-statistics",
+    "topics/clinical-systems",
+    "topics/clinical-treatment",
+    "topics/clinical-trend",
+    "topics/data-characteristic",
+    "topics/data-collection",
+    "topics/data-exclusion",
+    "topics/data-limitation",
+    "topics/data-privacy",
+    "topics/data-quality",
+    "topics/data-quality-note",
+    "topics/data-source",
+    "topics/definitional",
+    "topics/demographic",
+    "topics/demographic-projection",
+    "topics/epidemiological",
+    "topics/exclusion",
+    "topics/finding",
+    "topics/healthcare-databases",
+    "topics/heart-failure",
+    "topics/indicator-definition",
+    "topics/indicator-status",
+    "topics/limitation",
+    "topics/medical-conditions",
+    "topics/medical-treatments",
+    "topics/medications",
+    "topics/methodological",
+    "topics/methodology",
+    "topics/mortality",
+    "topics/mortality-trend",
+    "topics/note",
+    "topics/operational",
+    "topics/organizational",
+    "topics/organizational-goal",
+    "topics/patient-count",
+    "topics/patient-outcome",
+    "topics/performance",
+    "topics/population",
+    "topics/quality-assessment",
+    "topics/quality-indicator",
+    "topics/quality-indicator-definition",
+    "topics/quality-indicator-result",
+    "topics/quality-indicators",
+    "topics/quality-performance",
+    "topics/quality-standard",
+    "topics/recommendation",
+    "topics/regional-comparison",
+    "topics/regional-performance",
+    "topics/regional-variation",
+    "topics/result",
+    "topics/standard",
+    "topics/standard-setting",
+    "topics/technical",
+    "topics/temporal",
+    "topics/treatment-gap",
+    "topics/treatment-outcome",
+    "topics/treatments",
+    "topics/trend"
+  ]
+}

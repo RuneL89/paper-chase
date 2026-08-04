@@ -1,0 +1,328 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "This is the Danish national database for atrial fibrillation that tracks clinical quality indicators and patient outcomes across Danish regions and municipalities.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 62,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 63,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 64,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 65,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-programs",
+      "significance": "RKKP is the Danish regional clinical quality development program that oversees and publishes quality indicators for atrial fibrillation care across Danish regions.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 62,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 63,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 64,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 65,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "The Danish National Patient Registry is the source of diagnostic and hospitalization data used to identify intracranial bleeding cases among atrial fibrillation patients.",
+      "mentions": [
+        {
+          "page": 65,
+          "context": "Oplysningerne vedrørende intrakraniel blødning indhentes fra Landspatientregistret"
+        },
+        {
+          "page": 65,
+          "context": "alle personer, som var i live pr. 1. juli 2022, og som har fået diagnosen registeret i Landspatientregistret mindst én gang inden for de foregående 10 år"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "The Capital Region of Denmark is highlighted as the only region that did not meet the standard for intracranial bleeding incidence among atrial fibrillation patients.",
+      "mentions": [
+        {
+          "page": 65,
+          "context": "På regionalt niveau adskiller Hovedstaden sig marginalt og med en andel på 0,7% er standarden ikke opfyldt her"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Sjælland region is listed in the quality indicator data with 103 cases out of 22,375 patients meeting the standard.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Sjælland Ja 103 / 22.375 0 (0) 0,5 (0,4-0,6)"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Southern Denmark region is listed in the quality indicator data with 159 cases out of 31,271 patients meeting the standard.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Syddanmark Ja 159 / 31.271 0 (0) 0,5 (0,4-0,6)"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Central Jutland region is listed in the quality indicator data with 132 cases out of 29,513 patients meeting the standard.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Midtjylland Ja 132 / 29.513 0 (0) 0,4 (0,4-0,5)"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Northern Jutland region is listed in the quality indicator data with 72 cases out of 14,523 patients meeting the standard.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Nordjylland Ja 72 / 14.523 0 (0) 0,5 (0,4-0,6)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 6",
+      "type": "topic",
+      "slug": "indikator-6-intrakraniel-blodning",
+      "folder": "topics/quality-indicators",
+      "significance": "Indicator 6 measures the incidence of intracranial bleeding among prevalent atrial fibrillation patients and is a key quality metric in the Danish atrial fibrillation database.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren."
+        },
+        {
+          "page": 64,
+          "context": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren. Trendgraf på regionsniveau."
+        },
+        {
+          "page": 65,
+          "context": "Indikator 6 opgøres for alle prævalente patienter med en atrieflimren-diagnose"
+        }
+      ]
+    },
+    {
+      "name": "CHA2DS2-VASc score",
+      "type": "topic",
+      "slug": "cha2ds2-vasc-score",
+      "folder": "topics/clinical-measures",
+      "significance": "The CHA2DS2-VASc score is used to stratify risk among atrial fibrillation patients; notably, 43.7% of intracranial bleeds occurred in patients with a score of 0 or 1.",
+      "mentions": [
+        {
+          "page": 65,
+          "context": "Det bemærkes, at 43,7% af blødningerne optrådte blandt patienter med en CHA2DS2-VASc score på 0 eller 1."
+        }
+      ]
+    },
+    {
+      "name": "DOAC",
+      "type": "topic",
+      "slug": "doac",
+      "folder": "topics/medications",
+      "significance": "Direct oral anticoagulants (DOAC) are a treatment option for atrial fibrillation patients; 0.52% of DOAC-treated patients experienced intracranial bleeding in the reporting period.",
+      "mentions": [
+        {
+          "page": 65,
+          "context": "Andelen af patienter med intrakraniel blødning er 0,52% for DOAC"
+        }
+      ]
+    },
+    {
+      "name": "Marevan",
+      "type": "topic",
+      "slug": "marevan",
+      "folder": "topics/medications",
+      "significance": "Marevan (warfarin) is a traditional anticoagulant used for atrial fibrillation; 0.46% of marevan-treated patients experienced intracranial bleeding in the reporting period.",
+      "mentions": [
+        {
+          "page": 65,
+          "context": "Andelen af patienter med intrakraniel blødning er 0,46% for marevan"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "managed-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark is published under Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 61
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Oplysningerne vedrørende intrakraniel blødning indhentes fra Landspatientregistret",
+      "page": 65
+    },
+    {
+      "subject": "indikator-6-intrakraniel-blodning",
+      "predicate": "measures",
+      "object": "cha2ds2-vasc-score",
+      "evidence": "I Appendiks er medtaget en tabel over fordelingen af CHA2DS2-VASc score blandt patienterne med intrakraniel blødning",
+      "page": 65
+    },
+    {
+      "subject": "indikator-6-intrakraniel-blodning",
+      "predicate": "tracks-treatment-with",
+      "object": "doac",
+      "evidence": "I Appendiks rapporteres andele af patienter i behandling med DOAC og/eller marevan",
+      "page": 65
+    },
+    {
+      "subject": "indikator-6-intrakraniel-blodning",
+      "predicate": "tracks-treatment-with",
+      "object": "marevan",
+      "evidence": "I Appendiks rapporteres andele af patienter i behandling med DOAC og/eller marevan",
+      "page": 65
+    }
+  ],
+  "claims": [
+    {
+      "text": "I alt blev 0,5% af de prævalente patienter med atrieflimren indlagt med intrakraniel blødning i den aktuelle opgørelsesperiode og standarden (0,6%) er således opfyldt [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 65
+    },
+    {
+      "text": "På regionalt niveau adskiller Hovedstaden sig marginalt og med en andel på 0,7% er standarden ikke opfyldt her, i modsætning til de øvrige regioner, der ligger i niveauet 0,4-0,5% [^src1]",
+      "type": "regional-variation",
+      "entities": [
+        "hovedstaden"
+      ],
+      "page": 65
+    },
+    {
+      "text": "43,7% af blødningerne optrådte blandt patienter med en CHA2DS2-VASc score på 0 eller 1 [^src1]",
+      "type": "clinical-finding",
+      "entities": [
+        "cha2ds2-vasc-score"
+      ],
+      "page": 65
+    },
+    {
+      "text": "Andelen af patienter med intrakraniel blødning er 0,52% for DOAC og 0,46% for marevan [^src1]",
+      "type": "treatment-outcome",
+      "entities": [
+        "doac",
+        "marevan"
+      ],
+      "page": 65
+    },
+    {
+      "text": "På landsplan udvikler 0,7% af den incidente population blødning og der ses kun beskeden regional variation (0,6-0,8%) [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 65
+    },
+    {
+      "text": "Antal Eksklusion: 2.584 Patienten har ikke bopæl i DK eller har et erstatnings CPRnr; 64 Patientens bopælskommune er ukendt; 79.554 Patienten dør inden starten af sidste opgørelsesperiode [^src1]",
+      "type": "data-exclusion",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 65
+    },
+    {
+      "text": "Indikator 6 opgøres for alle prævalente patienter med en atrieflimren-diagnose, dvs. alle personer, som var i live pr. 1. juli 2022, og som har fået diagnosen registeret i Landspatientregistret mindst én gang inden for de foregående 10 år [^src1]",
+      "type": "methodology",
+      "entities": [
+        "indikator-6-intrakraniel-blodning",
+        "landspatientregisteret"
+      ],
+      "page": 65
+    },
+    {
+      "text": "Oplysningerne vedrørende intrakraniel blødning indhentes fra Landspatientregistret og omfatter følgende diagnoser: DI60 (subaraknoidal blødning), DI61 (hjerneblødning), DI62 (andre ikke-traumatiske intrakranielle blødninger), DS064 (traumatisk epidural blødning), DS065 (traumatisk subdural blødning) og DS066 (traumatisk subarachnoidal blødning) [^src1]",
+      "type": "methodology",
+      "entities": [
+        "landspatientregisteret"
+      ],
+      "page": 65
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2022-07-01",
+      "event": "Start of the reporting period for Indicator 6 data collection",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "indikator-6-intrakraniel-blodning"
+      ]
+    },
+    {
+      "date": "2023-06-30",
+      "event": "End of the reporting period for Indicator 6 data collection",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "indikator-6-intrakraniel-blodning"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer resultaterne af Indikator 6 fra Databasen for Atrieflimren i Danmark for rapporteringsperioden 1. juli 2022 til 30. juni 2023. Indikatoren måler incidensen af intrakraniel blødning blandt prævalente patienter med atrieflimren på tværs af danske regioner og kommuner. Dokumentet indeholder detaljerede tabeller over blødningsrater stratificeret efter geografisk område, samt kontroldiagrammer og trendgrafer på regionsniveau. Resultaterne viser, at den nationale standard på 0,6% blev opfyldt med en samlet andel på 0,5%, selvom Hovedstaden region ikke opfyldte standarden med 0,7%. Dokumentet diskuterer også metodologi, eksklusionskriterier, behandlingstyper (DOAC og marevan) og risikostratificering ved hjælp af CHA2DS2-VASc score."
+}

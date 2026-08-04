@@ -1,0 +1,449 @@
+{
+  "entities": [
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det nationale niveau for alle rapporterede indikatorer vedr. atrieflimren-behandling og forebyggelse af iskæmisk apopleksi.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Danmark 5267 52.6 4743 47.4 10010 - Start på AK behandling"
+        },
+        {
+          "page": 92,
+          "context": "Danmark 726 65.8 378 34.2 1104 - Andel af atrieflimren patienter indlagt med iskæmisk apopleksi"
+        },
+        {
+          "page": 92,
+          "context": "Alle 133706 99.18 1104 0.82 - Prævalente patienter med atrieflimren"
+        },
+        {
+          "page": 93,
+          "context": "Danmark Ja 770 / 134.741 0 (0) 0,6 (0,5-0,6) - Indikator 5 baseret på DanStroke"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden er en af fem danske regioner med rapporterede data for atrieflimren-behandling og apopleksi-forebyggelse.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Region Hovedstaden 1152 47.1 1293 52.9 2445 - Start på AK behandling"
+        },
+        {
+          "page": 92,
+          "context": "Region Hovedstaden 221 63.5 127 36.5 348 - Andel af atrieflimren patienter indlagt med iskæmisk apopleksi"
+        },
+        {
+          "page": 93,
+          "context": "Hovedstaden Ja 287 / 37.128 0 (0) 0,8 (0,7-0,9) - Indikator 5 baseret på DanStroke"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Sjælland er en af fem danske regioner med rapporterede data for atrieflimren-behandling og apopleksi-forebyggelse.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Sjælland 892 52.8 796 47.2 1688 - Start på AK behandling"
+        },
+        {
+          "page": 92,
+          "context": "Sjælland 136 63.0 80 37.0 216 - Andel af atrieflimren patienter indlagt med iskæmisk apopleksi"
+        },
+        {
+          "page": 94,
+          "context": "Sjælland Ja 173 / 22.372 0 (0) 0,8 (0,7-0,9) - Indikator 5 baseret på DanStroke"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Syddanmark er en af fem danske regioner med rapporterede data for atrieflimren-behandling og apopleksi-forebyggelse.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Syddanmark 1267 53.3 1112 46.7 2379 - Start på AK behandling"
+        },
+        {
+          "page": 92,
+          "context": "Syddanmark 161 70.6 67 29.4 228 - Andel af atrieflimren patienter indlagt med iskæmisk apopleksi"
+        },
+        {
+          "page": 94,
+          "context": "Syddanmark Ja 83 / 31.244 0 (0) 0,3 (0,2-0,3) - Indikator 5 baseret på DanStroke"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Midtjylland er en af fem danske regioner med rapporterede data for atrieflimren-behandling og apopleksi-forebyggelse.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Midtjylland 1304 56.7 995 43.3 2299 - Start på AK behandling"
+        },
+        {
+          "page": 92,
+          "context": "Midtjylland 140 66.4 71 33.6 211 - Andel af atrieflimren patienter indlagt med iskæmisk apopleksi"
+        },
+        {
+          "page": 93,
+          "context": "Midtjylland Ja 141 / 29.495 0 (0) 0,5 (0,4-0,6) - Indikator 5 baseret på DanStroke"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Nordjylland er en af fem danske regioner med rapporterede data for atrieflimren-behandling og apopleksi-forebyggelse.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Nordjylland 652 54.4 547 45.6 1199 - Start på AK behandling"
+        },
+        {
+          "page": 92,
+          "context": "Nordjylland 68 67.3 33 32.7 101 - Andel af atrieflimren patienter indlagt med iskæmisk apopleksi"
+        },
+        {
+          "page": 93,
+          "context": "Nordjylland Ja 86 / 14.502 0 (0) 0,6 (0,5-0,7) - Indikator 5 baseret på DanStroke"
+        }
+      ]
+    },
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Databasen for Atrieflimren i Danmark er kilden til alle rapporterede data om atrieflimren-behandling og apopleksi-forebyggelse i denne årsrapport.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-programs",
+      "significance": "RKKP er den organisation bag databasen og årsrapporten, ansvarlig for kvalitetsudvikling inden for atrieflimren-behandling.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "DanStroke",
+      "type": "organization",
+      "slug": "danstroke",
+      "folder": "entities/organizations/health-registries",
+      "significance": "DanStroke er datakilden for indikator 5 vedr. apopleksi blandt atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Indikator 5 baseret på DanStroke"
+        }
+      ]
+    },
+    {
+      "name": "København",
+      "type": "location",
+      "slug": "koebenhavn",
+      "folder": "entities/locations/danish-municipalities",
+      "significance": "København er en kommune i Region Hovedstaden med rapporterede data for apopleksi-forebyggelse blandt atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "København Ja 54 / 8.040 0 (0) 0,7 (0,5-0,9) - Indikator 5 baseret på DanStroke"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg",
+      "type": "location",
+      "slug": "aalborg",
+      "folder": "entities/locations/danish-municipalities",
+      "significance": "Aalborg er en kommune i Nordjylland med rapporterede data for apopleksi-forebyggelse blandt atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Aalborg Ja 30 / 4.247 0 (0) 0,7 (0,5-1,0) - Indikator 5 baseret på DanStroke"
+        }
+      ]
+    },
+    {
+      "name": "Odense",
+      "type": "location",
+      "slug": "odense",
+      "folder": "entities/locations/danish-municipalities",
+      "significance": "Odense er en kommune i Syddanmark med rapporterede data for apopleksi-forebyggelse blandt atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Odense Ja 6 / 3.820 0 (0) 0,2 (0,1-0,3) - Indikator 5 baseret på DanStroke"
+        }
+      ]
+    },
+    {
+      "name": "Århus",
+      "type": "location",
+      "slug": "aarhus",
+      "folder": "entities/locations/danish-municipalities",
+      "significance": "Århus er en kommune i Midtjylland med rapporterede data for apopleksi-forebyggelse blandt atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Århus Ja 27 / 5.592 0 (0) 0,5 (0,3-0,7) - Indikator 5 baseret på DanStroke"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "managed-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
+      "page": 91
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "koebenhavn",
+      "evidence": "København er en kommune i Region Hovedstaden med data rapporteret under Hovedstaden-sektionen",
+      "page": 93
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "contains",
+      "object": "aalborg",
+      "evidence": "Aalborg er en kommune i Nordjylland med data rapporteret under Nordjylland-sektionen",
+      "page": 95
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "contains",
+      "object": "odense",
+      "evidence": "Odense er en kommune i Syddanmark med data rapporteret under Syddanmark-sektionen",
+      "page": 94
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains",
+      "object": "aarhus",
+      "evidence": "Århus er en kommune i Midtjylland med data rapporteret under Midtjylland-sektionen",
+      "page": 95
+    }
+  ],
+  "claims": [
+    {
+      "text": "I Danmark blev 5267 patienter (52,6%) startet på antikoagulationsbehandling indenfor 4 måneder inden diagnose, og 4743 patienter (47,4%) blev startet indenfor 30 dage efter udskrivelse [^src1]",
+      "type": "clinical-treatment",
+      "entities": [
+        "danmark"
+      ],
+      "page": 91
+    },
+    {
+      "text": "I alt 10010 patienter blev registreret med start på antikoagulationsbehandling i Danmark [^src1]",
+      "type": "patient-count",
+      "entities": [
+        "danmark"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Region Hovedstaden havde 1152 patienter (47,1%) startet på antikoagulationsbehandling indenfor 4 måneder inden diagnose og 1293 patienter (52,9%) startet indenfor 30 dage efter udskrivelse [^src1]",
+      "type": "clinical-treatment",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 91
+    },
+    {
+      "text": "Midtjylland havde den højeste andel (56,7%) af patienter startet på antikoagulationsbehandling indenfor 4 måneder inden diagnose [^src1]",
+      "type": "clinical-treatment",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 91
+    },
+    {
+      "text": "726 atrieflimren-patienter (65,8%) indlagt med iskæmisk apopleksi havde indløst recept på oral antikoagulationsbehandling indenfor 100 dage før indlæggelse [^src2]",
+      "type": "clinical-treatment",
+      "entities": [
+        "danmark"
+      ],
+      "page": 92
+    },
+    {
+      "text": "378 atrieflimren-patienter (34,2%) indlagt med iskæmisk apopleksi havde IKKE indløst recept på oral antikoagulationsbehandling indenfor 100 dage før indlæggelse [^src2]",
+      "type": "clinical-treatment",
+      "entities": [
+        "danmark"
+      ],
+      "page": 92
+    },
+    {
+      "text": "Blandt 133706 prævalente patienter med atrieflimsen udvikler 1104 (0,82%) iskæmisk apopleksi i opgørelsesperioden [^src3]",
+      "type": "patient-outcome",
+      "entities": [
+        "danmark"
+      ],
+      "page": 92
+    },
+    {
+      "text": "Blandt 95919 atrieflimren-patienter i DOAC-behandling udvikler 865 (0,89%) iskæmisk apopleksi [^src3]",
+      "type": "patient-outcome",
+      "entities": [
+        "danmark"
+      ],
+      "page": 92
+    },
+    {
+      "text": "Blandt 8486 atrieflimren-patienter i Marevan-behandling udvikler 48 (0,56%) iskæmisk apopleksi [^src3]",
+      "type": "patient-outcome",
+      "entities": [
+        "danmark"
+      ],
+      "page": 92
+    },
+    {
+      "text": "Blandt 1445 atrieflimren-patienter i både DOAC og Marevan-behandling udvikler 43 (2,89%) iskæmisk apopleksi [^src3]",
+      "type": "patient-outcome",
+      "entities": [
+        "danmark"
+      ],
+      "page": 92
+    },
+    {
+      "text": "Blandt 27856 atrieflimren-patienter uden antikoagulationsbehandling udvikler 148 (0,53%) iskæmisk apopleksi [^src3]",
+      "type": "patient-outcome",
+      "entities": [
+        "danmark"
+      ],
+      "page": 92
+    },
+    {
+      "text": "Danmark opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,6% (95% CI: 0,5-0,6) [^src4]",
+      "type": "quality-standard",
+      "entities": [
+        "danmark"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Region Hovedstaden opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,8% (95% CI: 0,7-0,9) [^src4]",
+      "type": "quality-standard",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Syddanmark opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,3% (95% CI: 0,2-0,3) [^src4]",
+      "type": "quality-standard",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 94
+    },
+    {
+      "text": "Midtjylland opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,5% (95% CI: 0,4-0,6) [^src4]",
+      "type": "quality-standard",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Nordjylland opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,6% (95% CI: 0,5-0,7) [^src4]",
+      "type": "quality-standard",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 93
+    },
+    {
+      "text": "København opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,7% (95% CI: 0,5-0,9) [^src4]",
+      "type": "quality-standard",
+      "entities": [
+        "koebenhavn"
+      ],
+      "page": 93
+    },
+    {
+      "text": "Odense opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,2% (95% CI: 0,1-0,3) [^src4]",
+      "type": "quality-standard",
+      "entities": [
+        "odense"
+      ],
+      "page": 94
+    },
+    {
+      "text": "Aalborg opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,7% (95% CI: 0,5-1,0) [^src4]",
+      "type": "quality-standard",
+      "entities": [
+        "aalborg"
+      ],
+      "page": 95
+    },
+    {
+      "text": "Århus opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,5% (95% CI: 0,3-0,7) [^src4]",
+      "type": "quality-standard",
+      "entities": [
+        "aarhus"
+      ],
+      "page": 95
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. juli 2022 – 30. juni 2023",
+      "event": "Rapporteringsperiode for Databasen for Atrieflimren i Danmark årsrapport",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "danmark"
+      ]
+    },
+    {
+      "date": "2021/22",
+      "event": "Tidligere år data for sammenligning af indikator 5",
+      "entities": [
+        "danmark"
+      ]
+    },
+    {
+      "date": "2020/21",
+      "event": "Tidligere år data for sammenligning af indikator 5",
+      "entities": [
+        "danmark"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk indeholder supplerende analyser fra Databasen for Atrieflimren i Danmarks årsrapport for perioden 1. juli 2022 til 30. juni 2023. Rapporten præsenterer detaljerede data om antikoagulationsbehandling (AK-behandling) hos atrieflimren-patienter og forebyggelse af iskæmisk apopleksi på tværs af Danmark og dens fem regioner. Indikator 1 viser, hvornår patienter påbegynder antikoagulationsbehandling, mens indikator 5 fokuserer på andelen af atrieflimren-patienter, der udvikler iskæmisk apopleksi og deres tidligere antikoagulationsbehandling. Data er opdelt på regionalt og kommunalt niveau, med sammenligninger til tidligere år for at vurdere udvikling i behandlingskvalitet."
+}

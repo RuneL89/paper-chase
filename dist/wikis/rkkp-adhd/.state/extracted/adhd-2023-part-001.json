@@ -1,0 +1,310 @@
+{
+  "entities": [
+    {
+      "name": "ADHD-DATABASEN",
+      "type": "organization",
+      "slug": "adhd-databasen",
+      "folder": "entities/organizations/healthcare",
+      "significance": "ADHD-DATABASEN er en dansk kvalitetsdatabase for ADHD-udredning og behandling i børne- og ungdomspsykiatrien, hvis årsrapport for 2023/24 udgør kilden for dette dokument.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "ADHD-DATABASEN Årsrapport 2023 Den 1. april 2023 til 31. marts 2024"
+        },
+        {
+          "page": 1,
+          "context": "Årsrapportens analyser er udarbejdet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) ved RKKP's Videncenter"
+        },
+        {
+          "page": 1,
+          "context": "RKKPs kontaktperson for ADHD-databasen: Kvalitetskonsulent Malene Tousgaard Foget Østergaard"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "rkkp",
+      "folder": "entities/organizations/healthcare",
+      "significance": "RKKP er den organisation, der har udarbejdet og udgivet årsrapporten for ADHD-databasen og administrerer databasen.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Årsrapportens analyser er udarbejdet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) ved RKKP's Videncenter"
+        },
+        {
+          "page": 1,
+          "context": "Udgiver: Regionernes Kliniske Kvalitetsudviklingsprogram Hedeager 3 8200 Aarhus N www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Shelagh Powell",
+      "type": "person",
+      "slug": "shelagh-powell",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Shelagh Powell er Overlæge og formand for ADHD-databasens styregruppe, ansvarlig for ledelsen af databasens arbejde.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Shelagh Powell, Overlæge Team 2 for skolebørnspsykiatri Børne- og Ungdomspsykiatrisk Afdeling (BUA) Aarhus Universitetshospital, Psykiatrien"
+        }
+      ]
+    },
+    {
+      "name": "Simon Hjerrild",
+      "type": "person",
+      "slug": "simon-hjerrild",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Simon Hjerrild er Overlæge, Klinisk lektor og PhD, og medlem af formandskabet for ADHD-databasen.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Simon Hjerrild, Overlæge, Klinisk lektor, PhD Team for ADHD, klinik 2, afdeling for psykoser Aarhus Universitetshospital, Psykiatrien DPS Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Malene Tousgaard Foget Østergaard",
+      "type": "person",
+      "slug": "malene-tousgaard-foget-ostergaard",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Malene Tousgaard Foget Østergaard er Kvalitetskonsulent hos RKKP og kontaktperson for ADHD-databasen.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "RKKPs kontaktperson for ADHD-databasen: Kvalitetskonsulent Malene Tousgaard Foget Østergaard Regionernes Kliniske Kvalitetsudviklingsprogram Afdeling for psykiatri, gynækologi-obstetrik og kroniske sygdomme"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital, Psykiatrien",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital-psykiatrien",
+      "folder": "entities/organizations/healthcare",
+      "significance": "Aarhus Universitetshospital, Psykiatrien er en af de institutioner, der er repræsenteret i formandskabet for ADHD-databasen.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Børne- og Ungdomspsykiatrisk Afdeling (BUA) Aarhus Universitetshospital, Psykiatrien"
+        },
+        {
+          "page": 1,
+          "context": "Team for ADHD, klinik 2, afdeling for psykoser Aarhus Universitetshospital, Psykiatrien"
+        }
+      ]
+    },
+    {
+      "name": "DPS Midtjylland",
+      "type": "organization",
+      "slug": "dps-midtjylland",
+      "folder": "entities/organizations/healthcare",
+      "significance": "DPS Midtjylland er en psykiatrisk organisation, der er repræsenteret i formandskabet for ADHD-databasen.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "DPS Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Midtjylland viste et bemærkelsesværdigt fald i antal ADHD-udredningsforløb fra 1356 til 701, hvilket påkaldte særlig opmærksomhed i årsrapporten.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Alle regioner fraset Region Midtjylland har haft stigning i antal udredningsforløb"
+        },
+        {
+          "page": 1,
+          "context": "I modsætning hertil ses i Region Midtjylland et bemærkelsesværdigt fald i antal forløb fra 1356 til 701"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Nordjylland havde en stigning på 16 % i antal ADHD-udredningsforløb i perioden.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Fra 16 % i Region Nordjylland til 24 % i Region Sjælland og Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Sjælland havde en stigning på 24 % i antal ADHD-udredningsforløb i perioden.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Fra 16 % i Region Nordjylland til 24 % i Region Sjælland og Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regional-government",
+      "significance": "Region Hovedstaden havde en stigning på 24 % i antal ADHD-udredningsforløb i perioden.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Fra 16 % i Region Nordjylland til 24 % i Region Sjælland og Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Børne- og Ungdomspsykiatrisk Afdeling",
+      "type": "organization",
+      "slug": "bua",
+      "folder": "entities/organizations/healthcare",
+      "significance": "BUA er en børne- og ungdomspsykiatrisk afdeling på Aarhus Universitetshospital, hvor Shelagh Powell arbejder.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Børne- og Ungdomspsykiatrisk Afdeling (BUA) Aarhus Universitetshospital, Psykiatrien"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "rkkp",
+      "predicate": "publishes",
+      "object": "adhd-databasen",
+      "evidence": "Årsrapportens analyser er udarbejdet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) ved RKKP's Videncenter",
+      "page": 1
+    },
+    {
+      "subject": "shelagh-powell",
+      "predicate": "is-chair-of",
+      "object": "adhd-databasen",
+      "evidence": "Formandskab for ADHD-databasen: Shelagh Powell, Overlæge",
+      "page": 1
+    },
+    {
+      "subject": "simon-hjerrild",
+      "predicate": "is-chair-of",
+      "object": "adhd-databasen",
+      "evidence": "Formandskab for ADHD-databasen: Simon Hjerrild, Overlæge, Klinisk lektor, PhD",
+      "page": 1
+    },
+    {
+      "subject": "malene-tousgaard-foget-ostergaard",
+      "predicate": "is-contact-person-for",
+      "object": "adhd-databasen",
+      "evidence": "RKKPs kontaktperson for ADHD-databasen: Kvalitetskonsulent Malene Tousgaard Foget Østergaard",
+      "page": 1
+    },
+    {
+      "subject": "shelagh-powell",
+      "predicate": "works-at",
+      "object": "aarhus-universitetshospital-psykiatrien",
+      "evidence": "Shelagh Powell, Overlæge Team 2 for skolebørnspsykiatri Børne- og Ungdomspsykiatrisk Afdeling (BUA) Aarhus Universitetshospital, Psykiatrien",
+      "page": 1
+    },
+    {
+      "subject": "simon-hjerrild",
+      "predicate": "works-at",
+      "object": "aarhus-universitetshospital-psykiatrien",
+      "evidence": "Simon Hjerrild, Overlæge, Klinisk lektor, PhD Team for ADHD, klinik 2, afdeling for psykoser Aarhus Universitetshospital, Psykiatrien",
+      "page": 1
+    },
+    {
+      "subject": "simon-hjerrild",
+      "predicate": "works-at",
+      "object": "dps-midtjylland",
+      "evidence": "Simon Hjerrild, Overlæge, Klinisk lektor, PhD Team for ADHD, klinik 2, afdeling for psykoser Aarhus Universitetshospital, Psykiatrien DPS Midtjylland",
+      "page": 1
+    },
+    {
+      "subject": "malene-tousgaard-foget-ostergaard",
+      "predicate": "works-at",
+      "object": "rkkp",
+      "evidence": "Kvalitetskonsulent Malene Tousgaard Foget Østergaard Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 1
+    }
+  ],
+  "claims": [
+    {
+      "text": "Der ses øgede henvisningstal og øgede ventetider i børne- og ungdomspsykiatrien [^src1]",
+      "type": "healthcare-system",
+      "entities": [],
+      "page": 1
+    },
+    {
+      "text": "Der igen i år ses et fald på de fleste indikatorer og der er en bekymrende lav målopfyldelse på landsplan [^src1]",
+      "type": "quality-metrics",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Der er sket en lille stigning på landsplan i antallet af udredningsforløb, der er kommet med i databasen på 152 forløb (5063 kom i databasen i 2022/23 mod 5215 i 2023/24) [^src1]",
+      "type": "statistical",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Alle regioner fraset Region Midtjylland har haft stigning i antal udredningsforløb på linje med hvad vi har set de seneste år i databasen (Fra 16 % i Region Nordjylland til 24 % i Region Sjælland og Region Hovedstaden) [^src1]",
+      "type": "statistical",
+      "entities": [
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-hovedstaden"
+      ],
+      "page": 1
+    },
+    {
+      "text": "I Region Midtjylland ses et bemærkelsesværdigt fald i antal forløb fra 1356 til 701 [^src1]",
+      "type": "statistical",
+      "entities": [
+        "region-midtjylland"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Børne og ungdomspsykiatrien i Danmark er presset \"helt i bund\" [^src1]",
+      "type": "healthcare-system",
+      "entities": [],
+      "page": 1
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. april 2023 til 31. marts 2024",
+      "event": "Rapportperiode for ADHD-DATABASEN Årsrapport 2023",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "20. januar 2025",
+      "event": "ADHD-DATABASEN Årsrapport 2023 offentliggjort",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "22. januar 2025",
+      "event": "ADHD-DATABASEN Årsrapport 2023 udgivet",
+      "entities": [
+        "adhd-databasen"
+      ]
+    }
+  ],
+  "context": "Denne chunk udgør introduktionen og konklusionerne fra ADHD-DATABASEN's årsrapport for perioden 1. april 2023 til 31. marts 2024. Rapporten dokumenterer kvaliteten af ADHD-udredning og behandling i dansk børne- og ungdomspsykiatri gennem en række indikatorer. Rapporten påpeger, at børne- og ungdomspsykiatrien i Danmark står over for betydelige udfordringer med øgede henvisningstal, længere ventetider og faldende målopfyldelse på de fleste kvalitetsindikatorer. Rapporten er udarbejdet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) og administreres af et formandskab bestående af overlæger fra Aarhus Universitetshospital og DPS Midtjylland."
+}

@@ -1,0 +1,401 @@
+{
+  "entities": [
+    {
+      "name": "ADHD-databasen",
+      "type": "organization",
+      "slug": "adhd-databasen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "ADHD-databasen er det centrale registreringssystem for ADHD-behandlingsforløb i Danmark, hvor kvalitetsindikatorer opgøres og overvåges på tværs af regioner og afdelinger.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "ADHD-DATABASEN - Det ses at et ikke ubetydeligt antal forløb indrapporteres fra børne- og ungdomspsykiatriske ambulatorier"
+        },
+        {
+          "page": 46,
+          "context": "Den seneste dato for indrapportering af data til databasen lå den 15. august 2025"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 9",
+      "type": "quality-indicator",
+      "slug": "indikator-9",
+      "folder": "topics/quality-indicators",
+      "significance": "Indikator 9 måler andelen af ADHD-behandlingsforløb blandt voksne, hvor psykoterapi er vurderet relevant og patienten har modtaget psykoterapi inden for et år fra behandlingsstart, med et udviklingmål på ≥90%.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Indikator 9: Psykoterapi - Andelen af behandlingsforløb blandt voksne, hvor psykoterapi er vurderet relevant, og hvor patienten har modtaget psykoterapi under ADHD-pakkeforløb indenfor et år fra behandlingsstart"
+        },
+        {
+          "page": 46,
+          "context": "Eftersom denne indikator først blev sat i drift den 1. april 2024, har der ikke været et helt års opfølgningstid for hele opgørelsesårets population"
+        }
+      ]
+    },
+    {
+      "name": "PCK, Psykoterapeutisk klinik",
+      "type": "organization",
+      "slug": "pck-psykoterapeutisk-klinik",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "PCK er en psykoterapeutisk klinik i Hovedstaden, der blandt afdelinger med minimum tre patienter opnåede det højeste resultat på 9% for Indikator 9.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "PCK, Psykoterapeutisk klinik - Nej 3 / 32 9 (2-25)"
+        },
+        {
+          "page": 46,
+          "context": "til 9 % (PCK, Psykoterapeutisk klinik i Hovedstaden)"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations",
+      "significance": "Region Hovedstaden havde blandt regioner med minimum tre patienter det højeste resultat på 4% for Indikator 9 vedrørende psykoterapitilbud.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Hovedstaden - Nej 4 / 98 4 (1-10)"
+        },
+        {
+          "page": 46,
+          "context": "til 4 % i Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations",
+      "significance": "Region Sjælland opnåede 0% på Indikator 9 blandt 32 patienter med relevant psykoterapivurdering.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Sjælland - Nej 0 / 32 0 (0-11)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations",
+      "significance": "Region Nordjylland opnåede 0% på Indikator 9 blandt 45 patienter med relevant psykoterapivurdering.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Nordjylland - Nej 0 / 45 0 (0-8)"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations",
+      "significance": "Region Midtjylland opnåede 1% på Indikator 9 blandt 269 patienter med relevant psykoterapivurdering.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Midtjylland - Nej 4 / 269 1 (0-4)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations",
+      "significance": "Region Syddanmark havde færre end tre patienter, hvor psykoterapi var vurderet relevant for Indikator 9.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Syddanmark Nej #/# 1 (0-2)"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19",
+      "type": "organization",
+      "slug": "psykiatrisk-ambulatorium-boern-unge-bispebjerg-b19",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Denne børne- og ungdomspsykiatrisk ambulatorium i Bispebjerg rapporterede ingen patienter med psykoterapitilbud under Indikator 9.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 - Nej #/# 0 (0-98)"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29",
+      "type": "organization",
+      "slug": "psykiatrisk-ambulatorium-boern-unge-glostrup-b29",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Denne børne- og ungdomspsykiatrisk ambulatorium i Glostrup rapporterede ingen patienter med psykoterapitilbud under Indikator 9.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 - Nej #/# 0 (0-98)"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39",
+      "type": "organization",
+      "slug": "psykiatrisk-ambulatorium-boern-unge-hillerod-b39",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Denne børne- og ungdomspsykiatrisk ambulatorium i Hillerød havde 3 patienter med relevant psykoterapivurdering, men opnåede 0% på Indikator 9.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 - Nej 0 / 3 0 (0-71)"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Unge",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-unge",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "BUA Psykiatrisk Klinik for Unge i Midtjylland havde 7 patienter med relevant psykoterapivurdering, men opnåede 0% på Indikator 9.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "BUA Psykiatrisk Klinik for Unge - Nej 0 / 7 0 (0-41)"
+        }
+      ]
+    },
+    {
+      "name": "RPG Psykiatrisk Klinik 1 – Gødstrup",
+      "type": "organization",
+      "slug": "rpg-psykiatrisk-klinik-1-godstrup",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "RPG Psykiatrisk Klinik 1 i Gødstrup havde 77 patienter med relevant psykoterapivurdering, men opnåede 0% på Indikator 9.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "RPG Psykiatrisk Klinik 1 – Gødstrup - Nej 0 / 77 0 (0-5)"
+        }
+      ]
+    },
+    {
+      "name": "Privathospitaler",
+      "type": "organization",
+      "slug": "privathospitaler",
+      "folder": "entities/organizations/healthcare",
+      "significance": "Privathospitaler havde kun 3 patienter med relevant psykoterapivurdering, hvilket gør det ikke muligt at vurdere deres opfyldelse af kvalitetsindikatorerne.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Privathospitaler - Nej 0 / 3 0 (0-71)"
+        },
+        {
+          "page": 46,
+          "context": "Det næsten ikkeeksisterende antal forløb indrapporteret fra privathospitaler gør det ikke muligt at vurdere om de lever op til kvalitetsindikatorerne"
+        }
+      ]
+    },
+    {
+      "name": "Carelink Psykiatri Viborg",
+      "type": "organization",
+      "slug": "carelink-psykiatri-viborg",
+      "folder": "entities/organizations/psychiatric-clinics",
+      "significance": "Carelink Psykiatri Viborg er et privathospital med 3 patienter med relevant psykoterapivurdering, men opnåede 0% på Indikator 9.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Carelink Psykiatri Viborg - Nej 0 / 3 0 (0-71)"
+        }
+      ]
+    },
+    {
+      "name": "ADHD-behandlingspakke",
+      "type": "medical",
+      "slug": "adhd-behandlingspakke",
+      "folder": "topics/clinical-practice",
+      "significance": "ADHD-behandlingspakken på 9 timer er ikke af et omfang, der kan inkorporere psykoterapi, hvilket påvirker implementeringen af Indikator 9.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "den aktuelle ADHD-behandlingspakke på 9 timer ikke i udgangspunktet er af et omfang, der kan inkorporere psykoterapi"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-9",
+      "predicate": "measures-performance-of",
+      "object": "adhd-databasen",
+      "evidence": "Indikator 9 opgøres og rapporteres gennem ADHD-databasen med data indrapporteret fra alle regioner og afdelinger",
+      "page": 46
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "operates",
+      "object": "pck-psykoterapeutisk-klinik",
+      "evidence": "PCK, Psykoterapeutisk klinik i Hovedstaden opnåede 9% på Indikator 9",
+      "page": 46
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "operates",
+      "object": "bua-psykiatrisk-klinik-unge",
+      "evidence": "BUA Psykiatrisk Klinik for Unge er placeret i Midtjylland og rapporterer til ADHD-databasen",
+      "page": 46
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "operates",
+      "object": "rpg-psykiatrisk-klinik-1-godstrup",
+      "evidence": "RPG Psykiatrisk Klinik 1 – Gødstrup er placeret i Midtjylland og rapporterer til ADHD-databasen",
+      "page": 46
+    },
+    {
+      "subject": "privathospitaler",
+      "predicate": "includes",
+      "object": "carelink-psykiatri-viborg",
+      "evidence": "Carelink Psykiatri Viborg er klassificeret som privathospital i ADHD-databasen",
+      "page": 46
+    }
+  ],
+  "claims": [
+    {
+      "text": "Indikator 9 blev sat i drift den 1. april 2024 [^src1]",
+      "type": "procedural",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Den seneste dato for indrapportering af data til databasen lå den 15. august 2025 [^src1]",
+      "type": "operational",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 46
+    },
+    {
+      "text": "På landsplan havde 786 patienter et års opfølgning for hvem psykoterapi var relevant [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Blandt de 786 patienter var indikatoren kun opfyldt for 10 patienter (1%) [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Udviklingmålet for Indikator 9 er ≥90% [^src1]",
+      "type": "quality-indicators",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Blandt regioner med minimum tre patienter varierer resultaterne fra 0% i Sjælland og Nordjylland til 4% i Hovedstaden [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-sjaelland",
+        "region-nordjylland",
+        "region-hovedstaden"
+      ],
+      "page": 46
+    },
+    {
+      "text": "I Syddanmark var psykoterapi vurderet relevant hos mindre end tre patienter i alt [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "region-syddanmark"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Blandt afdelinger med minimum tre patienter i nævneren varierer resultaterne fra 0% på de fleste afdelinger til 9% på PCK, Psykoterapeutisk klinik i Hovedstaden [^src1]",
+      "type": "facility-performance",
+      "entities": [
+        "pck-psykoterapeutisk-klinik"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Der ses et ikke ubetydeligt antal forløb indrapporteret fra børne- og ungdomspsykiatriske ambulatorier [^src1]",
+      "type": "observation",
+      "entities": [
+        "adhd-databasen"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Det næsten ikkeeksisterende antal forløb indrapporteret fra privathospitaler gør det ikke muligt at vurdere om de lever op til kvalitetsindikatorerne [^src1]",
+      "type": "observation",
+      "entities": [
+        "privathospitaler"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Der tilbydes ikke i noget betydeligt omfang ADHD-rettet psykoterapi i Danmark [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "danmark"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Den aktuelle ADHD-behandlingspakke på 9 timer er ikke af et omfang, der kan inkorporere psykoterapi [^src1]",
+      "type": "clinical-rationale",
+      "entities": [
+        "adhd-behandlingspakke"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Indikatoren bibeholdes, og fokus rettes først og fremmest mod at få indikator 8 nærmere dens opfyldelsesgrad inden indikator 9 for alvor søges implementeret [^src1]",
+      "type": "decision",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 46
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. april 2024",
+      "event": "Indikator 9 blev sat i drift",
+      "entities": [
+        "indikator-9"
+      ]
+    },
+    {
+      "date": "15. august 2025",
+      "event": "Seneste dato for indrapportering af data til ADHD-databasen",
+      "entities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "1. april 2025 - 31. juli 2025",
+      "event": "Opfølgningsperiode for Indikator 9 i årsrapporten",
+      "entities": [
+        "indikator-9"
+      ]
+    }
+  ],
+  "context": "Dette afsnit behandler Indikator 9 fra ADHD-databasen, som måler andelen af voksne ADHD-patienter, der har modtaget psykoterapi inden for et år fra behandlingsstart. Indikatoren blev først implementeret den 1. april 2024, og denne årsrapport dækker kun patienter med forløbsstart mellem 1. april 2024 og 31. juli 2024. Resultaterne viser en alarmerende lav opfyldelsesgrad på blot 1% på landsplan blandt 786 patienter, langt under udviklingmålet på 90%, hvilket afspejler en systemisk mangel på ADHD-rettet psykoterapitilbud i Danmark. Styregruppen besluttede at bibeholde indikatoren, men at prioritere implementeringen af Indikator 8 først, før der sættes fuldt fokus på Indikator 9."
+}

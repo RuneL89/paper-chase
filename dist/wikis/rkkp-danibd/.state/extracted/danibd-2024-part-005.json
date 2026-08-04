@@ -1,0 +1,864 @@
+{
+  "entities": [
+    {
+      "name": "DANIBD",
+      "type": "organization",
+      "slug": "danibd",
+      "folder": "entities/organizations/registries",
+      "significance": "DANIBD is the Danish registry monitoring quality indicators for inflammatory bowel disease treatment and follow-up across Danish hospitals.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "DANIBD 17 Diskussion og implikationer"
+        },
+        {
+          "page": 21,
+          "context": "DANIBD 18 Indikator 4. DEXA-scanning, steroidbehandling"
+        },
+        {
+          "page": 21,
+          "context": "DANIBD 19 Sorteret resultat af indikator 4"
+        },
+        {
+          "page": 21,
+          "context": "DANIBD 20 Resultat"
+        },
+        {
+          "page": 21,
+          "context": "DANIBD 21 Indikator 5. Fæces calprotectin måling, BMSL"
+        }
+      ]
+    },
+    {
+      "name": "Crohns sygdom",
+      "type": "medical-condition",
+      "slug": "crohns-disease",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "significance": "Crohn's disease is the primary focus of postoperative follow-up discussion, with emphasis on disease recurrence and the importance of postoperative assessment.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Postoperativ opfølgning af patienter med Crohns sygdom, som har haft behov for operation, er vigtigt."
+        }
+      ]
+    },
+    {
+      "name": "IBD",
+      "type": "medical-condition",
+      "slug": "inflammatory-bowel-disease",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "significance": "IBD (inflammatory bowel disease) is the overarching disease category for which DEXA-scanning and fecal calprotectin monitoring are quality indicators.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Når der opstår aktivitet i sygdommen hos patienter med IBD, kan der behandles med glukokortikosteroid"
+        },
+        {
+          "page": 21,
+          "context": "Indikatoren monitorerer derfor andelen af steroidkure givet til patienter over 50 år med IBD, hvor patienten har fået foretaget DEXA-scanning"
+        }
+      ]
+    },
+    {
+      "name": "DEXA-scanning",
+      "type": "medical-test",
+      "slug": "dexa-scanning",
+      "folder": "topics/medical-tests",
+      "significance": "DEXA-scanning (bone densitometry) is a key quality indicator for monitoring bone health in IBD patients receiving steroid treatment, with a target of 80% compliance.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Knogleskørhed og osteopeni diagnosticeres bedst ved osteodensitometri (DEXA-scanning), som måler knoglemineraltætheden."
+        },
+        {
+          "page": 21,
+          "context": "Den danske endokrinologiske behandlingsvejledning anbefaler, at DEXA bør foretages ved planlagt systemisk behandling med steroid i 3 måneder."
+        },
+        {
+          "page": 21,
+          "context": "Indikatoren monitorerer derfor andelen af steroidkure givet til patienter over 50 år, hvor patienten har fået foretaget DEXA-scanning."
+        }
+      ]
+    },
+    {
+      "name": "Fæces calprotectin",
+      "type": "medical-test",
+      "slug": "fecal-calprotectin",
+      "folder": "topics/medical-tests",
+      "significance": "Fecal calprotectin is a biomarker used to monitor inflammatory activity in IBD patients on biologic and targeted synthetic drugs, with a target of annual measurement in 80% of patients.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Biomarkøren calprotectin afspejler graden af inflammatorisk aktivitet i tarmmukosa."
+        },
+        {
+          "page": 21,
+          "context": "Der er stærk anbefaling for og bred international enighed om, at monitorering af calprotectin en gang årligt er et minimumskriterium for opfølgning hos patienter i behandling med BMSL."
+        },
+        {
+          "page": 21,
+          "context": "Indikatoren monitorerer derfor andelen af patienter i medicinsk behandling med BMSL, der får målt F-calprotectin mindst én gang årligt."
+        }
+      ]
+    },
+    {
+      "name": "BMSL",
+      "type": "pharmaceutical-treatment",
+      "slug": "bmsl",
+      "folder": "entities/medications/biologics",
+      "significance": "BMSL (biologiske og målrettede syntetiske lægemidler) are biologic and targeted synthetic drugs used to treat moderate to severe IBD, requiring regular calprotectin monitoring.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Biologiske og målrettede syntetiske lægemidler (BMSL) anvendes i behandlingen af patienter med moderat til svær sygdomsaktivitet."
+        },
+        {
+          "page": 21,
+          "context": "Indikatoren monitorerer derfor andelen af patienter i medicinsk behandling med BMSL, der får målt F-calprotectin mindst én gang årligt."
+        }
+      ]
+    },
+    {
+      "name": "Steroid",
+      "type": "pharmaceutical-treatment",
+      "slug": "steroid",
+      "folder": "entities/medications/small-molecule-inhibitors",
+      "significance": "Steroid (glucocorticoid) treatment is discussed as a risk factor for osteoporosis in IBD patients, requiring DEXA-scanning monitoring.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Når der opstår aktivitet i sygdommen hos patienter med IBD, kan der behandles med glukokortikosteroid (steroid)."
+        },
+        {
+          "page": 21,
+          "context": "Behandling med steroider øger forekomsten af knogleskørhed eller forstadier hertil (osteopeni), da steroid nedsætter knogledannelse og øger knogleresorptionen."
+        }
+      ]
+    },
+    {
+      "name": "Osteoporose",
+      "type": "medical-condition",
+      "slug": "osteoporosis",
+      "folder": "topics/medical-conditions",
+      "significance": "Osteoporosis is a complication of steroid treatment in IBD patients, necessitating DEXA-scanning for early detection and prevention.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Behandling med steroider øger forekomsten af knogleskørhed eller forstadier hertil (osteopeni)"
+        },
+        {
+          "page": 21,
+          "context": "Der er generelt enighed om, at osteoporose ved steroidbehandling kan forebygges"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "denmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Denmark is the national level at which DANIBD quality indicators are aggregated and reported, showing 37% DEXA-scanning compliance and 83% fecal calprotectin monitoring.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Danmark | 338 | / | 917 | 37 | (34-40)"
+        },
+        {
+          "page": 21,
+          "context": "På landsplan er der udført DEXA-scanning inden for tidsrammen ved 37 % af steroidkurene."
+        },
+        {
+          "page": 21,
+          "context": "Danmark | 9.852 | / | 11.871 | 0 | (0) | 83 | (82-84)"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden (Capital Region) is one of five Danish regions reporting DANIBD quality indicators, with 39% DEXA-scanning compliance and 79% fecal calprotectin monitoring.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Hovedstaden | 110 | / | 279 | 39 | (34-45)"
+        },
+        {
+          "page": 21,
+          "context": "Hovedstaden | 2.667 | / | 3.367 | 0 | (0) | 79 | (78-81)"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland reports the highest DEXA-scanning compliance at 41% and highest fecal calprotectin monitoring at 94% among Danish regions.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Sjælland | 61 | / | 149 | 41 | (33-49)"
+        },
+        {
+          "page": 21,
+          "context": "Sjælland | 1.406 | / | 1.497 | 0 | (0) | 94 | (93-95)"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Syddanmark reports 38% DEXA-scanning compliance and 84% fecal calprotectin monitoring among its IBD patients.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Syddanmark | 80 | / | 212 | 38 | (31-45)"
+        },
+        {
+          "page": 21,
+          "context": "Syddanmark | 2.399 | / | 2.858 | 0 | (0) | 84 | (83-85)"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Midtjylland reports the lowest DEXA-scanning compliance at 31% and 77% fecal calprotectin monitoring among Danish regions.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Midtjylland | 46 | / | 149 | 31 | (24-39)"
+        },
+        {
+          "page": 21,
+          "context": "Midtjylland | 2.256 | / | 2.925 | 0 | (0) | 77 | (76-79)"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland reports 32% DEXA-scanning compliance and 92% fecal calprotectin monitoring among its IBD patients.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Nordjylland | 41 | / | 128 | 32 | (24-41)"
+        },
+        {
+          "page": 21,
+          "context": "Nordjylland | 1.124 | / | 1.224 | 0 | (0) | 92 | (90-93)"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg Abdominalcenter K",
+      "type": "organization",
+      "slug": "bispebjerg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg Abdominalcenter K reports 41% DEXA-scanning compliance and 81% fecal calprotectin monitoring in the Capital Region.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Bispebjerg Abdominalcenter K 15 / 37 41 (25-58)"
+        },
+        {
+          "page": 21,
+          "context": "Bispebjerg Abdominalcenter K 483 / 593 0 (0) 81 (78-84)"
+        }
+      ]
+    },
+    {
+      "name": "Bornholm Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "bornholm",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholm Medicinsk Afdeling reports 56% DEXA-scanning compliance and 83% fecal calprotectin monitoring in the Capital Region.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Bornholm Medicinsk Afdeling 5 / 9 56 (21-86)"
+        },
+        {
+          "page": 21,
+          "context": "Bornholm Medicinsk Afdeling 38 / 46 0 (0) 83 (69-92)"
+        }
+      ]
+    },
+    {
+      "name": "Herlev Mave-, Tarm- og Leversygd.",
+      "type": "organization",
+      "slug": "herlev",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev Mave-, Tarm- og Leversygd. reports 42% DEXA-scanning compliance and 69% fecal calprotectin monitoring in the Capital Region.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Herlev Mave-, Tarm- og Leversygd. 41 / 97 42 (32-53)"
+        },
+        {
+          "page": 21,
+          "context": "Herlev Mave-, Tarm- og Leversygd. 581 / 846 0 (0) 69 (65-72)"
+        }
+      ]
+    },
+    {
+      "name": "Hvidovre Gastroenheden",
+      "type": "organization",
+      "slug": "hvidovre",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hvidovre Gastroenheden reports 20% DEXA-scanning compliance but 95% fecal calprotectin monitoring in the Capital Region.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Hvidovre Gastroenheden 11 / 55 20 (10-33)"
+        },
+        {
+          "page": 21,
+          "context": "Hvidovre Gastroenheden 917 / 965 0 (0) 95 (93-96)"
+        }
+      ]
+    },
+    {
+      "name": "Nordsjælland Kirurgisk Afdeling",
+      "type": "organization",
+      "slug": "nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Nordsjælland Kirurgisk Afdeling reports 51% DEXA-scanning compliance and 91% fecal calprotectin monitoring in the Capital Region.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Nordsjælland Kirurgisk Afdeling 33 / 65 51 (38-63)"
+        },
+        {
+          "page": 21,
+          "context": "Nordsjælland Kirurgisk Afdeling 452 / 498 0 (0) 91 (88-93)"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet Mave-, Tarm- og Leversygd.",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet Mave-, Tarm- og Leversygd. reports 31% DEXA-scanning compliance and 16% fecal calprotectin monitoring in the Capital Region.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Rigshospitalet Mave-, Tarm- og Leversygd. 5 / 16 31 (11-59)"
+        },
+        {
+          "page": 21,
+          "context": "Rigshospitalet Mave-, Tarm- og Leversygd. 43 / 263 0 (0) 16 (12-21)"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Medicin",
+      "type": "organization",
+      "slug": "holbaek-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Medicin reports 58% DEXA-scanning compliance and 94% fecal calprotectin monitoring in Region Sjælland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "HOL Holbæk Medicin 15 / 26 58 (37-77)"
+        },
+        {
+          "page": 21,
+          "context": "HOL Holbæk Medicin 74 / 79 0 (0) 94 (86-98)"
+        }
+      ]
+    },
+    {
+      "name": "Slagelse Med. Gastroenterologi",
+      "type": "organization",
+      "slug": "slagelse-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Slagelse Med. Gastroenterologi reports 50% DEXA-scanning compliance and 97% fecal calprotectin monitoring in Region Sjælland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "NSR Slagelse Med. Gastroenterologi 27 / 54 50 (36-64)"
+        },
+        {
+          "page": 21,
+          "context": "NSR Slagelse Med. Gastroenterologi 263 / 270 0 (0) 97 (95-99)"
+        }
+      ]
+    },
+    {
+      "name": "Køge Medicin",
+      "type": "organization",
+      "slug": "koege-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Køge Medicin reports 26% DEXA-scanning compliance and 93% fecal calprotectin monitoring in Region Sjælland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "SUH Køge Medicin 12 / 47 26 (14-40)"
+        },
+        {
+          "page": 21,
+          "context": "SUH Køge Medicin 821 / 882 0 (0) 93 (91-95)"
+        }
+      ]
+    },
+    {
+      "name": "Nykøbing F. Medicin",
+      "type": "organization",
+      "slug": "nykoebing-f-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Nykøbing F. Medicin reports 32% DEXA-scanning compliance and 93% fecal calprotectin monitoring in Region Sjælland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "SUH Nykøbing F. Medicin 7 / 22 32 (14-55)"
+        },
+        {
+          "page": 21,
+          "context": "SUH Nykøbing F. Medicin 226 / 244 0 (0) 93 (89-96)"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Medicinsk Mave og Tarm Amb.",
+      "type": "organization",
+      "slug": "esbjerg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg Medicinsk Mave og Tarm Amb. reports 48% DEXA-scanning compliance and 94% fecal calprotectin monitoring in Region Syddanmark.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "EGS Esbjerg Medicinsk Mave og Tarm Amb. 19 / 40 48 (32-64)"
+        },
+        {
+          "page": 21,
+          "context": "EGS Esbjerg Medicinsk Mave og Tarm Amb. 590 / 628 0 (0) 94 (92-96)"
+        }
+      ]
+    },
+    {
+      "name": "Odense Medicinsk Mave-Tarm Afd. S",
+      "type": "organization",
+      "slug": "odense-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense Medicinsk Mave-Tarm Afd. S reports 38% DEXA-scanning compliance and 74% fecal calprotectin monitoring in Region Syddanmark.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "OUH Odense Medicinsk Mave-Tarm Afd. S 21 / 55 38 (25-52)"
+        },
+        {
+          "page": 21,
+          "context": "OUH Odense Medicinsk Mave-Tarm Afd. S 636 / 859 0 (0) 74 (71-77)"
+        }
+      ]
+    },
+    {
+      "name": "Svendborg Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "svendborg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Svendborg Medicinsk Afdeling reports 48% DEXA-scanning compliance and 85% fecal calprotectin monitoring in Region Syddanmark.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "OUH Svendborg Medicinsk Afdeling 12 / 25 48 (28-69)"
+        },
+        {
+          "page": 21,
+          "context": "OUH Svendborg Medicinsk Afdeling 237 / 279 0 (0) 85 (80-89)"
+        }
+      ]
+    },
+    {
+      "name": "Aabenraa Mave- og Tarmsygd.",
+      "type": "organization",
+      "slug": "aabenraa-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aabenraa Mave- og Tarmsygd. reports 29% DEXA-scanning compliance and 95% fecal calprotectin monitoring in Region Syddanmark.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "SHS Aabenraa Mave- og Tarmsygd. 10 / 34 29 (15-47)"
+        },
+        {
+          "page": 21,
+          "context": "SHS Aabenraa Mave- og Tarmsygd. 244 / 258 0 (0) 95 (91-97)"
+        }
+      ]
+    },
+    {
+      "name": "Vejle Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "vejle-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Vejle Medicinsk Afdeling reports 31% DEXA-scanning compliance and 80% fecal calprotectin monitoring in Region Syddanmark.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "SLB Vejle Medicinsk Afdeling 18 / 58 31 (20-45)"
+        },
+        {
+          "page": 21,
+          "context": "SLB Vejle Medicinsk Afdeling 551 / 690 0 (0) 80 (77-83)"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Lever-, Mave- og Tarmsygd.",
+      "type": "organization",
+      "slug": "aarhus-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Lever-, Mave- og Tarmsygd. reports 11% DEXA-scanning compliance and 59% fecal calprotectin monitoring in Region Midtjylland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Aarhus Lever-, Mave- og Tarmsygd. # / # 11 (1-33)"
+        },
+        {
+          "page": 21,
+          "context": "Aarhus Lever-, Mave- og Tarmsygd. 556 / 940 0 (0) 59 (56-62)"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrup Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "goedstrup-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Gødstrup Medicinsk Afdeling reports 28% DEXA-scanning compliance and 79% fecal calprotectin monitoring in Region Midtjylland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Gødstrup Medicinsk Afdeling 11 / 39 28 (15-45)"
+        },
+        {
+          "page": 21,
+          "context": "Gødstrup Medicinsk Afdeling 384 / 486 0 (0) 79 (75-83)"
+        }
+      ]
+    },
+    {
+      "name": "HE Midt Klinik for Mave- og Tarmsygd.",
+      "type": "organization",
+      "slug": "he-midt-klinik",
+      "folder": "entities/organizations/hospitals",
+      "significance": "HE Midt Klinik for Mave- og Tarmsygd. reports 49% DEXA-scanning compliance and 92% fecal calprotectin monitoring in Region Midtjylland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "HE Midt Klinik for Mave- og Tarmsygd. 17 / 35 49 (31-66)"
+        },
+        {
+          "page": 21,
+          "context": "HE Midt Klinik for Mave- og Tarmsygd. 609 / 664 0 (0) 92 (89-94)"
+        }
+      ]
+    },
+    {
+      "name": "Horsens Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "horsens-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Horsens Medicinsk Afdeling reports 27% DEXA-scanning compliance and 69% fecal calprotectin monitoring in Region Midtjylland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Horsens Medicinsk Afdeling 8 / 30 27 (12-46)"
+        },
+        {
+          "page": 21,
+          "context": "Horsens Medicinsk Afdeling 264 / 384 0 (0) 69 (64-73)"
+        }
+      ]
+    },
+    {
+      "name": "Randers Medicinsk Afdeling",
+      "type": "organization",
+      "slug": "randers-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Randers Medicinsk Afdeling reports 31% DEXA-scanning compliance and 99% fecal calprotectin monitoring in Region Midtjylland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Randers Medicinsk Afdeling 8 / 26 31 (14-52)"
+        },
+        {
+          "page": 21,
+          "context": "Randers Medicinsk Afdeling 333 / 338 0 (0) 99 (97-100)"
+        }
+      ]
+    },
+    {
+      "name": "AAUH Aalborg Med. Gastroenterologisk Afd.",
+      "type": "organization",
+      "slug": "aauh-aalborg-med-gastroenterologisk-omraade",
+      "folder": "entities/organizations/hospitals",
+      "significance": "AAUH Aalborg Med. Gastroenterologisk Afd. reports 43% DEXA-scanning compliance and 92% fecal calprotectin monitoring in Region Nordjylland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "AAUH Aalborg Med. Gastroenterologisk Afd. 27 / 63 43 (30-56)"
+        },
+        {
+          "page": 21,
+          "context": "AAUH Aalborg Med. Gastroenterologisk Afd. 965 / 1.051 0 (0) 92 (90-93)"
+        }
+      ]
+    },
+    {
+      "name": "Hjørring Med. Mave- og Tarmsygd.",
+      "type": "organization",
+      "slug": "hjoerring-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hjørring Med. Mave- og Tarmsygd. reports 26% DEXA-scanning compliance and 90% fecal calprotectin monitoring in Region Nordjylland.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "RHN Hjørring Med. Mave- og Tarmsygd. 13 / 50 26 (15-40)"
+        },
+        {
+          "page": 21,
+          "context": "RHN Hjørring Med. Mave- og Tarmsygd. 121 / 134 0 (0) 90 (84-95)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "danibd",
+      "predicate": "monitors-quality-indicator",
+      "object": "dexa-scanning",
+      "evidence": "Indikatoren monitorerer derfor andelen af steroidkure givet til patienter over 50 år, hvor patienten har fået foretaget DEXA-scanning.",
+      "page": 21
+    },
+    {
+      "subject": "danibd",
+      "predicate": "monitors-quality-indicator",
+      "object": "fecal-calprotectin",
+      "evidence": "Indikatoren monitorerer derfor andelen af patienter i medicinsk behandling med BMSL, der får målt F-calprotectin mindst én gang årligt.",
+      "page": 21
+    },
+    {
+      "subject": "steroid",
+      "predicate": "increases-risk-of",
+      "object": "osteoporosis",
+      "evidence": "Behandling med steroider øger forekomsten af knogleskørhed eller forstadier hertil (osteopeni), da steroid nedsætter knogledannelse og øger knogleresorptionen.",
+      "page": 21
+    },
+    {
+      "subject": "fecal-calprotectin",
+      "predicate": "reflects-inflammatory-activity-in",
+      "object": "inflammatory-bowel-disease",
+      "evidence": "Biomarkøren calprotectin afspejler graden af inflammatorisk aktivitet i tarmmukosa.",
+      "page": 21
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "treats",
+      "object": "inflammatory-bowel-disease",
+      "evidence": "Biologiske og målrettede syntetiske lægemidler (BMSL) anvendes i behandlingen af patienter med moderat til svær sygdomsaktivitet.",
+      "page": 21
+    }
+  ],
+  "claims": [
+    {
+      "text": "Postoperativ opfølgning af patienter med Crohns sygdom, som har haft behov for operation, er vigtigt. Recidiv af sygdommen optræder hyppigt – og ofte relativt tidligt. [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "crohns-disease"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Behandling med steroider øger forekomsten af knogleskørhed eller forstadier hertil (osteopeni), da steroid nedsætter knogledannelse og øger knogleresorptionen. [^src1]",
+      "type": "clinical-evidence",
+      "entities": [
+        "steroid",
+        "osteoporosis"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Den danske endokrinologiske behandlingsvejledning anbefaler, at DEXA bør foretages ved planlagt systemisk behandling med steroid i 3 måneder. [^src1]",
+      "type": "clinical-guideline",
+      "entities": [
+        "dexa-scanning",
+        "steroid"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Udviklingsmålet er, at mindst 80 % skal have foretaget en DEXA-scanning, når de behandles med steroid. [^src1]",
+      "type": "quality-target",
+      "entities": [
+        "dexa-scanning"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Der er i opgørelsesperioden givet 917 steroidkure fordelt på 832 unikke patienter. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "steroid"
+      ],
+      "page": 21
+    },
+    {
+      "text": "På landsplan er der udført DEXA-scanning inden for tidsrammen ved 37 % af steroidkurene. Alle regioner og afdelinger ligger langt fra udviklingsmålet, da regionen med højst andel DEXA-scanninger er på 41 % og afdelingsniveau på 58 %. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "denmark",
+        "dexa-scanning"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Der er generelt enighed om, at osteoporose ved steroidbehandling kan forebygges, så det er tankevækkende, at der kun er 37 % af patienterne over 50 år på landsplan, der får foretaget DEXA scanning, når de får steroid. [^src1]",
+      "type": "clinical-concern",
+      "entities": [
+        "osteoporosis",
+        "steroid",
+        "dexa-scanning"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Biologiske og målrettede syntetiske lægemidler (BMSL) anvendes i behandlingen af patienter med moderat til svær sygdomsaktivitet. [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "bmsl",
+        "inflammatory-bowel-disease"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Biomarkøren calprotectin afspejler graden af inflammatorisk aktivitet i tarmmukosa. [^src1]",
+      "type": "clinical-evidence",
+      "entities": [
+        "fecal-calprotectin"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Der er stærk anbefaling for og bred international enighed om, at monitorering af calprotectin en gang årligt er et minimumskriterium for opfølgning hos patienter i behandling med BMSL. [^src1]",
+      "type": "clinical-guideline",
+      "entities": [
+        "fecal-calprotectin",
+        "bmsl"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Udviklingsmålet er, at mindst 80 % får målt F-calprotectin til tiden. [^src1]",
+      "type": "quality-target",
+      "entities": [
+        "fecal-calprotectin"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Danmark: 9.852 / 11.871 patienter (83 %, 95% CI 82-84) fik målt F-calprotectin mindst én gang årligt i perioden 01.10.2023 - 30.09.2024. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "denmark",
+        "fecal-calprotectin"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Hovedstaden: 2.667 / 3.367 patienter (79 %, 95% CI 78-81) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "region-hovedstaden",
+        "fecal-calprotectin"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Sjælland: 1.406 / 1.497 patienter (94 %, 95% CI 93-95) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "region-sjaelland",
+        "fecal-calprotectin"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Syddanmark: 2.399 / 2.858 patienter (84 %, 95% CI 83-85) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "region-syddanmark",
+        "fecal-calprotectin"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Midtjylland: 2.256 / 2.925 patienter (77 %, 95% CI 76-79) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "region-midtjylland",
+        "fecal-calprotectin"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Nordjylland: 1.124 / 1.224 patienter (92 %, 95% CI 90-93) fik målt F-calprotectin mindst én gang årligt. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "region-nordjylland",
+        "fecal-calprotectin"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Rigshospitalet Mave-, Tarm- og Leversygd. rapporterer kun 16 % (43 / 263) fecal calprotectin monitoring compliance. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "rigshospitalet",
+        "fecal-calprotectin"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Randers Medicinsk Afdeling rapporterer 99 % (333 / 338) fecal calprotectin monitoring compliance, den højeste blandt alle afdelinger. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "randers-hospital",
+        "fecal-calprotectin"
+      ],
+      "page": 21
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.10.2022 - 30.09.2023",
+      "event": "DEXA-scanning quality indicator measurement period for steroid-treated IBD patients over 50 years",
+      "entities": [
+        "danibd",
+        "dexa-scanning",
+        "inflammatory-bowel-disease"
+      ]
+    },
+    {
+      "date": "01.10.2023 - 30.09.2024",
+      "event": "Fecal calprotectin monitoring quality indicator measurement period for BMSL-treated IBD patients",
+      "entities": [
+        "danibd",
+        "fecal-calprotectin",
+        "bmsl",
+        "inflammatory-bowel-disease"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer DANIBD's kvalitetsindikatorer for opfølgning af inflammatorisk tarmsygdom (IBD) på tværs af danske hospitaler og regioner. Kapitlet fokuserer på to vigtige indikatorer: DEXA-scanning for knogletæthedsmåling hos steroidbehandlede patienter over 50 år (Indikator 4) og årlig fæces calprotectin-måling hos patienter i behandling med biologiske og målrettede syntetiske lægemidler (Indikator 5). Resultaterne viser betydelige mangler i begge områder, med kun 37 % DEXA-scanning compliance på landsplan (målsætning: 80 %) og variabel calprotectin monitoring fra 59 % til 99 % på afdelingsniveau. Dokumentet understreger behovet for forbedret overvågning af knoglesundhed og inflammatorisk aktivitet som vigtige aspekter af IBD-patientbehandling."
+}

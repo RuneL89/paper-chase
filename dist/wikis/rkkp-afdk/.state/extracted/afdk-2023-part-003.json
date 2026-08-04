@@ -1,0 +1,238 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Denne database er det centrale register, der dokumenterer behandling af nydiagnosticerede atrieflimren-patienter i Danmark og udgør grundlaget for årsrapporten.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-programs",
+      "significance": "RKKP er den organisering, der administrerer og offentliggør kvalitetsindikatorer for dansk sundhedsvæsen, herunder denne atrieflimren-database.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Lægemiddelstatistikregistret",
+      "type": "organization",
+      "slug": "laegemiddelstatistikregistret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette register indeholder data om ordinerede og indløste recepter for oral antikoagulationsbehandling og er en vigtig datakilde for indikatoren.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Indikatoren er baseret på data fra Lægemiddelstatistikregistret og Landspatientregistret (LPR)"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregistret",
+      "type": "organization",
+      "slug": "landspatientregistret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "LPR indeholder diagnosedatoer for atrieflimren i hospitalsregi og er sammen med Lægemiddelstatistikregistret grundlaget for indikatormålingen.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Indikatoren er baseret på data fra Lægemiddelstatistikregistret og Landspatientregistret (LPR)"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Midtjylland er en af de danske regioner, der rapporteres på i indikatoren, og har blandt de højeste målopfyldelser.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Regionerne Midtjylland og Nordjylland har marginalt højere målopfyldelse (93-95%) end de øvrige (ca. 90%)"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Nordjylland er en af de danske regioner med blandt de højeste målopfyldelser for antikoagulationsbehandling inden for 30 dage.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Regionerne Midtjylland og Nordjylland har marginalt højere målopfyldelse (93-95%) end de øvrige (ca. 90%)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "predicate": "administers",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk er angivet som administrator for databasen",
+      "page": 11
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "uses-data-from",
+      "object": "laegemiddelstatistikregistret",
+      "evidence": "Indikatoren er baseret på data fra Lægemiddelstatistikregistret og Landspatientregistret (LPR)",
+      "page": 15
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "uses-data-from",
+      "object": "landspatientregistret",
+      "evidence": "Indikatoren er baseret på data fra Lægemiddelstatistikregistret og Landspatientregistret (LPR)",
+      "page": 15
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan blev 92% af de nydiagnosticerede atrieflimren patienter med en CHA2DS2-VASc score ≥2 sat i oral antikoagulationsbehandling senest 30 dage efter diagnosticering [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    },
+    {
+      "text": "Standarden på ≥ 90% er således opfyldt på landsplan og har været det de sidste to årsrapportsperioder [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    },
+    {
+      "text": "På regionsplan varierede andelen mellem 90 – 95% og standarden er således for første gang opfyldt i alle regioner [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    },
+    {
+      "text": "Regionerne Midtjylland og Nordjylland har marginalt højere målopfyldelse (93-95%) end de øvrige (ca. 90%) [^src1]",
+      "type": "regional-variation",
+      "entities": [
+        "midtjylland",
+        "nordjylland"
+      ],
+      "page": 15
+    },
+    {
+      "text": "På hospitalsniveau opfyldte 20 standarden hvilket også er det højeste antal hidtil [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    },
+    {
+      "text": "Laveste opfyldelse for en hospitalsenhed er 84% [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    },
+    {
+      "text": "Ca. 53% af patienterne havde indløst en recept vedrørende oral antiokoagulationsbehandling inden for 120 dage op til diagnosen stilles i hospitalsregi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    },
+    {
+      "text": "Indikator 1 undersøger ventetiden fra diagnosticering til opstart i antikoagulationsbehandling blandt patienter nydiagnosticeret med atrieflimren i perioden 1. juli 2022 til 30. juni 2023 [^src1]",
+      "type": "indicator-definition",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    },
+    {
+      "text": "Patienter med en ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulationsbehandling opfylder indikatoren [^src1]",
+      "type": "indicator-definition",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    },
+    {
+      "text": "Indikation for antikoagulationsbehandling er CHA2DS2-VASc score ≥2 [^src1]",
+      "type": "clinical-criteria",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    },
+    {
+      "text": "Der er ved beregningen af scoren ikke givet point for kvindekøn, og grænsen for scoren på ≥2 er derfor indikation for antikoagulationsbehandling hos begge køn [^src1]",
+      "type": "clinical-criteria",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    },
+    {
+      "text": "En forudsætning for at indgå i indikatorberegningen er, at patienter er i live 30 dage efter diagnosedato [^src1]",
+      "type": "indicator-definition",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    },
+    {
+      "text": "Antal eksklusioner: 269 patienter uden bopæl i DK eller med erstatnings CPRnr [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    },
+    {
+      "text": "Antal eksklusioner: 8.262 patienter uden indikation for AK behandling (CHAD2DS2-VASc < 2) [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    },
+    {
+      "text": "Antal eksklusioner: 471 patienter, der døde inden for 30 dage efter diagnosedato [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 15
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. juli 2022 – 30. juni 2023",
+      "event": "Rapportperiode for Indikator 1 vedrørende ventetid fra diagnosticering til opstart i antikoagulationsbehandling blandt nydiagnosticerede atrieflimren-patienter",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk udgør en årsrapport fra Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023, administreret af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten præsenterer resultater for Indikator 1, som måler andelen af nydiagnosticerede atrieflimren-patienter, der påbegynder antikoagulationsbehandling inden for maksimalt 30 dage efter diagnosticering, blandt patienter med en CHA2DS2-VASc score ≥2. Chunkens sider 11-14 viser kontroldiagrammer, funnelplot og trendgrafer på regions- og hospitalsniveau, mens side 15 indeholder datagrundlag, beregningsregler, eksklusionskriterier og resultater. Rapporten dokumenterer, at standarden på ≥90% målopfyldelse nu for første gang er opfyldt i alle danske regioner, med en landsgennemsnit på 92%."
+}

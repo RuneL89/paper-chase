@@ -1,0 +1,860 @@
+{
+  "changes": [
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "comparisons",
+      "reason": "42 comparison pages created from extracted comparison tables",
+      "affectedEntities": [
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "aarhus-universitetshospital",
+        "akut-kirurgi-databasen",
+        "amager-og-hvidovre-hospital",
+        "antibiotikabehandling",
+        "asa-score",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "charlson-score",
+        "cpr-nummer",
+        "cpr-registeret",
+        "ct-skanning",
+        "danmark",
+        "epidural",
+        "ernaering",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "herlev-og-gentofte-hospital",
+        "holbaek-sygehus",
+        "hospitalerne-i-nordsjaelland",
+        "hospitalsenhed-midt",
+        "indikator-1",
+        "indikator-10",
+        "indikator-11",
+        "indikator-2",
+        "indikator-3",
+        "indikator-4",
+        "indikator-4x",
+        "indikator-4y",
+        "indikator-5",
+        "indikator-5x",
+        "indikator-5y",
+        "indikator-6",
+        "indikator-7",
+        "indikator-8",
+        "indikator-9",
+        "kolding-sygehus",
+        "mortalitet-indenfor-30-dage-efter-akut-kirurgi",
+        "mortalitet-indenfor-90-dage",
+        "naestved-slagelse-ringsted-sygehuse",
+        "nykoebing-f-sygehus",
+        "odense-universitetshospital",
+        "odense-universitetshospital-svendborg",
+        "operation-indenfor-6-timer",
+        "psykiatrien-region-syddanmark",
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark",
+        "regionshospital-nordjylland",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "rigshospitalet",
+        "sjaellands-universitetshospital",
+        "supplerende-indikator-10b",
+        "supplerende-indikator-10c",
+        "supplerende-indikator-9b",
+        "supplerende-indikator-9c",
+        "supplerende-indikator-til-10a",
+        "supplerende-indikator-til-10b",
+        "supplerende-indikator-til-9a",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "tidlig-mobilisering",
+        "vejle-sygehus"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "entities/organizations/healthcare-systems",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "lpr"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "entities/organizations/regions",
+      "reason": "5 entities placed in this folder",
+      "affectedEntities": [
+        "hovedstaden-region",
+        "midtjylland-region",
+        "nordjylland-region",
+        "sjaelland-region",
+        "syddanmark-region"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/administrative",
+      "reason": "Topic page 'administrative' created from claims of type 'administrative'",
+      "affectedEntities": [
+        "region-nordjylland",
+        "region-sjaelland"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/analysis",
+      "reason": "Topic page 'analysis' created from claims of type 'analysis'",
+      "affectedEntities": [
+        "lkt-akutkirurgi"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/availability",
+      "reason": "Topic page 'availability' created from claims of type 'availability'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/clinical-analysis",
+      "reason": "Topic page 'clinical-analysis' created from claims of type 'clinical-analysis'",
+      "affectedEntities": [
+        "hovedstaden-region",
+        "midtjylland-region",
+        "nordjylland-region",
+        "sjaelland-region",
+        "syddanmark-region"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/clinical-data",
+      "reason": "Topic page 'clinical-data' created from claims of type 'clinical-data'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/clinical-guideline",
+      "reason": "Topic page 'clinical-guideline' created from claims of type 'clinical-guideline'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen",
+        "enhanced-recovery-after-surgery"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/clinical-research",
+      "reason": "Topic page 'clinical-research' created from claims of type 'clinical-research'",
+      "affectedEntities": [
+        "perforeret-ulcus"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/clinical-target",
+      "reason": "Topic page 'clinical-target' created from claims of type 'clinical-target'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/clinical-trend",
+      "reason": "Topic page 'clinical-trend' created from claims of type 'clinical-trend'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/compliance",
+      "reason": "Topic page 'compliance' created from claims of type 'compliance'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/data-extraction",
+      "reason": "Topic page 'data-extraction' created from claims of type 'data-extraction'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/definition",
+      "reason": "Topic page 'definition' created from claims of type 'definition'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/exclusion-criteria",
+      "reason": "Topic page 'exclusion-criteria' created from claims of type 'exclusion-criteria'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/hospital-outcome",
+      "reason": "Topic page 'hospital-outcome' created from claims of type 'hospital-outcome'",
+      "affectedEntities": [
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/limitation",
+      "reason": "Topic page 'limitation' created from claims of type 'limitation'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/methodological",
+      "reason": "Topic page 'methodological' created from claims of type 'methodological'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/methodology-change",
+      "reason": "Topic page 'methodology-change' created from claims of type 'methodology-change'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/mortality",
+      "reason": "Topic page 'mortality' created from claims of type 'mortality'",
+      "affectedEntities": [
+        "charlson-score",
+        "danmark",
+        "indikator-10",
+        "indikator-9",
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/mortality-statistic",
+      "reason": "Topic page 'mortality-statistic' created from claims of type 'mortality-statistic'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen",
+        "danmark",
+        "holbaek-sygehus",
+        "hovedstaden",
+        "midtjylland",
+        "nordjylland",
+        "rigshospitalet",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/operational",
+      "reason": "Topic page 'operational' created from claims of type 'operational'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen",
+        "herlev-og-gentofte-hospital",
+        "landspatientregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/outcome",
+      "reason": "Topic page 'outcome' created from claims of type 'outcome'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/performance",
+      "reason": "Topic page 'performance' created from claims of type 'performance'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/performance-metric",
+      "reason": "Topic page 'performance-metric' created from claims of type 'performance-metric'",
+      "affectedEntities": [
+        "aalborg-universitetshospital",
+        "aarhus-universitetshospital",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "danmark",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "herlev-og-gentofte-hospital",
+        "holbaek-sygehus",
+        "hospitalerne-i-nordsjaelland",
+        "hospitalsenhed-midt",
+        "indikator-1-antibiotikabehandling",
+        "indikator-10-mortalitet-90-dage",
+        "indikator-2-ct-skanning",
+        "indikator-3-praeoperativ-optimering",
+        "indikator-4-operation-indenfor-seks-timer",
+        "indikator-5-postoperativ-monitoring",
+        "indikator-6-tidlig-mobilisering",
+        "indikator-7-ernaeringsgjenoptagelse",
+        "indikator-8-epidural",
+        "indikator-9-mortalitet-30-dage",
+        "naestved-slagelse-ringsted-sygehuse",
+        "odense-universitetshospital-svendborg",
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark",
+        "regionshospital-nordjylland",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "rigshospitalet",
+        "sjaellands-universitetshospital",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/policy",
+      "reason": "Topic page 'policy' created from claims of type 'policy'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/policy-change",
+      "reason": "Topic page 'policy-change' created from claims of type 'policy-change'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/policy-decision",
+      "reason": "Topic page 'policy-decision' created from claims of type 'policy-decision'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/population-definition",
+      "reason": "Topic page 'population-definition' created from claims of type 'population-definition'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/procedural",
+      "reason": "Topic page 'procedural' created from claims of type 'procedural'"
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/process",
+      "reason": "Topic page 'process' created from claims of type 'process'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen",
+        "landspatientregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/quality-assessment",
+      "reason": "Topic page 'quality-assessment' created from claims of type 'quality-assessment'",
+      "affectedEntities": [
+        "indikator-5"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/quality-indicator",
+      "reason": "Topic page 'quality-indicator' created from claims of type 'quality-indicator'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen",
+        "antibiotikabehandling",
+        "ct-skanning",
+        "danmark",
+        "epidural",
+        "ernaering",
+        "holbaek-sygehus",
+        "indikator-3",
+        "indikator-4x",
+        "indikator-4y",
+        "indikator-5",
+        "intermediaer-indlaeggelse",
+        "mortalitet-indenfor-30-dage",
+        "mortalitet-indenfor-90-dage",
+        "operation-indenfor-6-timer",
+        "praeoperativ-optimering",
+        "regionshospitalet-horsens",
+        "tidlig-mobilisering"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/recommendation",
+      "reason": "Topic page 'recommendation' created from claims of type 'recommendation'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/regional-outcome",
+      "reason": "Topic page 'regional-outcome' created from claims of type 'regional-outcome'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/standard",
+      "reason": "Topic page 'standard' created from claims of type 'standard'"
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/standard-change",
+      "reason": "Topic page 'standard-change' created from claims of type 'standard-change'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/standard-compliance",
+      "reason": "Topic page 'standard-compliance' created from claims of type 'standard-compliance'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/standard-setting",
+      "reason": "Topic page 'standard-setting' created from claims of type 'standard-setting'"
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/statistical",
+      "reason": "Topic page 'statistical' created from claims of type 'statistical'",
+      "affectedEntities": [
+        "aalborg-universitetshospital",
+        "aarhus-universitetshospital",
+        "akut-kirurgi-databasen",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "danmark",
+        "herlev-og-gentofte-hospital",
+        "hovedstaden-region",
+        "indikator-10",
+        "indikator-11",
+        "midtjylland-region",
+        "nordjylland-region",
+        "nykoebing-f-sygehus",
+        "odense-universitetshospital-svendborg",
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark",
+        "regionshospitalet-randers",
+        "rigshospitalet",
+        "sjaellands-universitetshospital",
+        "syddanmark-region",
+        "sygehus-soenderjylland"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/status",
+      "reason": "Topic page 'status' created from claims of type 'status'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen",
+        "den-nationale-labdatabank"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/temporal",
+      "reason": "Topic page 'temporal' created from claims of type 'temporal'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/trend",
+      "reason": "Topic page 'trend' created from claims of type 'trend'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen",
+        "indikator-10",
+        "intermediaer-indlaeggelse"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-folder",
+      "path": "topics/validation-process",
+      "reason": "Topic page 'validation-process' created from claims of type 'validation-process'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-page-type",
+      "path": "clinical-assessment",
+      "reason": "New entity page type 'clinical-assessment' discovered during extraction",
+      "affectedEntities": [
+        "charlson-comorbidity-score"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-page-type",
+      "path": "clinical-condition",
+      "reason": "New entity page type 'clinical-condition' discovered during extraction",
+      "affectedEntities": [
+        "perforeret-ulcus"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-page-type",
+      "path": "clinical-intervention",
+      "reason": "New entity page type 'clinical-intervention' discovered during extraction",
+      "affectedEntities": [
+        "antikoagulerende-behandling"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-page-type",
+      "path": "clinical-outcome",
+      "reason": "New entity page type 'clinical-outcome' discovered during extraction",
+      "affectedEntities": [
+        "ileus",
+        "postoperativ-pneumoni",
+        "postoperative-lungekomplikationer"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-page-type",
+      "path": "clinical-procedure",
+      "reason": "New entity page type 'clinical-procedure' discovered during extraction",
+      "affectedEntities": [
+        "akut-abdominalkirurgi",
+        "laparoskopi",
+        "laparotomi"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-page-type",
+      "path": "location",
+      "reason": "New entity page type 'location' discovered during extraction",
+      "affectedEntities": [
+        "danmark",
+        "hovedstaden",
+        "midtjylland",
+        "nordjylland",
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-page-type",
+      "path": "organization",
+      "reason": "New entity page type 'organization' discovered during extraction",
+      "affectedEntities": [
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "aarhus-universitetshospital",
+        "akut-kirurgi-databasen",
+        "amager-og-hvidovre-hospital",
+        "american-college-of-radiology",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "cpr-registeret",
+        "dansk-anaestesi-database",
+        "dansk-kirurgisk-selskab",
+        "dansk-radiologisk-selskab",
+        "dansk-selskab-for-akutmedicin",
+        "dansk-selskab-for-anaestesiologi-og-intensiv-medicin",
+        "dansk-selskab-for-fysioterapi",
+        "dansk-selskab-for-klinisk-ernaering",
+        "dansk-sygepleje-selskab",
+        "danske-regioner",
+        "den-nationale-labdatabank",
+        "esbjerg-sygehus",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "fagligt-selskab-for-gastroenterologiske-sygeplejersker",
+        "grindsted-sygehus",
+        "herlev-og-gentofte-hospital",
+        "holbaek-sygehus",
+        "hospitalerne-i-nordsjaelland",
+        "hospitalsenhed-midt",
+        "hovedstaden-region",
+        "kolding-sygehus",
+        "laerings-og-kvalitetesteam-akut-kirurgi",
+        "landspatientregisteret",
+        "lkt-akutkirurgi",
+        "lpr",
+        "midtjylland-region",
+        "naestved-slagelse-og-ringsted-sygehuse",
+        "naestved-slagelse-ringsted-sygehuse",
+        "nasbo-projektet",
+        "nordjylland-region",
+        "nordsjaellands-hospital",
+        "nykoebing-f-sygehus",
+        "odense-universitetshospital",
+        "odense-universitetshospital-svendborg",
+        "regionernes-kliniske-kvalitetsudviklingsprogram",
+        "regionshospital-nordjylland",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "regionssundhedsdirektoerkredsen",
+        "rigshospitalet",
+        "rkkp",
+        "sds",
+        "sjaelland-region",
+        "sjaellands-universitetshospital",
+        "stps",
+        "sundhedsdatastyrelsens-teknikergruppe",
+        "sundhedsvaesenet-kvalitetsinstitut",
+        "sundhedsvaesenets-kvalitetsinstitut",
+        "sundhedsvaesenets-organisationsregister",
+        "syddanmark-region",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "sygehusmedicinregisteret"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-page-type",
+      "path": "person",
+      "reason": "New entity page type 'person' discovered during extraction",
+      "affectedEntities": [
+        "adamsen-s",
+        "anaestesiolog",
+        "anne-kirstine-dyrvig",
+        "bendix-j",
+        "birgitte-ruehmann",
+        "birgitte-ruhman",
+        "camilla-leidcker",
+        "dorte-lindholm-buck",
+        "emma-possfelt-moller",
+        "halfdan-lauridsen",
+        "helene-rask-dalby",
+        "henriette-vind-thaysen",
+        "henrik-joergensen",
+        "henrik-nielsen",
+        "ingrid-lolle",
+        "jakob-burcharth",
+        "karen-vestergaard-andersen",
+        "kristian-aagaard-poulsen",
+        "line-rokkedal-joensson",
+        "lone-winther-jensen",
+        "mainz-j",
+        "marianne-vinbaek",
+        "mette-aastrup-tolver",
+        "mikkel-wilhelmsen",
+        "moeller-m-h",
+        "morten-moller",
+        "nakano-a",
+        "nicolai-bang-foss",
+        "niels-verner-knudsen",
+        "peter-olsen-svenningsen",
+        "peter-svenningsen",
+        "rasmus-haarup-lie",
+        "rasmus-hasselager",
+        "rikke-therkildsen",
+        "rune-trangbaek",
+        "soeren-brok-laursen",
+        "soeren-moeller-rosenstock",
+        "thomas-cotzand",
+        "thomas-joergensen",
+        "vera-slyk"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-page-type",
+      "path": "product",
+      "reason": "New entity page type 'product' discovered during extraction",
+      "affectedEntities": [
+        "charleson-score",
+        "nordeepj"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-page-type",
+      "path": "quality-indicator",
+      "reason": "New entity page type 'quality-indicator' discovered during extraction",
+      "affectedEntities": [
+        "indikator-3",
+        "indikator-4",
+        "indikator-4x",
+        "indikator-4y",
+        "indikator-6",
+        "indikator-8",
+        "indikator-9"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-page-type",
+      "path": "study",
+      "reason": "New entity page type 'study' discovered during extraction",
+      "affectedEntities": [
+        "pupl-studiet"
+      ]
+    },
+    {
+      "timestamp": "2026-08-03T16:37:31.402Z",
+      "type": "new-page-type",
+      "path": "topic",
+      "reason": "New entity page type 'topic' discovered during extraction",
+      "affectedEntities": [
+        "aha-patient",
+        "aha-studie",
+        "aha-studiet",
+        "antibiotikabehandling",
+        "apache-scoring",
+        "asa-score",
+        "charlson-comorbidity-index",
+        "charlson-score",
+        "cpr-nummer",
+        "ct-skanning",
+        "elpquick-studiet",
+        "enhanced-recovery-after-surgery",
+        "epidural",
+        "ernaering",
+        "ima-afsnit",
+        "indikator-1",
+        "indikator-1-antibiotikabehandling",
+        "indikator-10",
+        "indikator-10-mortalitet-90-dage",
+        "indikator-11",
+        "indikator-2",
+        "indikator-2-ct-skanning",
+        "indikator-3-praeoperativ-optimering",
+        "indikator-4-operation-indenfor-seks-timer",
+        "indikator-5",
+        "indikator-5-postoperativ-monitoring",
+        "indikator-6-tidlig-mobilisering",
+        "indikator-7",
+        "indikator-7-ernaeringsgjenoptagelse",
+        "indikator-8-epidural",
+        "indikator-9-mortalitet-30-dage",
+        "intermediaer-indlaeggelse",
+        "ita-afsnit",
+        "mortalitet-indenfor-30-dage",
+        "mortalitet-indenfor-30-dage-efter-akut-kirurgi",
+        "mortalitet-indenfor-90-dage",
+        "naaz42-procedurekode",
+        "operation-indenfor-6-timer",
+        "p-possum",
+        "praeoperativ-optimering",
+        "supplerende-indikator-5x",
+        "surgical-apgar-score",
+        "tidlig-mobilisering"
+      ]
+    }
+  ],
+  "knownPageTypes": [
+    "clinical-assessment",
+    "clinical-condition",
+    "clinical-intervention",
+    "clinical-outcome",
+    "clinical-procedure",
+    "location",
+    "organization",
+    "person",
+    "product",
+    "quality-indicator",
+    "study",
+    "topic"
+  ]
+}

@@ -1,0 +1,438 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 7: Incidens alvorlig blødning",
+      "type": "quality-indicator",
+      "slug": "indikator-7-incidens-alvorlig-blodning",
+      "folder": "topics/quality-indicator",
+      "significance": "Indikator 7 måler incidensen af alvorlig blødning blandt prævalente patienter med atrieflimren ved hjælp af tilpassede ISTH-kriterier og er en central kvalitetsmåling i Regionernes Kliniske Kvalitetsudviklingsprogram.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Indikator 7: Incidens alvorlig blødning"
+        },
+        {
+          "page": 57,
+          "context": "Indikator 7: Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren"
+        },
+        {
+          "page": 59,
+          "context": "Indikator 7. Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren"
+        },
+        {
+          "page": 60,
+          "context": "Indikator 7 opgøres for alle prævalente patienter med en atrieflimren-diagnose"
+        }
+      ]
+    },
+    {
+      "name": "International Society of Thrombosis and Hemostasis",
+      "type": "organization",
+      "slug": "international-society-of-thrombosis-and-hemostasis",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "ISTH har udviklet kriterierne for definition af alvorlig blødning, som er tilpasset og anvendt i Indikator 7 for atrieflimren-patienter i Danmark.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier"
+        },
+        {
+          "page": 57,
+          "context": "tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier"
+        },
+        {
+          "page": 59,
+          "context": "tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Landspatientregisteret er datakilden for identifikation af atrieflimren-diagnose og registrering af alvorlige blødninger blandt prævalente patienter.",
+      "mentions": [
+        {
+          "page": 60,
+          "context": "Større blødning er defineret som en akut indlæggelse med blødning og er identificeret via data fra Landspatientregistret"
+        },
+        {
+          "page": 60,
+          "context": "alle personer, som var i live pr. 1. juli 2023, og som har fået diagnosen registeret i Landspatientregisteret mindst én gang inden for de foregående 10 år"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det geografiske område for denne kvalitetsindikator, hvor 2,2% af prævalente atrieflimren-patienter blev indlagt med alvorlig blødning i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Danmark 2.917 / 136.420 0 (0) 2,1 (2,1-2,2)"
+        },
+        {
+          "page": 60,
+          "context": "I alt blev 2,2% af de prævalente patienter med atrieflimren indlagt med alvorlig blødning i løbet af opgørelsesperioden"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden havde 2,2% incidens af alvorlig blødning blandt atrieflimren-patienter og viste en tendens til faldende andele på -0,2 procentpoint.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Hovedstaden 830 / 37.675 0 (0) 2,2 (2,1-2,4)"
+        },
+        {
+          "page": 60,
+          "context": "På regionsniveau varierede andelen som blev indlagt med alvorlig blødning mellem 1,9-2,2%. Der ses en tendens til faldende andele i Region Hovedstaden (-0,2 procentpoint)"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland havde 2,2% incidens af alvorlig blødning blandt atrieflimren-patienter i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Sjælland 505 / 22.695 0 (0) 2,2 (2,0-2,4)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Syddanmark havde 2,1% incidens af alvorlig blødning blandt atrieflimren-patienter og viste en tendens til faldende andele på -0,4 procentpoint.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Syddanmark 670 / 31.275 0 (0) 2,1 (2,0-2,3)"
+        },
+        {
+          "page": 60,
+          "context": "Der ses en tendens til faldende andele i Region Hovedstaden (-0,2 procentpoint) og Region Syddanmark (-0,4 procentpoint)"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Midtjylland havde 1,9% incidens af alvorlig blødning blandt atrieflimren-patienter, den laveste på regionsniveau.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Midtjylland 583 / 29.991 0 (0) 1,9 (1,8-2,1)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland havde 2,2% incidens af alvorlig blødning blandt atrieflimren-patienter i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Nordjylland 329 / 14.784 0 (0) 2,2 (2,0-2,5)"
+        }
+      ]
+    },
+    {
+      "name": "CHA2DS2-VASc score",
+      "type": "clinical-measure",
+      "slug": "cha2ds2-vasc-score",
+      "folder": "topics/clinical-measures",
+      "significance": "CHA2DS2-VASc score blev analyseret blandt patienter med alvorlig blødning, hvor 43,7% af blødningerne optrådte blandt patienter med en score på 0 eller 1.",
+      "mentions": [
+        {
+          "page": 60,
+          "context": "I Appendiks er medtaget en tabel over fordelingen af CHA2DS2-VASc score blandt patienterne med alvorlig blødning. Det bemærkes, at 43,7% af blødningerne optrådte blandt patienter med en CHA2DS2-VASc score på 0 eller 1"
+        }
+      ]
+    },
+    {
+      "name": "DOAC",
+      "type": "medication",
+      "slug": "doac",
+      "folder": "topics/medications",
+      "significance": "DOAC-behandling blev analyseret blandt atrieflimren-patienter, hvor 2,30% af patienter i DOAC-behandling havde alvorlig blødning i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 60,
+          "context": "I Appendiks er det vist hvor stor en andel af patienter i behandling med DOAC og/eller marevan, eller ingen af disse, der har haft en alvorlig blødning i årsrapportsperioden. Andelen af patienter med alvorlig blødning er 2,30% for DOAC"
+        }
+      ]
+    },
+    {
+      "name": "Marevan",
+      "type": "medication",
+      "slug": "marevan",
+      "folder": "topics/medications",
+      "significance": "Marevan-behandling blev analyseret blandt atrieflimren-patienter, hvor 2,38% af patienter i marevan-behandling havde alvorlig blødning i opgørelsesperioden.",
+      "mentions": [
+        {
+          "page": 60,
+          "context": "Andelen af patienter med alvorlig blødning er 2,30% for DOAC og 2,38% for marevan"
+        }
+      ]
+    },
+    {
+      "name": "Atrieflimren",
+      "type": "medical-condition",
+      "slug": "atrieflimren",
+      "folder": "topics/medical-conditions",
+      "significance": "Atrieflimren er den centrale patientkondition for denne kvalitetsindikator, hvor prævalente patienter med diagnosen overvåges for incidens af alvorlig blødning.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 60,
+          "context": "Indikator 7 opgøres for alle prævalente patienter med en atrieflimren-diagnose"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/government",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er det program under hvilket Indikator 7 for alvorlig blødning blandt atrieflimren-patienter rapporteres.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 57,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-7-incidens-alvorlig-blodning",
+      "predicate": "measures-outcome-in",
+      "object": "atrieflimren",
+      "evidence": "Indikator 7 opgøres for alle prævalente patienter med en atrieflimren-diagnose",
+      "page": 60
+    },
+    {
+      "subject": "indikator-7-incidens-alvorlig-blodning",
+      "predicate": "uses-criteria-from",
+      "object": "international-society-of-thrombosis-and-hemostasis",
+      "evidence": "tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier",
+      "page": 56
+    },
+    {
+      "subject": "indikator-7-incidens-alvorlig-blodning",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Større blødning er defineret som en akut indlæggelse med blødning og er identificeret via data fra Landspatientregistret",
+      "page": 60
+    },
+    {
+      "subject": "indikator-7-incidens-alvorlig-blodning",
+      "predicate": "part-of",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 56
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "reported-indicator",
+      "object": "indikator-7-incidens-alvorlig-blodning",
+      "evidence": "Hovedstaden 830 / 37.675 0 (0) 2,2 (2,1-2,4)",
+      "page": 57
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "reported-indicator",
+      "object": "indikator-7-incidens-alvorlig-blodning",
+      "evidence": "Sjælland 505 / 22.695 0 (0) 2,2 (2,0-2,4)",
+      "page": 57
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "reported-indicator",
+      "object": "indikator-7-incidens-alvorlig-blodning",
+      "evidence": "Syddanmark 670 / 31.275 0 (0) 2,1 (2,0-2,3)",
+      "page": 57
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "reported-indicator",
+      "object": "indikator-7-incidens-alvorlig-blodning",
+      "evidence": "Midtjylland 583 / 29.991 0 (0) 1,9 (1,8-2,1)",
+      "page": 57
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "reported-indicator",
+      "object": "indikator-7-incidens-alvorlig-blodning",
+      "evidence": "Nordjylland 329 / 14.784 0 (0) 2,2 (2,0-2,5)",
+      "page": 57
+    }
+  ],
+  "claims": [
+    {
+      "text": "I alt blev 2,2% af de prævalente patienter med atrieflimren indlagt med alvorlig blødning i løbet af opgørelsesperioden [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "atrieflimren",
+        "indikator-7-incidens-alvorlig-blodning"
+      ],
+      "page": 60
+    },
+    {
+      "text": "Der ses ingen reel udvikling i andelen nationalt i løbet af de seneste tre årsrapportsperioder [^src1]",
+      "type": "clinical-trend",
+      "entities": [
+        "indikator-7-incidens-alvorlig-blodning",
+        "danmark"
+      ],
+      "page": 60
+    },
+    {
+      "text": "På regionsniveau varierede andelen som blev indlagt med alvorlig blødning mellem 1,9-2,2% [^src1]",
+      "type": "regional-variation",
+      "entities": [
+        "indikator-7-incidens-alvorlig-blodning"
+      ],
+      "page": 60
+    },
+    {
+      "text": "Der ses en tendens til faldende andele i Region Hovedstaden (-0,2 procentpoint) og Region Syddanmark (-0,4 procentpoint) [^src1]",
+      "type": "regional-variation",
+      "entities": [
+        "region-hovedstaden",
+        "syddanmark"
+      ],
+      "page": 60
+    },
+    {
+      "text": "43,7% af blødningerne optrådte blandt patienter med en CHA2DS2-VASc score på 0 eller 1 [^src1]",
+      "type": "clinical-finding",
+      "entities": [
+        "cha2ds2-vasc-score"
+      ],
+      "page": 60
+    },
+    {
+      "text": "Andelen af patienter med alvorlig blødning er 2,30% for DOAC og 2,38% for marevan [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "doac",
+        "marevan"
+      ],
+      "page": 60
+    },
+    {
+      "text": "Andelen af patienter med alvorlig blødning 1 år efter diagnosedato (incidente patienter) er på landsplan 3,2% og varierer regionalt fra 2,8-3,8% [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "atrieflimren"
+      ],
+      "page": 60
+    },
+    {
+      "text": "Alvorlige blødninger defineres som intrakranielle blødninger, gastrointestinale blødninger, urinvejsblødninger og blødninger fra lungerne [^src1]",
+      "type": "indicator-definition",
+      "entities": [
+        "indikator-7-incidens-alvorlig-blodning"
+      ],
+      "page": 60
+    },
+    {
+      "text": "Indikator 7 opgøres for alle prævalente patienter med en atrieflimren-diagnose, dvs. alle personer, som var i live pr. 1. juli 2023, og som har fået diagnosen registeret i Landspatientregisteret mindst én gang inden for de foregående 10 år [^src1]",
+      "type": "indicator-definition",
+      "entities": [
+        "indikator-7-incidens-alvorlig-blodning",
+        "atrieflimren"
+      ],
+      "page": 60
+    },
+    {
+      "text": "Antal eksklusion: 2.657 patienter har ikke bopæl i DK eller har en erstatnings CPR-nr [^src1]",
+      "type": "data-limitation",
+      "entities": [
+        "indikator-7-incidens-alvorlig-blodning"
+      ],
+      "page": 60
+    },
+    {
+      "text": "65 patienters bopælskommune er ukendt [^src1]",
+      "type": "data-limitation",
+      "entities": [
+        "indikator-7-incidens-alvorlig-blodning"
+      ],
+      "page": 60
+    },
+    {
+      "text": "78.597 patienter dør inden starten af sidste opgørelsesperiode [^src1]",
+      "type": "data-limitation",
+      "entities": [
+        "indikator-7-incidens-alvorlig-blodning"
+      ],
+      "page": 60
+    },
+    {
+      "text": "Indikator bibeholdes. Standard fastlægges i forbindelse med næste årsrapport [^src1]",
+      "type": "indicator-status",
+      "entities": [
+        "indikator-7-incidens-alvorlig-blodning"
+      ],
+      "page": 60
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.07.2023 - 30.06.2024",
+      "event": "Opgørelsesperiode for Indikator 7: Incidens alvorlig blødning blandt prævalente patienter med atrieflimren",
+      "entities": [
+        "indikator-7-incidens-alvorlig-blodning",
+        "atrieflimren"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere år for sammenligning af incidens alvorlig blødning",
+      "entities": [
+        "indikator-7-incidens-alvorlig-blodning"
+      ]
+    },
+    {
+      "date": "2021/22",
+      "event": "Tidligere år for sammenligning af incidens alvorlig blødning",
+      "entities": [
+        "indikator-7-incidens-alvorlig-blodning"
+      ]
+    },
+    {
+      "date": "01.07.2023",
+      "event": "Referencedato for prævalente patienter med atrieflimren-diagnose",
+      "entities": [
+        "atrieflimren"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk præsenterer Indikator 7 fra Regionernes Kliniske Kvalitetsudviklingsprogram, som måler incidensen af alvorlig blødning blandt prævalente patienter med atrieflimren i Danmark. Indikatoren anvender tilpassede ISTH-kriterier til at definere alvorlige blødninger som intrakranielle, gastrointestinale, urinvejs- eller lungblødninger identificeret via Landspatientregisteret. Rapporten dækker opgørelsesperioden 1. juli 2023 til 30. juni 2024 og viser, at 2,2% af de prævalente atrieflimren-patienter blev indlagt med alvorlig blødning, med regional variation fra 1,9% til 2,2%. Analysen inkluderer data fra alle fem danske regioner og deres sundhedsklynger, samt sammenligning med tidligere årsrapporter og stratificering efter behandlingstype (DOAC vs. marevan) og risikoscore (CHA2DS2-VASc)."
+}

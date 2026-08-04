@@ -1,0 +1,1008 @@
+{
+  "entities": [
+    {
+      "slug": "aabenraa-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 6
+    },
+    {
+      "slug": "aabenraa-mave-og-tarmsygd",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "aalborg-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 6
+    },
+    {
+      "slug": "aarhus-boern-og-unge",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "aarhus-mave-og-tarmkirurgi",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "aarhus-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 13
+    },
+    {
+      "slug": "aauh-aalborg-boerne-og-ungeafdeling",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "aauh-aalborg-med-gastroenterologisk-omraade",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 6
+    },
+    {
+      "slug": "aauh-farsoe",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "aauh-mave-tarmkirurgisk-afdeling",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "aauh-thisted",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "adalimumab",
+      "folder": "entities/medications/biologics",
+      "mentionCount": 4
+    },
+    {
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "anders-neumann",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 1
+    },
+    {
+      "slug": "anne-mette-falstie-jensen",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 2
+    },
+    {
+      "slug": "bispebjerg",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 8
+    },
+    {
+      "slug": "bispebjerg-abdominalcenter",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "bmsl",
+      "folder": "topics/treatments",
+      "mentionCount": 9
+    },
+    {
+      "slug": "bornholm",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 6
+    },
+    {
+      "slug": "bornholm-kirurgisk-afdeling",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "colitis-ulcerosa",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "mentionCount": 4
+    },
+    {
+      "slug": "colorectal-cancer",
+      "folder": "topics/medical-conditions",
+      "mentionCount": 1
+    },
+    {
+      "slug": "constant-care",
+      "folder": "entities/products/healthcare-software",
+      "mentionCount": 1
+    },
+    {
+      "slug": "crohns-disease",
+      "folder": "topics/medical-conditions",
+      "mentionCount": 14
+    },
+    {
+      "slug": "crohns-sygdom",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "mentionCount": 7
+    },
+    {
+      "slug": "danibd",
+      "folder": "entities/organizations/health-registries",
+      "mentionCount": 44
+    },
+    {
+      "slug": "dansk-paediatrisk-selskab",
+      "folder": "entities/organizations/professional-societies",
+      "mentionCount": 1
+    },
+    {
+      "slug": "dansk-selskab-for-gastroenterologi",
+      "folder": "entities/organizations/professional-societies",
+      "mentionCount": 2
+    },
+    {
+      "slug": "denmark",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 3
+    },
+    {
+      "slug": "det-centrale-personregister",
+      "folder": "entities/organizations/registries",
+      "mentionCount": 2
+    },
+    {
+      "slug": "dexa-scanning",
+      "folder": "topics/clinical-measures/procedures",
+      "mentionCount": 4
+    },
+    {
+      "slug": "else-kjaer-mikkelsen",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 2
+    },
+    {
+      "slug": "esbjerg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 8
+    },
+    {
+      "slug": "esbjerg-mave-og-tarmsygd-afd",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "espghan",
+      "folder": "entities/organizations/professional-societies",
+      "mentionCount": 1
+    },
+    {
+      "slug": "esra-oeztoprak",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 1
+    },
+    {
+      "slug": "f-calpro",
+      "folder": "topics/biomarkers",
+      "mentionCount": 4
+    },
+    {
+      "slug": "farsoe-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "fecal-calprotectin",
+      "folder": "topics/medical-tests",
+      "mentionCount": 7
+    },
+    {
+      "slug": "filgotinib",
+      "folder": "entities/medications/small-molecule-inhibitors",
+      "mentionCount": 3
+    },
+    {
+      "slug": "gastrobio",
+      "folder": "entities/organizations/registries",
+      "mentionCount": 2
+    },
+    {
+      "slug": "gastroskopi",
+      "folder": "topics/clinical-measures/procedures",
+      "mentionCount": 2
+    },
+    {
+      "slug": "goedstrup-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 11
+    },
+    {
+      "slug": "goedstrup-mave-og-tarmkirurgi",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "goedstrup-mave-tarmkirurgi",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "golimumab",
+      "folder": "entities/medications/biologics",
+      "mentionCount": 3
+    },
+    {
+      "slug": "hc-andersen-boerneafdeling",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "he-midt-klinik",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 4
+    },
+    {
+      "slug": "he-midt-klinik-for-mave-og-tarmsygd",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "he-midt-mave-tarm",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "henning-glerup",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 1
+    },
+    {
+      "slug": "herlev",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 8
+    },
+    {
+      "slug": "herlev-boern-og-unge",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "herlev-mave-tarm-lever",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "herlev-mave-tarm-leversygd",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "hjoerring-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 5
+    },
+    {
+      "slug": "hjoerring-kirurgi",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "holbaek-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 6
+    },
+    {
+      "slug": "holbaek-kirurgi",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "holbaek-paediatri",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "horsens-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 5
+    },
+    {
+      "slug": "horsens-kirurgi",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "horsens-medicinsk-afdeling",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "hovedstaden-region",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 1
+    },
+    {
+      "slug": "hvidovre",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 11
+    },
+    {
+      "slug": "hvidovre-gastro",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "hvidovre-gastroenheden",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "ibd",
+      "folder": "topics/medical-conditions",
+      "mentionCount": 9
+    },
+    {
+      "slug": "ida-vind",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 2
+    },
+    {
+      "slug": "ileocecal-resection",
+      "folder": "topics/surgical-procedures",
+      "mentionCount": 2
+    },
+    {
+      "slug": "inflammatory-bowel-disease",
+      "folder": "topics/medical-conditions",
+      "mentionCount": 11
+    },
+    {
+      "slug": "infliximab",
+      "folder": "entities/medications/biologics",
+      "mentionCount": 5
+    },
+    {
+      "slug": "inge-nordgaard-lassen",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 1
+    },
+    {
+      "slug": "jacobsen-ha",
+      "folder": "entities/people/researchers",
+      "mentionCount": 3
+    },
+    {
+      "slug": "jakob-riis",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 2
+    },
+    {
+      "slug": "jannie-jensen",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 2
+    },
+    {
+      "slug": "jens-kjeldsen",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 2
+    },
+    {
+      "slug": "johan-burisch",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 2
+    },
+    {
+      "slug": "kapselendoskopi",
+      "folder": "topics/clinical-measures/procedures",
+      "mentionCount": 2
+    },
+    {
+      "slug": "koege-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 8
+    },
+    {
+      "slug": "koege-kirurgi",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "kolding-boerne-og-ungeafdeling",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "kolding-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "koloskopi",
+      "folder": "topics/clinical-measures/procedures",
+      "mentionCount": 10
+    },
+    {
+      "slug": "korttarmssyndrom",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "mentionCount": 6
+    },
+    {
+      "slug": "laboratorieregisteret",
+      "folder": "entities/organizations/registries",
+      "mentionCount": 2
+    },
+    {
+      "slug": "laegemiddelstatistikregisteret",
+      "folder": "entities/organizations/registries",
+      "mentionCount": 2
+    },
+    {
+      "slug": "landpatientregisteret",
+      "folder": "entities/organizations/registries",
+      "mentionCount": 7
+    },
+    {
+      "slug": "lone-larsen",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 4
+    },
+    {
+      "slug": "marianne-kajbaek-vester-andersen",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 1
+    },
+    {
+      "slug": "mathilde-pedersen",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 1
+    },
+    {
+      "slug": "medicinraadet",
+      "folder": "entities/organizations/professional-societies",
+      "mentionCount": 2
+    },
+    {
+      "slug": "midtjylland-region",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 1
+    },
+    {
+      "slug": "mirikizumab",
+      "folder": "entities/medications/biologics",
+      "mentionCount": 2
+    },
+    {
+      "slug": "mohamed-attauabi",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 2
+    },
+    {
+      "slug": "mr-scanning-af-tyndtarm",
+      "folder": "topics/clinical-measures/procedures",
+      "mentionCount": 3
+    },
+    {
+      "slug": "naestved-slagelse-ringsted",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "niels-qvist",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 1
+    },
+    {
+      "slug": "nordjylland-region",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 1
+    },
+    {
+      "slug": "nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 10
+    },
+    {
+      "slug": "nordsjaelland-boerne-og-ungeafdeling",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "nordsjaelland-kirurgisk",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "nordsjaelland-kirurgisk-overafdeling",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "nykoebing-f-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 5
+    },
+    {
+      "slug": "nykoebing-f-paediatri",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "nynne-nyboe-andersen",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 1
+    },
+    {
+      "slug": "odense-boerne-og-ungeafdeling",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "odense-kirurgisk-afdeling-a",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "odense-mave-tarm",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "odense-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 10
+    },
+    {
+      "slug": "ole-thorlacius-ussing",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 2
+    },
+    {
+      "slug": "osteoporosis",
+      "folder": "topics/medical-conditions",
+      "mentionCount": 2
+    },
+    {
+      "slug": "ouh-svendborg",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "ouh-svendborg-medicinsk-afd",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "ozanimod",
+      "folder": "entities/medications/small-molecule-inhibitors",
+      "mentionCount": 2
+    },
+    {
+      "slug": "patient-education",
+      "folder": "topics/patient-education",
+      "mentionCount": 3
+    },
+    {
+      "slug": "primaer-skleroserende-kolangitis",
+      "folder": "topics/diseases/hepatobiliary",
+      "mentionCount": 4
+    },
+    {
+      "slug": "primary-sclerosing-cholangitis",
+      "folder": "topics/medical-conditions",
+      "mentionCount": 9
+    },
+    {
+      "slug": "psc",
+      "folder": "topics/medical-conditions",
+      "mentionCount": 6
+    },
+    {
+      "slug": "randers-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 6
+    },
+    {
+      "slug": "randers-mave-og-tarmkirurgi",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "rasmus-gaardskaer-nielsen",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 2
+    },
+    {
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 13
+    },
+    {
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 12
+    },
+    {
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 15
+    },
+    {
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 15
+    },
+    {
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 16
+    },
+    {
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 8
+    },
+    {
+      "slug": "rigshospitalet-kirurgisk-gastroenterologi",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "rigshospitalet-mave-tarm-leversygdomme",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "rigshospitalet-med-klinik-mave-tarm-leversygd",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 3
+    },
+    {
+      "slug": "rigshospitalet-paediatri",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "rigshospitalet-paediatrisk-klinik",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "risankizumab",
+      "folder": "entities/medications/biologics",
+      "mentionCount": 2
+    },
+    {
+      "slug": "rkkp",
+      "folder": "entities/organizations/health-registries",
+      "mentionCount": 6
+    },
+    {
+      "slug": "roskilde-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "roskilde-paediatri",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "sigmoideoskopi",
+      "folder": "topics/clinical-measures/procedures",
+      "mentionCount": 2
+    },
+    {
+      "slug": "silkeborg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "sjaelland-region",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 1
+    },
+    {
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "slagelse-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 6
+    },
+    {
+      "slug": "slagelse-kirurgi",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "slagelse-paediatri",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "slb-vejle-medicinsk-afdeling",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "steroid",
+      "folder": "entities/medications/small-molecule-inhibitors",
+      "mentionCount": 2
+    },
+    {
+      "slug": "styregruppen-for-danibd",
+      "folder": "entities/organizations/professional-societies",
+      "mentionCount": 2
+    },
+    {
+      "slug": "sundhedsvasenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare",
+      "mentionCount": 1
+    },
+    {
+      "slug": "sundk",
+      "folder": "entities/organizations/healthcare",
+      "mentionCount": 1
+    },
+    {
+      "slug": "sundks-videncenter",
+      "folder": "entities/organizations/healthcare",
+      "mentionCount": 1
+    },
+    {
+      "slug": "svendborg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 6
+    },
+    {
+      "slug": "syddanmark-region",
+      "folder": "entities/locations/danish-regions",
+      "mentionCount": 1
+    },
+    {
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "sygehusmedicinregisteret",
+      "folder": "entities/organizations/registries",
+      "mentionCount": 4
+    },
+    {
+      "slug": "sygesikringsregisteret",
+      "folder": "entities/organizations/registries",
+      "mentionCount": 2
+    },
+    {
+      "slug": "thisted-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "tina-fransgaard",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 1
+    },
+    {
+      "slug": "toender-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 3
+    },
+    {
+      "slug": "tofacitinib",
+      "folder": "entities/medications/small-molecule-inhibitors",
+      "mentionCount": 3
+    },
+    {
+      "slug": "torben-knudsen",
+      "folder": "entities/people/steering-committee",
+      "mentionCount": 2
+    },
+    {
+      "slug": "ulcerative-colitis",
+      "folder": "topics/medical-conditions",
+      "mentionCount": 9
+    },
+    {
+      "slug": "ulcerosus-colitis",
+      "folder": "topics/medical-conditions/inflammatory-bowel-disease",
+      "mentionCount": 2
+    },
+    {
+      "slug": "ultralyd-af-tarmen",
+      "folder": "topics/clinical-measures/procedures",
+      "mentionCount": 1
+    },
+    {
+      "slug": "upadacitinib",
+      "folder": "entities/medications/small-molecule-inhibitors",
+      "mentionCount": 3
+    },
+    {
+      "slug": "ustekinumab",
+      "folder": "entities/medications/biologics",
+      "mentionCount": 3
+    },
+    {
+      "slug": "vedolizumab",
+      "folder": "entities/medications/biologics",
+      "mentionCount": 4
+    },
+    {
+      "slug": "vejle-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 7
+    },
+    {
+      "slug": "vejle-organ-og-plastikkirurgisk-afd",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "veo-ibd",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "mentionCount": 1
+    },
+    {
+      "slug": "viborg-boern-og-unge",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "viborg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "viborg-kirurgi",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    }
+  ],
+  "topics": [
+    "administrative",
+    "audit-finding",
+    "clinical",
+    "clinical-concern",
+    "clinical-evidence",
+    "clinical-guideline",
+    "clinical-practice",
+    "contact-type",
+    "contact-type-statistics",
+    "data-limitation",
+    "data-quality",
+    "definition",
+    "demographic",
+    "diagnosis-statistics",
+    "diagnosis-treatment-statistics",
+    "disease-prevalence",
+    "epidemiological",
+    "future-plan",
+    "inclusion-criteria",
+    "medical",
+    "medical-condition",
+    "operational",
+    "patient-cohort",
+    "patient-contact-statistics",
+    "patient-count",
+    "patient-demographics",
+    "patient-education",
+    "patient-statistics",
+    "pharmaceutical-treatment-statistics",
+    "procedural",
+    "procedure-statistics",
+    "quality-concern",
+    "quality-improvement",
+    "quality-indicator",
+    "quality-standard",
+    "quality-target",
+    "regulatory",
+    "scope",
+    "statistical",
+    "surgical-coding",
+    "surgical-procedure",
+    "surgical-procedures",
+    "surgical-statistics",
+    "surgical-timing",
+    "surgical-volume",
+    "treatment-statistics",
+    "treatment-volume",
+    "validation"
+  ],
+  "sources": [
+    "danibd-2023",
+    "danibd-2024"
+  ],
+  "folderStructure": [
+    "entities/locations/danish-regions",
+    "entities/medications/biologics",
+    "entities/medications/small-molecule-inhibitors",
+    "entities/organizations/health-registries",
+    "entities/organizations/healthcare",
+    "entities/organizations/hospitals",
+    "entities/organizations/professional-societies",
+    "entities/organizations/registries",
+    "entities/people/healthcare-professionals",
+    "entities/people/researchers",
+    "entities/people/steering-committee",
+    "entities/products/healthcare-software",
+    "topics/administrative",
+    "topics/audit-finding",
+    "topics/biomarkers",
+    "topics/clinical",
+    "topics/clinical-concern",
+    "topics/clinical-evidence",
+    "topics/clinical-guideline",
+    "topics/clinical-measures/procedures",
+    "topics/clinical-practice",
+    "topics/contact-type",
+    "topics/contact-type-statistics",
+    "topics/data-limitation",
+    "topics/data-quality",
+    "topics/definition",
+    "topics/demographic",
+    "topics/diagnosis-statistics",
+    "topics/diagnosis-treatment-statistics",
+    "topics/disease-prevalence",
+    "topics/diseases/hepatobiliary",
+    "topics/diseases/inflammatory-bowel-disease",
+    "topics/epidemiological",
+    "topics/future-plan",
+    "topics/inclusion-criteria",
+    "topics/medical",
+    "topics/medical-condition",
+    "topics/medical-conditions",
+    "topics/medical-conditions/inflammatory-bowel-disease",
+    "topics/medical-tests",
+    "topics/operational",
+    "topics/patient-cohort",
+    "topics/patient-contact-statistics",
+    "topics/patient-count",
+    "topics/patient-demographics",
+    "topics/patient-education",
+    "topics/patient-statistics",
+    "topics/pharmaceutical-treatment-statistics",
+    "topics/procedural",
+    "topics/procedure-statistics",
+    "topics/quality-concern",
+    "topics/quality-improvement",
+    "topics/quality-indicator",
+    "topics/quality-standard",
+    "topics/quality-target",
+    "topics/regulatory",
+    "topics/scope",
+    "topics/statistical",
+    "topics/surgical-coding",
+    "topics/surgical-procedure",
+    "topics/surgical-procedures",
+    "topics/surgical-statistics",
+    "topics/surgical-timing",
+    "topics/surgical-volume",
+    "topics/treatment-statistics",
+    "topics/treatment-volume",
+    "topics/treatments",
+    "topics/validation"
+  ]
+}

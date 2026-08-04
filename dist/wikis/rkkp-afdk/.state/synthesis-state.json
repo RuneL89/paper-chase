@@ -1,0 +1,1344 @@
+{
+  "pages": {
+    "entities/locations/countries/danmark.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "9bd4e65b30e743cda79f7c02fa4fefd06a7914fdb73e834c181ff1a814e94070",
+      "synthesizedAt": "2026-08-03T18:41:16.610Z"
+    },
+    "entities/locations/danish-municipalities/aalborg.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "bb0641dd19aa0714846e130d0a207f1aaecb8fb6d50eed26c19740e153967c51",
+      "synthesizedAt": "2026-08-03T18:43:16.354Z"
+    },
+    "entities/locations/danish-municipalities/aarhus.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f238ac461e574194f9005e2c9e77bf8354d27acc0702357f7e588e328983d33e",
+      "synthesizedAt": "2026-08-03T18:43:16.886Z"
+    },
+    "entities/locations/danish-municipalities/broenderslev.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "edc5d8a39ea030e9bbed75df343f256440b5b60adc6b1f9ed593ae144c8b2b21",
+      "synthesizedAt": "2026-07-28T18:52:50.118Z"
+    },
+    "entities/locations/danish-municipalities/frederikshavn.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f44710d269513e420a88a3c58513e6c7712d7c65db332e45fd213bacac5ae586",
+      "synthesizedAt": "2026-07-28T18:52:50.819Z"
+    },
+    "entities/locations/danish-municipalities/hjoerring.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "b27fa87783a582bc8e44a151d010fe0c577f8a1f8591c43dceb1d24fda3a3a91",
+      "synthesizedAt": "2026-07-28T18:52:56.364Z"
+    },
+    "entities/locations/danish-municipalities/ikast-brande.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "578a1f669d61a227eb0248cfba2b8818ebc9b4c6ae70d49c094c5e36cc0d2182",
+      "synthesizedAt": "2026-07-28T18:52:38.775Z"
+    },
+    "entities/locations/danish-municipalities/jammerbugt.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "3798e4fd03d0ef9afbd2d5854a3b1d0a028a19dcbf17c4fdcc39485a9af5ae70",
+      "synthesizedAt": "2026-07-28T18:52:48.119Z"
+    },
+    "entities/locations/danish-municipalities/koebenhavn.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "cf609c5c3fe9305a4aa35bdce9203da7616d2ddab408e82617a6ed477f50a55c",
+      "synthesizedAt": "2026-08-03T18:43:16.003Z"
+    },
+    "entities/locations/danish-municipalities/laesoe.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "231bc50e8b403a3251cd1e301abc64f2668dbc823ba350d87e6baaa62f0b0fe2",
+      "synthesizedAt": "2026-07-28T18:52:54.450Z"
+    },
+    "entities/locations/danish-municipalities/lemvig.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "5b47edd0d169ca2bd1321ebb6f8fb4240275a106fc1aca3a59cc989829b8f733",
+      "synthesizedAt": "2026-07-28T18:52:40.525Z"
+    },
+    "entities/locations/danish-municipalities/mariagerfjord.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "a864e60643f097d81faa2f033bae40fd797cf705e17623c2cdb84b0497b47379",
+      "synthesizedAt": "2026-07-28T18:52:57.750Z"
+    },
+    "entities/locations/danish-municipalities/morsoe.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "85fb24fd63ed2133f4c9dd551025ff0b8ef58282f41871d50f918bbd6102e48d",
+      "synthesizedAt": "2026-07-28T18:53:02.959Z"
+    },
+    "entities/locations/danish-municipalities/odense.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "982c57f3693fc09d7509dffc9a0391989a9eca40c9246bd89490269b727bea09",
+      "synthesizedAt": "2026-08-03T18:43:16.670Z"
+    },
+    "entities/locations/danish-municipalities/rebild.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "28b79d96ef78f92713197c350e8864d348a464fa88e697c7591edfcdaa949c73",
+      "synthesizedAt": "2026-07-28T18:52:57.706Z"
+    },
+    "entities/locations/danish-municipalities/ringkoebing-skjern.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "b9aa0b5f9b1be872b516821cab85064885a64e7c1e9f61d4d66b1997b8fea79a",
+      "synthesizedAt": "2026-07-28T18:52:47.132Z"
+    },
+    "entities/locations/danish-municipalities/samsoe.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ec9fe0824379bc1961c26409d1551b43e3cd0156d6cb6a98f097b4725cb13bed",
+      "synthesizedAt": "2026-07-28T18:52:45.029Z"
+    },
+    "entities/locations/danish-municipalities/struer.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "8f77420c7ed3da71d98521044a2f3e4c2a36d4d5b72a113c962b294d7fca322c",
+      "synthesizedAt": "2026-07-28T18:52:44.183Z"
+    },
+    "entities/locations/danish-municipalities/thisted.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "97ab2af82c6e2557f2d8c6ceb51000eb39798fea270d602e2f2c0e436a3b8d5d",
+      "synthesizedAt": "2026-07-28T18:53:03.615Z"
+    },
+    "entities/locations/danish-municipalities/vesthimmerlands.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e6aa14f14607420a5125af383faf70812bd444c227a19ff5cf4c826ec323cbb8",
+      "synthesizedAt": "2026-07-28T18:53:01.779Z"
+    },
+    "entities/locations/danish-regions/hovedstaden.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "bdfe900e66d933f5a8a443deb2607bd9ec5a0823ee39b8f89872e9acf92aa608",
+      "synthesizedAt": "2026-08-03T18:41:18.009Z"
+    },
+    "entities/locations/danish-regions/midtjylland.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "eb0a48a8b326063a63ce114a1104b906fe93c3289eee93263172de635f6f9113",
+      "synthesizedAt": "2026-08-03T18:41:20.681Z"
+    },
+    "entities/locations/danish-regions/nordjylland.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "b771feba1e4885e32b15c62027c4c4923dba1acf594943ce0fbbaeae245cec36",
+      "synthesizedAt": "2026-08-03T18:41:24.102Z"
+    },
+    "entities/locations/danish-regions/sjaelland.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "8be054eef6981798dca00dd74f721bc6804b1056a3764142b733892cb72bc2fd",
+      "synthesizedAt": "2026-08-03T18:41:20.272Z"
+    },
+    "entities/locations/danish-regions/syddanmark.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "d18540b158bbfd986ef9ead7a8272489bf588f8574a30e289e01c5fbea9733a5",
+      "synthesizedAt": "2026-08-03T18:41:20.414Z"
+    },
+    "entities/organizations/government-agencies/sundhedsstyrelsen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "71124fa2921062f1f851fe00e40f4310de8a0e5b2494ced82a48fb65523bd604",
+      "synthesizedAt": "2026-07-28T18:32:31.071Z"
+    },
+    "entities/organizations/government/sundhedsdatastyrelsen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "b8d02b9476a783b764eadacae6b50134532df389348435d26f8e99121277df6c",
+      "synthesizedAt": "2026-08-03T18:41:57.702Z"
+    },
+    "entities/organizations/health-registries/cpr-registeret.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "90d19bc973846830f5e9245fa6a9edc2676ba5bd58b317dea2a4b8e00abbd050",
+      "synthesizedAt": "2026-07-28T20:06:33.383Z"
+    },
+    "entities/organizations/health-registries/danstroke.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f889f4c283cec2e56d7342da3fb1ddb07fdb419ec51893a8d042bcf9abf56ba5",
+      "synthesizedAt": "2026-07-28T18:23:48.145Z"
+    },
+    "entities/organizations/health-registries/databasen-for-atrieflimren-i-danmark.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "40f4345df32a5e57c6204b70996f7a27c2c65b3c22a4f143aec4548658d52d5e",
+      "synthesizedAt": "2026-08-03T18:41:13.882Z"
+    },
+    "entities/organizations/health-registries/den-nationale-labdatabank.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "fb8c68b7fec00003a52ecefcfe15e2f3bbaf2f93160303bdb5f6520e38bf19b5",
+      "synthesizedAt": "2026-08-03T18:42:05.703Z"
+    },
+    "entities/organizations/health-registries/laboratoriedatabasen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "7187890e2f76b50fb7f64384aca4071ea3ade4b76cdd1847c16ed74f650a3167",
+      "synthesizedAt": "2026-08-03T18:43:40.565Z"
+    },
+    "entities/organizations/health-registries/laboratorieregistret.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "28b6e2e95e44fc8e92d8b22203810352c8fddc9d28b864002f7b24359726ab69",
+      "synthesizedAt": "2026-07-28T18:23:32.243Z"
+    },
+    "entities/organizations/health-registries/laegemiddelstatistikregisteret.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "4a18f06503a6bf582cc1354ef22af548aab6e7bb17c416121f083604a8f691c0",
+      "synthesizedAt": "2026-07-28T18:23:16.979Z"
+    },
+    "entities/organizations/health-registries/landspatientregisteret.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "cc0f652f08bded42f04e640898e5e271e47c55a8ff2911eb233a6f084f50d2d1",
+      "synthesizedAt": "2026-08-03T18:41:16.339Z"
+    },
+    "entities/organizations/health-registries/regionernes-kliniske-kvalitetsudviklingsprogram.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "bf41dd38d0934675778e3cb9df1bf437f83588c087b537d2f1766c5bdc514997",
+      "synthesizedAt": "2026-08-03T18:41:14.092Z"
+    },
+    "entities/organizations/health-registries/rkkp.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "8f128d52525f685a1f11e34f2fe645280539be1c954a1740d00068a5e5c20c86",
+      "synthesizedAt": "2026-08-03T18:41:55.175Z"
+    },
+    "entities/organizations/health-registries/sygesikringsregisteret.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "0b327f231686e44055460394a7241a83bbbad91fdc751216beef223040429e98",
+      "synthesizedAt": "2026-08-03T18:41:55.437Z"
+    },
+    "entities/organizations/health-systems/aarhusklyngen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "864d2e7a64e7981a6612a94af9c15700ff55cbd0abe6bcc7afb8343bfe9f44b1",
+      "synthesizedAt": "2026-08-03T18:43:32.313Z"
+    },
+    "entities/organizations/health-systems/goedstrupklyngen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "8af11969a9418d2d3eeb392e927be2d943117ac9057db5cb16c65a17ec4ff2b3",
+      "synthesizedAt": "2026-08-03T18:43:33.638Z"
+    },
+    "entities/organizations/health-systems/horsensklyngen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "6a79c48eebdd3e61d11871cd73eeedfa60442cf7b2875538c5a2ead0f054992d",
+      "synthesizedAt": "2026-08-03T18:43:33.955Z"
+    },
+    "entities/organizations/health-systems/klynge-midt.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ad2c2caf180887fa315a1689091c7abe43def2c9a1fbbe948f7154475a67d09d",
+      "synthesizedAt": "2026-08-03T18:43:35.892Z"
+    },
+    "entities/organizations/health-systems/klynge-nord.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "611375ab001f96b095754b5ff25ac608fa4d1e8779c70af376e4bfaa8ce317ea",
+      "synthesizedAt": "2026-08-03T18:43:36.211Z"
+    },
+    "entities/organizations/health-systems/klynge-syd.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ba6a9aace749c05ee07cd6c0fb9ecd5add53f8fc7214480bcc429a594db7984d",
+      "synthesizedAt": "2026-08-03T18:43:36.441Z"
+    },
+    "entities/organizations/health-systems/klynge-vest.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "3c5d7d931f8e3c62797249edde74f837eff3b4e356bc7f1b774da6069e3d0005",
+      "synthesizedAt": "2026-08-03T18:43:36.757Z"
+    },
+    "entities/organizations/health-systems/midtklyngen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "069511cef54784e45aa2e0b2dcbc8cf2f435284457ebc98f1c4daf0af506ba74",
+      "synthesizedAt": "2026-08-03T18:43:34.221Z"
+    },
+    "entities/organizations/health-systems/randersklyngen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "7af40c468937cd161ba0807c2474b29cc5f3ebe98426763218a5b059ccbc0996",
+      "synthesizedAt": "2026-08-03T18:43:34.529Z"
+    },
+    "entities/organizations/health-systems/sundhedsklynge-bornholm.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "75d22a8ebae958591e17029b08ce4a3751860347c5b9b940bbccec42d04a5a5a",
+      "synthesizedAt": "2026-08-03T18:43:25.400Z"
+    },
+    "entities/organizations/health-systems/sundhedsklynge-byen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "eed5e5666916fe1aea59f7440a37b0a6b56fde667b5fae7e32d8e2bb21688272",
+      "synthesizedAt": "2026-08-03T18:43:25.645Z"
+    },
+    "entities/organizations/health-systems/sundhedsklynge-fyn.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "62d7562dcc94660a0b0ecc0abe542bb81550a738529d440d5a206a668207cf13",
+      "synthesizedAt": "2026-08-03T18:43:30.100Z"
+    },
+    "entities/organizations/health-systems/sundhedsklynge-lillebaelt.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "785ae6c984fc3facd70bb01aa463d5fb8e34dcc9891f91b670e50c27c3891942",
+      "synthesizedAt": "2026-08-03T18:43:31.285Z"
+    },
+    "entities/organizations/health-systems/sundhedsklynge-midt.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "d1acae491ea9cf662a483ae7b8927380ede7ac870acd2f9069bf7858b74d0127",
+      "synthesizedAt": "2026-08-03T18:43:26.816Z"
+    },
+    "entities/organizations/health-systems/sundhedsklynge-nord.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "a464af5adb23b2a95087d5da11ebf411c3c57e0f8954d37d929e693b01a853fb",
+      "synthesizedAt": "2026-08-03T18:43:27.180Z"
+    },
+    "entities/organizations/health-systems/sundhedsklynge-soenderjylland.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ebc5309197ffb27679cb91c4bd8a525368e01e1e459aa8e14ded667f0e28c890",
+      "synthesizedAt": "2026-08-03T18:43:31.989Z"
+    },
+    "entities/organizations/health-systems/sundhedsklynge-syd.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e95a87994f1dd59123232287bfed3360ee147dadbb74d03ca51582dd7549e8c9",
+      "synthesizedAt": "2026-08-03T18:43:27.584Z"
+    },
+    "entities/organizations/health-systems/sundhedsklynge-sydvestjylland.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "706ac8acf5a84ce64bab79fdbad4ae3135e1c68267bc5414284c361c51a3d3e2",
+      "synthesizedAt": "2026-08-03T18:43:31.640Z"
+    },
+    "entities/organizations/health-systems/sundhedsklyngen-holbaek.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "4cb3adbbb9c8aa785331dd8005fb6d1a9807acf5083ca0d6d74d451deb63e2dd",
+      "synthesizedAt": "2026-08-03T18:43:27.888Z"
+    },
+    "entities/organizations/health-systems/sundhedsklyngen-nykoebing-f.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "5695ddd9ba885b8fc5ac9f7b34daece6a3d8573caade33522aba4832512747fe",
+      "synthesizedAt": "2026-08-03T18:43:29.038Z"
+    },
+    "entities/organizations/health-systems/sundhedsklyngen-slagelse.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "7377f2f8f2283f84389394040b8e87a56886a92fd277bcd0f8047c6ded2a97bc",
+      "synthesizedAt": "2026-08-03T18:43:29.776Z"
+    },
+    "entities/organizations/health-systems/sundhedsklyngen-suh.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "045704dfc70c48ddda0e2839f368195c12dadc506a6de42cf439cf904b539e0e",
+      "synthesizedAt": "2026-08-03T18:43:29.435Z"
+    },
+    "entities/organizations/health-systems/sundhedsplatformen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "81afe2c44c3d196753de190df65fd2250217cf699394e707318cf20ed1e042d4",
+      "synthesizedAt": "2026-08-03T18:41:59.064Z"
+    },
+    "entities/organizations/hospitals/aalborg-universitetshospital-thisted.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "7778532a87c7aec166c6e4ecb91eb4cb40f8645a03bf4bbbe93c21a0b3cf192c",
+      "synthesizedAt": "2026-08-03T18:41:51.272Z"
+    },
+    "entities/organizations/hospitals/aalborg-universitetshospital.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "83f7d6633bbe7cd093630f410245e63ed56ee0eb485e62411e052e5a30b18a29",
+      "synthesizedAt": "2026-08-03T18:41:50.990Z"
+    },
+    "entities/organizations/hospitals/aarhus-universitetshospital.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "6527bf94411adcc749cee9164f92516839fdaee87794ab47dcd8848ed9e2e790",
+      "synthesizedAt": "2026-08-03T18:41:44.650Z"
+    },
+    "entities/organizations/hospitals/amager-og-hvidovre-hospital.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "34ad89fbf291d7a7408bf2d2597c3c84bf7ce8281ae42d2a4d4ce524d81ff7de",
+      "synthesizedAt": "2026-08-03T18:41:24.348Z"
+    },
+    "entities/organizations/hospitals/bispebjerg-og-frederiksberg-hospitaler.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "a2f8e5b70984db5e9c90746808e1495487d23f651a0b5a4301e9ca0595f0abb0",
+      "synthesizedAt": "2026-08-03T18:41:24.607Z"
+    },
+    "entities/organizations/hospitals/bornholms-hospital.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f2ecd32354d55716dee187b84d9384928dbc6935e6784146bb587e612c10f197",
+      "synthesizedAt": "2026-08-03T18:41:24.880Z"
+    },
+    "entities/organizations/hospitals/esbjerg-sygehus-grindsted-sygehus.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ce970137b46e4e2cd42e462d6cd40ddb6938c372a5c8a4663218f17dd4bc4c46",
+      "synthesizedAt": "2026-08-03T18:41:36.943Z"
+    },
+    "entities/organizations/hospitals/friklinikken-region-syddanmark-grindsted.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "aa834ca24b39350362895f3a1c897908583dbb105504b0a61fa3c09817dc25dc",
+      "synthesizedAt": "2026-08-03T18:41:39.204Z"
+    },
+    "entities/organizations/hospitals/garantiklinikken.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "a5d363a52273fe3a91a300d377f7a1ff663058e49dc21d17cca7bb8d4e1c133b",
+      "synthesizedAt": "2026-08-03T18:41:28.952Z"
+    },
+    "entities/organizations/hospitals/herlev-og-gentofte-hospital.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "7ccfd72b172ec93a0e99143ada359dbe8d64bc9d5c2417d39afc321849fde138",
+      "synthesizedAt": "2026-08-03T18:41:28.207Z"
+    },
+    "entities/organizations/hospitals/holbaek.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "4667f0cb2b415745e32ae642b2a2a6c8edda8ef9488902a27ee3f1a3b530c74a",
+      "synthesizedAt": "2026-08-03T18:41:32.305Z"
+    },
+    "entities/organizations/hospitals/hospitalerne-i-nordsjaelland.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "3e94486c87b86d390ae5d8a31e9441467d7e1a52b2c3b4fdf8da81908ae5e383",
+      "synthesizedAt": "2026-08-03T18:41:28.434Z"
+    },
+    "entities/organizations/hospitals/hospitalsenhed-midt.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ec9ebf1a5e5b0644534a4604cac0240104c72bfd78c5f57dfa7fc8305c88c747",
+      "synthesizedAt": "2026-08-03T18:41:46.886Z"
+    },
+    "entities/organizations/hospitals/hospitalsenheden-vest.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "98d28eb9e5cd0fe7afb3ec3657c5d54b38a90cf9015a51829f3722c115ff8a31",
+      "synthesizedAt": "2026-08-03T18:42:09.391Z"
+    },
+    "entities/organizations/hospitals/kolding-sygehus.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "8644196005ef74f6ac0b0d5d03fb89014b2a2756fbe8f831ff778745205abcb0",
+      "synthesizedAt": "2026-08-03T18:41:40.534Z"
+    },
+    "entities/organizations/hospitals/naestved.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "33c482a399ba56af27e8221116d455c163a659946a84935d51e2bd9ea6830e4e",
+      "synthesizedAt": "2026-08-03T18:41:32.824Z"
+    },
+    "entities/organizations/hospitals/nykoebing-falster.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "a5d61868bf05b3965b3a0556f373d762b0ac8b523386393d69ac84c09811107a",
+      "synthesizedAt": "2026-08-03T18:41:32.563Z"
+    },
+    "entities/organizations/hospitals/ouh-odense-universitetshospital.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "6e05fce17baab2e5bf6481b1f00bb493501faa8b151b9fe063ae13458fdf7c8a",
+      "synthesizedAt": "2026-08-03T18:41:40.780Z"
+    },
+    "entities/organizations/hospitals/regionshospital-nordjylland-ven.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f343125b5fba9ba6dc80bf5e8912810b81c132a60db0fc1db6ede29cf4f5ee8d",
+      "synthesizedAt": "2026-08-03T18:41:51.543Z"
+    },
+    "entities/organizations/hospitals/regionshospitalet-goedstrup.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "a7ae4e5b9146360c8ecec546cdbdbf76665612a0cd2aaad0098119d3489afa59",
+      "synthesizedAt": "2026-08-03T18:41:47.169Z"
+    },
+    "entities/organizations/hospitals/regionshospitalet-horsens.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "0d67005d53489de4ef908b699c599466d02b796fea154843a700a5654699cd12",
+      "synthesizedAt": "2026-08-03T18:41:47.436Z"
+    },
+    "entities/organizations/hospitals/regionshospitalet-nordjylland.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "6abc1ce23cb6c2fcf2901836531f479b09274481f1bd6263c28adba4e9fd93dc",
+      "synthesizedAt": "2026-07-28T17:46:19.427Z"
+    },
+    "entities/organizations/hospitals/regionshospitalet-randers.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "3087c4eae5c037346a1cc7b66d6ec9b3624bea0fe62a305056db80b26aaba9cd",
+      "synthesizedAt": "2026-08-03T18:41:50.774Z"
+    },
+    "entities/organizations/hospitals/regionshospitalet-silkeborg.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "fa12e5141f3d03c2e689cc6a096aaf98f5866a96e3b59de261ca029574dfbfb8",
+      "synthesizedAt": "2026-07-28T17:46:19.630Z"
+    },
+    "entities/organizations/hospitals/rigshospitalet.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "5e864aded761952b8140ec06db058d18d9663aee5c2e6f765d253eecf218c275",
+      "synthesizedAt": "2026-08-03T18:41:28.701Z"
+    },
+    "entities/organizations/hospitals/samsoe-sundheds-og-akuthus.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "bd1b68f6a248da2a912a5226cf0dc2a070cd1aa62585fab7f668d3f9cc835f05",
+      "synthesizedAt": "2026-08-03T18:43:18.489Z"
+    },
+    "entities/organizations/hospitals/shs-faelles-akut-modtagelse.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "5259c9bbf91880fd7790746553f48e9b69557fdc0f86a86eb51aba7787247d9a",
+      "synthesizedAt": "2026-08-03T18:43:19.124Z"
+    },
+    "entities/organizations/hospitals/sjaellands-universitetshospital-koege.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "fc4fa3624123379ca68937e45636f986fdec9df4a8f4367b2d28c4e8b947e69d",
+      "synthesizedAt": "2026-08-03T18:41:33.071Z"
+    },
+    "entities/organizations/hospitals/sjaellands-universitetshospital-roskilde.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "001bea6a366a8642f71740971566bb057130e24281d65aea29a6540af1d82ee3",
+      "synthesizedAt": "2026-08-03T18:41:36.410Z"
+    },
+    "entities/organizations/hospitals/sjaellands-universitetshospital.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f7ccd42ddc9b57617a1896f22e8ab46161f2a6cd13f38475a1464305f77de1ec",
+      "synthesizedAt": "2026-07-28T18:34:38.739Z"
+    },
+    "entities/organizations/hospitals/slagelse.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "848e1fcaa5843dd0f806d7ef9338a194510c7553829c064c94a21ac64183e4b9",
+      "synthesizedAt": "2026-08-03T18:41:36.664Z"
+    },
+    "entities/organizations/hospitals/steno-diabetes-center.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "adbf4b858f704a6b413c0664289ec20fb36257b26842582c8cb843c6fcb2f432",
+      "synthesizedAt": "2026-08-03T18:43:18.150Z"
+    },
+    "entities/organizations/hospitals/syddansk-universitetshospital.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "243c2311814b595fcaa12669f78e03495104330972f460418908b1457bf84643",
+      "synthesizedAt": "2026-07-28T18:34:27.395Z"
+    },
+    "entities/organizations/hospitals/sygehus-lillebaelt.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "71cd746ad183e041c4c13b06fe2fe59319a3621981f47075eb69abc4180fd2e6",
+      "synthesizedAt": "2026-08-03T18:41:54.926Z"
+    },
+    "entities/organizations/hospitals/sygehus-soenderjylland.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "9df1433356d8c8f84b8d0c977c692e310e61c93bcb4508efb4370fab2a234200",
+      "synthesizedAt": "2026-08-03T18:41:43.081Z"
+    },
+    "entities/organizations/hospitals/vejle-sygehus.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "d9ef2ba70e00c89904435218e0016634ff564a984154114cb9186e66b1db1cca",
+      "synthesizedAt": "2026-08-03T18:41:43.328Z"
+    },
+    "entities/organizations/professional-societies/dansk-cardiologisk-selskab.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "33b5bca0e62fc741725f76c708ea81d0d2c60531112829fa0fb657c82e960abb",
+      "synthesizedAt": "2026-07-28T18:32:16.678Z"
+    },
+    "entities/organizations/professional-societies/ekvlis.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ba4c4897fef2afd9d00f0f7376d350f91dc90dff454731ca29a9f1ec377b0404",
+      "synthesizedAt": "2026-07-28T18:53:21.520Z"
+    },
+    "entities/organizations/professional-societies/esc-guidelines.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ff18f91ff66ca2fb6f954505e1862c32b43ddc89ba61d25da03ef7bc50a27f4b",
+      "synthesizedAt": "2026-08-03T18:43:47.080Z"
+    },
+    "entities/organizations/professional-societies/esc.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e7793419c8153968eb8a76229425a36de4cfc6bc563a4859457966b5a5bfbe5b",
+      "synthesizedAt": "2026-08-03T18:43:51.810Z"
+    },
+    "entities/organizations/professional-societies/international-society-of-thrombosis-and-hemostasis.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "1f2be5379ab3ab0d12d4702200d09e08d6103219045c4e8f24edbb41307f7099",
+      "synthesizedAt": "2026-08-03T18:43:12.333Z"
+    },
+    "entities/organizations/professional-societies/sig-atrieflimren.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "9278e76c6a6fefa8cadc2e818190417d29eb6d5730503fb785daa9955478f277",
+      "synthesizedAt": "2026-08-03T18:43:47.432Z"
+    },
+    "entities/organizations/regions/klynge-syd-nordjylland.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "10861478f47050625b045d8fb6cbb98f5ad6b9822d604a996b75c49770e983c8",
+      "synthesizedAt": "2026-07-28T20:12:33.864Z"
+    },
+    "entities/organizations/regions/region-hovedstaden.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "34604f1833d8badcb64f002fbaf56f7e856bf6c69c3b59127f9d812ff13d260f",
+      "synthesizedAt": "2026-08-03T18:42:01.778Z"
+    },
+    "entities/organizations/regions/region-midtjylland.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "d24a5114c4a6477f970cf85785f2d9a788f1a76aedf1394f27f5600a47b2e372",
+      "synthesizedAt": "2026-08-03T18:41:59.336Z"
+    },
+    "entities/organizations/regions/region-nordjylland.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "4cba4b24344993ec1702ed4f6ecc43d9a1be812415f117b036b9979c1929a054",
+      "synthesizedAt": "2026-08-03T18:42:05.522Z"
+    },
+    "entities/organizations/regions/region-sjaelland.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "dbc340087d1a46b979e0ac6461c8093a98dc4ec36d664c69a587012757cf5fc9",
+      "synthesizedAt": "2026-08-03T18:42:05.221Z"
+    },
+    "entities/organizations/regions/region-syddanmark.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "236dd40483bab0e2af84aa02bc88771c4a85813a42e9dd54974fe29670d79937",
+      "synthesizedAt": "2026-08-03T18:42:01.603Z"
+    },
+    "entities/people/healthcare-professionals/albert-marni-joensen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "3acc2d4318eaae8195e0b97060acac4cad7cad990d869400cb59cfa34dc33a1e",
+      "synthesizedAt": "2026-07-28T17:45:44.450Z"
+    },
+    "entities/people/healthcare-professionals/chresten-gamborg-puggaard.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "0efa7e0a9b179b348ba7f2159cab6c760451211586ddf77f85c18fae06335589",
+      "synthesizedAt": "2026-07-28T18:50:28.837Z"
+    },
+    "entities/people/healthcare-professionals/dorthe-svenstrup.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "bc35609dcfbc75691b0ee72767ca0ee167ae3f7bab5c3a57cd4113f66dddfb07",
+      "synthesizedAt": "2026-07-28T18:50:14.235Z"
+    },
+    "entities/people/healthcare-professionals/gregory-y-h-lip.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "3da11c0836bcdad5c95e6bf53abb0fa1fa0488511892574d16a33f741e8db41e",
+      "synthesizedAt": "2026-07-28T18:52:25.364Z"
+    },
+    "entities/people/healthcare-professionals/hindricks-et-al.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "87069fe78af6c54d4a9ad61e3d18d80b5ccf22a253cf7bc9182ace1b2a85e4e1",
+      "synthesizedAt": "2026-07-28T18:52:10.072Z"
+    },
+    "entities/people/healthcare-professionals/julie-andersen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e85c187c52a446dc8beb77a6a03866c06582f96f65ba0a618f0068c74e4205cc",
+      "synthesizedAt": "2026-07-28T17:46:04.346Z"
+    },
+    "entities/people/healthcare-professionals/lars-frost.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "8aee81328192e9599870a8c3e65c3625a43fa7cbc766f784703becf883c2db55",
+      "synthesizedAt": "2026-07-28T17:45:44.633Z"
+    },
+    "entities/people/healthcare-professionals/louisa-marguerite-christensen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "05feec8149f0c2aee779345d73db82e28059504b54b8b9b4cfe1959d6c735dca",
+      "synthesizedAt": "2026-07-28T18:50:22.372Z"
+    },
+    "entities/people/healthcare-professionals/lunde-et-al.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "473e9bf9d1e7ee990674fcfedc6c759d19fb552b66e62aa3784daaf6c3be3035",
+      "synthesizedAt": "2026-07-28T18:52:20.599Z"
+    },
+    "entities/people/healthcare-professionals/mccabe.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "70904f5d13c26103c92bf21e489d69d8cd876e07b09b266e6375bde2c01110ff",
+      "synthesizedAt": "2026-07-28T18:52:26.969Z"
+    },
+    "entities/people/healthcare-professionals/palm-et-al.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "7f6c9a29ea571c0526856303e055fc6b3c8b44f709d052d8595ff40ba250db1a",
+      "synthesizedAt": "2026-07-28T18:52:20.390Z"
+    },
+    "entities/people/healthcare-professionals/praktiserende-kardiologer.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ea4fd9a8bedcc285bc2d415ace0b4b67ef80f48250af20a1cf4cd1010a4d73dc",
+      "synthesizedAt": "2026-08-03T18:43:51.187Z"
+    },
+    "entities/people/healthcare-professionals/risom.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "55effcdcbcdf45139224b8337017f7a580165ac3f13ad10ab511d7251ea1c5ea",
+      "synthesizedAt": "2026-07-28T18:52:16.910Z"
+    },
+    "entities/people/healthcare-professionals/ulla-dam-schmidt.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "b8c0602b99386453ffa0a4b07008b601eb324d0c9a0751a1fcf31a3f6a58fc5a",
+      "synthesizedAt": "2026-07-28T17:46:07.931Z"
+    },
+    "entities/people/healthcare-professionals/woo-et-al.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "9bb2192effb2f70a66f596e89542d55580e9184b4965f5f31cfad605fcd05d08",
+      "synthesizedAt": "2026-07-28T18:52:28.377Z"
+    },
+    "entities/people/medical-professionals/anders-moeller-schlunsen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "15ee5d382482b78be2c6fc28f32f373eddf56fd69772c36d037a80cd528e4ca1",
+      "synthesizedAt": "2026-07-28T18:34:15.050Z"
+    },
+    "entities/people/medical-professionals/axel-brandes.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "d82de3a29419e7b0401d5fab272c5e449a1c62a4b784d0f5e34bc694313e5698",
+      "synthesizedAt": "2026-07-28T18:33:12.556Z"
+    },
+    "entities/people/medical-professionals/dorte-damgaard.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f20af198cee9705ec7013c37c25acbd309188bf68ddee9fe749ca5d2368fd025",
+      "synthesizedAt": "2026-07-28T18:33:47.376Z"
+    },
+    "entities/people/medical-professionals/henrik-rasmussen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "065db30e33dbb3ec139e02373ca0f067ee151152b40d808b9d316140b5fed138",
+      "synthesizedAt": "2026-07-28T18:33:54.654Z"
+    },
+    "entities/people/medical-professionals/ina-qvist.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "b614a6dfa8ddc6070d960096a02bf578d1b28150b8bf75dd2e2d79b1b0abd428",
+      "synthesizedAt": "2026-07-28T18:32:39.321Z"
+    },
+    "entities/people/medical-professionals/jeppe-launbjerg.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "0c27c675ada2a47a26f45b4c5ec28894904aa1ed17735135db1ab28f64c3a5d7",
+      "synthesizedAt": "2026-07-28T18:34:02.921Z"
+    },
+    "entities/people/medical-professionals/margit-brinck.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "fbf445394df0b82f08ceaac8ec796becd2d79ec3b98d6f8c7aefadbafe15d25c",
+      "synthesizedAt": "2026-07-28T18:32:49.891Z"
+    },
+    "entities/people/medical-professionals/miriam-grijota-chousa.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "87e327b7197ae7b511973dc55e8aff77f947b25e711124589cea83f7982d50ca",
+      "synthesizedAt": "2026-07-28T18:34:26.912Z"
+    },
+    "entities/people/medical-professionals/ole-dyg-pedersen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "8310f483d19a6ab9261cbecacae8bae736629b8613baadc12f827aaee70e00dc",
+      "synthesizedAt": "2026-07-28T18:33:40.039Z"
+    },
+    "entities/people/medical-professionals/palle-mark-christensen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "7a7f5379c47463ffd881e88e60c9c1cf89b12e46613cccd317866eb2bc391723",
+      "synthesizedAt": "2026-07-28T18:33:53.214Z"
+    },
+    "entities/people/medical-professionals/ulla-davidsen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "3112bac20f156b05445ab12a03a01904e9e449c7984006ec03aa5387d2bc6da3",
+      "synthesizedAt": "2026-07-28T18:33:24.003Z"
+    },
+    "entities/people/patient-representatives/inge-moelgaard.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "481ec53c3439e1dcf5b1bf0e7997cf05c959d687177061f7e78b8ba800d173e0",
+      "synthesizedAt": "2026-07-28T18:34:03.407Z"
+    },
+    "entities/people/patient-representatives/robert-bedsted.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "eeded71ab783a335eabfafbad7dc3ddad4abaf9f810d26636abdca41c3d3d468",
+      "synthesizedAt": "2026-07-28T18:34:14.010Z"
+    },
+    "topics/action/action.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "7659635cc7a6d6843ec917330f22dc0f604bd96daaece56678e27b5c2f0b6b0b",
+      "synthesizedAt": "2026-08-03T18:44:11.606Z"
+    },
+    "topics/assessment/assessment.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "6beaf104e47310545680bfd4ccbf74cf56feadd40ab1d42d3f4c73441d691842",
+      "synthesizedAt": "2026-08-03T18:44:09.772Z"
+    },
+    "topics/clinical-context/clinical-context.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e4d181dd90138c937c3e515962b0ceb2cd341b05545da20c7e4bfe59a524cc1f",
+      "synthesizedAt": "2026-08-03T18:44:00.728Z"
+    },
+    "topics/clinical-criteria/clinical-criteria.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "2247aaf4b57285eaf6cc825647be91e3c6256bc55e6b9bc915b056caee4995bb",
+      "synthesizedAt": "2026-08-03T18:44:04.800Z"
+    },
+    "topics/clinical-epidemiology/clinical-epidemiology.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e11d677381986431be80965b57d54c168fda97faea4a64f47bfe9fbf34d85f7e",
+      "synthesizedAt": "2026-08-03T18:44:30.789Z"
+    },
+    "topics/clinical-finding/clinical-finding.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ea133337801d5b2f70e6e071c4f1d7379d3a76edf5fb4b51bc7bb87ace5540b6",
+      "synthesizedAt": "2026-08-03T18:44:21.748Z"
+    },
+    "topics/clinical-framework/clinical-framework.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "897fa30ebcdb0990fc70857371c01749747ca0c28c2151f0cd2ca7d8442eb73e",
+      "synthesizedAt": "2026-08-03T18:44:37.761Z"
+    },
+    "topics/clinical-goal/clinical-goal.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "c495684e5e718b41ca2508d73efdc3208c92b6fa39b96b10a68f5ec91a9c0399",
+      "synthesizedAt": "2026-08-03T18:44:37.360Z"
+    },
+    "topics/clinical-indicator/clinical-indicator.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "55930c1482804308972255166626f797bcb7dbf11e8547e05f870f823fba4fb5",
+      "synthesizedAt": "2026-08-03T18:44:05.081Z"
+    },
+    "topics/clinical-measure/clinical-measure.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "16ec9780c0971a5f24d6e580546280ea08fb7d82c280e38f03794d865810a13b",
+      "synthesizedAt": "2026-08-03T18:44:36.281Z"
+    },
+    "topics/clinical-measures/cha2ds2-vasc-score.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "56de639b55f0be22c00e65a61b5b0ea2ab2cd4b04ef310a33c1189e23dd14774",
+      "synthesizedAt": "2026-08-03T18:43:11.717Z"
+    },
+    "topics/clinical-measures/echocardiography.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ead32b61543bb3354f5ce2f7236294becb3c147aaad77c8b6baefb240d544ea5",
+      "synthesizedAt": "2026-08-03T18:43:20.358Z"
+    },
+    "topics/clinical-measures/ekkokardiografi.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "225445a3e2184f946c37c67cec1bdedeb1543e7271cd091b719457abc85e899b",
+      "synthesizedAt": "2026-08-03T18:43:38.441Z"
+    },
+    "topics/clinical-measures/npu04998.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f29ec105ee43c917851d7e841a81ca2132a6f9e7e8436bcae90df4410f309c50",
+      "synthesizedAt": "2026-07-28T18:49:51.335Z"
+    },
+    "topics/clinical-measures/npu18016.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "56f716fabe2ec3d57ee0028a4b0de3127ef65b81a51f5a2912ea7192436f295b",
+      "synthesizedAt": "2026-07-28T18:49:52.105Z"
+    },
+    "topics/clinical-measures/p-creatinin.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "992135f4041478aa820a72ddac8512b8247ffc07dbea0e07153a810d53905f31",
+      "synthesizedAt": "2026-08-03T18:43:43.012Z"
+    },
+    "topics/clinical-measures/s-creatinin.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e8f742b90e369d86c3a7cd5696d9a974162278d3db547af0bd89795c36235195",
+      "synthesizedAt": "2026-08-03T18:43:43.396Z"
+    },
+    "topics/clinical-measures/thyroid-stimulating-hormone.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "1f2a4eb891af016949e2d6fa77172704d12c54aea4fdf85b9d0fb2975844889f",
+      "synthesizedAt": "2026-08-03T18:43:20.704Z"
+    },
+    "topics/clinical-measures/tsh-maaling.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "8a20fbedd08b7b45fd2fb46bd5884766888bf8abb98c1d43c77c6a577a74921f",
+      "synthesizedAt": "2026-08-03T18:43:54.490Z"
+    },
+    "topics/clinical-methodology/clinical-methodology.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "588572778198779470abbb6d10ee347439e81645b55da5e3597df73c818b3bd4",
+      "synthesizedAt": "2026-08-03T18:44:26.086Z"
+    },
+    "topics/clinical-outcome/alvorlig-bloedning.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "8fdb1de3c702287e9a93866da60cd541ae396cd9d23ddc6f4e764ff15d767e18",
+      "synthesizedAt": "2026-08-03T18:43:55.639Z"
+    },
+    "topics/clinical-outcome/clinical-outcome.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "93e5ca3438b39c2e49bd652efb25d4af134a3f0aa2f34bb40c2935cae300b085",
+      "synthesizedAt": "2026-08-03T18:44:15.230Z"
+    },
+    "topics/clinical-outcome/intracranial-hemorrhage.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "80d2c0b4ea2d596ca704c3288253e3d8e232b73923da54481428decfb3e72eb0",
+      "synthesizedAt": "2026-08-03T18:43:21.282Z"
+    },
+    "topics/clinical-outcome/ischemic-stroke.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "838fdf7ad3475b27d29724eb4896d9e33fbf723a97e71f005ebb93d4292fa90b",
+      "synthesizedAt": "2026-08-03T18:43:21.008Z"
+    },
+    "topics/clinical-outcome/serious-bleeding.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "a36c25914b0086bb0973974f660e5eac983cf35c9097496593446095846164bc",
+      "synthesizedAt": "2026-08-03T18:43:22.474Z"
+    },
+    "topics/clinical-performance/clinical-performance.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "d3b796b2138e2e3129607db8b81540946b959e028358f711ddfed96bf480ddbb",
+      "synthesizedAt": "2026-08-03T18:44:02.917Z"
+    },
+    "topics/clinical-projection/clinical-projection.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "b3fc76e2843dc3c11bd3ee50a9f78a95b17827c9c4a52eb79d87de34f65989c8",
+      "synthesizedAt": "2026-08-03T18:44:32.990Z"
+    },
+    "topics/clinical-quality/clinical-quality.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "8737ab019a408f05137a774e609e0e9435e383bbf7879cbec255b19a57b0914d",
+      "synthesizedAt": "2026-08-03T18:44:17.393Z"
+    },
+    "topics/clinical-rationale/clinical-rationale.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "a543ba8b482b01bf2db7ad8b43e62599d5371699e4a5cf0b92b269cb4f8140eb",
+      "synthesizedAt": "2026-08-03T18:44:32.696Z"
+    },
+    "topics/clinical-recommendation/clinical-recommendation.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "dbf3f9043f17cbc6c9a94f39270fca55e63f36952445a1993821e2c6e1db1c83",
+      "synthesizedAt": "2026-08-03T18:44:37.064Z"
+    },
+    "topics/clinical-risk/clinical-risk.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "a96f65c5bdaf4de60d5a466a3e0b88a3c22a6fedf4cd8f606128027d2d658eef",
+      "synthesizedAt": "2026-08-03T18:44:30.490Z"
+    },
+    "topics/clinical-standard/clinical-standard.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "4563e9ca3e339d1ee10b6b6d97b0e9d09243630b432dd23a6edc7fd2e9319ea2",
+      "synthesizedAt": "2026-08-03T18:44:00.181Z"
+    },
+    "topics/clinical-statistics/clinical-statistics.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "8ae4b5205030329177c73a09a4386f64ab771add1523be7b595bef8cb8aff7a9",
+      "synthesizedAt": "2026-08-03T18:44:25.185Z"
+    },
+    "topics/clinical-systems/labka.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "0f123f9f6aead392d74d2c33b504ae8224b588d7b2bbeb3e7496388adf39a755",
+      "synthesizedAt": "2026-08-03T18:42:05.954Z"
+    },
+    "topics/clinical-treatment/clinical-treatment.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "5f8db9ff05fb1fee20b6dbdd893265d5b413859bc2aff3af7b2d5e971e55655e",
+      "synthesizedAt": "2026-08-03T18:44:26.401Z"
+    },
+    "topics/clinical-treatment/patient-education.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "7ee65bf895c98d9afe7759fb5d0a6e0fa522919e55bb6207d1ab31f782690b5e",
+      "synthesizedAt": "2026-08-03T18:43:22.806Z"
+    },
+    "topics/clinical-treatment/patientuddannelse.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f0ea232ecde5dbe275c06122dc78fbeed69e7fd827dcd9c357beb198105020f3",
+      "synthesizedAt": "2026-08-03T18:43:55.878Z"
+    },
+    "topics/clinical-treatment/struktureret-patientuddannelse.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "70c264f5c6338ebfd186a2c0a3fd62e698bee238d70cff723cc2f6fbcad599bc",
+      "synthesizedAt": "2026-08-03T18:43:47.803Z"
+    },
+    "topics/clinical-trend/clinical-trend.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "4de02d4f3912f1773ab17179b5a4fd63060e7f2496d1aad21d94f9b8bd8074ad",
+      "synthesizedAt": "2026-08-03T18:44:15.963Z"
+    },
+    "topics/clinical/clinical.md": {
+      "mode": "structured-template",
+      "dataHash": "6211ce3dd38515f5881038d2dc2a9a63e03961abcca0dfea1d7a6e8a505ae093",
+      "synthesizedAt": "2026-08-03T18:44:33.338Z"
+    },
+    "topics/data-characteristic/data-characteristic.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "21951a69fca70e3996e308497c433e28b707de5108674507d60ab54eeacd1b6e",
+      "synthesizedAt": "2026-08-03T18:44:07.566Z"
+    },
+    "topics/data-collection/data-collection.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "7d58ceaafc426a1f93b1465c4f980afe71d25ee5fd76ae1a66400c16e140d1a9",
+      "synthesizedAt": "2026-08-03T18:44:17.709Z"
+    },
+    "topics/data-exclusion/data-exclusion.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "a76de4b4c316fc2604ca3760ec203535821d779d61306bb5a8d06df2212d79d6",
+      "synthesizedAt": "2026-08-03T18:44:16.444Z"
+    },
+    "topics/data-limitation/data-limitation.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "851e8c5fae7ad6337adc417719926b9ca56719b8c358ded6f679ae70162dfef5",
+      "synthesizedAt": "2026-08-03T18:44:07.252Z"
+    },
+    "topics/data-privacy/data-privacy.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f29c9200013ead9fa5781994f2a413edcdf858305e2be68b5e36616e0819fe0e",
+      "synthesizedAt": "2026-08-03T18:44:01.049Z"
+    },
+    "topics/data-quality-note/data-quality-note.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "a5a0783b0414ca7489a577fe733c9a32f76f190947c5c53829e88e9d54a8f543",
+      "synthesizedAt": "2026-08-03T18:44:05.360Z"
+    },
+    "topics/data-quality/data-quality.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "c4c0c1b119c372a920bbb2649a9684060471e999210cc5ec56341922e5e131e4",
+      "synthesizedAt": "2026-08-03T18:43:58.898Z"
+    },
+    "topics/data-source/data-source.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "34064c15bcc73974be286137146a4415a90e7d5fdf02fdb94e44f30797aaeee8",
+      "synthesizedAt": "2026-08-03T18:44:06.659Z"
+    },
+    "topics/definitional/definitional.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "39783a84d6d56fcf21fcdbed53b05d8328960631eac558c4d6765e587474c4d8",
+      "synthesizedAt": "2026-08-03T18:44:23.018Z"
+    },
+    "topics/demographic-projection/demographic-projection.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "a318c471c168302e0dad6bbb789f578e21283bb166060c79cb58b9c493316172",
+      "synthesizedAt": "2026-08-03T18:44:22.080Z"
+    },
+    "topics/demographic/demographic.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "d62f1b5bc1bf316b085c484c6ed6cd9083ee4eb80e8990b0bc2c5c02b6c811a4",
+      "synthesizedAt": "2026-08-03T18:44:35.542Z"
+    },
+    "topics/epidemiological/epidemiological.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e3ef5cf572ee5171c053eddfc1a4f4e54128dbe3e941efeb67bbc7a272c5f055",
+      "synthesizedAt": "2026-08-03T18:43:58.027Z"
+    },
+    "topics/exclusion/exclusion.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "4bfb61de2ec8af31480824088b123d4319dacf66e73eb0990774ddee8e855264",
+      "synthesizedAt": "2026-08-03T18:44:08.779Z"
+    },
+    "topics/finding/finding.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "15f2d07afcb794c4c1e4c5097352c6510c5c6baf05fd60a5d01c346f0b0726c7",
+      "synthesizedAt": "2026-08-03T18:44:11.220Z"
+    },
+    "topics/healthcare-databases/database-atrieflimren-danmark.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "10a0506eaf4f38b3be86079067610973676f2de410bab223f10031e7bd3f58bd",
+      "synthesizedAt": "2026-08-03T18:43:18.838Z"
+    },
+    "topics/heart-failure/atrieflimren-i-danmark.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "6dd7f9ed59eb1f7fd2d95aa69536b4c2a4b641360fddccff87db8ebe3c036c51",
+      "synthesizedAt": "2026-08-03T18:43:23.468Z"
+    },
+    "topics/heart-failure/heart-failure.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ddb0ed40dbd7cb7d0032ba70f930528dba97781823a02bba1eaccdbf4187a6a8",
+      "synthesizedAt": "2026-08-03T18:44:29.556Z"
+    },
+    "topics/indicator-definition/indicator-definition.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "6b710b169ed2322ef579858ace6ff5ca115063d5d1e0a7da69e4e6b4b74dcdfa",
+      "synthesizedAt": "2026-08-03T18:44:04.532Z"
+    },
+    "topics/indicator-status/indicator-status.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "183b732d5d1ac193ad188e9d5f38b8c274c0c891af920c8f9f1d46d3bccc17a4",
+      "synthesizedAt": "2026-08-03T18:44:18.161Z"
+    },
+    "topics/limitation/limitation.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "90802094fcad5e966f878646be815cf08c513782997e7f972f0247497250ab95",
+      "synthesizedAt": "2026-08-03T18:44:10.904Z"
+    },
+    "topics/medical-conditions/atrial-fibrillation.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "5858f4434be78d11f2ff3b204e11f5002e6b3b870760fa1b0d64ec2c192dc82c",
+      "synthesizedAt": "2026-08-03T18:43:14.744Z"
+    },
+    "topics/medical-conditions/atrieflimren.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "cdf5afc68637beb37e42d8edb4b8714af373061436034b83620a8c0cfb2930ba",
+      "synthesizedAt": "2026-08-03T18:42:09.685Z"
+    },
+    "topics/medical-conditions/hjertesvigt.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "c90230da56e045c8cf38b7c3d811b8c65459f6b307ba8389b88bae4268e0a67f",
+      "synthesizedAt": "2026-08-03T18:43:50.025Z"
+    },
+    "topics/medical-conditions/intrakraniel-bloedning.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "d8263f7dfe3a90f2722677548d1478586868862bcf935c0c01750945bff03055",
+      "synthesizedAt": "2026-08-03T18:43:49.018Z"
+    },
+    "topics/medical-conditions/iskaemisk-apopleksi.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "d5e98c6ed3311314a0073da5478b5e895af753848950aad5468ec23ee2ade3f3",
+      "synthesizedAt": "2026-08-03T18:43:45.246Z"
+    },
+    "topics/medical-treatments/antikoagulationsbehandling.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "2ac390eae749f00110ba9243a06bce0d56f8fda1d2f2ba59eb67f8c112e602e6",
+      "synthesizedAt": "2026-08-03T18:43:10.165Z"
+    },
+    "topics/medications/apixaban.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "6ef7ae909fad60e7119ad563cdbb82c010b39048d4c0f24d5c95eab2ebd17626",
+      "synthesizedAt": "2026-08-03T18:43:53.655Z"
+    },
+    "topics/medications/dabigatran.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "3abdf5790053e073378daf016e0e25c614efe2eab47ddd023b0ad04f97588dcc",
+      "synthesizedAt": "2026-08-03T18:43:52.263Z"
+    },
+    "topics/medications/doac.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "fa65443673f6a19e10c7ab6316287a9bfd5599ee37acc446729cf248b03a3704",
+      "synthesizedAt": "2026-08-03T18:43:09.958Z"
+    },
+    "topics/medications/edoxaban.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e489b2f449f93305fc8bd42c70dc33330e2ec00b709392a64ec5a8cb92024679",
+      "synthesizedAt": "2026-08-03T18:43:54.005Z"
+    },
+    "topics/medications/eliquis.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "9c7884934764aa493cbc1801898351c70f3320226f0beebe2f4a4805ea04c5dc",
+      "synthesizedAt": "2026-07-28T20:12:56.958Z"
+    },
+    "topics/medications/lixiana.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "eefee79932dafb05d69682090d78c889867264ea90dfc7ec80e50ea371bbbb39",
+      "synthesizedAt": "2026-07-28T20:13:05.906Z"
+    },
+    "topics/medications/marevan.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "d33e0d493178e0db5f747e51b1ee55dcfcfca8bfdcab3ce4c6d34e3c2ec1d931",
+      "synthesizedAt": "2026-08-03T18:43:12.103Z"
+    },
+    "topics/medications/oral-antikoagulationsbehandling.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "5478249dc237b29353323a52ba9baa1e9a7a5e300138e421b20de7589726f3bd",
+      "synthesizedAt": "2026-08-03T18:43:38.156Z"
+    },
+    "topics/medications/pradaxa.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "2b997bf24513e66d7c5ee1f349cfdb002b352c0f906b1a14597f52a1721f7bb5",
+      "synthesizedAt": "2026-07-28T20:13:06.542Z"
+    },
+    "topics/medications/rivaroxaban.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ba7109139c566c81f1f27b5abb0d5943317b6ca28e92f1685a006c3cb4ed27d1",
+      "synthesizedAt": "2026-08-03T18:43:53.438Z"
+    },
+    "topics/medications/vitamin-k-antagonister.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "1c2e0c72ad85bfef47984cb5ca310a00343fc184ae4260be236e33549662947a",
+      "synthesizedAt": "2026-07-28T18:53:14.079Z"
+    },
+    "topics/medications/xarelto.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "b3807165babe2d12da67f569a56c6f072435c6b60e86601e072503bc124dfc85",
+      "synthesizedAt": "2026-07-28T20:12:56.803Z"
+    },
+    "topics/methodological/methodological.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "93ce3408c9b5c2352850f523e0421a7530e9ec581e2cbe4ea7f2887b7763c3aa",
+      "synthesizedAt": "2026-08-03T18:44:23.900Z"
+    },
+    "topics/methodology/methodology.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f043afe928c7019e3602f7f2f7ba8a0a08858e1970f719f001f362d7ab8c652f",
+      "synthesizedAt": "2026-08-03T18:44:06.933Z"
+    },
+    "topics/mortality-trend/mortality-trend.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "2a24576e87b87aecde3d42d3ad6359069e70bdfbecd717d887e1e9e2e97a11d5",
+      "synthesizedAt": "2026-08-03T18:44:35.177Z"
+    },
+    "topics/mortality/mortality.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "4ec8df32d80c53589ec9e94b55ea777837e26ca1eb20e7488af13939af3dd8d3",
+      "synthesizedAt": "2026-08-03T18:44:28.615Z"
+    },
+    "topics/note/note.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "9eabd44b7733cb0afad2580581b0f0141fc787cb9d9a7ff3e4f745aefc48ff72",
+      "synthesizedAt": "2026-08-03T18:44:13.340Z"
+    },
+    "topics/operational/health-clusters.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "2cbbb88bad73ab022643ee63389d782b1f216ceed49fe30e370b2ae18aef8a1f",
+      "synthesizedAt": "2026-08-03T18:43:23.192Z"
+    },
+    "topics/operational/operational.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "81e255a8abe9a015cecca23eef737037888ff7c63020ef200a173d05e851aee4",
+      "synthesizedAt": "2026-08-03T18:43:58.592Z"
+    },
+    "topics/operational/sundhedsklynger.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "c3932352f452772afd864e66b48ef057e7686b797814cf57e3bb302425d73a62",
+      "synthesizedAt": "2026-08-03T18:43:51.433Z"
+    },
+    "topics/organizational-goal/organizational-goal.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "9eaeb6d5b003c7794f8f94779a24f35885b0277c404677574a1004a9d5871a98",
+      "synthesizedAt": "2026-08-03T18:44:24.215Z"
+    },
+    "topics/organizational/organizational.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "b4cb156b6fd3231c9db20b2c71d88e5ef7fc22fb1b9081904295c7fdbc80ad58",
+      "synthesizedAt": "2026-08-03T18:44:34.044Z"
+    },
+    "topics/patient-count/patient-count.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "87b5705902cc09e1f58f26078fe4c93ea9c7efdf0349fddf8758d9f24ac356a3",
+      "synthesizedAt": "2026-08-03T18:44:27.388Z"
+    },
+    "topics/patient-outcome/patient-outcome.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "3a461d390f86e6acff3752b74115bbd1df3b057913bb4468cc7d6ba1b0754f70",
+      "synthesizedAt": "2026-08-03T18:44:28.288Z"
+    },
+    "topics/performance/performance.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "80e67b20932e5a6df7917b61b802d4477ab932c3f3c7afd91c669778dcc5b46d",
+      "synthesizedAt": "2026-08-03T18:44:02.612Z"
+    },
+    "topics/population/population.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "5f2a587e40675550eb09357100640ed0b5f2ddd8a5f34ea3e0b66875649dcdf0",
+      "synthesizedAt": "2026-08-03T18:44:09.069Z"
+    },
+    "topics/quality-assessment/quality-assessment.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "69897e11bbc10a87e2540e888f1380966f0e0a547171b3828869e50dd5361fee",
+      "synthesizedAt": "2026-08-03T18:44:00.461Z"
+    },
+    "topics/quality-indicator-definition/quality-indicator-definition.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "b3f2af0b76e3f0ff75b0f481b8a6c0052dac674eb972268082f3efb3d3471775",
+      "synthesizedAt": "2026-08-03T18:44:14.274Z"
+    },
+    "topics/quality-indicator-result/quality-indicator-result.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "4b9b98c616c9644230a9a8e50da9a38298872772c05a92a4e0215e3bb1f63658",
+      "synthesizedAt": "2026-08-03T18:44:34.878Z"
+    },
+    "topics/quality-indicator/indikator-1-antikoagulation-waiting-time.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "07b6540afc6f3f8ad3c2b8814d922d53d73879b49bbd31616e1c389ae3e00814",
+      "synthesizedAt": "2026-08-03T18:43:24.645Z"
+    },
+    "topics/quality-indicator/indikator-11-serious-bleeding-newly-diagnosed.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "aef07f37bce8cebe5ae02beb15bc55860f4de043a0635a835fa4f126a99485d8",
+      "synthesizedAt": "2026-08-03T18:43:49.234Z"
+    },
+    "topics/quality-indicator/indikator-15-heart-failure-newly-diagnosed.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "57e6d210c36ee961438923740a3e945c8a4eaca27415b19e031534ddc09a2426",
+      "synthesizedAt": "2026-08-03T18:43:49.623Z"
+    },
+    "topics/quality-indicator/indikator-2-echocardiography.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "b584f688459d2533d71c31d72bc8dc47e003a8ec3c6cf4adecff273d36c81d02",
+      "synthesizedAt": "2026-08-03T18:43:24.980Z"
+    },
+    "topics/quality-indicator/indikator-2-ekkokardiografi.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "689985fe8e95af8c6af68a5c42784339ea40a98fd47f8a0e64867acfc18a2e4a",
+      "synthesizedAt": "2026-08-03T18:43:38.658Z"
+    },
+    "topics/quality-indicator/indikator-3-tsh-maaling.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f8f44cc5bfa3385b027a425fc5074b7288479a8c02201ff81acc5f6995a4d123",
+      "synthesizedAt": "2026-08-03T18:43:38.975Z"
+    },
+    "topics/quality-indicator/indikator-3-tsh-measurement.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "1cffee849b2e715e397e25678f0dbb8ae0213f337c30bbf36ccf4f2adf06a9b3",
+      "synthesizedAt": "2026-08-03T18:43:40.292Z"
+    },
+    "topics/quality-indicator/indikator-4a-antikoagulation.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "b4846b2a8e00c87e5884cc8ca2ea4e4760882dfcfd20ce42b50edcb2bef56555",
+      "synthesizedAt": "2026-07-28T20:11:56.987Z"
+    },
+    "topics/quality-indicator/indikator-4a.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "af5ff14675bd089ed2391e58fcaa999906d756afead3bf517657919a4970cb7f",
+      "synthesizedAt": "2026-08-03T18:43:42.471Z"
+    },
+    "topics/quality-indicator/indikator-4a1.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e3a7921506adeff210b995ddbdd8c028d79908dc94092e0cdd2c05ca2aa97da9",
+      "synthesizedAt": "2026-08-03T18:43:40.860Z"
+    },
+    "topics/quality-indicator/indikator-4a2.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e761a6f1cab0764408e105b3a358e83b69b061e931eb23b0ea34faf800cc5959",
+      "synthesizedAt": "2026-08-03T18:43:41.193Z"
+    },
+    "topics/quality-indicator/indikator-4a3.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "bbaf5e5f312344ab315c05d16fb530d76d4dfeed53fc868ea581ab066afa0725",
+      "synthesizedAt": "2026-08-03T18:43:42.747Z"
+    },
+    "topics/quality-indicator/indikator-4b.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "730742ae8d1a9f17c6fea4b82ff06550ba37256fe8753793f61db405056de0f3",
+      "synthesizedAt": "2026-08-03T18:43:44.647Z"
+    },
+    "topics/quality-indicator/indikator-5-iskemisk-apopleksi.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "15d48894ead2ab6c256e5f85b20f03cd6d01d6bda18a4e8e1fae5ac933a5dcba",
+      "synthesizedAt": "2026-08-03T18:43:45.582Z"
+    },
+    "topics/quality-indicator/indikator-5.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "818d642980b1265b964a4acc8d14fe0b89d1227896dcf26c0cd218c1d3ab0e4a",
+      "synthesizedAt": "2026-08-03T18:43:44.914Z"
+    },
+    "topics/quality-indicator/indikator-7-incidens-alvorlig-blodning.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "af157d40c8b527f0e53eecbf18cbad20829ed3434f8da5d884c621f01b46ef8a",
+      "synthesizedAt": "2026-08-03T18:43:46.817Z"
+    },
+    "topics/quality-indicator/quality-indicator.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "5cc83ee5d0d490c9a67429407f6af10088eebbfbe586b1609b285c736feba3ac",
+      "synthesizedAt": "2026-08-03T18:44:13.779Z"
+    },
+    "topics/quality-indicators/indikator-6-intrakraniel-blodning.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f07aaec8ebe25522b742b9bde9121ce29f9b68faa8b03dee152739d36f876077",
+      "synthesizedAt": "2026-08-03T18:43:10.331Z"
+    },
+    "topics/quality-indicators/indikator-7-serious-bleeding.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "064cb75ec8785bd901e0fe2634e1d33a4a3619933c1372d9c59a3a10da45220b",
+      "synthesizedAt": "2026-08-03T18:43:12.600Z"
+    },
+    "topics/quality-indicators/indikator-8-structured-education.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f5e124f1d3f02218e1ad564f11ed181abd8eaa7021835018b2990c9308d63cff",
+      "synthesizedAt": "2026-08-03T18:43:13.854Z"
+    },
+    "topics/quality-performance/quality-performance.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "8be79ef532b255074cace1897dac513e8f2861673d4e070fe1056610ca9a6af9",
+      "synthesizedAt": "2026-08-03T18:44:38.553Z"
+    },
+    "topics/quality-standard/quality-standard.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "129fa857a3d354c9e6aafb93fbc8ba11dff06fa2e927fba18e8066f1c8d18574",
+      "synthesizedAt": "2026-08-03T18:44:02.398Z"
+    },
+    "topics/recommendation/recommendation.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "4fdfc75b57fde2705c33ff6063e462aad370c08a8822a68d2dfcfaec75c1147b",
+      "synthesizedAt": "2026-08-03T18:44:12.023Z"
+    },
+    "topics/regional-comparison/regional-comparison.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "eabe44ca62faf2bc910db673ae3cd9c0032f9d65819bd54c27157ee8aca7eb75",
+      "synthesizedAt": "2026-08-03T18:44:19.589Z"
+    },
+    "topics/regional-performance/regional-performance.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "3c90ed06f2f041a6587b30305e2b5f96ea775224f684740c0779f9bccd413107",
+      "synthesizedAt": "2026-08-03T18:44:15.504Z"
+    },
+    "topics/regional-variation/regional-variation.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "866020f94f49561ea114856cc11e755131900fb1f98710eaa9aed2350523b44a",
+      "synthesizedAt": "2026-08-03T18:44:03.197Z"
+    },
+    "topics/result/result.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "536d23105c5e9b8ec8bbc5faf83657686c97a4107a0558368c7b3958c74b6866",
+      "synthesizedAt": "2026-08-03T18:44:09.418Z"
+    },
+    "topics/standard-setting/standard-setting.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "69b2d190add25497806bb3e2cdad8e15ad6fd3a94b83e1b04342be6dbec0b42d",
+      "synthesizedAt": "2026-08-03T18:44:20.816Z"
+    },
+    "topics/standard/standard.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "97ca780cd99cf9cd86a6f86ecddc9b78f67cff89799fcb6a13077bc963ea3a84",
+      "synthesizedAt": "2026-08-03T18:44:13.038Z"
+    },
+    "topics/technical/technical.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "cbab88da02ab0c7d97b6ddd1bbbf84fc2992665b702aebcddbca6612f5e891ab",
+      "synthesizedAt": "2026-08-03T18:44:31.759Z"
+    },
+    "topics/temporal/temporal.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e5b2bd37a2b0eebf420f55edf14255cb019814ab2fe68a88f712ea94d77771cd",
+      "synthesizedAt": "2026-08-03T18:43:58.308Z"
+    },
+    "topics/treatment-gap/treatment-gap.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ef765adf4cb520287829a4d11b96dc7ced541bdb76e1d2019f3c9967350f92cd",
+      "synthesizedAt": "2026-08-03T18:44:19.878Z"
+    },
+    "topics/treatment-outcome/treatment-outcome.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "310996139625224d519a55f8350f2f7f6ded0ef50ec2f2bbd66f3b7dc8c620c6",
+      "synthesizedAt": "2026-08-03T18:44:20.381Z"
+    },
+    "topics/treatments/doac-anticoagulation.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "1cc31b032c4168948834567cd99175080f1122369fe636b9f70f9d06cc70d2fe",
+      "synthesizedAt": "2026-08-03T18:43:14.234Z"
+    },
+    "topics/treatments/marevan-anticoagulation.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "2b1ec5605202c6c21af5c82a1119018871c9543929a9e4906c2dc8e2f1423965",
+      "synthesizedAt": "2026-08-03T18:43:14.486Z"
+    },
+    "topics/trend/trend.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "169916876cd2e2b4773106d35e5082bbb6bd53dcc859e47a810cd6d8f98d1fba",
+      "synthesizedAt": "2026-08-03T18:44:18.647Z"
+    }
+  }
+}

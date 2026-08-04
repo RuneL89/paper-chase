@@ -1,0 +1,659 @@
+{
+  "entities": [
+    {
+      "name": "DANIBD",
+      "type": "organization",
+      "slug": "danibd",
+      "folder": "entities/organizations/health-registries",
+      "significance": "DANIBD is the Danish Quality Database for Inflammatory Bowel Diseases, established to monitor, evaluate, and improve treatment quality of IBD in Denmark and ensure optimal and equal provision of quality-based treatment across all relevant departments.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD) har til formål at monitorere, evaluere og forbedre behandlingskvaliteten af IBD i Danmark"
+        },
+        {
+          "page": 31,
+          "context": "Dette sker via et indikatorsæt, som er udviklet af styregruppen for DANIBD ud fra en evidens-baseret tilgang"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Selskab for Gastroenterologi",
+      "type": "organization",
+      "slug": "dansk-selskab-for-gastroenterologi",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Professional society that provides treatment recommendations for inflammatory bowel disease in Denmark.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "jf. anbefalinger fra Dansk Selskab for Gastroenterologi og det uafhængige Medicinrådet"
+        }
+      ]
+    },
+    {
+      "name": "Medicinrådet",
+      "type": "organization",
+      "slug": "medicinraadet",
+      "folder": "entities/organizations/healthcare",
+      "significance": "Independent Danish medical council (formerly RADS) that provides recommendations on the use of expensive hospital medicines and treatment principles for IBD.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "det uafhængige Medicinrådet (tidligere Rådet for Anvendelsen af Dyr Sygehusmedicin, RADS)"
+        }
+      ]
+    },
+    {
+      "name": "Inflammatory Bowel Disease",
+      "type": "medical-condition",
+      "slug": "inflammatory-bowel-disease",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "significance": "IBD is a chronic inflammatory condition affecting approximately 70,000 Danes and 7 million people worldwide, characterized by periods of symptoms and remission, with two main forms: ulcerative colitis and Crohn's disease.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Kronisk inflammatorisk tarmsygdom (inflammatory bowel disease, IBD) dækker over to hovedformer, colitis ulcerosa (UC) og Crohns sygdom (CD)"
+        },
+        {
+          "page": 31,
+          "context": "påvirker ca. 7. mio. mennesker på verdensplan"
+        },
+        {
+          "page": 31,
+          "context": "i Danmark har ca. 70.000 danskere sygdommen, svarende til ca. 1% af befolkningen"
+        }
+      ]
+    },
+    {
+      "name": "Ulcerative Colitis",
+      "type": "medical-condition",
+      "slug": "ulcerative-colitis",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "significance": "One of the two main forms of inflammatory bowel disease, characterized by inflammation of the colon and rectum.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "colitis ulcerosa (UC) og Crohns sygdom (CD)"
+        },
+        {
+          "page": 31,
+          "context": "Langvarig colitis ulcerosa eller Crohns sygdom øger risikoen for at udvikle kolorektalkræft"
+        }
+      ]
+    },
+    {
+      "name": "Crohn's Disease",
+      "type": "medical-condition",
+      "slug": "crohns-disease",
+      "folder": "topics/diseases/inflammatory-bowel-disease",
+      "significance": "One of the two main forms of inflammatory bowel disease, characterized by inflammation that can affect any part of the digestive tract.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "colitis ulcerosa (UC) og Crohns sygdom (CD)"
+        },
+        {
+          "page": 31,
+          "context": "Langvarig colitis ulcerosa eller Crohns sygdom øger risikoen for at udvikle kolorektalkræft"
+        }
+      ]
+    },
+    {
+      "name": "Primary Sclerosing Cholangitis",
+      "type": "medical-condition",
+      "slug": "primary-sclerosing-cholangitis",
+      "folder": "topics/medical-conditions",
+      "significance": "A condition associated with IBD that significantly increases the risk of developing colorectal cancer, requiring annual systematic colonoscopic surveillance.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "patienter med primær skleroserende kolangitis (PSC) også er i markant øget risiko for at udvikle kolorektalkræft"
+        },
+        {
+          "page": 31,
+          "context": "Indikator 7. PSC, opfølgning"
+        }
+      ]
+    },
+    {
+      "name": "Colorectal Cancer",
+      "type": "medical-condition",
+      "slug": "colorectal-cancer",
+      "folder": "topics/medical-conditions",
+      "significance": "A major cause of death among IBD patients, with increased risk in those with long-standing ulcerative colitis, Crohn's disease, or primary sclerosing cholangitis.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Kolorektalkræft udgør fortsat en af de hyppigste dødsårsager blandt patienter med IBD"
+        }
+      ]
+    },
+    {
+      "name": "Koloskopi",
+      "type": "medical-test",
+      "slug": "koloskopi",
+      "folder": "topics/clinical-measures/procedures",
+      "significance": "A surveillance procedure used to detect colorectal cancer early in IBD patients, particularly those with PSC, with strong evidence supporting annual systematic follow-up.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Studier har vist at overvågningskoloskopier resulterer i tidlig diagnostik af kolorektalkræft og deraf bedre overlevelse"
+        },
+        {
+          "page": 31,
+          "context": "Indikatoren monitorerer derfor andelen af patienter med PSC, der får foretaget koloskopi"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg",
+      "type": "organization",
+      "slug": "bispebjerg",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Hovedstaden participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Bispebjerg Abdominalcenter K 5 / 5 100 (48-100)"
+        }
+      ]
+    },
+    {
+      "name": "Herlev",
+      "type": "organization",
+      "slug": "herlev",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Hovedstaden participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Herlev Mave-, Tarm- og Leversygd. 19 / 25 76 (55-91) 81"
+        }
+      ]
+    },
+    {
+      "name": "Hvidovre",
+      "type": "organization",
+      "slug": "hvidovre",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Hovedstaden participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Hvidovre Gastroenheden 36 / 45 80 (65-90) 89"
+        }
+      ]
+    },
+    {
+      "name": "Nordsjælland",
+      "type": "organization",
+      "slug": "nordsjaellands-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Hovedstaden participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Nordsjælland Kirurgisk Afdeling 3 / 3 100 (29-100) 100"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Major hospital in Region Hovedstaden participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Rigshospitalet Mave-, Tarm- og Leversygd. 67 / 87 77 (67-85) 83"
+        }
+      ]
+    },
+    {
+      "name": "SUH Køge",
+      "type": "organization",
+      "slug": "koege-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Sjælland participating in DANIBD with PSC colonoscopy surveillance data, showing improvement of 9 percentage points from previous year.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "SUH Køge Medicin 21 / 25 84 (64-95) 75"
+        },
+        {
+          "page": 33,
+          "context": "SUH Køge Medicin med en fremgang på 9 procentpoint ift. sidste år"
+        }
+      ]
+    },
+    {
+      "name": "EGS Esbjerg",
+      "type": "organization",
+      "slug": "esbjerg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Syddanmark participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "EGS Esbjerg Medicinsk Mave og Tarm Amb. 18 / 19 95 (74-100) 94"
+        }
+      ]
+    },
+    {
+      "name": "OUH Odense",
+      "type": "organization",
+      "slug": "odense-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Syddanmark participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "OUH Odense Medicinsk Mave-Tarm Afd. S 25 / 32 78 (60-91) 88"
+        }
+      ]
+    },
+    {
+      "name": "OUH Svendborg",
+      "type": "organization",
+      "slug": "svendborg-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Syddanmark participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "OUH Svendborg Medicinsk Afdeling # / # 33 (1-91) 33"
+        }
+      ]
+    },
+    {
+      "name": "SHS Aabenraa",
+      "type": "organization",
+      "slug": "aabenraa-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Syddanmark participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "SHS Aabenraa Mave- og Tarmsygd. 3 / 3 100 (29-100) 100"
+        }
+      ]
+    },
+    {
+      "name": "SLB Vejle",
+      "type": "organization",
+      "slug": "vejle-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Syddanmark participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "SLB Vejle Medicinsk Afdeling 8 / 8 100 (63-100) 83"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Lever-, Mave- og Tarmsygd.",
+      "type": "organization",
+      "slug": "aarhus-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Midtjylland participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Aarhus Lever-, Mave- og Tarmsygd. 65 / 77 84 (74-92) 90"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrup",
+      "type": "organization",
+      "slug": "goedstrup-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Midtjylland participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Gødstrup Medicinsk Afdeling # / # 0 (0-98) 33"
+        }
+      ]
+    },
+    {
+      "name": "HE Midt Klinik for Mave- og Tarmsygd.",
+      "type": "organization",
+      "slug": "he-midt-klinik",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Midtjylland participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "HE Midt Klinik for Mave- og Tarmsygd. # / # 100 (3-100) 100"
+        }
+      ]
+    },
+    {
+      "name": "AAUH Aalborg",
+      "type": "organization",
+      "slug": "aalborg-university-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospital department in Region Nordjylland participating in DANIBD with PSC colonoscopy surveillance data.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "AAUH Aalborg Med. Gastroenterologisk Afd. 9 / 11 82 (48-98) 79"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Danish region with multiple hospital departments participating in DANIBD PSC surveillance, achieving 79% colonoscopy completion rate.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Hovedstaden 130 / 165 79 (72-85) 85"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Danish region with hospital departments participating in DANIBD PSC surveillance, achieving 84% colonoscopy completion rate.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Sjælland 21 / 25 84 (64-95) 73"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Danish region with hospital departments participating in DANIBD PSC surveillance, achieving 85% colonoscopy completion rate.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Syddanmark 55 / 65 85 (74-92) 87"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Danish region with hospital departments participating in DANIBD PSC surveillance, achieving 84% colonoscopy completion rate.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Midtjylland 66 / 79 84 (74-91) 88"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Danish region with hospital departments participating in DANIBD PSC surveillance, achieving 82% colonoscopy completion rate.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Nordjylland 9 / 11 82 (48-98) 80"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "danibd",
+      "predicate": "monitors",
+      "object": "inflammatory-bowel-disease",
+      "evidence": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD) har til formål at monitorere, evaluere og forbedre behandlingskvaliteten af IBD i Danmark",
+      "page": 31
+    },
+    {
+      "subject": "danibd",
+      "predicate": "developed-by",
+      "object": "dansk-selskab-for-gastroenterologi",
+      "evidence": "indikatorsæt, som er udviklet af styregruppen for DANIBD ud fra en evidens-baseret tilgang",
+      "page": 31
+    },
+    {
+      "subject": "ulcerative-colitis",
+      "predicate": "increases-risk-of",
+      "object": "colorectal-cancer",
+      "evidence": "Langvarig colitis ulcerosa eller Crohns sygdom øger risikoen for at udvikle kolorektalkræft",
+      "page": 31
+    },
+    {
+      "subject": "crohns-disease",
+      "predicate": "increases-risk-of",
+      "object": "colorectal-cancer",
+      "evidence": "Langvarig colitis ulcerosa eller Crohns sygdom øger risikoen for at udvikle kolorektalkræft",
+      "page": 31
+    },
+    {
+      "subject": "primary-sclerosing-cholangitis",
+      "predicate": "increases-risk-of",
+      "object": "colorectal-cancer",
+      "evidence": "patienter med primær skleroserende kolangitis (PSC) også er i markant øget risiko for at udvikle kolorektalkræft",
+      "page": 31
+    },
+    {
+      "subject": "koloskopi",
+      "predicate": "enables-early-detection-of",
+      "object": "colorectal-cancer",
+      "evidence": "Studier har vist at overvågningskoloskopier resulterer i tidlig diagnostik af kolorektalkræft og deraf bedre overlevelse",
+      "page": 31
+    }
+  ],
+  "claims": [
+    {
+      "text": "Inflammatory bowel disease affects approximately 7 million people worldwide [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "inflammatory-bowel-disease"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Approximately 70,000 Danes have inflammatory bowel disease, corresponding to approximately 1% of the population [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "inflammatory-bowel-disease"
+      ],
+      "page": 31
+    },
+    {
+      "text": "IBD most commonly develops in individuals aged 20-40 years [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "inflammatory-bowel-disease"
+      ],
+      "page": 31
+    },
+    {
+      "text": "The incidence of IBD is increasing globally [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "inflammatory-bowel-disease"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Colorectal cancer remains one of the most common causes of death among IBD patients [^src1]",
+      "type": "clinical",
+      "entities": [
+        "inflammatory-bowel-disease",
+        "colorectal-cancer"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Surveillance colonoscopies result in early diagnosis of colorectal cancer and improved survival [^src1]",
+      "type": "clinical",
+      "entities": [
+        "koloskopi",
+        "colorectal-cancer"
+      ],
+      "page": 31
+    },
+    {
+      "text": "There is strong evidence and broad international agreement for offering all PSC patients annual systematic follow-up with colonoscopy [^src1]",
+      "type": "clinical",
+      "entities": [
+        "primary-sclerosing-cholangitis",
+        "koloskopi"
+      ],
+      "page": 31
+    },
+    {
+      "text": "The development target for PSC colonoscopy surveillance is that 80% of patients receive colonoscopy within 18 months [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "primary-sclerosing-cholangitis",
+        "koloskopi"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Nationally, 81% of PSC patients received colonoscopy within 18 months during the period 01.10.2023 - 30.09.2024, meeting the development target of at least 80% [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "primary-sclerosing-cholangitis",
+        "koloskopi"
+      ],
+      "page": 32
+    },
+    {
+      "text": "A total of 345 PSC patients were monitored during the period, of which 31 were newly diagnosed [^src1]",
+      "type": "patient-statistics",
+      "entities": [
+        "primary-sclerosing-cholangitis"
+      ],
+      "page": 33
+    },
+    {
+      "text": "PSC patients are most often men (68%) with an average age of 46 years [^src1]",
+      "type": "demographic",
+      "entities": [
+        "primary-sclerosing-cholangitis"
+      ],
+      "page": 33
+    },
+    {
+      "text": "All five regions achieved results meeting the development target of at least 80% for PSC colonoscopy surveillance [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "primary-sclerosing-cholangitis",
+        "koloskopi"
+      ],
+      "page": 33
+    },
+    {
+      "text": "Regional variation in PSC colonoscopy completion rates ranges from 79% to 85% [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "primary-sclerosing-cholangitis",
+        "koloskopi"
+      ],
+      "page": 33
+    },
+    {
+      "text": "Among the eight departments with more than 10 PSC patients, department variation in colonoscopy completion rates ranges from 76% to 95% [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "primary-sclerosing-cholangitis",
+        "koloskopi"
+      ],
+      "page": 33
+    },
+    {
+      "text": "SUH Køge Medicin improved its PSC colonoscopy completion rate by 9 percentage points compared to the previous year [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "koege-hospital",
+        "primary-sclerosing-cholangitis"
+      ],
+      "page": 33
+    },
+    {
+      "text": "In 65% of performed colonoscopies for PSC surveillance, biopsies were taken [^src1]",
+      "type": "clinical",
+      "entities": [
+        "koloskopi",
+        "primary-sclerosing-cholangitis"
+      ],
+      "page": 33
+    },
+    {
+      "text": "All PSC surveillance colonoscopies were performed in hospital settings [^src1]",
+      "type": "clinical",
+      "entities": [
+        "koloskopi",
+        "primary-sclerosing-cholangitis"
+      ],
+      "page": 33
+    },
+    {
+      "text": "The steering group assesses that the re-operation rate is generally too high, with variation of 11-15% between regions excluding Region Sjælland, but with large variation between individual departments [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "inflammatory-bowel-disease"
+      ],
+      "page": 31
+    },
+    {
+      "text": "The steering group encourages internal audit at departments with high re-operation rates [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "inflammatory-bowel-disease"
+      ],
+      "page": 31
+    },
+    {
+      "text": "The development target for re-operation rate is assessed as still relevant at 8% [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "inflammatory-bowel-disease"
+      ],
+      "page": 31
+    },
+    {
+      "text": "The steering group is concerned about whether all PSC patients are coded correctly and encourages departments to address this issue [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "primary-sclerosing-cholangitis"
+      ],
+      "page": 33
+    },
+    {
+      "text": "The development target for PSC colonoscopy surveillance is assessed as still relevant [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "primary-sclerosing-cholangitis",
+        "koloskopi"
+      ],
+      "page": 33
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.10.2023 - 30.09.2024",
+      "event": "Monitoring period for PSC colonoscopy surveillance indicator, during which 345 PSC patients were monitored with 81% receiving colonoscopy within 18 months",
+      "entities": [
+        "primary-sclerosing-cholangitis",
+        "koloskopi",
+        "danibd"
+      ]
+    }
+  ],
+  "context": "This chunk describes the disease area of inflammatory bowel disease (IBD) and the quality measurement framework of DANIBD, focusing on Indicator 7 regarding primary sclerosing cholangitis (PSC) surveillance. The document establishes that IBD affects approximately 70,000 Danes and 7 million people worldwide, with colorectal cancer being a major cause of death among IBD patients. The chunk presents detailed results from the 2023-2024 monitoring period showing that 81% of PSC patients nationally received colonoscopy surveillance within 18 months, meeting the 80% development target across all five Danish regions. The broader narrative contextualizes DANIBD's role in monitoring and improving IBD treatment quality across Danish hospital departments through evidence-based indicators developed by the steering group in collaboration with professional societies and the independent Danish medical council."
+}

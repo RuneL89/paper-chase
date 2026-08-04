@@ -9,11 +9,13 @@ import {
   loadSettings,
   saveSettings,
   seedModelsForProvider,
+  getModelCatalog,
+  createCustomProvider,
   MODEL_CATALOG,
   type Provider,
   type TuiSettings,
 } from './settings';
-import { getApiKeyStatus } from '../llm/client';
+import { getApiKeyStatus, resolveApiKeyForTest, resolveModelFromRouting, testModelConnection } from '../llm/client';
 import type { ScreenProps } from './init-screen';
 
 export interface SettingsScreenProps extends ScreenProps {
@@ -21,7 +23,7 @@ export interface SettingsScreenProps extends ScreenProps {
   workspace?: string;
 }
 
-type SettingRow =
+type StaticSettingRow =
   | 'synthesis'
   | 'updateAgents'
   | 'provider'
@@ -32,36 +34,87 @@ type SettingRow =
   | 'modelCuration'
   | 'apiKeyAnthropic'
   | 'apiKeyOpenai'
+  | 'apiKeyQwen'
+  | 'customProviderBaseUrl'
+  | 'customProviderApiKey'
+  | 'addCustomProviderHeader'
+  | 'customProviderRequestTemplate'
+  | 'customProviderResponseTextPath'
+  | 'customProviderResponseInputTokensPath'
+  | 'customProviderResponseOutputTokensPath'
+  | 'addCustomProviderModel'
+  | 'addCustomProvider'
+  | 'deleteCustomProvider'
   | 'save'
   | 'back';
-const ROW_ORDER: SettingRow[] = [
-  'synthesis',
-  'updateAgents',
-  'provider',
-  'modelDefault',
-  'modelExtractor',
-  'modelSynthesis',
-  'modelDox',
-  'modelCuration',
-  'apiKeyAnthropic',
-  'apiKeyOpenai',
-  'save',
-  'back',
-];
+
+type SettingRow = StaticSettingRow | `customProviderHeader:${number}` | `customProviderModel:${number}`;
+
+/**
+ * Build the row order dynamically. When a custom provider is selected, its
+ * configuration rows are injected before the built-in API-key rows.
+ */
+function buildRowOrder(settings: TuiSettings): SettingRow[] {
+  const order: SettingRow[] = [
+    'synthesis',
+    'updateAgents',
+    'provider',
+    'modelDefault',
+    'modelExtractor',
+    'modelSynthesis',
+    'modelDox',
+    'modelCuration',
+  ];
+  const provider = settings.models.provider ?? 'anthropic';
+  if (provider.startsWith('custom:')) {
+    const cp = settings.customProviders.find((c) => c.id === provider.slice(7));
+    if (cp) {
+      order.push('customProviderBaseUrl');
+      order.push('customProviderApiKey');
+      order.push('addCustomProviderHeader');
+      cp.headers.forEach((_, i) => order.push(`customProviderHeader:${i}`));
+      order.push('customProviderRequestTemplate');
+      order.push('customProviderResponseTextPath');
+      order.push('customProviderResponseInputTokensPath');
+      order.push('customProviderResponseOutputTokensPath');
+      order.push('addCustomProviderModel');
+      cp.models.forEach((_, i) => order.push(`customProviderModel:${i}`));
+      order.push('deleteCustomProvider');
+    }
+  }
+  order.push('addCustomProvider');
+  order.push('apiKeyAnthropic');
+  order.push('apiKeyOpenai');
+  order.push('apiKeyQwen');
+  order.push('save');
+  order.push('back');
+  return order;
+}
 
 type SettingsStatus = 'idle' | 'saving' | 'success' | 'error';
 
-/** Phase 11 v1.4.0: the selectable providers, cycled Left/Right like the model rows. */
-const PROVIDERS: readonly Provider[] = ['anthropic', 'openai'];
+/** Compute the selectable providers from the current settings. */
+function providerList(settings: TuiSettings): readonly Provider[] {
+  return ['anthropic', 'openai', 'qwen', ...settings.customProviders.map((cp) => `custom:${cp.id}` as const)];
+}
 
-const PROVIDER_LABELS: Record<Provider, string> = {
+/** Display label for any provider. */
+function providerLabel(provider: Provider, customProviders: TuiSettings['customProviders']): string {
+  if (provider.startsWith('custom:')) {
+    return customProviders.find((cp) => cp.id === provider.slice(7))?.name ?? provider;
+  }
+  return PROVIDER_LABELS[provider as 'anthropic' | 'openai' | 'qwen'];
+}
+
+const PROVIDER_LABELS: Record<'anthropic' | 'openai' | 'qwen', string> = {
   anthropic: 'Anthropic',
   openai: 'OpenAI',
+  qwen: 'Qwen',
 };
 
-/** Short display names for the UI across both catalogs; the persisted value is the full model id. */
+/** Short display names for the UI across built-in catalogs; the persisted value is the full model id. */
 const MODEL_SHORT_NAMES: Record<string, string> = Object.fromEntries(
-  [...MODEL_CATALOG.anthropic, ...MODEL_CATALOG.openai].map(({ id, label }) => [id, label]),
+  [...MODEL_CATALOG.anthropic, ...MODEL_CATALOG.openai, ...MODEL_CATALOG.qwen].map(({ id, label }) => [id, label]),
 );
 
 /**
@@ -75,7 +128,7 @@ const MODEL_SHORT_NAMES: Record<string, string> = Object.fromEntries(
  * nothing. Phase 14 (phase doc §2.6): the Curation slot carries the ratified
  * mid-tier merge/drop-judgment label.
  */
-const RECOMMENDATIONS: Record<Provider, Partial<Record<SettingRow, string>>> = {
+const RECOMMENDATIONS: Record<'anthropic' | 'openai' | 'qwen', Partial<Record<SettingRow, string>>> = {
   anthropic: {
     modelExtractor: 'Haiku — cheapest, good for structured JSON extraction',
     modelSynthesis: 'Sonnet — better prose, fewer preservation failures',
@@ -87,6 +140,12 @@ const RECOMMENDATIONS: Record<Provider, Partial<Record<SettingRow, string>>> = {
     modelSynthesis: 'GPT-5.6 Terra — better prose, fewer preservation failures',
     modelDox: 'GPT-5.6 Terra — mid-tier; structural navigation, correctness re-imposed deterministically',
     modelCuration: 'GPT-5.6 Terra — mid-tier judgment for merge/drop decisions',
+  },
+  qwen: {
+    modelExtractor: 'Qwen-Plus — cheapest, good for structured JSON extraction',
+    modelSynthesis: 'Qwen 3.7 Max — better prose, fewer preservation failures',
+    modelDox: 'Qwen 3.7 Max — mid-tier; structural navigation, correctness re-imposed deterministically',
+    modelCuration: 'Qwen 3.7 Max — mid-tier judgment for merge/drop decisions',
   },
 };
 
@@ -125,13 +184,14 @@ function currentProvider(settings: TuiSettings): Provider {
 /**
  * Settings screen (Phase 5): toggles for synthesis and AGENTS.md update
  * proposals, plus the Phase 11 "LLM Model Routing" section (phase doc §2.2,
- * v1.4.0 multi-provider extension) and the "API Keys" section (v1.5.0, user
- * directive 2026-07-23). A Provider row (Anthropic / OpenAI) sits above the
- * model rows; below it one Left/Right-cycling dropdown per LLM call type
- * (Default, Extractor, Synthesis Writer, DOX Writer, Curation — Phase 14
- * §2.6) with inline recommendation labels that follow the selected provider.
- * Switching the provider RESETS all five model slots to the new provider's
- * defaults (cheapest tier + mid-tier curation + "Same as default") so stale
+ * v1.4.0 multi-provider extension; Qwen extension 2026-08-04) and the "API
+ * Keys" section (v1.5.0, user directive 2026-07-23). A Provider row
+ * (Anthropic / OpenAI / Qwen) sits above the model rows; below it one
+ * Left/Right-cycling dropdown per LLM call type (Default, Extractor,
+ * Synthesis Writer, DOX Writer, Curation — Phase 14 §2.6) with inline
+ * recommendation labels that follow the selected provider. Switching the
+ * provider RESETS all five model slots to the new provider's defaults
+ * (cheapest tier + mid-tier curation + "Same as default") so stale
  * cross-provider model ids can never persist. The per-call-type dropdowns
  * offer "Same as default" (persisted as null) plus the selected provider's
  * catalog ids.
@@ -156,7 +216,8 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
     synthesis: false,
     updateAgents: false,
     models: seedModelsForProvider('anthropic'),
-    apiKeys: { anthropic: null, openai: null },
+    apiKeys: { anthropic: null, openai: null, qwen: null },
+    customProviders: [],
   });
   const [loaded, setLoaded] = useState(false);
   const [focusIndex, setFocusIndex] = useState(0);
@@ -166,6 +227,14 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
   const [editingKey, setEditingKey] = useState<Provider | null>(null);
   /** Draft text of the in-progress key edit (masked on screen). */
   const [keyDraft, setKeyDraft] = useState('');
+  /** Model row currently in custom-model edit mode (null = not editing). */
+  const [editingCustomModel, setEditingCustomModel] = useState<SettingRow | null>(null);
+  /** Draft text of the in-progress custom model id. */
+  const [customDraft, setCustomDraft] = useState('');
+  /** Test-connection status for the per-row model test. */
+  const [testStatus, setTestStatus] = useState<'idle' | 'testing' | 'success' | 'error'>('idle');
+  /** Test-connection message shown in the dedicated result area. */
+  const [testMessage, setTestMessage] = useState('');
 
   useEffect(() => {
     let mounted = true;
@@ -188,6 +257,13 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
     };
   }, [workspace]);
 
+  // Clamp the focus index when the row order changes (e.g., after adding or
+  // deleting a custom provider) so it never points past the end of the list.
+  useEffect(() => {
+    const rowOrder = buildRowOrder(settings);
+    setFocusIndex((prev) => (prev >= rowOrder.length ? rowOrder.length - 1 : prev));
+  }, [settings]);
+
   const save = async () => {
     setStatus('saving');
     try {
@@ -206,33 +282,65 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
 
   const cycleProvider = (delta: 1 | -1) => {
     setSettings((prev) => {
-      const next = cycle(PROVIDERS, currentProvider(prev), delta);
+      const providers = providerList(prev);
+      const next = cycle(providers, currentProvider(prev), delta);
       if (next === currentProvider(prev)) {
         return prev;
       }
       // Reset-on-switch: all five slots re-seed to the new provider's
       // defaults immediately (cheapest tier + mid-tier curation + nulls) so a
       // stale model id from the other provider can never be saved.
-      return { ...prev, models: seedModelsForProvider(next) };
+      return { ...prev, models: seedModelsForProvider(next, prev.customProviders) };
     });
   };
 
   const cycleModel = (row: SettingRow, delta: 1 | -1) => {
     setSettings((prev) => {
       const provider = currentProvider(prev);
-      const ids = MODEL_CATALOG[provider].map((entry) => entry.id);
-      const optionalChoices: Array<string | null> = [null, ...ids];
+      const ids = getModelCatalog(provider, prev.customProviders).map((entry) => entry.id);
+      const catalogIds = ids.filter((id) => id !== '__custom__');
+
+      const getCurrent = (): string | null => {
+        if (row === 'modelDefault') return prev.models.default;
+        if (row === 'modelExtractor') return prev.models.extractor;
+        if (row === 'modelSynthesis') return prev.models.synthesis;
+        if (row === 'modelDox') return prev.models.dox;
+        if (row === 'modelCuration') return prev.models.curation ?? null;
+        return null;
+      };
+
+      const current = getCurrent();
+      const baseChoices: Array<string | null> =
+        row === 'modelDefault' ? [...catalogIds] : [null, ...catalogIds];
+
+      // If the current value is a custom raw id (not in the catalog), insert it
+      // just before '__custom__' so cycling from it moves to edit mode or the
+      // previous catalog item.
+      const choices: Array<string | null> =
+        current !== null && !catalogIds.includes(current) && current !== '__custom__'
+          ? [...baseChoices, current, '__custom__']
+          : [...baseChoices, '__custom__'];
+
+      const next = cycle(choices, current, delta);
+
+      // Landing on '__custom__' enters edit mode instead of persisting the sentinel.
+      if (next === '__custom__') {
+        setEditingCustomModel(row);
+        setCustomDraft(current !== null && !catalogIds.includes(current) ? current : '');
+        return prev;
+      }
+
       const models = { ...prev.models };
       if (row === 'modelDefault') {
-        models.default = cycle(ids, models.default, delta);
+        models.default = next as string;
       } else if (row === 'modelExtractor') {
-        models.extractor = cycle(optionalChoices, models.extractor, delta);
+        models.extractor = next;
       } else if (row === 'modelSynthesis') {
-        models.synthesis = cycle(optionalChoices, models.synthesis, delta);
+        models.synthesis = next;
       } else if (row === 'modelDox') {
-        models.dox = cycle(optionalChoices, models.dox, delta);
+        models.dox = next;
       } else if (row === 'modelCuration') {
-        models.curation = cycle(optionalChoices, models.curation ?? null, delta);
+        models.curation = next;
       }
       return { ...prev, models };
     });
@@ -244,17 +352,118 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
    */
   const submitKeyEdit = (provider: Provider, value: string) => {
     const trimmed = value.trim();
-    setSettings((prev) => ({
-      ...prev,
-      apiKeys: { ...prev.apiKeys, [provider]: trimmed === '' ? null : trimmed },
-    }));
+    setSettings((prev) => {
+      if (provider.startsWith('custom:')) {
+        const id = provider.slice(7);
+        return {
+          ...prev,
+          customProviders: prev.customProviders.map((cp) =>
+            cp.id === id ? { ...cp, apiKey: trimmed === '' ? null : trimmed } : cp,
+          ),
+        };
+      }
+      return {
+        ...prev,
+        apiKeys: { ...prev.apiKeys, [provider]: trimmed === '' ? null : trimmed },
+      };
+    });
     setEditingKey(null);
     setKeyDraft('');
+  };
+
+  /** Row → call type mapping for the per-row model test. */
+  const rowToCallType = (row: SettingRow): string | undefined => {
+    switch (row) {
+      case 'modelDefault':
+        return undefined;
+      case 'modelExtractor':
+        return 'extractor';
+      case 'modelSynthesis':
+        return 'synthesis';
+      case 'modelDox':
+        return 'dox-writer';
+      case 'modelCuration':
+        return 'curation';
+      default:
+        return undefined;
+    }
+  };
+
+  /** Cancel an in-progress custom model edit, keeping the previous value. */
+  const cancelCustomModel = () => {
+    setEditingCustomModel(null);
+    setCustomDraft('');
+  };
+
+  /** Submit the custom model id: a non-empty value stages it, empty cancels. */
+  const submitCustomModel = (row: SettingRow, value: string) => {
+    const trimmed = value.trim();
+    if (trimmed === '') {
+      cancelCustomModel();
+      return;
+    }
+    setSettings((prev) => {
+      const models = { ...prev.models };
+      if (row === 'modelDefault') {
+        models.default = trimmed;
+      } else if (row === 'modelExtractor') {
+        models.extractor = trimmed;
+      } else if (row === 'modelSynthesis') {
+        models.synthesis = trimmed;
+      } else if (row === 'modelDox') {
+        models.dox = trimmed;
+      } else if (row === 'modelCuration') {
+        models.curation = trimmed;
+      }
+      return { ...prev, models };
+    });
+    cancelCustomModel();
+  };
+
+  /**
+   * Run the per-row model test: resolve provider + slot model + API key, then
+   * call `testModelConnection`. The result is shown in a dedicated area that
+   * never interferes with the save status.
+   */
+  const runModelTest = async (row: SettingRow) => {
+    const provider = currentProvider(settings);
+    const callType = rowToCallType(row);
+    const model = resolveModelFromRouting(settings.models, callType);
+    const apiKey = resolveApiKeyForTest(
+      provider,
+      provider.startsWith('custom:')
+        ? settings.customProviders.find((c) => c.id === provider.slice(7))?.apiKey ?? null
+        : settings.apiKeys[provider as 'anthropic' | 'openai' | 'qwen'],
+      settings.customProviders,
+    );
+    if (!apiKey) {
+      setTestStatus('error');
+      setTestMessage('No API key set for this provider.');
+      return;
+    }
+    setTestStatus('testing');
+    setTestMessage('');
+    try {
+      const result = await testModelConnection(provider, model, apiKey, settings.customProviders);
+      setTestStatus(result.ok ? 'success' : 'error');
+      setTestMessage(result.message);
+    } catch (err) {
+      setTestStatus('error');
+      setTestMessage(`Unexpected error: ${(err as Error).message}`);
+    }
   };
 
   useInput(
     (_input, key) => {
       if (status === 'saving') {
+        return;
+      }
+      // While a custom-model row is being edited the TextInput owns the
+      // keystrokes (Enter submits via onSubmit); Escape cancels the edit here.
+      if (editingCustomModel !== null) {
+        if (key.escape) {
+          cancelCustomModel();
+        }
         return;
       }
       // While a key row is being edited the TextInput owns the keystrokes
@@ -276,16 +485,17 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
         }
         return;
       }
+      const rowOrder = buildRowOrder(settings);
       if (key.upArrow) {
-        setFocusIndex((focusIndex + ROW_ORDER.length - 1) % ROW_ORDER.length);
+        setFocusIndex((focusIndex + rowOrder.length - 1) % rowOrder.length);
         return;
       }
       if (key.downArrow) {
-        setFocusIndex((focusIndex + 1) % ROW_ORDER.length);
+        setFocusIndex((focusIndex + 1) % rowOrder.length);
         return;
       }
 
-      const row = ROW_ORDER[focusIndex];
+      const row = rowOrder[focusIndex];
       if (row === 'synthesis' || row === 'updateAgents') {
         if (_input === ' ' || key.leftArrow || key.rightArrow) {
           setSettings((prev) => ({ ...prev, [row]: !prev[row] }));
@@ -299,6 +509,9 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
       if (row === 'modelDefault' || row === 'modelExtractor' || row === 'modelSynthesis' || row === 'modelDox' || row === 'modelCuration') {
         if (key.leftArrow || key.rightArrow) {
           cycleModel(row, key.rightArrow ? 1 : -1);
+        }
+        if (_input === 't' || _input === 'T') {
+          void runModelTest(row);
         }
       }
 
@@ -315,13 +528,51 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
         } else if (row === 'apiKeyOpenai') {
           setEditingKey('openai');
           setKeyDraft('');
+        } else if (row === 'apiKeyQwen') {
+          setEditingKey('qwen');
+          setKeyDraft('');
+        } else if (row === 'customProviderApiKey' && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}`);
+          setKeyDraft('');
+        } else if (row === 'addCustomProvider') {
+          addCustomProvider();
+        } else if (row === 'deleteCustomProvider') {
+          deleteCustomProvider();
+        } else if (row === 'addCustomProviderHeader' && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-addHeader`);
+          setKeyDraft('');
+        } else if (row.startsWith('customProviderHeader:')) {
+          const index = Number(row.split(':')[1]);
+          removeCustomProviderHeader(index);
+        } else if (row === 'addCustomProviderModel' && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-addModel`);
+          setKeyDraft('');
+        } else if (row.startsWith('customProviderModel:')) {
+          const index = Number(row.split(':')[1]);
+          removeCustomProviderModel(index);
+        } else if (row === 'customProviderBaseUrl' && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-baseUrl`);
+          setKeyDraft(currentCustomProvider.baseUrl);
+        } else if (row === 'customProviderRequestTemplate' && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-requestTemplate`);
+          setKeyDraft(currentCustomProvider.requestTemplate);
+        } else if (row === 'customProviderResponseTextPath' && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-responseTextPath`);
+          setKeyDraft(currentCustomProvider.responseTemplate.textPath);
+        } else if (row === 'customProviderResponseInputTokensPath' && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-responseInputTokensPath`);
+          setKeyDraft(currentCustomProvider.responseTemplate.inputTokensPath ?? '');
+        } else if (row === 'customProviderResponseOutputTokensPath' && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-responseOutputTokensPath`);
+          setKeyDraft(currentCustomProvider.responseTemplate.outputTokensPath ?? '');
         }
       }
     },
     { isActive: isRawModeSupported === true },
   );
 
-  const focus = ROW_ORDER[focusIndex];
+  const rowOrder = buildRowOrder(settings);
+  const focus = rowOrder[focusIndex] ?? rowOrder[0];
   const provider = currentProvider(settings);
 
   const renderToggle = (row: 'synthesis' | 'updateAgents', label: string) => {
@@ -343,7 +594,7 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
       <Box key="provider">
         <Text inverse={active} color={active ? 'cyan' : undefined}>
           {active ? '> ' : '  '}
-          Provider: [‹ {PROVIDER_LABELS[provider]} ›]
+          Provider: [‹ {providerLabel(provider, settings.customProviders)} ›]
         </Text>
       </Box>
     );
@@ -352,13 +603,30 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
   const renderModelRow = (row: SettingRow, label: string, value: string | null) => {
     const active = focus === row;
     const shown = value === null ? 'Same as default' : displayName(value);
-    const recommendation = RECOMMENDATIONS[provider][row];
+    const recommendation = provider.startsWith('custom:') ? null : RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'][row];
+    const editing = editingCustomModel === row;
     return (
       <Box key={row} flexDirection="column">
-        <Text inverse={active} color={active ? 'cyan' : undefined}>
-          {active ? '> ' : '  '}
-          {label}: [‹ {shown} ›]
-        </Text>
+        {editing ? (
+          <Box>
+            <Text inverse={active} color={active ? 'cyan' : undefined}>
+              {active ? '> ' : '  '}
+              {label}:{' '}
+            </Text>
+            <TextInput
+              value={customDraft}
+              onChange={setCustomDraft}
+              onSubmit={(v) => submitCustomModel(row, v)}
+              placeholder="model id"
+              focus
+            />
+          </Box>
+        ) : (
+          <Text inverse={active} color={active ? 'cyan' : undefined}>
+            {active ? '> ' : '  '}
+            {label}: [‹ {shown} ›]
+          </Text>
+        )}
         {recommendation ? <Text dimColor>    {recommendation}</Text> : null}
       </Box>
     );
@@ -372,6 +640,9 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
   const renderKeyRow = (row: SettingRow, keyProvider: Provider, label: string) => {
     const active = focus === row;
     const editing = editingKey === keyProvider;
+    const storedKey = keyProvider.startsWith('custom:')
+      ? settings.customProviders.find((c) => c.id === keyProvider.slice(7))?.apiKey ?? null
+      : settings.apiKeys[keyProvider as 'anthropic' | 'openai' | 'qwen'];
     return (
       <Box key={row}>
         <Text inverse={active} color={active ? 'cyan' : undefined}>
@@ -389,10 +660,219 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
           />
         ) : (
           <Text inverse={active} color={active ? 'cyan' : undefined}>
-            [{keyStatusText(keyProvider, settings.apiKeys[keyProvider])}]
+            [{keyStatusText(keyProvider, storedKey)}]
           </Text>
         )}
       </Box>
+    );
+  };
+
+  /** Current custom provider config (when provider is custom:*). */
+  const currentCustomProvider = provider.startsWith('custom:')
+    ? settings.customProviders.find((c) => c.id === provider.slice(7))
+    : undefined;
+
+  /** Update a field of the currently selected custom provider. */
+  const updateCurrentCustomProvider = (updates: Partial<import('./settings').CustomProviderConfig>) => {
+    setSettings((prev) => ({
+      ...prev,
+      customProviders: prev.customProviders.map((cp) =>
+        cp.id === currentCustomProvider?.id ? { ...cp, ...updates } : cp,
+      ),
+    }));
+  };
+
+  /** Add a new custom provider with OpenAI-compatible defaults and switch to it. */
+  const addCustomProvider = () => {
+    setSettings((prev) => {
+      const existingIds = prev.customProviders.map((cp) => cp.id);
+      const name = `Custom Provider ${existingIds.length + 1}`;
+      const cp = createCustomProvider(name, existingIds);
+      return {
+        ...prev,
+        customProviders: [...prev.customProviders, cp],
+        models: seedModelsForProvider(`custom:${cp.id}`, [...prev.customProviders, cp]),
+      };
+    });
+  };
+
+  /** Delete the currently selected custom provider and switch back to anthropic. */
+  const deleteCustomProvider = () => {
+    setSettings((prev) => ({
+      ...prev,
+      customProviders: prev.customProviders.filter((cp) => cp.id !== currentCustomProvider?.id),
+      models: seedModelsForProvider('anthropic'),
+    }));
+  };
+
+  /** Add a header to the current custom provider (parsed as `key: value`). */
+  const addCustomProviderHeader = (value: string) => {
+    const trimmed = value.trim();
+    if (trimmed === '') {
+      return;
+    }
+    const colon = trimmed.indexOf(':');
+    if (colon === -1) {
+      return;
+    }
+    const key = trimmed.slice(0, colon).trim();
+    const headerValue = trimmed.slice(colon + 1).trim();
+    updateCurrentCustomProvider({
+      headers: [...(currentCustomProvider?.headers ?? []), { key, value: headerValue }],
+    });
+  };
+
+  /** Remove a header by index from the current custom provider. */
+  const removeCustomProviderHeader = (index: number) => {
+    updateCurrentCustomProvider({
+      headers: (currentCustomProvider?.headers ?? []).filter((_, i) => i !== index),
+    });
+  };
+
+  /** Add a model to the current custom provider. */
+  const addCustomProviderModel = (value: string) => {
+    const trimmed = value.trim();
+    if (trimmed === '') {
+      return;
+    }
+    updateCurrentCustomProvider({
+      models: [...(currentCustomProvider?.models ?? []), { id: trimmed, label: trimmed }],
+    });
+  };
+
+  /** Remove a model by index from the current custom provider. */
+  const removeCustomProviderModel = (index: number) => {
+    updateCurrentCustomProvider({
+      models: (currentCustomProvider?.models ?? []).filter((_, i) => i !== index),
+    });
+  };
+
+  const renderTextRow = (
+    row: SettingRow,
+    label: string,
+    value: string,
+    placeholder: string,
+    onSubmit: (value: string) => void,
+    editing: boolean,
+    draft: string,
+    setDraft: (value: string) => void,
+  ) => {
+    const active = focus === row;
+    return (
+      <Box key={row}>
+        <Text inverse={active} color={active ? 'cyan' : undefined}>
+          {active ? '> ' : '  '}
+          {label}:{' '}
+        </Text>
+        {editing ? (
+          <TextInput
+            value={draft}
+            onChange={setDraft}
+            onSubmit={onSubmit}
+            placeholder={placeholder}
+            focus
+          />
+        ) : (
+          <Text inverse={active} color={active ? 'cyan' : undefined}>
+            [{value}]
+          </Text>
+        )}
+      </Box>
+    );
+  };
+
+  const renderCustomProviderRows = () => {
+    if (!currentCustomProvider) {
+      return null;
+    }
+    return (
+      <>
+        {renderTextRow(
+          'customProviderBaseUrl',
+          'Base URL',
+          currentCustomProvider.baseUrl,
+          'https://api.example.com/v1/chat/completions',
+          (v) => updateCurrentCustomProvider({ baseUrl: v }),
+          editingKey === `custom:${currentCustomProvider.id}-baseUrl`,
+          keyDraft,
+          setKeyDraft,
+        )}
+        {renderKeyRow('customProviderApiKey', `custom:${currentCustomProvider.id}`, `${currentCustomProvider.name} API Key`)}
+        <Box>
+          <Text inverse={focus === 'addCustomProviderHeader'} color={focus === 'addCustomProviderHeader' ? 'cyan' : undefined}>
+            {focus === 'addCustomProviderHeader' ? '> ' : '  '}
+            Add Header: [Enter to type]
+          </Text>
+        </Box>
+        {currentCustomProvider.headers.map((h, i) => (
+          <Box key={`customProviderHeader:${i}`}>
+            <Text inverse={focus === `customProviderHeader:${i}`} color={focus === `customProviderHeader:${i}` ? 'cyan' : undefined}>
+              {focus === `customProviderHeader:${i}` ? '> ' : '  '}
+              Header {i + 1}: [{h.key}: {h.value}] (Enter to delete)
+            </Text>
+          </Box>
+        ))}
+        {renderTextRow(
+          'customProviderRequestTemplate',
+          'Request Template',
+          currentCustomProvider.requestTemplate,
+          '{"model":"{{model}}","messages":{{messages}}}',
+          (v) => updateCurrentCustomProvider({ requestTemplate: v }),
+          editingKey === `custom:${currentCustomProvider.id}-requestTemplate`,
+          keyDraft,
+          setKeyDraft,
+        )}
+        {renderTextRow(
+          'customProviderResponseTextPath',
+          'Response Text Path',
+          currentCustomProvider.responseTemplate.textPath,
+          'choices[0].message.content',
+          (v) => updateCurrentCustomProvider({ responseTemplate: { ...currentCustomProvider.responseTemplate, textPath: v } }),
+          editingKey === `custom:${currentCustomProvider.id}-responseTextPath`,
+          keyDraft,
+          setKeyDraft,
+        )}
+        {renderTextRow(
+          'customProviderResponseInputTokensPath',
+          'Input Tokens Path',
+          currentCustomProvider.responseTemplate.inputTokensPath ?? '',
+          'usage.prompt_tokens',
+          (v) => updateCurrentCustomProvider({ responseTemplate: { ...currentCustomProvider.responseTemplate, inputTokensPath: v || undefined } }),
+          editingKey === `custom:${currentCustomProvider.id}-responseInputTokensPath`,
+          keyDraft,
+          setKeyDraft,
+        )}
+        {renderTextRow(
+          'customProviderResponseOutputTokensPath',
+          'Output Tokens Path',
+          currentCustomProvider.responseTemplate.outputTokensPath ?? '',
+          'usage.completion_tokens',
+          (v) => updateCurrentCustomProvider({ responseTemplate: { ...currentCustomProvider.responseTemplate, outputTokensPath: v || undefined } }),
+          editingKey === `custom:${currentCustomProvider.id}-responseOutputTokensPath`,
+          keyDraft,
+          setKeyDraft,
+        )}
+        <Box>
+          <Text inverse={focus === 'addCustomProviderModel'} color={focus === 'addCustomProviderModel' ? 'cyan' : undefined}>
+            {focus === 'addCustomProviderModel' ? '> ' : '  '}
+            Add Model: [Enter to type]
+          </Text>
+        </Box>
+        {currentCustomProvider.models.map((m, i) => (
+          <Box key={`customProviderModel:${i}`}>
+            <Text inverse={focus === `customProviderModel:${i}`} color={focus === `customProviderModel:${i}` ? 'cyan' : undefined}>
+              {focus === `customProviderModel:${i}` ? '> ' : '  '}
+              Model {i + 1}: [{m.id}] (Enter to delete)
+            </Text>
+          </Box>
+        ))}
+        <Box>
+          <Text inverse={focus === 'deleteCustomProvider'} color={focus === 'deleteCustomProvider' ? 'cyan' : undefined}>
+            {focus === 'deleteCustomProvider' ? '> ' : '  '}
+            [ Delete Custom Provider ]
+          </Text>
+        </Box>
+      </>
     );
   };
 
@@ -415,11 +895,30 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
             {renderModelRow('modelDox', 'DOX Writer Model', settings.models.dox)}
             {renderModelRow('modelCuration', 'Curation Model', settings.models.curation ?? null)}
           </Box>
+          {renderCustomProviderRows()}
+          <Box>
+            <Text inverse={focus === 'addCustomProvider'} color={focus === 'addCustomProvider' ? 'cyan' : undefined}>
+              {focus === 'addCustomProvider' ? '> ' : '  '}
+              [ Add Custom Provider ]
+            </Text>
+          </Box>
           <Box flexDirection="column" marginTop={1}>
             <Text bold>API Keys</Text>
             {renderKeyRow('apiKeyAnthropic', 'anthropic', 'Anthropic API Key')}
             {renderKeyRow('apiKeyOpenai', 'openai', 'OpenAI API Key')}
+            {renderKeyRow('apiKeyQwen', 'qwen', 'Qwen API Key')}
           </Box>
+          {testStatus !== 'idle' && (
+            <Box marginTop={1}>
+              {testStatus === 'testing' ? (
+                <Text dimColor>Testing model connection...</Text>
+              ) : testStatus === 'success' ? (
+                <SuccessBox message={`Test connection: ${testMessage}`} />
+              ) : (
+                <ErrorBox message={`Test connection: ${testMessage}`} />
+              )}
+            </Box>
+          )}
           <Box marginTop={1} gap={2}>
             <Text inverse={focus === 'save'} color={focus === 'save' ? 'cyan' : undefined}>
               [ Save ]
@@ -438,26 +937,49 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
           <Text>Synthesis: {settings.synthesis ? 'ON' : 'OFF'}</Text>
           <Text>Update Agents: {settings.updateAgents ? 'ON' : 'OFF'}</Text>
           <Text bold>LLM Model Routing</Text>
-          <Text>Provider: {PROVIDER_LABELS[provider]}</Text>
+          <Text>Provider: {providerLabel(provider, settings.customProviders)}</Text>
           <Text>Default Model: {displayName(settings.models.default)}</Text>
           <Text>Extractor Model: {optionalLabel(settings.models.extractor)}</Text>
-          <Text dimColor>  {RECOMMENDATIONS[provider].modelExtractor}</Text>
+          {!provider.startsWith('custom:') && (
+            <Text dimColor>  {RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'].modelExtractor}</Text>
+          )}
           <Text>Synthesis Writer Model: {optionalLabel(settings.models.synthesis)}</Text>
-          <Text dimColor>  {RECOMMENDATIONS[provider].modelSynthesis}</Text>
+          {!provider.startsWith('custom:') && (
+            <Text dimColor>  {RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'].modelSynthesis}</Text>
+          )}
           <Text>DOX Writer Model: {optionalLabel(settings.models.dox)}</Text>
-          <Text dimColor>  {RECOMMENDATIONS[provider].modelDox}</Text>
+          {!provider.startsWith('custom:') && (
+            <Text dimColor>  {RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'].modelDox}</Text>
+          )}
           <Text>Curation Model: {optionalLabel(settings.models.curation ?? null)}</Text>
-          <Text dimColor>  {RECOMMENDATIONS[provider].modelCuration}</Text>
+          {!provider.startsWith('custom:') && (
+            <Text dimColor>  {RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'].modelCuration}</Text>
+          )}
+          {currentCustomProvider && (
+            <>
+              <Text>Base URL: {currentCustomProvider.baseUrl}</Text>
+              <Text>Headers: {currentCustomProvider.headers.map((h) => `${h.key}: ${h.value}`).join(', ')}</Text>
+              <Text>Request Template: {currentCustomProvider.requestTemplate}</Text>
+              <Text>Response Text Path: {currentCustomProvider.responseTemplate.textPath}</Text>
+              <Text>Input Tokens Path: {currentCustomProvider.responseTemplate.inputTokensPath ?? ''}</Text>
+              <Text>Output Tokens Path: {currentCustomProvider.responseTemplate.outputTokensPath ?? ''}</Text>
+              <Text>Models: {currentCustomProvider.models.map((m) => m.id).join(', ')}</Text>
+            </>
+          )}
           <Text bold>API Keys</Text>
           <Text>Anthropic API Key: {keyStatusText('anthropic', settings.apiKeys.anthropic)}</Text>
           <Text>OpenAI API Key: {keyStatusText('openai', settings.apiKeys.openai)}</Text>
+          <Text>Qwen API Key: {keyStatusText('qwen', settings.apiKeys.qwen)}</Text>
+          {currentCustomProvider && (
+            <Text>{currentCustomProvider.name} API Key: {keyStatusText(`custom:${currentCustomProvider.id}`, currentCustomProvider.apiKey)}</Text>
+          )}
           <Text dimColor>Interactive settings require a TTY.</Text>
         </Box>
       )}
       {!loaded && <Text dimColor>Loading settings...</Text>}
       {status === 'success' && <SuccessBox message={message} />}
       {status === 'error' && <ErrorBox message={message} />}
-      <Footer helpText="Up/Down: select | Space/Left/Right: toggle | Left/Right: cycle provider/model | Enter: save/back/edit key (empty clears, Esc cancels) | Escape: back" />
+      <Footer helpText="Up/Down: select | Space/Left/Right: toggle | Left/Right: cycle provider/model | T: test model | Enter: save/back/edit key/custom model (empty clears/cancels, Esc cancels) | Escape: back" />
     </Box>
   );
 }

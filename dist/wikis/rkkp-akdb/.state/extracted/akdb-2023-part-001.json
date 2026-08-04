@@ -1,0 +1,234 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "organization",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "Akut Kirurgi Databasen er en dansk kvalitetsovervågningsdatabase for akut kirurgisk behandling, der rapporterer på behandlingskvalitet gennem 11 indikatorer for danske sygehuse.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Akut Kirurgi Databasen Årsrapport 2023"
+        },
+        {
+          "page": 2,
+          "context": "Akut Kirurgi Databasen © RKKP 2024"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "RKKP er den organisation, der udarbejder og administrerer Akut Kirurgi Databasen og dens analyser samt udgiver årsrapporten.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) ved RKKP's Videncenter"
+        },
+        {
+          "page": 2,
+          "context": "Udgiver: Regionernes Kliniske Kvalitetsudviklingsprogram Hedeager 3 8200 Aarhus N www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Peter Svenningsen",
+      "type": "person",
+      "slug": "peter-svenningsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Peter Svenningsen er formand for Akut Kirurgi Databasen og cheflæge ved Nordsjællands Hospital, ansvarlig for databasens ledelse.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Formand for databasen: Peter Svenningsen, Cheflæge, F.E.B.S EmSurg, Kirurgisk afdeling, Nordsjællands Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Birgitte Rühman",
+      "type": "person",
+      "slug": "birgitte-ruhman",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Birgitte Rühman er RKKP's kontaktperson for Akut Kirurgi Databasen og ansvarlig for kommunikation vedrørende databasen.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "RKKP's kontaktperson: Birgitte Rühman; E-mail: BIRRUH@rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Nordsjællands Hospital",
+      "type": "organization",
+      "slug": "nordsjaellands-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Nordsjællands Hospital er hvor formanden for Akut Kirurgi Databasen, Peter Svenningsen, arbejder som cheflæge på kirurgisk afdeling.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Kirurgisk afdeling, Nordsjællands Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Landspatientregisteret (LPR) er den primære datakilde for Akut Kirurgi Databasen, hvorfra hospitalernes indberetninger hentes til forløbsdannelse.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "datakilden er ens egen indtastning til Landspatientregisteret (LPR)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "predicate": "administers",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Rapportens analyser er udarbejdet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) ved RKKP's Videncenter",
+      "page": 2
+    },
+    {
+      "subject": "peter-svenningsen",
+      "predicate": "is-chairman-of",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Formand for databasen: Peter Svenningsen, Cheflæge, F.E.B.S EmSurg, Kirurgisk afdeling, Nordsjællands Hospital",
+      "page": 2
+    },
+    {
+      "subject": "peter-svenningsen",
+      "predicate": "works-at",
+      "object": "nordsjaellands-hospital",
+      "evidence": "Peter Svenningsen, Cheflæge, F.E.B.S EmSurg, Kirurgisk afdeling, Nordsjællands Hospital",
+      "page": 2
+    },
+    {
+      "subject": "birgitte-ruhman",
+      "predicate": "is-contact-person-for",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "RKKP's kontaktperson: Birgitte Rühman; E-mail: BIRRUH@rkkp.dk",
+      "page": 2
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "datakilden er ens egen indtastning til Landspatientregisteret (LPR). Det er derfor vigtigt, at man ledelsesmæssigt prioriterer at validere egen afdelings indberetning, således at der er overensstemmelse mellem indberetning til LPR og sande data",
+      "page": 1
+    }
+  ],
+  "claims": [
+    {
+      "text": "Opgørelsesperioden for årsrapporten er 1. september 2022 – 31. august 2023 [^src1]",
+      "type": "temporal",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Rapporten blev offentliggjort 29.02.2024 [^src1]",
+      "type": "temporal",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Databasen fokuserer på populationen, der har en inklusionsoperation og har inklusionsdiagnose [^src1]",
+      "type": "methodological",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Der er enighed om, at de enkelte indikatorer er udsagn om kvalitet i patientforløbene [^src1]",
+      "type": "methodological",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Det nye i årets rapport er deling af population i en perforation/iskæmi/blødnings del og en Ileus del [^src1]",
+      "type": "methodological",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Databasen er under omlægning og dette er fjerde år baseret på LPR [^src1]",
+      "type": "operational",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "landspatientregisteret"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Det blev på styregruppens årsmøde i 2018 besluttet at dette var det sidste år med monitorering af blødenede ulcera, fordi der på nationalt niveau har været en tilfredsstillende høj kvalitet i behandlingen og lav mortalitet [^src1]",
+      "type": "operational",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Overordnet set, er årets resultater udtryk for en positiv udvikling for alle indikatorer [^src1]",
+      "type": "outcome",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Den flotte udvikling indenfor procesindikatorerne er afspejlet i mortaliteten, der fortsat er faldende [^src1]",
+      "type": "outcome",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2018",
+      "event": "Styregruppens årsmøde besluttede at det var det sidste år med monitorering af blødenede ulcera",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "1. september 2022",
+      "event": "Begyndelse af opgørelsesperioden for årsrapporten 2023",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "31. august 2023",
+      "event": "Afslutning af opgørelsesperioden for årsrapporten 2023",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "29.02.2024",
+      "event": "Offentliggørelse af Akut Kirurgi Databasen årsrapport 2023",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "context": "Akut Kirurgi Databasen årsrapport 2023 er en dansk kvalitetsovervågningsrapport udarbejdet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP), der dokumenterer behandlingskvaliteten for akutte kirurgiske patienter på danske sygehuse. Rapporten dækker perioden 1. september 2022 til 31. august 2023 og præsenterer resultater for 11 indikatorer, der måler både processer (såsom antibiotikabehandling, CT-skanning, operation inden for 6 timer) og patientresultater (mortalitet inden for 30 og 90 dage). Databasen er baseret på data fra Landspatientregisteret og er under omlægning, hvilket er det fjerde år baseret på denne datakilde. Rapporten understreger vigtigheden af lokal validering af hospitalernes indberetninger og rapporterer en positiv udvikling på tværs af alle indikatorer med faldende mortalitet.",
+  "tables": []
+}

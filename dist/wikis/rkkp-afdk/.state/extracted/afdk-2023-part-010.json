@@ -1,0 +1,307 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Denne database er det centrale register for atriefimren-patienter i Danmark og udgør grundlaget for alle kvalitetsindikatorer og resultater rapporteret i denne årsrapport.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-programs",
+      "significance": "RKKP er det program under hvilket Databasen for Atrieflimren i Danmark opereres og kvalitetsindikatorer udvikles og monitoreres.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Landspatientregisteret er en af de to primære datakilder for beregning af Indikator 4a, hvorfra patientdiagnoser og behandlingsdata hentes.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Data til beregning af indikatoren er indhentet fra Landspatientregisteret og Lægemiddelstatistikregisteret."
+        }
+      ]
+    },
+    {
+      "name": "Lægemiddelstatistikregisteret",
+      "type": "organization",
+      "slug": "laegemiddelstatistikregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Lægemiddelstatistikregisteret er den anden primære datakilde for Indikator 4a, hvorfra data om indløste recepter på antikoagulationsbehandling hentes.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Data til beregning af indikatoren er indhentet fra Landspatientregisteret og Lægemiddelstatistikregisteret."
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Hovedstaden er en af fem danske regioner, hvis resultater for Indikator 4b rapporteres med detaljerede data på både regionalt og kommunalt niveau.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "Hovedstaden Nej 24.504 / 26.601 0 (0) 92,1 (91,8-92,4)"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Sjælland er en af fem danske regioner, hvis resultater for Indikator 4b rapporteres med detaljerede data på både regionalt og kommunalt niveau.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "Sjælland Nej 14.909 / 16.112 0 (0) 92,5 (92,1-92,9)"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Syddanmark er en af fem danske regioner, hvis resultater for Indikator 4b rapporteres med detaljerede data på både regionalt og kommunalt niveau.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "Syddanmark Nej 21.605 / 22.920 0 (0) 94,3 (94,0-94,6)"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Midtjylland er en af fem danske regioner, hvis resultater for Indikator 4b rapporteres med detaljerede data på både regionalt og kommunalt niveau.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "Midtjylland Nej 20.480 / 21.694 0 (0) 94,4 (94,1-94,7)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Region Nordjylland er den eneste region, der opfylder standarden for Indikator 4a efter 5 år, og er også den eneste region, der opfylder standarden for Indikator 4b.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "Nordjylland Ja 10.446 / 10.945 0 (0) 95,4 (95,0-95,8)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "operated-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark er en del af Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 46
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Data til beregning af indikatoren er indhentet fra Landspatientregisteret",
+      "page": 47
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "uses-data-from",
+      "object": "laegemiddelstatistikregisteret",
+      "evidence": "Data til beregning af indikatoren er indhentet fra Lægemiddelstatistikregisteret",
+      "page": 47
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan var 90% af patienterne med atrieflimren i antikoagulationsbehandling 1 år efter diagnosen blev stillet [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 47
+    },
+    {
+      "text": "90% af patienterne med atrieflimren var i antikoagulationsbehandling efter 2 år [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 47
+    },
+    {
+      "text": "88% af patienterne med atrieflimren var i antikoagulationsbehandling efter 5 år [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 47
+    },
+    {
+      "text": "Tre regioner opfylder standarden efter 1 år for Indikator 4a [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 47
+    },
+    {
+      "text": "To regioner opfylder standarden efter 2 år for Indikator 4a (Midtjylland har dog 89,9%) [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 47
+    },
+    {
+      "text": "Kun Region Nordjylland opfylder standarden efter 5 år for Indikator 4a [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 47
+    },
+    {
+      "text": "Der er observeret stigende persistens til antikoagulationsbehandling i perioden siden 2016 [^src1]",
+      "type": "clinical-trend",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 47
+    },
+    {
+      "text": "Indikation for antikoagulationsbehandling er CHA2DS2-VASc score ≥2 [^src1]",
+      "type": "clinical-criteria",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 47
+    },
+    {
+      "text": "Danmark opnåede 93,6% for Indikator 4b i perioden 01.07.2022 - 30.06.2023 [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 48
+    },
+    {
+      "text": "Region Hovedstaden opnåede 92,1% for Indikator 4b i perioden 01.07.2022 - 30.06.2023 [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 48
+    },
+    {
+      "text": "Region Sjælland opnåede 92,5% for Indikator 4b i perioden 01.07.2022 - 30.06.2023 [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-sjaelland"
+      ],
+      "page": 48
+    },
+    {
+      "text": "Region Syddanmark opnåede 94,3% for Indikator 4b i perioden 01.07.2022 - 30.06.2023 [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-syddanmark"
+      ],
+      "page": 48
+    },
+    {
+      "text": "Region Midtjylland opnåede 94,4% for Indikator 4b i perioden 01.07.2022 - 30.06.2023 [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-midtjylland"
+      ],
+      "page": 48
+    },
+    {
+      "text": "Region Nordjylland opnåede 95,4% for Indikator 4b i perioden 01.07.2022 - 30.06.2023 og opfylder dermed standarden [^src1]",
+      "type": "regional-performance",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 48
+    },
+    {
+      "text": "152 patienter blev ekskluderet fra Indikator 4a efter 1 år fordi de ikke havde bopæl i DK eller havde en erstatnings CPRnr [^src1]",
+      "type": "data-exclusion",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 47
+    },
+    {
+      "text": "6.828 patienter blev ekskluderet fra Indikator 4a efter 1 år fordi de ikke havde indikation for AK behandling (CHA2DS2-VASc < 2) [^src1]",
+      "type": "data-exclusion",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 47
+    },
+    {
+      "text": "1.484 patienter blev ekskluderet fra Indikator 4a efter 1 år fordi de døde inden for 1 år efter diagnosedato [^src1]",
+      "type": "data-exclusion",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 47
+    },
+    {
+      "text": "4.283 patienter blev ekskluderet fra Indikator 4a efter 5 år fordi de døde inden for 5 år efter diagnosedato [^src1]",
+      "type": "data-exclusion",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 47
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. juli 2022 – 30. juni 2023",
+      "event": "Årsrapportperiode for Databasen for Atrieflimren i Danmark med resultater for Indikator 4a og 4b",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "2016",
+      "event": "Startpunkt for observation af stigende persistens til antikoagulationsbehandling",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk udgør en detaljeret årsrapport fra Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023. Rapporten præsenterer resultater for to vigtige kvalitetsindikatorer (Indikator 4a og 4b) relateret til antikoagulationsbehandling af patienter med atrieflimren. Indikator 4a måler andelen af patienter med indikation for antikoagulationsbehandling, der faktisk modtager behandling 1, 2 og 5 år efter diagnosen, mens Indikator 4b måler andelen af patienter i behandling med direkte orale antikoagulantia (DOAC), der får mindst én årlig måling af P-creatinin. Rapporten indeholder omfattende data på både nationalt og regionalt niveau, samt detaljerede eksklusionskriterier og beregningsregler for indikatorerne."
+}

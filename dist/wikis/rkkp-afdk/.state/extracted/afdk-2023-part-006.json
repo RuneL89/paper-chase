@@ -1,0 +1,530 @@
+{
+  "entities": [
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "organization",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Denne database er det centrale register for atriefimren-patienter i Danmark og udgør grundlaget for alle kvalitetsindikatorer og resultater rapporteret i denne årsrapport.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-registries",
+      "significance": "RKKP er det nationale program der administrerer og overvåger kvalitetsindikatorer for atrieflimren-behandling på tværs af danske regioner og hospitaler.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Den Nationale Labdatabank",
+      "type": "organization",
+      "slug": "den-nationale-labdatabank",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Denne nationale database indeholder laboratorieresultater fra landets større laboratorier og fungerer som kilde til TSH-målingsdata for indikatoren.",
+      "mentions": [
+        {
+          "page": 29,
+          "context": "Data om måling af TSH er indhentet via kobling med Laboratoriedatabasen. Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsdatastyrelsen",
+      "type": "organization",
+      "slug": "sundhedsdatastyrelsen",
+      "folder": "entities/organizations/government",
+      "significance": "Sundhedsdatastyrelsen administrerer Laboratoriedatabasen, hvorfra TSH-resultater indlæses til kvalitetsovervågningen.",
+      "mentions": [
+        {
+          "page": 29,
+          "context": "Laboratoriesvar, hvor patienten har givet negativt samtykke til at udveksle oplysninger, videresendes ikke til Den Nationale Labdatabank, og dermed heller ikke til Laboratoriedatabasen hos Sundhedsdatastyrelsen"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital opnåede 91-92% målopfyldelse for TSH-måling hos nydiagnosticerede atrieflimren-patienter og ligger tæt på standarden.",
+      "mentions": [
+        {
+          "page": 29,
+          "context": "Regionshospitalet Horsens og Hospitalerne i Nordsjælland (91-92%) er tæt på"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital opnåede 91-92% målopfyldelse for TSH-måling hos nydiagnosticerede atrieflimren-patienter og ligger tæt på standarden.",
+      "mentions": [
+        {
+          "page": 29,
+          "context": "Regionshospitalet Horsens og Hospitalerne i Nordsjælland (91-92%) er tæt på"
+        }
+      ]
+    },
+    {
+      "name": "LABKA",
+      "type": "system",
+      "slug": "labka",
+      "folder": "topics/clinical-systems",
+      "significance": "LABKA er det system, hvor TSH-målinger kodes, og styregruppen identificerer udfordringer med forskellige kodninger som en barriere for målopfyldelse.",
+      "mentions": [
+        {
+          "page": 29,
+          "context": "Der er ingen regioner, der opfylder standarden for denne indikator, og styregruppen vurderer, at der dels kan være udfordringer med forskellige koder for en TSH måling i LABKA"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Hovedstaden er en af fem danske regioner, hvis resultater for antikoagulationsbehandling rapporteres i Indikator 4a.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Hovedstaden Nej 1.656 / 1.885 0 (0) 87,9 (86,3-89,3)"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/regions",
+      "significance": "Sjælland er en af fem danske regioner, der opfylder standarden for antikoagulationsbehandling med 90,3% målopfyldelse.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Sjælland Ja 1.100 / 1.218 0 (0) 90,3 (88,5-91,9)"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "Syddanmark er en af fem danske regioner, hvis resultater for antikoagulationsbehandling rapporteres i Indikator 4a.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Syddanmark Nej 1.706 / 1.921 0 (0) 88,8 (87,3-90,2)"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Midtjylland er en af fem danske regioner, der opfylder standarden for antikoagulationsbehandling med 91,2% målopfyldelse.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Midtjylland Ja 1.434 / 1.573 0 (0) 91,2 (89,7-92,5)"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Nordjylland er en af fem danske regioner, der opfylder standarden for antikoagulationsbehandling med 91,6% målopfyldelse.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Nordjylland Ja 699 / 763 0 (0) 91,6 (89,4-93,5)"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Hovedstaden-regionen opnåede 88,6% målopfyldelse for antikoagulationsbehandling og opfylder ikke standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Amager og Hvidovre Hospital Nej 264 / 298 0 (0) 88,6 (84,4-92,0)"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospitaler",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Hovedstaden-regionen opnåede 89,8% målopfyldelse for antikoagulationsbehandling og opfylder ikke standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Bispebjerg og Frederiksberg Hospitaler Nej 289 / 322 0 (0) 89,8 (85,9-92,8)"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Hovedstaden-regionen opnåede 93,9% målopfyldelse for antikoagulationsbehandling og opfylder standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Bornholms Hospital Ja 62 / 66 0 (0) 93,9 (85,2-98,3)"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Hovedstaden-regionen opnåede 87,8% målopfyldelse for antikoagulationsbehandling og opfylder ikke standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Herlev og Gentofte Hospital Nej 502 / 572 0 (0) 87,8 (84,8-90,3)"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Hovedstaden-regionen opnåede 83,0% målopfyldelse for antikoagulationsbehandling, det laveste blandt hospitalerne i regionen.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Rigshospitalet Nej 205 / 247 0 (0) 83,0 (77,7-87,5)"
+        }
+      ]
+    },
+    {
+      "name": "Garantiklinikken",
+      "type": "organization",
+      "slug": "garantiklinikken",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Denne klinik under Sjælland-regionen opnåede 92,6% målopfyldelse for antikoagulationsbehandling og opfylder standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Garantiklinikken Ja 88 / 95 0 (0) 92,6 (85,4-97,0)"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk",
+      "type": "organization",
+      "slug": "holbaek",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Sjælland-regionen opnåede 85,8% målopfyldelse for antikoagulationsbehandling og opfylder ikke standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Holbæk Nej 175 / 204 0 (0) 85,8 (80,2-90,3)"
+        }
+      ]
+    },
+    {
+      "name": "Nykøbing Falster",
+      "type": "organization",
+      "slug": "nykoebing-falster",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Sjælland-regionen opnåede 91,0% målopfyldelse for antikoagulationsbehandling og opfylder standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Nykøbing Falster Ja 181 / 199 0 (0) 91,0 (86,1-94,6)"
+        }
+      ]
+    },
+    {
+      "name": "Næstved",
+      "type": "organization",
+      "slug": "naestved",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Sjælland-regionen opnåede 72,7% målopfyldelse for antikoagulationsbehandling, det laveste blandt hospitalerne i regionen.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Næstved Nej 8 / 11 0 (0) 72,7 (39,0-94,0)"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital Køge",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital-koege",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Sjælland-regionen opnåede 90,1% målopfyldelse for antikoagulationsbehandling og opfylder standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Sjællands Universitetshospital Køge Ja 100 / 111 0 (0) 90,1 (83,0-94,9)"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital Roskilde",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital-roskilde",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Sjælland-regionen opnåede 91,3% målopfyldelse for antikoagulationsbehandling og opfylder standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Sjællands Universitetshospital Roskilde Ja 285 / 312 0 (0) 91,3 (87,7-94,2)"
+        }
+      ]
+    },
+    {
+      "name": "Slagelse",
+      "type": "organization",
+      "slug": "slagelse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Sjælland-regionen opnåede 92,0% målopfyldelse for antikoagulationsbehandling og opfylder standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Slagelse Ja 263 / 286 0 (0) 92,0 (88,2-94,8)"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Syddanmark-regionen opnåede 86,6% målopfyldelse for antikoagulationsbehandling og opfylder ikke standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Esbjerg Sygehus Grindsted Sygehus Nej 285 / 329 0 (0) 86,6 (82,5-90,1)"
+        }
+      ]
+    },
+    {
+      "name": "Friklinikken Region Syddanmark Grindsted",
+      "type": "organization",
+      "slug": "friklinikken-region-syddanmark-grindsted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Denne klinik under Syddanmark-regionen opnåede 94,0% målopfyldelse for antikoagulationsbehandling og opfylder standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Friklinikken Region Syddanmark Grindsted Ja 47 / 50 0 (0) 94,0 (83,5-98,7)"
+        }
+      ]
+    },
+    {
+      "name": "Kolding Sygehus",
+      "type": "organization",
+      "slug": "kolding-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Syddanmark-regionen opnåede 94,4% målopfyldelse for antikoagulationsbehandling og opfylder standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Kolding Sygehus* Ja 67 / 71 0 (0) 94,4 (86,2-98,4)"
+        }
+      ]
+    },
+    {
+      "name": "OUH Odense Universitetshospital",
+      "type": "organization",
+      "slug": "ouh-odense-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Syddanmark-regionen opnåede 88,8% målopfyldelse for antikoagulationsbehandling og opfylder ikke standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "OUH Odense Universitetshospital Nej 640 / 721 0 (0) 88,8 (86,2-91,0)"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Syddanmark-regionen opnåede 88,7% målopfyldelse for antikoagulationsbehandling og opfylder ikke standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Sygehus Sønderjylland Nej 344 / 388 0 (0) 88,7 (85,1-91,6)"
+        }
+      ]
+    },
+    {
+      "name": "Vejle Sygehus",
+      "type": "organization",
+      "slug": "vejle-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette hospital under Syddanmark-regionen opnåede 89,2% målopfyldelse for antikoagulationsbehandling og opfylder ikke standarden.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Vejle Sygehus* Nej 323 / 362 0 (0) 89,2 (85,6-92,2)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "administered-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
+      "page": 26
+    },
+    {
+      "subject": "den-nationale-labdatabank",
+      "predicate": "provides-data-to",
+      "object": "sundhedsdatastyrelsen",
+      "evidence": "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen",
+      "page": 29
+    },
+    {
+      "subject": "regionshospitalet-horsens",
+      "predicate": "reports-to",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Regionshospitalet Horsens og Hospitalerne i Nordsjælland (91-92%) er tæt på",
+      "page": 29
+    },
+    {
+      "subject": "hospitalerne-i-nordsjaelland",
+      "predicate": "reports-to",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Regionshospitalet Horsens og Hospitalerne i Nordsjælland (91-92%) er tæt på",
+      "page": 29
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan fik 77% af de nydiagnosticerede patienter med atrieflimren målt TSH i perioden fra 60 dage før til 30 dage efter diagnosedatoen i hospitalsregi [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 29
+    },
+    {
+      "text": "Regionalt varierede andelen mellem 71 - 82% og ingen regioner opfylder således standarden [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 29
+    },
+    {
+      "text": "Heller ingen hospitaler opfylder standarden, men Regionshospitalet Horsens og Hospitalerne i Nordsjælland (91-92%) er tæt på [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "regionshospitalet-horsens",
+        "hospitalerne-i-nordsjaelland"
+      ],
+      "page": 29
+    },
+    {
+      "text": "Der er ingen regioner, der opfylder standarden for denne indikator, og styregruppen vurderer, at der dels kan være udfordringer med forskellige koder for en TSH måling i LABKA [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "labka"
+      ],
+      "page": 29
+    },
+    {
+      "text": "Antal eksklusion: 269 patienter, hvor patienten har ikke bopæl i DK eller har en erstatnings CPRnr [^src1]",
+      "type": "data-quality",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 29
+    },
+    {
+      "text": "Danmark opnåede 89,6% målopfyldelse for antikoagulationsbehandling hos patienter med atrieflimren med indikation, hvilket ikke opfylder standarden på ≥90% [^src2]",
+      "type": "clinical-performance",
+      "entities": [],
+      "page": 30
+    },
+    {
+      "text": "Hovedstaden opnåede 87,9% målopfyldelse for antikoagulationsbehandling og opfylder ikke standarden [^src2]",
+      "type": "clinical-performance",
+      "entities": [
+        "hovedstaden"
+      ],
+      "page": 30
+    },
+    {
+      "text": "Sjælland opnåede 90,3% målopfyldelse for antikoagulationsbehandling og opfylder standarden [^src2]",
+      "type": "clinical-performance",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 30
+    },
+    {
+      "text": "Syddanmark opnåede 88,8% målopfyldelse for antikoagulationsbehandling og opfylder ikke standarden [^src2]",
+      "type": "clinical-performance",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 30
+    },
+    {
+      "text": "Midtjylland opnåede 91,2% målopfyldelse for antikoagulationsbehandling og opfylder standarden [^src2]",
+      "type": "clinical-performance",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 30
+    },
+    {
+      "text": "Nordjylland opnåede 91,6% målopfyldelse for antikoagulationsbehandling og opfylder standarden [^src2]",
+      "type": "clinical-performance",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 30
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. juli 2022 – 30. juni 2023",
+      "event": "Rapportperiode for Indikator 3 (TSH-måling hos nydiagnosticerede atrieflimren-patienter) [^src1]",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "1. juli 2021 – 30. juni 2022",
+      "event": "Rapportperiode for Indikator 4a (antikoagulationsbehandling hos atrieflimren-patienter) [^src2]",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk udgør siderne 26-30 af årsrapporten for Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023. Rapporten præsenterer resultater for to vigtige kvalitetsindikatorer: Indikator 3 vedrørende TSH-måling hos nydiagnosticerede atrieflimren-patienter, og Indikator 4a vedrørende antikoagulationsbehandling hos patienter med indikation. Chunkken indeholder detaljerede resultater på både regions- og hospitalsplan, samt diskussion af udfordringer og implikationer for kvalitetsforbedring inden for atrieflimren-behandling i Danmark."
+}

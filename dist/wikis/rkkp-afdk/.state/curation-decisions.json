@@ -1,0 +1,159 @@
+{
+  "decisions": [
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "afdk"
+      ],
+      "into": "databasen-for-atrieflimren-i-danmark",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "alvorlig-blodning"
+      ],
+      "into": "alvorlig-bloedning",
+      "signal": "transliteration",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "bispebjerg-og-frederiksberg-hospital"
+      ],
+      "into": "bispebjerg-og-frederiksberg-hospitaler",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "holbaek-hospital"
+      ],
+      "into": "holbaek",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "laegemiddelstatistikregistret"
+      ],
+      "into": "laegemiddelstatistikregisteret",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "landspatientregistret"
+      ],
+      "into": "landspatientregisteret",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "naestved-hospital"
+      ],
+      "into": "naestved",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "naestved-sygehus"
+      ],
+      "into": "naestved",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "nykoebing-falster-hospital"
+      ],
+      "into": "nykoebing-falster",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "odense-universitetshospital"
+      ],
+      "into": "ouh-odense-universitetshospital",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "regionshospitalet-godstrup"
+      ],
+      "into": "regionshospitalet-goedstrup",
+      "signal": "transliteration",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "samso-sundheds-og-akuthus"
+      ],
+      "into": "samsoe-sundheds-og-akuthus",
+      "signal": "transliteration",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "slagelse-hospital"
+      ],
+      "into": "slagelse",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "slagelse-sygehus"
+      ],
+      "into": "slagelse",
+      "signal": "alias",
+      "decidedAt": "2026-08-03T18:41:07.837Z",
+      "runId": "2026-08-03T18:41:07.837Z"
+    }
+  ],
+  "splits": []
+}

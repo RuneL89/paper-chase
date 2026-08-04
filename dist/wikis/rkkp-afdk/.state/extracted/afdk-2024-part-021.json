@@ -1,0 +1,372 @@
+{
+  "entities": [
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Dette program udgør rammerne for kvalitetsudvikling og indikatordefinition for atrieflimren-behandling i Danmark, som dokumenteret i denne vejledning.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 102,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 103,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 104,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 105,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Atrieflimren i Danmark",
+      "type": "topic",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "topics/heart-failure",
+      "significance": "Dette er titlen på vejledningen, der dokumenterer behandlings- og kvalitetsindikatorer for atrieflimren-patienter i Danmark.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 102,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 103,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 104,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 105,
+          "context": "Atrieflimren i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "CHA2DS2-VASc score",
+      "type": "topic",
+      "slug": "cha2ds2-vasc-score",
+      "folder": "topics/clinical-criteria",
+      "significance": "Denne risikostratificeringsværktøj bruges til at identificere patienter, der skal have antikoagulationsbehandling, og er central for indikator 1 vedr. ventetid til antikoagulationsbehandling.",
+      "mentions": [
+        {
+          "page": 104,
+          "context": "Incidente patienter med CHA2DS2-VASc ≥2"
+        },
+        {
+          "page": 104,
+          "context": "Patienter med CHA2DS2-VASc score <2"
+        }
+      ]
+    },
+    {
+      "name": "Antikoagulationsbehandling",
+      "type": "topic",
+      "slug": "antikoagulationsbehandling",
+      "folder": "topics/medical-treatments",
+      "significance": "Antikoagulationsbehandling er en central behandlingsmodalitet for atrieflimren-patienter og er genstand for kvalitetsindikator 1 vedr. ventetid til behandlingsstart.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Behandling - Information om frekvenssænkende og rytmeregulerende behandling, DC-konvertering og ablation"
+        },
+        {
+          "page": 104,
+          "context": "Andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations-behandling"
+        }
+      ]
+    },
+    {
+      "name": "Vitamin K antagonister",
+      "type": "topic",
+      "slug": "vitamin-k-antagonister",
+      "folder": "topics/medications",
+      "significance": "Vitamin K antagonister (kode B01AA) er en klasse af antikoagulantia, der bruges til behandling af atrieflimren og er specificeret i beregningsreglerne for indikator 1.",
+      "mentions": [
+        {
+          "page": 104,
+          "context": "B01AA (vitamin K antagonister)"
+        }
+      ]
+    },
+    {
+      "name": "Dabigatran",
+      "type": "topic",
+      "slug": "dabigatran",
+      "folder": "topics/medications",
+      "significance": "Dabigatran (kode B01AE07) er en direkte trombinbinder, der bruges til antikoagulation ved atrieflimren og er specificeret i beregningsreglerne for indikator 1.",
+      "mentions": [
+        {
+          "page": 104,
+          "context": "B01AE07 (dabigatran)"
+        }
+      ]
+    },
+    {
+      "name": "Rivaroxaban",
+      "type": "topic",
+      "slug": "rivaroxaban",
+      "folder": "topics/medications",
+      "significance": "Rivaroxaban (kode B01AF01) er en faktor Xa-inhibitor, der bruges til antikoagulation ved atrieflimren og er specificeret i beregningsreglerne for indikator 1.",
+      "mentions": [
+        {
+          "page": 104,
+          "context": "B01AF01 (rivaroxaban)"
+        }
+      ]
+    },
+    {
+      "name": "Apixaban",
+      "type": "topic",
+      "slug": "apixaban",
+      "folder": "topics/medications",
+      "significance": "Apixaban (kode B01AF02) er en faktor Xa-inhibitor, der bruges til antikoagulation ved atrieflimren og er specificeret i beregningsreglerne for indikator 1.",
+      "mentions": [
+        {
+          "page": 104,
+          "context": "B01AF02 (apixaban)"
+        }
+      ]
+    },
+    {
+      "name": "Edoxaban",
+      "type": "topic",
+      "slug": "edoxaban",
+      "folder": "topics/medications",
+      "significance": "Edoxaban (kode B01AF03) er en faktor Xa-inhibitor, der bruges til antikoagulation ved atrieflimren og er specificeret i beregningsreglerne for indikator 1.",
+      "mentions": [
+        {
+          "page": 104,
+          "context": "B01AF03 (edoxaban)"
+        }
+      ]
+    },
+    {
+      "name": "Ekkokardiografi",
+      "type": "topic",
+      "slug": "ekkokardiografi",
+      "folder": "topics/clinical-measures",
+      "significance": "Ekkokardiografi er en vigtig diagnostisk undersøgelse for atrieflimren-patienter og er genstand for kvalitetsindikator 2 vedr. andelen af nydiagnosticerede patienter, der får udført undersøgelsen.",
+      "mentions": [
+        {
+          "page": 104,
+          "context": "Andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato"
+        },
+        {
+          "page": 105,
+          "context": "UXUC80 (transthorakal ekkokardiografi)"
+        }
+      ]
+    },
+    {
+      "name": "Thyreoidea-stimulerende hormon (TSH) måling",
+      "type": "topic",
+      "slug": "tsh-maaling",
+      "folder": "topics/clinical-measures",
+      "significance": "TSH-måling er en vigtig screeningundersøgelse for atrieflimren-patienter, da thyroideasygdom kan være en underliggende årsag til atrieflimren, og er genstand for kvalitetsindikator 3.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 60 dage før til 30 dage efter 1. diagnosedato"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Landspatientregisteret er en vigtig datakilde for ekkokardiografi-koder, der bruges til at identificere patienter, der har fået udført ekkokardiografi som del af indikator 2.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "Koder for ekkokardiografi i Landspatientregisteret"
+        }
+      ]
+    },
+    {
+      "name": "Sygesikringsregisteret",
+      "type": "organization",
+      "slug": "sygesikringsregisteret",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sygesikringsregisteret er en vigtig datakilde for ekkokardiografi-koder, der bruges til at identificere patienter, der har fået udført ekkokardiografi som del af indikator 2.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "Koder for ekkokardiografi i Sygesikringsregisteret"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "atrieflimren-i-danmark",
+      "predicate": "is-published-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Vejledningen \"Atrieflimren i Danmark\" er udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 101
+    },
+    {
+      "subject": "antikoagulationsbehandling",
+      "predicate": "uses-risk-stratification",
+      "object": "cha2ds2-vasc-score",
+      "evidence": "Incidente patienter med CHA2DS2-VASc ≥2 skal have antikoagulationsbehandling",
+      "page": 104
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "is-coded-in",
+      "object": "landspatientregisteret",
+      "evidence": "Koder for ekkokardiografi i Landspatientregisteret: UXUC80, UXUC80A, UXUC80B, UXUC80C, UXUC80D, UXUC80E, UXUC81, UXUC81C",
+      "page": 105
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "is-coded-in",
+      "object": "sygesikringsregisteret",
+      "evidence": "Koder for ekkokardiografi i Sygesikringsregisteret: 2208, 3810, 3811, 5101, 5102, 5103, 6402, 6408, 0906",
+      "page": 105
+    }
+  ],
+  "claims": [
+    {
+      "text": "Nedsættelse af puls er symptom nedsættende og nedsætter risiko for hjertesvigt [^src1]",
+      "type": "clinical",
+      "entities": [
+        "atrieflimren-i-danmark"
+      ],
+      "page": 101
+    },
+    {
+      "text": "Behandling af risikofaktorer omfatter kontrol af hypertension, hjertesvigt, diabetes, iskæmisk hjertesygdom og søvnapnø [^src1]",
+      "type": "clinical",
+      "entities": [
+        "atrieflimren-i-danmark"
+      ],
+      "page": 101
+    },
+    {
+      "text": "Andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulationsbehandling (hvor antikoagulationsbehandling er indiceret) [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "antikoagulationsbehandling"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Patienter i nævneren som har ventetid til opstart i oral AK-behandling inden for tidsrammen 120 dage før til 30 dage efter 1. diagnosedato [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "antikoagulationsbehandling"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Patienter med CHA2DS2-VASc score <2 ekskluderes fra indikator 1 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "cha2ds2-vasc-score"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Patientforløb uden bopæl i Danmark ekskluderes fra indikator 1 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "atrieflimren-i-danmark"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Patienter der dør <= 30 dage efter indeksdato ekskluderes fra indikator 1 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "atrieflimren-i-danmark"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "ekkokardiografi"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Hele den incidente population af atrieflimren-patienter skal have ekkokardiografi [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "ekkokardiografi"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Patientforløb med under 3 måneders opfølgning efter 1. diagnosedato ekskluderes fra indikator 2 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "ekkokardiografi"
+      ],
+      "page": 105
+    },
+    {
+      "text": "Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 60 dage før til 30 dage efter 1. diagnosedato [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "tsh-maaling"
+      ],
+      "page": 105
+    },
+    {
+      "text": "Hele den incidente population af atrieflimren-patienter skal have målt TSH [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "tsh-maaling"
+      ],
+      "page": 105
+    }
+  ],
+  "timeline": [
+    {
+      "date": "30 dage",
+      "event": "Maksimal ventetid fra diagnosticering til opstart i antikoagulationsbehandling for nydiagnosticerede atrieflimren-patienter",
+      "entities": [
+        "antikoagulationsbehandling",
+        "atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "6 måneder før til 3 måneder efter 1. diagnosedato",
+      "event": "Tidsramme for ekkokardiografi-undersøgelse for nydiagnosticerede atrieflimren-patienter",
+      "entities": [
+        "ekkokardiografi",
+        "atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "60 dage før til 30 dage efter 1. diagnosedato",
+      "event": "Tidsramme for TSH-måling for nydiagnosticerede atrieflimren-patienter",
+      "entities": [
+        "tsh-maaling",
+        "atrieflimren-i-danmark"
+      ]
+    }
+  ],
+  "context": "Disse sider udgør en vejledning fra Regionernes Kliniske Kvalitetsudviklingsprogram for behandling og kvalitetsovervågning af atrieflimren-patienter i Danmark. Dokumentet beskriver behandlingsstrategier, herunder frekvenssænkende og rytmeregulerende behandling, samt behandling af risikofaktorer som hypertension, hjertesvigt og diabetes. Desuden præsenteres beregningsregler for tre vigtige kvalitetsindikatorer: ventetid til antikoagulationsbehandling (indikator 1), ekkokardiografi-screening (indikator 2) og TSH-måling (indikator 3). Hver indikator specificerer populationen, tæller, ekskluderede patienter og relevante medicinkoder eller procedurekoder fra nationale registre som Landspatientregisteret og Sygesikringsregisteret."
+}

@@ -1,0 +1,527 @@
+{
+  "entities": [
+    {
+      "name": "Atrieflimren i Danmark",
+      "type": "topic",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "topics/heart-failure",
+      "significance": "Dette er titlen på kvalitetsindikatorrapporten, der dokumenterer behandling og outcomes for patienter med atrieflimren i Danmark.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Atrieflimren i Danmark, Version: Offentliggjort version"
+        },
+        {
+          "page": 107,
+          "context": "Atrieflimren i Danmark, Version: Offentliggjort version"
+        },
+        {
+          "page": 108,
+          "context": "Atrieflimren i Danmark, Version: Offentliggjort version"
+        },
+        {
+          "page": 109,
+          "context": "Atrieflimren i Danmark, Version: Offentliggjort version"
+        },
+        {
+          "page": 110,
+          "context": "I det følgende gives en vejledning i, hvorledes resultaterne i årsrapporten Atrieflimren i Danmark skal læses."
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Organisationen bag kvalitetsindikatorrapporten for atrieflimren i Danmark.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 107,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 108,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 109,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "CHA2DS2-VASc",
+      "type": "topic",
+      "slug": "cha2ds2-vasc-score",
+      "folder": "topics/clinical-criteria",
+      "significance": "Scoringssystem brugt til at identificere patienter med atrieflimren, der har indikation for antikoagulationsbehandling.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Incidente patienter med CHA2DS2-VASc ≥2, som er i live efter henholdsvis 1, 2 og 5 år efter diagnosen atrieflimren"
+        }
+      ]
+    },
+    {
+      "name": "Antikoagulationsbehandling",
+      "type": "topic",
+      "slug": "antikoagulationsbehandling",
+      "folder": "topics/clinical-treatment",
+      "significance": "Behandlingsform for patienter med atrieflimren, der er genstand for kvalitetsindikator 4a og 4b.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Indikator 4a Antikoagulationsbehandling (1, 2 og 5 år)"
+        },
+        {
+          "page": 106,
+          "context": "Indikator 4b Antikoagulationsbehandling (Kontrol af nyrefunktion)"
+        }
+      ]
+    },
+    {
+      "name": "DOAC",
+      "type": "topic",
+      "slug": "doac",
+      "folder": "topics/medications",
+      "significance": "Direkte orale antikoagulantia, som er en type antikoagulationsbehandling, der kræver årlig kontrol af nyrefunktion.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Andelen af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt"
+        }
+      ]
+    },
+    {
+      "name": "Dabigatran",
+      "type": "topic",
+      "slug": "dabigatran",
+      "folder": "topics/medications",
+      "significance": "Specifikt DOAC-lægemiddel med kode B01AE07, der bruges til antikoagulationsbehandling af atrieflimren.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "B01AE07 (dabigatran)"
+        }
+      ]
+    },
+    {
+      "name": "Rivaroxaban",
+      "type": "topic",
+      "slug": "rivaroxaban",
+      "folder": "topics/medications",
+      "significance": "Specifikt DOAC-lægemiddel med kode B01AF01, der bruges til antikoagulationsbehandling af atrieflimren.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "B01AF01 (rivaroxaban)"
+        }
+      ]
+    },
+    {
+      "name": "Apixaban",
+      "type": "topic",
+      "slug": "apixaban",
+      "folder": "topics/medications",
+      "significance": "Specifikt DOAC-lægemiddel med kode B01AF02, der bruges til antikoagulationsbehandling af atrieflimren.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "B01AF02 (apixaban)"
+        }
+      ]
+    },
+    {
+      "name": "Edoxaban",
+      "type": "topic",
+      "slug": "edoxaban",
+      "folder": "topics/medications",
+      "significance": "Specifikt DOAC-lægemiddel med kode B01AF03, der bruges til antikoagulationsbehandling af atrieflimren.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "B01AF03 (edoxaban)"
+        }
+      ]
+    },
+    {
+      "name": "Vitamin K antagonister",
+      "type": "topic",
+      "slug": "vitamin-k-antagonister",
+      "folder": "topics/medications",
+      "significance": "Type af oral antikoagulationsbehandling med kode B01AA, brugt til behandling af atrieflimren.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "B01AA (vitamin K antagonister)"
+        }
+      ]
+    },
+    {
+      "name": "P-creatinin",
+      "type": "topic",
+      "slug": "p-creatinin",
+      "folder": "topics/clinical-measures",
+      "significance": "Laboratorietest for nyrefunktion, der skal måles årligt hos patienter i DOAC-behandling.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Patienter i nævneren som har fået målt P-creatinin mindst én gang i opgørelsesperioden/året"
+        }
+      ]
+    },
+    {
+      "name": "Iskæmisk apopleksi",
+      "type": "topic",
+      "slug": "iskaemisk-apopleksi",
+      "folder": "topics/clinical-outcome",
+      "significance": "Komplikation blandt patienter med atrieflimren, der måles som indikator 5.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Indikator 5 Incidens iskæmisk apopleksi"
+        },
+        {
+          "page": 107,
+          "context": "Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren"
+        }
+      ]
+    },
+    {
+      "name": "Intrakraniel blødning",
+      "type": "topic",
+      "slug": "intrakraniel-bloedning",
+      "folder": "topics/clinical-outcome",
+      "significance": "Alvorlig komplikation blandt patienter med atrieflimren, der måles som indikator 6.",
+      "mentions": [
+        {
+          "page": 107,
+          "context": "Indikator 6 Incidens intrakraniel blødning"
+        },
+        {
+          "page": 107,
+          "context": "Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren"
+        }
+      ]
+    },
+    {
+      "name": "Alvorlig blødning",
+      "type": "topic",
+      "slug": "alvorlig-bloedning",
+      "folder": "topics/clinical-outcome",
+      "significance": "Komplikation blandt patienter med atrieflimren, målt efter ISTH-kriterier som indikator 7.",
+      "mentions": [
+        {
+          "page": 107,
+          "context": "Indikator 7 Incidens alvorlig blødning"
+        },
+        {
+          "page": 107,
+          "context": "Incidens af alvorlig blødning (tillempede International Sociaty of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren"
+        }
+      ]
+    },
+    {
+      "name": "International Society of Thrombosis and Hemostasis",
+      "type": "organization",
+      "slug": "international-society-of-thrombosis-and-hemostasis",
+      "folder": "entities/organizations/professional-societies",
+      "significance": "Organisation hvis kriterier for alvorlig blødning er tilpasset og brugt i indikator 7.",
+      "mentions": [
+        {
+          "page": 107,
+          "context": "International Sociaty of Thrombosis and Hemostasis (ISTH) kriterier"
+        }
+      ]
+    },
+    {
+      "name": "Patientuddannelse",
+      "type": "topic",
+      "slug": "patientuddannelse",
+      "folder": "topics/clinical-treatment",
+      "significance": "Struktureret undervisningsprogram for nydiagnosticerede patienter med atrieflimren, målt som indikator 8.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "Indikator 8 Patientuddannelse/undervisning"
+        },
+        {
+          "page": 109,
+          "context": "Andelen af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor 1 år efter diagnosen er stillet"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Landet, hvor kvalitetsindikatorerne for atrieflimren rapporteres på nationalt niveau.",
+      "mentions": [
+        {
+          "page": 110,
+          "context": "Danmark Nej 14.170/19.719 0(0) 71,9 (71,2;72,5)"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Dansk region, hvor kvalitetsindikatorerne for atrieflimren rapporteres.",
+      "mentions": [
+        {
+          "page": 110,
+          "context": "Hovedstaden Nej 3.227/5.388 0(0) 59,9 (58,6;61,2)"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Dansk region, hvor kvalitetsindikatorerne for atrieflimren rapporteres.",
+      "mentions": [
+        {
+          "page": 110,
+          "context": "Sjælland Nej 2.281/3.257 0(0) 70,0 (68,4;71,6)"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Dansk region, hvor kvalitetsindikatorerne for atrieflimren rapporteres.",
+      "mentions": [
+        {
+          "page": 110,
+          "context": "Syddanmark Nej 3.525/4.681 0(0) 75,3 (74,0;76,5)"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Dansk region, hvor kvalitetsindikatorerne for atrieflimren rapporteres og hvor standarden for ekkokardiografi er opfyldt.",
+      "mentions": [
+        {
+          "page": 110,
+          "context": "Midtjylland Ja 3.562/4.217 0(0) 84,5 (83,3;85,5)"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/danish-regions",
+      "significance": "Dansk region, hvor kvalitetsindikatorerne for atrieflimren rapporteres.",
+      "mentions": [
+        {
+          "page": 110,
+          "context": "Nordjylland Nej 1.575/2.176 0(0) 72,4 (70,4;74,3)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "atrieflimren-i-danmark",
+      "predicate": "is-published-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Atrieflimren i Danmark, Version: Offentliggjort version, Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 106
+    },
+    {
+      "subject": "antikoagulationsbehandling",
+      "predicate": "includes-medication",
+      "object": "dabigatran",
+      "evidence": "B01AE07 (dabigatran)",
+      "page": 106
+    },
+    {
+      "subject": "antikoagulationsbehandling",
+      "predicate": "includes-medication",
+      "object": "rivaroxaban",
+      "evidence": "B01AF01 (rivaroxaban)",
+      "page": 106
+    },
+    {
+      "subject": "antikoagulationsbehandling",
+      "predicate": "includes-medication",
+      "object": "apixaban",
+      "evidence": "B01AF02 (apixaban)",
+      "page": 106
+    },
+    {
+      "subject": "antikoagulationsbehandling",
+      "predicate": "includes-medication",
+      "object": "edoxaban",
+      "evidence": "B01AF03 (edoxaban)",
+      "page": 106
+    },
+    {
+      "subject": "antikoagulationsbehandling",
+      "predicate": "includes-medication",
+      "object": "vitamin-k-antagonister",
+      "evidence": "B01AA (vitamin K antagonister)",
+      "page": 106
+    },
+    {
+      "subject": "doac",
+      "predicate": "requires-monitoring-of",
+      "object": "p-creatinin",
+      "evidence": "Andelen af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt",
+      "page": 106
+    },
+    {
+      "subject": "alvorlig-bloedning",
+      "predicate": "defined-by-criteria-from",
+      "object": "international-society-of-thrombosis-and-hemostasis",
+      "evidence": "Incidens af alvorlig blødning (tillempede International Sociaty of Thrombosis and Hemostasis (ISTH) kriterier)",
+      "page": 107
+    }
+  ],
+  "claims": [
+    {
+      "text": "Indikator 4a måler andelen af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "antikoagulationsbehandling"
+      ],
+      "page": 106
+    },
+    {
+      "text": "Indikator 4b måler andelen af patienter med atrieflimren i behandling med DOAC med mindst 1 måling af P-creatinin årligt [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "doac",
+        "p-creatinin"
+      ],
+      "page": 106
+    },
+    {
+      "text": "Indikator 5 måler incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "iskaemisk-apopleksi"
+      ],
+      "page": 106
+    },
+    {
+      "text": "Indikator 6 måler incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "intrakraniel-bloedning"
+      ],
+      "page": 107
+    },
+    {
+      "text": "Indikator 7 måler incidens af alvorlig blødning efter tilpassede ISTH-kriterier blandt prævalente patienter med atrieflimren [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "alvorlig-bloedning"
+      ],
+      "page": 107
+    },
+    {
+      "text": "Indikator 8 måler andelen af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor 1 år efter diagnosen [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "patientuddannelse"
+      ],
+      "page": 109
+    },
+    {
+      "text": "For ekkokardiografi-indikatoren var standarden ≥80%, og standarden var opfyldt for landet og for fire ud af fem regioner [^src1]",
+      "type": "quality-performance",
+      "entities": [
+        "danmark"
+      ],
+      "page": 110
+    },
+    {
+      "text": "Danmark havde 71,9% (95% CI: 71,2;72,5) for ekkokardiografi-indikatoren i perioden 01.07.2019 - 30.06.2020 [^src1]",
+      "type": "quality-performance",
+      "entities": [
+        "danmark"
+      ],
+      "page": 110
+    },
+    {
+      "text": "Region Hovedstaden havde 59,9% (95% CI: 58,6;61,2) for ekkokardiografi-indikatoren i perioden 01.07.2019 - 30.06.2020 [^src1]",
+      "type": "quality-performance",
+      "entities": [
+        "region-hovedstaden"
+      ],
+      "page": 110
+    },
+    {
+      "text": "Sjælland havde 70,0% (95% CI: 68,4;71,6) for ekkokardiografi-indikatoren i perioden 01.07.2019 - 30.06.2020 [^src1]",
+      "type": "quality-performance",
+      "entities": [
+        "sjaelland"
+      ],
+      "page": 110
+    },
+    {
+      "text": "Syddanmark havde 75,3% (95% CI: 74,0;76,5) for ekkokardiografi-indikatoren i perioden 01.07.2019 - 30.06.2020 [^src1]",
+      "type": "quality-performance",
+      "entities": [
+        "syddanmark"
+      ],
+      "page": 110
+    },
+    {
+      "text": "Midtjylland havde 84,5% (95% CI: 83,3;85,5) for ekkokardiografi-indikatoren i perioden 01.07.2019 - 30.06.2020 og opfyldte standarden [^src1]",
+      "type": "quality-performance",
+      "entities": [
+        "midtjylland"
+      ],
+      "page": 110
+    },
+    {
+      "text": "Nordjylland havde 72,4% (95% CI: 70,4;74,3) for ekkokardiografi-indikatoren i perioden 01.07.2019 - 30.06.2020 [^src1]",
+      "type": "quality-performance",
+      "entities": [
+        "nordjylland"
+      ],
+      "page": 110
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.07.2019 - 30.06.2020",
+      "event": "Aktuelle år for rapportering af ekkokardiografi-indikator",
+      "entities": [
+        "atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "01.07.2018 - 30.06.2019",
+      "event": "Tidligere år for rapportering af ekkokardiografi-indikator",
+      "entities": [
+        "atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "01.07.2017 - 30.06.2018",
+      "event": "Tidligere år for rapportering af ekkokardiografi-indikator",
+      "entities": [
+        "atrieflimren-i-danmark"
+      ]
+    }
+  ],
+  "context": "Denne dokumentchunk indeholder detaljerede specifikationer for otte kvalitetsindikatorer for behandling og outcomes af atrieflimren i Danmark, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram. Indikatorerne dækker antikoagulationsbehandling, kontrol af nyrefunktion, iskæmisk apopleksi, intrakraniel blødning, alvorlig blødning og patientuddannelse. Dokumentet inkluderer også en læsevejledning, der forklarer, hvordan resultaterne skal tolkes, med eksempler på data fra perioden 01.07.2019 - 30.06.2020 for alle fem danske regioner."
+}

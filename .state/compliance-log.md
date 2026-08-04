@@ -2021,3 +2021,70 @@
   Result: user-accepted — the Identity & Richness arc (Phases 21-23) closed per the deferred-
     acceptance arrangement [2026-07-29 13:05]. No unresolved contradictions.
   Checked By: Main agent (recording the user's declaration)
+
+[2026-08-04 00:00] Qwen provider extension (DashScope OpenAI-compatible endpoint)
+  Changed: src/llm/client.ts (Provider + 'qwen', QWEN_API_URL, Qwen placeholder
+    PRICE_PER_MTOK entries, DASHSCOPE_API_KEY resolution, Qwen missing-key error,
+    OpenAI-compatible builder reused for Qwen), src/tui/settings.ts (ApiKeys + qwen,
+    MODEL_CATALOG + Qwen block, DEFAULT_MODEL_FOR_PROVIDER['qwen'] = qwen-plus,
+    CURATION_MODEL_FOR_PROVIDER['qwen'] = qwen3.7-max, normalizeModels/normalizeApiKeys),
+    src/tui/settings-screen.tsx (PROVIDERS + qwen, PROVIDER_LABELS, apiKeyQwen row,
+    Qwen recommendation strings, non-TTY fallback), tests/phase-11.test.ts (Qwen
+    constants, routing/request-shape/missing-key/seed-model tests, row-order updates,
+    apiKeys assertions), tests/phase-13.test.ts (apiKeys assertion), tests/phase-14.test.ts
+    (seed-model + Settings curation recommendation for qwen), src/AGENTS.md (Qwen
+    provider documented in llm/client.ts, settings.ts, settings-screen.tsx, LLM
+    providers rule), .state/compliance-log.md (this entry)
+  Vision Docs Checked: none (provider extension; no vision change)
+  Result: Qwen added as a third built-in provider using the DashScope OpenAI-compatible
+    endpoint (https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions). Model
+    catalog: qwen-plus (cheap/default), qwen3.7-max (mid/synthesis/dox/curation), qwen3.8-max
+    (premium/override). API key resolves Settings-stored → DASHSCOPE_API_KEY env → .env.
+    Qwen prices are PLACEHOLDER (TODO: verify against the DashScope console when billing is
+    available). Request/response shape identical to OpenAI (max_completion_tokens, no
+    temperature, Bearer auth, choices[0].message.content).
+  Checked By: Main agent
+
+[2026-08-04 01:00] Custom model override + per-row model test (Phase 11 v1.7.0)
+  Changed: src/tui/settings.ts (MODEL_CATALOG + __custom__ sentinel per provider),
+    src/llm/client.ts (resolveModelFromRouting, resolveApiKeyForTest,
+    testModelConnection), src/tui/settings-screen.tsx (custom-model edit mode,
+    T-hotkey test connection, test-result area, footer help), tests/phase-11.test.ts
+    (gate 11.13: 6 tests), src/AGENTS.md, tests/AGENTS.md, .state/compliance-log.md
+  Vision Docs Checked: none (Settings/TUI extension; no vision change)
+  Result: Every model slot now supports a raw custom model id via the `Custom
+    model...` dropdown sentinel. Cycling to it opens a TextInput; submitting stores
+    the string; a persisted custom id displays raw and can be cycled back to edit
+    mode. Pressing T on a model row runs a tiny no-retry `maxTokens: 1` test
+    connection against the slot's resolved model and shows the result in a dedicated
+    area (success / HTTP error / network error / missing key), independent of save
+    status. Custom models fall back to the default price table entry for cost
+    display.
+  Checked By: Main agent
+
+[2026-08-04 02:00] Multiple custom providers with configurable templates (Phase 11 v1.8.0)
+  Changed: src/tui/settings.ts (CustomProviderConfig, CustomProviderHeader,
+    CustomProviderResponseTemplate, CustomProviderModel, createCustomProvider,
+    slugifyCustomProviderId, findCustomProvider, isBuiltInProvider, getModelCatalog,
+    getDefaultModelForProvider, getCurationModelForProvider, customProviders block,
+    normalizeCustomProviders, seedModelsForProvider for custom), src/llm/client.ts
+    (Provider + `custom:${id}`, ModelRouting.customProviders, fillTemplate, getPath,
+    buildCustomProviderRequest, parseCustomProviderResponse, resolveApiKey for
+    custom, callLLM/testModelConnection custom dispatch), src/tui/settings-screen.tsx
+    (dynamic buildRowOrder, providerList, providerLabel, custom provider config rows,
+    add/delete provider actions, focus clamp), src/commands/ingest.ts (pass
+    customProviders to setModelRouting), tests/phase-11.test.ts (gate 11.14: 7 tests),
+    src/AGENTS.md, tests/AGENTS.md, .state/compliance-log.md
+  Vision Docs Checked: none (Settings/TUI extension; no vision change)
+  Result: Users can add multiple named custom providers directly in the Settings
+    screen. Each custom provider is OpenAI-compatible by default but fully
+    configurable: base URL (full POST endpoint), API key, headers (with `{{apiKey}}`
+    placeholder), request body JSON template (with `{{model}}`, `{{messages}}`,
+    `{{maxTokens}}`, `{{temperature}}`, `{{apiKey}}` placeholders), response
+    extraction paths (dot/bracket JSON paths), and a model list. The provider row
+    cycles through built-in and custom providers; when a custom provider is
+    selected, its configuration rows appear inline. Custom provider API keys are
+    stored in `.paper-chase.json` (gitignored). Test connection works for custom
+    providers. Cost display falls back to the default price table entry for custom
+    provider models.
+  Checked By: Main agent

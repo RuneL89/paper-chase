@@ -1,0 +1,4162 @@
+{
+  "entries": [
+    {
+      "timestamp": "2026-07-25T08:35:16.947Z",
+      "pageType": "entity",
+      "slug": "adhd-databasen",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T08:07:29.483Z",
+      "pageType": "entity",
+      "slug": "rkkp",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:07:35.038Z",
+      "pageType": "entity",
+      "slug": "shelagh-powell",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:07:37.844Z",
+      "pageType": "entity",
+      "slug": "simon-hjerrild",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:07:41.492Z",
+      "pageType": "entity",
+      "slug": "malene-tousgaard-foget-ostergaard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:07:53.439Z",
+      "pageType": "entity",
+      "slug": "aarhus-universitetshospital-psykiatrien",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:07:53.988Z",
+      "pageType": "entity",
+      "slug": "dps-midtjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:13:56.020Z",
+      "pageType": "entity",
+      "slug": "region-midtjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:12:57.912Z",
+      "pageType": "entity",
+      "slug": "region-nordjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:11:51.596Z",
+      "pageType": "entity",
+      "slug": "region-sjaelland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:14:23.657Z",
+      "pageType": "entity",
+      "slug": "region-hovedstaden",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:13:34.122Z",
+      "pageType": "entity",
+      "slug": "bua",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:13:55.366Z",
+      "pageType": "entity",
+      "slug": "danske-multidisciplinaere-psykiatrigrupper",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:14:24.339Z",
+      "pageType": "entity",
+      "slug": "boerne-unge-psyk-afd-40",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:15:54.503Z",
+      "pageType": "entity",
+      "slug": "boerne-ungdomspsyk-ambulatorium-nordjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:19:14.697Z",
+      "pageType": "entity",
+      "slug": "danmark",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:18:03.712Z",
+      "pageType": "entity",
+      "slug": "region-syddanmark",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:18:48.684Z",
+      "pageType": "entity",
+      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:20:35.869Z",
+      "pageType": "entity",
+      "slug": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:20:30.590Z",
+      "pageType": "entity",
+      "slug": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:21:48.181Z",
+      "pageType": "entity",
+      "slug": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:23:22.588Z",
+      "pageType": "entity",
+      "slug": "indikator-2a",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:26:45.001Z",
+      "pageType": "entity",
+      "slug": "indikator-2b",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:01.138Z",
+      "pageType": "entity",
+      "slug": "indikator-3",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T08:25:21.340Z",
+      "pageType": "entity",
+      "slug": "bispebjerg-psykiatrisk-ambulatorium",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:26:46.157Z",
+      "pageType": "entity",
+      "slug": "bornholm-psykiatrisk-ambulatorium",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:28:20.835Z",
+      "pageType": "entity",
+      "slug": "glostrup-psykiatrisk-ambulatorium",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:28:06.826Z",
+      "pageType": "entity",
+      "slug": "hillerod-psykiatrisk-ambulatorium",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:29:31.561Z",
+      "pageType": "entity",
+      "slug": "bua-psykiatrisk-klinik-skoleboern",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:30:50.234Z",
+      "pageType": "entity",
+      "slug": "bua-psykiatrisk-klinik-smaaboern",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:31:04.594Z",
+      "pageType": "entity",
+      "slug": "bua-psykiatrisk-klinik-udredning",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:25.651Z",
+      "pageType": "entity",
+      "slug": "bua-psykiatrisk-klinik-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:31:53.969Z",
+      "pageType": "entity",
+      "slug": "bua-boerne-ungdomspsykiatri-sengeafsnit",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:04.218Z",
+      "pageType": "entity",
+      "slug": "ditte-hammerum",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:12.479Z",
+      "pageType": "entity",
+      "slug": "jan-vestergaard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:15.094Z",
+      "pageType": "entity",
+      "slug": "allan-hvolby",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:24.833Z",
+      "pageType": "entity",
+      "slug": "linda-bramsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:27.512Z",
+      "pageType": "entity",
+      "slug": "anne-mette-lange",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:36.424Z",
+      "pageType": "entity",
+      "slug": "ib-rasmussen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:35.425Z",
+      "pageType": "entity",
+      "slug": "niels-bilenberg",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:34.511Z",
+      "pageType": "entity",
+      "slug": "jan-kristensen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:48.898Z",
+      "pageType": "entity",
+      "slug": "tine-houmann",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:46.125Z",
+      "pageType": "entity",
+      "slug": "trish-nymark",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:46.438Z",
+      "pageType": "entity",
+      "slug": "soeren-bredkjaer",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:53.083Z",
+      "pageType": "entity",
+      "slug": "lotte-maxild-mortensen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:52.896Z",
+      "pageType": "entity",
+      "slug": "tea-naamansen-nikolov",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:32:56.365Z",
+      "pageType": "entity",
+      "slug": "aarhus-universitetshospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:33:04.078Z",
+      "pageType": "entity",
+      "slug": "aalborg-universitetshospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:33:05.420Z",
+      "pageType": "entity",
+      "slug": "boerne-og-ungdomspsykiatrisk-selskab-i-danmark",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:33:09.731Z",
+      "pageType": "entity",
+      "slug": "dansk-psykiatrisk-selskab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:33:12.217Z",
+      "pageType": "entity",
+      "slug": "forening-af-praktiserende-speciallaeger",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:33:15.296Z",
+      "pageType": "entity",
+      "slug": "dansk-psykolog-forening",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:33:21.649Z",
+      "pageType": "entity",
+      "slug": "adhd-foreningen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:33:17.672Z",
+      "pageType": "entity",
+      "slug": "rkkp-videncenter",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:33:25.868Z",
+      "pageType": "entity",
+      "slug": "regionssundhedsdirektorkredsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:34:43.832Z",
+      "pageType": "entity",
+      "slug": "lpr",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:33:35.182Z",
+      "pageType": "entity",
+      "slug": "danmarks-statistik",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:33:34.213Z",
+      "pageType": "entity",
+      "slug": "region-hovedstadens-psykiatri",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:33:47.783Z",
+      "pageType": "entity",
+      "slug": "mette-hedelund",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:33:58.586Z",
+      "pageType": "entity",
+      "slug": "dmpg-guideline-adhd-children-youth",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:34:26.301Z",
+      "pageType": "entity",
+      "slug": "indikator-1",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:34:44.882Z",
+      "pageType": "entity",
+      "slug": "indikator-4",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:36:03.575Z",
+      "pageType": "entity",
+      "slug": "indikator-5",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:35:46.495Z",
+      "pageType": "entity",
+      "slug": "indikator-6",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:34:56.500Z",
+      "pageType": "entity",
+      "slug": "indikator-7a",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:35:19.829Z",
+      "pageType": "entity",
+      "slug": "indikator-7b",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:35:55.915Z",
+      "pageType": "entity",
+      "slug": "indikator-8",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:37:05.021Z",
+      "pageType": "entity",
+      "slug": "indikator-9",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:37:58.236Z",
+      "pageType": "entity",
+      "slug": "indikator-10",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:37:29.309Z",
+      "pageType": "entity",
+      "slug": "indikator-11",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:36:54.142Z",
+      "pageType": "entity",
+      "slug": "privathospitaler",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:37:10.371Z",
+      "pageType": "entity",
+      "slug": "boerne-unge-psyk-reg-fkt-40-r",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:37:19.444Z",
+      "pageType": "entity",
+      "slug": "bua-psykiatrisk-klinik-spiseforstyrrelser",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:37:32.729Z",
+      "pageType": "entity",
+      "slug": "ps-boerne-ungdomspsykiatrisk-ambulatorier",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:37:33.606Z",
+      "pageType": "entity",
+      "slug": "hejmdal-privathospital-viby",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:37:47.026Z",
+      "pageType": "entity",
+      "slug": "hejmdal-privathospital-aalborg",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:37:45.232Z",
+      "pageType": "entity",
+      "slug": "hejmdal-privathospital-odense",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:37:58.108Z",
+      "pageType": "entity",
+      "slug": "privathospitalerne",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:38:24.250Z",
+      "pageType": "entity",
+      "slug": "ny-indikator-2b",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:38:28.962Z",
+      "pageType": "entity",
+      "slug": "ny-indikator-3",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:38:11.263Z",
+      "pageType": "entity",
+      "slug": "klinik-boerner-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:39:13.324Z",
+      "pageType": "entity",
+      "slug": "carelink-psykiatri-kolding",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:39:07.958Z",
+      "pageType": "entity",
+      "slug": "carelink-psykiatri-roskilde",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:39:20.057Z",
+      "pageType": "entity",
+      "slug": "carelink-psykiatri-viborg",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:38:45.261Z",
+      "pageType": "entity",
+      "slug": "bua-psykiatrisk-dagafsnit",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:39:41.398Z",
+      "pageType": "entity",
+      "slug": "pho-klinik-1-horsens",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:39:50.180Z",
+      "pageType": "entity",
+      "slug": "pmi-klinik-depression-mani-midt",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:40:09.321Z",
+      "pageType": "entity",
+      "slug": "pck-psykoterapeutisk-klinik",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:39:41.233Z",
+      "pageType": "entity",
+      "slug": "rpg-psykiatrisk-klinik-1-godstrup",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:39:51.668Z",
+      "pageType": "entity",
+      "slug": "adhd-behandlingspakke",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:39:54.775Z",
+      "pageType": "entity",
+      "slug": "pcgl-psyk-ambulatorium",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:40:03.076Z",
+      "pageType": "entity",
+      "slug": "boerne-unge-psyk-klinik-40k",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:40:06.689Z",
+      "pageType": "entity",
+      "slug": "pma-psykiatrisk-klinik",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:40:14.381Z",
+      "pageType": "entity",
+      "slug": "psy-lokalpsykiatri-aabenraa",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:40:21.694Z",
+      "pageType": "entity",
+      "slug": "psy-lokalpsykiatri-fredericia",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:40:19.869Z",
+      "pageType": "entity",
+      "slug": "psy-lokalpsykiatri-haderslev",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:40:24.952Z",
+      "pageType": "entity",
+      "slug": "psy-lokalpsykiatri-kolding",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:40:30.660Z",
+      "pageType": "entity",
+      "slug": "psy-lokalpsykiatri-soenderborg",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:40:55.842Z",
+      "pageType": "entity",
+      "slug": "psy-lokalpsykiatri-toender",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:40:35.459Z",
+      "pageType": "entity",
+      "slug": "psy-lokalpsykiatri-varde",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:40:42.375Z",
+      "pageType": "entity",
+      "slug": "psy-lokalpsykiatri-vejle",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:40:45.713Z",
+      "pageType": "entity",
+      "slug": "psy-lokalpsykiatri-almen-esbjerg",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:40:57.674Z",
+      "pageType": "entity",
+      "slug": "psy-psykiatrisk-ambulatorium-middelfart",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:02.013Z",
+      "pageType": "entity",
+      "slug": "psy-psykiatrisk-ambulatorium-odense",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:05.055Z",
+      "pageType": "entity",
+      "slug": "psy-psykiatrisk-ambulatorium-svendborg",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:08.933Z",
+      "pageType": "entity",
+      "slug": "ada-psykiatriens-hus-aarhus",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:20.623Z",
+      "pageType": "entity",
+      "slug": "afp-psykiatrisk-klinik-2-auh",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:15.474Z",
+      "pageType": "entity",
+      "slug": "pho-klinik-2-horsens",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:17.509Z",
+      "pageType": "entity",
+      "slug": "pho-psykiatrisk-akutenhed-horsens",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:28.271Z",
+      "pageType": "entity",
+      "slug": "pho-sengeafsnit-regionspsykiatri-horsens",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:33.163Z",
+      "pageType": "entity",
+      "slug": "pmi-klinik-psykoser-midt",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:35.868Z",
+      "pageType": "entity",
+      "slug": "pra-psykiatrisk-klinik-roende",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:37.180Z",
+      "pageType": "entity",
+      "slug": "pra-psykiatrisk-klinik-2-randers",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:46.141Z",
+      "pageType": "entity",
+      "slug": "ps-almenpsykiatrisk-nord-ambulatorier",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:46.068Z",
+      "pageType": "entity",
+      "slug": "ps-almenpsykiatrisk-nord-sengeafsnit",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:23.177Z",
+      "pageType": "entity",
+      "slug": "ps-almenpsykiatrisk-syd-ambulatorier",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:44.689Z",
+      "pageType": "entity",
+      "slug": "dmpg-retningslinje",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:57.145Z",
+      "pageType": "entity",
+      "slug": "psy-lokalpsykiatri-brorup",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:31.257Z",
+      "pageType": "entity",
+      "slug": "adhd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:52.991Z",
+      "pageType": "entity",
+      "slug": "who",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:41:59.463Z",
+      "pageType": "entity",
+      "slug": "vidensraad-for-forebyggelse",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:06.385Z",
+      "pageType": "entity",
+      "slug": "mathilde-ulvsgard-hansted",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:08.060Z",
+      "pageType": "entity",
+      "slug": "jeanette-wacher",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:14.771Z",
+      "pageType": "entity",
+      "slug": "jens-tofte",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:16.866Z",
+      "pageType": "entity",
+      "slug": "bolette-sondergaard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:19.972Z",
+      "pageType": "entity",
+      "slug": "stine-holmen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:28.052Z",
+      "pageType": "entity",
+      "slug": "jakob-paludan",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:28.741Z",
+      "pageType": "entity",
+      "slug": "vibe-bolvig-hyldgard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:32.543Z",
+      "pageType": "entity",
+      "slug": "lasse-pirk",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:46.018Z",
+      "pageType": "entity",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:40.948Z",
+      "pageType": "entity",
+      "slug": "odense-universitetshospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:38.746Z",
+      "pageType": "entity",
+      "slug": "boerne-ungdomspsyk-center-aarhus",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:45.680Z",
+      "pageType": "entity",
+      "slug": "klinik-psykiatri-syd-aalborg",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:49.802Z",
+      "pageType": "entity",
+      "slug": "sundhedsstyrelsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:42:54.950Z",
+      "pageType": "entity",
+      "slug": "danske-regioner",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:43:00.657Z",
+      "pageType": "entity",
+      "slug": "rkkp-skizofreni",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:43:02.212Z",
+      "pageType": "entity",
+      "slug": "specialpsykologer",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:43:09.548Z",
+      "pageType": "topic",
+      "slug": "healthcare-system",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:43:20.667Z",
+      "pageType": "topic",
+      "slug": "database-expansion",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:43:21.444Z",
+      "pageType": "topic",
+      "slug": "guideline-development",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:44:22.988Z",
+      "pageType": "topic",
+      "slug": "procedural-change",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:44:06.313Z",
+      "pageType": "topic",
+      "slug": "action-plan",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:43:37.105Z",
+      "pageType": "topic",
+      "slug": "clinical-assessment",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T09:08:58.672Z",
+      "pageType": "topic",
+      "slug": "performance",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-07-25T08:44:01.467Z",
+      "pageType": "topic",
+      "slug": "standard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:46:30.959Z",
+      "pageType": "topic",
+      "slug": "clinical-rationale",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:45:55.131Z",
+      "pageType": "topic",
+      "slug": "decision",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:45:35.827Z",
+      "pageType": "topic",
+      "slug": "clinical-practice",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:46:46.384Z",
+      "pageType": "topic",
+      "slug": "clinical-standard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:46:40.948Z",
+      "pageType": "topic",
+      "slug": "clinical-disagreement",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:46:41.298Z",
+      "pageType": "topic",
+      "slug": "legal-framework",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:48:00.513Z",
+      "pageType": "topic",
+      "slug": "regional-performance",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:48:19.954Z",
+      "pageType": "topic",
+      "slug": "facility-performance",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:47:01.925Z",
+      "pageType": "topic",
+      "slug": "educational-outcome",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:48:08.239Z",
+      "pageType": "topic",
+      "slug": "epidemiological",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:48:18.659Z",
+      "pageType": "topic",
+      "slug": "medical",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:48:18.405Z",
+      "pageType": "topic",
+      "slug": "diagnostic-criteria",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:48:39.279Z",
+      "pageType": "topic",
+      "slug": "neurobiological",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T08:49:01.464Z",
+      "pageType": "topic",
+      "slug": "quality-indicators",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:45:39.654Z",
+      "pageType": "entity",
+      "slug": "malene-oestergaard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:46:14.375Z",
+      "pageType": "entity",
+      "slug": "indikator-4",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:45:47.719Z",
+      "pageType": "entity",
+      "slug": "dmpg-retningslinjer",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:45:48.269Z",
+      "pageType": "entity",
+      "slug": "hejmdal-privathospital-odense",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:45:51.003Z",
+      "pageType": "entity",
+      "slug": "klinik-boerner-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:46:02.921Z",
+      "pageType": "entity",
+      "slug": "pho-psykiatrisk-akutenhed-horsens",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:46:22.176Z",
+      "pageType": "topic",
+      "slug": "healthcare-system",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:48:16.825Z",
+      "pageType": "topic",
+      "slug": "clinical-outcome",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:46:31.450Z",
+      "pageType": "topic",
+      "slug": "database-expansion",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:46:37.981Z",
+      "pageType": "topic",
+      "slug": "guideline-development",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:48:36.563Z",
+      "pageType": "topic",
+      "slug": "procedural-change",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:47:28.358Z",
+      "pageType": "topic",
+      "slug": "action-plan",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:47:13.968Z",
+      "pageType": "topic",
+      "slug": "standard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:49:48.423Z",
+      "pageType": "topic",
+      "slug": "clinical-rationale",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:50:24.491Z",
+      "pageType": "topic",
+      "slug": "decision",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:48:32.899Z",
+      "pageType": "topic",
+      "slug": "regional-variation",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:49:45.098Z",
+      "pageType": "topic",
+      "slug": "clinical-standard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:48:57.057Z",
+      "pageType": "topic",
+      "slug": "clinical-disagreement",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:50:22.470Z",
+      "pageType": "topic",
+      "slug": "regional-performance",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:51:56.760Z",
+      "pageType": "topic",
+      "slug": "facility-performance",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:50:03.915Z",
+      "pageType": "topic",
+      "slug": "educational-outcome",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:50:17.065Z",
+      "pageType": "topic",
+      "slug": "medical-definition",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:51:12.905Z",
+      "pageType": "topic",
+      "slug": "epidemiological",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:50:33.324Z",
+      "pageType": "topic",
+      "slug": "medical",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:50:35.646Z",
+      "pageType": "topic",
+      "slug": "diagnostic-criteria",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:51:45.463Z",
+      "pageType": "topic",
+      "slug": "quality-indicators",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:42.473Z",
+      "pageType": "entity",
+      "slug": "bispebjerg-psychiatric-ambulatory",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:42.726Z",
+      "pageType": "entity",
+      "slug": "bornholm-psychiatric-ambulatory",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:42.993Z",
+      "pageType": "entity",
+      "slug": "glostrup-psychiatric-ambulatory",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:43.279Z",
+      "pageType": "entity",
+      "slug": "hillerod-psychiatric-ambulatory",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:44.643Z",
+      "pageType": "entity",
+      "slug": "aabenraa-psychiatric-ambulatory",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:44.995Z",
+      "pageType": "entity",
+      "slug": "esbjerg-psychiatric-ambulatory",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:45.218Z",
+      "pageType": "entity",
+      "slug": "odense-psychiatric-ambulatory",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:45.534Z",
+      "pageType": "entity",
+      "slug": "vejle-psychiatric-ambulatory",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:46.862Z",
+      "pageType": "entity",
+      "slug": "bua-psychiatric-clinic-schoolchildren",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:47.231Z",
+      "pageType": "entity",
+      "slug": "bua-psychiatric-clinic-toddlers",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:47.513Z",
+      "pageType": "entity",
+      "slug": "bua-psychiatric-clinic-assessment",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:47.830Z",
+      "pageType": "entity",
+      "slug": "bua-psychiatric-clinic-youth",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:49.064Z",
+      "pageType": "entity",
+      "slug": "hovedstaden-region",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:49.420Z",
+      "pageType": "entity",
+      "slug": "sjaelland-region",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:49.782Z",
+      "pageType": "entity",
+      "slug": "syddanmark-region",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:50.119Z",
+      "pageType": "entity",
+      "slug": "midtjylland-region",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:51.319Z",
+      "pageType": "entity",
+      "slug": "nordjylland-region",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:51.667Z",
+      "pageType": "entity",
+      "slug": "bispebjerg-psykiatrisk-ambulatorium-boern-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:52.050Z",
+      "pageType": "entity",
+      "slug": "bornholm-psykiatrisk-ambulatorium-boern-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:52.350Z",
+      "pageType": "entity",
+      "slug": "glostrup-psykiatrisk-ambulatorium-boern-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:53.570Z",
+      "pageType": "entity",
+      "slug": "hillerod-psykiatrisk-ambulatorium-boern-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:53.936Z",
+      "pageType": "entity",
+      "slug": "bua-psykiatrisk-klinik-smaaborin",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:54.342Z",
+      "pageType": "entity",
+      "slug": "bua-aabenraa",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:54.657Z",
+      "pageType": "entity",
+      "slug": "bua-odense",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:55.828Z",
+      "pageType": "entity",
+      "slug": "bua-vejle",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:56.186Z",
+      "pageType": "entity",
+      "slug": "bua-psykiatrisk-klinik-smaaborni-midtjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:56.629Z",
+      "pageType": "entity",
+      "slug": "bua-psykiatrisk-klinik-udredning-midtjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:57.074Z",
+      "pageType": "entity",
+      "slug": "boerne-ungdomspsykiatrisk-ambulatorium-odense",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:58.023Z",
+      "pageType": "entity",
+      "slug": "hovedstaden",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:58.410Z",
+      "pageType": "entity",
+      "slug": "sjaelland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:58.976Z",
+      "pageType": "entity",
+      "slug": "midtjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:48:59.377Z",
+      "pageType": "entity",
+      "slug": "hilleroed-psykiatrisk-ambulatorium",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:00.273Z",
+      "pageType": "entity",
+      "slug": "boerne-ungdomspsyk-ambulatorium",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:00.675Z",
+      "pageType": "entity",
+      "slug": "syddanmark",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:01.209Z",
+      "pageType": "entity",
+      "slug": "nordjylland",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:01.647Z",
+      "pageType": "entity",
+      "slug": "sundk",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:02.513Z",
+      "pageType": "entity",
+      "slug": "indikator-4",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:02.893Z",
+      "pageType": "entity",
+      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-odense",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:03.580Z",
+      "pageType": "entity",
+      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-aabenraa",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:45:47.719Z",
+      "pageType": "entity",
+      "slug": "dmpg-retningslinjer",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:45:48.269Z",
+      "pageType": "entity",
+      "slug": "hejmdal-privathospital-odense",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:04.004Z",
+      "pageType": "entity",
+      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-vejle",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:04.812Z",
+      "pageType": "entity",
+      "slug": "dmpg-retningslinjen-adhd",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:45:51.003Z",
+      "pageType": "entity",
+      "slug": "klinik-boerner-unge",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:05.181Z",
+      "pageType": "entity",
+      "slug": "psykiatrisk-ambulatorium-boern-unge-bispebjerg-b19",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:05.864Z",
+      "pageType": "entity",
+      "slug": "psykiatrisk-ambulatorium-boern-unge-glostrup-b29",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:06.265Z",
+      "pageType": "entity",
+      "slug": "psykiatrisk-ambulatorium-boern-unge-hillerod-b39",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-07-25T13:46:02.921Z",
+      "pageType": "entity",
+      "slug": "pho-psykiatrisk-akutenhed-horsens",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:07.082Z",
+      "pageType": "entity",
+      "slug": "rpg-psykiatrisk-klinik-1-goedstrup",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:07.463Z",
+      "pageType": "entity",
+      "slug": "boerne-unge-psyk-reg-fkt-40r",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:09.636Z",
+      "pageType": "topic",
+      "slug": "healthcare-system",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:09.884Z",
+      "pageType": "topic",
+      "slug": "quality-metrics",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:10.222Z",
+      "pageType": "topic",
+      "slug": "statistical",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:10.575Z",
+      "pageType": "topic",
+      "slug": "clinical-outcome",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:11.868Z",
+      "pageType": "topic",
+      "slug": "quality-standard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:12.069Z",
+      "pageType": "topic",
+      "slug": "database-expansion",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:12.475Z",
+      "pageType": "topic",
+      "slug": "guideline-development",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:12.941Z",
+      "pageType": "topic",
+      "slug": "performance-metric",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:14.071Z",
+      "pageType": "topic",
+      "slug": "trend",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:14.305Z",
+      "pageType": "topic",
+      "slug": "quantitative",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:14.773Z",
+      "pageType": "topic",
+      "slug": "causal-analysis",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:15.276Z",
+      "pageType": "topic",
+      "slug": "procedural-change",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:16.251Z",
+      "pageType": "topic",
+      "slug": "comparative-analysis",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:16.506Z",
+      "pageType": "topic",
+      "slug": "action-plan",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:17.058Z",
+      "pageType": "topic",
+      "slug": "standard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:17.523Z",
+      "pageType": "topic",
+      "slug": "methodology",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:18.460Z",
+      "pageType": "topic",
+      "slug": "clinical-rationale",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:18.805Z",
+      "pageType": "topic",
+      "slug": "decision",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:19.396Z",
+      "pageType": "topic",
+      "slug": "methodological",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:19.943Z",
+      "pageType": "topic",
+      "slug": "analysis",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:20.810Z",
+      "pageType": "topic",
+      "slug": "regional-variation",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:21.104Z",
+      "pageType": "topic",
+      "slug": "clinical-standard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:21.748Z",
+      "pageType": "topic",
+      "slug": "clinical-disagreement",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:22.215Z",
+      "pageType": "topic",
+      "slug": "indicator-definition",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:23.084Z",
+      "pageType": "topic",
+      "slug": "regional-performance",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:23.396Z",
+      "pageType": "topic",
+      "slug": "facility-performance",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:24.148Z",
+      "pageType": "topic",
+      "slug": "historical-performance",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:24.441Z",
+      "pageType": "topic",
+      "slug": "timeline",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:25.308Z",
+      "pageType": "topic",
+      "slug": "operational",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:25.670Z",
+      "pageType": "topic",
+      "slug": "educational-outcome",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:26.388Z",
+      "pageType": "topic",
+      "slug": "medical-definition",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:26.749Z",
+      "pageType": "topic",
+      "slug": "epidemiological",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:27.683Z",
+      "pageType": "topic",
+      "slug": "medical",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:28.006Z",
+      "pageType": "topic",
+      "slug": "diagnostic-criteria",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:28.701Z",
+      "pageType": "topic",
+      "slug": "procedural",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:29.036Z",
+      "pageType": "topic",
+      "slug": "observation",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:29.955Z",
+      "pageType": "topic",
+      "slug": "definitional",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:30.252Z",
+      "pageType": "topic",
+      "slug": "quality-indicators",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:30.957Z",
+      "pageType": "topic",
+      "slug": "quality-indicator",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:31.307Z",
+      "pageType": "topic",
+      "slug": "quality-target",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:32.263Z",
+      "pageType": "topic",
+      "slug": "structural",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-03T18:49:32.487Z",
+      "pageType": "topic",
+      "slug": "comparative",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    }
+  ]
+}

@@ -634,7 +634,11 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   // config (they win over the environment per provider in the client).
   try {
     const tuiSettings = await loadSettings(options.workspace ?? '.');
-    setModelRouting({ ...tuiSettings.models, apiKeys: tuiSettings.apiKeys });
+    setModelRouting({
+      ...tuiSettings.models,
+      apiKeys: tuiSettings.apiKeys,
+      customProviders: tuiSettings.customProviders,
+    });
   } catch {
     // Keep whatever routing was already in effect.
   }
