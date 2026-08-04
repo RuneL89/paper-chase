@@ -72363,37 +72363,105 @@ var MODEL_CATALOG = {
   anthropic: [
     { id: "claude-haiku-4-5-20251001", label: "Haiku 4.5" },
     { id: "claude-sonnet-5", label: "Sonnet 5" },
-    { id: "claude-opus-4-8", label: "Opus 4.8" }
+    { id: "claude-opus-4-8", label: "Opus 4.8" },
+    { id: "__custom__", label: "Custom model..." }
   ],
   openai: [
     { id: "gpt-5.6-luna", label: "GPT-5.6 Luna" },
     { id: "gpt-5.6-terra", label: "GPT-5.6 Terra" },
-    { id: "gpt-5.6-sol", label: "GPT-5.6 Sol" }
+    { id: "gpt-5.6-sol", label: "GPT-5.6 Sol" },
+    { id: "__custom__", label: "Custom model..." }
+  ],
+  qwen: [
+    { id: "qwen-plus", label: "Qwen-Plus" },
+    { id: "qwen3.7-max", label: "Qwen 3.7 Max" },
+    { id: "qwen3.8-max", label: "Qwen 3.8 Max" },
+    { id: "__custom__", label: "Custom model..." }
   ]
 };
 var DEFAULT_MODEL_FOR_PROVIDER = {
   anthropic: "claude-haiku-4-5-20251001",
-  openai: "gpt-5.6-luna"
+  openai: "gpt-5.6-luna",
+  qwen: "qwen-plus"
 };
 var CURATION_MODEL_FOR_PROVIDER = {
   anthropic: "claude-sonnet-5",
-  openai: "gpt-5.6-terra"
+  openai: "gpt-5.6-terra",
+  qwen: "qwen3.7-max"
 };
-function seedModelsForProvider(provider) {
+function slugifyCustomProviderId(name, existingIds) {
+  const base = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "custom";
+  let candidate = base;
+  let counter = 2;
+  while (existingIds.includes(candidate)) {
+    candidate = `${base}-${counter}`;
+    counter += 1;
+  }
+  return candidate;
+}
+function createCustomProvider(name, existingIds) {
+  return {
+    id: slugifyCustomProviderId(name, existingIds),
+    name,
+    baseUrl: "https://api.example.com/v1/chat/completions",
+    apiKey: null,
+    headers: [
+      { key: "Authorization", value: "Bearer {{apiKey}}" },
+      { key: "Content-Type", value: "application/json" }
+    ],
+    requestTemplate: '{"model":"{{model}}","messages":{{messages}},"max_tokens":{{maxTokens}}}',
+    responseTemplate: {
+      textPath: "choices[0].message.content",
+      inputTokensPath: "usage.prompt_tokens",
+      outputTokensPath: "usage.completion_tokens"
+    },
+    models: []
+  };
+}
+function findCustomProvider(provider, customProviders) {
+  const id = provider.startsWith("custom:") ? provider.slice(7) : provider;
+  return customProviders.find((cp) => cp.id === id);
+}
+function isBuiltInProvider(provider) {
+  return provider === "anthropic" || provider === "openai" || provider === "qwen";
+}
+function getModelCatalog(provider, customProviders) {
+  if (isBuiltInProvider(provider)) {
+    return MODEL_CATALOG[provider];
+  }
+  const cp = findCustomProvider(provider, customProviders);
+  return cp?.models ?? [];
+}
+function getDefaultModelForProvider(provider, customProviders) {
+  if (isBuiltInProvider(provider)) {
+    return DEFAULT_MODEL_FOR_PROVIDER[provider];
+  }
+  const cp = findCustomProvider(provider, customProviders);
+  return cp?.models[0]?.id ?? "";
+}
+function getCurationModelForProvider(provider, customProviders) {
+  if (isBuiltInProvider(provider)) {
+    return CURATION_MODEL_FOR_PROVIDER[provider];
+  }
+  const cp = findCustomProvider(provider, customProviders);
+  return cp?.models[1]?.id ?? cp?.models[0]?.id ?? "";
+}
+function seedModelsForProvider(provider, customProviders = []) {
   return {
     provider,
-    default: DEFAULT_MODEL_FOR_PROVIDER[provider],
+    default: getDefaultModelForProvider(provider, customProviders),
     extractor: null,
     synthesis: null,
     dox: null,
-    curation: CURATION_MODEL_FOR_PROVIDER[provider]
+    curation: getCurationModelForProvider(provider, customProviders)
   };
 }
 var DEFAULT_SETTINGS = {
   synthesis: false,
   updateAgents: false,
   models: seedModelsForProvider("anthropic"),
-  apiKeys: { anthropic: null, openai: null }
+  apiKeys: { anthropic: null, openai: null, qwen: null },
+  customProviders: []
 };
 function settingsPath(workspace) {
   return join(workspace, ".paper-chase.json");
@@ -72401,12 +72469,12 @@ function settingsPath(workspace) {
 function legacySettingsPath(workspace) {
   return join(workspace, ".llm-wiki-cli.json");
 }
-function normalizeModels(parsed) {
+function normalizeModels(parsed, customProviders = []) {
   const concrete = (value) => typeof value === "string" && value.length > 0 ? value : null;
-  const provider = parsed?.provider === "openai" ? "openai" : "anthropic";
+  const provider = parsed?.provider === "openai" ? "openai" : parsed?.provider === "qwen" ? "qwen" : typeof parsed?.provider === "string" && parsed.provider.startsWith("custom:") ? parsed.provider : "anthropic";
   return {
     provider,
-    default: typeof parsed?.default === "string" && parsed.default.length > 0 ? parsed.default : DEFAULT_MODEL_FOR_PROVIDER[provider],
+    default: typeof parsed?.default === "string" && parsed.default.length > 0 ? parsed.default : getDefaultModelForProvider(provider, customProviders),
     extractor: concrete(parsed?.extractor),
     synthesis: concrete(parsed?.synthesis),
     dox: concrete(parsed?.dox),
@@ -72415,27 +72483,43 @@ function normalizeModels(parsed) {
     curation: concrete(parsed?.curation)
   };
 }
+function normalizeCustomProviders(parsed) {
+  if (!Array.isArray(parsed)) {
+    return [];
+  }
+  return parsed.filter((item) => {
+    if (item === null || typeof item !== "object") {
+      return false;
+    }
+    const cp = item;
+    return typeof cp.id === "string" && cp.id.length > 0 && typeof cp.name === "string" && cp.name.length > 0 && typeof cp.baseUrl === "string" && cp.baseUrl.length > 0 && typeof cp.requestTemplate === "string" && cp.requestTemplate.length > 0 && Array.isArray(cp.headers) && Array.isArray(cp.models);
+  });
+}
 function parseSettings(raw) {
   const parsed = JSON.parse(raw);
+  const customProviders = normalizeCustomProviders(parsed.customProviders);
   return {
     synthesis: Boolean(parsed.synthesis),
     updateAgents: Boolean(parsed.updateAgents),
-    models: normalizeModels(parsed.models),
-    apiKeys: normalizeApiKeys(parsed.apiKeys)
+    models: normalizeModels(parsed.models, customProviders),
+    apiKeys: normalizeApiKeys(parsed.apiKeys),
+    customProviders
   };
 }
 function normalizeApiKeys(parsed) {
   const concrete = (value) => typeof value === "string" && value.length > 0 ? value : null;
   return {
     anthropic: concrete(parsed?.anthropic),
-    openai: concrete(parsed?.openai)
+    openai: concrete(parsed?.openai),
+    qwen: concrete(parsed?.qwen)
   };
 }
 function defaultSettings() {
   return {
     ...DEFAULT_SETTINGS,
     models: { ...DEFAULT_SETTINGS.models },
-    apiKeys: { ...DEFAULT_SETTINGS.apiKeys }
+    apiKeys: { ...DEFAULT_SETTINGS.apiKeys },
+    customProviders: [...DEFAULT_SETTINGS.customProviders]
   };
 }
 async function loadSettings(workspace = ".") {
@@ -99213,6 +99297,7 @@ import { resolve as resolve2 } from "node:path";
 var ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages";
 var ANTHROPIC_VERSION = "2023-06-01";
 var OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
+var QWEN_API_URL = "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions";
 var DEFAULT_MODEL = "claude-haiku-4-5-20251001";
 var PRICE_PER_MTOK = {
   "claude-haiku-4-5-20251001": { input: 1, output: 5 },
@@ -99221,6 +99306,10 @@ var PRICE_PER_MTOK = {
   "gpt-5.6-luna": { input: 1, output: 6 },
   "gpt-5.6-terra": { input: 2.5, output: 15 },
   "gpt-5.6-sol": { input: 5, output: 30 },
+  // TODO(Qwen pricing): update from the DashScope console once known.
+  "qwen-plus": { input: 0.5, output: 1 },
+  "qwen3.7-max": { input: 2, output: 5 },
+  "qwen3.8-max": { input: 3, output: 6 },
   default: { input: 1, output: 5 }
 };
 var SYNTHESIS_CALL_TYPES = /* @__PURE__ */ new Set([
@@ -99239,7 +99328,8 @@ function setModelRouting(routing) {
     curation: typeof routing.curation === "string" && routing.curation.length > 0 ? routing.curation : null,
     apiKeys: {
       anthropic: normalizeStoredKey(routing.apiKeys?.anthropic),
-      openai: normalizeStoredKey(routing.apiKeys?.openai)
+      openai: normalizeStoredKey(routing.apiKeys?.openai),
+      qwen: normalizeStoredKey(routing.apiKeys?.qwen)
     }
   };
 }
@@ -99249,24 +99339,30 @@ function normalizeStoredKey(value) {
 function resolveProvider() {
   return modelRouting?.provider ?? "anthropic";
 }
+function resolveModelFromRouting(routing, callType, override) {
+  if (override) {
+    return override;
+  }
+  if (callType === "extractor" && routing.extractor !== null) {
+    return routing.extractor;
+  }
+  if (callType !== void 0 && SYNTHESIS_CALL_TYPES.has(callType) && routing.synthesis !== null) {
+    return routing.synthesis;
+  }
+  if (callType === "dox-writer" && routing.dox !== null) {
+    return routing.dox;
+  }
+  if (callType === "curation" && routing.curation != null) {
+    return routing.curation;
+  }
+  return routing.default;
+}
 function resolveModel(callType, override) {
   if (override) {
     return override;
   }
   if (modelRouting !== null) {
-    if (callType === "extractor" && modelRouting.extractor !== null) {
-      return modelRouting.extractor;
-    }
-    if (callType !== void 0 && SYNTHESIS_CALL_TYPES.has(callType) && modelRouting.synthesis !== null) {
-      return modelRouting.synthesis;
-    }
-    if (callType === "dox-writer" && modelRouting.dox !== null) {
-      return modelRouting.dox;
-    }
-    if (callType === "curation" && modelRouting.curation != null) {
-      return modelRouting.curation;
-    }
-    return modelRouting.default;
+    return resolveModelFromRouting(modelRouting, callType, override);
   }
   return process.env.ANTHROPIC_MODEL ?? DEFAULT_MODEL;
 }
@@ -99301,11 +99397,31 @@ function loadEnvFile() {
   }
 }
 function resolveApiKey(provider) {
-  const stored = provider === "openai" ? modelRouting?.apiKeys?.openai : modelRouting?.apiKeys?.anthropic;
-  if (stored) {
+  if (provider.startsWith("custom:")) {
+    const id = provider.slice(7);
+    const cp = modelRouting?.customProviders?.find((c) => c.id === id);
+    return cp?.apiKey ?? null;
+  }
+  return resolveApiKeyForProvider(
+    provider,
+    modelRouting?.apiKeys?.[provider] ?? null
+  );
+}
+function resolveApiKeyForTest(provider, storedKey, customProviders) {
+  if (provider.startsWith("custom:")) {
+    const id = provider.slice(7);
+    const cp = customProviders?.find((c) => c.id === id);
+    return cp?.apiKey ?? null;
+  }
+  return resolveApiKeyForProvider(provider, storedKey ?? null);
+}
+function resolveApiKeyForProvider(provider, storedKey) {
+  const stored = normalizeStoredKey(storedKey);
+  if (stored !== null) {
     return stored;
   }
-  return (provider === "openai" ? process.env.OPENAI_API_KEY : process.env.ANTHROPIC_API_KEY) ?? null;
+  const envKey = provider === "openai" ? process.env.OPENAI_API_KEY : provider === "qwen" ? process.env.DASHSCOPE_API_KEY : process.env.ANTHROPIC_API_KEY;
+  return envKey ?? null;
 }
 function getApiKeyStatus(provider, storedKey) {
   loadEnvFile();
@@ -99313,7 +99429,10 @@ function getApiKeyStatus(provider, storedKey) {
   if (stored !== null) {
     return { source: "stored", last4: stored.slice(-4) };
   }
-  const envKey = provider === "openai" ? process.env.OPENAI_API_KEY : process.env.ANTHROPIC_API_KEY;
+  if (provider.startsWith("custom:")) {
+    return { source: "none", last4: null };
+  }
+  const envKey = provider === "openai" ? process.env.OPENAI_API_KEY : provider === "qwen" ? process.env.DASHSCOPE_API_KEY : process.env.ANTHROPIC_API_KEY;
   if (envKey) {
     return { source: "environment", last4: envKey.slice(-4) };
   }
@@ -99341,21 +99460,21 @@ function buildAnthropicRequest(model, prompt, system, options2, apiKey) {
     body
   };
 }
-function buildOpenAIRequest(model, prompt, system, options2, apiKey) {
+function buildOpenAIRequest(model, prompt, system, options2, apiKey, baseUrl = OPENAI_API_URL) {
   const messages = [];
   if (system) {
     messages.push({ role: "system", content: system });
   }
   messages.push({ role: "user", content: prompt });
   return {
-    url: OPENAI_API_URL,
+    url: baseUrl,
     headers: {
       "content-type": "application/json",
       authorization: `Bearer ${apiKey}`
     },
     body: {
       model,
-      max_completion_tokens: options2.maxTokens ?? 1024,
+      max_tokens: options2.maxTokens ?? 1024,
       messages
     }
   };
@@ -99374,6 +99493,56 @@ function parseOpenAIResponse(json) {
     text: typeof content === "string" ? content : "",
     inputTokens: json?.usage?.prompt_tokens ?? 0,
     outputTokens: json?.usage?.completion_tokens ?? 0
+  };
+}
+function fillTemplate(template, values) {
+  return template.replace(/\{\{(\w+)\}\}/g, (_match, key) => {
+    const value = values[key];
+    if (value === void 0 || value === null) {
+      return key === "temperature" ? "null" : "";
+    }
+    if (typeof value === "number") {
+      return String(value);
+    }
+    return value;
+  });
+}
+function getPath(obj, path) {
+  const parts = path.replace(/\[(\d+)\]/g, ".$1").split(".").filter(Boolean);
+  let current = obj;
+  for (const part of parts) {
+    if (current === null || current === void 0 || typeof current !== "object") {
+      return void 0;
+    }
+    current = current[part];
+  }
+  return current;
+}
+function buildCustomProviderRequest(config, model, prompt, system, options2, apiKey) {
+  const messages = [];
+  if (system) {
+    messages.push({ role: "system", content: system });
+  }
+  messages.push({ role: "user", content: prompt });
+  const bodyStr = fillTemplate(config.requestTemplate, {
+    model,
+    messages: JSON.stringify(messages),
+    maxTokens: options2.maxTokens ?? 1024,
+    temperature: options2.temperature,
+    apiKey
+  });
+  const body = JSON.parse(bodyStr);
+  const headers = { "content-type": "application/json" };
+  for (const h of config.headers) {
+    headers[h.key] = fillTemplate(h.value, { apiKey });
+  }
+  return { url: config.baseUrl, headers, body };
+}
+function parseCustomProviderResponse(json, responseTemplate) {
+  return {
+    text: getPath(json, responseTemplate.textPath) ?? "",
+    inputTokens: getPath(json, responseTemplate.inputTokensPath ?? "") ?? 0,
+    outputTokens: getPath(json, responseTemplate.outputTokensPath ?? "") ?? 0
   };
 }
 function isTransientStatus(statusCode) {
@@ -99413,16 +99582,34 @@ async function appendLlmCallLog(logPath, entry) {
 async function callLLM(prompt, system, options2 = {}) {
   loadEnvFile();
   const provider = resolveProvider();
-  const isOpenAI = provider === "openai";
   const apiKey = resolveApiKey(provider);
   if (!apiKey) {
+    const keyName2 = provider.startsWith("custom:") ? `Custom provider API key (${provider.slice(7)})` : provider === "openai" ? "OPENAI_API_KEY" : provider === "qwen" ? "DASHSCOPE_API_KEY" : "ANTHROPIC_API_KEY";
     throw new Error(
-      isOpenAI ? "OPENAI_API_KEY is not set. Add it in Settings, export it in your environment, or add it to a .env file in the project root." : "ANTHROPIC_API_KEY is not set. Add it in Settings, export it in your environment, or add it to a .env file in the project root."
+      `${keyName2} is not set. Add it in Settings, export it in your environment, or add it to a .env file in the project root.`
     );
   }
   const model = resolveModel(options2.callType, options2.model);
-  const providerName = isOpenAI ? "OpenAI" : "Anthropic";
-  const providerRequest = isOpenAI ? buildOpenAIRequest(model, prompt, system, options2, apiKey) : buildAnthropicRequest(model, prompt, system, options2, apiKey);
+  const providerName = provider.startsWith("custom:") ? modelRouting?.customProviders?.find((c) => c.id === provider.slice(7))?.name ?? provider : provider === "openai" ? "OpenAI" : provider === "qwen" ? "Qwen" : "Anthropic";
+  let providerRequest;
+  if (provider.startsWith("custom:")) {
+    const config = modelRouting?.customProviders?.find((c) => c.id === provider.slice(7));
+    if (!config) {
+      throw new Error(`Custom provider '${provider.slice(7)}' not found in settings.`);
+    }
+    providerRequest = buildCustomProviderRequest(config, model, prompt, system, options2, apiKey);
+  } else if (provider === "openai" || provider === "qwen") {
+    providerRequest = buildOpenAIRequest(
+      model,
+      prompt,
+      system,
+      options2,
+      apiKey,
+      provider === "qwen" ? QWEN_API_URL : OPENAI_API_URL
+    );
+  } else {
+    providerRequest = buildAnthropicRequest(model, prompt, system, options2, apiKey);
+  }
   const maxAttempts = 1 + Math.max(0, options2.maxRetries ?? 0);
   const largeCall = (options2.maxTokens ?? 1024) >= LARGE_CALL_MAX_TOKENS;
   let statusCode = 0;
@@ -99462,7 +99649,15 @@ async function callLLM(prompt, system, options2 = {}) {
   if (statusCode < 200 || statusCode >= 300) {
     throw new Error(`${providerName} API error (HTTP ${statusCode}): ${JSON.stringify(json)}`);
   }
-  const parsed = isOpenAI ? parseOpenAIResponse(json) : parseAnthropicResponse(json);
+  let parsed;
+  if (provider.startsWith("custom:")) {
+    const config = modelRouting?.customProviders?.find((c) => c.id === provider.slice(7));
+    parsed = parseCustomProviderResponse(json, config?.responseTemplate ?? { textPath: "" });
+  } else if (provider === "openai" || provider === "qwen") {
+    parsed = parseOpenAIResponse(json);
+  } else {
+    parsed = parseAnthropicResponse(json);
+  }
   const inputTokens = parsed.inputTokens;
   const outputTokens = parsed.outputTokens;
   const prices = PRICE_PER_MTOK[model] ?? PRICE_PER_MTOK.default;
@@ -99481,6 +99676,63 @@ async function callLLM(prompt, system, options2 = {}) {
     cost
   });
   return parsed.text;
+}
+async function testModelConnection(provider, model, apiKey, customProviders) {
+  const providerName = provider.startsWith("custom:") ? customProviders?.find((c) => c.id === provider.slice(7))?.name ?? provider : provider === "openai" ? "OpenAI" : provider === "qwen" ? "Qwen" : "Anthropic";
+  let providerRequest;
+  if (provider.startsWith("custom:")) {
+    const config = customProviders?.find((c) => c.id === provider.slice(7));
+    if (!config) {
+      return { ok: false, message: `Custom provider '${provider.slice(7)}' not found in settings.` };
+    }
+    providerRequest = buildCustomProviderRequest(config, model, "hi", void 0, { maxTokens: 1 }, apiKey);
+  } else if (provider === "openai" || provider === "qwen") {
+    providerRequest = buildOpenAIRequest(
+      model,
+      "hi",
+      void 0,
+      { maxTokens: 1 },
+      apiKey,
+      provider === "qwen" ? QWEN_API_URL : OPENAI_API_URL
+    );
+  } else {
+    providerRequest = buildAnthropicRequest(model, "hi", void 0, { maxTokens: 1 }, apiKey);
+  }
+  let statusCode = 0;
+  let json;
+  let lastTransportError;
+  try {
+    const response = await (0, import_undici.request)(providerRequest.url, {
+      method: "POST",
+      headers: providerRequest.headers,
+      body: JSON.stringify(providerRequest.body),
+      headersTimeout: 3e4
+    });
+    statusCode = response.statusCode;
+    json = await response.body.json();
+  } catch (err) {
+    lastTransportError = err;
+  }
+  if (lastTransportError !== void 0) {
+    return { ok: false, message: `${providerName} API transport error: ${lastTransportError.message}` };
+  }
+  if (statusCode < 200 || statusCode >= 300) {
+    const apiMessage = json?.error?.message ?? JSON.stringify(json);
+    return { ok: false, message: `${providerName} API error (HTTP ${statusCode}): ${apiMessage}` };
+  }
+  let parsed;
+  if (provider.startsWith("custom:")) {
+    const config = customProviders?.find((c) => c.id === provider.slice(7));
+    parsed = parseCustomProviderResponse(json, config?.responseTemplate ?? { textPath: "" });
+  } else if (provider === "openai" || provider === "qwen") {
+    parsed = parseOpenAIResponse(json);
+  } else {
+    parsed = parseAnthropicResponse(json);
+  }
+  if (parsed.text.length === 0) {
+    return { ok: false, message: `${providerName} API returned an empty response.` };
+  }
+  return { ok: true, message: `Connected \u2014 ${providerName} model responded.` };
 }
 
 // src/llm/reask.ts
@@ -106452,7 +106704,11 @@ async function ingest(slug, options2 = {}) {
   }
   try {
     const tuiSettings = await loadSettings(options2.workspace ?? ".");
-    setModelRouting({ ...tuiSettings.models, apiKeys: tuiSettings.apiKeys });
+    setModelRouting({
+      ...tuiSettings.models,
+      apiKeys: tuiSettings.apiKeys,
+      customProviders: tuiSettings.customProviders
+    });
   } catch {
   }
   const dir = wikiDir(options2.workspace, slug);
@@ -108295,27 +108551,58 @@ function AddPdfsScreen({
 // src/tui/settings-screen.tsx
 var import_react45 = __toESM(require_react(), 1);
 var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
-var ROW_ORDER = [
-  "synthesis",
-  "updateAgents",
-  "provider",
-  "modelDefault",
-  "modelExtractor",
-  "modelSynthesis",
-  "modelDox",
-  "modelCuration",
-  "apiKeyAnthropic",
-  "apiKeyOpenai",
-  "save",
-  "back"
-];
-var PROVIDERS = ["anthropic", "openai"];
+function buildRowOrder(settings) {
+  const order = [
+    "synthesis",
+    "updateAgents",
+    "provider",
+    "modelDefault",
+    "modelExtractor",
+    "modelSynthesis",
+    "modelDox",
+    "modelCuration"
+  ];
+  const provider = settings.models.provider ?? "anthropic";
+  if (provider.startsWith("custom:")) {
+    const cp = settings.customProviders.find((c) => c.id === provider.slice(7));
+    if (cp) {
+      order.push("customProviderBaseUrl");
+      order.push("customProviderApiKey");
+      order.push("addCustomProviderHeader");
+      cp.headers.forEach((_, i) => order.push(`customProviderHeader:${i}`));
+      order.push("customProviderRequestTemplate");
+      order.push("customProviderResponseTextPath");
+      order.push("customProviderResponseInputTokensPath");
+      order.push("customProviderResponseOutputTokensPath");
+      order.push("addCustomProviderModel");
+      cp.models.forEach((_, i) => order.push(`customProviderModel:${i}`));
+      order.push("deleteCustomProvider");
+    }
+  }
+  order.push("addCustomProvider");
+  order.push("apiKeyAnthropic");
+  order.push("apiKeyOpenai");
+  order.push("apiKeyQwen");
+  order.push("save");
+  order.push("back");
+  return order;
+}
+function providerList(settings) {
+  return ["anthropic", "openai", "qwen", ...settings.customProviders.map((cp) => `custom:${cp.id}`)];
+}
+function providerLabel(provider, customProviders) {
+  if (provider.startsWith("custom:")) {
+    return customProviders.find((cp) => cp.id === provider.slice(7))?.name ?? provider;
+  }
+  return PROVIDER_LABELS[provider];
+}
 var PROVIDER_LABELS = {
   anthropic: "Anthropic",
-  openai: "OpenAI"
+  openai: "OpenAI",
+  qwen: "Qwen"
 };
 var MODEL_SHORT_NAMES = Object.fromEntries(
-  [...MODEL_CATALOG.anthropic, ...MODEL_CATALOG.openai].map(({ id, label }) => [id, label])
+  [...MODEL_CATALOG.anthropic, ...MODEL_CATALOG.openai, ...MODEL_CATALOG.qwen].map(({ id, label }) => [id, label])
 );
 var RECOMMENDATIONS = {
   anthropic: {
@@ -108329,6 +108616,12 @@ var RECOMMENDATIONS = {
     modelSynthesis: "GPT-5.6 Terra \u2014 better prose, fewer preservation failures",
     modelDox: "GPT-5.6 Terra \u2014 mid-tier; structural navigation, correctness re-imposed deterministically",
     modelCuration: "GPT-5.6 Terra \u2014 mid-tier judgment for merge/drop decisions"
+  },
+  qwen: {
+    modelExtractor: "Qwen-Plus \u2014 cheapest, good for structured JSON extraction",
+    modelSynthesis: "Qwen 3.7 Max \u2014 better prose, fewer preservation failures",
+    modelDox: "Qwen 3.7 Max \u2014 mid-tier; structural navigation, correctness re-imposed deterministically",
+    modelCuration: "Qwen 3.7 Max \u2014 mid-tier judgment for merge/drop decisions"
   }
 };
 function displayName(modelId) {
@@ -108358,7 +108651,8 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
     synthesis: false,
     updateAgents: false,
     models: seedModelsForProvider("anthropic"),
-    apiKeys: { anthropic: null, openai: null }
+    apiKeys: { anthropic: null, openai: null, qwen: null },
+    customProviders: []
   });
   const [loaded, setLoaded] = (0, import_react45.useState)(false);
   const [focusIndex, setFocusIndex] = (0, import_react45.useState)(0);
@@ -108366,6 +108660,10 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
   const [message, setMessage] = (0, import_react45.useState)("");
   const [editingKey, setEditingKey] = (0, import_react45.useState)(null);
   const [keyDraft, setKeyDraft] = (0, import_react45.useState)("");
+  const [editingCustomModel, setEditingCustomModel] = (0, import_react45.useState)(null);
+  const [customDraft, setCustomDraft] = (0, import_react45.useState)("");
+  const [testStatus, setTestStatus] = (0, import_react45.useState)("idle");
+  const [testMessage, setTestMessage] = (0, import_react45.useState)("");
   (0, import_react45.useEffect)(() => {
     let mounted = true;
     loadSettings(workspace).then((s) => {
@@ -108384,6 +108682,10 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
       mounted = false;
     };
   }, [workspace]);
+  (0, import_react45.useEffect)(() => {
+    const rowOrder2 = buildRowOrder(settings);
+    setFocusIndex((prev) => prev >= rowOrder2.length ? rowOrder2.length - 1 : prev);
+  }, [settings]);
   const save = async () => {
     setStatus("saving");
     try {
@@ -108401,45 +108703,148 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
   };
   const cycleProvider = (delta) => {
     setSettings((prev) => {
-      const next = cycle(PROVIDERS, currentProvider(prev), delta);
+      const providers = providerList(prev);
+      const next = cycle(providers, currentProvider(prev), delta);
       if (next === currentProvider(prev)) {
         return prev;
       }
-      return { ...prev, models: seedModelsForProvider(next) };
+      return { ...prev, models: seedModelsForProvider(next, prev.customProviders) };
     });
   };
   const cycleModel = (row, delta) => {
     setSettings((prev) => {
       const provider2 = currentProvider(prev);
-      const ids = MODEL_CATALOG[provider2].map((entry) => entry.id);
-      const optionalChoices = [null, ...ids];
+      const ids = getModelCatalog(provider2, prev.customProviders).map((entry) => entry.id);
+      const catalogIds = ids.filter((id) => id !== "__custom__");
+      const getCurrent = () => {
+        if (row === "modelDefault") return prev.models.default;
+        if (row === "modelExtractor") return prev.models.extractor;
+        if (row === "modelSynthesis") return prev.models.synthesis;
+        if (row === "modelDox") return prev.models.dox;
+        if (row === "modelCuration") return prev.models.curation ?? null;
+        return null;
+      };
+      const current = getCurrent();
+      const baseChoices = row === "modelDefault" ? [...catalogIds] : [null, ...catalogIds];
+      const choices = current !== null && !catalogIds.includes(current) && current !== "__custom__" ? [...baseChoices, current, "__custom__"] : [...baseChoices, "__custom__"];
+      const next = cycle(choices, current, delta);
+      if (next === "__custom__") {
+        setEditingCustomModel(row);
+        setCustomDraft(current !== null && !catalogIds.includes(current) ? current : "");
+        return prev;
+      }
       const models = { ...prev.models };
       if (row === "modelDefault") {
-        models.default = cycle(ids, models.default, delta);
+        models.default = next;
       } else if (row === "modelExtractor") {
-        models.extractor = cycle(optionalChoices, models.extractor, delta);
+        models.extractor = next;
       } else if (row === "modelSynthesis") {
-        models.synthesis = cycle(optionalChoices, models.synthesis, delta);
+        models.synthesis = next;
       } else if (row === "modelDox") {
-        models.dox = cycle(optionalChoices, models.dox, delta);
+        models.dox = next;
       } else if (row === "modelCuration") {
-        models.curation = cycle(optionalChoices, models.curation ?? null, delta);
+        models.curation = next;
       }
       return { ...prev, models };
     });
   };
   const submitKeyEdit = (provider2, value) => {
     const trimmed = value.trim();
-    setSettings((prev) => ({
-      ...prev,
-      apiKeys: { ...prev.apiKeys, [provider2]: trimmed === "" ? null : trimmed }
-    }));
+    setSettings((prev) => {
+      if (provider2.startsWith("custom:")) {
+        const id = provider2.slice(7);
+        return {
+          ...prev,
+          customProviders: prev.customProviders.map(
+            (cp) => cp.id === id ? { ...cp, apiKey: trimmed === "" ? null : trimmed } : cp
+          )
+        };
+      }
+      return {
+        ...prev,
+        apiKeys: { ...prev.apiKeys, [provider2]: trimmed === "" ? null : trimmed }
+      };
+    });
     setEditingKey(null);
     setKeyDraft("");
+  };
+  const rowToCallType = (row) => {
+    switch (row) {
+      case "modelDefault":
+        return void 0;
+      case "modelExtractor":
+        return "extractor";
+      case "modelSynthesis":
+        return "synthesis";
+      case "modelDox":
+        return "dox-writer";
+      case "modelCuration":
+        return "curation";
+      default:
+        return void 0;
+    }
+  };
+  const cancelCustomModel = () => {
+    setEditingCustomModel(null);
+    setCustomDraft("");
+  };
+  const submitCustomModel = (row, value) => {
+    const trimmed = value.trim();
+    if (trimmed === "") {
+      cancelCustomModel();
+      return;
+    }
+    setSettings((prev) => {
+      const models = { ...prev.models };
+      if (row === "modelDefault") {
+        models.default = trimmed;
+      } else if (row === "modelExtractor") {
+        models.extractor = trimmed;
+      } else if (row === "modelSynthesis") {
+        models.synthesis = trimmed;
+      } else if (row === "modelDox") {
+        models.dox = trimmed;
+      } else if (row === "modelCuration") {
+        models.curation = trimmed;
+      }
+      return { ...prev, models };
+    });
+    cancelCustomModel();
+  };
+  const runModelTest = async (row) => {
+    const provider2 = currentProvider(settings);
+    const callType = rowToCallType(row);
+    const model = resolveModelFromRouting(settings.models, callType);
+    const apiKey = resolveApiKeyForTest(
+      provider2,
+      provider2.startsWith("custom:") ? settings.customProviders.find((c) => c.id === provider2.slice(7))?.apiKey ?? null : settings.apiKeys[provider2],
+      settings.customProviders
+    );
+    if (!apiKey) {
+      setTestStatus("error");
+      setTestMessage("No API key set for this provider.");
+      return;
+    }
+    setTestStatus("testing");
+    setTestMessage("");
+    try {
+      const result = await testModelConnection(provider2, model, apiKey, settings.customProviders);
+      setTestStatus(result.ok ? "success" : "error");
+      setTestMessage(result.message);
+    } catch (err) {
+      setTestStatus("error");
+      setTestMessage(`Unexpected error: ${err.message}`);
+    }
   };
   use_input_default(
     (_input, key) => {
       if (status === "saving") {
+        return;
+      }
+      if (editingCustomModel !== null) {
+        if (key.escape) {
+          cancelCustomModel();
+        }
         return;
       }
       if (editingKey !== null) {
@@ -108459,15 +108864,16 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
         }
         return;
       }
+      const rowOrder2 = buildRowOrder(settings);
       if (key.upArrow) {
-        setFocusIndex((focusIndex + ROW_ORDER.length - 1) % ROW_ORDER.length);
+        setFocusIndex((focusIndex + rowOrder2.length - 1) % rowOrder2.length);
         return;
       }
       if (key.downArrow) {
-        setFocusIndex((focusIndex + 1) % ROW_ORDER.length);
+        setFocusIndex((focusIndex + 1) % rowOrder2.length);
         return;
       }
-      const row = ROW_ORDER[focusIndex];
+      const row = rowOrder2[focusIndex];
       if (row === "synthesis" || row === "updateAgents") {
         if (_input === " " || key.leftArrow || key.rightArrow) {
           setSettings((prev) => ({ ...prev, [row]: !prev[row] }));
@@ -108482,6 +108888,9 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
         if (key.leftArrow || key.rightArrow) {
           cycleModel(row, key.rightArrow ? 1 : -1);
         }
+        if (_input === "t" || _input === "T") {
+          void runModelTest(row);
+        }
       }
       if (key.return) {
         if (row === "save") {
@@ -108494,12 +108903,50 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
         } else if (row === "apiKeyOpenai") {
           setEditingKey("openai");
           setKeyDraft("");
+        } else if (row === "apiKeyQwen") {
+          setEditingKey("qwen");
+          setKeyDraft("");
+        } else if (row === "customProviderApiKey" && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}`);
+          setKeyDraft("");
+        } else if (row === "addCustomProvider") {
+          addCustomProvider();
+        } else if (row === "deleteCustomProvider") {
+          deleteCustomProvider();
+        } else if (row === "addCustomProviderHeader" && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-addHeader`);
+          setKeyDraft("");
+        } else if (row.startsWith("customProviderHeader:")) {
+          const index = Number(row.split(":")[1]);
+          removeCustomProviderHeader(index);
+        } else if (row === "addCustomProviderModel" && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-addModel`);
+          setKeyDraft("");
+        } else if (row.startsWith("customProviderModel:")) {
+          const index = Number(row.split(":")[1]);
+          removeCustomProviderModel(index);
+        } else if (row === "customProviderBaseUrl" && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-baseUrl`);
+          setKeyDraft(currentCustomProvider.baseUrl);
+        } else if (row === "customProviderRequestTemplate" && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-requestTemplate`);
+          setKeyDraft(currentCustomProvider.requestTemplate);
+        } else if (row === "customProviderResponseTextPath" && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-responseTextPath`);
+          setKeyDraft(currentCustomProvider.responseTemplate.textPath);
+        } else if (row === "customProviderResponseInputTokensPath" && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-responseInputTokensPath`);
+          setKeyDraft(currentCustomProvider.responseTemplate.inputTokensPath ?? "");
+        } else if (row === "customProviderResponseOutputTokensPath" && currentCustomProvider) {
+          setEditingKey(`custom:${currentCustomProvider.id}-responseOutputTokensPath`);
+          setKeyDraft(currentCustomProvider.responseTemplate.outputTokensPath ?? "");
         }
       }
     },
     { isActive: isRawModeSupported === true }
   );
-  const focus = ROW_ORDER[focusIndex];
+  const rowOrder = buildRowOrder(settings);
+  const focus = rowOrder[focusIndex] ?? rowOrder[0];
   const provider = currentProvider(settings);
   const renderToggle = (row, label) => {
     const active = focus === row;
@@ -108517,16 +108964,34 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
     return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Box_default, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: active, color: active ? "cyan" : void 0, children: [
       active ? "> " : "  ",
       "Provider: [\u2039 ",
-      PROVIDER_LABELS[provider],
+      providerLabel(provider, settings.customProviders),
       " \u203A]"
     ] }) }, "provider");
   };
   const renderModelRow = (row, label, value) => {
     const active = focus === row;
     const shown = value === null ? "Same as default" : displayName(value);
-    const recommendation = RECOMMENDATIONS[provider][row];
+    const recommendation = provider.startsWith("custom:") ? null : RECOMMENDATIONS[provider][row];
+    const editing = editingCustomModel === row;
     return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Box_default, { flexDirection: "column", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: active, color: active ? "cyan" : void 0, children: [
+      editing ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Box_default, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: active, color: active ? "cyan" : void 0, children: [
+          active ? "> " : "  ",
+          label,
+          ":",
+          " "
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+          build_default,
+          {
+            value: customDraft,
+            onChange: setCustomDraft,
+            onSubmit: (v) => submitCustomModel(row, v),
+            placeholder: "model id",
+            focus: true
+          }
+        )
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: active, color: active ? "cyan" : void 0, children: [
         active ? "> " : "  ",
         label,
         ": [\u2039 ",
@@ -108542,6 +109007,7 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
   const renderKeyRow = (row, keyProvider, label) => {
     const active = focus === row;
     const editing = editingKey === keyProvider;
+    const storedKey = keyProvider.startsWith("custom:") ? settings.customProviders.find((c) => c.id === keyProvider.slice(7))?.apiKey ?? null : settings.apiKeys[keyProvider];
     return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Box_default, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: active, color: active ? "cyan" : void 0, children: [
         active ? "> " : "  ",
@@ -108561,10 +109027,185 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
         }
       ) : /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: active, color: active ? "cyan" : void 0, children: [
         "[",
-        keyStatusText(keyProvider, settings.apiKeys[keyProvider]),
+        keyStatusText(keyProvider, storedKey),
         "]"
       ] })
     ] }, row);
+  };
+  const currentCustomProvider = provider.startsWith("custom:") ? settings.customProviders.find((c) => c.id === provider.slice(7)) : void 0;
+  const updateCurrentCustomProvider = (updates) => {
+    setSettings((prev) => ({
+      ...prev,
+      customProviders: prev.customProviders.map(
+        (cp) => cp.id === currentCustomProvider?.id ? { ...cp, ...updates } : cp
+      )
+    }));
+  };
+  const addCustomProvider = () => {
+    setSettings((prev) => {
+      const existingIds = prev.customProviders.map((cp2) => cp2.id);
+      const name = `Custom Provider ${existingIds.length + 1}`;
+      const cp = createCustomProvider(name, existingIds);
+      return {
+        ...prev,
+        customProviders: [...prev.customProviders, cp],
+        models: seedModelsForProvider(`custom:${cp.id}`, [...prev.customProviders, cp])
+      };
+    });
+  };
+  const deleteCustomProvider = () => {
+    setSettings((prev) => ({
+      ...prev,
+      customProviders: prev.customProviders.filter((cp) => cp.id !== currentCustomProvider?.id),
+      models: seedModelsForProvider("anthropic")
+    }));
+  };
+  const addCustomProviderHeader = (value) => {
+    const trimmed = value.trim();
+    if (trimmed === "") {
+      return;
+    }
+    const colon = trimmed.indexOf(":");
+    if (colon === -1) {
+      return;
+    }
+    const key = trimmed.slice(0, colon).trim();
+    const headerValue = trimmed.slice(colon + 1).trim();
+    updateCurrentCustomProvider({
+      headers: [...currentCustomProvider?.headers ?? [], { key, value: headerValue }]
+    });
+  };
+  const removeCustomProviderHeader = (index) => {
+    updateCurrentCustomProvider({
+      headers: (currentCustomProvider?.headers ?? []).filter((_, i) => i !== index)
+    });
+  };
+  const addCustomProviderModel = (value) => {
+    const trimmed = value.trim();
+    if (trimmed === "") {
+      return;
+    }
+    updateCurrentCustomProvider({
+      models: [...currentCustomProvider?.models ?? [], { id: trimmed, label: trimmed }]
+    });
+  };
+  const removeCustomProviderModel = (index) => {
+    updateCurrentCustomProvider({
+      models: (currentCustomProvider?.models ?? []).filter((_, i) => i !== index)
+    });
+  };
+  const renderTextRow = (row, label, value, placeholder, onSubmit, editing, draft, setDraft) => {
+    const active = focus === row;
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Box_default, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: active, color: active ? "cyan" : void 0, children: [
+        active ? "> " : "  ",
+        label,
+        ":",
+        " "
+      ] }),
+      editing ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+        build_default,
+        {
+          value: draft,
+          onChange: setDraft,
+          onSubmit,
+          placeholder,
+          focus: true
+        }
+      ) : /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: active, color: active ? "cyan" : void 0, children: [
+        "[",
+        value,
+        "]"
+      ] })
+    ] }, row);
+  };
+  const renderCustomProviderRows = () => {
+    if (!currentCustomProvider) {
+      return null;
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_jsx_runtime10.Fragment, { children: [
+      renderTextRow(
+        "customProviderBaseUrl",
+        "Base URL",
+        currentCustomProvider.baseUrl,
+        "https://api.example.com/v1/chat/completions",
+        (v) => updateCurrentCustomProvider({ baseUrl: v }),
+        editingKey === `custom:${currentCustomProvider.id}-baseUrl`,
+        keyDraft,
+        setKeyDraft
+      ),
+      renderKeyRow("customProviderApiKey", `custom:${currentCustomProvider.id}`, `${currentCustomProvider.name} API Key`),
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Box_default, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: focus === "addCustomProviderHeader", color: focus === "addCustomProviderHeader" ? "cyan" : void 0, children: [
+        focus === "addCustomProviderHeader" ? "> " : "  ",
+        "Add Header: [Enter to type]"
+      ] }) }),
+      currentCustomProvider.headers.map((h, i) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Box_default, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: focus === `customProviderHeader:${i}`, color: focus === `customProviderHeader:${i}` ? "cyan" : void 0, children: [
+        focus === `customProviderHeader:${i}` ? "> " : "  ",
+        "Header ",
+        i + 1,
+        ": [",
+        h.key,
+        ": ",
+        h.value,
+        "] (Enter to delete)"
+      ] }) }, `customProviderHeader:${i}`)),
+      renderTextRow(
+        "customProviderRequestTemplate",
+        "Request Template",
+        currentCustomProvider.requestTemplate,
+        '{"model":"{{model}}","messages":{{messages}}}',
+        (v) => updateCurrentCustomProvider({ requestTemplate: v }),
+        editingKey === `custom:${currentCustomProvider.id}-requestTemplate`,
+        keyDraft,
+        setKeyDraft
+      ),
+      renderTextRow(
+        "customProviderResponseTextPath",
+        "Response Text Path",
+        currentCustomProvider.responseTemplate.textPath,
+        "choices[0].message.content",
+        (v) => updateCurrentCustomProvider({ responseTemplate: { ...currentCustomProvider.responseTemplate, textPath: v } }),
+        editingKey === `custom:${currentCustomProvider.id}-responseTextPath`,
+        keyDraft,
+        setKeyDraft
+      ),
+      renderTextRow(
+        "customProviderResponseInputTokensPath",
+        "Input Tokens Path",
+        currentCustomProvider.responseTemplate.inputTokensPath ?? "",
+        "usage.prompt_tokens",
+        (v) => updateCurrentCustomProvider({ responseTemplate: { ...currentCustomProvider.responseTemplate, inputTokensPath: v || void 0 } }),
+        editingKey === `custom:${currentCustomProvider.id}-responseInputTokensPath`,
+        keyDraft,
+        setKeyDraft
+      ),
+      renderTextRow(
+        "customProviderResponseOutputTokensPath",
+        "Output Tokens Path",
+        currentCustomProvider.responseTemplate.outputTokensPath ?? "",
+        "usage.completion_tokens",
+        (v) => updateCurrentCustomProvider({ responseTemplate: { ...currentCustomProvider.responseTemplate, outputTokensPath: v || void 0 } }),
+        editingKey === `custom:${currentCustomProvider.id}-responseOutputTokensPath`,
+        keyDraft,
+        setKeyDraft
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Box_default, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: focus === "addCustomProviderModel", color: focus === "addCustomProviderModel" ? "cyan" : void 0, children: [
+        focus === "addCustomProviderModel" ? "> " : "  ",
+        "Add Model: [Enter to type]"
+      ] }) }),
+      currentCustomProvider.models.map((m, i) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Box_default, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: focus === `customProviderModel:${i}`, color: focus === `customProviderModel:${i}` ? "cyan" : void 0, children: [
+        focus === `customProviderModel:${i}` ? "> " : "  ",
+        "Model ",
+        i + 1,
+        ": [",
+        m.id,
+        "] (Enter to delete)"
+      ] }) }, `customProviderModel:${i}`)),
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Box_default, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: focus === "deleteCustomProvider", color: focus === "deleteCustomProvider" ? "cyan" : void 0, children: [
+        focus === "deleteCustomProvider" ? "> " : "  ",
+        "[ Delete Custom Provider ]"
+      ] }) })
+    ] });
   };
   const optionalLabel = (value) => value === null ? "Same as default" : displayName(value);
   return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Box_default, { flexDirection: "column", children: [
@@ -108582,11 +109223,18 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
         renderModelRow("modelDox", "DOX Writer Model", settings.models.dox),
         renderModelRow("modelCuration", "Curation Model", settings.models.curation ?? null)
       ] }),
+      renderCustomProviderRows(),
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Box_default, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: focus === "addCustomProvider", color: focus === "addCustomProvider" ? "cyan" : void 0, children: [
+        focus === "addCustomProvider" ? "> " : "  ",
+        "[ Add Custom Provider ]"
+      ] }) }),
       /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Box_default, { flexDirection: "column", marginTop: 1, children: [
         /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Text, { bold: true, children: "API Keys" }),
         renderKeyRow("apiKeyAnthropic", "anthropic", "Anthropic API Key"),
-        renderKeyRow("apiKeyOpenai", "openai", "OpenAI API Key")
+        renderKeyRow("apiKeyOpenai", "openai", "OpenAI API Key"),
+        renderKeyRow("apiKeyQwen", "qwen", "Qwen API Key")
       ] }),
+      testStatus !== "idle" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Box_default, { marginTop: 1, children: testStatus === "testing" ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Text, { dimColor: true, children: "Testing model connection..." }) : testStatus === "success" ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(SuccessBox, { message: `Test connection: ${testMessage}` }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(ErrorBox, { message: `Test connection: ${testMessage}` }) }),
       /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Box_default, { marginTop: 1, gap: 2, children: [
         /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Text, { inverse: focus === "save", color: focus === "save" ? "cyan" : void 0, children: "[ Save ]" }),
         /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Text, { inverse: focus === "back", color: focus === "back" ? "cyan" : void 0, children: "[ Back ]" })
@@ -108608,7 +109256,7 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
         /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Text, { bold: true, children: "LLM Model Routing" }),
         /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
           "Provider: ",
-          PROVIDER_LABELS[provider]
+          providerLabel(provider, settings.customProviders)
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
           "Default Model: ",
@@ -108618,7 +109266,7 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
           "Extractor Model: ",
           optionalLabel(settings.models.extractor)
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { dimColor: true, children: [
+        !provider.startsWith("custom:") && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { dimColor: true, children: [
           "  ",
           RECOMMENDATIONS[provider].modelExtractor
         ] }),
@@ -108626,7 +109274,7 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
           "Synthesis Writer Model: ",
           optionalLabel(settings.models.synthesis)
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { dimColor: true, children: [
+        !provider.startsWith("custom:") && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { dimColor: true, children: [
           "  ",
           RECOMMENDATIONS[provider].modelSynthesis
         ] }),
@@ -108634,7 +109282,7 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
           "DOX Writer Model: ",
           optionalLabel(settings.models.dox)
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { dimColor: true, children: [
+        !provider.startsWith("custom:") && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { dimColor: true, children: [
           "  ",
           RECOMMENDATIONS[provider].modelDox
         ] }),
@@ -108642,9 +109290,39 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
           "Curation Model: ",
           optionalLabel(settings.models.curation ?? null)
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { dimColor: true, children: [
+        !provider.startsWith("custom:") && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { dimColor: true, children: [
           "  ",
           RECOMMENDATIONS[provider].modelCuration
+        ] }),
+        currentCustomProvider && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_jsx_runtime10.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
+            "Base URL: ",
+            currentCustomProvider.baseUrl
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
+            "Headers: ",
+            currentCustomProvider.headers.map((h) => `${h.key}: ${h.value}`).join(", ")
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
+            "Request Template: ",
+            currentCustomProvider.requestTemplate
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
+            "Response Text Path: ",
+            currentCustomProvider.responseTemplate.textPath
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
+            "Input Tokens Path: ",
+            currentCustomProvider.responseTemplate.inputTokensPath ?? ""
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
+            "Output Tokens Path: ",
+            currentCustomProvider.responseTemplate.outputTokensPath ?? ""
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
+            "Models: ",
+            currentCustomProvider.models.map((m) => m.id).join(", ")
+          ] })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Text, { bold: true, children: "API Keys" }),
         /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
@@ -108655,13 +109333,22 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
           "OpenAI API Key: ",
           keyStatusText("openai", settings.apiKeys.openai)
         ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
+          "Qwen API Key: ",
+          keyStatusText("qwen", settings.apiKeys.qwen)
+        ] }),
+        currentCustomProvider && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
+          currentCustomProvider.name,
+          " API Key: ",
+          keyStatusText(`custom:${currentCustomProvider.id}`, currentCustomProvider.apiKey)
+        ] }),
         /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Text, { dimColor: true, children: "Interactive settings require a TTY." })
       ] })
     ),
     !loaded && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Text, { dimColor: true, children: "Loading settings..." }),
     status === "success" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(SuccessBox, { message }),
     status === "error" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(ErrorBox, { message }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Footer, { helpText: "Up/Down: select | Space/Left/Right: toggle | Left/Right: cycle provider/model | Enter: save/back/edit key (empty clears, Esc cancels) | Escape: back" })
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Footer, { helpText: "Up/Down: select | Space/Left/Right: toggle | Left/Right: cycle provider/model | T: test model | Enter: save/back/edit key/custom model (empty clears/cancels, Esc cancels) | Escape: back" })
   ] });
 }
 

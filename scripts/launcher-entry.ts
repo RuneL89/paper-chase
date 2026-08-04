@@ -38,11 +38,10 @@ import { spawnSync } from 'node:child_process';
 // PROPOSED CLUSTERS section in curation-entities.prompt.txt — all three are
 // extracted assets (covered by the "prompts/**/*" asset glob in
 // pkg.config.launcher.json and pkg.config.json).
-// 1.0.8 (2026-07-29): Phase 23 — the NEW comparison synthesis prompt
-// (comparison.prompt.txt) and the extractor prompt's new `tables` output
-// section in extractor.prompt.txt — both are extracted assets (covered by
-// the same "prompts/**/*" asset globs, no asset-list edit needed).
-const VERSION = '1.0.8';
+// 1.0.9 (2026-08-04): Built-in OpenAI/Qwen now send `max_tokens` instead of
+// `max_completion_tokens` (src/llm/client.ts bundle change), so the packaged
+// runtime must re-extract assets on first run.
+const VERSION = '1.0.9';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');
