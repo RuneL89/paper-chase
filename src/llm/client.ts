@@ -383,11 +383,11 @@ function buildAnthropicRequest(
 
 /**
  * OpenAI Chat Completions request (shape verified against live OpenAI docs
- * 2026-07-22 — see the compliance log): `max_completion_tokens` (the legacy
- * `max_tokens` is deprecated and never sent), the system prompt as a leading
- * `role: 'system'` message. `options.temperature` is intentionally IGNORED:
- * the GPT-5.6 reasoning models reject a custom temperature, so the field is
- * never sent for this provider.
+ * 2026-07-22 — see the compliance log): `max_tokens` (limits the final
+ * visible text, leaving hidden reasoning tokens to their own budget), the
+ * system prompt as a leading `role: 'system'` message. `options.temperature` is
+ * intentionally IGNORED: the GPT-5.6 reasoning models reject a custom
+ * temperature, so the field is never sent for this provider.
  * Qwen (DashScope OpenAI-compatible endpoint) uses the same request shape.
  */
 function buildOpenAIRequest(
@@ -397,7 +397,6 @@ function buildOpenAIRequest(
   options: CallLLMOptions,
   apiKey: string,
   baseUrl: string = OPENAI_API_URL,
-  maxTokensField: 'max_completion_tokens' | 'max_tokens' = 'max_completion_tokens',
 ): ProviderRequest {
   const messages: Array<{ role: string; content: string }> = [];
   if (system) {
@@ -412,7 +411,7 @@ function buildOpenAIRequest(
     },
     body: {
       model,
-      [maxTokensField]: options.maxTokens ?? 1024,
+      max_tokens: options.maxTokens ?? 1024,
       messages,
     },
   };
@@ -856,7 +855,6 @@ export async function testModelConnection(
       { maxTokens: 1 },
       apiKey,
       provider === 'qwen' ? QWEN_API_URL : OPENAI_API_URL,
-      provider === 'qwen' ? 'max_tokens' : 'max_completion_tokens',
     );
   } else {
     providerRequest = buildAnthropicRequest(model, 'hi', undefined, { maxTokens: 1 }, apiKey);

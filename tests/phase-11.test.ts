@@ -653,8 +653,8 @@ test('gate 11.10: openai provider posts the Chat Completions shape and parses th
 
     const body = JSON.parse(requestOptions.body) as Record<string, unknown>;
     expect(body.model).toBe(GPT_TERRA);
-    expect(body.max_completion_tokens).toBe(2048);
-    expect('max_tokens' in body).toBe(false);
+    expect(body.max_tokens).toBe(2048);
+    expect('max_completion_tokens' in body).toBe(false);
     expect('temperature' in body).toBe(false);
     // The system prompt is a leading system message, not a top-level field.
     expect(body.system).toBeUndefined();
@@ -767,8 +767,8 @@ test('gate 11.10: qwen provider posts the OpenAI-compatible shape to the DashSco
 
     const body = JSON.parse(requestOptions.body) as Record<string, unknown>;
     expect(body.model).toBe(QWEN_PLUS);
-    expect(body.max_completion_tokens).toBe(2048);
-    expect('max_tokens' in body).toBe(false);
+    expect(body.max_tokens).toBe(2048);
+    expect('max_completion_tokens' in body).toBe(false);
     expect('temperature' in body).toBe(false);
     expect(body.system).toBeUndefined();
     expect(body.messages).toEqual([

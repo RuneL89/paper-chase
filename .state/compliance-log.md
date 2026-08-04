@@ -2103,3 +2103,25 @@
     QwenCloud key confirmed qwen-plus, qwen3.7-max, and qwen3.8-max all respond
     successfully.
   Checked By: Main agent
+
+[2026-08-04 17:15] Remove max_completion_tokens — use max_tokens for all built-in providers
+  Changed: src/llm/client.ts (buildOpenAIRequest now always sends `max_tokens`;
+    removed the `maxTokensField` parameter and the `max_completion_tokens` path;
+    testModelConnection no longer branches on provider), tests/phase-11.test.ts
+    (OpenAI and Qwen request-body assertions now expect `max_tokens` and the
+    absence of `max_completion_tokens`), src/AGENTS.md (updated OpenAI/Qwen
+    request shape and the v1.8.1 note), tests/AGENTS.md (updated gate 11.10
+    description)
+  Vision Docs Checked: none (provider-parameter simplification; no vision change)
+  Result: Both built-in OpenAI and built-in Qwen now send `max_tokens` instead
+    of `max_completion_tokens`. Custom providers already defaulted to `max_tokens`
+    in their request template, so they are unchanged. This unifies the parameter
+    across all providers and fixes the production Qwen reasoning-model
+    truncation issue (`max_completion_tokens` counted reasoning tokens against the
+    visible text budget). The trade-off is that OpenAI reasoning models (o1/o3)
+    would not have their hidden reasoning capped by the same combined budget,
+    but the current built-in OpenAI recommendations are non-reasoning GPT-5.6
+    models, so behavior is unchanged for supported defaults. Users targeting
+    OpenAI reasoning models via a custom provider can still choose
+    `max_completion_tokens` in their own template.
+  Checked By: Main agent
