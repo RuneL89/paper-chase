@@ -397,6 +397,7 @@ function buildOpenAIRequest(
   options: CallLLMOptions,
   apiKey: string,
   baseUrl: string = OPENAI_API_URL,
+  maxTokensField: 'max_completion_tokens' | 'max_tokens' = 'max_completion_tokens',
 ): ProviderRequest {
   const messages: Array<{ role: string; content: string }> = [];
   if (system) {
@@ -411,7 +412,7 @@ function buildOpenAIRequest(
     },
     body: {
       model,
-      max_completion_tokens: options.maxTokens ?? 1024,
+      [maxTokensField]: options.maxTokens ?? 1024,
       messages,
     },
   };
@@ -855,6 +856,7 @@ export async function testModelConnection(
       { maxTokens: 1 },
       apiKey,
       provider === 'qwen' ? QWEN_API_URL : OPENAI_API_URL,
+      provider === 'qwen' ? 'max_tokens' : 'max_completion_tokens',
     );
   } else {
     providerRequest = buildAnthropicRequest(model, 'hi', undefined, { maxTokens: 1 }, apiKey);

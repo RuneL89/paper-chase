@@ -2088,3 +2088,18 @@
     providers. Cost display falls back to the default price table entry for custom
     provider models.
   Checked By: Main agent
+
+[2026-08-04 16:55] Qwen test connection fix — use max_tokens for reasoning models
+  Changed: src/llm/client.ts (buildOpenAIRequest gains optional maxTokensField
+    parameter; testModelConnection uses `max_tokens` for Qwen instead of
+    `max_completion_tokens`), src/AGENTS.md (documented v1.8.1 fix)
+  Vision Docs Checked: none (test-connection bug fix; no vision change)
+  Result: The TUI "Test connection" action for Qwen now sends `max_tokens` on the
+    tiny probe request. This prevents false negatives for Qwen reasoning models
+    (`qwen3.7-max`, `qwen3.8-max`), which allocate the single
+    `max_completion_tokens` token to `reasoning_content` and leave
+    `message.content` empty. All three built-in Qwen models now report
+    "Connected" when the key and endpoint are valid. Live verification with a
+    QwenCloud key confirmed qwen-plus, qwen3.7-max, and qwen3.8-max all respond
+    successfully.
+  Checked By: Main agent
