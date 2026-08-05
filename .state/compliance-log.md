@@ -2125,3 +2125,16 @@
     OpenAI reasoning models via a custom provider can still choose
     `max_completion_tokens` in their own template.
   Checked By: Main agent
+
+[2026-08-04 17:40] Anthropic Sonnet/Opus test connection fix — raise probe token budget
+  Changed: src/llm/client.ts (`testModelConnection` probe changed from `maxTokens: 1` to
+    `maxTokens: 16` for all provider branches; docstring updated), src/AGENTS.md (updated
+    v1.7.0 `testModelConnection` description and added v1.8.2 fix note)
+  Vision Docs Checked: none (test-connection bug fix; no vision change)
+  Result: The Settings "Test connection" probe now requests 16 tokens instead of 1. Anthropic
+    Haiku returned text within one token, but Sonnet and Opus responded with an empty
+    `content` array under the 1-token budget, causing a false "Anthropic API returned an
+    empty response" error. The 16-token budget is still tiny and cheap while leaving
+    enough room for any built-in model to emit visible text. The probe value is now the
+    same for built-in and custom providers.
+  Checked By: Main agent

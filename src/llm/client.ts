@@ -817,8 +817,8 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
 
 /**
  * Test whether a provider + API key + model can return a response. Sends a
- * tiny, cheap request using the same provider-specific request builders as
- * production, with `maxTokens: 1` and a minimal prompt. Does NOT use the
+   * tiny, cheap request using the same provider-specific request builders as
+   * production, with `maxTokens: 16` and a minimal prompt. Does NOT use the
  * module-level model routing, does NOT retry, does NOT log to
  * `llm-calls.json`, and does NOT charge against the run's cost metrics.
  *
@@ -846,18 +846,18 @@ export async function testModelConnection(
     if (!config) {
       return { ok: false, message: `Custom provider '${provider.slice(7)}' not found in settings.` };
     }
-    providerRequest = buildCustomProviderRequest(config, model, 'hi', undefined, { maxTokens: 1 }, apiKey);
+    providerRequest = buildCustomProviderRequest(config, model, 'hi', undefined, { maxTokens: 16 }, apiKey);
   } else if (provider === 'openai' || provider === 'qwen') {
     providerRequest = buildOpenAIRequest(
       model,
       'hi',
       undefined,
-      { maxTokens: 1 },
+      { maxTokens: 16 },
       apiKey,
       provider === 'qwen' ? QWEN_API_URL : OPENAI_API_URL,
     );
   } else {
-    providerRequest = buildAnthropicRequest(model, 'hi', undefined, { maxTokens: 1 }, apiKey);
+    providerRequest = buildAnthropicRequest(model, 'hi', undefined, { maxTokens: 16 }, apiKey);
   }
 
   let statusCode = 0;
