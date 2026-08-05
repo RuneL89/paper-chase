@@ -2,15 +2,17 @@
   "synthesis": true,
   "updateAgents": true,
   "models": {
-    "provider": "anthropic",
-    "default": "claude-haiku-4-5-20251001",
-    "extractor": "claude-haiku-4-5-20251001",
-    "synthesis": "claude-sonnet-5",
-    "dox": "claude-sonnet-5",
-    "curation": "claude-sonnet-5"
+    "provider": "qwen",
+    "default": "qwen-plus",
+    "extractor": "qwen-plus",
+    "synthesis": "qwen3.7-max",
+    "dox": "qwen3.7-max",
+    "curation": "qwen3.7-max"
   },
   "apiKeys": {
     "anthropic": null,
-    "openai": null
-  }
+    "openai": null,
+    "qwen": null
+  },
+  "customProviders": []
 }

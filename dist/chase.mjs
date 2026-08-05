@@ -99685,18 +99685,18 @@ async function testModelConnection(provider, model, apiKey, customProviders) {
     if (!config) {
       return { ok: false, message: `Custom provider '${provider.slice(7)}' not found in settings.` };
     }
-    providerRequest = buildCustomProviderRequest(config, model, "hi", void 0, { maxTokens: 1 }, apiKey);
+    providerRequest = buildCustomProviderRequest(config, model, "hi", void 0, { maxTokens: 16 }, apiKey);
   } else if (provider === "openai" || provider === "qwen") {
     providerRequest = buildOpenAIRequest(
       model,
       "hi",
       void 0,
-      { maxTokens: 1 },
+      { maxTokens: 16 },
       apiKey,
       provider === "qwen" ? QWEN_API_URL : OPENAI_API_URL
     );
   } else {
-    providerRequest = buildAnthropicRequest(model, "hi", void 0, { maxTokens: 1 }, apiKey);
+    providerRequest = buildAnthropicRequest(model, "hi", void 0, { maxTokens: 16 }, apiKey);
   }
   let statusCode = 0;
   let json;

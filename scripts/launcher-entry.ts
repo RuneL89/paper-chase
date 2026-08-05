@@ -41,7 +41,9 @@ import { spawnSync } from 'node:child_process';
 // 1.0.9 (2026-08-04): Built-in OpenAI/Qwen now send `max_tokens` instead of
 // `max_completion_tokens` (src/llm/client.ts bundle change), so the packaged
 // runtime must re-extract assets on first run.
-const VERSION = '1.0.9';
+// 1.0.10 (2026-08-04): Test-connection probe raised from 1 to 16 tokens
+// (src/llm/client.ts bundle change) so Anthropic Sonnet/Opus return text.
+const VERSION = '1.0.10';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');
