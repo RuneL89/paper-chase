@@ -1,11 +1,40 @@
 {
   "entities": [
     {
+      "name": "Atrieflimren",
+      "type": "medical-condition",
+      "slug": "atrieflimren",
+      "folder": "topics/medical-conditions/cardiovascular",
+      "significance": "Atrieflimren er den centrale sygdom, som hele dokumentet handler om, og danner grundlag for alle indikatorer, kliniske mål og kvalitetsmål i Regionernes Kliniske Kvalitetsudviklingsprogram.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 7,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 8,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 9,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 10,
+          "context": "Indikator 1: Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulationsbehandling (hvor antikoagulationsbehandling er indiceret)."
+        }
+      ]
+    },
+    {
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Dette program udgør rammerne for kvalitetsindikatorer inden for atrieflimrenbehandling i Danmark og er ansvarlig for at definere og overvåge de otte indikatorer, der præsenteres i dokumentet.",
+      "folder": "entities/organizations/health-quality-standards/governance",
+      "significance": "Dette er den overordnede organisation, der udarbejder og implementerer kvalitetsindikatorerne for behandling af atrieflimren i Danmark, og som står bag hele rapporten.",
       "mentions": [
         {
           "page": 6,
@@ -30,31 +59,84 @@
       ]
     },
     {
-      "name": "Atrieflimren i Danmark",
-      "type": "topic",
-      "slug": "atrieflimren-i-danmark",
-      "folder": "topics/heart-failure",
-      "significance": "Dette er titlen på det kvalitetsprogram, der dokumenteres i disse sider, og det repræsenterer det nationale initiativ til at måle og forbedre behandlingen af atrieflimren på tværs af Danmark.",
+      "name": "Antikoagulationsbehandling",
+      "type": "medical-intervention",
+      "slug": "antikoagulationsbehandling",
+      "folder": "entities/medical-interventions/pharmacotherapy",
+      "significance": "Antikoagulationsbehandling er en central behandlingsstrategi for patienter med atrieflimren, og dens tidlige og vedvarende anvendelse er genstand for flere procesindikatorer i dokumentet.",
       "mentions": [
         {
           "page": 6,
-          "context": "Atrieflimren i Danmark"
+          "context": "til opstart i antikoagulations behandling (hvor antikoagulations behandling er indiceret)."
         },
         {
           "page": 7,
-          "context": "Atrieflimren i Danmark"
-        },
+          "context": "fra diagnosticering til opstart i antikoagulations behandling (hvor antikoagulations behandling er indiceret)."
+        }
+      ]
+    },
+    {
+      "name": "Ekkokardiografi",
+      "type": "medical-intervention",
+      "slug": "ekkokardiografi",
+      "folder": "entities/medical-interventions/pharmacotherapy",
+      "significance": "Ekkokardiografi er en diagnostisk undersøgelse, der er krævet for nydiagnosticerede patienter med atrieflimren inden for et specifikt tidsrum, og som danner grundlag for Indikator 2.",
+      "mentions": [
         {
-          "page": 8,
-          "context": "Atrieflimren i Danmark"
-        },
+          "page": 6,
+          "context": "der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato."
+        }
+      ]
+    },
+    {
+      "name": "TSH",
+      "type": "biomarker",
+      "slug": "thyreoideastimulerende-hormon-tsh",
+      "folder": "entities/biomarkers/endocrine",
+      "significance": "TSH-måling er en krævet laboratorieundersøgelse for nydiagnosticerede patienter med atrieflimren, da thyreoideafunktion kan påvirke risikoen for atrieflimren og behovet for antikoagulation.",
+      "mentions": [
         {
-          "page": 9,
-          "context": "Atrieflimren i Danmark"
-        },
+          "page": 6,
+          "context": "som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato"
+        }
+      ]
+    },
+    {
+      "name": "Direkte Orale antikoagulantia",
+      "type": "pharmaceutical-class",
+      "slug": "doac",
+      "folder": "entities/codes/drug-classes",
+      "significance": "DOAC er en gruppe lægemidler, der bruges til antikoagulation hos patienter med atrieflimren, og hvis sikkerhed overvåges via årlig S-creatinin-måling i henhold til Indikator 4b.",
+      "mentions": [
         {
-          "page": 10,
-          "context": "Atrieflimren i Danmark"
+          "page": 6,
+          "context": "prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt."
+        }
+      ]
+    },
+    {
+      "name": "Apopleksi",
+      "type": "clinical-outcome",
+      "slug": "iskaemisk-apopleksi",
+      "folder": "topics/clinical-outcome",
+      "significance": "Apopleksi er en alvorlig komplikation af atrieflimren og udgør en central resultatindikator (Indikator 5), hvor incidensen skal holdes under 0,8 % blandt prævalente patienter.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Incidens af apopleksi blandt prævalente patienter med atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "Intrakraniel blødning",
+      "type": "clinical-outcome",
+      "slug": "intrakraniel-bloedning",
+      "folder": "topics/clinical-outcome",
+      "significance": "Intrakraniel blødning er en potentielt livstruende bivirkning af antikoagulationsbehandling og udgør en resultatindikator (Indikator 6), hvor incidensen skal være ≤ 0,6 % blandt prævalente patienter.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren."
         }
       ]
     },
@@ -62,250 +144,460 @@
       "name": "International Society of Thrombosis and Hemostasis",
       "type": "organization",
       "slug": "international-society-of-thrombosis-and-hemostasis",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Denne organisation har udviklet kriterierne (ISTH-kriterier) der anvendes til at definere alvorlig blødning blandt patienter med atrieflimren i indikator 7.",
+      "folder": "entities/organizations/medical-societies",
+      "significance": "ISTH er den internationale faglige sammenslutning, hvis kriterier for alvorlig blødning er tilpasset og anvendt i Indikator 7 for at definere alvorlig blødning blandt patienter med atrieflimren.",
       "mentions": [
         {
           "page": 6,
-          "context": "International Society of Thrombosis and Hemostasis (ISTH) kriterier"
-        },
+          "context": "alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "Struktureret undervisningsprogram",
+      "type": "clinical-intervention",
+      "slug": "struktureret-undervisningsprogram",
+      "folder": "topics/clinical-practice-decision",
+      "significance": "Et struktureret undervisningsprogram er en procesindikator (Indikator 8), der måler, hvor mange nydiagnosticerede patienter med atrieflimren modtager systematisk patientuddannelse inden for det første år efter diagnosen.",
+      "mentions": [
         {
-          "page": 7,
-          "context": "International Society of Thrombosis and Hemostasis (ISTH) kriterier"
+          "page": 6,
+          "context": "som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet (specifik kode for AF)."
+        }
+      ]
+    },
+    {
+      "name": "S-creatinin",
+      "type": "laboratory-test",
+      "slug": "np04998-p-kreatinin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "Måling af S-creatinin er en nødvendig årlig kontrol for patienter på DOAC-behandling til vurdering af nyrefunktion, hvilket er centralet for Indikator 4b.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "med mindst 1 måling af S-creatinin årligt."
         }
       ]
     }
   ],
   "relationships": [
     {
+      "subject": "atrieflimren",
+      "predicate": "has-indicator",
+      "object": "indikator-1",
+      "evidence": "Indikator 1: Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations behandling (hvor antikoagulations behandling er indiceret).",
+      "page": 6
+    },
+    {
+      "subject": "atrieflimren",
+      "predicate": "has-indicator",
+      "object": "indikator-2",
+      "evidence": "Indikator 2: Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato.",
+      "page": 6
+    },
+    {
+      "subject": "atrieflimren",
+      "predicate": "has-indicator",
+      "object": "indikator-3",
+      "evidence": "Indikator 3: Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato",
+      "page": 6
+    },
+    {
+      "subject": "atrieflimren",
+      "predicate": "has-indicator",
+      "object": "indikator-4a1",
+      "evidence": "Indikator 4a1: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 1 år efter indeksdato.",
+      "page": 6
+    },
+    {
+      "subject": "atrieflimren",
+      "predicate": "has-indicator",
+      "object": "indikator-4a2",
+      "evidence": "Indikator 4a2: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato.",
+      "page": 6
+    },
+    {
+      "subject": "atrieflimren",
+      "predicate": "has-indicator",
+      "object": "indikator-4a3",
+      "evidence": "Indikator 4a3: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 5 år efter indeksdato.",
+      "page": 6
+    },
+    {
+      "subject": "atrieflimren",
+      "predicate": "has-indicator",
+      "object": "indikator-4b",
+      "evidence": "Indikator 4b: Andelen af prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt.",
+      "page": 6
+    },
+    {
+      "subject": "atrieflimren",
+      "predicate": "has-indicator",
+      "object": "indikator-5",
+      "evidence": "Indikator 5: Incidens af apopleksi blandt prævalente patienter med atrieflimren.",
+      "page": 6
+    },
+    {
+      "subject": "atrieflimren",
+      "predicate": "has-indicator",
+      "object": "indikator-6",
+      "evidence": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren.",
+      "page": 6
+    },
+    {
+      "subject": "atrieflimren",
+      "predicate": "has-indicator",
+      "object": "indikator-7",
+      "evidence": "Indikator 7: Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren.",
+      "page": 6
+    },
+    {
+      "subject": "atrieflimren",
+      "predicate": "has-indicator",
+      "object": "indikator-8",
+      "evidence": "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet (specifik kode for AF).",
+      "page": 6
+    },
+    {
       "subject": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "predicate": "defines-indicators-for",
-      "object": "atrieflimren-i-danmark",
-      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram definerer otte indikatorer for atrieflimren i Danmark",
+      "predicate": "defines-standard-for",
+      "object": "atrieflimren",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram — 3. Indikatorer",
+      "page": 6
+    },
+    {
+      "subject": "antikoagulationsbehandling",
+      "predicate": "is-indicated-for",
+      "object": "atrieflimren",
+      "evidence": "hvor antikoagulations behandling er indiceret",
+      "page": 6
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "is-recommended-for",
+      "object": "atrieflimren",
+      "evidence": "der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato",
+      "page": 6
+    },
+    {
+      "subject": "thyreoideastimulerende-hormon-tsh",
+      "predicate": "is-measured-for",
+      "object": "atrieflimren",
+      "evidence": "som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato",
+      "page": 6
+    },
+    {
+      "subject": "doac",
+      "predicate": "is-subclass-of",
+      "object": "antikoagulationsbehandling",
+      "evidence": "prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC)",
+      "page": 6
+    },
+    {
+      "subject": "iskaemisk-apopleksi",
+      "predicate": "is-complication-of",
+      "object": "atrieflimren",
+      "evidence": "Incidens af apopleksi blandt prævalente patienter med atrieflimren.",
+      "page": 6
+    },
+    {
+      "subject": "intrakraniel-bloedning",
+      "predicate": "is-complication-of",
+      "object": "atrieflimren",
+      "evidence": "Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren.",
       "page": 6
     },
     {
       "subject": "international-society-of-thrombosis-and-hemostasis",
-      "predicate": "developed-criteria-for",
-      "object": "indikator-7-serious-bleeding",
-      "evidence": "Indikator 7 bruger tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier til at måle incidens af alvorlig blødning",
+      "predicate": "provides-criteria-for",
+      "object": "intrakraniel-bloedning",
+      "evidence": "alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier)",
+      "page": 6
+    },
+    {
+      "subject": "struktureret-undervisningsprogram",
+      "predicate": "is-delivered-to",
+      "object": "atrieflimren",
+      "evidence": "nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet",
+      "page": 6
+    },
+    {
+      "subject": "np04998-p-kreatinin",
+      "predicate": "is-monitoring-test-for",
+      "object": "doac",
+      "evidence": "prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt.",
       "page": 6
     }
   ],
   "claims": [
     {
-      "text": "Indikator 1: Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulationsbehandling (hvor antikoagulationsbehandling er indiceret) har standard ≥ 90 % [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 1 har standarden ≥ 90 % for andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations behandling (hvor antikoagulations behandling er indiceret) [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "atrieflimren-i-danmark"
+        "atrieflimren",
+        "antikoagulationsbehandling",
+        "indikator-1"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 2: Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato har standard ≥ 80 % [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 2 har standarden ≥ 80 % for andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "atrieflimren-i-danmark"
+        "atrieflimren",
+        "ekkokardiografi",
+        "indikator-2"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 3: Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato har standard ≥ 95 % [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 3 har standarden ≥ 95 % for andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "atrieflimren-i-danmark"
+        "atrieflimren",
+        "thyreoideastimulerende-hormon-tsh",
+        "indikator-3"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 4a1: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 1 år efter indeksdato har standard ≥ 90 % [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 4a1 har standarden ≥ 90 % for andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 1 år efter indeksdato [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "atrieflimren-i-danmark"
+        "atrieflimren",
+        "antikoagulationsbehandling",
+        "indikator-4a1"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 4a2: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato har standard ≥ 90 % [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 4a2 har standarden ≥ 90 % for andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "atrieflimren-i-danmark"
+        "atrieflimren",
+        "antikoagulationsbehandling",
+        "indikator-4a2"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 4a3: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 5 år efter indeksdato har standard ≥ 90 % [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 4a3 har standarden ≥ 90 % for andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 5 år efter indeksdato [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "atrieflimren-i-danmark"
+        "atrieflimren",
+        "antikoagulationsbehandling",
+        "indikator-4a3"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 4b: Andelen af prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt har standard ≥ 95 % [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 4b har standarden ≥ 95 % for andelen af prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "atrieflimren-i-danmark"
+        "atrieflimren",
+        "doac",
+        "np04998-p-kreatinin",
+        "indikator-4b"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 5: Incidens af apopleksi blandt prævalente patienter med atrieflimren har standard ≤ 0,8 % [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 5 har standarden ≤ 0,8 % for incidensen af apopleksi blandt prævalente patienter med atrieflimren [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "atrieflimren-i-danmark"
+        "atrieflimren",
+        "iskaemisk-apopleksi",
+        "indikator-5"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren har standard ≤ 0,6 % [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 6 har standarden ≤ 0,6 % for incidensen af intrakraniel blødning blandt prævalente patienter med atrieflimren [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "atrieflimren-i-danmark"
+        "atrieflimren",
+        "intrakraniel-bloedning",
+        "indikator-6"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 7: Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 7 har ingen angivet standard, men rapporterer incidensen af alvorlig blødning (tillempede ISTH-kriterier) blandt prævalente patienter med atrieflimren [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "atrieflimren-i-danmark"
+        "atrieflimren",
+        "intrakraniel-bloedning",
+        "international-society-of-thrombosis-and-hemostasis",
+        "indikator-7"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet (specifik kode for AF) har standard ≥ 50 % [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 8 har standarden ≥ 50 % for andelen af nydiagnosticerede patienter med atrieflimren, som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "atrieflimren-i-danmark"
+        "atrieflimren",
+        "struktureret-undervisningsprogram",
+        "indikator-8"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 1 opnåede 91,6 % (95% CI: 91,1-92,0) i perioden 01.07.2023 - 30.06.2024, hvilket overstiger standarden på ≥ 90 % [^src2]",
-      "type": "result",
+      "text": "For Indikator 1 blev den nationale opfyldelse i perioden 01.07.2023–30.06.2024 målt til 91,6 % (95 % CI: 91,1–92,0) [^src1]",
+      "type": "performance-data",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-1"
       ],
       "page": 7
     },
     {
-      "text": "Indikator 2 opnåede 80,6 % (95% CI: 80,1-81,1) i perioden 01.05.2023 - 30.04.2024, hvilket overstiger standarden på ≥ 80 % [^src2]",
-      "type": "result",
+      "text": "For Indikator 2 blev den nationale opfyldelse i perioden 01.05.2023–30.04.2024 målt til 80,6 % (95 % CI: 80,1–81,1) [^src1]",
+      "type": "performance-data",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-2"
       ],
       "page": 7
     },
     {
-      "text": "Indikator 3 opnåede 76,0 % (95% CI: 75,4-76,6) i perioden 01.07.2023 - 30.06.2024, hvilket ligger under standarden på ≥ 95 % [^src2]",
-      "type": "result",
+      "text": "For Indikator 3 blev den nationale opfyldelse i perioden 01.07.2023–30.06.2024 målt til 76,0 % (95 % CI: 75,4–76,6) [^src1]",
+      "type": "performance-data",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-3"
       ],
       "page": 7
     },
     {
-      "text": "Indikator 4a1 opnåede 89,1 % (95% CI: 88,5-89,7) i perioden 01.07.2022 - 30.06.2023, hvilket ligger under standarden på ≥ 90 % [^src2]",
-      "type": "result",
+      "text": "For Indikator 4a1 blev den nationale opfyldelse i perioden 01.07.2022–30.06.2023 målt til 89,1 % (95 % CI: 88,5–89,7) [^src1]",
+      "type": "performance-data",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-4a1"
       ],
       "page": 7
     },
     {
-      "text": "Indikator 4a2 opnåede 88,6 % (95% CI: 88,0-89,3) i perioden 01.07.2021 - 30.06.2022, hvilket ligger under standarden på ≥ 90 % [^src2]",
-      "type": "result",
+      "text": "For Indikator 4a2 blev den nationale opfyldelse i perioden 01.07.2021–30.06.2022 målt til 88,6 % (95 % CI: 88,0–89,3) [^src1]",
+      "type": "performance-data",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-4a2"
       ],
       "page": 7
     },
     {
-      "text": "Indikator 4a3 opnåede 87,3 % (95% CI: 86,5-88,1) i perioden 01.07.2018 - 30.06.2019, hvilket ligger under standarden på ≥ 90 % [^src2]",
-      "type": "result",
+      "text": "For Indikator 4a3 blev den nationale opfyldelse i perioden 01.07.2018–30.06.2019 målt til 87,3 % (95 % CI: 86,5–88,1) [^src1]",
+      "type": "performance-data",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-4a3"
       ],
       "page": 7
     },
     {
-      "text": "Indikator 4b opnåede 93,9 % (95% CI: 93,8-94,1) i perioden 01.07.2023 - 30.06.2024, hvilket ligger under standarden på ≥ 95 % [^src2]",
-      "type": "result",
+      "text": "For Indikator 4b blev den nationale opfyldelse i perioden 01.07.2023–30.06.2024 målt til 93,9 % (95 % CI: 93,8–94,1) [^src1]",
+      "type": "performance-data",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-4b"
       ],
       "page": 7
     },
     {
-      "text": "Indikator 5 opnåede 0,8 % (95% CI: 0,8-0,9), hvilket opfylder standarden på ≤ 0,8 % [^src2]",
-      "type": "result",
+      "text": "For Indikator 5 blev den nationale incidens i perioden 01.07.2023–30.06.2024 målt til 0,8 % (95 % CI: 0,8–0,9) [^src1]",
+      "type": "performance-data",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-5"
       ],
       "page": 7
     },
     {
-      "text": "Indikator 6 opnåede 0,5 % (95% CI: 0,5-0,6), hvilket overstiger standarden på ≤ 0,6 % [^src2]",
-      "type": "result",
+      "text": "For Indikator 6 blev den nationale incidens i perioden 01.07.2023–30.06.2024 målt til 0,5 % (95 % CI: 0,5–0,6) [^src1]",
+      "type": "performance-data",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-6"
       ],
       "page": 7
     },
     {
-      "text": "Indikator 7 opnåede 2,1 % (95% CI: 2,1-2,2) for incidens af alvorlig blødning blandt prævalente patienter med atrieflimren [^src2]",
-      "type": "result",
+      "text": "For Indikator 7 blev den nationale incidens i perioden 01.07.2023–30.06.2024 målt til 2,1 % (95 % CI: 2,1–2,2) [^src1]",
+      "type": "performance-data",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-7"
       ],
       "page": 7
     },
     {
-      "text": "Indikator 8 opnåede 15,9 % (95% CI: 15,4-16,4) i perioden 01.07.2022 - 30.06.2023, hvilket ligger under standarden på ≥ 50 % [^src2]",
-      "type": "result",
+      "text": "For Indikator 8 blev den nationale opfyldelse i perioden 01.07.2022–30.06.2023 målt til 15,9 % (95 % CI: 15,4–16,4) [^src1]",
+      "type": "performance-data",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-8"
       ],
       "page": 8
     }
   ],
   "timeline": [
     {
-      "date": "01.07.2023 - 30.06.2024",
-      "event": "Måleperiode for Indikator 1, 3, 4b: Ventetid til antikoagulationsbehandling, TSH-måling og S-creatinin-måling blandt patienter med atrieflimren",
+      "date": "2023-07-01",
+      "event": "Start af dataindsamlingsperiode for Indikator 1, Indikator 2, Indikator 3 og Indikator 4b",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-1",
+        "indikator-2",
+        "indikator-3",
+        "indikator-4b"
       ]
     },
     {
-      "date": "01.05.2023 - 30.04.2024",
-      "event": "Måleperiode for Indikator 2: Ekkokardiografi blandt nydiagnosticerede patienter med atrieflimren",
+      "date": "2023-05-01",
+      "event": "Start af dataindsamlingsperiode for Indikator 2 (alternativ periode)",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-2"
       ]
     },
     {
-      "date": "01.07.2022 - 30.06.2023",
-      "event": "Måleperiode for Indikator 4a1 og Indikator 8: Antikoagulationsbehandling 1 år efter indeksdato og struktureret undervisningsprogram",
+      "date": "2022-07-01",
+      "event": "Start af dataindsamlingsperiode for Indikator 4a1 og Indikator 4b",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-4a1"
       ]
     },
     {
-      "date": "01.07.2021 - 30.06.2022",
-      "event": "Måleperiode for Indikator 4a2: Antikoagulationsbehandling 2 år efter indeksdato blandt patienter med atrieflimren",
+      "date": "2021-07-01",
+      "event": "Start af dataindsamlingsperiode for Indikator 4a2",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-4a2"
       ]
     },
     {
-      "date": "01.07.2018 - 30.06.2019",
-      "event": "Måleperiode for Indikator 4a3: Antikoagulationsbehandling 5 år efter indeksdato blandt patienter med atrieflimren",
+      "date": "2018-07-01",
+      "event": "Start af dataindsamlingsperiode for Indikator 4a3",
       "entities": [
-        "atrieflimren-i-danmark"
+        "indikator-4a3"
       ]
     }
   ],
-  "context": "Dette dokument præsenterer det danske kvalitetsprogram for atrieflimren under Regionernes Kliniske Kvalitetsudviklingsprogram. Det indeholder en oversigt over otte kvalitets- og procesindikatorer designet til at måle og forbedre behandlingen af atrieflimren på tværs af Danmark, samt de seneste resultater for hver indikator. Indikatorerne dækker vigtige aspekter af atrieflimrenbehandling, herunder ventetider til antikoagulationsbehandling, diagnostiske procedurer, medicinhåndtering og patientuddannelse, samt kliniske resultater som forekomsten af slag og blødning blandt patienter med atrieflimren."
+  "tables": [
+    {
+      "subject": "indikatoroversigt",
+      "title": "Indikatoroversigt",
+      "page": 6,
+      "rowDimension": "indikatorer",
+      "colDimension": "egenskaber",
+      "entities": [
+        "atrieflimren",
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
+      ],
+      "markdown": "| Indikator | Type | Format | Standard | ID |\n| --- | --- | --- | --- | --- |\n| Indikator 1: Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations behandling (hvor antikoagulations behandling er indiceret). | Proces | Andel | ≥ 90 % | AFDK_01_004 |\n| Indikator 2: Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato. | Proces | Andel | ≥ 80 % | AFDK_02_003 |\n| Indikator 3: Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato | Proces | Andel | ≥ 95 % | AFDK_03_002 |\n| Indikator 4a1: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 1 år efter indeksdato. | Proces | Andel | ≥ 90 % | AFDK_41_004 |\n| Indikator 4a2: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato. | Proces | Andel | ≥ 90 % | AFDK_42_004 |\n| Indikator 4a3: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 5 år efter indeksdato. | Proces | Andel | ≥ 90 % | AFDK_43_003 |\n| Indikator 4b: Andelen af prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt. | Proces | Andel | ≥ 95 % | AFDK_47_001 |\n| Indikator 5: Incidens af apopleksi blandt prævalente patienter med atrieflimren. | Resultat | Andel | ≤ 0,8 % | AFDK_06_002 |\n| Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren. | Resultat | Andel | ≤ 0,6 % | AFDK_07_002 |\n| Indikator 7: Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren. | Resultat | Andel | — | AFDK_08_001 |\n| Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet (specifik kode for AF). | Proces | Andel | ≥ 50 % | AFDK_14_001 |",
+      "summary": "Tabellen sammenligner 11 kvalitetsindikatorer for atrieflimren efter type (proces/resultat), format (andel), standard (numerisk mål) og unik ID, og viser en klar forskel mellem procesindikatorer (1–4b, 8) og resultatindikatorer (5–7)."
+    },
+    {
+      "subject": "samlede-indikatorresultater",
+      "title": "Oversigt over de samlede indikatorresultater",
+      "page": 7,
+      "rowDimension": "indikatorer",
+      "colDimension": "opfyldelse-i-procent",
+      "entities": [
+        "atrieflimren",
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
+      ],
+      "markdown": "| Indikator | Standard % | Andel (95% CI) | Andel 2022/23 | Andel 2021/22 |\n| --- | --- | --- | --- | --- |\n| Indikator 1: Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations behandling (hvor antikoagulations behandling er indiceret). | ≥ 90 | 91,6 (91,1-92,0) | 91,5 | 91,0 |\n| Indikator 2: Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato. | ≥ 80 | 80,6 (80,1-81,1) | 79,0 | 76,7 |\n| Indikator 3: Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato | ≥ 95 | 76,0 (75,4-76,6) | 76,7 | 76,4 |\n| Indikator 4a1: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 1 år efter indeksdato. | ≥ 90 | 89,1 (88,5-89,7) | 89,8 | 89,4 |\n| Indikator 4a2: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato. | ≥ 90 | 88,6 (88,0-89,3) | 89,6 | 88,4 |\n| Indikator 4a3: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 5 år efter indeksdato. | ≥ 90 | 87,3 (86,5-88,1) | 88,1 | 85,9 |\n| Indikator 4b: Andelen af prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt. | ≥ 95 | 93,9 (93,8-94,1) | 93,6 | 92,8 |\n| Indikator 5: Incidens af apopleksi blandt prævalente patienter med atrieflimren. | ≤ 0,8 | 0,8 (0,8-0,9) | 0,8 | 0,8 |\n| Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren. | ≤ 0,6 | 0,5 (0,5-0,6) | 0,5 | 0,5 |\n| Indikator 7: Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren. | — | 2,1 (2,1-2,2) | 2,2 | 2,2 |\n| Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet (specifik kode for AF). | ≥ 50 | 15,9 (15,4-16,4) | 8,2 | — |",
+      "summary": "Tabellen sammenligner faktisk opfyldelse af de 11 indikatorer i 2023/24 med tidligere år, og viser at kun Indikator 1, 2, 4b, 5 og 6 opfylder deres standarder, mens Indikator 3, 4a1–4a3 og 8 ligger under deres respektive standarder."
+    }
+  ],
+  "context": "Dette dokumentchunk er en del af den offentliggjorte version af 'Atrieflimren i Danmark' fra Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP), der dækker siderne 6–10. Det beskriver et systematiske sæt af kvalitetsindikatorer til overvågning og forbedring af behandlingen af atrieflimren i dansk sundhedsvæsen. Chunken indeholder både definitioner af 11 specifikke indikatorer (inklusiv deres typer, formater, standarder og IDs), samt de seneste nationale resultater for disse indikatorer, herunder konfidensintervaller og historiske sammenligninger. Den indgår i en bredere kvalitetsudviklingskontekst, hvor RKKP arbejder med at standardisere og evaluere klinisk praksis gennem evidensbaserede indikatorer, og hvor atrieflimren er en af de prioritære sygdomme i programmet."
 }

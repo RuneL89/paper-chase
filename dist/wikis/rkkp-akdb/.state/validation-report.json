@@ -3,140 +3,2546 @@
   "links": {
     "broken": [
       {
-        "page": "wikis/rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen.md",
-        "link": "sundhedsvaesenets-kvalitetsinstitut"
+        "page": "wikis/rkkp-akdb/comparisons/akut-kirurgi-databasen.md",
+        "link": "performance-target|Performance Target"
       },
       {
-        "page": "wikis/rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen.md",
-        "link": "sundhedsvaesenets-kvalitetsinstitut"
+        "page": "wikis/rkkp-akdb/comparisons/akut-kirurgi-databasen.md",
+        "link": "performance-target|Performance Target"
       },
       {
-        "page": "wikis/rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen.md",
-        "link": "sundhedsvaesenets-kvalitetsinstitut"
+        "page": "wikis/rkkp-akdb/comparisons/akut-kirurgi-databasen.md",
+        "link": "performance-target|Performance Target"
       },
       {
-        "page": "wikis/rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen.md",
-        "link": "sundhedsvaesenets-kvalitetsinstitut"
+        "page": "wikis/rkkp-akdb/comparisons/akut-kirurgi-databasen.md",
+        "link": "clinical-statistic|Clinical Statistic"
       },
       {
-        "page": "wikis/rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen.md",
-        "link": "sundhedsvaesenets-kvalitetsinstitut"
+        "page": "wikis/rkkp-akdb/comparisons/akut-kirurgi-databasen.md",
+        "link": "performance-result|Performance Result"
       },
       {
-        "page": "wikis/rkkp-akdb/topics/clinical-indicators/praeoperativ-optimering.md",
-        "link": "naaz2-koden"
+        "page": "wikis/rkkp-akdb/comparisons/akut-kirurgi-databasen.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/akut-kirurgi-databasen.md",
+        "link": "population-statistic|Population Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/akut-kirurgi-databasen.md",
+        "link": "data-exclusion|Data Exclusion"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "policy-change|Policy Change"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "policy-change|Policy Change"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "policy-change|Policy Change"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "policy-decision|Policy Decision"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "clinical-performance|Clinical Performance"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "clinical-performance|Clinical Performance"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "healthcare-comparison|Healthcare Comparison"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-1.md",
+        "link": "regional-variation|Regional Variation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "policy-recommendation|Policy Recommendation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-goal|Performance Goal"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "data-inconsistency|Data Inconsistency"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "healthcare-comparison|Healthcare Comparison"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "regional-variation|Regional Variation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-10.md",
+        "link": "outcome|Outcome"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-2.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-2.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-2.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-2.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-2.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-2.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-2.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-2.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-2.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-2.md",
+        "link": "regional-variation|Regional Variation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-3.md",
+        "link": "performance-target|Performance Target"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-3.md",
+        "link": "performance-target|Performance Target"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-3.md",
+        "link": "performance-target|Performance Target"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-3.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-3.md",
+        "link": "target|Target"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-3.md",
+        "link": "clinical-performance|Clinical Performance"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-3.md",
+        "link": "clinical-performance|Clinical Performance"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-3.md",
+        "link": "clinical-statistic|Clinical Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-3.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-3.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-3.md",
+        "link": "population-statistic|Population Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-3.md",
+        "link": "data-exclusion|Data Exclusion"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4x.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4x.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4x.md",
+        "link": "healthcare-comparison|Healthcare Comparison"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4x.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4x.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4x.md",
+        "link": "regional-variation|Regional Variation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4y.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4y.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4y.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4y.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4y.md",
+        "link": "healthcare-comparison|Healthcare Comparison"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4y.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4y.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-4y.md",
+        "link": "regional-variation|Regional Variation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5.md",
+        "link": "regulatory|Regulatory"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "healthcare-comparison|Healthcare Comparison"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5x.md",
+        "link": "regional-variation|Regional Variation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "healthcare-comparison|Healthcare Comparison"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-5y.md",
+        "link": "regional-variation|Regional Variation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "policy-change|Policy Change"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-target|Performance Target"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "quality-metric|Quality Metric"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "quality-metric|Quality Metric"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "healthcare-comparison|Healthcare Comparison"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-8.md",
+        "link": "regional-variation|Regional Variation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9b.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9b.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9b.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9b.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9b.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9b.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9b.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9b.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9b.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9b.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9b.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9c.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9c.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9c.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9c.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9c.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9c.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9c.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9c.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9c.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9c.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikator-9c.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "healthcare-comparison|Healthcare Comparison"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+        "link": "regional-variation|Regional Variation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+        "link": "policy-change|Policy Change"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+        "link": "policy-change|Policy Change"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+        "link": "policy-change|Policy Change"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+        "link": "policy-decision|Policy Decision"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+        "link": "clinical-performance|Clinical Performance"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+        "link": "clinical-performance|Clinical Performance"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "policy-change|Policy Change"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "policy-change|Policy Change"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "policy-change|Policy Change"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "policy-change|Policy Change"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "policy-recommendation|Policy Recommendation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "policy-decision|Policy Decision"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-target|Performance Target"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-target|Performance Target"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "regulatory|Regulatory"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "regulatory-standard|Regulatory Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-goal|Performance Goal"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-goal|Performance Goal"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-standard|Performance Standard"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "target|Target"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "clinical-performance|Clinical Performance"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "clinical-performance|Clinical Performance"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "clinical-performance|Clinical Performance"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "clinical-performance|Clinical Performance"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "quality-metric|Quality Metric"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "quality-metric|Quality Metric"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "quality-metric|Quality Metric"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "clinical-metric|Clinical Metric"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "data-inconsistency|Data Inconsistency"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "regional-variation|Regional Variation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "outcome|Outcome"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/oversigt-over-alle-indikatorer.md",
+        "link": "outcome|Outcome"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "healthcare-comparison|Healthcare Comparison"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+        "link": "regional-variation|Regional Variation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "healthcare-comparison|Healthcare Comparison"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "regional-variation|Regional Variation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "healthcare-comparison|Healthcare Comparison"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "regional-statistic|Regional Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+        "link": "regional-variation|Regional Variation"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "performance-target|Performance Target"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "performance-target|Performance Target"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "performance-target|Performance Target"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "clinical-statistic|Clinical Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "hospital-statistic|Hospital Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "performance-result|Performance Result"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "performance-statistic|Performance Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "population-statistic|Population Statistic"
+      },
+      {
+        "page": "wikis/rkkp-akdb/comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+        "link": "data-exclusion|Data Exclusion"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/codes/medical-coding/babz00.md",
+        "link": "epidural-use|epidural use"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/codes/medical-coding/naad0.md",
+        "link": "epidural-use"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/codes/medical-coding/naaz2.md",
+        "link": "preoperative-optimization"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/organizations/healthcare-authority/sds.md",
+        "link": "lpr-code-babz00"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/organizations/regional-health-authorities/region-hovedstaden.md",
+        "link": "regionerne-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/organizations/regional-health-authorities/region-nordjylland.md",
+        "link": "regionerne-kliniske-kvalitetsudviklingsprogram"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-administrators/birgitte-ruhmann.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-leaders/peter-svenningsen.md",
+        "link": "akut-kirurgi-databasen-styregruppe|akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-leadership/lone-winther-jensen.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-professionals/camilla-leidcker.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-professionals/halfdan-lauridsen.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-professionals/jakob-burcharth.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-professionals/karen-vestergaard-andersen.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-professionals/kristian-aagaard-poulsen.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-professionals/line-rokkedal-jonsson.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-professionals/marianne-vinbaek.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-professionals/nicolai-bang-foss.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-professionals/rasmus-haarup-lie.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-professionals/rikke-therkildsen.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-professionals/rune-trangbaek.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-professionals/thomas-jorgensen.md",
+        "link": "akut-kirurgi-databasen-styregruppe|Akut Kirurgi Databasen Steering Committee"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-researchers/anne-kirstine-dyrvig.md",
+        "link": "akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/entities/people/healthcare-researchers/henrik-nielsen.md",
+        "link": "akut-kirurgi-databasen-styregruppe|akut-kirurgi-databasen-styregruppe"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-10.md",
+        "link": "30-dages-mortalitet|30-day mortality"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-10.md",
+        "link": "mortality-within-90-days|90-day mortality"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-11.md",
+        "link": "90-dages-mortalitet|90-dages-mortalitet"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-3.md",
+        "link": "praoperativ-optimering|præoperativ optimering"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-5.md",
+        "link": "intermediaer-indlaeggelse"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-8.md",
+        "link": "ernaering-vurdering-indenfor-48-timer|ernaering-vurdering-indenfor-48-timer"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-8.md",
+        "link": "ingen-standard-fastsat|ingen-standard-fastsat"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/clinical-outcome/clinical-outcome.md",
+        "link": "Sygehus Lillebælt"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/clinical-outcome/clinical-outcome.md",
+        "link": "Sygehus Sønderjylland"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/clinical-outcome/clinical-outcome.md",
+        "link": "Regionshospitalet Gødstrup"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-4y.md",
+        "link": "behandlingshastighed-ileus|behandlingshastighed-ileus"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/healthcare-performance-indicators/indikator-5x.md",
+        "link": "perforation-iskaemi-bloedning|perforation, ischemia, or bleeding"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/healthcare-performance-indicators/indikator-5y.md",
+        "link": "non-perforation-iskaemi-bloedning"
+      },
+      {
+        "page": "wikis/rkkp-akdb/topics/regional-comparison/regional-comparison.md",
+        "link": "Region Sjælland"
       }
     ],
     "orphaned": [
       "wikis/rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen.md",
-      "wikis/rkkp-akdb/topics/clinical-assessment/asa-score.md",
-      "wikis/rkkp-akdb/topics/clinical-indicators/indikator-3.md",
-      "wikis/rkkp-akdb/topics/clinical-indicators/mortalitet-indenfor-90-dage.md",
-      "wikis/rkkp-akdb/topics/clinical-indicators/operation-indenfor-6-timer.md",
-      "wikis/rkkp-akdb/topics/clinical-practice/laparotomi.md",
-      "wikis/rkkp-akdb/topics/mortality-outcome/mortalitet-indenfor-30-dage-efter-akut-kirurgi.md",
-      "wikis/rkkp-akdb/topics/quality-indicators/indikator-1.md",
-      "wikis/rkkp-akdb/topics/quality-indicators/indikator-10.md",
-      "wikis/rkkp-akdb/topics/quality-indicators/indikator-11.md",
-      "wikis/rkkp-akdb/topics/quality-indicators/indikator-2.md",
-      "wikis/rkkp-akdb/topics/quality-indicators/indikator-4.md",
-      "wikis/rkkp-akdb/topics/quality-indicators/indikator-4x.md",
-      "wikis/rkkp-akdb/topics/quality-indicators/indikator-4y.md",
-      "wikis/rkkp-akdb/topics/quality-indicators/indikator-5.md",
-      "wikis/rkkp-akdb/topics/quality-indicators/indikator-6.md",
-      "wikis/rkkp-akdb/topics/quality-indicators/indikator-7.md",
-      "wikis/rkkp-akdb/topics/quality-indicators/indikator-8.md",
-      "wikis/rkkp-akdb/topics/quality-indicators/indikator-9.md"
+      "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-1.md",
+      "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-10.md",
+      "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-3.md",
+      "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-4.md",
+      "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-5.md",
+      "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-8.md",
+      "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-9.md",
+      "wikis/rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-10c.md",
+      "wikis/rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-2.md",
+      "wikis/rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-4x.md",
+      "wikis/rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-4y.md",
+      "wikis/rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-9b.md",
+      "wikis/rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-9c.md",
+      "wikis/rkkp-akdb/topics/healthcare-performance-indicators/indikator-5x.md",
+      "wikis/rkkp-akdb/topics/healthcare-performance-indicators/indikator-5y.md"
     ],
     "islands": [
-      "wikis/rkkp-akdb/entities/organizations/professional-associations/dansk-radiologisk-selskab.md",
-      "wikis/rkkp-akdb/entities/organizations/professional-associations/nasbo-projektet.md",
-      "wikis/rkkp-akdb/entities/organizations/professional-societies/dansk-kirurgisk-selskab.md",
-      "wikis/rkkp-akdb/entities/organizations/professional-societies/dansk-selskab-for-akutmedicin.md",
-      "wikis/rkkp-akdb/entities/organizations/professional-societies/dansk-selskab-for-anaestesiologi-og-intensiv-medicin.md",
-      "wikis/rkkp-akdb/entities/organizations/professional-societies/dansk-selskab-for-fysioterapi.md",
-      "wikis/rkkp-akdb/entities/organizations/professional-societies/dansk-selskab-for-klinisk-ernaering.md",
-      "wikis/rkkp-akdb/entities/organizations/professional-societies/dansk-sygepleje-selskab.md",
-      "wikis/rkkp-akdb/entities/organizations/professional-societies/fagligt-selskab-for-gastroenterologiske-sygeplejersker.md",
-      "wikis/rkkp-akdb/entities/organizations/professional-societies/regionssundhedsdirektoerkredsen.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/anne-kirstine-dyrvig.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/birgitte-ruehmann.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/camilla-leidcker.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/emma-possfelt-moller.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/halfdan-lauridsen.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/helene-rask-dalby.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/henriette-vind-thaysen.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/henrik-nielsen.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/jakob-burcharth.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/karen-vestergaard-andersen.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/kristian-aagaard-poulsen.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/line-rokkedal-joensson.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/lone-winther-jensen.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/marianne-vinbaek.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/mette-aastrup-tolver.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/nicolai-bang-foss.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/peter-olsen-svenningsen.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/peter-svenningsen.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/rasmus-haarup-lie.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/rikke-therkildsen.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/rune-trangbaek.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/thomas-cotzand.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/thomas-joergensen.md",
-      "wikis/rkkp-akdb/entities/people/healthcare-professionals/vera-slyk.md",
-      "wikis/rkkp-akdb/entities/people/researchers/bendix-j.md",
-      "wikis/rkkp-akdb/entities/people/researchers/dorte-lindholm-buck.md",
-      "wikis/rkkp-akdb/entities/people/researchers/henrik-joergensen.md",
-      "wikis/rkkp-akdb/entities/people/researchers/ingrid-lolle.md",
-      "wikis/rkkp-akdb/entities/people/researchers/mainz-j.md",
-      "wikis/rkkp-akdb/entities/people/researchers/mikkel-wilhelmsen.md",
-      "wikis/rkkp-akdb/entities/people/researchers/niels-verner-knudsen.md",
-      "wikis/rkkp-akdb/entities/people/researchers/rasmus-hasselager.md",
-      "wikis/rkkp-akdb/topics/clinical-assessment/charleson-score.md",
-      "wikis/rkkp-akdb/topics/clinical-assessment/charlson-comorbidity-score.md",
-      "wikis/rkkp-akdb/topics/clinical-research/studies/pupl-studiet.md",
-      "wikis/rkkp-akdb/topics/mortality-outcome/mortalitet-indenfor-30-dage-efter-akut-kirurgi.md",
-      "wikis/rkkp-akdb/topics/organizational/nordeepj.md",
-      "wikis/rkkp-akdb/topics/procedural/procedural.md",
-      "wikis/rkkp-akdb/topics/standard/standard.md",
-      "wikis/rkkp-akdb/topics/standard-setting/standard-setting.md"
+      "wikis/rkkp-akdb/entities/organizations/hospitals/kolding-sygehus.md",
+      "wikis/rkkp-akdb/entities/organizations/hospitals/ouh-odense-universitetshospital-odense.md",
+      "wikis/rkkp-akdb/entities/organizations/hospitals/sjaellands-universitetshospital-koege.md",
+      "wikis/rkkp-akdb/entities/organizations/hospitals/slagelse.md",
+      "wikis/rkkp-akdb/entities/organizations/hospitals/vejle-sygehus.md",
+      "wikis/rkkp-akdb/entities/people/healthcare-researchers/rosenstock-s.md",
+      "wikis/rkkp-akdb/topics/cancer-distribution/perforeret-ulcus.md",
+      "wikis/rkkp-akdb/topics/clinical-indicators/acute-surgery/akut-abdomen.md",
+      "wikis/rkkp-akdb/topics/visualizations/supplerende-graf-med-aaben-kirurgi-over-tid-paa-regionalt-niveau.md"
     ],
-    "totalLinks": 28785,
-    "totalPages": 426
+    "totalLinks": 5560,
+    "totalPages": 329
   },
   "citations": {
-    "invalid": [
-      {
-        "page": "wikis/rkkp-akdb/topics/quality-indicators/indikator-4x.md",
-        "citation": "[^src2]"
-      },
-      {
-        "page": "wikis/rkkp-akdb/topics/quality-indicators/indikator-4y.md",
-        "citation": "[^src3]"
-      },
-      {
-        "page": "wikis/rkkp-akdb/topics/quality-indicators/indikator-4y.md",
-        "citation": "[^src4]"
-      }
-    ],
+    "invalid": [],
     "missingSource": [],
-    "missingFrontmatterSource": [
-      {
-        "page": "wikis/rkkp-akdb/topics/quality-indicators/indikator-4x.md",
-        "citation": "[^src2]"
-      },
-      {
-        "page": "wikis/rkkp-akdb/topics/quality-indicators/indikator-4y.md",
-        "citation": "[^src3]"
-      },
-      {
-        "page": "wikis/rkkp-akdb/topics/quality-indicators/indikator-4y.md",
-        "citation": "[^src4]"
-      }
-    ],
-    "totalCitations": 2596
+    "missingFrontmatterSource": [],
+    "totalCitations": 1048
   },
   "schema": {
     "invalid": [],
-    "totalPages": 426
+    "totalPages": 329
   }
 }

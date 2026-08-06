@@ -2,30 +2,14 @@
   "entities": [
     {
       "name": "Atrieflimren i Danmark",
-      "type": "topic",
+      "type": "document",
       "slug": "atrieflimren-i-danmark",
-      "folder": "topics/heart-failure",
-      "significance": "Dette er titlen på kvalitetsindikatorrapporten, der dokumenterer behandling og outcomes for patienter med atrieflimren i Danmark.",
+      "folder": "entities/documents/reports",
+      "significance": "Dette er den offentliggjorte årsrapport fra Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) om behandling og kvalitetsmåling af atrieflimren i Danmark, som danner grundlaget for alle indikatorer og beregningsregler beskrevet på siderne 106–110.",
       "mentions": [
         {
           "page": 106,
-          "context": "Atrieflimren i Danmark, Version: Offentliggjort version"
-        },
-        {
-          "page": 107,
-          "context": "Atrieflimren i Danmark, Version: Offentliggjort version"
-        },
-        {
-          "page": 108,
-          "context": "Atrieflimren i Danmark, Version: Offentliggjort version"
-        },
-        {
-          "page": 109,
-          "context": "Atrieflimren i Danmark, Version: Offentliggjort version"
-        },
-        {
-          "page": 110,
-          "context": "I det følgende gives en vejledning i, hvorledes resultaterne i årsrapporten Atrieflimren i Danmark skal læses."
+          "context": "Atrieflimren i Danmark\nVersion: Offentliggjort version\nRegionernes Kliniske Kvalitetsudviklingsprogram"
         }
       ]
     },
@@ -33,33 +17,21 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Organisationen bag kvalitetsindikatorrapporten for atrieflimren i Danmark.",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Dette er den nationale organisation, der udarbejder og administrerer kvalitetsindikatorerne for atrieflimren i Danmark, herunder definitionerne, kodningssystemer og beregningsmetoder, som præsenteres i rapporten på siderne 106–110.",
       "mentions": [
         {
           "page": 106,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
-        },
-        {
-          "page": 107,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
-        },
-        {
-          "page": 108,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
-        },
-        {
-          "page": 109,
           "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
         }
       ]
     },
     {
       "name": "CHA2DS2-VASc",
-      "type": "topic",
-      "slug": "cha2ds2-vasc-score",
-      "folder": "topics/clinical-criteria",
-      "significance": "Scoringssystem brugt til at identificere patienter med atrieflimren, der har indikation for antikoagulationsbehandling.",
+      "type": "clinical-tool",
+      "slug": "cha2ds2-vasc",
+      "folder": "topics/clinical-tools/risk-scores",
+      "significance": "CHA2DS2-VASc er en risikoscore, der bruges til at identificere patienter med atrieflimren, som har indikation for antikoagulationsbehandling, og som derfor indgår i tælleren for indikator 4a på side 106.",
       "mentions": [
         {
           "page": 106,
@@ -68,41 +40,24 @@
       ]
     },
     {
-      "name": "Antikoagulationsbehandling",
-      "type": "topic",
-      "slug": "antikoagulationsbehandling",
-      "folder": "topics/clinical-treatment",
-      "significance": "Behandlingsform for patienter med atrieflimren, der er genstand for kvalitetsindikator 4a og 4b.",
+      "name": "B01AA",
+      "type": "drug-class",
+      "slug": "b01aa",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AA er ATC-koden for vitamin K-antagonister, som er én af de definerede koder for oral antikoagulationsbehandling i indikator 4a og 4b på side 106.",
       "mentions": [
         {
           "page": 106,
-          "context": "Indikator 4a Antikoagulationsbehandling (1, 2 og 5 år)"
-        },
-        {
-          "page": 106,
-          "context": "Indikator 4b Antikoagulationsbehandling (Kontrol af nyrefunktion)"
+          "context": "Koder for oral AK-behandling:\nB01AA (vitamin K antagonister)"
         }
       ]
     },
     {
-      "name": "DOAC",
-      "type": "topic",
-      "slug": "doac",
-      "folder": "topics/medications",
-      "significance": "Direkte orale antikoagulantia, som er en type antikoagulationsbehandling, der kræver årlig kontrol af nyrefunktion.",
-      "mentions": [
-        {
-          "page": 106,
-          "context": "Andelen af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt"
-        }
-      ]
-    },
-    {
-      "name": "Dabigatran",
-      "type": "topic",
-      "slug": "dabigatran",
-      "folder": "topics/medications",
-      "significance": "Specifikt DOAC-lægemiddel med kode B01AE07, der bruges til antikoagulationsbehandling af atrieflimren.",
+      "name": "B01AE07",
+      "type": "drug-class",
+      "slug": "b01ae07",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AE07 er ATC-koden for dabigatran, en direkte oral antikoagulant (DOAC), som indgår i både indikator 4a (antikoagulationsbehandling) og 4b (kontrol af nyrefunktion) på side 106.",
       "mentions": [
         {
           "page": 106,
@@ -111,11 +66,11 @@
       ]
     },
     {
-      "name": "Rivaroxaban",
-      "type": "topic",
-      "slug": "rivaroxaban",
-      "folder": "topics/medications",
-      "significance": "Specifikt DOAC-lægemiddel med kode B01AF01, der bruges til antikoagulationsbehandling af atrieflimren.",
+      "name": "B01AF01",
+      "type": "drug-class",
+      "slug": "b01af01",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AF01 er ATC-koden for rivaroxaban, en direkte oral antikoagulant (DOAC), som indgår i både indikator 4a (antikoagulationsbehandling) og 4b (kontrol af nyrefunktion) på side 106.",
       "mentions": [
         {
           "page": 106,
@@ -124,11 +79,11 @@
       ]
     },
     {
-      "name": "Apixaban",
-      "type": "topic",
-      "slug": "apixaban",
-      "folder": "topics/medications",
-      "significance": "Specifikt DOAC-lægemiddel med kode B01AF02, der bruges til antikoagulationsbehandling af atrieflimren.",
+      "name": "B01AF02",
+      "type": "drug-class",
+      "slug": "b01af02",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AF02 er ATC-koden for apixaban, en direkte oral antikoagulant (DOAC), som indgår i både indikator 4a (antikoagulationsbehandling) og 4b (kontrol af nyrefunktion) på side 106.",
       "mentions": [
         {
           "page": 106,
@@ -137,11 +92,11 @@
       ]
     },
     {
-      "name": "Edoxaban",
-      "type": "topic",
-      "slug": "edoxaban",
-      "folder": "topics/medications",
-      "significance": "Specifikt DOAC-lægemiddel med kode B01AF03, der bruges til antikoagulationsbehandling af atrieflimren.",
+      "name": "B01AF03",
+      "type": "drug-class",
+      "slug": "b01af03",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AF03 er ATC-koden for edoxaban, en direkte oral antikoagulant (DOAC), som indgår i både indikator 4a (antikoagulationsbehandling) og 4b (kontrol af nyrefunktion) på side 106.",
       "mentions": [
         {
           "page": 106,
@@ -150,79 +105,483 @@
       ]
     },
     {
-      "name": "Vitamin K antagonister",
-      "type": "topic",
-      "slug": "vitamin-k-antagonister",
-      "folder": "topics/medications",
-      "significance": "Type af oral antikoagulationsbehandling med kode B01AA, brugt til behandling af atrieflimren.",
+      "name": "NPU04998",
+      "type": "laboratory-test",
+      "slug": "npu04998-p-kreatinin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "NPU04998 er NPU-koden for P-kreatinin, som er den specificerede laboratorieanalyse, der skal måles årligt hos patienter i DOAC-behandling ifølge indikator 4b på side 106.",
       "mentions": [
         {
           "page": 106,
-          "context": "B01AA (vitamin K antagonister)"
+          "context": "Kode:\nNPU04998 (P-Kreatinin)"
         }
       ]
     },
     {
-      "name": "P-creatinin",
-      "type": "topic",
-      "slug": "p-creatinin",
-      "folder": "topics/clinical-measures",
-      "significance": "Laboratorietest for nyrefunktion, der skal måles årligt hos patienter i DOAC-behandling.",
+      "name": "NPU18016",
+      "type": "laboratory-test",
+      "slug": "npu18016-p-kreatinin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "NPU18016 er en alternativ NPU-kode for P-kreatinin, som er inkluderet i kravet om årlig nyrefunktionskontrol for DOAC-behandlede patienter i indikator 4b på side 106.",
       "mentions": [
         {
           "page": 106,
-          "context": "Patienter i nævneren som har fået målt P-creatinin mindst én gang i opgørelsesperioden/året"
+          "context": "NPU18016 (P-Kreatinin)"
         }
       ]
     },
     {
-      "name": "Iskæmisk apopleksi",
-      "type": "topic",
-      "slug": "iskaemisk-apopleksi",
-      "folder": "topics/clinical-outcome",
-      "significance": "Komplikation blandt patienter med atrieflimren, der måles som indikator 5.",
+      "name": "DI63",
+      "type": "diagnosis-code",
+      "slug": "di63",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI63 er diagnosekoden for hjerneinfarkt, som anvendes til at identificere iskæmisk apopleksi i indikator 5 på side 107.",
       "mentions": [
         {
-          "page": 106,
-          "context": "Indikator 5 Incidens iskæmisk apopleksi"
-        },
-        {
           "page": 107,
-          "context": "Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren"
+          "context": "Koder:\nA-diagnose\nDI63 (hjerneinfarkt)"
         }
       ]
     },
     {
-      "name": "Intrakraniel blødning",
-      "type": "topic",
-      "slug": "intrakraniel-bloedning",
-      "folder": "topics/clinical-outcome",
-      "significance": "Alvorlig komplikation blandt patienter med atrieflimren, der måles som indikator 6.",
+      "name": "DI64",
+      "type": "diagnosis-code",
+      "slug": "di64",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI64 er diagnosekoden for slagtilfælde uden oplysning om blødning eller infarkt, som anvendes sammen med DI63 til at identificere iskæmisk apopleksi i indikator 5 på side 107.",
       "mentions": [
         {
           "page": 107,
-          "context": "Indikator 6 Incidens intrakraniel blødning"
-        },
-        {
-          "page": 107,
-          "context": "Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren"
+          "context": "DI64 (slagtilfælde uden oplysning om blødning eller infarkt)"
         }
       ]
     },
     {
-      "name": "Alvorlig blødning",
-      "type": "topic",
-      "slug": "alvorlig-bloedning",
-      "folder": "topics/clinical-outcome",
-      "significance": "Komplikation blandt patienter med atrieflimren, målt efter ISTH-kriterier som indikator 7.",
+      "name": "DZ501",
+      "type": "diagnosis-code",
+      "slug": "dz501",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DZ501 er diagnosekoden for 'Kontakt mhp. anden fysioterapi', som anvendes i kombination med DI63 eller DI64 til at identificere iskæmisk apopleksi i indikator 5 på side 107.",
       "mentions": [
         {
           "page": 107,
-          "context": "Indikator 7 Incidens alvorlig blødning"
-        },
+          "context": "A-diagnose DZ501 (Kontakt mhp.\nanden fysioterapi ) & B-diagnose DI63\neller DI64"
+        }
+      ]
+    },
+    {
+      "name": "DI60",
+      "type": "diagnosis-code",
+      "slug": "di60",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI60 er diagnosekoden for subaraknoidal blødning, som er én af de inkluderede koder for intrakraniel blødning i indikator 6 og 7 på side 107–108.",
+      "mentions": [
         {
           "page": 107,
-          "context": "Incidens af alvorlig blødning (tillempede International Sociaty of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren"
+          "context": "DI60 (subaraknoidal blødning)"
+        }
+      ]
+    },
+    {
+      "name": "DI61",
+      "type": "diagnosis-code",
+      "slug": "di61",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI61 er diagnosekoden for hjerneblødning, som er én af de inkluderede koder for intrakraniel blødning i indikator 6 og 7 på side 107–108.",
+      "mentions": [
+        {
+          "page": 107,
+          "context": "DI61 (hjerneblødning)"
+        }
+      ]
+    },
+    {
+      "name": "DI62",
+      "type": "diagnosis-code",
+      "slug": "di62",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI62 er diagnosekoden for andre ikke-traumatiske intrakranielle blødninger, som er én af de inkluderede koder for intrakraniel blødning i indikator 6 og 7 på side 107–108.",
+      "mentions": [
+        {
+          "page": 107,
+          "context": "DI62 (andre ikke-traumatiske\nintrakranielle blødninger)"
+        }
+      ]
+    },
+    {
+      "name": "DS064",
+      "type": "diagnosis-code",
+      "slug": "ds064",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DS064 er diagnosekoden for traumatisk epidural blødning, som er én af de inkluderede koder for alvorlig blødning i indikator 7 på side 107–108.",
+      "mentions": [
+        {
+          "page": 107,
+          "context": "DS064 (traumatisk epidural blødning)"
+        }
+      ]
+    },
+    {
+      "name": "DS065",
+      "type": "diagnosis-code",
+      "slug": "ds065",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DS065 er diagnosekoden for traumatisk subdural blødning, som er én af de inkluderede koder for alvorlig blødning i indikator 7 på side 107–108.",
+      "mentions": [
+        {
+          "page": 107,
+          "context": "DS065 (traumatisk subdural blødning)"
+        }
+      ]
+    },
+    {
+      "name": "DS066",
+      "type": "diagnosis-code",
+      "slug": "ds066",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DS066 er diagnosekoden for traumatisk subarachnoidal blødning, som er én af de inkluderede koder for alvorlig blødning i indikator 7 på side 107–108.",
+      "mentions": [
+        {
+          "page": 107,
+          "context": "DS066 (traumatisk subarachnoidal\nblødning)"
+        }
+      ]
+    },
+    {
+      "name": "DK25.0",
+      "type": "diagnosis-code",
+      "slug": "dk25-0",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK25.0 er diagnosekoden for akut mavesår med blødning, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 108.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "DK25.0 (akut mavesår med blødning)"
+        }
+      ]
+    },
+    {
+      "name": "DK25.2",
+      "type": "diagnosis-code",
+      "slug": "dk25-2",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK25.2 er diagnosekoden for akut mavesår med blødning og perforation, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 108.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "DK25.2 (akut mavesår med blødning\nog perforation)"
+        }
+      ]
+    },
+    {
+      "name": "DK25.4",
+      "type": "diagnosis-code",
+      "slug": "dk25-4",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK25.4 er diagnosekoden for kronisk eller ikke specificeret mavesår med blødning, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 108.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "DK25.4 (kronisk eller ikke specificeret\nmavesår med blødning)"
+        }
+      ]
+    },
+    {
+      "name": "DK25.6",
+      "type": "diagnosis-code",
+      "slug": "dk25-6",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK25.6 er diagnosekoden for kronisk eller ikke specificeret mavesår med blødning og perforation, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 108.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "DK25.6 (kronisk eller ikke specificeret\nmavesår med blødning og perforation)"
+        }
+      ]
+    },
+    {
+      "name": "DK26.0",
+      "type": "diagnosis-code",
+      "slug": "dk26-0",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK26.0 er diagnosekoden for akut duodenalulcus med blødning, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 108.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "DK26.0 (akut duodenalulcus med\nblødning)"
+        }
+      ]
+    },
+    {
+      "name": "DK26.2",
+      "type": "diagnosis-code",
+      "slug": "dk26-2",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK26.2 er diagnosekoden for akut duodenalulcus med blødning og perforation, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 108.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "DK26.2 (akut duodenalulcus med\nblødning og perforation)"
+        }
+      ]
+    },
+    {
+      "name": "DK26.4",
+      "type": "diagnosis-code",
+      "slug": "dk26-4",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK26.4 er diagnosekoden for kronisk eller ikke specificeret duodenalulcus med blødning, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 108.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "DK26.4 (kronisk eller ikke specificeret\nduodenalulcus med blødning)"
+        }
+      ]
+    },
+    {
+      "name": "DK26.6",
+      "type": "diagnosis-code",
+      "slug": "dk26-6",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK26.6 er diagnosekoden for kronisk eller ikke specificeret duodenalulcus med blødning og perforation, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 108.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "DK26.6 (kronisk eller ikke specificeret\nmavesår med blødning og perforation)"
+        }
+      ]
+    },
+    {
+      "name": "DK27.0",
+      "type": "diagnosis-code",
+      "slug": "dk27-0",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK27.0 er diagnosekoden for akut gastroduodenalt ulcus med blødning, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 108.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "DK27.0 (akut gastroduodenalt ulcus\nmed blødning)"
+        }
+      ]
+    },
+    {
+      "name": "DK27.2",
+      "type": "diagnosis-code",
+      "slug": "dk27-2",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK27.2 er diagnosekoden for akut gastroduodenalt ulcus med blødning og perforation, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 108.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "DK27.2 (akut gastroduodenalt ulcus\nmed blødning og perforation)"
+        }
+      ]
+    },
+    {
+      "name": "DK27.4",
+      "type": "diagnosis-code",
+      "slug": "dk27-4",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK27.4 er diagnosekoden for kronisk eller ikke specificeret gastroduodenalt ulcus med blødning, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 108.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "DK27.4 (kronisk eller ikke specificeret\ngastroduodenalt ulcus med blødning)"
+        }
+      ]
+    },
+    {
+      "name": "DK27.6",
+      "type": "diagnosis-code",
+      "slug": "dk27-6",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK27.6 er diagnosekoden for kronisk eller ikke specificeret gastroduodenalt ulcus med blødning og perforation, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 108.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "DK27.6 (kronisk eller ikke specificeret\ngastroduodenalt ulcus med blødning\nog perforation)"
+        }
+      ]
+    },
+    {
+      "name": "DK28.0",
+      "type": "diagnosis-code",
+      "slug": "dk28-0",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK28.0 er diagnosekoden for akut gastrointestinalt sår med blødning, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "DK28.0 (akut gastrointestinalt sår med\nblødning)"
+        }
+      ]
+    },
+    {
+      "name": "DK28.2",
+      "type": "diagnosis-code",
+      "slug": "dk28-2",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK28.2 er diagnosekoden for akut gastrointestinalt sår med blødning og perforation, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "DK28.2 (akut gastrointestinalt sår med\nblødning og perforation)"
+        }
+      ]
+    },
+    {
+      "name": "DK28.4",
+      "type": "diagnosis-code",
+      "slug": "dk28-4",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK28.4 er diagnosekoden for kronisk eller ikke specificeret gastrointestinalt sår med blødning, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "DK28.4 (kronisk eller ikke specificeret\ngastrointestinalt sår med blødning)"
+        }
+      ]
+    },
+    {
+      "name": "DK28.6",
+      "type": "diagnosis-code",
+      "slug": "dk28-6",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK28.6 er diagnosekoden for kronisk eller ikke specificeret gastrointestinalt sår med blødning og perforation, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "DK28.6 (kronisk eller ikke specificeret\ngastrointestinalt sår med blødning og\nperforation)"
+        }
+      ]
+    },
+    {
+      "name": "DK29.0",
+      "type": "diagnosis-code",
+      "slug": "dk29-0",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK29.0 er diagnosekoden for akut blødende gastritis, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "DK29.0 (akut blødende gastritis)"
+        }
+      ]
+    },
+    {
+      "name": "DK29.8A",
+      "type": "diagnosis-code",
+      "slug": "dk29-8a",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK29.8A er diagnosekoden for akut blødende duodenitis, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "DK29.8A (akut blødende duodenitis)"
+        }
+      ]
+    },
+    {
+      "name": "DK92.0",
+      "type": "diagnosis-code",
+      "slug": "dk92-0",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK92.0 er diagnosekoden for hæmatemese, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "DK92.0 (hæmatemese)"
+        }
+      ]
+    },
+    {
+      "name": "DK92.1",
+      "type": "diagnosis-code",
+      "slug": "dk92-1",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK92.1 er diagnosekoden for melæna, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "DK92.1 (melæna)"
+        }
+      ]
+    },
+    {
+      "name": "DK92.2",
+      "type": "diagnosis-code",
+      "slug": "dk92-2",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DK92.2 er diagnosekoden for gastrointestinal blødning UNS, som er én af de inkluderede koder for gastrointestinal blødning i indikator 7 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "DK92.2 (gastrointestinal blødning\nUNS)"
+        }
+      ]
+    },
+    {
+      "name": "DJ942",
+      "type": "diagnosis-code",
+      "slug": "dj942",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DJ942 er diagnosekoden for hæmothorax, som er én af de inkluderede koder for urinvejs-/lunge blødning i indikator 7 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "DJ942 (hæmothorax)"
+        }
+      ]
+    },
+    {
+      "name": "DN02",
+      "type": "diagnosis-code",
+      "slug": "dn02",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DN02 er diagnosekoden for tilbagevendende og vedvarende blod i urinen, som er én af de inkluderede koder for urinvejs-/lunge blødning i indikator 7 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "DN02 (tilbagevendende og\nvedvarende blod I urinen)"
+        }
+      ]
+    },
+    {
+      "name": "DR04",
+      "type": "diagnosis-code",
+      "slug": "dr04",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DR04 er diagnosekoden for blødning fra luftveje, som er én af de inkluderede koder for urinvejs-/lunge blødning i indikator 7 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "DR04 (blødning fra luftveje)"
+        }
+      ]
+    },
+    {
+      "name": "DR31",
+      "type": "diagnosis-code",
+      "slug": "dr31",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DR31 er diagnosekoden for blod i urinen uden nærmere specificering, som er én af de inkluderede koder for urinvejs-/lunge blødning i indikator 7 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "DR31 (blod i urinen uden nærmere\nspecificering)"
+        }
+      ]
+    },
+    {
+      "name": "BFKB",
+      "type": "intervention-code",
+      "slug": "bfkb",
+      "folder": "entities/codes/intervention-codes",
+      "significance": "BFKB er koden for 'Patientuddannelse i atrieflimren og atrieflagren', som er den specifikke kode, der identificerer struktureret patientuddannelse i indikator 8 på side 109.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "Koder:\nBFKB (Patientuddannelse i\natrieflimren og atrieflagren)"
         }
       ]
     },
@@ -230,298 +589,224 @@
       "name": "International Society of Thrombosis and Hemostasis",
       "type": "organization",
       "slug": "international-society-of-thrombosis-and-hemostasis",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Organisation hvis kriterier for alvorlig blødning er tilpasset og brugt i indikator 7.",
+      "folder": "entities/organizations/medical-societies",
+      "significance": "International Society of Thrombosis and Hemostasis (ISTH) er den internationale faglige sammenslutning, hvis kriterier for alvorlig blødning er tilpasset og anvendt i indikator 7 på side 107.",
       "mentions": [
         {
           "page": 107,
-          "context": "International Sociaty of Thrombosis and Hemostasis (ISTH) kriterier"
-        }
-      ]
-    },
-    {
-      "name": "Patientuddannelse",
-      "type": "topic",
-      "slug": "patientuddannelse",
-      "folder": "topics/clinical-treatment",
-      "significance": "Struktureret undervisningsprogram for nydiagnosticerede patienter med atrieflimren, målt som indikator 8.",
-      "mentions": [
-        {
-          "page": 109,
-          "context": "Indikator 8 Patientuddannelse/undervisning"
-        },
-        {
-          "page": 109,
-          "context": "Andelen af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor 1 år efter diagnosen er stillet"
-        }
-      ]
-    },
-    {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Landet, hvor kvalitetsindikatorerne for atrieflimren rapporteres på nationalt niveau.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Danmark Nej 14.170/19.719 0(0) 71,9 (71,2;72,5)"
-        }
-      ]
-    },
-    {
-      "name": "Region Hovedstaden",
-      "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Dansk region, hvor kvalitetsindikatorerne for atrieflimren rapporteres.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Hovedstaden Nej 3.227/5.388 0(0) 59,9 (58,6;61,2)"
-        }
-      ]
-    },
-    {
-      "name": "Sjælland",
-      "type": "location",
-      "slug": "sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Dansk region, hvor kvalitetsindikatorerne for atrieflimren rapporteres.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Sjælland Nej 2.281/3.257 0(0) 70,0 (68,4;71,6)"
-        }
-      ]
-    },
-    {
-      "name": "Syddanmark",
-      "type": "location",
-      "slug": "syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Dansk region, hvor kvalitetsindikatorerne for atrieflimren rapporteres.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Syddanmark Nej 3.525/4.681 0(0) 75,3 (74,0;76,5)"
-        }
-      ]
-    },
-    {
-      "name": "Midtjylland",
-      "type": "location",
-      "slug": "midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Dansk region, hvor kvalitetsindikatorerne for atrieflimren rapporteres og hvor standarden for ekkokardiografi er opfyldt.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Midtjylland Ja 3.562/4.217 0(0) 84,5 (83,3;85,5)"
-        }
-      ]
-    },
-    {
-      "name": "Nordjylland",
-      "type": "location",
-      "slug": "nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Dansk region, hvor kvalitetsindikatorerne for atrieflimren rapporteres.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Nordjylland Nej 1.575/2.176 0(0) 72,4 (70,4;74,3)"
+          "context": "tillempede International Sociaty of\nThrombosis and\nHemostasis (ISTH)\nkriterier"
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "atrieflimren-i-danmark",
-      "predicate": "is-published-by",
-      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Atrieflimren i Danmark, Version: Offentliggjort version, Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "subject": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "predicate": "publishes",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram udgiver rapporten 'Atrieflimren i Danmark'",
       "page": 106
     },
     {
-      "subject": "antikoagulationsbehandling",
-      "predicate": "includes-medication",
-      "object": "dabigatran",
-      "evidence": "B01AE07 (dabigatran)",
+      "subject": "cha2ds2-vasc",
+      "predicate": "defines-indication-for",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Incidente patienter med CHA2DS2-VASc ≥2, som er i live efter henholdsvis 1, 2 og 5 år efter diagnosen atrieflimren",
       "page": 106
     },
     {
-      "subject": "antikoagulationsbehandling",
-      "predicate": "includes-medication",
-      "object": "rivaroxaban",
+      "subject": "b01aa",
+      "predicate": "is-drug-class-for",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Koder for oral AK-behandling:\nB01AA (vitamin K antagonister)",
+      "page": 106
+    },
+    {
+      "subject": "b01ae07",
+      "predicate": "is-drug-class-for",
+      "object": "doac",
+      "evidence": "Koder for DOAC-behandling:\nB01AE07 (dabigatran)",
+      "page": 106
+    },
+    {
+      "subject": "b01af01",
+      "predicate": "is-drug-class-for",
+      "object": "doac",
       "evidence": "B01AF01 (rivaroxaban)",
       "page": 106
     },
     {
-      "subject": "antikoagulationsbehandling",
-      "predicate": "includes-medication",
-      "object": "apixaban",
+      "subject": "b01af02",
+      "predicate": "is-drug-class-for",
+      "object": "doac",
       "evidence": "B01AF02 (apixaban)",
       "page": 106
     },
     {
-      "subject": "antikoagulationsbehandling",
-      "predicate": "includes-medication",
-      "object": "edoxaban",
+      "subject": "b01af03",
+      "predicate": "is-drug-class-for",
+      "object": "doac",
       "evidence": "B01AF03 (edoxaban)",
       "page": 106
     },
     {
-      "subject": "antikoagulationsbehandling",
-      "predicate": "includes-medication",
-      "object": "vitamin-k-antagonister",
-      "evidence": "B01AA (vitamin K antagonister)",
-      "page": 106
-    },
-    {
-      "subject": "doac",
-      "predicate": "requires-monitoring-of",
-      "object": "p-creatinin",
+      "subject": "npu04998-p-kreatinin",
+      "predicate": "is-required-lab-test-for",
+      "object": "doac",
       "evidence": "Andelen af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt",
       "page": 106
     },
     {
-      "subject": "alvorlig-bloedning",
-      "predicate": "defined-by-criteria-from",
-      "object": "international-society-of-thrombosis-and-hemostasis",
-      "evidence": "Incidens af alvorlig blødning (tillempede International Sociaty of Thrombosis and Hemostasis (ISTH) kriterier)",
+      "subject": "npu18016-p-kreatinin",
+      "predicate": "is-alternative-lab-test-for",
+      "object": "npu04998-p-kreatinin",
+      "evidence": "NPU04998 (P-Kreatinin)\nNPU18016 (P-Kreatinin)",
+      "page": 106
+    },
+    {
+      "subject": "di63",
+      "predicate": "identifies-condition",
+      "object": "iskaemisk-apopleksi",
+      "evidence": "Koder:\nA-diagnose\nDI63 (hjerneinfarkt)",
       "page": 107
+    },
+    {
+      "subject": "di64",
+      "predicate": "identifies-condition",
+      "object": "iskaemisk-apopleksi",
+      "evidence": "DI64 (slagtilfælde uden oplysning om blødning eller infarkt)",
+      "page": 107
+    },
+    {
+      "subject": "dz501",
+      "predicate": "used-in-combination-with",
+      "object": "di63",
+      "evidence": "A-diagnose DZ501 (Kontakt mhp.\nanden fysioterapi ) & B-diagnose DI63\neller DI64",
+      "page": 107
+    },
+    {
+      "subject": "di60",
+      "predicate": "identifies-condition",
+      "object": "intrakraniel-bloedning",
+      "evidence": "DI60 (subaraknoidal blødning)",
+      "page": 107
+    },
+    {
+      "subject": "di61",
+      "predicate": "identifies-condition",
+      "object": "intrakraniel-bloedning",
+      "evidence": "DI61 (hjerneblødning)",
+      "page": 107
+    },
+    {
+      "subject": "di62",
+      "predicate": "identifies-condition",
+      "object": "intrakraniel-bloedning",
+      "evidence": "DI62 (andre ikke-traumatiske\nintrakranielle blødninger)",
+      "page": 107
+    },
+    {
+      "subject": "ds064",
+      "predicate": "identifies-condition",
+      "object": "intrakraniel-bloedning",
+      "evidence": "DS064 (traumatisk epidural blødning)",
+      "page": 107
+    },
+    {
+      "subject": "ds065",
+      "predicate": "identifies-condition",
+      "object": "intrakraniel-bloedning",
+      "evidence": "DS065 (traumatisk subdural blødning)",
+      "page": 107
+    },
+    {
+      "subject": "ds066",
+      "predicate": "identifies-condition",
+      "object": "intrakraniel-bloedning",
+      "evidence": "DS066 (traumatisk subarachnoidal\nblødning)",
+      "page": 107
+    },
+    {
+      "subject": "international-society-of-thrombosis-and-hemostasis",
+      "predicate": "provides-criteria-for",
+      "object": "alvorlig-bloedning",
+      "evidence": "tillempede International Sociaty of\nThrombosis and\nHemostasis (ISTH)\nkriterier",
+      "page": 107
+    },
+    {
+      "subject": "bfkb",
+      "predicate": "codes-for",
+      "object": "patientuddannelse",
+      "evidence": "BFKB (Patientuddannelse i\natrieflimren og atrieflagren)",
+      "page": 109
     }
   ],
   "claims": [
     {
-      "text": "Indikator 4a måler andelen af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 4a måler andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population hvor det er indiceret) [^src1]",
+      "type": "quality-indicator-definition",
       "entities": [
-        "antikoagulationsbehandling"
+        "atrieflimren-i-danmark",
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
       ],
       "page": 106
     },
     {
-      "text": "Indikator 4b måler andelen af patienter med atrieflimren i behandling med DOAC med mindst 1 måling af P-creatinin årligt [^src1]",
-      "type": "quality-indicator",
+      "text": "For indikator 4a er tælleren patienter i nævneren, som modtager behandling, dvs. der er indløst mindst én recept i perioden 90 dage før til 90 dage efter 1, 2 og 5-års dagen for diagnosedatoen for atrieflimren [^src1]",
+      "type": "quality-indicator-definition",
       "entities": [
-        "doac",
-        "p-creatinin"
+        "atrieflimren-i-danmark",
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
+      ],
+      "page": 106
+    },
+    {
+      "text": "Indikator 4b måler andelen af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt [^src1]",
+      "type": "quality-indicator-definition",
+      "entities": [
+        "atrieflimren-i-danmark",
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
       ],
       "page": 106
     },
     {
       "text": "Indikator 5 måler incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren [^src1]",
-      "type": "quality-indicator",
+      "type": "quality-indicator-definition",
       "entities": [
-        "iskaemisk-apopleksi"
+        "atrieflimren-i-danmark",
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
       ],
-      "page": 106
+      "page": 107
     },
     {
       "text": "Indikator 6 måler incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren [^src1]",
-      "type": "quality-indicator",
+      "type": "quality-indicator-definition",
       "entities": [
-        "intrakraniel-bloedning"
+        "atrieflimren-i-danmark",
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
       ],
       "page": 107
     },
     {
-      "text": "Indikator 7 måler incidens af alvorlig blødning efter tilpassede ISTH-kriterier blandt prævalente patienter med atrieflimren [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 7 måler incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren [^src1]",
+      "type": "quality-indicator-definition",
       "entities": [
-        "alvorlig-bloedning"
+        "atrieflimren-i-danmark",
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
       ],
       "page": 107
     },
     {
-      "text": "Indikator 8 måler andelen af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor 1 år efter diagnosen [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 8 måler andelen af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor 1 år efter diagnosen er stillet [^src1]",
+      "type": "quality-indicator-definition",
       "entities": [
-        "patientuddannelse"
+        "atrieflimren-i-danmark",
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
       ],
       "page": 109
-    },
-    {
-      "text": "For ekkokardiografi-indikatoren var standarden ≥80%, og standarden var opfyldt for landet og for fire ud af fem regioner [^src1]",
-      "type": "quality-performance",
-      "entities": [
-        "danmark"
-      ],
-      "page": 110
-    },
-    {
-      "text": "Danmark havde 71,9% (95% CI: 71,2;72,5) for ekkokardiografi-indikatoren i perioden 01.07.2019 - 30.06.2020 [^src1]",
-      "type": "quality-performance",
-      "entities": [
-        "danmark"
-      ],
-      "page": 110
-    },
-    {
-      "text": "Region Hovedstaden havde 59,9% (95% CI: 58,6;61,2) for ekkokardiografi-indikatoren i perioden 01.07.2019 - 30.06.2020 [^src1]",
-      "type": "quality-performance",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 110
-    },
-    {
-      "text": "Sjælland havde 70,0% (95% CI: 68,4;71,6) for ekkokardiografi-indikatoren i perioden 01.07.2019 - 30.06.2020 [^src1]",
-      "type": "quality-performance",
-      "entities": [
-        "sjaelland"
-      ],
-      "page": 110
-    },
-    {
-      "text": "Syddanmark havde 75,3% (95% CI: 74,0;76,5) for ekkokardiografi-indikatoren i perioden 01.07.2019 - 30.06.2020 [^src1]",
-      "type": "quality-performance",
-      "entities": [
-        "syddanmark"
-      ],
-      "page": 110
-    },
-    {
-      "text": "Midtjylland havde 84,5% (95% CI: 83,3;85,5) for ekkokardiografi-indikatoren i perioden 01.07.2019 - 30.06.2020 og opfyldte standarden [^src1]",
-      "type": "quality-performance",
-      "entities": [
-        "midtjylland"
-      ],
-      "page": 110
-    },
-    {
-      "text": "Nordjylland havde 72,4% (95% CI: 70,4;74,3) for ekkokardiografi-indikatoren i perioden 01.07.2019 - 30.06.2020 [^src1]",
-      "type": "quality-performance",
-      "entities": [
-        "nordjylland"
-      ],
-      "page": 110
     }
   ],
-  "timeline": [
-    {
-      "date": "01.07.2019 - 30.06.2020",
-      "event": "Aktuelle år for rapportering af ekkokardiografi-indikator",
-      "entities": [
-        "atrieflimren-i-danmark"
-      ]
-    },
-    {
-      "date": "01.07.2018 - 30.06.2019",
-      "event": "Tidligere år for rapportering af ekkokardiografi-indikator",
-      "entities": [
-        "atrieflimren-i-danmark"
-      ]
-    },
-    {
-      "date": "01.07.2017 - 30.06.2018",
-      "event": "Tidligere år for rapportering af ekkokardiografi-indikator",
-      "entities": [
-        "atrieflimren-i-danmark"
-      ]
-    }
-  ],
-  "context": "Denne dokumentchunk indeholder detaljerede specifikationer for otte kvalitetsindikatorer for behandling og outcomes af atrieflimren i Danmark, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram. Indikatorerne dækker antikoagulationsbehandling, kontrol af nyrefunktion, iskæmisk apopleksi, intrakraniel blødning, alvorlig blødning og patientuddannelse. Dokumentet inkluderer også en læsevejledning, der forklarer, hvordan resultaterne skal tolkes, med eksempler på data fra perioden 01.07.2019 - 30.06.2020 for alle fem danske regioner."
+  "timeline": [],
+  "tables": [],
+  "context": "Dette dokumentchunk udgør siderne 106–110 af den offentliggjorte årsrapport 'Atrieflimren i Danmark' fra Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Den beskriver metodologien bag 13 kvalitetsindikatorer for behandling af atrieflimren, herunder præcise definitioner af tæller, nævner, eksklusionskriterier, relevante medicinkoder (ATC), diagnosekoder (ICD-10-DK), laboratoriekoder (NPU) og interventionskoder. Chunken indeholder tekniske detaljer for indikatorerne 4a–8 samt en læsevejledning til fortolkning af resultattabeller, men ingen faktiske tal eller tidsspecifikke begivenheder — det er en ren metode- og definitionsbeskrivelse, der fungerer som en teknisk reference for klinisk kvalitetsmåling i dansk sundhedsvæsen."
 }

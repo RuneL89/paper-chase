@@ -4,25 +4,21 @@
       "name": "Akut Kirurgi Databasen",
       "type": "organization",
       "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/healthcare-databases",
-      "significance": "AKDB er den danske database for akut kirurgi, der indsamler og analyserer kvalitetsindikatorer for akut kirurgisk behandling på tværs af danske regioner og hospitaler.",
+      "folder": "entities/organizations/healthcare-registry",
+      "significance": "Akut Kirurgi Databasen er den centrale kvalitetsdatabasen, der overvåger og rapporterer indikatorer for akut kirurgisk behandling i Danmark, herunder epiduralanvendelse og 30-dages mortalitet, og fungerer som kerneplatform for Regionernes Kliniske Kvalitetsudviklingsprogram.",
       "mentions": [
         {
           "page": 46,
-          "context": "Akut Kirurgi Databasen - Endelig version til offentliggørelse 2024.26.02"
-        },
-        {
-          "page": 47,
-          "context": "Kort før jul 2022 modtog AKDB godkendelsen fra SDS på at anvende koden BABZ00 fra LPR."
+          "context": "Akut Kirurgi Databasen"
         }
       ]
     },
     {
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
-      "type": "organization",
+      "type": "program",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/healthcare-programs",
-      "significance": "Et dansk program for klinisk kvalitetsudvikling på regionalt niveau, som AKDB opererer under.",
+      "folder": "topics/healthcare-quality/programs",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er det nationale kvalitetsprogram, der styrer og udvikler kliniske indikatorer som Indikator 9 og Indikator 10, hvilket gør det til den overordnede ramme for alle dataindsamling, analyse og anbefalinger i dette dokument.",
       "mentions": [
         {
           "page": 46,
@@ -31,366 +27,54 @@
       ]
     },
     {
-      "name": "Dansk Anæstesi Database",
-      "type": "organization",
-      "slug": "dansk-anaestesi-database",
-      "folder": "entities/organizations/healthcare-databases",
-      "significance": "Kilde til data om epidural-anæstesi, som indgår i AKDB's indikator 9.",
+      "name": "Indikator 9",
+      "type": "indicator",
+      "slug": "indikator-9",
+      "folder": "topics/healthcare-quality/indicators",
+      "significance": "Indikator 9 måler andelen af opererede patienter, der får anlagt epidural, og er en central kvalitetsmåling for smertebehandling og komplikationsforebyggelse ved akut abdominal kirurgi, med en justeret standard på > 60 %.",
       "mentions": [
         {
           "page": 46,
-          "context": "Data om epidural stammer fra Dansk Anæstesi Database"
+          "context": "Indikator 9"
         }
       ]
     },
     {
-      "name": "Region Nordjylland",
-      "type": "location",
-      "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Dansk region med laveste andel opererede med epidural (36,6 %) blandt regionerne i perioden.",
+      "name": "Indikator 10",
+      "type": "indicator",
+      "slug": "indikator-10",
+      "folder": "topics/healthcare-quality/indicators",
+      "significance": "Indikator 10 registrerer 30-dages mortalitet efter akut kirurgi og er en kritisk sikkerhedsindikator, hvor standarden er sat til < 15 %, og hvor data præsenteres på både nationalt, regionalt og afdelningsniveau.",
       "mentions": [
         {
           "page": 46,
-          "context": "Regionalt varierede andelen fra 36,6 % i Region Nordjylland til 58,7 % i Region Hovedstaden."
+          "context": "Indikator 10: Mortalitet indenfor 30 dage for opererede. Resultater på afdelingsniveau"
         }
       ]
     },
     {
-      "name": "Region Hovedstaden",
-      "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Dansk region med højeste andel opererede med epidural (58,7 %) blandt regionerne i perioden.",
+      "name": "epidural",
+      "type": "medical-procedure",
+      "slug": "epidural",
+      "folder": "entities/medical-procedures/anesthesia",
+      "significance": "Epidural er den specifikke anæstesi- og smertebehandlingsmetode, der er genstand for Indikator 9, og som dokumentet videreudvikler evidensbaserede anbefalinger for brug ved akut laparotomi, peritonit og ileus.",
       "mentions": [
         {
           "page": 46,
-          "context": "Regionalt varierede andelen fra 36,6 % i Region Nordjylland til 58,7 % i Region Hovedstaden."
+          "context": "epidural"
         }
       ]
     },
     {
-      "name": "Region Sjælland",
-      "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Dansk region med rapporterede resultater for mortalitet og epidural-indikatorer.",
+      "name": "LPR",
+      "type": "database",
+      "slug": "lpr",
+      "folder": "entities/databases/healthcare",
+      "significance": "LPR (Landspatientregisteret) er den nationale database, hvis procedure- og diagnosekoder anvendes til at definere indberetningsgrundlaget for Indikator 10, og som AKDB nu har godkendelse til at bruge koden BABZ00 fra.",
       "mentions": [
         {
-          "page": 48,
-          "context": "Sjælland Ja 72 / 522 0 (0) 13,8 (11,0-17,1)"
-        }
-      ]
-    },
-    {
-      "name": "Region Syddanmark",
-      "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Dansk region med rapporterede resultater for mortalitet og epidural-indikatorer.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Syddanmark Ja 65 / 585 0 (0) 11,1 (8,7-13,9)"
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "location",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Dansk region med rapporterede resultater for mortalitet og epidural-indikatorer.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Midtjylland Ja 67 / 675 0 (0) 9,9 (7,8-12,4)"
-        }
-      ]
-    },
-    {
-      "name": "Rigshospitalet",
-      "type": "organization",
-      "slug": "rigshospitalet",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Hovedstaden med mortalitetsrate på 20,7 % (ikke opfyldt standard < 15 %).",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Rigshospitalet Nej 12 / 58 0 (0) 20,7 (11,2-33,4)"
-        }
-      ]
-    },
-    {
-      "name": "Amager og Hvidovre Hospital",
-      "type": "organization",
-      "slug": "amager-og-hvidovre-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Hovedstaden med mortalitetsrate på 10,0 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Amager og Hvidovre Hospital Ja 25 / 251 0 (0) 10,0 (6,5-14,4)"
-        }
-      ]
-    },
-    {
-      "name": "Bispebjerg og Frederiksberg Hospitaler",
-      "type": "organization",
-      "slug": "bispebjerg-og-frederiksberg-hospitaler",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Hovedstaden med mortalitetsrate på 6,5 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Bispebjerg og Frederiksberg Hospitaler Ja 15 / 232 0 (0) 6,5 (3,7-10,4)"
-        }
-      ]
-    },
-    {
-      "name": "Bornholms Hospital",
-      "type": "organization",
-      "slug": "bornholms-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Hovedstaden med mortalitetsrate på 6,7 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Bornholms Hospital Ja #/# 0 (0) 6,7 (0,8-22,1)"
-        }
-      ]
-    },
-    {
-      "name": "Herlev og Gentofte Hospital",
-      "type": "organization",
-      "slug": "herlev-og-gentofte-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Hovedstaden med mortalitetsrate på 9,8 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Herlev og Gentofte Hospital Ja 30 / 306 0 (0) 9,8 (6,7-13,7)"
-        }
-      ]
-    },
-    {
-      "name": "Hospitalerne i Nordsjælland",
-      "type": "organization",
-      "slug": "hospitalerne-i-nordsjaelland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Hovedstaden med mortalitetsrate på 14,1 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Hospitalerne i Nordsjælland Ja 30 / 213 0 (0) 14,1 (9,7-19,5)"
-        }
-      ]
-    },
-    {
-      "name": "Holbæk Sygehus",
-      "type": "organization",
-      "slug": "holbaek-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Sjælland med mortalitetsrate på 18,6 % (ikke opfyldt standard < 15 %).",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Holbæk Sygehus Nej 22 / 118 0 (0) 18,6 (12,1-26,9)"
-        }
-      ]
-    },
-    {
-      "name": "Nykøbing F Sygehus",
-      "type": "organization",
-      "slug": "nykoebing-f-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Sjælland med mortalitetsrate på 100,0 % (ikke opfyldt standard < 15 %).",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Nykøbing F Sygehus Nej #/# 0 (0) 100,0 (15,8-100,0)"
-        }
-      ]
-    },
-    {
-      "name": "Næstved, Slagelse og Ringsted sygehuse",
-      "type": "organization",
-      "slug": "naestved-slagelse-ringsted-sygehuse",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Sjælland med mortalitetsrate på 13,4 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Næstved, Slagelse og Ringsted sygehuse Ja 26 / 194 0 (0) 13,4 (8,9-19,0)"
-        }
-      ]
-    },
-    {
-      "name": "Sjællands Universitetshospital",
-      "type": "organization",
-      "slug": "sjaellands-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Sjælland med mortalitetsrate på 10,6 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Sjællands Universitetshospital Ja 22 / 208 0 (0) 10,6 (6,7-15,6)"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg Sygehus Grindsted Sygehus",
-      "type": "organization",
-      "slug": "esbjerg-sygehus-grindsted-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Syddanmark med mortalitetsrate på 8,4 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 49,
-          "context": "Esbjerg Sygehus Grindsted Sygehus Ja 11 / 131 0 (0) 8,4 (4,3-14,5)"
-        }
-      ]
-    },
-    {
-      "name": "Odense Universitetshospital - Svendborg",
-      "type": "organization",
-      "slug": "odense-universitetshospital-svendborg",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Syddanmark med mortalitetsrate på 14,3 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 49,
-          "context": "Odense Universitetshospital - Svendborg Ja 33 / 230 0 (0) 14,3 (10,1-19,6)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Lillebælt",
-      "type": "organization",
-      "slug": "sygehus-lillebaelt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Syddanmark med mortalitetsrate på 5,1 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 49,
-          "context": "Sygehus Lillebælt Ja 5 / 98 0 (0) 5,1 (1,7-11,5)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Sønderjylland",
-      "type": "organization",
-      "slug": "sygehus-soenderjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Syddanmark med mortalitetsrate på 12,7 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 49,
-          "context": "Sygehus Sønderjylland Ja 16 / 126 0 (0) 12,7 (7,4-19,8)"
-        }
-      ]
-    },
-    {
-      "name": "Aarhus Universitetshospital",
-      "type": "organization",
-      "slug": "aarhus-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Midtjylland med mortalitetsrate på 8,7 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 49,
-          "context": "Aarhus Universitetshospital Ja 12 / 138 0 (0) 8,7 (4,6-14,7)"
-        }
-      ]
-    },
-    {
-      "name": "Hospitalsenhed Midt",
-      "type": "organization",
-      "slug": "hospitalsenhed-midt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Midtjylland med mortalitetsrate på 8,2 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 49,
-          "context": "Hospitalsenhed Midt Ja 13 / 158 0 (0) 8,2 (4,5-13,7)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Gødstrup",
-      "type": "organization",
-      "slug": "regionshospitalet-goedstrup",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Midtjylland med mortalitetsrate på 8,2 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 49,
-          "context": "Regionshospitalet Gødstrup Ja 13 / 158 0 (0) 8,2 (4,5-13,7)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Horsens",
-      "type": "organization",
-      "slug": "regionshospitalet-horsens",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Midtjylland med mortalitetsrate på 17,2 % (ikke opfyldt standard < 15 %).",
-      "mentions": [
-        {
-          "page": 49,
-          "context": "Regionshospitalet Horsens Nej 16 / 93 0 (0) 17,2 (10,2-26,4)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Randers",
-      "type": "organization",
-      "slug": "regionshospitalet-randers",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Midtjylland med mortalitetsrate på 10,2 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 49,
-          "context": "Regionshospitalet Randers Ja 13 / 128 0 (0) 10,2 (5,5-16,7)"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Universitetshospital",
-      "type": "organization",
-      "slug": "aalborg-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Nordjylland med mortalitetsrate på 13,1 % (opfyldt standard).",
-      "mentions": [
-        {
-          "page": 49,
-          "context": "Aalborg Universitetshospital Ja 23 / 175 0 (0) 13,1 (8,5-19,1)"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Universitetshospital, Thisted",
-      "type": "organization",
-      "slug": "aalborg-universitetshospital-thisted",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Nordjylland med mortalitetsrate på 0,0 %.",
-      "mentions": [
-        {
-          "page": 49,
-          "context": "Aalborg Universitetshospital, Thisted 0,0"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospital Nordjylland",
-      "type": "organization",
-      "slug": "regionshospital-nordjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk hospital under Region Nordjylland med mortalitetsrate på 15,8 % (ikke opfyldt standard < 15 %).",
-      "mentions": [
-        {
-          "page": 50,
-          "context": "Regionshospital Nordjylland Nej 15 / 95 0 (0) 15,8 (9,1-24,7)"
+          "page": 46,
+          "context": "BABZ00 fra LPR"
         }
       ]
     },
@@ -398,25 +82,13 @@
       "name": "SDS",
       "type": "organization",
       "slug": "sds",
-      "folder": "entities/organizations/regulatory-bodies",
-      "significance": "Dansk regulatorisk organ, der godkendte AKDB's brug af koden BABZ00 fra LPR kort før jul 2022.",
+      "folder": "entities/organizations/healthcare-authority",
+      "disambiguation": "Statens Serum Institut eller Sundhedsdatastyrelsen? Her henvises det til 'godkendelsen fra SDS på at anvende koden BABZ00 fra LPR' — det er Sundhedsdatastyrelsen, da den er ansvarlig for LPR-kodning og godkendelse af kodebrug i kvalitetsregistre.",
+      "significance": "SDS (Sundhedsdatastyrelsen) er den myndighed, der har godkendt AKDB's brug af LPR-koden BABZ00, hvilket er afgørende for datakvaliteten og lovmæssige gyldighed af Indikator 10's registrering.",
       "mentions": [
         {
-          "page": 47,
-          "context": "Kort før jul 2022 modtog AKDB godkendelsen fra SDS på at anvende koden BABZ00 fra LPR."
-        }
-      ]
-    },
-    {
-      "name": "AHA studie",
-      "type": "topic",
-      "slug": "aha-studie",
-      "folder": "topics/clinical-research",
-      "significance": "Klinisk studie, der viste, at standard brug af epidural til abdominal høj risikopatienter nedbragte mortaliteten.",
-      "mentions": [
-        {
-          "page": 47,
-          "context": "Standard brug af epidural til abdominal høj risikopatienter var en del af AHA studiet som overordnet set nedbragte mortaliteten."
+          "page": 46,
+          "context": "godkendelsen fra SDS på at anvende koden BABZ00 fra LPR"
         }
       ]
     }
@@ -424,460 +96,61 @@
   "relationships": [
     {
       "subject": "akut-kirurgi-databasen",
-      "predicate": "operates-under",
+      "predicate": "is-part-of",
       "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Akut Kirurgi Databasen opererer under Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "evidence": "Akut Kirurgi Databasen er en del af Regionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 46
     },
     {
-      "subject": "akut-kirurgi-databasen",
-      "predicate": "receives-data-from",
-      "object": "dansk-anaestesi-database",
-      "evidence": "Data om epidural stammer fra Dansk Anæstesi Database",
+      "subject": "indikator-9",
+      "predicate": "measures",
+      "object": "epidural",
+      "evidence": "Indikator 9 beskriver andelen af patienter, der får anlagt epidural i forbindelse med operationen",
       "page": 46
     },
     {
-      "subject": "rigshospitalet",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Rigshospitalet er under Region Hovedstaden",
-      "page": 48
+      "subject": "indikator-10",
+      "predicate": "measures",
+      "object": "mortalitet-indenfor-30-dage",
+      "evidence": "Indikator 10: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)",
+      "page": 46
     },
     {
-      "subject": "amager-og-hvidovre-hospital",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Amager og Hvidovre Hospital er under Region Hovedstaden",
-      "page": 48
+      "subject": "lpr",
+      "predicate": "provides-codes-for",
+      "object": "indikator-10",
+      "evidence": "Nævner Operationer, hvor patienter har operationstidspunkt og relevant diagnosekode og procedurekode",
+      "page": 46
     },
     {
-      "subject": "bispebjerg-og-frederiksberg-hospitaler",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Bispebjerg og Frederiksberg Hospitaler er under Region Hovedstaden",
-      "page": 48
-    },
-    {
-      "subject": "bornholms-hospital",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Bornholms Hospital er under Region Hovedstaden",
-      "page": 48
-    },
-    {
-      "subject": "herlev-og-gentofte-hospital",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Herlev og Gentofte Hospital er under Region Hovedstaden",
-      "page": 48
-    },
-    {
-      "subject": "hospitalerne-i-nordsjaelland",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Hospitalerne i Nordsjælland er under Region Hovedstaden",
-      "page": 48
-    },
-    {
-      "subject": "holbaek-sygehus",
-      "predicate": "located-in",
-      "object": "region-sjaelland",
-      "evidence": "Holbæk Sygehus er under Region Sjælland",
-      "page": 48
-    },
-    {
-      "subject": "nykoebing-f-sygehus",
-      "predicate": "located-in",
-      "object": "region-sjaelland",
-      "evidence": "Nykøbing F Sygehus er under Region Sjælland",
-      "page": 48
-    },
-    {
-      "subject": "naestved-slagelse-ringsted-sygehuse",
-      "predicate": "located-in",
-      "object": "region-sjaelland",
-      "evidence": "Næstved, Slagelse og Ringsted sygehuse er under Region Sjælland",
-      "page": 48
-    },
-    {
-      "subject": "sjaellands-universitetshospital",
-      "predicate": "located-in",
-      "object": "region-sjaelland",
-      "evidence": "Sjællands Universitetshospital er under Region Sjælland",
-      "page": 48
-    },
-    {
-      "subject": "esbjerg-sygehus-grindsted-sygehus",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Esbjerg Sygehus Grindsted Sygehus er under Region Syddanmark",
-      "page": 49
-    },
-    {
-      "subject": "odense-universitetshospital-svendborg",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Odense Universitetshospital - Svendborg er under Region Syddanmark",
-      "page": 49
-    },
-    {
-      "subject": "sygehus-lillebaelt",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Sygehus Lillebælt er under Region Syddanmark",
-      "page": 49
-    },
-    {
-      "subject": "sygehus-soenderjylland",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Sygehus Sønderjylland er under Region Syddanmark",
-      "page": 49
-    },
-    {
-      "subject": "aarhus-universitetshospital",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
-      "evidence": "Aarhus Universitetshospital er under Region Midtjylland",
-      "page": 49
-    },
-    {
-      "subject": "hospitalsenhed-midt",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
-      "evidence": "Hospitalsenhed Midt er under Region Midtjylland",
-      "page": 49
-    },
-    {
-      "subject": "regionshospitalet-goedstrup",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
-      "evidence": "Regionshospitalet Gødstrup er under Region Midtjylland",
-      "page": 49
-    },
-    {
-      "subject": "regionshospitalet-horsens",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
-      "evidence": "Regionshospitalet Horsens er under Region Midtjylland",
-      "page": 49
-    },
-    {
-      "subject": "regionshospitalet-randers",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
-      "evidence": "Regionshospitalet Randers er under Region Midtjylland",
-      "page": 49
-    },
-    {
-      "subject": "aalborg-universitetshospital",
-      "predicate": "located-in",
-      "object": "region-nordjylland",
-      "evidence": "Aalborg Universitetshospital er under Region Nordjylland",
-      "page": 49
-    },
-    {
-      "subject": "aalborg-universitetshospital-thisted",
-      "predicate": "located-in",
-      "object": "region-nordjylland",
-      "evidence": "Aalborg Universitetshospital, Thisted er under Region Nordjylland",
-      "page": 49
-    },
-    {
-      "subject": "regionshospital-nordjylland",
-      "predicate": "located-in",
-      "object": "region-nordjylland",
-      "evidence": "Regionshospital Nordjylland er under Region Nordjylland",
-      "page": 50
+      "subject": "sds",
+      "predicate": "granted-approval-for",
+      "object": "lpr-code-babz00",
+      "evidence": "Kort før jul 2022 modtog AKDB godkendelsen fra SDS på at anvende koden BABZ00 fra LPR.",
+      "page": 46
     }
   ],
   "claims": [
     {
-      "text": "Ud af de 3.147 opererede i perioden, blev 1.667 bedøvede med epidural. Det svarer til en andel på 53,0 % (95 % CI: 51,2-54,7) [^src1]",
-      "type": "clinical-outcome",
+      "text": "Eksklusion: 53 Ugyldigt CPRnummer. 173 Patienten er under 18 år. 6.178 Patienten er ikke opereret. 5 Patienten er registreret i CPR-registeret som 'Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn (kommunekoderne 0010, 0011, 0012 og 0019)'. 474 Operationen er ikke den første operation i hospitalsopholdet. [^src1]",
+      "type": "exclusion-criteria",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-10"
       ],
       "page": 46
-    },
-    {
-      "text": "Standarden for indikator 9 er i år ændret til > 60 % [^src1]",
-      "type": "standard-change",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 46
-    },
-    {
-      "text": "Regionalt varierede andelen fra 36,6 % i Region Nordjylland til 58,7 % i Region Hovedstaden [^src1]",
-      "type": "regional-variation",
-      "entities": [
-        "region-nordjylland",
-        "region-hovedstaden"
-      ],
-      "page": 46
-    },
-    {
-      "text": "I alt syv af de 21 indberettende enheder opfyldte standarden i perioden [^src1]",
-      "type": "compliance",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 46
-    },
-    {
-      "text": "Standard brug af epidural til abdominal høj risikopatienter var en del af AHA studiet som overordnet set nedbragte mortaliteten [^src1]",
-      "type": "clinical-evidence",
-      "entities": [
-        "aha-studie"
-      ],
-      "page": 47
-    },
-    {
-      "text": "Epidural reducerer ileus og respiratoriske komplikationer efter laparotomi [^src1]",
-      "type": "clinical-evidence",
-      "entities": [],
-      "page": 47
-    },
-    {
-      "text": "En metaanalyse med 58 RCT studier inkluderende i alt 5.904 patienter har vist at epidural beskytter mod post-operative pneumonier [^src1]",
-      "type": "clinical-evidence",
-      "entities": [],
-      "page": 47
-    },
-    {
-      "text": "I et systematisk review på 6 RCT studier finder man at epidural nedbringer tiden til post-operative mave-tarm funktion og postoperative smerter [^src1]",
-      "type": "clinical-evidence",
-      "entities": [],
-      "page": 47
-    },
-    {
-      "text": "I et RCT på 60 patienter fandt man at patienter med epidural havde et bedre anti-inflammatorisk respons end patienter uden [^src1]",
-      "type": "clinical-evidence",
-      "entities": [],
-      "page": 47
-    },
-    {
-      "text": "Et narrativt review beskriver at epidural har gavnlig effekt på post-operativ ileus [^src1]",
-      "type": "clinical-evidence",
-      "entities": [],
-      "page": 47
-    },
-    {
-      "text": "Kort før jul 2022 modtog AKDB godkendelsen fra SDS på at anvende koden BABZ00 fra LPR [^src1]",
-      "type": "regulatory-approval",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "sds"
-      ],
-      "page": 47
-    },
-    {
-      "text": "Indikatoren blev i 2022 ændret fra 90% til 60% idet mange patienter er komorbide og får AK behandling, hvilket kan kontraindicere epidural anlæggelse i operationsdøgnet [^src1]",
-      "type": "standard-change",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 47
-    },
-    {
-      "text": "I Danmark anvendes der almindeligvis epidural når patienten opereres ved eksplorativ laparotomi, hvorimod der ofte ikke anlægges epidural til laparoskopiske indgreb [^src1]",
-      "type": "clinical-practice",
-      "entities": [],
-      "page": 47
-    },
-    {
-      "text": "Ud af 3.142 opererede i perioden 01.09.2022 - 31.08.2023 døde 356 indenfor 30 dage, svarende til 11,3 % (95 % CI: 10,2-12,5) [^src2]",
-      "type": "mortality-outcome",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Region Hovedstaden havde mortalitetsrate på 10,5 % (95 % CI: 8,7-12,4) [^src2]",
-      "type": "mortality-outcome",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Region Sjælland havde mortalitetsrate på 13,8 % (95 % CI: 11,0-17,1) [^src2]",
-      "type": "mortality-outcome",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Region Syddanmark havde mortalitetsrate på 11,1 % (95 % CI: 8,7-13,9) [^src2]",
-      "type": "mortality-outcome",
-      "entities": [
-        "region-syddanmark"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Region Midtjylland havde mortalitetsrate på 9,9 % (95 % CI: 7,8-12,4) [^src2]",
-      "type": "mortality-outcome",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Region Nordjylland havde mortalitetsrate på 14,1 % (95 % CI: 10,2-18,8) [^src2]",
-      "type": "mortality-outcome",
-      "entities": [
-        "region-nordjylland"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Rigshospitalet havde mortalitetsrate på 20,7 % (95 % CI: 11,2-33,4) og opfyldte ikke standarden < 15 % [^src2]",
-      "type": "mortality-outcome",
-      "entities": [
-        "rigshospitalet"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Nykøbing F Sygehus havde mortalitetsrate på 100,0 % (95 % CI: 15,8-100,0) og opfyldte ikke standarden < 15 % [^src2]",
-      "type": "mortality-outcome",
-      "entities": [
-        "nykoebing-f-sygehus"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Holbæk Sygehus havde mortalitetsrate på 18,6 % (95 % CI: 12,1-26,9) og opfyldte ikke standarden < 15 % [^src2]",
-      "type": "mortality-outcome",
-      "entities": [
-        "holbaek-sygehus"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Regionshospitalet Horsens havde mortalitetsrate på 17,2 % (95 % CI: 10,2-26,4) og opfyldte ikke standarden < 15 % [^src2]",
-      "type": "mortality-outcome",
-      "entities": [
-        "regionshospitalet-horsens"
-      ],
-      "page": 49
-    },
-    {
-      "text": "Regionshospital Nordjylland havde mortalitetsrate på 15,8 % (95 % CI: 9,1-24,7) og opfyldte ikke standarden < 15 % [^src2]",
-      "type": "mortality-outcome",
-      "entities": [
-        "regionshospital-nordjylland"
-      ],
-      "page": 50
-    },
-    {
-      "text": "I alt 53 patienter blev ekskluderet på grund af ugyldigt CPR-nummer [^src2]",
-      "type": "data-quality",
-      "entities": [],
-      "page": 50
-    },
-    {
-      "text": "I alt 173 patienter blev ekskluderet fordi patienten er under 18 år [^src2]",
-      "type": "data-quality",
-      "entities": [],
-      "page": 50
-    },
-    {
-      "text": "I alt 6.178 patienter blev ekskluderet fordi patienten ikke er opereret [^src2]",
-      "type": "data-quality",
-      "entities": [],
-      "page": 50
-    },
-    {
-      "text": "I alt 474 patienter blev ekskluderet fordi operationen ikke er den første operation i hospitalsopholdet [^src2]",
-      "type": "data-quality",
-      "entities": [],
-      "page": 50
     }
   ],
   "timeline": [
     {
-      "date": "2022",
-      "event": "Indikatoren blev ændret fra 90% til 60% på grund af komorbiditet blandt patienter",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ]
-    },
-    {
-      "date": "Kort før jul 2022",
-      "event": "AKDB modtog godkendelsen fra SDS på at anvende koden BABZ00 fra LPR",
+      "date": "2022-12-24",
+      "event": "AKDB modtog godkendelse fra SDS på at anvende koden BABZ00 fra LPR",
       "entities": [
         "akut-kirurgi-databasen",
-        "sds"
-      ]
-    },
-    {
-      "date": "01.09.2022 - 31.08.2023",
-      "event": "Periode for indsamling af data for indikator 10 (mortalitet indenfor 30 dage)",
-      "entities": [
-        "akut-kirurgi-databasen"
+        "sds",
+        "lpr"
       ]
     }
   ],
-  "context": "Dokumentet er en del af Akut Kirurgi Databasens (AKDB) årsrapport for 2023, som rapporterer på kvalitetsindikatorer for akut kirurgisk behandling i Danmark. Rapporten fokuserer på indikator 9 (andel opererede med epidural) og indikator 10 (mortalitet indenfor 30 dage efter akut kirurgi), med detaljerede resultater på både regionalt og hospitalsspecifikt niveau. Dokumentet indeholder klinisk evidens for epidural-anæstesi, regionale variationer i behandlingspraksis, og mortalitetsdata fra alle danske regioner og deres underordnede hospitaler i perioden september 2022 til august 2023.",
-  "tables": [
-    {
-      "subject": "indikator-10",
-      "title": "Indikator 10: Mortalitet indenfor 30 dage efter akut kirurgi — resultater på regionalt niveau og afdelingsniveau",
-      "page": 48,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "standardopfyldelse, tæller/nævner og 30-dages mortalitet med 95 % CI for aktuelle år (01.09.2022-31.08.2023) samt andele for 2021/22 og 2020/21",
-      "entities": [
-        "indikator-10",
-        "danmark",
-        "region-hovedstaden",
-        "region-sjaelland",
-        "region-syddanmark",
-        "region-midtjylland",
-        "region-nordjylland",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "holbaek-sygehus",
-        "nykoebing-f-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "aalborg-universitetshospital",
-        "aalborg-universitetshospital-thisted",
-        "regionshospital-nordjylland"
-      ],
-      "markdown": "| Enhed | Standard < 15% opfyldt | Tæller/nævner | Uoplyst antal (%) | Aktuelle år 01.09.2022 - 31.08.2023 Andel (95% CI) | 2021/22 Andel | 2020/21 Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Ja | 356 / 3.142 | 0 (0) | 11,3 (10,2-12,5) | 12,6 | 13,4 |\n| Hovedstaden | Ja | 114 / 1.090 | 0 (0) | 10,5 (8,7-12,4) | 11,2 | 10,5 |\n| Sjælland | Ja | 72 / 522 | 0 (0) | 13,8 (11,0-17,1) | 14,5 | 15,6 |\n| Syddanmark | Ja | 65 / 585 | 0 (0) | 11,1 (8,7-13,9) | 11,5 | 14,2 |\n| Midtjylland | Ja | 67 / 675 | 0 (0) | 9,9 (7,8-12,4) | 13,7 | 15,2 |\n| Nordjylland | Ja | 38 / 270 | 0 (0) | 14,1 (10,2-18,8) | 15,1 | 13,6 |\n| Hovedstaden | Ja | 114 / 1.090 | 0 (0) | 10,5 (8,7-12,4) | 11,2 | 10,5 |\n| Amager og Hvidovre Hospital | Ja | 25 / 251 | 0 (0) | 10,0 (6,5-14,4) | 8,8 | 8,5 |\n| Bispebjerg og Frederiksberg Hospitaler | Ja | 15 / 232 | 0 (0) | 6,5 (3,7-10,4) | 5,2 | 8,6 |\n| Bornholms Hospital | Ja | #/# | 0 (0) | 6,7 (0,8-22,1) | 13,0 | 13,8 |\n| Herlev og Gentofte Hospital | Ja | 30 / 306 | 0 (0) | 9,8 (6,7-13,7) | 12,6 | 12,1 |\n| Hospitalerne i Nordsjælland | Ja | 30 / 213 | 0 (0) | 14,1 (9,7-19,5) | 13,3 | 7,4 |\n| Rigshospitalet | Nej | 12 / 58 | 0 (0) | 20,7 (11,2-33,4) | 30,9 | 31,4 |\n| Sjælland | Ja | 72 / 522 | 0 (0) | 13,8 (11,0-17,1) | 14,5 | 15,6 |\n| Holbæk Sygehus | Nej | 22 / 118 | 0 (0) | 18,6 (12,1-26,9) | 19,8 | 25,9 |\n| Nykøbing F Sygehus | Nej | #/# | 0 (0) | 100,0 (15,8-100,0) | 0,0 | 0,0 |\n| Næstved, Slagelse og Ringsted sygehuse | Ja | 26 / 194 | 0 (0) | 13,4 (8,9-19,0) | 13,6 | 13,4 |\n| Sjællands Universitetshospital | Ja | 22 / 208 | 0 (0) | 10,6 (6,7-15,6) | 13,2 | 13,8 |\n| Syddanmark | Ja | 65 / 585 | 0 (0) | 11,1 (8,7-13,9) | 11,5 | 14,2 |\n| Esbjerg Sygehus Grindsted Sygehus | Ja | 11 / 131 | 0 (0) | 8,4 (4,3-14,5) | 10,4 | 10,5 |\n| Odense Universitetshospital - Svendborg | Ja | 33 / 230 | 0 (0) | 14,3 (10,1-19,6) | 12,6 | 15,4 |\n| Sygehus Lillebælt | Ja | 5 / 98 | 0 (0) | 5,1 (1,7-11,5) | 6,6 | 16,4 |\n| Sygehus Sønderjylland | Ja | 16 / 126 | 0 (0) | 12,7 (7,4-19,8) | 17,3 | 12,8 |\n| Midtjylland | Ja | 67 / 675 | 0 (0) | 9,9 (7,8-12,4) | 13,7 | 15,2 |\n| Aarhus Universitetshospital | Ja | 12 / 138 | 0 (0) | 8,7 (4,6-14,7) | 11,6 | 13,1 |\n| Hospitalsenhed Midt | Ja | 13 / 158 | 0 (0) | 8,2 (4,5-13,7) | 11,5 | 16,3 |\n| Regionshospitalet Gødstrup | Ja | 13 / 158 | 0 (0) | 8,2 (4,5-13,7) | 14,0 | 15,5 |\n| Regionshospitalet Horsens | Nej | 16 / 93 | 0 (0) | 17,2 (10,2-26,4) | 15,5 | 10,2 |\n| Regionshospitalet Randers | Ja | 13 / 128 | 0 (0) | 10,2 (5,5-16,7) | 16,5 | 21,6 |\n| Nordjylland | Ja | 38 / 270 | 0 (0) | 14,1 (10,2-18,8) | 15,1 | 13,6 |\n| Aalborg Universitetshospital | Ja | 23 / 175 | 0 (0) | 13,1 (8,5-19,1) | 18,8 | 15,0 |\n| Aalborg Universitetshospital, Thisted |  |  |  |  |  | 0,0 |\n| Regionshospital Nordjylland | Nej | 15 / 95 | 0 (0) | 15,8 (9,1-24,7) | 8,9 | 11,6 |",
-      "summary": "Tabellen sammenligner 30-dages mortalitet efter akut kirurgi for Danmark, de fem regioner og de indberettende hospitaler mod en standard på < 15 %, og viser at nationen og alle regioner opfyldte standarden, mens Rigshospitalet (20,7 %), Holbæk Sygehus (18,6 %), Nykøbing F Sygehus (100,0 %), Regionshospitalet Horsens (17,2 %) og Regionshospital Nordjylland (15,8 %) ikke gjorde."
-    },
-    {
-      "subject": "indikator-10",
-      "title": "Eksklusioner fra indikator 10 (Antal / Årsag)",
-      "page": 50,
-      "rowDimension": "eksklusionsårsager",
-      "colDimension": "antal patienter",
-      "entities": [
-        "indikator-10",
-        "cpr-nummer",
-        "cpr-registeret"
-      ],
-      "markdown": "| Antal | Årsag |\n| --- | --- |\n| Eksklusion: 53 | Ugyldigt CPRnummer. |\n| 173 | Patienten er under 18 år. |\n| 6.178 | Patienten er ikke opereret. |\n| 5 | Patienten er registreret i CPR-registeret som 'Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn (kommunekoderne 0010, 0011, 0012 og 0019)' |\n| 474 | Operationen er ikke den første operation i hospitalsopholdet. |",
-      "summary": "Tabellen opgør eksklusionsårsagerne for indikator 10 og viser, at langt den største gruppe (6.178) blev ekskluderet, fordi patienten ikke var opereret."
-    }
-  ]
+  "tables": [],
+  "context": "Dette dokumentchunk er en del af den endelige offentliggørelse af Akut Kirurgi Databasen (AKDB) fra 2024, der rapporterer resultater fra Regionernes Kliniske Kvalitetsudviklingsprogram for indikatorer relateret til akut kirurgisk kvalitet. Fokus ligger på to centrale indikatorer: Indikator 9, der måler anvendelsen af epiduralanæstesi, og Indikator 10, der måler 30-dages mortalitet efter akut kirurgi. Chunken indeholder tekniske detaljer om datakilder (LPR og Dansk Anæstesi Database), metodekrav (f.eks. krav om tidspunkt for anæstesi), eksklusionskriterier, statistiske resultater med konfidensintervaller, regionale og lokale variationer samt evidensbaserede anbefalinger og politiske justeringer af standarder. Den indgår i en bredere kvalitetsudviklingskontekst, hvor data bruges til at identificere forbedringsmuligheder, støtte klinisk beslutningstagning og sikre ensartet kvalitet i den danske sundhedsvæsen."
 }

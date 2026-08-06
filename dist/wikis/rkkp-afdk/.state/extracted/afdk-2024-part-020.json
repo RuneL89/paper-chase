@@ -4,8 +4,8 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Denne organisation udgiver og administrerer AFDK-programmet (Atrieflimren i Danmark), som er det kvalitetsudviklingsprogram, der dokumenteres i dette kapitel.",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Denne organisation er udgiver af den offentliggjorte version af rapporten 'Atrieflimren i Danmark' og står bag indikator 8 om struktureret patientuddannelse, hvilket gør den central for implementering af kliniske standarder og kvalitetsmål i behandlingen af atrieflimren.",
       "mentions": [
         {
           "page": 96,
@@ -30,143 +30,11 @@
       ]
     },
     {
-      "name": "ESC",
-      "type": "organization",
-      "slug": "esc",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "European Society of Cardiology udgiver de europæiske guidelines for behandling af atrieflimren, som danner grundlag for de danske anbefalinger.",
-      "mentions": [
-        {
-          "page": 97,
-          "context": "De europæiske guidelines fra ESC anbefaler patientuddannelse til patienter med atrieflimren"
-        },
-        {
-          "page": 97,
-          "context": "Det bør tilstræbes, på baggrund af AFDK's anbefalinger, at patientundervisningsmaterialet tager udgangspunkt i ESC guidelines fra 2020"
-        }
-      ]
-    },
-    {
-      "name": "Hindricks et al.",
-      "type": "person",
-      "slug": "hindricks-et-al",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Forfattere af ESC guidelines fra 2020 og 2021 for behandling af atrieflimren, som citeres som grundlag for patientuddannelsesanbefalinger.",
-      "mentions": [
-        {
-          "page": 97,
-          "context": "Hindricks et al., 2021"
-        },
-        {
-          "page": 97,
-          "context": "ESC guidelines fra 2020 (Hindricks et al., 2021)"
-        }
-      ]
-    },
-    {
-      "name": "Risom",
-      "type": "person",
-      "slug": "risom",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Forfatter af den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med atrieflimren og studier om patientuddannelse.",
-      "mentions": [
-        {
-          "page": 97,
-          "context": "Den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med AF angiver en stærk anbefaling for, at patienter med ny AF diagnose deltager i hjerterehabilitering indeholdende patientuddannelse (Risom, 2019)"
-        },
-        {
-          "page": 97,
-          "context": "Formålet med patientuddannelse er at styrke patienternes egenomsorg, handlekompetencer og selvbestemmelse, og hermed øge patienternes helbredsstatus og livskvalitet samt give dem redskaber til at leve livet med en kronisk sygdom (Risom, 2019)"
-        },
-        {
-          "page": 97,
-          "context": "Patientuddannelse bør forankres i en teoretisk model, og udføres i et aktivt samarbejde mellem patient og sundhedsprofessionelle (Risom et al., 2018)"
-        }
-      ]
-    },
-    {
-      "name": "Palm et al.",
-      "type": "person",
-      "slug": "palm-et-al",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Forfattere af meta-analyse om effekten af patientuddannelse for patienter med atrieflimren, som viser 22% reduktion i død og genindlæggelse.",
-      "mentions": [
-        {
-          "page": 97,
-          "context": "Data var baseret på en systematisk litteraturgennemgang og Meta-analyse (Palm et al., 2020)"
-        },
-        {
-          "page": 97,
-          "context": "Meta-analysen indeholdt fem randomiseret interventions studier og et ikke-randomiseret interventionsstudie med i alt 2007 patienter og viste, til fordel for interventionsgruppen der modtog patientundervisning, en reduktion på død og genindlæggelse på 22% (Risk Ratio 0.78, CI 95% 0.63-0-97) i forhold til gruppen der ingen patientundervisning havde fået (Palm et al., 2020)"
-        },
-        {
-          "page": 97,
-          "context": "Der fandtes dog ikke entydige konklusioner i forhold til effekten på sundhedsrelateret livskvalitet, angst, depression og fysisk aktivitet. Flere studier fandt forskelle mellem grupperne til fordel for patientundervisning, men andre studier fandt ingen forskelle (Palm et al., 2020)"
-        },
-        {
-          "page": 97,
-          "context": "Varighed af undervisningsseancer kan i litteraturen variere mellem 30 til 150 minutter pr. gang med opfølgning 1-5 gange ca. hver 2. til hver 3. måned over op til 24 måneder (Palm et al., 2020)"
-        }
-      ]
-    },
-    {
-      "name": "Lunde et al.",
-      "type": "person",
-      "slug": "lunde-et-al",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Forfattere af forskning om individuelle udgangspunkter for patienters læring og færdigheder ved atrieflimren.",
-      "mentions": [
-        {
-          "page": 97,
-          "context": "AF er en kompleks sygdom, der påvirker patienter forskelligt. Den sundhedsprofessionelle skal derfor være opmærksom på, at patienter har et individuelt udgangspunkt for at tilegne sig læring og færdigheder (Lunde et al., 2018)"
-        }
-      ]
-    },
-    {
-      "name": "Gregory Y. H. Lip",
-      "type": "person",
-      "slug": "gregory-y-h-lip",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Forfatter af ABC Pathway-modellen for integreret behandling af atrieflimren, som præsenteres som grundlag for patientuddannelse.",
-      "mentions": [
-        {
-          "page": 98,
-          "context": "Gregory Y. H. Lip. Sept. 2017"
-        }
-      ]
-    },
-    {
-      "name": "McCabe",
-      "type": "person",
-      "slug": "mccabe",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Forfatter af forskning om indhold i patientundervisning for atrieflimren.",
-      "mentions": [
-        {
-          "page": 100,
-          "context": "I relation til The ABC Pathway anbefaler AFDK, at patientundervisningen bør indeholde informationer listet i nedenstående tabel tilpasset den enkelte patients situation (McCabe, 2011; Woo et al., 2021)"
-        }
-      ]
-    },
-    {
-      "name": "Woo et al.",
-      "type": "person",
-      "slug": "woo-et-al",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Forfattere af forskning om indhold i patientundervisning for atrieflimren.",
-      "mentions": [
-        {
-          "page": 100,
-          "context": "I relation til The ABC Pathway anbefaler AFDK, at patientundervisningen bør indeholde informationer listet i nedenstående tabel tilpasset den enkelte patients situation (McCabe, 2011; Woo et al., 2021)"
-        }
-      ]
-    },
-    {
-      "name": "Atrieflimren i Danmark",
-      "type": "organization",
-      "slug": "atrieflimren-i-danmark",
-      "folder": "entities/organizations/health-registries",
-      "significance": "AFDK er det nationale kvalitetsudviklingsprogram for atrieflimren, som administrerer indikatorer for struktureret patientuddannelse og behandling.",
+      "name": "Atrieflimren",
+      "type": "medical-condition",
+      "slug": "atrieflimren",
+      "folder": "topics/medical-conditions/cardiovascular",
+      "significance": "Atrieflimren er den centrale sygdom, som hele dokumentchunkens indhold handler om — herunder dens diagnose, behandling via ABC-pathway, patientuddannelse og kliniske indikatorer — og fungerer som det overordnede tema for alle anbefalinger og evidensbaserede udsagn på siderne 96–100.",
       "mentions": [
         {
           "page": 96,
@@ -174,11 +42,53 @@
         },
         {
           "page": 97,
-          "context": "Indikator 8: Struktureret patientuddannelse"
+          "context": "patienter med atrieflimren (AF) og deres pårørende"
         },
         {
           "page": 97,
-          "context": "Det bør tilstræbes, på baggrund af AFDK's anbefalinger, at patientundervisningsmaterialet tager udgangspunkt i ESC guidelines fra 2020"
+          "context": "patienter med ny AF diagnose"
+        },
+        {
+          "page": 99,
+          "context": "patienter med AF"
+        },
+        {
+          "page": 100,
+          "context": "patienter med AF"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 8",
+      "type": "quality-indicator",
+      "slug": "indikator-8",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 8 er en specifik kvalitetsmålsætning defineret af AFDK, der måler andelen af ny-diagnosticerede patienter med atrieflimren, der modtager struktureret patientuddannelse inden for det første år efter diagnosen, og er derfor central for evaluering af klinisk praksis og uddannelsesinfrastruktur.",
+      "mentions": [
+        {
+          "page": 97,
+          "context": "Indikator 8: Struktureret patientuddannelse"
+        }
+      ]
+    },
+    {
+      "name": "ABC Pathway",
+      "type": "clinical-tool",
+      "slug": "abc-pathway",
+      "folder": "topics/clinical-tools/risk-scores",
+      "significance": "ABC Pathway er en integreret behandlingsmodel til patienter med atrieflimren, der strukturerer klinisk håndtering i tre trin (A: Avoid stroke, B: Better symptom management, C: Cardiovascular risk reduction), og fungerer som grundlag for både behandlingsanbefalinger og patientuddannelsesindhold i denne chunk.",
+      "mentions": [
+        {
+          "page": 97,
+          "context": "The ABC Pathway"
+        },
+        {
+          "page": 98,
+          "context": "ABC pathway"
+        },
+        {
+          "page": 99,
+          "context": "ABC Pathway indeholder 3 trin:"
         },
         {
           "page": 100,
@@ -187,471 +97,254 @@
       ]
     },
     {
-      "name": "Xarelto",
-      "type": "product",
-      "slug": "xarelto",
-      "folder": "topics/medications",
-      "significance": "En antikoagulationsmedicin (DOAC), hvis informationsmateriale anbefales brugt i patientuddannelse om atrieflimren.",
-      "mentions": [
-        {
-          "page": 97,
-          "context": "pjecer fra Xarelto, Eliquis, Pradaxa og Lixiana samt de regionale pjecer om AK behandling"
-        }
-      ]
-    },
-    {
-      "name": "Eliquis",
-      "type": "product",
-      "slug": "eliquis",
-      "folder": "topics/medications",
-      "significance": "En antikoagulationsmedicin (DOAC), hvis informationsmateriale anbefales brugt i patientuddannelse om atrieflimren.",
-      "mentions": [
-        {
-          "page": 97,
-          "context": "pjecer fra Xarelto, Eliquis, Pradaxa og Lixiana samt de regionale pjecer om AK behandling"
-        }
-      ]
-    },
-    {
-      "name": "Pradaxa",
-      "type": "product",
-      "slug": "pradaxa",
-      "folder": "topics/medications",
-      "significance": "En antikoagulationsmedicin (DOAC), hvis informationsmateriale anbefales brugt i patientuddannelse om atrieflimren.",
-      "mentions": [
-        {
-          "page": 97,
-          "context": "pjecer fra Xarelto, Eliquis, Pradaxa og Lixiana samt de regionale pjecer om AK behandling"
-        }
-      ]
-    },
-    {
-      "name": "Lixiana",
-      "type": "product",
-      "slug": "lixiana",
-      "folder": "topics/medications",
-      "significance": "En antikoagulationsmedicin (DOAC), hvis informationsmateriale anbefales brugt i patientuddannelse om atrieflimren.",
-      "mentions": [
-        {
-          "page": 97,
-          "context": "pjecer fra Xarelto, Eliquis, Pradaxa og Lixiana samt de regionale pjecer om AK behandling"
-        }
-      ]
-    },
-    {
-      "name": "Marevan",
-      "type": "product",
-      "slug": "marevan",
-      "folder": "topics/medications",
-      "significance": "En traditionel antikoagulationsmedicin, som nævnes som behandlingsmulighed for atrieflimren.",
+      "name": "CHA₂DS₂-VASc Score",
+      "type": "clinical-indicator",
+      "slug": "cha2ds2-vasc",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "significance": "CHA₂DS₂-VASc Score er en risikoskala, der bruges til at vurdere stroke-risiko hos patienter med atrieflimren og er centralt i 'A'-trinnet af ABC Pathway, hvor den direkte styrer beslutningen om antikoagulationsbehandling.",
       "mentions": [
         {
           "page": 99,
-          "context": "A - Avoid stroke - omhandlende CHA₂DS₂-VASc Score og antikoagulation (DOAK/Marevan behandling)"
+          "context": "A - Avoid stroke - omhandlende CHA₂DS₂-VASc Score og antikoagulation (DOAK/Marevan behandling)/Aurikellukning"
+        },
+        {
+          "page": 100,
+          "context": "Vigtigheden af blodfortyndende behandling og varighed af denne afhængig af CHA2DS2-VASc score"
         }
       ]
     },
     {
-      "name": "Ikast-Brande",
-      "type": "location",
-      "slug": "ikast-brande",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Sundhedsklynge Kommune i AFDK-programmet.",
+      "name": "Patientuddannelse",
+      "type": "clinical-intervention",
+      "slug": "patientuddannelse",
+      "folder": "entities/medical-interventions/education",
+      "significance": "Patientuddannelse er en evidensbaseret, struktureret intervention, der ifølge denne chunk forbedrer overlevelse og reducerer genindlæggelser hos patienter med atrieflimren, og er derfor en kernekomponent af både kliniske retningslinjer og kvalitetsindikator 8.",
       "mentions": [
         {
-          "page": 96,
-          "context": "Sundhedsklynge Kommune Ikast-Brande"
+          "page": 97,
+          "context": "Indikator 8: Struktureret patientuddannelse"
+        },
+        {
+          "page": 97,
+          "context": "patientuddannelse til patienter med atrieflimren (AF) og deres pårørende"
+        },
+        {
+          "page": 97,
+          "context": "patientundervisning"
+        },
+        {
+          "page": 97,
+          "context": "patientuddannelse/-undervisning til AFDK"
+        },
+        {
+          "page": 100,
+          "context": "patientundervisningen bør indeholde informationer listet i nedenstående tabel"
         }
       ]
     },
     {
-      "name": "Lemvig",
-      "type": "location",
-      "slug": "lemvig",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Sundhedsklynge Kommune i AFDK-programmet.",
+      "name": "BFKB-koden",
+      "type": "code",
+      "slug": "bfkb-kode",
+      "folder": "entities/codes/intervention-codes",
+      "significance": "BFKB-koden er den specifikke kode, der skal anvendes i journalen til at indrapportere gennemført patientuddannelse i forbindelse med atrieflimren, og sikrer dermed datafangst og sporing af kvalitetsindikator 8 i sundhedssystemet.",
       "mentions": [
         {
-          "page": 96,
-          "context": "Sundhedsklynge Kommune Lemvig"
+          "page": 97,
+          "context": "BFKB-koden: \"Patientuddannelse i atrieflimren\""
         }
       ]
     },
     {
-      "name": "Ringkøbing-Skjern",
-      "type": "location",
-      "slug": "ringkoebing-skjern",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Sundhedsklynge Kommune i AFDK-programmet.",
+      "name": "ESC guidelines",
+      "type": "clinical-guideline",
+      "slug": "esc-guidelines",
+      "folder": "topics/clinical-guideline",
+      "significance": "ESC guidelines fra 2021 er den europæiske reference for behandling af atrieflimren og danner det vidensmæssige grundlag for AFDK’s anbefalinger om patientuddannelse samt ABC Pathway, hvilket giver dem autoritet og international validitet.",
       "mentions": [
         {
-          "page": 96,
-          "context": "Sundhedsklynge Kommune Ringkøbing-Skjern"
+          "page": 97,
+          "context": "De europæiske guidelines fra ESC anbefaler patientuddannelse til patienter med atrieflimren (AF) og deres pårørende"
+        },
+        {
+          "page": 97,
+          "context": "ESC guidelines fra 2020 (Hindricks et al., 2021)"
         }
       ]
     },
     {
-      "name": "Struer",
-      "type": "location",
-      "slug": "struer",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Sundhedsklynge Kommune i AFDK-programmet.",
+      "name": "The ABC Pathway",
+      "type": "clinical-tool",
+      "slug": "abc-pathway",
+      "folder": "topics/clinical-tools/risk-scores",
+      "significance": "The ABC Pathway er en integreret behandlingsmodel til patienter med atrieflimren, der strukturerer klinisk håndtering i tre trin (A: Avoid stroke, B: Better symptom management, C: Cardiovascular risk reduction), og fungerer som grundlag for både behandlingsanbefalinger og patientuddannelsesindhold i denne chunk.",
+      "disambiguation": "Dette er ikke en generel sundhedspolitisk strategi eller en teknologisk platform, men en specifik, evidensbaseret klinisk model til behandling af atrieflimren udviklet af ESC og adopteret af AFDK.",
       "mentions": [
         {
-          "page": 96,
-          "context": "Sundhedsklynge Kommune Struer"
+          "page": 97,
+          "context": "The ABC Pathway"
         }
       ]
     },
     {
-      "name": "Samsø",
-      "type": "location",
-      "slug": "samsoe",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Aarhusklyngen i AFDK-programmet.",
+      "name": "Palm et al., 2020",
+      "type": "publication",
+      "slug": "palm-et-al-2020",
+      "folder": "entities/documents/reports",
+      "significance": "Palm et al., 2020 er en meta-analyse, der leverer den primære evidens for effekten af patientuddannelse på død og genindlæggelse hos patienter med atrieflimren, og er derfor afgørende for den vidensbaserede begrundelse af indikator 8.",
       "mentions": [
         {
-          "page": 96,
-          "context": "Aarhusklyngen Samsø"
+          "page": 97,
+          "context": "Meta-analyse (Palm et al., 2020)"
+        },
+        {
+          "page": 97,
+          "context": "Palm et al., 2020"
         }
       ]
     },
     {
-      "name": "Jammerbugt",
-      "type": "location",
-      "slug": "jammerbugt",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Klynge MIDT i AFDK-programmet.",
+      "name": "Risom, 2019",
+      "type": "publication",
+      "slug": "risom-2019",
+      "folder": "entities/documents/reports",
+      "significance": "Risom, 2019 er den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med atrieflimren, der indeholder en stærk anbefaling for patientuddannelse og dermed danner nationalt lovgivningsmæssigt underlag for AFDK’s indikator 8.",
       "mentions": [
         {
-          "page": 96,
-          "context": "Klynge MIDT Jammerbugt"
-        }
-      ]
-    },
-    {
-      "name": "Brønderslev",
-      "type": "location",
-      "slug": "broenderslev",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Klynge NORD i AFDK-programmet.",
-      "mentions": [
-        {
-          "page": 96,
-          "context": "Klynge NORD Brønderslev"
-        }
-      ]
-    },
-    {
-      "name": "Frederikshavn",
-      "type": "location",
-      "slug": "frederikshavn",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Klynge NORD i AFDK-programmet.",
-      "mentions": [
-        {
-          "page": 96,
-          "context": "Klynge NORD Frederikshavn"
-        }
-      ]
-    },
-    {
-      "name": "Hjørring",
-      "type": "location",
-      "slug": "hjoerring",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Klynge NORD i AFDK-programmet.",
-      "mentions": [
-        {
-          "page": 96,
-          "context": "Klynge NORD Hjørring"
-        }
-      ]
-    },
-    {
-      "name": "Læsø",
-      "type": "location",
-      "slug": "laesoe",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Klynge NORD i AFDK-programmet.",
-      "mentions": [
-        {
-          "page": 96,
-          "context": "Klynge NORD Læsø"
-        }
-      ]
-    },
-    {
-      "name": "Mariagerfjord",
-      "type": "location",
-      "slug": "mariagerfjord",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Klynge SYD i AFDK-programmet.",
-      "mentions": [
-        {
-          "page": 96,
-          "context": "Klynge SYD Mariagerfjord"
-        }
-      ]
-    },
-    {
-      "name": "Rebild",
-      "type": "location",
-      "slug": "rebild",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Klynge SYD i AFDK-programmet.",
-      "mentions": [
-        {
-          "page": 96,
-          "context": "Klynge SYD Rebild"
-        }
-      ]
-    },
-    {
-      "name": "Vesthimmerlands",
-      "type": "location",
-      "slug": "vesthimmerlands",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Klynge SYD i AFDK-programmet.",
-      "mentions": [
-        {
-          "page": 96,
-          "context": "Klynge SYD Vesthimmerlands"
-        }
-      ]
-    },
-    {
-      "name": "Morsø",
-      "type": "location",
-      "slug": "morsoe",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Klynge VEST i AFDK-programmet.",
-      "mentions": [
-        {
-          "page": 96,
-          "context": "Klynge VEST Morsø"
-        }
-      ]
-    },
-    {
-      "name": "Thisted",
-      "type": "location",
-      "slug": "thisted",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Dansk kommune, der er del af Klynge VEST i AFDK-programmet.",
-      "mentions": [
-        {
-          "page": 96,
-          "context": "Klynge VEST Thisted"
+          "page": 97,
+          "context": "Den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med AF angiver en stærk anbefaling for, at patienter med ny AF diagnose deltager i hjerterehabilitering indeholdende patientuddannelse (Risom, 2019)"
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "atrieflimren-i-danmark",
-      "predicate": "administered-by",
-      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Atrieflimren i Danmark er et program under Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "subject": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "predicate": "publishes",
+      "object": "atrieflimren",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram udgiver rapporten 'Atrieflimren i Danmark'",
       "page": 96
     },
     {
-      "subject": "esc",
-      "predicate": "publishes-guidelines-for",
-      "object": "atrieflimren",
-      "evidence": "De europæiske guidelines fra ESC anbefaler patientuddannelse til patienter med atrieflimren",
+      "subject": "indikator-8",
+      "predicate": "measures",
+      "object": "patientuddannelse",
+      "evidence": "Indikator 8: Struktureret patientuddannelse",
       "page": 97
     },
     {
-      "subject": "atrieflimren-i-danmark",
-      "predicate": "recommends-guidelines-from",
-      "object": "esc",
-      "evidence": "Det bør tilstræbes, på baggrund af AFDK's anbefalinger, at patientundervisningsmaterialet tager udgangspunkt i ESC guidelines fra 2020",
+      "subject": "abc-pathway",
+      "predicate": "informs",
+      "object": "patientuddannelse",
+      "evidence": "Det bør tilstræbes, på baggrund af AFDK’s anbefalinger, at patientundervisningsmaterialet tager udgangspunkt i ESC guidelines fra 2020 (Hindricks et al., 2021). Guidelines bygger på ”The ABC Pathway”",
+      "page": 97
+    },
+    {
+      "subject": "cha2ds2-vasc",
+      "predicate": "guides-treatment-in",
+      "object": "abc-pathway",
+      "evidence": "A - Avoid stroke - omhandlende CHA₂DS₂-VASc Score og antikoagulation",
+      "page": 99
+    },
+    {
+      "subject": "esc-guidelines",
+      "predicate": "recommends",
+      "object": "patientuddannelse",
+      "evidence": "De europæiske guidelines fra ESC anbefaler patientuddannelse til patienter med atrieflimren (AF) og deres pårørende",
+      "page": 97
+    },
+    {
+      "subject": "palm-et-al-2020",
+      "predicate": "provides-evidence-for",
+      "object": "patientuddannelse",
+      "evidence": "Meta-analysen indeholdt fem randomiseret interventions studier og et ikke-randomiseret interventionsstudie med i alt 2007 patienter og viste, til fordel for interventionsgruppen der modtog patientundervisning, en reduktion på død og genindlæggelse på 22%",
       "page": 97
     }
   ],
   "claims": [
     {
-      "text": "De europæiske guidelines fra ESC anbefaler patientuddannelse til patienter med atrieflimren (AF) og deres pårørende, som en integreret del af den grundlæggende behandling [^src1]",
-      "type": "clinical-recommendation",
-      "entities": [
-        "esc",
-        "atrieflimren"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med AF angiver en stærk anbefaling for, at patienter med ny AF diagnose deltager i hjerterehabilitering indeholdende patientuddannelse [^src2]",
-      "type": "clinical-recommendation",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Meta-analysen indeholdt fem randomiseret interventions studier og et ikke-randomiseret interventionsstudie med i alt 2007 patienter og viste, til fordel for interventionsgruppen der modtog patientundervisning, en reduktion på død og genindlæggelse på 22% (Risk Ratio 0.78, CI 95% 0.63-0-97) [^src3]",
+      "text": "Meta-analysen indeholdt fem randomiseret interventions studier og et ikke-randomiseret interventionsstudie med i alt 2007 patienter og viste, til fordel for interventionsgruppen der modtog patientundervisning, en reduktion på død og genindlæggelse på 22% (Risk Ratio 0.78, CI 95% 0.63-0.97) i forhold til gruppen der ingen patientundervisning havde fået (Palm et al., 2020) [^src1]",
       "type": "clinical-outcome",
       "entities": [
+        "palm-et-al-2020",
+        "patientuddannelse"
+      ],
+      "page": 97
+    },
+    {
+      "text": "Formålet med patientuddannelse er at styrke patienternes egenomsorg, handlekompetencer og selvbestemmelse, og hermed øge patienternes helbredsstatus og livskvalitet samt give dem redskaber til at leve livet med en kronisk sygdom (Risom, 2019) [^src2]",
+      "type": "definition",
+      "entities": [
+        "patientuddannelse",
+        "risom-2019"
+      ],
+      "page": 97
+    },
+    {
+      "text": "Indrapportering af indikator 8, patientuddannelse/-undervisning til AFDK skal kodes i journalen med BFKB-koden: \"Patientuddannelse i atrieflimren\" [^src3]",
+      "type": "procedural",
+      "entities": [
+        "indikator-8",
+        "bfkb-kode",
         "atrieflimren"
       ],
       "page": 97
     },
     {
-      "text": "Der fandtes dog ikke entydige konklusioner i forhold til effekten på sundhedsrelateret livskvalitet, angst, depression og fysisk aktivitet [^src3]",
-      "type": "clinical-outcome",
+      "text": "Ved datafangst måles andelen af ny-diagnosticerede patienter med atrieflimren, som får et struktureret undervisningsprogram inden for det 1. år efter at diagnosen er stillet [^src3]",
+      "type": "procedural",
       "entities": [
-        "atrieflimren"
+        "indikator-8",
+        "atrieflimren",
+        "patientuddannelse"
       ],
       "page": 97
-    },
-    {
-      "text": "Formålet med patientuddannelse er at styrke patienternes egenomsorg, handlekompetencer og selvbestemmelse, og hermed øge patienternes helbredsstatus og livskvalitet samt give dem redskaber til at leve livet med en kronisk sygdom [^src2]",
-      "type": "clinical-goal",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 97
-    },
-    {
-      "text": "AF er en kompleks sygdom, der påvirker patienter forskelligt. Den sundhedsprofessionelle skal derfor være opmærksom på, at patienter har et individuelt udgangspunkt for at tilegne sig læring og færdigheder [^src4]",
-      "type": "clinical-finding",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Varighed af undervisningsseancer kan i litteraturen variere mellem 30 til 150 minutter pr. gang med opfølgning 1-5 gange ca. hver 2. til hver 3. måned over op til 24 måneder [^src3]",
-      "type": "clinical-measure",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Patienterne beskriver deres erfaringer med individuel undervisning om AF som værende afgørende for at leve et godt liv med sygdom [^src5]",
-      "type": "patient-outcome",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Patienterne fik gennem undervisningen redskaber til at håndtere symptomer og angst [^src5]",
-      "type": "patient-outcome",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Indrapportering af indikator 8, patientuddannelse/-undervisning til AFDK skal kodes i journalen med BFKB-koden: 'Patientuddannelse i atrieflimren' [^src6]",
-      "type": "operational",
-      "entities": [
-        "atrieflimren-i-danmark"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Ved datafangst måles andelen af ny-diagnosticerede patienter med atrieflimren, som får et struktureret undervisningsprogram inden for det 1. år efter at diagnosen er stillet [^src6]",
-      "type": "quality-indicator",
-      "entities": [
-        "atrieflimren-i-danmark"
-      ],
-      "page": 97
-    },
-    {
-      "text": "ABC Pathway indeholder 3 trin: A - Avoid stroke, B - Better symptom management, C – Cardiovascular and comorbiditet risk reduction [^src7]",
-      "type": "clinical-framework",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 99
-    },
-    {
-      "text": "A - Avoid stroke omhandlende CHA₂DS₂-VASc Score og antikoagulation (DOAK/Marevan behandling)/Aurikellukning [^src7]",
-      "type": "clinical-treatment",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 99
-    },
-    {
-      "text": "B - Better symptom management omhandlende Rytmekontrol (antiarytmika) og Frekvensregulering [^src7]",
-      "type": "clinical-treatment",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 99
-    },
-    {
-      "text": "C – Cardiovascular and comorbiditet risk reduction omhandlende identifikation og behandling af risiko- og livsstilsfaktorer, som en integreret del i behandlingen af AF [^src7]",
-      "type": "clinical-treatment",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 99
     }
   ],
   "timeline": [
     {
-      "date": "2017",
-      "event": "Gregory Y. H. Lip publicerer ABC Pathway-modellen for integreret behandling af atrieflimren",
+      "date": "2020",
+      "event": "Palm et al. publicerer en meta-analyse, der viser 22% reduktion i død og genindlæggelse ved patientuddannelse for atrieflimren",
       "entities": [
-        "gregory-y-h-lip",
-        "atrieflimren"
-      ]
-    },
-    {
-      "date": "2018",
-      "event": "Lunde et al. publicerer forskning om individuelle udgangspunkter for patienters læring ved atrieflimren",
-      "entities": [
-        "lunde-et-al",
-        "atrieflimren"
-      ]
-    },
-    {
-      "date": "2018",
-      "event": "Risom et al. publicerer studie om patienters erfaringer med individuel undervisning om atrieflimren",
-      "entities": [
-        "risom",
+        "palm-et-al-2020",
+        "patientuddannelse",
         "atrieflimren"
       ]
     },
     {
       "date": "2019",
-      "event": "Risom publicerer den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med atrieflimren",
+      "event": "Risom udgiver den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med atrieflimren med stærk anbefaling for patientuddannelse",
       "entities": [
-        "risom",
-        "atrieflimren"
-      ]
-    },
-    {
-      "date": "2020",
-      "event": "Palm et al. publicerer meta-analyse om effekten af patientuddannelse for patienter med atrieflimren",
-      "entities": [
-        "palm-et-al",
-        "atrieflimren"
-      ]
-    },
-    {
-      "date": "2020",
-      "event": "ESC publicerer guidelines for behandling af atrieflimren (Hindricks et al.)",
-      "entities": [
-        "esc",
-        "hindricks-et-al",
-        "atrieflimren"
+        "risom-2019",
+        "atrieflimren",
+        "patientuddannelse"
       ]
     },
     {
       "date": "2021",
-      "event": "Hindricks et al. publicerer ESC guidelines for behandling af atrieflimren",
+      "event": "ESC guidelines fra Hindricks et al. anbefaler patientuddannelse til patienter med atrieflimren og danner grundlag for ABC Pathway",
       "entities": [
-        "hindricks-et-al",
-        "esc",
-        "atrieflimren"
+        "esc-guidelines",
+        "atrieflimren",
+        "abc-pathway"
       ]
     }
   ],
-  "context": "Dette kapitel dokumenterer Indikator 8 (Struktureret patientuddannelse) i AFDK-programmet (Atrieflimren i Danmark), som administreres af Regionernes Kliniske Kvalitetsudviklingsprogram. Kapitlet præsenterer evidensen for patientuddannelse som en integreret del af behandlingen af atrieflimren, baseret på europæiske ESC-guidelines og dansk nationale retningslinjer. Det beskriver formål, metoder, indhold og implementering af struktureret patientuddannelse, samt ABC Pathway-modellen for integreret behandling af atrieflimren, som omfatter tre hovedkomponenter: forebyggelse af apopleksi (A), bedre symptomkontrol (B) og reduktion af kardiovaskulær risiko (C). Kapitlet indeholder også en geografisk oversigt over de danske sundhedsklynger, der deltager i AFDK-programmet."
+  "tables": [
+    {
+      "subject": "patientuddannelse-emner",
+      "title": "Tabel 1. I relation til The ABC Pathway anbefaler AFDK, at patientundervisningen bør indeholde informationer listet i nedenstående tabel tilpasset den enkelte patients situation",
+      "page": 100,
+      "rowDimension": "ABC-grundviden",
+      "colDimension": "emner",
+      "entities": [
+        "atrieflimren",
+        "abc-pathway",
+        "patientuddannelse"
+      ],
+      "markdown": "| ABC-grundviden | Indhold |\n| --- | --- |\n| Hvad er AF? AF-sygdom og årsager | Information om hvordan hjertet arbejder under sinusrytme og AF<br>- Forklar de forskellige typer af AF<br>- AF er generelt kronisk og fremadskridende. Tilbagefald af AF er ikke ualmindeligt<br>- Overholdelse af behandling kan ikke altid forebygge tilbagefald eller symptomer<br>Gennemgå mulige årsager<br>- Høj alder, mandligt køn, forhøjet blodtryk, høj BMI, hjertesvigt<br>- Understreg at det af og til kan være svært at finde en årsag. Drøftelse af udløsende faktorer fx alkohol, søvnapnø, infektion, forhøjet stofskifte |\n| A: Avoid stroke. Antikoagulation’s behandling | Hvordan reduceres risikoen for stroke?<br>Årsager til risiko for blodpropdannelse<br>Vigtigheden af blodfortyndende behandling og varighed af denne afhængig af CHA2DS2-VASc score<br>Forholdsregler ved AK behandling<br>Information om virkning, bivirkning og interaktion med fx NSAID-præparater<br>- Forholdsregler ved tandudtrækning, kirurgi, blødning og traumer<br>- Forholdsregler ved behov for DC-konvertering<br>- Opfølgning af blodprøver hver 3. mdr. det 1. år, herefter 1-2 gange årligt afhængig af nyrefunktion<br>- Opmærksomhed på alkohol og AK-behandling<br>- Opmærksomhed for behov for Aurikellukning |\n| B: Better symptom management. Behandling af symptomer | Hvad er rytme og frekvens behandling?<br>Symptomer på AF og fravær af symptomer<br>- Anerkende at symptomer kan være forskellige og nogle mere skræmmende end andre.<br>- Behandling varierer i forhold til AF-type med eller uden symptomer, tidslængden af AF og sammenhæng med co-morbiditet<br>- Behandlingen er ikke altid succesfuld<br>- Diskutere realistiske behandlingsmål<br>- Behandlingen må ikke ophøre uden forudgående rådføring med sundhedsprofessionelle<br>- Opmærksomhed på at reduktion af alkoholindtag ned mod 0 hos mange kan medføre en halvering af symptomer |",
+      "summary": "Tabellen strukturerer patientuddannelsesindholdet i henhold til ABC Pathway og lister specifikke emner inden for 'ABC-grundviden', 'A: Avoid stroke' og 'B: Better symptom management', herunder f.eks. årsager til AF, CHA₂DS₂-VASc-baseret antikoagulationsvejledning og behandlingsmål for symptomer."
+    }
+  ],
+  "context": "Dette dokumentchunk er en del af den offentliggjorte version af rapporten 'Atrieflimren i Danmark' udarbejdet af Regionernes Kliniske Kvalitetsudviklingsprogram (AFDK). Chunken fokuserer på indikator 8 – struktureret patientuddannelse – og dets evidensbaserede fundament i internationale og nationale retningslinjer, især ESC guidelines og den danske Nationale Kliniske Retningslinje fra Risom (2019). Den præsenterer ABC Pathway som en integreret behandlingsmodel, knytter patientuddannelse direkte til kliniske mål og kvalitetsmåling via BFKB-kodning, og indeholder en detaljeret, tabellagt tabel over undervisningsindhold tilpasset patientens individuelle behov og ABC-trinnene. Dermed indgår chunken i den bredere narrative om systematisk kvalitetsudvikling i dansk kardiovaskulær sundhedsvæsen, hvor patientcentreret uddannelse er en kernekompontent af evidensbaseret praksis."
 }

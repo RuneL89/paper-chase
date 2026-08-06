@@ -1,141 +1,11 @@
 {
   "entities": [
     {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau for alle rapporterede indikatorer vedr. atrieflimren-behandling og forebyggelse af iskæmisk apopleksi.",
-      "mentions": [
-        {
-          "page": 91,
-          "context": "Danmark 5267 52.6 4743 47.4 10010 - Start på AK behandling"
-        },
-        {
-          "page": 92,
-          "context": "Danmark 726 65.8 378 34.2 1104 - Andel af atrieflimren patienter indlagt med iskæmisk apopleksi"
-        },
-        {
-          "page": 92,
-          "context": "Alle 133706 99.18 1104 0.82 - Prævalente patienter med atrieflimren"
-        },
-        {
-          "page": 93,
-          "context": "Danmark Ja 770 / 134.741 0 (0) 0,6 (0,5-0,6) - Indikator 5 baseret på DanStroke"
-        }
-      ]
-    },
-    {
-      "name": "Region Hovedstaden",
-      "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Hovedstaden er en af fem danske regioner med rapporterede data for atrieflimren-behandling og apopleksi-forebyggelse.",
-      "mentions": [
-        {
-          "page": 91,
-          "context": "Region Hovedstaden 1152 47.1 1293 52.9 2445 - Start på AK behandling"
-        },
-        {
-          "page": 92,
-          "context": "Region Hovedstaden 221 63.5 127 36.5 348 - Andel af atrieflimren patienter indlagt med iskæmisk apopleksi"
-        },
-        {
-          "page": 93,
-          "context": "Hovedstaden Ja 287 / 37.128 0 (0) 0,8 (0,7-0,9) - Indikator 5 baseret på DanStroke"
-        }
-      ]
-    },
-    {
-      "name": "Sjælland",
-      "type": "location",
-      "slug": "sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Sjælland er en af fem danske regioner med rapporterede data for atrieflimren-behandling og apopleksi-forebyggelse.",
-      "mentions": [
-        {
-          "page": 91,
-          "context": "Sjælland 892 52.8 796 47.2 1688 - Start på AK behandling"
-        },
-        {
-          "page": 92,
-          "context": "Sjælland 136 63.0 80 37.0 216 - Andel af atrieflimren patienter indlagt med iskæmisk apopleksi"
-        },
-        {
-          "page": 94,
-          "context": "Sjælland Ja 173 / 22.372 0 (0) 0,8 (0,7-0,9) - Indikator 5 baseret på DanStroke"
-        }
-      ]
-    },
-    {
-      "name": "Syddanmark",
-      "type": "location",
-      "slug": "syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Syddanmark er en af fem danske regioner med rapporterede data for atrieflimren-behandling og apopleksi-forebyggelse.",
-      "mentions": [
-        {
-          "page": 91,
-          "context": "Syddanmark 1267 53.3 1112 46.7 2379 - Start på AK behandling"
-        },
-        {
-          "page": 92,
-          "context": "Syddanmark 161 70.6 67 29.4 228 - Andel af atrieflimren patienter indlagt med iskæmisk apopleksi"
-        },
-        {
-          "page": 94,
-          "context": "Syddanmark Ja 83 / 31.244 0 (0) 0,3 (0,2-0,3) - Indikator 5 baseret på DanStroke"
-        }
-      ]
-    },
-    {
-      "name": "Midtjylland",
-      "type": "location",
-      "slug": "midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Midtjylland er en af fem danske regioner med rapporterede data for atrieflimren-behandling og apopleksi-forebyggelse.",
-      "mentions": [
-        {
-          "page": 91,
-          "context": "Midtjylland 1304 56.7 995 43.3 2299 - Start på AK behandling"
-        },
-        {
-          "page": 92,
-          "context": "Midtjylland 140 66.4 71 33.6 211 - Andel af atrieflimren patienter indlagt med iskæmisk apopleksi"
-        },
-        {
-          "page": 93,
-          "context": "Midtjylland Ja 141 / 29.495 0 (0) 0,5 (0,4-0,6) - Indikator 5 baseret på DanStroke"
-        }
-      ]
-    },
-    {
-      "name": "Nordjylland",
-      "type": "location",
-      "slug": "nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Nordjylland er en af fem danske regioner med rapporterede data for atrieflimren-behandling og apopleksi-forebyggelse.",
-      "mentions": [
-        {
-          "page": 91,
-          "context": "Nordjylland 652 54.4 547 45.6 1199 - Start på AK behandling"
-        },
-        {
-          "page": 92,
-          "context": "Nordjylland 68 67.3 33 32.7 101 - Andel af atrieflimren patienter indlagt med iskæmisk apopleksi"
-        },
-        {
-          "page": 93,
-          "context": "Nordjylland Ja 86 / 14.502 0 (0) 0,6 (0,5-0,7) - Indikator 5 baseret på DanStroke"
-        }
-      ]
-    },
-    {
       "name": "Databasen for Atrieflimren i Danmark",
       "type": "organization",
       "slug": "databasen-for-atrieflimren-i-danmark",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Databasen for Atrieflimren i Danmark er kilden til alle rapporterede data om atrieflimren-behandling og apopleksi-forebyggelse i denne årsrapport.",
+      "folder": "entities/organizations/health-databases",
+      "significance": "Databasen for Atrieflimren i Danmark er den centrale nationale database, der overvåger kvaliteten af behandlingen af atrieflimren i Danmark, og danner grundlag for alle indikatoranalyser i denne årsrapport.",
       "mentions": [
         {
           "page": 91,
@@ -147,8 +17,8 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/health-programs",
-      "significance": "RKKP er den organisation bag databasen og årsrapporten, ansvarlig for kvalitetsudvikling inden for atrieflimren-behandling.",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) er den koordinerende organisation bag udarbejdelsen af årsrapporten og ansvarlig for implementering og evaluering af kliniske kvalitetsindikatorer på tværs af regionerne.",
       "mentions": [
         {
           "page": 91,
@@ -157,11 +27,167 @@
       ]
     },
     {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark fungerer som national referenceenhed i alle tabeller og analyser, hvor regionale og kommunale data sammenlignes med landsgennemsnittet for atrieflimren-behandling og apopleksi-prævention.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Danmark 5267 52.6 4743 47.4 10010"
+        },
+        {
+          "page": 92,
+          "context": "Danmark 726 65.8 378 34.2 1104"
+        },
+        {
+          "page": 93,
+          "context": "Danmark Ja 770 / 134.741 0 (0) 0,6 (0,5-0,6) 977 / 134.210 0,7 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Region Hovedstaden er en af de fem danske regioner, hvis data om antikoagulationsbehandling og apopleksi-indlæggelser indgår i de supplerende analyser og indikatorberegninger på side 91–95.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Region Hovedstaden 1152 47.1 1293 52.9 2445"
+        },
+        {
+          "page": 92,
+          "context": "Region Hovedstaden 221 63.5 127 36.5 348"
+        },
+        {
+          "page": 93,
+          "context": "Hovedstaden Ja 287 / 37.128 0 (0) 0,8 (0,7-0,9) 323 / 37.252 0,9 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/regions",
+      "significance": "Sjælland er en af de fem danske regioner, hvis data om start på AK-behandling og andel af patienter med iskæmisk apopleksi indgår i de supplerende analyser på side 91–92 samt i DanStroke-baserede indikatorberegninger på side 93–95.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "| Sjælland | 892 | 52.8 | 796 | 47.2 | 1688 |"
+        },
+        {
+          "page": 92,
+          "context": "| Sjælland | 136 | 63.0 | 80 | 37.0 | 216 |"
+        },
+        {
+          "page": 93,
+          "context": "Sjælland Ja 173 / 22.372 0 (0) 0,8 (0,7-0,9) 163 / 22.300 0,7 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "Syddanmark er en af de fem danske regioner, hvis data om antikoagulationsstart og apopleksi-relaterede indikatorer indgår i både tabellerne på side 91–92 og i DanStroke-analyserne på side 93–94.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "| Syddanmark | 1267 | 53.3 | 1112 | 46.7 | 2379 |"
+        },
+        {
+          "page": 92,
+          "context": "| Syddanmark | 161 | 70.6 | 67 | 29.4 | 228 |"
+        },
+        {
+          "page": 93,
+          "context": "Syddanmark Ja 83 / 31.244 0 (0) 0,3 (0,2-0,3) 161 / 30.732 0,5 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Midtjylland er en af de fem danske regioner, hvis data om antikoagulationsbehandling og apopleksi-risiko indgår i alle tre supplerende analyser på side 91–95.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "| Midtjylland | 1304 | 56.7 | 995 | 43.3 | 2299 |"
+        },
+        {
+          "page": 92,
+          "context": "| Midtjylland | 140 | 66.4 | 71 | 33.6 | 211 |"
+        },
+        {
+          "page": 93,
+          "context": "Midtjylland Ja 141 / 29.495 0 (0) 0,5 (0,4-0,6) 219 / 29.309 0,7 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Nordjylland er en af de fem danske regioner, hvis data om behandlingsstart og apopleksi-indlæggelser indgår i alle supplerende analyser fra side 91 til 95.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "| Nordjylland | 652 | 54.4 | 547 | 45.6 | 1199 |"
+        },
+        {
+          "page": 92,
+          "context": "| Nordjylland | 68 | 67.3 | 33 | 32.7 | 101 |"
+        },
+        {
+          "page": 93,
+          "context": "Nordjylland Ja 86 / 14.502 0 (0) 0,6 (0,5-0,7) 111 / 14.617 0,8 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1",
+      "type": "topic",
+      "slug": "indikator-1",
+      "folder": "topics/health-indicators",
+      "significance": "Indikator 1 måler tidsmæssig opstart på antikoagulationsbehandling (AK) hos patienter med atrieflimren — specifikt andelen, der starter behandling enten inden for 4 måneder før diagnose eller inden for 30 dage efter udskrivelse.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Supplerende analyse: indikator 1\nStart på AK behandling"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "topic",
+      "slug": "indikator-5",
+      "folder": "topics/health-indicators",
+      "significance": "Indikator 5 vurderer andelen af atrieflimren-patienter, der er indlagt med iskæmisk apopleksi eller apopleksi af ukendt type og har modtaget recept på oral AK-behandling inden for 100 dage før indlæggelsen — baseret på både LPR- og DanStroke-data.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "Supplerende analyse: indikator 5\nAndel af atrieflimren patienter indlagt med iskæmisk apopleksi/apopleksi af ukendt type, som har indløst recept på oral AK-behandling indenfor 100 dage før dato for indlæggelse med apopleksi"
+        },
+        {
+          "page": 93,
+          "context": "Indikator 5 baseret på DanStroke"
+        }
+      ]
+    },
+    {
       "name": "DanStroke",
       "type": "organization",
       "slug": "danstroke",
-      "folder": "entities/organizations/health-registries",
-      "significance": "DanStroke er datakilden for indikator 5 vedr. apopleksi blandt atrieflimren-patienter.",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DanStroke er et nationalt register for apopleksi, som bruges som alternativ datagrundlag til LPR for beregning af Indikator 5, hvilket giver mere præcise og klinisk validerede resultater.",
       "mentions": [
         {
           "page": 93,
@@ -170,28 +196,825 @@
       ]
     },
     {
-      "name": "København",
-      "type": "location",
-      "slug": "koebenhavn",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "København er en kommune i Region Hovedstaden med rapporterede data for apopleksi-forebyggelse blandt atrieflimren-patienter.",
+      "name": "LPR",
+      "type": "organization",
+      "slug": "lpr",
+      "folder": "entities/organizations/health-databases",
+      "significance": "LPR (Landspatientregisteret) er det nationale register for sygehuskontakter, som anvendes til beregning af flere kvalitetsindikatorer, herunder Indikator 5, men med lavere klinisk specificitet end DanStroke.",
       "mentions": [
         {
-          "page": 93,
-          "context": "København Ja 54 / 8.040 0 (0) 0,7 (0,5-0,9) - Indikator 5 baseret på DanStroke"
+          "page": 92,
+          "context": "Andel af atrieflimren patienter indlagt med I63 + I64 (LPR baseret)"
+        },
+        {
+          "page": 92,
+          "context": "Prævalente patienter med atrieflimren, der udvikler iskæmisk apopleksi i opgørelses perioden (LPR-baseret)"
         }
       ]
     },
     {
-      "name": "Aalborg",
-      "type": "location",
-      "slug": "aalborg",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Aalborg er en kommune i Nordjylland med rapporterede data for apopleksi-forebyggelse blandt atrieflimren-patienter.",
+      "name": "DOAC",
+      "type": "product",
+      "slug": "doac",
+      "folder": "entities/products/pharmaceuticals",
+      "significance": "DOAC (Direct Oral Anticoagulants) er en gruppe moderne antikoagulantia, hvis brug blandt atrieflimren-patienter analyseres i forhold til risiko for iskæmisk apopleksi på side 92.",
       "mentions": [
         {
-          "page": 95,
-          "context": "Aalborg Ja 30 / 4.247 0 (0) 0,7 (0,5-1,0) - Indikator 5 baseret på DanStroke"
+          "page": 92,
+          "context": "DOAC\nMarevan 8486 99.44 48 0.56\nBåde DOAC og Marevan 1445 97.11 43 2.89\nHverken DOAC eller Marevan 27856 99.47 148 0.53"
+        }
+      ]
+    },
+    {
+      "name": "Marevan",
+      "type": "product",
+      "slug": "marevan",
+      "folder": "entities/products/pharmaceuticals",
+      "significance": "Marevan (warfarin) er et traditionelt vitamin-K-antagonist antikoagulant, hvis effektivitet i apopleksi-prævention blandt atrieflimren-patienter sammenlignes med DOAC på side 92.",
+      "mentions": [
+        {
+          "page": 92,
+          "context": "DOAC\nMarevan 8486 99.44 48 0.56"
+        }
+      ]
+    },
+    {
+      "name": "Albertslund",
+      "type": "location",
+      "slug": "albertslund",
+      "folder": "entities/locations/municipalities",
+      "significance": "Albertslund er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Albertslund Ja # / # 0 (0) 0,2 (0,0-1,0) # / # 0,5 1,8"
+        }
+      ]
+    },
+    {
+      "name": "Allerød",
+      "type": "location",
+      "slug": "alleroed",
+      "folder": "entities/locations/municipalities",
+      "significance": "Allerød er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Allerød Nej 8 / 610 0 (0) 1,3 (0,6-2,6) # / # 0,5 0,2"
+        }
+      ]
+    },
+    {
+      "name": "Ballerup",
+      "type": "location",
+      "slug": "ballerup",
+      "folder": "entities/locations/municipalities",
+      "significance": "Ballerup er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Ballerup Nej 16 / 1.226 0 (0) 1,3 (0,7-2,1) 9 / 1.208 0,7 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Bornholm",
+      "type": "location",
+      "slug": "bornholm",
+      "folder": "entities/locations/municipalities",
+      "significance": "Bornholm er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Bornholm Ja 10 / 1.337 0 (0) 0,7 (0,4-1,4) 8 / 1.385 0,6 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Brøndby",
+      "type": "location",
+      "slug": "broendby",
+      "folder": "entities/locations/municipalities",
+      "significance": "Brøndby er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Brøndby Nej 10 / 852 0 (0) 1,2 (0,6-2,1) 9 / 859 1,0 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Dragør",
+      "type": "location",
+      "slug": "dragoer",
+      "folder": "entities/locations/municipalities",
+      "significance": "Dragør er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Dragør Nej 7 / 422 0 (0) 1,7 (0,7-3,4) # / # 0,7 1,2"
+        }
+      ]
+    },
+    {
+      "name": "Egedal",
+      "type": "location",
+      "slug": "egedal",
+      "folder": "entities/locations/municipalities",
+      "significance": "Egedal er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Egedal Ja 4 / 917 0 (0) 0,4 (0,1-1,1) 7 / 902 0,8 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Fredensborg",
+      "type": "location",
+      "slug": "fredensborg",
+      "folder": "entities/locations/municipalities",
+      "significance": "Fredensborg er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Fredensborg Nej 9 / 945 0 (0) 1,0 (0,4-1,8) 8 / 974 0,8 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Frederiksberg",
+      "type": "location",
+      "slug": "frederiksberg",
+      "folder": "entities/locations/municipalities",
+      "significance": "Frederiksberg er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Frederiksberg Nej 19 / 2.118 0 (0) 0,9 (0,5-1,4) 19 / 2.116 0,9 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Frederikssund",
+      "type": "location",
+      "slug": "frederikssund",
+      "folder": "entities/locations/municipalities",
+      "significance": "Frederikssund er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Frederikssund Ja 9 / 1.360 0 (0) 0,7 (0,3-1,3) 9 / 1.353 0,7 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Frederiksværk-Hundested",
+      "type": "location",
+      "slug": "frederiksvaerk-hundested",
+      "folder": "entities/locations/municipalities",
+      "significance": "Frederiksværk-Hundested er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Frederiksværk-Hundested Ja 4 / 955 0 (0) 0,4 (0,1-1,1) 11 / 928 1,2 2,1"
+        }
+      ]
+    },
+    {
+      "name": "Furesø",
+      "type": "location",
+      "slug": "furesoe",
+      "folder": "entities/locations/municipalities",
+      "significance": "Furesø er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Furesø Nej 11 / 975 0 (0) 1,1 (0,6-2,0) 9 / 954 0,9 1,6"
+        }
+      ]
+    },
+    {
+      "name": "Gentofte",
+      "type": "location",
+      "slug": "gentofte",
+      "folder": "entities/locations/municipalities",
+      "significance": "Gentofte er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Gentofte Ja 9 / 1.844 0 (0) 0,5 (0,2-0,9) 18 / 1.829 1,0 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Gladsaxe",
+      "type": "location",
+      "slug": "gladsaxe",
+      "folder": "entities/locations/municipalities",
+      "significance": "Gladsaxe er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Gladsaxe Nej 13 / 1.352 0 (0) 1,0 (0,5-1,6) 10 / 1.375 0,7 1,2"
+        }
+      ]
+    },
+    {
+      "name": "Glostrup",
+      "type": "location",
+      "slug": "glostrup",
+      "folder": "entities/locations/municipalities",
+      "significance": "Glostrup er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Glostrup Nej 5 / 523 0 (0) 1,0 (0,3-2,2) 5 / 532 0,9 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Gribskov",
+      "type": "location",
+      "slug": "gribskov",
+      "folder": "entities/locations/municipalities",
+      "significance": "Gribskov er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Gribskov Ja 10 / 1.253 0 (0) 0,8 (0,4-1,5) 13 / 1.256 1,0 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Helsingør",
+      "type": "location",
+      "slug": "helsingoer",
+      "folder": "entities/locations/municipalities",
+      "significance": "Helsingør er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Helsingør Ja 10 / 1.703 0 (0) 0,6 (0,3-1,1) 9 / 1.718 0,5 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Herlev",
+      "type": "location",
+      "slug": "herlev",
+      "folder": "entities/locations/municipalities",
+      "significance": "Herlev er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Herlev Nej 6 / 606 0 (0) 1,0 (0,4-2,1) 7 / 629 1,1 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Hillerød",
+      "type": "location",
+      "slug": "hilleroed",
+      "folder": "entities/locations/municipalities",
+      "significance": "Hillerød er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Hillerød Ja 7 / 1.205 0 (0) 0,6 (0,2-1,2) 15 / 1.196 1,3 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Hvidovre",
+      "type": "location",
+      "slug": "hvidovre",
+      "folder": "entities/locations/municipalities",
+      "significance": "Hvidovre er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Hvidovre Ja 9 / 1.144 0 (0) 0,8 (0,4-1,5) 13 / 1.160 1,1 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Høje-Taastrup",
+      "type": "location",
+      "slug": "hoeje-taastrup",
+      "folder": "entities/locations/municipalities",
+      "significance": "Høje-Taastrup er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Høje-Taastrup Ja 8 / 1.093 0 (0) 0,7 (0,3-1,4) 14 / 1.060 1,3 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Hørsholm",
+      "type": "location",
+      "slug": "hoersholm",
+      "folder": "entities/locations/municipalities",
+      "significance": "Hørsholm er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Hørsholm Nej 7 / 720 0 (0) 1,0 (0,4-2,0) # / # 0,4 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Ishøj",
+      "type": "location",
+      "slug": "ishoej",
+      "folder": "entities/locations/municipalities",
+      "significance": "Ishøj er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Ishøj Ja # / # 0 (0) 0,6 (0,1-2,0) 8 / 370 2,2 1,4"
+        }
+      ]
+    },
+    {
+      "name": "København",
+      "type": "location",
+      "slug": "koebenhavn",
+      "folder": "entities/locations/municipalities",
+      "significance": "København er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "København Ja 54 / 8.040 0 (0) 0,7 (0,5-0,9) 68 / 8.126 0,8 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Lyngby-Tårbæk",
+      "type": "location",
+      "slug": "lyngby-taarbaek",
+      "folder": "entities/locations/municipalities",
+      "significance": "Lyngby-Tårbæk er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Lyngby-Tårbæk Nej 11 / 1.291 0 (0) 0,9 (0,4-1,5) 13 / 1.304 1,0 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Rudersdal",
+      "type": "location",
+      "slug": "rudersdal",
+      "folder": "entities/locations/municipalities",
+      "significance": "Rudersdal er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Rudersdal Nej 13 / 1.506 0 (0) 0,9 (0,5-1,5) 8 / 1.475 0,5 1,4"
+        }
+      ]
+    },
+    {
+      "name": "Rødovre",
+      "type": "location",
+      "slug": "roedovre",
+      "folder": "entities/locations/municipalities",
+      "significance": "Rødovre er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Rødovre Ja 6 / 819 0 (0) 0,7 (0,3-1,6) 9 / 816 1,1 1,9"
+        }
+      ]
+    },
+    {
+      "name": "Tårnby",
+      "type": "location",
+      "slug": "taarnby",
+      "folder": "entities/locations/municipalities",
+      "significance": "Tårnby er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 93.",
+      "mentions": [
+        {
+          "page": 93,
+          "context": "Tårnby Ja 6 / 1.075 0 (0) 0,6 (0,2-1,2) 10 / 1.077 0,9 1,3"
+        }
+      ]
+    },
+    {
+      "name": "Vallensbæk",
+      "type": "location",
+      "slug": "vallensbaek",
+      "folder": "entities/locations/municipalities",
+      "significance": "Vallensbæk er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Vallensbæk Nej # / # 0 (0) 0,9 (0,2-2,6) # / # 0,6 0,3"
+        }
+      ]
+    },
+    {
+      "name": "Faxe",
+      "type": "location",
+      "slug": "faxe",
+      "folder": "entities/locations/municipalities",
+      "significance": "Faxe er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Faxe Nej 12 / 976 0 (0) 1,2 (0,6-2,1) 5 / 971 0,5 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Greve",
+      "type": "location",
+      "slug": "greve",
+      "folder": "entities/locations/municipalities",
+      "significance": "Greve er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Greve Ja 8 / 1.308 0 (0) 0,6 (0,3-1,2) 14 / 1.287 1,1 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Guldborgsund",
+      "type": "location",
+      "slug": "guldborgsund",
+      "folder": "entities/locations/municipalities",
+      "significance": "Guldborgsund er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Guldborgsund Nej 16 / 1.813 0 (0) 0,9 (0,5-1,4) 16 / 1.853 0,9 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk",
+      "type": "location",
+      "slug": "holbaek",
+      "folder": "entities/locations/municipalities",
+      "significance": "Holbæk er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Holbæk Ja 10 / 1.818 0 (0) 0,6 (0,3-1,0) 9 / 1.805 0,5 0,5"
+        }
+      ]
+    },
+    {
+      "name": "Kalundborg",
+      "type": "location",
+      "slug": "kalundborg",
+      "folder": "entities/locations/municipalities",
+      "significance": "Kalundborg er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Kalundborg Ja 10 / 1.294 0 (0) 0,8 (0,4-1,4) 14 / 1.339 1,0 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Køge",
+      "type": "location",
+      "slug": "koege",
+      "folder": "entities/locations/municipalities",
+      "significance": "Køge er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Køge Ja 7 / 1.444 0 (0) 0,5 (0,2-1,0) 8 / 1.400 0,6 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Lejre",
+      "type": "location",
+      "slug": "lejre",
+      "folder": "entities/locations/municipalities",
+      "significance": "Lejre er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Lejre Nej 7 / 753 0 (0) 0,9 (0,4-1,9) 6 / 727 0,8 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Lolland",
+      "type": "location",
+      "slug": "lolland",
+      "folder": "entities/locations/municipalities",
+      "significance": "Lolland er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Lolland Nej 16 / 1.425 0 (0) 1,1 (0,6-1,8) 11 / 1.439 0,8 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Næstved",
+      "type": "location",
+      "slug": "naestved",
+      "folder": "entities/locations/municipalities",
+      "significance": "Næstved er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Næstved Nej 20 / 2.144 0 (0) 0,9 (0,6-1,4) 12 / 2.116 0,6 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Odsherred",
+      "type": "location",
+      "slug": "odsherred",
+      "folder": "entities/locations/municipalities",
+      "significance": "Odsherred er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Odsherred Ja 7 / 1.061 0 (0) 0,7 (0,3-1,4) 9 / 1.046 0,9 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Ringsted",
+      "type": "location",
+      "slug": "ringsted",
+      "folder": "entities/locations/municipalities",
+      "significance": "Ringsted er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Ringsted Ja # / # 0 (0) 0,4 (0,1-1,2) 7 / 764 0,9 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Roskilde",
+      "type": "location",
+      "slug": "roskilde",
+      "folder": "entities/locations/municipalities",
+      "significance": "Roskilde er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Roskilde Nej 18 / 2.084 0 (0) 0,9 (0,5-1,4) 17 / 2.056 0,8 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Slagelse",
+      "type": "location",
+      "slug": "slagelse",
+      "folder": "entities/locations/municipalities",
+      "significance": "Slagelse er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Slagelse Ja 13 / 2.122 0 (0) 0,6 (0,3-1,0) 12 / 2.127 0,6 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Solrød",
+      "type": "location",
+      "slug": "solroed",
+      "folder": "entities/locations/municipalities",
+      "significance": "Solrød er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Solrød Nej 5 / 553 0 (0) 0,9 (0,3-2,1) # / # 0,8 1,2"
+        }
+      ]
+    },
+    {
+      "name": "Sorø",
+      "type": "location",
+      "slug": "soroe",
+      "folder": "entities/locations/municipalities",
+      "significance": "Sorø er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Sorø Ja 4 / 805 0 (0) 0,5 (0,1-1,3) # / # 0,2 1,3"
+        }
+      ]
+    },
+    {
+      "name": "Stevns",
+      "type": "location",
+      "slug": "stevns",
+      "folder": "entities/locations/municipalities",
+      "significance": "Stevns er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Stevns Ja # / # 0 (0) 0,5 (0,1-1,4) 5 / 611 0,8 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Vordingborg",
+      "type": "location",
+      "slug": "vordingborg",
+      "folder": "entities/locations/municipalities",
+      "significance": "Vordingborg er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Vordingborg Nej 14 / 1.396 0 (0) 1,0 (0,5-1,7) 12 / 1.409 0,9 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Aabenraa",
+      "type": "location",
+      "slug": "aabenraa",
+      "folder": "entities/locations/municipalities",
+      "significance": "Aabenraa er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Aabenraa Ja 7 / 1.611 0 (0) 0,4 (0,2-0,9) 6 / 1.570 0,4 0,3"
+        }
+      ]
+    },
+    {
+      "name": "Assens",
+      "type": "location",
+      "slug": "assens",
+      "folder": "entities/locations/municipalities",
+      "significance": "Assens er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Assens Ja 4 / 1.173 0 (0) 0,3 (0,1-0,9) 5 / 1.155 0,4 1,2"
+        }
+      ]
+    },
+    {
+      "name": "Billund",
+      "type": "location",
+      "slug": "billund",
+      "folder": "entities/locations/municipalities",
+      "significance": "Billund er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Billund Ja 4 / 727 0 (0) 0,6 (0,2-1,4) 6 / 708 0,8 0,4"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg",
+      "type": "location",
+      "slug": "esbjerg",
+      "folder": "entities/locations/municipalities",
+      "significance": "Esbjerg er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Esbjerg Ja 11 / 2.957 0 (0) 0,4 (0,2-0,7) 19 / 2.977 0,6 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Faaborg-Midtfyn",
+      "type": "location",
+      "slug": "faaborg-midtfyn",
+      "folder": "entities/locations/municipalities",
+      "significance": "Faaborg-Midtfyn er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Faaborg-Midtfyn Ja 7 / 1.604 0 (0) 0,4 (0,2-0,9) 6 / 1.554 0,4 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Fanø",
+      "type": "location",
+      "slug": "fanoe",
+      "folder": "entities/locations/municipalities",
+      "significance": "Fanø er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Fanø Nej # / # 0 (0) 2,2 (0,5-6,3) # / # 0,7 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Fredericia",
+      "type": "location",
+      "slug": "fredericia",
+      "folder": "entities/locations/municipalities",
+      "significance": "Fredericia er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Fredericia Ja # / # 0 (0) 0,2 (0,0-0,7) 9 / 1.301 0,7 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Haderslev",
+      "type": "location",
+      "slug": "haderslev",
+      "folder": "entities/locations/municipalities",
+      "significance": "Haderslev er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Haderslev Ja # / # 0 (0) 0,2 (0,0-0,6) 8 / 1.483 0,5 0,4"
+        }
+      ]
+    },
+    {
+      "name": "Kerteminde",
+      "type": "location",
+      "slug": "kerteminde",
+      "folder": "entities/locations/municipalities",
+      "significance": "Kerteminde er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Kerteminde Ja # / # 0 (0) 0,3 (0,0-1,1) # / # 0,5 0,2"
+        }
+      ]
+    },
+    {
+      "name": "Kolding",
+      "type": "location",
+      "slug": "kolding",
+      "folder": "entities/locations/municipalities",
+      "significance": "Kolding er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Kolding Ja # / # 0 (0) 0,1 (0,0-0,4) 20 / 2.007 1,0 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Langeland",
+      "type": "location",
+      "slug": "langeland",
+      "folder": "entities/locations/municipalities",
+      "significance": "Langeland er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Langeland Ja # / # 0 (0) 0,4 (0,1-1,6) # / # 0,5 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Middelfart",
+      "type": "location",
+      "slug": "middelfart",
+      "folder": "entities/locations/municipalities",
+      "significance": "Middelfart er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Middelfart Ja # / # 0 (0) 0,1 (0,0-0,5) # / # 0,3 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Nordfyns",
+      "type": "location",
+      "slug": "nordfyns",
+      "folder": "entities/locations/municipalities",
+      "significance": "Nordfyns er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Nordfyns Ja # / # 0 (0) 0,3 (0,0-0,9) 5 / 750 0,7 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Nyborg",
+      "type": "location",
+      "slug": "nyborg",
+      "folder": "entities/locations/municipalities",
+      "significance": "Nyborg er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Nyborg Ja # / # 0 (0) 0,1 (0,0-0,6) # / # 0,3 0,8"
         }
       ]
     },
@@ -199,12 +1022,337 @@
       "name": "Odense",
       "type": "location",
       "slug": "odense",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Odense er en kommune i Syddanmark med rapporterede data for apopleksi-forebyggelse blandt atrieflimren-patienter.",
+      "folder": "entities/locations/municipalities",
+      "significance": "Odense er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
       "mentions": [
         {
           "page": 94,
-          "context": "Odense Ja 6 / 3.820 0 (0) 0,2 (0,1-0,3) - Indikator 5 baseret på DanStroke"
+          "context": "Odense Ja 6 / 3.820 0 (0) 0,2 (0,1-0,3) 19 / 3.758 0,5 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Svendborg",
+      "type": "location",
+      "slug": "svendborg",
+      "folder": "entities/locations/municipalities",
+      "significance": "Svendborg er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Svendborg Ja # / # 0 (0) 0,2 (0,0-0,5) 8 / 1.784 0,4 1,2"
+        }
+      ]
+    },
+    {
+      "name": "Sønderborg",
+      "type": "location",
+      "slug": "soenderborg",
+      "folder": "entities/locations/municipalities",
+      "significance": "Sønderborg er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Sønderborg Ja 4 / 2.096 0 (0) 0,2 (0,1-0,5) 7 / 2.096 0,3 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Tønder",
+      "type": "location",
+      "slug": "toender",
+      "folder": "entities/locations/municipalities",
+      "significance": "Tønder er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Tønder Ja # / # 0 (0) 0,3 (0,1-0,8) 6 / 1.065 0,6 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Varde",
+      "type": "location",
+      "slug": "varde",
+      "folder": "entities/locations/municipalities",
+      "significance": "Varde er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 94.",
+      "mentions": [
+        {
+          "page": 94,
+          "context": "Varde Ja 8 / 1.399 0 (0) 0,6 (0,2-1,1) 7 / 1.385 0,5 0,4"
+        }
+      ]
+    },
+    {
+      "name": "Vejen",
+      "type": "location",
+      "slug": "vejen",
+      "folder": "entities/locations/municipalities",
+      "significance": "Vejen er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Vejen Ja # / # 0 (0) 0,2 (0,0-0,7) # / # 0,3 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Vejle",
+      "type": "location",
+      "slug": "vejle",
+      "folder": "entities/locations/municipalities",
+      "significance": "Vejle er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Vejle Ja # / # 0 (0) 0,1 (0,0-0,3) 13 / 2.580 0,5 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Ærø",
+      "type": "location",
+      "slug": "aeroe",
+      "folder": "entities/locations/municipalities",
+      "significance": "Ærø er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Ærø Ja # / # 0 (0) 0,3 (0,0-1,7) # / # 0,6 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Favrskov",
+      "type": "location",
+      "slug": "favskov",
+      "folder": "entities/locations/municipalities",
+      "significance": "Favrskov er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Favrskov Ja 4 / 1.066 0 (0) 0,4 (0,1-1,0) 7 / 1.079 0,6 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Hedensted",
+      "type": "location",
+      "slug": "hedensted",
+      "folder": "entities/locations/municipalities",
+      "significance": "Hedensted er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Hedensted Ja 4 / 1.092 0 (0) 0,4 (0,1-0,9) 10 / 1.114 0,9 0,3"
+        }
+      ]
+    },
+    {
+      "name": "Herning",
+      "type": "location",
+      "slug": "herning",
+      "folder": "entities/locations/municipalities",
+      "significance": "Herning er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Herning Ja 9 / 2.066 0 (0) 0,4 (0,2-0,8) 16 / 2.056 0,8 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Holstebro",
+      "type": "location",
+      "slug": "holstebro",
+      "folder": "entities/locations/municipalities",
+      "significance": "Holstebro er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Holstebro Ja 5 / 1.329 0 (0) 0,4 (0,1-0,9) 14 / 1.302 1,1 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Horsens",
+      "type": "location",
+      "slug": "horsens",
+      "folder": "entities/locations/municipalities",
+      "significance": "Horsens er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Horsens Ja 10 / 1.988 0 (0) 0,5 (0,2-0,9) 11 / 1.938 0,6 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Ikast-Brande",
+      "type": "location",
+      "slug": "ikast-brande",
+      "folder": "entities/locations/municipalities",
+      "significance": "Ikast-Brande er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Ikast-Brande Ja 4 / 998 0 (0) 0,4 (0,1-1,0) 7 / 990 0,7 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Lemvig",
+      "type": "location",
+      "slug": "lemvig",
+      "folder": "entities/locations/municipalities",
+      "significance": "Lemvig er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Lemvig Ja 0 / 607 0 (0) 0,0 (0,0-0,6) 4 / 597 0,7 0,5"
+        }
+      ]
+    },
+    {
+      "name": "Norddjurs",
+      "type": "location",
+      "slug": "norddjurs",
+      "folder": "entities/locations/municipalities",
+      "significance": "Norddjurs er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Norddjurs Nej 13 / 1.003 0 (0) 1,3 (0,7-2,2) 7 / 992 0,7 0,5"
+        }
+      ]
+    },
+    {
+      "name": "Odder",
+      "type": "location",
+      "slug": "odder",
+      "folder": "entities/locations/municipalities",
+      "significance": "Odder er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Odder Ja # / # 0 (0) 0,2 (0,0-0,9) # / # 0,5 0,3"
+        }
+      ]
+    },
+    {
+      "name": "Randers",
+      "type": "location",
+      "slug": "randers",
+      "folder": "entities/locations/municipalities",
+      "significance": "Randers er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Randers Ja 7 / 2.252 0 (0) 0,3 (0,1-0,6) 13 / 2.240 0,6 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Ringkøbing-Skjern",
+      "type": "location",
+      "slug": "ringkoebing-skjern",
+      "folder": "entities/locations/municipalities",
+      "significance": "Ringkøbing-Skjern er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Ringkøbing-Skjern Ja 7 / 1.495 0 (0) 0,5 (0,2-1,0) 9 / 1.467 0,6 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Samsø",
+      "type": "location",
+      "slug": "samsoe",
+      "folder": "entities/locations/municipalities",
+      "significance": "Samsø er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Samsø Ja # / # 0 (0) 0,8 (0,0-4,1) # / # 0,8 1,5"
+        }
+      ]
+    },
+    {
+      "name": "Silkeborg",
+      "type": "location",
+      "slug": "silkeborg",
+      "folder": "entities/locations/municipalities",
+      "significance": "Silkeborg er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Silkeborg Ja 10 / 2.203 0 (0) 0,5 (0,2-0,8) 13 / 2.176 0,6 0,5"
+        }
+      ]
+    },
+    {
+      "name": "Skanderborg",
+      "type": "location",
+      "slug": "skanderborg",
+      "folder": "entities/locations/municipalities",
+      "significance": "Skanderborg er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Skanderborg Ja 5 / 1.306 0 (0) 0,4 (0,1-0,9) 5 / 1.273 0,4 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Skive",
+      "type": "location",
+      "slug": "skive",
+      "folder": "entities/locations/municipalities",
+      "significance": "Skive er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Skive Ja 4 / 1.383 0 (0) 0,3 (0,1-0,7) 17 / 1.396 1,2 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Struer",
+      "type": "location",
+      "slug": "struer",
+      "folder": "entities/locations/municipalities",
+      "significance": "Struer er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Struer Ja 5 / 614 0 (0) 0,8 (0,3-1,9) 10 / 599 1,7 1,4"
+        }
+      ]
+    },
+    {
+      "name": "Syddjurs",
+      "type": "location",
+      "slug": "syddjurs",
+      "folder": "entities/locations/municipalities",
+      "significance": "Syddjurs er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Syddjurs Ja 9 / 1.160 0 (0) 0,8 (0,4-1,5) 10 / 1.139 0,9 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Viborg",
+      "type": "location",
+      "slug": "viborg",
+      "folder": "entities/locations/municipalities",
+      "significance": "Viborg er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Viborg Ja 16 / 2.572 0 (0) 0,6 (0,4-1,0) 22 / 2.597 0,8 0,7"
         }
       ]
     },
@@ -212,12 +1360,155 @@
       "name": "Århus",
       "type": "location",
       "slug": "aarhus",
-      "folder": "entities/locations/danish-municipalities",
-      "significance": "Århus er en kommune i Midtjylland med rapporterede data for apopleksi-forebyggelse blandt atrieflimren-patienter.",
+      "folder": "entities/locations/municipalities",
+      "significance": "Århus er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
       "mentions": [
         {
           "page": 95,
-          "context": "Århus Ja 27 / 5.592 0 (0) 0,5 (0,3-0,7) - Indikator 5 baseret på DanStroke"
+          "context": "Århus Ja 27 / 5.592 0 (0) 0,5 (0,3-0,7) 40 / 5.584 0,7 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg",
+      "type": "location",
+      "slug": "aalborg",
+      "folder": "entities/locations/municipalities",
+      "significance": "Aalborg er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Aalborg Ja 30 / 4.247 0 (0) 0,7 (0,5-1,0) 36 / 4.281 0,8 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Brønderslev-Dronninglund",
+      "type": "location",
+      "slug": "broenderslev-dronninglund",
+      "folder": "entities/locations/municipalities",
+      "significance": "Brønderslev-Dronninglund er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Brønderslev-Dronninglund Ja 7 / 956 0 (0) 0,7 (0,3-1,5) 6 / 985 0,6 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Frederikshavn",
+      "type": "location",
+      "slug": "frederikshavn",
+      "folder": "entities/locations/municipalities",
+      "significance": "Frederikshavn er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Frederikshavn Ja 6 / 1.800 0 (0) 0,3 (0,1-0,7) 16 / 1.797 0,9 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Hjørring",
+      "type": "location",
+      "slug": "hjoerring",
+      "folder": "entities/locations/municipalities",
+      "significance": "Hjørring er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Hjørring Ja 6 / 1.798 0 (0) 0,3 (0,1-0,7) 13 / 1.803 0,7 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Jammerbugt",
+      "type": "location",
+      "slug": "jammerbugt",
+      "folder": "entities/locations/municipalities",
+      "significance": "Jammerbugt er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Jammerbugt Ja 6 / 1.035 0 (0) 0,6 (0,2-1,3) 8 / 1.047 0,8 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Læsø",
+      "type": "location",
+      "slug": "laesoe",
+      "folder": "entities/locations/municipalities",
+      "significance": "Læsø er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Læsø Nej # / # 0 (0) 1,2 (0,0-6,4) 0 / 83 0,0 0,0"
+        }
+      ]
+    },
+    {
+      "name": "Mariagerfjord",
+      "type": "location",
+      "slug": "mariagerfjord",
+      "folder": "entities/locations/municipalities",
+      "significance": "Mariagerfjord er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Mariagerfjord Ja 7 / 1.175 0 (0) 0,6 (0,2-1,2) 10 / 1.169 0,9 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Morsø",
+      "type": "location",
+      "slug": "morsoe",
+      "folder": "entities/locations/municipalities",
+      "significance": "Morsø er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Morsø Nej 8 / 613 0 (0) 1,3 (0,6-2,6) # / # 0,5 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Rebild",
+      "type": "location",
+      "slug": "rebild",
+      "folder": "entities/locations/municipalities",
+      "significance": "Rebild er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Rebild Nej 6 / 662 0 (0) 0,9 (0,3-2,0) # / # 0,5 1,2"
+        }
+      ]
+    },
+    {
+      "name": "Thisted",
+      "type": "location",
+      "slug": "thisted",
+      "folder": "entities/locations/municipalities",
+      "significance": "Thisted er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Thisted Ja # / # 0 (0) 0,2 (0,0-0,7) 10 / 1.273 0,8 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Vesthimmerlands",
+      "type": "location",
+      "slug": "vesthimmerlands",
+      "folder": "entities/locations/municipalities",
+      "significance": "Vesthimmerlands er en dansk kommune, hvis data om apopleksi-hændelser blandt atrieflimren-patienter indgår i DanStroke-baserede beregninger af Indikator 5 på side 95.",
+      "mentions": [
+        {
+          "page": 95,
+          "context": "Vesthimmerlands Ja 6 / 887 0 (0) 0,7 (0,2-1,5) 6 / 912 0,7 0,5"
         }
       ]
     }
@@ -225,225 +1516,272 @@
   "relationships": [
     {
       "subject": "databasen-for-atrieflimren-i-danmark",
-      "predicate": "managed-by",
+      "predicate": "is-managed-by",
       "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
+      "evidence": "Databasen for Atrieflimren i Danmark er udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 91
     },
     {
-      "subject": "region-hovedstaden",
-      "predicate": "contains",
-      "object": "koebenhavn",
-      "evidence": "København er en kommune i Region Hovedstaden med data rapporteret under Hovedstaden-sektionen",
+      "subject": "indikator-1",
+      "predicate": "is-reported-in",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Supplerende analyse: indikator 1",
+      "page": 91
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "is-reported-in",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Supplerende analyse: indikator 5",
+      "page": 92
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "has-alternative-dataset",
+      "object": "danstroke",
+      "evidence": "Indikator 5 baseret på DanStroke",
       "page": 93
     },
     {
-      "subject": "nordjylland",
-      "predicate": "contains",
-      "object": "aalborg",
-      "evidence": "Aalborg er en kommune i Nordjylland med data rapporteret under Nordjylland-sektionen",
-      "page": 95
+      "subject": "indikator-5",
+      "predicate": "has-primary-dataset",
+      "object": "lpr",
+      "evidence": "Andel af atrieflimren patienter indlagt med I63 + I64 (LPR baseret)",
+      "page": 92
     },
     {
-      "subject": "syddanmark",
-      "predicate": "contains",
-      "object": "odense",
-      "evidence": "Odense er en kommune i Syddanmark med data rapporteret under Syddanmark-sektionen",
-      "page": 94
+      "subject": "doac",
+      "predicate": "is-used-for",
+      "object": "atrieflimren-behandling",
+      "evidence": "DOAC\nMarevan 8486 99.44 48 0.56",
+      "page": 92
     },
     {
-      "subject": "midtjylland",
-      "predicate": "contains",
-      "object": "aarhus",
-      "evidence": "Århus er en kommune i Midtjylland med data rapporteret under Midtjylland-sektionen",
-      "page": 95
+      "subject": "marevan",
+      "predicate": "is-used-for",
+      "object": "atrieflimren-behandling",
+      "evidence": "DOAC\nMarevan 8486 99.44 48 0.56",
+      "page": 92
     }
   ],
   "claims": [
     {
-      "text": "I Danmark blev 5267 patienter (52,6%) startet på antikoagulationsbehandling indenfor 4 måneder inden diagnose, og 4743 patienter (47,4%) blev startet indenfor 30 dage efter udskrivelse [^src1]",
-      "type": "clinical-treatment",
+      "text": "I alt 10.010 patienter i Danmark startede antikoagulationsbehandling inden for 4 måneder før diagnose eller inden for 30 dage efter udskrivelse [^src1]",
+      "type": "clinical",
       "entities": [
-        "danmark"
+        "danmark",
+        "indikator-1"
       ],
       "page": 91
     },
     {
-      "text": "I alt 10010 patienter blev registreret med start på antikoagulationsbehandling i Danmark [^src1]",
-      "type": "patient-count",
+      "text": "I Danmark var 65,8 % af atrieflimren-patienter, der blev indlagt med iskæmisk apopleksi eller apopleksi af ukendt type, allerede på oral AK-behandling inden for 100 dage før indlæggelsen [^src1]",
+      "type": "clinical",
       "entities": [
-        "danmark"
-      ],
-      "page": 91
-    },
-    {
-      "text": "Region Hovedstaden havde 1152 patienter (47,1%) startet på antikoagulationsbehandling indenfor 4 måneder inden diagnose og 1293 patienter (52,9%) startet indenfor 30 dage efter udskrivelse [^src1]",
-      "type": "clinical-treatment",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 91
-    },
-    {
-      "text": "Midtjylland havde den højeste andel (56,7%) af patienter startet på antikoagulationsbehandling indenfor 4 måneder inden diagnose [^src1]",
-      "type": "clinical-treatment",
-      "entities": [
-        "midtjylland"
-      ],
-      "page": 91
-    },
-    {
-      "text": "726 atrieflimren-patienter (65,8%) indlagt med iskæmisk apopleksi havde indløst recept på oral antikoagulationsbehandling indenfor 100 dage før indlæggelse [^src2]",
-      "type": "clinical-treatment",
-      "entities": [
-        "danmark"
+        "danmark",
+        "indikator-5"
       ],
       "page": 92
     },
     {
-      "text": "378 atrieflimren-patienter (34,2%) indlagt med iskæmisk apopleksi havde IKKE indløst recept på oral antikoagulationsbehandling indenfor 100 dage før indlæggelse [^src2]",
-      "type": "clinical-treatment",
+      "text": "For patienter med atrieflimren, der ikke modtog DOAC eller Marevan, var andelen, der udviklede iskæmisk apopleksi, 0,53 % [^src1]",
+      "type": "clinical",
       "entities": [
-        "danmark"
+        "marevan",
+        "doac"
       ],
       "page": 92
     },
     {
-      "text": "Blandt 133706 prævalente patienter med atrieflimsen udvikler 1104 (0,82%) iskæmisk apopleksi i opgørelsesperioden [^src3]",
-      "type": "patient-outcome",
+      "text": "Den nationale andel af atrieflimren-patienter med iskæmisk apopleksi i perioden 01.07.2022–30.06.2023 var 0,6 % (95 % CI: 0,5–0,6) ifølge DanStroke-data [^src1]",
+      "type": "clinical",
       "entities": [
-        "danmark"
-      ],
-      "page": 92
-    },
-    {
-      "text": "Blandt 95919 atrieflimren-patienter i DOAC-behandling udvikler 865 (0,89%) iskæmisk apopleksi [^src3]",
-      "type": "patient-outcome",
-      "entities": [
-        "danmark"
-      ],
-      "page": 92
-    },
-    {
-      "text": "Blandt 8486 atrieflimren-patienter i Marevan-behandling udvikler 48 (0,56%) iskæmisk apopleksi [^src3]",
-      "type": "patient-outcome",
-      "entities": [
-        "danmark"
-      ],
-      "page": 92
-    },
-    {
-      "text": "Blandt 1445 atrieflimren-patienter i både DOAC og Marevan-behandling udvikler 43 (2,89%) iskæmisk apopleksi [^src3]",
-      "type": "patient-outcome",
-      "entities": [
-        "danmark"
-      ],
-      "page": 92
-    },
-    {
-      "text": "Blandt 27856 atrieflimren-patienter uden antikoagulationsbehandling udvikler 148 (0,53%) iskæmisk apopleksi [^src3]",
-      "type": "patient-outcome",
-      "entities": [
-        "danmark"
-      ],
-      "page": 92
-    },
-    {
-      "text": "Danmark opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,6% (95% CI: 0,5-0,6) [^src4]",
-      "type": "quality-standard",
-      "entities": [
-        "danmark"
+        "danmark",
+        "danstroke",
+        "indikator-5"
       ],
       "page": 93
-    },
-    {
-      "text": "Region Hovedstaden opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,8% (95% CI: 0,7-0,9) [^src4]",
-      "type": "quality-standard",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 93
-    },
-    {
-      "text": "Syddanmark opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,3% (95% CI: 0,2-0,3) [^src4]",
-      "type": "quality-standard",
-      "entities": [
-        "syddanmark"
-      ],
-      "page": 94
-    },
-    {
-      "text": "Midtjylland opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,5% (95% CI: 0,4-0,6) [^src4]",
-      "type": "quality-standard",
-      "entities": [
-        "midtjylland"
-      ],
-      "page": 93
-    },
-    {
-      "text": "Nordjylland opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,6% (95% CI: 0,5-0,7) [^src4]",
-      "type": "quality-standard",
-      "entities": [
-        "nordjylland"
-      ],
-      "page": 93
-    },
-    {
-      "text": "København opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,7% (95% CI: 0,5-0,9) [^src4]",
-      "type": "quality-standard",
-      "entities": [
-        "koebenhavn"
-      ],
-      "page": 93
-    },
-    {
-      "text": "Odense opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,2% (95% CI: 0,1-0,3) [^src4]",
-      "type": "quality-standard",
-      "entities": [
-        "odense"
-      ],
-      "page": 94
-    },
-    {
-      "text": "Aalborg opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,7% (95% CI: 0,5-1,0) [^src4]",
-      "type": "quality-standard",
-      "entities": [
-        "aalborg"
-      ],
-      "page": 95
-    },
-    {
-      "text": "Århus opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,5% (95% CI: 0,3-0,7) [^src4]",
-      "type": "quality-standard",
-      "entities": [
-        "aarhus"
-      ],
-      "page": 95
     }
   ],
   "timeline": [
     {
-      "date": "1. juli 2022 – 30. juni 2023",
-      "event": "Rapporteringsperiode for Databasen for Atrieflimren i Danmark årsrapport",
+      "date": "2022-07-01",
+      "event": "Start på opgørelsesperioden for årsrapporten for Databasen for Atrieflimren i Danmark",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark",
-        "danmark"
+        "databasen-for-atrieflimren-i-danmark"
       ]
     },
     {
-      "date": "2021/22",
-      "event": "Tidligere år data for sammenligning af indikator 5",
+      "date": "2023-06-30",
+      "event": "Afslutning på opgørelsesperioden for årsrapporten for Databasen for Atrieflimren i Danmark",
       "entities": [
-        "danmark"
-      ]
-    },
-    {
-      "date": "2020/21",
-      "event": "Tidligere år data for sammenligning af indikator 5",
-      "entities": [
-        "danmark"
+        "databasen-for-atrieflimren-i-danmark"
       ]
     }
   ],
-  "context": "Denne dokumentchunk indeholder supplerende analyser fra Databasen for Atrieflimren i Danmarks årsrapport for perioden 1. juli 2022 til 30. juni 2023. Rapporten præsenterer detaljerede data om antikoagulationsbehandling (AK-behandling) hos atrieflimren-patienter og forebyggelse af iskæmisk apopleksi på tværs af Danmark og dens fem regioner. Indikator 1 viser, hvornår patienter påbegynder antikoagulationsbehandling, mens indikator 5 fokuserer på andelen af atrieflimren-patienter, der udvikler iskæmisk apopleksi og deres tidligere antikoagulationsbehandling. Data er opdelt på regionalt og kommunalt niveau, med sammenligninger til tidligere år for at vurdere udvikling i behandlingskvalitet."
+  "tables": [
+    {
+      "subject": "indikator-1",
+      "title": "Start på AK behandling",
+      "page": 91,
+      "rowDimension": "region",
+      "colDimension": "antal og procent af patienter",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland"
+      ],
+      "markdown": "| Region | Indenfor 4 måneder før diagnose | % | Indenfor 30 dage efter udskrivelse | % | I alt |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | 5267 | 52.6 | 4743 | 47.4 | 10010 |\n| Region Hovedstaden | 1152 | 47.1 | 1293 | 52.9 | 2445 |\n| Sjælland | 892 | 52.8 | 796 | 47.2 | 1688 |\n| Syddanmark | 1267 | 53.3 | 1112 | 46.7 | 2379 |\n| Midtjylland | 1304 | 56.7 | 995 | 43.3 | 2299 |\n| Nordjylland | 652 | 54.4 | 547 | 45.6 | 1199 |",
+      "summary": "Tabellen viser antal og procent af atrieflimren-patienter, der startede antikoagulationsbehandling enten inden for 4 måneder før diagnose eller inden for 30 dage efter udskrivelse, fordelt på regioner og nationalt."
+    },
+    {
+      "subject": "indikator-5-lpr",
+      "title": "Andel af atrieflimren patienter indlagt med iskæmisk apopleksi/apopleksi af ukendt type, som har indløst recept på oral AK-behandling indenfor 100 dage før dato for indlæggelse med apopleksi (LPR baseret)",
+      "page": 92,
+      "rowDimension": "region",
+      "colDimension": "antal og procent af patienter",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland"
+      ],
+      "markdown": "| Region | Ja | % | Nej | % | I alt |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | 726 | 65.8 | 378 | 34.2 | 1104 |\n| Region Hovedstaden | 221 | 63.5 | 127 | 36.5 | 348 |\n| Sjælland | 136 | 63.0 | 80 | 37.0 | 216 |\n| Syddanmark | 161 | 70.6 | 67 | 29.4 | 228 |\n| Midtjylland | 140 | 66.4 | 71 | 33.6 | 211 |\n| Nordjylland | 68 | 67.3 | 33 | 32.7 | 101 |",
+      "summary": "Tabellen viser andelen af atrieflimren-patienter, der blev indlagt med iskæmisk apopleksi eller apopleksi af ukendt type og havde indløst recept på oral AK-behandling inden for 100 dage før indlæggelsen, baseret på LPR-data."
+    },
+    {
+      "subject": "apopleksi-risiko-efter-behandling",
+      "title": "Prævalente patienter med atrieflimren, der udvikler iskæmisk apopleksi i opgørelses perioden (LPR-baseret)",
+      "page": 92,
+      "rowDimension": "behandlingsgruppe",
+      "colDimension": "antal og procent af patienter",
+      "entities": [
+        "doac",
+        "marevan"
+      ],
+      "markdown": "| Behandlingsgruppe | Iskæmisk apopleksi 0 | % | Iskæmisk apopleksi 1 | % |\n| --- | --- | --- | --- | --- |\n| Alle | 133706 | 99.18 | 1104 | 0.82 |\n| AK-behandling | 95919 | 99.11 | 865 | 0.89 |\n| DOAC | 8486 | 99.44 | 48 | 0.56 |\n| Marevan | 8486 | 99.44 | 48 | 0.56 |\n| Både DOAC og Marevan | 1445 | 97.11 | 43 | 2.89 |\n| Hverken DOAC eller Marevan | 27856 | 99.47 | 148 | 0.53 |",
+      "summary": "Tabellen sammenligner forekomsten af iskæmisk apopleksi blandt atrieflimren-patienter efter behandlingsgruppe (DOAC, Marevan, kombination eller ingen), baseret på LPR-data."
+    },
+    {
+      "subject": "indikator-5-danstroke",
+      "title": "Indikator 5 baseret på DanStroke",
+      "page": 93,
+      "rowDimension": "kommune",
+      "colDimension": "andel, konfidensinterval og tidligere år",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
+        "albertslund",
+        "alleroed",
+        "ballerup",
+        "bornholm",
+        "broendby",
+        "dragoer",
+        "egedal",
+        "fredensborg",
+        "frederiksberg",
+        "frederikssund",
+        "frederiksvaerk-hundested",
+        "furesoe",
+        "gentofte",
+        "gladsaxe",
+        "glostrup",
+        "gribskov",
+        "helsingoer",
+        "herlev",
+        "hilleroed",
+        "hvidovre",
+        "hoeje-taastrup",
+        "hoersholm",
+        "ishoej",
+        "koebenhavn",
+        "lyngby-taarbaek",
+        "rudersdal",
+        "roedovre",
+        "taarnby",
+        "vallensbaek",
+        "faxe",
+        "greve",
+        "guldborgsund",
+        "holbaek",
+        "kalundborg",
+        "koege",
+        "lejre",
+        "lolland",
+        "naestved",
+        "odsherred",
+        "ringsted",
+        "roskilde",
+        "slagelse",
+        "solroed",
+        "soroe",
+        "stevns",
+        "vordingborg",
+        "aabenraa",
+        "assens",
+        "billund",
+        "esbjerg",
+        "faaborg-midtfyn",
+        "fanoe",
+        "fredericia",
+        "haderslev",
+        "kerteminde",
+        "kolding",
+        "langeland",
+        "middelfart",
+        "nordfyns",
+        "nyborg",
+        "odense",
+        "svendborg",
+        "soenderborg",
+        "toender",
+        "varde",
+        "vejen",
+        "vejle",
+        "aeroe",
+        "favskov",
+        "hedensted",
+        "herning",
+        "holstebro",
+        "horsens",
+        "ikast-brande",
+        "lemvig",
+        "norddjurs",
+        "odder",
+        "randers",
+        "ringkoebing-skjern",
+        "samsoe",
+        "silkeborg",
+        "skanderborg",
+        "skive",
+        "struer",
+        "syddjurs",
+        "viborg",
+        "aarhus",
+        "aalborg",
+        "broenderslev-dronninglund",
+        "frederikshavn",
+        "hjoerring",
+        "jammerbugt",
+        "laesoe",
+        "mariagerfjord",
+        "morsoe",
+        "rebild",
+        "thisted",
+        "vesthimmerlands"
+      ],
+      "markdown": "| Kommune | Uoplyst | Aktuelle år | Tidligere år |\n| --- | --- | --- | --- |\n| Danmark | Ja | 770 / 134.741 0 (0) 0,6 (0,5-0,6) | 977 / 134.210 0,7 0,8 |\n| Hovedstaden | Ja | 287 / 37.128 0 (0) 0,8 (0,7-0,9) | 323 / 37.252 0,9 1,0 |\n| Sjælland | Ja | 173 / 22.372 0 (0) 0,8 (0,7-0,9) | 163 / 22.300 0,7 0,8 |\n| Syddanmark | Ja | 83 / 31.244 0 (0) 0,3 (0,2-0,3) | 161 / 30.732 0,5 0,7 |\n| Midtjylland | Ja | 141 / 29.495 0 (0) 0,5 (0,4-0,6) | 219 / 29.309 0,7 0,8 |\n| Nordjylland | Ja | 86 / 14.502 0 (0) 0,6 (0,5-0,7) | 111 / 14.617 0,8 0,8 |\n| Albertslund | Ja | # / # 0 (0) 0,2 (0,0-1,0) | # / # 0,5 1,8 |\n| Allerød | Nej | 8 / 610 0 (0) 1,3 (0,6-2,6) | # / # 0,5 0,2 |\n| Ballerup | Nej | 16 / 1.226 0 (0) 1,3 (0,7-2,1) | 9 / 1.208 0,7 1,1 |\n| Bornholm | Ja | 10 / 1.337 0 (0) 0,7 (0,4-1,4) | 8 / 1.385 0,6 0,6 |\n| Brøndby | Nej | 10 / 852 0 (0) 1,2 (0,6-2,1) | 9 / 859 1,0 1,1 |\n| Dragør | Nej | 7 / 422 0 (0) 1,7 (0,7-3,4) | # / # 0,7 1,2 |\n| Egedal | Ja | 4 / 917 0 (0) 0,4 (0,1-1,1) | 7 / 902 0,8 1,0 |\n| Fredensborg | Nej | 9 / 945 0 (0) 1,0 (0,4-1,8) | 8 / 974 0,8 1,1 |\n| Frederiksberg | Nej | 19 / 2.118 0 (0) 0,9 (0,5-1,4) | 19 / 2.116 0,9 1,1 |\n| Frederikssund | Ja | 9 / 1.360 0 (0) 0,7 (0,3-1,3) | 9 / 1.353 0,7 1,1 |\n| Frederiksværk-Hundested | Ja | 4 / 955 0 (0) 0,4 (0,1-1,1) | 11 / 928 1,2 2,1 |\n| Furesø | Nej | 11 / 975 0 (0) 1,1 (0,6-2,0) | 9 / 954 0,9 1,6 |\n| Gentofte | Ja | 9 / 1.844 0 (0) 0,5 (0,2-0,9) | 18 / 1.829 1,0 0,7 |\n| Gladsaxe | Nej | 13 / 1.352 0 (0) 1,0 (0,5-1,6) | 10 / 1.375 0,7 1,2 |\n| Glostrup | Nej | 5 / 523 0 (0) 1,0 (0,3-2,2) | 5 / 532 0,9 0,6 |\n| Gribskov | Ja | 10 / 1.253 0 (0) 0,8 (0,4-1,5) | 13 / 1.256 1,0 1,1 |\n| Helsingør | Ja | 10 / 1.703 0 (0) 0,6 (0,3-1,1) | 9 / 1.718 0,5 0,6 |\n| Herlev | Nej | 6 / 606 0 (0) 1,0 (0,4-2,1) | 7 / 629 1,1 0,6 |\n| Hillerød | Ja | 7 / 1.205 0 (0) 0,6 (0,2-1,2) | 15 / 1.196 1,3 1,1 |\n| Hvidovre | Ja | 9 / 1.144 0 (0) 0,8 (0,4-1,5) | 13 / 1.160 1,1 1,0 |\n| Høje-Taastrup | Ja | 8 / 1.093 0 (0) 0,7 (0,3-1,4) | 14 / 1.060 1,3 1,0 |\n| Hørsholm | Nej | 7 / 720 0 (0) 1,0 (0,4-2,0) | # / # 0,4 0,9 |\n| Ishøj | Ja | # / # 0 (0) 0,6 (0,1-2,0) | 8 / 370 2,2 1,4 |\n| København | Ja | 54 / 8.040 0 (0) 0,7 (0,5-0,9) | 68 / 8.126 0,8 0,9 |\n| Lyngby-Tårbæk | Nej | 11 / 1.291 0 (0) 0,9 (0,4-1,5) | 13 / 1.304 1,0 1,0 |\n| Rudersdal | Nej | 13 / 1.506 0 (0) 0,9 (0,5-1,5) | 8 / 1.475 0,5 1,4 |\n| Rødovre | Ja | 6 / 819 0 (0) 0,7 (0,3-1,6) | 9 / 816 1,1 1,9 |\n| Tårnby | Ja | 6 / 1.075 0 (0) 0,6 (0,2-1,2) | 10 / 1.077 0,9 1,3 |\n| Vallensbæk | Nej | # / # 0 (0) 0,9 (0,2-2,6) | # / # 0,6 0,3 |\n| Faxe | Nej | 12 / 976 0 (0) 1,2 (0,6-2,1) | 5 / 971 0,5 0,9 |\n| Greve | Ja | 8 / 1.308 0 (0) 0,6 (0,3-1,2) | 14 / 1.287 1,1 1,1 |\n| Guldborgsund | Nej | 16 / 1.813 0 (0) 0,9 (0,5-1,4) | 16 / 1.853 0,9 0,7 |\n| Holbæk | Ja | 10 / 1.818 0 (0) 0,6 (0,3-1,0) | 9 / 1.805 0,5 0,5 |\n| Kalundborg | Ja | 10 / 1.294 0 (0) 0,8 (0,4-1,4) | 14 / 1.339 1,0 0,9 |\n| Køge | Ja | 7 / 1.444 0 (0) 0,5 (0,2-1,0) | 8 / 1.400 0,6 1,0 |\n| Lejre | Nej | 7 / 753 0 (0) 0,9 (0,4-1,9) | 6 / 727 0,8 0,7 |\n| Lolland | Nej | 16 / 1.425 0 (0) 1,1 (0,6-1,8) | 11 / 1.439 0,8 0,6 |\n| Næstved | Nej | 20 / 2.144 0 (0) 0,9 (0,6-1,4) | 12 / 2.116 0,6 0,6 |\n| Odsherred | Ja | 7 / 1.061 0 (0) 0,7 (0,3-1,4) | 9 / 1.046 0,9 0,9 |\n| Ringsted | Ja | # / # 0 (0) 0,4 (0,1-1,2) | 7 / 764 0,9 0,9 |\n| Roskilde | Nej | 18 / 2.084 0 (0) 0,9 (0,5-1,4) | 17 / 2.056 0,8 0,7 |\n| Slagelse | Ja | 13 / 2.122 0 (0) 0,6 (0,3-1,0) | 12 / 2.127 0,6 0,8 |\n| Solrød | Nej | 5 / 553 0 (0) 0,9 (0,3-2,1) | # / # 0,8 1,2 |\n| Sorø | Ja | 4 / 805 0 (0) 0,5 (0,1-1,3) | # / # 0,2 1,3 |\n| Stevns | Ja | # / # 0 (0) 0,5 (0,1-1,4) | 5 / 611 0,8 0,7 |\n| Vordingborg | Nej | 14 / 1.396 0 (0) 1,0 (0,5-1,7) | 12 / 1.409 0,9 0,6 |\n| Aabenraa | Ja | 7 / 1.611 0 (0) 0,4 (0,2-0,9) | 6 / 1.570 0,4 0,3 |\n| Assens | Ja | 4 / 1.173 0 (0) 0,3 (0,1-0,9) | 5 / 1.155 0,4 1,2 |\n| Billund | Ja | 4 / 727 0 (0) 0,6 (0,2-1,4) | 6 / 708 0,8 0,4 |\n| Esbjerg | Ja | 11 / 2.957 0 (0) 0,4 (0,2-0,7) | 19 / 2.977 0,6 0,6 |\n| Faaborg-Midtfyn | Ja | 7 / 1.604 0 (0) 0,4 (0,2-0,9) | 6 / 1.554 0,4 0,6 |\n| Fanø | Nej | # / # 0 (0) 2,2 (0,5-6,3) | # / # 0,7 0,8 |\n| Fredericia | Ja | # / # 0 (0) 0,2 (0,0-0,7) | 9 / 1.301 0,7 1,0 |\n| Haderslev | Ja | # / # 0 (0) 0,2 (0,0-0,6) | 8 / 1.483 0,5 0,4 |\n| Kerteminde | Ja | # / # 0 (0) 0,3 (0,0-1,1) | # / # 0,5 0,2 |\n| Kolding | Ja | # / # 0 (0) 0,1 (0,0-0,4) | 20 / 2.007 1,0 0,7 |\n| Langeland | Ja | # / # 0 (0) 0,4 (0,1-1,6) | # / # 0,5 0,7 |\n| Middelfart | Ja | # / # 0 (0) 0,1 (0,0-0,5) | # / # 0,3 1,0 |\n| Nordfyns | Ja | # / # 0 (0) 0,3 (0,0-0,9) | 5 / 750 0,7 0,7 |\n| Nyborg | Ja | # / # 0 (0) 0,1 (0,0-0,6) | # / # 0,3 0,8 |\n| Odense | Ja | 6 / 3.820 0 (0) 0,2 (0,1-0,3) | 19 / 3.758 0,5 0,8 |\n| Svendborg | Ja | # / # 0 (0) 0,2 (0,0-0,5) | 8 / 1.784 0,4 1,2 |\n| Sønderborg | Ja | 4 / 2.096 0 (0) 0,2 (0,1-0,5) | 7 / 2.096 0,3 0,7 |\n| Tønder | Ja | # / # 0 (0) 0,3 (0,1-0,8) | 6 / 1.065 0,6 0,7 |\n| Varde | Ja | 8 / 1.399 0 (0) 0,6 (0,2-1,1) | 7 / 1.385 0,5 0,4 |\n| Vejen | Ja | # / # 0 (0) 0,2 (0,0-0,7) | # / # 0,3 0,8 |\n| Vejle | Ja | # / # 0 (0) 0,1 (0,0-0,3) | 13 / 2.580 0,5 0,8 |\n| Ærø | Ja | # / # 0 (0) 0,3 (0,0-1,7) | # / # 0,6 0,9 |\n| Favrskov | Ja | 4 / 1.066 0 (0) 0,4 (0,1-1,0) | 7 / 1.079 0,6 0,6 |\n| Hedensted | Ja | 4 / 1.092 0 (0) 0,4 (0,1-0,9) | 10 / 1.114 0,9 0,3 |\n| Herning | Ja | 9 / 2.066 0 (0) 0,4 (0,2-0,8) | 16 / 2.056 0,8 0,6 |\n| Holstebro | Ja | 5 / 1.329 0 (0) 0,4 (0,1-0,9) | 14 / 1.302 1,1 1,0 |\n| Horsens | Ja | 10 / 1.988 0 (0) 0,5 (0,2-0,9) | 11 / 1.938 0,6 0,6 |\n| Ikast-Brande | Ja | 4 / 998 0 (0) 0,4 (0,1-1,0) | 7 / 990 0,7 0,9 |\n| Lemvig | Ja | 0 / 607 0 (0) 0,0 (0,0-0,6) | 4 / 597 0,7 0,5 |\n| Norddjurs | Nej | 13 / 1.003 0 (0) 1,3 (0,7-2,2) | 7 / 992 0,7 0,5 |\n| Odder | Ja | # / # 0 (0) 0,2 (0,0-0,9) | # / # 0,5 0,3 |\n| Randers | Ja | 7 / 2.252 0 (0) 0,3 (0,1-0,6) | 13 / 2.240 0,6 1,1 |\n| Ringkøbing-Skjern | Ja | 7 / 1.495 0 (0) 0,5 (0,2-1,0) | 9 / 1.467 0,6 0,9 |\n| Samsø | Ja | # / # 0 (0) 0,8 (0,0-4,1) | # / # 0,8 1,5 |\n| Silkeborg | Ja | 10 / 2.203 0 (0) 0,5 (0,2-0,8) | 13 / 2.176 0,6 0,5 |\n| Skanderborg | Ja | 5 / 1.306 0 (0) 0,4 (0,1-0,9) | 5 / 1.273 0,4 0,6 |\n| Skive | Ja | 4 / 1.383 0 (0) 0,3 (0,1-0,7) | 17 / 1.396 1,2 1,0 |\n| Struer | Ja | 5 / 614 0 (0) 0,8 (0,3-1,9) | 10 / 599 1,7 1,4 |\n| Syddjurs | Ja | 9 / 1.160 0 (0) 0,8 (0,4-1,5) | 10 / 1.139 0,9 0,9 |\n| Viborg | Ja | 16 / 2.572 0 (0) 0,6 (0,4-1,0) | 22 / 2.597 0,8 0,7 |\n| Århus | Ja | 27 / 5.592 0 (0) 0,5 (0,3-0,7) | 40 / 5.584 0,7 0,8 |\n| Aalborg | Ja | 30 / 4.247 0 (0) 0,7 (0,5-1,0) | 36 / 4.281 0,8 0,9 |\n| Brønderslev-Dronninglund | Ja | 7 / 956 0 (0) 0,7 (0,3-1,5) | 6 / 985 0,6 0,6 |\n| Frederikshavn | Ja | 6 / 1.800 0 (0) 0,3 (0,1-0,7) | 16 / 1.797 0,9 1,0 |\n| Hjørring | Ja | 6 / 1.798 0 (0) 0,3 (0,1-0,7) | 13 / 1.803 0,7 0,8 |\n| Jammerbugt | Ja | 6 / 1.035 0 (0) 0,6 (0,2-1,3) | 8 / 1.047 0,8 0,6 |\n| Læsø | Nej | # / # 0 (0) 1,2 (0,0-6,4) | 0 / 83 0,0 0,0 |\n| Mariagerfjord | Ja | 7 / 1.175 0 (0) 0,6 (0,2-1,2) | 10 / 1.169 0,9 0,9 |\n| Morsø | Nej | 8 / 613 0 (0) 1,3 (0,6-2,6) | # / # 0,5 1,1 |\n| Rebild | Nej | 6 / 662 0 (0) 0,9 (0,3-2,0) | # / # 0,5 1,2 |\n| Thisted | Ja | # / # 0 (0) 0,2 (0,0-0,7) | 10 / 1.273 0,8 0,7 |\n| Vesthimmerlands | Ja | 6 / 887 0 (0) 0,7 (0,2-1,5) | 6 / 912 0,7 0,5 |",
+      "summary": "Tabellen viser andelen af atrieflimren-patienter, der udvikler iskæmisk apopleksi, per kommune, beregnet ud fra DanStroke-data for perioden 01.07.2022–30.06.2023, sammenlignet med tidligere år."
+    }
+  ],
+  "context": "Dette dokumentchunk udgør siderne 91–95 af Årsrapporten 2022–2023 fra Databasen for Atrieflimren i Danmark, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten dokumenterer klinisk kvalitet i behandlingen af atrieflimren gennem to centrale indikatorer: Indikator 1 (tidlig start på antikoagulationsbehandling) og Indikator 5 (forebyggelse af iskæmisk apopleksi via AK-behandling), med data fra både LPR og DanStroke. Analyserne omfatter nationalt niveau samt detaljeret opdeling på regioner og alle 98 danske kommuner, hvilket understreger rapportens rolle som et væsentligt redskab til lokal kvalitetsudvikling og benchmarking i den danske sundhedsvæsen."
 }

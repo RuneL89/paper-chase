@@ -1,61 +1,44 @@
 ---
 title: Quality Indicators
-type: topic
+type: index
 aliases:
   - Quality Indicators
 wiki: rkkp-adhd
-updated: '2026-08-03T19:14:17.607Z'
+updated: '2026-08-05T19:29:59.273Z'
 children:
-  - index.md
-  - indikator-1.md
-  - indikator-10.md
-  - indikator-11.md
-  - indikator-2a.md
-  - indikator-2b.md
-  - indikator-3.md
-  - indikator-4.md
-  - indikator-5.md
-  - indikator-6.md
-  - indikator-7a.md
-  - indikator-7b.md
-  - indikator-8.md
-  - indikator-9.md
-  - ny-indikator-2b.md
-  - ny-indikator-3.md
-  - quality-indicators.md
-tags:
-  - topic
-sources: []
+  - adhd-care/index.md
 ---
 # Quality Indicators
 
-This folder contains pages and sub-folders related to quality indicators.
+This area groups the national clinical metrics used to monitor and evaluate ADHD assessment and treatment pathways in Denmark. It covers the specific quality indicators managed by the Danish ADHD-DATABASEN, which track process adherence—such as the timeliness of somatic assessments, diagnostic conferences, and psychoeducation—as well as long-term educational outcomes. Collectively, these metrics highlight severe systemic shortfalls and regional disparities in meeting established 90% development targets across child, youth, and adult populations.
 
 ## Pages
 
-- [[indikator-1|Indikator 1]]
-- [[indikator-10|Indikator 10]]
-- [[indikator-11|Indikator 11]]
-- [[indikator-2a|Indikator 2a]]
-- [[indikator-2b|Indikator 2b]]
-- [[indikator-3|Indikator 3]]
-- [[indikator-4|Indikator 4]]
-- [[indikator-5|Indikator 5]]
-- [[indikator-6|Indikator 6]]
-- [[indikator-7a|Indikator 7a]]
-- [[indikator-7b]]
-- [[indikator-8|Indikator 8]]
-- [[indikator-9]]
-- [[ny-indikator-2b|Ny Indikator 2b]]
-- [[ny-indikator-3|Ny indikator 3]]
-- [[quality-indicators|Quality Indicators]]
+- [[topics/quality-indicators/adhd-care/index|Adhd Care]] — Catalogs the complete set of national clinical quality indicators managed by the Danish ADHD-DATABASEN to monitor process adherence and educational outcomes in ADHD assessment and treatment pathways.
 
 ## Navigation
 
-- Parent: [[index|Rkkp Adhd]]
+- Parent: [[topics/index|Topics]]
+- Sibling: [[topics/data-quality/index|Data Quality]]
+- Sibling: [[topics/demographic/index|Demographic]]
+- Sibling: [[topics/educational-outcome/index|Educational Outcome]]
+- Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/indicators/index|Indicators]]
+- Sibling: [[topics/low-performance/index|Low Performance]]
+- Sibling: [[topics/non-compliance/index|Non Compliance]]
+- Sibling: [[topics/outlier-performance/index|Outlier Performance]]
+- Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-change/index|Performance Change]]
+- Sibling: [[topics/policy/index|Policy]]
+- Sibling: [[topics/policy-change/index|Policy Change]]
+- Sibling: [[topics/policy-development/index|Policy Development]]
+- Sibling: [[topics/processes/index|Processes]]
+- Sibling: [[topics/quality-indicator/index|Quality Indicator]]
+- Sibling: [[topics/quality-standard/index|Quality Standard]]
+- Sibling: [[topics/regional-variation/index|Regional Variation]]
 
 ## Statistics
 
-- Pages: 16
-- Sub-folders: 0
+- Pages: 0
+- Sub-folders: 1
 - Sources: 0

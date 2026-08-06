@@ -1,11 +1,76 @@
 {
   "entities": [
     {
-      "name": "Landspatientregistret",
+      "name": "Atrieflimren i Danmark",
+      "type": "document",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "entities/documents/reports",
+      "significance": "Dette er den offentliggjorte version af rapporten fra Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP), som danner grundlaget for alle indikatorer, beregningsregler og resultater præsenteret på siderne 81–85.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Atrieflimren i Danmark\nVersion: Offentliggjort version\nRegionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
-      "slug": "landspatientregistret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Landspatientregistret er den kilde, hvorfra hjertesvigtsdiagnoser identificeres via hospitalskontakter med hjertesvigt som A eller B diagnose.",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "RKKP er den koordinerende organisation bag klinisk kvalitetsudvikling og indikatorbaseret overvågning af behandlingskvalitet for atrieflimren i Danmark, og står bag udarbejdelsen og publiceringen af rapporten 'Atrieflimren i Danmark'.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Hjertesvigtsindikatoren",
+      "type": "topic",
+      "slug": "hjertesvigtsindikatoren",
+      "folder": "topics/clinical-indicators/cardiology",
+      "significance": "Denne indikator måler andelen af nydiagnosticerede patienter med atrieflimren, der inden for det første år får en hospitalsdiagnose af hjertesvigt, og er en central kvalitetsmåling i RKKP’s overvågningsprogram.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Hjertesvigtsindikatoren opgøres for ny diagnosticerede patienter med en atrieflimren-diagnose, som ikke havde en hjertesvigtsdiagnose i forvejen."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 9",
+      "type": "topic",
+      "slug": "indikator-9",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "significance": "Indikator 9 er en supplerende kvalitetsindikator, der måler mortaliteten blandt prævalente patienter med atrieflimren i løbet af en given opgørelsesperiode, og anvendes til regionale og klyngebaserede sammenligninger.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Indikator 9: Andelen af prævalente patienter med diagnosen atrieflimren som dør i opgørelsesperioden"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 12",
+      "type": "topic",
+      "slug": "indikator-12",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "significance": "Indikator 12 måler 1-års-mortaliteten blandt nydiagnosticerede patienter med atrieflimren, og er en vigtig prognostisk kvalitetsmåling i RKKP’s rapporteringssystem.",
+      "mentions": [
+        {
+          "page": 84,
+          "context": "Indikator 12: Andelen af nydiagnosticerede patienter med atriflimren, som dør inden for 1 år"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregistret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Landspatientregistret er det nationale register, der bruges til identifikation af hjertesvigt via hospitalskontakter med specifikke diagnosekoder, og danner datagrundlaget for Hjertesvigtsindikatoren.",
       "mentions": [
         {
           "page": 81,
@@ -18,36 +83,32 @@
       "type": "location",
       "slug": "danmark",
       "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau, hvor indikatorer for atrieflimren og mortalitet opgøres og rapporteres.",
+      "significance": "Danmark er det nationale niveau, hvor de samlede resultater for alle indikatorer (Hjertesvigtsindikatoren, Indikator 9 og Indikator 12) præsenteres som reference for regional og lokal sammenligning.",
       "mentions": [
         {
-          "page": 81,
-          "context": "Atrieflimren i Danmark"
-        },
-        {
           "page": 82,
-          "context": "Danmark 10.003 / 136.420 0 (0) 7,3 (7,2-7,5)"
+          "context": "Danmark 10.003 / 136.420 0 (0) 7,3 (7,2-7,5) 10.234 / 134.801 7,6 8,0"
         },
         {
           "page": 84,
-          "context": "Danmark 2.720 / 21.804 0 (0) 12,5 (12,0-12,9)"
+          "context": "Danmark 2.720 / 21.804 0 (0) 12,5 (12,0-12,9) 2.743 / 21.017 13,1 13,1"
         }
       ]
     },
     {
       "name": "Hovedstaden",
       "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Hovedstaden er en dansk region, hvor mortalitets- og dødelsesindikatorer for atrieflimren-patienter rapporteres.",
+      "slug": "hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Region Hovedstaden er én af de fem danske regioner, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser faldende mortalitetsandele over tid.",
       "mentions": [
         {
           "page": 82,
-          "context": "Hovedstaden 2.694 / 37.675 0 (0) 7,2 (6,9-7,4)"
+          "context": "Hovedstaden 2.694 / 37.675 0 (0) 7,2 (6,9-7,4) 2.786 / 37.136 7,5 8,0"
         },
         {
           "page": 84,
-          "context": "Hovedstaden 700 / 5.905 0 (0) 11,9 (11,0-12,7)"
+          "context": "Hovedstaden 700 / 5.905 0 (0) 11,9 (11,0-12,7) 693 / 5.576 12,4 13,3"
         }
       ]
     },
@@ -55,16 +116,16 @@
       "name": "Sjælland",
       "type": "location",
       "slug": "sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Sjælland er en dansk region med rapporterede mortalitets- og dødelsesindikatorer for atrieflimren-patienter.",
+      "folder": "entities/locations/regions",
+      "significance": "Region Sjælland er én af de fem danske regioner, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
       "mentions": [
         {
           "page": 82,
-          "context": "Sjælland 1.570 / 22.695 0 (0) 6,9 (6,6-7,3)"
+          "context": "Sjælland 1.570 / 22.695 0 (0) 6,9 (6,6-7,3) 1.702 / 22.376 7,6 7,8"
         },
         {
           "page": 84,
-          "context": "Sjælland 468 / 3.590 0 (0) 13,0 (12,0-14,2)"
+          "context": "Sjælland 468 / 3.590 0 (0) 13,0 (12,0-14,2) 487 / 3.466 14,1 12,8"
         }
       ]
     },
@@ -72,16 +133,16 @@
       "name": "Syddanmark",
       "type": "location",
       "slug": "syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Syddanmark er en dansk region med rapporterede mortalitets- og dødelsesindikatorer for atrieflimren-patienter.",
+      "folder": "entities/locations/regions",
+      "significance": "Region Syddanmark er én af de fem danske regioner, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
       "mentions": [
         {
           "page": 82,
-          "context": "Syddanmark 2.368 / 31.275 0 (0) 7,6 (7,3-7,9)"
+          "context": "Syddanmark 2.368 / 31.275 0 (0) 7,6 (7,3-7,9) 2.466 / 31.265 7,9 8,4"
         },
         {
           "page": 84,
-          "context": "Syddanmark 640 / 4.972 0 (0) 12,9 (12,0-13,8)"
+          "context": "Syddanmark 640 / 4.972 0 (0) 12,9 (12,0-13,8) 637 / 5.041 12,6 13,4"
         }
       ]
     },
@@ -89,16 +150,16 @@
       "name": "Midtjylland",
       "type": "location",
       "slug": "midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Midtjylland er en dansk region med rapporterede mortalitets- og dødelsesindikatorer for atrieflimren-patienter.",
+      "folder": "entities/locations/regions",
+      "significance": "Region Midtjylland er én af de fem danske regioner, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
       "mentions": [
         {
           "page": 82,
-          "context": "Midtjylland 2.202 / 29.991 0 (0) 7,3 (7,0-7,6)"
+          "context": "Midtjylland 2.202 / 29.991 0 (0) 7,3 (7,0-7,6) 2.183 / 29.499 7,4 7,7"
         },
         {
           "page": 84,
-          "context": "Midtjylland 600 / 4.918 0 (0) 12,2 (11,3-13,1)"
+          "context": "Midtjylland 600 / 4.918 0 (0) 12,2 (11,3-13,1) 614 / 4.731 13,0 12,8"
         }
       ]
     },
@@ -106,280 +167,587 @@
       "name": "Nordjylland",
       "type": "location",
       "slug": "nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Nordjylland er en dansk region med rapporterede mortalitets- og dødelsesindikatorer for atrieflimren-patienter.",
+      "folder": "entities/locations/regions",
+      "significance": "Region Nordjylland er én af de fem danske regioner, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
       "mentions": [
         {
           "page": 82,
-          "context": "Nordjylland 1.169 / 14.784 0 (0) 7,9 (7,5-8,4)"
+          "context": "Nordjylland 1.169 / 14.784 0 (0) 7,9 (7,5-8,4) 1.097 / 14.525 7,6 8,3"
         },
         {
           "page": 84,
-          "context": "Nordjylland 312 / 2.419 0 (0) 12,9 (11,6-14,3)"
+          "context": "Nordjylland 312 / 2.419 0 (0) 12,9 (11,6-14,3) 312 / 2.203 14,2 13,5"
         }
       ]
     },
     {
-      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "name": "Sundhedsklynge Bornholm",
       "type": "organization",
-      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/government",
-      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er den organisation, der udgiver denne rapport om atrieflimren i Danmark.",
+      "slug": "sundhedsklynge-bornholm",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklynge Bornholm er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser variation i mortalitetsandele sammenlignet med andre klynger.",
       "mentions": [
         {
-          "page": 81,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+          "page": 82,
+          "context": "Sundhedsklynge Bornholm 114 / 1.309 0 (0) 8,7 (7,2-10,4) 106 / 1.337 7,9 7,9"
+        },
+        {
+          "page": 84,
+          "context": "Sundhedsklynge Bornholm 29 / 195 0 (0) 14,9 (10,2-20,7) 18 / 186 9,7 13,2"
         }
       ]
     },
     {
-      "name": "Atrieflimren",
-      "type": "medical-condition",
-      "slug": "atrieflimren",
-      "folder": "topics/medical-conditions",
-      "significance": "Atrieflimren er den centrale diagnose, som denne rapport handler om, med fokus på mortalitet og hjertesvigtsudvikling blandt patienter.",
+      "name": "Sundhedsklynge Byen",
+      "type": "organization",
+      "slug": "sundhedsklynge-byen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklynge Byen er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser lavere 1-års-mortalitet end flere andre klynger.",
       "mentions": [
         {
-          "page": 81,
-          "context": "Hjertesvigtsindikatoren opgøres for ny diagnosticerede patienter med en atrieflimren-diagnose"
+          "page": 82,
+          "context": "Sundhedsklynge Byen 686 / 10.352 0 (0) 6,6 (6,2-7,1) 747 / 10.154 7,4 7,9"
         },
         {
-          "page": 81,
-          "context": "Livstidsrisikoen for hjertesvigt efter atrieflimren er 40%, og hjertesvigt er globalt den hyppigste kardiovaskulære dødsårsag blandt patienter med atrieflimren."
+          "page": 84,
+          "context": "Sundhedsklynge Byen 161 / 1.625 0 (0) 9,9 (8,5-11,5) 185 / 1.493 12,4 11,8"
         }
       ]
     },
     {
-      "name": "Hjertesvigt",
-      "type": "medical-condition",
-      "slug": "hjertesvigt",
-      "folder": "topics/medical-conditions",
-      "significance": "Hjertesvigt er en vigtig komplikation blandt atrieflimren-patienter, hvor 6,1% af nydiagnosticerede patienter udvikler hjertesvigt inden for det første år.",
+      "name": "Sundhedsklynge Midt",
+      "type": "organization",
+      "slug": "sundhedsklynge-midt",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklynge Midt er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
       "mentions": [
         {
-          "page": 81,
-          "context": "Hjertesvigtsindikatoren opgøres for ny diagnosticerede patienter med en atrieflimren-diagnose, som ikke havde en hjertesvigtsdiagnose i forvejen."
+          "page": 82,
+          "context": "Sundhedsklynge Midt 803 / 10.794 0 (0) 7,4 (7,0-8,0) 809 / 10.535 7,7 8,0"
         },
         {
-          "page": 81,
-          "context": "Indenfor det første år efter AF diagnosen blev 6,1% registreret med en hjertesvigtsdiagnose."
+          "page": 84,
+          "context": "Sundhedsklynge Midt 221 / 1.754 0 (0) 12,6 (11,1-14,2) 188 / 1.636 11,5 15,0"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Nord",
+      "type": "organization",
+      "slug": "sundhedsklynge-nord",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklynge Nord er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en stabil tendens i mortalitetsandele over tid.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Sundhedsklynge Nord 625 / 8.795 0 (0) 7,1 (6,6-7,7) 626 / 8.767 7,1 7,3"
+        },
+        {
+          "page": 84,
+          "context": "Sundhedsklynge Nord 163 / 1.293 0 (0) 12,6 (10,8-14,5) 154 / 1.270 12,1 12,2"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Syd",
+      "type": "organization",
+      "slug": "sundhedsklynge-syd",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklynge Syd er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Sundhedsklynge Syd 466 / 6.425 0 (0) 7,3 (6,6-7,9) 498 / 6.343 7,9 8,8"
+        },
+        {
+          "page": 84,
+          "context": "Sundhedsklynge Syd 126 / 1.038 0 (0) 12,1 (10,2-14,3) 148 / 991 14,9 14,1"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Holbæk",
+      "type": "organization",
+      "slug": "sundhedsklyngen-holbaek",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklyngen Holbæk er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser højere 1-års-mortalitet end national gennemsnit.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Sundhedsklyngen Holbæk 304 / 4.929 0 (0) 6,2 (5,5-6,9) 378 / 4.929 7,7 7,5"
+        },
+        {
+          "page": 84,
+          "context": "Sundhedsklyngen Holbæk 105 / 751 0 (0) 14,0 (11,6-16,7) 106 / 751 14,1 13,0"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Nykøbing F",
+      "type": "organization",
+      "slug": "sundhedsklyngen-nykoebing-f",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklyngen Nykøbing F er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en af de højeste 1-års-mortaliteter blandt alle klynger.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Sundhedsklyngen Nykøbing F 358 / 4.644 0 (0) 7,7 (7,0-8,5) 383 / 4.634 8,3 9,0"
+        },
+        {
+          "page": 84,
+          "context": "Sundhedsklyngen Nykøbing F 125 / 751 0 (0) 16,6 (14,0-19,5) 110 / 737 14,9 14,3"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen SUH",
+      "type": "organization",
+      "slug": "sundhedsklyngen-suh",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklyngen SUH er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en af de laveste 1-års-mortaliteter blandt alle klynger.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Sundhedsklyngen SUH 476 / 7.270 0 (0) 6,5 (6,0-7,1) 454 / 7.015 6,5 6,7"
+        },
+        {
+          "page": 84,
+          "context": "Sundhedsklyngen SUH 107 / 1.169 0 (0) 9,2 (7,6-11,0) 135 / 1.111 12,2 12,0"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Slagelse",
+      "type": "organization",
+      "slug": "sundhedsklyngen-slagelese",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklyngen Slagelse er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser højere 1-års-mortalitet end national gennemsnit.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Sundhedsklyngen Slagelse 432 / 5.852 0 (0) 7,4 (6,7-8,1) 487 / 5.798 8,4 8,4"
+        },
+        {
+          "page": 84,
+          "context": "Sundhedsklyngen Slagelse 131 / 919 0 (0) 14,3 (12,1-16,7) 136 / 867 15,7 12,3"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Fyn",
+      "type": "organization",
+      "slug": "sundhedsklynge-fyn",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklynge Fyn er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en af de højeste mortalitetsandele blandt alle klynger.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Sundhedsklynge Fyn 943 / 11.687 0 (0) 8,1 (7,6-8,6) 1.001 / 11.714 8,5 8,8"
+        },
+        {
+          "page": 84,
+          "context": "Sundhedsklynge Fyn 267 / 1.935 0 (0) 13,8 (12,3-15,4) 274 / 1.954 14,0 14,3"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Lillebælt",
+      "type": "organization",
+      "slug": "sundhedsklynge-lillebaelt",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklynge Lillebælt er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en af de laveste mortalitetsandele blandt alle klynger.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Sundhedsklynge Lillebælt 450 / 7.041 0 (0) 6,4 (5,8-7,0) 476 / 6.956 6,8 7,6"
+        },
+        {
+          "page": 84,
+          "context": "Sundhedsklynge Lillebælt 111 / 1.086 0 (0) 10,2 (8,5-12,2) 123 / 1.087 11,3 12,9"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sydvestjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-sydvestjylland",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklynge Sydvestjylland er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Sundhedsklynge Sydvestjylland 458 / 6.218 0 (0) 7,4 (6,7-8,0) 502 / 6.319 7,9 8,2"
+        },
+        {
+          "page": 84,
+          "context": "Sundhedsklynge Sydvestjylland 106 / 927 0 (0) 11,4 (9,5-13,7) 111 / 953 11,6 12,2"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sønderjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-soenderjylland",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklynge Sønderjylland er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en af de højeste mortalitetsandele blandt alle klynger.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Sundhedsklynge Sønderjylland 517 / 6.329 0 (0) 8,2 (7,5-8,9) 487 / 6.276 7,8 8,7"
+        },
+        {
+          "page": 84,
+          "context": "Sundhedsklynge Sønderjylland 156 / 1.024 0 (0) 15,2 (13,1-17,6) 129 / 1.047 12,3 13,4"
+        }
+      ]
+    },
+    {
+      "name": "Aarhusklyngen",
+      "type": "organization",
+      "slug": "aarhusklyngen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Aarhusklyngen er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Aarhusklyngen 443 / 5.910 0 (0) 7,5 (6,8-8,2) 437 / 5.717 7,6 8,4"
+        },
+        {
+          "page": 84,
+          "context": "Aarhusklyngen 120 / 1.079 0 (0) 11,1 (9,3-13,2) 135 / 999 13,5 11,5"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrupklyngen",
+      "type": "organization",
+      "slug": "goedstrupklyngen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Gødstrupklyngen er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Gødstrupklyngen 521 / 7.136 0 (0) 7,3 (6,7-7,9) 505 / 7.109 7,1 7,7"
+        },
+        {
+          "page": 84,
+          "context": "Gødstrupklyngen 121 / 1.077 0 (0) 11,2 (9,4-13,3) 136 / 1.135 12,0 14,2"
+        }
+      ]
+    },
+    {
+      "name": "Horsensklyngen",
+      "type": "organization",
+      "slug": "horsensklyngen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Horsensklyngen er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en af de højeste 1-års-mortaliteter blandt alle klynger.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Horsensklyngen 376 / 5.171 0 (0) 7,3 (6,6-8,0) 360 / 5.027 7,2 7,5"
+        },
+        {
+          "page": 84,
+          "context": "Horsensklyngen 119 / 877 0 (0) 13,6 (11,4-16,0) 100 / 789 12,7 12,3"
+        }
+      ]
+    },
+    {
+      "name": "Midtklyngen",
+      "type": "organization",
+      "slug": "midtklyngen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Midtklyngen er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Midtklyngen 456 / 6.213 0 (0) 7,3 (6,7-8,0) 454 / 6.164 7,4 7,4"
+        },
+        {
+          "page": 84,
+          "context": "Midtklyngen 125 / 997 0 (0) 12,5 (10,5-14,8) 125 / 949 13,2 13,5"
+        }
+      ]
+    },
+    {
+      "name": "Randersklyngen",
+      "type": "organization",
+      "slug": "randersklyngen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Randersklyngen er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Randersklyngen 406 / 5.561 0 (0) 7,3 (6,6-8,0) 427 / 5.482 7,8 7,4"
+        },
+        {
+          "page": 84,
+          "context": "Randersklyngen 115 / 888 0 (0) 13,0 (10,8-15,3) 118 / 859 13,7 12,2"
+        }
+      ]
+    },
+    {
+      "name": "Klynge MIDT",
+      "type": "organization",
+      "slug": "klynge-midt",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Klynge MIDT er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Klynge MIDT 423 / 5.352 0 (0) 7,9 (7,2-8,7) 398 / 5.300 7,5 8,1"
+        },
+        {
+          "page": 84,
+          "context": "Klynge MIDT 114 / 866 0 (0) 13,2 (11,0-15,6) 108 / 772 14,0 13,7"
+        }
+      ]
+    },
+    {
+      "name": "Klynge NORD",
+      "type": "organization",
+      "slug": "klynge-nord",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Klynge NORD er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Klynge NORD 379 / 4.791 0 (0) 7,9 (7,2-8,7) 357 / 4.643 7,7 8,3"
+        },
+        {
+          "page": 84,
+          "context": "Klynge NORD 108 / 820 0 (0) 13,2 (10,9-15,7) 119 / 754 15,8 13,6"
+        }
+      ]
+    },
+    {
+      "name": "Klynge SYD",
+      "type": "organization",
+      "slug": "klynge-syd",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Klynge SYD er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en faldende tendens i mortalitetsandele over tid.",
+      "mentions": [
+        {
+          "page": 83,
+          "context": "Klynge SYD 205 / 2.785 0 (0) 7,4 (6,4-8,4) 200 / 2.725 7,3 8,2"
+        },
+        {
+          "page": 84,
+          "context": "Klynge SYD 49 / 459 0 (0) 10,7 (8,0-13,9) 55 / 408 13,5 14,0"
+        }
+      ]
+    },
+    {
+      "name": "Klynge VEST",
+      "type": "organization",
+      "slug": "klynge-vest",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Klynge VEST er en lokalt organiseret sundhedsklynge, hvis resultater for både Indikator 9 og Indikator 12 præsenteres separat i rapporten, og som viser en af de højeste 1-års-mortaliteter blandt alle klynger.",
+      "mentions": [
+        {
+          "page": 83,
+          "context": "Klynge VEST 162 / 1.856 0 (0) 8,7 (7,5-10,1) 142 / 1.857 7,6 8,7"
+        },
+        {
+          "page": 85,
+          "context": "Klynge VEST 41 / 274 0 (0) 15,0 (11,0-19,7) 30 / 269 11,2 11,3"
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "atrieflimren",
-      "predicate": "is-tracked-by",
+      "subject": "atrieflimren-i-danmark",
+      "predicate": "is-produced-by",
       "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram rapporterer på atrieflimren i Danmark",
+      "evidence": "Atrieflimren i Danmark\nVersion: Offentliggjort version\nRegionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 81
     },
     {
-      "subject": "hjertesvigt",
-      "predicate": "is-complication-of",
-      "object": "atrieflimren",
-      "evidence": "Livstidsrisikoen for hjertesvigt efter atrieflimren er 40%, og hjertesvigt er globalt den hyppigste kardiovaskulære dødsårsag blandt patienter med atrieflimren.",
+      "subject": "hjertesvigtsindikatoren",
+      "predicate": "is-calculated-using",
+      "object": "landspatientregisteret",
+      "evidence": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) og er identificeret via data fra Landspatientregistret.",
       "page": 81
     },
     {
-      "subject": "landspatientregistret",
-      "predicate": "provides-data-for",
-      "object": "hjertesvigt",
-      "evidence": "Hjertesvigt er identificeret via data fra Landspatientregistret",
-      "page": 81
+      "subject": "indikator-9",
+      "predicate": "measures-mortality-of",
+      "object": "danmark",
+      "evidence": "Indikator 9: Andelen af prævalente patienter med diagnosen atrieflimren som dør i opgørelsesperioden",
+      "page": 82
+    },
+    {
+      "subject": "indikator-12",
+      "predicate": "measures-mortality-of",
+      "object": "danmark",
+      "evidence": "Indikator 12: Andelen af nydiagnosticerede patienter med atriflimren, som dør inden for 1 år",
+      "page": 84
     }
   ],
   "claims": [
     {
-      "text": "Indenfor det første år efter AF diagnosen blev 6,1% registreret med en hjertesvigtsdiagnose [^src1]",
-      "type": "clinical-outcome",
+      "text": "Hjertesvigtsindikatoren opgøres for ny diagnosticerede patienter med en atrieflimren-diagnose, som ikke havde en hjertesvigtsdiagnose i forvejen [^src1]",
+      "type": "definition",
       "entities": [
-        "atrieflimren",
-        "hjertesvigt"
+        "hjertesvigtsindikatoren",
+        "atrieflimren-i-danmark"
+      ],
+      "page": 81
+    },
+    {
+      "text": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) [^src1]",
+      "type": "definition",
+      "entities": [
+        "hjertesvigtsindikatoren",
+        "landspatientregisteret"
+      ],
+      "page": 81
+    },
+    {
+      "text": "Indenfor det første år efter AF diagnosen blev 6,1% registreret med en hjertesvigtsdiagnose [^src1]",
+      "type": "statistical",
+      "entities": [
+        "hjertesvigtsindikatoren"
       ],
       "page": 81
     },
     {
       "text": "Der ses et markant fald i andelen i løbet af de seneste tre årsrapportsperioder fra 9,0-6,1% [^src1]",
-      "type": "clinical-trend",
+      "type": "trend",
       "entities": [
-        "hjertesvigt"
+        "hjertesvigtsindikatoren"
       ],
       "page": 81
     },
     {
       "text": "På regionalt niveau varierer andelen fra 5,5-7,0% [^src1]",
-      "type": "regional-variation",
+      "type": "statistical",
       "entities": [
-        "hjertesvigt"
+        "hjertesvigtsindikatoren"
       ],
       "page": 81
     },
     {
       "text": "På klyngeniveau varierer andelen fra 4,5-7,5% [^src1]",
-      "type": "regional-variation",
+      "type": "statistical",
       "entities": [
-        "hjertesvigt"
+        "hjertesvigtsindikatoren"
       ],
       "page": 81
     },
     {
       "text": "Livstidsrisikoen for hjertesvigt efter atrieflimren er 40% [^src1]",
-      "type": "clinical-risk",
+      "type": "statistical",
       "entities": [
-        "atrieflimren",
-        "hjertesvigt"
+        "hjertesvigtsindikatoren"
       ],
       "page": 81
     },
     {
-      "text": "Hjertesvigt er globalt den hyppigste kardiovaskulære dødsårsag blandt patienter med atrieflimren [^src1]",
-      "type": "clinical-outcome",
+      "text": "Hjertesvigt efter atrieflimren omfatter alle typer af hjertesvigt, herunder atrieflimren-induceret hjertesvigt, takykardi-induceret hjertesvigt samt hjertesvigt med (HFpEF) og uden (HFrEF) bevaret systolefunktion [^src1]",
+      "type": "definition",
       "entities": [
-        "atrieflimren",
-        "hjertesvigt"
+        "hjertesvigtsindikatoren"
       ],
       "page": 81
-    },
-    {
-      "text": "Danmark: 10.003 / 136.420 døde (7,3%, 95% CI 7,2-7,5) blandt prævalente patienter med atrieflimren i perioden 01.07.2023 - 30.06.2024 [^src2]",
-      "type": "mortality",
-      "entities": [
-        "danmark",
-        "atrieflimren"
-      ],
-      "page": 82
-    },
-    {
-      "text": "Hovedstaden: 2.694 / 37.675 døde (7,2%, 95% CI 6,9-7,4) blandt prævalente patienter med atrieflimren [^src2]",
-      "type": "mortality",
-      "entities": [
-        "region-hovedstaden",
-        "atrieflimren"
-      ],
-      "page": 82
-    },
-    {
-      "text": "Sjælland: 1.570 / 22.695 døde (6,9%, 95% CI 6,6-7,3) blandt prævalente patienter med atrieflimren [^src2]",
-      "type": "mortality",
-      "entities": [
-        "sjaelland",
-        "atrieflimren"
-      ],
-      "page": 82
-    },
-    {
-      "text": "Syddanmark: 2.368 / 31.275 døde (7,6%, 95% CI 7,3-7,9) blandt prævalente patienter med atrieflimren [^src2]",
-      "type": "mortality",
-      "entities": [
-        "syddanmark",
-        "atrieflimren"
-      ],
-      "page": 82
-    },
-    {
-      "text": "Midtjylland: 2.202 / 29.991 døde (7,3%, 95% CI 7,0-7,6) blandt prævalente patienter med atrieflimren [^src2]",
-      "type": "mortality",
-      "entities": [
-        "midtjylland",
-        "atrieflimren"
-      ],
-      "page": 82
-    },
-    {
-      "text": "Nordjylland: 1.169 / 14.784 døde (7,9%, 95% CI 7,5-8,4) blandt prævalente patienter med atrieflimren [^src2]",
-      "type": "mortality",
-      "entities": [
-        "nordjylland",
-        "atrieflimren"
-      ],
-      "page": 82
-    },
-    {
-      "text": "Danmark: 2.720 / 21.804 nydiagnosticerede patienter med atrieflimren døde inden for 1 år (12,5%, 95% CI 12,0-12,9) i perioden 01.07.2022 - 30.06.2023 [^src3]",
-      "type": "mortality",
-      "entities": [
-        "danmark",
-        "atrieflimren"
-      ],
-      "page": 84
-    },
-    {
-      "text": "Hovedstaden: 700 / 5.905 nydiagnosticerede patienter med atrieflimren døde inden for 1 år (11,9%, 95% CI 11,0-12,7) [^src3]",
-      "type": "mortality",
-      "entities": [
-        "region-hovedstaden",
-        "atrieflimren"
-      ],
-      "page": 84
-    },
-    {
-      "text": "Sjælland: 468 / 3.590 nydiagnosticerede patienter med atrieflimren døde inden for 1 år (13,0%, 95% CI 12,0-14,2) [^src3]",
-      "type": "mortality",
-      "entities": [
-        "sjaelland",
-        "atrieflimren"
-      ],
-      "page": 84
-    },
-    {
-      "text": "Syddanmark: 640 / 4.972 nydiagnosticerede patienter med atrieflimren døde inden for 1 år (12,9%, 95% CI 12,0-13,8) [^src3]",
-      "type": "mortality",
-      "entities": [
-        "syddanmark",
-        "atrieflimren"
-      ],
-      "page": 84
-    },
-    {
-      "text": "Midtjylland: 600 / 4.918 nydiagnosticerede patienter med atrieflimren døde inden for 1 år (12,2%, 95% CI 11,3-13,1) [^src3]",
-      "type": "mortality",
-      "entities": [
-        "midtjylland",
-        "atrieflimren"
-      ],
-      "page": 84
-    },
-    {
-      "text": "Nordjylland: 312 / 2.419 nydiagnosticerede patienter med atrieflimren døde inden for 1 år (12,9%, 95% CI 11,6-14,3) [^src3]",
-      "type": "mortality",
-      "entities": [
-        "nordjylland",
-        "atrieflimren"
-      ],
-      "page": 84
     }
   ],
   "timeline": [
     {
       "date": "01.07.2023 - 30.06.2024",
-      "event": "Indikator 9 opgørelsesperiode: Andelen af prævalente patienter med diagnosen atrieflimren som dør i opgørelsesperioden",
+      "event": "Aktuel år for Indikator 9 med opgørelse af mortalitet blandt prævalente patienter med atrieflimren",
       "entities": [
-        "atrieflimren"
+        "indikator-9"
       ]
     },
     {
       "date": "01.07.2022 - 30.06.2023",
-      "event": "Indikator 12 opgørelsesperiode: Andelen af nydiagnosticerede patienter med atrieflimren, som dør inden for 1 år",
+      "event": "Aktuel år for Indikator 12 med opgørelse af 1-års-mortalitet blandt nydiagnosticerede patienter med atrieflimren",
       "entities": [
-        "atrieflimren"
-      ]
-    },
-    {
-      "date": "2022/23",
-      "event": "Tidligere år for sammenligning af mortalitetsindikatorer",
-      "entities": [
-        "atrieflimren"
-      ]
-    },
-    {
-      "date": "2021/22",
-      "event": "Tidligere år for sammenligning af mortalitetsindikatorer",
-      "entities": [
-        "atrieflimren"
+        "indikator-12"
       ]
     }
   ],
-  "context": "Denne dokumentchunk præsenterer data fra Regionernes Kliniske Kvalitetsudviklingsprogram om atrieflimren i Danmark for perioden 2023-2024. Rapporten fokuserer på to vigtige mortalitetsindikatorer: andelen af prævalente patienter med atrieflimren, der dør i opgørelsesperioden (Indikator 9), og andelen af nydiagnosticerede patienter med atrieflimren, der dør inden for 1 år (Indikator 12). Desuden præsenteres data om udviklingen af hjertesvigt blandt nydiagnosticerede atrieflimren-patienter, hvor 6,1% udvikler hjertesvigt inden for det første år efter diagnosen. Rapporten viser resultater på nationalt niveau, regionalt niveau og på sundhedsklyngeniveau, med sammenligning til tidligere år for at illustrere trends."
+  "tables": [
+    {
+      "subject": "indikator-9",
+      "title": "Indikator 9: Andelen af prævalente patienter med diagnosen atrieflimren som dør i opgørelsesperioden",
+      "page": 82,
+      "rowDimension": "geografisk enhed",
+      "colDimension": "mortalitetsandel per periode",
+      "entities": [
+        "danmark",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen",
+        "sundhedsklynge-midt",
+        "sundhedsklynge-nord",
+        "sundhedsklynge-syd",
+        "sundhedsklyngen-holbaek",
+        "sundhedsklyngen-nykoebing-f",
+        "sundhedsklyngen-suh",
+        "sundhedsklyngen-slagelese",
+        "sundhedsklynge-fyn",
+        "sundhedsklynge-lillebaelt",
+        "sundhedsklynge-sydvestjylland",
+        "sundhedsklynge-soenderjylland",
+        "aarhusklyngen",
+        "goedstrupklyngen",
+        "horsensklyngen",
+        "midtklyngen",
+        "randersklyngen",
+        "klynge-midt",
+        "klynge-nord",
+        "klynge-syd",
+        "klynge-vest"
+      ],
+      "markdown": "| Geografisk enhed | Tæller/ antal | Uoplyst | Aktuelle år | 95% CI | Tidligere år 2022/23 | Tidligere år 2021/22 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 10.003 / 136.420 | 0 (0) | 7,3 | 7,2-7,5 | 7,6 | 8,0 |\n| Hovedstaden | 2.694 / 37.675 | 0 (0) | 7,2 | 6,9-7,4 | 7,5 | 8,0 |\n| Sjælland | 1.570 / 22.695 | 0 (0) | 6,9 | 6,6-7,3 | 7,6 | 7,8 |\n| Syddanmark | 2.368 / 31.275 | 0 (0) | 7,6 | 7,3-7,9 | 7,9 | 8,4 |\n| Midtjylland | 2.202 / 29.991 | 0 (0) | 7,3 | 7,0-7,6 | 7,4 | 7,7 |\n| Nordjylland | 1.169 / 14.784 | 0 (0) | 7,9 | 7,5-8,4 | 7,6 | 8,3 |\n| Sundhedsklynge Bornholm | 114 / 1.309 | 0 (0) | 8,7 | 7,2-10,4 | 7,9 | 7,9 |\n| Sundhedsklynge Byen | 686 / 10.352 | 0 (0) | 6,6 | 6,2-7,1 | 7,4 | 7,9 |\n| Sundhedsklynge Midt | 803 / 10.794 | 0 (0) | 7,4 | 7,0-8,0 | 7,7 | 8,0 |\n| Sundhedsklynge Nord | 625 / 8.795 | 0 (0) | 7,1 | 6,6-7,7 | 7,1 | 7,3 |\n| Sundhedsklynge Syd | 466 / 6.425 | 0 (0) | 7,3 | 6,6-7,9 | 7,9 | 8,8 |\n| Sundhedsklyngen Holbæk | 304 / 4.929 | 0 (0) | 6,2 | 5,5-6,9 | 7,7 | 7,5 |\n| Sundhedsklyngen Nykøbing F | 358 / 4.644 | 0 (0) | 7,7 | 7,0-8,5 | 8,3 | 9,0 |\n| Sundhedsklyngen SUH | 476 / 7.270 | 0 (0) | 6,5 | 6,0-7,1 | 6,5 | 6,7 |\n| Sundhedsklyngen Slagelse | 432 / 5.852 | 0 (0) | 7,4 | 6,7-8,1 | 8,4 | 8,4 |\n| Sundhedsklynge Fyn | 943 / 11.687 | 0 (0) | 8,1 | 7,6-8,6 | 8,5 | 8,8 |\n| Sundhedsklynge Lillebælt | 450 / 7.041 | 0 (0) | 6,4 | 5,8-7,0 | 6,8 | 7,6 |\n| Sundhedsklynge Sydvestjylland | 458 / 6.218 | 0 (0) | 7,4 | 6,7-8,0 | 7,9 | 8,2 |\n| Sundhedsklynge Sønderjylland | 517 / 6.329 | 0 (0) | 8,2 | 7,5-8,9 | 7,8 | 8,7 |\n| Aarhusklyngen | 443 / 5.910 | 0 (0) | 7,5 | 6,8-8,2 | 7,6 | 8,4 |\n| Gødstrupklyngen | 521 / 7.136 | 0 (0) | 7,3 | 6,7-7,9 | 7,1 | 7,7 |\n| Horsensklyngen | 376 / 5.171 | 0 (0) | 7,3 | 6,6-8,0 | 7,2 | 7,5 |\n| Midtklyngen | 456 / 6.213 | 0 (0) | 7,3 | 6,7-8,0 | 7,4 | 7,4 |\n| Randersklyngen | 406 / 5.561 | 0 (0) | 7,3 | 6,6-8,0 | 7,8 | 7,4 |\n| Klynge MIDT | 423 / 5.352 | 0 (0) | 7,9 | 7,2-8,7 | 7,5 | 8,1 |\n| Klynge NORD | 379 / 4.791 | 0 (0) | 7,9 | 7,2-8,7 | 7,7 | 8,3 |\n| Klynge SYD | 205 / 2.785 | 0 (0) | 7,4 | 6,4-8,4 | 7,3 | 8,2 |\n| Klynge VEST | 162 / 1.856 | 0 (0) | 8,7 | 7,5-10,1 | 7,6 | 8,7 |",
+      "summary": "Tabellen sammenligner mortalitetsandele for Indikator 9 på nationalt, regionalt og klynge-niveau over tre rapporteringsperioder, og viser en generel nedadgående tendens i de fleste geografiske enheder."
+    },
+    {
+      "subject": "indikator-12",
+      "title": "Indikator 12: Andelen af nydiagnosticerede patienter med atriflimren, som dør inden for 1 år",
+      "page": 84,
+      "rowDimension": "geografisk enhed",
+      "colDimension": "1-års-mortalitetsandel per periode",
+      "entities": [
+        "danmark",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen",
+        "sundhedsklynge-midt",
+        "sundhedsklynge-nord",
+        "sundhedsklynge-syd",
+        "sundhedsklyngen-holbaek",
+        "sundhedsklyngen-nykoebing-f",
+        "sundhedsklyngen-suh",
+        "sundhedsklyngen-slagelese",
+        "sundhedsklynge-fyn",
+        "sundhedsklynge-lillebaelt",
+        "sundhedsklynge-sydvestjylland",
+        "sundhedsklynge-soenderjylland",
+        "aarhusklyngen",
+        "goedstrupklyngen",
+        "horsensklyngen",
+        "midtklyngen",
+        "randersklyngen",
+        "klynge-midt",
+        "klynge-nord",
+        "klynge-syd",
+        "klynge-vest"
+      ],
+      "markdown": "| Geografisk enhed | Tæller/ antal | Uoplyst | Aktuelle år | 95% CI | Tidligere år 2021/22 | Tidligere år 2020/21 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 2.720 / 21.804 | 0 (0) | 12,5 | 12,0-12,9 | 13,1 | 13,1 |\n| Hovedstaden | 700 / 5.905 | 0 (0) | 11,9 | 11,0-12,7 | 12,4 | 13,3 |\n| Sjælland | 468 / 3.590 | 0 (0) | 13,0 | 12,0-14,2 | 14,1 | 12,8 |\n| Syddanmark | 640 / 4.972 | 0 (0) | 12,9 | 12,0-13,8 | 12,6 | 13,4 |\n| Midtjylland | 600 / 4.918 | 0 (0) | 12,2 | 11,3-13,1 | 13,0 | 12,8 |\n| Nordjylland | 312 / 2.419 | 0 (0) | 12,9 | 11,6-14,3 | 14,2 | 13,5 |\n| Sundhedsklynge Bornholm | 29 / 195 | 0 (0) | 14,9 | 10,2-20,7 | 9,7 | 13,2 |\n| Sundhedsklynge Byen | 161 / 1.625 | 0 (0) | 9,9 | 8,5-11,5 | 12,4 | 11,8 |\n| Sundhedsklynge Midt | 221 / 1.754 | 0 (0) | 12,6 | 11,1-14,2 | 11,5 | 15,0 |\n| Sundhedsklynge Nord | 163 / 1.293 | 0 (0) | 12,6 | 10,8-14,5 | 12,1 | 12,2 |\n| Sundhedsklynge Syd | 126 / 1.038 | 0 (0) | 12,1 | 10,2-14,3 | 14,9 | 14,1 |\n| Sundhedsklyngen Holbæk | 105 / 751 | 0 (0) | 14,0 | 11,6-16,7 | 14,1 | 13,0 |\n| Sundhedsklyngen Nykøbing F | 125 / 751 | 0 (0) | 16,6 | 14,0-19,5 | 14,9 | 14,3 |\n| Sundhedsklyngen SUH | 107 / 1.169 | 0 (0) | 9,2 | 7,6-11,0 | 12,2 | 12,0 |\n| Sundhedsklyngen Slagelse | 131 / 919 | 0 (0) | 14,3 | 12,1-16,7 | 15,7 | 12,3 |\n| Sundhedsklynge Fyn | 267 / 1.935 | 0 (0) | 13,8 | 12,3-15,4 | 14,0 | 14,3 |\n| Sundhedsklynge Lillebælt | 111 / 1.086 | 0 (0) | 10,2 | 8,5-12,2 | 11,3 | 12,9 |\n| Sundhedsklynge Sydvestjylland | 106 / 927 | 0 (0) | 11,4 | 9,5-13,7 | 11,6 | 12,2 |\n| Sundhedsklynge Sønderjylland | 156 / 1.024 | 0 (0) | 15,2 | 13,1-17,6 | 12,3 | 13,4 |\n| Aarhusklyngen | 120 / 1.079 | 0 (0) | 11,1 | 9,3-13,2 | 13,5 | 11,5 |\n| Gødstrupklyngen | 121 / 1.077 | 0 (0) | 11,2 | 9,4-13,3 | 12,0 | 14,2 |\n| Horsensklyngen | 119 / 877 | 0 (0) | 13,6 | 11,4-16,0 | 12,7 | 12,3 |\n| Midtklyngen | 125 / 997 | 0 (0) | 12,5 | 10,5-14,8 | 13,2 | 13,5 |\n| Randersklyngen | 115 / 888 | 0 (0) | 13,0 | 10,8-15,3 | 13,7 | 12,2 |\n| Klynge MIDT | 114 / 866 | 0 (0) | 13,2 | 11,0-15,6 | 14,0 | 13,7 |\n| Klynge NORD | 108 / 820 | 0 (0) | 13,2 | 10,9-15,7 | 15,8 | 13,6 |\n| Klynge SYD | 49 / 459 | 0 (0) | 10,7 | 8,0-13,9 | 13,5 | 14,0 |\n| Klynge VEST | 41 / 274 | 0 (0) | 15,0 | 11,0-19,7 | 11,2 | 11,3 |",
+      "summary": "Tabellen sammenligner 1-års-mortalitetsandele for Indikator 12 på nationalt, regionalt og klynge-niveau over tre rapporteringsperioder, og viser betydelige variationer mellem geografiske enheder samt en generel nedadgående tendens i mange, men ikke alle, enheder."
+    }
+  ],
+  "context": "Dette dokumentchunk indeholder siderne 81–85 af rapporten 'Atrieflimren i Danmark', som er udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten præsenterer kliniske kvalitetsindikatorer for behandlingen og overvågningen af patienter med atrieflimren i det danske sundhedssystem, med særlig fokus på hjertesvigtudvikling og mortalitet. Indholdet omfatter definitioner af indikatorer, statistiske resultater på nationalt, regionalt og lokalt (klynge-) niveau, samt diskussion af klinisk betydning og epidemiologiske implikationer. Denne del af rapporten er centralt placeret i RKKP’s kvalitetsmonitoreringsstruktur og anvendes til benchmarking, klinisk udvikling og politisk styring af behandlingskvaliteten for atrieflimren."
 }

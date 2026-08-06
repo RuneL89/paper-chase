@@ -2,27 +2,23 @@
   "entities": [
     {
       "name": "Indikator 9",
-      "type": "quality-indicator",
+      "type": "clinical-indicator",
       "slug": "indikator-9",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 9 måler andelen af patienter, der dør indenfor 30 dage efter akut kirurgi, og er en central kvalitetsmåling for alle opererede patienter i Danmark.",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 9 er den nationale kvalitetsindikator for 30-dages mortalitet efter akut kirurgi i Danmark, og danner grundlag for vurdering af klinisk sikkerhed og effekt af kvalitetsindsatser inden for akut kirurgi.",
       "mentions": [
         {
           "page": 51,
           "context": "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)"
-        },
-        {
-          "page": 51,
-          "context": "Resultater af indikatoranalysen for indikator 9"
         }
       ]
     },
     {
       "name": "Indikator 10",
-      "type": "quality-indicator",
+      "type": "clinical-indicator",
       "slug": "indikator-10",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 10 måler andelen af patienter, der dør indenfor 90 dage efter akut kirurgi, og repræsenterer en længerevarende mortalitetsmåling for opererede patienter.",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 10 er den nationale kvalitetsindikator for 90-dages mortalitet efter akut kirurgi i Danmark, udvidende analyserammen fra Indikator 9 og anvendt til længerevarende outcome-vurdering.",
       "mentions": [
         {
           "page": 51,
@@ -31,104 +27,111 @@
       ]
     },
     {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den officielle danske kliniske database, der registrerer og analyserer data om akut kirurgiske forløb og relaterede kvalitetsindikatorer som Indikator 9 og Indikator 10.",
+      "mentions": [
+        {
+          "page": 51,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den offentlige myndighed, der udgiver og administrerer Akut Kirurgi Databasen samt ansvarlig for udarbejdelse og offentliggørelse af kvalitetsindikatorerne, herunder Indikator 9 og Indikator 10.",
+      "mentions": [
+        {
+          "page": 51,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
       "name": "Danmark",
       "type": "location",
       "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau, hvor den samlede mortalitet indenfor 30 dage var 11,8 % og indenfor 90 dage var 16,6 % i perioden 01.09.2023 - 31.08.2024.",
+      "folder": "entities/locations/national",
+      "significance": "Danmark er det nationale geografiske og administrative niveau, hvor Indikator 9 og Indikator 10 rapporteres som samlet national andel, og hvor udviklingsmålene på hhv. < 12 % og < 18 % gælder.",
       "mentions": [
         {
           "page": 51,
-          "context": "Danmark Ja 376 / 3.179 0 (0) 11,8 (10,7-13,0)"
-        },
-        {
-          "page": 51,
-          "context": "Danmark Ja 529 / 3.179 0 (0) 16,6 (15,4-18,0)"
+          "context": "Danmark Ja 529 / 3.179 0 (0) 16,6 (15,4-18,0) 15,2 17,5"
         }
       ]
     },
     {
-      "name": "Region Hovedstaden",
+      "name": "Hovedstaden",
       "type": "location",
       "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Hovedstaden havde en 30-dages mortalitet på 11,7 % og 90-dages mortalitet på 16,1 % i analyseperioden.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Hovedstaden er en af de fem regioner i Danmark, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den regionale sammenligning og vurdering af opfyldelse af udviklingsmål.",
+      "disambiguation": "Dette er Region Hovedstaden, ikke byen København eller Hovedstaden som begreb.",
       "mentions": [
         {
           "page": 51,
-          "context": "Hovedstaden Ja 118 / 1.012 0 (0) 11,7 (9,7-13,8)"
-        },
-        {
-          "page": 51,
-          "context": "Hovedstaden Ja 163 / 1.012 0 (0) 16,1 (13,9-18,5)"
+          "context": "Hovedstaden Ja 163 / 1.012 0 (0) 16,1 (13,9-18,5) 14,8 16,1"
         }
       ]
     },
     {
-      "name": "Region Sjælland",
+      "name": "Sjælland",
       "type": "location",
       "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland havde en 30-dages mortalitet på 10,6 % og 90-dages mortalitet på 15,7 % i analyseperioden.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Sjælland er en af de fem regioner i Danmark, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den regionale sammenligning og vurdering af opfyldelse af udviklingsmål.",
+      "disambiguation": "Dette er Region Sjælland, ikke øen Sjælland som geografisk entitet uden for regionsstrukturen.",
       "mentions": [
         {
           "page": 51,
-          "context": "Sjælland Ja 61 / 573 0 (0) 10,6 (8,2-13,5)"
-        },
-        {
-          "page": 51,
-          "context": "Sjælland Ja 90 / 573 0 (0) 15,7 (12,8-18,9)"
+          "context": "Sjælland Ja 90 / 573 0 (0) 15,7 (12,8-18,9) 16,3 19,8"
         }
       ]
     },
     {
-      "name": "Region Syddanmark",
+      "name": "Syddanmark",
       "type": "location",
       "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Syddanmark havde en 30-dages mortalitet på 11,7 % og 90-dages mortalitet på 16,0 % i analyseperioden.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Syddanmark er en af de fem regioner i Danmark, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den regionale sammenligning og vurdering af opfyldelse af udviklingsmål.",
+      "disambiguation": "Dette er Region Syddanmark, ikke den geografiske syddanske region uden for regionsstrukturen.",
       "mentions": [
         {
           "page": 51,
-          "context": "Syddanmark Ja 77 / 658 0 (0) 11,7 (9,3-14,4)"
-        },
-        {
-          "page": 51,
-          "context": "Syddanmark Ja 105 / 658 0 (0) 16,0 (13,2-19,0)"
+          "context": "Syddanmark Ja 105 / 658 0 (0) 16,0 (13,2-19,0) 15,7 16,8"
         }
       ]
     },
     {
-      "name": "Region Midtjylland",
+      "name": "Midtjylland",
       "type": "location",
       "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Midtjylland havde en 30-dages mortalitet på 12,4 % (ikke opfyldt standard) og 90-dages mortalitet på 17,8 % i analyseperioden.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Midtjylland er en af de fem regioner i Danmark, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den regionale sammenligning og vurdering af opfyldelse af udviklingsmål.",
+      "disambiguation": "Dette er Region Midtjylland, ikke den geografiske midtjyske region uden for regionsstrukturen.",
       "mentions": [
         {
           "page": 51,
-          "context": "Midtjylland Nej 87 / 701 0 (0) 12,4 (10,1-15,1)"
-        },
-        {
-          "page": 51,
-          "context": "Midtjylland Ja 125 / 701 0 (0) 17,8 (15,1-20,9)"
+          "context": "Midtjylland Ja 125 / 701 0 (0) 17,8 (15,1-20,9) 13,1 18,1"
         }
       ]
     },
     {
-      "name": "Region Nordjylland",
+      "name": "Nordjylland",
       "type": "location",
       "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland havde den højeste 30-dages mortalitet på 14,0 % (ikke opfyldt standard) og 90-dages mortalitet på 19,6 % blandt regionerne.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Nordjylland er en af de fem regioner i Danmark, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den regionale sammenligning og vurdering af opfyldelse af udviklingsmål.",
+      "disambiguation": "Dette er Region Nordjylland, ikke den geografiske nordjyske region uden for regionsstrukturen.",
       "mentions": [
         {
           "page": 51,
-          "context": "Nordjylland Nej 33 / 235 0 (0) 14,0 (9,9-19,2)"
-        },
-        {
-          "page": 51,
-          "context": "Nordjylland Nej 46 / 235 0 (0) 19,6 (14,7-25,2)"
+          "context": "Nordjylland Nej 46 / 235 0 (0) 19,6 (14,7-25,2) 18,3 19,3"
         }
       ]
     },
@@ -137,15 +140,11 @@
       "type": "organization",
       "slug": "amager-og-hvidovre-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Amager og Hvidovre Hospital havde en 30-dages mortalitet på 9,8 % og 90-dages mortalitet på 14,3 % i analyseperioden.",
+      "significance": "Amager og Hvidovre Hospital er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Amager og Hvidovre Hospital Ja 24 / 244 0 (0) 9,8 (6,4-14,3)"
-        },
-        {
-          "page": 51,
-          "context": "Amager og Hvidovre Hospital Ja 35 / 244 0 (0) 14,3 (10,2-19,4)"
+          "context": "Amager og Hvidovre Hospital Ja 35 / 244 0 (0) 14,3 (10,2-19,4) 13,0 14,6"
         }
       ]
     },
@@ -154,15 +153,11 @@
       "type": "organization",
       "slug": "bispebjerg-og-frederiksberg-hospitaler",
       "folder": "entities/organizations/hospitals",
-      "significance": "Bispebjerg og Frederiksberg Hospital havde en 30-dages mortalitet på 10,6 % og 90-dages mortalitet på 15,1 % i analyseperioden.",
+      "significance": "Bispebjerg og Frederiksberg Hospital er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Bispebjerg og Frederiksberg Hospital Ja 19 / 179 0 (0) 10,6 (6,5-16,1)"
-        },
-        {
-          "page": 51,
-          "context": "Bispebjerg og Frederiksberg Hospital Ja 27 / 179 0 (0) 15,1 (10,2-21,2)"
+          "context": "Bispebjerg og Frederiksberg Hospital Ja 27 / 179 0 (0) 15,1 (10,2-21,2) 10,3 7,5"
         }
       ]
     },
@@ -171,15 +166,11 @@
       "type": "organization",
       "slug": "bornholms-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Bornholms Hospital havde en 30-dages mortalitet på 7,7 % og 90-dages mortalitet på 11,5 % i analyseperioden.",
+      "significance": "Bornholms Hospital er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Bornholms Hospital Ja #/# 0 (0) 7,7 (0,9-25,1)"
-        },
-        {
-          "page": 51,
-          "context": "Bornholms Hospital Ja 3 / 26 0 (0) 11,5 (2,4-30,2)"
+          "context": "Bornholms Hospital Ja 3 / 26 0 (0) 11,5 (2,4-30,2) 10,0 13,0"
         }
       ]
     },
@@ -188,15 +179,11 @@
       "type": "organization",
       "slug": "herlev-og-gentofte-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Herlev og Gentofte Hospital havde en 30-dages mortalitet på 13,4 % (ikke opfyldt standard) og 90-dages mortalitet på 17,6 % i analyseperioden.",
+      "significance": "Herlev og Gentofte Hospital er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Herlev og Gentofte Hospital Nej 41 / 306 0 (0) 13,4 (9,8-17,7)"
-        },
-        {
-          "page": 51,
-          "context": "Herlev og Gentofte Hospital Ja 54 / 306 0 (0) 17,6 (13,5-22,4)"
+          "context": "Herlev og Gentofte Hospital Ja 54 / 306 0 (0) 17,6 (13,5-22,4) 14,4 17,5"
         }
       ]
     },
@@ -205,15 +192,11 @@
       "type": "organization",
       "slug": "hospitalerne-i-nordsjaelland",
       "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalerne i Nordsjælland havde en 30-dages mortalitet på 8,8 % og 90-dages mortalitet på 13,7 % i analyseperioden.",
+      "significance": "Hospitalerne i Nordsjælland er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Hospitalerne i Nordsjælland Ja 18 / 204 0 (0) 8,8 (5,3-13,6)"
-        },
-        {
-          "page": 51,
-          "context": "Hospitalerne i Nordsjælland Ja 28 / 204 0 (0) 13,7 (9,3-19,2)"
+          "context": "Hospitalerne i Nordsjælland Ja 28 / 204 0 (0) 13,7 (9,3-19,2) 19,2 16,4"
         }
       ]
     },
@@ -222,49 +205,11 @@
       "type": "organization",
       "slug": "rigshospitalet",
       "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet havde den højeste 30-dages mortalitet på 26,4 % (ikke opfyldt standard) og 90-dages mortalitet på 30,2 % blandt de rapporterede hospitaler.",
+      "significance": "Rigshospitalet er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Rigshospitalet Nej 14 / 53 0 (0) 26,4 (15,3-40,3)"
-        },
-        {
-          "page": 51,
-          "context": "Rigshospitalet Nej 16 / 53 0 (0) 30,2 (18,3-44,3)"
-        }
-      ]
-    },
-    {
-      "name": "Holbæk Sygehus",
-      "type": "organization",
-      "slug": "holbaek-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk Sygehus havde en 30-dages mortalitet på 13,0 % (ikke opfyldt standard) og 90-dages mortalitet på 16,8 % i analyseperioden.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "Holbæk Sygehus Nej 17 / 131 0 (0) 13,0 (7,7-20,0)"
-        },
-        {
-          "page": 51,
-          "context": "Holbæk Sygehus Ja 22 / 131 0 (0) 16,8 (10,8-24,3)"
-        }
-      ]
-    },
-    {
-      "name": "Næstved, Slagelse og Ringsted sygehuse",
-      "type": "organization",
-      "slug": "naestved-slagelse-ringsted-sygehuse",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Næstved, Slagelse og Ringsted sygehuse havde en 30-dages mortalitet på 11,0 % og 90-dages mortalitet på 17,3 % i analyseperioden.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "Næstved, Slagelse og Ringsted sygehuse Ja 21 / 191 0 (0) 11,0 (6,9-16,3)"
-        },
-        {
-          "page": 51,
-          "context": "Næstved, Slagelse og Ringsted sygehuse Ja 33 / 191 0 (0) 17,3 (12,2-23,4)"
+          "context": "Rigshospitalet Nej 16 / 53 0 (0) 30,2 (18,3-44,3) 29,3 50,0"
         }
       ]
     },
@@ -273,15 +218,37 @@
       "type": "organization",
       "slug": "sjaellands-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Sjællands Universitetshospital havde en 30-dages mortalitet på 9,2 % og 90-dages mortalitet på 13,9 % i analyseperioden.",
+      "significance": "Sjællands Universitetshospital er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Sjællands Universitetshospital Ja 23 / 251 0 (0) 9,2 (5,9-13,4)"
-        },
+          "context": "Sjællands Universitetshospital Ja 35 / 251 0 (0) 13,9 (9,9-18,9) 14,3 17,1"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
+      "mentions": [
         {
           "page": 51,
-          "context": "Sjællands Universitetshospital Ja 35 / 251 0 (0) 13,9 (9,9-18,9)"
+          "context": "Holbæk Sygehus Ja 22 / 131 0 (0) 16,8 (10,8-24,3) 19,7 27,7"
+        }
+      ]
+    },
+    {
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagese-og-ringsted-sygehuse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
+      "mentions": [
+        {
+          "page": 51,
+          "context": "Næstved, Slagelse og Ringsted sygehuse Ja 33 / 191 0 (0) 17,3 (12,2-23,4) 16,5 19,0"
         }
       ]
     },
@@ -290,24 +257,24 @@
       "type": "organization",
       "slug": "esbjerg-sygehus-grindsted-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "Esbjerg Sygehus Grindsted Sygehus havde en 30-dages mortalitet på 12,0 % (ikke opfyldt standard) i analyseperioden.",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Esbjerg Sygehus Grindsted Sygehus Nej 19 / 158 0 (0) 12,0 (7,4-18,1)"
+          "context": "Esbjerg Sygehus Grindsted Sygehus Nej 19 / 158 0 (0) 12,0 (7,4-18,1) 9,8 10,3"
         }
       ]
     },
     {
       "name": "Odense Universitetshospital - Svendborg",
       "type": "organization",
-      "slug": "odense-universitetshospital-svendborg",
+      "slug": "ouh-odense-universitetshospital-odense",
       "folder": "entities/organizations/hospitals",
-      "significance": "Odense Universitetshospital - Svendborg havde en 30-dages mortalitet på 11,4 % og 90-dages mortalitet på 16,0 % i analyseperioden.",
+      "significance": "Odense Universitetshospital - Svendborg er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Odense Universitetshospital - Svendborg Ja 34 / 299 0 (0) 11,4 (8,0-15,5)"
+          "context": "Odense Universitetshospital - Svendborg Ja 34 / 299 0 (0) 11,4 (8,0-15,5) 14,4 12,5"
         }
       ]
     },
@@ -316,11 +283,11 @@
       "type": "organization",
       "slug": "sygehus-lillebaelt",
       "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Lillebælt havde en 30-dages mortalitet på 13,6 % (ikke opfyldt standard) i analyseperioden.",
+      "significance": "Sygehus Lillebælt er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Sygehus Lillebælt Nej 12 / 88 0 (0) 13,6 (7,2-22,6)"
+          "context": "Sygehus Lillebælt Nej 12 / 88 0 (0) 13,6 (7,2-22,6) 4,9 6,6"
         }
       ]
     },
@@ -329,11 +296,11 @@
       "type": "organization",
       "slug": "sygehus-soenderjylland",
       "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Sønderjylland havde en 30-dages mortalitet på 10,6 % og 90-dages mortalitet på 16,0 % i analyseperioden.",
+      "significance": "Sygehus Sønderjylland er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Sygehus Sønderjylland Ja 12 / 113 0 (0) 10,6 (5,6-17,8)"
+          "context": "Sygehus Sønderjylland Ja 12 / 113 0 (0) 10,6 (5,6-17,8) 12,6 17,3"
         }
       ]
     },
@@ -342,11 +309,11 @@
       "type": "organization",
       "slug": "aarhus-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Universitetshospital havde en 30-dages mortalitet på 15,0 % (ikke opfyldt standard) i analyseperioden.",
+      "significance": "Aarhus Universitetshospital er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Aarhus Universitetshospital Nej 21 / 140 0 (0) 15,0 (9,5-22,0)"
+          "context": "Aarhus Universitetshospital Nej 21 / 140 0 (0) 15,0 (9,5-22,0) 8,6 11,6"
         }
       ]
     },
@@ -355,11 +322,11 @@
       "type": "organization",
       "slug": "hospitalsenhed-midt",
       "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalsenhed Midt havde en 30-dages mortalitet på 12,9 % (ikke opfyldt standard) i analyseperioden.",
+      "significance": "Hospitalsenhed Midt er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Hospitalsenhed Midt Nej 18 / 139 0 (0) 12,9 (7,9-19,7)"
+          "context": "Hospitalsenhed Midt Nej 18 / 139 0 (0) 12,9 (7,9-19,7) 8,2 11,5"
         }
       ]
     },
@@ -368,11 +335,11 @@
       "type": "organization",
       "slug": "regionshospitalet-goedstrup",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Gødstrup havde en 30-dages mortalitet på 12,2 % (ikke opfyldt standard) i analyseperioden.",
+      "significance": "Regionshospitalet Gødstrup er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Regionshospitalet Gødstrup Nej 21 / 172 0 (0) 12,2 (7,7-18,1)"
+          "context": "Regionshospitalet Gødstrup Nej 21 / 172 0 (0) 12,2 (7,7-18,1) 8,2 14,0"
         }
       ]
     },
@@ -381,11 +348,11 @@
       "type": "organization",
       "slug": "regionshospitalet-horsens",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Horsens havde en 30-dages mortalitet på 9,8 % og 90-dages mortalitet på 13,7 % i analyseperioden.",
+      "significance": "Regionshospitalet Horsens er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Regionshospitalet Horsens Ja 12 / 123 0 (0) 9,8 (5,1-16,4)"
+          "context": "Regionshospitalet Horsens Ja 12 / 123 0 (0) 9,8 (5,1-16,4) 18,2 15,5"
         }
       ]
     },
@@ -394,11 +361,11 @@
       "type": "organization",
       "slug": "regionshospitalet-randers",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Randers havde en 30-dages mortalitet på 11,8 % og 90-dages mortalitet på 13,9 % i analyseperioden.",
+      "significance": "Regionshospitalet Randers er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Regionshospitalet Randers Ja 15 / 127 0 (0) 11,8 (6,8-18,7)"
+          "context": "Regionshospitalet Randers Ja 15 / 127 0 (0) 11,8 (6,8-18,7) 10,4 16,5"
         }
       ]
     },
@@ -407,11 +374,11 @@
       "type": "organization",
       "slug": "aalborg-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital havde en 30-dages mortalitet på 15,3 % (ikke opfyldt standard) i analyseperioden.",
+      "significance": "Aalborg Universitetshospital er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Aalborg Universitetshospital Nej 21 / 137 0 (0) 15,3 (9,7-22,5)"
+          "context": "Aalborg Universitetshospital Nej 21 / 137 0 (0) 15,3 (9,7-22,5) 12,9 18,8"
         }
       ]
     },
@@ -420,7 +387,7 @@
       "type": "organization",
       "slug": "aalborg-universitetshospital-thisted",
       "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital, Thisted er nævnt i analyseperioden.",
+      "significance": "Aalborg Universitetshospital, Thisted er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
@@ -433,313 +400,124 @@
       "type": "organization",
       "slug": "regionshospital-nordjylland",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospital Nordjylland havde en 30-dages mortalitet på 12,2 % (ikke opfyldt standard) i analyseperioden.",
+      "significance": "Regionshospital Nordjylland er et af de 20 indberettende hospitaler i Akut Kirurgi Databasen, hvis resultater for Indikator 9 og Indikator 10 inkluderet i tabellerne på side 51, og som indgår i den nationale kvalitetsmonitorering.",
       "mentions": [
         {
           "page": 51,
-          "context": "Regionshospital Nordjylland Nej 12 / 98 0 (0) 12,2 (6,5-20,4)"
-        }
-      ]
-    },
-    {
-      "name": "CPR-registeret",
-      "type": "organization",
-      "slug": "cpr-registeret",
-      "folder": "entities/organizations/registries",
-      "significance": "CPR-registeret bruges til at identificere og validere patienter i analysen, hvor patienter uden gyldigt CPR-nummer eller med inaktivt CPR-nummer ekskluderes.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "Patienter uden gyldigt CPR-nummer, patienter under 18 år på operationstidspunktet, patienter med inaktivt (patienter uden bopæl, annullerede eller slettede personnumre, ændrede personnumre) CPR-nummer"
-        }
-      ]
-    },
-    {
-      "name": "Mortalitet indenfor 30 dage",
-      "type": "clinical-outcome",
-      "slug": "mortalitet-indenfor-30-dage",
-      "folder": "topics/mortality-outcome",
-      "significance": "Mortalitet indenfor 30 dage efter akut kirurgi er en vigtig kvalitetsindikator med et udviklingmål på < 12 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi"
-        }
-      ]
-    },
-    {
-      "name": "Mortalitet indenfor 90 dage",
-      "type": "clinical-outcome",
-      "slug": "mortalitet-indenfor-90-dage",
-      "folder": "topics/mortality-outcome",
-      "significance": "Mortalitet indenfor 90 dage efter akut kirurgi er en længerevarende kvalitetsindikator med et udviklingmål på < 18 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "Indikator 10: Mortalitet indenfor 90 dage efter akut kirurgi"
+          "context": "Regionshospital Nordjylland Nej 12 / 98 0 (0) 12,2 (6,5-20,4) 15,8 8,9"
         }
       ]
     }
   ],
   "relationships": [
     {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-administered-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 51
+    },
+    {
       "subject": "indikator-9",
-      "predicate": "measures",
-      "object": "mortalitet-indenfor-30-dage",
-      "evidence": "Indikator 9 beskriver andelen af patienter, der dør indenfor 30 dage fra tidspunkt for operation",
+      "predicate": "is-calculated-from",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)",
       "page": 51
     },
     {
       "subject": "indikator-10",
-      "predicate": "measures",
-      "object": "mortalitet-indenfor-90-dage",
-      "evidence": "Indikator 10: Mortalitet indenfor 90 dage efter akut kirurgi",
+      "predicate": "is-calculated-from",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 10: Mortalitet indenfor 90 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)",
       "page": 51
     },
     {
-      "subject": "region-hovedstaden",
-      "predicate": "reported-mortality-30-days",
-      "object": "indikator-9",
-      "evidence": "Hovedstaden Ja 118 / 1.012 0 (0) 11,7 (9,7-13,8)",
+      "subject": "indikator-9",
+      "predicate": "has-development-goal",
+      "object": "indikator-9-development-goal",
+      "evidence": "Udviklingsmål < 12 %",
       "page": 51
     },
     {
-      "subject": "region-sjaelland",
-      "predicate": "reported-mortality-30-days",
-      "object": "indikator-9",
-      "evidence": "Sjælland Ja 61 / 573 0 (0) 10,6 (8,2-13,5)",
-      "page": 51
-    },
-    {
-      "subject": "region-syddanmark",
-      "predicate": "reported-mortality-30-days",
-      "object": "indikator-9",
-      "evidence": "Syddanmark Ja 77 / 658 0 (0) 11,7 (9,3-14,4)",
-      "page": 51
-    },
-    {
-      "subject": "region-midtjylland",
-      "predicate": "reported-mortality-30-days",
-      "object": "indikator-9",
-      "evidence": "Midtjylland Nej 87 / 701 0 (0) 12,4 (10,1-15,1)",
-      "page": 51
-    },
-    {
-      "subject": "region-nordjylland",
-      "predicate": "reported-mortality-30-days",
-      "object": "indikator-9",
-      "evidence": "Nordjylland Nej 33 / 235 0 (0) 14,0 (9,9-19,2)",
-      "page": 51
-    },
-    {
-      "subject": "rigshospitalet",
-      "predicate": "reported-mortality-30-days",
-      "object": "indikator-9",
-      "evidence": "Rigshospitalet Nej 14 / 53 0 (0) 26,4 (15,3-40,3)",
+      "subject": "indikator-10",
+      "predicate": "has-development-goal",
+      "object": "indikator-10-development-goal",
+      "evidence": "Udviklingsmål < 18 %",
       "page": 51
     }
   ],
   "claims": [
     {
-      "text": "Der indgik 3.179 forløb i indikatoranalysen i perioden. Heraf døde 376 personer, svarende til 11,8 % (95 % CI: 10,7-13,0) indenfor 30 dage fra ankomst til sygehus [^src1]",
-      "type": "mortality",
-      "entities": [
-        "indikator-9",
-        "danmark"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Således var udviklingsmålet på < 12 % opfyldt på nationalt niveau [^src1]",
-      "type": "quality-standard",
-      "entities": [
-        "indikator-9",
-        "danmark"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Regionalt varierede andelen fra 10,6 % i Region Sjælland til 14,0 % i Region Nordjylland [^src1]",
-      "type": "regional-variation",
-      "entities": [
-        "indikator-9",
-        "region-sjaelland",
-        "region-nordjylland"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Tre af de fem regioner opfyldte udviklingsmålet i perioden [^src1]",
-      "type": "quality-standard",
+      "text": "Indikator 9 har udviklingsmål på < 12 % [^src1]",
+      "type": "performance-goal",
       "entities": [
         "indikator-9"
       ],
       "page": 51
     },
     {
-      "text": "I alt 10 af de 20 indberettende enheder opfyldte udviklingsmålet i perioden [^src1]",
-      "type": "quality-standard",
-      "entities": [
-        "indikator-9"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Det at mortaliteten nationalt er for 3. år i træk under indikator grænsen på 12%, tyder på at de seneste års indsatser allerede har slået igennem i populationen der opereres [^src1]",
-      "type": "clinical-observation",
-      "entities": [
-        "indikator-9",
-        "danmark"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Der ses forbedringer parallelt med kvalitetsindsatsen i LKT akut kirurgi over de sidste par år, det det må siges at være en national succes [^src1]",
-      "type": "clinical-observation",
-      "entities": [
-        "indikator-9"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Alle hospitaler i Danmark har en dødelighed inden for samme sikkerhedsinterval [^src1]",
-      "type": "clinical-observation",
-      "entities": [
-        "indikator-9",
-        "danmark"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Hvis man følger de 3 bedste Hospitaler i Danmark, (Horsens, Nordsjælland og Køge), bør dødeligheden kunne reduceres til under 10% [^src1]",
-      "type": "clinical-recommendation",
-      "entities": [
-        "indikator-9",
-        "regionshospitalet-horsens",
-        "hospitalerne-i-nordsjaelland"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Styregruppen opfordrer alle hospitaler til at lave audit på de patienter, hvor Charlson er lav, og som alligevel dør indenfor 30 dage (Supplerende indikator 9a og 9b) [^src1]",
-      "type": "clinical-recommendation",
-      "entities": [
-        "indikator-9"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Indikatoren bør vurderes i lyset af populations sammensætning ift ASA, alder og Charlson morbidity scorer [^src1]",
-      "type": "clinical-recommendation",
-      "entities": [
-        "indikator-9"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Udviklingsmål holdes på 12% på baggrund af succes med at sænke dødeligheden [^src1]",
-      "type": "quality-standard",
-      "entities": [
-        "indikator-9"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Der indgik 3.179 forløb i indikatoranalysen i perioden. Heraf døde 529 personer, svarende til 16,6 % (95 % CI: 15,4-18,0) indenfor 90 dage [^src2]",
-      "type": "mortality",
-      "entities": [
-        "indikator-10",
-        "danmark"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Udviklingsmål < 18 % [^src2]",
-      "type": "quality-standard",
+      "text": "Indikator 10 har udviklingsmål på < 18 % [^src1]",
+      "type": "performance-goal",
       "entities": [
         "indikator-10"
       ],
       "page": 51
     },
     {
-      "text": "Patienter uden angivet operationstidspunkt er uoplyste [^src1]",
-      "type": "data-quality",
+      "text": "Nationalt var andelen af patienter, der døde indenfor 90 dage fra operationsdato, 16,6 % (95 % CI: 15,4–18,0) i perioden 01.09.2023 – 31.08.2024 [^src1]",
+      "type": "clinical-outcome",
       "entities": [
-        "indikator-9"
+        "indikator-10",
+        "danmark"
       ],
       "page": 51
     },
     {
-      "text": "Patienter uden gyldigt CPR-nummer, patienter under 18 år på operationstidspunktet, patienter med inaktivt CPR-nummer er ekskluderede [^src1]",
-      "type": "data-quality",
+      "text": "I perioden 01.09.2023 – 31.08.2024 indgik 3.179 forløb i indikatoranalysen for Indikator 9 og Indikator 10 [^src1]",
+      "type": "data-volume",
       "entities": [
         "indikator-9",
-        "cpr-registeret"
+        "indikator-10"
       ],
       "page": 51
     },
     {
-      "text": "75 patienter ekskluderet på grund af ugyldigt CPR-nummer [^src1]",
-      "type": "data-quality",
+      "text": "For Indikator 10 var antallet af døde patienter 529 ud af 3.179 forløb på nationalt plan [^src1]",
+      "type": "clinical-outcome",
       "entities": [
-        "indikator-9"
-      ],
-      "page": 51
-    },
-    {
-      "text": "197 patienter ekskluderet fordi patienten er under 18 år [^src1]",
-      "type": "data-quality",
-      "entities": [
-        "indikator-9"
-      ],
-      "page": 51
-    },
-    {
-      "text": "6.238 patienter ekskluderet fordi patienten er ikke opereret [^src1]",
-      "type": "data-quality",
-      "entities": [
-        "indikator-9"
-      ],
-      "page": 51
-    },
-    {
-      "text": "6 patienter ekskluderet fordi patienten er registreret i CPR-registeret som 'Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn' [^src1]",
-      "type": "data-quality",
-      "entities": [
-        "indikator-9",
-        "cpr-registeret"
-      ],
-      "page": 51
-    },
-    {
-      "text": "493 patienter ekskluderet fordi operationen er ikke den første operation i hospitalsopholdet [^src1]",
-      "type": "data-quality",
-      "entities": [
-        "indikator-9"
+        "indikator-10",
+        "danmark"
       ],
       "page": 51
     }
   ],
   "timeline": [
     {
-      "date": "01.09.2023 - 31.08.2024",
-      "event": "Analyseperiode for Indikator 9 og 10 mortalitetsdata",
+      "date": "2023-09-01",
+      "event": "Start af måleperioden for Indikator 9 og Indikator 10 i 2024-årsrapporten",
       "entities": [
         "indikator-9",
-        "indikator-10",
-        "danmark"
+        "indikator-10"
+      ]
+    },
+    {
+      "date": "2024-08-31",
+      "event": "Afslutning af måleperioden for Indikator 9 og Indikator 10 i 2024-årsrapporten",
+      "entities": [
+        "indikator-9",
+        "indikator-10"
       ]
     }
   ],
-  "context": "Denne dokumentchunk præsenterer detaljerede resultater fra Akut Kirurgi Databasen for to vigtige mortalitetsindikatorer: Indikator 9 (30-dages mortalitet) og Indikator 10 (90-dages mortalitet) efter akut kirurgi. Dataene dækker perioden 01.09.2023 - 31.08.2024 og rapporteres på nationalt, regionalt og hospitalsniveau. Dokumentet viser, at Danmark nationalt opfyldte udviklingmålet for 30-dages mortalitet på < 12 % med en rate på 11,8 %, mens 90-dages mortaliteten var 16,6 % (mål < 18 %). Der er betydelig variation mellem regioner og hospitaler, med Region Nordjylland og Rigshospitalet som outliers med højere mortalitetsrater. Dokumentet indeholder også diskussion af resultater, anbefalinger for forbedringer og metodologiske noter om dataindsamling og eksklusionskriterier.",
   "tables": [
     {
-      "subject": "mortalitet-indenfor-30-dage-efter-akut-kirurgi",
-      "title": "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)",
+      "subject": "indikator-10",
+      "title": "Indikator 10: Mortalitet indenfor 90 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)",
       "page": 51,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "30-dages mortalitet pr. år (tæller/nævner, andel med 95% CI)",
+      "rowDimension": "regioner-og-hospitaler",
+      "colDimension": "resultater-per-år",
       "entities": [
+        "indikator-10",
         "danmark",
         "region-hovedstaden",
         "region-sjaelland",
@@ -752,11 +530,11 @@
         "herlev-og-gentofte-hospital",
         "hospitalerne-i-nordsjaelland",
         "rigshospitalet",
-        "holbaek-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
         "sjaellands-universitetshospital",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse",
         "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
+        "ouh-odense-universitetshospital-odense",
         "sygehus-lillebaelt",
         "sygehus-soenderjylland",
         "aarhus-universitetshospital",
@@ -766,51 +544,11 @@
         "regionshospitalet-randers",
         "aalborg-universitetshospital",
         "aalborg-universitetshospital-thisted",
-        "regionshospital-nordjylland",
-        "mortalitet-indenfor-30-dage-efter-akut-kirurgi"
+        "regionshospital-nordjylland"
       ],
-      "markdown": "| Standard < 12% opfyldt | Tæller/nævner | Uoplyst antal (%) | Aktuelle år 01.09.2023 - 31.08.2024 Andel (95% CI) | Tidligere år 2022/23 Andel | Tidligere år 2021/22 Andel |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | Ja | 376 / 3.179 | 0 (0) | 11,8 (10,7-13,0) | 11,4 | 12,7 |\n| Hovedstaden | Ja | 118 / 1.012 | 0 (0) | 11,7 (9,7-13,8) | 10,5 | 11,3 |\n| Sjælland | Ja | 61 / 573 | 0 (0) | 10,6 (8,2-13,5) | 13,9 | 14,5 |\n| Syddanmark | Ja | 77 / 658 | 0 (0) | 11,7 (9,3-14,4) | 11,3 | 11,5 |\n| Midtjylland | Nej | 87 / 701 | 0 (0) | 12,4 (10,1-15,1) | 10,1 | 13,7 |\n| Nordjylland | Nej | 33 / 235 | 0 (0) | 14,0 (9,9-19,2) | 13,9 | 15,1 |\n| Hovedstaden | Ja | 118 / 1.012 | 0 (0) | 11,7 (9,7-13,8) | 10,5 | 11,3 |\n| Amager og Hvidovre Hospital | Ja | 24 / 244 | 0 (0) | 9,8 (6,4-14,3) | 10,3 | 8,8 |\n| Bispebjerg og Frederiksberg Hospital | Ja | 19 / 179 | 0 (0) | 10,6 (6,5-16,1) | 6,5 | 5,2 |\n| Bornholms Hospital | Ja | #/# | 0 (0) | 7,7 (0,9-25,1) | 6,7 | 13,0 |\n| Herlev og Gentofte Hospital | Nej | 41 / 306 | 0 (0) | 13,4 (9,8-17,7) | 9,8 | 12,6 |\n| Hospitalerne i Nordsjælland | Ja | 18 / 204 | 0 (0) | 8,8 (5,3-13,6) | 14,1 | 13,3 |\n| Rigshospitalet | Nej | 14 / 53 | 0 (0) | 26,4 (15,3-40,3) | 20,7 | 32,1 |\n| Sjælland | Ja | 61 / 573 | 0 (0) | 10,6 (8,2-13,5) | 13,9 | 14,5 |\n| Holbæk Sygehus | Nej | 17 / 131 | 0 (0) | 13,0 (7,7-20,0) | 18,0 | 19,8 |\n| Næstved, Slagelse og Ringsted sygehuse | Ja | 21 / 191 | 0 (0) | 11,0 (6,9-16,3) | 13,4 | 13,6 |\n| Sjællands Universitetshospital | Ja | 23 / 251 | 0 (0) | 9,2 (5,9-13,4) | 11,9 | 13,1 |\n| Syddanmark | Ja | 77 / 658 | 0 (0) | 11,7 (9,3-14,4) | 11,3 | 11,5 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 19 / 158 | 0 (0) | 12,0 (7,4-18,1) | 9,8 | 10,3 |\n| Odense Universitetshospital - Svendborg | Ja | 34 / 299 | 0 (0) | 11,4 (8,0-15,5) | 14,4 | 12,5 |\n| Sygehus Lillebælt | Nej | 12 / 88 | 0 (0) | 13,6 (7,2-22,6) | 4,9 | 6,6 |\n| Sygehus Sønderjylland | Ja | 12 / 113 | 0 (0) | 10,6 (5,6-17,8) | 12,6 | 17,3 |\n| Midtjylland | Nej | 87 / 701 | 0 (0) | 12,4 (10,1-15,1) | 10,1 | 13,7 |\n| Aarhus Universitetshospital | Nej | 21 / 140 | 0 (0) | 15,0 (9,5-22,0) | 8,6 | 11,6 |\n| Hospitalsenhed Midt | Nej | 18 / 139 | 0 (0) | 12,9 (7,9-19,7) | 8,2 | 11,5 |\n| Regionshospitalet Gødstrup | Nej | 21 / 172 | 0 (0) | 12,2 (7,7-18,1) | 8,2 | 14,0 |\n| Regionshospitalet Horsens | Ja | 12 / 123 | 0 (0) | 9,8 (5,1-16,4) | 18,2 | 15,5 |\n| Regionshospitalet Randers | Ja | 15 / 127 | 0 (0) | 11,8 (6,8-18,7) | 10,4 | 16,5 |\n| Nordjylland | Nej | 33 / 235 | 0 (0) | 14,0 (9,9-19,2) | 13,9 | 15,1 |\n| Aalborg Universitetshospital | Nej | 21 / 137 | 0 (0) | 15,3 (9,7-22,5) | 12,9 | 18,8 |\n| Aalborg Universitetshospital, Thisted |  |  |  | 0,0 |  |  |\n| Regionshospital Nordjylland | Nej | 12 / 98 | 0 (0) | 12,2 (6,5-20,4) | 15,8 | 8,9 |",
-      "summary": "Tabellen sammenligner 30-dages mortalitet efter akut kirurgi på nationalt, regionalt og hospitalsniveau for perioden 01.09.2023-31.08.2024 mod målet < 12 %, og Danmark opfyldte målet med 11,8 %, mens Region Nordjylland (14,0 %) og Rigshospitalet (26,4 %) lå højest."
-    },
-    {
-      "subject": "mortalitet-indenfor-30-dage-efter-akut-kirurgi",
-      "title": "Antal Årsag (Eksklusion)",
-      "page": 52,
-      "rowDimension": "eksklusionsårsager",
-      "colDimension": "antal",
-      "entities": [
-        "cpr-nummer",
-        "cpr-registeret"
-      ],
-      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 75 | Ugyldigt CPRnummer. |\n| 197 | Patienten er under 18 år. |\n| 6.238 | Patienten er ikke opereret. |\n| 6 | Patienten er registreret i CPR-registeret som 'Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn (kommunekoderne 0010, 0011, 0012 og 0019)' |\n| 493 | Operationen er ikke den første operation i hospitalsopholdet. |",
-      "summary": "Tabellen opgør antallet af ekskluderede patienter fordelt på fem eksklusionsårsager, hvor 'Patienten er ikke opereret' med 6.238 er den klart hyppigste årsag."
-    },
-    {
-      "subject": "mortalitet-indenfor-90-dage",
-      "title": "Indikator 10: Mortalitet indenfor 90 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)",
-      "page": 55,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "90-dages mortalitet pr. år (tæller/nævner, andel med 95% CI)",
-      "entities": [
-        "danmark",
-        "region-hovedstaden",
-        "region-sjaelland",
-        "region-syddanmark",
-        "region-midtjylland",
-        "region-nordjylland",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "holbaek-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "mortalitet-indenfor-90-dage"
-      ],
-      "markdown": "| Standard < 18% opfyldt | Tæller/nævner | Uoplyst antal (%) | Aktuelle år 01.09.2023 - 31.08.2024 Andel (95% CI) | Tidligere år 2022/23 Andel | Tidligere år 2021/22 Andel |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | Ja | 529 / 3.179 | 0 (0) | 16,6 (15,4-18,0) | 15,2 | 17,5 |\n| Hovedstaden | Ja | 163 / 1.012 | 0 (0) | 16,1 (13,9-18,5) | 14,8 | 16,1 |\n| Sjælland | Ja | 90 / 573 | 0 (0) | 15,7 (12,8-18,9) | 16,3 | 19,8 |\n| Syddanmark | Ja | 105 / 658 | 0 (0) | 16,0 (13,2-19,0) | 15,7 | 16,8 |\n| Midtjylland | Ja | 125 / 701 | 0 (0) | 17,8 (15,1-20,9) | 13,1 | 18,1 |\n| Nordjylland | Nej | 46 / 235 | 0 (0) | 19,6 (14,7-25,2) | 18,3 | 19,3 |\n| Hovedstaden | Ja | 163 / 1.012 | 0 (0) | 16,1 (13,9-18,5) | 14,8 | 16,1 |\n| Amager og Hvidovre Hospital | Ja | 35 / 244 | 0 (0) | 14,3 (10,2-19,4) | 13,0 | 14,6 |\n| Bispebjerg og Frederiksberg Hospital | Ja | 27 / 179 | 0 (0) | 15,1 (10,2-21,2) | 10,3 | 7,5 |\n| Bornholms Hospital | Ja | 3 / 26 | 0 (0) | 11,5 (2,4-30,2) | 10,0 | 13,0 |\n| Herlev og Gentofte Hospital | Ja | 54 / 306 | 0 (0) | 17,6 (13,5-22,4) | 14,4 | 17,5 |\n| Hospitalerne i Nordsjælland | Ja | 28 / 204 | 0 (0) | 13,7 (9,3-19,2) | 19,2 | 16,4 |\n| Rigshospitalet | Nej | 16 / 53 | 0 (0) | 30,2 (18,3-44,3) | 29,3 | 50,0 |\n| Sjælland | Ja | 90 / 573 | 0 (0) | 15,7 (12,8-18,9) | 16,3 | 19,8 |\n| Holbæk Sygehus | Ja | 22 / 131 | 0 (0) | 16,8 (10,8-24,3) | 19,7 | 27,7 |\n| Næstved, Slagelse og Ringsted sygehuse | Ja | 33 / 191 | 0 (0) | 17,3 (12,2-23,4) | 16,5 | 19,0 |\n| Sjællands Universitetshospital | Ja | 35 / 251 | 0 (0) | 13,9 (9,9-18,9) | 14,3 | 17,1 |\n| Syddanmark | Ja | 105 / 658 | 0 (0) | 16,0 (13,2-19,0) | 15,7 | 16,8 |",
-      "summary": "Tabellen sammenligner 90-dages mortalitet efter akut kirurgi på nationalt, regionalt og hospitalsniveau for perioden 01.09.2023-31.08.2024 mod målet < 18 %, og Danmark opfyldte målet med 16,6 %, mens Region Nordjylland (19,6 %) og Rigshospitalet (30,2 %) ikke opfyldte det."
+      "markdown": "| Enhed | Opfyldt? | Tæller / nævner | Uoplyst | Andel (%) | 95% CI | Andel 2022/23 | Andel 2021/22 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Ja | 529 / 3.179 | 0 (0) | 16,6 | 15,4-18,0 | 15,2 | 17,5 |\n| Hovedstaden | Ja | 163 / 1.012 | 0 (0) | 16,1 | 13,9-18,5 | 14,8 | 16,1 |\n| Sjælland | Ja | 90 / 573 | 0 (0) | 15,7 | 12,8-18,9 | 16,3 | 19,8 |\n| Syddanmark | Ja | 105 / 658 | 0 (0) | 16,0 | 13,2-19,0 | 15,7 | 16,8 |\n| Midtjylland | Ja | 125 / 701 | 0 (0) | 17,8 | 15,1-20,9 | 13,1 | 18,1 |\n| Nordjylland | Nej | 46 / 235 | 0 (0) | 19,6 | 14,7-25,2 | 18,3 | 19,3 |\n| Amager og Hvidovre Hospital | Ja | 35 / 244 | 0 (0) | 14,3 | 10,2-19,4 | 13,0 | 14,6 |\n| Bispebjerg og Frederiksberg Hospital | Ja | 27 / 179 | 0 (0) | 15,1 | 10,2-21,2 | 10,3 | 7,5 |\n| Bornholms Hospital | Ja | 3 / 26 | 0 (0) | 11,5 | 2,4-30,2 | 10,0 | 13,0 |\n| Herlev og Gentofte Hospital | Ja | 54 / 306 | 0 (0) | 17,6 | 13,5-22,4 | 14,4 | 17,5 |\n| Hospitalerne i Nordsjælland | Ja | 28 / 204 | 0 (0) | 13,7 | 9,3-19,2 | 19,2 | 16,4 |\n| Rigshospitalet | Nej | 16 / 53 | 0 (0) | 30,2 | 18,3-44,3 | 29,3 | 50,0 |\n| Sjællands Universitetshospital | Ja | 35 / 251 | 0 (0) | 13,9 | 9,9-18,9 | 14,3 | 17,1 |\n| Holbæk Sygehus | Ja | 22 / 131 | 0 (0) | 16,8 | 10,8-24,3 | 19,7 | 27,7 |\n| Næstved, Slagelse og Ringsted sygehuse | Ja | 33 / 191 | 0 (0) | 17,3 | 12,2-23,4 | 16,5 | 19,0 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 19 / 158 | 0 (0) | 12,0 | 7,4-18,1 | 9,8 | 10,3 |\n| Odense Universitetshospital - Svendborg | Ja | 34 / 299 | 0 (0) | 11,4 | 8,0-15,5 | 14,4 | 12,5 |\n| Sygehus Lillebælt | Nej | 12 / 88 | 0 (0) | 13,6 | 7,2-22,6 | 4,9 | 6,6 |\n| Sygehus Sønderjylland | Ja | 12 / 113 | 0 (0) | 10,6 | 5,6-17,8 | 12,6 | 17,3 |\n| Aarhus Universitetshospital | Nej | 21 / 140 | 0 (0) | 15,0 | 9,5-22,0 | 8,6 | 11,6 |\n| Hospitalsenhed Midt | Nej | 18 / 139 | 0 (0) | 12,9 | 7,9-19,7 | 8,2 | 11,5 |\n| Regionshospitalet Gødstrup | Nej | 21 / 172 | 0 (0) | 12,2 | 7,7-18,1 | 8,2 | 14,0 |\n| Regionshospitalet Horsens | Ja | 12 / 123 | 0 (0) | 9,8 | 5,1-16,4 | 18,2 | 15,5 |\n| Regionshospitalet Randers | Ja | 15 / 127 | 0 (0) | 11,8 | 6,8-18,7 | 10,4 | 16,5 |\n| Aalborg Universitetshospital | Nej | 21 / 137 | 0 (0) | 15,3 | 9,7-22,5 | 12,9 | 18,8 |\n| Aalborg Universitetshospital, Thisted | — | #/# | 0 (0) | 0,0 | — | — | — |\n| Regionshospital Nordjylland | Nej | 12 / 98 | 0 (0) | 12,2 | 6,5-20,4 | 15,8 | 8,9 |",
+      "summary": "Tabellen sammenligner 90-dages mortalitet (Indikator 10) for alle 20 indberettende enheder og de fem regioner i Danmark for måleperioden 01.09.2023–31.08.2024, viser at kun tre regioner (Hovedstaden, Sjælland, Syddanmark) og ti hospitaler opfylder udviklingsmålet på < 18 %, mens flere hospitaler og Region Nordjylland overskrider grænsen."
     }
-  ]
+  ],
+  "context": "Denne chunk er en del af den årlige offentliggørelse fra Akut Kirurgi Databasen (AKDB) for 2024, udgivet af Sundhedsvæsenets Kvalitetsinstitut. Den fokuserer specifikt på to centrale kvalitetsindikatorer: Indikator 9 (30-dages mortalitet) og Indikator 10 (90-dages mortalitet) efter akut kirurgi. Chunken præsenterer detaljerede beregningsregler, eksklusionskriterier og resultattabeller for både nationale, regionale og hospitalsniveauer, hvilket placerer den i konteksten af dansk sundhedsvæsens systematiske kvalitetsmonitorering og benchmarking af akut kirurgiske resultater. Den indgår i en bredere narrativ om national kvalitetsudvikling inden for akut kirurgi, hvor tidligere års rapporter og styringsgruppens anbefalinger (f.eks. om audit af dødsfald hos patienter med lav Charlson-score) danner baggrund for tolkningen af de nuværende tal."
 }

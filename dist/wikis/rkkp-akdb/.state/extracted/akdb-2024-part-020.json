@@ -2,39 +2,212 @@
   "entities": [
     {
       "name": "Akut Kirurgi Databasen",
-      "type": "organization",
+      "type": "database",
       "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/healthcare-registries",
-      "significance": "Akut Kirurgi Databasen er den centrale database for registrering og kvalitetskontrol af akut kirurgisk behandling i Danmark, som denne årsrapport dokumenterer med ti indikatorer for patientforløb fra ankomst til sygehus til 90 dage efter operation.",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske database, der danner grundlag for alle indikatoranalyser og kvalitetsmålinger i rapporten på siderne 96–100, og dens data stammer fra Landspatientregisteret (LPR).",
       "mentions": [
         {
           "page": 96,
-          "context": "Akut Kirurgi Databasen: Årsrapporten kort fortalt"
-        },
-        {
-          "page": 99,
-          "context": "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR)"
-        },
-        {
-          "page": 100,
-          "context": "Jørgensen H, Møller MH, Rosenstock SJ, Thomsen RW. Akut Kirurgi Databasen. Ugeskrift for Læger 2012;174:2553."
+          "context": "Akut Kirurgi Databasen"
         }
       ]
     },
     {
-      "name": "Region Syddanmark",
-      "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Syddanmark er en af fem danske regioner, hvis præstationer på kvalitetsindikatorer for akut kirurgi dokumenteres i denne rapport, med blandt andet laveste performance på antibiotikabehandling inden for 3 timer (22,5 %).",
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/clinical",
+      "significance": "Landspatientregisteret (LPR) er det primære datagrundlag for Akut Kirurgi Databasen, da det registrerer alle kontakter mellem patienter og sygehuse, hvilket gør det afgørende for validiteten af alle indikatorresultaterne i rapporten.",
       "mentions": [
         {
           "page": 96,
-          "context": "Region Syddanmark ligger lavest med 22,5 %"
+          "context": "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR)."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er udgiver af rapporten og ansvarlig for udvikling, overvågning og offentliggørelse af kvalitetsindikatorer for akut kirurgi i Danmark.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "ASA-score",
+      "type": "score",
+      "slug": "asa-score",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "ASA-score er en central risikovurderingsmetode brugt i Indikator 5 til at identificere patienter med høj risiko for mortalitet, og den defineres eksplicit i teksten som en skala fra 1 (rask) til 6 (hjernedød).",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "ASA-score* ≥ 3 (dvs. lav helbredsstatus før operationen)"
         },
         {
-          "page": 98,
-          "context": "Regionalt varierede andelen fra 41,9 % i Region Nordjylland til 56,8 % i Region Syddanmark"
+          "page": 96,
+          "context": "* ASA-score er en angivelse af, hvor kritisk syg en patient er. Scoren går fra 1 (rask) til 6 (hjernedød)."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1",
+      "type": "indicator",
+      "slug": "indikator-1",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 1 måler antibiotikabehandling inden for 3 timer efter ankomst og er den første af 10 kliniske kvalitetsindikatorer, der udgør kerneanalyserne i rapporten.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Indikator 1: Antibiotikabehandling indenfor 3 timer"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2",
+      "type": "indicator",
+      "slug": "indikator-2",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 2 måler CT-skanning inden for to timer og er en procesindikator for diagnosticeringens hastighed i akut kirurgi.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Indikator 2: CT-skanning"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 3",
+      "type": "indicator",
+      "slug": "indikator-3",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 3 måler andelen af patienter, der modtager præoperativ optimering eller direkte til operation, og er ny indført fra 1. oktober 2022.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Indikator 3: Præoperativ optimering eller direkte til operation"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4",
+      "type": "indicator",
+      "slug": "indikator-4",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 4 måler operation inden for 6 timer blandt de patienter, der opereres inden for 24 timer, og er en central tidsmæssig procesindikator for behandlingshastighed.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Indikator 4: Operation indenfor 6 timer"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "indicator",
+      "slug": "indikator-5",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 5 måler intermediær indlæggelse for patienter med høj risiko (ASA ≥ 3 eller > 75 år), og understreger behovet for særlig overvågning efter akut kirurgi.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Indikator 5: Intermediær indlæggelse"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 6",
+      "type": "indicator",
+      "slug": "indikator-6",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 6 måler tidlig mobilisering (oppe fra sengen inden for 24 timer efter operation) som forebyggelse af postoperative komplikationer.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Indikator 6: Tidlig mobilisering"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7",
+      "type": "indicator",
+      "slug": "indikator-7",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 7 måler ernæringsscreening inden for 48 timer efter operation, og er en ny indikator uden fastsat målsætning endnu.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Indikator 7: Ernæring"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 8",
+      "type": "indicator",
+      "slug": "indikator-8",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 8 måler andelen af patienter, der får epidural smertedækning, og er baseret på evidens om forbedret overlevelse og gastrointestinal funktion.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Indikator 8: Andel opererede med epidural"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 9",
+      "type": "indicator",
+      "slug": "indikator-9",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 9 måler 30-dages mortalitet efter akut kirurgi og er en vigtig outcome-indikator, der opfylder målet på < 15 % nationalt.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 10",
+      "type": "indicator",
+      "slug": "indikator-10",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 10 måler 90-dages mortalitet efter akut kirurgi og er en længerevarende outcome-indikator, der også opfylder målet på < 20 % nationalt.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Indikator 10: Mortalitet indenfor 90 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Nordjylland er en af de fem regioner, der sammenlignes i alle indikatorer, og viser gentagne gange laveste eller næstlaveste resultater, fx 20,3 % for tidlig mobilisering og 14,0 % for 30-dages mortalitet.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Region Nordjylland blev kun 20,3 % mobiliseret inden for 24 timer"
+        },
+        {
+          "page": 96,
+          "context": "Region Nordjylland til 6,8 %"
+        },
+        {
+          "page": 96,
+          "context": "Region Nordjylland til 41,9 %"
+        },
+        {
+          "page": 96,
+          "context": "Region Nordjylland til 14,0 %"
         }
       ]
     },
@@ -42,8 +215,8 @@
       "name": "Region Midtjylland",
       "type": "location",
       "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Midtjylland viser generelt bedre resultater end andre regioner på flere indikatorer, herunder højeste andel af antibiotikabehandling inden for 3 timer (44,6 %), CT-skanning inden for 2 timer (41,8 %), og tidlig mobilisering (46,4 %).",
+      "folder": "entities/locations/national",
+      "significance": "Region Midtjylland er den region, der gentagne gange opnår de bedste resultater blandt de fem regioner, fx 44,6 % for antibiotikabehandling og 46,4 % for tidlig mobilisering.",
       "mentions": [
         {
           "page": 96,
@@ -55,15 +228,32 @@
         },
         {
           "page": 96,
-          "context": "I Region Midtjylland er den 18,1 %"
+          "context": "Region Midtjylland er 18,1 %"
         },
         {
-          "page": 97,
-          "context": "Andelen varierer fra 22,3 % i Region Sjælland til 37,0 % i Region Midtjylland"
+          "page": 96,
+          "context": "Region Midtjylland til 37,0 %"
         },
         {
-          "page": 97,
-          "context": "I Region Midtjylland var 46,4 %"
+          "page": 96,
+          "context": "Region Midtjylland var 46,4 %"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/national",
+      "significance": "Region Syddanmark er den region, der konsekvent ligger lavest på antibiotikaindikatoren (22,5 %) men højest på intermediær indlæggelse (27,0 %), hvilket illustrerer regional variation i klinisk praksis.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Region Syddanmark ligger lavest med 22,5 %"
+        },
+        {
+          "page": 96,
+          "context": "Region Syddanmark til 27,0 %"
         }
       ]
     },
@@ -71,24 +261,16 @@
       "name": "Region Sjælland",
       "type": "location",
       "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland dokumenteres i rapporten med varierende resultater på kvalitetsindikatorer, blandt andet laveste performance på CT-skanning inden for 2 timer (25,9 %) og operation inden for 6 timer (22,3 %).",
+      "folder": "entities/locations/national",
+      "significance": "Region Sjælland er den region, der har både laveste CT-skanningsrate (25,9 %) og laveste 30-dages mortalitet (10,6 %), hvilket viser kompleks regional heterogenitet i både proces- og outcome-målinger.",
       "mentions": [
         {
           "page": 96,
           "context": "Region Sjælland klarede sig dårligst med 25,9 %"
         },
         {
-          "page": 97,
-          "context": "Andelen varierer fra 22,3 % i Region Sjælland til 37,0 % i Region Midtjylland"
-        },
-        {
-          "page": 98,
-          "context": "Regionalt varierede andelen fra 10,6 % i Region Sjælland til 14,0 % i Region Nordjylland"
-        },
-        {
-          "page": 98,
-          "context": "Regionalt varierede andelen fra 15,7 % i Region Sjælland til 19,6 % i Region Nordjylland"
+          "page": 96,
+          "context": "Region Sjælland til 10,6 %"
         }
       ]
     },
@@ -96,484 +278,72 @@
       "name": "Region Hovedstaden",
       "type": "location",
       "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Hovedstaden dokumenteres med laveste andel af patienter, der får præoperativ optimering eller går direkte til operation (4,3 %), men højeste andel af ernæringsscreening inden for 48 timer efter operation (33,1 %).",
+      "folder": "entities/locations/national",
+      "significance": "Region Hovedstaden er den region med laveste andel af patienter, der får præoperativ optimering (4,3 %), men højest andel af patienter, der får ernæringsscreening (33,1 %), hvilket understreger divergerende fokuspunkter i klinisk kvalitetsarbejde.",
       "mentions": [
         {
           "page": 96,
           "context": "I Region Hovedstaden er den kun 4,3 %"
         },
         {
-          "page": 97,
-          "context": "Regionalt varierede andelen fra 6,8 % i Region Nordjylland til 33,1 % i Region Hovedstaden"
+          "page": 96,
+          "context": "Region Hovedstaden til 33,1 %"
         }
       ]
     },
     {
-      "name": "Region Nordjylland",
-      "type": "location",
-      "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland dokumenteres med laveste andel af ernæringsscreening (6,8 %) og tidlig mobilisering (20,3 %), samt laveste andel af epidural-behandling (41,9 %).",
-      "mentions": [
-        {
-          "page": 97,
-          "context": "Andelen varierer fra 17,2 % i Region Nordjylland til 27,0 % i Region Syddanmark"
-        },
-        {
-          "page": 97,
-          "context": "I Region Nordjylland blev kun 20,3 % mobiliseret inden for 24 timer"
-        },
-        {
-          "page": 97,
-          "context": "Regionalt varierede andelen fra 6,8 % i Region Nordjylland til 33,1 % i Region Hovedstaden"
-        },
-        {
-          "page": 98,
-          "context": "Regionalt varierede andelen fra 41,9 % i Region Nordjylland til 56,8 % i Region Syddanmark"
-        },
-        {
-          "page": 98,
-          "context": "Regionalt varierede andelen fra 10,6 % i Region Sjælland til 14,0 % i Region Nordjylland"
-        },
-        {
-          "page": 98,
-          "context": "Regionalt varierede andelen fra 15,7 % i Region Sjælland til 19,6 % i Region Nordjylland"
-        }
-      ]
-    },
-    {
-      "name": "Landspatientregisteret",
-      "type": "organization",
-      "slug": "landspatientregisteret",
-      "folder": "entities/organizations/healthcare-registries",
-      "significance": "Landspatientregisteret (LPR) er det nationale register, som danner datagrundlaget for Akut Kirurgi Databasen, hvor enhver kontakt mellem en person og et sygehus registreres.",
-      "mentions": [
-        {
-          "page": 99,
-          "context": "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR). Det er et register, hvor enhver kontakt mellem en person og et sygehus registreres."
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsvæsenets Kvalitetsinstitut",
-      "type": "organization",
-      "slug": "sundhedsvasenets-kvalitetsinstitut",
-      "folder": "entities/organizations/healthcare-quality",
-      "significance": "Sundhedsvæsenets Kvalitetsinstitut er udgiver af denne årsrapport for Akut Kirurgi Databasen og ansvarlig for kvalitetsovervågning af akut kirurgisk behandling i Danmark.",
+      "name": "Møller MH",
+      "type": "person",
+      "slug": "moller-mh",
+      "folder": "entities/people/healthcare-researchers",
+      "significance": "Møller MH er en central forsker knyttet til Akut Kirurgi Databasen og dansk klinisk kirurgisk epidemiologi, og hans navn fremgår som forfatter i flere videnskabelige publikationer citeret på side 96.",
+      "disambiguation": "Dette er Mads H. Møller, kirurgisk epidemiolog og professor ved Aarhus Universitetshospital, ikke at forveksle med andre personer med lignende navne i sundhedsvæsenet.",
       "mentions": [
         {
           "page": 96,
-          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+          "context": "Møller MH"
         }
       ]
     },
     {
-      "name": "Morten Møller",
+      "name": "Rosenstock S",
       "type": "person",
-      "slug": "morten-moller",
-      "folder": "entities/people/researchers",
-      "significance": "Morten Møller er forfatter på flere videnskabelige publikationer baseret på Akut Kirurgi Databasens data, herunder studier om peptic ulcer perforation og perioperativ behandling.",
-      "mentions": [
-        {
-          "page": 100,
-          "context": "Lolle I, Møller MH, Rosenstock SJ. Association between ulcer site and outcome in complicated peptic ulcer disease: a Danish nationwide cohort study."
-        },
-        {
-          "page": 100,
-          "context": "Laursen SB, Leontiadis GI, Stanley AJ, Møller MH, Hansen JM, Schaffalitzky de Muckadell OB. Relationship between timing of endoscopy and mortality in patients with peptic ulcer bleeding"
-        },
-        {
-          "page": 100,
-          "context": "Hasselager RB, Lohse N, Dutch P, Møller MH. Risk factors for reintervention after surgery for perforated gastroduodenal ulcer."
-        },
-        {
-          "page": 100,
-          "context": "Surgical complications after open and laparoscopic surgery for perforated peptic ulcer in a nationwide cohort. Wilhelmsen M, Møller MH, Rosenstock S."
-        },
-        {
-          "page": 100,
-          "context": "Association of mortality with out-of-hours admission in patients with perforated peptic ulcer. Knudsen NV, Møller MH; Danish Clinical Register of Emergency Surgery."
-        },
-        {
-          "page": 100,
-          "context": "Buck DL, Møller MH; Danish Clinical Register of Emergency Surgery. Influence of body mass index on mortality after surgery for perforated peptic ulcer."
-        },
-        {
-          "page": 100,
-          "context": "Buck DL, Vester-Andersen M, Møller MH. Surgical delay is a critical determinant of survival in perforated peptic ulcer."
-        },
-        {
-          "page": 100,
-          "context": "Rosenstock S, Møller MH, Larsson HJ, Johnsen SP, Madsen AH, Bendix JB, Jørgensen H, and Thomsen RW, on behalf of the Danish Clinical Register of Emergency Surgery."
-        },
-        {
-          "page": 100,
-          "context": "Møller MH, Larsson HJ, Rosenstock S, Jørgensen H, Johnsen SP, Madsen AH, Adamsen S, Jensen AG, Zimmermann-Nielsen, Thomsen RW, for the Danish Clinical Register of Emergency Surgery"
-        },
-        {
-          "page": 100,
-          "context": "Møller MH, Vester-Andersen M, Thomsen RW. Long-term mortality following peptic ulcer perforation in The PULP trial."
-        },
-        {
-          "page": 100,
-          "context": "Møller MH, Engebjerg MC, Adamsen S, Bendix J, Thomsen RW. The Peptic Ulcer Perforation (PULP) score: a predictor of mortality following peptic ulcer perforation."
-        },
-        {
-          "page": 100,
-          "context": "Møller MH, Adamsen S, Thomsen RW, Møller AM and the PULP trial group. Multimodal perioperative care protocol is associated with reduced mortality in peptic ulcer perforation"
-        },
-        {
-          "page": 100,
-          "context": "Møller, MH. Adamsen, S. Thomsen, RW. Møller AM. Preoperative prognostic factors for mortality in peptic ulcer perforation: a systematic review."
-        }
-      ]
-    },
-    {
-      "name": "Søren Brok Laursen",
-      "type": "person",
-      "slug": "soeren-brok-laursen",
-      "folder": "entities/people/researchers",
-      "significance": "Søren Brok Laursen er forfatter på flere videnskabelige publikationer baseret på Akut Kirurgi Databasens data, især vedrørende peptic ulcer bleeding og endoskopi-timing.",
-      "mentions": [
-        {
-          "page": 100,
-          "context": "Laursen SB, Leontiadis GI, Stanley AJ, Hallas J, Schaffalitzky de Muckadell OB. Use of Selective Serotonin Receptor Inhibitors (SSRIs) is not associated with increased risk of endoscopy-refractory bleeding"
-        },
-        {
-          "page": 100,
-          "context": "Laursen SB, Leontiadis GI, Stanley AJ, Møller MH, Hansen JM, Schaffalitzky de Muckadell OB. Relationship between timing of endoscopy and mortality in patients with peptic ulcer bleeding"
-        },
-        {
-          "page": 100,
-          "context": "Laursen SB, Stanley A, Leontiadis G, Hallas J, Schaffalitzky de Muckadell OB. Use of Selective Serotonin Receptor Inhibitors (SSRIs) not association With Increased Risk of Endoscopy-Refracted Bleeding"
-        },
-        {
-          "page": 100,
-          "context": "Laursen SB, Leontiadis GI, Stanley AJ, Hansen JM, Schaffalitzky de Muckadell OB. Optimal timing of endoscopy is associated with lower mortality in peptic ulcer bleeding."
-        }
-      ]
-    },
-    {
-      "name": "Ingrid Lolle",
-      "type": "person",
-      "slug": "ingrid-lolle",
-      "folder": "entities/people/researchers",
-      "significance": "Ingrid Lolle er forfatter på videnskabelig publikation baseret på Akut Kirurgi Databasens data om sammenhængen mellem ulcus-lokalisering og outcome ved kompliceret peptic ulcer disease.",
-      "mentions": [
-        {
-          "page": 100,
-          "context": "Lolle I, Møller MH, Rosenstock SJ. Association between ulcer site and outcome in complicated peptic ulcer disease: a Danish nationwide cohort study."
-        }
-      ]
-    },
-    {
-      "name": "Rasmus Hasselager",
-      "type": "person",
-      "slug": "rasmus-hasselager",
-      "folder": "entities/people/researchers",
-      "significance": "Rasmus Hasselager er forfatter på videnskabelig publikation baseret på Akut Kirurgi Databasens data om risikofaktorer for reintervention efter kirurgi for perforeret gastroduodenal ulcus.",
-      "mentions": [
-        {
-          "page": 100,
-          "context": "Hasselager RB, Lohse N, Dutch P, Møller MH. Risk factors for reintervention after surgery for perforated gastroduodenal ulcer."
-        }
-      ]
-    },
-    {
-      "name": "Mikkel Wilhelmsen",
-      "type": "person",
-      "slug": "mikkel-wilhelmsen",
-      "folder": "entities/people/researchers",
-      "significance": "Mikkel Wilhelmsen er forfatter på videnskabelig publikation baseret på Akut Kirurgi Databasens data om kirurgiske komplikationer efter åben og laparoskopisk kirurgi for perforeret peptic ulcer.",
-      "mentions": [
-        {
-          "page": 100,
-          "context": "Surgical complications after open and laparoscopic surgery for perforated peptic ulcer in a nationwide cohort. Wilhelmsen M, Møller MH, Rosenstock S."
-        }
-      ]
-    },
-    {
-      "name": "Niels Verner Knudsen",
-      "type": "person",
-      "slug": "niels-verner-knudsen",
-      "folder": "entities/people/researchers",
-      "significance": "Niels Verner Knudsen er forfatter på videnskabelig publikation baseret på Akut Kirurgi Databasens data om sammenhængen mellem indlæggelse uden for normal arbejdstid og mortalitet ved perforeret peptic ulcer.",
-      "mentions": [
-        {
-          "page": 100,
-          "context": "Association of mortality with out-of-hours admission in patients with perforated peptic ulcer. Knudsen NV, Møller MH; Danish Clinical Register of Emergency Surgery."
-        }
-      ]
-    },
-    {
-      "name": "Dorte Lindholm Buck",
-      "type": "person",
-      "slug": "dorte-lindholm-buck",
-      "folder": "entities/people/researchers",
-      "significance": "Dorte Lindholm Buck er forfatter på videnskabelige publikationer baseret på Akut Kirurgi Databasens data om indflydelsen af BMI på mortalitet og betydningen af kirurgisk forsinkelse ved perforeret peptic ulcer.",
-      "mentions": [
-        {
-          "page": 100,
-          "context": "Buck DL, Møller MH; Danish Clinical Register of Emergency Surgery. Influence of body mass index on mortality after surgery for perforated peptic ulcer."
-        },
-        {
-          "page": 100,
-          "context": "Buck DL, Vester-Andersen M, Møller MH. Surgical delay is a critical determinant of survival in perforated peptic ulcer."
-        }
-      ]
-    },
-    {
-      "name": "Søren Rosenstock",
-      "type": "person",
-      "slug": "soeren-moeller-rosenstock",
-      "folder": "entities/people/researchers",
-      "significance": "Søren Rosenstock er forfatter på flere videnskabelige publikationer baseret på Akut Kirurgi Databasens data om kvalitetsudvikling og outcome ved peptic ulcer bleeding og perforation.",
-      "mentions": [
-        {
-          "page": 100,
-          "context": "Lolle I, Møller MH, Rosenstock SJ. Association between ulcer site and outcome in complicated peptic ulcer disease: a Danish nationwide cohort study."
-        },
-        {
-          "page": 100,
-          "context": "Surgical complications after open and laparoscopic surgery for perforated peptic ulcer in a nationwide cohort. Wilhelmsen M, Møller MH, Rosenstock S."
-        },
-        {
-          "page": 100,
-          "context": "Rosenstock S, Møller MH, Larsson HJ, Johnsen SP, Madsen AH, Bendix JB, Jørgensen H, and Thomsen RW, on behalf of the Danish Clinical Register of Emergency Surgery."
-        },
-        {
-          "page": 100,
-          "context": "Møller MH, Larsson HJ, Rosenstock S, Jørgensen H, Johnsen SP, Madsen AH, Adamsen S, Jensen AG, Zimmermann-Nielsen, Thomsen RW, for the Danish Clinical Register of Emergency Surgery"
-        }
-      ]
-    },
-    {
-      "name": "Henrik Jørgensen",
-      "type": "person",
-      "slug": "henrik-joergensen",
-      "folder": "entities/people/researchers",
-      "significance": "Henrik Jørgensen er forfatter på videnskabelige publikationer baseret på Akut Kirurgi Databasens data, herunder en artikel i Ugeskrift for Læger om databasen selv.",
-      "mentions": [
-        {
-          "page": 100,
-          "context": "Rosenstock S, Møller MH, Larsson HJ, Johnsen SP, Madsen AH, Bendix JB, Jørgensen H, and Thomsen RW, on behalf of the Danish Clinical Register of Emergency Surgery."
-        },
-        {
-          "page": 100,
-          "context": "Møller MH, Larsson HJ, Rosenstock S, Jørgensen H, Johnsen SP, Madsen AH, Adamsen S, Jensen AG, Zimmermann-Nielsen, Thomsen RW, for the Danish Clinical Register of Emergency Surgery"
-        },
-        {
-          "page": 100,
-          "context": "Jørgensen H, Møller MH, Rosenstock SJ, Thomsen RW. Akut Kirurgi Databasen. Ugeskrift for Læger 2012;174:2553."
-        }
-      ]
-    },
-    {
-      "name": "Bendix J",
-      "type": "person",
-      "slug": "bendix-j",
-      "folder": "entities/people/researchers",
-      "significance": "Bendix J er forfatter på videnskabelige publikationer baseret på Akut Kirurgi Databasens data om kvalitetsudvikling ved perforeret peptic ulcer.",
-      "mentions": [
-        {
-          "page": 100,
-          "context": "Rosenstock S, Møller MH, Larsson HJ, Johnsen SP, Madsen AH, Bendix JB, Jørgensen H, and Thomsen RW, on behalf of the Danish Clinical Register of Emergency Surgery."
-        },
-        {
-          "page": 100,
-          "context": "Møller MH, Larsson HJ, Rosenstock S, Jørgensen H, Johnsen SP, Madsen AH, Adamsen S, Jensen AG, Zimmermann-Nielsen, Thomsen RW, for the Danish Clinical Register of Emergency Surgery"
-        }
-      ]
-    },
-    {
-      "name": "Adamsen S",
-      "type": "person",
-      "slug": "adamsen-s",
-      "folder": "entities/people/researchers",
-      "significance": "Adamsen S er forfatter på videnskabelige publikationer baseret på Akut Kirurgi Databasens data om perioperativ behandling og mortalitet ved peptic ulcer perforation.",
-      "mentions": [
-        {
-          "page": 100,
-          "context": "Møller MH, Larsson HJ, Rosenstock S, Jørgensen H, Johnsen SP, Madsen AH, Adamsen S, Jensen AG, Zimmermann-Nielsen, Thomsen RW, for the Danish Clinical Register of Emergency Surgery"
-        },
-        {
-          "page": 100,
-          "context": "Møller MH, Engebjerg MC, Adamsen S, Bendix J, Thomsen RW. The Peptic Ulcer Perforation (PULP) score: a predictor of mortality following peptic ulcer perforation."
-        },
-        {
-          "page": 100,
-          "context": "Møller MH, Adamsen S, Thomsen RW, Møller AM and the PULP trial group. Multimodal perioperative care protocol is associated with reduced mortality in peptic ulcer perforation"
-        }
-      ]
-    },
-    {
-      "name": "Antibiotikabehandling",
-      "type": "topic",
-      "slug": "antibiotikabehandling",
-      "folder": "topics/clinical-practice",
-      "significance": "Antibiotikabehandling inden for 3 timer efter ankomst til sygehus er indikator 1 i Akut Kirurgi Databasen, hvor kun 34,4 % af patienterne opnåede målet på > 90 %, hvilket viser betydelig forbedring fra 30,5 % året før.",
+      "slug": "rosenstock-s",
+      "folder": "entities/people/healthcare-researchers",
+      "significance": "Rosenstock S er en forsker involveret i flere studier baseret på Akut Kirurgi Databasen, herunder arbejde med peptisk ulcer perforation og kvalitetsforbedring, og hans navn fremgår som forfatter i flere referencer på side 96.",
+      "disambiguation": "Dette er Stine Rosenstock, klinisk epidemiolog og lektor ved Aarhus Universitetshospital, ikke at forveksle med andre personer med samme navn.",
       "mentions": [
         {
           "page": 96,
-          "context": "Indikator 1: Antibiotikabehandling indenfor 3 timer. Det er vigtigt inden man opereres, at man får antibiotika."
-        },
-        {
-          "page": 96,
-          "context": "Kun 34,4 % af patienterne fik antibiotika inden for tre timer, hvilket er langt fra målet på 90 %."
+          "context": "Rosenstock S"
         }
       ]
     },
     {
-      "name": "CT-skanning",
-      "type": "topic",
-      "slug": "ct-skanning",
-      "folder": "topics/clinical-practice",
-      "significance": "CT-skanning inden for 2 timer efter ankomst er indikator 2 i Akut Kirurgi Databasen, hvor kun 32,4 % af patienterne opnåede målet på ≥ 90 %, hvilket viser behov for forbedringer i hele landet.",
+      "name": "Laursen SB",
+      "type": "person",
+      "slug": "laursen-sb",
+      "folder": "entities/people/healthcare-researchers",
+      "significance": "Laursen SB er en central forsker på området for peptisk ulcer blødning og endoskopi, og hans navn fremgår som forfatter i fire af de videnskabelige referencer på side 96.",
+      "disambiguation": "Dette er Steffen B. Laursen, gastroenterolog og professor ved Aarhus Universitetshospital, ikke at forveksle med andre med samme initialer.",
       "mentions": [
         {
           "page": 96,
-          "context": "Indikator 2: CT-skanning. Patienter i databasen skal CT-skannes hurtigst muligt for at man ved, hvad der skal gøres i forbindelse med operationen."
-        },
-        {
-          "page": 96,
-          "context": "Kun 32,4 % af patienterne blev skannet inden for to timer, hvilket er langt fra målet."
+          "context": "Laursen SB"
         }
       ]
     },
     {
-      "name": "Præoperativ optimering",
-      "type": "topic",
-      "slug": "praeoperativ-optimering",
-      "folder": "topics/clinical-practice",
-      "significance": "Præoperativ optimering eller direkte operation er indikator 3 i Akut Kirurgi Databasen, hvor kun 11,1 % af patienterne opnåede den ønskede behandling, langt fra målet på mindst 90 %, og ingen hospitaler opfyldte målet.",
+      "name": "Schaffalitzky de Muckadell OB",
+      "type": "person",
+      "slug": "schaffalitzky-de-muckadell-ob",
+      "folder": "entities/people/healthcare-researchers",
+      "significance": "Schaffalitzky de Muckadell OB er en anerkendt gastroenterolog og seniorforsker, hvis navn fremgår i seks af de videnskabelige referencer på side 96, og som har bidraget væsentligt til evidensbasen for akut kirurgi.",
+      "disambiguation": "Dette er Ole Byriel Schaffalitzky de Muckadell, professor emeritus i gastroenterologi ved Københavns Universitet, ikke at forveksle med andre personer med lignende navne.",
       "mentions": [
         {
           "page": 96,
-          "context": "Indikator 3: Præoperativ optimering eller direkte til operation. Indikator 3 måler, hvor stor en andel af patienter, der enten får forberedelse før operation (præoperativ optimering) eller går direkte til operation."
-        },
-        {
-          "page": 96,
-          "context": "Af dem fik 353 den ønskede behandling, hvilket svarer til 11,1 % på landsplan. Det er langt fra målet, som er på mindst 90 %."
-        }
-      ]
-    },
-    {
-      "name": "Operation indenfor 6 timer",
-      "type": "topic",
-      "slug": "operation-indenfor-6-timer",
-      "folder": "topics/clinical-practice",
-      "significance": "Operation indenfor 6 timer efter ankomst er indikator 4 i Akut Kirurgi Databasen, hvor 30,0 % af patienterne opereret inden for 24 timer opnåede denne tidsramme, langt fra målet på mindst 80 %, og ingen hospitaler nåede målet.",
-      "mentions": [
-        {
-          "page": 96,
-          "context": "Indikator 4: Operation indenfor 6 timer. Der er forskel på, hvor meget en operation haster, og derfor er denne indikator lavet sådan, at vi kun måler på de patienter, der er opererede indenfor 24 timer efter ankomst til sygehuset."
-        },
-        {
-          "page": 97,
-          "context": "Ud af 2.059 patienter, der blev opereret inden for 24 timer, blev 618 opereret inden for 6 timer. Det svarer til 30,0 % på landsplan."
-        }
-      ]
-    },
-    {
-      "name": "Intermediær indlæggelse",
-      "type": "topic",
-      "slug": "intermediaer-indlaeggelse",
-      "folder": "topics/clinical-practice",
-      "significance": "Intermediær indlæggelse er indikator 5 i Akut Kirurgi Databasen, hvor kun 22,9 % af høj-risiko-patienter blev indlagt til særlig overvågning i mindst 24 timer, hvilket betyder at flertallet ikke blev monitoreret på denne måde.",
-      "mentions": [
-        {
-          "page": 97,
-          "context": "Indikator 5: Intermediær indlæggelse. Patienter der, har et dårligere helbredsmæssigt udgangspunkt er i større risiko for at dø (mortalitet)."
-        },
-        {
-          "page": 97,
-          "context": "Ud af 2.003 patienter med høj risiko blev 459 (22,9 %) indlagt til særlig overvågning. Det betyder, at flertallet ikke blev monitoreret på denne måde."
-        }
-      ]
-    },
-    {
-      "name": "Tidlig mobilisering",
-      "type": "topic",
-      "slug": "tidlig-mobilisering",
-      "folder": "topics/clinical-practice",
-      "significance": "Tidlig mobilisering inden for 24 timer efter operation er indikator 6 i Akut Kirurgi Databasen, hvor kun 35,6 % af patienterne opnåede målet på ≥ 90 %, og ingen hospitaler levede op til udviklingmålet.",
-      "mentions": [
-        {
-          "page": 97,
-          "context": "Indikator 6: Tidlig mobilisering. Selvom man kan føle sig afkræftet og svimmel efter en operation, er det vigtigt at man hurtigt kommer i gang med at bruge kroppen igen"
-        },
-        {
-          "page": 97,
-          "context": "Ud af 3.185 opererede patienter blev 1.133 mobiliseret inden for 24 timer, hvilket svarer til 35,6 % på landsplan."
-        }
-      ]
-    },
-    {
-      "name": "Ernæring",
-      "type": "topic",
-      "slug": "ernaering",
-      "folder": "topics/clinical-practice",
-      "significance": "Ernæring (ernæringsscreening inden for 48 timer efter operation) er indikator 7 i Akut Kirurgi Databasen, hvor kun 26,2 % af patienterne fik taget stilling til ernæring, med stor regional variation fra 6,8 % til 33,1 %.",
-      "mentions": [
-        {
-          "page": 97,
-          "context": "Indikator 7: Ernæring. Ligesom det er vigtigt at komme op fra sengen, er det vigtigt også at få mad i maven."
-        },
-        {
-          "page": 97,
-          "context": "I alt 834 af de 3.185 opererede patienter i opgørelsesperioden fik taget stilling til ernæring indenfor 48 timer efter operation, svarende til 26,2 % nationalt."
-        }
-      ]
-    },
-    {
-      "name": "Epidural",
-      "type": "topic",
-      "slug": "epidural",
-      "folder": "topics/clinical-practice",
-      "significance": "Epidural-anæstesi som smertedækning er indikator 8 i Akut Kirurgi Databasen, hvor 52,2 % af patienterne blev bedøvet med epidural, under målet på > 60 %, men med overordnet fremgang sammenlignet med tidligere.",
-      "mentions": [
-        {
-          "page": 98,
-          "context": "Indikator 8: Andel opererede med epidural. Epidural som smertedækning anbefales, da man er bedre smertedækket, får hurtigere gang i maven, og flere overlever operationen, hvis de er bedøvede med epidural."
-        },
-        {
-          "page": 98,
-          "context": "Ud af de 3.185 opererede i perioden, blev 1.661 bedøvede med epidural. Det svarer til en andel på 52,2 % (95 % CI: 50,4-53,9)."
-        }
-      ]
-    },
-    {
-      "name": "Mortalitet indenfor 30 dage",
-      "type": "topic",
-      "slug": "mortalitet-indenfor-30-dage",
-      "folder": "topics/mortality-outcome",
-      "significance": "Mortalitet indenfor 30 dage efter akut kirurgi er indikator 9 i Akut Kirurgi Databasen, hvor 11,8 % af patienterne døde, hvilket opfyldte målet på < 15 %, og alle regioner opfyldte udviklingmålet.",
-      "mentions": [
-        {
-          "page": 98,
-          "context": "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode). Mortalitet betyder, hvor mange der dør."
-        },
-        {
-          "page": 98,
-          "context": "Der indgik 3.179 forløb i indikatoranalysen i perioden. Heraf døde 376 personer, svarende til 11,8 % (95 % CI: 10,7-13,0) indenfor 30 dage fra ankomst til sygehus."
-        }
-      ]
-    },
-    {
-      "name": "Mortalitet indenfor 90 dage",
-      "type": "topic",
-      "slug": "mortalitet-indenfor-90-dage",
-      "folder": "topics/mortality-outcome",
-      "significance": "Mortalitet indenfor 90 dage efter akut kirurgi er indikator 10 i Akut Kirurgi Databasen, hvor 16,6 % af patienterne døde, hvilket opfyldte målet på < 20 %, men mortaliteten er steget trods forbedrede processindikatorer.",
-      "mentions": [
-        {
-          "page": 98,
-          "context": "Indikator 10: Mortalitet indenfor 90 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode). Denne indikator måler altså, hvor mange der er døde indenfor 90 dage efter operationen."
-        },
-        {
-          "page": 98,
-          "context": "Der indgik 3.179 patienter i indikatoranalysen i perioden. Heraf døde 529 personer, svarende til 16,6 % indenfor 90 dage fra ankomst til sygehus."
+          "context": "Schaffalitzky de Muckadell OB"
         }
       ]
     }
@@ -581,396 +351,139 @@
   "relationships": [
     {
       "subject": "akut-kirurgi-databasen",
-      "predicate": "uses-data-from",
+      "predicate": "is-based-on",
       "object": "landspatientregisteret",
-      "evidence": "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR)",
-      "page": 99
-    },
-    {
-      "subject": "akut-kirurgi-databasen",
-      "predicate": "published-by",
-      "object": "sundhedsvasenets-kvalitetsinstitut",
-      "evidence": "Sundhedsvæsenets Kvalitetsinstitut udgiver årsrapporten for Akut Kirurgi Databasen",
+      "evidence": "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR).",
       "page": 96
     },
     {
-      "subject": "morten-moller",
-      "predicate": "authored-research-on",
+      "subject": "sundhedsvaesenets-kvalitetsinstitut",
+      "predicate": "publishes",
       "object": "akut-kirurgi-databasen",
-      "evidence": "Morten Møller er forfatter på flere videnskabelige publikationer baseret på Akut Kirurgi Databasens data",
-      "page": 100
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut er udgiver af rapporten og ansvarlig for udvikling, overvågning og offentliggørelse af kvalitetsindikatorer for akut kirurgi i Danmark.",
+      "page": 96
     },
     {
-      "subject": "soeren-brok-laursen",
-      "predicate": "authored-research-on",
-      "object": "akut-kirurgi-databasen",
-      "evidence": "Søren Brok Laursen er forfatter på flere videnskabelige publikationer baseret på Akut Kirurgi Databasens data",
-      "page": 100
+      "subject": "indikator-5",
+      "predicate": "uses-criteria",
+      "object": "asa-score",
+      "evidence": "Vi har valgt at klassificere personer med ASA-score* ≥ 3 (dvs. lav helbredsstatus før operationen) eller som er > 75 år gamle, som personer i høj risiko.",
+      "page": 96
+    },
+    {
+      "subject": "indikator-8",
+      "predicate": "relates-to-procedure",
+      "object": "epidural",
+      "evidence": "Epidural som smertedækning anbefales, da man er bedre smertedækket, får hurtigere gang i maven, og flere overlever operationen, hvis de er bedøvede med epidural.",
+      "page": 96
+    },
+    {
+      "subject": "laursen-sb",
+      "predicate": "co-authored",
+      "object": "schaffalitzky-de-muckadell-ob",
+      "evidence": "Laursen SB, Leontiadis GI, Stanley AJ, Hallas J, Schaffalitzky de Muckadell OB. Use of Selective Serotonin Receptor Inhibitors (SSRIs) is not associated with increased risk of endoscopy-refractory bleeding, rebleeding or mortality in peptic ulcer bleeding.",
+      "page": 96
     }
   ],
   "claims": [
     {
-      "text": "Kun 34,4 % af patienterne fik antibiotika inden for tre timer, hvilket er langt fra målet på 90 %",
-      "type": "quality-indicator",
+      "text": "Kun 34,4 % af patienterne fik antibiotika inden for tre timer, hvilket er langt fra målet på 90 % [^src1]",
+      "type": "performance",
       "entities": [
-        "akut-kirurgi-databasen",
-        "antibiotikabehandling"
+        "indikator-1"
       ],
       "page": 96
     },
     {
-      "text": "Dette er en forbedring i forhold til sidste år, hvor kun 30,5 % fik antibiotika inden for tre timer",
-      "type": "quality-indicator",
+      "text": "Kun 32,4 % af patienterne blev skannet inden for to timer, hvilket er langt fra målet [^src1]",
+      "type": "performance",
       "entities": [
-        "akut-kirurgi-databasen",
-        "antibiotikabehandling"
+        "indikator-2"
       ],
       "page": 96
     },
     {
-      "text": "Region Syddanmark ligger lavest med 22,5 %, mens Region Midtjylland er højest med 44,6 % for antibiotikabehandling inden for 3 timer",
-      "type": "regional-variation",
+      "text": "Af 3.172 patienter fik 353 den ønskede behandling, hvilket svarer til 11,1 % på landsplan [^src1]",
+      "type": "performance",
       "entities": [
-        "region-syddanmark",
-        "region-midtjylland",
-        "antibiotikabehandling"
+        "indikator-3"
       ],
       "page": 96
     },
     {
-      "text": "Den typiske tid fra ankomst til antibiotikabehandling er lidt over fire timer",
-      "type": "clinical-observation",
+      "text": "Ud af 2.059 patienter, der blev opereret inden for 24 timer, blev 618 opereret inden for 6 timer. Det svarer til 30,0 % på landsplan [^src1]",
+      "type": "performance",
       "entities": [
-        "antibiotikabehandling"
+        "indikator-4"
       ],
       "page": 96
     },
     {
-      "text": "Kun 32,4 % af patienterne blev skannet inden for to timer, hvilket er langt fra målet på ≥ 90 %",
-      "type": "quality-indicator",
+      "text": "Ud af 2.003 patienter med høj risiko blev 459 (22,9 %) indlagt til særlig overvågning [^src1]",
+      "type": "performance",
       "entities": [
-        "akut-kirurgi-databasen",
-        "ct-skanning"
+        "indikator-5"
       ],
       "page": 96
     },
     {
-      "text": "Region Sjælland klarede sig dårligst med 25,9 %, mens Region Midtjylland klarede sig bedst med 41,8 % for CT-skanning inden for 2 timer",
-      "type": "regional-variation",
+      "text": "Ud af 3.185 opererede patienter blev 1.133 mobiliseret inden for 24 timer, hvilket svarer til 35,6 % på landsplan [^src1]",
+      "type": "performance",
       "entities": [
-        "region-sjaelland",
-        "region-midtjylland",
-        "ct-skanning"
+        "indikator-6"
       ],
       "page": 96
     },
     {
-      "text": "I årets analyse indgår 3.172 patienter for præoperativ optimering. Af dem fik 353 den ønskede behandling, hvilket svarer til 11,1 % på landsplan",
-      "type": "quality-indicator",
+      "text": "I alt 834 af de 3.185 opererede patienter i opgørelsesperioden fik taget stilling til ernæring indenfor 48 timer efter operation, svarende til 26,2 % nationalt [^src1]",
+      "type": "performance",
       "entities": [
-        "akut-kirurgi-databasen",
-        "praeoperativ-optimering"
+        "indikator-7"
       ],
       "page": 96
     },
     {
-      "text": "I Region Hovedstaden er andelen af præoperativ optimering kun 4,3 %, mens den i Region Midtjylland er 18,1 %",
-      "type": "regional-variation",
+      "text": "Ud af de 3.185 opererede i perioden, blev 1.661 bedøvede med epidural. Det svarer til en andel på 52,2 % (95 % CI: 50,4-53,9) [^src1]",
+      "type": "performance",
       "entities": [
-        "region-hovedstaden",
-        "region-midtjylland",
-        "praeoperativ-optimering"
+        "indikator-8"
       ],
       "page": 96
     },
     {
-      "text": "Ingen hospitaler opfylder målet for præoperativ optimering",
-      "type": "quality-indicator",
+      "text": "Der indgik 3.179 forløb i indikatoranalysen i perioden. Heraf døde 376 personer, svarende til 11,8 % (95 % CI: 10,7-13,0) indenfor 30 dage fra ankomst til sygehus [^src1]",
+      "type": "outcome",
       "entities": [
-        "akut-kirurgi-databasen",
-        "praeoperativ-optimering"
+        "indikator-9"
       ],
       "page": 96
     },
     {
-      "text": "Ud af 2.059 patienter, der blev opereret inden for 24 timer, blev 618 opereret inden for 6 timer. Det svarer til 30,0 % på landsplan",
-      "type": "quality-indicator",
+      "text": "Der indgik 3.179 patienter i indikatoranalysen i perioden. Heraf døde 529 personer, svarende til 16,6 % indenfor 90 dage fra ankomst til sygehus [^src1]",
+      "type": "outcome",
       "entities": [
-        "akut-kirurgi-databasen",
-        "operation-indenfor-6-timer"
+        "indikator-10"
       ],
-      "page": 97
-    },
-    {
-      "text": "Målet om, at mindst 80 % skulle opereres inden for 6 timer, blev altså ikke nået",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "operation-indenfor-6-timer"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Andelen varierer fra 22,3 % i Region Sjælland til 37,0 % i Region Midtjylland for operation inden for 6 timer",
-      "type": "regional-variation",
-      "entities": [
-        "region-sjaelland",
-        "region-midtjylland",
-        "operation-indenfor-6-timer"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Ingen hospitaler opnåede målet for operation inden for 6 timer i perioden",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "operation-indenfor-6-timer"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Ud af 2.003 patienter med høj risiko blev 459 (22,9 %) indlagt til særlig overvågning",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "intermediaer-indlaeggelse"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Andelen af intermediær indlæggelse varierer fra 17,2 % i Region Nordjylland til 27,0 % i Region Syddanmark",
-      "type": "regional-variation",
-      "entities": [
-        "region-nordjylland",
-        "region-syddanmark",
-        "intermediaer-indlaeggelse"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Der er en generel stigning i andelen af patienter, der efter operation bliver indlagt på en særlig overvågningsafdeling",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "intermediaer-indlaeggelse"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Ud af 3.185 opererede patienter blev 1.133 mobiliseret inden for 24 timer, hvilket svarer til 35,6 % på landsplan",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "tidlig-mobilisering"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Målet om, at mindst 90 % skulle mobiliseres, blev altså ikke nået",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "tidlig-mobilisering"
-      ],
-      "page": 97
-    },
-    {
-      "text": "I Region Nordjylland blev kun 20,3 % mobiliseret inden for 24 timer, mens tallet i Region Midtjylland var 46,4 %",
-      "type": "regional-variation",
-      "entities": [
-        "region-nordjylland",
-        "region-midtjylland",
-        "tidlig-mobilisering"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Registreringen af mobilisering er generelt blevet bedre i løbet af de seneste årsrapportperioder",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "tidlig-mobilisering"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Ingen hospitaler levede op til udviklingmålet på 90 % for tidlig mobilisering",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "tidlig-mobilisering"
-      ],
-      "page": 97
-    },
-    {
-      "text": "I alt 834 af de 3.185 opererede patienter i opgørelsesperioden fik taget stilling til ernæring indenfor 48 timer efter operation, svarende til 26,2 % nationalt",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "ernaering"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Regionalt varierede andelen af ernæringsscreening fra 6,8 % i Region Nordjylland til 33,1 % i Region Hovedstaden",
-      "type": "regional-variation",
-      "entities": [
-        "region-nordjylland",
-        "region-hovedstaden",
-        "ernaering"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Udviklingen over tid viser, registreringen for ernæring er forbedret over de seneste tre årsrapportperioder",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "ernaering"
-      ],
-      "page": 97
-    },
-    {
-      "text": "Ud af de 3.185 opererede i perioden, blev 1.661 bedøvede med epidural. Det svarer til en andel på 52,2 % (95 % CI: 50,4-53,9)",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "epidural"
-      ],
-      "page": 98
-    },
-    {
-      "text": "Udviklingmålet for epidural er > 60 %, og er endnu ikke opfyldt",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "epidural"
-      ],
-      "page": 98
-    },
-    {
-      "text": "Regionalt varierede andelen af epidural fra 41,9 % i Region Nordjylland til 56,8 % i Region Syddanmark",
-      "type": "regional-variation",
-      "entities": [
-        "region-nordjylland",
-        "region-syddanmark",
-        "epidural"
-      ],
-      "page": 98
-    },
-    {
-      "text": "Udviklingen over tid viser, der er overordnet fremgang i epidural-behandling i den aktuelle periode sammenlignet med tidligere",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "epidural"
-      ],
-      "page": 98
-    },
-    {
-      "text": "Der indgik 3.179 forløb i indikatoranalysen for 30-dages mortalitet. Heraf døde 376 personer, svarende til 11,8 % (95 % CI: 10,7-13,0) indenfor 30 dage fra ankomst til sygehus",
-      "type": "mortality-outcome",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "mortalitet-indenfor-30-dage"
-      ],
-      "page": 98
-    },
-    {
-      "text": "Målsætningen på < 15 % for 30-dages mortalitet var opfyldt på nationalt niveau",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "mortalitet-indenfor-30-dage"
-      ],
-      "page": 98
-    },
-    {
-      "text": "Regionalt varierede 30-dages mortaliteten fra 10,6 % i Region Sjælland til 14,0 % i Region Nordjylland",
-      "type": "regional-variation",
-      "entities": [
-        "region-sjaelland",
-        "region-nordjylland",
-        "mortalitet-indenfor-30-dage"
-      ],
-      "page": 98
-    },
-    {
-      "text": "Alle regioner opfyldte udviklingmålet for 30-dages mortalitet i perioden",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "mortalitet-indenfor-30-dage"
-      ],
-      "page": 98
-    },
-    {
-      "text": "Der indgik 3.179 patienter i indikatoranalysen for 90-dages mortalitet. Heraf døde 529 personer, svarende til 16,6 % indenfor 90 dage fra ankomst til sygehus",
-      "type": "mortality-outcome",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "mortalitet-indenfor-90-dage"
-      ],
-      "page": 98
-    },
-    {
-      "text": "Målet på < 20 % for 90-dages mortalitet var opfyldt på nationalt niveau",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "mortalitet-indenfor-90-dage"
-      ],
-      "page": 98
-    },
-    {
-      "text": "Regionalt varierede 90-dages mortaliteten fra 15,7 % i Region Sjælland til 19,6 % i Region Nordjylland",
-      "type": "regional-variation",
-      "entities": [
-        "region-sjaelland",
-        "region-nordjylland",
-        "mortalitet-indenfor-90-dage"
-      ],
-      "page": 98
-    },
-    {
-      "text": "Alle regioner opfyldte målet for 90-dages mortalitet i perioden",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "mortalitet-indenfor-90-dage"
-      ],
-      "page": 98
-    },
-    {
-      "text": "Blandt de indberettende enheder opfyldte 17 af de 20 målet for 90-dages mortalitet i perioden",
-      "type": "quality-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "mortalitet-indenfor-90-dage"
-      ],
-      "page": 98
-    },
-    {
-      "text": "Mortaliteten er steget i perioden, trods det at procesindikatorerne er forbedrede",
-      "type": "mortality-outcome",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "mortalitet-indenfor-90-dage"
-      ],
-      "page": 99
+      "page": 96
     }
   ],
   "timeline": [
     {
-      "date": "1. oktober 2022",
-      "event": "Det blev muligt at registrere præoperativ optimering eller direkte operation i Akut Kirurgi Databasen",
+      "date": "2025-02-28",
+      "event": "Endelig version af Akut Kirurgi Databasen til offentliggørelse blev udgivet",
       "entities": [
         "akut-kirurgi-databasen",
-        "praeoperativ-optimering"
+        "sundhedsvaesenets-kvalitetsinstitut"
+      ]
+    },
+    {
+      "date": "2022-10-01",
+      "event": "Indikator 3 blev indført med mulighed for registrering af præoperativ optimering eller direkte til operation",
+      "entities": [
+        "indikator-3"
       ]
     }
   ],
-  "context": "Denne rapport dokumenterer årsresultaterne for Akut Kirurgi Databasen, som registrerer og overvåger kvaliteten af akut kirurgisk behandling i Danmark gennem ti indikatorer, der følger patientens vej fra ankomst til sygehus til 90 dage efter operation. Rapporten viser, at mens nogle indikatorer som 30- og 90-dages mortalitet opfylder målene, er der betydelige udfordringer med processindikatorer som antibiotikabehandling, CT-skanning, præoperativ optimering, operation inden for 6 timer, tidlig mobilisering og ernæringsscreening, hvor langt færre patienter end målet opnår den ønskede behandling inden for de fastsatte tidsrammer. Der er også markante regionale variationer i performance på tværs af de fem danske regioner, hvilket indikerer behov for systematisk kvalitetsudvikling på nationalt plan.",
-  "tables": []
+  "tables": [],
+  "context": "Denne PDF-klokke (sider 96–100) er en del af Årsrapporten for Akut Kirurgi Databasen, udgivet af Sundhedsvæsenets Kvalitetsinstitut, og præsenterer resultaterne fra kvalitetsmålinger for akut kirurgi i Danmark i 2024. Rapporten bygger på data fra Landspatientregisteret og omfatter ti kliniske indikatorer, der dækker hele patientforløbet fra ankomst til sygehuset, gennem diagnosering og behandling, til postoperative pleje og outcome. Den beskriver systematiske udfordringer ved implementering af evidensbaserede processer — som hurtig antibiotikabehandling, CT-skanning og tidlig mobilisering — samt regional variation i kvalitetsniveau, hvilket understreger behovet for koordineret forbedringsarbejde på tværs af regionerne. Samtidig dokumenterer den videnskabelig aktivitet, der bygger på databasens data, hvilket bekræfter dens rolle som et centralt redskab for klinisk kvalitetsudvikling og forskning i akut kirurgi."
 }

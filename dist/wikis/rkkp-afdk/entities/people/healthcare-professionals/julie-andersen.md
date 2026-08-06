@@ -4,46 +4,88 @@ type: entity
 aliases:
   - Julie Andersen
 wiki: rkkp-afdk
-updated: '2026-08-03T19:14:15.565Z'
+updated: '2026-08-05T19:20:57.179Z'
 sources:
-  - file: AFDK_2023.pdf
+  - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: '1-5, 81-85'
-  - file: AFDK_2024.pdf
+  - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: '1-5, 66-70'
 tags:
   - person
 ---
+Julie Andersen is a quality consultant (*kvalitetskonsulent*) holding a Master of Science in Public Health (*cand.scient.san.*) [^src2]. She is employed by the [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] (RKKP) and operates under [[region-midtjylland|Region Midtjylland]], which serves as the data controller authority for the registry [^src2] [^src4]. 
 
-# Julie Andersen
-
-Julie Andersen is a quality consultant (kvalitetskonsulent, cand.scient.san.) employed by [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] (RKKP), the organization that administers Danish national clinical quality registries [^src1][^src4]. She is named as the responsible quality consultant on the front matter of both the 2023 and 2024 annual reports of the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (AFDK) [^src1][^src3], and she is listed among the named contributors in the AFDK steering-group/contributor sections of both reports [^src2][^src4].
-
-Her role is specifically that of contact person: in the 2023 report she is identified as the RKKP contact point for the atrial fibrillation database [^src2], and in the 2024 report she is explicitly named as "RKKP's kontaktperson" for the database, with contact details given as email juland@rkkp.dk and telephone 2478 7018 [^src3]. Her affiliation is recorded in both reports as RKKP, with one listing in each report further specifying Region Midtjylland as part of her institutional affiliation alongside RKKP [^src2][^src4].
-
-Within the broader AFDK story, Julie Andersen's role situates her at the administrative core of a national quality register that tracks treatment of atrial fibrillation in Denmark. The AFDK 2023 report covers the period 1 July 2022 to 30 June 2023 and includes 19,671 incident and 134,810 prevalent patients, while the 2024 report covers 1 July 2023 to 30 June 2024 and includes 22,073 incident and 136,420 prevalent patients, marking the first year data from practicing cardiologists were included. As the person named as RKKP's point of contact for the AFDK reports across both years, she serves as the administrative link between the database's steering group — chaired by Lars Frost — and readers or stakeholders seeking clarification on the report's content.
+Andersen serves as the primary contact person for the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (AFDK) and its associated publications, including the [[afdk-aarsrapport-2023|Årsrapport 2023]] [^src1] [^src2] [^src4]. In this capacity, she is the operational lead for communication, coordination, and technical support regarding the release and utilization of the AFDK annual reports [^src1] [^src3]. Her direct contact details, including her email (juland@rkkp.dk), are prominently listed in the reports to field inquiries from healthcare professionals and policymakers [^src3].
 
 ## Mentions
-
-- Page 1: "Kvalitetskonsulent Julie Andersen, Regionernes Kliniske Kvalitetsudviklingsprogram" [^src1]
-- Page 83: "Julie Andersen, Kvalitetskonsulent, cand.scient.san. RKKP" [^src2]
-- Page 83: "Julie Andersen, Kvalitetskonsulent, cand.scient.san. Region Midtjylland, RKKP" [^src2]
-- Page 2: "Julie Andersen, Regionernes Kliniske Kvalitetsudviklingsprogram, juland@rkkp.dk, tlf: 2478 7018" [^src3]
-- Page 70: "Julie Andersen, Kvalitetskonsulent, cand.scient.san. RKKP" [^src4]
-- Page 70: "Julie Andersen, Kvalitetskonsulent, cand.scient.san. Region Midtjylland, RKKP" [^src4]
+- Page 1: "Henvendelse vedr. rapporten til:
+Kvalitetskonsulent Julie Andersen
+Regionernes Kliniske Kvalitetsudviklingsprogram" [^src1]
+- Page 83: "Kontaktperson Julie Andersen, Kvalitetskonsulent, cand.scient.san.
+RKKP" [^src2]
+- Page 83: "Repræsentant for den
+dataansvarlige myndighed
+Julie Andersen, Kvalitetskonsulent, cand.scient.san.
+Region Midtjylland, RKKP" [^src2]
+- Page 2: "Julie Andersen
+Regionernes Kliniske Kvalitetsudviklingsprogram
+juland@rkkp.dk" [^src3]
+- Page 70: "Kontaktperson Julie Andersen, Kvalitetskonsulent, cand.scient.san. RKKP" [^src4]
+- Page 70: "Repræsentant for den dataansvarlige myndighed Julie Andersen, Kvalitetskonsulent, cand.scient.san. Region Midtjylland, RKKP" [^src4]
 
 ## Relationships
+- Subject: julie-andersen
+  Predicate: is-contact-person-for
+  Object: afdk-aarsrapport-2023
+  Evidence: "Henvendelse vedr. rapporten til:
+Kvalitetskonsulent Julie Andersen
+Regionernes Kliniske Kvalitetsudviklingsprogram"
+  Page: 1
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 1-5 [^src1]
 
-- **julie-andersen** works-for **regionernes-kliniske-kvalitetsudviklingsprogram** — Evidence: "Kvalitetskonsulent Julie Andersen, Regionernes Kliniske Kvalitetsudviklingsprogram" [^src1]
-- **julie-andersen** serves-as-contact-person-for **databasen-for-atrieflimren-i-danmark** — Evidence: "Julie Andersen, Kvalitetskonsulent, cand.scient.san. RKKP listed as Kontaktperson" [^src2]
-- **julie-andersen** is-contact-person-for **databasen-for-atrieflimren-i-danmark** — Evidence: "RKKP's kontaktperson: Julie Andersen, Regionernes Kliniske Kvalitetsudviklingsprogram" [^src3]
-- **julie-andersen** works-at **regionernes-kliniske-kvalitetsudviklingsprogram** — Evidence: "Julie Andersen, Kvalitetskonsulent, cand.scient.san. RKKP" [^src4]
+- Subject: julie-andersen
+  Predicate: is-contact-person-for
+  Object: databasen-for-atrieflimren-i-danmark
+  Evidence: "Kontaktperson Julie Andersen, Kvalitetskonsulent, cand.scient.san.
+RKKP"
+  Page: 83
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 81-85 [^src2]
+
+- Subject: julie-andersen
+  Predicate: represents
+  Object: regionernes-kliniske-kvalitetsudviklingsprogram
+  Evidence: "Repræsentant for den
+dataansvarlige myndighed
+Julie Andersen, Kvalitetskonsulent, cand.scient.san.
+Region Midtjylland, RKKP"
+  Page: 83
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 81-85 [^src2]
+
+- Subject: julie-andersen
+  Predicate: is-contact-person-for
+  Object: regionernes-kliniske-kvalitetsudviklingsprogram
+  Evidence: "RKKP's kontaktperson: Julie Andersen"
+  Page: 2
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 1-5 [^src3]
+
+- Subject: julie-andersen
+  Predicate: is-contact-person-for
+  Object: databasen-for-atrieflimren-i-danmark
+  Evidence: "Kontaktperson Julie Andersen, Kvalitetskonsulent, cand.scient.san. RKKP"
+  Page: 70
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 66-70 [^src4]
+
+- Subject: julie-andersen
+  Predicate: represents
+  Object: region-midtjylland
+  Evidence: "Repræsentant for den dataansvarlige myndighed Julie Andersen, Kvalitetskonsulent, cand.scient.san. Region Midtjylland, RKKP"
+  Page: 70
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 66-70 [^src4]
 
 ## Claims
-
 (none)
 
 ## Timeline
-
 (none)
 
 ## Sources

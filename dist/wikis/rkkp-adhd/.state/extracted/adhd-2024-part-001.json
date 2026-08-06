@@ -1,27 +1,44 @@
 {
   "entities": [
     {
-      "name": "ADHD-databasen",
+      "name": "ADHD-DATABASEN",
       "type": "organization",
       "slug": "adhd-databasen",
-      "folder": "entities/organizations/health-registries",
-      "significance": "ADHD-databasen er den centrale kvalitetsregistry for ADHD-diagnostik og -behandling i Danmark, hvis årsrapport for 2024 dokumenterer indikatorer for behandlingskvalitet på tværs af børne-, ungdoms- og voksenpopulationen.",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "ADHD-DATABASEN er den centrale kvalitetsdatabase, der overvåger og rapporterer behandlingskvaliteten for ADHD i det danske sundhedsvæsen, og dens årsrapport 2024 udgør den primære kilde til alle indikatorbaserede konklusioner og anbefalinger i dette dokument.",
       "mentions": [
         {
           "page": 1,
-          "context": "ADHD-DATABASEN Årsrapport 2024 Den 1. april 2024 til 31. marts 2025"
+          "context": "ADHD-DATABASEN"
         },
         {
           "page": 1,
-          "context": "Forpersoner for ADHD-databasen: Shelagh Powell, Overlæge"
+          "context": "Årsrapport 2024"
         },
         {
           "page": 1,
-          "context": "Sundhedsvæsenets Kvalitetsinstituts kontaktperson for ADHD-databasen: Kvalitetskonsulent Mette Hedelund"
+          "context": "Den 1. april 2024 til 31. marts 2025"
         },
         {
           "page": 1,
-          "context": "For første gang er der i ADHD-databasens årsrapport data fra voksenpopulationen samt fra privathospitaler"
+          "context": "Offentlig: 16. februar 2026"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesnets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-standards",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er udgiver af årsrapporten og ansvarlig for at udarbejde analyserne, hvilket gør det til den tekniske og vidensmæssige drivkraft bag ADHD-databasens kvalitetsmåling.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Årsrapportens analyser er udarbejdet af Sundhedsvæsenets Kvalitetsinstitut."
+        },
+        {
+          "page": 1,
+          "context": "Udgiver:\nSundhedsvæsenets Kvalitetsinstitut"
         }
       ]
     },
@@ -30,11 +47,11 @@
       "type": "person",
       "slug": "shelagh-powell",
       "folder": "entities/people/healthcare-professionals",
-      "significance": "Shelagh Powell er overlæge og medleder af ADHD-databasen, ansvarlig for Team 2 for skolebørnspsykiatri ved BUA på Aarhus Universitetshospital.",
+      "significance": "Shelagh Powell er en af de to forpersoner for ADHD-databasen og fungerer som overlæge i Team 2 for skolebørnspsykiatri på Børne- og Ungdomspsykiatrisk Afdeling (BUA) ved Aarhus Universitetshospital, Psykiatrien, hvilket giver hende direkte faglig og operativ indflydelse på databasens indhold og anvendelse.",
       "mentions": [
         {
           "page": 1,
-          "context": "Forpersoner for ADHD-databasen: Shelagh Powell, Overlæge Team 2 for skolebørnspsykiatri Børne- og Ungdomspsykiatrisk Afdeling (BUA) Aarhus Universitetshospital, Psykiatrien"
+          "context": "Shelagh Powell, Overlæge\nTeam 2 for skolebørnspsykiatri\nBørne- og Ungdomspsykiatrisk Afdeling (BUA)\nAarhus Universitetshospital, Psykiatrien"
         }
       ]
     },
@@ -43,71 +60,24 @@
       "type": "person",
       "slug": "simon-hjerrild",
       "folder": "entities/people/healthcare-professionals",
-      "significance": "Simon Hjerrild er overlæge, klinisk lektor og PhD, og medleder af ADHD-databasen, ansvarlig for Team for ADHD ved Aarhus Universitetshospital og DPS Midtjylland.",
+      "significance": "Simon Hjerrild er den anden forperson for ADHD-databasen og fungerer som overlæge og klinisk lektor med PhD i Team for ADHD, klinik 2, afdeling for psykoser ved Aarhus Universitetshospital, Psykiatrien og DPS Midtjylland, hvilket understreger hans centralt faglige engagement i ADHD-diagnostik og behandling.",
       "mentions": [
         {
           "page": 1,
-          "context": "Simon Hjerrild, Overlæge, Klinisk lektor, PhD Team for ADHD, klinik 2, afdeling for psykoser Aarhus Universitetshospital, Psykiatrien DPS Midtjylland"
+          "context": "Simon Hjerrild, Overlæge, Klinisk lektor, PhD\nTeam for ADHD, klinik 2, afdeling for psykoser\nAarhus Universitetshospital, Psykiatrien\nDPS Midtjylland"
         }
       ]
     },
     {
-      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "name": "Styregruppen",
       "type": "organization",
-      "slug": "sundk",
-      "folder": "entities/organizations/health-administration",
-      "significance": "Sundhedsvæsenets Kvalitetsinstitut (SundK) er udgiver af ADHD-databasens årsrapport og har udarbejdet analyserne samt kontaktperson for databasen.",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Styregruppen er den styringsmæssige og overvågningsmæssige enhed, der har auditeret og kommenteret årsrapporten, hvilket gør den til den formelle beslutnings- og godkendelsesmyndighed bag rapportens validitet og politiske relevans.",
       "mentions": [
         {
           "page": 1,
-          "context": "Årsrapportens analyser er udarbejdet af Sundhedsvæsenets Kvalitetsinstitut"
-        },
-        {
-          "page": 1,
-          "context": "Udgiver: Sundhedsvæsenets Kvalitetsinstitut Hedeager 3 8200 Aarhus N www.SundK.dk"
-        }
-      ]
-    },
-    {
-      "name": "Børne- og Ungdomspsykiatrisk Afdeling (BUA)",
-      "type": "organization",
-      "slug": "bua",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "BUA på Aarhus Universitetshospital er en central aktør i ADHD-diagnostik for børn og unge, hvor Shelagh Powell leder Team 2 for skolebørnspsykiatri.",
-      "mentions": [
-        {
-          "page": 1,
-          "context": "Børne- og Ungdomspsykiatrisk Afdeling (BUA) Aarhus Universitetshospital, Psykiatrien"
-        }
-      ]
-    },
-    {
-      "name": "Aarhus Universitetshospital, Psykiatrien",
-      "type": "organization",
-      "slug": "aarhus-universitetshospital-psykiatrien",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Universitetshospital Psykiatrien er hjemsted for både BUA og Team for ADHD, og er en vigtig institution i ADHD-diagnostik og -behandling i Danmark.",
-      "mentions": [
-        {
-          "page": 1,
-          "context": "Aarhus Universitetshospital, Psykiatrien"
-        }
-      ]
-    },
-    {
-      "name": "DPS Midtjylland",
-      "type": "organization",
-      "slug": "dps-midtjylland",
-      "folder": "entities/organizations/psychiatric-groups",
-      "significance": "DPS Midtjylland er en psykiatrisk gruppe hvor Simon Hjerrild arbejder, og som har været særligt fokuseret på registreringspraksis og forkortede udredningsforløb.",
-      "mentions": [
-        {
-          "page": 1,
-          "context": "DPS Midtjylland"
-        },
-        {
-          "page": 5,
-          "context": "I region midt har der været særligt fokus på registreringspraksis samt en prøvehandling med forkortede udredningsforløb"
+          "context": "Rapporten er auditeret og kommenteret af\nstyregruppen."
         }
       ]
     },
@@ -116,200 +86,202 @@
       "type": "person",
       "slug": "mette-hedelund",
       "folder": "entities/people/healthcare-professionals",
-      "significance": "Mette Hedelund er kvalitetskonsulent ved Sundhedsvæsenets Kvalitetsinstitut og kontaktperson for ADHD-databasen.",
+      "significance": "Mette Hedelund er kvalitetskonsulent hos Sundhedsvæsenets Kvalitetsinstitut og den officielle kontaktperson for ADHD-databasen, hvilket gør hende til den primære administrative og operationelle kontakt for brugere af databasen.",
       "mentions": [
         {
           "page": 1,
-          "context": "Sundhedsvæsenets Kvalitetsinstituts kontaktperson for ADHD-databasen: Kvalitetskonsulent Mette Hedelund, Telefon: (+45) 51258301 E-mail: metheu@sundk.dk"
-        }
-      ]
-    },
-    {
-      "name": "Region Midt",
-      "type": "organization",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations/countries",
-      "significance": "Region Midt har vist særligt fokus på forbedring af registreringspraksis og implementering af forkortede udredningsforløb, hvilket har resulteret i fremgang på udredningsindikatorerne.",
-      "mentions": [
-        {
-          "page": 5,
-          "context": "Stigning kan ses i flere regioner, mest udtalt i Region Midt. I region midt har der været særligt fokus på registreringspraksis samt en prøvehandling med forkortede udredningsforløb"
+          "context": "Sundhedsvæsenets Kvalitetsinstituts kontaktperson for ADHD-databasen:\nKvalitetskonsulent Mette Hedelund,\nTelefon: (+45) 51258301\nE-mail: metheu@sundk.dk"
         }
       ]
     },
     {
       "name": "DMPG-retningslinjen: Udredning af ADHD hos børn og unge i hospitalsregi og speciallægepraksis",
-      "type": "topic",
-      "slug": "dmpg-guideline-adhd-children-youth",
-      "folder": "topics/guideline-development",
-      "significance": "DMPG-retningslinjen udkom i starten af 2025 og har haft betydning for ledelsesmæssig opbakning til at opprioritere udredningselementer, hvilket flere regioner rapporterer.",
+      "type": "document",
+      "slug": "dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis",
+      "folder": "topics/policy/mental-health-strategy",
+      "significance": "DMPG-retningslinjen fra starten af 2025 er en ny, ledelsesmæssigt støttet vejledning, der direkte påvirker prioriteringen af udredningselementer i ADHD-databasen og er nævnt som en afgørende faktor for forbedringer i registreringspraksis og indikatoropfyldelse.",
       "mentions": [
         {
           "page": 5,
-          "context": "Flere regioner giver udtryk for at DMPG-retningslinjen: Udredning af ADHD hos børn og unge i hospitalsregi og speciallægepraksis, som udkom i starten af 2025, har haft betydning ift. at der er kommet ledelsesmæssig opbakning til at opprioritere de udredningselementer, der anbefales i DMPG-retningslinjen"
+          "context": "DMPG-retningslinjen: Udredning af ADHD hos børn og unge i hospitalsregi\nog speciallægepraksis, som udkom i starten af 2025, har haft betydning ift. at der er kommet\nledelsesmæssig opbakning til at opprioritere de udredningselementer, der anbefales i DMPG-retningslinjen."
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland fremhæves som den region, hvor der er set den mest udtalte stigning i indikatoropfyldelse samt særligt fokus på registreringspraksis og prøvehandling med forkortede udredningsforløb, hvilket gør den til et central eksempel på succesfuld implementering.",
+      "mentions": [
+        {
+          "page": 5,
+          "context": "Stigning kan ses i flere regioner, mest udtalt i Region Midt. I region midt har der været særligt fokus på\nregistreringspraksis samt en prøvehandling med forkortede udredningsforløb."
+        }
+      ]
+    },
+    {
+      "name": "Børne- og Ungdomspsykiatrisk Afdeling (BUA)",
+      "type": "organization",
+      "slug": "boerne-og-ungdomspsykiatrisk-afd-40",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "significance": "Børne- og Ungdomspsykiatrisk Afdeling (BUA) er den specifikke afdeling, hvor både Shelagh Powell og Simon Hjerrild er placeret, og som dermed fungerer som et centralt fagligt og organisatorisk knudepunkt for ADHD-databasens udvikling og anvendelse i børne- og ungdomspsykiatrien.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Børne- og Ungdomspsykiatrisk Afdeling (BUA)\nAarhus Universitetshospital, Psykiatrien"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital, Psykiatrien",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital-psykiatrien",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital, Psykiatrien er det institutionelle hjemsted for både Shelagh Powell og Simon Hjerrild samt for Børne- og Ungdomspsykiatrisk Afdeling (BUA), hvilket gør det til et centralt akademisk og klinisk referencecenter for ADHD-databasens faglige grundlag.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Børne- og Ungdomspsykiatrisk Afdeling (BUA)\nAarhus Universitetshospital, Psykiatrien"
+        },
+        {
+          "page": 1,
+          "context": "Team for ADHD, klinik 2, afdeling for psykoser\nAarhus Universitetshospital, Psykiatrien"
+        }
+      ]
+    },
+    {
+      "name": "DPS Midtjylland",
+      "type": "organization",
+      "slug": "dps-midtjylland",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "significance": "DPS Midtjylland er den regionale psykiatriske tjeneste, hvor Simon Hjerrild også er ansat, hvilket understreger den tværgående organisationelle forankring af ADHD-databasens forpersoner mellem universitetshospital og regional tjeneste.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "DPS Midtjylland"
         }
       ]
     }
   ],
   "relationships": [
     {
+      "subject": "adhd-databasen",
+      "predicate": "is-audited-by",
+      "object": "styregruppen",
+      "evidence": "Rapporten er auditeret og kommenteret af styregruppen.",
+      "page": 1
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "is-analyzed-by",
+      "object": "sundhedsvaesnets-kvalitetsinstitut",
+      "evidence": "Årsrapportens analyser er udarbejdet af Sundhedsvæsenets Kvalitetsinstitut.",
+      "page": 1
+    },
+    {
       "subject": "shelagh-powell",
-      "predicate": "is-leader-of",
-      "object": "bua",
-      "evidence": "Shelagh Powell, Overlæge Team 2 for skolebørnspsykiatri Børne- og Ungdomspsykiatrisk Afdeling (BUA)",
+      "predicate": "is-forperson-of",
+      "object": "adhd-databasen",
+      "evidence": "Forpersoner for ADHD-databasen:\nShelagh Powell, Overlæge",
+      "page": 1
+    },
+    {
+      "subject": "simon-hjerrild",
+      "predicate": "is-forperson-of",
+      "object": "adhd-databasen",
+      "evidence": "Forpersoner for ADHD-databasen:\nSimon Hjerrild, Overlæge, Klinisk lektor, PhD",
+      "page": 1
+    },
+    {
+      "subject": "shelagh-powell",
+      "predicate": "works-at",
+      "object": "boerne-og-ungdomspsykiatrisk-afd-40",
+      "evidence": "Shelagh Powell, Overlæge\nTeam 2 for skolebørnspsykiatri\nBørne- og Ungdomspsykiatrisk Afdeling (BUA)\nAarhus Universitetshospital, Psykiatrien",
+      "page": 1
+    },
+    {
+      "subject": "simon-hjerrild",
+      "predicate": "works-at",
+      "object": "boerne-og-ungdomspsykiatrisk-afd-40",
+      "evidence": "Simon Hjerrild, Overlæge, Klinisk lektor, PhD\nTeam for ADHD, klinik 2, afdeling for psykoser\nAarhus Universitetshospital, Psykiatrien\nDPS Midtjylland",
       "page": 1
     },
     {
       "subject": "simon-hjerrild",
       "predicate": "works-at",
       "object": "dps-midtjylland",
-      "evidence": "Simon Hjerrild, Overlæge, Klinisk lektor, PhD Team for ADHD, klinik 2, afdeling for psykoser Aarhus Universitetshospital, Psykiatrien DPS Midtjylland",
+      "evidence": "Simon Hjerrild, Overlæge, Klinisk lektor, PhD\nTeam for ADHD, klinik 2, afdeling for psykoser\nAarhus Universitetshospital, Psykiatrien\nDPS Midtjylland",
       "page": 1
     },
     {
-      "subject": "bua",
-      "predicate": "is-part-of",
-      "object": "aarhus-universitetshospital-psykiatrien",
-      "evidence": "Børne- og Ungdomspsykiatrisk Afdeling (BUA) Aarhus Universitetshospital, Psykiatrien",
-      "page": 1
-    },
-    {
-      "subject": "shelagh-powell",
-      "predicate": "is-leader-of",
+      "subject": "dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis",
+      "predicate": "has-impact-on",
       "object": "adhd-databasen",
-      "evidence": "Forpersoner for ADHD-databasen: Shelagh Powell, Overlæge",
-      "page": 1
+      "evidence": "DMPG-retningslinjen [...] har haft betydning ift. at der er kommet ledelsesmæssig opbakning til at opprioritere de udredningselementer, der anbefales i DMPG-retningslinjen.",
+      "page": 5
     },
     {
-      "subject": "simon-hjerrild",
-      "predicate": "is-leader-of",
+      "subject": "region-midtjylland",
+      "predicate": "shows-improvement-in",
       "object": "adhd-databasen",
-      "evidence": "Forpersoner for ADHD-databasen: Simon Hjerrild, Overlæge, Klinisk lektor, PhD",
-      "page": 1
-    },
-    {
-      "subject": "mette-hedelund",
-      "predicate": "works-at",
-      "object": "sundk",
-      "evidence": "Sundhedsvæsenets Kvalitetsinstituts kontaktperson for ADHD-databasen: Kvalitetskonsulent Mette Hedelund",
-      "page": 1
-    },
-    {
-      "subject": "sundk",
-      "predicate": "publishes",
-      "object": "adhd-databasen",
-      "evidence": "Udgiver: Sundhedsvæsenets Kvalitetsinstitut",
-      "page": 1
+      "evidence": "Stigning kan ses i flere regioner, mest udtalt i Region Midt. I region midt har der været særligt fokus på registreringspraksis samt en prøvehandling med forkortede udredningsforløb.",
+      "page": 5
     }
   ],
   "claims": [
     {
-      "text": "For første gang er der i ADHD-databasens årsrapport data fra voksenpopulationen samt fra privathospitaler [^src1]",
-      "type": "observation",
+      "text": "Årsrapporten dækker perioden fra den 1. april 2024 til 31. marts 2025 [^src1]",
+      "type": "temporal",
       "entities": [
         "adhd-databasen"
       ],
       "page": 1
     },
     {
-      "text": "Fra voksenpopulationen i hospitalsregi er der ikke nogen regioner, der opfylder indikatorerne for psykoedukation, psykoterapi eller vurdering af sociale støttebehov [^src1]",
-      "type": "clinical-outcome",
+      "text": "Årsrapporten blev offentliggjort den 16. februar 2026 [^src1]",
+      "type": "temporal",
       "entities": [
         "adhd-databasen"
       ],
       "page": 1
     },
     {
-      "text": "Der ses et klart forbedringspotentiale i forhold til indikatoropfyldelse for psykoedukation, hvor der fremover skal arbejdes målrettet med korrekt registrering og dataindberetning [^src1]",
-      "type": "action-plan",
+      "text": "For første gang indeholder årsrapporten data fra voksenpopulationen samt fra privathospitaler [^src1]",
+      "type": "structural",
       "entities": [
         "adhd-databasen"
       ],
-      "page": 1
-    },
-    {
-      "text": "Indikatoren omkring psykoterapi viser, at der ikke reelt leveres psykoterapi rettet mod ADHD i den hospitalsbaserede psykiatri [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 1
-    },
-    {
-      "text": "Hovedparten af voksne danskere med ADHD udredes og behandles i speciallægepraksis [^src1]",
-      "type": "epidemiological",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 1
-    },
-    {
-      "text": "Tallene fra Børne-og Ungdomspsykiatrien afspejler et meget presset system præget af et stigende antal blevet, utilstrækkelige personaleressourcer og uacceptabelt lange ventetider [^src1]",
-      "type": "observation",
-      "entities": [
-        "bua"
-      ],
-      "page": 1
-    },
-    {
-      "text": "Kravet om udredning indenfor 120 dage er svært at opfylde [^src1]",
-      "type": "clinical-standard",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 1
+      "page": 5
     },
     {
       "text": "Der er massive problemer med registreringspraksis, således at udførte elementer ikke registreres [^src1]",
-      "type": "procedural",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 1
-    },
-    {
-      "text": "For første gang i flere år ses en lille fremgang på landsplan på alle udredningsindikatorerne [^src1]",
-      "type": "clinical-outcome",
+      "type": "quality-assessment",
       "entities": [
         "adhd-databasen"
       ],
       "page": 5
     },
     {
-      "text": "Stigning kan ses i flere regioner, mest udtalt i Region Midt [^src1]",
-      "type": "regional-performance",
+      "text": "Der er et meget lavt antal patienter fra privathospitalerne, hvilket tyder på ukomplette data [^src1]",
+      "type": "data-quality",
       "entities": [
+        "adhd-databasen"
+      ],
+      "page": 5
+    },
+    {
+      "text": "Der er ikke nogen regioner, der opfylder indikatorerne for psykoedukation, psykoterapi eller vurdering af sociale støttebehov for voksenpopulationen [^src1]",
+      "type": "performance",
+      "entities": [
+        "adhd-databasen",
         "region-midtjylland"
       ],
       "page": 5
     },
     {
-      "text": "I region midt har der været særligt fokus på registreringspraksis samt en prøvehandling med forkortede udredningsforløb [^src1]",
-      "type": "action-plan",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 5
-    },
-    {
-      "text": "DMPG-retningslinjen: Udredning af ADHD hos børn og unge i hospitalsregi og speciallægepraksis udkom i starten af 2025 [^src1]",
-      "type": "guideline-development",
-      "entities": [
-        "dmpg-guideline-adhd-children-youth"
-      ],
-      "page": 5
-    },
-    {
-      "text": "For første gang har vi data fra privathospitalerne. Der bemærkes et meget lavt antal patienter tydende på ukomplette data. Målopfyldelsen er lav og data vurderes inkonklusive [^src1]",
-      "type": "observation",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 5
-    },
-    {
-      "text": "Det er et stort problem, at vi mangler data fra de mange patienter, der udredes på privathospitaler og hos praktiserende speciallæger med og uden ydernummer [^src1]",
-      "type": "observation",
+      "text": "Hovedparten af voksne danskere med ADHD udredes og behandles i speciallægepraksis [^src1]",
+      "type": "demographic",
       "entities": [
         "adhd-databasen"
       ],
@@ -318,33 +290,34 @@
   ],
   "timeline": [
     {
+      "date": "2025-01-01",
+      "event": "DMPG-retningslinjen: Udredning af ADHD hos børn og unge i hospitalsregi og speciallægepraksis udkom",
+      "entities": [
+        "dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis"
+      ]
+    },
+    {
       "date": "2024-04-01",
-      "event": "Årsrapportperioden for ADHD-databasen begynder",
+      "event": "Start af måleperiode for ADHD-databasens årsrapport 2024",
       "entities": [
         "adhd-databasen"
       ]
     },
     {
       "date": "2025-03-31",
-      "event": "Årsrapportperioden for ADHD-databasen slutter",
+      "event": "Afslutning af måleperiode for ADHD-databasens årsrapport 2024",
       "entities": [
         "adhd-databasen"
       ]
     },
     {
-      "date": "2025-01-01",
-      "event": "DMPG-retningslinjen: Udredning af ADHD hos børn og unge i hospitalsregi og speciallægepraksis udkommer i starten af 2025",
-      "entities": [
-        "dmpg-guideline-adhd-children-youth"
-      ]
-    },
-    {
       "date": "2026-02-16",
-      "event": "ADHD-databasens årsrapport 2024 offentliggøres",
+      "event": "Offentliggørelse af ADHD-databasens årsrapport 2024",
       "entities": [
         "adhd-databasen"
       ]
     }
   ],
-  "context": "ADHD-databasens årsrapport for 2024 dokumenterer behandlingskvaliteten for ADHD-diagnostik og -behandling i Danmark på tværs af børne-, ungdoms- og voksenpopulationen. Rapporten, udgivet af Sundhedsvæsenets Kvalitetsinstitut og ledet af Shelagh Powell og Simon Hjerrild, viser for første gang data fra voksenpopulationen og privathospitaler, men også betydelige udfordringer i registreringspraksis, personaleressourcer og lange ventetider i børne- og ungdomspsykiatrien. Rapporten indeholder 11 indikatorer for behandlingskvalitet og dokumenterer både problemer og små fremskridt, især i Region Midt, hvor der har været særligt fokus på forbedring af registreringspraksis og implementering af forkortede udredningsforløb."
+  "tables": [],
+  "context": "Dette dokument er indledningen til ADHD-databasens årsrapport 2024 og danner den strategiske ramme for hele rapporten. Det beskriver den første fuldstændige måling af ADHD-behandlingskvalitet i Danmark, der inkluderer både børn/unge og voksne samt offentlige og private aktører — og dermed repræsenterer en historisk udvidelse af databasens rækkevidde. Rapporten fungerer som en evaluering af systemets evne til at opfylde de nationale kvalitetsindikatorer, samtidig med at den identificerer strukturelle barrierer som manglende IT-understøttelse, utilstrækkelige personaleressourcer og fragmenterede forløb mellem forskellige behandlingsaktører, hvilket sammen med manglende registrering udgør de centrale udfordringer for kvalitetsmålingen."
 }

@@ -4,85 +4,76 @@ type: entity
 aliases:
   - Esbjerg Sygehus Grindsted Sygehus
 wiki: rkkp-akdb
-updated: '2026-08-03T16:38:33.211Z'
+updated: '2026-08-05T19:04:30.010Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
-    pages: '11-15, 16-20, 31-35, 41-45, 46-50, 6-10, 61-65, 71-75'
+    pages: '41-45, 56-60, 61-65, 71-75'
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
-    pages: >-
-      11-15, 16-20, 41-45, 46-50, 51-55, 56-60, 6-10, 61-65, 66-70, 71-75,
-      76-80, 81-85
+    pages: '51-55, 6-10, 61-65, 66-70, 71-75'
 tags:
   - organization
 ---
+**Esbjerg Sygehus Grindsted Sygehus** is a hospital complex located in [[region-syddanmark|Region Syddanmark]], Denmark. It is systematically evaluated through the national Akut Kirurgi Databasen (Acute Surgery Database) to monitor clinical quality, patient safety, and treatment outcomes in acute surgical care.
+
+During the reporting period of September 1, 2022, to August 31, 2023, the hospital demonstrated strong adherence to process indicators. Notably, it achieved a 65.6% fulfillment rate for [[indikator-9|Indikator 9]] (administration of epidural during surgery), successfully meeting and exceeding the national standard threshold of >60% [^src1]. 
+
+The hospital's clinical outcomes are also closely monitored regarding 30-day mortality following acute surgery, with data stratified by patient comorbidity using the Charlson Comorbidity Index. For the 2022–2023 period, 6 out of 49 patients with a [[charlson-score-1-2|Charlson Score = 1 eller 2]] (light to moderate comorbidity) died within 30 days, representing a mortality rate of 12.2% [^src3]. In the subsequent reporting period (September 1, 2023, to August 31, 2024), the hospital recorded 9 deaths within 30 days among 45 included patients with a Charlson Score of 1 or 2 [^src8]. Additionally, for the same 2023–2024 period, 9 deaths were recorded among 45 included patients with a high comorbidity burden (Charlson Score ≥ 3) [^src8].
+
+These metrics form part of a broader national quality development effort led by the Danish Regions' Clinical Quality Development Program (RKKP), which utilizes transparent benchmarking and risk-adjusted indicators to evaluate and improve acute surgical care across the country.
 
 ## Mentions
-
-- Page 8: "Esbjerg Sygehus Grindsted Sygehus Nej 20 / 110 0 (0) 18,2 (11,5-26,7) 13,1 4,3" [^src1]
-- Page 12: "Esbjerg Sygehus Grindsted Sygehus Nej 28 / 130 0 (0) 21,5 (14,8-29,6)" [^src2]
-- Page 16: "Esbjerg Sygehus Grindsted Sygehus Nej #/# 0 (0) 0,8 (0,0-4,2)" [^src3]
-- Page 31: "Esbjerg Sygehus Grindsted Sygehus 12 / 66 12 (15) 18,2 (9,8-29,6) 22,0 20,3" [^src4]
-- Page 41: "Esbjerg Sygehus Grindsted Sygehus Ja 86 / 131 0 (0) 65,6 (56,9-73,7) 43,2 38,6" [^src5]
-- Page 49: "Esbjerg Sygehus Grindsted Sygehus Ja 11 / 131 0 (0) 8,4 (4,3-14,5)" [^src6]
-- Page 61: "Esbjerg Sygehus Grindsted Sygehus #/# 0 (0) 2,0 (0,0-10,4) 7,3 7,7" [^src7]
-- Page 71: "Esbjerg Sygehus Grindsted Sygehus 167 23,9 75 44,9 92 55,1" [^src8]
-- Page 9: "Esbjerg Sygehus Grindsted Sygehus Nej 27 / 148 0 (0) 18,2 (12,4-25,4) 18,0 13,0" [^src9]
-- Page 14: "Esbjerg Sygehus Grindsted Sygehus Nej 44 / 156 0 (0) 28,2 (21,3-36,0) 21,4 18,9" [^src10]
-- Page 19: "Esbjerg Sygehus Grindsted Sygehus Nej #/# 0 (0) 1,3 (0,2-4,5) 0,8 0,8" [^src11]
-- Page 42: "Esbjerg Sygehus Grindsted Sygehus 0 / 158 0 (0) 0,0 (0,0-2,3)" [^src12]
-- Page 47: "Esbjerg Sygehus Grindsted Sygehus Ja 97 / 158 0 (0) 61,4 (53,3-69,0)" [^src13]
-- Page 51: "Esbjerg Sygehus Grindsted Sygehus Nej 19 / 158 0 (0) 12,0 (7,4-18,1)" [^src14]
-- Page 59: "Esbjerg Sygehus Grindsted Sygehus 190 264 477 1.244" [^src15]
-- Page 61: "Esbjerg Sygehus Grindsted Sygehus 392 100,00 200 51,02 192 48,98" [^src16]
-- Page 61: "Esbjerg Sygehus Grindsted Sygehus 9 / 63 0 (0) 14,3 (6,7-25,4) 2,0 7,3" [^src16]
-- Page 66: "Esbjerg Sygehus Grindsted Sygehus 9 / 45 0 (0) 20,0 (9,6-34,6) 18,2 20,0" [^src17]
-- Page 71: "Esbjerg Sygehus Grindsted Sygehus 200 25,3 81 40,5 119 59,5" [^src18]
-- Page 76: "Esbjerg Sygehus Grindsted Sygehus 205 25,0 54,00 68,00 65,80 79,00" [^src19]
-- Page 82: "Esbjerg Sygehus Grindsted Sygehus 200 100,00 129 64,50 71 35,50" [^src20]
+- Page 41: "Esbjerg Sygehus Grindsted Sygehus" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 41-45)
+- Page 56: "Esbjerg Sygehus Grindsted Sygehus" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60)
+- Page 61: "Esbjerg Sygehus Grindsted Sygehus 6 / 49 0 (0) 12,2 (4,6-24,8) 8,9 10,8" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 61-65)
+- Page 71: "Esbjerg Sygehus Grindsted Sygehus 173 23,7 53,00 64,50 62,91 76,00" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 71-75)
+- Page 6: "Esbjerg Sygehus Grindsted Sygehus Nej 27 / 148 0 (0) 18,2 (12,4-25,4) 18,0 13,0" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 6-10)
+- Page 51: "Esbjerg Sygehus Grindsted Sygehus Nej 19 / 158 0 (0) 12,0 (7,4-18,1) 9,8 10,3" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 51-55)
+- Page 61: "Esbjerg Sygehus Grindsted Sygehus 9 / 63 0 (0) 14,3 (6,7-25,4) 2,0 7,3" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 61-65)
+- Page 66: "Esbjerg Sygehus Grindsted Sygehus" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 66-70)
+- Page 71: "Esbjerg Sygehus Grindsted Sygehus 174 23,6 53,00 65,00 63,29 76,00" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 71-75)
 
 ## Relationships
+Outgoing (this entity is the SUBJECT of these relationships):
+- Subject: esbjerg-sygehus-grindsted-sygehus
+  Predicate: meets-standard-of
+  Object: indikator-9
+  Evidence: "Esbjerg Sygehus Grindsted Sygehus Ja 86 / 131 0 (0) 65,6 (56,9-73,7) 43,2 38,6"
+  Page: 41
+  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 41-45
 
-- [[syddanmark|Syddanmark]] — Is Part Of [^src1]
-- [[region-syddanmark|Region Syddanmark]] — Is Part Of [^src3]
-- [[region-syddanmark|Region Syddanmark]] — Located In [^src4]
-- [[region-syddanmark|Region Syddanmark]] — Located In [^src5]
-- [[region-syddanmark|Region Syddanmark]] — Located In [^src6]
-- [[syddanmark-region|Syddanmark]] — Located In [^src8]
-- [[indikator-8|Indikator 8]] — Achieved Target For [^src13]
-- [[region-syddanmark|Region Syddanmark]] — Is Part Of [^src16]
-- [[region-syddanmark|Region Syddanmark]] — Is Part Of [^src19]
-- [[region-syddanmark|Region Syddanmark]] — Located In [^src20]
-- [[syddanmark|Syddanmark]] — Contains (incoming) — "Syddanmark region includes Esbjerg Sygehus Grindsted Sygehus" [^src7]
-- [[region-syddanmark|Region Syddanmark]] — Includes Hospital (incoming) — "Esbjerg Sygehus Grindsted Sygehus listed under Syddanmark region" [^src17]
-- [[region-syddanmark|Region Syddanmark]] — Contains (incoming) — "Syddanmark Region i alt includes Esbjerg Sygehus Grindsted Sygehus" [^src18]
+Incoming (this entity is the OBJECT of these relationships):
+- Subject: region-syddanmark
+  Predicate: contains-hospital
+  Object: (this entity)
+  Evidence: "Syddanmark 21 / 213 [...] Esbjerg Sygehus Grindsted Sygehus 6 / 49"
+  Page: 61
+  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 61-65
 
 ## Claims
+- Esbjerg Sygehus Grindsted Sygehus: 6 / 49 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (12,2 %; 95 % CI: 4,6-24,8) [^src1] (esbjerg-sygehus-grindsted-sygehus, charlson-score-1-2)
+  Type: hospital-statistic
+  Page: 61
+  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 61-65
+- For perioden 01.09.2023 – 31.08.2024 blev der registreret 9 patienter med død inden for 30 dage efter akut kirurgi ved Esbjerg Sygehus Grindsted Sygehus blandt 45 inkluderede patienter med Charlson Score = 1 eller 2 [^src1] (esbjerg-sygehus-grindsted-sygehus, indikator-9b)
+  Type: clinical-outcome
+  Page: 66
+  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 66-70
+- For perioden 01.09.2023 – 31.08.2024 blev der registreret 9 patienter med død inden for 30 dage efter akut kirurgi ved Esbjerg Sygehus Grindsted Sygehus blandt 45 inkluderede patienter med Charlson Score ≥ 3 [^src1] (esbjerg-sygehus-grindsted-sygehus, indikator-9c)
+  Type: clinical-outcome
+  Page: 66
+  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 66-70
 
-- Esbjerg Sygehus Grindsted Sygehus Ja 86 / 131 0 (0) 65,6 (56,9-73,7) 43,2 38,6 for epidural-indikatoren [^src5] ([[esbjerg-sygehus-grindsted-sygehus|Esbjerg Sygehus Grindsted Sygehus]])
-- For Indikator 1 på Esbjerg Sygehus Grindsted Sygehus var andelen 18,2 % (95% CI 12,4-25,4) i perioden 01.09.2023 - 31.08.2024 [^src9] ([[esbjerg-sygehus-grindsted-sygehus|Esbjerg Sygehus Grindsted Sygehus]], [[indikator-1-antibiotikabehandling|Indikator 1: Andelen af patienter, der er sat i antibiotisk behandling indenfor 3 time]])
-- Esbjerg Sygehus Grindsted Sygehus havde en andel på 0,0 % (0,0-2,3) af patienter, hvor der blev taget stilling til ernæring indenfor 48 timer efter operation [^src12] ([[esbjerg-sygehus-grindsted-sygehus|Esbjerg Sygehus Grindsted Sygehus]], [[indikator-7|Indikator 7]])
-- Esbjerg Sygehus Grindsted Sygehus havde 9 dødsfald ud af 45 patienter (20,0 %) indenfor 30 dage efter akut kirurgi blandt patienter med Charlson Score ≥ 3 [^src17] ([[esbjerg-sygehus-grindsted-sygehus|Esbjerg Sygehus Grindsted Sygehus]], [[mortalitet-indenfor-30-dage|Mortalitet indenfor 30 dage]], [[charlson-score|Charlson Score]])
+## Timeline
+(none)
 
 ## Sources
 
-[^src1]: AKDB_2023.pdf, pages 6-10
-[^src2]: AKDB_2023.pdf, pages 11-15
-[^src3]: AKDB_2023.pdf, pages 16-20
-[^src4]: AKDB_2023.pdf, pages 31-35
-[^src5]: AKDB_2023.pdf, pages 41-45
-[^src6]: AKDB_2023.pdf, pages 46-50
-[^src7]: AKDB_2023.pdf, pages 61-65
-[^src8]: AKDB_2023.pdf, pages 71-75
-[^src9]: AKDB_2024.pdf, pages 6-10
-[^src10]: AKDB_2024.pdf, pages 11-15
-[^src11]: AKDB_2024.pdf, pages 16-20
-[^src12]: AKDB_2024.pdf, pages 41-45
-[^src13]: AKDB_2024.pdf, pages 46-50
-[^src14]: AKDB_2024.pdf, pages 51-55
-[^src15]: AKDB_2024.pdf, pages 56-60
-[^src16]: AKDB_2024.pdf, pages 61-65
-[^src17]: AKDB_2024.pdf, pages 66-70
-[^src18]: AKDB_2024.pdf, pages 71-75
-[^src19]: AKDB_2024.pdf, pages 76-80
-[^src20]: AKDB_2024.pdf, pages 81-85
-
+[^src1]: AKDB_2023.pdf, pages 41-45
+[^src2]: AKDB_2023.pdf, pages 56-60
+[^src3]: AKDB_2023.pdf, pages 61-65
+[^src4]: AKDB_2023.pdf, pages 71-75
+[^src5]: AKDB_2024.pdf, pages 6-10
+[^src6]: AKDB_2024.pdf, pages 51-55
+[^src7]: AKDB_2024.pdf, pages 61-65
+[^src8]: AKDB_2024.pdf, pages 66-70
+[^src9]: AKDB_2024.pdf, pages 71-75

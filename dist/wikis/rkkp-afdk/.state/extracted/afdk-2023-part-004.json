@@ -4,8 +4,8 @@
       "name": "Databasen for Atrieflimren i Danmark",
       "type": "organization",
       "slug": "databasen-for-atrieflimren-i-danmark",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Denne database er det centrale register for atriefimren-patienter i Danmark og udgiver årsrapporter med kvalitetsindikatorer for behandling på tværs af regioner og hospitaler.",
+      "folder": "entities/organizations/health-databases",
+      "significance": "Databasen for Atrieflimren i Danmark er en national klinisk kvalitetsdatabase, der overvåger behandlingskvaliteten for nydiagnosticerede patienter med atrieflimren, og danner grundlag for årsrapporten på siderne 16–20.",
       "mentions": [
         {
           "page": 16,
@@ -17,8 +17,8 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/health-programs",
-      "significance": "RKKP er det program under hvilket Databasen for Atrieflimren i Danmark opereres og kvalitetsindikatorer rapporteres.",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) er den administrative og faglige ramme, der udgør ejerskab og driftsansvar for Databasen for Atrieflimren i Danmark, og fremgår som udgiver af rapporten på alle sider 16–20.",
       "mentions": [
         {
           "page": 16,
@@ -27,15 +27,41 @@
       ]
     },
     {
+      "name": "Indikator 2",
+      "type": "topic",
+      "slug": "indikator-2",
+      "folder": "topics/clinical-indicators",
+      "significance": "Indikator 2 er en specifik klinisk kvalitetsmåling, der kvantificerer andelen af nydiagnosticerede atrieflimren-patienter, der har fået udført ekkokardiografi inden for en defineret tidsramme, og er centrale for hele tabellen på siderne 16–17.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Indikator 2: Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før, til 3 måneder efter 1. diagnosedato."
+        }
+      ]
+    },
+    {
+      "name": "Standard: ≥80 %",
+      "type": "topic",
+      "slug": "standard-80-percent",
+      "folder": "topics/clinical-indicators",
+      "significance": "Standarden på ≥80 % fungerer som den nationale kvalitetsmål-sætning for Indikator 2 og bruges som reference til vurdering af opfyldelse på regions- og hospitalsniveau i tabellen.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Standard: ≥80 %"
+        }
+      ]
+    },
+    {
       "name": "Danmark",
       "type": "location",
       "slug": "danmark",
       "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau, hvor samlet data for ekkokardiografi-udførelse blandt nydiagnosticerede atrieflimren-patienter rapporteres.",
+      "significance": "Danmark er den nationale enhed, hvis samlede præstation for Indikator 2 rapporteres i første række af tabellen på side 16, og fungerer som benchmark for regionale sammenligninger.",
       "mentions": [
         {
           "page": 16,
-          "context": "Danmark Nej 12.876 / 16.252 0 (0) 79,2 (78,6-79,8)"
+          "context": "Danmark Nej 12.876 / 16.252 0 (0) 79,2 (78,6-79,8) 16.343 / 21.277 76,8 76,0"
         }
       ]
     },
@@ -44,11 +70,11 @@
       "type": "location",
       "slug": "hovedstaden",
       "folder": "entities/locations/regions",
-      "significance": "Hovedstaden er en dansk region med rapporterede resultater for ekkokardiografi-indikatoren blandt atrieflimren-patienter.",
+      "significance": "Hovedstaden er én af de fem danske regioner, hvis Indikator 2-præstation rapporteres separat i tabellen, og viser en underopfyldelse af standarden på 70,9 % i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Hovedstaden Nej 3.062 / 4.316 0 (0) 70,9 (69,6-72,3)"
+          "context": "Hovedstaden Nej 3.062 / 4.316 0 (0) 70,9 (69,6-72,3) 3.858 / 5.690 67,8 65,5"
         }
       ]
     },
@@ -57,11 +83,11 @@
       "type": "location",
       "slug": "sjaelland",
       "folder": "entities/locations/regions",
-      "significance": "Sjælland er en dansk region med rapporterede resultater for ekkokardiografi-indikatoren blandt atrieflimren-patienter.",
+      "significance": "Sjælland er én af de fem danske regioner, hvis Indikator 2-præstation rapporteres separat i tabellen, og viser en næsten opfyldelse af standarden på 75,9 % i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Sjælland Nej 1.984 / 2.613 0 (0) 75,9 (74,2-77,6)"
+          "context": "Sjælland Nej 1.984 / 2.613 0 (0) 75,9 (74,2-77,6) 2.603 / 3.480 74,8 75,3"
         }
       ]
     },
@@ -70,11 +96,11 @@
       "type": "location",
       "slug": "syddanmark",
       "folder": "entities/locations/regions",
-      "significance": "Syddanmark er en dansk region, der opfylder standarden for ekkokardiografi-indikatoren med 82,2 % af nydiagnosticerede atrieflimren-patienter.",
+      "significance": "Syddanmark er én af de fem danske regioner, hvis Indikator 2-præstation rapporteres separat i tabellen, og som opfylder standarden på 82,2 % i 2022/23 — den første region med 'Ja' i kolonnen 'Standard Uoplyst'.",
       "mentions": [
         {
           "page": 16,
-          "context": "Syddanmark Ja 3.107 / 3.782 0 (0) 82,2 (80,9-83,4)"
+          "context": "Syddanmark Ja 3.107 / 3.782 0 (0) 82,2 (80,9-83,4) 3.970 / 5.137 77,3 77,5"
         }
       ]
     },
@@ -83,11 +109,11 @@
       "type": "location",
       "slug": "midtjylland",
       "folder": "entities/locations/regions",
-      "significance": "Midtjylland er en dansk region, der opfylder standarden for ekkokardiografi-indikatoren med 88,5 % af nydiagnosticerede atrieflimren-patienter.",
+      "significance": "Midtjylland er én af de fem danske regioner, hvis Indikator 2-præstation rapporteres separat i tabellen, og som opfylder standarden på 88,5 % i 2022/23 — den højeste regionale andel i rapporten.",
       "mentions": [
         {
           "page": 16,
-          "context": "Midtjylland Ja 3.278 / 3.706 0 (0) 88,5 (87,4-89,5)"
+          "context": "Midtjylland Ja 3.278 / 3.706 0 (0) 88,5 (87,4-89,5) 4.175 / 4.756 87,8 87,1"
         }
       ]
     },
@@ -96,11 +122,11 @@
       "type": "location",
       "slug": "nordjylland",
       "folder": "entities/locations/regions",
-      "significance": "Nordjylland er en dansk region med rapporterede resultater for ekkokardiografi-indikatoren blandt atrieflimren-patienter.",
+      "significance": "Nordjylland er én af de fem danske regioner, hvis Indikator 2-præstation rapporteres separat i tabellen, og som ligger lige under standarden på 78,7 % i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Nordjylland Nej 1.445 / 1.835 0 (0) 78,7 (76,8-80,6)"
+          "context": "Nordjylland Nej 1.445 / 1.835 0 (0) 78,7 (76,8-80,6) 1.737 / 2.214 78,5 76,3"
         }
       ]
     },
@@ -109,11 +135,11 @@
       "type": "organization",
       "slug": "amager-og-hvidovre-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Amager og Hvidovre Hospital er et hospital i Hovedstaden-regionen med 77,1 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Amager og Hvidovre Hospital er et sygehus i Region Hovedstaden, hvis Indikator 2-præstation rapporteres i tabellen, og som ikke opfylder standarden med 77,1 % i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Amager og Hvidovre Hospital Nej 549 / 712 0 (0) 77,1 (73,8-80,1)"
+          "context": "Amager og Hvidovre Hospital Nej 549 / 712 0 (0) 77,1 (73,8-80,1) 718 / 942 76,2 70,7"
         }
       ]
     },
@@ -122,11 +148,11 @@
       "type": "organization",
       "slug": "bispebjerg-og-frederiksberg-hospitaler",
       "folder": "entities/organizations/hospitals",
-      "significance": "Bispebjerg og Frederiksberg Hospitaler er et hospital i Hovedstaden-regionen med 64,3 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Bispebjerg og Frederiksberg Hospitaler er et sygehus i Region Hovedstaden, hvis Indikator 2-præstation rapporteres i tabellen, og som har den laveste andel blandt alle sygehuse på 64,3 % i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Bispebjerg og Frederiksberg Hospitaler Nej 443 / 689 0 (0) 64,3 (60,6-67,9)"
+          "context": "Bispebjerg og Frederiksberg Hospitaler Nej 443 / 689 0 (0) 64,3 (60,6-67,9) 545 / 930 58,6 56,7"
         }
       ]
     },
@@ -135,11 +161,11 @@
       "type": "organization",
       "slug": "bornholms-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Bornholms Hospital er et hospital i Hovedstaden-regionen, der opfylder standarden med 80,6 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Bornholms Hospital er et sygehus i Region Sjælland, hvis Indikator 2-præstation rapporteres i tabellen, og som opfylder standarden på 80,6 % i 2022/23 — den første hospitalsspecifikke opfyldelse i tabellen.",
       "mentions": [
         {
           "page": 16,
-          "context": "Bornholms Hospital Ja 129 / 160 0 (0) 80,6 (73,6-86,4)"
+          "context": "Bornholms Hospital Ja 129 / 160 0 (0) 80,6 (73,6-86,4) 127 / 182 69,8 69,3"
         }
       ]
     },
@@ -148,11 +174,11 @@
       "type": "organization",
       "slug": "herlev-og-gentofte-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Herlev og Gentofte Hospital er et hospital i Hovedstaden-regionen med 63,0 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Herlev og Gentofte Hospital er et sygehus i Region Hovedstaden, hvis Indikator 2-præstation rapporteres i tabellen, og som har den næstlaveste andel blandt alle sygehuse på 63,0 % i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Herlev og Gentofte Hospital Nej 793 / 1.259 0 (0) 63,0 (60,3-65,7)"
+          "context": "Herlev og Gentofte Hospital Nej 793 / 1.259 0 (0) 63,0 (60,3-65,7) 1.057 / 1.685 62,7 62,6"
         }
       ]
     },
@@ -161,11 +187,11 @@
       "type": "organization",
       "slug": "hospitalerne-i-nordsjaelland",
       "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalerne i Nordsjælland er et hospital i Hovedstaden-regionen med 77,7 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Hospitalerne i Nordsjælland er et sygehus i Region Sjælland, hvis Indikator 2-præstation rapporteres i tabellen, og som ikke opfylder standarden med 77,7 % i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Hospitalerne i Nordsjælland Nej 727 / 936 0 (0) 77,7 (74,9-80,3)"
+          "context": "Hospitalerne i Nordsjælland Nej 727 / 936 0 (0) 77,7 (74,9-80,3) 852 / 1.203 70,8 69,6"
         }
       ]
     },
@@ -174,11 +200,11 @@
       "type": "organization",
       "slug": "rigshospitalet",
       "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet er et hospital i Hovedstaden-regionen med 75,2 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Rigshospitalet er et sygehus i Region Hovedstaden, hvis Indikator 2-præstation rapporteres i tabellen, og som ikke opfylder standarden med 75,2 % i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Rigshospitalet Nej 421 / 560 0 (0) 75,2 (71,4-78,7)"
+          "context": "Rigshospitalet Nej 421 / 560 0 (0) 75,2 (71,4-78,7) 559 / 748 74,7 69,4"
         }
       ]
     },
@@ -187,11 +213,11 @@
       "type": "organization",
       "slug": "garantiklinikken",
       "folder": "entities/organizations/hospitals",
-      "significance": "Garantiklinikken er en klinik i Sjælland-regionen, der opfylder standarden med 98,5 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Garantiklinikken er et sygehus i Region Syddanmark, hvis Indikator 2-præstation rapporteres i tabellen, og som har den højeste andel blandt alle sygehuse på 98,5 % i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Garantiklinikken Ja 192 / 195 0 (0) 98,5 (95,6-99,7)"
+          "context": "Garantiklinikken Ja 192 / 195 0 (0) 98,5 (95,6-99,7) 237 / 248 95,6 89,0"
         }
       ]
     },
@@ -200,11 +226,11 @@
       "type": "organization",
       "slug": "holbaek",
       "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk er et hospital i Sjælland-regionen, der opfylder standarden med 83,8 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Holbæk er et sygehus i Region Sjælland, hvis Indikator 2-præstation rapporteres i tabellen, og som opfylder standarden på 83,8 % i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Holbæk Ja 429 / 512 0 (0) 83,8 (80,3-86,9)"
+          "context": "Holbæk Ja 429 / 512 0 (0) 83,8 (80,3-86,9) 493 / 650 75,8 76,2"
         }
       ]
     },
@@ -213,11 +239,11 @@
       "type": "organization",
       "slug": "nykoebing-falster",
       "folder": "entities/organizations/hospitals",
-      "significance": "Nykøbing Falster er et hospital i Sjælland-regionen med 71,0 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Nykøbing Falster er et sygehus i Region Sjælland, hvis Indikator 2-præstation rapporteres i tabellen, og som ikke opfylder standarden med 71,0 % i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Nykøbing Falster Nej 319 / 449 0 (0) 71,0 (66,6-75,2)"
+          "context": "Nykøbing Falster Nej 319 / 449 0 (0) 71,0 (66,6-75,2) 443 / 613 72,3 67,6"
         }
       ]
     },
@@ -226,11 +252,11 @@
       "type": "organization",
       "slug": "naestved",
       "folder": "entities/organizations/hospitals",
-      "significance": "Næstved er et hospital i Sjælland-regionen med 70,6 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Næstved er et sygehus i Region Sjælland, hvis Indikator 2-præstation rapporteres i tabellen, og som ikke opfylder standarden med 70,6 % i 2022/23 — med stor usikkerhed på grund af lavt antal.",
       "mentions": [
         {
           "page": 16,
-          "context": "Næstved Nej 12 / 17 0 (0) 70,6 (44,0-89,7)"
+          "context": "Næstved Nej 12 / 17 0 (0) 70,6 (44,0-89,7) 13 / 20 65,0 37,5"
         }
       ]
     },
@@ -239,11 +265,11 @@
       "type": "organization",
       "slug": "sjaellands-universitetshospital-koege",
       "folder": "entities/organizations/hospitals",
-      "significance": "Sjællands Universitetshospital Køge er et hospital i Sjælland-regionen med 45,6 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Sjællands Universitetshospital Køge er et sygehus i Region Sjælland, hvis Indikator 2-præstation rapporteres i tabellen, og som har den laveste andel blandt alle sygehuse på 45,6 % i 2022/23 — betydeligt under standarden.",
       "mentions": [
         {
           "page": 16,
-          "context": "Sjællands Universitetshospital Køge Nej 144 / 316 0 (0) 45,6 (40,0-51,2)"
+          "context": "Sjællands Universitetshospital Køge Nej 144 / 316 0 (0) 45,6 (40,0-51,2) 204 / 420 48,6 55,5"
         }
       ]
     },
@@ -252,11 +278,11 @@
       "type": "organization",
       "slug": "sjaellands-universitetshospital-roskilde",
       "folder": "entities/organizations/hospitals",
-      "significance": "Sjællands Universitetshospital Roskilde er et hospital i Sjælland-regionen, der opfylder standarden med 81,3 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Sjællands Universitetshospital Roskilde er et sygehus i Region Sjælland, hvis Indikator 2-præstation rapporteres i tabellen, og som opfylder standarden på 81,3 % i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Sjællands Universitetshospital Roskilde Ja 457 / 562 0 (0) 81,3 (77,8-84,5)"
+          "context": "Sjællands Universitetshospital Roskilde Ja 457 / 562 0 (0) 81,3 (77,8-84,5) 575 / 702 81,9 79,7"
         }
       ]
     },
@@ -265,11 +291,11 @@
       "type": "organization",
       "slug": "slagelse",
       "folder": "entities/organizations/hospitals",
-      "significance": "Slagelse er et hospital i Sjælland-regionen med 76,7 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Slagelse er et sygehus i Region Sjælland, hvis Indikator 2-præstation rapporteres i tabellen, og som ikke opfylder standarden med 76,7 % i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Slagelse Nej 431 / 562 0 (0) 76,7 (73,0-80,1)"
+          "context": "Slagelse Nej 431 / 562 0 (0) 76,7 (73,0-80,1) 638 / 827 77,1 81,5"
         }
       ]
     },
@@ -278,11 +304,11 @@
       "type": "organization",
       "slug": "esbjerg-sygehus-grindsted-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "Esbjerg Sygehus Grindsted Sygehus er et hospital i Syddanmark-regionen med 76,5 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus er et sygehus i Region Syddanmark, hvis Indikator 2-præstation rapporteres i tabellen, og som ikke opfylder standarden med 76,5 % i 2022/23.",
       "mentions": [
         {
-          "page": 17,
-          "context": "Esbjerg Sygehus Grindsted Sygehus Nej 416 / 544 0 (0) 76,5 (72,7-80,0)"
+          "page": 16,
+          "context": "Esbjerg Sygehus Grindsted Sygehus Nej 416 / 544 0 (0) 76,5 (72,7-80,0) 538 / 812 66,3 68,0"
         }
       ]
     },
@@ -291,24 +317,25 @@
       "type": "organization",
       "slug": "friklinikken-region-syddanmark-grindsted",
       "folder": "entities/organizations/hospitals",
-      "significance": "Friklinikken Region Syddanmark Grindsted er en klinik i Syddanmark-regionen, der opfylder standarden med 98,8 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Friklinikken Region Syddanmark Grindsted er et sygehus i Region Syddanmark, hvis Indikator 2-præstation rapporteres i tabellen, og som opfylder standarden på 98,8 % i 2022/23 — næsten fuldstændig opfyldelse.",
       "mentions": [
         {
-          "page": 17,
-          "context": "Friklinikken Region Syddanmark Grindsted Ja 84 / 85 0 (0) 98,8 (93,6-100,0)"
+          "page": 16,
+          "context": "Friklinikken Region Syddanmark Grindsted Ja 84 / 85 0 (0) 98,8 (93,6-100,0) 136 / 136 100,0 100,0"
         }
       ]
     },
     {
-      "name": "Kolding Sygehus",
+      "name": "Kolding Sygehus*",
       "type": "organization",
       "slug": "kolding-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "Kolding Sygehus er et hospital i Syddanmark-regionen med 63,7 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Kolding Sygehus er et sygehus i Region Syddanmark, hvis Indikator 2-præstation rapporteres i tabellen, og som ikke opfylder standarden med 63,7 % i 2022/23 — med bred konfidensinterval pga. lavt antal.",
+      "disambiguation": "Denne entitet henviser til Kolding Sygehus som del af Sygehus Lillebælt; asterisken henviser til note på side 17 om manglende korrekt fordeling mellem Kolding og Vejle.",
       "mentions": [
         {
-          "page": 17,
-          "context": "Kolding Sygehus* Nej 72 / 113 0 (0) 63,7 (54,1-72,6)"
+          "page": 16,
+          "context": "Kolding Sygehus* Nej 72 / 113 0 (0) 63,7 (54,1-72,6) 85 / 192 44,3 50,5"
         }
       ]
     },
@@ -317,11 +344,11 @@
       "type": "organization",
       "slug": "ouh-odense-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "OUH Odense Universitetshospital er et hospital i Syddanmark-regionen med 79,6 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "OUH Odense Universitetshospital er et sygehus i Region Syddanmark, hvis Indikator 2-præstation rapporteres i tabellen, og som ligger lige under standarden med 79,6 % i 2022/23.",
       "mentions": [
         {
-          "page": 17,
-          "context": "OUH Odense Universitetshospital Nej 1.214 / 1.525 0 (0) 79,6 (77,5-81,6)"
+          "page": 16,
+          "context": "OUH Odense Universitetshospital Nej 1.214 / 1.525 0 (0) 79,6 (77,5-81,6) 1.512 / 2.007 75,3 74,3"
         }
       ]
     },
@@ -330,24 +357,25 @@
       "type": "organization",
       "slug": "sygehus-soenderjylland",
       "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Sønderjylland er et hospital i Syddanmark-regionen, der opfylder standarden med 83,0 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Sygehus Sønderjylland er et sygehus i Region Syddanmark, hvis Indikator 2-præstation rapporteres i tabellen, og som opfylder standarden på 83,0 % i 2022/23.",
       "mentions": [
         {
-          "page": 17,
-          "context": "Sygehus Sønderjylland Ja 634 / 764 0 (0) 83,0 (80,1-85,6)"
+          "page": 16,
+          "context": "Sygehus Sønderjylland Ja 634 / 764 0 (0) 83,0 (80,1-85,6) 826 / 1.017 81,2 79,3"
         }
       ]
     },
     {
-      "name": "Vejle Sygehus",
+      "name": "Vejle Sygehus*",
       "type": "organization",
       "slug": "vejle-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "Vejle Sygehus er et hospital i Syddanmark-regionen, der opfylder standarden med 91,5 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Vejle Sygehus er et sygehus i Region Syddanmark, hvis Indikator 2-præstation rapporteres i tabellen, og som opfylder standarden på 91,5 % i 2022/23 — den anden højeste andel blandt alle sygehuse.",
+      "disambiguation": "Denne entitet henviser til Vejle Sygehus som del af Sygehus Lillebælt; asterisken henviser til note på side 17 om manglende korrekt fordeling mellem Kolding og Vejle.",
       "mentions": [
         {
-          "page": 17,
-          "context": "Vejle Sygehus* Ja 687 / 751 0 (0) 91,5 (89,2-93,4)"
+          "page": 16,
+          "context": "Vejle Sygehus* Ja 687 / 751 0 (0) 91,5 (89,2-93,4) 873 / 973 89,7 90,1"
         }
       ]
     },
@@ -356,11 +384,11 @@
       "type": "organization",
       "slug": "aarhus-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Universitetshospital er et hospital i Midtjylland-regionen, der opfylder standarden med 83,5 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Aarhus Universitetshospital er et sygehus i Region Midtjylland, hvis Indikator 2-præstation rapporteres i tabellen, og som opfylder standarden på 83,5 % i 2022/23.",
       "mentions": [
         {
           "page": 17,
-          "context": "Aarhus Universitetshospital Ja 643 / 770 0 (0) 83,5 (80,7-86,1)"
+          "context": "Aarhus Universitetshospital Ja 643 / 770 0 (0) 83,5 (80,7-86,1) 809 / 957 84,5 83,4"
         }
       ]
     },
@@ -369,11 +397,11 @@
       "type": "organization",
       "slug": "hospitalsenhed-midt",
       "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalsenhed Midt er et hospital i Midtjylland-regionen, der opfylder standarden med 91,9 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Hospitalsenhed Midt er et sygehus i Region Midtjylland, hvis Indikator 2-præstation rapporteres i tabellen, og som har den højeste andel blandt alle sygehuse på 91,9 % i 2022/23.",
       "mentions": [
         {
           "page": 17,
-          "context": "Hospitalsenhed Midt Ja 916 / 997 0 (0) 91,9 (90,0-93,5)"
+          "context": "Hospitalsenhed Midt Ja 916 / 997 0 (0) 91,9 (90,0-93,5) 1.170 / 1.288 90,8 88,5"
         }
       ]
     },
@@ -382,11 +410,11 @@
       "type": "organization",
       "slug": "regionshospitalet-goedstrup",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Gødstrup er et hospital i Midtjylland-regionen, der opfylder standarden med 86,4 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Regionshospitalet Gødstrup er et sygehus i Region Midtjylland, hvis Indikator 2-præstation rapporteres i tabellen, og som opfylder standarden på 86,4 % i 2022/23.",
       "mentions": [
         {
           "page": 17,
-          "context": "Regionshospitalet Gødstrup Ja 653 / 756 0 (0) 86,4 (83,7-88,7)"
+          "context": "Regionshospitalet Gødstrup Ja 653 / 756 0 (0) 86,4 (83,7-88,7) 316 / 355 89,0"
         }
       ]
     },
@@ -395,11 +423,11 @@
       "type": "organization",
       "slug": "regionshospitalet-horsens",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Horsens er et hospital i Midtjylland-regionen, der opfylder standarden med 92,7 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Regionshospitalet Horsens er et sygehus i Region Midtjylland, hvis Indikator 2-præstation rapporteres i tabellen, og som har den tredje højeste andel blandt alle sygehuse på 92,7 % i 2022/23.",
       "mentions": [
         {
           "page": 17,
-          "context": "Regionshospitalet Horsens Ja 557 / 601 0 (0) 92,7 (90,3-94,6)"
+          "context": "Regionshospitalet Horsens Ja 557 / 601 0 (0) 92,7 (90,3-94,6) 635 / 690 92,0 94,1"
         }
       ]
     },
@@ -408,11 +436,11 @@
       "type": "organization",
       "slug": "regionshospitalet-randers",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Randers er et hospital i Midtjylland-regionen, der opfylder standarden med 87,5 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Regionshospitalet Randers er et sygehus i Region Midtjylland, hvis Indikator 2-præstation rapporteres i tabellen, og som opfylder standarden på 87,5 % i 2022/23.",
       "mentions": [
         {
           "page": 17,
-          "context": "Regionshospitalet Randers Ja 509 / 582 0 (0) 87,5 (84,5-90,0)"
+          "context": "Regionshospitalet Randers Ja 509 / 582 0 (0) 87,5 (84,5-90,0) 646 / 769 84,0 85,1"
         }
       ]
     },
@@ -421,11 +449,11 @@
       "type": "organization",
       "slug": "aalborg-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital er et hospital i Nordjylland-regionen med 74,9 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Aalborg Universitetshospital er et sygehus i Region Nordjylland, hvis Indikator 2-præstation rapporteres i tabellen, og som ikke opfylder standarden med 74,9 % i 2022/23.",
       "mentions": [
         {
           "page": 17,
-          "context": "Aalborg Universitetshospital Nej 749 / 1.000 0 (0) 74,9 (72,1-77,6)"
+          "context": "Aalborg Universitetshospital Nej 749 / 1.000 0 (0) 74,9 (72,1-77,6) 904 / 1.206 75,0 73,7"
         }
       ]
     },
@@ -434,11 +462,11 @@
       "type": "organization",
       "slug": "aalborg-universitetshospital-thisted",
       "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital Thisted er et hospital i Nordjylland-regionen med 78,2 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Aalborg Universitetshospital Thisted er et sygehus i Region Nordjylland, hvis Indikator 2-præstation rapporteres i tabellen, og som ikke opfylder standarden med 78,2 % i 2022/23.",
       "mentions": [
         {
           "page": 17,
-          "context": "Aalborg Universitetshospital Thisted Nej 165 / 211 0 (0) 78,2 (72,0-83,6)"
+          "context": "Aalborg Universitetshospital Thisted Nej 165 / 211 0 (0) 78,2 (72,0-83,6) 189 / 236 80,1 76,9"
         }
       ]
     },
@@ -447,24 +475,11 @@
       "type": "organization",
       "slug": "regionshospital-nordjylland-ven",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospital Nordjylland Ven er et hospital i Nordjylland-regionen, der opfylder standarden med 85,1 % af nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi.",
+      "significance": "Regionshospital Nordjylland Ven er et sygehus i Region Nordjylland, hvis Indikator 2-præstation rapporteres i tabellen, og som opfylder standarden på 85,1 % i 2022/23.",
       "mentions": [
         {
           "page": 17,
-          "context": "Regionshospital Nordjylland Ven Ja 531 / 624 0 (0) 85,1 (82,1-87,8)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Lillebælt",
-      "type": "organization",
-      "slug": "sygehus-lillebaelt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Lillebælt er en samlet enhed, der omfatter Kolding Sygehus og Vejle Sygehus, hvis indikatorer skal fortolkes samlet.",
-      "mentions": [
-        {
-          "page": 17,
-          "context": "Sygehus Lillebælt"
+          "context": "Regionshospital Nordjylland Ven Ja 531 / 624 0 (0) 85,1 (82,1-87,8) 644 / 772 83,4 80,5"
         }
       ]
     }
@@ -472,503 +487,561 @@
   "relationships": [
     {
       "subject": "databasen-for-atrieflimren-i-danmark",
-      "predicate": "operates-under",
+      "predicate": "is-administered-by",
       "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram er udgiver af rapporten, hvori databasen præsenteres.",
       "page": 16
     },
     {
-      "subject": "amager-og-hvidovre-hospital",
-      "predicate": "located-in",
+      "subject": "indikator-2",
+      "predicate": "has-standard",
+      "object": "standard-80-percent",
+      "evidence": "Standard: ≥80 % står direkte under overskriften 'Indikator 2'.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "danmark",
+      "evidence": "Danmark er den første række i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
       "object": "hovedstaden",
-      "evidence": "Hovedstaden Nej 3.062 / 4.316 ... Amager og Hvidovre Hospital Nej 549 / 712",
+      "evidence": "Hovedstaden er en af de regioner, der rapporteres i tabellen for Indikator 2.",
       "page": 16
     },
     {
-      "subject": "bispebjerg-og-frederiksberg-hospitaler",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Hovedstaden Nej 3.062 / 4.316 ... Bispebjerg og Frederiksberg Hospitaler Nej 443 / 689",
-      "page": 16
-    },
-    {
-      "subject": "bornholms-hospital",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Hovedstaden Nej 3.062 / 4.316 ... Bornholms Hospital Ja 129 / 160",
-      "page": 16
-    },
-    {
-      "subject": "herlev-og-gentofte-hospital",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Hovedstaden Nej 3.062 / 4.316 ... Herlev og Gentofte Hospital Nej 793 / 1.259",
-      "page": 16
-    },
-    {
-      "subject": "hospitalerne-i-nordsjaelland",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Hovedstaden Nej 3.062 / 4.316 ... Hospitalerne i Nordsjælland Nej 727 / 936",
-      "page": 16
-    },
-    {
-      "subject": "rigshospitalet",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Hovedstaden Nej 3.062 / 4.316 ... Rigshospitalet Nej 421 / 560",
-      "page": 16
-    },
-    {
-      "subject": "garantiklinikken",
-      "predicate": "located-in",
+      "subject": "indikator-2",
+      "predicate": "measures",
       "object": "sjaelland",
-      "evidence": "Sjælland Nej 1.984 / 2.613 ... Garantiklinikken Ja 192 / 195",
+      "evidence": "Sjælland er en af de regioner, der rapporteres i tabellen for Indikator 2.",
       "page": 16
     },
     {
-      "subject": "holbaek",
-      "predicate": "located-in",
-      "object": "sjaelland",
-      "evidence": "Sjælland Nej 1.984 / 2.613 ... Holbæk Ja 429 / 512",
-      "page": 16
-    },
-    {
-      "subject": "nykoebing-falster",
-      "predicate": "located-in",
-      "object": "sjaelland",
-      "evidence": "Sjælland Nej 1.984 / 2.613 ... Nykøbing Falster Nej 319 / 449",
-      "page": 16
-    },
-    {
-      "subject": "naestved",
-      "predicate": "located-in",
-      "object": "sjaelland",
-      "evidence": "Sjælland Nej 1.984 / 2.613 ... Næstved Nej 12 / 17",
-      "page": 16
-    },
-    {
-      "subject": "sjaellands-universitetshospital-koege",
-      "predicate": "located-in",
-      "object": "sjaelland",
-      "evidence": "Sjælland Nej 1.984 / 2.613 ... Sjællands Universitetshospital Køge Nej 144 / 316",
-      "page": 16
-    },
-    {
-      "subject": "sjaellands-universitetshospital-roskilde",
-      "predicate": "located-in",
-      "object": "sjaelland",
-      "evidence": "Sjælland Nej 1.984 / 2.613 ... Sjællands Universitetshospital Roskilde Ja 457 / 562",
-      "page": 16
-    },
-    {
-      "subject": "slagelse",
-      "predicate": "located-in",
-      "object": "sjaelland",
-      "evidence": "Sjælland Nej 1.984 / 2.613 ... Slagelse Nej 431 / 562",
-      "page": 16
-    },
-    {
-      "subject": "esbjerg-sygehus-grindsted-sygehus",
-      "predicate": "located-in",
+      "subject": "indikator-2",
+      "predicate": "measures",
       "object": "syddanmark",
-      "evidence": "Syddanmark Ja 3.107 / 3.782 ... Esbjerg Sygehus Grindsted Sygehus Nej 416 / 544",
-      "page": 17
+      "evidence": "Syddanmark er en af de regioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
     },
     {
-      "subject": "friklinikken-region-syddanmark-grindsted",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Syddanmark Ja 3.107 / 3.782 ... Friklinikken Region Syddanmark Grindsted Ja 84 / 85",
-      "page": 17
-    },
-    {
-      "subject": "kolding-sygehus",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Syddanmark Ja 3.107 / 3.782 ... Kolding Sygehus* Nej 72 / 113",
-      "page": 17
-    },
-    {
-      "subject": "ouh-odense-universitetshospital",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Syddanmark Ja 3.107 / 3.782 ... OUH Odense Universitetshospital Nej 1.214 / 1.525",
-      "page": 17
-    },
-    {
-      "subject": "sygehus-soenderjylland",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Syddanmark Ja 3.107 / 3.782 ... Sygehus Sønderjylland Ja 634 / 764",
-      "page": 17
-    },
-    {
-      "subject": "vejle-sygehus",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Syddanmark Ja 3.107 / 3.782 ... Vejle Sygehus* Ja 687 / 751",
-      "page": 17
-    },
-    {
-      "subject": "aarhus-universitetshospital",
-      "predicate": "located-in",
+      "subject": "indikator-2",
+      "predicate": "measures",
       "object": "midtjylland",
-      "evidence": "Midtjylland Ja 3.278 / 3.706 ... Aarhus Universitetshospital Ja 643 / 770",
-      "page": 17
+      "evidence": "Midtjylland er en af de regioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
     },
     {
-      "subject": "hospitalsenhed-midt",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Midtjylland Ja 3.278 / 3.706 ... Hospitalsenhed Midt Ja 916 / 997",
-      "page": 17
-    },
-    {
-      "subject": "regionshospitalet-goedstrup",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Midtjylland Ja 3.278 / 3.706 ... Regionshospitalet Gødstrup Ja 653 / 756",
-      "page": 17
-    },
-    {
-      "subject": "regionshospitalet-horsens",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Midtjylland Ja 3.278 / 3.706 ... Regionshospitalet Horsens Ja 557 / 601",
-      "page": 17
-    },
-    {
-      "subject": "regionshospitalet-randers",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Midtjylland Ja 3.278 / 3.706 ... Regionshospitalet Randers Ja 509 / 582",
-      "page": 17
-    },
-    {
-      "subject": "aalborg-universitetshospital",
-      "predicate": "located-in",
+      "subject": "indikator-2",
+      "predicate": "measures",
       "object": "nordjylland",
-      "evidence": "Nordjylland Nej 1.445 / 1.835 ... Aalborg Universitetshospital Nej 749 / 1.000",
+      "evidence": "Nordjylland er en af de regioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "amager-og-hvidovre-hospital",
+      "evidence": "Amager og Hvidovre Hospital er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "bispebjerg-og-frederiksberg-hospitaler",
+      "evidence": "Bispebjerg og Frederiksberg Hospitaler er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "bornholms-hospital",
+      "evidence": "Bornholms Hospital er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "herlev-og-gentofte-hospital",
+      "evidence": "Herlev og Gentofte Hospital er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "hospitalerne-i-nordsjaelland",
+      "evidence": "Hospitalerne i Nordsjælland er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "rigshospitalet",
+      "evidence": "Rigshospitalet er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "garantiklinikken",
+      "evidence": "Garantiklinikken er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "holbaek",
+      "evidence": "Holbæk er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "nykoebing-falster",
+      "evidence": "Nykøbing Falster er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "naestved",
+      "evidence": "Næstved er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "sjaellands-universitetshospital-koege",
+      "evidence": "Sjællands Universitetshospital Køge er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "sjaellands-universitetshospital-roskilde",
+      "evidence": "Sjællands Universitetshospital Roskilde er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "slagelse",
+      "evidence": "Slagelse er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "esbjerg-sygehus-grindsted-sygehus",
+      "evidence": "Esbjerg Sygehus Grindsted Sygehus er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "friklinikken-region-syddanmark-grindsted",
+      "evidence": "Friklinikken Region Syddanmark Grindsted er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "kolding-sygehus",
+      "evidence": "Kolding Sygehus* er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "ouh-odense-universitetshospital",
+      "evidence": "OUH Odense Universitetshospital er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "sygehus-soenderjylland",
+      "evidence": "Sygehus Sønderjylland er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "vejle-sygehus",
+      "evidence": "Vejle Sygehus* er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "aarhus-universitetshospital",
+      "evidence": "Aarhus Universitetshospital er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
       "page": 17
     },
     {
-      "subject": "aalborg-universitetshospital-thisted",
-      "predicate": "located-in",
-      "object": "nordjylland",
-      "evidence": "Nordjylland Nej 1.445 / 1.835 ... Aalborg Universitetshospital Thisted Nej 165 / 211",
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "hospitalsenhed-midt",
+      "evidence": "Hospitalsenhed Midt er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
       "page": 17
     },
     {
-      "subject": "regionshospital-nordjylland-ven",
-      "predicate": "located-in",
-      "object": "nordjylland",
-      "evidence": "Nordjylland Nej 1.445 / 1.835 ... Regionshospital Nordjylland Ven Ja 531 / 624",
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "regionshospitalet-goedstrup",
+      "evidence": "Regionshospitalet Gødstrup er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
       "page": 17
     },
     {
-      "subject": "kolding-sygehus",
-      "predicate": "part-of",
-      "object": "sygehus-lillebaelt",
-      "evidence": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt",
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "regionshospitalet-horsens",
+      "evidence": "Regionshospitalet Horsens er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
       "page": 17
     },
     {
-      "subject": "vejle-sygehus",
-      "predicate": "part-of",
-      "object": "sygehus-lillebaelt",
-      "evidence": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt",
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "regionshospitalet-randers",
+      "evidence": "Regionshospitalet Randers er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 17
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "aalborg-universitetshospital",
+      "evidence": "Aalborg Universitetshospital er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 17
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "aalborg-universitetshospital-thisted",
+      "evidence": "Aalborg Universitetshospital Thisted er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
+      "page": 17
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "regionshospital-nordjylland-ven",
+      "evidence": "Regionshospital Nordjylland Ven er en af de institutioner, der rapporteres i tabellen for Indikator 2.",
       "page": 17
     }
   ],
   "claims": [
     {
-      "text": "Indikator 2 måler andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før, til 3 måneder efter 1. diagnosedato [^src1]",
-      "type": "clinical-indicator",
+      "text": "Indikator 2 måler andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før, til 3 måneder efter 1. diagnosedato [^src1]",
+      "type": "clinical",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-2"
       ],
       "page": 16
     },
     {
       "text": "Standarden for Indikator 2 er ≥80 % [^src1]",
-      "type": "clinical-standard",
+      "type": "clinical",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "standard-80-percent"
       ],
       "page": 16
     },
     {
-      "text": "Danmark opfylder ikke standarden med 79,2 % (95% CI: 78,6-79,8) af 16.252 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi i perioden 01.07.2022 - 30.06.2023 [^src1]",
-      "type": "clinical-performance",
+      "text": "Nationalt blev Indikator 2 opfyldt af 79,2 % (95 % CI: 78,6–79,8) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "danmark"
+        "danmark",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Hovedstaden opfylder ikke standarden med 70,9 % (95% CI: 69,6-72,3) af 4.316 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "I Region Hovedstaden blev Indikator 2 opfyldt af 70,9 % (95 % CI: 69,6–72,3) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "hovedstaden"
+        "hovedstaden",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Sjælland opfylder ikke standarden med 75,9 % (95% CI: 74,2-77,6) af 2.613 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "I Region Sjælland blev Indikator 2 opfyldt af 75,9 % (95 % CI: 74,2–77,6) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "sjaelland"
+        "sjaelland",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Syddanmark opfylder standarden med 82,2 % (95% CI: 80,9-83,4) af 3.782 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "I Region Syddanmark blev Indikator 2 opfyldt af 82,2 % (95 % CI: 80,9–83,4) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "syddanmark"
+        "syddanmark",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Midtjylland opfylder standarden med 88,5 % (95% CI: 87,4-89,5) af 3.706 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "I Region Midtjylland blev Indikator 2 opfyldt af 88,5 % (95 % CI: 87,4–89,5) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "midtjylland"
+        "midtjylland",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Nordjylland opfylder ikke standarden med 78,7 % (95% CI: 76,8-80,6) af 1.835 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "I Region Nordjylland blev Indikator 2 opfyldt af 78,7 % (95 % CI: 76,8–80,6) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "nordjylland"
+        "nordjylland",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Amager og Hvidovre Hospital havde 77,1 % (95% CI: 73,8-80,1) af 712 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Amager og Hvidovre Hospital opfyldte Indikator 2 hos 77,1 % (95 % CI: 73,8–80,1) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "amager-og-hvidovre-hospital"
+        "amager-og-hvidovre-hospital",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Bispebjerg og Frederiksberg Hospitaler havde 64,3 % (95% CI: 60,6-67,9) af 689 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Bispebjerg og Frederiksberg Hospitaler opfyldte Indikator 2 hos 64,3 % (95 % CI: 60,6–67,9) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "bispebjerg-og-frederiksberg-hospitaler"
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Bornholms Hospital opfylder standarden med 80,6 % (95% CI: 73,6-86,4) af 160 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Bornholms Hospital opfyldte Indikator 2 hos 80,6 % (95 % CI: 73,6–86,4) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "bornholms-hospital"
+        "bornholms-hospital",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Herlev og Gentofte Hospital havde 63,0 % (95% CI: 60,3-65,7) af 1.259 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Herlev og Gentofte Hospital opfyldte Indikator 2 hos 63,0 % (95 % CI: 60,3–65,7) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "herlev-og-gentofte-hospital"
+        "herlev-og-gentofte-hospital",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Hospitalerne i Nordsjælland havde 77,7 % (95% CI: 74,9-80,3) af 936 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Hospitalerne i Nordsjælland opfyldte Indikator 2 hos 77,7 % (95 % CI: 74,9–80,3) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "hospitalerne-i-nordsjaelland"
+        "hospitalerne-i-nordsjaelland",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Rigshospitalet havde 75,2 % (95% CI: 71,4-78,7) af 560 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Rigshospitalet opfyldte Indikator 2 hos 75,2 % (95 % CI: 71,4–78,7) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "rigshospitalet"
+        "rigshospitalet",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Garantiklinikken opfylder standarden med 98,5 % (95% CI: 95,6-99,7) af 195 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Garantiklinikken opfyldte Indikator 2 hos 98,5 % (95 % CI: 95,6–99,7) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "garantiklinikken"
+        "garantiklinikken",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Holbæk opfylder standarden med 83,8 % (95% CI: 80,3-86,9) af 512 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Holbæk opfyldte Indikator 2 hos 83,8 % (95 % CI: 80,3–86,9) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "holbaek"
+        "holbaek",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Nykøbing Falster havde 71,0 % (95% CI: 66,6-75,2) af 449 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Nykøbing Falster opfyldte Indikator 2 hos 71,0 % (95 % CI: 66,6–75,2) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "nykoebing-falster"
+        "nykoebing-falster",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Næstved havde 70,6 % (95% CI: 44,0-89,7) af 17 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Næstved opfyldte Indikator 2 hos 70,6 % (95 % CI: 44,0–89,7) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "naestved"
+        "naestved",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Sjællands Universitetshospital Køge havde 45,6 % (95% CI: 40,0-51,2) af 316 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Sjællands Universitetshospital Køge opfyldte Indikator 2 hos 45,6 % (95 % CI: 40,0–51,2) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "sjaellands-universitetshospital-koege"
+        "sjaellands-universitetshospital-koege",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Sjællands Universitetshospital Roskilde opfylder standarden med 81,3 % (95% CI: 77,8-84,5) af 562 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Sjællands Universitetshospital Roskilde opfyldte Indikator 2 hos 81,3 % (95 % CI: 77,8–84,5) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "sjaellands-universitetshospital-roskilde"
+        "sjaellands-universitetshospital-roskilde",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Slagelse havde 76,7 % (95% CI: 73,0-80,1) af 562 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Slagelse opfyldte Indikator 2 hos 76,7 % (95 % CI: 73,0–80,1) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "slagelse"
+        "slagelse",
+        "indikator-2"
       ],
       "page": 16
     },
     {
-      "text": "Esbjerg Sygehus Grindsted Sygehus havde 76,5 % (95% CI: 72,7-80,0) af 544 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Esbjerg Sygehus Grindsted Sygehus opfyldte Indikator 2 hos 76,5 % (95 % CI: 72,7–80,0) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "esbjerg-sygehus-grindsted-sygehus"
+        "esbjerg-sygehus-grindsted-sygehus",
+        "indikator-2"
       ],
-      "page": 17
+      "page": 16
     },
     {
-      "text": "Friklinikken Region Syddanmark Grindsted opfylder standarden med 98,8 % (95% CI: 93,6-100,0) af 85 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
+      "text": "Friklinikken Region Syddanmark Grindsted opfyldte Indikator 2 hos 98,8 % (95 % CI: 93,6–100,0) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
-        "friklinikken-region-syddanmark-grindsted"
+        "friklinikken-region-syddanmark-grindsted",
+        "indikator-2"
       ],
-      "page": 17
+      "page": 16
     },
     {
-      "text": "Kolding Sygehus havde 63,7 % (95% CI: 54,1-72,6) af 113 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "kolding-sygehus"
-      ],
-      "page": 17
-    },
-    {
-      "text": "OUH Odense Universitetshospital havde 79,6 % (95% CI: 77,5-81,6) af 1.525 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "ouh-odense-universitetshospital"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Sygehus Sønderjylland opfylder standarden med 83,0 % (95% CI: 80,1-85,6) af 764 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "sygehus-soenderjylland"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Vejle Sygehus opfylder standarden med 91,5 % (95% CI: 89,2-93,4) af 751 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "vejle-sygehus"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Aarhus Universitetshospital opfylder standarden med 83,5 % (95% CI: 80,7-86,1) af 770 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "aarhus-universitetshospital"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Hospitalsenhed Midt opfylder standarden med 91,9 % (95% CI: 90,0-93,5) af 997 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "hospitalsenhed-midt"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Regionshospitalet Gødstrup opfylder standarden med 86,4 % (95% CI: 83,7-88,7) af 756 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "regionshospitalet-goedstrup"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Regionshospitalet Horsens opfylder standarden med 92,7 % (95% CI: 90,3-94,6) af 601 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "regionshospitalet-horsens"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Regionshospitalet Randers opfylder standarden med 87,5 % (95% CI: 84,5-90,0) af 582 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "regionshospitalet-randers"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Aalborg Universitetshospital havde 74,9 % (95% CI: 72,1-77,6) af 1.000 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "aalborg-universitetshospital"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Aalborg Universitetshospital Thisted havde 78,2 % (95% CI: 72,0-83,6) af 211 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "aalborg-universitetshospital-thisted"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Regionshospital Nordjylland Ven opfylder standarden med 85,1 % (95% CI: 82,1-87,8) af 624 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "regionshospital-nordjylland-ven"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt [^src1]",
-      "type": "data-quality-note",
+      "text": "Kolding Sygehus opfyldte Indikator 2 hos 63,7 % (95 % CI: 54,1–72,6) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
       "entities": [
         "kolding-sygehus",
+        "indikator-2"
+      ],
+      "page": 16
+    },
+    {
+      "text": "OUH Odense Universitetshospital opfyldte Indikator 2 hos 79,6 % (95 % CI: 77,5–81,6) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
+      "entities": [
+        "ouh-odense-universitetshospital",
+        "indikator-2"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Sygehus Sønderjylland opfyldte Indikator 2 hos 83,0 % (95 % CI: 80,1–85,6) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
+      "entities": [
+        "sygehus-soenderjylland",
+        "indikator-2"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Vejle Sygehus opfyldte Indikator 2 hos 91,5 % (95 % CI: 89,2–93,4) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
+      "entities": [
         "vejle-sygehus",
-        "sygehus-lillebaelt"
+        "indikator-2"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Aarhus Universitetshospital opfyldte Indikator 2 hos 83,5 % (95 % CI: 80,7–86,1) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
+      "entities": [
+        "aarhus-universitetshospital",
+        "indikator-2"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Hospitalsenhed Midt opfyldte Indikator 2 hos 91,9 % (95 % CI: 90,0–93,5) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
+      "entities": [
+        "hospitalsenhed-midt",
+        "indikator-2"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Regionshospitalet Gødstrup opfyldte Indikator 2 hos 86,4 % (95 % CI: 83,7–88,7) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
+      "entities": [
+        "regionshospitalet-goedstrup",
+        "indikator-2"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Regionshospitalet Horsens opfyldte Indikator 2 hos 92,7 % (95 % CI: 90,3–94,6) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
+      "entities": [
+        "regionshospitalet-horsens",
+        "indikator-2"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Regionshospitalet Randers opfyldte Indikator 2 hos 87,5 % (95 % CI: 84,5–90,0) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
+      "entities": [
+        "regionshospitalet-randers",
+        "indikator-2"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Aalborg Universitetshospital opfyldte Indikator 2 hos 74,9 % (95 % CI: 72,1–77,6) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
+      "entities": [
+        "aalborg-universitetshospital",
+        "indikator-2"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Aalborg Universitetshospital Thisted opfyldte Indikator 2 hos 78,2 % (95 % CI: 72,0–83,6) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
+      "entities": [
+        "aalborg-universitetshospital-thisted",
+        "indikator-2"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Regionshospital Nordjylland Ven opfyldte Indikator 2 hos 85,1 % (95 % CI: 82,1–87,8) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1]",
+      "type": "clinical",
+      "entities": [
+        "regionshospital-nordjylland-ven",
+        "indikator-2"
       ],
       "page": 17
     }
@@ -976,18 +1049,64 @@
   "timeline": [
     {
       "date": "2022-07-01",
-      "event": "Begyndelse af rapporteringsperiode for Indikator 2 (01.07.2022 - 30.06.2023)",
+      "event": "Start af måleperiode for Indikator 2 i årsrapporten",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-2"
       ]
     },
     {
       "date": "2023-06-30",
-      "event": "Afslutning af rapporteringsperiode for Indikator 2 (01.07.2022 - 30.06.2023)",
+      "event": "Afslutning af måleperiode for Indikator 2 i årsrapporten",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-2"
       ]
     }
   ],
-  "context": "Denne dokumentchunk indeholder Indikator 2-resultater fra Databasen for Atrieflimren i Danmark for rapporteringsperioden 1. juli 2022 til 30. juni 2023. Indikatoren måler andelen af nydiagnosticerede atrieflimren-patienter, der har fået udført ekkokardiografi inden for et tidsvindue fra 6 måneder før til 3 måneder efter diagnosedato, med en standard på ≥80 %. Resultaterne præsenteres på tre niveauer: nationalt (Danmark), regionalt (fem regioner) og hospitalsniveau (individuelle hospitaler og klinikker). Dataene viser betydelig variation i compliance med standarden på tværs af institutioner, fra så lavt som 45,6 % på Sjællands Universitetshospital Køge til så højt som 98,8 % på Friklinikken Region Syddanmark Grindsted. Kontroldiagrammer og funnelplots på regionalt og hospitalsniveau er inkluderet for at visualisere denne variation."
+  "tables": [
+    {
+      "subject": "indikator-2",
+      "title": "Indikator 2: Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før, til 3 måneder efter 1. diagnosedato.",
+      "page": 16,
+      "rowDimension": "regions and hospitals",
+      "colDimension": "proportion per year with confidence intervals",
+      "entities": [
+        "danmark",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "garantiklinikken",
+        "holbaek",
+        "nykoebing-falster",
+        "naestved",
+        "sjaellands-universitetshospital-koege",
+        "sjaellands-universitetshospital-roskilde",
+        "slagelse",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "friklinikken-region-syddanmark-grindsted",
+        "kolding-sygehus",
+        "ouh-odense-universitetshospital",
+        "sygehus-soenderjylland",
+        "vejle-sygehus",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "regionshospital-nordjylland-ven"
+      ],
+      "markdown": "| Enhed | Standard Uoplyst | Tæller/ antal | Aktuelle år 01.07.2022 - 30.06.2023 | 2021/22 | 2020/21 |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 12.876 / 16.252 | 79,2 (78,6-79,8) | 76,8 | 76,0 |\n| Hovedstaden | Nej | 3.062 / 4.316 | 70,9 (69,6-72,3) | 67,8 | 65,5 |\n| Sjælland | Nej | 1.984 / 2.613 | 75,9 (74,2-77,6) | 74,8 | 75,3 |\n| Syddanmark | Ja | 3.107 / 3.782 | 82,2 (80,9-83,4) | 77,3 | 77,5 |\n| Midtjylland | Ja | 3.278 / 3.706 | 88,5 (87,4-89,5) | 87,8 | 87,1 |\n| Nordjylland | Nej | 1.445 / 1.835 | 78,7 (76,8-80,6) | 78,5 | 76,3 |\n| Amager og Hvidovre Hospital | Nej | 549 / 712 | 77,1 (73,8-80,1) | 76,2 | 70,7 |\n| Bispebjerg og Frederiksberg Hospitaler | Nej | 443 / 689 | 64,3 (60,6-67,9) | 58,6 | 56,7 |\n| Bornholms Hospital | Ja | 129 / 160 | 80,6 (73,6-86,4) | 69,8 | 69,3 |\n| Herlev og Gentofte Hospital | Nej | 793 / 1.259 | 63,0 (60,3-65,7) | 62,7 | 62,6 |\n| Hospitalerne i Nordsjælland | Nej | 727 / 936 | 77,7 (74,9-80,3) | 70,8 | 69,6 |\n| Rigshospitalet | Nej | 421 / 560 | 75,2 (71,4-78,7) | 74,7 | 69,4 |\n| Garantiklinikken | Ja | 192 / 195 | 98,5 (95,6-99,7) | 95,6 | 89,0 |\n| Holbæk | Ja | 429 / 512 | 83,8 (80,3-86,9) | 75,8 | 76,2 |\n| Nykøbing Falster | Nej | 319 / 449 | 71,0 (66,6-75,2) | 72,3 | 67,6 |\n| Næstved | Nej | 12 / 17 | 70,6 (44,0-89,7) | 65,0 | 37,5 |\n| Sjællands Universitetshospital Køge | Nej | 144 / 316 | 45,6 (40,0-51,2) | 48,6 | 55,5 |\n| Sjællands Universitetshospital Roskilde | Ja | 457 / 562 | 81,3 (77,8-84,5) | 81,9 | 79,7 |\n| Slagelse | Nej | 431 / 562 | 76,7 (73,0-80,1) | 77,1 | 81,5 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 416 / 544 | 76,5 (72,7-80,0) | 66,3 | 68,0 |\n| Friklinikken Region Syddanmark Grindsted | Ja | 84 / 85 | 98,8 (93,6-100,0) | 100,0 | 100,0 |\n| Kolding Sygehus* | Nej | 72 / 113 | 63,7 (54,1-72,6) | 44,3 | 50,5 |\n| OUH Odense Universitetshospital | Nej | 1.214 / 1.525 | 79,6 (77,5-81,6) | 75,3 | 74,3 |\n| Sygehus Sønderjylland | Ja | 634 / 764 | 83,0 (80,1-85,6) | 81,2 | 79,3 |\n| Vejle Sygehus* | Ja | 687 / 751 | 91,5 (89,2-93,4) | 89,7 | 90,1 |\n| Aarhus Universitetshospital | Ja | 643 / 770 | 83,5 (80,7-86,1) | 84,5 | 83,4 |\n| Hospitalsenhed Midt | Ja | 916 / 997 | 91,9 (90,0-93,5) | 90,8 | 88,5 |\n| Regionshospitalet Gødstrup | Ja | 653 / 756 | 86,4 (83,7-88,7) | 89,0 | — |\n| Regionshospitalet Horsens | Ja | 557 / 601 | 92,7 (90,3-94,6) | 92,0 | 94,1 |\n| Regionshospitalet Randers | Ja | 509 / 582 | 87,5 (84,5-90,0) | 84,0 | 85,1 |\n| Aalborg Universitetshospital | Nej | 749 / 1.000 | 74,9 (72,1-77,6) | 75,0 | 73,7 |\n| Aalborg Universitetshospital Thisted | Nej | 165 / 211 | 78,2 (72,0-83,6) | 80,1 | 76,9 |\n| Regionshospital Nordjylland Ven | Ja | 531 / 624 | 85,1 (82,1-87,8) | 83,4 | 80,5 |",
+      "summary": "Tabellen sammenligner andelen af nydiagnosticerede atrieflimren-patienter, der har fået ekkokardiografi inden for en defineret periode, på tværs af regioner og sygehuse i Danmark for 2022/23 samt tidligere år, og viser at kun Syddanmark, Midtjylland og fire regionale sygehuse opfylder standarden på ≥80 %."
+    }
+  ],
+  "context": "Dette afsæt af årsrapporten fra Databasen for Atrieflimren i Danmark dokumenterer klinisk kvalitetsmåling af Indikator 2 for perioden 1. juli 2022 til 30. juni 2023. Rapporten er udarbejdet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) og formål er at evaluere, hvor godt danske regioner og sygehuse overholder den nationale standard på ≥80 % for udførelse af ekkokardiografi hos nydiagnosticerede patienter med atrieflimren. Tabellen på siderne 16–17 indeholder detaljerede tal for 37 regionale og lokale sundhedsvæsen-enheder, mens siderne 18–20 refererer til supplerende visualiseringer (kontroldiagrammer og funnelplot), der dog ikke er inkluderet i den tekstuelle ekstraktion. Denne analyse danner grundlag for kvalitetsforbedringsindsats i det danske sundhedsvæsen."
 }

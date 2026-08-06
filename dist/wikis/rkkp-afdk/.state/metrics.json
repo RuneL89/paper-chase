@@ -1,116 +1,1748 @@
 {
-  "run": "2026-08-03T18:41:07.359Z",
-  "newPdfs": [],
+  "run": "2026-08-05T16:54:56.677Z",
+  "newPdfs": [
+    "AFDK_2023.pdf",
+    "AFDK_2024.pdf"
+  ],
   "newEntities": [
     {
-      "slug": "database-atrieflimren-danmark",
-      "title": "Databasen for Atrieflimren i Danmark",
-      "folder": "topics/healthcare-databases"
+      "slug": "0906-ekko-kardiografi",
+      "title": "0906 Ekko-kardiografi",
+      "folder": "entities/codes/procedure-codes"
     },
     {
-      "slug": "doac-anticoagulation",
-      "title": "DOAC",
-      "folder": "topics/treatments"
+      "slug": "2208-ekkocardiografi",
+      "title": "2208 Ekkocardiografi",
+      "folder": "entities/codes/procedure-codes"
     },
     {
-      "slug": "echocardiography",
-      "title": "Ekkokardiografi",
-      "folder": "topics/clinical-measures"
+      "slug": "3810-ekkocardiografi-standardundersoegelse",
+      "title": "3810 Ekkocardiografi, standardundersøgelse",
+      "folder": "entities/codes/procedure-codes"
     },
     {
-      "slug": "health-clusters",
-      "title": "Sundhedsklynger",
-      "folder": "topics/operational"
+      "slug": "3811-ekkocardiografi-avanceret-undersoegelse",
+      "title": "3811 Ekkocardiografi, avanceret undersøgelse",
+      "folder": "entities/codes/procedure-codes"
     },
     {
-      "slug": "indikator-2-echocardiography",
-      "title": "Indikator 2",
-      "folder": "topics/quality-indicator"
+      "slug": "5101-ekko-cardiografi",
+      "title": "5101 EKKO-cardiografi",
+      "folder": "entities/codes/procedure-codes"
     },
     {
-      "slug": "indikator-3-tsh-measurement",
-      "title": "Indikator 3: Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato",
-      "folder": "topics/quality-indicator"
+      "slug": "5102-transsofageal-ekko",
+      "title": "5102 Transsøfofagal ekko.",
+      "folder": "entities/codes/procedure-codes"
     },
     {
-      "slug": "indikator-5-iskemisk-apopleksi",
-      "title": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren",
-      "folder": "topics/quality-indicator"
+      "slug": "5103-stress-ekkocardiogra",
+      "title": "5103 Stress ekkocardiogra",
+      "folder": "entities/codes/procedure-codes"
     },
     {
-      "slug": "indikator-7-serious-bleeding",
-      "title": "Indikator 7",
-      "folder": "topics/quality-indicators"
+      "slug": "6402-ekkocardiografi",
+      "title": "6402 Ekkocardiografi",
+      "folder": "entities/codes/procedure-codes"
     },
     {
-      "slug": "intracranial-hemorrhage",
-      "title": "Intrakraniel blødning",
-      "folder": "topics/clinical-outcome"
+      "slug": "6408-ekkocardiografi",
+      "title": "6408 Ekkocardiografi",
+      "folder": "entities/codes/procedure-codes"
     },
     {
-      "slug": "ischemic-stroke",
-      "title": "Iskæmisk apopleksi",
-      "folder": "topics/clinical-outcome"
+      "slug": "aabenraa",
+      "title": "Aabenraa",
+      "folder": "entities/locations/municipalities"
     },
     {
-      "slug": "marevan-anticoagulation",
-      "title": "Marevan",
-      "folder": "topics/treatments"
+      "slug": "aalborg",
+      "title": "Aalborg",
+      "folder": "entities/locations/municipalities"
     },
     {
-      "slug": "patient-education",
-      "title": "Patientuddannelse",
-      "folder": "topics/clinical-treatment"
+      "slug": "aalborg-universitetshospital",
+      "title": "Aalborg Universitetshospital",
+      "folder": "entities/organizations/hospitals"
     },
     {
-      "slug": "rkkp",
-      "title": "Regionernes Kliniske Kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/health-registries"
+      "slug": "aalborg-universitetshospital-thisted",
+      "title": "Aalborg Universitetshospital Thisted",
+      "folder": "entities/organizations/hospitals"
     },
     {
-      "slug": "s-creatinin",
-      "title": "S-creatinin",
-      "folder": "topics/clinical-measures"
+      "slug": "aarhus",
+      "title": "Århus",
+      "folder": "entities/locations/cities"
     },
     {
-      "slug": "serious-bleeding",
+      "slug": "aarhus-universitetshospital",
+      "title": "Aarhus Universitetshospital",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "aarhusklyngen",
+      "title": "Aarhusklyngen",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "abc-pathway",
+      "title": "ABC Pathway",
+      "folder": "topics/clinical-tools/risk-scores"
+    },
+    {
+      "slug": "aeroe",
+      "title": "Ærø",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "afdk-aarsrapport-2023",
+      "title": "Årsrapport 2023",
+      "folder": "entities/documents/reports"
+    },
+    {
+      "slug": "afdk-patientrepraesentanter",
+      "title": "Patientrepræsentanterne i AFDK",
+      "folder": "entities/groups/patient-advocacy"
+    },
+    {
+      "slug": "afdk-styregruppe",
+      "title": "Styregruppen for AFDK",
+      "folder": "entities/organizations/health-standards/governance"
+    },
+    {
+      "slug": "albert-marni-joensen",
+      "title": "Albert Marni Joensen",
+      "folder": "entities/people/healthcare-professionals"
+    },
+    {
+      "slug": "albertslund",
+      "title": "Albertslund",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "alleroed",
+      "title": "Allerød",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "alvorlig-bloedning",
       "title": "Alvorlig blødning",
       "folder": "topics/clinical-outcome"
     },
     {
-      "slug": "struktureret-patientuddannelse",
-      "title": "Struktureret patientuddannelse",
-      "folder": "topics/clinical-treatment"
+      "slug": "amager-og-hvidovre-hospital",
+      "title": "Amager og Hvidovre Hospital",
+      "folder": "entities/organizations/hospitals"
     },
     {
-      "slug": "tsh-maaling",
-      "title": "Thyreoidea-stimulerende hormon (TSH) måling",
-      "folder": "topics/clinical-measures"
+      "slug": "ambuflex-skema",
+      "title": "Ambuflex-skema",
+      "folder": "entities/documents/reports"
+    },
+    {
+      "slug": "anders-moller-schlunsen",
+      "title": "Anders Møller Schlünsen",
+      "folder": "entities/people/health-researchers"
+    },
+    {
+      "slug": "antikoagulationsbehandling",
+      "title": "antikoagulationsbehandling",
+      "folder": "entities/medical-interventions/pharmacotherapy"
+    },
+    {
+      "slug": "ass00039-p-thyrotropin",
+      "title": "ASS00039",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "ass00136-p-thyrotropin",
+      "title": "ASS00136",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "ass00647-p-thyrotropin",
+      "title": "ASS00647",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "assens",
+      "title": "Assens",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "atrieflimren",
+      "title": "atrieflimren",
+      "folder": "topics/medical-conditions/cardiovascular"
+    },
+    {
+      "slug": "atrieflimren-i-danmark",
+      "title": "Atrieflimren i Danmark",
+      "folder": "entities/organizations/health-registries"
+    },
+    {
+      "slug": "atrieflimren-klinik",
+      "title": "Atrieflimren-klinik",
+      "folder": "entities/organizations/clinics"
+    },
+    {
+      "slug": "axel-brandes",
+      "title": "Axel Brandes",
+      "folder": "entities/people/health-professionals"
+    },
+    {
+      "slug": "b01aa",
+      "title": "B01AA",
+      "folder": "entities/codes/drug-classes"
+    },
+    {
+      "slug": "b01ae07",
+      "title": "B01AE07",
+      "folder": "entities/drugs/anticoagulants"
+    },
+    {
+      "slug": "b01af01",
+      "title": "B01AF01",
+      "folder": "entities/drugs/anticoagulants"
+    },
+    {
+      "slug": "b01af02",
+      "title": "B01AF02",
+      "folder": "entities/drugs/anticoagulants"
+    },
+    {
+      "slug": "b01af03",
+      "title": "B01AF03",
+      "folder": "entities/drugs/anticoagulants"
+    },
+    {
+      "slug": "ballerup",
+      "title": "Ballerup",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "bfkb",
+      "title": "BFKB",
+      "folder": "entities/codes/intervention-codes"
+    },
+    {
+      "slug": "billund",
+      "title": "Billund",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "title": "Bispebjerg og Frederiksberg Hospitaler",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "bornholm",
+      "title": "Bornholm",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "bornholms-hospital",
+      "title": "Bornholms Hospital",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "bqf-star",
+      "title": "BQF*",
+      "folder": "entities/codes/intervention-codes"
+    },
+    {
+      "slug": "broendby",
+      "title": "Brøndby",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "broenderslev-dronninglund",
+      "title": "Brønderslev-Dronninglund",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "bvds",
+      "title": "BVDS",
+      "folder": "entities/codes/intervention-codes"
+    },
+    {
+      "slug": "bvdy-star",
+      "title": "BVDY*",
+      "folder": "entities/codes/intervention-codes"
+    },
+    {
+      "slug": "cha2ds2-vasc",
+      "title": "CHA2DS2-VASc",
+      "folder": "topics/clinical-tools/risk-scores"
+    },
+    {
+      "slug": "chresten-gamborg-puggaard",
+      "title": "Chresten Gamborg Puggaard",
+      "folder": "entities/people/health-researchers"
+    },
+    {
+      "slug": "cpr-registeret",
+      "title": "CPR-registeret",
+      "folder": "entities/databases/healthcare-registers"
+    },
+    {
+      "slug": "danmark",
+      "title": "Danmark",
+      "folder": "entities/locations/countries"
+    },
+    {
+      "slug": "dansk-cardiologisk-selskab",
+      "title": "Dansk Cardiologisk Selskab",
+      "folder": "entities/organizations/medical-societies"
+    },
+    {
+      "slug": "danstroke",
+      "title": "DanStroke",
+      "folder": "entities/organizations/health-databases"
+    },
+    {
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "title": "Databasen for Atrieflimren i Danmark",
+      "folder": "entities/organizations/health-databases"
+    },
+    {
+      "slug": "den-nationale-labdatabank",
+      "title": "Den Nationale Labdatabank",
+      "folder": "entities/organizations/health-infrastructure"
+    },
+    {
+      "slug": "di48",
+      "title": "DI48",
+      "folder": "topics/icd-codes"
+    },
+    {
+      "slug": "di60",
+      "title": "DI60",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "di61",
+      "title": "DI61",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "di62",
+      "title": "DI62",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "di63",
+      "title": "DI63",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "di64",
+      "title": "DI64",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dj942",
+      "title": "DJ942",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk25-0",
+      "title": "DK25.0",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk25-2",
+      "title": "DK25.2",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk25-4",
+      "title": "DK25.4",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk25-6",
+      "title": "DK25.6",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk26-0",
+      "title": "DK26.0",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk26-2",
+      "title": "DK26.2",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk26-4",
+      "title": "DK26.4",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk26-6",
+      "title": "DK26.6",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk27-0",
+      "title": "DK27.0",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk27-2",
+      "title": "DK27.2",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk27-4",
+      "title": "DK27.4",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk27-6",
+      "title": "DK27.6",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk28-0",
+      "title": "DK28.0",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk28-2",
+      "title": "DK28.2",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk28-4",
+      "title": "DK28.4",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk28-6",
+      "title": "DK28.6",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk29-0",
+      "title": "DK29.0",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk29-8a",
+      "title": "DK29.8A",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk92-0",
+      "title": "DK92.0",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk92-1",
+      "title": "DK92.1",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dk92-2",
+      "title": "DK92.2",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dn02",
+      "title": "DN02",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dnk35895-p-thyrotropin",
+      "title": "DNK35895",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "doac",
+      "title": "DOAC",
+      "folder": "entities/products/pharmaceuticals"
+    },
+    {
+      "slug": "dorte-damgaard",
+      "title": "Dorte Damgaard",
+      "folder": "entities/people/health-professionals"
+    },
+    {
+      "slug": "dorthe-svenstrup",
+      "title": "Dorthe Svenstrup",
+      "folder": "entities/people/health-professionals"
+    },
+    {
+      "slug": "dr04",
+      "title": "DR04",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dr31",
+      "title": "DR31",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dragoer",
+      "title": "Dragør",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "ds064",
+      "title": "DS064",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "ds065",
+      "title": "DS065",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "ds066",
+      "title": "DS066",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "dz501",
+      "title": "DZ501",
+      "folder": "entities/codes/diagnosis-codes"
+    },
+    {
+      "slug": "egedal",
+      "title": "Egedal",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "ekkokardiografi",
+      "title": "Ekkokardiografi",
+      "folder": "entities/medical-interventions/pharmacotherapy"
+    },
+    {
+      "slug": "ekvis",
+      "title": "De praktiserende speciallæger (Enheden for Kvalitet I Speciallægepraksis(eKVIS))",
+      "folder": "entities/organizations/health-quality-infrastructure"
+    },
+    {
+      "slug": "esbjerg",
+      "title": "Esbjerg",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "title": "Esbjerg Sygehus Grindsted Sygehus",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "esc-guidelines",
+      "title": "ESC guidelines",
+      "folder": "entities/standards/medical-guidelines"
+    },
+    {
+      "slug": "faaborg-midtfyn",
+      "title": "Faaborg-Midtfyn",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "faelles-akut-modtagelse",
+      "title": "Fælles Akut Modtagelse",
+      "folder": "entities/organizations/hospital-units"
+    },
+    {
+      "slug": "fanoe",
+      "title": "Fanø",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "favskov",
+      "title": "Favrskov",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "faxe",
+      "title": "Faxe",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "fredensborg",
+      "title": "Fredensborg",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "fredericia",
+      "title": "Fredericia",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "frederiksberg",
+      "title": "Frederiksberg",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "frederikshavn",
+      "title": "Frederikshavn",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "frederikssund",
+      "title": "Frederikssund",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "frederiksvaerk-hundested",
+      "title": "Frederiksværk-Hundested",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "friklinikken-region-syddanmark-grindsted",
+      "title": "Friklinikken Region Syddanmark Grindsted",
+      "folder": "entities/organizations/clinics"
+    },
+    {
+      "slug": "furesoe",
+      "title": "Furesø",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "garantiklinikken",
+      "title": "Garantiklinikken",
+      "folder": "entities/organizations/clinics"
+    },
+    {
+      "slug": "gentofte",
+      "title": "Gentofte",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "gladsaxe",
+      "title": "Gladsaxe",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "glostrup",
+      "title": "Glostrup",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "goedstrupklyngen",
+      "title": "Gødstrupklyngen",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "greve",
+      "title": "Greve",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "gribskov",
+      "title": "Gribskov",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "guldborgsund",
+      "title": "Guldborgsund",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "haderslev",
+      "title": "Haderslev",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "hedensted",
+      "title": "Hedensted",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "helsingoer",
+      "title": "Helsingør",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "henrik-rasmussen",
+      "title": "Henrik Rasmussen",
+      "folder": "entities/people/health-professionals"
+    },
+    {
+      "slug": "herlev",
+      "title": "Herlev",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "herlev-og-gentofte-hospital",
+      "title": "Herlev og Gentofte Hospital",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "herning",
+      "title": "Herning",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "hilleroed",
+      "title": "Hillerød",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "hjertesvigtsindikatoren",
+      "title": "Hjertesvigtsindikatoren",
+      "folder": "topics/clinical-indicators/cardiology"
+    },
+    {
+      "slug": "hjoerring",
+      "title": "Hjørring",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "hoeje-taastrup",
+      "title": "Høje-Taastrup",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "hoersholm",
+      "title": "Hørsholm",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "holbaek",
+      "title": "Holbæk",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "holstebro",
+      "title": "Holstebro",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "horsens",
+      "title": "Horsens",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "horsensklyngen",
+      "title": "Horsensklyngen",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "hospitalerne-i-nordsjaelland",
+      "title": "Hospitalerne i Nordsjælland",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "hospitalsenhed-midt",
+      "title": "Hospitalsenhed Midt",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "hospitalsenheden-vest",
+      "title": "Hospitalsenheden Vest",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "hvidovre",
+      "title": "Hvidovre",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "ikast-brande",
+      "title": "Ikast-Brande",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "ina-qvist",
+      "title": "Ina Qvist",
+      "folder": "entities/people/health-professionals"
+    },
+    {
+      "slug": "indikator",
+      "title": "Indikator",
+      "folder": "topics/quality-indicators/cardiology"
+    },
+    {
+      "slug": "indikator-1",
+      "title": "Indikator 1",
+      "folder": "topics/quality-indicators/cardiology"
+    },
+    {
+      "slug": "indikator-10",
+      "title": "Indikator 10",
+      "folder": "topics/healthcare-indicators"
+    },
+    {
+      "slug": "indikator-11",
+      "title": "Indikator 11",
+      "folder": "topics/clinical-indicators/atrial-fibrillation"
+    },
+    {
+      "slug": "indikator-12",
+      "title": "Indikator 12",
+      "folder": "topics/quality-indicators/cardiovascular"
+    },
+    {
+      "slug": "indikator-13",
+      "title": "Indikator 13",
+      "folder": "topics/quality-indicators/cardiovascular"
+    },
+    {
+      "slug": "indikator-15",
+      "title": "Indikator 15",
+      "folder": "topics/clinical-indicators/atrial-fibrillation"
+    },
+    {
+      "slug": "indikator-16",
+      "title": "Indikator 16",
+      "folder": "topics/healthcare-indicators"
+    },
+    {
+      "slug": "indikator-2",
+      "title": "Indikator 2",
+      "folder": "topics/clinical-indicators"
+    },
+    {
+      "slug": "indikator-3",
+      "title": "Indikator 3",
+      "folder": "topics/health-indicators"
+    },
+    {
+      "slug": "indikator-4a",
+      "title": "Indikator 4a",
+      "folder": "topics/clinical-indicators/atrial-fibrillation"
+    },
+    {
+      "slug": "indikator-4a1",
+      "title": "Indikator 4a1",
+      "folder": "topics/quality-indicators/atrial-fibrillation"
+    },
+    {
+      "slug": "indikator-4a2",
+      "title": "Indikator 4a2",
+      "folder": "topics/quality-indicators/atrial-fibrillation"
+    },
+    {
+      "slug": "indikator-4a3",
+      "title": "Indikator 4a3",
+      "folder": "topics/quality-indicators/atrial-fibrillation"
+    },
+    {
+      "slug": "indikator-4b",
+      "title": "Indikator 4b",
+      "folder": "topics/healthcare-quality-indicators"
+    },
+    {
+      "slug": "indikator-5",
+      "title": "Indikator 5",
+      "folder": "topics/quality-indicators/cardiology"
+    },
+    {
+      "slug": "indikator-6",
+      "title": "Indikator 6",
+      "folder": "topics/health-indicators"
+    },
+    {
+      "slug": "indikator-7",
+      "title": "Indikator 7",
+      "folder": "topics/quality-indicators/atrial-fibrillation"
+    },
+    {
+      "slug": "indikator-8",
+      "title": "Indikator 8",
+      "folder": "topics/quality-indicators/atrial-fibrillation"
+    },
+    {
+      "slug": "indikator-9",
+      "title": "Indikator 9",
+      "folder": "topics/clinical-indicators/atrial-fibrillation"
+    },
+    {
+      "slug": "inge-molgaard",
+      "title": "Inge Mølgaard",
+      "folder": "entities/people/patient-representatives"
+    },
+    {
+      "slug": "international-society-of-thrombosis-and-hemostasis",
+      "title": "International Society of Thrombosis and Hemostasis",
+      "folder": "entities/organizations/medical-societies"
+    },
+    {
+      "slug": "intrakraniel-bloedning",
+      "title": "Intrakraniel blødning",
+      "folder": "topics/medical-conditions/neurological"
+    },
+    {
+      "slug": "ishoej",
+      "title": "Ishøj",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "iskaemisk-apopleksi",
+      "title": "Iskæmisk apopleksi",
+      "folder": "topics/medical-conditions/neurological"
+    },
+    {
+      "slug": "jammerbugt",
+      "title": "Jammerbugt",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "jeppe-launbjerg",
+      "title": "Jeppe Launbjerg",
+      "folder": "entities/people/health-professionals"
+    },
+    {
+      "slug": "julie-andersen",
+      "title": "Julie Andersen",
+      "folder": "entities/people/healthcare-professionals"
+    },
+    {
+      "slug": "kalundborg",
+      "title": "Kalundborg",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "kerteminde",
+      "title": "Kerteminde",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "klynge-midt",
+      "title": "Klynge MIDT",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "klynge-nord",
+      "title": "Klynge NORD",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "klynge-syd",
+      "title": "Klynge SYD",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "klynge-vest",
+      "title": "Klynge VEST",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "koebenhavn",
+      "title": "København",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "koege",
+      "title": "Køge",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "kolding",
+      "title": "Kolding",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "kolding-sygehus",
+      "title": "Kolding Sygehus",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "labka",
+      "title": "LABKA",
+      "folder": "entities/systems/laboratory-information-systems"
+    },
+    {
+      "slug": "laboratoriedatabasen",
+      "title": "Laboratoriedatabasen",
+      "folder": "entities/databases/healthcare-registries"
+    },
+    {
+      "slug": "laboratorieregistret",
+      "title": "Laboratorieregistret",
+      "folder": "entities/organizations/health-registries"
+    },
+    {
+      "slug": "laegemiddelstatistikregisteret",
+      "title": "Lægemiddelstatistikregisteret",
+      "folder": "entities/organizations/health-data-infrastructure"
+    },
+    {
+      "slug": "laesoe",
+      "title": "Læsø",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "landspatientregisteret",
+      "title": "Landspatientregisteret",
+      "folder": "entities/databases/healthcare-registries"
+    },
+    {
+      "slug": "langeland",
+      "title": "Langeland",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "lars-frost",
+      "title": "Lars Frost",
+      "folder": "entities/people/healthcare-professionals"
+    },
+    {
+      "slug": "lejre",
+      "title": "Lejre",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "lemvig",
+      "title": "Lemvig",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "lolland",
+      "title": "Lolland",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "louisa-marguerite-christensen",
+      "title": "Louisa Marguerite Christensen",
+      "folder": "entities/people/health-professionals"
+    },
+    {
+      "slug": "lyngby-taarbaek",
+      "title": "Lyngby-Tårbæk",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "marevan",
+      "title": "marevan",
+      "folder": "entities/products/pharmaceuticals"
+    },
+    {
+      "slug": "margit-brinck",
+      "title": "Margit Brinck",
+      "folder": "entities/people/health-professionals"
+    },
+    {
+      "slug": "mariagerfjord",
+      "title": "Mariagerfjord",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "middelfart",
+      "title": "Middelfart",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "midtklyngen",
+      "title": "Midtklyngen",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "miriam-grijota-chousa",
+      "title": "Miriam Grijota Chousa",
+      "folder": "entities/people/health-researchers"
+    },
+    {
+      "slug": "morsoe",
+      "title": "Morsø",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "naestved-sygehus",
+      "title": "Næstved Sygehus",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "norddjurs",
+      "title": "Norddjurs",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "nordfyns",
+      "title": "Nordfyns",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "np03578-p-thyrotropin",
+      "title": "NPU 03578",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "np03624-p-thyrotropin",
+      "title": "NPU03624",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "np04199-p-thyrotropin",
+      "title": "NPU04199",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "np04200-p-thyrotropin",
+      "title": "NPU04200",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "np27547-p-thyrotropin",
+      "title": "NPU27547",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "npu03577-p-thyrotropin",
+      "title": "NPU03577 (P-Thyrotropin)",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "npu04998-p-kreatinin",
+      "title": "NPU04998 (P-Kreatinin)",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "npu18016-p-kreatinin",
+      "title": "NPU18016 (P-Kreatinin)",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "nsaid",
+      "title": "NSAID",
+      "folder": "entities/pharmaceuticals/analgesics"
+    },
+    {
+      "slug": "nyborg",
+      "title": "Nyborg",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "nykoebing-falster",
+      "title": "Nykøbing Falster",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "odder",
+      "title": "Odder",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "odense",
+      "title": "Odense",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "odsherred",
+      "title": "Odsherred",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "ole-dyg-pedersen",
+      "title": "Ole Dyg Pedersen",
+      "folder": "entities/people/health-professionals"
+    },
+    {
+      "slug": "ouh-odense-universitetshospital",
+      "title": "OUH Odense Universitetshospital",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "p-creatinin",
+      "title": "P-creatinin",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "palle-mark-christensen",
+      "title": "Palle Mark Christensen",
+      "folder": "entities/people/health-professionals"
+    },
+    {
+      "slug": "palm-et-al-2020",
+      "title": "Palm et al., 2020",
+      "folder": "entities/documents/reports"
+    },
+    {
+      "slug": "patientuddannelse",
+      "title": "Patientuddannelse",
+      "folder": "entities/medical-interventions/education"
+    },
+    {
+      "slug": "pladehaemmere",
+      "title": "pladehæmmere",
+      "folder": "entities/pharmaceuticals/antiplatelets"
+    },
+    {
+      "slug": "praevalente-patienter-med-atrieflimren",
+      "title": "Prævalente patienter med atrieflimren",
+      "folder": "topics/epidemiology"
+    },
+    {
+      "slug": "praktiserende-kardiologer",
+      "title": "Praktiserende kardiologer",
+      "folder": "entities/groups/patient-advocacy"
+    },
+    {
+      "slug": "randers",
+      "title": "Randers",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "randersklyngen",
+      "title": "Randersklyngen",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "rebild",
+      "title": "Rebild",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "region-hovedstaden",
+      "title": "region-hovedstaden",
+      "folder": "entities/organizations/regions"
+    },
+    {
+      "slug": "region-midtjylland",
+      "title": "region-midtjylland",
+      "folder": "entities/locations/regions"
+    },
+    {
+      "slug": "region-nordjylland",
+      "title": "region-nordjylland",
+      "folder": "entities/organizations/regions"
+    },
+    {
+      "slug": "region-sjaelland",
+      "title": "region-sjaelland",
+      "folder": "entities/organizations/regions"
+    },
+    {
+      "slug": "region-syddanmark",
+      "title": "region-syddanmark",
+      "folder": "entities/locations/regions"
+    },
+    {
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "title": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-authorities"
+    },
+    {
+      "slug": "regionshospital-nordjylland-ven",
+      "title": "Regionshospital Nordjylland Ven",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "regionshospitalet-goedstrup",
+      "title": "Regionshospitalet Gødstrup",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "regionshospitalet-horsens",
+      "title": "Regionshospitalet Horsens",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "regionshospitalet-randers",
+      "title": "Regionshospitalet Randers",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "rigshospitalet",
+      "title": "Rigshospitalet",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "ringkoebing-skjern",
+      "title": "Ringkøbing-Skjern",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "ringsted",
+      "title": "Ringsted",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "risom-2019",
+      "title": "Risom, 2019",
+      "folder": "entities/documents/reports"
+    },
+    {
+      "slug": "rkkp-videncenter",
+      "title": "AFDK's Videncenter",
+      "folder": "entities/organizations/health-data-infrastructure"
+    },
+    {
+      "slug": "robert-bedsted",
+      "title": "Robert Bedsted",
+      "folder": "entities/people/patient-representatives"
+    },
+    {
+      "slug": "roedovre",
+      "title": "Rødovre",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "roskilde",
+      "title": "Roskilde",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "rudersdal",
+      "title": "Rudersdal",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "s-creatinin",
+      "title": "S-creatinin",
+      "folder": "entities/codes/laboratory-tests"
+    },
+    {
+      "slug": "samso-sundheds-og-akuthus",
+      "title": "Samsø Sundheds og Akuthus",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "samsoe",
+      "title": "Samsø",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "sig-af",
+      "title": "SIG AF",
+      "folder": "entities/organizations/medical-societies"
+    },
+    {
+      "slug": "silkeborg",
+      "title": "Silkeborg",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "sjaellands-universitetshospital-koenge",
+      "title": "Sjællands Universitetshospital Køge",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "sjaellands-universitetshospital-roskilde",
+      "title": "Sjællands Universitetshospital Roskilde",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "skanderborg",
+      "title": "Skanderborg",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "skive",
+      "title": "Skive",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "sks-koder",
+      "title": "SKS-koder",
+      "folder": "entities/standards/medical-coding"
+    },
+    {
+      "slug": "slagelse-sygehus",
+      "title": "Slagelse Sygehus",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "soenderborg",
+      "title": "Sønderborg",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "solroed",
+      "title": "Solrød",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "soroe",
+      "title": "Sorø",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "standard-80-percent",
+      "title": "Standard: ≥80 %",
+      "folder": "topics/clinical-indicators"
+    },
+    {
+      "slug": "standard-90-percent",
+      "title": "Standard: ≥90 %",
+      "folder": "topics/healthcare-quality-standards"
+    },
+    {
+      "slug": "standarden",
+      "title": "standarden",
+      "folder": "topics/healthcare-quality-standards"
+    },
+    {
+      "slug": "steno-diabetes-center",
+      "title": "Steno Diabetes Center",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "stevns",
+      "title": "Stevns",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "struer",
+      "title": "Struer",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "struktureret-undervisningsprogram",
+      "title": "Struktureret undervisningsprogram",
+      "folder": "topics/clinical-practice-decision"
+    },
+    {
+      "slug": "sundhedsdatastyrelsen",
+      "title": "Sundhedsdatastyrelsen",
+      "folder": "entities/organizations/health-authorities"
+    },
+    {
+      "slug": "sundhedsklynge",
+      "title": "Sundhedsklynge",
+      "folder": "entities/organizations/health-infrastructure"
+    },
+    {
+      "slug": "sundhedsklynge-bornholm",
+      "title": "Sundhedsklynge Bornholm",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "sundhedsklynge-byen",
+      "title": "Sundhedsklynge Byen",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "sundhedsklynge-fyn",
+      "title": "Sundhedsklynge Fyn",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "sundhedsklynge-lillebaelt",
+      "title": "Sundhedsklynge Lillebælt",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "sundhedsklynge-midt",
+      "title": "Sundhedsklynge Midt",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "sundhedsklynge-nord",
+      "title": "Sundhedsklynge Nord",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "sundhedsklynge-soenderjylland",
+      "title": "Sundhedsklynge Sønderjylland",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "sundhedsklynge-syd",
+      "title": "Sundhedsklynge Syd",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "sundhedsklynge-sydvestjylland",
+      "title": "Sundhedsklynge Sydvestjylland",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "sundhedsklyngen-holbaek",
+      "title": "Sundhedsklyngen Holbæk",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "sundhedsklyngen-nykoebing-f",
+      "title": "Sundhedsklyngen Nykøbing F",
+      "folder": "entities/organizations/healthcare-registries"
+    },
+    {
+      "slug": "sundhedsklyngen-slagelese",
+      "title": "Sundhedsklyngen Slagelse",
+      "folder": "entities/organizations/health-registries"
+    },
+    {
+      "slug": "sundhedsklyngen-slagelse",
+      "title": "Sundhedsklyngen Slagelse",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "sundhedsklyngen-suh",
+      "title": "Sundhedsklyngen SUH",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "sundhedsklynger",
+      "title": "Sundhedsklyngerne",
+      "folder": "entities/organizations/regions"
+    },
+    {
+      "slug": "sundhedsplatformen",
+      "title": "Sundhedsplatformen",
+      "folder": "entities/systems/health-information-systems"
+    },
+    {
+      "slug": "supplerende-analyser-7",
+      "title": "Supplerende analyser 7",
+      "folder": "topics/clinical-indicators/atrial-fibrillation"
+    },
+    {
+      "slug": "supplerende-indikator-hjertesvigt-efter-atrieflimren",
+      "title": "Supplerende indikator: Hjertesvigt efter atrieflimren",
+      "folder": "topics/clinical-indicators/atrial-fibrillation"
+    },
+    {
+      "slug": "svendborg",
+      "title": "Svendborg",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "syddjurs",
+      "title": "Syddjurs",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "sygehus-lillebaelt",
+      "title": "Sygehus Lillebælt",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "sygehus-soenderjylland",
+      "title": "Sygehus Sønderjylland",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "sygesikringsregisteret",
+      "title": "Sygesikringsregisteret",
+      "folder": "entities/organizations/health-registries"
+    },
+    {
+      "slug": "taarnby",
+      "title": "Tårnby",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "thisted",
+      "title": "Thisted",
+      "folder": "entities/organizations/municipalities"
+    },
+    {
+      "slug": "thyreoideastimulerende-hormon-tsh",
+      "title": "thyreoideastimulerende hormon (TSH)",
+      "folder": "entities/biomarkers/endocrine"
+    },
+    {
+      "slug": "toender",
+      "title": "Tønder",
+      "folder": "entities/locations/cities"
+    },
+    {
+      "slug": "ulla-dam-schmidt",
+      "title": "Ulla Dam-Schmidt",
+      "folder": "entities/people/healthcare-professionals"
+    },
+    {
+      "slug": "ulla-davidsen",
+      "title": "Ulla Davidsen",
+      "folder": "entities/people/health-professionals"
+    },
+    {
+      "slug": "uxuc80",
+      "title": "UXUC80",
+      "folder": "entities/codes/procedure-codes"
+    },
+    {
+      "slug": "uxuc80a",
+      "title": "UXUC80A",
+      "folder": "entities/codes/procedure-codes"
+    },
+    {
+      "slug": "uxuc80b",
+      "title": "UXUC80B",
+      "folder": "entities/codes/procedure-codes"
+    },
+    {
+      "slug": "uxuc80c",
+      "title": "UXUC80C",
+      "folder": "entities/codes/procedure-codes"
+    },
+    {
+      "slug": "uxuc80d",
+      "title": "UXUC80D",
+      "folder": "entities/codes/procedure-codes"
+    },
+    {
+      "slug": "uxuc80e",
+      "title": "UXUC80E",
+      "folder": "entities/codes/procedure-codes"
+    },
+    {
+      "slug": "uxuc81",
+      "title": "UXUC81",
+      "folder": "entities/codes/procedure-codes"
+    },
+    {
+      "slug": "uxuc81c",
+      "title": "UXUC81C",
+      "folder": "entities/codes/procedure-codes"
+    },
+    {
+      "slug": "vallensbaek",
+      "title": "Vallensbæk",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "varde",
+      "title": "Varde",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "vejen",
+      "title": "Vejen",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "vejle",
+      "title": "Vejle",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "vejle-sygehus",
+      "title": "Vejle Sygehus",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "vesthimmerlands",
+      "title": "Vesthimmerlands",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "viborg",
+      "title": "Viborg",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "vordingborg",
+      "title": "Vordingborg",
+      "folder": "entities/locations/municipalities"
+    },
+    {
+      "slug": "www-rkkp-dk",
+      "title": "www.rkkp.dk",
+      "folder": "entities/websites/health-authorities"
     }
   ],
   "updatedEntities": [],
-  "conflicts": 1,
-  "totalCost": 0,
-  "chunksProcessed": 0,
-  "chunksSkipped": 48,
+  "conflicts": 7,
+  "totalCost": 31.640607999999975,
+  "chunksProcessed": 48,
+  "chunksSkipped": 0,
   "chunksFailed": 0,
-  "entitiesNew": 17,
+  "entitiesNew": 325,
   "entitiesUpdated": 0,
-  "relationshipsExtracted": 0,
-  "claimsExtracted": 0,
-  "claimsByType": {},
-  "pagesByType": {
-    "entity": 83,
-    "topic": 123
+  "relationshipsExtracted": 630,
+  "claimsExtracted": 418,
+  "claimsByType": {
+    "temporal": 5,
+    "epidemiological": 19,
+    "clinical-standard": 2,
+    "organizational-change": 1,
+    "data-infrastructure": 1,
+    "standard": 12,
+    "performance": 53,
+    "methodological": 5,
+    "definitional": 1,
+    "clinical": 56,
+    "regional-comparison": 2,
+    "pre-hospital-treatment": 1,
+    "health-standard": 2,
+    "health-statistic": 6,
+    "clinical-performance": 3,
+    "policy-standard": 2,
+    "clinical-assessment": 1,
+    "policy-assessment": 1,
+    "target": 1,
+    "healthcare-standard": 1,
+    "healthcare-statistic": 6,
+    "definition": 16,
+    "statistical": 17,
+    "methodological-note": 1,
+    "healthcare-performance": 1,
+    "trend-observation": 2,
+    "quality-performance": 11,
+    "policy-decision": 6,
+    "quality-standard": 19,
+    "health": 9,
+    "clinical-statistic": 3,
+    "pharmacovigilance": 6,
+    "epidemiology": 5,
+    "regulatory": 1,
+    "prognostic": 1,
+    "governance": 2,
+    "pharmacological": 1,
+    "trend": 8,
+    "policy-change": 1,
+    "methodology": 1,
+    "population-definition": 2,
+    "metric-definition": 1,
+    "coverage-limitation": 2,
+    "limitation": 6,
+    "validity-assessment": 2,
+    "comparative-validity": 1,
+    "incidence-rate": 3,
+    "case-count": 1,
+    "demographic-statistic": 1,
+    "mortality-rate": 3,
+    "clinical-guideline": 1,
+    "demographic": 1,
+    "clinical-outcome": 12,
+    "clinical-risk-distribution": 2,
+    "mortality-statistic": 3,
+    "incidence-statistic": 1,
+    "quality-assessment": 1,
+    "procedural": 4,
+    "laboratory": 2,
+    "pharmaceutical": 1,
+    "diagnostic": 3,
+    "interventional": 1,
+    "data-collection-issue": 2,
+    "system-limitation": 1,
+    "clinical-practice-decision": 3,
+    "data-analysis": 1,
+    "clarification-request": 2,
+    "governance-question": 1,
+    "organizational": 4,
+    "performance-data": 11,
+    "policy": 5,
+    "clinical-indicator": 9,
+    "quality-indicator": 8,
+    "healthcare-quality-standards": 1,
+    "clinical-indicators": 2,
+    "geographic-distribution": 1,
+    "result": 2,
+    "comparative-result": 1,
+    "patient-perspective": 1,
+    "organizational-practice": 1,
+    "clinical-risk": 1,
+    "methodological-definition": 2,
+    "validation": 2,
+    "clinical-practice": 1,
+    "clinical-policy": 1,
+    "quality-indicator-definition": 7,
+    "statistical-interpretation": 2
   },
-  "foldersCreated": 29,
-  "brokenLinks": 0,
-  "orphanedPages": 0,
+  "pagesByType": {
+    "entity": 352,
+    "topic": 67,
+    "document": 48
+  },
+  "foldersCreated": 89,
+  "brokenLinks": 1117,
+  "orphanedPages": 21,
   "conflictsManualEdit": 0,
-  "conflictsPreservation": 1,
-  "totalTokens": 3586878,
-  "wallClockMs": 431602,
-  "feedbackRepairs": 4,
+  "conflictsPreservation": 7,
+  "totalTokens": 11455932,
+  "wallClockMs": 25091478,
+  "feedbackRepairs": 117,
   "curationFallbacks": 0,
   "transportFailures": 0
 }

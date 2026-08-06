@@ -4,45 +4,627 @@
       "concern": "entities",
       "action": "merge",
       "from": [
+        "regionshospitalet-godstrup"
+      ],
+      "into": "regionshospitalet-goedstrup",
+      "signal": "transliteration",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "ringkobing-skjern"
+      ],
+      "into": "ringkoebing-skjern",
+      "signal": "transliteration",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "sonderborg"
+      ],
+      "into": "soenderborg",
+      "signal": "transliteration",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "tarnby"
+      ],
+      "into": "taarnby",
+      "signal": "transliteration",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "clinical-standard"
+      ],
+      "into": "standard",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "health-standard"
+      ],
+      "into": "standard",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "healthcare-standard"
+      ],
+      "into": "standard",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "policy-standard"
+      ],
+      "into": "standard",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "quality-standard"
+      ],
+      "into": "standard",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "target"
+      ],
+      "into": "standard",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "clinical-performance"
+      ],
+      "into": "performance",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "healthcare-performance"
+      ],
+      "into": "performance",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "quality-performance"
+      ],
+      "into": "performance",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "epidemiological"
+      ],
+      "into": "epidemiology",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "mortality-statistic"
+      ],
+      "into": "mortality-rate",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "incidence-statistic"
+      ],
+      "into": "incidence-rate",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "coverage-limitation"
+      ],
+      "into": "limitation",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "data-collection-issue"
+      ],
+      "into": "limitation",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "system-limitation"
+      ],
+      "into": "limitation",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "temporal"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "methodological"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "methodological-note"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "statistical"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "trend"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "trend-observation"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "clinical"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "procedural"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "diagnostic"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "interventional"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "pharmacological"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "pharmaceutical"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "laboratory"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "regulatory"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "prognostic"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "demographic"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "demographic-statistic"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "health-statistic"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "healthcare-statistic"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "clinical-statistic"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "clinical-assessment"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "policy-assessment"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "quality-assessment"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "validity-assessment"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "comparative-validity"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "regional-comparison"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "health"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "case-count"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "data-analysis"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "clarification-request"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "governance-question"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "population-definition"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "metric-definition"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "methodology"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "slagelse"
+      ],
+      "into": "slagelse-sygehus",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "naestved"
+      ],
+      "into": "naestved-sygehus",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "icd-10-diagnose-di48"
+      ],
+      "into": "di48",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "noac"
+      ],
+      "into": "doac",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "styregruppen"
+      ],
+      "into": "afdk-styregruppe",
+      "signal": "model",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
         "afdk"
       ],
       "into": "databasen-for-atrieflimren-i-danmark",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
+      "signal": "abbreviation",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "alvorlig-blodning"
+        "cha2ds2-vasc-score"
       ],
-      "into": "alvorlig-bloedning",
-      "signal": "transliteration",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
-    },
-    {
-      "concern": "entities",
-      "action": "merge",
-      "from": [
-        "bispebjerg-og-frederiksberg-hospital"
-      ],
-      "into": "bispebjerg-og-frederiksberg-hospitaler",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
-    },
-    {
-      "concern": "entities",
-      "action": "merge",
-      "from": [
-        "holbaek-hospital"
-      ],
-      "into": "holbaek",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
+      "into": "cha2ds2-vasc",
+      "signal": "subsequence",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
     },
     {
       "concern": "entities",
@@ -51,9 +633,9 @@
         "laegemiddelstatistikregistret"
       ],
       "into": "laegemiddelstatistikregisteret",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
+      "signal": "edit-distance",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
     },
     {
       "concern": "entities",
@@ -62,97 +644,299 @@
         "landspatientregistret"
       ],
       "into": "landspatientregisteret",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
+      "signal": "edit-distance",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "naestved-hospital"
+        "lpr"
       ],
-      "into": "naestved",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
+      "into": "landspatientregisteret",
+      "signal": "abbreviation",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "naestved-sygehus"
+        "rkkp"
       ],
-      "into": "naestved",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
+      "into": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "signal": "abbreviation",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "nykoebing-falster-hospital"
+        "sjaellands-universitetshospital-koege"
       ],
-      "into": "nykoebing-falster",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
+      "into": "sjaellands-universitetshospital-koenge",
+      "signal": "edit-distance",
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "cluster",
+      "from": [
+        "hovedstaden"
+      ],
+      "into": "region-hovedstaden",
+      "signal": "region-form",
+      "class": 5,
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "cluster",
+      "from": [
+        "midtjylland"
+      ],
+      "into": "region-midtjylland",
+      "signal": "region-form",
+      "class": 5,
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "cluster",
+      "from": [
+        "nordjylland"
+      ],
+      "into": "region-nordjylland",
+      "signal": "region-form",
+      "class": 5,
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "cluster",
+      "from": [
+        "sjaelland"
+      ],
+      "into": "region-sjaelland",
+      "signal": "region-form",
+      "class": 5,
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
+    },
+    {
+      "concern": "entities",
+      "action": "cluster",
+      "from": [
+        "syddanmark"
+      ],
+      "into": "region-syddanmark",
+      "signal": "region-form",
+      "class": 5,
+      "decidedAt": "2026-08-05T18:06:10.592Z",
+      "runId": "2026-08-05T18:06:10.592Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "odense-universitetshospital"
+        "godstrupklyngen"
       ],
-      "into": "ouh-odense-universitetshospital",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
-    },
-    {
-      "concern": "entities",
-      "action": "merge",
-      "from": [
-        "regionshospitalet-godstrup"
-      ],
-      "into": "regionshospitalet-goedstrup",
+      "into": "goedstrupklyngen",
       "signal": "transliteration",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "performance-data"
+      ],
+      "into": "performance",
+      "signal": "model",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "result"
+      ],
+      "into": "performance",
+      "signal": "model",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "healthcare-quality-standards"
+      ],
+      "into": "standard",
+      "signal": "model",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "standard-80-percent"
+      ],
+      "into": "standard",
+      "signal": "model",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "standard-90-percent"
+      ],
+      "into": "standard",
+      "signal": "model",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "clinical-policy"
+      ],
+      "into": "clinical-guideline",
+      "signal": "model",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "clinical-indicator"
+      ],
+      "into": "clinical-indicators",
+      "signal": "edit-distance",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "policy"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "samso-sundheds-og-akuthus"
+        "bfkb-kode"
       ],
-      "into": "samsoe-sundheds-og-akuthus",
-      "signal": "transliteration",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
+      "into": "bfkb",
+      "signal": "model",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "slagelse-hospital"
+        "chad2ds2-vasc"
       ],
-      "into": "slagelse",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
+      "into": "cha2ds2-vasc",
+      "signal": "model",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "slagelse-sygehus"
+        "landspatientregisteret-lpr"
       ],
-      "into": "slagelse",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:41:07.837Z",
-      "runId": "2026-08-03T18:41:07.837Z"
+      "into": "landspatientregisteret",
+      "signal": "model",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "np04998-p-kreatinin"
+      ],
+      "into": "s-creatinin",
+      "signal": "model",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "rkkp-styregruppe"
+      ],
+      "into": "afdk-styregruppe",
+      "signal": "model",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "tsh"
+      ],
+      "into": "thyreoideastimulerende-hormon-tsh",
+      "signal": "model",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "npu04998-p-creatinin"
+      ],
+      "into": "npu04998-p-kreatinin",
+      "signal": "edit-distance",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "npu18016-p-creatinin"
+      ],
+      "into": "npu18016-p-kreatinin",
+      "signal": "edit-distance",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "sundhedsklyngen-slagese"
+      ],
+      "into": "sundhedsklyngen-slagelse",
+      "signal": "edit-distance",
+      "decidedAt": "2026-08-05T19:14:58.847Z",
+      "runId": "2026-08-05T19:14:58.847Z"
     }
   ],
   "splits": []

@@ -4,25 +4,21 @@
       "name": "Akut Kirurgi Databasen",
       "type": "organization",
       "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/healthcare-databases",
-      "significance": "Akut Kirurgi Databasen er en dansk kvalitetsdatabase, der registrerer og analyserer indikatorer for akut kirurgisk behandling på tværs af danske regioner og hospitaler.",
+      "folder": "entities/organizations/healthcare-quality-databases",
+      "significance": "Akut Kirurgi Databasen er den centrale kvalitetsdatabase, der overvåger og rapporterer indikatorer for akut kirurgisk behandling i danske regioner, og danner grundlaget for alle resultater og anbefalinger i dette dokument.",
       "mentions": [
         {
           "page": 36,
-          "context": "Akut Kirurgi Databasen, Endelig version til offentliggørelse 2024.26.02"
-        },
-        {
-          "page": 37,
-          "context": "Akut Kirurgi Databasen, Endelig version til offentliggørelse 2024.26.02"
+          "context": "Akut Kirurgi Databasen"
         }
       ]
     },
     {
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
-      "type": "organization",
+      "type": "program",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/healthcare-programs",
-      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er det overordnede program under hvilket Akut Kirurgi Databasen opererer og kvalitetsindikatorer rapporteres.",
+      "folder": "topics/healthcare-quality-initiatives",
+      "significance": "Dette program er det overordnede regionale rammeværk, under hvilket Akut Kirurgi Databasen opererer, og som styrer kvalitetsmåling og udvikling på tværs af danske sygehuse.",
       "mentions": [
         {
           "page": 36,
@@ -31,262 +27,93 @@
       ]
     },
     {
-      "name": "Herlev og Gentofte Hospital",
-      "type": "organization",
-      "slug": "herlev-og-gentofte-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Herlev og Gentofte Hospital er et dansk hospital, der indberetter data til Akut Kirurgi Databasen for både indikator 7 (tidlig mobilisering) og indikator 8 (ernæring).",
+      "name": "Indikator 8: Ernæring",
+      "type": "indicator",
+      "slug": "indikator-8-ernaering",
+      "folder": "topics/clinical-indicators",
+      "significance": "Indikator 8 måler andelen af akut kirurgiske patienter, hvor der er taget stilling til ernæring inden for 48 timer efter operation, og er en central kvalitetsparameter i databasen.",
       "mentions": [
         {
           "page": 36,
-          "context": "Herlev og Gentofte Hospital"
+          "context": "Indikator 8: Ernæring"
         }
       ]
     },
     {
-      "name": "Hospitalerne i Nordsjælland",
-      "type": "organization",
-      "slug": "hospitalerne-i-nordsjaelland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalerne i Nordsjælland indberetter resultater for både indikator 7 og indikator 8 til Akut Kirurgi Databasen.",
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark fungerer her som nationalt aggregationsniveau for indikatorresultaterne, og angiver den samlede nationale opfyldelse af Indikator 8 på 19,6 %.",
       "mentions": [
         {
           "page": 36,
-          "context": "Hospitalerne i Nordsjælland"
+          "context": "Danmark 617 / 3.147 0 (0) 19,6 (18,2-21,0) 11,6 0,1"
         }
       ]
     },
     {
-      "name": "Rigshospitalet",
-      "type": "organization",
-      "slug": "rigshospitalet",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet er et dansk universitetshospital, der indberetter data for indikator 7 og indikator 8.",
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Region Hovedstaden viser den højeste nationale opfyldelse af Indikator 8 med 32,4 %, og fremgår to gange i tabellen som samlet region og som del af underenheder.",
       "mentions": [
         {
           "page": 36,
-          "context": "Rigshospitalet"
+          "context": "Hovedstaden 354 / 1.093 0 (0) 32,4 (29,6-35,3) 20,2 0,1"
         }
       ]
     },
     {
-      "name": "Holbæk Sygehus",
-      "type": "organization",
-      "slug": "holbaek-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk Sygehus indberetter resultater for indikator 7 og indikator 8 til Akut Kirurgi Databasen.",
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/regions",
+      "significance": "Region Sjælland er en af de regioner, der bidrager til nationalt resultat for Indikator 8 med en opfyldelse på 28,9 %, og fremgår både som region og som underenhed i tabellen.",
       "mentions": [
         {
           "page": 36,
-          "context": "Holbæk Sygehus"
+          "context": "Sjælland 151 / 522 0 (0) 28,9 (25,1-33,0) 20,0 0,0"
         }
       ]
     },
     {
-      "name": "Nykøbing F Sygehus",
-      "type": "organization",
-      "slug": "nykoebing-f-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Nykøbing F Sygehus indberetter data for indikator 7 og indikator 8 til Akut Kirurgi Databasen.",
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "Region Syddanmark har den laveste rapporterede opfyldelse af Indikator 8 med 0,2 %, men med et meget bredt konfidensinterval, hvilket tyder på usikkerhed i datagrundlaget.",
       "mentions": [
         {
           "page": 36,
-          "context": "Nykøbing F Sygehus"
+          "context": "Syddanmark #/# 0 (0) 0,2 (0,0-0,9) 0,0 0,2"
         }
       ]
     },
     {
-      "name": "Næstved, Slagelse og Ringsted sygehuse",
-      "type": "organization",
-      "slug": "naestved-slagelse-ringsted-sygehuse",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Næstved, Slagelse og Ringsted sygehuse indberetter resultater for indikator 7 og indikator 8.",
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Region Midtjylland viser en opfyldelse af Indikator 8 på 13,9 %, hvilket ligger under nationalsnittet, og er en af de regioner med størst antal patienter i nævneren (677).",
       "mentions": [
         {
           "page": 36,
-          "context": "Næstved, Slagelse og Ringsted sygehuse"
+          "context": "Midtjylland 94 / 677 0 (0) 13,9 (11,4-16,7) 5,1 0,0"
         }
       ]
     },
     {
-      "name": "Sjællands Universitetshospital",
-      "type": "organization",
-      "slug": "sjaellands-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sjællands Universitetshospital indberetter data for indikator 7 og indikator 8 til Akut Kirurgi Databasen.",
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Region Nordjylland har en lav opfyldelse af Indikator 8 på 6,3 %, og er den anden region med lavest national andel efter Syddanmark.",
       "mentions": [
         {
           "page": 36,
-          "context": "Sjællands Universitetshospital"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg Sygehus",
-      "type": "organization",
-      "slug": "esbjerg-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Esbjerg Sygehus indberetter resultater for indikator 7 til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Esbjerg Sygehus"
-        }
-      ]
-    },
-    {
-      "name": "Grindsted Sygehus",
-      "type": "organization",
-      "slug": "grindsted-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Grindsted Sygehus indberetter data for indikator 7 til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Grindsted Sygehus"
-        }
-      ]
-    },
-    {
-      "name": "Odense Universitetshospital - Svendborg",
-      "type": "organization",
-      "slug": "odense-universitetshospital-svendborg",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Odense Universitetshospital - Svendborg indberetter resultater for indikator 7 til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Odense Universitetshospital - Svendborg"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Lillebælt",
-      "type": "organization",
-      "slug": "sygehus-lillebaelt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Lillebælt indberetter data for indikator 7 til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Sygehus Lillebælt"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Sønderjylland",
-      "type": "organization",
-      "slug": "sygehus-soenderjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Sønderjylland indberetter resultater for indikator 7 til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Sygehus Sønderjylland"
-        }
-      ]
-    },
-    {
-      "name": "Aarhus Universitetshospital",
-      "type": "organization",
-      "slug": "aarhus-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Universitetshospital indberetter data for indikator 7 til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Aarhus Universitetshospital"
-        }
-      ]
-    },
-    {
-      "name": "Hospitalsenhed Midt",
-      "type": "organization",
-      "slug": "hospitalsenhed-midt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalsenhed Midt indberetter resultater for indikator 7 til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Hospitalsenhed Midt"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Gødstrup",
-      "type": "organization",
-      "slug": "regionshospitalet-goedstrup",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Gødstrup indberetter data for indikator 7 til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Regionshospitalet Gødstrup"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Horsens",
-      "type": "organization",
-      "slug": "regionshospitalet-horsens",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Horsens indberetter resultater for indikator 7 til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Regionshospitalet Horsens"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Randers",
-      "type": "organization",
-      "slug": "regionshospitalet-randers",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Randers indberetter data for indikator 7 til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Regionshospitalet Randers"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Universitetshospital",
-      "type": "organization",
-      "slug": "aalborg-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital indberetter resultater for indikator 7 til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Aalborg Universitetshospital"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Universitetshospital, Thisted",
-      "type": "organization",
-      "slug": "aalborg-universitetshospital-thisted",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital, Thisted indberetter data for indikator 7 til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Aalborg Universitetshospital, Thisted"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospital Nordjylland",
-      "type": "organization",
-      "slug": "regionshospital-nordjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospital Nordjylland indberetter resultater for indikator 7 til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Regionshospital Nordjylland"
+          "context": "Nordjylland 17 / 270 0 (0) 6,3 (3,7-9,9) 0,5 0,0"
         }
       ]
     },
@@ -295,11 +122,11 @@
       "type": "organization",
       "slug": "amager-og-hvidovre-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Amager og Hvidovre Hospital indberetter data for indikator 8 (ernæring) til Akut Kirurgi Databasen.",
+      "significance": "Amager og Hvidovre Hospital er den sygehusenhed med højeste opfyldelse af Indikator 8 blandt alle listede enheder med 49,0 %, og illustrerer betydelig variation på lokal niveau.",
       "mentions": [
         {
-          "page": 37,
-          "context": "Amager og Hvidovre Hospital"
+          "page": 36,
+          "context": "Amager og Hvidovre Hospital 124 / 253 0 (0) 49,0 (42,7-55,3) 22,1 0,0"
         }
       ]
     },
@@ -308,76 +135,76 @@
       "type": "organization",
       "slug": "bispebjerg-og-frederiksberg-hospitaler",
       "folder": "entities/organizations/hospitals",
-      "significance": "Bispebjerg og Frederiksberg Hospitaler indberetter resultater for indikator 8 til Akut Kirurgi Databasen.",
+      "significance": "Bispebjerg og Frederiksberg Hospitaler viser den højeste opfyldelse af Indikator 8 blandt alle enheder med 53,9 %, hvilket understreger betydningen af lokalt klinisk fokus.",
       "mentions": [
         {
-          "page": 37,
-          "context": "Bispebjerg og Frederiksberg Hospitaler"
+          "page": 36,
+          "context": "Bispebjerg og Frederiksberg Hospitaler 125 / 232 0 (0) 53,9 (47,2-60,4) 32,1 0,5"
         }
       ]
     },
     {
-      "name": "Bornholms Hospital",
+      "name": "Herlev og Gentofte Hospital",
       "type": "organization",
-      "slug": "bornholms-hospital",
+      "slug": "herlev-og-gentofte-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Bornholms Hospital indberetter data for indikator 8 til Akut Kirurgi Databasen.",
+      "significance": "Herlev og Gentofte Hospital har en relativt lav opfyldelse af Indikator 8 på 11,1 %, hvilket er under både regionalt og nationalt niveau.",
       "mentions": [
         {
-          "page": 37,
-          "context": "Bornholms Hospital"
+          "page": 36,
+          "context": "Herlev og Gentofte Hospital 34 / 307 0 (0) 11,1 (7,8-15,1) 14,5 0,0"
         }
       ]
     },
     {
-      "name": "Region Nordjylland",
+      "name": "Rigshospitalet",
       "type": "organization",
-      "slug": "region-nordjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Nordjylland havde den laveste andel af patienter mobiliseret indenfor 24 timer efter operation på 4,1 % for indikator 7.",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet har den laveste opfyldelse af Indikator 8 blandt alle navngivne sygehuse med 5,2 %, hvilket rejser spørgsmål om lokale processer eller registreringspraksis.",
       "mentions": [
         {
           "page": 36,
-          "context": "Region Nordjylland"
+          "context": "Rigshospitalet 3 / 58 0 (0) 5,2 (1,1-14,4) 1,8 0,0"
         }
       ]
     },
     {
-      "name": "Region Midtjylland",
+      "name": "Sjællands Universitetshospital",
       "type": "organization",
-      "slug": "region-midtjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Midtjylland havde den højeste andel af patienter mobiliseret indenfor 24 timer efter operation på 43,7 % for indikator 7.",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital viser en høj opfyldelse af Indikator 8 på 45,7 %, og er en af de tre enheder med over 45 % opfyldelse.",
       "mentions": [
         {
           "page": 36,
-          "context": "Region Midtjylland"
+          "context": "Sjællands Universitetshospital 95 / 208 0 (0) 45,7 (38,8-52,7) 32,2 0,0"
         }
       ]
     },
     {
-      "name": "LKT Akutkirurgi",
+      "name": "Holbæk Sygehus",
       "type": "organization",
-      "slug": "lkt-akutkirurgi",
-      "folder": "entities/organizations/healthcare-programs",
-      "significance": "LKT Akutkirurgi har understøttet forståelse og processer omkring indikator 7 (tidlig mobilisering), hvilket har medført forbedret registrering.",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus har en opfyldelse af Indikator 8 på 32,2 %, hvilket ligger over nationalsnittet og viser god lokal implementering.",
       "mentions": [
         {
           "page": 36,
-          "context": "LKT Akutkirurgi"
+          "context": "Holbæk Sygehus 38 / 118 0 (0) 32,2 (23,9-41,4) 17,8 0,0"
         }
       ]
     },
     {
-      "name": "Enhanced Recovery After Surgery",
-      "type": "topic",
-      "slug": "enhanced-recovery-after-surgery",
-      "folder": "topics/clinical-concepts",
-      "significance": "Enhanced Recovery After Surgery (ERAS) er et multimodalt koncept, der anbefales for både elektive og akutte kirurgiske patienter, og som danner grundlag for anbefalinger om tidlig mobilisering.",
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagese-og-ringsted-sygehuse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Denne gruppe af sygehuse har en lav opfyldelse af Indikator 8 på 9,3 %, hvilket tyder på systematiske udfordringer i ernæringsvurdering efter akut kirurgi.",
       "mentions": [
         {
           "page": 36,
-          "context": "Enhanced Recovery After Surgery (ERAS)"
+          "context": "Næstved, Slagelse og Ringsted sygehuse 18 / 194 0 (0) 9,3 (5,6-14,3) 5,4 0,0"
         }
       ]
     }
@@ -385,283 +212,107 @@
   "relationships": [
     {
       "subject": "akut-kirurgi-databasen",
-      "predicate": "operates-under",
+      "predicate": "is-part-of",
       "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Akut Kirurgi Databasen opererer under Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "evidence": "Akut Kirurgi Databasen er en del af Regionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 36
     },
     {
-      "subject": "herlev-og-gentofte-hospital",
-      "predicate": "reports-to",
-      "object": "akut-kirurgi-databasen",
-      "evidence": "Herlev og Gentofte Hospital indberetter resultater for indikator 7 og indikator 8",
+      "subject": "indikator-8-ernaering",
+      "predicate": "measures",
+      "object": "ernaering-vurdering-indenfor-48-timer",
+      "evidence": "Andelen af patienter, hvor der er taget stilling til ernæring indenfor 48 timer efter operation",
       "page": 36
     },
     {
-      "subject": "hospitalerne-i-nordsjaelland",
-      "predicate": "reports-to",
-      "object": "akut-kirurgi-databasen",
-      "evidence": "Hospitalerne i Nordsjælland indberetter data til Akut Kirurgi Databasen",
-      "page": 36
-    },
-    {
-      "subject": "rigshospitalet",
-      "predicate": "reports-to",
-      "object": "akut-kirurgi-databasen",
-      "evidence": "Rigshospitalet indberetter resultater for indikator 7 og indikator 8",
-      "page": 36
-    },
-    {
-      "subject": "lkt-akutkirurgi",
-      "predicate": "supports",
-      "object": "akut-kirurgi-databasen",
-      "evidence": "LKT Akutkirurgi har understøttet forståelse og processer omkring indikatoren",
+      "subject": "indikator-8-ernaering",
+      "predicate": "has-standard",
+      "object": "ingen-standard-fastsat",
+      "evidence": "Standard Ikke fastsat",
       "page": 36
     }
   ],
   "claims": [
     {
-      "text": "I alt 914 af de 3.147 opererede patienter i opgørelsesperioden blev mobiliserede indenfor 24 timer efter operation, svarende til at 29,0 % nationalt blev mobiliserede indenfor 24 timer efter operation (95 % CI: 27,5-30,7) [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 36
-    },
-    {
-      "text": "Regionalt varierede andelen fra 4,1 % i Region Nordjylland til 43,7 % i Region Midtjylland [^src1]",
-      "type": "regional-variation",
-      "entities": [
-        "region-nordjylland",
-        "region-midtjylland"
-      ],
-      "page": 36
-    },
-    {
-      "text": "Ingen af de indberettende enheder opfyldte standarden på ≥ 90 % [^src1]",
-      "type": "standard-compliance",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 36
-    },
-    {
-      "text": "Udviklingen over tid viser, registreringen for indikatoren er forbedret over de seneste to årsrapportperioder [^src1]",
-      "type": "trend",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 36
-    },
-    {
-      "text": "Det store spring i indikator opfyldelse til 28,3% skyldes formentlig det tætte samarbejde med LKT Akutkirurgi, der har understøttet forståelse og processer omkring indikatoren [^src1]",
-      "type": "analysis",
-      "entities": [
-        "lkt-akutkirurgi"
-      ],
-      "page": 36
-    },
-    {
-      "text": "617 af 3.147 patienter (19,6 %, 95 % CI: 18,2-21,0) havde taget stilling til ernæring indenfor 48 timer efter operation nationalt [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Hovedstaden havde 32,4 % (354 / 1.093) patienter hvor der var taget stilling til ernæring indenfor 48 timer [^src1]",
-      "type": "regional-outcome",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Syddanmark havde 0,2 % patienter hvor der var taget stilling til ernæring indenfor 48 timer [^src1]",
-      "type": "regional-outcome",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Amager og Hvidovre Hospital havde 49,0 % (124 / 253) patienter hvor der var taget stilling til ernæring indenfor 48 timer [^src1]",
-      "type": "hospital-outcome",
-      "entities": [
-        "amager-og-hvidovre-hospital"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Bispebjerg og Frederiksberg Hospitaler havde 53,9 % (125 / 232) patienter hvor der var taget stilling til ernæring indenfor 48 timer [^src1]",
-      "type": "hospital-outcome",
-      "entities": [
-        "bispebjerg-og-frederiksberg-hospitaler"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Mobilisering registreres i LPR ved at angive koderne ZZP0030A (tidlig mobilisering påbegyndt) og ZZP0030C (vurderet ingen indikation for tidlig mobilisering) [^src1]",
-      "type": "methodology",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 36
-    },
-    {
-      "text": "Med udgangspunkt i Enhanced Recovery After Surgery (ERAS), skal mobilisering ske på det første postoperative døgn [^src1]",
-      "type": "clinical-guideline",
-      "entities": [
-        "enhanced-recovery-after-surgery"
-      ],
-      "page": 36
-    },
-    {
-      "text": "Det er vist at koncepterne for ERAS som normalvis finder anvendelse hos elektive patienter, er gavnlige og overførbare til akutte patienter medførende kortere indlæggelsestid og færre komplikationer [^src1]",
-      "type": "clinical-evidence",
-      "entities": [
-        "enhanced-recovery-after-surgery"
-      ],
-      "page": 36
-    },
-    {
-      "text": "Et studie har ligeledes fundet at 35% af patienter opereret for akut højrisiko abdominalkirurgi ikke er selvstændigt mobiliserede 7 dage post-operativt og at disse patienter er i højere risiko for at få lungekomplikationer [^src1]",
-      "type": "clinical-evidence",
-      "entities": [],
-      "page": 36
-    },
-    {
-      "text": "Akutte mave-tarm kirurgiske patienter opereret for ileus og perforeret hulorgan er dårligt mobiliserede post-operativt, hvilket øger risikoen for komplikationer generelt [^src1]",
-      "type": "clinical-observation",
-      "entities": [],
-      "page": 36
-    },
-    {
-      "text": "Patienter opereret akut for ileus og perforeret hulorgan bør mobiliseres i samme form som ERAS patienter med tidlig mobilisering allerede det første postoperative døgn [^src1]",
-      "type": "clinical-recommendation",
-      "entities": [
-        "enhanced-recovery-after-surgery"
-      ],
-      "page": 36
-    },
-    {
-      "text": "Mobilisering er defineret ved mobilisering fra liggende stilling til enten siddende eller stående stilling, hvor patienten har forladt sengen [^src1]",
+      "text": "Indikator 8: Ernæring måler andelen af patienter, hvor der er taget stilling til ernæring indenfor 48 timer efter operation [^src1]",
       "type": "definition",
-      "entities": [],
+      "entities": [
+        "indikator-8-ernaering"
+      ],
       "page": 36
     },
     {
-      "text": "Styregruppen anbefaler, koden for 'ingen indikation for tidlig mobilisering' anvendes i relevante tilfælde [^src1]",
-      "type": "recommendation",
+      "text": "Nationalt blev 617 ud af 3.147 akut kirurgiske patienter vurderet for ernæring inden for 48 timer efter operation, svarende til 19,6 % (95 % CI: 18,2–21,0) [^src1]",
+      "type": "statistical",
       "entities": [
-        "akut-kirurgi-databasen"
+        "danmark",
+        "indikator-8-ernaering"
+      ],
+      "page": 36
+    },
+    {
+      "text": "Region Hovedstaden havde den højeste regionale opfyldelse af Indikator 8 med 32,4 % (95 % CI: 29,6–35,3) [^src1]",
+      "type": "statistical",
+      "entities": [
+        "hovedstaden",
+        "indikator-8-ernaering"
+      ],
+      "page": 36
+    },
+    {
+      "text": "Bispebjerg og Frederiksberg Hospitaler havde den højeste enhedsopfyldelse af Indikator 8 med 53,9 % (95 % CI: 47,2–60,4) [^src1]",
+      "type": "statistical",
+      "entities": [
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "indikator-8-ernaering"
+      ],
+      "page": 36
+    },
+    {
+      "text": "Rigshospitalet havde den laveste enhedsopfyldelse af Indikator 8 med 5,2 % (95 % CI: 1,1–14,4) [^src1]",
+      "type": "statistical",
+      "entities": [
+        "rigshospitalet",
+        "indikator-8-ernaering"
+      ],
+      "page": 36
+    },
+    {
+      "text": "Region Syddanmark havde den laveste regionale opfyldelse af Indikator 8 med 0,2 % (95 % CI: 0,0–0,9) [^src1]",
+      "type": "statistical",
+      "entities": [
+        "syddanmark",
+        "indikator-8-ernaering"
       ],
       "page": 36
     }
   ],
-  "timeline": [
-    {
-      "date": "01.09.2022 - 31.08.2023",
-      "event": "Opgørelsesperiode for indikator 7 (tidlig mobilisering) og indikator 8 (ernæring) i Akut Kirurgi Databasen",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ]
-    },
-    {
-      "date": "2021/22",
-      "event": "Tidligere år for sammenligning af indikator 7 resultater",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ]
-    },
-    {
-      "date": "2020/21",
-      "event": "Tidligere år for sammenligning af indikator 7 resultater",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ]
-    }
-  ],
-  "context": "Denne dokumentchunk præsenterer resultater fra Akut Kirurgi Databasen for to kliniske kvalitetsindikatorer: indikator 7 (tidlig mobilisering indenfor 24 timer efter operation) og indikator 8 (ernæring indenfor 48 timer efter operation). Dokumentet rapporterer data fra opgørelsesperioden 01.09.2022 - 31.08.2023 og sammenligner med tidligere år. Resultaterne viser betydelig regional variation i opfyldelse af indikatorerne på tværs af danske regioner og hospitaler, med anbefalinger baseret på Enhanced Recovery After Surgery (ERAS) principper for forbedring af patientudfaldet.",
+  "timeline": [],
   "tables": [
     {
-      "subject": "indikator-7",
-      "title": "Indikator 7: Tidlig mobilisering. Resultater på afdelingsniveau",
+      "subject": "indikator-8-ernaering",
+      "title": "Indikator 8: Ernæring — Resultater på regionalt og afdelingsniveau",
       "page": 36,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "andel mobiliseret inden 24 timer pr. årsrapportperiode",
+      "rowDimension": "regioner-og-sygehuse",
+      "colDimension": "opfyldelse-i-procent-med-konfidensinterval",
       "entities": [
-        "indikator-7",
-        "tidlig-mobilisering",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "region-sjaelland",
-        "holbaek-sygehus",
-        "nykoebing-f-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "region-syddanmark",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "region-midtjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "region-nordjylland",
-        "aalborg-universitetshospital",
-        "aalborg-universitetshospital-thisted",
-        "regionshospital-nordjylland"
-      ],
-      "markdown": "| Enhed | Standard ≥ 90% opfyldt | Tæller/nævner | Uoplyst antal (%) | Andel 01.09.2022 - 31.08.2023 (95% CI) | Andel 2021/22 | Andel 2020/21 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Herlev og Gentofte Hospital | Nej | 58 / 307 | 0 (0) | 18,9 (14,7-23,7) | 16,0 | 0,0 |\n| Hospitalerne i Nordsjælland | Nej | 61 / 213 | 0 (0) | 28,6 (22,7-35,2) | 17,3 | 0,5 |\n| Rigshospitalet | Nej | 7 / 58 | 0 (0) | 12,1 (5,0-23,3) | 14,5 | 0,0 |\n| Sjælland | Nej | 167 / 522 | 0 (0) | 32,0 (28,0-36,2) | 18,7 | 0,4 |\n| Holbæk Sygehus | Nej | 71 / 118 | 0 (0) | 60,2 (50,7-69,1) | 27,7 | 0,0 |\n| Nykøbing F Sygehus | Nej | #/# | 0 (0) | 0,0 (0,0-84,2) | 0,0 | 0,0 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 58 / 194 | 0 (0) | 29,9 (23,5-36,9) | 16,8 | 0,5 |\n| Sjællands Universitetshospital | Nej | 38 / 208 | 0 (0) | 18,3 (13,3-24,2) | 16,5 | 0,4 |\n| Syddanmark | Nej | 140 / 585 | 0 (0) | 23,9 (20,5-27,6) | 9,0 | 0,0 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 0 / 131 | 0 (0) | 0,0 (0,0-2,8) | 0,0 | 0,0 |\n| Odense Universitetshospital - Svendborg | Nej | 14 / 230 | 0 (0) | 6,1 (3,4-10,0) | 0,0 | 0,0 |\n| Sygehus Lillebælt | Nej | 30 / 98 | 0 (0) | 30,6 (21,7-40,7) | 4,4 | 0,0 |\n| Sygehus Sønderjylland | Nej | 96 / 126 | 0 (0) | 76,2 (67,8-83,3) | 49,0 | 0,0 |\n| Midtjylland | Nej | 296 / 677 | 0 (0) | 43,7 (39,9-47,6) | 22,9 | 1,9 |\n| Aarhus Universitetshospital | Nej | 86 / 139 | 0 (0) | 61,9 (53,3-70,0) | 50,0 | 0,0 |\n| Hospitalsenhed Midt | Nej | 37 / 159 | 0 (0) | 23,3 (16,9-30,6) | 1,5 | 0,0 |\n| Regionshospitalet Gødstrup | Nej | 33 / 158 | 0 (0) | 20,9 (14,8-28,1) | 4,4 | 0,0 |\n| Regionshospitalet Horsens | Nej | 55 / 93 | 0 (0) | 59,1 (48,5-69,2) | 24,5 | 11,0 |\n| Regionshospitalet Randers | Nej | 85 / 128 | 0 (0) | 66,4 (57,5-74,5) | 40,0 | 0,0 |\n| Nordjylland | Nej | 11 / 270 | 0 (0) | 4,1 (2,1-7,2) | 0,0 | 0,0 |\n| Aalborg Universitetshospital | Nej | 10 / 175 | 0 (0) | 5,7 (2,8-10,3) | 0,0 | 0,0 |\n| Aalborg Universitetshospital, Thisted | | | | | | 0,0 |\n| Regionshospital Nordjylland | Nej | #/# | 0 (0) | 1,1 (0,0-5,7) | 0,0 | 0,0 |",
-      "summary": "Tabellen sammenligner regioner og hospitaler på andelen af patienter mobiliseret inden 24 timer efter operation; ingen enhed opfylder standarden på ≥ 90 %, og Sygehus Sønderjylland har den højeste andel med 76,2 %, mens Esbjerg/Grindsted og Nykøbing F ligger på 0,0 %."
-    },
-    {
-      "subject": "indikator-7",
-      "title": "Antal Årsag",
-      "page": 36,
-      "rowDimension": "eksklusionsårsager",
-      "colDimension": "antal patienter",
-      "entities": [
-        "indikator-7",
-        "cpr-nummer"
-      ],
-      "markdown": "| Årsag | Antal |\n| --- | --- |\n| Ugyldigt CPRnummer. | 53 |\n| Patienten er under 18 år. | 172 |\n| Patienten er ikke opereret. | 6.186 |\n| Operationen er ikke den første operation i hospitalsopholdet. | 473 |",
-      "summary": "Tabellen viser fordelingen af eksklusionsårsager, hvor langt de fleste patienter (6.186) ekskluderes, fordi patienten ikke er opereret."
-    },
-    {
-      "subject": "indikator-8",
-      "title": "Indikator 8: Ernæring",
-      "page": 40,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "andel med stillingtagen til ernæring inden 48 timer pr. årsrapportperiode",
-      "entities": [
-        "indikator-8",
-        "ernaering",
         "danmark",
-        "region-hovedstaden",
-        "region-sjaelland",
-        "region-syddanmark",
-        "region-midtjylland",
-        "region-nordjylland",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
         "amager-og-hvidovre-hospital",
         "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
         "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
         "rigshospitalet",
+        "sjaellands-universitetshospital",
         "holbaek-sygehus",
-        "nykoebing-f-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital"
+        "naestved-slagese-og-ringsted-sygehuse"
       ],
-      "markdown": "| Enhed | Tæller/nævner | Uoplyst antal (%) | Andel 01.09.2022 - 31.08.2023 (95% CI) | Andel 2021/22 | Andel 2020/21 |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | 617 / 3.147 | 0 (0) | 19,6 (18,2-21,0) | 11,6 | 0,1 |\n| Hovedstaden | 354 / 1.093 | 0 (0) | 32,4 (29,6-35,3) | 20,2 | 0,1 |\n| Sjælland | 151 / 522 | 0 (0) | 28,9 (25,1-33,0) | 20,0 | 0,0 |\n| Syddanmark | #/# | 0 (0) | 0,2 (0,0-0,9) | 0,0 | 0,2 |\n| Midtjylland | 94 / 677 | 0 (0) | 13,9 (11,4-16,7) | 5,1 | 0,0 |\n| Nordjylland | 17 / 270 | 0 (0) | 6,3 (3,7-9,9) | 0,5 | 0,0 |\n| Hovedstaden | 354 / 1.093 | 0 (0) | 32,4 (29,6-35,3) | 20,2 | 0,1 |\n| Amager og Hvidovre Hospital | 124 / 253 | 0 (0) | 49,0 (42,7-55,3) | 22,1 | 0,0 |\n| Bispebjerg og Frederiksberg Hospitaler | 125 / 232 | 0 (0) | 53,9 (47,2-60,4) | 32,1 | 0,5 |\n| Bornholms Hospital | 7 / 30 | 0 (0) | 23,3 (9,9-42,3) | 17,4 | 0,0 |\n| Herlev og Gentofte Hospital | 34 / 307 | 0 (0) | 11,1 (7,8-15,1) | 14,5 | 0,0 |\n| Hospitalerne i Nordsjælland | 61 / 213 | 0 (0) | 28,6 (22,7-35,2) | 18,2 | 0,0 |\n| Rigshospitalet | 3 / 58 | 0 (0) | 5,2 (1,1-14,4) | 1,8 | 0,0 |\n| Sjælland | 151 / 522 | 0 (0) | 28,9 (25,1-33,0) | 20,0 | 0,0 |\n| Holbæk Sygehus | 38 / 118 | 0 (0) | 32,2 (23,9-41,4) | 17,8 | 0,0 |\n| Nykøbing F Sygehus | #/# | 0 (0) | 0,0 (0,0-84,2) | 0,0 | 0,0 |\n| Næstved, Slagelse og Ringsted sygehuse | 18 / 194 | 0 (0) | 9,3 (5,6-14,3) | 5,4 | 0,0 |\n| Sjællands Universitetshospital | 95 / 208 | 0 (0) | 45,7 (38,8-52,7) | 32,2 | 0,0 |\n| Syddanmark | #/# | 0 (0) | 0,2 (0,0-0,9) | 0,0 | 0,2 |",
-      "summary": "Tabellen sammenligner nation, regioner og hospitaler på andelen af patienter med stillingtagen til ernæring inden 48 timer efter operation; den nationale andel er 19,6 %, med Bispebjerg og Frederiksberg Hospitaler højest (53,9 %) og Syddanmark næsten uden registreringer (0,2 %)."
+      "markdown": "| Enhed | Tæller / antal | Uoplyst (%) | Andel (%) (95% CI) | 2021/22 | 2020/21 |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | 617 / 3.147 | 0 (0) | 19,6 (18,2-21,0) | 11,6 | 0,1 |\n| Hovedstaden | 354 / 1.093 | 0 (0) | 32,4 (29,6-35,3) | 20,2 | 0,1 |\n| Sjælland | 151 / 522 | 0 (0) | 28,9 (25,1-33,0) | 20,0 | 0,0 |\n| Syddanmark | #/# | 0 (0) | 0,2 (0,0-0,9) | 0,0 | 0,2 |\n| Midtjylland | 94 / 677 | 0 (0) | 13,9 (11,4-16,7) | 5,1 | 0,0 |\n| Nordjylland | 17 / 270 | 0 (0) | 6,3 (3,7-9,9) | 0,5 | 0,0 |\n| Amager og Hvidovre Hospital | 124 / 253 | 0 (0) | 49,0 (42,7-55,3) | 22,1 | 0,0 |\n| Bispebjerg og Frederiksberg Hospitaler | 125 / 232 | 0 (0) | 53,9 (47,2-60,4) | 32,1 | 0,5 |\n| Herlev og Gentofte Hospital | 34 / 307 | 0 (0) | 11,1 (7,8-15,1) | 14,5 | 0,0 |\n| Hospitalerne i Nordsjælland | 61 / 213 | 0 (0) | 28,6 (22,7-35,2) | 18,2 | 0,0 |\n| Rigshospitalet | 3 / 58 | 0 (0) | 5,2 (1,1-14,4) | 1,8 | 0,0 |\n| Sjælland | 151 / 522 | 0 (0) | 28,9 (25,1-33,0) | 20,0 | 0,0 |\n| Holbæk Sygehus | 38 / 118 | 0 (0) | 32,2 (23,9-41,4) | 17,8 | 0,0 |\n| Nykøbing F Sygehus | #/# | 0 (0) | 0,0 (0,0-84,2) | 0,0 | 0,0 |\n| Næstved, Slagelse og Ringsted sygehuse | 18 / 194 | 0 (0) | 9,3 (5,6-14,3) | 5,4 | 0,0 |\n| Sjællands Universitetshospital | 95 / 208 | 0 (0) | 45,7 (38,8-52,7) | 32,2 | 0,0 |\n| Syddanmark | #/# | 0 (0) | 0,2 (0,0-0,9) | 0,0 | 0,2 |\n| Midtjylland | 94 / 677 | 0 (0) | 13,9 (11,4-16,7) | 5,1 | 0,0 |\n| Nordjylland | 17 / 270 | 0 (0) | 6,3 (3,7-9,9) | 0,5 | 0,0 |\n| Aalborg Universitetshospital | 10 / 175 | 0 (0) | 5,7 (2,8-10,3) | 0,0 | 0,0 |",
+      "summary": "Tabellen sammenligner opfyldelsen af Indikator 8 på tværs af regioner og sygehuse, og viser en markant variation fra 53,9 % ved Bispebjerg og Frederiksberg Hospitaler til 0,2 % i Region Syddanmark."
     }
-  ]
+  ],
+  "context": "Dette dokumentudsnit er en del af den endelige offentliggørelse af Akut Kirurgi Databasen for perioden 01.09.2022–31.08.2023, udgivet den 26. februar 2024 under Regionernes Kliniske Kvalitetsudviklingsprogram. Det fokuserer specifikt på Indikator 8: Ernæring, der måler tidlig ernæringsvurdering efter akut kirurgisk indgreb, og præsenterer detaljerede resultater på både nationalt, regionalt og sygehusniveau. Dokumentet er en del af en bredere kvalitetsmonitoreringsindsats, der også omfatter andre indikatorer såsom tidlig mobilisering (Indikator 7), og danner grundlag for kliniske anbefalinger og procesforbedringer i den danske akutkirurgiske sektor."
 }

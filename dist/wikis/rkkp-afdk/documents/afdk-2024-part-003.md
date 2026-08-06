@@ -3,11 +3,11 @@ title: afdk-2024-part-003
 type: document
 wiki: rkkp-afdk
 sources:
-  - file: AFDK_2024.pdf
+  - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: 11-15
-    extracted: '2026-07-28T06:55:37.497Z'
+    extracted: '2026-08-05T16:54:56.677Z'
     sha256: 7f2d8672be1dc4ec2391b8ee4c241aa8a8745f0a3975d3a85defce13db596a52
-updated: '2026-08-03T19:14:15.167Z'
+updated: '2026-08-05T16:54:56.677Z'
 ---
 
 ## Extracted Text: Pages 11-15

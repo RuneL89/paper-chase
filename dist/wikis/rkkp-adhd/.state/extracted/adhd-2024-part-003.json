@@ -1,152 +1,153 @@
 {
   "entities": [
     {
-      "name": "ADHD-databasen",
-      "type": "organization",
-      "slug": "adhd-databasen",
-      "folder": "entities/organizations/health-registries",
-      "significance": "ADHD-databasen er det nationale register, hvorfra alle indikatorer for ADHD-udredning og behandling rapporteres og analyseres på lands-, regions- og afdelingsniveau.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "Dokumentet er en rapport fra ADHD-databasen med resultaterne af de enkelte indikatorer"
-        }
-      ]
-    },
-    {
       "name": "Indikator 1",
-      "type": "topic",
+      "type": "quality-indicator",
       "slug": "indikator-1",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 1 måler andelen af ADHD-udredningsforløb blandt børn og unge under 18 år, hvor der er foretaget somatisk udredning senest 120 dage efter start af ADHD-udredning, med et udviklingsmål på ≥90%.",
+      "folder": "topics/quality-indicators/adhd-care",
+      "significance": "Indikator 1 er den første kvalitetsindikator i rapporten og måler andelen af ADHD-udredningsforløb blandt børn og unge under 18 år, hvor der er foretaget somatisk udredning senest 120 dage efter start af udredningen — en central klinisk kravsvilkår ifølge DMPG-retningslinjerne og styregruppens beslutning[^src1].",
       "mentions": [
         {
           "page": 11,
-          "context": "Indikator 1: Somatisk udredning - Andelen af udredningsforløb blandt børn og unge under 18, hvor der er foretaget somatisk udredning senest 120 dage efter start af ADHD-udredning"
+          "context": "Indikator 1: Somatisk udredning"
         },
         {
-          "page": 12,
-          "context": "Indikator 1 angiver hvorvidt der foretages en somatisk udredning af børn og unge (<18 år) senest 120 dage efter start af ADHD-udredning"
+          "page": 11,
+          "context": "Indikator 1: Andelen af udredningsforløb, hvor der er foretaget somatisk udredning senest 120 dage efter start af ADHD-udredning"
         }
       ]
     },
     {
       "name": "Indikator 2a",
-      "type": "topic",
+      "type": "quality-indicator",
       "slug": "indikator-2a",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 2a måler andelen af ADHD-udredningsforløb blandt 0-5-årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning, med et udviklingsmål på ≥90%.",
+      "folder": "topics/quality-indicators/adhd-care",
+      "significance": "Indikator 2a måler andelen af udredningsforløb blandt 0–5-årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter udredningsstart, og er en centralt defineret indikator for tidlig diagnostisk praksis i ADHD-udredning[^src1].",
       "mentions": [
         {
-          "page": 14,
-          "context": "Indikator 2a: Klinisk miljøobservation for 0-5-årige - Andelen af udredningsforløb blandt 0-5-årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning"
+          "page": 11,
+          "context": "Indikator 2a: Klinisk miljøobservation for 0-5-årige"
+        },
+        {
+          "page": 11,
+          "context": "Indikator 2a: Andelen af udredningsforløb blandt 0-5-årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning"
         }
       ]
     },
     {
-      "name": "Region Midtjylland",
-      "type": "location",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations",
-      "significance": "Region Midtjylland viste betydelig fremgang i Indikator 1 fra 36% i 2023/24 til 71% i 2024/25, hvilket skyldes øget fokus på registreringspraksis og omlægning af udredningsforløb.",
+      "name": "ADHD udredningspopulation",
+      "type": "population",
+      "slug": "adhd-udredningspopulation",
+      "folder": "entities/populations/adhd",
+      "significance": "ADHD udredningspopulation er den centrale beregningsgrundlagspopulation for både Indikator 1 og Indikator 2a, defineret som antallet af forløb i 'ADHD udredningspopulation', hvor dato for udredningsstart er i opgørelsesperioden — og dermed den operationelle definition af målgruppen for kvalitetsmåling[^src1].",
       "mentions": [
         {
-          "page": 12,
-          "context": "På regionalt plan ses en fremgang i Hovedstaden, Syddanmark, Nordjylland og især i Midtjylland (fra 36 % i 2023/24 til 71 % i 2024/25)"
-        },
+          "page": 11,
+          "context": "Indikatorpopulation (nævner): Antal forløb i \"ADHD udredningspopulation\", hvor dato for udredningsstart er i opgørelsesperioden"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Multidisciplinær Psykiatrigruppe (DMPG)",
+      "type": "organization",
+      "slug": "danske-multidisciplinaere-psykiatrigrupper-dmpger",
+      "folder": "entities/organizations/healthcare-professional-bodies",
+      "significance": "DMPG er den faglige organisation, hvis retningslinjer om ADHD-udredning er afgørende for justeringen af udredningsforløb og registreringspraksis i flere regioner — især Region Midtjylland og Region Hovedstaden — og som direkte understøtter styregruppens beslutning om at bevare udviklingsmålet for Indikator 1[^src1].",
+      "mentions": [
         {
-          "page": 12,
-          "context": "For Region Midt findes årsagen delvist i et øget fokus på registreringspraksis samt omlægning af udredningsforløb så de foretages indenfor 15 dage"
+          "page": 11,
+          "context": "DMPG-retningslinjer vedrørende udredning af ADHD"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen",
+      "type": "organization",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Styregruppen er den overordnede beslutningstager, der på baggrund af data fra ADHD-Databasen og DMPG-retningslinjerne vurderer, at somatisk undersøgelse er en væsentlig del af ADHD-udredningen, og beslutter at bibeholde udviklingsmålet på ≥90 % for Indikator 1[^src1].",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Beslutning: Styregruppen vurderer jævnfør DMPG-retningslinjen, at somatisk undersøgelse er en væsentlig del af udredningen af ADHD..."
+        }
+      ]
+    },
+    {
+      "name": "ADHD-Databasen",
+      "type": "organization",
+      "slug": "adhd-databasen",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "ADHD-Databasen er den tekniske og administrative platform, der genererer alle de præsenterede indikatorresultater for både land-, region- og afdelingsniveau, og som står bag beregningsreglerne i Appendix 3 samt de konkrete tal i tabellerne for Indikator 1 og Indikator 2a[^src1].",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "ADHD-DATABASEN"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Hovedstaden er en af de fem regioner, hvis resultater for Indikator 1 og Indikator 2a indgår i oversigtstabellerne, og som har oplevet fremgang i Indikator 1 (fra 64 % i 2023/24 til 68 % i 2024/25) samt øget prioritering af somatisk undersøgelse ifølge DMPG-retningslinjerne[^src1].",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Hovedstaden"
         }
       ]
     },
     {
       "name": "Region Sjælland",
-      "type": "location",
+      "type": "organization",
       "slug": "region-sjaelland",
-      "folder": "entities/locations",
-      "significance": "Region Sjælland oplevede nedgang i Indikator 1 fra 60% i 2023/24 til 49% i 2024/25, med en nedadgående trend siden 2021/2022, og mangler tilstrækkelige lægekræfter til at foretage somatisk undersøgelse.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Sjælland er den eneste region, der har oplevet nedgang i Indikator 1 (fra 60 % i 2023/24 til 49 % i 2024/25), hvilket forklares med mangel på lægekræfter til at udføre somatiske undersøgelser — en konklusion, der fremgår direkte af diskussionen i dokumentet[^src1].",
       "mentions": [
         {
-          "page": 12,
-          "context": "Sjælland har som den eneste region oplevet nedgang fra 60 % i 2023/24 til 49 % i 2024/25"
-        },
-        {
-          "page": 12,
-          "context": "Af trendgrafen ses det at resultaterne i Sjælland har været nedadgående siden 2021/2022"
-        },
-        {
-          "page": 12,
-          "context": "I region Sjælland er der ikke lægekræfter nok til at der kan foretages somatisk undersøgelse på alle"
+          "page": 11,
+          "context": "Sjælland"
         }
       ]
     },
     {
-      "name": "BUA Psykiatrisk Klinik for Skolebørn",
+      "name": "Region Syddanmark",
       "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-skoleboern",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "BUA Psykiatrisk Klinik for Skolebørn nåede udviklingsmålet på 96% for Indikator 1 i 2024/25, hvilket var blandt de fire afdelinger der opnåede målet.",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Syddanmark er en af de fem regioner, der viser fremgang i Indikator 1 (fra 61 % i 2023/24 til 63 % i 2024/25), og som sammen med Region Midtjylland, Region Hovedstaden og Region Nordjylland noteres for positiv udvikling i forhold til udviklingsmålet[^src1].",
       "mentions": [
         {
-          "page": 12,
-          "context": "I Midtjylland opnåede BUA Psykiatrisk Klinik for Skolebørn og BUA Psykiatrisk Klinik for Småbørn således op på hhv. 96 og 95 %"
+          "page": 11,
+          "context": "Syddanmark"
         }
       ]
     },
     {
-      "name": "BUA Psykiatrisk Klinik for Småbørn",
+      "name": "Region Midtjylland",
       "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-smaaboern",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "BUA Psykiatrisk Klinik for Småbørn nåede udviklingsmålet på 95% for Indikator 1 i 2024/25, hvilket var blandt de fire afdelinger der opnåede målet.",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland er den region med størst forbedring i Indikator 1 (fra 36 % i 2023/24 til 71 % i 2024/25), hvilket forklares ved både øget fokus på registreringspraksis og omlægning af udredningsforløb til at ske inden for 15 dage — en ændring, der også afspejler sig i alle andre indikatorer[^src1].",
       "mentions": [
         {
-          "page": 12,
-          "context": "BUA Psykiatrisk Klinik for Småbørn således op på hhv. 96 og 95 %"
+          "page": 11,
+          "context": "Midtjylland"
         }
       ]
     },
     {
-      "name": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense)",
+      "name": "Region Nordjylland",
       "type": "organization",
-      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-odense",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) nåede udviklingsmålet på 90% for Indikator 1 i 2024/25, hvilket var blandt de fire afdelinger der opnåede målet.",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Nordjylland er en af de fem regioner, der viser fremgang i Indikator 1 (fra 64 % i 2023/24 til 65 % i 2024/25), og som er omfattet af den fælles strategi om at opprioritere somatisk undersøgelse i henhold til DMPG-retningslinjerne[^src1].",
       "mentions": [
         {
-          "page": 12,
-          "context": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) og PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) nåede hhv. 90 og 91 %"
-        }
-      ]
-    },
-    {
-      "name": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)",
-      "type": "organization",
-      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-aabenraa",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) nåede udviklingsmålet på 91% for Indikator 1 i 2024/25, hvilket var blandt de fire afdelinger der opnåede målet.",
-      "mentions": [
-        {
-          "page": 12,
-          "context": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) nåede hhv. 90 og 91 %"
-        }
-      ]
-    },
-    {
-      "name": "DMPG-retningslinjer",
-      "type": "topic",
-      "slug": "dmpg-retningslinjer",
-      "folder": "topics/guideline-development",
-      "significance": "DMPG-retningslinjer vedrørende udredning af ADHD har ført til øget prioritering af somatisk undersøgelse i flere regioner og er grundlaget for styregruppen vurdering af Indikator 1.",
-      "mentions": [
-        {
-          "page": 12,
-          "context": "man har opprioriteret at få foretaget somatisk undersøgelse pga. anbefalinger i nylige DMPG-retningslinjer vedrørende udredning af ADHD"
-        },
-        {
-          "page": 13,
-          "context": "Styregruppen vurderer jævnfør DMPG-retningslinjen, at somatisk undersøgelse er en væsentlig del af udredningen af ADHD"
+          "page": 11,
+          "context": "Nordjylland"
         }
       ]
     },
@@ -154,72 +155,64 @@
       "name": "Privathospitaler",
       "type": "organization",
       "slug": "privathospitaler",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Privathospitaler rapporterede 0% for Indikator 1 med ingen registrerede somatiske udredninger, hvilket vækker undring da der kun er data på et meget lavt patientantal.",
+      "folder": "entities/organizations/healthcare-providers",
+      "significance": "Privathospitaler er en separat kategori i indikatoranalysen, hvor andelen af somatiske udredninger er 0 %, hvilket styregruppen bemærker som usædvanligt givet det meget lave patientantal, og som årsagen er ukendt da repræsentant fra privathospitalerne var fraværende til mødet[^src1].",
       "mentions": [
         {
-          "page": 12,
-          "context": "Ser man på privathospitalerne, ligger andelen på 0 % da der er registreret 0 somatiske udredninger her"
-        },
-        {
-          "page": 12,
-          "context": "Der er ifølge data modtaget fra privathospitalerne ikke foretaget nogen somatiske udredninger. Årsagen hertil er ukendt, da repræsentant fra privathospitalerne var fraværende til mødet. Der er kun data på et meget lavt patientantal hvilket vækker undring"
+          "page": 11,
+          "context": "Privathospitaler"
         }
       ]
     },
     {
-      "name": "Region Hovedstaden",
-      "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations",
-      "significance": "Region Hovedstaden viste fremgang i Indikator 1 og har opprioriteret somatisk undersøgelse pga. DMPG-retningslinjer, men ingen afdelinger nåede udviklingsmålet.",
+      "name": "BUA Psykiatrisk Klinik for Skolebørn",
+      "type": "facility",
+      "slug": "bua-psykiatrisk-klinik-for-skoleboern",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "significance": "BUA Psykiatrisk Klinik for Skolebørn er én af de fire afdelinger, der nåede udviklingsmålet på ≥90 % for Indikator 1 (96 %), og dermed en af de bedst præsterende enheder på tværs af hele landet[^src1].",
       "mentions": [
         {
-          "page": 12,
-          "context": "På regionalt plan ses en fremgang i Hovedstaden, Syddanmark, Nordjylland og især i Midtjylland"
-        },
-        {
-          "page": 12,
-          "context": "Derudover gælder det i Region Midt og Region Hovedstaden, at man har opprioriteret at få foretaget somatisk undersøgelse pga. anbefalinger i nylige DMPG-retningslinjer"
+          "page": 11,
+          "context": "BUA Psykiatrisk Klinik for Skolebørn"
         }
       ]
     },
     {
-      "name": "Region Syddanmark",
-      "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations",
-      "significance": "Region Syddanmark viste fremgang i Indikator 1 og opnåede høje resultater på 88% for Indikator 2a.",
+      "name": "BUA Psykiatrisk Klinik for Småbørn",
+      "type": "facility",
+      "slug": "bua-smaborn-klinik",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "significance": "BUA Psykiatrisk Klinik for Småbørn er én af de fire afdelinger, der nåede udviklingsmålet på ≥90 % for Indikator 1 (95 %), og dermed en af de bedst præsterende enheder på tværs af hele landet[^src1].",
       "mentions": [
         {
-          "page": 12,
-          "context": "På regionalt plan ses en fremgang i Hovedstaden, Syddanmark, Nordjylland og især i Midtjylland"
+          "page": 11,
+          "context": "BUA Psykiatrisk Klinik for Småbørn"
         }
       ]
     },
     {
-      "name": "Region Nordjylland",
-      "type": "location",
-      "slug": "region-nordjylland",
-      "folder": "entities/locations",
-      "significance": "Region Nordjylland viste fremgang i Indikator 1, men ingen afdelinger nåede udviklingsmålet.",
+      "name": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense)",
+      "type": "facility",
+      "slug": "odense-borne-og-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "significance": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) er én af de fire afdelinger, der nåede udviklingsmålet på ≥90 % for Indikator 1 (90 %), og dermed en af de bedst præsterende enheder på tværs af hele landet[^src1].",
       "mentions": [
         {
-          "page": 12,
-          "context": "På regionalt plan ses en fremgang i Hovedstaden, Syddanmark, Nordjylland og især i Midtjylland"
+          "page": 11,
+          "context": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense)"
         }
       ]
     },
     {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark som helhed opnåede 65% for Indikator 1, hvilket ligger under udviklingsmålet på 90%, men er første gang i flere år at landsresultatet er forbedret.",
+      "name": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)",
+      "type": "facility",
+      "slug": "aabenna-borne-og-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "significance": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) er én af de fire afdelinger, der nåede udviklingsmålet på ≥90 % for Indikator 1 (91 %), og dermed en af de bedst præsterende enheder på tværs af hele landet[^src1].",
       "mentions": [
         {
-          "page": 12,
-          "context": "På landsplan blev 65 % udredt somatisk inden for tidsfristen, hvilket ligger under udviklingsmålet på 90 %. Det er dog første gang i flere år at landsresultatet er forbedret siden sidste opgørelse"
+          "page": 11,
+          "context": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)"
         }
       ]
     }
@@ -228,343 +221,169 @@
     {
       "subject": "indikator-1",
       "predicate": "measures",
-      "object": "adhd-databasen",
-      "evidence": "Indikator 1 er en del af ADHD-databasen og måler andelen af udredningsforløb blandt børn og unge under 18, hvor der er foretaget somatisk udredning senest 120 dage efter start af ADHD-udredning",
+      "object": "adhd-udredningspopulation",
+      "evidence": "Indikatorpopulation (nævner): Antal forløb i \"ADHD udredningspopulation\", hvor dato for udredningsstart er i opgørelsesperioden",
       "page": 11
     },
     {
       "subject": "indikator-2a",
       "predicate": "measures",
-      "object": "adhd-databasen",
-      "evidence": "Indikator 2a er en del af ADHD-databasen og måler andelen af udredningsforløb blandt 0-5-årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning",
-      "page": 14
+      "object": "adhd-udredningspopulation",
+      "evidence": "Indikatorpopulation (nævner): Antal forløb i \"ADHD udredningspopulation\", hvor dato for udredningsstart er i opgørelsesperioden",
+      "page": 11
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "bases-decision-on",
+      "object": "danske-multidisciplinaere-psykiatrigrupper-dmpger",
+      "evidence": "Styregruppen vurderer jævnfør DMPG-retningslinjen, at somatisk undersøgelse er en væsentlig del af udredningen af ADHD...",
+      "page": 11
     },
     {
       "subject": "region-midtjylland",
-      "predicate": "improved-performance-in",
-      "object": "indikator-1",
-      "evidence": "Region Midtjylland viste fremgang fra 36 % i 2023/24 til 71 % i 2024/25 i Indikator 1",
-      "page": 12
+      "predicate": "implements-practice-changes-based-on",
+      "object": "danske-multidisciplinaere-psykiatrigrupper-dmpger",
+      "evidence": "Derudover gælder det i Region Midt og Region Hovedstaden, at man har opprioriteret at få foretaget somatisk undersøgelse pga. anbefalinger i nylige DMPG-retningslinjer vedrørende udredning af ADHD.",
+      "page": 11
     },
     {
-      "subject": "region-sjaelland",
-      "predicate": "declined-performance-in",
-      "object": "indikator-1",
-      "evidence": "Sjælland oplevede nedgang fra 60 % i 2023/24 til 49 % i 2024/25 i Indikator 1",
-      "page": 12
+      "subject": "region-hovedstaden",
+      "predicate": "implements-practice-changes-based-on",
+      "object": "danske-multidisciplinaere-psykiatrigrupper-dmpger",
+      "evidence": "Derudover gælder det i Region Midt og Region Hovedstaden, at man har opprioriteret at få foretaget somatisk undersøgelse pga. anbefalinger i nylige DMPG-retningslinjer vedrørende udredning af ADHD.",
+      "page": 11
     },
     {
-      "subject": "bua-psykiatrisk-klinik-skoleboern",
-      "predicate": "achieved-target-in",
+      "subject": "indikator-1",
+      "predicate": "has-development-target",
       "object": "indikator-1",
-      "evidence": "BUA Psykiatrisk Klinik for Skolebørn nåede 96% for Indikator 1 i 2024/25",
-      "page": 12
-    },
-    {
-      "subject": "bua-psykiatrisk-klinik-smaaboern",
-      "predicate": "achieved-target-in",
-      "object": "indikator-1",
-      "evidence": "BUA Psykiatrisk Klinik for Småbørn nåede 95% for Indikator 1 i 2024/25",
-      "page": 12
-    },
-    {
-      "subject": "psy-boerne-ungdomspsykiatrisk-ambulatorium-odense",
-      "predicate": "achieved-target-in",
-      "object": "indikator-1",
-      "evidence": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) nåede 90% for Indikator 1 i 2024/25",
-      "page": 12
-    },
-    {
-      "subject": "psy-boerne-ungdomspsykiatrisk-ambulatorium-aabenraa",
-      "predicate": "achieved-target-in",
-      "object": "indikator-1",
-      "evidence": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) nåede 91% for Indikator 1 i 2024/25",
-      "page": 12
-    },
-    {
-      "subject": "dmpg-retningslinjer",
-      "predicate": "influenced-performance-in",
-      "object": "region-midtjylland",
-      "evidence": "Region Midt og Region Hovedstaden har opprioriteret somatisk undersøgelse pga. anbefalinger i nylige DMPG-retningslinjer vedrørende udredning af ADHD",
-      "page": 12
+      "evidence": "Udviklingsmål ≥ 90%",
+      "page": 11
     }
   ],
   "claims": [
     {
-      "text": "På landsplan blev 65 % udredt somatisk inden for tidsfristen, hvilket ligger under udviklingsmålet på 90 %",
+      "text": "På landsplan blev 65 % udredt somatisk inden for tidsfristen, hvilket ligger under udviklingsmålet på 90 % [^src1]",
       "type": "performance",
       "entities": [
-        "danmark",
         "indikator-1"
       ],
-      "page": 12
+      "page": 11
     },
     {
-      "text": "Det er dog første gang i flere år at landsresultatet er forbedret siden sidste opgørelse",
+      "text": "Det er første gang i flere år at landsresultatet er forbedret siden sidste opgørelse [^src1]",
       "type": "performance",
       "entities": [
-        "danmark",
         "indikator-1"
       ],
-      "page": 12
+      "page": 11
     },
     {
-      "text": "Region Midtjylland viste fremgang fra 36 % i 2023/24 til 71 % i 2024/25",
-      "type": "performance",
-      "entities": [
-        "region-midtjylland",
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "Midtjylland dermed er tilbage til niveauet fra 2020/2021",
+      "text": "I Midtjylland steg andelen fra 36 % i 2023/24 til 71 % i 2024/25 [^src1]",
       "type": "performance",
       "entities": [
         "region-midtjylland",
         "indikator-1"
       ],
-      "page": 12
+      "page": 11
     },
     {
-      "text": "Sjælland har som den eneste region oplevet nedgang fra 60 % i 2023/24 til 49 % i 2024/25",
+      "text": "Sjælland har oplevet nedgang fra 60 % i 2023/24 til 49 % i 2024/25 [^src1]",
       "type": "performance",
       "entities": [
         "region-sjaelland",
         "indikator-1"
       ],
-      "page": 12
+      "page": 11
     },
     {
-      "text": "Resultaterne i Sjælland har været nedadgående siden 2021/2022",
-      "type": "performance",
-      "entities": [
-        "region-sjaelland",
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "Privathospitalerne ligger andelen på 0 % da der er registreret 0 somatiske udredninger",
-      "type": "performance",
-      "entities": [
-        "privathospitaler",
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "Der var fire afdelinger der nåede udviklingsmålet, hvilket er tre flere end i 2023/24",
+      "text": "Der var fire afdelinger der nåede udviklingsmålet, hvilket er tre flere end i 2023/24 [^src1]",
       "type": "performance",
       "entities": [
         "indikator-1"
       ],
-      "page": 12
+      "page": 11
     },
     {
-      "text": "BUA Psykiatrisk Klinik for Skolebørn opnåede 96 %",
+      "text": "Andelen af udredningsforløb blandt 0-5-årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning, er 60 % på landsplan [^src1]",
       "type": "performance",
       "entities": [
-        "bua-psykiatrisk-klinik-skoleboern",
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "BUA Psykiatrisk Klinik for Småbørn opnåede 95 %",
-      "type": "performance",
-      "entities": [
-        "bua-psykiatrisk-klinik-smaaboern",
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) nåede 90 %",
-      "type": "performance",
-      "entities": [
-        "psy-boerne-ungdomspsykiatrisk-ambulatorium-odense",
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) nåede 91 %",
-      "type": "performance",
-      "entities": [
-        "psy-boerne-ungdomspsykiatrisk-ambulatorium-aabenraa",
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "Der var ingen afdelinger i Hovedstaden, Sjælland og Nordjylland der kom op på udviklingsmålet",
-      "type": "performance",
-      "entities": [
-        "region-hovedstaden",
-        "region-sjaelland",
-        "region-nordjylland",
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "På afdelingsniveau svingede andelen således fra nul til 96 %",
-      "type": "performance",
-      "entities": [
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "For Region Midt findes årsagen delvist i et øget fokus på registreringspraksis samt omlægning af udredningsforløb så de foretages indenfor 15 dage",
-      "type": "clinical-rationale",
-      "entities": [
-        "region-midtjylland",
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "I Region Midt og Region Hovedstaden har man opprioriteret at få foretaget somatisk undersøgelse pga. anbefalinger i nylige DMPG-retningslinjer vedrørende udredning af ADHD",
-      "type": "clinical-rationale",
-      "entities": [
-        "region-midtjylland",
-        "region-hovedstaden",
-        "dmpg-retningslinjer",
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "I flere regioner anvendes medicinstuderende til opgaven hvilket også har øget kapaciteten",
-      "type": "operational",
-      "entities": [
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "I region Sjælland er der ikke lægekræfter nok til at der kan foretages somatisk undersøgelse på alle",
-      "type": "operational",
-      "entities": [
-        "region-sjaelland",
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "I flere regioner gælder, at det er vanskeligt at overholde tidsfristen pga. massivt pres på udredninger og ventetider",
-      "type": "operational",
-      "entities": [
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "Der er ifølge data modtaget fra privathospitalerne ikke foretaget nogen somatiske udredninger. Årsagen hertil er ukendt, da repræsentant fra privathospitalerne var fraværende til mødet",
-      "type": "operational",
-      "entities": [
-        "privathospitaler",
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "Der er kun data på et meget lavt patientantal hvilket vækker undring",
-      "type": "operational",
-      "entities": [
-        "privathospitaler",
-        "indikator-1"
-      ],
-      "page": 12
-    },
-    {
-      "text": "Styregruppen vurderer jævnfør DMPG-retningslinjen, at somatisk undersøgelse er en væsentlig del af udredningen af ADHD både ift. mulige somatiske differentialdiagnoser og evt. samtidigt optrædende somatiske tilstande",
-      "type": "clinical-rationale",
-      "entities": [
-        "dmpg-retningslinjer",
-        "indikator-1"
-      ],
-      "page": 13
-    },
-    {
-      "text": "Indikatoren vurderes fortsat relevant og udviklingsmålet bibeholdes",
-      "type": "decision",
-      "entities": [
-        "indikator-1"
-      ],
-      "page": 13
-    },
-    {
-      "text": "Danmark opnåede 60% for Indikator 2a blandt 0-5-årige",
-      "type": "performance",
-      "entities": [
-        "danmark",
         "indikator-2a"
       ],
-      "page": 14
-    },
-    {
-      "text": "Region Syddanmark opnåede 88% for Indikator 2a",
-      "type": "performance",
-      "entities": [
-        "region-syddanmark",
-        "indikator-2a"
-      ],
-      "page": 15
-    },
-    {
-      "text": "Region Midtjylland opnåede 86% for Indikator 2a",
-      "type": "performance",
-      "entities": [
-        "region-midtjylland",
-        "indikator-2a"
-      ],
-      "page": 15
+      "page": 11
     }
   ],
   "timeline": [
     {
-      "date": "2020/2021",
-      "event": "Region Midtjylland var på 71% niveau for Indikator 1",
+      "date": "01.04.2024 - 31.03.2025",
+      "event": "Aktuel opgørelsesperiode for Indikator 1 og Indikator 2a",
       "entities": [
-        "region-midtjylland",
-        "indikator-1"
+        "indikator-1",
+        "indikator-2a"
       ]
     },
     {
-      "date": "2021/2022",
-      "event": "Resultaterne i Region Sjælland begyndte at være nedadgående for Indikator 1",
+      "date": "2023/24",
+      "event": "Forrige opgørelsesperiode for Indikator 1 og Indikator 2a",
       "entities": [
-        "region-sjaelland",
-        "indikator-1"
+        "indikator-1",
+        "indikator-2a"
       ]
     },
     {
-      "date": "2022/2023",
-      "event": "Danmark opnåede 60% for Indikator 1",
+      "date": "2022/23",
+      "event": "Tidligere opgørelsesperiode for Indikator 1 og Indikator 2a",
       "entities": [
-        "danmark",
-        "indikator-1"
-      ]
-    },
-    {
-      "date": "2023/2024",
-      "event": "Region Midtjylland opnåede 36% for Indikator 1, tre afdelinger nåede udviklingsmålet",
-      "entities": [
-        "region-midtjylland",
-        "indikator-1"
-      ]
-    },
-    {
-      "date": "2024/2025",
-      "event": "Region Midtjylland forbedrede sig til 71% for Indikator 1, fire afdelinger nåede udviklingsmålet",
-      "entities": [
-        "region-midtjylland",
-        "indikator-1"
+        "indikator-1",
+        "indikator-2a"
       ]
     }
   ],
-  "context": "Dokumentet præsenterer resultaterne af ADHD-databasens indikatorer for børn, unge og voksne i perioden 01.04.2024-31.03.2025. Fokus ligger på Indikator 1 (somatisk udredning) og Indikator 2a (klinisk miljøobservation for 0-5-årige), hvor resultaterne sammenlignes med tidligere år og udviklingsmål på ≥90%. Rapporten dokumenterer betydelig regional variation i performance, med Region Midtjylland som positiv outlier med markant forbedring, mens Region Sjælland oplever nedgang. Styregruppen vurderer indikatorerne som fortsat relevante og bibeholder udviklingsmålene."
+  "tables": [
+    {
+      "subject": "indikator-1",
+      "title": "Indikator 1: Andelen af udredningsforløb, hvor der er foretaget somatisk udredning senest 120 dage efter start af ADHD-udredning",
+      "page": 11,
+      "rowDimension": "region og afdeling",
+      "colDimension": "andel og antal per periode",
+      "entities": [
+        "indikator-1",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "privathospitaler",
+        "bua-psykiatrisk-klinik-for-skoleboern",
+        "bua-smaborn-klinik",
+        "odense-borne-og-ungdomspsykiatrisk-ambulatorium",
+        "aabenna-borne-og-ungdomspsykiatrisk-ambulatorium"
+      ],
+      "markdown": "| Danmark | Nej | 3.425 | / | 5.295 | 65 | (63-66) | 3.116 | / | 5.302 | 59 | 60 |\n| Hovedstaden | Nej | 1.494 | / | 2.183 | 68 | (66-70) | 1.489 | / | 2.326 | 64 | 72 |\n| Sjælland | Nej | 358 | / | 733 | 49 | (45-53) | 363 | / | 609 | 60 | 67 |\n| Syddanmark | Nej | 679 | / | 1.074 | 63 | (60-66) | 738 | / | 1.208 | 61 | 86 |\n| Midtjylland | Nej | 622 | / | 873 | 71 | (68-74) | 258 | / | 724 | 36 | 23 |\n| Nordjylland | Nej | 272 | / | 416 | 65 | (61-70) | 268 | / | 416 | 64 | 62 |\n| Privathospitaler | Nej | 0 | / | 16 | 0 | (0-21) | 0 | / | 19 | 0 | 0 |\n| Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 | Nej | 339 | / | 499 | 68 | (64-72) | 310 | / | 483 | 64 | 68 |\n| Psykiatrisk ambulatorium, børn og unge, Bornh, B37 | Nej | 15 | / | 86 | 17 | (10-27) | 23 | / | 111 | 21 | 31 |\n| Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 | Nej | 760 | / | 1.124 | 68 | (65-70) | 749 | / | 1.223 | 61 | 74 |\n| Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 | Nej | 380 | / | 474 | 80 | (76-84) | 405 | / | 505 | 80 | 80 |\n| Børne-Unge Psyk. Klinik 40.K | Nej | 357 | / | 731 | 49 | (45-53) | 360 | / | 603 | 60 | 67 |\n| Børne-Unge Psyk. Reg.fkt. 40.R | Nej | #/# | 50 | (1-99) | #/# | 40 | 100 |\n| PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) | Ja | 185 | / | 206 | 90 | (85-94) | 155 | / | 174 | 89 | 92 |\n| PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) | Nej | 125 | / | 222 | 56 | (50-63) | 108 | / | 318 | 34 | 83 |\n| PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) | Nej | 90 | / | 338 | 27 | (22-32) | 214 | / | 425 | 50 | 83 |\n| PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) | Ja | 279 | / | 308 | 91 | (87-94) | 261 | / | 291 | 90 | 87 |\n| BUA Børne- og Ungdomspsykiatri - Sengeafsnit | Nej | 3 | / | 4 | 75 | (19-99) | 100 |\n| BUA Psykiatrisk Klinik for Skolebørn | Ja | 288 | / | 299 | 96 | (94-98) | 64 | / | 86 | 74 | 19 |\n| BUA Psykiatrisk Klinik for Småbørn | Ja | 233 | / | 244 | 95 | (92-98) | 133 | / | 163 | 82 | 80 |\n| BUA Psykiatrisk Klinik for Spiseforstyrrelser | Ja | #/# | 100 | (3-100) |\n| BUA Psykiatrisk Klinik for Unge | Nej | 21 | / | 232 | 9 | (6-14) | #/# | 5 | 14 |\n| BUA – Psykiatrisk Klinik for Udredning | Nej | 76 | / | 93 | 82 | (72-89) | 59 | / | 436 | 14 | 9 |\n| PS Børne- og Ungdomspsykiatrisk Ambulatorier | Nej | 272 | / | 416 | 65 | (61-70) | 268 | / | 416 | 64 | 62 |\n| Hejmdal Privathospital Aalborg, afdeling | Nej | #/# | 0 | (0-84) | #/# | 0 |\n| Hejmdal Privathospital Odense, afdeling | Nej | #/# | 0 | (0-98) | 0 | / | 3 | 0 |\n| Hejmdal Privathospital Viby, beh.afsnit | Nej | 0 | / | 5 | 0 | (0-52) | 0 | / | 8 | 0 |\n| Klinik for børn- og unge | Nej | 0 | / | 8 | 0 | (0-37) | 0 | / | 6 | 0 | 0 |",
+      "summary": "Tabellen sammenligner andelen af somatiske udredninger for Indikator 1 på lands-, regions- og afdelingsniveau over tre perioder, og viser en bred spændvidde fra 0 % (privathospitaler) til 96 % (BUA Psykiatrisk Klinik for Skolebørn)."
+    },
+    {
+      "subject": "indikator-2a",
+      "title": "Indikator 2a: Andelen af udredningsforløb blandt 0-5-årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning",
+      "page": 11,
+      "rowDimension": "region og afdeling",
+      "colDimension": "andel og antal per periode",
+      "entities": [
+        "indikator-2a",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "privathospitaler",
+        "bua-psykiatrisk-klinik-for-skoleboern",
+        "bua-smaborn-klinik",
+        "odense-borne-og-ungdomspsykiatrisk-ambulatorium",
+        "aabenna-borne-og-ungdomspsykiatrisk-ambulatorium"
+      ],
+      "markdown": "| Danmark | Nej | 213 | / | 353 | 60 | (55-65) | 241 | / | 406 | 59 | 63 |\n| Hovedstaden | Nej | 102 | / | 178 | 57 | (50-65) | 120 | / | 228 | 53 | 44 |\n| Sjælland | Nej | 7 | / | 42 | 17 | (7-31) | 10 | / | 40 | 25 | 45 |\n| Syddanmark | Nej | 45 | / | 51 | 88 | (76-96) | 49 | / | 55 | 89 | 96 |\n| Midtjylland | Nej | 49 | / | 57 | 86 | (74-94) | 55 | / | 60 | 92 | 86 |\n| Nordjylland | Nej | 10 | / | 24 | 42 | (22-63) | 7 | / | 23 | 30 | 20 |\n| Privathospitaler | Nej | #/# | 0 | (0-98) |",
+      "summary": "Tabellen sammenligner andelen af kliniske miljøobservationer for Indikator 2a på lands- og regionsniveau over tre perioder, og viser højeste præstation i Syddanmark (88 % i 2024/25) og laveste i Sjælland (17 % i 2024/25)."
+    }
+  ],
+  "context": "Dette dokumentudsnit (sider 11–15) er en del af den årlige kvalitetsrapport for ADHD-udredning i Danmark, udarbejdet af ADHD-Databasen og godkendt af Styregruppen. Det fokuserer på kvantitativ analyse af to centrale kvalitetsindikatorer — Indikator 1 (somatisk udredning) og Indikator 2a (klinisk miljøobservation for 0–5-årige) — og præsenterer detaljerede resultater på nationalt, regionalt og afdelingsmæssigt niveau. Rapporten integrerer dataanalyse med klinisk fortolkning, herunder diskussion af regionale forskelle, implementerede forbedringsinitiativer (fx i Region Midtjylland), strukturelle barrierer (fx manglende lægekapacitet i Region Sjælland) og systemiske udfordringer (fx manglende data fra privathospitaler). Den fungerer som både et overvågningsværktøj og et beslutningsgrundlag for politisk og fagligt lederskab i dansk psykiatri."
 }

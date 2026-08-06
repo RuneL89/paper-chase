@@ -1,29 +1,27 @@
 ---
 title: Countries
-type: entity
+type: index
 aliases:
   - Countries
 wiki: rkkp-afdk
-updated: '2026-08-03T19:14:15.227Z'
+updated: '2026-08-05T22:50:48.847Z'
 children:
   - danmark.md
-  - index.md
-tags:
-  - location
-sparse: true
-sources: []
 ---
 # Countries
 
-This folder contains pages and sub-folders related to countries.
+This folder catalogs sovereign nations that act as national aggregates and primary benchmark units in the clinical quality reports. It currently contains the profile for Denmark, which establishes the baseline epidemiological metrics and comparative standards for atrial fibrillation care across the entire Danish healthcare system. By tracking nationwide performance on clinical indicators, complications, and mortality, this national entity provides the overarching context against which regional and local hospital data are evaluated.
 
 ## Pages
 
-- [[danmark|Danmark]]
+- [[danmark|Danmark]] — The national geographic aggregate and primary benchmark unit for atrial fibrillation clinical quality indicators, encompassing regional subdivisions and nationwide epidemiological data.
 
 ## Navigation
 
-- Parent: [[index|Rkkp Afdk]]
+- Parent: [[entities/locations/index|Locations]]
+- Sibling: [[entities/locations/cities/index|Cities]]
+- Sibling: [[entities/locations/municipalities/index|Municipalities]]
+- Sibling: [[entities/locations/regions/index|Regions]]
 
 ## Statistics
 

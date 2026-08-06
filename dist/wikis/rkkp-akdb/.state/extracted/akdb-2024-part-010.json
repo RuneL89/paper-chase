@@ -2,65 +2,27 @@
   "entities": [
     {
       "name": "Indikator 8",
-      "type": "quality-indicator",
+      "type": "indicator",
       "slug": "indikator-8",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 8 måler andelen af opererede patienter, der får anlagt epidural i forbindelse med operation, og er et centralt kvalitetsmål i Akut Kirurgi Databasen med et udviklingmål på > 60 %.",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 8 er den centrale målingsenhed i dette dokumentchunk, der kvantificerer andelen af akut kirurgiske patienter, der får anlagt epidural i forbindelse med operationen, og danner grundlag for alle analyser, sammenligninger og anbefalinger på siderne 46–50.",
       "mentions": [
         {
           "page": 46,
           "context": "Indikator 8: Andel opererede med epidural"
-        },
-        {
-          "page": 48,
-          "context": "Indikatorbeskrivelse for indikator 8"
-        },
-        {
-          "page": 49,
-          "context": "Vurdering af indikator 8"
         }
       ]
     },
     {
-      "name": "Epidural",
-      "type": "clinical-intervention",
+      "name": "epidural",
+      "type": "medical-procedure",
       "slug": "epidural",
-      "folder": "topics/clinical-practice",
-      "significance": "Epidural er en smertebehandlingsmetode, der ifølge evidensen reducerer ileus, respiratoriske komplikationer og postoperative pneumonier efter operation for akut abdomen.",
+      "folder": "entities/medical-procedures/anesthesia",
+      "significance": "Epidural er den specifikke smertebehandlingsmetode, som Indikator 8 måler anvendelsen af, og som i chunken diskuteres som evidensbaseret intervention til reduktion af postoperative komplikationer ved akut abdomenkirurgi.",
       "mentions": [
         {
           "page": 46,
-          "context": "Andelen af patienter, der har fået anlagt epidural i forbindelse med operationen"
-        },
-        {
-          "page": 48,
-          "context": "Epidural reducerer ileus og respiratoriske komplikationer efter laparotomi"
-        }
-      ]
-    },
-    {
-      "name": "Dansk Anæstesi Database",
-      "type": "organization",
-      "slug": "dansk-anaestesi-database",
-      "folder": "entities/organizations/healthcare-databases",
-      "significance": "Dansk Anæstesi Database er kilden til data om epidural-anlæggelse for Indikator 8 i Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Data om epidural stammer fra Dansk Anæstesi Database"
-        }
-      ]
-    },
-    {
-      "name": "AHA studiet",
-      "type": "clinical-study",
-      "slug": "aha-studiet",
-      "folder": "topics/clinical-research/studies",
-      "significance": "AHA studiet demonstrerede, at standardbrug af epidural til abdominal høj risikopatienter overordnet set nedbragte mortaliteten.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Standard brug af epidural til abdominal høj risikopatienter var en del af AHA studiet som overordnet set nedbragte mortaliteten"
+          "context": "Som patient i Danmark er der altså stor forskel på, om man får tilbudt epidural smertebehandeling i forbindelse med operation for akut abdomen."
         }
       ]
     },
@@ -69,417 +31,76 @@
       "type": "organization",
       "slug": "amager-og-hvidovre-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Amager og Hvidovre Hospital opfyldte udviklingmålet for Indikator 8 med 68,0 % epidural-anlæggelse og havde den højeste epidural-anvendelse blandt hospitaler med 41-50 % åbne operationer.",
+      "significance": "Amager og Hvidovre Hospital fremhæves som det sygehus med højeste andel epidural-anlæggelse (68,0 %) blandt de 20 indberettende enheder, og bruges som ekstremt eksempel på variation i klinisk praksis i forhold til Næstved/Slagelse/Ringsted sygehuse.",
       "mentions": [
         {
           "page": 46,
-          "context": "Amager og Hvidovre Hospital Ja 166 / 244 0 (0) 68,0 (61,8-73,8)"
-        },
-        {
-          "page": 49,
-          "context": "Amager/Hvidovre sygehus, der har anlagt 166 epiduralkatetre, i forbindelse med operation af 282 patienter"
+          "context": "Denne behandlingsforskel er tydeligst mellem Amager/Hvidovre sygehus, der har anlagt 166 epiduralkatetre, i forbindelse med operation af 282 patienter, hvoraf 121 indgreb blev foretaget åbent"
         }
       ]
     },
     {
       "name": "Næstved, Slagelse og Ringsted sygehuse",
       "type": "organization",
-      "slug": "naestved-slagelse-ringsted-sygehuse",
+      "slug": "naestved-slagese-og-ringsted-sygehuse",
       "folder": "entities/organizations/hospitals",
-      "significance": "Næstved, Slagelse og Ringsted sygehuse havde den laveste epidural-anvendelse blandt hospitaler med 41-50 % åbne operationer (24,6 %) og illustrerer betydelig behandlingsforskel i Danmark.",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse identificeres som det sygehus med laveste andel epidural-anlæggelse (24,6 %) blandt de 20 indberettende enheder og bruges som kontrast til Amager og Hvidovre Hospital for at illustrere systemiske forskelle i behandlingskvalitet.",
       "mentions": [
         {
           "page": 46,
-          "context": "Næstved, Slagelse og Ringsted sygehuse Nej 47 / 191 0 (0) 24,6 (18,7-31,3)"
-        },
-        {
-          "page": 49,
-          "context": "Næstved/Slagelse/Ringsted sygehus, der har anlagt 47 epiduralkatetre i forbindelse med 204 operationer"
+          "context": "og Næstved/Slagelse/Ringsted sygehus, der har anlagt 47 epiduralkatetre i forbindelse med 204 operationer, hvoraf 85 blev foretaget åbent."
         }
       ]
     },
     {
-      "name": "Aarhus Universitetshospital",
-      "type": "organization",
-      "slug": "aarhus-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Universitetshospital opfyldte udviklingmålet for Indikator 8 med 72,9 % epidural-anlæggelse, den højeste blandt hospitaler med 51-60 % åbne operationer.",
-      "mentions": [
-        {
-          "page": 47,
-          "context": "Aarhus Universitetshospital Ja 102 / 140 0 (0) 72,9 (64,7-80,0)"
-        }
-      ]
-    },
-    {
-      "name": "Region Nordjylland",
-      "type": "location",
-      "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland havde den laveste epidural-andel blandt regionerne på 41,9 %, hvilket indikerer regional variation i behandlingspraksis.",
+      "name": "AHA studiet",
+      "type": "study",
+      "slug": "aha",
+      "folder": "entities/studies/clinical-trials",
+      "significance": "AHA studiet nævnes som en central evidensbase, der dokumenterer, at standard brug af epidural til abdominal høj risikopatienter overordnet nedbragte mortaliteten, og dermed understøtter klinisk relevansen af Indikator 8.",
       "mentions": [
         {
           "page": 46,
-          "context": "Nordjylland Nej 99 / 236 0 (0) 41,9 (35,6-48,5)"
-        },
-        {
-          "page": 48,
-          "context": "Regionalt varierede andelen fra 41,9 % i Region Nordjylland til 56,8 % i Region Syddanmark"
+          "context": "Standard brug af epidural til abdominal høj risikopatienter var en del af AHA studiet som overordnet set nedbragte mortaliteten."
         }
       ]
     },
     {
-      "name": "Region Syddanmark",
-      "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Syddanmark havde den højeste epidural-andel blandt regionerne på 56,8 %, hvilket illustrerer regional variation i behandlingspraksis.",
+      "name": "Dansk Anæstesi Database",
+      "type": "database",
+      "slug": "dansk-anaestesi-database-dad",
+      "folder": "entities/databases/healthcare",
+      "significance": "Dansk Anæstesi Database er den primære kilde til data om epidural-anlæggelse i Indikator 8, hvilket gør den afgørende for validiteten og sporingen af alle tal og resultater i chunken.",
       "mentions": [
         {
           "page": 46,
-          "context": "Syddanmark Nej 374 / 658 0 (0) 56,8 (53,0-60,7)"
-        },
-        {
-          "page": 48,
-          "context": "Regionalt varierede andelen fra 41,9 % i Region Nordjylland til 56,8 % i Region Syddanmark"
+          "context": "Data om epidural stammer fra Dansk Anæstesi Database, og inkluderer følgende typer af epidural: Cervical, thoracal, lumbal, sarkral, spinal."
         }
       ]
     },
     {
-      "name": "Region Hovedstaden",
-      "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Hovedstaden havde en epidural-andel på 53,6 % i perioden 01.09.2023-31.08.2024.",
+      "name": "LPR",
+      "type": "database",
+      "slug": "landspatientregisteret-lpr",
+      "folder": "entities/databases/government",
+      "significance": "Landspatientregisteret (LPR) anvendes som referencekilde til tidspunktet for den aktuelle operation, hvilket er en nødvendig kriteriebetingelse for inklusion i Indikator 8, da anæstesitidspunktet skal ligge inden for operationsperioden i LPR.",
       "mentions": [
         {
           "page": 46,
-          "context": "Hovedstaden Nej 544 / 1.014 0 (0) 53,6 (50,5-56,8)"
+          "context": "Samtidigt er der krav om, at tidspunktet for anæstesi skal ligge indenfor tidspunktet for den procedure, hvor selve operationen er angivet i LPR."
         }
       ]
     },
     {
-      "name": "Region Sjælland",
-      "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland havde en epidural-andel på 44,1 % i perioden 01.09.2023-31.08.2024.",
+      "name": "akut abdomen",
+      "type": "medical-condition",
+      "slug": "akut-abdomen",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "significance": "Akut abdomen er den kliniske indikationsgruppe, som hele Indikator 8 og dens evidensdiskussion fokuserer på, og som definerer patientpopulationen for behandlingsvariationen og kvalitetsmålingen.",
       "mentions": [
         {
           "page": 46,
-          "context": "Sjælland Nej 253 / 574 0 (0) 44,1 (40,0-48,2)"
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "location",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Midtjylland havde en epidural-andel på 55,6 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 46,
-          "context": "Midtjylland Nej 391 / 703 0 (0) 55,6 (51,9-59,3)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Gødstrup",
-      "type": "organization",
-      "slug": "regionshospitalet-goedstrup",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Gødstrup opfyldte udviklingmålet for Indikator 8 med 64,7 % epidural-anlæggelse.",
-      "mentions": [
-        {
-          "page": 47,
-          "context": "Regionshospitalet Gødstrup Ja 112 / 173 0 (0) 64,7 (57,1-71,8)"
-        }
-      ]
-    },
-    {
-      "name": "Odense Universitetshospital - Svendborg",
-      "type": "organization",
-      "slug": "odense-universitetshospital-svendborg",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Odense Universitetshospital - Svendborg opfyldte udviklingmålet for Indikator 8 med 61,5 % epidural-anlæggelse.",
-      "mentions": [
-        {
-          "page": 47,
-          "context": "Odense Universitetshospital - Svendborg Ja 184 / 299 0 (0) 61,5 (55,8-67,1)"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg Sygehus Grindsted Sygehus",
-      "type": "organization",
-      "slug": "esbjerg-sygehus-grindsted-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Esbjerg Sygehus Grindsted Sygehus opfyldte udviklingmålet for Indikator 8 med 61,4 % epidural-anlæggelse.",
-      "mentions": [
-        {
-          "page": 47,
-          "context": "Esbjerg Sygehus Grindsted Sygehus Ja 97 / 158 0 (0) 61,4 (53,3-69,0)"
-        }
-      ]
-    },
-    {
-      "name": "Bispebjerg og Frederiksberg Hospital",
-      "type": "organization",
-      "slug": "bispebjerg-og-frederiksberg-hospitaler",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bispebjerg og Frederiksberg Hospital havde en epidural-andel på 57,2 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 46,
-          "context": "Bispebjerg og Frederiksberg Hospital Nej 103 / 180 0 (0) 57,2 (49,6-64,6)"
-        }
-      ]
-    },
-    {
-      "name": "Bornholms Hospital",
-      "type": "organization",
-      "slug": "bornholms-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bornholms Hospital havde en epidural-andel på 42,3 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 46,
-          "context": "Bornholms Hospital Nej 11 / 26 0 (0) 42,3 (23,4-63,1)"
-        }
-      ]
-    },
-    {
-      "name": "Herlev og Gentofte Hospital",
-      "type": "organization",
-      "slug": "herlev-og-gentofte-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Herlev og Gentofte Hospital havde en epidural-andel på 46,6 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 46,
-          "context": "Herlev og Gentofte Hospital Nej 143 / 307 0 (0) 46,6 (40,9-52,3)"
-        }
-      ]
-    },
-    {
-      "name": "Hospitalerne i Nordsjælland",
-      "type": "organization",
-      "slug": "hospitalerne-i-nordsjaelland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalerne i Nordsjælland havde en epidural-andel på 47,1 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 46,
-          "context": "Hospitalerne i Nordsjælland Nej 96 / 204 0 (0) 47,1 (40,1-54,2)"
-        }
-      ]
-    },
-    {
-      "name": "Rigshospitalet",
-      "type": "organization",
-      "slug": "rigshospitalet",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet havde en epidural-andel på 47,2 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 46,
-          "context": "Rigshospitalet Nej 25 / 53 0 (0) 47,2 (33,3-61,4)"
-        }
-      ]
-    },
-    {
-      "name": "Holbæk Sygehus",
-      "type": "organization",
-      "slug": "holbaek-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk Sygehus havde en epidural-andel på 58,8 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 46,
-          "context": "Holbæk Sygehus Nej 77 / 131 0 (0) 58,8 (49,8-67,3)"
-        }
-      ]
-    },
-    {
-      "name": "Sjællands Universitetshospital",
-      "type": "organization",
-      "slug": "sjaellands-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sjællands Universitetshospital havde en epidural-andel på 51,2 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 46,
-          "context": "Sjællands Universitetshospital Nej 129 / 252 0 (0) 51,2 (44,8-57,5)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Lillebælt",
-      "type": "organization",
-      "slug": "sygehus-lillebaelt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Lillebælt havde en epidural-andel på 59,1 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 47,
-          "context": "Sygehus Lillebælt Nej 52 / 88 0 (0) 59,1 (48,1-69,5)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Sønderjylland",
-      "type": "organization",
-      "slug": "sygehus-soenderjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Sønderjylland havde en epidural-andel på 36,3 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 47,
-          "context": "Sygehus Sønderjylland Nej 41 / 113 0 (0) 36,3 (27,4-45,9)"
-        }
-      ]
-    },
-    {
-      "name": "Hospitalsenhed Midt",
-      "type": "organization",
-      "slug": "hospitalsenhed-midt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalsenhed Midt havde en epidural-andel på 40,3 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 47,
-          "context": "Hospitalsenhed Midt Nej 56 / 139 0 (0) 40,3 (32,1-48,9)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Horsens",
-      "type": "organization",
-      "slug": "regionshospitalet-horsens",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Horsens havde en epidural-andel på 58,5 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 47,
-          "context": "Regionshospitalet Horsens Nej 72 / 123 0 (0) 58,5 (49,3-67,3)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Randers",
-      "type": "organization",
-      "slug": "regionshospitalet-randers",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Randers havde en epidural-andel på 38,3 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 47,
-          "context": "Regionshospitalet Randers Nej 49 / 128 0 (0) 38,3 (29,8-47,3)"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Universitetshospital",
-      "type": "organization",
-      "slug": "aalborg-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital havde en epidural-andel på 52,6 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 47,
-          "context": "Aalborg Universitetshospital Nej 72 / 137 0 (0) 52,6 (43,9-61,1)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospital Nordjylland",
-      "type": "organization",
-      "slug": "regionshospital-nordjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospital Nordjylland havde en epidural-andel på 27,3 % i perioden 01.09.2023-31.08.2024.",
-      "mentions": [
-        {
-          "page": 47,
-          "context": "Regionshospital Nordjylland Nej 27 / 99 0 (0) 27,3 (18,8-37,1)"
-        }
-      ]
-    },
-    {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark som helhed havde en epidural-andel på 52,2 % i perioden 01.09.2023-31.08.2024, hvilket ikke opfyldte udviklingmålet på > 60 %.",
-      "mentions": [
-        {
-          "page": 46,
-          "context": "Danmark Nej 1.661 / 3.185 0 (0) 52,2 (50,4-53,9)"
-        }
-      ]
-    },
-    {
-      "name": "Laparotomi",
-      "type": "clinical-procedure",
-      "slug": "laparotomi",
-      "folder": "topics/clinical-practice",
-      "significance": "Laparotomi (åben operation) er en kirurgisk procedure, hvor epidural anbefales til høj risikopatienter for at reducere ileus, respiratoriske komplikationer og postoperative smerter.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Epidural reducerer ileus og respiratoriske komplikationer efter laparotomi"
-        }
-      ]
-    },
-    {
-      "name": "Ileus",
-      "type": "clinical-outcome",
-      "slug": "ileus",
-      "folder": "topics/clinical-outcome",
-      "significance": "Ileus er en postoperativ komplikation, som epidural kan reducere og forebygge efter operation for akut abdomen.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Epidural reducerer ileus og respiratoriske komplikationer efter laparotomi"
-        }
-      ]
-    },
-    {
-      "name": "Postoperativ pneumoni",
-      "type": "clinical-outcome",
-      "slug": "postoperativ-pneumoni",
-      "folder": "topics/clinical-outcome",
-      "significance": "Postoperativ pneumoni er en alvorlig komplikation, som epidural beskytter mod ifølge en metaanalyse med 58 RCT studier.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "En metaanalyse med 58 RCT studier inkluderende i alt 5.904 patienter har vist at epidural beskytter mod post-operative pneumonier"
-        }
-      ]
-    },
-    {
-      "name": "Laparoskopi",
-      "type": "clinical-procedure",
-      "slug": "laparoskopi",
-      "folder": "topics/clinical-practice",
-      "significance": "Laparoskopi (minimal invasiv kirurgi) er en kirurgisk procedure, hvor epidural ikke altid er indiceret, men kan være relevant til patienter med peritonit eller ileus.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "epidural smertebehandling ikke altid er indiceret til laparoskopisk opererede patienter"
-        }
-      ]
-    },
-    {
-      "name": "Antikoagulerende behandling",
-      "type": "clinical-intervention",
-      "slug": "antikoagulerende-behandling",
-      "folder": "topics/clinical-practice",
-      "significance": "Antikoagulerende behandling kan kontraindicere epidural-anlæggelse, og en betydelig del af patienterne kommer til operation uden relevant pausering i sådan behandling.",
-      "mentions": [
-        {
-          "page": 49,
-          "context": "en betydelig del af patienterne kommer til operation uden relevant pausering i antikoagulerende behandling"
+          "context": "Som patient i Danmark er der altså stor forskel på, om man får tilbudt epidural smertebehandeling i forbindelse med operation for akut abdomen."
         }
       ]
     }
@@ -493,244 +114,113 @@
       "page": 46
     },
     {
-      "subject": "dansk-anaestesi-database",
-      "predicate": "provides-data-for",
-      "object": "indikator-8",
+      "subject": "indikator-8",
+      "predicate": "relies-on-data-from",
+      "object": "dansk-anaestesi-database-dad",
       "evidence": "Data om epidural stammer fra Dansk Anæstesi Database",
-      "page": 48
-    },
-    {
-      "subject": "aha-studiet",
-      "predicate": "demonstrated-benefit-of",
-      "object": "epidural",
-      "evidence": "Standard brug af epidural til abdominal høj risikopatienter var en del af AHA studiet som overordnet set nedbragte mortaliteten",
-      "page": 48
-    },
-    {
-      "subject": "amager-og-hvidovre-hospital",
-      "predicate": "achieved-target-for",
-      "object": "indikator-8",
-      "evidence": "Amager og Hvidovre Hospital Ja 166 / 244 0 (0) 68,0 (61,8-73,8)",
       "page": 46
     },
     {
-      "subject": "aarhus-universitetshospital",
-      "predicate": "achieved-target-for",
-      "object": "indikator-8",
-      "evidence": "Aarhus Universitetshospital Ja 102 / 140 0 (0) 72,9 (64,7-80,0)",
-      "page": 47
+      "subject": "indikator-8",
+      "predicate": "uses-operation-time-from",
+      "object": "landspatientregisteret-lpr",
+      "evidence": "tidspunktet for anæstesi skal ligge indenfor tidspunktet for den procedure, hvor selve operationen er angivet i LPR",
+      "page": 46
     },
     {
-      "subject": "regionshospitalet-goedstrup",
-      "predicate": "achieved-target-for",
-      "object": "indikator-8",
-      "evidence": "Regionshospitalet Gødstrup Ja 112 / 173 0 (0) 64,7 (57,1-71,8)",
-      "page": 47
+      "subject": "aha",
+      "predicate": "supports-use-of",
+      "object": "epidural",
+      "evidence": "Standard brug af epidural til abdominal høj risikopatienter var en del af AHA studiet som overordnet set nedbragte mortaliteten.",
+      "page": 46
     },
     {
-      "subject": "odense-universitetshospital-svendborg",
-      "predicate": "achieved-target-for",
+      "subject": "amager-og-hvidovre-hospital",
+      "predicate": "has-highest-epidural-rate-for",
       "object": "indikator-8",
-      "evidence": "Odense Universitetshospital - Svendborg Ja 184 / 299 0 (0) 61,5 (55,8-67,1)",
-      "page": 47
+      "evidence": "Amager/Hvidovre sygehus, der har anlagt 166 epiduralkatetre, i forbindelse med operation af 282 patienter, hvoraf 121 indgreb blev foretaget åbent",
+      "page": 46
     },
     {
-      "subject": "esbjerg-sygehus-grindsted-sygehus",
-      "predicate": "achieved-target-for",
+      "subject": "naestved-slagese-og-ringsted-sygehuse",
+      "predicate": "has-lowest-epidural-rate-for",
       "object": "indikator-8",
-      "evidence": "Esbjerg Sygehus Grindsted Sygehus Ja 97 / 158 0 (0) 61,4 (53,3-69,0)",
-      "page": 47
-    },
-    {
-      "subject": "region-nordjylland",
-      "predicate": "has-lowest-rate-for",
-      "object": "indikator-8",
-      "evidence": "Regionalt varierede andelen fra 41,9 % i Region Nordjylland til 56,8 % i Region Syddanmark",
-      "page": 48
-    },
-    {
-      "subject": "region-syddanmark",
-      "predicate": "has-highest-rate-for",
-      "object": "indikator-8",
-      "evidence": "Regionalt varierede andelen fra 41,9 % i Region Nordjylland til 56,8 % i Region Syddanmark",
-      "page": 48
+      "evidence": "Næstved/Slagelse/Ringsted sygehus, der har anlagt 47 epiduralkatetre i forbindelse med 204 operationer, hvoraf 85 blev foretaget åbent.",
+      "page": 46
     }
   ],
   "claims": [
     {
-      "text": "Ud af de 3.185 opererede i perioden, blev 1.661 bedøvede med epidural. Det svarer til en andel på 52,2 % (95 % CI: 50,4-53,9) [^src1]",
-      "type": "clinical-indicator",
-      "entities": [
-        "indikator-8",
-        "epidural",
-        "danmark"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Udviklingsmålet er > 60 %, og endnu ikke opfyldt [^src1]",
-      "type": "quality-standard",
+      "text": "Udviklingsmålet for Indikator 8 er > 60 % [^src1]",
+      "type": "performance-target",
       "entities": [
         "indikator-8"
       ],
-      "page": 48
+      "page": 46
+    },
+    {
+      "text": "Indikator 8 blev i 2022 ændret fra 90 % til 60 % idet mange patienter er komorbide og får AK behandling, hvilket kan kontraindicere epidural anlæggelse i operationsdøgnet [^src1]",
+      "type": "policy-change",
+      "entities": [
+        "indikator-8",
+        "epidural"
+      ],
+      "page": 46
     },
     {
       "text": "I alt fem af de 20 indberettende enheder opfyldte udviklingsmålet i perioden [^src1]",
-      "type": "clinical-indicator",
+      "type": "performance-result",
       "entities": [
         "indikator-8"
       ],
-      "page": 48
+      "page": 46
     },
     {
-      "text": "Udviklingen over tid viser, der er overordnet fremgang i den aktuelle periode sammenlignet med tidligere [^src1]",
-      "type": "clinical-indicator",
+      "text": "Regionalt varierede andelen fra 41,9 % i Region Nordjylland til 56,8 % i Region Syddanmark [^src1]",
+      "type": "regional-variation",
       "entities": [
-        "indikator-8"
+        "indikator-8",
+        "region-nordjylland",
+        "region-syddanmark"
       ],
-      "page": 48
-    },
-    {
-      "text": "Epidural reducerer ileus og respiratoriske komplikationer efter laparotomi, og anbefales til patienter med høj risiko for forlænget ileus [^src1]",
-      "type": "clinical-evidence",
-      "entities": [
-        "epidural",
-        "laparotomi",
-        "ileus"
-      ],
-      "page": 48
-    },
-    {
-      "text": "En metaanalyse med 58 RCT studier inkluderende i alt 5.904 patienter har vist at epidural beskytter mod post-operative pneumonier [^src1]",
-      "type": "clinical-evidence",
-      "entities": [
-        "epidural",
-        "postoperativ-pneumoni"
-      ],
-      "page": 48
-    },
-    {
-      "text": "I et systematisk review på 6 RCT studier finder man at epidural nedbringer tiden til post-operative mave-tarm funktion og postoperative smerter [^src1]",
-      "type": "clinical-evidence",
-      "entities": [
-        "epidural"
-      ],
-      "page": 48
-    },
-    {
-      "text": "I et RCT på 60 patienter fandt man at patienter med epidural havde et bedre anti-inflammatorisk respons end patienter uden [^src1]",
-      "type": "clinical-evidence",
-      "entities": [
-        "epidural"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Det anbefales at patienter der skal opereres åbent for ileus eller perforeret hulorgan får anlagt en epidural præ-operativt eller tidligst muligt post-operativt ved svært kredsløbskollaps [^src1]",
-      "type": "clinical-recommendation",
-      "entities": [
-        "epidural",
-        "ileus"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Det er også anbefalet at laparoskopisk opererede patienter med peritonit eller ileus får en Epidural, da det forkorter rekonvalescens tiden [^src1]",
-      "type": "clinical-recommendation",
-      "entities": [
-        "epidural",
-        "laparoskopi",
-        "ileus"
-      ],
-      "page": 48
+      "page": 46
     },
     {
       "text": "Der er stor forskel mellem sygehusene i forhold til at tilbyde smertebehandling med epiduralkateter [^src1]",
-      "type": "regional-variation",
-      "entities": [
-        "epidural"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Amager/Hvidovre sygehus har anlagt 166 epiduralkatetre i forbindelse med operation af 282 patienter, hvoraf 121 indgreb blev foretaget åbent [^src1]",
-      "type": "clinical-indicator",
-      "entities": [
-        "amager-og-hvidovre-hospital",
-        "epidural"
-      ],
-      "page": 49
-    },
-    {
-      "text": "Næstved/Slagelse/Ringsted sygehus har anlagt 47 epiduralkatetre i forbindelse med 204 operationer, hvoraf 85 blev foretaget åbent [^src1]",
-      "type": "clinical-indicator",
-      "entities": [
-        "naestved-slagelse-ringsted-sygehuse",
-        "epidural"
-      ],
-      "page": 49
-    },
-    {
-      "text": "Udviklingsmålet er sat ned til 60% for at imødekomme, at en betydelig del af patienterne kommer til operation uden relevant pausering i antikoagulerende behandling [^src1]",
-      "type": "quality-standard",
-      "entities": [
-        "indikator-8",
-        "antikoagulerende-behandling"
-      ],
-      "page": 49
-    },
-    {
-      "text": "Indikatoren blev i 2022 ændret fra 90% til 60% idet mange patienter er komorbide og får AK behandling, hvilket kan kontraindicere epidural anlæggelse i operationsdøgnet [^src1]",
-      "type": "quality-standard",
-      "entities": [
-        "indikator-8",
-        "epidural"
-      ],
-      "page": 49
-    },
-    {
-      "text": "I Danmark anvendes der almindeligvis epidural når patienten opereres ved eksplorativ laparotomi, hvorimod der ofte ikke anlægges epidural til laparoskopiske indgreb [^src1]",
-      "type": "clinical-practice",
+      "type": "inter-hospital-variation",
       "entities": [
         "epidural",
-        "laparotomi",
-        "laparoskopi",
-        "danmark"
+        "amager-og-hvidovre-hospital",
+        "naestved-slagese-og-ringsted-sygehuse"
       ],
-      "page": 49
+      "page": 46
     }
   ],
   "timeline": [
     {
       "date": "01.09.2023 - 31.08.2024",
-      "event": "Måleperiode for Indikator 8: Andel opererede med epidural. Nationalt resultat: 52,2 % (1.661 / 3.185 patienter)",
+      "event": "Måleperiode for Indikator 8 i den aktuelle rapportversion",
       "entities": [
-        "indikator-8",
-        "epidural",
-        "danmark"
+        "indikator-8"
       ]
     },
     {
       "date": "2022",
-      "event": "Indikator 8 blev ændret fra 90% til 60% udviklingmål",
+      "event": "Ændring af udviklingsmål for Indikator 8 fra 90 % til 60 %",
       "entities": [
         "indikator-8"
       ]
     }
   ],
-  "context": "Dette afsnit dokumenterer Indikator 8 fra Akut Kirurgi Databasen, som måler andelen af opererede patienter, der får anlagt epidural i forbindelse med operation for akut abdomen. Epidural er en smertebehandlingsmetode med stærk evidens for at reducere postoperative komplikationer som ileus, respiratoriske problemer og pneumoni. I måleperioden 01.09.2023-31.08.2024 opnåede Danmark en epidural-andel på 52,2 %, hvilket ikke opfyldte udviklingmålet på > 60 %. Afsnittene dokumenterer betydelig regional og hospitalsvise variationer i epidural-anvendelse, med Region Nordjylland på 41,9 % og Region Syddanmark på 56,8 %. Kun fem af 20 indberettende enheder opfyldte målet. Dokumentet diskuterer årsager til variationen, herunder antikoagulerende behandling og forskelle i kirurgisk praksis (åben vs. minimal invasiv kirurgi), og foreslår forbedringer i datarapportering og evidensbaseret praksis.",
   "tables": [
     {
       "subject": "indikator-8",
       "title": "Indikator 8: Andel opererede med epidural",
       "page": 46,
-      "rowDimension": "indberettende enheder (land, regioner og sygehuse)",
-      "colDimension": "standard opfyldt, tæller/nævner, uoplyst samt andel med 95% CI for aktuelle år og tidligere år",
+      "rowDimension": "region or hospital unit",
+      "colDimension": "epidural rate per year with confidence interval",
       "entities": [
         "indikator-8",
-        "epidural",
-        "danmark",
         "region-hovedstaden",
         "region-sjaelland",
         "region-syddanmark",
@@ -743,10 +233,10 @@
         "hospitalerne-i-nordsjaelland",
         "rigshospitalet",
         "holbaek-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
+        "naestved-slagese-og-ringsted-sygehuse",
         "sjaellands-universitetshospital",
         "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
+        "ouh-odense-universitetshospital-odense",
         "sygehus-lillebaelt",
         "sygehus-soenderjylland",
         "aarhus-universitetshospital",
@@ -758,21 +248,9 @@
         "aalborg-universitetshospital-thisted",
         "regionshospital-nordjylland"
       ],
-      "markdown": "| Enhed | Standard > 60% opfyldt | Tæller/nævner | Uoplyst antal (%) | Andel (95% CI) 01.09.2023 - 31.08.2024 | Andel 2022/23 | Andel 2021/22 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 1.661 / 3.185 | 0 (0) | 52,2 (50,4-53,9) | 53,0 | 48,9 |\n| Hovedstaden | Nej | 544 / 1.014 | 0 (0) | 53,6 (50,5-56,8) | 58,7 | 58,9 |\n| Amager og Hvidovre Hospital | Ja | 166 / 244 | 0 (0) | 68,0 (61,8-73,8) | 71,4 | 74,4 |\n| Bispebjerg og Frederiksberg Hospital | Nej | 103 / 180 | 0 (0) | 57,2 (49,6-64,6) | 65,9 | 61,3 |\n| Bornholms Hospital | Nej | 11 / 26 | 0 (0) | 42,3 (23,4-63,1) | 40,0 | 52,2 |\n| Herlev og Gentofte Hospital | Nej | 143 / 307 | 0 (0) | 46,6 (40,9-52,3) | 47,6 | 52,0 |\n| Hospitalerne i Nordsjælland | Nej | 96 / 204 | 0 (0) | 47,1 (40,1-54,2) | 55,9 | 46,2 |\n| Rigshospitalet | Nej | 25 / 53 | 0 (0) | 47,2 (33,3-61,4) | 53,4 | 51,8 |\n| Sjælland | Nej | 253 / 574 | 0 (0) | 44,1 (40,0-48,2) | 44,9 | 44,9 |\n| Holbæk Sygehus | Nej | 77 / 131 | 0 (0) | 58,8 (49,8-67,3) | 52,5 | 37,6 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 47 / 191 | 0 (0) | 24,6 (18,7-31,3) | 27,8 | 30,4 |\n| Sjællands Universitetshospital | Nej | 129 / 252 | 0 (0) | 51,2 (44,8-57,5) | 56,2 | 58,8 |\n| Syddanmark | Nej | 374 / 658 | 0 (0) | 56,8 (53,0-60,7) | 56,7 | 37,6 |\n| Esbjerg Sygehus Grindsted Sygehus | Ja | 97 / 158 | 0 (0) | 61,4 (53,3-69,0) | 64,4 | 43,7 |\n| Odense Universitetshospital - Svendborg | Ja | 184 / 299 | 0 (0) | 61,5 (55,8-67,1) | 60,7 | 29,2 |\n| Sygehus Lillebælt | Nej | 52 / 88 | 0 (0) | 59,1 (48,1-69,5) | 59,2 | 43,1 |\n| Sygehus Sønderjylland | Nej | 41 / 113 | 0 (0) | 36,3 (27,4-45,9) | 39,4 | 42,3 |\n| Midtjylland | Nej | 391 / 703 | 0 (0) | 55,6 (51,9-59,3) | 53,4 | 52,8 |\n| Aarhus Universitetshospital | Ja | 102 / 140 | 0 (0) | 72,9 (64,7-80,0) | 70,9 | 63,7 |\n| Hospitalsenhed Midt | Nej | 56 / 139 | 0 (0) | 40,3 (32,1-48,9) | 32,1 | 30,8 |\n| Regionshospitalet Gødstrup | Ja | 112 / 173 | 0 (0) | 64,7 (57,1-71,8) | 63,5 | 59,7 |\n| Regionshospitalet Horsens | Nej | 72 / 123 | 0 (0) | 58,5 (49,3-67,3) | 62,6 | 58,2 |\n| Regionshospitalet Randers | Nej | 49 / 128 | 0 (0) | 38,3 (29,8-47,3) | 40,8 | 47,8 |\n| Nordjylland | Nej | 99 / 236 | 0 (0) | 41,9 (35,6-48,5) | 36,3 | 28,4 |\n| Aalborg Universitetshospital | Nej | 72 / 137 | 0 (0) | 52,6 (43,9-61,1) | 39,9 | 25,4 |\n| Aalborg Universitetshospital, Thisted |  |  |  | 0,0 |  |  |\n| Regionshospital Nordjylland | Nej | 27 / 99 | 0 (0) | 27,3 (18,8-37,1) | 29,5 | 34,2 |",
-      "summary": "Tabellen sammenligner andelen af akut opererede patienter med epidural på lands-, regions- og hospitalsniveau for perioden 01.09.2023 - 31.08.2024 med de to foregående år og viser, at kun fem enheder opfyldte udviklingsmålet på > 60 %, med Aarhus Universitetshospital højest (72,9 %) og Næstved, Slagelse og Ringsted sygehuse lavest (24,6 %)."
-    },
-    {
-      "subject": "indikator-8",
-      "title": "Antal Årsag",
-      "page": 47,
-      "rowDimension": "eksklusionsårsager",
-      "colDimension": "antal patienter",
-      "entities": [
-        "indikator-8",
-        "cpr-nummer"
-      ],
-      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 75 | Ugyldigt CPRnummer. |\n| 197 | Patienten er under 18 år. |\n| 6.238 | Patienten er ikke opereret. |\n| 493 | Operationen er ikke den første operation i hospitalsopholdet. |",
-      "summary": "Tabellen opgør antallet af ekskluderede patienter fordelt på fire eksklusionsårsager, hvor langt størstedelen (6.238) blev ekskluderet, fordi patienten ikke var opereret."
+      "markdown": "| | Standard | Uoplyst | Aktuelle år | Tidligere år |\n|---|---|---|---|---|\n| Danmark | > 60% | Nej | 1.661 / 3.185 | 52,2 (50,4-53,9) |\n| Hovedstaden | > 60% | Nej | 544 / 1.014 | 53,6 (50,5-56,8) |\n| Sjælland | > 60% | Nej | 253 / 574 | 44,1 (40,0-48,2) |\n| Syddanmark | > 60% | Nej | 374 / 658 | 56,8 (53,0-60,7) |\n| Midtjylland | > 60% | Nej | 391 / 703 | 55,6 (51,9-59,3) |\n| Nordjylland | > 60% | Nej | 99 / 236 | 41,9 (35,6-48,5) |\n| Amager og Hvidovre Hospital | > 60% | Ja | 166 / 244 | 68,0 (61,8-73,8) |\n| Bispebjerg og Frederiksberg Hospital | > 60% | Nej | 103 / 180 | 57,2 (49,6-64,6) |\n| Bornholms Hospital | > 60% | Nej | 11 / 26 | 42,3 (23,4-63,1) |\n| Herlev og Gentofte Hospital | > 60% | Nej | 143 / 307 | 46,6 (40,9-52,3) |\n| Hospitalerne i Nordsjælland | > 60% | Nej | 96 / 204 | 47,1 (40,1-54,2) |\n| Rigshospitalet | > 60% | Nej | 25 / 53 | 47,2 (33,3-61,4) |\n| Holbæk Sygehus | > 60% | Nej | 77 / 131 | 58,8 (49,8-67,3) |\n| Næstved, Slagelse og Ringsted sygehuse | > 60% | Nej | 47 / 191 | 24,6 (18,7-31,3) |\n| Sjællands Universitetshospit al | > 60% | Nej | 129 / 252 | 51,2 (44,8-57,5) |\n| Esbjerg Sygehus Grindsted Sygehus | > 60% | Ja | 97 / 158 | 61,4 (53,3-69,0) |\n| Odense Universitetshospit al - Svendborg | > 60% | Ja | 184 / 299 | 61,5 (55,8-67,1) |\n| Sygehus Lillebælt | > 60% | Nej | 52 / 88 | 59,1 (48,1-69,5) |\n| Sygehus Sønderjylland | > 60% | Nej | 41 / 113 | 36,3 (27,4-45,9) |\n| Aarhus Universitetshospit al | > 60% | Ja | 102 / 140 | 72,9 (64,7-80,0) |\n| Hospitalsenhed Midt | > 60% | Nej | 56 / 139 | 40,3 (32,1-48,9) |\n| Regionshospitalet Gødstrup | > 60% | Ja | 112 / 173 | 64,7 (57,1-71,8) |\n| Regionshospitalet Horsens | > 60% | Nej | 72 / 123 | 58,5 (49,3-67,3) |\n| Regionshospitalet Randers | > 60% | Nej | 49 / 128 | 38,3 (29,8-47,3) |\n| Aalborg Universitetshospit al | > 60% | Nej | 72 / 137 | 52,6 (43,9-61,1) |\n| Aalborg Universitetshospit al, Thisted | > 60% | 0,0 | 0 / 0 | 0,0 |\n| Regionshospital Nordjylland | > 60% | Nej | 27 / 99 | 27,3 (18,8-37,1) |",
+      "summary": "Tabellen sammenligner epidural-anlæggelsesraten for Indikator 8 på regionalt og hospitalsniveau for Danmark og 20 indberettende enheder i perioden 01.09.2023–31.08.2024, og viser en bred variation fra 0,0 % (Aalborg Universitetshospit al, Thisted) til 72,9 % (Aarhus Universitetshospit al)."
     }
-  ]
+  ],
+  "context": "Dette dokumentchunk udgør siderne 46–50 af den endelige version af Akut Kirurgi Databasen (AKDB) rapport fra 2025.02.28, udarbejdet af Sundhedsvæsenets Kvalitetsinstitut. Chunken fokuserer på analyse, fortolkning og politisk implikation af Indikator 8 ('Andel opererede med epidural') og danner en integreret del af et større kvalitetsudviklingsprogram, der overvåger kirurgisk behandlingskvalitet i det danske sundhedsvæsen. Den kombinerer empirisk data fra nationale registre med evidensbaserede anbefalinger og kritisk vurdering af indikatorens anvendelighed, især i lyset af klinisk variation, behandlingsindikationer og metodiske udfordringer ved sammenligning på tværs af forskellige kirurgiske teknikker (åben vs. laparoskopisk)."
 }

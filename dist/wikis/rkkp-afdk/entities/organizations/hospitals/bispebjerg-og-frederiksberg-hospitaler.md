@@ -3,71 +3,53 @@ title: Bispebjerg og Frederiksberg Hospitaler
 type: entity
 aliases:
   - Bispebjerg og Frederiksberg Hospitaler
-  - Bispebjerg og Frederiksberg Hospital
 wiki: rkkp-afdk
-updated: '2026-08-03T19:14:15.401Z'
+updated: '2026-08-05T19:37:08.979Z'
 sources:
-  - file: AFDK_2023.pdf
-    pages: >-
-      1-5, 101-105, 106-110, 16-20, 21-25, 26-30, 36-40, 41-45, 6-10, 81-85,
-      96-100
-  - file: AFDK_2024.pdf
-    pages: 1-5
+  - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
+    pages: '16-20, 36-40, 41-45, 6-10'
 tags:
   - organization
 ---
+**Bispebjerg og Frederiksberg Hospitaler** is a combined hospital organization operating within [[region-hovedstaden|Region Hovedstaden]] in Denmark [^src4]. It is one of the healthcare institutions evaluated in the Annual Report of the Danish Atrial Fibrillation Database, which tracks clinical quality indicators for atrial fibrillation treatment across the country for the period of 1 July 2022 to 30 June 2023. 
 
-# Bispebjerg og Frederiksberg Hospitaler
+The hospital is assessed across multiple clinical quality indicators. Notably, it is included in the detailed hospital-level analysis for Indicator 1, where its results successfully meet the required national standard [^src1]. However, when evaluated for [[indikator-2|Indikator 2]]—which measures the performance of echocardiography in newly diagnosed atrial fibrillation patients—the hospital did not meet the standard. It achieved a compliance rate of 64.3% (95% CI: 60.6–67.9) during the reporting period [^src2]. 
 
-A hospital in the Capital Region reporting atrial fibrillation quality indicators; met the standard for indicator 1.
+Additionally, the hospital's performance is tracked for other treatment metrics. For Indikator 4a, which measures anticoagulation treatment coverage two years after diagnosis, the hospital achieved a high compliance rate of 90.3% (95% CI: 86.4–93.3), thereby meeting the standard [^src3]. In another measured indicator detailed on page 42 of the report, the hospital recorded a score of 84.9% (95% CI: 79.6–89.3) [^src4]. These metrics highlight the hospital's varied performance across different aspects of atrial fibrillation care, contributing to the broader quality improvement efforts within the Danish healthcare system.
 
 ## Mentions
-
-- Page 9: "Bispebjerg og Frederiksberg Hospitaler Ja 373 / 413 0 (0) 90,3 (87,0-93,0)" [^src1]
-- Page 16: "Bispebjerg og Frederiksberg Hospitaler Nej 443 / 689 0 (0) 64,3 (60,6-67,9)" [^src2]
-- Page 23: "Bispebjerg og Frederiksberg Hospitaler Nej 708 / 852 0 (0) 83,1 (80,4-85,6)" [^src3]
-- Page 30: "Bispebjerg og Frederiksberg Hospitaler Nej 289 / 322 0 (0) 89,8 (85,9-92,8)" [^src4]
-- Page 36: "Bispebjerg og Frederiksberg Hospitaler Ja 278 / 308 0 (0) 90,3 (86,4-93,3)" [^src5]
-- Page 42: "Bispebjerg og Frederiksberg Hospitaler Nej 197 / 232 0 (0) 84,9 (79,6-89,3)" [^src6]
-- Page 96: "Bispebjerg og Frederiksberg Hospitaler 15 / 923 0 (0) 1,6 (0,9-2,7)" [^src7]
-- Page 102: "Bispebjerg og Frederiksberg Hospitaler" [^src8]
-- Page 110: "Bispebjerg og Frederiksberg Hospitaler 61 / 923 0 (0) 6,6 (5,1-8,4)" [^src9]
-- Page 2: "Bispebjerg og Frederiksberg Hospital" [^src10]
-- Page 1: "Bispebjerg og Frederiksberg Hospital" [^src11]
-- Page 83: "Bispebjerg og Frederiksberg Hospital" [^src12]
+- Page 9: "Bispebjerg og Frederiksberg Hospitaler Ja 373 / 413 0 (0) 90,3 (87,0-93,0) 428 / 477 89,7 88,0" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 6-10) [^src1]
+- Page 16: "Bispebjerg og Frederiksberg Hospitaler Nej 443 / 689 0 (0) 64,3 (60,6-67,9) 545 / 930 58,6 56,7" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 16-20) [^src2]
+- Page 36: "Bispebjerg og Frederiksberg Hospitaler Ja 278 / 308 0 (0) 90,3 (86,4-93,3) 346 / 390 88,7 85,7" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 36-40) [^src3]
+- Page 42: "Bispebjerg og Frederiksberg Hospitaler Nej 197 / 232 0 (0) 84,9 (79,6-89,3) 345 / 407 84,8" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 41-45) [^src4]
 
 ## Relationships
-
-- [[hovedstaden|Hovedstaden]] — located-in [^src1]. Evidence: "Hovedstaden Bispebjerg og Frederiksberg Hospitaler" (Page 9)
-- [[hovedstaden|Hovedstaden]] — located-in [^src2]. Evidence: "Hovedstaden Nej 3.062 / 4.316 ... Bispebjerg og Frederiksberg Hospitaler Nej 443 / 689" (Page 16)
-- [[hovedstaden|Hovedstaden]] — located-in [^src5]. Evidence: "Bispebjerg og Frederiksberg Hospitaler rapporterer under Hovedstaden-regionen" (Page 36)
-- [[hovedstaden|Hovedstaden]] — located-in [^src6]. Evidence: "Hovedstaden region contains Bispebjerg og Frederiksberg Hospitaler" (Page 42)
-- [[region-hovedstaden|Region Hovedstaden]] — is-in-region [^src8]. Evidence: "Bispebjerg og Frederiksberg Hospitaler listed under Hovedstaden section" (Page 102)
-- [[ulla-dam-schmidt|Ulla Dam-Schmidt]] — works-at (incoming) — "Ulla Dam-Schmidt, sygeplejerske, MKS, Bispebjerg og Frederiksberg Hospital" [^src10] (Page 2)
-- [[ulla-dam-schmidt|Ulla Dam-Schmidt]] — works-at (incoming) — "Ulla Dam-Schmidt, sygeplejerske, MKS, Bispebjerg og Frederiksberg Hospital" [^src11] (Page 1)
-- [[ulla-dam-schmidt|Ulla Dam-Schmidt]] — works-at (incoming) — "Bispebjerg og Frederiksberg Hospital" [^src12] (Page 83)
-- [[ulla-davidsen|Ulla Davidsen]] — works-at (incoming) — "Bispebjerg og Frederiksberg Hospital" [^src12] (Page 83)
+Incoming (this entity is the OBJECT of these relationships):
+- Subject: indikator-2
+  Predicate: measures
+  Object: (this entity)
+  Evidence: "Bispebjerg og Frederiksberg Hospitaler er en af de institutioner, der rapporteres i tabellen for Indikator 2."
+  Page: 16
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 16-20 [^src2]
+- Subject: region-hovedstaden
+  Predicate: contains-hospital
+  Object: (this entity)
+  Evidence: "Hovedstaden Nej [...] Bispebjerg og Frederiksberg Hospitaler Nej [...]"
+  Page: 42
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 41-45 [^src4]
 
 ## Claims
+- Bispebjerg og Frederiksberg Hospitaler opfyldte Indikator 2 hos 64,3 % (95 % CI: 60,6–67,9) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1] (bispebjerg-og-frederiksberg-hospitaler, indikator-2)
+  Type: clinical
+  Page: 16
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 16-20 [^src2]
 
-- Bispebjerg og Frederiksberg Hospitaler opnåede 90,3% (95% CI: 87,0-93,0) for indikatoren om ventetid til antikoagulationsbehandling ([[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]])
-- Bispebjerg og Frederiksberg Hospitaler havde 64,3 % (95% CI: 60,6-67,9) af 689 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi ([[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]])
-- Bispebjerg og Frederiksberg Hospitaler havde 708 / 852 patienter (83,1%) med TSH-måling ([[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]])
-- Bispebjerg og Frederiksberg Hospitaler opnåede 90,3% (95% CI: 86,4-93,3) for indikatoren 2 år efter diagnosen atrieflimren og opfyldte standarden ≥90% ([[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]], [[atrieflimren|Atrieflimren]])
-- Bispebjerg og Frederiksberg Hospitaler havde 23 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 923 (2,5%, 95% CI 1,6-3,7) ([[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]])
-- Bispebjerg og Frederiksberg Hospitaler havde 102 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 923 (11,1%, 95% CI 9,1-13,3) ([[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]])
+## Timeline
+(none)
 
 ## Sources
 
 [^src1]: AFDK_2023.pdf, pages 6-10
 [^src2]: AFDK_2023.pdf, pages 16-20
-[^src3]: AFDK_2023.pdf, pages 21-25
-[^src4]: AFDK_2023.pdf, pages 26-30
-[^src5]: AFDK_2023.pdf, pages 36-40
-[^src6]: AFDK_2023.pdf, pages 41-45
-[^src7]: AFDK_2023.pdf, pages 96-100
-[^src8]: AFDK_2023.pdf, pages 101-105
-[^src9]: AFDK_2023.pdf, pages 106-110
-[^src10]: AFDK_2024.pdf, pages 1-5
-[^src11]: AFDK_2023.pdf, pages 1-5
-[^src12]: AFDK_2023.pdf, pages 81-85
+[^src3]: AFDK_2023.pdf, pages 36-40
+[^src4]: AFDK_2023.pdf, pages 41-45

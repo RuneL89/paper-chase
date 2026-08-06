@@ -2,325 +2,105 @@
   "entities": [
     {
       "name": "Indikator 2b",
-      "type": "quality-indicator",
+      "type": "topic",
       "slug": "indikator-2b",
-      "folder": "topics/quality-indicators",
-      "significance": "Måler andelen af ADHD-udredningsforløb hvor der er foretaget manualiseret diagnostik eller klinisk miljøobservation senest 120 dage efter start af udredning, med en fastsat standard på 90 %.",
+      "folder": "topics/adhd-indicators",
+      "significance": "Indikator 2b er en klinisk målbar indikator for kvaliteten af ADHD-udredninger i Danmark, der måler andelen af udredningsforløb med manualiseret diagnostik eller klinisk miljøobservation senest 120 dage efter udredningsstart, og dens manglende opfyldelse (48 %) i forhold til standarden på 90 % er centrale i analysen af systemiske udfordringer i børne- og ungdomspsykiatrien[^src1].",
       "mentions": [
         {
           "page": 21,
-          "context": "Indikator 2b drejer sig om manualiseret diagnostik eller klinisk miljøobservation senest 120 dage efter start af ADHD-udredning"
-        },
-        {
-          "page": 21,
-          "context": "På landsplan blev indikatoren opfyldt i 48 % af udredningsforløbene, hvilket er under den fastlagte standard på 90 %"
-        }
-      ]
-    },
-    {
-      "name": "Region Sjælland",
-      "type": "region",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "En af fem danske regioner med ADHD-diagnostiske tjenester; opnåede 31 % opfyldelse af Indikator 2b, blandt de laveste resultater.",
-      "mentions": [
-        {
-          "page": 21,
-          "context": "fra 31 % i Region Sjælland, Midtjylland og Nordjylland til 77 % i Region Syddanmark"
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "region",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "En af fem danske regioner med ADHD-diagnostiske tjenester; opnåede 31 % opfyldelse af Indikator 2b, blandt de laveste resultater.",
-      "mentions": [
-        {
-          "page": 21,
-          "context": "fra 31 % i Region Sjælland, Midtjylland og Nordjylland til 77 % i Region Syddanmark"
-        }
-      ]
-    },
-    {
-      "name": "Region Nordjylland",
-      "type": "region",
-      "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "En af fem danske regioner med ADHD-diagnostiske tjenester; opnåede 31 % opfyldelse af Indikator 2b, blandt de laveste resultater.",
-      "mentions": [
-        {
-          "page": 21,
-          "context": "fra 31 % i Region Sjælland, Midtjylland og Nordjylland til 77 % i Region Syddanmark"
-        }
-      ]
-    },
-    {
-      "name": "Region Syddanmark",
-      "type": "region",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "En af fem danske regioner med ADHD-diagnostiske tjenester; opnåede 77 % opfyldelse af Indikator 2b, højeste resultat blandt regionerne, men faldt fra 90 % året før.",
-      "mentions": [
-        {
-          "page": 21,
-          "context": "fra 31 % i Region Sjælland, Midtjylland og Nordjylland til 77 % i Region Syddanmark"
-        },
-        {
-          "page": 21,
-          "context": "Region Syddanmark, der sidste år levede op til standarden, har indberettet nøjagtigt samme antal indikatoropfyldende ydelseskoder i år, så tilbagegangen fra 90 % til 77 % målopfyldelse skyldes stigning i antal udredningsforløb"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Udredning i Midtjylland",
-      "type": "healthcare-facility",
-      "slug": "bua-psykiatrisk-klinik-udredning-midtjylland",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk afdeling i Midtjylland med laveste opfyldelse af Indikator 2b på 22 % blandt 433 udredningsforløb.",
-      "mentions": [
-        {
-          "page": 21,
-          "context": "Fra 22 % i BUA Psykiatrisk Klinik for Udredning i Midtjylland (433 udredningsforløb)"
-        }
-      ]
-    },
-    {
-      "name": "Børne- og Ungdomspsykiatrisk Ambulatorium, Odense",
-      "type": "healthcare-facility",
-      "slug": "boerne-ungdomspsykiatrisk-ambulatorium-odense",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk afdeling i Odense som eneste afdeling opfylder standarden med 98 % opfyldelse af Indikator 2b blandt 174 udredningsforløb.",
-      "mentions": [
-        {
-          "page": 21,
-          "context": "til 98 % på Børne- og Ungdomspsykiatrisk Ambulatorium, Odense (174 udredningsforløb), der som den eneste afdeling opfylder standarden"
+          "context": "Indikator 2b drejer sig om manualiseret diagnostik eller klinisk miljøobservation senest 120 dage efter start af ADHD-udredning."
         }
       ]
     },
     {
       "name": "Indikator 3",
-      "type": "quality-indicator",
+      "type": "topic",
       "slug": "indikator-3",
-      "folder": "topics/quality-indicators",
-      "significance": "Måler andelen af ADHD-udredningsforløb hvor der er afholdt diagnostisk konference med deltagelse af speciallæge i børne- og ungdomspsykiatri senest 120 dage efter start af udredning, med en fastsat standard på 90 %.",
+      "folder": "topics/adhd-indicators",
+      "significance": "Indikator 3 er en central kvalitetsmåling for ADHD-diagnostikken i Danmark, der registrerer andelen af udredningsforløb med afholdt diagnostisk konference med deltagelse af speciallæge i børne- og ungdomspsykiatri senest 120 dage efter udredningsstart, og dens lavt niveau (0–37 % på afdelingsniveau) understreger alvorlige strukturelle mangler i den aktuelle praksis[^src1].",
       "mentions": [
         {
-          "page": 22,
-          "context": "Indikator 3: Afholdt diagnostisk konference"
-        },
-        {
-          "page": 22,
-          "context": "Andelen af udredningsforløb, hvor der er afholdt diagnostisk konference med deltagelse af speciallæge i børne- og ungdomspsykiatri senest 120 dage efter start af ADHD-udredning"
+          "page": 21,
+          "context": "Indikator 3: Andelen af udredningsforløb, hvor der er afholdt diagnostisk konference med deltagelse af speciallæge i børne- og ungdomspsykiatri senest 120 dage efter start af ADHD-udredning."
         }
       ]
     },
     {
-      "name": "Danmark",
-      "type": "country",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Nationalt niveau for ADHD-diagnostik; opnåede 21 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024.",
+      "name": "Styregruppen",
+      "type": "organization",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/governance",
+      "significance": "Styregruppen er den beslutningskompetente gruppe, der har truffet den strategiske beslutning om at omdanne Indikator 2b til at fokusere på skole/institutionssamspil og at indføre en ny indikator for systematisk symptomgennemgang — en beslutning, der direkte påvirker fremtidig kvalitetsstyring af ADHD-udredninger[^src1].",
       "mentions": [
         {
-          "page": 23,
-          "context": "Danmark ... 1.105 / 5.215 ... 21 (20-22)"
+          "page": 21,
+          "context": "Styregruppen har besluttet at igangsætte en proces således, at indikator 2b på sigt skal omhandle informationer fra institution/skole i form af enten struktureret skoleobservation eller struktureret lærer/pædagoginterview. Derudover skal der indføres en ny indikator, der registrerer Andelen af 0-17 årige hvor der er foretaget systematisk gennemgang af ADHD-symptomer samt bredt psykopatologisk screeningsinterview af eventuel psykiatrisk komorbiditet."
         }
       ]
     },
     {
-      "name": "Region Hovedstaden",
-      "type": "region",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "En af fem danske regioner; opnåede 23 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024.",
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "Region Syddanmark er den eneste region, der i det rapporterede år opnåede 77 % opfyldelse af Indikator 2b — langt højere end alle andre regioner (31 %), men alligevel under standarden på 90 % — hvilket illustrerer både relativ styrke og systemiske begrænsninger i ADHD-udredningen[^src1].",
       "mentions": [
         {
-          "page": 23,
-          "context": "Hovedstaden ... 533 / 2.321 ... 23 (21-25)"
-        }
-      ]
-    },
-    {
-      "name": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge",
-      "type": "healthcare-facility",
-      "slug": "bispebjerg-psykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk ambulatorium i Region Hovedstaden; opnåede 27 % opfyldelse af Indikator 3 blandt 484 udredningsforløb.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge ... 132 / 484 ... 27 (23-31)"
-        }
-      ]
-    },
-    {
-      "name": "Bornholm: Psykiatrisk ambulatorium, børn og unge",
-      "type": "healthcare-facility",
-      "slug": "bornholm-psykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk ambulatorium på Bornholm; opnåede 28 % opfyldelse af Indikator 3 blandt 112 udredningsforløb.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Bornholm: Psykiatrisk ambulatorium, børn og unge ... 31 / 112 ... 28 (20-37)"
-        }
-      ]
-    },
-    {
-      "name": "Glostrup: Psykiatrisk ambulatorium, børn og unge",
-      "type": "healthcare-facility",
-      "slug": "glostrup-psykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk ambulatorium i Region Hovedstaden; opnåede 19 % opfyldelse af Indikator 3 blandt 1.221 udredningsforløb.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Glostrup: Psykiatrisk ambulatorium, børn og unge ... 232 / 1.221 ... 19 (17-21)"
-        }
-      ]
-    },
-    {
-      "name": "Hillerød: Psykiatrisk ambulatorium, børn og unge",
-      "type": "healthcare-facility",
-      "slug": "hillerod-psykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk ambulatorium i Region Hovedstaden; opnåede 27 % opfyldelse af Indikator 3 blandt 504 udredningsforløb.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Hillerød: Psykiatrisk ambulatorium, børn og unge ... 138 / 504 ... 27 (24-31)"
-        }
-      ]
-    },
-    {
-      "name": "Børne-Unge Psyk. Afd. 40",
-      "type": "healthcare-facility",
-      "slug": "boerne-unge-psyk-afd-40",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk afdeling i Region Sjælland; opnåede 31 % opfyldelse af Indikator 3 blandt 610 udredningsforløb.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Børne-Unge Psyk. Afd. 40 ... 187 / 610 ... 31 (27-34)"
-        }
-      ]
-    },
-    {
-      "name": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium",
-      "type": "healthcare-facility",
-      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk ambulatorium i Region Syddanmark; opnåede 5 % opfyldelse af Indikator 3 blandt 286 udredningsforløb.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium ... 15 / 286 ... 5 (3-9)"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium",
-      "type": "healthcare-facility",
-      "slug": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk ambulatorium i Region Syddanmark; opnåede 11 % opfyldelse af Indikator 3 blandt 304 udredningsforløb.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium ... 33 / 304 ... 11 (8-15)"
-        }
-      ]
-    },
-    {
-      "name": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium",
-      "type": "healthcare-facility",
-      "slug": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk ambulatorium i Region Syddanmark; opnåede 37 % opfyldelse af Indikator 3 blandt 175 udredningsforløb.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium ... 64 / 175 ... 37 (29-44)"
-        }
-      ]
-    },
-    {
-      "name": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium",
-      "type": "healthcare-facility",
-      "slug": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk ambulatorium i Region Syddanmark; opnåede 0 % opfyldelse af Indikator 3 blandt 406 udredningsforløb.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium ... 0 / 406 ... 0 (0-1)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Skolebørn",
-      "type": "healthcare-facility",
-      "slug": "bua-psykiatrisk-klinik-skoleboern",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk klinik i Midtjylland; opnåede 36 % opfyldelse af Indikator 3 blandt 80 udredningsforløb.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "BUA Psykiatrisk Klinik for Skolebørn ... 29 / 80 ... 36 (26-48)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Småbørn",
-      "type": "healthcare-facility",
-      "slug": "bua-psykiatrisk-klinik-smaaboern",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk klinik i Midtjylland; opnåede 13 % opfyldelse af Indikator 3 blandt 162 udredningsforløb.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "BUA Psykiatrisk Klinik for Småbørn ... 21 / 162 ... 13 (8-19)"
+          "page": 21,
+          "context": "Ligesom de tidligere år ses anseelig regional variation fra 31 % i Region Sjælland, Midtjylland og Nordjylland til 77 % i Region Syddanmark."
         }
       ]
     },
     {
       "name": "BUA Psykiatrisk Klinik for Udredning",
-      "type": "healthcare-facility",
-      "slug": "bua-psykiatrisk-klinik-udredning",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk klinik i Midtjylland; opnåede 17 % opfyldelse af Indikator 3 blandt 433 udredningsforløb.",
+      "type": "organization",
+      "slug": "bua-psykiatrisk-klinik-for-udredning",
+      "folder": "entities/organizations/clinics",
+      "significance": "BUA Psykiatrisk Klinik for Udredning i Midtjylland er den afdeling med lavest opfyldelse af Indikator 2b (22 % af 433 udredningsforløb), hvilket markerer en ekstremt kritisk ydelsesniveau i forhold til national standard og fremhæver regional ulighed i klinisk praksis[^src1].",
       "mentions": [
         {
-          "page": 24,
-          "context": "BUA Psykiatrisk Klinik for Udredning ... 73 / 433 ... 17 (13-21)"
+          "page": 21,
+          "context": "Fra 22 % i BUA Psykiatrisk Klinik for Udredning i Midtjylland (433 udredningsforløb) til 98 % på Børne- og Ungdomspsykiatrisk Ambulatorium, Odense (174 udredningsforløb), der som den eneste afdeling opfylder standarden."
         }
       ]
     },
     {
-      "name": "BUA Psykiatrisk Klinik for Unge",
-      "type": "healthcare-facility",
-      "slug": "bua-psykiatrisk-klinik-unge",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk klinik i Midtjylland; opnåede 35 % opfyldelse af Indikator 3 blandt 26 udredningsforløb.",
+      "name": "Børne- og Ungdomspsykiatrisk Ambulatorium, Odense",
+      "type": "organization",
+      "slug": "boerne-og-ungdomspsykiatrisk-ambulatorium-odense",
+      "folder": "entities/organizations/clinics",
+      "significance": "Børne- og Ungdomspsykiatrisk Ambulatorium, Odense er den eneste afdeling i hele landet, der opfylder standarden for Indikator 2b (98 % af 174 udredningsforløb), hvilket gør den til et nationalt referencepunkt for god praksis i ADHD-udredning[^src1].",
       "mentions": [
         {
-          "page": 24,
-          "context": "BUA Psykiatrisk Klinik for Unge ... 9 / 26 ... 35 (17-56)"
+          "page": 21,
+          "context": "Fra 22 % i BUA Psykiatrisk Klinik for Udredning i Midtjylland (433 udredningsforløb) til 98 % på Børne- og Ungdomspsykiatrisk Ambulatorium, Odense (174 udredningsforløb), der som den eneste afdeling opfylder standarden."
         }
       ]
     },
     {
-      "name": "Børne- og ungdomspsyk. Ambulatorium",
-      "type": "healthcare-facility",
-      "slug": "boerne-ungdomspsyk-ambulatorium-nordjylland",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Børne- og ungdomspsykiatrisk ambulatorium i Region Nordjylland; opnåede 34 % opfyldelse af Indikator 3 blandt 412 udredningsforløb.",
+      "name": "K-SADS",
+      "type": "product",
+      "slug": "k-sads",
+      "folder": "entities/products/assessment-tools",
+      "significance": "K-SADS (Kiddie Schedule for Affective Disorders and Schizophrenia) er nævnt som et eksempel på et fuldt semistruktureret interview, hvis anvendelse ikke længere anses for nødvendig i alle ADHD-udredninger, hvilket understøtter styregruppens beslutning om at justere indikatorernes fokus[^src1].",
       "mentions": [
         {
-          "page": 24,
-          "context": "Børne- og ungdomspsyk. Ambulatorium ... 141 / 412 ... 34 (30-39)"
+          "page": 21,
+          "context": "Således vurderes et fuldt semistruktureret interview, som K-SADS eller PSE, ikke nødvendigt i alle sager."
+        }
+      ]
+    },
+    {
+      "name": "PSE",
+      "type": "product",
+      "slug": "pse",
+      "folder": "entities/products/assessment-tools",
+      "significance": "PSE (Present State Examination) er nævnt sammen med K-SADS som et eksempel på et fuldt semistruktureret interview, hvis brug i ADHD-udredninger nu vurderes som unødvendig i mange tilfælde, hvilket danner evidensgrundlag for styregruppens nye indikatorstrategi[^src1].",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Således vurderes et fuldt semistruktureret interview, som K-SADS eller PSE, ikke nødvendigt i alle sager."
         }
       ]
     }
@@ -328,171 +108,50 @@
   "relationships": [
     {
       "subject": "indikator-2b",
-      "predicate": "measures-performance-in",
-      "object": "region-sjaelland",
-      "evidence": "fra 31 % i Region Sjælland, Midtjylland og Nordjylland til 77 % i Region Syddanmark",
-      "page": 21
-    },
-    {
-      "subject": "indikator-2b",
-      "predicate": "measures-performance-in",
-      "object": "region-midtjylland",
-      "evidence": "fra 31 % i Region Sjælland, Midtjylland og Nordjylland til 77 % i Region Syddanmark",
-      "page": 21
-    },
-    {
-      "subject": "indikator-2b",
-      "predicate": "measures-performance-in",
-      "object": "region-nordjylland",
-      "evidence": "fra 31 % i Region Sjælland, Midtjylland og Nordjylland til 77 % i Region Syddanmark",
-      "page": 21
-    },
-    {
-      "subject": "indikator-2b",
-      "predicate": "measures-performance-in",
-      "object": "region-syddanmark",
-      "evidence": "fra 31 % i Region Sjælland, Midtjylland og Nordjylland til 77 % i Region Syddanmark",
-      "page": 21
-    },
-    {
-      "subject": "bua-psykiatrisk-klinik-udredning-midtjylland",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
-      "evidence": "BUA Psykiatrisk Klinik for Udredning i Midtjylland",
-      "page": 21
-    },
-    {
-      "subject": "boerne-ungdomspsykiatrisk-ambulatorium-odense",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Børne- og Ungdomspsykiatrisk Ambulatorium, Odense",
+      "predicate": "has-standard",
+      "object": "90-percent",
+      "evidence": "Standarden på 90 %",
       "page": 21
     },
     {
       "subject": "indikator-3",
-      "predicate": "measures-performance-in",
-      "object": "danmark",
-      "evidence": "Andelen af udredningsforløb, hvor der er afholdt diagnostisk konference med deltagelse af speciallæge i børne- og ungdomspsykiatri senest 120 dage efter start af ADHD-udredning",
-      "page": 23
+      "predicate": "has-standard",
+      "object": "90-percent",
+      "evidence": "Standard ≥ 90%",
+      "page": 21
     },
     {
-      "subject": "indikator-3",
-      "predicate": "measures-performance-in",
-      "object": "region-hovedstaden",
-      "evidence": "Hovedstaden ... 533 / 2.321 ... 23 (21-25)",
-      "page": 23
+      "subject": "styregruppen",
+      "predicate": "decided-to-modify",
+      "object": "indikator-2b",
+      "evidence": "Styregruppen har besluttet at igangsætte en proces således, at indikator 2b på sigt skal omhandle informationer fra institution/skole",
+      "page": 21
     },
     {
-      "subject": "bispebjerg-psykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge",
-      "page": 23
+      "subject": "styregruppen",
+      "predicate": "decided-to-introduce",
+      "object": "new-indicator-for-systematic-symptom-assessment",
+      "evidence": "Derudover skal der indføres en ny indikator, der registrerer Andelen af 0-17 årige hvor der er foretaget systematisk gennemgang af ADHD-symptomer samt bredt psykopatologisk screeningsinterview af eventuel psykiatrisk komorbiditet.",
+      "page": 21
     },
     {
-      "subject": "glostrup-psykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Glostrup: Psykiatrisk ambulatorium, børn og unge",
-      "page": 23
+      "subject": "k-sads",
+      "predicate": "is-example-of",
+      "object": "full-semistructured-interview",
+      "evidence": "et fuldt semistruktureret interview, som K-SADS eller PSE",
+      "page": 21
     },
     {
-      "subject": "hillerod-psykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Hillerød: Psykiatrisk ambulatorium, børn og unge",
-      "page": 23
-    },
-    {
-      "subject": "boerne-unge-psyk-afd-40",
-      "predicate": "located-in",
-      "object": "region-sjaelland",
-      "evidence": "Børne-Unge Psyk. Afd. 40",
-      "page": 23
-    },
-    {
-      "subject": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium",
-      "page": 24
-    },
-    {
-      "subject": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium",
-      "page": 24
-    },
-    {
-      "subject": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium",
-      "page": 24
-    },
-    {
-      "subject": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium",
-      "page": 24
-    },
-    {
-      "subject": "bua-psykiatrisk-klinik-skoleboern",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
-      "evidence": "BUA Psykiatrisk Klinik for Skolebørn",
-      "page": 24
-    },
-    {
-      "subject": "bua-psykiatrisk-klinik-smaaboern",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
-      "evidence": "BUA Psykiatrisk Klinik for Småbørn",
-      "page": 24
-    },
-    {
-      "subject": "bua-psykiatrisk-klinik-udredning",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
-      "evidence": "BUA Psykiatrisk Klinik for Udredning",
-      "page": 24
-    },
-    {
-      "subject": "bua-psykiatrisk-klinik-unge",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
-      "evidence": "BUA Psykiatrisk Klinik for Unge",
-      "page": 24
-    },
-    {
-      "subject": "boerne-ungdomspsyk-ambulatorium-nordjylland",
-      "predicate": "located-in",
-      "object": "region-nordjylland",
-      "evidence": "Børne- og ungdomspsyk. Ambulatorium",
-      "page": 24
+      "subject": "pse",
+      "predicate": "is-example-of",
+      "object": "full-semistructured-interview",
+      "evidence": "et fuldt semistruktureret interview, som K-SADS eller PSE",
+      "page": 21
     }
   ],
   "claims": [
     {
-      "text": "Indikatorpopulationen for Indikator 2b er begrænset til børn/unge mellem 6 og 17 år på dato for udredningsstart [^src1]",
-      "type": "methodological",
-      "entities": [
-        "indikator-2b"
-      ],
-      "page": 21
-    },
-    {
-      "text": "Datagrundlaget i Indikator 2b udgør i alt 4810 forløb, hvoraf 405 forløb ekskluderes pga. alderskriteriet [^src1]",
-      "type": "statistical",
-      "entities": [
-        "indikator-2b"
-      ],
-      "page": 21
-    },
-    {
-      "text": "På landsplan blev Indikator 2b opfyldt i 48 % af udredningsforløbene, hvilket er under den fastlagte standard på 90 % [^src1]",
+      "text": "Indikator 2b blev opfyldt i 48 % af udredningsforløbene på landsplan, hvilket er under den fastlagte standard på 90 %[^src1].",
       "type": "performance",
       "entities": [
         "indikator-2b"
@@ -500,42 +159,7 @@
       "page": 21
     },
     {
-      "text": "Resultatet for Indikator 2b er på niveau med 2021/22 (49 %) og en mindre fremgang i forhold til 2022/23 (43 %) [^src1]",
-      "type": "trend",
-      "entities": [
-        "indikator-2b"
-      ],
-      "page": 21
-    },
-    {
-      "text": "Region Sjælland opnåede 31 % opfyldelse af Indikator 2b [^src1]",
-      "type": "performance",
-      "entities": [
-        "indikator-2b",
-        "region-sjaelland"
-      ],
-      "page": 21
-    },
-    {
-      "text": "Region Midtjylland opnåede 31 % opfyldelse af Indikator 2b [^src1]",
-      "type": "performance",
-      "entities": [
-        "indikator-2b",
-        "region-midtjylland"
-      ],
-      "page": 21
-    },
-    {
-      "text": "Region Nordjylland opnåede 31 % opfyldelse af Indikator 2b [^src1]",
-      "type": "performance",
-      "entities": [
-        "indikator-2b",
-        "region-nordjylland"
-      ],
-      "page": 21
-    },
-    {
-      "text": "Region Syddanmark opnåede 77 % opfyldelse af Indikator 2b [^src1]",
+      "text": "Regional variation for Indikator 2b går fra 31 % i Region Sjælland, Midtjylland og Nordjylland til 77 % i Region Syddanmark[^src1].",
       "type": "performance",
       "entities": [
         "indikator-2b",
@@ -544,258 +168,52 @@
       "page": 21
     },
     {
-      "text": "Region Syddanmark, der sidste år levede op til standarden, har indberettet nøjagtigt samme antal indikatoropfyldende ydelseskoder i år, så tilbagegangen fra 90 % til 77 % målopfyldelse skyldes stigning i antal udredningsforløb [^src1]",
-      "type": "analysis",
+      "text": "BUA Psykiatrisk Klinik for Udredning i Midtjylland opfyldte Indikator 2b i 22 % af 433 udredningsforløb[^src1].",
+      "type": "performance",
       "entities": [
-        "region-syddanmark",
-        "indikator-2b"
+        "bua-psykiatrisk-klinik-for-udredning"
       ],
       "page": 21
     },
     {
-      "text": "BUA Psykiatrisk Klinik for Udredning i Midtjylland opnåede 22 % opfyldelse af Indikator 2b blandt 433 udredningsforløb [^src1]",
+      "text": "Børne- og Ungdomspsykiatrisk Ambulatorium, Odense opfyldte Indikator 2b i 98 % af 174 udredningsforløb og er den eneste afdeling, der opfylder standarden[^src1].",
       "type": "performance",
       "entities": [
-        "bua-psykiatrisk-klinik-udredning-midtjylland",
-        "indikator-2b"
+        "boerne-og-ungdomspsykiatrisk-ambulatorium-odense"
       ],
       "page": 21
     },
     {
-      "text": "Børne- og Ungdomspsykiatrisk Ambulatorium, Odense opnåede 98 % opfyldelse af Indikator 2b blandt 174 udredningsforløb og er som den eneste afdeling opfylder standarden [^src1]",
+      "text": "Indikator 3 viser 0 % opfyldelse i flere afdelinger, herunder Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium (0 / 406) og Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium (15 / 286 = 5 %)[^src1].",
       "type": "performance",
       "entities": [
-        "boerne-ungdomspsykiatrisk-ambulatorium-odense",
-        "indikator-2b"
+        "indikator-3"
       ],
       "page": 21
-    },
-    {
-      "text": "Indikator 3 måler andelen af udredningsforløb, hvor der er afholdt diagnostisk konference med deltagelse af speciallæge i børne- og ungdomspsykiatri senest 120 dage efter start af ADHD-udredning [^src2]",
-      "type": "methodological",
-      "entities": [
-        "indikator-3"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Standarden for Indikator 3 er ≥ 90 % [^src2]",
-      "type": "methodological",
-      "entities": [
-        "indikator-3"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Danmark opnåede 21 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024 (1.105 / 5.215) [^src3]",
-      "type": "performance",
-      "entities": [
-        "indikator-3",
-        "danmark"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Region Hovedstaden opnåede 23 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024 (533 / 2.321) [^src3]",
-      "type": "performance",
-      "entities": [
-        "indikator-3",
-        "region-hovedstaden"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Region Sjælland opnåede 31 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024 (187 / 610) [^src3]",
-      "type": "performance",
-      "entities": [
-        "indikator-3",
-        "region-sjaelland"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Region Syddanmark opnåede 10 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024 (112 / 1.171) [^src3]",
-      "type": "performance",
-      "entities": [
-        "indikator-3",
-        "region-syddanmark"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Region Midtjylland opnåede 19 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024 (132 / 701) [^src3]",
-      "type": "performance",
-      "entities": [
-        "indikator-3",
-        "region-midtjylland"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Region Nordjylland opnåede 34 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024 (141 / 412) [^src3]",
-      "type": "performance",
-      "entities": [
-        "indikator-3",
-        "region-nordjylland"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge opnåede 27 % opfyldelse af Indikator 3 blandt 484 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "bispebjerg-psykiatrisk-ambulatorium",
-        "indikator-3"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Bornholm: Psykiatrisk ambulatorium, børn og unge opnåede 28 % opfyldelse af Indikator 3 blandt 112 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "bornholm-psykiatrisk-ambulatorium",
-        "indikator-3"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Glostrup: Psykiatrisk ambulatorium, børn og unge opnåede 19 % opfyldelse af Indikator 3 blandt 1.221 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "glostrup-psykiatrisk-ambulatorium",
-        "indikator-3"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Hillerød: Psykiatrisk ambulatorium, børn og unge opnåede 27 % opfyldelse af Indikator 3 blandt 504 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "hillerod-psykiatrisk-ambulatorium",
-        "indikator-3"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Børne-Unge Psyk. Afd. 40 opnåede 31 % opfyldelse af Indikator 3 blandt 610 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "boerne-unge-psyk-afd-40",
-        "indikator-3"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium opnåede 5 % opfyldelse af Indikator 3 blandt 286 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-        "indikator-3"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium opnåede 11 % opfyldelse af Indikator 3 blandt 304 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-        "indikator-3"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium opnåede 37 % opfyldelse af Indikator 3 blandt 175 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-        "indikator-3"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium opnåede 0 % opfyldelse af Indikator 3 blandt 406 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
-        "indikator-3"
-      ],
-      "page": 24
-    },
-    {
-      "text": "BUA Psykiatrisk Klinik for Skolebørn opnåede 36 % opfyldelse af Indikator 3 blandt 80 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "bua-psykiatrisk-klinik-skoleboern",
-        "indikator-3"
-      ],
-      "page": 24
-    },
-    {
-      "text": "BUA Psykiatrisk Klinik for Småbørn opnåede 13 % opfyldelse af Indikator 3 blandt 162 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "bua-psykiatrisk-klinik-smaaboern",
-        "indikator-3"
-      ],
-      "page": 24
-    },
-    {
-      "text": "BUA Psykiatrisk Klinik for Udredning opnåede 17 % opfyldelse af Indikator 3 blandt 433 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "bua-psykiatrisk-klinik-udredning",
-        "indikator-3"
-      ],
-      "page": 24
-    },
-    {
-      "text": "BUA Psykiatrisk Klinik for Unge opnåede 35 % opfyldelse af Indikator 3 blandt 26 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "bua-psykiatrisk-klinik-unge",
-        "indikator-3"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Børne- og ungdomspsyk. Ambulatorium i Region Nordjylland opnåede 34 % opfyldelse af Indikator 3 blandt 412 udredningsforløb [^src3]",
-      "type": "performance",
-      "entities": [
-        "boerne-ungdomspsyk-ambulatorium-nordjylland",
-        "indikator-3"
-      ],
-      "page": 24
     }
   ],
   "timeline": [
     {
-      "date": "2021/22",
-      "event": "Indikator 2b opnåede 49 % opfyldelse på landsplan",
-      "entities": [
-        "indikator-2b"
-      ]
-    },
-    {
-      "date": "2022/23",
-      "event": "Indikator 2b opnåede 43 % opfyldelse på landsplan",
-      "entities": [
-        "indikator-2b"
-      ]
-    },
-    {
       "date": "01.04.2023 - 31.03.2024",
-      "event": "Indikator 2b opnåede 48 % opfyldelse på landsplan",
-      "entities": [
-        "indikator-2b"
-      ]
-    },
-    {
-      "date": "01.04.2023 - 31.03.2024",
-      "event": "Indikator 3 opnåede 21 % opfyldelse på landsplan",
+      "event": "Opgørelsesperioden for Indikator 3, hvori resultaterne for 2023/24 er beregnet",
       "entities": [
         "indikator-3"
       ]
     }
   ],
-  "context": "Dette dokument er en rapport om ADHD-diagnostik i Danmark, der præsenterer resultater fra ADHD-databasen for perioden 01.04.2023-31.03.2024. Rapporten fokuserer på to kvalitetsindikatorer (Indikator 2b og Indikator 3) som måler forskellige aspekter af ADHD-udredningsprocessen på tværs af fem danske regioner og deres respektive børne- og ungdomspsykiatriske afdelinger. Begge indikatorer viser betydelig regional variation og generelt lav opfyldelse af de fastlagte standarder på 90 %, hvilket indikerer udfordringer i implementeringen af diagnostiske procedurer på tværs af det danske sundhedsvæsen."
+  "tables": [
+    {
+      "subject": "indikator-3-regional-performance",
+      "title": "Indikator 3: Andelen af udredningsforløb, hvor der er afholdt diagnostisk konference med deltagelse af speciallæge i børne- og ungdomspsykiatri senest 120 dage efter start af ADHD-udredning",
+      "page": 21,
+      "rowDimension": "region",
+      "colDimension": "opfyldelse i procent og antal",
+      "entities": [
+        "indikator-3"
+      ],
+      "markdown": "| Region | Uoplyst | Tæller/ antal | 01.04.2023 - 31.03.2024 | 2022/23 | 2021/22 |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 1.105 / 5.215 | 0 (0) | 21 (20-22) | 1.253 / 5.094 |\n| Hovedstaden | Nej | 533 / 2.321 | 0 (0) | 23 (21-25) | 534 / 1.879 |\n| Sjælland | Nej | 187 / 610 | 0 (0) | 31 (27-34) | 208 / 495 |\n| Syddanmark | Nej | 112 / 1.171 | 0 (0) | 10 (8-11) | 231 / 1.004 |\n| Midtjylland | Nej | 132 / 701 | 0 (0) | 19 (16-22) | 181 / 1.356 |\n| Nordjylland | Nej | 141 / 412 | 0 (0) | 34 (30-39) | 99 / 360 |",
+      "summary": "Tabellen sammenligner regional opfyldelse af Indikator 3 for 2023/24 og tidligere år, og viser at ingen region opfylder standarden på ≥90 %, med laveste værdier i Danmark (0 %) og Syddanmark (10 %), og højeste i Nordjylland (34 %)."
+    }
+  ],
+  "context": "Dette afsnit fra ADHD-databasens årsrapport 2023 danner en central del af den nationale kvalitetsmonitorering af ADHD-udredninger i dansk børne- og ungdomspsykiatri. Det dokumenterer systemiske svagheder i implementeringen af standardiserede diagnostiske procedurer — især manglende gennemførelse af manualiseret diagnostik (Indikator 2b) og diagnostiske konferencer med speciallæge (Indikator 3) — og leder direkte til strategiske beslutninger fra styregruppen om indikatorreform. Rapporten fremhæver også geografisk ulighed og afdelingsmæssig spredning, hvilket peger på manglende ressourcer, uddannelse eller organisatorisk støtte i mange regioner, samtidig med at den identificerer enkelte positive udviklinger og referenceafdelinger som Odense."
 }

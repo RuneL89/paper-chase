@@ -4,415 +4,415 @@
       "name": "ADHD-DATABASEN",
       "type": "organization",
       "slug": "adhd-databasen",
-      "folder": "entities/organizations/health-registries",
-      "significance": "ADHD-DATABASEN er den danske database, der registrerer og rapporterer på kvalitetsindikatorer for ADHD-udredning på tværs af regioner og kliniske enheder.",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "ADHD-DATABASEN er den centrale dataindsamlingsplatform, der overvåger og rapporterer kvalitetsindikatorer for ADHD-udredninger i Danmark, og dets resultater udgør kerneindholdet i denne dokumentchunk.",
       "mentions": [
         {
           "page": 16,
-          "context": "ADHD-DATABASEN Resultater"
-        }
-      ]
-    },
-    {
-      "name": "Region Sjælland",
-      "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland viser lavest målopfyldelse for miljøobservation blandt børn under 6 år (23 %) og har fordoblet antal udredningsforløb fra 20 til 40.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Lavest målopfyldelse ses i Region Sjælland (23 %)"
-        }
-      ]
-    },
-    {
-      "name": "Region Syddanmark",
-      "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Syddanmark opfylder standarden for miljøobservation blandt børn under 6 år med 91 % målopfyldelse og viser høj performance på indikator 2b med 77 % andel.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "højest i Region Syddanmark (91 %)"
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "location",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Midtjylland opfylder standarden for miljøobservation blandt børn under 6 år med 90 % målopfyldelse og har BUA Psykiatrisk Klinik for Småbørn, der opfylder standarden.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Region Midtjylland (90 %)"
+          "context": "ADHD-DATABASEN"
         }
       ]
     },
     {
       "name": "Region Hovedstaden",
-      "type": "location",
+      "type": "organization",
       "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Hovedstaden viser fremgang på indikator 2a til trods for betydelig stigning i antal udredningsforløb fra 196 til 228, og har 46 % andel på indikator 2b.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Hovedstaden er en af de fem danske regioner, hvis målopfyldelse for indikator 2b (diagnostisk interview eller miljøobservation for 6–17-årige) rapporteres på side 16 som del af trendanalysen, og dens præstation påvirker landsdækkende konklusioner om kvalitet.",
       "mentions": [
         {
           "page": 16,
-          "context": "I Region Hovedstaden ses fremgang til trods for, at antallet af udredningsforløb er steget betydeligt fra 196 til 228"
+          "context": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau."
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Sjælland er en af de fem danske regioner, hvis lave målopfyldelse for indikator 2b (31 % i 2023/24) fremhæves som problematisk i sammenhæng med regional variation og diagnosticeringssikkerhed, og som direkte bidrager til den landsdækkende understandard på 95 %.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau."
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Syddanmark er en af de fem danske regioner, hvis høje målopfyldelse for indikator 2b (77 % i 2023/24) fremhæves som positiv udvikling i sammenhæng med geografisk variation og klinisk praksis, og som en af kun to regioner der tidligere opfyldte standarden på 90 %.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau."
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland er en af de fem danske regioner, hvis lave målopfyldelse for indikator 2b (31 % i 2023/24) fremhæves som en alvorlig udfordring i sammenhæng med geografisk spredning og ressourcefordeling, og som direkte bidrager til den landsdækkende understandard på 95 %.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau."
         }
       ]
     },
     {
       "name": "Region Nordjylland",
-      "type": "location",
+      "type": "organization",
       "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland har meget få førskolebørn udredt i perioden (23 i alt), hvilket vurderes at skylde forhaling i henvisning fra primærsektor muligvis grundet frygt for stigmatisering.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Nordjylland er en af de fem danske regioner, hvis lave målopfyldelse for indikator 2b (31 % i 2023/24) fremhæves i dokumentet i sammenhæng med færre førskolebørn i udredning og potentielle henvisningsproblemer fra primærsektoren, hvilket påvirker den landsdækkende analyse af barrierer.",
       "mentions": [
         {
           "page": 16,
-          "context": "Region Nordjylland har meget få førskolebørn, der er udredt i perioden (23 i alt)"
+          "context": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau."
         }
       ]
     },
     {
-      "name": "Børne- og Ungdomsambulatorierne i Aabenraa",
+      "name": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium",
       "type": "organization",
-      "slug": "bua-aabenraa",
-      "folder": "entities/organizations/clinical-units",
-      "significance": "Børne- og Ungdomsambulatorierne i Aabenraa opfylder standarden for miljøobservation blandt børn under 6 år og har 89 % andel på indikator 2b.",
+      "slug": "aabennraa-bupa",
+      "folder": "entities/organizations/clinics",
+      "significance": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium er et lokalt børne- og ungdomspsykiatrisk ambulatorium, hvis høje målopfyldelse for indikator 2b (89 % i 2023/24) fremhæves som eksempel på god praksis og næsten opfyldelse af national standard, og som indgår i den regionale sammenligning i tabeldata.",
       "mentions": [
         {
           "page": 16,
-          "context": "Børne- og Ungdomsambulatorierne i Aabenraa, Odense, Vejle og BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden"
+          "context": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau."
         }
       ]
     },
     {
-      "name": "Børne- og Ungdomsambulatorierne i Odense",
+      "name": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium",
       "type": "organization",
-      "slug": "bua-odense",
-      "folder": "entities/organizations/clinical-units",
-      "significance": "Børne- og Ungdomsambulatorierne i Odense opfylder standarden for miljøobservation blandt børn under 6 år og har 98 % andel på indikator 2b.",
+      "slug": "odense-bupa",
+      "folder": "entities/organizations/clinics",
+      "significance": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium er et lokalt børne- og ungdomspsykiatrisk ambulatorium, der er det eneste i hele datasættet, der opfylder national standard for indikator 2b (98 % i 2023/24), hvilket gør det til et benchmark-eksempel for klinisk implementering.",
       "mentions": [
         {
           "page": 16,
-          "context": "Børne- og Ungdomsambulatorierne i Aabenraa, Odense, Vejle og BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden"
+          "context": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau."
         }
       ]
     },
     {
-      "name": "Børne- og Ungdomsambulatorierne i Vejle",
+      "name": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium",
       "type": "organization",
-      "slug": "bua-vejle",
-      "folder": "entities/organizations/clinical-units",
-      "significance": "Børne- og Ungdomsambulatorierne i Vejle opfylder standarden for miljøobservation blandt børn under 6 år og har 58 % andel på indikator 2b.",
+      "slug": "vejle-bupa",
+      "folder": "entities/organizations/clinics",
+      "significance": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium er et lokalt børne- og ungdomspsykiatrisk ambulatorium, hvis målopfyldelse for indikator 2b (58 % i 2023/24) ligger under landsniveauet og illustrerer udfordringer ved implementering af kliniske retningslinjer i visse lokalområder.",
       "mentions": [
         {
           "page": 16,
-          "context": "Børne- og Ungdomsambulatorierne i Aabenraa, Odense, Vejle og BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden"
+          "context": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau."
         }
       ]
     },
     {
       "name": "BUA Psykiatrisk Klinik for Småbørn",
       "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-smaaborni-midtjylland",
-      "folder": "entities/organizations/clinical-units",
-      "significance": "BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden for miljøobservation blandt børn under 6 år og har 75 % andel på indikator 2b.",
+      "slug": "bua-smaborn",
+      "folder": "entities/organizations/clinics",
+      "significance": "BUA Psykiatrisk Klinik for Småbørn er en specialiseret klinik i Region Midtjylland, hvis målopfyldelse for indikator 2b (75 % i 2023/24) fremhæves som relativt stærk blandt småbørnsklinikker, men stadig under standarden, og som indgår i den regionale evaluering af aldersspecifikke udredningsforløb.",
       "mentions": [
         {
           "page": 16,
-          "context": "BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden"
+          "context": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau."
         }
       ]
     },
     {
-      "name": "Indikator 2a",
-      "type": "topic",
-      "slug": "indikator-2a",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 2a måler vurdering ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning for børn under 6 år, med en standard på 90 %.",
+      "name": "Kiddie-SADS",
+      "type": "product",
+      "slug": "kiddie-sads",
+      "folder": "entities/products/clinical-assessment-tools",
+      "significance": "Kiddie-SADS er en manualiseret diagnostisk interviewmetode, der er en af de tre anerkendte metoder til opfyldelse af indikator 2b, og dens anvendelse er afgørende for at sikre standardiseret og valid vurdering af ADHD-kernesymptomer, differentialdiagnoser og komorbiditet.",
       "mentions": [
         {
           "page": 16,
-          "context": "Indikator 2a drejer sig om vurdering ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning"
+          "context": "i. manualiseret diagnostisk interview vedr. ADHD kernesymptomer, differentialdiagnoser og komorbiditet med Kiddie-SADS, PSE-SCAN eller DAWBA"
         }
       ]
     },
     {
-      "name": "Indikator 2b",
-      "type": "topic",
-      "slug": "indikator-2b",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 2b måler andelen af udredningsforløb blandt 6-17 årige, hvor der senest 120 dage efter start af ADHD-udredning er foretaget enten manualiseret diagnostisk interview eller klinisk miljøobservation, med en standard på 90 %.",
+      "name": "PSE-SCAN",
+      "type": "product",
+      "slug": "pse-scan",
+      "folder": "entities/products/clinical-assessment-tools",
+      "significance": "PSE-SCAN er en manualiseret diagnostisk interviewmetode, der er en af de tre anerkendte metoder til opfyldelse af indikator 2b, og dens anvendelse understøtter objektiv og struktureret vurdering af psykiske symptomer i ADHD-udredninger.",
       "mentions": [
         {
           "page": 16,
-          "context": "Indikator 2b: Diagnostisk interview eller miljøobservation for 6-17 årige"
+          "context": "i. manualiseret diagnostisk interview vedr. ADHD kernesymptomer, differentialdiagnoser og komorbiditet med Kiddie-SADS, PSE-SCAN eller DAWBA"
+        }
+      ]
+    },
+    {
+      "name": "DAWBA",
+      "type": "product",
+      "slug": "dawba",
+      "folder": "entities/products/clinical-assessment-tools",
+      "significance": "DAWBA er en manualiseret diagnostisk interviewmetode, der er en af de tre anerkendte metoder til opfyldelse af indikator 2b, og dens anvendelse muliggør systematisk og tværgående vurdering af både ADHD og komorbide tilstande i børn og unge.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "i. manualiseret diagnostisk interview vedr. ADHD kernesymptomer, differentialdiagnoser og komorbiditet med Kiddie-SADS, PSE-SCAN eller DAWBA"
         }
       ]
     }
   ],
   "relationships": [
     {
+      "subject": "adhd-databasen",
+      "predicate": "manages",
+      "object": "indicator-2b",
+      "evidence": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation",
+      "page": 16
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau.",
+      "page": 16
+    },
+    {
       "subject": "region-sjaelland",
-      "predicate": "has-lowest-performance-on",
-      "object": "indikator-2a",
-      "evidence": "Lavest målopfyldelse ses i Region Sjælland (23 %)",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau.",
       "page": 16
     },
     {
       "subject": "region-syddanmark",
-      "predicate": "meets-standard-on",
-      "object": "indikator-2a",
-      "evidence": "højest i Region Syddanmark (91 %)",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau.",
       "page": 16
     },
     {
       "subject": "region-midtjylland",
-      "predicate": "meets-standard-on",
-      "object": "indikator-2a",
-      "evidence": "Region Midtjylland (90 %)",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau.",
       "page": 16
     },
     {
-      "subject": "bua-aabenraa",
-      "predicate": "meets-standard-on",
-      "object": "indikator-2a",
-      "evidence": "Børne- og Ungdomsambulatorierne i Aabenraa, Odense, Vejle og BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden",
+      "subject": "region-nordjylland",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation. Trendgraf på regionsniveau.",
       "page": 16
     },
     {
-      "subject": "bua-odense",
-      "predicate": "meets-standard-on",
-      "object": "indikator-2a",
-      "evidence": "Børne- og Ungdomsambulatorierne i Aabenraa, Odense, Vejle og BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden",
+      "subject": "aabennraa-bupa",
+      "predicate": "operates-in",
+      "object": "region-syddanmark",
+      "evidence": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium — i tabellen på side 14 er Aabenraa placeret under Region Syddanmark",
       "page": 16
     },
     {
-      "subject": "bua-vejle",
-      "predicate": "meets-standard-on",
-      "object": "indikator-2a",
-      "evidence": "Børne- og Ungdomsambulatorierne i Aabenraa, Odense, Vejle og BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden",
+      "subject": "odense-bupa",
+      "predicate": "operates-in",
+      "object": "region-syddanmark",
+      "evidence": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium — i tabellen på side 14 er Odense placeret under Region Syddanmark",
       "page": 16
     },
     {
-      "subject": "bua-psykiatrisk-klinik-smaaborni-midtjylland",
-      "predicate": "meets-standard-on",
-      "object": "indikator-2a",
-      "evidence": "BUA Psykiatrisk Klinik for Småbørn i Midtjylland opfylder standarden",
+      "subject": "vejle-bupa",
+      "predicate": "operates-in",
+      "object": "region-syddanmark",
+      "evidence": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium — i tabellen på side 14 er Vejle placeret under Region Syddanmark",
+      "page": 16
+    },
+    {
+      "subject": "bua-smaborn",
+      "predicate": "operates-in",
+      "object": "region-midtjylland",
+      "evidence": "BUA Psykiatrisk Klinik for Småbørn — i tabellen på side 14 er BUA Småbørn placeret under Region Midtjylland",
+      "page": 16
+    },
+    {
+      "subject": "kiddie-sads",
+      "predicate": "is-approved-method-for",
+      "object": "indicator-2b",
+      "evidence": "i. manualiseret diagnostisk interview vedr. ADHD kernesymptomer, differentialdiagnoser og komorbiditet med Kiddie-SADS, PSE-SCAN eller DAWBA",
+      "page": 16
+    },
+    {
+      "subject": "pse-scan",
+      "predicate": "is-approved-method-for",
+      "object": "indicator-2b",
+      "evidence": "i. manualiseret diagnostisk interview vedr. ADHD kernesymptomer, differentialdiagnoser og komorbiditet med Kiddie-SADS, PSE-SCAN eller DAWBA",
+      "page": 16
+    },
+    {
+      "subject": "dawba",
+      "predicate": "is-approved-method-for",
+      "object": "indicator-2b",
+      "evidence": "i. manualiseret diagnostisk interview vedr. ADHD kernesymptomer, differentialdiagnoser og komorbiditet med Kiddie-SADS, PSE-SCAN eller DAWBA",
       "page": 16
     }
   ],
   "claims": [
     {
-      "text": "På landsplan blev der, inden for tidsfristen, gennemført miljøobservation i 59 % af udredningsforløbene [^src1]",
-      "type": "performance",
+      "text": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation [^src1]",
+      "type": "quality-indicator",
       "entities": [
-        "adhd-databasen"
+        "adhd-databasen",
+        "indicator-2b"
       ],
       "page": 16
     },
     {
-      "text": "Dette er en mindre tilbagegang i forhold til tidligere (63 % i 2022/23) [^src1]",
-      "type": "performance",
+      "text": "Standarden for indikator 2b er ≥ 90 % [^src1]",
+      "type": "regulatory-standard",
       "entities": [
-        "adhd-databasen"
+        "adhd-databasen",
+        "indicator-2b"
       ],
       "page": 16
     },
     {
-      "text": "Standarden for miljøobservation er 90 % [^src1]",
-      "type": "standard",
+      "text": "Landsdækkende målopfyldelse for indikator 2b i perioden 01.04.2023 – 31.03.2024 er 48 % (95 % CI: 47–50) [^src1]",
+      "type": "statistical-claim",
       "entities": [
-        "indikator-2a"
+        "adhd-databasen",
+        "indicator-2b"
       ],
       "page": 16
     },
     {
-      "text": "Region Sjælland har fordoblet antal udredningsforløb fra 20 til 40 fra sidste til nuværende opgørelsesår [^src1]",
-      "type": "performance",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 16
-    },
-    {
-      "text": "I Region Hovedstaden ses fremgang til trods for, at antallet af udredningsforløb er steget betydeligt fra 196 til 228 [^src1]",
-      "type": "performance",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 16
-    },
-    {
-      "text": "Region Nordjylland har meget få førskolebørn, der er udredt i perioden (23 i alt) [^src1]",
-      "type": "performance",
-      "entities": [
-        "region-nordjylland"
-      ],
-      "page": 16
-    },
-    {
-      "text": "Indikatorpopulationen for indikator 2a er begrænset til de børn, der er yngre end 6 år på dato for udredningsstart, hvilket udgør 8 % (405 udredningsforløb) af det samlede antal udredningsforløb [^src1]",
-      "type": "methodology",
-      "entities": [
-        "indikator-2a"
-      ],
-      "page": 16
-    },
-    {
-      "text": "4810 forløb ekskluderes pga. alderskriteriet for indikator 2a [^src1]",
-      "type": "methodology",
-      "entities": [
-        "indikator-2a"
-      ],
-      "page": 16
-    },
-    {
-      "text": "For indikator 2b blev der blandt 6-17 årige på landsplan gennemført enten manualiseret diagnostisk interview eller miljøobservation i 48 % af udredningsforløbene (2.331 / 4.810) [^src1]",
-      "type": "performance",
-      "entities": [
-        "indikator-2b"
-      ],
-      "page": 16
-    },
-    {
-      "text": "Region Syddanmark har 77 % andel på indikator 2b (864 / 1.118) [^src1]",
-      "type": "performance",
-      "entities": [
-        "region-syddanmark",
-        "indikator-2b"
-      ],
-      "page": 16
-    },
-    {
-      "text": "Region Hovedstaden har 46 % andel på indikator 2b (971 / 2.093) [^src1]",
-      "type": "performance",
+      "text": "Region Hovedstaden har en målopfyldelse på 46 % (95 % CI: 44–49) for indikator 2b i 2023/24 [^src1]",
+      "type": "statistical-claim",
       "entities": [
         "region-hovedstaden",
-        "indikator-2b"
+        "indicator-2b"
       ],
       "page": 16
     },
     {
-      "text": "Region Sjælland har 31 % andel på indikator 2b (175 / 570) [^src1]",
-      "type": "performance",
+      "text": "Region Sjælland har en målopfyldelse på 31 % (95 % CI: 27–35) for indikator 2b i 2023/24 [^src1]",
+      "type": "statistical-claim",
       "entities": [
         "region-sjaelland",
-        "indikator-2b"
+        "indicator-2b"
       ],
       "page": 16
     },
     {
-      "text": "Region Midtjylland har 31 % andel på indikator 2b (201 / 640) [^src1]",
-      "type": "performance",
+      "text": "Region Syddanmark har en målopfyldelse på 77 % (95 % CI: 75–80) for indikator 2b i 2023/24 [^src1]",
+      "type": "statistical-claim",
+      "entities": [
+        "region-syddanmark",
+        "indicator-2b"
+      ],
+      "page": 16
+    },
+    {
+      "text": "Region Midtjylland har en målopfyldelse på 31 % (95 % CI: 28–35) for indikator 2b i 2023/24 [^src1]",
+      "type": "statistical-claim",
       "entities": [
         "region-midtjylland",
-        "indikator-2b"
+        "indicator-2b"
       ],
       "page": 16
     },
     {
-      "text": "Region Nordjylland har 31 % andel på indikator 2b (120 / 389) [^src1]",
-      "type": "performance",
+      "text": "Region Nordjylland har en målopfyldelse på 31 % (95 % CI: 26–36) for indikator 2b i 2023/24 [^src1]",
+      "type": "statistical-claim",
       "entities": [
         "region-nordjylland",
-        "indikator-2b"
+        "indicator-2b"
       ],
       "page": 16
     },
     {
-      "text": "Børne- og Ungdomsambulatorierne i Aabenraa har 89 % andel på indikator 2b (240 / 271) [^src1]",
-      "type": "performance",
+      "text": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium har en målopfyldelse på 89 % (95 % CI: 84–92) for indikator 2b i 2023/24 [^src1]",
+      "type": "statistical-claim",
       "entities": [
-        "bua-aabenraa",
-        "indikator-2b"
+        "aabennraa-bupa",
+        "indicator-2b"
       ],
       "page": 16
     },
     {
-      "text": "Børne- og Ungdomsambulatorierne i Odense har 98 % andel på indikator 2b (171 / 174) [^src1]",
-      "type": "performance",
+      "text": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium har en målopfyldelse på 98 % (95 % CI: 95–100) for indikator 2b i 2023/24 [^src1]",
+      "type": "statistical-claim",
       "entities": [
-        "bua-odense",
-        "indikator-2b"
+        "odense-bupa",
+        "indicator-2b"
       ],
       "page": 16
     },
     {
-      "text": "Børne- og Ungdomsambulatorierne i Vejle har 58 % andel på indikator 2b (229 / 392) [^src1]",
-      "type": "performance",
+      "text": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium har en målopfyldelse på 58 % (95 % CI: 53–63) for indikator 2b i 2023/24 [^src1]",
+      "type": "statistical-claim",
       "entities": [
-        "bua-vejle",
-        "indikator-2b"
+        "vejle-bupa",
+        "indicator-2b"
       ],
       "page": 16
     },
     {
-      "text": "BUA Psykiatrisk Klinik for Småbørn har 75 % andel på indikator 2b (76 / 101) [^src1]",
-      "type": "performance",
+      "text": "BUA Psykiatrisk Klinik for Småbørn har en målopfyldelse på 75 % (95 % CI: 66–83) for indikator 2b i 2023/24 [^src1]",
+      "type": "statistical-claim",
       "entities": [
-        "bua-psykiatrisk-klinik-smaaborni-midtjylland",
-        "indikator-2b"
-      ],
-      "page": 16
-    },
-    {
-      "text": "Miljøobservation skal foretages i naturlige miljø (skole, institution) og ikke blot i klinikken [^src1]",
-      "type": "methodology",
-      "entities": [
-        "indikator-2a"
-      ],
-      "page": 16
-    },
-    {
-      "text": "Observationen skal foretages af personale fra børne- og ungdomspsykiatrisk afdeling, hvorfor en observation fra eksempelvis ppr-psykolog ikke er sufficient [^src1]",
-      "type": "methodology",
-      "entities": [
-        "indikator-2a"
-      ],
-      "page": 16
-    },
-    {
-      "text": "Miljøobservation i vanligt miljø i denne aldersgruppe vurderes fortsat væsentligt ift. at sikre diagnostisk sikkerhed både ift. ADHD og evt. komorbiditet [^src1]",
-      "type": "clinical-rationale",
-      "entities": [
-        "indikator-2a"
-      ],
-      "page": 16
-    },
-    {
-      "text": "Indikatoren 2a vurderes fortsat relevant og standarden bibeholdes [^src1]",
-      "type": "decision",
-      "entities": [
-        "indikator-2a"
+        "bua-smaborn",
+        "indicator-2b"
       ],
       "page": 16
     }
   ],
   "timeline": [
     {
-      "date": "01.04.2023 - 31.03.2024",
-      "event": "Opgørelsesperiode for indikator 2a og 2b resultater",
+      "date": "01.04.2023",
+      "event": "Start af opgørelsesperioden for indikator 2b",
       "entities": [
         "adhd-databasen",
-        "indikator-2a",
-        "indikator-2b"
+        "indicator-2b"
       ]
     },
     {
-      "date": "2022/23",
-      "event": "Tidligere opgørelsesår hvor miljøobservation blev gennemført i 63 % af udredningsforløbene på landsplan",
+      "date": "31.03.2024",
+      "event": "Slut på opgørelsesperioden for indikator 2b",
       "entities": [
         "adhd-databasen",
-        "indikator-2a"
+        "indicator-2b"
       ]
     }
   ],
-  "context": "Denne chunk er del af en årlig rapport fra ADHD-DATABASEN, der dokumenterer kvalitetsindikatorer for ADHD-udredning blandt børn og unge i Danmark. Rapporten præsenterer resultater for indikator 2a (miljøobservation for børn under 6 år) og indikator 2b (diagnostisk interview eller miljøobservation for 6-17 årige), med sammenligning på tværs af fem danske regioner og deres kliniske enheder. Resultaterne viser betydelig regional variation i målopfyldelse, hvor nogle regioner opfylder standarden på 90 % mens andre ligger væsentligt under. Rapporten indeholder også diskussion af metodologiske krav og klinisk begrundelse for indikatorerne."
+  "tables": [
+    {
+      "subject": "indicator-2b",
+      "title": "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation",
+      "page": 16,
+      "rowDimension": "regions-and-clinics",
+      "colDimension": "performance metrics per reporting period",
+      "entities": [
+        "adhd-databasen",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "aabennraa-bupa",
+        "odense-bupa",
+        "vejle-bupa",
+        "bua-smaborn"
+      ],
+      "markdown": "| Region/Klinik | Opfyldt? | Tæller / Nævner | Standard | Andel 2023/24 | 95 % CI | Andel 2022/23 | Andel 2021/22 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 2.331 / 4.810 | ≥ 90% | 48 | (47-50) | 43 | 49 |\n| Hovedstaden | Nej | 971 / 2.093 | ≥ 90% | 46 | (44-49) | 40 | 52 |\n| Sjælland | Nej | 175 / 570 | ≥ 90% | 31 | (27-35) | 43 | 59 |\n| Syddanmark | Nej | 864 / 1.118 | ≥ 90% | 77 | (75-80) | 90 | 75 |\n| Midtjylland | Nej | 201 / 640 | ≥ 90% | 31 | (28-35) | 17 | 30 |\n| Nordjylland | Nej | 120 / 389 | ≥ 90% | 31 | (26-36) | 27 | 27 |\n| Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium | Nej | 240 / 271 | ≥ 90% | 89 | (84-92) | 92 | 77 |\n| Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium | Nej | 224 / 281 | ≥ 90% | 80 | (75-84) | 90 | 74 |\n| Odense: Børne- og Ungdomspsykiatrisk Ambulatorium | Ja | 171 / 174 | ≥ 90% | 98 | (95-100) | 99 | 99 |\n| Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium | Nej | 229 / 392 | ≥ 90% | 58 | (53-63) | 82 | 64 |\n| BUA Psykiatrisk Klinik for Småbørn | Nej | 76 / 101 | ≥ 90% | 75 | (66-83) | 90 | 94 |",
+      "summary": "Tabellen sammenligner målopfyldelsen for indikator 2b på nationalt, regionalt og lokalt klinikniveau for rapporteringsperioden 2023/24, og viser en markant regional ulighed samt at kun én klinik (Odense) opfylder standarden på ≥ 90 %."
+    }
+  ],
+  "context": "Denne chunk fra ADHD_2023.pdf (sider 16–20) er en del af den årlige kvalitetsrapport for ADHD-udredninger i Danmark og fokuserer specifikt på indikator 2b, der måler andelen af udredningsforløb for 6–17-årige, hvor der inden for 120 dage efter udredningsstart er foretaget enten et manualiseret diagnostisk interview (med Kiddie-SADS, PSE-SCAN eller DAWBA) eller en klinisk miljøobservation. Den indgår i en bredere evaluering af diagnostisk sikkerhed, geografisk ligestilling og implementering af nationale retningslinjer i børne- og ungdomspsykiatrien. Rapporten bruger data fra ADHD-DATABASEN til at identificere systemiske udfordringer — herunder stor regional variation, lav landsdækkende målopfyldelse (48 %), og særlige barrierer i mindre eller mere spredte regioner — samt at fremhæve eksempler på god praksis, såsom Odense BUP’s næsten fuldstændige opfyldelse af standarden."
 }

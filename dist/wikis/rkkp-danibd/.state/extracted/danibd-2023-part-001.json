@@ -1,41 +1,50 @@
 {
   "entities": [
     {
-      "name": "DANIBD",
+      "name": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme",
       "type": "organization",
-      "slug": "danibd",
-      "folder": "entities/organizations/health-registries",
-      "significance": "DANIBD er Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme, en national kvalitetsdatabase der monitorerer behandlingskvaliteten for patienter med inflammatoriske tarmsygdomme og gik i drift d. 1. oktober 2022.",
+      "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "folder": "entities/organizations/health-databases",
+      "significance": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD) er en national kvalitetsdatabase, der gik i drift den 1. oktober 2022 og udgør grundlaget for den første årsrapport om behandlingskvalitet for patienter med inflammatoriske tarmsygdomme i Danmark, hvilket gør den til centrum for hele dokumentets analyse og rapportering.",
       "mentions": [
         {
           "page": 1,
           "context": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme - DANIBD"
         },
         {
-          "page": 1,
-          "context": "DANIBD, der gik i drift d. 1. oktober 2022, præsenterer hermed den første årsrapport"
-        },
-        {
-          "page": 1,
-          "context": "DANIBD har fokus på medicinsk og kirurgisk behandling, monitorering såvel som undervisning af patienter"
+          "page": 4,
+          "context": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD), der gik i drift d. 1. oktober 2022,"
         }
       ]
     },
     {
-      "name": "RKKP",
+      "name": "DANIBD",
       "type": "organization",
-      "slug": "rkkp",
-      "folder": "entities/organizations/health-registries",
-      "significance": "RKKP (Regionernes Kliniske Kvalitetsudviklingsprogram) er udgiver af DANIBD-årsrapporten og har udviklet databasen sammen med styregruppen.",
+      "slug": "danibd",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DANIBD er det officielle forkortede navn for Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme og fungerer som den primære identifikator for databasen i rapporten, herunder som titel på årsrapporten og som reference i alle indikatorresultater og konklusioner.",
       "mentions": [
         {
           "page": 1,
-          "context": "© RKKP 2024"
+          "context": "DANIBD"
         },
         {
-          "page": 1,
-          "context": "Udarbejdet af: RKKP Videncenter og Styregruppen for DANIBD"
+          "page": 4,
+          "context": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD)"
         },
+        {
+          "page": 5,
+          "context": "DANIBD 5"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) er udgiver af DANIBD-årsrapporten og står bag oprettelsen og drift af kvalitetsdatabasen, hvilket gør RKKP til den overordnede administrative og faglige ansvarsbærer for DANIBD.",
+      "mentions": [
         {
           "page": 1,
           "context": "Udgiver: Regionernes Kliniske Kvalitetsudviklingsprogram"
@@ -43,214 +52,254 @@
       ]
     },
     {
-      "name": "Lone Larsen",
-      "type": "person",
-      "slug": "lone-larsen",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Lone Larsen er formand for styregruppen for DANIBD, overlæge, ph.d. og klinisk lektor, og underskriver årsrapporten på vegne af styregruppen.",
+      "name": "Styregruppen for DANIBD",
+      "type": "organization",
+      "slug": "styregruppen-for-danibd",
+      "folder": "entities/organizations/health-committees",
+      "significance": "Styregruppen for DANIBD er den beslutningsmæssige og anbefalingsgivende enhed, der har udarbejdet og godkendt årsrapporten, formuleret konklusioner og anbefalinger samt fremhævet specifikke indikatorresultater — herunder anbefalinger om fæces calprotectin-måling og undervisning af nydiagnosticerede.",
       "mentions": [
         {
           "page": 1,
+          "context": "Udarbejdet af: RKKP Videncenter og Styregruppen for DANIBD"
+        },
+        {
+          "page": 4,
+          "context": "Overordnet set finder styregruppen at der er tale om god kvalitet i behandlingen og monitorering af patienter med IBD i Danmark, vurderet ud fra de udvalgte kvalitetsindikatorer."
+        },
+        {
+          "page": 4,
+          "context": "For denne årsrapport vil styregruppen gerne fremhæve:"
+        }
+      ]
+    },
+    {
+      "name": "Lone Larsen",
+      "type": "person",
+      "slug": "lone-larsen",
+      "folder": "entities/people/health-leaders",
+      "significance": "Lone Larsen er formand for Styregruppen for DANIBD og underskriver årsrapportens konklusioner på vegne af styregruppen, hvilket bekræfter hendes rolle som ledende faglig og administrativ ansvarsbærer for DANIBD-initiativet.",
+      "disambiguation": "Denne Lone Larsen er overlæge, ph.d. og klinisk lektor, ikke at forveksle med andre personer med samme navn uden disse titler eller uden forbindelse til DANIBD eller RKKP.",
+      "mentions": [
+        {
+          "page": 4,
           "context": "Formand Lone Larsen, overlæge, ph.d., klinisk lektor"
         }
       ]
     },
     {
-      "name": "Inflammatory Bowel Disease",
-      "type": "medical-condition",
-      "slug": "inflammatory-bowel-disease",
-      "folder": "topics/medical-conditions",
-      "significance": "IBD (inflammatoriske tarmsygdomme) er det centrale sygdomsområde som DANIBD monitorerer, omfattende både børn, unge og voksne patienter i Danmark.",
+      "name": "Inflammatoriske tarmsygdomme",
+      "type": "topic",
+      "slug": "inflammatoriske-tarmsygdomme",
+      "folder": "topics/diseases/gastrointestinal",
+      "significance": "Inflammatoriske tarmsygdomme (IBD) er det medicinske sygdomsområde, som DANIBD overvåger, og udgør den kliniske og epidemiologiske ramme for alle data, indikatorer og patientkarakteristika i rapporten.",
       "mentions": [
         {
           "page": 1,
-          "context": "inflammatoriske tarmsygdomme (IBD)"
+          "context": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme"
         },
         {
-          "page": 1,
-          "context": "Årsrapporten omfatter de 740 børn og unge samt 32.641 voksne med IBD"
-        },
-        {
-          "page": 2,
-          "context": "Kort beskrivelse af patienter med IBD"
+          "page": 4,
+          "context": "behandling af patienter med inflammatoriske tarmsygdomme (IBD)"
         }
       ]
     },
     {
-      "name": "Crohn's Disease",
-      "type": "medical-condition",
-      "slug": "crohns-disease",
-      "folder": "topics/medical-conditions",
-      "significance": "Crohns sygdom er den hyppigste diagnose blandt både nydiagnosticerede og prævalente børn og unge med IBD i DANIBD-databasen.",
+      "name": "Crohns sygdom",
+      "type": "disease",
+      "slug": "crohns-sygdom",
+      "folder": "topics/diseases/gastrointestinal",
+      "significance": "Crohns sygdom er den hyppigste diagnose blandt både nydiagnosticerede og prævalente børn og unge med IBD i rapportperioden, hvilket gør den til en central sygdomsform i DANIBDs kliniske overvågning.",
       "mentions": [
         {
-          "page": 2,
+          "page": 5,
+          "context": "DK50* Crohns sygdom"
+        },
+        {
+          "page": 5,
           "context": "De nydiagnosticerede børn har oftest Crohns sygdom (57 %)"
         },
         {
-          "page": 2,
-          "context": "DK50* Crohns sygdom 107 (57)"
+          "page": 5,
+          "context": "Som for de nydiagnosticerede er flest diagnosticeret med Crohns sygdom (55 %)"
         }
       ]
     },
     {
-      "name": "Ulcerative Colitis",
-      "type": "medical-condition",
-      "slug": "ulcerative-colitis",
-      "folder": "topics/medical-conditions",
-      "significance": "Colitis ulcerosa er den anden hyppigste IBD-diagnose blandt børn og unge i DANIBD-databasen, diagnosticeret hos 42% af nydiagnosticerede børn.",
+      "name": "Colitis ulcerosa",
+      "type": "disease",
+      "slug": "colitis-ulcerosa",
+      "folder": "topics/diseases/gastrointestinal",
+      "significance": "Colitis ulcerosa er den anden primære IBD-diagnose i rapporten og udgør den næsthøjeste andel blandt både nydiagnosticerede og prævalente børn og unge, hvilket understreger dens kliniske relevans i DANIBDs indikatorsystem.",
       "mentions": [
         {
-          "page": 2,
-          "context": "DK51* Colitis ulcerosa 80 (42)"
+          "page": 5,
+          "context": "DK51* Colitis ulcerosa"
+        },
+        {
+          "page": 5,
+          "context": "DK51* Colitis ulcerosa 80 (42) 245 (44)"
         }
       ]
     },
     {
-      "name": "Primary Sclerosing Cholangitis",
-      "type": "medical-condition",
-      "slug": "primary-sclerosing-cholangitis",
-      "folder": "topics/medical-conditions",
-      "significance": "Primær skleroserende kolangitis (PSC) er en sjælden tilstand registreret i DANIBD blandt børn med IBD, og der er en dedikeret indikator for opfølgning af PSC-patienter.",
+      "name": "Primær skleroserende kolangitis",
+      "type": "disease",
+      "slug": "primaer-skleroserende-kolangitis",
+      "folder": "topics/diseases/hepatic-biliary",
+      "significance": "Primær skleroserende kolangitis (PSC) er inkluderet som komorbiditet i forbindelse med IBD i DANIBD-databasen og danner grundlag for indikator 7 (PSC, opfølgning), hvilket markerer dens relevans som komplicerende sygdom i IBD-populationen.",
       "mentions": [
         {
-          "page": 2,
-          "context": "DK830F Primær skleroserende kolangitis"
+          "page": 5,
+          "context": "DK830F Primær skleroserende kolangitis1 # (1) # (0)"
         },
         {
           "page": 1,
           "context": "Indikator 7. PSC, opfølgning"
         }
       ]
-    },
-    {
-      "name": "Fecal Calprotectin",
-      "type": "medical-test",
-      "slug": "fecal-calprotectin",
-      "folder": "topics/medical-tests",
-      "significance": "Fæces calprotectin er en vigtig biomarkør for monitorering af IBD-patienter behandlet med biologiske eller målrettede syntetiske lægemidler, og styregruppen anbefaler årlig måling for alle sådanne patienter.",
-      "mentions": [
-        {
-          "page": 1,
-          "context": "78% af patienterne bliver fulgt med årlig måling af fæces calprotectin når de behandles med biologiske eller målrettede syntetiske lægemidler"
-        }
-      ]
     }
   ],
   "relationships": [
     {
-      "subject": "rkkp",
-      "predicate": "publishes",
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "predicate": "is-abbreviated-as",
       "object": "danibd",
+      "evidence": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD)",
+      "page": 4
+    },
+    {
+      "subject": "danibd",
+      "predicate": "is-published-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
       "evidence": "Udgiver: Regionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 1
     },
     {
-      "subject": "lone-larsen",
-      "predicate": "is-chair-of",
-      "object": "danibd",
-      "evidence": "Formand Lone Larsen, overlæge, ph.d., klinisk lektor",
+      "subject": "danibd",
+      "predicate": "is-developed-by",
+      "object": "styregruppen-for-danibd",
+      "evidence": "Udarbejdet af: RKKP Videncenter og Styregruppen for DANIBD",
       "page": 1
     },
     {
-      "subject": "danibd",
-      "predicate": "monitors",
-      "object": "inflammatory-bowel-disease",
-      "evidence": "DANIBD, der gik i drift d. 1. oktober 2022, præsenterer hermed den første årsrapport, der monitorerer behandlingskvaliteten for patienter med inflammatoriske tarmsygdomme (IBD)",
-      "page": 1
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-chair",
+      "object": "lone-larsen",
+      "evidence": "Formand Lone Larsen, overlæge, ph.d., klinisk lektor",
+      "page": 4
+    },
+    {
+      "subject": "inflammatoriske-tarmsygdomme",
+      "predicate": "includes-diagnosis",
+      "object": "crohns-sygdom",
+      "evidence": "DK50* Crohns sygdom",
+      "page": 5
+    },
+    {
+      "subject": "inflammatoriske-tarmsygdomme",
+      "predicate": "includes-diagnosis",
+      "object": "colitis-ulcerosa",
+      "evidence": "DK51* Colitis ulcerosa",
+      "page": 5
+    },
+    {
+      "subject": "inflammatoriske-tarmsygdomme",
+      "predicate": "associated-with-comorbidity",
+      "object": "primaer-skleroserende-kolangitis",
+      "evidence": "DK830F Primær skleroserende kolangitis1 # (1) # (0)",
+      "page": 5
     }
   ],
   "claims": [
     {
-      "text": "DANIBD gik i drift d. 1. oktober 2022 [^src1]",
+      "text": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD), der gik i drift d. 1. oktober 2022, præsenterer hermed den første årsrapport, der monitorerer behandlingskvaliteten for patienter med inflammatoriske tarmsygdomme (IBD) [^src1]",
       "type": "operational",
       "entities": [
-        "danibd"
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+        "inflammatoriske-tarmsygdomme"
       ],
-      "page": 1
+      "page": 4
     },
     {
       "text": "Årsrapporten omfatter de 740 børn og unge samt 32.641 voksne med IBD, der er set på et af landets hospitaler i perioden 1. oktober 2022 til 30. september 2023 [^src1]",
-      "type": "statistical",
+      "type": "demographic",
       "entities": [
-        "danibd",
-        "inflammatory-bowel-disease"
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+        "inflammatoriske-tarmsygdomme"
       ],
-      "page": 1
+      "page": 4
     },
     {
       "text": "Der er 50.-70.000 patienter i Danmark med IBD, og dermed har næsten 50% af patienterne ikke haft kontakt til sundhedsvæsenet med deres tarmsygdom i denne periode [^src1]",
-      "type": "statistical",
+      "type": "epidemiological",
       "entities": [
-        "inflammatory-bowel-disease"
+        "inflammatoriske-tarmsygdomme"
       ],
-      "page": 1
+      "page": 4
     },
     {
       "text": "78% af patienterne bliver fulgt med årlig måling af fæces calprotectin når de behandles med biologiske eller målrettede syntetiske lægemidler [^src1]",
-      "type": "quality-indicator",
+      "type": "clinical-practice",
       "entities": [
-        "danibd",
-        "fecal-calprotectin"
+        "styregruppen-for-danibd"
       ],
-      "page": 1
+      "page": 4
     },
     {
-      "text": "Fra 1. oktober 2022 til og med 30. september 2023 har 740 børn og unge med IBD været i kontakt med en hospitalsafdeling, hvoraf 26 % af børnene er nydiagnosticerede med IBD i perioden [^src1]",
-      "type": "statistical",
+      "text": "26 % af børnene er nydiagnosticerede med IBD i perioden [^src1]",
+      "type": "diagnostic",
       "entities": [
-        "danibd",
-        "inflammatory-bowel-disease"
+        "inflammatoriske-tarmsygdomme"
       ],
-      "page": 2
+      "page": 5
     },
     {
       "text": "De nydiagnosticerede børn har oftest Crohns sygdom (57 %), er hyppigst drenge (61 %) og hovedparten bliver diagnosticeret, når de er mellem 15-17 år (50 %) [^src1]",
-      "type": "statistical",
+      "type": "demographic",
       "entities": [
-        "crohns-disease"
+        "crohns-sygdom"
       ],
-      "page": 2
-    },
-    {
-      "text": "Blandt nydiagnosticerede børn med IBD er 80 (42%) diagnosticeret med Colitis ulcerosa [^src1]",
-      "type": "statistical",
-      "entities": [
-        "ulcerative-colitis"
-      ],
-      "page": 2
-    },
-    {
-      "text": "Blandt prævalente børn og unge med IBD er flest diagnosticeret med Crohns sygdom (55 %), de er drenge (53 %) og i alderen fra 15-17 år (60 %) [^src1]",
-      "type": "statistical",
-      "entities": [
-        "crohns-disease"
-      ],
-      "page": 2
+      "page": 5
     }
   ],
   "timeline": [
     {
-      "date": "1. oktober 2022",
-      "event": "DANIBD gik i drift",
+      "date": "2022-10-01",
+      "event": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD) gik i drift",
       "entities": [
-        "danibd"
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
       ]
     },
     {
-      "date": "30. september 2023",
-      "event": "Afslutning af første rapporteringsperiode for DANIBD",
+      "date": "2023-09-30",
+      "event": "Afslutning af opgørelsesperioden for den første DANIBD-årsrapport",
       "entities": [
-        "danibd"
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
       ]
     },
     {
-      "date": "16. april 2024",
-      "event": "DANIBD årsrapport for 2022 blev offentliggjort (version 1.1)",
+      "date": "2024-04-16",
+      "event": "Udgivelse af version Offentlig 1.1 af DANIBD-årsrapporten",
       "entities": [
-        "danibd"
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
       ]
     }
   ],
-  "context": "Denne chunk indeholder den første årsrapport fra DANIBD (Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme), en national kvalitetsdatabase der blev etableret af RKKP (Regionernes Kliniske Kvalitetsudviklingsprogram) for at monitorere behandlingskvaliteten for patienter med inflammatoriske tarmsygdomme i Danmark. Rapporten dækker perioden fra 1. oktober 2022 til 30. september 2023 og præsenterer data på 740 børn og unge samt 32.641 voksne IBD-patienter, der har været i kontakt med danske hospitaler. Rapporten fokuserer på medicinsk og kirurgisk behandling, monitorering og patientundervisning, og fremhæver både styrker i den danske IBD-behandling og områder for forbedring, såsom øget fokus på årlig måling af fæces calprotectin og struktureret patientundervisning."
+  "tables": [
+    {
+      "subject": "patientkarakteristika-for-boern-med-ibd",
+      "title": "Patientkarakteristika for nydiagnosticerede og prævalente børn med IBD med en kontakt til et hospital i perioden 1. oktober 2022 til og med 30. september 2023",
+      "page": 5,
+      "rowDimension": "diagnose-køn-alder-kontakttype",
+      "colDimension": "antal-procent",
+      "entities": [
+        "inflammatoriske-tarmsygdomme",
+        "crohns-sygdom",
+        "colitis-ulcerosa"
+      ],
+      "markdown": "| | Nydiagnosticeret | Prævalent med en hospitalskontakt i perioden 1/10/22-30/9/23 |\n| --- | --- | --- |\n| Patienter i alt | 189 (100) | 551 (100) |\n| Diagnose | | |\n| DK50* Crohns sygdom | 107 (57) | 305 (55) |\n| DK51* Colitis ulcerosa | 80 (42) | 245 (44) |\n| DK830F Primær skleroserende kolangitis1 # (1) # (0) | | |\n| Køn | | |\n| Pige | 73 (39) | 260 (47) |\n| Dreng | 116 (61) | 291 (53) |\n| Alder | | |\n| Gennemsnit, år (Min;Max) | 13 (0;17) | 14 (2;17) |\n| Median, år (Q1;Q3) | 14 (12;16) | 15 (13;16) |\n| Aldersgruppe | | |\n| 0-4 år | 9 (5) | 5 (1) |\n| 5-9 år | 13 (7) | 30 (5) |\n| 10-14 år | 73 (39) | 183 (33) |\n| 15-17 år | 94 (50) | 333 (60) |\n| Kontakter | | |\n| Gennemsnit, antal (Min;Max) | 17 (1;49) | 15 (1;47) |\n| Median, antal (Q1;Q3) | 13 (9;21) | 12 (8;19) |\n| Kontakttype | | |\n| Fysisk fremmøde | 1.188 (63) | 3.496 (67) |\n| Virtuel | 709 (37) | 1.742 (33) |",
+      "summary": "Tabellen sammenligner karakteristika for nydiagnosticerede og prævalente børn og unge med IBD, herunder diagnosefordeling, køn, alder og kontakttype, og viser at både grupper domineres af Crohns sygdom, drenge og aldersgruppen 15–17 år."
+    }
+  ],
+  "context": "Dette dokument er den første årsrapport fra Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD), som blev lancet den 1. oktober 2022 som en national kvalitetsdatabase under Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten dækker behandlingskvaliteten for patienter med inflammatoriske tarmsygdomme (IBD) i Danmark i perioden 1. oktober 2022 til 30. september 2023 og fokuserer på syv kvalitetsindikatorer, hvoraf tre er rapporteret i denne første udgave, mens fire kræver længere opfølgningstid. Den præsenterer både landsdækkende resultater og detaljerede patientkarakteristika, især for børn og unge, og indeholder konklusioner og anbefalinger fra Styregruppen for DANIBD, herunder fokus på fæces calprotectin-måling og struktureret patientundervisning. Rapporten er dermed et grundlæggende dokument for national kvalitetsmonitorering af IBD-behandling i dansk sundhedsvæsen."
 }

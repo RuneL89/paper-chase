@@ -1,11 +1,40 @@
 {
   "entities": [
     {
+      "name": "Atrieflimren",
+      "type": "medical-condition",
+      "slug": "atrieflimren",
+      "folder": "topics/medical-conditions/cardiovascular",
+      "significance": "Atrieflimren er den centrale sygdom, som hele dokumentchunken handler om, og danner baggrund for alle indikatorer, behandlingsanbefalinger og kliniske retningslinjer beskrevet på siderne 101–105.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 102,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 103,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 104,
+          "context": "nydiagnosticerede patienter med atrieflimren"
+        },
+        {
+          "page": 105,
+          "context": "nydiagnosticerede patienter med atrieflimren"
+        }
+      ]
+    },
+    {
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Dette program udgør rammerne for kvalitetsudvikling og indikatordefinition for atrieflimren-behandling i Danmark, som dokumenteret i denne vejledning.",
+      "folder": "entities/organizations/health-quality-standards/governance",
+      "significance": "Dette er den udgivende organisation for hele rapporten, og det er under dens ansvar, at de kliniske indikatorer og behandlingsstandarder på siderne 101–105 er defineret og implementeret i dansk sundhedsvæsen.",
       "mentions": [
         {
           "page": 101,
@@ -30,40 +59,11 @@
       ]
     },
     {
-      "name": "Atrieflimren i Danmark",
-      "type": "topic",
-      "slug": "atrieflimren-i-danmark",
-      "folder": "topics/heart-failure",
-      "significance": "Dette er titlen på vejledningen, der dokumenterer behandlings- og kvalitetsindikatorer for atrieflimren-patienter i Danmark.",
-      "mentions": [
-        {
-          "page": 101,
-          "context": "Atrieflimren i Danmark"
-        },
-        {
-          "page": 102,
-          "context": "Atrieflimren i Danmark"
-        },
-        {
-          "page": 103,
-          "context": "Atrieflimren i Danmark"
-        },
-        {
-          "page": 104,
-          "context": "Atrieflimren i Danmark"
-        },
-        {
-          "page": 105,
-          "context": "Atrieflimren i Danmark"
-        }
-      ]
-    },
-    {
-      "name": "CHA2DS2-VASc score",
-      "type": "topic",
-      "slug": "cha2ds2-vasc-score",
-      "folder": "topics/clinical-criteria",
-      "significance": "Denne risikostratificeringsværktøj bruges til at identificere patienter, der skal have antikoagulationsbehandling, og er central for indikator 1 vedr. ventetid til antikoagulationsbehandling.",
+      "name": "CHA2DS2-VASc",
+      "type": "clinical-tool",
+      "slug": "cha2ds2-vasc",
+      "folder": "topics/clinical-tools/risk-scores",
+      "significance": "CHA2DS2-VASc er den risikoscore, der bruges til at vurdere behov for antikoagulationsbehandling hos patienter med atrieflimren, og den er central for definitionen af nævneren i indikator 1 på side 104.",
       "mentions": [
         {
           "page": 104,
@@ -77,10 +77,10 @@
     },
     {
       "name": "Antikoagulationsbehandling",
-      "type": "topic",
+      "type": "medical-intervention",
       "slug": "antikoagulationsbehandling",
-      "folder": "topics/medical-treatments",
-      "significance": "Antikoagulationsbehandling er en central behandlingsmodalitet for atrieflimren-patienter og er genstand for kvalitetsindikator 1 vedr. ventetid til behandlingsstart.",
+      "folder": "entities/medical-interventions/pharmacotherapy",
+      "significance": "Antikoagulationsbehandling er en kernebehandling for forebyggelse af tromboemboliske komplikationer ved atrieflimren, og den er genstand for indikator 1 samt specificeret via ATC-koder på side 104.",
       "mentions": [
         {
           "page": 101,
@@ -88,16 +88,58 @@
         },
         {
           "page": 104,
-          "context": "Andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations-behandling"
+          "context": "Ventetid til antikoagulations-behandling"
+        },
+        {
+          "page": 104,
+          "context": "opstart i antikoagulations-behandling"
         }
       ]
     },
     {
-      "name": "Vitamin K antagonister",
-      "type": "topic",
-      "slug": "vitamin-k-antagonister",
-      "folder": "topics/medications",
-      "significance": "Vitamin K antagonister (kode B01AA) er en klasse af antikoagulantia, der bruges til behandling af atrieflimren og er specificeret i beregningsreglerne for indikator 1.",
+      "name": "Ekkokardiografi",
+      "type": "medical-intervention",
+      "slug": "ekkokardiografi",
+      "folder": "entities/medical-interventions/pharmacotherapy",
+      "significance": "Ekkokardiografi er en diagnostisk undersøgelse, der er krævet i henhold til indikator 2 for at vurdere hjertefunktion og strukturelle hjerteforandringer hos patienter med nydiagnosticeret atrieflimren.",
+      "mentions": [
+        {
+          "page": 104,
+          "context": "Ekkokardiografi"
+        },
+        {
+          "page": 104,
+          "context": "Koder for ekkokardiografi i Landspatientregisteret: UXUC80 (transthorakal ekkokardiografi)"
+        },
+        {
+          "page": 105,
+          "context": "Koder for ekkokardiografi i Sygesikringsregisteret: 2208 Ekkocardiografi"
+        }
+      ]
+    },
+    {
+      "name": "Thyreoideastimulerende hormon (TSH)",
+      "type": "laboratory-test",
+      "slug": "thyreoideastimulerende-hormon-tsh",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "Måling af TSH er en nødvendig screening for thyreoideasygdom som potentielt reversibel årsag til atrieflimren, og den er genstand for indikator 3 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "Thyreoideastimulerende hormon (TSH) måling"
+        },
+        {
+          "page": 105,
+          "context": "Kode: NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647"
+        }
+      ]
+    },
+    {
+      "name": "B01AA",
+      "type": "drug-class",
+      "slug": "b01aa",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AA er ATC-koden for vitamin K-antagonister, som er én af de medicinske klasser, der indgår i definitionen af antikoagulationsbehandling i indikator 1 på side 104.",
       "mentions": [
         {
           "page": 104,
@@ -106,11 +148,11 @@
       ]
     },
     {
-      "name": "Dabigatran",
-      "type": "topic",
-      "slug": "dabigatran",
-      "folder": "topics/medications",
-      "significance": "Dabigatran (kode B01AE07) er en direkte trombinbinder, der bruges til antikoagulation ved atrieflimren og er specificeret i beregningsreglerne for indikator 1.",
+      "name": "B01AE07",
+      "type": "drug-class",
+      "slug": "b01ae07",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AE07 er ATC-koden for dabigatran, som er én af de direkte orale antikoagulantia (DOAC), der indgår i definitionen af antikoagulationsbehandling i indikator 1 på side 104.",
       "mentions": [
         {
           "page": 104,
@@ -119,11 +161,11 @@
       ]
     },
     {
-      "name": "Rivaroxaban",
-      "type": "topic",
-      "slug": "rivaroxaban",
-      "folder": "topics/medications",
-      "significance": "Rivaroxaban (kode B01AF01) er en faktor Xa-inhibitor, der bruges til antikoagulation ved atrieflimren og er specificeret i beregningsreglerne for indikator 1.",
+      "name": "B01AF01",
+      "type": "drug-class",
+      "slug": "b01af01",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AF01 er ATC-koden for rivaroxaban, som er én af de direkte orale antikoagulantia (DOAC), der indgår i definitionen af antikoagulationsbehandling i indikator 1 på side 104.",
       "mentions": [
         {
           "page": 104,
@@ -132,11 +174,11 @@
       ]
     },
     {
-      "name": "Apixaban",
-      "type": "topic",
-      "slug": "apixaban",
-      "folder": "topics/medications",
-      "significance": "Apixaban (kode B01AF02) er en faktor Xa-inhibitor, der bruges til antikoagulation ved atrieflimren og er specificeret i beregningsreglerne for indikator 1.",
+      "name": "B01AF02",
+      "type": "drug-class",
+      "slug": "b01af02",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AF02 er ATC-koden for apixaban, som er én af de direkte orale antikoagulantia (DOAC), der indgår i definitionen af antikoagulationsbehandling i indikator 1 på side 104.",
       "mentions": [
         {
           "page": 104,
@@ -145,11 +187,11 @@
       ]
     },
     {
-      "name": "Edoxaban",
-      "type": "topic",
-      "slug": "edoxaban",
-      "folder": "topics/medications",
-      "significance": "Edoxaban (kode B01AF03) er en faktor Xa-inhibitor, der bruges til antikoagulation ved atrieflimren og er specificeret i beregningsreglerne for indikator 1.",
+      "name": "B01AF03",
+      "type": "drug-class",
+      "slug": "b01af03",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AF03 er ATC-koden for edoxaban, som er én af de direkte orale antikoagulantia (DOAC), der indgår i definitionen af antikoagulationsbehandling i indikator 1 på side 104.",
       "mentions": [
         {
           "page": 104,
@@ -158,215 +200,710 @@
       ]
     },
     {
-      "name": "Ekkokardiografi",
-      "type": "topic",
-      "slug": "ekkokardiografi",
-      "folder": "topics/clinical-measures",
-      "significance": "Ekkokardiografi er en vigtig diagnostisk undersøgelse for atrieflimren-patienter og er genstand for kvalitetsindikator 2 vedr. andelen af nydiagnosticerede patienter, der får udført undersøgelsen.",
+      "name": "UXUC80",
+      "type": "code",
+      "slug": "uxuc80",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "UXUC80 er en kode fra Landspatientregisteret for transthorakal ekkokardiografi, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 104.",
       "mentions": [
         {
           "page": 104,
-          "context": "Andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato"
-        },
-        {
-          "page": 105,
           "context": "UXUC80 (transthorakal ekkokardiografi)"
         }
       ]
     },
     {
-      "name": "Thyreoidea-stimulerende hormon (TSH) måling",
-      "type": "topic",
-      "slug": "tsh-maaling",
-      "folder": "topics/clinical-measures",
-      "significance": "TSH-måling er en vigtig screeningundersøgelse for atrieflimren-patienter, da thyroideasygdom kan være en underliggende årsag til atrieflimren, og er genstand for kvalitetsindikator 3.",
+      "name": "UXUC80A",
+      "type": "code",
+      "slug": "uxuc80a",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "UXUC80A er en kode fra Landspatientregisteret for transthorakal stress ekkokardiografi, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 104.",
       "mentions": [
         {
-          "page": 105,
-          "context": "Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 60 dage før til 30 dage efter 1. diagnosedato"
+          "page": 104,
+          "context": "UXUC80A (transthorakal stress ekkokardiografi)"
         }
       ]
     },
     {
-      "name": "Landspatientregisteret",
-      "type": "organization",
-      "slug": "landspatientregisteret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Landspatientregisteret er en vigtig datakilde for ekkokardiografi-koder, der bruges til at identificere patienter, der har fået udført ekkokardiografi som del af indikator 2.",
+      "name": "UXUC80B",
+      "type": "code",
+      "slug": "uxuc80b",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "UXUC80B er en kode fra Landspatientregisteret for transthorakal ekkokardiografi med dobutamin test, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 104.",
       "mentions": [
         {
-          "page": 105,
-          "context": "Koder for ekkokardiografi i Landspatientregisteret"
+          "page": 104,
+          "context": "UXUC80B (transthorakal ekkokardiografi med dobutamin test)"
         }
       ]
     },
     {
-      "name": "Sygesikringsregisteret",
-      "type": "organization",
-      "slug": "sygesikringsregisteret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Sygesikringsregisteret er en vigtig datakilde for ekkokardiografi-koder, der bruges til at identificere patienter, der har fået udført ekkokardiografi som del af indikator 2.",
+      "name": "UXUC80C",
+      "type": "code",
+      "slug": "uxuc80c",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "UXUC80C er en kode fra Landspatientregisteret for transthorakal ekkokardiografi med kontrast, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 104.",
+      "mentions": [
+        {
+          "page": 104,
+          "context": "UXUC80C (transthorakal ekkokardiografi med kontrast)"
+        }
+      ]
+    },
+    {
+      "name": "UXUC80D",
+      "type": "code",
+      "slug": "uxuc80d",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "UXUC80D er en kode fra Landspatientregisteret for transthorakal 3-D ekkokardiografi, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 105.",
       "mentions": [
         {
           "page": 105,
-          "context": "Koder for ekkokardiografi i Sygesikringsregisteret"
+          "context": "UXUC80D (transthorakal 3-D ekkokardiografi)"
+        }
+      ]
+    },
+    {
+      "name": "UXUC80E",
+      "type": "code",
+      "slug": "uxuc80e",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "UXUC80E er en kode fra Landspatientregisteret for transthorakal ekkokardiografi med vævsdoppler, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "UXUC80E (transthorakal ekkokardiografi med vævsdoppler)"
+        }
+      ]
+    },
+    {
+      "name": "UXUC81",
+      "type": "code",
+      "slug": "uxuc81",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "UXUC81 er en kode fra Landspatientregisteret for transøsofageal ekkokardiografi, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "UXUC81 (transøsofageal ekkokardiografi)"
+        }
+      ]
+    },
+    {
+      "name": "UXUC81C",
+      "type": "code",
+      "slug": "uxuc81c",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "UXUC81C er en kode fra Landspatientregisteret for transøsofageal ekkokardiografi med kontrast, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "UXUC81C (transøsofageal ekkokardiografi med kontrast)"
+        }
+      ]
+    },
+    {
+      "name": "2208",
+      "type": "code",
+      "slug": "2208-ekkocardiografi",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "2208 er en kode fra Sygesikringsregisteret for ekkocardiografi, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "2208 Ekkocardiografi"
+        }
+      ]
+    },
+    {
+      "name": "3810",
+      "type": "code",
+      "slug": "3810-ekkocardiografi-standardundersoegelse",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "3810 er en kode fra Sygesikringsregisteret for ekkocardiografi, standardundersøgelse, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "3810 Ekkokardiografi, standardundersøgelse"
+        }
+      ]
+    },
+    {
+      "name": "3811",
+      "type": "code",
+      "slug": "3811-ekkocardiografi-avanceret-undersoegelse",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "3811 er en kode fra Sygesikringsregisteret for ekkocardiografi, avanceret undersøgelse, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "3811 Ekkokardiografi, avanceret undersøgelse"
+        }
+      ]
+    },
+    {
+      "name": "5101",
+      "type": "code",
+      "slug": "5101-ekko-cardiografi",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "5101 er en kode fra Sygesikringsregisteret for EKKO-cardiografi, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "5101 EKKO-cardiografi"
+        }
+      ]
+    },
+    {
+      "name": "5102",
+      "type": "code",
+      "slug": "5102-transsofageal-ekko",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "5102 er en kode fra Sygesikringsregisteret for Transsøfofagal ekko., som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "5102 Transsøfofagal ekko."
+        }
+      ]
+    },
+    {
+      "name": "5103",
+      "type": "code",
+      "slug": "5103-stress-ekkocardiogra",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "5103 er en kode fra Sygesikringsregisteret for Stress ekkocardiogra, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "5103 Stress ekkocardiogra"
+        }
+      ]
+    },
+    {
+      "name": "6402",
+      "type": "code",
+      "slug": "6402-ekkocardiografi",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "6402 er en kode fra Sygesikringsregisteret for Ekkocardiografi, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "6402 | Ekkocardiografi |"
+        }
+      ]
+    },
+    {
+      "name": "6408",
+      "type": "code",
+      "slug": "6408-ekkocardiografi",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "6408 er en kode fra Sygesikringsregisteret for Ekkocardiografi, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "6408 | Ekkocardiografi |"
+        }
+      ]
+    },
+    {
+      "name": "0906",
+      "type": "code",
+      "slug": "0906-ekko-kardiografi",
+      "folder": "entities/codes/procedure-codes",
+      "significance": "0906 er en kode fra Sygesikringsregisteret for Ekko-kardiografi, som er en af de procedurer, der tæller som udført ekkokardiografi i indikator 2 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "0906 | Ekko-kardiografi |"
+        }
+      ]
+    },
+    {
+      "name": "NPU27547",
+      "type": "code",
+      "slug": "np27547-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "NPU27547 er en kode for måling af thyrotropin (TSH), som er en af de laboratoriekoder, der tæller som udført TSH-måling i indikator 3 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647"
+        }
+      ]
+    },
+    {
+      "name": "NPU04199",
+      "type": "code",
+      "slug": "np04199-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "NPU04199 er en kode for måling af thyrotropin (TSH), som er en af de laboratoriekoder, der tæller som udført TSH-måling i indikator 3 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647"
+        }
+      ]
+    },
+    {
+      "name": "NPU04200",
+      "type": "code",
+      "slug": "np04200-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "NPU04200 er en kode for måling af thyrotropin (TSH), som er en af de laboratoriekoder, der tæller som udført TSH-måling i indikator 3 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647"
+        }
+      ]
+    },
+    {
+      "name": "NPU03624",
+      "type": "code",
+      "slug": "np03624-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "NPU03624 er en kode for måling af thyrotropin (TSH), som er en af de laboratoriekoder, der tæller som udført TSH-måling i indikator 3 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647"
+        }
+      ]
+    },
+    {
+      "name": "NPU 03578",
+      "type": "code",
+      "slug": "np03578-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "NPU 03578 er en kode for måling af thyrotropin (TSH), som er en af de laboratoriekoder, der tæller som udført TSH-måling i indikator 3 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647"
+        }
+      ]
+    },
+    {
+      "name": "DNK35895",
+      "type": "code",
+      "slug": "dnk35895-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "DNK35895 er en kode for måling af thyrotropin (TSH), som er en af de laboratoriekoder, der tæller som udført TSH-måling i indikator 3 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647"
+        }
+      ]
+    },
+    {
+      "name": "ASS00039",
+      "type": "code",
+      "slug": "ass00039-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "ASS00039 er en kode for måling af thyrotropin (TSH), som er en af de laboratoriekoder, der tæller som udført TSH-måling i indikator 3 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647"
+        }
+      ]
+    },
+    {
+      "name": "ASS00136",
+      "type": "code",
+      "slug": "ass00136-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "ASS00136 er en kode for måling af thyrotropin (TSH), som er en af de laboratoriekoder, der tæller som udført TSH-måling i indikator 3 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647"
+        }
+      ]
+    },
+    {
+      "name": "ASS00647",
+      "type": "code",
+      "slug": "ass00647-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "ASS00647 er en kode for måling af thyrotropin (TSH), som er en af de laboratoriekoder, der tæller som udført TSH-måling i indikator 3 på side 105.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647"
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "atrieflimren-i-danmark",
-      "predicate": "is-published-by",
-      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Vejledningen \"Atrieflimren i Danmark\" er udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram",
-      "page": 101
+      "subject": "atrieflimren",
+      "predicate": "is-assessed-by",
+      "object": "cha2ds2-vasc",
+      "evidence": "Incidente patienter med CHA2DS2-VASc ≥2",
+      "page": 104
+    },
+    {
+      "subject": "atrieflimren",
+      "predicate": "requires",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations-behandling (hvor antikoagulations-behandling er indiceret)",
+      "page": 104
+    },
+    {
+      "subject": "atrieflimren",
+      "predicate": "requires",
+      "object": "ekkokardiografi",
+      "evidence": "Andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato",
+      "page": 104
+    },
+    {
+      "subject": "atrieflimren",
+      "predicate": "requires",
+      "object": "thyreoideastimulerende-hormon-tsh",
+      "evidence": "Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 60 dage før til 30 dage efter 1. diagnosedato",
+      "page": 105
     },
     {
       "subject": "antikoagulationsbehandling",
-      "predicate": "uses-risk-stratification",
-      "object": "cha2ds2-vasc-score",
-      "evidence": "Incidente patienter med CHA2DS2-VASc ≥2 skal have antikoagulationsbehandling",
+      "predicate": "includes-drug-class",
+      "object": "b01aa",
+      "evidence": "B01AA (vitamin K antagonister)",
+      "page": 104
+    },
+    {
+      "subject": "antikoagulationsbehandling",
+      "predicate": "includes-drug-class",
+      "object": "b01ae07",
+      "evidence": "B01AE07 (dabigatran)",
+      "page": 104
+    },
+    {
+      "subject": "antikoagulationsbehandling",
+      "predicate": "includes-drug-class",
+      "object": "b01af01",
+      "evidence": "B01AF01 (rivaroxaban)",
+      "page": 104
+    },
+    {
+      "subject": "antikoagulationsbehandling",
+      "predicate": "includes-drug-class",
+      "object": "b01af02",
+      "evidence": "B01AF02 (apixaban)",
+      "page": 104
+    },
+    {
+      "subject": "antikoagulationsbehandling",
+      "predicate": "includes-drug-class",
+      "object": "b01af03",
+      "evidence": "B01AF03 (edoxaban)",
       "page": 104
     },
     {
       "subject": "ekkokardiografi",
-      "predicate": "is-coded-in",
-      "object": "landspatientregisteret",
-      "evidence": "Koder for ekkokardiografi i Landspatientregisteret: UXUC80, UXUC80A, UXUC80B, UXUC80C, UXUC80D, UXUC80E, UXUC81, UXUC81C",
+      "predicate": "coded-as",
+      "object": "uxuc80",
+      "evidence": "UXUC80 (transthorakal ekkokardiografi)",
+      "page": 104
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "uxuc80a",
+      "evidence": "UXUC80A (transthorakal stress ekkokardiografi)",
+      "page": 104
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "uxuc80b",
+      "evidence": "UXUC80B (transthorakal ekkokardiografi med dobutamin test)",
+      "page": 104
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "uxuc80c",
+      "evidence": "UXUC80C (transthorakal ekkokardiografi med kontrast)",
+      "page": 104
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "uxuc80d",
+      "evidence": "UXUC80D (transthorakal 3-D ekkokardiografi)",
       "page": 105
     },
     {
       "subject": "ekkokardiografi",
-      "predicate": "is-coded-in",
-      "object": "sygesikringsregisteret",
-      "evidence": "Koder for ekkokardiografi i Sygesikringsregisteret: 2208, 3810, 3811, 5101, 5102, 5103, 6402, 6408, 0906",
+      "predicate": "coded-as",
+      "object": "uxuc80e",
+      "evidence": "UXUC80E (transthorakal ekkokardiografi med vævsdoppler)",
+      "page": 105
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "uxuc81",
+      "evidence": "UXUC81 (transøsofageal ekkokardiografi)",
+      "page": 105
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "uxuc81c",
+      "evidence": "UXUC81C (transøsofageal ekkokardiografi med kontrast)",
+      "page": 105
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "2208-ekkocardiografi",
+      "evidence": "2208 Ekkocardiografi",
+      "page": 105
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "3810-ekkocardiografi-standardundersoegelse",
+      "evidence": "3810 Ekkokardiografi, standardundersøgelse",
+      "page": 105
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "3811-ekkocardiografi-avanceret-undersoegelse",
+      "evidence": "3811 Ekkokardiografi, avanceret undersøgelse",
+      "page": 105
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "5101-ekko-cardiografi",
+      "evidence": "5101 EKKO-cardiografi",
+      "page": 105
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "5102-transsofageal-ekko",
+      "evidence": "5102 Transsøfofagal ekko.",
+      "page": 105
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "5103-stress-ekkocardiogra",
+      "evidence": "5103 Stress ekkocardiogra",
+      "page": 105
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "6402-ekkocardiografi",
+      "evidence": "6402 | Ekkocardiografi |",
+      "page": 105
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "6408-ekkocardiografi",
+      "evidence": "6408 | Ekkocardiografi |",
+      "page": 105
+    },
+    {
+      "subject": "ekkokardiografi",
+      "predicate": "coded-as",
+      "object": "0906-ekko-kardiografi",
+      "evidence": "0906 | Ekko-kardiografi |",
+      "page": 105
+    },
+    {
+      "subject": "thyreoideastimulerende-hormon-tsh",
+      "predicate": "coded-as",
+      "object": "np27547-p-thyrotropin",
+      "evidence": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647",
+      "page": 105
+    },
+    {
+      "subject": "thyreoideastimulerende-hormon-tsh",
+      "predicate": "coded-as",
+      "object": "np04199-p-thyrotropin",
+      "evidence": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647",
+      "page": 105
+    },
+    {
+      "subject": "thyreoideastimulerende-hormon-tsh",
+      "predicate": "coded-as",
+      "object": "np04200-p-thyrotropin",
+      "evidence": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647",
+      "page": 105
+    },
+    {
+      "subject": "thyreoideastimulerende-hormon-tsh",
+      "predicate": "coded-as",
+      "object": "np03624-p-thyrotropin",
+      "evidence": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647",
+      "page": 105
+    },
+    {
+      "subject": "thyreoideastimulerende-hormon-tsh",
+      "predicate": "coded-as",
+      "object": "np03578-p-thyrotropin",
+      "evidence": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647",
+      "page": 105
+    },
+    {
+      "subject": "thyreoideastimulerende-hormon-tsh",
+      "predicate": "coded-as",
+      "object": "dnk35895-p-thyrotropin",
+      "evidence": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647",
+      "page": 105
+    },
+    {
+      "subject": "thyreoideastimulerende-hormon-tsh",
+      "predicate": "coded-as",
+      "object": "ass00039-p-thyrotropin",
+      "evidence": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647",
+      "page": 105
+    },
+    {
+      "subject": "thyreoideastimulerende-hormon-tsh",
+      "predicate": "coded-as",
+      "object": "ass00136-p-thyrotropin",
+      "evidence": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647",
+      "page": 105
+    },
+    {
+      "subject": "thyreoideastimulerende-hormon-tsh",
+      "predicate": "coded-as",
+      "object": "ass00647-p-thyrotropin",
+      "evidence": "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647",
       "page": 105
     }
   ],
   "claims": [
     {
-      "text": "Nedsættelse af puls er symptom nedsættende og nedsætter risiko for hjertesvigt [^src1]",
-      "type": "clinical",
-      "entities": [
-        "atrieflimren-i-danmark"
-      ],
-      "page": 101
-    },
-    {
-      "text": "Behandling af risikofaktorer omfatter kontrol af hypertension, hjertesvigt, diabetes, iskæmisk hjertesygdom og søvnapnø [^src1]",
-      "type": "clinical",
-      "entities": [
-        "atrieflimren-i-danmark"
-      ],
-      "page": 101
-    },
-    {
-      "text": "Andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulationsbehandling (hvor antikoagulationsbehandling er indiceret) [^src1]",
+      "text": "Indikator 1 måler andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations-behandling (hvor antikoagulations-behandling er indiceret) [^src1]",
       "type": "quality-indicator",
+      "entities": [
+        "atrieflimren",
+        "antikoagulationsbehandling"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Indikator 2 måler andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "atrieflimren",
+        "ekkokardiografi"
+      ],
+      "page": 104
+    },
+    {
+      "text": "Indikator 3 måler andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 60 dage før til 30 dage efter 1. diagnosedato [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "atrieflimren",
+        "thyreoideastimulerende-hormon-tsh"
+      ],
+      "page": 105
+    },
+    {
+      "text": "For indikator 1 er nævneren incidente patienter med CHA2DS2-VASc ≥2 [^src1]",
+      "type": "definition",
+      "entities": [
+        "cha2ds2-vasc"
+      ],
+      "page": 104
+    },
+    {
+      "text": "For indikator 1 er tælleren patienter i nævneren som har ventetid til opstart i oral AK-behandling inden for tidsrammen 120 dage før til 30 dage efter 1. diagnosedato (udskrivelsesdato ved indlagte forløb) [^src1]",
+      "type": "definition",
       "entities": [
         "antikoagulationsbehandling"
       ],
       "page": 104
     },
     {
-      "text": "Patienter i nævneren som har ventetid til opstart i oral AK-behandling inden for tidsrammen 120 dage før til 30 dage efter 1. diagnosedato [^src1]",
-      "type": "quality-indicator",
+      "text": "For indikator 2 er nævneren hele den incidente population [^src1]",
+      "type": "definition",
       "entities": [
-        "antikoagulationsbehandling"
+        "atrieflimren"
       ],
       "page": 104
     },
     {
-      "text": "Patienter med CHA2DS2-VASc score <2 ekskluderes fra indikator 1 [^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "cha2ds2-vasc-score"
-      ],
-      "page": 104
-    },
-    {
-      "text": "Patientforløb uden bopæl i Danmark ekskluderes fra indikator 1 [^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "atrieflimren-i-danmark"
-      ],
-      "page": 104
-    },
-    {
-      "text": "Patienter der dør <= 30 dage efter indeksdato ekskluderes fra indikator 1 [^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "atrieflimren-i-danmark"
-      ],
-      "page": 104
-    },
-    {
-      "text": "Andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato [^src1]",
-      "type": "quality-indicator",
+      "text": "For indikator 2 er tælleren patienter i nævneren som har fået udført ekkokardiografi inden for tidsrammen 6 måneder før til 3 måneder efter 1. diagnosedato [^src1]",
+      "type": "definition",
       "entities": [
         "ekkokardiografi"
       ],
       "page": 104
     },
     {
-      "text": "Hele den incidente population af atrieflimren-patienter skal have ekkokardiografi [^src1]",
-      "type": "quality-indicator",
+      "text": "For indikator 3 er nævneren hele den incidente population [^src1]",
+      "type": "definition",
       "entities": [
-        "ekkokardiografi"
-      ],
-      "page": 104
-    },
-    {
-      "text": "Patientforløb med under 3 måneders opfølgning efter 1. diagnosedato ekskluderes fra indikator 2 [^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "ekkokardiografi"
+        "atrieflimren"
       ],
       "page": 105
     },
     {
-      "text": "Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 60 dage før til 30 dage efter 1. diagnosedato [^src1]",
-      "type": "quality-indicator",
+      "text": "For indikator 3 er tælleren patienter i nævneren, som har fået målt TSH mindst én gang fra 60 dage før til 30 dage efter 1. diagnosedato [^src1]",
+      "type": "definition",
       "entities": [
-        "tsh-maaling"
-      ],
-      "page": 105
-    },
-    {
-      "text": "Hele den incidente population af atrieflimren-patienter skal have målt TSH [^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "tsh-maaling"
+        "thyreoideastimulerende-hormon-tsh"
       ],
       "page": 105
     }
   ],
-  "timeline": [
+  "timeline": [],
+  "tables": [
     {
-      "date": "30 dage",
-      "event": "Maksimal ventetid fra diagnosticering til opstart i antikoagulationsbehandling for nydiagnosticerede atrieflimren-patienter",
+      "subject": "indikator-1",
+      "title": "Indikatorområde: Ventetid til antikoagulations-behandling",
+      "page": 104,
+      "rowDimension": "indikator-parameter",
+      "colDimension": "definition",
       "entities": [
+        "atrieflimren",
         "antikoagulationsbehandling",
-        "atrieflimren-i-danmark"
-      ]
+        "cha2ds2-vasc"
+      ],
+      "markdown": "| Indikatorområde | Indikator | ANTAL PATIENTFORLØB (NÆVNER) | TÆLLER | EKSKLUDEREDE PATIENTER |\n| --- | --- | --- | --- | --- |\n| Ventetid til antikoagulations-behandling | Andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations-behandling (hvor antikoagulations-behandling er indiceret) | Incidente patienter med CHA2DS2-VASc ≥2 | Patienter i nævneren som har ventetid til opstart i oral AK-behandling inden for tidsrammen 120 dage før til 30 dage efter 1. diagnosedato (udskrivelsesdato ved indlagte forløb). Koder for oral AK-behandling: B01AA (vitamin K antagonister) B01AE07 (dabigatran) B01AF01 (rivaroxaban) B01AF02 (apixaban) B01AF03 (edoxaban) | Patienter med CHA2DS2-VASc score <2 Patientforløb uden bopæl i Danmark. Patienter der dør <= 30 dage efter indeksdato |",
+      "summary": "Tabellen definerer indikator 1 ved at specificere dens navn, måleformel, nævner, tæller og eksklusionskriterier for ventetid til antikoagulationsbehandling hos patienter med nydiagnosticeret atrieflimren."
     },
     {
-      "date": "6 måneder før til 3 måneder efter 1. diagnosedato",
-      "event": "Tidsramme for ekkokardiografi-undersøgelse for nydiagnosticerede atrieflimren-patienter",
+      "subject": "indikator-2",
+      "title": "Indikatorområde: Ekkokardiografi",
+      "page": 104,
+      "rowDimension": "indikator-parameter",
+      "colDimension": "definition",
       "entities": [
-        "ekkokardiografi",
-        "atrieflimren-i-danmark"
-      ]
+        "atrieflimren",
+        "ekkokardiografi"
+      ],
+      "markdown": "| Indikatorområde | Indikator | ANTAL PATIENTFORLØB (NÆVNER) | TÆLLER | EKSKLUDEREDE PATIENTER |\n| --- | --- | --- | --- | --- |\n| Ekkokardiografi | Andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato | Hele den incidente population | Patienter i nævneren som har fået udført ekkokardiografi inden for tidsrammen 6 måneder før til 3 måneder efter 1. diagnosedato. Koder for ekkokardiografi i Landspatientregisteret: UXUC80 (transthorakal ekkokardiografi) UXUC80A (transthorakal stress ekkokardiografi); UXUC80B (transthorakal ekkokardiografi med dobutamin test) UXUC80C (transthorakal ekkokardiografi med kontrast) UXUC80D (transthorakal 3-D ekkokardiografi) UXUC80E (transthorakal ekkokardiografi med vævsdoppler) UXUC81 (transøsofageal ekkokardiografi) UXUC81C (transøsofageal ekkokardiografi med kontrast) Koder for ekkokardiografi i Sygesikringsregisteret: 2208 Ekkocardiografi 3810 Ekkokardiografi, standardundersøgelse 3811 Ekkokardiografi, avanceret undersøgelse 5101 EKKO-cardiografi 5102 Transsøfofagal ekko. 5103 Stress ekkocardiogra 6402 Ekkocardiografi 6408 Ekkocardiografi 0906 Ekko-kardiografi | Patientforløb med under 3 måneders opfølgning efter 1. diagnosedato. Patientforløb uden bopæl i Danmark. |",
+      "summary": "Tabellen definerer indikator 2 ved at specificere dens navn, måleformel, nævner, tæller og eksklusionskriterier for udførelse af ekkokardiografi hos patienter med nydiagnosticeret atrieflimren."
     },
     {
-      "date": "60 dage før til 30 dage efter 1. diagnosedato",
-      "event": "Tidsramme for TSH-måling for nydiagnosticerede atrieflimren-patienter",
+      "subject": "indikator-3",
+      "title": "Indikatorområde: TSH måling",
+      "page": 105,
+      "rowDimension": "indikator-parameter",
+      "colDimension": "definition",
       "entities": [
-        "tsh-maaling",
-        "atrieflimren-i-danmark"
-      ]
+        "atrieflimren",
+        "thyreoideastimulerende-hormon-tsh"
+      ],
+      "markdown": "| Indikatorområde | Indikator | ANTAL PATIENTFORLØB (NÆVNER) | TÆLLER | EKSKLUDEREDE PATIENTER |\n| --- | --- | --- | --- | --- |\n| Thyreoideastimulerende hormon (TSH) måling | Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 60 dage før til 30 dage efter 1. diagnosedato | Hele den incidente population | Patienter i nævneren, som har fået målt TSH mindst én gang fra 60 dage før til 30 dage efter 1. diagnosedato. Kode: NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647 | Patientforløb uden bopæl i Danmark. |",
+      "summary": "Tabellen definerer indikator 3 ved at specificere dens navn, måleformel, nævner, tæller og eksklusionskriterier for TSH-måling hos patienter med nydiagnosticeret atrieflimren."
     }
   ],
-  "context": "Disse sider udgør en vejledning fra Regionernes Kliniske Kvalitetsudviklingsprogram for behandling og kvalitetsovervågning af atrieflimren-patienter i Danmark. Dokumentet beskriver behandlingsstrategier, herunder frekvenssænkende og rytmeregulerende behandling, samt behandling af risikofaktorer som hypertension, hjertesvigt og diabetes. Desuden præsenteres beregningsregler for tre vigtige kvalitetsindikatorer: ventetid til antikoagulationsbehandling (indikator 1), ekkokardiografi-screening (indikator 2) og TSH-måling (indikator 3). Hver indikator specificerer populationen, tæller, ekskluderede patienter og relevante medicinkoder eller procedurekoder fra nationale registre som Landspatientregisteret og Sygesikringsregisteret."
+  "context": "Dette dokumentchunk er en del af den offentliggjorte version af 'Atrieflimren i Danmark' fra Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP), og det fokuserer specifikt på beregningsreglerne for tre kliniske kvalitetsindikatorer relateret til behandling og diagnostik af atrieflimren. Chunken indeholder detaljerede definitioner af nævner, tæller og eksklusionskriterier for indikatorerne 'Ventetid til antikoagulationsbehandling', 'Ekkokardiografi' og 'TSH måling', samt de relevante kodetal for behandlinger og undersøgelser. Den hører til en bredere national kvalitetsindsats, hvor RKKP styrer implementeringen af evidensbaserede kliniske standarder i det danske sundhedsvæsen, og chunken fungerer som teknisk vejledning til registrering og beregning af kvalitetsmål i sundhedsregistre."
 }

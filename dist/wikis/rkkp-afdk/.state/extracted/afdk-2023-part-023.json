@@ -4,8 +4,8 @@
       "name": "Databasen for Atrieflimren i Danmark",
       "type": "organization",
       "slug": "databasen-for-atrieflimren-i-danmark",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Denne database er det centrale register for atriefimren-patienter i Danmark og udgør grundlaget for alle kvalitetsindikatorer og resultater rapporteret i årsrapporten.",
+      "folder": "entities/organizations/health-databases",
+      "significance": "Databasen er den centrale nationale kliniske kvalitetsdatabase, der overvåger behandlingskvaliteten for patienter med atrieflimren i Danmark, og danner grundlag for alle indikatorresultater og beregningsregler præsenteret på siderne 111–115.",
       "mentions": [
         {
           "page": 111,
@@ -13,7 +13,19 @@
         },
         {
           "page": 112,
-          "context": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) og er identificeret via data fra Landspatientregistret."
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 113,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 114,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 115,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
         }
       ]
     },
@@ -21,11 +33,27 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/health-programs",
-      "significance": "RKKP er den organisation bag databasen og årsrapporten, ansvarlig for kvalitetsudvikling inden for atrieflimren-behandling i Danmark.",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "RKKP er det overordnede styrende program, der udarbejder og administrerer årsrapporten og fastsætter standarder for klinisk kvalitet i regionerne, herunder definition af indikatorer, beregningsregler og fortolkning af resultater.",
       "mentions": [
         {
           "page": 111,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 112,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 113,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 114,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 115,
           "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
         }
       ]
@@ -34,16 +62,16 @@
       "name": "Midtjylland",
       "type": "location",
       "slug": "midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Midtjylland er en af fem danske regioner med rapporterede indikatorer for atrieflimren-behandling og opfylder standarden for ekkokardiografi.",
+      "folder": "entities/locations/regions",
+      "significance": "Midtjylland er én af de fem danske regioner, hvis kliniske kvalitetsdata for atrieflimren-patienter præsenteres i detaljeret tabelform på side 111, og som fremgår som eksempel på opfyldelse af standarden for ekkokardiografi på side 113.",
       "mentions": [
         {
           "page": 111,
-          "context": "Midtjylland 269 / 4.717 0 (0) 5,7 (5,1-6,4)"
+          "context": "Midtjylland 269 / 4.717 0 (0) 5,7 (5,1-6,4) 359 / 4.577 7,8 8,6"
         },
         {
           "page": 113,
-          "context": "Midtjylland Ja 3.562/4.217 0(0) 84,5 (83,3;85,5)"
+          "context": "Midtjylland Ja 3.562/4.217 0(0) 84,5 (83,3;85,5) 84,8(83,7;85,9) 81,7(80,5;82,8)"
         }
       ]
     },
@@ -52,11 +80,11 @@
       "type": "organization",
       "slug": "aarhus-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Universitetshospital er en af flere hospitalsenheder i Midtjylland-regionen med rapporterede indikatorer for atrieflimren-behandling.",
+      "significance": "Aarhus Universitetshospital er et regionshospital i Region Midtjylland, hvis data for atrieflimren-indikatorer er rapporteret separat i tabellen på side 111, hvilket understreger dets rolle som en central behandlingsenhed.",
       "mentions": [
         {
           "page": 111,
-          "context": "Aarhus Universitetshospital 55 / 940 0 (0) 5,9 (4,4-7,5)"
+          "context": "Aarhus Universitetshospital 55 / 940 0 (0) 5,9 (4,4-7,5) 79 / 918 8,6 10,2"
         }
       ]
     },
@@ -65,11 +93,11 @@
       "type": "organization",
       "slug": "friklinikken-region-syddanmark-grindsted",
       "folder": "entities/organizations/hospitals",
-      "significance": "Friklinikken Region Syddanmark Grindsted er en klinisk enhed i Syddanmark-regionen med rapporterede indikatorer for atrieflimren-behandling.",
+      "significance": "Friklinikken Region Syddanmark Grindsted er en specialiseret klinik i Region Syddanmark, hvis små antal patientforløb (9/136) og bredt konfidensinterval (3,1–12,2 %) illustrerer usikkerheden ved måling på mindre enheder, som nævnes i læsevejledningen på side 113.",
       "mentions": [
         {
           "page": 111,
-          "context": "Friklinikken Region Syddanmark Grindsted 9 / 136 0 (0) 6,6 (3,1-12,2)"
+          "context": "Friklinikken Region\nSyddanmark Grindsted\n9 / 136 0 (0) 6,6 (3,1-12,2) 6 / 146 4,1 2,5"
         }
       ]
     },
@@ -78,11 +106,11 @@
       "type": "organization",
       "slug": "hospitalsenhed-midt",
       "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalsenhed Midt er en af flere hospitalsenheder i Midtjylland-regionen med rapporterede indikatorer for atrieflimren-behandling.",
+      "significance": "Hospitalsenhed Midt er en af de større hospitalsenheder i Region Midtjylland, hvis data (61/1.282) bidrager til regional gennemsnitsberegning og illustrerer variation i kvalitetsmål inden for samme region.",
       "mentions": [
         {
           "page": 111,
-          "context": "Hospitalsenhed Midt 61 / 1.282 0 (0) 4,8 (3,7-6,1)"
+          "context": "Hospitalsenhed Midt 61 / 1.282 0 (0) 4,8 (3,7-6,1) 81 / 1.179 6,9 7,5"
         }
       ]
     },
@@ -91,11 +119,11 @@
       "type": "organization",
       "slug": "hospitalsenheden-vest",
       "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalsenheden Vest er en af flere hospitalsenheder i Midtjylland-regionen med rapporterede indikatorer for atrieflimren-behandling.",
+      "significance": "Hospitalsenheden Vest er en hospitalsenhed i Region Midtjylland, hvis resultat (34/692) viser lavere opfyldelse af hjertesvigtsindikatoren end andre enheder i samme region, hvilket fremhæves i sammenligningskonteksten på side 111.",
       "mentions": [
         {
           "page": 111,
-          "context": "Hospitalsenheden Vest 34 / 692 0 (0) 4,9 (3,4-6,8)"
+          "context": "Hospitalsenheden Vest 34 / 692 0 (0) 4,9 (3,4-6,8) 83 / 995 8,3 7,2"
         }
       ]
     },
@@ -104,11 +132,11 @@
       "type": "organization",
       "slug": "regionshospitalet-godstrup",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Gødstrup er en af flere hospitalsenheder i Midtjylland-regionen med rapporterede indikatorer for atrieflimren-behandling.",
+      "significance": "Regionshospitalet Gødstrup er et hospital i Region Midtjylland, hvis data (25/353) inkluderer en andel på 7,1 % med hjertesvigt efter atrieflimren og et konfidensinterval (4,6–10,3 %), hvilket bruges til at vurdere statistisk sikkerhed i kvalitetsmåling.",
       "mentions": [
         {
           "page": 111,
-          "context": "Regionshospitalet Gødstrup 25 / 353 0 (0) 7,1 (4,6-10,3)"
+          "context": "Regionshospitalet\nGødstrup\n25 / 353 0 (0) 7,1 (4,6-10,3)"
         }
       ]
     },
@@ -117,11 +145,11 @@
       "type": "organization",
       "slug": "regionshospitalet-horsens",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Horsens er en af flere hospitalsenheder i Midtjylland-regionen med rapporterede indikatorer for atrieflimren-behandling.",
+      "significance": "Regionshospitalet Horsens er et centralt hospital i Region Midtjylland, hvis data (44/685) viser en andel på 6,4 % med hjertesvigt efter atrieflimren og indgår i den regionale trendanalyse om aftagende forekomst over tid.",
       "mentions": [
         {
           "page": 111,
-          "context": "Regionshospitalet Horsens 44 / 685 0 (0) 6,4 (4,7-8,5)"
+          "context": "Regionshospitalet Horsens 44 / 685 0 (0) 6,4 (4,7-8,5) 60 / 709 8,5 9,3"
         }
       ]
     },
@@ -130,11 +158,11 @@
       "type": "organization",
       "slug": "regionshospitalet-randers",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Randers er en af flere hospitalsenheder i Midtjylland-regionen med rapporterede indikatorer for atrieflimren-behandling.",
+      "significance": "Regionshospitalet Randers er et hospital i Region Midtjylland, hvis data (50/758) på 6,6 % med hjertesvigt efter atrieflimren støtter den regionale konklusion om aftagende tendens i forekomst over tid.",
       "mentions": [
         {
           "page": 111,
-          "context": "Regionshospitalet Randers 50 / 758 0 (0) 6,6 (4,9-8,6)"
+          "context": "Regionshospitalet Randers 50 / 758 0 (0) 6,6 (4,9-8,6) 56 / 774 7,2 9,7"
         }
       ]
     },
@@ -143,11 +171,11 @@
       "type": "organization",
       "slug": "samso-sundheds-og-akuthus",
       "folder": "entities/organizations/hospitals",
-      "significance": "Samsø Sundheds og Akuthus er en mindre klinisk enhed i Midtjylland-regionen med rapporterede indikatorer for atrieflimren-behandling.",
+      "significance": "Samsø Sundheds og Akuthus er en lille sundhedsvæsenstruktur på Samsø, hvis nul-resultat (0/7) og ekstremt bredt konfidensinterval (0,0–41,0 %) demonstrerer udfordringer ved statistisk analyse på meget små populationer, som beskrives i læsevejledningen.",
       "mentions": [
         {
           "page": 111,
-          "context": "Samsø Sundheds og Akuthus 0 / 7 0 (0) 0,0 (0,0-41,0)"
+          "context": "Samsø Sundheds og\nAkuthus\n0 / 7 0 (0) 0,0 (0,0-41,0) # / # 0,0 0,0"
         }
       ]
     },
@@ -155,16 +183,12 @@
       "name": "Nordjylland",
       "type": "location",
       "slug": "nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Nordjylland er en af fem danske regioner med rapporterede indikatorer for atrieflimren-behandling.",
+      "folder": "entities/locations/regions",
+      "significance": "Nordjylland er én af de fem danske regioner, hvis data (126/2.186) for hjertesvigt efter atrieflimren viser en andel på 5,8 % og indgår i den nationale sammenligning af regional variation fra 5,8–7,4 %.",
       "mentions": [
         {
           "page": 111,
-          "context": "Nordjylland 126 / 2.186 0 (0) 5,8 (4,8-6,8)"
-        },
-        {
-          "page": 113,
-          "context": "Nordjylland Nej 1.575/2.176 0(0) 72,4 (70,4;74,3)"
+          "context": "Nordjylland 126 / 2.186 0 (0) 5,8 (4,8-6,8) 164 / 2.267 7,2 8,0"
         }
       ]
     },
@@ -173,11 +197,11 @@
       "type": "organization",
       "slug": "aalborg-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital er en af flere hospitalsenheder i Nordjylland-regionen med rapporterede indikatorer for atrieflimren-behandling.",
+      "significance": "Aalborg Universitetshospital er et universitetshospital i Region Nordjylland, hvis data (65/1.191) indgår i den regionale gennemsnitsberegning og viser en andel på 5,5 % med hjertesvigt efter atrieflimren.",
       "mentions": [
         {
           "page": 111,
-          "context": "Aalborg Universitetshospital 65 / 1.191 0 (0) 5,5 (4,2-6,9)"
+          "context": "Aalborg\nUniversitetshospital\n65 / 1.191 0 (0) 5,5 (4,2-6,9) 103 / 1.286 8,0 8,6"
         }
       ]
     },
@@ -186,11 +210,11 @@
       "type": "organization",
       "slug": "aalborg-universitetshospital-thisted",
       "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital Thisted er en af flere hospitalsenheder i Nordjylland-regionen med rapporterede indikatorer for atrieflimren-behandling.",
+      "significance": "Aalborg Universitetshospital Thisted er en lokal afdeling af Aalborg Universitetshospital i Region Nordjylland, hvis data (14/235) viser en andel på 6,0 % med hjertesvigt efter atrieflimren og et bredt konfidensinterval (3,3–9,8 %), hvilket understøtter behovet for statistisk justering på små enheder.",
       "mentions": [
         {
           "page": 111,
-          "context": "Aalborg Universitetshospital Thisted 14 / 235 0 (0) 6,0 (3,3-9,8)"
+          "context": "Aalborg\nUniversitetshospital\nThisted\n14 / 235 0 (0) 6,0 (3,3-9,8) 12 / 195 6,2 5,9"
         }
       ]
     },
@@ -199,110 +223,11 @@
       "type": "organization",
       "slug": "regionshospital-nordjylland-ven",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospital Nordjylland Ven er en af flere hospitalsenheder i Nordjylland-regionen med rapporterede indikatorer for atrieflimren-behandling.",
+      "significance": "Regionshospital Nordjylland Ven er et hospital i Region Nordjylland, hvis data (47/760) på 6,2 % med hjertesvigt efter atrieflimren bidrager til den regionale trendanalyse og illustrerer konsistens i kvalitetsmål inden for samme region.",
       "mentions": [
         {
           "page": 111,
-          "context": "Regionshospital Nordjylland Ven 47 / 760 0 (0) 6,2 (4,6-8,1)"
-        }
-      ]
-    },
-    {
-      "name": "Syddanmark",
-      "type": "location",
-      "slug": "syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Syddanmark er en af fem danske regioner med rapporterede indikatorer for atrieflimren-behandling og opfylder standarden for ekkokardiografi.",
-      "mentions": [
-        {
-          "page": 111,
-          "context": "Region Syddanmark Grindsted"
-        },
-        {
-          "page": 113,
-          "context": "Syddanmark Nej 3.525/4.681 0(0) 75,3 (74,0;76,5)"
-        }
-      ]
-    },
-    {
-      "name": "Hovedstaden",
-      "type": "location",
-      "slug": "hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Hovedstaden er en af fem danske regioner med rapporterede indikatorer for atrieflimren-behandling og opfylder ikke standarden for ekkokardiografi.",
-      "mentions": [
-        {
-          "page": 113,
-          "context": "Hovedstaden Nej 3.227/5.388 0(0) 59,9 (58,6;61,2)"
-        }
-      ]
-    },
-    {
-      "name": "Sjælland",
-      "type": "location",
-      "slug": "sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Sjælland er en af fem danske regioner med rapporterede indikatorer for atrieflimren-behandling og opfylder ikke standarden for ekkokardiografi.",
-      "mentions": [
-        {
-          "page": 113,
-          "context": "Sjælland Nej 2.281/3.257 0(0) 70,0 (68,4;71,6)"
-        }
-      ]
-    },
-    {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau for alle rapporterede indikatorer for atrieflimren-behandling.",
-      "mentions": [
-        {
-          "page": 113,
-          "context": "Danmark Nej 14.170/19.719 0(0) 71,9 (71,2;72,5)"
-        }
-      ]
-    },
-    {
-      "name": "Landspatientregistret",
-      "type": "organization",
-      "slug": "landspatientregistret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Landspatientregistret er det nationale patientregister, hvorfra data om hjertesvigt og andre diagnoser identificeres for atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 112,
-          "context": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) og er identificeret via data fra Landspatientregistret."
-        },
-        {
-          "page": 115,
-          "context": "Populationen omfatter alle patienter med diagnosen atrieflimren (DI48 inklusiv alle underkoder) givet for første gang inden for de seneste 10 år i opgørelsesperioden, enten ved første ambulante besøg (inkl. uafsluttede ambulante forløb) eller ved første indlæggelse registreret i Landspatientregistret"
-        }
-      ]
-    },
-    {
-      "name": "Kolding Sygehus",
-      "type": "organization",
-      "slug": "kolding-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Kolding Sygehus er en hospitalsenhed hvis indikatorer ikke er korrekt fordelt og skal tolkes samlet med Vejle Sygehus.",
-      "mentions": [
-        {
-          "page": 111,
-          "context": "*Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt"
-        }
-      ]
-    },
-    {
-      "name": "Vejle Sygehus",
-      "type": "organization",
-      "slug": "vejle-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Vejle Sygehus er en hospitalsenhed hvis indikatorer ikke er korrekt fordelt og skal tolkes samlet med Kolding Sygehus.",
-      "mentions": [
-        {
-          "page": 111,
-          "context": "*Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt"
+          "context": "Regionshospital\nNordjylland Ven\n47 / 760 0 (0) 6,2 (4,6-8,1) 49 / 786 6,2 7,5"
         }
       ]
     },
@@ -311,11 +236,62 @@
       "type": "organization",
       "slug": "sygehus-lillebaelt",
       "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Lillebælt er den samlede enhed, som Kolding Sygehus og Vejle Sygehus skal tolkes som.",
+      "significance": "Sygehus Lillebælt er et regionalt sygehus i Region Syddanmark, hvis data ikke er fordelt korrekt mellem Kolding og Vejle Sygehus og derfor skal fortolkes samlet — en bemærkning, der understreger metodiske udfordringer i datarapportering.",
       "mentions": [
         {
           "page": 111,
-          "context": "*Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt"
+          "context": "*Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét\nSygehus Lillebælt"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "organization",
+      "slug": "landspatientregisteret",
+      "folder": "entities/organizations/health-databases",
+      "significance": "Landspatientregisteret er den nationale registerkilde, der bruges til identifikation af diagnoser (fx DI50*, DI110* osv.) og procedurer (fx ekkokardiografi-koder UXUC80), og danner det primære datagrundlag for alle indikatorberegninger i rapporten.",
+      "mentions": [
+        {
+          "page": 112,
+          "context": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) og er identificeret via data fra Landspatientregistret."
+        },
+        {
+          "page": 115,
+          "context": "Koder for ekkokardiografi i\nLandspatientregisteret:\nUXUC80 (transthorakal\nekkokardiografi)\nUXUC80A (transthorakal stress\nekkokardiografi);\nUXUC80B (transthorakal\nekkokardiografi med dobutamin test)"
+        }
+      ]
+    },
+    {
+      "name": "CHA2DS2-VASc",
+      "type": "concept",
+      "slug": "cha2ds2-vasc",
+      "folder": "topics/clinical-scoring-systems",
+      "significance": "CHA2DS2-VASc er den kliniske risikoscore, der anvendes til at identificere patienter med atrieflimren, som har indikation for antikoagulationsbehandling, og som derfor udgør tælleren i indikator nr. 1 om ventetid til behandling.",
+      "mentions": [
+        {
+          "page": 115,
+          "context": "Incidente patienter med\nCHA2DS2-VASc ≥2"
+        },
+        {
+          "page": 115,
+          "context": "Patienter med\nCHA2DS2-VASc score\n<2"
+        }
+      ]
+    },
+    {
+      "name": "DI48",
+      "type": "concept",
+      "slug": "di48",
+      "folder": "topics/icd-codes",
+      "significance": "DI48 er ICD-10-diagnosekoden for atrieflimren, som definerer både den incidente og prævalente population i databasen, og som er den centrale diagnostiske grundsten for hele rapportens epidemiologiske og kliniske analyse.",
+      "mentions": [
+        {
+          "page": 115,
+          "context": "Populationen omfatter alle patienter med diagnosen atrieflimren (DI48 inklusiv alle underkoder) givet for første gang inden for de seneste 10 år i\nopgørelsesperioden..."
+        },
+        {
+          "page": 115,
+          "context": "Populationen omfatter alle patienter med diagnosen atrieflimren (DI48 inklusiv alle underkoder) givet inden for de seneste 10 år op til\nopgørelsesperiodens start..."
         }
       ]
     }
@@ -323,217 +299,220 @@
   "relationships": [
     {
       "subject": "databasen-for-atrieflimren-i-danmark",
-      "predicate": "managed-by",
+      "predicate": "is-managed-by",
       "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Databasen for Atrieflimren i Danmark er administreret af Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 / Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
       "page": 111
     },
     {
-      "subject": "aarhus-universitetshospital",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Aarhus Universitetshospital er en hospitalsenhed i Midtjylland-regionen",
+      "subject": "midtjylland",
+      "predicate": "contains-hospital",
+      "object": "aarhus-universitetshospital",
+      "evidence": "Midtjylland [...] Aarhus Universitetshospital 55 / 940...",
       "page": 111
     },
     {
-      "subject": "friklinikken-region-syddanmark-grindsted",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Friklinikken Region Syddanmark Grindsted er en klinisk enhed i Syddanmark-regionen",
+      "subject": "midtjylland",
+      "predicate": "contains-hospital",
+      "object": "hospitalsenhed-midt",
+      "evidence": "Midtjylland [...] Hospitalsenhed Midt 61 / 1.282...",
       "page": 111
     },
     {
-      "subject": "hospitalsenhed-midt",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Hospitalsenhed Midt er en hospitalsenhed i Midtjylland-regionen",
+      "subject": "midtjylland",
+      "predicate": "contains-hospital",
+      "object": "hospitalsenheden-vest",
+      "evidence": "Midtjylland [...] Hospitalsenheden Vest 34 / 692...",
       "page": 111
     },
     {
-      "subject": "hospitalsenheden-vest",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Hospitalsenheden Vest er en hospitalsenhed i Midtjylland-regionen",
+      "subject": "midtjylland",
+      "predicate": "contains-hospital",
+      "object": "regionshospitalet-godstrup",
+      "evidence": "Midtjylland [...] Regionshospitalet Gødstrup 25 / 353...",
       "page": 111
     },
     {
-      "subject": "regionshospitalet-godstrup",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Regionshospitalet Gødstrup er en hospitalsenhed i Midtjylland-regionen",
+      "subject": "midtjylland",
+      "predicate": "contains-hospital",
+      "object": "regionshospitalet-horsens",
+      "evidence": "Midtjylland [...] Regionshospitalet Horsens 44 / 685...",
       "page": 111
     },
     {
-      "subject": "regionshospitalet-horsens",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Regionshospitalet Horsens er en hospitalsenhed i Midtjylland-regionen",
+      "subject": "midtjylland",
+      "predicate": "contains-hospital",
+      "object": "regionshospitalet-randers",
+      "evidence": "Midtjylland [...] Regionshospitalet Randers 50 / 758...",
       "page": 111
     },
     {
-      "subject": "regionshospitalet-randers",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Regionshospitalet Randers er en hospitalsenhed i Midtjylland-regionen",
+      "subject": "nordjylland",
+      "predicate": "contains-hospital",
+      "object": "aalborg-universitetshospital",
+      "evidence": "Nordjylland [...] Aalborg Universitetshospital 65 / 1.191...",
       "page": 111
     },
     {
-      "subject": "samso-sundheds-og-akuthus",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Samsø Sundheds og Akuthus er en klinisk enhed i Midtjylland-regionen",
+      "subject": "nordjylland",
+      "predicate": "contains-hospital",
+      "object": "aalborg-universitetshospital-thisted",
+      "evidence": "Nordjylland [...] Aalborg Universitetshospital Thisted 14 / 235...",
       "page": 111
     },
     {
-      "subject": "aalborg-universitetshospital",
-      "predicate": "located-in",
-      "object": "nordjylland",
-      "evidence": "Aalborg Universitetshospital er en hospitalsenhed i Nordjylland-regionen",
+      "subject": "nordjylland",
+      "predicate": "contains-hospital",
+      "object": "regionshospital-nordjylland-ven",
+      "evidence": "Nordjylland [...] Regionshospital Nordjylland Ven 47 / 760...",
       "page": 111
     },
     {
-      "subject": "aalborg-universitetshospital-thisted",
-      "predicate": "located-in",
-      "object": "nordjylland",
-      "evidence": "Aalborg Universitetshospital Thisted er en hospitalsenhed i Nordjylland-regionen",
+      "subject": "sygehus-lillebaelt",
+      "predicate": "comprises-hospitals",
+      "object": "kolding-sygehus",
+      "evidence": "*Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt",
       "page": 111
     },
     {
-      "subject": "regionshospital-nordjylland-ven",
-      "predicate": "located-in",
-      "object": "nordjylland",
-      "evidence": "Regionshospital Nordjylland Ven er en hospitalsenhed i Nordjylland-regionen",
+      "subject": "sygehus-lillebaelt",
+      "predicate": "comprises-hospitals",
+      "object": "vejle-sygehus",
+      "evidence": "*Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt",
       "page": 111
     },
     {
-      "subject": "kolding-sygehus",
-      "predicate": "part-of",
-      "object": "sygehus-lillebaelt",
-      "evidence": "Kolding Sygehus og Vejle Sygehus skal tolkes samlet som ét Sygehus Lillebælt",
-      "page": 111
+      "subject": "cha2ds2-vasc",
+      "predicate": "defines-eligibility-for",
+      "object": "ventetid-til-antikoagulations-behandling",
+      "evidence": "Andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations-behandling (hvor antikoagulations-behandling er indiceret) / Incidente patienter med CHA2DS2-VASc ≥2",
+      "page": 115
     },
     {
-      "subject": "vejle-sygehus",
-      "predicate": "part-of",
-      "object": "sygehus-lillebaelt",
-      "evidence": "Kolding Sygehus og Vejle Sygehus skal tolkes samlet som ét Sygehus Lillebælt",
-      "page": 111
+      "subject": "di48",
+      "predicate": "defines-population-for",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Populationen omfatter alle patienter med diagnosen atrieflimren (DI48 inklusiv alle underkoder)...",
+      "page": 115
     }
   ],
   "claims": [
     {
       "text": "Indenfor det første år efter atrieflimrendiagnosen blev 6,5% registreret med en hjertesvigtsdiagnose [^src1]",
-      "type": "clinical-outcome",
-      "entities": [],
+      "type": "clinical",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
       "page": 112
     },
     {
-      "text": "På regional plan varierer andelen fra 5,8-7,4% [^src1]",
-      "type": "clinical-outcome",
-      "entities": [],
-      "page": 112
-    },
-    {
-      "text": "Andelen med hjertesvigt inden for det første år efter atrieflimren ses at være aftagende over tid såvel nationalt som i alle regioner [^src1]",
-      "type": "clinical-trend",
-      "entities": [],
+      "text": "På regional plan varierer andelen med hjertesvigt fra 5,8–7,4% [^src1]",
+      "type": "clinical",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
       "page": 112
     },
     {
       "text": "Livstidsrisikoen for hjertesvigt efter atrieflimren er 40% [^src1]",
-      "type": "clinical-risk",
-      "entities": [],
-      "page": 112
-    },
-    {
-      "text": "Hjertesvigt er globalt den hyppigste kardiovaskulære dødsårsag blandt patienter med atrieflimren [^src1]",
-      "type": "clinical-epidemiology",
-      "entities": [],
-      "page": 112
-    },
-    {
-      "text": "Midtjylland opfylder standarden for ekkokardiografi med 84,5% (83,3;85,5) [^src1]",
-      "type": "quality-indicator",
+      "type": "epidemiological",
       "entities": [
-        "midtjylland"
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 112
+    },
+    {
+      "text": "Standarden for ekkokardiografi er ≥80% [^src1]",
+      "type": "quality-standard",
+      "entities": [
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
       ],
       "page": 113
     },
     {
-      "text": "Danmark opfylder ikke standarden for ekkokardiografi med 71,9% (71,2;72,5) [^src1]",
-      "type": "quality-indicator",
+      "text": "For den aktuelle indikator om ekkokardiografi er standarden opfyldt for Midtjylland (84,5 %) og ikke opfyldt for Hovedstaden (59,9 %) [^src1]",
+      "type": "quality-assessment",
       "entities": [
-        "danmark"
-      ],
-      "page": 113
-    },
-    {
-      "text": "Hovedstaden opfylder ikke standarden for ekkokardiografi med 59,9% (58,6;61,2) [^src1]",
-      "type": "quality-indicator",
-      "entities": [
+        "midtjylland",
         "hovedstaden"
       ],
       "page": 113
     },
     {
-      "text": "Sjælland opfylder ikke standarden for ekkokardiografi med 70,0% (68,4;71,6) [^src1]",
-      "type": "quality-indicator",
+      "text": "Den incidente population omfatter alle patienter med diagnosen atrieflimren (DI48 inklusiv alle underkoder) givet for første gang inden for de seneste 10 år i opgørelsesperioden [^src1]",
+      "type": "methodological",
       "entities": [
-        "sjaelland"
+        "databasen-for-atrieflimren-i-danmark",
+        "di48"
       ],
-      "page": 113
+      "page": 115
     },
     {
-      "text": "Syddanmark opfylder ikke standarden for ekkokardiografi med 75,3% (74,0;76,5) [^src1]",
-      "type": "quality-indicator",
+      "text": "Den prævalente population omfatter kun personer, som er live ved påbegyndelsen af den aktuelle opgørelsesperiode [^src1]",
+      "type": "methodological",
       "entities": [
-        "syddanmark"
+        "databasen-for-atrieflimren-i-danmark"
       ],
-      "page": 113
-    },
-    {
-      "text": "Nordjylland opfylder ikke standarden for ekkokardiografi med 72,4% (70,4;74,3) [^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "nordjylland"
-      ],
-      "page": 113
-    },
-    {
-      "text": "Midtjylland havde 269 patienter med hjertesvigt blandt 4.717 nydiagnosticerede atrieflimren-patienter (5,7%) i perioden 01.07.2021 - 30.06.2022 [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "midtjylland"
-      ],
-      "page": 111
-    },
-    {
-      "text": "Nordjylland havde 126 patienter med hjertesvigt blandt 2.186 nydiagnosticerede atrieflimren-patienter (5,8%) i perioden 01.07.2021 - 30.06.2022 [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "nordjylland"
-      ],
-      "page": 111
+      "page": 115
     }
   ],
   "timeline": [
     {
-      "date": "01.07.2022 - 30.06.2023",
-      "event": "Rapporteringsperiode for Databasen for Atrieflimren i Danmark årsrapport",
+      "date": "2022-07-01",
+      "event": "Start af opgørelsesperioden for årsrapporten 'Databasen for Atrieflimren i Danmark' 2022–2023",
       "entities": [
         "databasen-for-atrieflimren-i-danmark"
       ]
     },
     {
-      "date": "01.07.2021 - 30.06.2022",
-      "event": "Tidligere år data for hjertesvigtsindikator",
-      "entities": []
-    },
-    {
-      "date": "01.07.2019 - 30.06.2020",
-      "event": "Aktuelle år data for ekkokardiografi-indikator",
-      "entities": []
+      "date": "2023-06-30",
+      "event": "Afslutning af opgørelsesperioden for årsrapporten 'Databasen for Atrieflimren i Danmark' 2022–2023",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
     }
   ],
-  "context": "Denne dokumentchunk udgør en væsentlig del af årsrapporten for Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023. Rapporten præsenterer detaljerede kvalitetsindikatorer for atrieflimren-behandling på tværs af fem danske regioner og deres respektive hospitalsenheder, med fokus på to centrale indikatorer: hjertesvigtsudvikling blandt nydiagnosticerede patienter og udførelse af ekkokardiografi. Chunken indeholder både rådata fra tabellariske oversigter, metodologisk vejledning til fortolkning af resultaterne, og diskussion af kliniske implikationer, herunder den høje livstidsrisiko for hjertesvigt efter atrieflimren (40%) og den observerede nedadgående trend i hjertesvigtsforekomst over tid, som tyder på forbedret rytme- og frekvenskontrol i klinisk praksis."
+  "tables": [
+    {
+      "subject": "hjertesvigt-indikator",
+      "title": "Andel med hjertesvigt efter atrieflimren, per region og hospital",
+      "page": 111,
+      "rowDimension": "region og hospital",
+      "colDimension": "andele (%) og antal",
+      "entities": [
+        "midtjylland",
+        "aarhus-universitetshospital",
+        "friklinikken-region-syddanmark-grindsted",
+        "hospitalsenhed-midt",
+        "hospitalsenheden-vest",
+        "regionshospitalet-godstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "samso-sundheds-og-akuthus",
+        "nordjylland",
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "regionshospital-nordjylland-ven"
+      ],
+      "markdown": "| Region/hospital | Tæller / antal | Uoplyst | Andel (%) (95 % CI) | Andel (%) 2021/22 | Andel (%) 2020/21 |\n| --- | --- | --- | --- | --- | --- |\n| Midtjylland | 269 / 4.717 | 0 (0) | 5,7 (5,1-6,4) | 7,8 | 8,6 |\n| Aarhus Universitetshospital | 55 / 940 | 0 (0) | 5,9 (4,4-7,5) | 7,9 | 10,2 |\n| Friklinikken Region Syddanmark Grindsted | 9 / 136 | 0 (0) | 6,6 (3,1-12,2) | 4,1 | 2,5 |\n| Hospitalsenhed Midt | 61 / 1.282 | 0 (0) | 4,8 (3,7-6,1) | 6,9 | 7,5 |\n| Hospitalsenheden Vest | 34 / 692 | 0 (0) | 4,9 (3,4-6,8) | 8,3 | 7,2 |\n| Regionshospitalet Gødstrup | 25 / 353 | 0 (0) | 7,1 (4,6-10,3) | — | — |\n| Regionshospitalet Horsens | 44 / 685 | 0 (0) | 6,4 (4,7-8,5) | 8,5 | 9,3 |\n| Regionshospitalet Randers | 50 / 758 | 0 (0) | 6,6 (4,9-8,6) | 7,2 | 9,7 |\n| Samsø Sundheds og Akuthus | 0 / 7 | 0 (0) | 0,0 (0,0-41,0) | 0,0 | 0,0 |\n| Nordjylland | 126 / 2.186 | 0 (0) | 5,8 (4,8-6,8) | 7,2 | 8,0 |\n| Aalborg Universitetshospital | 65 / 1.191 | 0 (0) | 5,5 (4,2-6,9) | 8,0 | 8,6 |\n| Aalborg Universitetshospital Thisted | 14 / 235 | 0 (0) | 6,0 (3,3-9,8) | 6,2 | 5,9 |\n| Regionshospital Nordjylland Ven | 47 / 760 | 0 (0) | 6,2 (4,6-8,1) | 6,2 | 7,5 |",
+      "summary": "Tabellen sammenligner andelen af patienter med hjertesvigt inden for det første år efter atrieflimrendiagnose på tværs af regioner og hospitalsenheder, og viser en regional variation fra 0,0 % til 7,1 % med bredt spænd i konfidensintervaller, især ved små populationer."
+    },
+    {
+      "subject": "ekkokardiografi-indikator",
+      "title": "Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi",
+      "page": 113,
+      "rowDimension": "region",
+      "colDimension": "andele (%) og 95 % konfidensintervaller",
+      "entities": [
+        "midtjylland",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "nordjylland"
+      ],
+      "markdown": "| Region | Standard opfyldt? | Tæller / antal | Uoplyst | Aktuelle år (%) (95 % CI) | Tidligere år (%) (95 % CI) | Tidligere år (%) (95 % CI) |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 14.170/19.719 | 0(0) | 71,9 (71,2;72,5) | 71,1(70,5;71,7) | 67,8(67,1;68,4) |\n| Hovedstaden | Nej | 3.227/5.388 | 0(0) | 59,9 (58,6;61,2) | 57,4(56,1;58,7) | 53,2(51,9;54,5) |\n| Sjælland | Nej | 2.281/3.257 | 0(0) | 70,0 (68,4;71,6) | 69,2(67,6;70,8) | 60,9(59,3;62,5) |\n| Syddanmark | Nej | 3.525/4.681 | 0(0) | 75,3 (74,0;76,5) | 77,3(76,1;78,5) | 76,9(75,7;78,1) |\n| Midtjylland | Ja | 3.562/4.217 | 0(0) | 84,5 (83,3;85,5) | 84,8(83,7;85,9) | 81,7(80,5;82,8) |\n| Nordjylland | Nej | 1.575/2.176 | 0(0) | 72,4 (70,4;74,3) | 70,4(68,4;72,3) | 69,9(67,9;71,7) |",
+      "summary": "Tabellen sammenligner opfyldelse af ekkokardiografi-standarden (≥80 %) på nationalt og regionalt niveau og viser, at kun Midtjylland opfylder standarden, mens alle øvrige regioner ligger under, og at der er en generel stigningstendens over tid i alle regioner."
+    }
+  ],
+  "context": "Dette dokumentchunk er en del af årsrapporten for Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten dokumenterer klinisk kvalitet i behandlingen af patienter med atrieflimren på tværs af Danmarks fem regioner og deres hospitalsenheder, med fokus på to centrale indikatorer: forekomst af hjertesvigt efter atrieflimren og udførelse af ekkokardiografi. Chunken indeholder både empiriske resultattabeller (side 111), metodebeskrivelser (side 112–115), læsevejledning til fortolkning af konfidensintervaller og standarder (side 113–114), samt tekniske beregningsregler for populationer og indikatorområder (side 115). Den danner grundlag for kvalitetsudvikling, benchmarking og politisk styring af kardiovaskulær sundhedskvalitet i det danske sundhedssystem."
 }

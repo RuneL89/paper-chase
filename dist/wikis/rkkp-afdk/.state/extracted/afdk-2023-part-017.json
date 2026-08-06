@@ -1,31 +1,60 @@
 {
   "entities": [
     {
-      "name": "AFDK",
+      "name": "Databasen for Atrieflimren i Danmark",
       "type": "organization",
-      "slug": "afdk",
+      "slug": "databasen-for-atrieflimren-i-danmark",
       "folder": "entities/organizations/health-registries",
-      "significance": "AFDK (Databasen for Atrieflimren i Danmark) is the Danish national registry for atrial fibrillation patients, responsible for collecting and analyzing data on patient treatment quality across Denmark's hospital system.",
+      "significance": "Databasen for Atrieflimren i Danmark er en national klinisk kvalitetsdatabase, der registrerer patienter med atrieflimren via Landspatientregistret og danner grundlag for kvalitetsudvikling inden for behandlingen af sygdommen i Danmark.",
       "mentions": [
         {
           "page": 81,
           "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
         },
         {
+          "page": 82,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 83,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 84,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 85,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) er den myndighed, der styrer og udgiver årsrapporten for Databasen for Atrieflimren i Danmark, og fungerer som dataansvarlig myndighed for databasen.",
+      "mentions": [
+        {
           "page": 81,
-          "context": "Målet for AFDK er, at alle patienter med atrieflimren inkluderes med henblik på at sikre, at databasen giver et retvisende billede af kvaliteten af atrieflimren behandling i Danmark"
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
         },
         {
           "page": 82,
-          "context": "AFDK er udelukkende baseret på patienter, som er blevet diagnosticeret med atrieflimren i forbindelse med en hospitalsindlæggelse, inklusiv ambulante hospitalskontakter"
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
         },
         {
-          "page": 82,
-          "context": "AFDK omfatter ikke aktuelt patienter, som udelukkende behandles i almen praksis eller speciallæge praksis"
+          "page": 83,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
         },
         {
-          "page": 82,
-          "context": "Ikke opgjort i forbindelse med AFDK, men skønnes høj"
+          "page": 84,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 85,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
         }
       ]
     },
@@ -34,44 +63,15 @@
       "type": "organization",
       "slug": "landspatientregistret",
       "folder": "entities/organizations/health-registries",
-      "significance": "Landspatientregistret is the national patient registry from which AFDK extracts atrial fibrillation patient data using ICD-10 diagnosis code DI48, serving as the primary data source for the database.",
+      "significance": "Landspatientregistret er det nationale register, hvorfra alle patienter med atrieflimren identificeres til Databasen for Atrieflimren i Danmark, og som danner det juridisk og teknisk grundlag for databasens kompletthed.",
       "mentions": [
         {
           "page": 81,
-          "context": "Patienter med atrieflimren omfatter patienter, som er blevet registreret i Landspatientregistret med ICD-10 diagnosen DI48"
+          "context": "Patienter med atrieflimren omfatter patienter, som er blevet registreret i Landspatientregistret med ICD-10 diagnosen DI48 (inkl. alle subkoder) som enten aktions- eller bidiagnose."
         },
-        {
-          "page": 82,
-          "context": "Patienterne er identificeret via et udtræk fra Landspatientregisteret, og databasen er således per definition komplet, såfremt patienterne er blevet indberettet korrekt til Landspatientregisteret"
-        },
-        {
-          "page": 82,
-          "context": "Der vil formentlig forekomme patienter med atrieflimren og andre konkurrerende sygdomme, hvor atrieflimren ikke bliver indberettet til Landspatientregisteret"
-        }
-      ]
-    },
-    {
-      "name": "RKKP",
-      "type": "organization",
-      "slug": "rkkp",
-      "folder": "entities/organizations/health-registries",
-      "significance": "RKKP (Regionernes Kliniske Kvalitetsudviklingsprogram) is the overarching Danish regional clinical quality development program that manages AFDK and provides epidemiological and statistical support.",
-      "mentions": [
         {
           "page": 81,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
-        },
-        {
-          "page": 83,
-          "context": "Anders Møller Schlünsen, Epidemiolog, Ph.d., RKKP"
-        },
-        {
-          "page": 83,
-          "context": "Miriam Grijota Chousa, Biostatistiker RKKP"
-        },
-        {
-          "page": 83,
-          "context": "Julie Andersen, Kvalitetskonsulent, cand.scient.san. RKKP"
+          "context": "Patienterne er identificeret via et udtræk fra Landspatientregisteret, og databasen er således per definition komplet, såfremt patienterne er blevet indberettet korrekt til Landspatientregisteret."
         }
       ]
     },
@@ -79,12 +79,12 @@
       "name": "Lars Frost",
       "type": "person",
       "slug": "lars-frost",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Lars Frost is the chair of the AFDK steering committee and a senior physician at Regionshospitalet Silkeborg, providing clinical leadership for the atrial fibrillation database.",
+      "folder": "entities/people/health-professionals",
+      "significance": "Lars Frost er formand for styregruppen for Databasen for Atrieflimren i Danmark og fungerer som overlæge og dr. med. ved Regionshospitalet Silkeborg, Hospitalsenhed Midt.",
       "mentions": [
         {
           "page": 83,
-          "context": "Formandskab Lars Frost, Overlæge, dr. med. Regionshospitalet Silkeborg, Hospitalsenhed Midt"
+          "context": "Formandskab Lars Frost, Overlæge, dr. med.\nRegionshospitalet Silkeborg, Hospitalsenhed Midt"
         }
       ]
     },
@@ -92,12 +92,12 @@
       "name": "Albert Marni Joensen",
       "type": "person",
       "slug": "albert-marni-joensen",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Albert Marni Joensen is a senior physician and co-chair of the AFDK steering committee at Regionshospitalet Nordjylland, contributing to the governance of the national atrial fibrillation registry.",
+      "folder": "entities/people/health-professionals",
+      "significance": "Albert Marni Joensen er styregruppemedlem for Databasen for Atrieflimren i Danmark og fungerer som overlæge og ph.d. ved Regionshospitalet Nordjylland, Hjørring.",
       "mentions": [
         {
           "page": 83,
-          "context": "Albert Marni Joensen, Overlæge, ph.d. Regionshospitalet Nordjylland, Hjørring"
+          "context": "Albert Marni Joensen, Overlæge, ph.d.\nRegionshospitalet Nordjylland, Hjørring"
         }
       ]
     },
@@ -105,12 +105,12 @@
       "name": "Ulla Dam-Schmidt",
       "type": "person",
       "slug": "ulla-dam-schmidt",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Ulla Dam-Schmidt is a clinical specialist nurse and co-chair of the AFDK steering committee at Bispebjerg og Frederiksberg Hospital, representing nursing expertise in the registry's governance.",
+      "folder": "entities/people/health-professionals",
+      "significance": "Ulla Dam-Schmidt er styregruppemedlem for Databasen for Atrieflimren i Danmark og fungerer som sygeplejerske med klinisk specialfunktion, SD, MKS ved Bispebjerg og Frederiksberg Hospital.",
       "mentions": [
         {
           "page": 83,
-          "context": "Ulla Dam-Schmidt, Sygeplejerske med klinisk specialfunktion, SD, MKS. Bispebjerg og Frederiksberg Hospital"
+          "context": "Ulla Dam-Schmidt, Sygeplejerske med klinisk specialfunktion, SD, MKS.\nBispebjerg og Frederiksberg Hospital"
         }
       ]
     },
@@ -118,12 +118,12 @@
       "name": "Ina Qvist",
       "type": "person",
       "slug": "ina-qvist",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Ina Qvist is a clinical specialist nurse with a doctoral degree serving on the AFDK steering committee at Aarhus Universitetshospital.",
+      "folder": "entities/people/health-professionals",
+      "significance": "Ina Qvist er styregruppemedlem for Databasen for Atrieflimren i Danmark og fungerer som sygeplejerske, cand.scient.san., ph.d. ved Aarhus Universitetshospital.",
       "mentions": [
         {
           "page": 83,
-          "context": "Ina Qvist, Sygeplejerske, cand.scient.san., ph.d. Aarhus Universitetshospital"
+          "context": "Ina Qvist, Sygeplejerske, cand.scient.san., ph.d. Aarhus\nUniversitetshospital"
         }
       ]
     },
@@ -131,8 +131,8 @@
       "name": "Margit Brinck",
       "type": "person",
       "slug": "margit-brinck",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Margit Brinck is a nurse serving on the AFDK steering committee at Odense Universitetshospital.",
+      "folder": "entities/people/health-professionals",
+      "significance": "Margit Brinck er styregruppemedlem for Databasen for Atrieflimren i Danmark og fungerer som sygeplejerske ved Odense Universitetshospital.",
       "mentions": [
         {
           "page": 83,
@@ -144,12 +144,12 @@
       "name": "Axel Brandes",
       "type": "person",
       "slug": "axel-brandes",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Axel Brandes is a professor and senior physician serving on the AFDK steering committee at Esbjerg og Grindsted sygehus, Syddansk Universitetshospital.",
+      "folder": "entities/people/health-professionals",
+      "significance": "Axel Brandes er styregruppemedlem for Databasen for Atrieflimren i Danmark og fungerer som professor, overlæge, dr.med. ved Esbjerg og Grindsted sygehus, Syddansk Universitetshospital.",
       "mentions": [
         {
           "page": 83,
-          "context": "Axel Brandes, Professor, overlæge, dr.med. Esbjerg og Grindsted sygehus, Syddansk Universitetshospital"
+          "context": "Axel Brandes, Professor, overlæge, dr.med.\nEsbjerg og Grindsted sygehus, Syddansk Universitetshospital"
         }
       ]
     },
@@ -157,12 +157,12 @@
       "name": "Ulla Davidsen",
       "type": "person",
       "slug": "ulla-davidsen",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Ulla Davidsen is a senior physician serving on the AFDK steering committee at Bispebjerg og Frederiksberg Hospital.",
+      "folder": "entities/people/health-professionals",
+      "significance": "Ulla Davidsen er styregruppemedlem for Databasen for Atrieflimren i Danmark og fungerer som overlæge, MPK ved Bispebjerg og Frederiksberg Hospital.",
       "mentions": [
         {
           "page": 83,
-          "context": "Ulla Davidsen, Overlæge, MPK Bispebjerg og Frederiksberg Hospital"
+          "context": "Ulla Davidsen, Overlæge, MPK\nBispebjerg og Frederiksberg Hospital"
         }
       ]
     },
@@ -170,8 +170,8 @@
       "name": "Ole Dyg Pedersen",
       "type": "person",
       "slug": "ole-dyg-pedersen",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Ole Dyg Pedersen is a senior physician serving on the AFDK steering committee at Sjællands Universitetshospital.",
+      "folder": "entities/people/health-professionals",
+      "significance": "Ole Dyg Pedersen er styregruppemedlem for Databasen for Atrieflimren i Danmark og fungerer som overlæge ved Sjællands Universitetshospital.",
       "mentions": [
         {
           "page": 83,
@@ -183,12 +183,12 @@
       "name": "Dorte Damgaard",
       "type": "person",
       "slug": "dorte-damgaard",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Dorte Damgaard is a senior physician with a doctoral degree serving on the AFDK steering committee at Aarhus Universitetshospital.",
+      "folder": "entities/people/health-professionals",
+      "significance": "Dorte Damgaard er styregruppemedlem for Databasen for Atrieflimren i Danmark og fungerer som overlæge, ph.d. ved Aarhus Universitetshospital.",
       "mentions": [
         {
           "page": 83,
-          "context": "Dorte Damgaard, Overlæge, ph.d. Aarhus Universitetshospital"
+          "context": "Dorte Damgaard, Overlæge, ph.d.\nAarhus Universitetshospital"
         }
       ]
     },
@@ -196,12 +196,12 @@
       "name": "Palle Mark Christensen",
       "type": "person",
       "slug": "palle-mark-christensen",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Palle Mark Christensen is a general practitioner serving on the AFDK steering committee at Lægerne Lærkevej, Otterup.",
+      "folder": "entities/people/health-professionals",
+      "significance": "Palle Mark Christensen er styregruppemedlem for Databasen for Atrieflimren i Danmark og fungerer som praktiserende læge ved Lægerne Lærkevej, Otterup.",
       "mentions": [
         {
           "page": 83,
-          "context": "Palle Mark Christensen, Praktiserende læge Lægerne Lærkevej, Otterup"
+          "context": "Palle Mark Christensen, Praktiserende læge\nLægerne Lærkevej, Otterup"
         }
       ]
     },
@@ -209,12 +209,12 @@
       "name": "Henrik Rasmussen",
       "type": "person",
       "slug": "henrik-rasmussen",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Henrik Rasmussen is a medical consultant serving as a substitute member on the AFDK steering committee for DAK-E.",
+      "folder": "entities/people/health-professionals",
+      "significance": "Henrik Rasmussen er lægefaglig konsulent (suppleant) for Databasen for Atrieflimren i Danmark og repræsenterer DAK-E.",
       "mentions": [
         {
           "page": 83,
-          "context": "Henrik Rasmussen, Lægefaglig konsulent (suppleant) DAK-E"
+          "context": "Henrik Rasmussen, Lægefaglig konsulent (suppleant)\nDAK-E"
         }
       ]
     },
@@ -222,8 +222,8 @@
       "name": "Jeppe Launbjerg",
       "type": "person",
       "slug": "jeppe-launbjerg",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Jeppe Launbjerg is a practicing cardiologist serving on the AFDK steering committee at Hjertelægerne i Hillerød.",
+      "folder": "entities/people/health-professionals",
+      "significance": "Jeppe Launbjerg er styregruppemedlem for Databasen for Atrieflimren i Danmark og fungerer som praktiserende kardiolog ved Hjertelægerne i Hillerød.",
       "mentions": [
         {
           "page": 83,
@@ -234,9 +234,9 @@
     {
       "name": "Inge Mølgaard",
       "type": "person",
-      "slug": "inge-moelgaard",
+      "slug": "inge-molgaard",
       "folder": "entities/people/patient-representatives",
-      "significance": "Inge Mølgaard is a patient representative serving on the AFDK steering committee.",
+      "significance": "Inge Mølgaard er patientrepræsentant i styregruppen for Databasen for Atrieflimren i Danmark.",
       "mentions": [
         {
           "page": 83,
@@ -249,7 +249,7 @@
       "type": "person",
       "slug": "robert-bedsted",
       "folder": "entities/people/patient-representatives",
-      "significance": "Robert Bedsted is a patient representative serving on the AFDK steering committee.",
+      "significance": "Robert Bedsted er patientrepræsentant i styregruppen for Databasen for Atrieflimren i Danmark.",
       "mentions": [
         {
           "page": 83,
@@ -260,13 +260,13 @@
     {
       "name": "Anders Møller Schlünsen",
       "type": "person",
-      "slug": "anders-moeller-schlunsen",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Anders Møller Schlünsen is an epidemiologist with a doctoral degree serving as the clinical epidemiologist for AFDK at RKKP.",
+      "slug": "anders-moller-schlunsen",
+      "folder": "entities/people/health-researchers",
+      "significance": "Anders Møller Schlünsen er klinisk epidemiolog og ph.d. hos Regionernes Kliniske Kvalitetsudviklingsprogram og medlem af styregruppen for Databasen for Atrieflimren i Danmark.",
       "mentions": [
         {
           "page": 83,
-          "context": "Anders Møller Schlünsen, Epidemiolog, Ph.d., RKKP"
+          "context": "Klinisk epidemiolog Anders Møller Schlünsen, Epidemiolog, Ph.d.,\nRKKP"
         }
       ]
     },
@@ -274,12 +274,12 @@
       "name": "Miriam Grijota Chousa",
       "type": "person",
       "slug": "miriam-grijota-chousa",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Miriam Grijota Chousa is a biostatistician serving as the statistician and data manager for AFDK at RKKP.",
+      "folder": "entities/people/health-researchers",
+      "significance": "Miriam Grijota Chousa er statistiker/datamanager og biostatistiker hos Regionernes Kliniske Kvalitetsudviklingsprogram og medlem af styregruppen for Databasen for Atrieflimren i Danmark.",
       "mentions": [
         {
           "page": 83,
-          "context": "Miriam Grijota Chousa, Biostatistiker RKKP"
+          "context": "Statistiker/Datamanager Miriam Grijota Chousa, Biostatistiker\nRKKP"
         }
       ]
     },
@@ -287,16 +287,47 @@
       "name": "Julie Andersen",
       "type": "person",
       "slug": "julie-andersen",
-      "folder": "entities/people/medical-professionals",
-      "significance": "Julie Andersen is a quality consultant serving as the contact person for AFDK and as the representative for the data controller authority at Region Midtjylland, RKKP.",
+      "folder": "entities/people/health-administrators",
+      "significance": "Julie Andersen er kvalitetskonsulent, cand.scient.san. hos Regionernes Kliniske Kvalitetsudviklingsprogram og fungerer både som kontaktperson og som repræsentant for den dataansvarlige myndighed for Databasen for Atrieflimren i Danmark.",
       "mentions": [
         {
           "page": 83,
-          "context": "Julie Andersen, Kvalitetskonsulent, cand.scient.san. RKKP"
+          "context": "Kontaktperson Julie Andersen, Kvalitetskonsulent, cand.scient.san.\nRKKP"
         },
         {
           "page": 83,
-          "context": "Julie Andersen, Kvalitetskonsulent, cand.scient.san. Region Midtjylland, RKKP"
+          "context": "Repræsentant for den\ndataansvarlige myndighed\nJulie Andersen, Kvalitetskonsulent, cand.scient.san.\nRegion Midtjylland, RKKP"
+        }
+      ]
+    },
+    {
+      "name": "AFDK",
+      "type": "organization",
+      "slug": "afdk",
+      "folder": "entities/organizations/health-registries",
+      "significance": "AFDK er forkortelsen for Databasen for Atrieflimren i Danmark og anvendes som operationel betegnelse for databasen i rapporten.",
+      "disambiguation": "Dette er ikke en selvstændig organisation, men en forkortelse for 'Databasen for Atrieflimren i Danmark', som drives af RKKP.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Målet for AFDK er, at alle patienter med atrieflimren inkluderes med henblik på at sikre, at databasen giver et retvisende billede af kvaliteten af atrieflimren behandling i Danmark."
+        },
+        {
+          "page": 81,
+          "context": "AFDK er udelukkende baseret på patienter, som er blevet diagnosticeret med atrieflimren i forbindelse med en hospitalsindlæggelse, inklusiv ambulante hospitalskontakter."
+        }
+      ]
+    },
+    {
+      "name": "ICD-10 diagnose DI48",
+      "type": "medical-code",
+      "slug": "icd-10-diagnose-di48",
+      "folder": "topics/medical-coding",
+      "significance": "ICD-10 diagnose DI48 er den internationale klassifikationskode, der bruges til at identificere patienter med atrieflimren i Landspatientregistret og dermed i Databasen for Atrieflimren i Danmark.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Patienter med atrieflimren omfatter patienter, som er blevet registreret i Landspatientregistret med ICD-10 diagnosen DI48 (inkl. alle subkoder) som enten aktions- eller bidiagnose."
         }
       ]
     },
@@ -304,12 +335,20 @@
       "name": "Region Hovedstaden",
       "type": "location",
       "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Hovedstaden is one of five Danish regions included in the AFDK database, with 5,241 incident atrial fibrillation patients and an incidence rate of 2.8 per 1,000 inhabitants.",
+      "folder": "entities/locations/regions",
+      "significance": "Region Hovedstaden er én af de fem regioner i Danmark, der bidrager med patientdata til Databasen for Atrieflimren i Danmark, og har en incidens på 2,8 pr. 1000 indbyggere i opgørelsesperioden.",
       "mentions": [
         {
           "page": 85,
-          "context": "Region Hovedstaden: Antal patienter med atrieflimren 5241, Incidens pr. 1000 indbyggere 2,8"
+          "context": "Region Hovedstaden 5241 1879191 2,8"
+        },
+        {
+          "page": 85,
+          "context": "Region Hovedstaden 74 12 76 0 106 0 5241"
+        },
+        {
+          "page": 85,
+          "context": "Region Hovedstaden 536 10 4705 90 5241"
         }
       ]
     },
@@ -317,12 +356,20 @@
       "name": "Region Sjælland",
       "type": "location",
       "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland is one of five Danish regions included in the AFDK database, with 3,202 incident atrial fibrillation patients and an incidence rate of 3.8 per 1,000 inhabitants.",
+      "folder": "entities/locations/regions",
+      "significance": "Region Sjælland er én af de fem regioner i Danmark, der bidrager med patientdata til Databasen for Atrieflimren i Danmark, og har en incidens på 3,8 pr. 1000 indbyggere i opgørelsesperioden.",
       "mentions": [
         {
           "page": 85,
-          "context": "Region Sjælland: Antal patienter med atrieflimren 3202, Incidens pr. 1000 indbyggere 3,8"
+          "context": "Region\nSjælland 3202 848626 3,8"
+        },
+        {
+          "page": 85,
+          "context": "| Sjælland | 74 | 11 | 76 | 18 | 105 | 0 | 3202 |"
+        },
+        {
+          "page": 85,
+          "context": "| Sjælland | 326 | 10 | 2876 | 90 | 3202 |"
         }
       ]
     },
@@ -330,12 +377,20 @@
       "name": "Region Syddanmark",
       "type": "location",
       "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Syddanmark is one of five Danish regions included in the AFDK database, with 4,580 incident atrial fibrillation patients and an incidence rate of 3.7 per 1,000 inhabitants.",
+      "folder": "entities/locations/regions",
+      "significance": "Region Syddanmark er én af de fem regioner i Danmark, der bidrager med patientdata til Databasen for Atrieflimren i Danmark, og har en incidens på 3,7 pr. 1000 indbyggere i opgørelsesperioden.",
       "mentions": [
         {
           "page": 85,
-          "context": "Region Syddanmark: Antal patienter med atrieflimren 4580, Incidens pr. 1000 indbyggere 3,7"
+          "context": "Region\nSyddanmark 4580 1235747 3,7"
+        },
+        {
+          "page": 85,
+          "context": "| Syddanmark | 74 | 12 | 76 | 13 | 105 | 0 | 4580 |"
+        },
+        {
+          "page": 85,
+          "context": "| Syddanmark | 438 | 10 | 4142 | 90 | 4580 |"
         }
       ]
     },
@@ -343,12 +398,20 @@
       "name": "Region Midtjylland",
       "type": "location",
       "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Midtjylland is one of five Danish regions included in the AFDK database, with 4,446 incident atrial fibrillation patients and an incidence rate of 3.3 per 1,000 inhabitants.",
+      "folder": "entities/locations/regions",
+      "significance": "Region Midtjylland er én af de fem regioner i Danmark, der bidrager med patientdata til Databasen for Atrieflimren i Danmark, og har en incidens på 3,3 pr. 1000 indbyggere i opgørelsesperioden.",
       "mentions": [
         {
           "page": 85,
-          "context": "Region Midtjylland: Antal patienter med atrieflimren 4446, Incidens pr. 1000 indbyggere 3,3"
+          "context": "Region\nMidtjylland 4446 1352690 3,3"
+        },
+        {
+          "page": 85,
+          "context": "| Midtjylland | 74 | 12 | 76 | 9 | 104 | 0 | 4446 |"
+        },
+        {
+          "page": 85,
+          "context": "| Midtjylland | 418 | 9 | 4028 | 91 | 4446 |"
         }
       ]
     },
@@ -356,274 +419,245 @@
       "name": "Region Nordjylland",
       "type": "location",
       "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland is one of five Danish regions included in the AFDK database, with 2,202 incident atrial fibrillation patients and an incidence rate of 3.7 per 1,000 inhabitants.",
+      "folder": "entities/locations/regions",
+      "significance": "Region Nordjylland er én af de fem regioner i Danmark, der bidrager med patientdata til Databasen for Atrieflimren i Danmark, og har en incidens på 3,7 pr. 1000 indbyggere i opgørelsesperioden.",
       "mentions": [
         {
           "page": 85,
-          "context": "Region Nordjylland: Antal patienter med atrieflimren 2202, Incidens pr. 1000 indbyggere 3,7"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Silkeborg",
-      "type": "organization",
-      "slug": "regionshospitalet-silkeborg",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Silkeborg is a hospital in Hospitalsenhed Midt where Lars Frost, the chair of the AFDK steering committee, works as a senior physician.",
-      "mentions": [
-        {
-          "page": 83,
-          "context": "Regionshospitalet Silkeborg, Hospitalsenhed Midt"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Nordjylland",
-      "type": "organization",
-      "slug": "regionshospitalet-nordjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Nordjylland in Hjørring is where Albert Marni Joensen, a co-chair of the AFDK steering committee, works as a senior physician.",
-      "mentions": [
-        {
-          "page": 83,
-          "context": "Regionshospitalet Nordjylland, Hjørring"
-        }
-      ]
-    },
-    {
-      "name": "Bispebjerg og Frederiksberg Hospital",
-      "type": "organization",
-      "slug": "bispebjerg-og-frederiksberg-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bispebjerg og Frederiksberg Hospital is a hospital where two AFDK steering committee members, Ulla Dam-Schmidt and Ulla Davidsen, work.",
-      "mentions": [
-        {
-          "page": 83,
-          "context": "Bispebjerg og Frederiksberg Hospital"
-        }
-      ]
-    },
-    {
-      "name": "Aarhus Universitetshospital",
-      "type": "organization",
-      "slug": "aarhus-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Universitetshospital is a university hospital where two AFDK steering committee members, Ina Qvist and Dorte Damgaard, work.",
-      "mentions": [
-        {
-          "page": 83,
-          "context": "Aarhus Universitetshospital"
-        }
-      ]
-    },
-    {
-      "name": "Odense Universitetshospital",
-      "type": "organization",
-      "slug": "odense-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Odense Universitetshospital is a university hospital where Margit Brinck, a member of the AFDK steering committee, works.",
-      "mentions": [
-        {
-          "page": 83,
-          "context": "Odense Universitetshospital"
-        }
-      ]
-    },
-    {
-      "name": "Syddansk Universitetshospital",
-      "type": "organization",
-      "slug": "syddansk-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Syddansk Universitetshospital is a university hospital where Axel Brandes, a member of the AFDK steering committee, works at Esbjerg og Grindsted sygehus.",
-      "mentions": [
-        {
-          "page": 83,
-          "context": "Syddansk Universitetshospital"
-        }
-      ]
-    },
-    {
-      "name": "Sjællands Universitetshospital",
-      "type": "organization",
-      "slug": "sjaellands-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sjællands Universitetshospital is a university hospital where Ole Dyg Pedersen, a member of the AFDK steering committee, works.",
-      "mentions": [
-        {
-          "page": 83,
-          "context": "Sjællands Universitetshospital"
-        }
-      ]
-    },
-    {
-      "name": "Atrial fibrillation",
-      "type": "medical-condition",
-      "slug": "atrial-fibrillation",
-      "folder": "topics/medical-conditions",
-      "significance": "Atrial fibrillation (atrieflimren) is the primary medical condition tracked by the AFDK database, identified using ICD-10 diagnosis code DI48, with 19,671 incident patients recorded during the reporting period.",
-      "mentions": [
-        {
-          "page": 81,
-          "context": "Patienter med atrieflimren omfatter patienter, som er blevet registreret i Landspatientregistret med ICD-10 diagnosen DI48"
+          "context": "Region\nNordjylland Danmark\nAntal patienter med atrieflimren 2202 19671"
         },
         {
-          "page": 81,
-          "context": "Databasen for Atrieflimren i Danmark"
+          "page": 85,
+          "context": "| Nordjylland | 74 | 12 | 76 | 0 | 105 | 0 | 2202 |"
+        },
+        {
+          "page": 85,
+          "context": "| Nordjylland | 219 | 10 | 1983 | 90 | 2202 |"
         }
       ]
     }
   ],
   "relationships": [
     {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "is-managed-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram er den myndighed, der styrer og udgiver årsrapporten for Databasen for Atrieflimren i Danmark",
+      "page": 81
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "is-populated-from",
+      "object": "landspatientregistret",
+      "evidence": "Patienterne er identificeret via et udtræk fra Landspatientregisteret",
+      "page": 81
+    },
+    {
+      "subject": "afdk",
+      "predicate": "is-acronym-for",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "AFDK er forkortelsen for Databasen for Atrieflimren i Danmark",
+      "page": 81
+    },
+    {
+      "subject": "icd-10-diagnose-di48",
+      "predicate": "is-used-in",
+      "object": "landspatientregistret",
+      "evidence": "Patienter med atrieflimren omfatter patienter, som er blevet registreret i Landspatientregistret med ICD-10 diagnosen DI48",
+      "page": 81
+    },
+    {
       "subject": "lars-frost",
-      "predicate": "chairs",
-      "object": "afdk",
+      "predicate": "is-chair-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
       "evidence": "Formandskab Lars Frost, Overlæge, dr. med.",
       "page": 83
     },
     {
       "subject": "albert-marni-joensen",
-      "predicate": "co-chairs",
-      "object": "afdk",
-      "evidence": "Albert Marni Joensen, Overlæge, ph.d. listed as co-chair",
+      "predicate": "is-member-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Albert Marni Joensen, Overlæge, ph.d.\nRegionshospitalet Nordjylland, Hjørring",
       "page": 83
     },
     {
       "subject": "ulla-dam-schmidt",
-      "predicate": "co-chairs",
-      "object": "afdk",
-      "evidence": "Ulla Dam-Schmidt, Sygeplejerske med klinisk specialfunktion listed as co-chair",
-      "page": 83
-    },
-    {
-      "subject": "afdk",
-      "predicate": "extracts-data-from",
-      "object": "landspatientregistret",
-      "evidence": "Patienterne er identificeret via et udtræk fra Landspatientregisteret",
-      "page": 82
-    },
-    {
-      "subject": "afdk",
-      "predicate": "is-managed-by",
-      "object": "rkkp",
-      "evidence": "RKKP provides epidemiological and statistical support to AFDK",
-      "page": 83
-    },
-    {
-      "subject": "anders-moeller-schlunsen",
-      "predicate": "serves-as-clinical-epidemiologist-for",
-      "object": "afdk",
-      "evidence": "Anders Møller Schlünsen, Epidemiolog, Ph.d., RKKP listed as Klinisk epidemiolog",
-      "page": 83
-    },
-    {
-      "subject": "miriam-grijota-chousa",
-      "predicate": "serves-as-statistician-for",
-      "object": "afdk",
-      "evidence": "Miriam Grijota Chousa, Biostatistiker RKKP listed as Statistiker/Datamanager",
-      "page": 83
-    },
-    {
-      "subject": "julie-andersen",
-      "predicate": "serves-as-contact-person-for",
-      "object": "afdk",
-      "evidence": "Julie Andersen, Kvalitetskonsulent, cand.scient.san. RKKP listed as Kontaktperson",
-      "page": 83
-    },
-    {
-      "subject": "lars-frost",
-      "predicate": "works-at",
-      "object": "regionshospitalet-silkeborg",
-      "evidence": "Regionshospitalet Silkeborg, Hospitalsenhed Midt",
-      "page": 83
-    },
-    {
-      "subject": "albert-marni-joensen",
-      "predicate": "works-at",
-      "object": "regionshospitalet-nordjylland",
-      "evidence": "Regionshospitalet Nordjylland, Hjørring",
-      "page": 83
-    },
-    {
-      "subject": "ulla-dam-schmidt",
-      "predicate": "works-at",
-      "object": "bispebjerg-og-frederiksberg-hospital",
-      "evidence": "Bispebjerg og Frederiksberg Hospital",
+      "predicate": "is-member-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Ulla Dam-Schmidt, Sygeplejerske med klinisk specialfunktion, SD, MKS.\nBispebjerg og Frederiksberg Hospital",
       "page": 83
     },
     {
       "subject": "ina-qvist",
-      "predicate": "works-at",
-      "object": "aarhus-universitetshospital",
-      "evidence": "Aarhus Universitetshospital",
+      "predicate": "is-member-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Ina Qvist, Sygeplejerske, cand.scient.san., ph.d. Aarhus\nUniversitetshospital",
       "page": 83
     },
     {
       "subject": "margit-brinck",
-      "predicate": "works-at",
-      "object": "odense-universitetshospital",
-      "evidence": "Odense Universitetshospital",
+      "predicate": "is-member-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Margit Brinck, Sygeplejerske, Odense Universitetshospital",
       "page": 83
     },
     {
       "subject": "axel-brandes",
-      "predicate": "works-at",
-      "object": "syddansk-universitetshospital",
-      "evidence": "Esbjerg og Grindsted sygehus, Syddansk Universitetshospital",
+      "predicate": "is-member-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Axel Brandes, Professor, overlæge, dr.med.\nEsbjerg og Grindsted sygehus, Syddansk Universitetshospital",
       "page": 83
     },
     {
       "subject": "ulla-davidsen",
-      "predicate": "works-at",
-      "object": "bispebjerg-og-frederiksberg-hospital",
-      "evidence": "Bispebjerg og Frederiksberg Hospital",
+      "predicate": "is-member-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Ulla Davidsen, Overlæge, MPK\nBispebjerg og Frederiksberg Hospital",
       "page": 83
     },
     {
       "subject": "ole-dyg-pedersen",
-      "predicate": "works-at",
-      "object": "sjaellands-universitetshospital",
-      "evidence": "Sjællands Universitetshospital",
+      "predicate": "is-member-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Ole Dyg Pedersen, Overlæge, Sjællands Universitetshospital",
       "page": 83
     },
     {
       "subject": "dorte-damgaard",
-      "predicate": "works-at",
-      "object": "aarhus-universitetshospital",
-      "evidence": "Aarhus Universitetshospital",
+      "predicate": "is-member-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Dorte Damgaard, Overlæge, ph.d.\nAarhus Universitetshospital",
       "page": 83
+    },
+    {
+      "subject": "palle-mark-christensen",
+      "predicate": "is-member-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Palle Mark Christensen, Praktiserende læge\nLægerne Lærkevej, Otterup",
+      "page": 83
+    },
+    {
+      "subject": "henrik-rasmussen",
+      "predicate": "is-consultant-for",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Henrik Rasmussen, Lægefaglig konsulent (suppleant)\nDAK-E",
+      "page": 83
+    },
+    {
+      "subject": "jeppe-launbjerg",
+      "predicate": "is-member-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Jeppe Launbjerg, Praktiserende kardiolog, Hjertelægerne i Hillerød",
+      "page": 83
+    },
+    {
+      "subject": "inge-molgaard",
+      "predicate": "is-patient-representative-for",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Inge Mølgaard, Patientrepræsentant",
+      "page": 83
+    },
+    {
+      "subject": "robert-bedsted",
+      "predicate": "is-patient-representative-for",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Robert Bedsted, Patientrepræsentant",
+      "page": 83
+    },
+    {
+      "subject": "anders-moller-schlunsen",
+      "predicate": "is-member-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Klinisk epidemiolog Anders Møller Schlünsen, Epidemiolog, Ph.d.,\nRKKP",
+      "page": 83
+    },
+    {
+      "subject": "miriam-grijota-chousa",
+      "predicate": "is-member-of",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Statistiker/Datamanager Miriam Grijota Chousa, Biostatistiker\nRKKP",
+      "page": 83
+    },
+    {
+      "subject": "julie-andersen",
+      "predicate": "is-contact-person-for",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Kontaktperson Julie Andersen, Kvalitetskonsulent, cand.scient.san.\nRKKP",
+      "page": 83
+    },
+    {
+      "subject": "julie-andersen",
+      "predicate": "represents",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Repræsentant for den\ndataansvarlige myndighed\nJulie Andersen, Kvalitetskonsulent, cand.scient.san.\nRegion Midtjylland, RKKP",
+      "page": 83
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contributes-data-to",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Region Hovedstaden 5241 1879191 2,8",
+      "page": 85
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "contributes-data-to",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Region\nSjælland 3202 848626 3,8",
+      "page": 85
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "contributes-data-to",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Region\nSyddanmark 4580 1235747 3,7",
+      "page": 85
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "contributes-data-to",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Region\nMidtjylland 4446 1352690 3,3",
+      "page": 85
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "contributes-data-to",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Region\nNordjylland Danmark\nAntal patienter med atrieflimren 2202 19671",
+      "page": 85
     }
   ],
   "claims": [
     {
       "text": "Patienter med atrieflimren omfatter patienter, som er blevet registreret i Landspatientregistret med ICD-10 diagnosen DI48 (inkl. alle subkoder) som enten aktions- eller bidiagnose [^src1]",
-      "type": "definitional",
+      "type": "definition",
       "entities": [
-        "afdk",
-        "atrial-fibrillation"
+        "databasen-for-atrieflimren-i-danmark",
+        "landspatientregistret",
+        "icd-10-diagnose-di48"
       ],
       "page": 81
     },
     {
       "text": "Alle patienter, som er registreret med denne diagnose inden for de seneste 10 år og fortsat er i live ved opgørelsesperiodens start, indgår i den prævalente population [^src1]",
-      "type": "definitional",
+      "type": "population-definition",
       "entities": [
-        "afdk"
+        "databasen-for-atrieflimren-i-danmark"
       ],
       "page": 81
     },
     {
       "text": "Patienter, som er registreret med en førstegangsdiagnose i opgørelsesperioden, indgår i den incidente population [^src1]",
-      "type": "definitional",
+      "type": "population-definition",
       "entities": [
-        "afdk"
+        "databasen-for-atrieflimren-i-danmark"
       ],
       "page": 81
     },
     {
-      "text": "Målet for AFDK er, at alle patienter med atrieflimren inkluderes med henblik på at sikre, at databasen giver et retvisende billede af kvaliteten af atrieflimren behandling i Danmark [^src1]",
-      "type": "organizational-goal",
+      "text": "Komplethedsgraden af patientregistreringen i AFDK defineres som: antal patienter med atrieflimren i databasen / total antal patienter med atrieflimren [^src1]",
+      "type": "metric-definition",
       "entities": [
         "afdk"
       ],
@@ -631,134 +665,168 @@
     },
     {
       "text": "AFDK er udelukkende baseret på patienter, som er blevet diagnosticeret med atrieflimren i forbindelse med en hospitalsindlæggelse, inklusiv ambulante hospitalskontakter [^src1]",
-      "type": "definitional",
+      "type": "coverage-limitation",
       "entities": [
         "afdk"
       ],
-      "page": 82
+      "page": 81
     },
     {
-      "text": "Patientregistreringen i AFDK vil kun afspejle patienter med erkendt atrieflimren. Den sande prævalens af atrieflimren undervurderes således, idet screeningsundersøgelser har påvist, at der findes et betydeligt antal patienter med uerkendt atrieflimren [^src1]",
+      "text": "Patientregistreringen i AFDK vil kun afspejle patienter med erkendt atrieflimren. Den sande prævalens af atrieflimren undervurderes således, idet screeningsundersøgelser har påvist, at der findes et betydeligt antal patienter med uerkendt atrieflimren (Svennberg et al. Circulation 2015;131:2176-84) [^src1]",
       "type": "limitation",
       "entities": [
         "afdk"
       ],
-      "page": 82
+      "page": 81
     },
     {
       "text": "AFDK omfatter ikke aktuelt patienter, som udelukkende behandles i almen praksis eller speciallæge praksis [^src1]",
-      "type": "limitation",
+      "type": "coverage-limitation",
       "entities": [
         "afdk"
       ],
-      "page": 82
+      "page": 81
     },
     {
       "text": "Der vil formentlig forekomme patienter med atrieflimren og andre konkurrerende sygdomme, hvor atrieflimren ikke bliver indberettet til Landspatientregisteret til trods for, at diagnosen er blevet stillet klinisk [^src1]",
       "type": "limitation",
       "entities": [
+        "afdk",
+        "landspatientregistret"
+      ],
+      "page": 81
+    },
+    {
+      "text": "Patientforløb, validitet er ikke opgjort, men skønnes meget høj på baggrund af tidligere valideringsstudier i Landspatientregisteret af atrieflimren diagnosen (se bl.a. Sundbøl et al. BMJ Open. 2016;6(11):e01283 og Rix et al. Scand Cardiovasc J. 2012;46:149-53) [^src1]",
+      "type": "validity-assessment",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "landspatientregistret"
+      ],
+      "page": 82
+    },
+    {
+      "text": "Indberettede data per patient, validitet er ikke opgjort i forbindelse med AFDK, men skønnes høj. De anvendte registre og dataelementer har generelt høj validitet [^src1]",
+      "type": "validity-assessment",
+      "entities": [
         "afdk"
       ],
       "page": 82
     },
     {
-      "text": "Patientforløb validitet skønnes meget høj på baggrund af tidligere valideringsstudier i Landspatientregisteret af atrieflimren diagnosen [^src1]",
-      "type": "quality-assessment",
+      "text": "Fordelingen af de prognostiske faktorer er i overensstemmelse med tilsvarende udenlandske populationer [^src1]",
+      "type": "comparative-validity",
       "entities": [
         "afdk"
       ],
       "page": 82
     },
     {
-      "text": "Indberettede data per patient validitet skønnes høj. De anvendte registre og dataelementer har generelt høj validitet [^src1]",
-      "type": "quality-assessment",
+      "text": "Incidens af atrieflimren i opgørelsesperioden/året for Danmark er 3,3 pr. 1000 indbyggere [^src1]",
+      "type": "incidence-rate",
       "entities": [
-        "afdk"
-      ],
-      "page": 82
-    },
-    {
-      "text": "Antal patienter med atrieflimren i Danmark i opgørelsesperioden: 19671 [^src1]",
-      "type": "epidemiological",
-      "entities": [
-        "atrial-fibrillation"
-      ],
-      "page": 85
-    },
-    {
-      "text": "Incidens af atrieflimren i Danmark: 3,3 pr. 1000 indbyggere [^src1]",
-      "type": "epidemiological",
-      "entities": [
-        "atrial-fibrillation"
-      ],
-      "page": 85
-    },
-    {
-      "text": "Region Hovedstaden havde 5241 patienter med atrieflimren med incidens på 2,8 pr. 1000 indbyggere [^src1]",
-      "type": "epidemiological",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 85
-    },
-    {
-      "text": "Region Sjælland havde 3202 patienter med atrieflimren med incidens på 3,8 pr. 1000 indbyggere [^src1]",
-      "type": "epidemiological",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 85
-    },
-    {
-      "text": "Region Syddanmark havde 4580 patienter med atrieflimren med incidens på 3,7 pr. 1000 indbyggere [^src1]",
-      "type": "epidemiological",
-      "entities": [
-        "region-syddanmark"
-      ],
-      "page": 85
-    },
-    {
-      "text": "Region Midtjylland havde 4446 patienter med atrieflimren med incidens på 3,3 pr. 1000 indbyggere [^src1]",
-      "type": "epidemiological",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 85
-    },
-    {
-      "text": "Region Nordjylland havde 2202 patienter med atrieflimren med incidens på 3,7 pr. 1000 indbyggere [^src1]",
-      "type": "epidemiological",
-      "entities": [
+        "databasen-for-atrieflimren-i-danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
         "region-nordjylland"
       ],
       "page": 85
     },
     {
-      "text": "Gennemsnitlig alder ved diagnose for incidente patienter i Danmark var 74 år med median 76 år [^src1]",
-      "type": "epidemiological",
+      "text": "Antal patienter med atrieflimren i Danmark i opgørelsesperioden er 19671 [^src1]",
+      "type": "case-count",
       "entities": [
-        "atrial-fibrillation"
+        "databasen-for-atrieflimren-i-danmark"
       ],
       "page": 85
     },
     {
-      "text": "Blandt incidente patienter i Danmark døde 1937 (10%) i opgørelsesperioden, mens 17734 (90%) overlevede [^src1]",
-      "type": "epidemiological",
+      "text": "Gennemsnitsalderen for incidente patienter med atrieflimren i Danmark er 74 år [^src1]",
+      "type": "demographic-statistic",
       "entities": [
-        "atrial-fibrillation"
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 85
+    },
+    {
+      "text": "10 % af alle patienter med atrieflimren i Danmark døde i opgørelsesperioden [^src1]",
+      "type": "mortality-rate",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
       ],
       "page": 85
     }
   ],
   "timeline": [
     {
-      "date": "1. juli 2022 – 30. juni 2023",
-      "event": "AFDK årsrapportperiode med registrering af 19.671 incidente patienter med atrieflimren i Danmark",
+      "date": "1. juli 2022",
+      "event": "Start af opgørelsesperioden for Databasen for Atrieflimren i Danmark årsrapport",
       "entities": [
-        "afdk",
-        "atrial-fibrillation"
+        "databasen-for-atrieflimren-i-danmark"
+      ]
+    },
+    {
+      "date": "30. juni 2023",
+      "event": "Slut på opgørelsesperioden for Databasen for Atrieflimren i Danmark årsrapport",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
       ]
     }
   ],
-  "context": "Disse sider udgør kapitel 5-7 af AFDK årsrapporten for perioden 1. juli 2022 til 30. juni 2023. Kapitlet beskriver datagrundlaget for databasen, herunder definitioner af patient-populationer, begrænsninger ved dataindsamlingen, og styregruppens sammensætning. Rapporten præsenterer epidemiologiske data om atrieflimren-incidensen på tværs af Danmarks fem regioner, samt demografiske karakteristika for de registrerede patienter. Disse oplysninger danner grundlaget for at forstå kvaliteten og dækningen af AFDK som nationalt kvalitetsudviklingsprogram for behandling af atrieflimren i Danmark."
+  "tables": [
+    {
+      "subject": "incidens-af-atrieflimren",
+      "title": "Incidens af atrieflimren",
+      "page": 85,
+      "rowDimension": "region",
+      "colDimension": "antal patienter, folketal, incidens pr. 1000 indbyggere",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "markdown": "| Region | Antal patienter med atrieflimren | Folketal den1. januar 2022 | Incidens pr. 1000 indbyggere |\n| --- | --- | --- | --- |\n| Region Hovedstaden | 5241 | 1879191 | 2,8 |\n| Region Sjælland | 3202 | 848626 | 3,8 |\n| Region Syddanmark | 4580 | 1235747 | 3,7 |\n| Region Midtjylland | 4446 | 1352690 | 3,3 |\n| Region Nordjylland | 2202 | 594323 | 3,7 |\n| Danmark | 19671 | 5910577 | 3,3 |",
+      "summary": "Tabellen sammenligner incidens af atrieflimren på regionsniveau og nationalt niveau i perioden 1. juli 2022–30. juni 2023 og viser, at Region Sjælland har den højeste incidens (3,8 pr. 1000), mens Region Hovedstaden har den laveste (2,8 pr. 1000)."
+    },
+    {
+      "subject": "alder-ved-diagnose",
+      "title": "Alder ved diagnose",
+      "page": 85,
+      "rowDimension": "region",
+      "colDimension": "gennemsnit, spredning, median, minimum, maximum, uoplyst, antal",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "markdown": "| Region | Gennemsnit | Spredning | Median | Minimum | Maximum | Uoplyst | Antal |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 74 | 12 | 76 | 0 | 106 | 0 | 19671 |\n| Region Hovedstaden | 74 | 12 | 76 | 0 | 106 | 0 | 5241 |\n| Sjælland | 74 | 11 | 76 | 18 | 105 | 0 | 3202 |\n| Syddanmark | 74 | 12 | 76 | 13 | 105 | 0 | 4580 |\n| Midtjylland | 74 | 12 | 76 | 9 | 104 | 0 | 4446 |\n| Nordjylland | 74 | 12 | 76 | 0 | 105 | 0 | 2202 |",
+      "summary": "Tabellen viser, at gennemsnitsalderen ved diagnose er ens på tværs af regioner (74 år), mens variationen i minimumsalder varierer mellem 0 og 18 år."
+    },
+    {
+      "subject": "doed-i-opgoerelsesperioden",
+      "title": "Død i opgørelsesperioden",
+      "page": 85,
+      "rowDimension": "region",
+      "colDimension": "ja, nej, i alt",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "markdown": "| Region | Ja | % | Nej | % | I alt |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | 1937 | 10 | 17734 | 90 | 19671 |\n| Region Hovedstaden | 536 | 10 | 4705 | 90 | 5241 |\n| Sjælland | 326 | 10 | 2876 | 90 | 3202 |\n| Syddanmark | 438 | 10 | 4142 | 90 | 4580 |\n| Midtjylland | 418 | 9 | 4028 | 91 | 4446 |\n| Nordjylland | 219 | 10 | 1983 | 90 | 2202 |",
+      "summary": "Tabellen viser, at ca. 10 % af patienterne med atrieflimren døde i opgørelsesperioden på nationalt plan, med undtagelse af Region Midtjylland, hvor andelen er 9 %."
+    }
+  ],
+  "context": "Denne dokumentchunk udgør siderne 81–85 af årsrapporten for Databasen for Atrieflimren i Danmark (AFDK) for perioden 1. juli 2022 til 30. juni 2023, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Den beskriver datagrundlaget, herunder definitioner af prævalent og incident population, begrænsninger vedrørende dækningsgrad og komplethed, samt validitet af registrerede data. Desuden præsenteres styregruppens sammensætning og appendiks med deskriptive tabeller over incidens, aldersfordeling og mortalitet på regionalt og nationalt niveau. Rapporten er en del af det danske kvalitetsudviklingsarbejde inden for kardiovaskulær sundhed og tjener som grundlag for politisk og klinisk beslutningstagning."
 }

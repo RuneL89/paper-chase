@@ -4,20 +4,16 @@
       "name": "Indikator 5",
       "type": "quality-indicator",
       "slug": "indikator-5",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 5 måler andelen af behandlingsforløb blandt børn og unge under 18, hvor patienten eller forældre har påbegyndt ADHD-relateret psykoedukation senest 120 dage efter behandlingsstart, med et udviklingsmål på 90 %.",
+      "folder": "topics/quality-indicators/adhd-care",
+      "significance": "Indikator 5 måler andelen af ADHD-behandlingsforløb blandt børn og unge under 18, hvor patienten eller forældrene har påbegyndt ADHD-relateret psykoedukation senest 120 dage efter behandlingsstart, og er en central kvalitetsmåling i den danske ADHD-overvågningsstruktur.",
       "mentions": [
         {
           "page": 31,
-          "context": "Indikator 5: Psykoedukation - Andelen af behandlingsforløb blandt børn og unge under 18, hvor patienten/forældre har påbegyndt ADHD-relateret psykoedukation senest 120 dage efter behandlingsstart"
+          "context": "Indikator 5: Psykoedukation"
         },
         {
-          "page": 32,
+          "page": 31,
           "context": "Indikator 5: Andelen af behandlingsforløb, hvor patienten/forældre har påbegyndt ADHD-relateret psykoedukation senest 120 dage efter behandlingsstart"
-        },
-        {
-          "page": 33,
-          "context": "Indikator 5 omhandler hvorvidt patienten eller vedkommendes forældre er påbegyndt psykoedukation indenfor 120 dage efter behandlingsstart. Indikatoren blev sat i drift i 2021 og udviklingsmålet er sat til 90 %."
         }
       ]
     },
@@ -25,392 +21,29 @@
       "name": "Indikator 6",
       "type": "quality-indicator",
       "slug": "indikator-6",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 6 måler andelen af behandlingsforløb blandt børn og unge under 18, hvor patienten er i behandling med ADHD-medicin, baseret på mindst to indløste recepter på ADHD-præparat inden for 120 dage efter behandlingsstart.",
+      "folder": "topics/quality-indicators/adhd-care",
+      "significance": "Indikator 6 måler andelen af ADHD-behandlingsforløb blandt børn og unge under 18, hvor patienten er i farmakologisk behandling med ADHD-medicin, og udgør en kerneindikator for medicinsk behandlingskvalitet i den nationale ADHD-database.",
       "mentions": [
         {
-          "page": 34,
-          "context": "Indikator 6: Farmakologisk behandling - Andelen af behandlingsforløb blandt børn og unge under 18, hvor patienten er i behandling med ADHD-medicin"
+          "page": 31,
+          "context": "Indikator 6: Farmakologisk behandling"
         },
         {
-          "page": 34,
+          "page": 31,
           "context": "Indikator 6: Andelen af behandlingsforløb, hvor patienten er i behandling med ADHD-medicin"
         }
       ]
     },
     {
-      "name": "BUA Psykiatrisk Klinik for Småbørn",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-smaaboern",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "BUA Psykiatrisk Klinik for Småbørn opnåede den højeste målopfyldelse blandt afdelinger med mere end tre forløb for Indikator 5 med 81 % af behandlingsforløb, hvor patienten eller forældre påbegyndte psykoedukation inden for tidsfristen.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "BUA Psykiatrisk Klinik for Småbørn - 156 / 193 81 (75-86)"
-        },
-        {
-          "page": 33,
-          "context": "Blandt afdelinger med mere end tre forløb spænder målopfyldelsen fra 5 % (PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) til 81 % (BUA Psykiatrisk Klinik for Småbørn)."
-        }
-      ]
-    },
-    {
-      "name": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)",
-      "type": "organization",
-      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) opnåede den laveste målopfyldelse blandt afdelinger med mere end tre forløb for Indikator 5 med kun 5 % af behandlingsforløb, hvor patienten eller forældre påbegyndte psykoedukation inden for tidsfristen.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) - 14 / 278 5 (3-8)"
-        },
-        {
-          "page": 33,
-          "context": "Blandt afdelinger med mere end tre forløb spænder målopfyldelsen fra 5 % (PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) til 81 % (BUA Psykiatrisk Klinik for Småbørn)."
-        }
-      ]
-    },
-    {
-      "name": "Syddanmark",
-      "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/countries",
-      "significance": "Region Syddanmark opnåede den laveste regionale målopfyldelse for Indikator 5 med kun 9 % af behandlingsforløb, hvor patienten eller forældre påbegyndte psykoedukation inden for tidsfristen.",
+      "name": "ADHD behandlingspopulation",
+      "type": "population",
+      "slug": "adhd-behandlingspopulation",
+      "folder": "entities/populations/adhd",
+      "significance": "ADHD behandlingspopulation er den definerede tæller- og nævnerpopulation for både Indikator 5 og Indikator 6, og består af forløb i 'ADHD behandlingspopulation', hvor dato for start af pakkeforløb er i opgørelsesperioden.",
       "mentions": [
         {
           "page": 31,
-          "context": "Syddanmark - 82 / 890 9 (7-11)"
-        },
-        {
-          "page": 33,
-          "context": "Syddanmark ligger, ligesom i 2023/24, lavest med en andel på 9%."
-        }
-      ]
-    },
-    {
-      "name": "Sjælland",
-      "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/countries",
-      "significance": "Region Sjælland opnåede 50 % målopfyldelse for Indikator 5, hvilket repræsenterer en 8 procentpoints forbedring sammenlignet med året inden.",
-      "mentions": [
-        {
-          "page": 31,
-          "context": "Sjælland - 247 / 498 50 (45-54)"
-        },
-        {
-          "page": 33,
-          "context": "Sjælland og Midtjylland ligger begge på 50 %, hvilket for Sjælland er en 8 procentpoints forbedring sammenlignet med året inden."
-        }
-      ]
-    },
-    {
-      "name": "Midtjylland",
-      "type": "location",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations/countries",
-      "significance": "Region Midtjylland opnåede 50 % målopfyldelse for Indikator 5, på samme niveau som året før.",
-      "mentions": [
-        {
-          "page": 31,
-          "context": "Midtjylland - 554 / 1.107 50 (47-53)"
-        },
-        {
-          "page": 33,
-          "context": "Sjælland og Midtjylland ligger begge på 50 %, hvilket for Sjælland er en 8 procentpoints forbedring sammenlignet med året inden."
-        }
-      ]
-    },
-    {
-      "name": "Hovedstaden",
-      "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/countries",
-      "significance": "Region Hovedstaden opnåede 35 % målopfyldelse for Indikator 5 og 67 % for Indikator 6, hvilket repræsenterer regionens performance på begge indikatorer.",
-      "mentions": [
-        {
-          "page": 31,
-          "context": "Hovedstaden - 672 / 1.905 35 (33-37)"
-        },
-        {
-          "page": 33,
-          "context": "Hovedstaden og Nordjylland opnåede hhv. 35 og 33 %."
-        },
-        {
-          "page": 34,
-          "context": "Hovedstaden - 1.281 / 1.905 0 (0) 67 (65-69)"
-        }
-      ]
-    },
-    {
-      "name": "Nordjylland",
-      "type": "location",
-      "slug": "region-nordjylland",
-      "folder": "entities/locations/countries",
-      "significance": "Region Nordjylland opnåede 33 % målopfyldelse for Indikator 5 og 82 % for Indikator 6, hvilket viser høj performance på farmakologisk behandling.",
-      "mentions": [
-        {
-          "page": 31,
-          "context": "Nordjylland - 183 / 555 33 (29-37)"
-        },
-        {
-          "page": 33,
-          "context": "Hovedstaden og Nordjylland opnåede hhv. 35 og 33 %."
-        },
-        {
-          "page": 34,
-          "context": "Nordjylland - 456 / 555 0 (0) 82 (79-85)"
-        }
-      ]
-    },
-    {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark som helhed opnåede 33 % målopfyldelse for Indikator 5 og 68 % for Indikator 6, hvilket repræsenterer landsgennemsnittet for begge indikatorer.",
-      "mentions": [
-        {
-          "page": 31,
-          "context": "Danmark - 1.738 / 5.222 33 (32-35)"
-        },
-        {
-          "page": 33,
-          "context": "På landsplan fik påbegyndte 33 % af ADHD-patienter/forældre psykoedukation inden for tidsfristen, hvilket er på niveau med de tidligere opgørelsesår."
-        },
-        {
-          "page": 34,
-          "context": "Danmark - 3.536 / 5.222 0 (0) 68 (66-69)"
-        }
-      ]
-    },
-    {
-      "name": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19",
-      "type": "organization",
-      "slug": "bispebjerg-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Bispebjerg Psykiatrisk ambulatorium opnåede 23 % målopfyldelse for Indikator 5 og 61 % for Indikator 6.",
-      "mentions": [
-        {
-          "page": 31,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 - 103 / 441 23 (19-28)"
-        },
-        {
-          "page": 34,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 - 271 / 441 0 (0) 61 (57-66)"
-        }
-      ]
-    },
-    {
-      "name": "Psykiatrisk ambulatorium, børn og unge, Bornholm, B37",
-      "type": "organization",
-      "slug": "bornholm-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Bornholm Psykiatrisk ambulatorium opnåede 37 % målopfyldelse for Indikator 5 og 86 % for Indikator 6.",
-      "mentions": [
-        {
-          "page": 31,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Bornh, B37 - 32 / 86 37 (27-48)"
-        },
-        {
-          "page": 34,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Bornh, B37 - 74 / 86 0 (0) 86 (77-93)"
-        }
-      ]
-    },
-    {
-      "name": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29",
-      "type": "organization",
-      "slug": "glostrup-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Glostrup Psykiatrisk ambulatorium opnåede 34 % målopfyldelse for Indikator 5 og 68 % for Indikator 6.",
-      "mentions": [
-        {
-          "page": 31,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 - 325 / 947 34 (31-37)"
-        },
-        {
-          "page": 34,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 - 640 / 947 0 (0) 68 (64-71)"
-        }
-      ]
-    },
-    {
-      "name": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39",
-      "type": "organization",
-      "slug": "hillerod-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Hillerød Psykiatrisk ambulatorium opnåede 49 % målopfyldelse for Indikator 5 og 69 % for Indikator 6.",
-      "mentions": [
-        {
-          "page": 31,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 - 212 / 431 49 (44-54)"
-        },
-        {
-          "page": 34,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 - 296 / 431 0 (0) 69 (64-73)"
-        }
-      ]
-    },
-    {
-      "name": "Børne-Unge Psyk. Klinik 40.K",
-      "type": "organization",
-      "slug": "boerne-unge-psyk-afd-40",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Børne-Unge Psyk. Klinik 40.K opnåede 50 % målopfyldelse for Indikator 5 og 56 % for Indikator 6.",
-      "mentions": [
-        {
-          "page": 31,
-          "context": "Børne-Unge Psyk. Klinik 40.K - 247 / 497 50 (45-54)"
-        },
-        {
-          "page": 34,
-          "context": "Børne-Unge Psyk. Klinik 40.K - 279 / 497 0 (0) 56 (52-61)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense)",
-      "type": "organization",
-      "slug": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) opnåede 10 % målopfyldelse for Indikator 5.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) - 11 / 107 10 (5-18)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg)",
-      "type": "organization",
-      "slug": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) opnåede 10 % målopfyldelse for Indikator 5.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) - 22 / 224 10 (6-14)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle)",
-      "type": "organization",
-      "slug": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) opnåede 12 % målopfyldelse for Indikator 5.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) - 35 / 281 12 (9-17)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Børne- og Ungdomspsykiatri - Sengeafsnit",
-      "type": "organization",
-      "slug": "bua-boerne-ungdomspsykiatri-sengeafsnit",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "BUA Børne- og Ungdomspsykiatri - Sengeafsnit opnåede 0 % målopfyldelse for Indikator 5 med meget få forløb.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "BUA Børne- og Ungdomspsykiatri - Sengeafsnit - #/# 0 (0-98)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Skolebørn",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-skoleboern",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "BUA Psykiatrisk Klinik for Skolebørn opnåede 56 % målopfyldelse for Indikator 5 og 60 % for tidligere år.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "BUA Psykiatrisk Klinik for Skolebørn - 289 / 517 56 (51-60)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Unge",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-unge",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "BUA Psykiatrisk Klinik for Unge opnåede 27 % målopfyldelse for Indikator 5.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "BUA Psykiatrisk Klinik for Unge - 108 / 393 27 (23-32)"
-        }
-      ]
-    },
-    {
-      "name": "BUA – Psykiatrisk Klinik for Udredning",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-udredning",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "BUA – Psykiatrisk Klinik for Udredning opnåede 0 % målopfyldelse for Indikator 5 med meget få forløb.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "BUA – Psykiatrisk Klinik for Udredning - #/# 0 (0-98)"
-        }
-      ]
-    },
-    {
-      "name": "PS Børne- og Ungdomspsykiatrisk Ambulatorier",
-      "type": "organization",
-      "slug": "boerne-ungdomspsyk-ambulatorium-nordjylland",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PS Børne- og Ungdomspsykiatrisk Ambulatorier opnåede 33 % målopfyldelse for Indikator 5 i Nordjylland.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "PS Børne- og Ungdomspsykiatrisk Ambulatorier - 183 / 555 33 (29-37)"
-        }
-      ]
-    },
-    {
-      "name": "Carelink Psykiatri Kolding",
-      "type": "organization",
-      "slug": "carelink-psykiatri-kolding",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Carelink Psykiatri Kolding opnåede 0 % målopfyldelse for Indikator 5 blandt private hospitaler.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "Carelink Psykiatri Kolding - 0 / 141 0 (0-3)"
-        }
-      ]
-    },
-    {
-      "name": "Carelink Psykiatri Roskilde",
-      "type": "organization",
-      "slug": "carelink-psykiatri-roskilde",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Carelink Psykiatri Roskilde opnåede 0 % målopfyldelse for Indikator 5 blandt private hospitaler.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "Carelink Psykiatri Roskilde - 0 / 8 0 (0-37)"
-        }
-      ]
-    },
-    {
-      "name": "Carelink Psykiatri Viborg",
-      "type": "organization",
-      "slug": "carelink-psykiatri-viborg",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Carelink Psykiatri Viborg opnåede 0 % målopfyldelse for Indikator 5 blandt private hospitaler.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "Carelink Psykiatri Viborg - 0 / 118 0 (0-3)"
+          "context": "Indikatorpopulation (nævner): Antal forløb i \"ADHD behandlingspopulation\", hvor dato for start af pakkeforløb er i opgørelsesperioden"
         }
       ]
     },
@@ -418,12 +51,272 @@
       "name": "ADHD-databasen",
       "type": "organization",
       "slug": "adhd-databasen",
-      "folder": "entities/organizations/health-registries",
-      "significance": "ADHD-databasen er kilden til alle data om Indikator 5 og Indikator 6 for behandlingsforløb blandt børn og unge under 18 år med ADHD.",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "ADHD-databasen er den centrale nationale database, der indsamler og rapporterer kvalitetsdata for ADHD-behandling, herunder resultater for Indikator 5 og Indikator 6, og fungerer som grundlag for national overvågning og styring.",
       "mentions": [
         {
-          "page": 32,
+          "page": 31,
           "context": "ADHD-DATABASEN"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen",
+      "type": "organization",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Styregruppen er den beslutningskompetente gruppe, der vurderer kvalitetsindikatorernes anvendelighed og formulerer strategiske anbefalinger for forbedring af ADHD-behandlingen, herunder at genoverveje ordlyd og datadefinitioner for Indikator 5.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Beslutning: Styregruppen vurderer fortsat at nonfarmakologiske behandlingstiltag er vigtige for kvaliteten af behandlingen af ADHD."
+        }
+      ]
+    },
+    {
+      "name": "DMPG-retningslinje",
+      "type": "topic",
+      "slug": "dmpg-retningslinje",
+      "folder": "topics/policy/mental-health-strategy",
+      "significance": "DMPG-retningslinjen er en faglig retningslinje for non-farmakologisk behandling af ADHD, som Styregruppen beslutter at anvende i sit videre arbejde med Indikator 5, hvilket understreger dens rolle som normativ reference for kvalitetsmål.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "I DMPG-retningslinje regi er der en retningslinje for non-farmakologisk behandling af ADHD på trapperne. Styregruppen vil anvende den i sit videre arbejde med denne indikator."
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19",
+      "type": "facility",
+      "slug": "bispebjerg-bup-ambulatorium",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "significance": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 er et konkret behandlingssted, der rapporterer data til Indikator 5 og Indikator 6, og viser en lav psykoedukationsrate (23 %) men høj medicinrate (61 %), hvilket illustrerer regional variation i behandlingspraksis.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Bornh, B37",
+      "type": "facility",
+      "slug": "bornholm-bup-ambulatorium",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "significance": "Psykiatrisk ambulatorium, børn og unge, Bornh, B37 er et behandlingssted, der rapporterer data til Indikator 5 og Indikator 6, og fremstår som et af de bedste i psykoedukation (37 %) og det bedste i farmakologisk behandling (86 %) blandt de nævnte afdelinger.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Bornh, B37"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29",
+      "type": "facility",
+      "slug": "glostrup-bup-ambulatorium",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "significance": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 er et behandlingssted, der rapporterer data til Indikator 5 og Indikator 6, og viser en moderat psykoedukationsrate (34 %) og en høj medicinrate (68 %), hvilket afspejler en typisk balance mellem ikke-farmakologiske og farmakologiske tiltag.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29"
+        }
+      ]
+    },
+    {
+      "name": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39",
+      "type": "facility",
+      "slug": "hillerod-psykiatrisk-ambulatorium-boern-og-unge",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "significance": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 er et behandlingssted, der rapporterer data til Indikator 5 og Indikator 6, og fremstår som det bedste blandt de nævnte ambulatorier i psykoedukation (49 %) og ligger over gennemsnittet i medicinrate (69 %).",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Småbørn",
+      "type": "facility",
+      "slug": "bua-smaborn-klinik",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "significance": "BUA Psykiatrisk Klinik for Småbørn er et behandlingssted, der rapporterer data til Indikator 5 og Indikator 6, og fremstår som det bedste blandt alle nævnte enheder i psykoedukation (81 %), hvilket understreger dens specialiserede tilgang til småbørn og deres familier.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "BUA Psykiatrisk Klinik for Småbørn"
+        }
+      ]
+    },
+    {
+      "name": "BUA Psykiatrisk Klinik for Udredning",
+      "type": "facility",
+      "slug": "bua-psykiatrisk-klinik-for-udredning",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "significance": "BUA Psykiatrisk Klinik for Udredning er et behandlingssted, der rapporterer data til Indikator 5 og Indikator 6, og viser ingen registrerede tilfælde af påbegyndt psykoedukation (0 %), hvilket signalerer en strukturel manglende integration af psykoedukation i udredningsforløbet.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "BUA – Psykiatrisk Klinik for Udredning"
+        }
+      ]
+    },
+    {
+      "name": "region-hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Hovedstaden er en af de fem regioner, der rapporterer data til Indikator 5 og Indikator 6, og viser en psykoedukationsrate på 35 % og en medicinrate på 67 %, hvilket placerer den midt i feltet blandt regionerne.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "region-sjaelland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Sjælland er en af de fem regioner, der rapporterer data til Indikator 5 og Indikator 6, og viser den højeste psykoedukationsrate blandt regionerne (50 %), hvilket repræsenterer en forbedring på 8 procentpoint fra året før.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "region-syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Syddanmark er en af de fem regioner, der rapporterer data til Indikator 5 og Indikator 6, og viser den laveste psykoedukationsrate blandt regionerne (9 %), hvilket er konsekvent lavt fra tidligere år.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "region-midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland er en af de fem regioner, der rapporterer data til Indikator 5 og Indikator 6, og viser en psykoedukationsrate på 50 % og en medicinrate på 58 %, hvilket placerer den blandt de bedste regioner i psykoedukation.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "region-nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Nordjylland er en af de fem regioner, der rapporterer data til Indikator 5 og Indikator 6, og viser den højeste medicinrate blandt regionerne (82 %), mens psykoedukationsraten er lav (33 %), hvilket tyder på en stærk fokus på farmakologi frem for psykoedukation.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Privathospitaler",
+      "type": "organization",
+      "slug": "privathospitaler",
+      "folder": "entities/organizations/healthcare-providers",
+      "significance": "Privathospitaler er en kategori af behandlingsudbydere, der rapporterer data til Indikator 5 og Indikator 6, og viser en total manglende registrering af psykoedukation (0 %) og en høj medicinrate (0 % for Indikator 5, men ikke angivet for Indikator 6 — dog 0 % i tælleren), hvilket indikerer en systematisk manglende registrering eller tilbud af psykoedukation i den private sektor.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Privathospitaler"
+        }
+      ]
+    },
+    {
+      "name": "dexamfetamin-n06ba02",
+      "type": "medication",
+      "slug": "dexamfetamin-n06ba02",
+      "folder": "entities/medications/adhd",
+      "significance": "Dexamfetamin-n06ba02 er et af de seks ADHD-medicinpræparater, der indgår i beregningen af Indikator 6, og er en stimulerende medicin med ATC-kode N06BA02, hvilket gør den central for vurderingen af farmakologisk behandlingskvalitet.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Dexamfetamin (N06BA02)"
+        }
+      ]
+    },
+    {
+      "name": "methylphenidat-n06ba04",
+      "type": "medication",
+      "slug": "methylphenidat-n06ba04",
+      "folder": "entities/medications/adhd",
+      "significance": "Methylphenidat-n06ba04 er et af de seks ADHD-medicinpræparater, der indgår i beregningen af Indikator 6, og er den mest anvendte stimulerende medicin med ATC-kode N06BA04, hvilket gør den afgørende for den nationale medicinrate.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "methylphenidat (N06BA04)"
+        }
+      ]
+    },
+    {
+      "name": "modafinil-n06ba07",
+      "type": "medication",
+      "slug": "modafinil-n06ba07",
+      "folder": "entities/medications/adhd",
+      "significance": "Modafinil-n06ba07 er et af de seks ADHD-medicinpræparater, der indgår i beregningen af Indikator 6, og er en ikke-stimulerende medicin med ATC-kode N06BA07, hvilket udvider mulighederne for behandling af patienter, der ikke tolererer stimulanter.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "modafinil (N06BA07)"
+        }
+      ]
+    },
+    {
+      "name": "atomoxetin-n06ba09",
+      "type": "medication",
+      "slug": "atomoxetin-n06ba09",
+      "folder": "entities/medications/adhd",
+      "significance": "Atomoxetin-n06ba09 er et af de seks ADHD-medicinpræparater, der indgår i beregningen af Indikator 6, og er en ikke-stimulerende, noradrenalin-genoptagelseshæmmer med ATC-kode N06BA09, hvilket gør den relevant for patienter med komorbiditet eller risiko for misbrug.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "atomoxetin (N06BA09)"
+        }
+      ]
+    },
+    {
+      "name": "lisdexamfetamin-n06ba12",
+      "type": "medication",
+      "slug": "lisdexamfetamin-n06ba12",
+      "folder": "entities/medications/adhd",
+      "significance": "Lisdexamfetamin-n06ba12 er et af de seks ADHD-medicinpræparater, der indgår i beregningen af Indikator 6, og er en prodrug af dexamfetamin med ATC-kode N06BA12, hvilket giver en mere stabil og længerevarende effekt end dexamfetamin alene.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "lisdexamfetamin (N06BA12)"
+        }
+      ]
+    },
+    {
+      "name": "guanfacin-c02ac02",
+      "type": "medication",
+      "slug": "guanfacin-c02ac02",
+      "folder": "entities/medications/adhd",
+      "significance": "Guanfacin-c02ac02 er et af de seks ADHD-medicinpræparater, der indgår i beregningen af Indikator 6, og er en ikke-stimulerende α2-adrenerger agonist med ATC-kode C02AC02, hvilket gør den særlig relevant for patienter med hyperaktivitet og impulsivitet samt komorbiditet som angst.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "guanfacin (C02AC02)"
         }
       ]
     }
@@ -432,286 +325,421 @@
     {
       "subject": "indikator-5",
       "predicate": "measures",
-      "object": "adhd-databasen",
-      "evidence": "Indikator 5 omhandler hvorvidt patienten eller vedkommendes forældre er påbegyndt psykoedukation indenfor 120 dage efter behandlingsstart",
-      "page": 33
+      "object": "adhd-behandlingspopulation",
+      "evidence": "Indikatorpopulation (nævner): Antal forløb i \"ADHD behandlingspopulation\", hvor dato for start af pakkeforløb er i opgørelsesperioden",
+      "page": 31
     },
     {
       "subject": "indikator-6",
       "predicate": "measures",
-      "object": "adhd-databasen",
-      "evidence": "Indikator 6: Andelen af behandlingsforløb, hvor patienten er i behandling med ADHD-medicin",
-      "page": 34
+      "object": "adhd-behandlingspopulation",
+      "evidence": "Indikatorpopulation (nævner): Antal forløb i \"ADHD behandlingspopulation\", hvor dato for start af pakkeforløb er i opgørelsesperioden",
+      "page": 31
     },
     {
-      "subject": "region-syddanmark",
-      "predicate": "has-lowest-performance-on",
+      "subject": "adhd-databasen",
+      "predicate": "hosts",
       "object": "indikator-5",
-      "evidence": "Syddanmark ligger, ligesom i 2023/24, lavest med en andel på 9%",
-      "page": 33
+      "evidence": "ADHD-DATABASEN",
+      "page": 31
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "hosts",
+      "object": "indikator-6",
+      "evidence": "ADHD-DATABASEN",
+      "page": 31
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "governs",
+      "object": "indikator-5",
+      "evidence": "Beslutning: Styregruppen vurderer fortsat at nonfarmakologiske behandlingstiltag er vigtige for kvaliteten af behandlingen af ADHD.",
+      "page": 31
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "governs",
+      "object": "indikator-6",
+      "evidence": "Beslutning: Styregruppen vurderer fortsat at nonfarmakologiske behandlingstiltag er vigtige for kvaliteten af behandlingen af ADHD.",
+      "page": 31
+    },
+    {
+      "subject": "dmpg-retningslinje",
+      "predicate": "informs",
+      "object": "indikator-5",
+      "evidence": "I DMPG-retningslinje regi er der en retningslinje for non-farmakologisk behandling af ADHD på trapperne. Styregruppen vil anvende den i sit videre arbejde med denne indikator.",
+      "page": 31
+    },
+    {
+      "subject": "bispebjerg-bup-ambulatorium",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19",
+      "page": 31
+    },
+    {
+      "subject": "bornholm-bup-ambulatorium",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Psykiatrisk ambulatorium, børn og unge, Bornh, B37",
+      "page": 31
+    },
+    {
+      "subject": "glostrup-bup-ambulatorium",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29",
+      "page": 31
+    },
+    {
+      "subject": "hillerod-psykiatrisk-ambulatorium-boern-og-unge",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39",
+      "page": 31
+    },
+    {
+      "subject": "bua-smaborn-klinik",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "BUA Psykiatrisk Klinik for Småbørn",
+      "page": 31
+    },
+    {
+      "subject": "bua-psykiatrisk-klinik-for-udredning",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "BUA – Psykiatrisk Klinik for Udredning",
+      "page": 31
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Hovedstaden",
+      "page": 31
     },
     {
       "subject": "region-sjaelland",
-      "predicate": "improved-on",
-      "object": "indikator-5",
-      "evidence": "Sjælland og Midtjylland ligger begge på 50 %, hvilket for Sjælland er en 8 procentpoints forbedring sammenlignet med året inden",
-      "page": 33
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Sjælland",
+      "page": 31
     },
     {
-      "subject": "bua-psykiatrisk-klinik-smaaboern",
-      "predicate": "has-highest-performance-on",
-      "object": "indikator-5",
-      "evidence": "Blandt afdelinger med mere end tre forløb spænder målopfyldelsen fra 5 % (PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) til 81 % (BUA Psykiatrisk Klinik for Småbørn)",
-      "page": 33
+      "subject": "region-syddanmark",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Syddanmark",
+      "page": 31
     },
     {
-      "subject": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "has-lowest-performance-on",
-      "object": "indikator-5",
-      "evidence": "Blandt afdelinger med mere end tre forløb spænder målopfyldelsen fra 5 % (PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) til 81 % (BUA Psykiatrisk Klinik for Småbørn)",
-      "page": 33
+      "subject": "region-midtjylland",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Midtjylland",
+      "page": 31
     },
     {
       "subject": "region-nordjylland",
-      "predicate": "has-highest-performance-on",
-      "object": "indikator-6",
-      "evidence": "Nordjylland - 456 / 555 0 (0) 82 (79-85)",
-      "page": 34
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Nordjylland",
+      "page": 31
+    },
+    {
+      "subject": "privathospitaler",
+      "predicate": "reports-to",
+      "object": "adhd-databasen",
+      "evidence": "Privathospitaler",
+      "page": 31
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "includes-medicine",
+      "object": "dexamfetamin-n06ba02",
+      "evidence": "Dexamfetamin (N06BA02)",
+      "page": 31
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "includes-medicine",
+      "object": "methylphenidat-n06ba04",
+      "evidence": "methylphenidat (N06BA04)",
+      "page": 31
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "includes-medicine",
+      "object": "modafinil-n06ba07",
+      "evidence": "modafinil (N06BA07)",
+      "page": 31
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "includes-medicine",
+      "object": "atomoxetin-n06ba09",
+      "evidence": "atomoxetin (N06BA09)",
+      "page": 31
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "includes-medicine",
+      "object": "lisdexamfetamin-n06ba12",
+      "evidence": "lisdexamfetamin (N06BA12)",
+      "page": 31
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "includes-medicine",
+      "object": "guanfacin-c02ac02",
+      "evidence": "guanfacin (C02AC02)",
+      "page": 31
     }
   ],
   "claims": [
     {
-      "text": "Indikator 5 blev sat i drift i 2021 og udviklingsmålet er sat til 90 % [^src1]",
-      "type": "procedural",
-      "entities": [
-        "indikator-5"
-      ],
-      "page": 33
-    },
-    {
-      "text": "På landsplan fik påbegyndte 33 % af ADHD-patienter/forældre psykoedukation inden for tidsfristen, hvilket er på niveau med de tidligere opgørelsesår [^src1]",
+      "text": "Indikator 5 har et udviklingsmål på ≥ 90 % for perioden 01.04.2024 - 31.03.2025 [^src1]",
       "type": "performance",
       "entities": [
-        "danmark",
         "indikator-5"
       ],
-      "page": 33
+      "page": 31
     },
     {
-      "text": "Syddanmark ligger, ligesom i 2023/24, lavest med en andel på 9% [^src1]",
+      "text": "På landsplan fik 33 % af ADHD-patienter/forældre psykoedukation inden for tidsfristen [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Syddanmark ligger lavest med en andel på 9 % for Indikator 5 [^src1]",
       "type": "performance",
       "entities": [
         "region-syddanmark",
         "indikator-5"
       ],
-      "page": 33
+      "page": 31
     },
     {
-      "text": "Sjælland og Midtjylland ligger begge på 50 %, hvilket for Sjælland er en 8 procentpoints forbedring sammenlignet med året inden [^src1]",
+      "text": "Sjælland og Midtjylland ligger begge på 50 % for Indikator 5 [^src1]",
       "type": "performance",
       "entities": [
         "region-sjaelland",
         "region-midtjylland",
         "indikator-5"
       ],
-      "page": 33
+      "page": 31
     },
     {
-      "text": "Hovedstaden og Nordjylland opnåede hhv. 35 og 33 % [^src1]",
+      "text": "Hovedstaden og Nordjylland opnåede hhv. 35 og 33 % for Indikator 5 [^src1]",
       "type": "performance",
       "entities": [
         "region-hovedstaden",
         "region-nordjylland",
         "indikator-5"
       ],
-      "page": 33
+      "page": 31
     },
     {
-      "text": "Ingen regioner har således nået udviklingsmålet på 90 % [^src1]",
+      "text": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) har en psykoedukationsrate på 5 % [^src1]",
       "type": "performance",
       "entities": [
         "indikator-5"
       ],
-      "page": 33
+      "page": 31
     },
     {
-      "text": "Blandt afdelinger med mere end tre forløb spænder målopfyldelsen fra 5 % (PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) til 81 % (BUA Psykiatrisk Klinik for Småbørn) [^src1]",
+      "text": "BUA Psykiatrisk Klinik for Småbørn har en psykoedukationsrate på 81 % [^src1]",
       "type": "performance",
       "entities": [
-        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-        "bua-psykiatrisk-klinik-smaaboern",
+        "bua-smaborn-klinik",
         "indikator-5"
       ],
-      "page": 33
+      "page": 31
     },
     {
-      "text": "Ingen afdelinger nåede udviklingsmålet [^src1]",
+      "text": "Ingen regioner har nået udviklingsmålet på 90 % for Indikator 5 [^src1]",
       "type": "performance",
       "entities": [
         "indikator-5"
       ],
-      "page": 33
+      "page": 31
+    },
+    {
+      "text": "Ingen afdelinger nåede udviklingsmålet på 90 % for Indikator 5 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 31
     },
     {
       "text": "Ingen er registreret som påbegyndt psykoedukation på de private hospitaler [^src1]",
       "type": "performance",
       "entities": [
+        "privathospitaler",
         "indikator-5"
       ],
-      "page": 33
+      "page": 31
     },
     {
-      "text": "Efter en periode med primært fokus på udredning og nedprioritering af behandlingstilbud i den regionale børne- og ungdomspsykiatri beskriver styregruppemedlemmerne i år at der findes psykoedukative tilbud i alle regioner [^src1]",
-      "type": "clinical-rationale",
-      "entities": [
-        "indikator-5"
-      ],
-      "page": 33
-    },
-    {
-      "text": "Det har dog ikke afspejlet sig i målopfyldelsen, som stadig er lav. Dette vurderes bl.a. at hænge sammen med registreringsproblemer og tidsfristen [^src1]",
-      "type": "clinical-rationale",
-      "entities": [
-        "indikator-5"
-      ],
-      "page": 33
-    },
-    {
-      "text": "Dertil opleves i flere regioner at familier udebliver fra eller takker nej til de psykoedukative tilbud [^src1]",
-      "type": "clinical-rationale",
-      "entities": [
-        "indikator-5"
-      ],
-      "page": 33
-    },
-    {
-      "text": "Dertil er der også en stor usikkerhed ift. hvor meget appbaserede tilbud og webinarers betydning kan vægtes [^src1]",
-      "type": "clinical-rationale",
-      "entities": [
-        "indikator-5"
-      ],
-      "page": 33
-    },
-    {
-      "text": "Behandlingspopulationen er en blandet population. En del af patienterne i denne population er udredt privat og henvises til det offentlige til medicinsk behandling eller de er opstartet i medicinsk behandling i det private og henvises til videre opfølgning af den medicinske behandling [^src1]",
-      "type": "clinical-rationale",
-      "entities": [
-        "indikator-5"
-      ],
-      "page": 33
-    },
-    {
-      "text": "Denne gruppe af patienter vil ofte kun få tilbudt medicinsk behandling ud fra en forventning om at der været tilbudt psykoedukation i det private tilbud [^src1]",
-      "type": "clinical-rationale",
-      "entities": [
-        "indikator-5"
-      ],
-      "page": 33
-    },
-    {
-      "text": "Styregruppen vurderer fortsat at nonfarmakologiske behandlingstiltag er vigtige for kvaliteten af behandlingen af ADHD [^src1]",
-      "type": "clinical-rationale",
-      "entities": [
-        "indikator-5"
-      ],
-      "page": 33
-    },
-    {
-      "text": "Der er behov for en diskussion af hvad er god psykoedukation/vejledning. Således er der behov for at kigge på ordlyden og datadefinitionerne i denne indikator [^src1]",
-      "type": "decision",
-      "entities": [
-        "indikator-5"
-      ],
-      "page": 33
-    },
-    {
-      "text": "I DMPG-retningslinje regi er der en retningslinje for non-farmakologisk behandling af ADHD på trapperne. Styregruppen vil anvende den i sit videre arbejde med denne indikator [^src1]",
-      "type": "action-plan",
-      "entities": [
-        "indikator-5"
-      ],
-      "page": 33
-    },
-    {
-      "text": "Antal forløb i ADHD behandlingspopulation for Danmark var 5.222 i perioden 01.04.2024 - 31.03.2025 [^src2]",
-      "type": "epidemiological",
-      "entities": [
-        "danmark",
-        "indikator-6"
-      ],
-      "page": 34
-    },
-    {
-      "text": "3.536 forløb blandt børn og unge under 18 var i behandling med ADHD-medicin i Danmark i perioden 01.04.2024 - 31.03.2025, svarende til 68 % [^src2]",
+      "text": "Indikator 6 har et udviklingsmål på ≥ 90 % [^src1]",
       "type": "performance",
       "entities": [
-        "danmark",
         "indikator-6"
       ],
-      "page": 34
+      "page": 31
     },
     {
-      "text": "Region Hovedstaden opnåede 67 % målopfyldelse for Indikator 6 [^src2]",
+      "text": "På landsplan er andelen af behandlingsforløb med ADHD-medicin 68 % [^src1]",
       "type": "performance",
       "entities": [
-        "region-hovedstaden",
         "indikator-6"
       ],
-      "page": 34
+      "page": 31
     },
     {
-      "text": "Region Sjælland opnåede 56 % målopfyldelse for Indikator 6 [^src2]",
-      "type": "performance",
-      "entities": [
-        "region-sjaelland",
-        "indikator-6"
-      ],
-      "page": 34
-    },
-    {
-      "text": "Region Syddanmark opnåede 72 % målopfyldelse for Indikator 6 [^src2]",
-      "type": "performance",
-      "entities": [
-        "region-syddanmark",
-        "indikator-6"
-      ],
-      "page": 34
-    },
-    {
-      "text": "Region Midtjylland opnåede 58 % målopfyldelse for Indikator 6 [^src2]",
-      "type": "performance",
-      "entities": [
-        "region-midtjylland",
-        "indikator-6"
-      ],
-      "page": 34
-    },
-    {
-      "text": "Region Nordjylland opnåede 82 % målopfyldelse for Indikator 6 [^src2]",
+      "text": "Nordjylland har den højeste medicinrate blandt regionerne med 82 % [^src1]",
       "type": "performance",
       "entities": [
         "region-nordjylland",
         "indikator-6"
       ],
-      "page": 34
+      "page": 31
+    },
+    {
+      "text": "Syddanmark har den næsthøjeste medicinrate blandt regionerne med 72 % [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-syddanmark",
+        "indikator-6"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Psykiatrisk ambulatorium, børn og unge, Bornh, B37 har den højeste medicinrate blandt de nævnte ambulatorier med 86 % [^src1]",
+      "type": "performance",
+      "entities": [
+        "bornholm-bup-ambulatorium",
+        "indikator-6"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 har en medicinrate på 61 % [^src1]",
+      "type": "performance",
+      "entities": [
+        "bispebjerg-bup-ambulatorium",
+        "indikator-6"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 har en medicinrate på 68 % [^src1]",
+      "type": "performance",
+      "entities": [
+        "glostrup-bup-ambulatorium",
+        "indikator-6"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 har en medicinrate på 69 % [^src1]",
+      "type": "performance",
+      "entities": [
+        "hillerod-psykiatrisk-ambulatorium-boern-og-unge",
+        "indikator-6"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Styregruppen vurderer fortsat at nonfarmakologiske behandlingstiltag er vigtige for kvaliteten af behandlingen af ADHD [^src1]",
+      "type": "policy",
+      "entities": [
+        "styregruppen",
+        "indikator-5"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Styregruppen vil anvende DMPG-retningslinjen for non-farmakologisk behandling af ADHD i sit videre arbejde med Indikator 5 [^src1]",
+      "type": "policy",
+      "entities": [
+        "styregruppen",
+        "dmpg-retningslinje",
+        "indikator-5"
+      ],
+      "page": 31
     }
   ],
   "timeline": [
+    {
+      "date": "01.04.2024 - 31.03.2025",
+      "event": "Opgørelsesperiode for Indikator 5 og Indikator 6 med udviklingsmål på ≥ 90 %",
+      "entities": [
+        "indikator-5",
+        "indikator-6"
+      ]
+    },
     {
       "date": "2021",
       "event": "Indikator 5 blev sat i drift",
       "entities": [
         "indikator-5"
       ]
-    },
-    {
-      "date": "01.04.2024 - 31.03.2025",
-      "event": "Opgørelsesperiode for Indikator 5 og Indikator 6",
-      "entities": [
-        "indikator-5",
-        "indikator-6"
-      ]
     }
   ],
-  "context": "Denne dokumentchunk præsenterer resultater fra ADHD-databasen for to vigtige kvalitetsindikatorer blandt børn og unge under 18 år med ADHD-diagnose. Indikator 5 måler andelen af behandlingsforløb, hvor patienten eller forældre påbegyndte psykoedukation inden for 120 dage efter behandlingsstart, med et udviklingsmål på 90 %, mens Indikator 6 måler andelen af forløb, hvor patienten er i behandling med ADHD-medicin baseret på mindst to indløste recepter. Begge indikatorer viser betydelige regionale variationer i Danmark, med Indikator 5 viser særlig lav målopfyldelse på landsplan (33 %), mens Indikator 6 viser højere performance (68 %). Styregruppen diskuterer barrierer for psykoedukation, herunder registreringsproblemer, familiers manglende deltagelse og usikkerhed omkring alternative tilbudsformer."
+  "tables": [
+    {
+      "subject": "indikator-5",
+      "title": "Indikator 5: Andelen af behandlingsforløb, hvor patienten/forældre har påbegyndt ADHD-relateret psykoedukation senest 120 dage efter behandlingsstart",
+      "page": 31,
+      "rowDimension": "region or facility",
+      "colDimension": "performance metrics per year",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "bispebjerg-bup-ambulatorium",
+        "bornholm-bup-ambulatorium",
+        "glostrup-bup-ambulatorium",
+        "hillerod-psykiatrisk-ambulatorium-boern-og-unge",
+        "bua-smaborn-klinik",
+        "bua-psykiatrisk-klinik-for-udredning",
+        "privathospitaler"
+      ],
+      "markdown": "| Region eller afdeling | Uoplyst | Tæller/ nævner | Andel (%) | 95% CI | 2023/24 Andel | 2022/23 Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 1.738 / 5.222 | 33 | (32-35) | 1.203 / 3.603 | 33 / 35 |\n| Hovedstaden | Nej | 672 / 1.905 | 35 | (33-37) | 279 / 681 | 41 / 43 |\n| Sjælland | Nej | 247 / 498 | 50 | (45-54) | 167 / 399 | 42 / 55 |\n| Syddanmark | Nej | 82 / 890 | 9 | (7-11) | 61 / 840 | 7 / 21 |\n| Midtjylland | Nej | 554 / 1.107 | 50 | (47-53) | 524 / 1.066 | 49 / 39 |\n| Nordjylland | Nej | 183 / 555 | 33 | (29-37) | 170 / 535 | 32 / 21 |\n| Privathospitaler | Nej | 0 / 267 | 0 | (0-1) | #/# | 3 |\n| Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 | Nej | 103 / 441 | 23 | (19-28) | 19 / 86 | 22 / 29 |\n| Psykiatrisk ambulatorium, børn og unge, Bornh, B37 | Nej | 32 / 86 | 37 | (27-48) | 5 / 55 | 9 / 22 |\n| Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 | Nej | 325 / 947 | 34 | (31-37) | 133 / 284 | 47 / 41 |\n| Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 | Nej | 212 / 431 | 49 | (44-54) | 121 / 255 | 47 / 59 |\n| Børne-Unge Psyk. Klinik 40.K | Nej | 247 / 497 | 50 | (45-54) | 167 / 398 | 42 / 55 |\n| Børne-Unge Psyk. Reg.fkt. 40.R | Nej | #/# | 0 | (0-98) | #/# | 0 / 0 |\n| PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) | Nej | 11 / 107 | 10 | (5-18) | 10 / 79 | 13 / 17 |\n| PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) | Nej | 22 / 224 | 10 | (6-14) | 31 / 205 | 15 / 53 |\n| PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) | Nej | 35 / 281 | 12 | (9-17) | 18 / 269 | 7 / 4 |\n| PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) | Nej | 14 / 278 | 5 | (3-8) | #/# | 1 / 1 |\n| BUA Børne- og Ungdomspsykiatri - Sengeafsnit | Nej | #/# | 0 | (0-98) | #/# | 100 / 0 |\n| BUA Psykiatrisk Klinik for Skolebørn | Nej | 289 / 517 | 56 | (51-60) | 299 / 500 | 60 / 45 |\n| BUA Psykiatrisk Klinik for Småbørn | Nej | 156 / 193 | 81 | (75-86) | 97 / 149 | 65 / 66 |\n| BUA Psykiatrisk Klinik for Unge | Nej | 108 / 393 | 27 | (23-32) | 127 / 410 | 31 / 20 |\n| BUA – Psykiatrisk Dagafsnit | Nej | #/# | 50 | (1-99) | #/# | 0 / 0 |\n| BUA – Psykiatrisk Klinik for Udredning | Nej | #/# | 0 | (0-98) | 0 / 6 | 0 / 2 |",
+      "summary": "Tabellen sammenligner psykoedukationsraten for Indikator 5 på regions- og afdelingsniveau over tre år, og viser en bred spændvidde fra 0 % til 81 % uden nogen enhed, der når det nationale udviklingsmål på 90 %."
+    },
+    {
+      "subject": "indikator-6",
+      "title": "Indikator 6: Andelen af behandlingsforløb, hvor patienten er i behandling med ADHD-medicin",
+      "page": 31,
+      "rowDimension": "region or facility",
+      "colDimension": "performance metrics per year",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "bispebjerg-bup-ambulatorium",
+        "bornholm-bup-ambulatorium",
+        "glostrup-bup-ambulatorium",
+        "hillerod-psykiatrisk-ambulatorium-boern-og-unge",
+        "bua-smaborn-klinik",
+        "bua-psykiatrisk-klinik-for-udredning",
+        "privathospitaler"
+      ],
+      "markdown": "| Region eller afdeling | Tæller/ nævner | Uoplyst | Andel (%) | 95% CI | 2023/24 Andel | 2022/23 Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.536 / 5.222 | 0 | (0) | 68 | (66-69) | 2.264 / 3.603 | 63 / 63 |\n| Hovedstaden | 1.281 / 1.905 | 0 | (0) | 67 | (65-69) | 367 / 681 | 54 / 52 |\n| Sjælland | 280 / 498 | 0 | (0) | 56 | (52-61) | 218 / 399 | 55 / 58 |\n| Syddanmark | 640 / 890 | 0 | (0) | 72 | (69-75) | 558 / 840 | 66 / 65 |\n| Midtjylland | 642 / 1.107 | 0 | (0) | 58 | (55-61) | 578 / 1.066 | 54 / 62 |\n| Nordjylland | 456 / 555 | 0 | (0) | 82 | (79-85) | 467 / 535 | 87 / 87 |\n| Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 | 271 / 441 | 0 | (0) | 61 | (57-66) | 43 / 86 | 50 / 55 |\n| Psykiatrisk ambulatorium, børn og unge, Bornh, B37 | 74 / 86 | 0 | (0) | 86 | (77-93) | 43 / 55 | 78 / 68 |\n| Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 | 640 / 947 | 0 | (0) | 68 | (64-71) | 131 / 284 | 46 / 44 |\n| Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 | 296 / 431 | 0 | (0) | 69 | (64-73) | 149 / 255 | 58 / 56 |\n| Sjælland | 280 / 498 | 0 | (0) | 56 | (52-61) | 218 / 399 | 55 / 58 |\n| Børne-Unge Psyk. Klinik 40.K | 279 / 497 | 0 | (0) | 56 | (52-61) | 217 / 398 | 55 / 58 |\n| Børne-Unge Psyk. Reg.fkt. 40.R | # / # | 0 | (0) | 100 | (3-100) | # / # | 0 / 0 |\n| Syddanmark | 640 / 890 | 0 | (0) | 72 | (69-75) | 558 / 840 | 66 / 65 |",
+      "summary": "Tabellen sammenligner medicinraten for Indikator 6 på regions- og afdelingsniveau over tre år, og viser en spændvidde fra 56 % til 87 %, med Nordjylland som den klart bedste region og Bornholm som den bedste afdeling."
+    }
+  ],
+  "context": "Denne chunk (sider 31–35) er en del af den nationale ADHD-rapport 2024 og fokuserer på to centrale kvalitetsindikatorer: Indikator 5 (psykoedukation) og Indikator 6 (farmakologisk behandling). Den præsenterer kvantitative resultater fra ADHD-databasen for opgørelsesperioden 01.04.2024–31.03.2025, sammenlignet med tidligere år, og diskuterer systemiske udfordringer ved implementeringen af psykoedukation, herunder registreringsproblemer, familieafvisning og usikkerhed omkring digitale tilbud. Samtidig fremhæves den relative styrke i farmakologisk behandling, især i Nordjylland og blandt specifikke afdelinger, hvilket indikerer en udbalance mellem ikke-farmakologiske og farmakologiske behandlingskomponenter i den danske ADHD-indsats."
 }

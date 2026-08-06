@@ -4,12 +4,12 @@
       "name": "Lone Larsen",
       "type": "person",
       "slug": "lone-larsen",
-      "folder": "entities/people/steering-committee",
-      "significance": "Formand (Chair) of the DANIBD steering committee, serving as Overlæge, ph.d., and klinisk lektor at Region Nordjylland.",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Lone Larsen er formand for styregruppen for DANIBD og fremstår som en central ledende sundhedsfaglig aktør i det nationale register for inflammatorisk tarmsygdom, hvilket understreger hendes strategiske rolle i kvalitetsudvikling og overvågning af IBD-behandling i Danmark.",
       "mentions": [
         {
           "page": 21,
-          "context": "Formand Lone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland"
+          "context": "Formand\nLone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland"
         }
       ]
     },
@@ -17,8 +17,8 @@
       "name": "Jens Kjeldsen",
       "type": "person",
       "slug": "jens-kjeldsen",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Ledende overlæge, professor, ph.d. at Region Syddanmark.",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Jens Kjeldsen er et medlem af DANIBD’s styregruppe og repræsenterer Region Syddanmark som ledende overlæge og professor, hvilket markerer hans faglige autoritet inden for gastroenterologi og dens integration i det nationale kvalitetsregister.",
       "mentions": [
         {
           "page": 21,
@@ -30,8 +30,8 @@
       "name": "Niels Qvist",
       "type": "person",
       "slug": "niels-qvist",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Professor, dr. med, overlæge at Region Syddanmark.",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Niels Qvist er medlem af styregruppen for DANIBD og repræsenterer Region Syddanmark som professor og overlæge, hvilket understreger hans videnskabelige og kliniske bidrag til udviklingen af IBD-kvalitetsmåling i Danmark.",
       "mentions": [
         {
           "page": 21,
@@ -43,8 +43,8 @@
       "name": "Inge Nordgaard Lassen",
       "type": "person",
       "slug": "inge-nordgaard-lassen",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Cheflæge, dr.med. at Region Hovedstaden.",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Inge Nordgaard Lassen er medlem af DANIBD’s styregruppe og repræsenterer Region Hovedstaden som cheflæge, hvilket placerer hende som en nøglefigur for klinisk ledelse og kvalitetsstyring inden for IBD-i Region Hovedstaden.",
       "mentions": [
         {
           "page": 21,
@@ -56,8 +56,8 @@
       "name": "Ida Vind",
       "type": "person",
       "slug": "ida-vind",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Overlæge, ph.d., klinisk lektor at Region Hovedstaden.",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Ida Vind er medlem af styregruppen for DANIBD og repræsenterer Region Hovedstaden som overlæge og klinisk lektor, hvilket afspejler hendes dobbelte rolle som både klinisk praktiserende læge og uddannelsesansvarlig inden for gastroenterologi.",
       "mentions": [
         {
           "page": 21,
@@ -69,8 +69,8 @@
       "name": "Johan Burisch",
       "type": "person",
       "slug": "johan-burisch",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Afdelingslæge, dr.med. ph.d. at Region Hovedstaden.",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Johan Burisch er medlem af DANIBD’s styregruppe og repræsenterer Region Hovedstaden som afdelingslæge med ph.d., hvilket understreger hans forskningsbaserede tilgang til behandling af inflammatorisk tarmsygdom.",
       "mentions": [
         {
           "page": 21,
@@ -82,8 +82,8 @@
       "name": "Else Kjær Mikkelsen",
       "type": "person",
       "slug": "else-kjaer-mikkelsen",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Specialeansvarlig sygeplejerske at Region Midtjylland.",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Else Kjær Mikkelsen er medlem af styregruppen for DANIBD og repræsenterer Region Midtjylland som specialeansvarlig sygeplejerske, hvilket fremhæver den centrale rolle, som sygepleje spiller i koordineringen og kvaliteten af IBD-forløb.",
       "mentions": [
         {
           "page": 21,
@@ -95,8 +95,8 @@
       "name": "Torben Knudsen",
       "type": "person",
       "slug": "torben-knudsen",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Klinisk professor, ledende overlæge dr.med., ph.d. at Region Syddanmark.",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Torben Knudsen er medlem af DANIBD’s styregruppe og repræsenterer Region Syddanmark som klinisk professor og ledende overlæge, hvilket markerer hans tværgående ansvar for både klinisk praksis, undervisning og kvalitetsudvikling inden for IBD.",
       "mentions": [
         {
           "page": 21,
@@ -108,8 +108,8 @@
       "name": "Henning Glerup",
       "type": "person",
       "slug": "henning-glerup",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Specialeansvarlig overlæge at Region Midtjylland.",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Henning Glerup er medlem af styregruppen for DANIBD og repræsenterer Region Midtjylland som specialeansvarlig overlæge, hvilket understreger hans specialiserede kompetence og ledelsesansvar inden for gastroenterologisk behandling.",
       "mentions": [
         {
           "page": 21,
@@ -121,8 +121,8 @@
       "name": "Ole Thorlacius-Ussing",
       "type": "person",
       "slug": "ole-thorlacius-ussing",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Overlæge, dr.med. at Region Nordjylland.",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Ole Thorlacius-Ussing er medlem af DANIBD’s styregruppe og repræsenterer Region Nordjylland som overlæge, hvilket knytter ham til regionens kliniske implementering af nationalt koordinerede IBD-kvalitetsmål.",
       "mentions": [
         {
           "page": 21,
@@ -134,8 +134,8 @@
       "name": "Marianne Kajbæk Vester-Andersen",
       "type": "person",
       "slug": "marianne-kajbaek-vester-andersen",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Ledende overlæge, ph.d., klinisk lektor at Region Sjælland.",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Marianne Kajbæk Vester-Andersen er medlem af styregruppen for DANIBD og repræsenterer Region Sjælland som ledende overlæge og klinisk lektor, hvilket afspejler hendes kombinerede ansvar for klinisk ledelse, uddannelse og kvalitetsmåling inden for IBD.",
       "mentions": [
         {
           "page": 21,
@@ -147,8 +147,8 @@
       "name": "Rasmus Gaardskær Nielsen",
       "type": "person",
       "slug": "rasmus-gaardskaer-nielsen",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Overlæge, ph.d., klinisk lektor at Region Syddanmark.",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Rasmus Gaardskær Nielsen er medlem af DANIBD’s styregruppe og repræsenterer Region Syddanmark som overlæge og klinisk lektor, hvilket understreger hans rolle som både klinisk ekspert og uddannelsesansvarlig i det nationale IBD-register.",
       "mentions": [
         {
           "page": 21,
@@ -159,9 +159,9 @@
     {
       "name": "Mohamed Attauabi",
       "type": "person",
-      "slug": "mohamed-attauabi",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Reservelæge at Region Hovedstaden.",
+      "slug": "mohamed-attaubi",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Mohamed Attauabi er medlem af styregruppen for DANIBD og repræsenterer Region Hovedstaden som reservelæge, hvilket markerer inklusionen af yngre og fremtidige fagfolk i ledelsen af det nationale kvalitetsregister for IBD.",
       "mentions": [
         {
           "page": 21,
@@ -173,8 +173,8 @@
       "name": "Jannie Jensen",
       "type": "person",
       "slug": "jannie-jensen",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Patientrepræsentant (patient representative).",
+      "folder": "entities/people/patient-representatives",
+      "significance": "Jannie Jensen er patientrepræsentant i DANIBD’s styregruppe og sikrer, at patientperspektivet er integreret i udformningen og vurderingen af kvalitetsindikatorer for inflammatorisk tarmsygdom.",
       "mentions": [
         {
           "page": 21,
@@ -186,8 +186,8 @@
       "name": "Anne Mette Falstie-Jensen",
       "type": "person",
       "slug": "anne-mette-falstie-jensen",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Epidemiolog, ph.d. at RKKP.",
+      "folder": "entities/people/epidemiologists",
+      "significance": "Anne Mette Falstie-Jensen er epidemiolog ved RKKP og medlem af DANIBD’s styregruppe, hvilket understreger den videnskabelige og datadrevne grundlag for kvalitetsmåling i det nationale IBD-register.",
       "mentions": [
         {
           "page": 21,
@@ -198,13 +198,13 @@
     {
       "name": "Esra Öztoprak",
       "type": "person",
-      "slug": "esra-oeztoprak",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Kvalitetskonsulent og repræsentant for den dataansvarlige myndighed at RKKP.",
+      "slug": "esra-oztoprak",
+      "folder": "entities/people/data-governance",
+      "significance": "Esra Öztoprak fungerer som kvalitetskonsulent og repræsentant for den dataansvarlige myndighed i DANIBD, hvilket gør hende central for overholdelse af databeskyttelseslovgivningen og sikring af dataintegritet i registeret.",
       "mentions": [
         {
           "page": 21,
-          "context": "Esra Öztoprak, Kvalitetskonsulent og repræsentant for den dataansvarlige myndighed RKKP og repræsentant for den dataansvarlige myndighed"
+          "context": "Esra Öztoprak, Kvalitetskonsulent og repræsentant for den\ndataansvarlige myndighed\nRKKP og repræsentant for den\ndataansvarlige myndighed"
         }
       ]
     },
@@ -212,8 +212,8 @@
       "name": "Jakob Riis",
       "type": "person",
       "slug": "jakob-riis",
-      "folder": "entities/people/steering-committee",
-      "significance": "Steering committee member serving as Datamanager at RKKP.",
+      "folder": "entities/people/data-managers",
+      "significance": "Jakob Riis er datamanager ved RKKP og medlem af DANIBD’s styregruppe, hvilket understreger hans tekniske og operative ansvar for dataindsamling, -kvalitet og -rapportering i det nationale IBD-register.",
       "mentions": [
         {
           "page": 21,
@@ -226,27 +226,11 @@
       "type": "organization",
       "slug": "danibd",
       "folder": "entities/organizations/registries",
-      "significance": "Danish inflammatory bowel disease registry with a steering committee overseeing quality indicators and patient data collection across Danish regions.",
+      "significance": "DANIBD er det nationale danske register for inflammatorisk tarmsygdom, der indsamler og rapporterer kvalitetsdata fra hele landet, og fungerer som grundlag for klinisk kvalitetsudvikling, forskning og sundhedspolitisk styring.",
       "mentions": [
         {
           "page": 21,
-          "context": "Styregruppens medlemmer (Steering committee members section heading)"
-        },
-        {
-          "page": 22,
-          "context": "DANIBD 22 (page header)"
-        },
-        {
-          "page": 23,
-          "context": "DANIBD 23 (page header)"
-        },
-        {
-          "page": 24,
-          "context": "DANIBD 24 (page header)"
-        },
-        {
-          "page": 25,
-          "context": "DANIBD 25 (page header)"
+          "context": "DANIBD 21\n8. Styregruppens medlemmer"
         }
       ]
     },
@@ -254,8 +238,8 @@
       "name": "RKKP",
       "type": "organization",
       "slug": "rkkp",
-      "folder": "entities/organizations/registries",
-      "significance": "Danish Clinical Quality Program (Dansk Kvalitets- og Akkrediteringsprogram) providing epidemiological and data management support to DANIBD.",
+      "folder": "entities/organizations/public-health-institutions",
+      "significance": "RKKP (Regionernes Kliniske Kvalitetsprogram) er den administrative og tekniske platform, der støtter DANIBD og andre regionale kvalitetsregistre, og fungerer som dataansvarlig myndighed og operativ partner for registrering og analyse af kliniske kvalitetsdata.",
       "mentions": [
         {
           "page": 21,
@@ -263,7 +247,7 @@
         },
         {
           "page": 21,
-          "context": "Esra Öztoprak, Kvalitetskonsulent og repræsentant for den dataansvarlige myndighed RKKP"
+          "context": "Esra Öztoprak, Kvalitetskonsulent og repræsentant for den\ndataansvarlige myndighed\nRKKP og repræsentant for den\ndataansvarlige myndighed"
         },
         {
           "page": 21,
@@ -273,10 +257,10 @@
     },
     {
       "name": "Region Nordjylland",
-      "type": "location",
+      "type": "organization",
       "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Danish region represented on the DANIBD steering committee with patient data from 3,572 patients treated during the reporting period.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Nordjylland er en af de fem regioner, der deltar i DANIBD, og leverer data om patienter med IBD samt stillede medlemmer til styregruppen, hvilket illustrerer den regionale implementering af det nationale register.",
       "mentions": [
         {
           "page": 21,
@@ -285,19 +269,15 @@
         {
           "page": 21,
           "context": "Ole Thorlacius-Ussing, Overlæge, dr.med. Region Nordjylland"
-        },
-        {
-          "page": 22,
-          "context": "Behandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland"
         }
       ]
     },
     {
       "name": "Region Syddanmark",
-      "type": "location",
+      "type": "organization",
       "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Danish region represented on the DANIBD steering committee with patient data from 7,181 patients treated during the reporting period.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Syddanmark er en af de fem regioner, der deltar i DANIBD, og bidrager med både kliniske eksperter til styregruppen og patientdata, hvilket understreger dens centrale rolle i den regionale og nationale kvalitetsudvikling for IBD.",
       "mentions": [
         {
           "page": 21,
@@ -314,19 +294,15 @@
         {
           "page": 21,
           "context": "Rasmus Gaardskær Nielsen, Overlæge, ph.d., klinisk lektor Region Syddanmark"
-        },
-        {
-          "page": 22,
-          "context": "Behandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland"
         }
       ]
     },
     {
       "name": "Region Hovedstaden",
-      "type": "location",
+      "type": "organization",
       "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Danish region represented on the DANIBD steering committee with patient data from 11,211 patients treated during the reporting period, the largest patient population.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Hovedstaden er en af de fem regioner, der deltar i DANIBD, og leverer både data og flere styregruppemedlemmer, hvilket afspejler dens store kliniske kapacitet og ledende rolle i IBD-behandlingen i Danmark.",
       "mentions": [
         {
           "page": 21,
@@ -343,19 +319,15 @@
         {
           "page": 21,
           "context": "Mohamed Attauabi, Reservelæge Region Hovedstaden"
-        },
-        {
-          "page": 22,
-          "context": "Behandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland"
         }
       ]
     },
     {
       "name": "Region Midtjylland",
-      "type": "location",
+      "type": "organization",
       "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Danish region represented on the DANIBD steering committee with patient data from 7,520 patients treated during the reporting period.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Midtjylland er en af de fem regioner, der deltar i DANIBD, og bidrager med både sygeplejerskemæssig og overlægelig ekspertise i styregruppen samt kliniske data, hvilket understreger dens tværfaglige engagement i kvalitetsarbejdet.",
       "mentions": [
         {
           "page": 21,
@@ -364,173 +336,179 @@
         {
           "page": 21,
           "context": "Henning Glerup, Specialeansvarlig overlæge Region Midtjylland"
-        },
-        {
-          "page": 22,
-          "context": "Behandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland"
         }
       ]
     },
     {
       "name": "Region Sjælland",
-      "type": "location",
+      "type": "organization",
       "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Danish region represented on the DANIBD steering committee with patient data from 3,897 patients treated during the reporting period.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Sjælland er en af de fem regioner, der deltar i DANIBD, og leverer data samt en ledende overlæge til styregruppen, hvilket illustrerer dens bidrag til den nationale kvalitetsovervågning af IBD.",
       "mentions": [
         {
           "page": 21,
           "context": "Marianne Kajbæk Vester-Andersen, Ledende overlæge, ph.d., klinisk lektor Region Sjælland"
-        },
-        {
-          "page": 22,
-          "context": "Behandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland"
         }
       ]
     },
     {
-      "name": "Crohns sygdom",
-      "type": "medical-condition",
-      "slug": "crohns-sygdom",
-      "folder": "topics/medical-conditions/inflammatory-bowel-disease",
-      "significance": "One of the primary diagnoses tracked in DANIBD, representing 40-45% of patients across Danish regions during the reporting period.",
+      "name": "DK50* Crohns sygdom",
+      "type": "diagnosis",
+      "slug": "dk50-crohns-sygdom",
+      "folder": "topics/diagnoses/ibd",
+      "significance": "DK50* Crohns sygdom er en WHO-klassificeret diagnosekode anvendt i DANIBD til at identificere patienter med Crohns sygdom, og udgør én af de to primære diagnoser, der danner grundlag for kvalitetsmåling i det nationale register.",
       "mentions": [
         {
           "page": 22,
-          "context": "DK50* Crohns sygdom"
-        },
+          "context": "DK50* Crohns sygdom 4.521 (40) 1.753 (45) 2.916 (41) 3.227 (43) 1.422 (40)"
+        }
+      ]
+    },
+    {
+      "name": "DK51* Ulcerøs colitis",
+      "type": "diagnosis",
+      "slug": "dk51-ulceroes-colitis",
+      "folder": "topics/diagnoses/ibd",
+      "significance": "DK51* Ulcerøs colitis er en WHO-klassificeret diagnosekode anvendt i DANIBD til at identificere patienter med ulcerøs colitis, og udgør den anden af de to primære diagnoser, der danner grundlag for kvalitetsmåling i det nationale register.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "DK51* Ulcerøs colitis 6.534 (58) 2.128 (55) 4.211 (59) 4.204 (56) 2.129 (60)"
+        }
+      ]
+    },
+    {
+      "name": "DK830F Primær skleroserende kolangitis",
+      "type": "diagnosis",
+      "slug": "dk830f-primaer-skleroserende-kolangitis",
+      "folder": "topics/diagnoses/hepatobiliary",
+      "significance": "DK830F Primær skleroserende kolangitis er en WHO-klassificeret diagnosekode anvendt i DANIBD til at identificere patienter med PSC, en kompliceret komorbiditet ofte forbundet med IBD, og udgør en separat kvalitetsindikator (indikator 7).",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "DK830F Primær skleroserende kolangitis 128 (1) 10 (0) 41 (1) 55 (1) 14 (0)"
+        }
+      ]
+    },
+    {
+      "name": "DK912B Korttarmssyndrom",
+      "type": "diagnosis",
+      "slug": "dk912b-korttarmssyndrom",
+      "folder": "topics/diagnoses/gastrointestinal",
+      "significance": "DK912B Korttarmssyndrom er en WHO-klassificeret diagnosekode anvendt i DANIBD til at identificere patienter med korttarmssyndrom, en alvorlig komplikation af IBD, og indgår i patientkarakteristikken som en sjælden men klinisk relevant diagnose.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "DK912B Korttarmssyndrom 28 (0) 6 (0) 13 (0) 34 (0) 7 (0)"
+        }
+      ]
+    },
+    {
+      "name": "BIKE1 - Undervisning i inflammatorisk tarmsygdom",
+      "type": "procedure-code",
+      "slug": "bike1-undervisning-i-inflammatorisk-tarmsygdom",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "BIKE1 er en klinisk kode anvendt i DANIBD til at registrere undervisning af patienter med inflammatorisk tarmsygdom, og udgør indikator 2 i kvalitetsmålingsrammen, hvilket markerer fokus på patientuddannelse som en central kvalitetsdimension.",
+      "mentions": [
+        {
+          "page": 23,
+          "context": "BIKE1 - Undervisning i\ninflammatorisk tarmsygdom"
+        }
+      ]
+    },
+    {
+      "name": "BMSL",
+      "type": "treatment-category",
+      "slug": "bmsl",
+      "folder": "topics/treatments/biologics-and-small-molecules",
+      "significance": "BMSL er en forkortelse for biologika og små molekyler, som bruges i DANIBD til at klassificere og analysere behandlinger af IBD-patienter, og udgør grundlaget for indikator 4, der måler brugen af avancerede terapiformer.",
+      "mentions": [
         {
           "page": 24,
-          "context": "DK50* Crohns sygdom 247 (69) 6.184 (61)"
-        }
-      ]
-    },
-    {
-      "name": "Ulcerøs colitis",
-      "type": "medical-condition",
-      "slug": "ulcerosus-colitis",
-      "folder": "topics/medical-conditions/inflammatory-bowel-disease",
-      "significance": "One of the primary diagnoses tracked in DANIBD, representing 55-60% of patients across Danish regions during the reporting period.",
-      "mentions": [
-        {
-          "page": 22,
-          "context": "DK51* Ulcerøs colitis"
+          "context": "Appendikstabel 3. Karakteristika for patienter i behandling med BMSL (indikator 4)"
         },
         {
-          "page": 24,
-          "context": "DK51* Ulcerøs colitis 113 (31) 3.931 (39)"
+          "page": 25,
+          "context": "Appendikstabel 4. Type og antal behandlinger med BMSL (indikator 4)"
         }
       ]
     },
     {
-      "name": "Primær skleroserende kolangitis",
-      "type": "medical-condition",
-      "slug": "primaer-skleroserende-kolangitis",
-      "folder": "topics/medical-conditions/inflammatory-bowel-disease",
-      "significance": "A comorbid condition tracked in DANIBD affecting approximately 1% of patients across regions.",
-      "mentions": [
-        {
-          "page": 22,
-          "context": "DK830F Primær skleroserende kolangitis"
-        },
-        {
-          "page": 24,
-          "context": "DK830F Primær skleroserende kolangitis 28 (0)"
-        }
-      ]
-    },
-    {
-      "name": "Korttarmssyndrom",
-      "type": "medical-condition",
-      "slug": "korttarmssyndrom",
-      "folder": "topics/medical-conditions/inflammatory-bowel-disease",
-      "significance": "A rare complication tracked in DANIBD affecting less than 1% of patients.",
-      "mentions": [
-        {
-          "page": 22,
-          "context": "DK912B Korttarmssyndrom"
-        },
-        {
-          "page": 24,
-          "context": "DK912B Korttarmssyndrom 20 (0)"
-        }
-      ]
-    },
-    {
-      "name": "Infliximab",
-      "type": "pharmaceutical",
-      "slug": "infliximab",
-      "folder": "topics/pharmaceuticals/biologic-treatments",
-      "significance": "The most commonly used biologic treatment (BMSL) in DANIBD, accounting for 44% of adult treatments and 66% of pediatric treatments during the reporting period.",
+      "name": "BOHJ18A1 - Behandling med infliximab",
+      "type": "treatment-code",
+      "slug": "bohj18a1-behandling-med-infliximab",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BOHJ18A1 er en klinisk kode anvendt i DANIBD til at registrere behandling med infliximab, et anti-TNF-biologikum, og er den hyppigst anvendte BMSL-behandling blandt både børn og voksne i perioden 2022–2023.",
       "mentions": [
         {
           "page": 25,
-          "context": "BOHJ18A1 - Behandling med infliximab 1.351 (66) 24.293 (44)"
+          "context": "BOHJ18A1 - Behandling med infliximab 239 (66) 3.754 (37)"
         }
       ]
     },
     {
-      "name": "Adalimumab",
-      "type": "pharmaceutical",
-      "slug": "adalimumab",
-      "folder": "topics/pharmaceuticals/biologic-treatments",
-      "significance": "The second most commonly used biologic treatment (BMSL) in DANIBD, accounting for 21% of adult treatments and 14% of pediatric treatments.",
+      "name": "BOHJ18A3 - Behandling med adalimumab",
+      "type": "treatment-code",
+      "slug": "bohj18a3-behandling-med-adalimumab",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BOHJ18A3 er en klinisk kode anvendt i DANIBD til at registrere behandling med adalimumab, et anti-TNF-biologikum, og er den næsthyppigst anvendte BMSL-behandling blandt børn og den anden hyppigst anvendte blandt voksne i perioden 2022–2023.",
       "mentions": [
         {
           "page": 25,
-          "context": "BOHJ18A3 - Behandling med adalimumab 284 (14) 11.626 (21)"
+          "context": "BOHJ18A3 - Behandling med adalimumab 59 (16) 2.689 (26)"
         }
       ]
     },
     {
-      "name": "Golimumab",
-      "type": "pharmaceutical",
-      "slug": "golimumab",
-      "folder": "topics/pharmaceuticals/biologic-treatments",
-      "significance": "A biologic treatment (BMSL) used in DANIBD, accounting for 2% of adult treatments with minimal pediatric use.",
+      "name": "BOHJ18A4 - Behandling med golimumab",
+      "type": "treatment-code",
+      "slug": "bohj18a4-behandling-med-golimumab",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BOHJ18A4 er en klinisk kode anvendt i DANIBD til at registrere behandling med golimumab, et anti-TNF-biologikum, og forekommer kun blandt voksne patienter i perioden 2022–2023, hvor den udgør en mindre andel af BMSL-behandlinger.",
       "mentions": [
         {
           "page": 25,
-          "context": "BOHJ18A4 - Behandling med golimumab # (0) 1.126 (2)"
+          "context": "BOHJ18A4 - Behandling med golimumab 255 (3)"
         }
       ]
     },
     {
-      "name": "Ustekinumab",
-      "type": "pharmaceutical",
-      "slug": "ustekinumab",
-      "folder": "topics/pharmaceuticals/biologic-treatments",
-      "significance": "A biologic treatment (BMSL) used in DANIBD, accounting for 14% of adult treatments and 3% of pediatric treatments.",
+      "name": "BOHJ18B3 - Behandling med ustekinumab",
+      "type": "treatment-code",
+      "slug": "bohj18b3-behandling-med-ustekinumab",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BOHJ18B3 er en klinisk kode anvendt i DANIBD til at registrere behandling med ustekinumab, et IL-12/23-hæmmer, og udgør en voksende andel af BMSL-behandlinger blandt voksne, mens den anvendes mere sparsomt hos børn.",
       "mentions": [
         {
           "page": 25,
-          "context": "BOHJ18B3 - Behandling med ustekinumab 69 (3) 7.589 (14)"
+          "context": "BOHJ18B3 - Behandling med ustekinumab 17 (5) 1.604 (16)"
         }
       ]
     },
     {
-      "name": "Vedolizumab",
-      "type": "pharmaceutical",
-      "slug": "vedolizumab",
-      "folder": "topics/pharmaceuticals/biologic-treatments",
-      "significance": "A biologic treatment (BMSL) used in DANIBD, accounting for 19% of adult treatments and 16% of pediatric treatments.",
+      "name": "BOHJ19H4 - Behandling med vedolizumab",
+      "type": "treatment-code",
+      "slug": "bohj19h4-behandling-med-vedolizumab",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BOHJ19H4 er en klinisk kode anvendt i DANIBD til at registrere behandling med vedolizumab, en α4β7-integrinhæmmer, og er blandt de mest anvendte BMSL-behandlinger blandt voksne og den næsthøjeste blandt børn i perioden 2022–2023.",
       "mentions": [
         {
           "page": 25,
-          "context": "BOHJ19H4 - Behandling med vedolizumab 317 (16) 10.612 (19)"
+          "context": "BOHJ19H4 - Behandling med vedolizumab 42 (12) 1.735 (17)"
         }
       ]
     },
     {
-      "name": "Tofacitinib",
-      "type": "pharmaceutical",
-      "slug": "tofacitinib",
-      "folder": "topics/pharmaceuticals/biologic-treatments",
-      "significance": "A biologic treatment (BMSL) used in DANIBD, accounting for 1% of both adult and pediatric treatments.",
+      "name": "BOHJ28D - Behandling med tofacitinib",
+      "type": "treatment-code",
+      "slug": "bohj28d-behandling-med-tofacitinib",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BOHJ28D er en klinisk kode anvendt i DANIBD til at registrere behandling med tofacitinib, en JAK-hæmmer, og er den mindst anvendte af de registrerede BMSL-behandlinger både blandt børn og voksne i perioden 2022–2023.",
       "mentions": [
         {
           "page": 25,
-          "context": "BOHJ28D - Behandling med tofacitinib 20 (1) 420 (1)"
+          "context": "BOHJ28D - Behandling med tofacitinib 3 (1) 126 (1)"
         }
       ]
     }
@@ -540,14 +518,14 @@
       "subject": "lone-larsen",
       "predicate": "is-chair-of",
       "object": "danibd",
-      "evidence": "Formand Lone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland",
+      "evidence": "Formand\nLone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland",
       "page": 21
     },
     {
       "subject": "jens-kjeldsen",
       "predicate": "is-member-of",
       "object": "danibd",
-      "evidence": "Øvrige styregruppemedlemmer Jens Kjeldsen, Ledende overlæge, professor, ph.d. Region Syddanmark",
+      "evidence": "Jens Kjeldsen, Ledende overlæge, professor, ph.d. Region Syddanmark",
       "page": 21
     },
     {
@@ -621,7 +599,7 @@
       "page": 21
     },
     {
-      "subject": "mohamed-attauabi",
+      "subject": "mohamed-attaubi",
       "predicate": "is-member-of",
       "object": "danibd",
       "evidence": "Mohamed Attauabi, Reservelæge Region Hovedstaden",
@@ -629,420 +607,362 @@
     },
     {
       "subject": "jannie-jensen",
-      "predicate": "is-member-of",
+      "predicate": "is-patient-representative-for",
       "object": "danibd",
       "evidence": "Jannie Jensen Patientrepræsentant",
       "page": 21
     },
     {
       "subject": "anne-mette-falstie-jensen",
-      "predicate": "is-member-of",
-      "object": "danibd",
+      "predicate": "is-epidemiologist-at",
+      "object": "rkkp",
       "evidence": "Anne Mette Falstie-Jensen, Epidemiolog, ph.d. RKKP",
       "page": 21
     },
     {
-      "subject": "esra-oeztoprak",
-      "predicate": "is-member-of",
+      "subject": "esra-oztoprak",
+      "predicate": "is-data-responsible-representative-for",
       "object": "danibd",
-      "evidence": "Esra Öztoprak, Kvalitetskonsulent og repræsentant for den dataansvarlige myndighed RKKP",
+      "evidence": "Esra Öztoprak, Kvalitetskonsulent og repræsentant for den\ndataansvarlige myndighed\nRKKP og repræsentant for den\ndataansvarlige myndighed",
       "page": 21
     },
     {
       "subject": "jakob-riis",
-      "predicate": "is-member-of",
-      "object": "danibd",
+      "predicate": "is-datamanager-at",
+      "object": "rkkp",
       "evidence": "Jakob Riis, Datamanager RKKP",
       "page": 21
     },
     {
       "subject": "danibd",
-      "predicate": "receives-support-from",
+      "predicate": "is-administered-by",
       "object": "rkkp",
-      "evidence": "Anne Mette Falstie-Jensen, Epidemiolog, ph.d. RKKP; Esra Öztoprak, Kvalitetskonsulent og repræsentant for den dataansvarlige myndighed RKKP; Jakob Riis, Datamanager RKKP",
+      "evidence": "Anne Mette Falstie-Jensen, Epidemiolog, ph.d. RKKP\nEsra Öztoprak, Kvalitetskonsulent og repræsentant for den\ndataansvarlige myndighed\nRKKP og repræsentant for den\ndataansvarlige myndighed\nJakob Riis, Datamanager RKKP",
       "page": 21
     },
     {
-      "subject": "lone-larsen",
-      "predicate": "works-in",
-      "object": "region-nordjylland",
-      "evidence": "Lone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland",
-      "page": 21
+      "subject": "region-nordjylland",
+      "predicate": "contributes-data-to",
+      "object": "danibd",
+      "evidence": "Patienter i alt 11.211 (100) 3.897 (100) 7.181 (100) 7.520 (100) 3.572 (100)\nBehandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland",
+      "page": 22
     },
     {
-      "subject": "jens-kjeldsen",
-      "predicate": "works-in",
-      "object": "region-syddanmark",
-      "evidence": "Jens Kjeldsen, Ledende overlæge, professor, ph.d. Region Syddanmark",
-      "page": 21
+      "subject": "region-syddanmark",
+      "predicate": "contributes-data-to",
+      "object": "danibd",
+      "evidence": "Patienter i alt 11.211 (100) 3.897 (100) 7.181 (100) 7.520 (100) 3.572 (100)\nBehandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland",
+      "page": 22
     },
     {
-      "subject": "niels-qvist",
-      "predicate": "works-in",
-      "object": "region-syddanmark",
-      "evidence": "Niels Qvist, Professor, dr. med, overlæge Region Syddanmark",
-      "page": 21
+      "subject": "region-hovedstaden",
+      "predicate": "contributes-data-to",
+      "object": "danibd",
+      "evidence": "Patienter i alt 11.211 (100) 3.897 (100) 7.181 (100) 7.520 (100) 3.572 (100)\nBehandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland",
+      "page": 22
     },
     {
-      "subject": "inge-nordgaard-lassen",
-      "predicate": "works-in",
-      "object": "region-hovedstaden",
-      "evidence": "Inge Nordgaard Lassen, Cheflæge, dr.med. Region Hovedstaden",
-      "page": 21
+      "subject": "region-midtjylland",
+      "predicate": "contributes-data-to",
+      "object": "danibd",
+      "evidence": "Patienter i alt 11.211 (100) 3.897 (100) 7.181 (100) 7.520 (100) 3.572 (100)\nBehandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland",
+      "page": 22
     },
     {
-      "subject": "ida-vind",
-      "predicate": "works-in",
-      "object": "region-hovedstaden",
-      "evidence": "Ida Vind, Overlæge, ph.d., klinisk lektor Region Hovedstaden",
-      "page": 21
+      "subject": "region-sjaelland",
+      "predicate": "contributes-data-to",
+      "object": "danibd",
+      "evidence": "Patienter i alt 11.211 (100) 3.897 (100) 7.181 (100) 7.520 (100) 3.572 (100)\nBehandlende region Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland",
+      "page": 22
     },
     {
-      "subject": "johan-burisch",
-      "predicate": "works-in",
-      "object": "region-hovedstaden",
-      "evidence": "Johan Burisch, Afdelingslæge, dr.med. ph.d. Region Hovedstaden",
-      "page": 21
+      "subject": "dk50-crohns-sygdom",
+      "predicate": "is-diagnosis-for",
+      "object": "danibd",
+      "evidence": "DK50* Crohns sygdom 4.521 (40) 1.753 (45) 2.916 (41) 3.227 (43) 1.422 (40)",
+      "page": 22
     },
     {
-      "subject": "else-kjaer-mikkelsen",
-      "predicate": "works-in",
-      "object": "region-midtjylland",
-      "evidence": "Else Kjær Mikkelsen, Specialeansvarlig sygeplejerske Region Midtjylland",
-      "page": 21
+      "subject": "dk51-ulceroes-colitis",
+      "predicate": "is-diagnosis-for",
+      "object": "danibd",
+      "evidence": "DK51* Ulcerøs colitis 6.534 (58) 2.128 (55) 4.211 (59) 4.204 (56) 2.129 (60)",
+      "page": 22
     },
     {
-      "subject": "torben-knudsen",
-      "predicate": "works-in",
-      "object": "region-syddanmark",
-      "evidence": "Torben Knudsen, Klinisk professor, ledende overlæge dr.med., ph.d. Region Syddanmark",
-      "page": 21
+      "subject": "dk830f-primaer-skleroserende-kolangitis",
+      "predicate": "is-diagnosis-for",
+      "object": "danibd",
+      "evidence": "DK830F Primær skleroserende kolangitis 128 (1) 10 (0) 41 (1) 55 (1) 14 (0)",
+      "page": 22
     },
     {
-      "subject": "henning-glerup",
-      "predicate": "works-in",
-      "object": "region-midtjylland",
-      "evidence": "Henning Glerup, Specialeansvarlig overlæge Region Midtjylland",
-      "page": 21
+      "subject": "dk912b-korttarmssyndrom",
+      "predicate": "is-diagnosis-for",
+      "object": "danibd",
+      "evidence": "DK912B Korttarmssyndrom 28 (0) 6 (0) 13 (0) 34 (0) 7 (0)",
+      "page": 22
     },
     {
-      "subject": "ole-thorlacius-ussing",
-      "predicate": "works-in",
-      "object": "region-nordjylland",
-      "evidence": "Ole Thorlacius-Ussing, Overlæge, dr.med. Region Nordjylland",
-      "page": 21
+      "subject": "bike1-undervisning-i-inflammatorisk-tarmsygdom",
+      "predicate": "is-indicator-for",
+      "object": "danibd",
+      "evidence": "Appendikstabel 2. Afdelinger, der har indrapporteret undervisningskoder i perioden (indikator 2)\nBIKE1 - Undervisning i\ninflammatorisk tarmsygdom",
+      "page": 23
     },
     {
-      "subject": "marianne-kajbaek-vester-andersen",
-      "predicate": "works-in",
-      "object": "region-sjaelland",
-      "evidence": "Marianne Kajbæk Vester-Andersen, Ledende overlæge, ph.d., klinisk lektor Region Sjælland",
-      "page": 21
+      "subject": "bmsl",
+      "predicate": "is-indicator-for",
+      "object": "danibd",
+      "evidence": "Appendikstabel 3. Karakteristika for patienter i behandling med BMSL (indikator 4)\nAppendikstabel 4. Type og antal behandlinger med BMSL (indikator 4)",
+      "page": 24
     },
     {
-      "subject": "rasmus-gaardskaer-nielsen",
-      "predicate": "works-in",
-      "object": "region-syddanmark",
-      "evidence": "Rasmus Gaardskær Nielsen, Overlæge, ph.d., klinisk lektor Region Syddanmark",
-      "page": 21
+      "subject": "bohj18a1-behandling-med-infliximab",
+      "predicate": "is-treatment-code-for",
+      "object": "bmsl",
+      "evidence": "BOHJ18A1 - Behandling med infliximab 239 (66) 3.754 (37)",
+      "page": 25
     },
     {
-      "subject": "mohamed-attauabi",
-      "predicate": "works-in",
-      "object": "region-hovedstaden",
-      "evidence": "Mohamed Attauabi, Reservelæge Region Hovedstaden",
-      "page": 21
+      "subject": "bohj18a3-behandling-med-adalimumab",
+      "predicate": "is-treatment-code-for",
+      "object": "bmsl",
+      "evidence": "BOHJ18A3 - Behandling med adalimumab 59 (16) 2.689 (26)",
+      "page": 25
+    },
+    {
+      "subject": "bohj18a4-behandling-med-golimumab",
+      "predicate": "is-treatment-code-for",
+      "object": "bmsl",
+      "evidence": "BOHJ18A4 - Behandling med golimumab 255 (3)",
+      "page": 25
+    },
+    {
+      "subject": "bohj18b3-behandling-med-ustekinumab",
+      "predicate": "is-treatment-code-for",
+      "object": "bmsl",
+      "evidence": "BOHJ18B3 - Behandling med ustekinumab 17 (5) 1.604 (16)",
+      "page": 25
+    },
+    {
+      "subject": "bohj19h4-behandling-med-vedolizumab",
+      "predicate": "is-treatment-code-for",
+      "object": "bmsl",
+      "evidence": "BOHJ19H4 - Behandling med vedolizumab 42 (12) 1.735 (17)",
+      "page": 25
+    },
+    {
+      "subject": "bohj28d-behandling-med-tofacitinib",
+      "predicate": "is-treatment-code-for",
+      "object": "bmsl",
+      "evidence": "BOHJ28D - Behandling med tofacitinib 3 (1) 126 (1)",
+      "page": 25
     }
   ],
   "claims": [
     {
-      "text": "Patienter i alt i Region Hovedstaden: 11.211 (100) [^src1]",
-      "type": "patient-statistics",
+      "text": "Styregruppen for DANIBD består af 17 medlemmer, herunder formand, patientrepræsentant, epidemiolog, kvalitetskonsulent, datamanager og kliniske eksperter fra alle fem regioner [^src1]",
+      "type": "organizational",
       "entities": [
-        "danibd",
-        "region-hovedstaden"
+        "danibd"
       ],
-      "page": 22
+      "page": 21
     },
     {
-      "text": "Patienter i alt i Region Sjælland: 3.897 (100) [^src1]",
-      "type": "patient-statistics",
+      "text": "I perioden 1/10/2022 – 30/09/2023 blev der registreret i alt 11.211 patienter med IBD i Region Hovedstaden, 3.897 i Region Sjælland, 7.181 i Region Syddanmark, 7.520 i Region Midtjylland og 3.572 i Region Nordjylland [^src1]",
+      "type": "demographic",
       "entities": [
-        "danibd",
-        "region-sjaelland"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Patienter i alt i Region Syddanmark: 7.181 (100) [^src1]",
-      "type": "patient-statistics",
-      "entities": [
-        "danibd",
-        "region-syddanmark"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Patienter i alt i Region Midtjylland: 7.520 (100) [^src1]",
-      "type": "patient-statistics",
-      "entities": [
-        "danibd",
-        "region-midtjylland"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Patienter i alt i Region Nordjylland: 3.572 (100) [^src1]",
-      "type": "patient-statistics",
-      "entities": [
-        "danibd",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
         "region-nordjylland"
       ],
       "page": 22
     },
     {
-      "text": "Crohns sygdom i Region Hovedstaden: 4.521 (40) [^src1]",
-      "type": "diagnosis-statistics",
+      "text": "DK50* Crohns sygdom udgjorde 40 % af alle IBD-patienter i Region Hovedstaden, 45 % i Region Sjælland, 41 % i Region Syddanmark, 43 % i Region Midtjylland og 40 % i Region Nordjylland [^src1]",
+      "type": "diagnostic",
       "entities": [
-        "crohns-sygdom",
-        "region-hovedstaden"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Ulcerøs colitis i Region Hovedstaden: 6.534 (58) [^src1]",
-      "type": "diagnosis-statistics",
-      "entities": [
-        "ulcerosus-colitis",
-        "region-hovedstaden"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Gennemsnitlig alder af patienter i Region Hovedstaden: 47 år (Min;Max: 0;100) [^src1]",
-      "type": "patient-demographics",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Gennemsnitlig alder af patienter i Region Sjælland: 50 år (Min;Max: 0;98) [^src1]",
-      "type": "patient-demographics",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Gennemsnitlig alder af patienter i Region Syddanmark: 49 år (Min;Max: 0;96) [^src1]",
-      "type": "patient-demographics",
-      "entities": [
-        "region-syddanmark"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Gennemsnitlig alder af patienter i Region Midtjylland: 47 år (Min;Max: 2;99) [^src1]",
-      "type": "patient-demographics",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Gennemsnitlig alder af patienter i Region Nordjylland: 50 år (Min;Max: 7;95) [^src1]",
-      "type": "patient-demographics",
-      "entities": [
+        "dk50-crohns-sygdom",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
         "region-nordjylland"
       ],
       "page": 22
     },
     {
-      "text": "Kvinder blandt patienter i Region Hovedstaden: 6.007 (54) [^src1]",
-      "type": "patient-demographics",
+      "text": "DK51* Ulcerøs colitis udgjorde 58 % af alle IBD-patienter i Region Hovedstaden, 55 % i Region Sjælland, 59 % i Region Syddanmark, 56 % i Region Midtjylland og 60 % i Region Nordjylland [^src1]",
+      "type": "diagnostic",
       "entities": [
-        "region-hovedstaden"
+        "dk51-ulceroes-colitis",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
       ],
       "page": 22
     },
     {
-      "text": "Mænd blandt patienter i Region Hovedstaden: 5.204 (46) [^src1]",
-      "type": "patient-demographics",
+      "text": "Antallet af patienter med DK830F Primær skleroserende kolangitis var 128 i Region Hovedstaden, 10 i Region Sjælland, 41 i Region Syddanmark, 55 i Region Midtjylland og 14 i Region Nordjylland [^src1]",
+      "type": "diagnostic",
       "entities": [
-        "region-hovedstaden"
+        "dk830f-primaer-skleroserende-kolangitis",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
       ],
       "page": 22
     },
     {
-      "text": "Gennemsnitligt antal kontakter pr. patient i Region Hovedstaden: 11 (Min;Max: 1;51) [^src1]",
-      "type": "patient-contact-statistics",
+      "text": "Der blev registreret 308 afdelinger i Danmark, der havde indrapporteret BIKE1-koden for undervisning i inflammatorisk tarmsygdom i perioden [^src1]",
+      "type": "procedural",
       "entities": [
-        "region-hovedstaden"
+        "bike1-undervisning-i-inflammatorisk-tarmsygdom"
       ],
-      "page": 22
+      "page": 23
     },
     {
-      "text": "Fysisk fremmøde kontakter i Region Hovedstaden: 37.039 (64) [^src1]",
-      "type": "contact-type-statistics",
+      "text": "I perioden 1/10/2022 – 30/09/2023 modtog 360 børn og unge samt 10.163 voksne behandling med BMSL [^src1]",
+      "type": "treatment",
       "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Virtuelle kontakter i Region Hovedstaden: 20.516 (36) [^src1]",
-      "type": "contact-type-statistics",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Patienter i behandling med BMSL blandt børn og unge: 360 (100) [^src2]",
-      "type": "treatment-statistics",
-      "entities": [
-        "danibd"
+        "bmsl"
       ],
       "page": 24
     },
     {
-      "text": "Patienter i behandling med BMSL blandt voksne: 10.163 (100) [^src2]",
-      "type": "treatment-statistics",
+      "text": "BOHJ18A1 (infliximab) var den hyppigst anvendte BMSL-behandling blandt børn og unge med 239 unikke patienter (66 %) og blandt voksne med 3.754 unikke patienter (37 %) [^src1]",
+      "type": "treatment",
       "entities": [
-        "danibd"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Børn og unge med Crohns sygdom i BMSL-behandling: 247 (69) [^src2]",
-      "type": "diagnosis-treatment-statistics",
-      "entities": [
-        "crohns-sygdom"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Voksne med Crohns sygdom i BMSL-behandling: 6.184 (61) [^src2]",
-      "type": "diagnosis-treatment-statistics",
-      "entities": [
-        "crohns-sygdom"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Børn og unge med Ulcerøs colitis i BMSL-behandling: 113 (31) [^src2]",
-      "type": "diagnosis-treatment-statistics",
-      "entities": [
-        "ulcerosus-colitis"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Voksne med Ulcerøs colitis i BMSL-behandling: 3.931 (39) [^src2]",
-      "type": "diagnosis-treatment-statistics",
-      "entities": [
-        "ulcerosus-colitis"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Behandlinger med infliximab blandt børn og unge: 1.351 (66) [^src3]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "infliximab"
+        "bohj18a1-behandling-med-infliximab",
+        "bmsl"
       ],
       "page": 25
     },
     {
-      "text": "Behandlinger med infliximab blandt voksne: 24.293 (44) [^src3]",
-      "type": "pharmaceutical-treatment-statistics",
+      "text": "BOHJ18A3 (adalimumab) blev anvendt af 59 børn og unge (16 %) og 2.689 voksne (26 %) i perioden [^src1]",
+      "type": "treatment",
       "entities": [
-        "infliximab"
+        "bohj18a3-behandling-med-adalimumab",
+        "bmsl"
       ],
       "page": 25
     },
     {
-      "text": "Behandlinger med adalimumab blandt børn og unge: 284 (14) [^src3]",
-      "type": "pharmaceutical-treatment-statistics",
+      "text": "BOHJ18B3 (ustekinumab) blev anvendt af 17 børn og unge (5 %) og 1.604 voksne (16 %) i perioden [^src1]",
+      "type": "treatment",
       "entities": [
-        "adalimumab"
+        "bohj18b3-behandling-med-ustekinumab",
+        "bmsl"
       ],
       "page": 25
     },
     {
-      "text": "Behandlinger med adalimumab blandt voksne: 11.626 (21) [^src3]",
-      "type": "pharmaceutical-treatment-statistics",
+      "text": "BOHJ19H4 (vedolizumab) blev anvendt af 42 børn og unge (12 %) og 1.735 voksne (17 %) i perioden [^src1]",
+      "type": "treatment",
       "entities": [
-        "adalimumab"
+        "bohj19h4-behandling-med-vedolizumab",
+        "bmsl"
       ],
       "page": 25
     },
     {
-      "text": "Behandlinger med vedolizumab blandt børn og unge: 317 (16) [^src3]",
-      "type": "pharmaceutical-treatment-statistics",
+      "text": "BOHJ28D (tofacitinib) blev anvendt af 3 børn og unge (1 %) og 126 voksne (1 %) i perioden [^src1]",
+      "type": "treatment",
       "entities": [
-        "vedolizumab"
-      ],
-      "page": 25
-    },
-    {
-      "text": "Behandlinger med vedolizumab blandt voksne: 10.612 (19) [^src3]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "vedolizumab"
-      ],
-      "page": 25
-    },
-    {
-      "text": "Behandlinger med ustekinumab blandt børn og unge: 69 (3) [^src3]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "ustekinumab"
-      ],
-      "page": 25
-    },
-    {
-      "text": "Behandlinger med ustekinumab blandt voksne: 7.589 (14) [^src3]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "ustekinumab"
-      ],
-      "page": 25
-    },
-    {
-      "text": "Behandlinger med golimumab blandt voksne: 1.126 (2) [^src3]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "golimumab"
-      ],
-      "page": 25
-    },
-    {
-      "text": "Behandlinger med tofacitinib blandt børn og unge: 20 (1) [^src3]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "tofacitinib"
-      ],
-      "page": 25
-    },
-    {
-      "text": "Behandlinger med tofacitinib blandt voksne: 420 (1) [^src3]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "tofacitinib"
+        "bohj28d-behandling-med-tofacitinib",
+        "bmsl"
       ],
       "page": 25
     }
   ],
   "timeline": [
     {
-      "date": "1/10/2022 - 30/09/2023",
-      "event": "Patientkarakteristika og behandlingsdata indsamlet for DANIBD-registeret",
+      "date": "2022-10-01",
+      "event": "Start af opgørelsesperioden for DANIBD-kvalitetsdata i Appendiks 1–4",
+      "entities": [
+        "danibd"
+      ]
+    },
+    {
+      "date": "2023-09-30",
+      "event": "Afslutning af opgørelsesperioden for DANIBD-kvalitetsdata i Appendiks 1–4",
       "entities": [
         "danibd"
       ]
     }
   ],
-  "context": "Denne sektion af DANIBD-rapporten (2023) dokumenterer styregruppens medlemmer og præsenterer detaljerede appendikstabeller med patientkarakteristika, behandlingsdata og diagnostiske fordelinger på tværs af fem danske regioner. Styregruppens medlemmer repræsenterer medicin, kirurgi, sygepleje og patientrepræsentation fra alle danske regioner samt epidemiologisk og datamanagementsupport fra RKKP. Appendikstabellerne viser, at der i perioden 1. oktober 2022 til 30. september 2023 blev behandlet i alt 33.381 patienter med inflammatorisk tarmsygdom (IBD) på tværs af regionerne, med Region Hovedstaden som den største behandlende region. Biolog-behandlinger (BMSL) blev givet til 10.523 patienter, med infliximab som den mest brugte behandling."
+  "tables": [
+    {
+      "subject": "patientkarakteristika-pr-behandlende-region",
+      "title": "Appendikstabel 1. Patientkarakteristika pr. behandlende region",
+      "page": 22,
+      "rowDimension": "diagnose, køn, alder, aldersgruppe, kontakttype",
+      "colDimension": "region",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "dk50-crohns-sygdom",
+        "dk51-ulceroes-colitis",
+        "dk830f-primaer-skleroserende-kolangitis",
+        "dk912b-korttarmssyndrom"
+      ],
+      "markdown": "| Behandlende region | Hovedstaden | Sjælland | Syddanmark | Midtjylland | Nordjylland |\n| --- | --- | --- | --- | --- | --- |\n| Patienter i alt | 11.211 (100) | 3.897 (100) | 7.181 (100) | 7.520 (100) | 3.572 (100) |\n| DK50* Crohns sygdom | 4.521 (40) | 1.753 (45) | 2.916 (41) | 3.227 (43) | 1.422 (40) |\n| DK51* Ulcerøs colitis | 6.534 (58) | 2.128 (55) | 4.211 (59) | 4.204 (56) | 2.129 (60) |\n| DK830F Primær skleroserende kolangitis | 128 (1) | 10 (0) | 41 (1) | 55 (1) | 14 (0) |\n| DK912B Korttarmssyndrom | 28 (0) | 6 (0) | 13 (0) | 34 (0) | 7 (0) |\n| Kvinde | 6.007 (54) | 2.062 (53) | 3.841 (53) | 4.006 (53) | 1.912 (54) |\n| Mand | 5.204 (46) | 1.835 (47) | 3.340 (47) | 3.514 (47) | 1.660 (46) |\n| Gennemsnit, år (Min;Max) | 47 (0;100) | 50 (0;98) | 49 (0;96) | 47 (2;99) | 50 (7;95) |\n| Median, år (Q1;Q3) | 46 (33;59) | 51 (35;64) | 49 (34;63) | 46 (32;60) | 50 (35;65) |\n| 0-17 år | 268 (2) | 72 (2) | 163 (2) | 166 (2) | 71 (2) |\n| 18-29 år | 1.841 (16) | 539 (14) | 1.026 (14) | 1.372 (18) | 491 (14) |\n| 30-39 år | 2.183 (19) | 588 (15) | 1.230 (17) | 1.483 (20) | 592 (17) |\n| 40-49 år | 2.049 (18) | 647 (17) | 1.216 (17) | 1.251 (17) | 588 (16) |\n| 50-59 år | 2.102 (19) | 774 (20) | 1.365 (19) | 1.313 (17) | 631 (18) |\n| 60-69 år | 1.418 (13) | 653 (17) | 1.089 (15) | 992 (13) | 605 (17) |\n| 70-79 år | 1.009 (9) | 482 (12) | 794 (11) | 721 (10) | 417 (12) |\n| 80-89 år | 298 (3) | 128 (3) | 268 (4) | 207 (3) | 160 (4) |\n| 90 år eller ældre | 43 (0) | 14 (0) | 30 (0) | 15 (0) | 17 (0) |\n| Fysisk fremmøde | 37.039 (64) | 15.031 (69) | 28.323 (67) | 26.536 (62) | 9.317 (60) |\n| Virtuel | 20.516 (36) | 6.831 (31) | 13.950 (33) | 15.980 (38) | 6.268 (40) |",
+      "summary": "Tabellen sammenligner patientkarakteristika — herunder diagnosefordeling, køn, alder, aldersgrupper og kontakttype — for IBD-patienter fordelt på de fem regioner i perioden 1/10/2022–30/09/2023, og viser en dominerende andel af voksne kvinder med ulcerøs colitis samt en relativt ensartet aldersfordeling."
+    },
+    {
+      "subject": "afdellinger-med-undervisningskoder",
+      "title": "Appendikstabel 2. Afdelinger, der har indrapporteret undervisningskoder i perioden (indikator 2)",
+      "page": 23,
+      "rowDimension": "afdeling",
+      "colDimension": "antal",
+      "entities": [
+        "bike1-undervisning-i-inflammatorisk-tarmsygdom"
+      ],
+      "markdown": "| Afdeling | Antal |\n| --- | --- |\n| Danmark | 308 |\n| Bispebjerg Abdominalcenter K | 40 |\n| Bornholm Medicinsk afdeling | 6 |\n| Herlev Gastroenheden Kir. Med., overafd. D | 37 |\n| Hvidovre Børneafdeling | 0 |\n| Hvidovre Gastroenterologisk afdeling | # |\n| Nordsjælland Kirurgisk overafdeling | 0 |\n| Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd. | 0 |\n| HOL Holbæk Medicin | 0 |\n| NFS Nykøbing F Medicin | 0 |\n| NSR Slagelse Med. Gastroenterologi | 0 |\n| NSR Slagelse Pædiatri | 0 |\n| SUH Køge Medicin | # |\n| SUH Roskilde Pædiatri | 0 |\n| EGS Esbjerg Medicinsk område | 41 |\n| OUH Odense Børne- og Ungeafdeling H | # |\n| OUH Odense Medicinsk Mave-Tarm Afdeling S | 0 |\n| OUH Svendborg Medicinsk Afd. | 0 |\n| SHS Aabenraa Mave-tarmsygdomme | 0 |\n| SHS Tønder Medicinsk Daghospital | 0 |\n| SLB Kolding Børne- og Ungeafdeling | # |\n| SLB Vejle Medicinsk Afdeling | 65 |\n| Aarhus Børn og Unge | 0 |\n| Aarhus Lever-, Mave- og Tarmsygdomme | 56 |\n| Gødstrup Medicinsk Afdeling | 30 |\n| Horsens Medicinsk Afdeling | 0 |\n| Randers Medicinsk Afdeling | # |\n| Silkeborg Diagnostisk Center Medicin | 10 |\n| Viborg Medicinsk Afdeling | 6 |\n| AAUH Aalborg Børneområde | 0 |\n| AAUH Aalborg Med.gastroenterologisk område | 8 |\n| RHN Hjørring Medicinske Mave- og Tarmsygd. | 0 |",
+      "summary": "Tabellen lister specifikke afdelinger i Danmark, der har registreret BIKE1-koden for patientundervisning i perioden, og viser stor variation i antal — fra 0 til 65 — samt flere afdelinger uden registrering (angivet med 0) og nogle uden tal (angivet med #), hvilket indikerer manglende rapportering eller ikke-anvendelse af koden."
+    },
+    {
+      "subject": "karakteristika-for-bmsl-patienter",
+      "title": "Appendikstabel 3. Karakteristika for patienter i behandling med BMSL (indikator 4)",
+      "page": 24,
+      "rowDimension": "diagnose, køn, alder, aldersgruppe",
+      "colDimension": "aldergruppe",
+      "entities": [
+        "bmsl",
+        "dk50-crohns-sygdom",
+        "dk51-ulceroes-colitis"
+      ],
+      "markdown": "|  | Børn og unge | Voksne |\n| --- | --- | --- |\n| Patienter I alt | 360 (100) | 10.163 (100) |\n| DK50* Crohns sygdom | 247 (69) | 6.184 (61) |\n| DK51* Ulcerøs colitis | 113 (31) | 3.931 (39) |\n| DK830F Primær skleroserende kolangitis | 28 (0) |  |\n| DK912B Korttarmssyndrom | 20 (0) |  |\n| Kvinde | 154 (43) | 5.114 (50) |\n| Mand | 206 (57) | 5.049 (50) |\n| Gennemsnit, år (Min;Max) | 14 (2;17) | 43 (18;96) |\n| Median, år (Q1;Q3) | 15 (13;16) | 41 (29;55) |\n| 0-17 år | 360 (100) |  |\n| 18-29 år |  | 2.542 (25) |\n| 30-39 år |  | 2.355 (23) |\n| 40-49 år |  | 1.851 (18) |\n| 50-59 år |  | 1.625 (16) |\n| 60-69 år |  | 1.031 (10) |\n| 70-79 år |  | 623 (6) |\n| 80-89 år |  | 131 (1) |\n| 90 år eller ældre |  | 5 (0) |",
+      "summary": "Tabellen sammenligner karakteristika for patienter, der modtog BMSL-behandling i perioden, og viser en klar aldersopdeling: alle børn og unge er i 0–17-årsalderen, mens voksne primært er mellem 18 og 59 år, samt en overvægt af mænd blandt børn og en næsten ligelig kønsfordeling blandt voksne."
+    },
+    {
+      "subject": "bmsl-behandlinger-og-patienter",
+      "title": "Appendikstabel 4. Type og antal behandlinger med BMSL (indikator 4)",
+      "page": 25,
+      "rowDimension": "behandlingstype",
+      "colDimension": "antal og procent for børn og voksne",
+      "entities": [
+        "bmsl",
+        "bohj18a1-behandling-med-infliximab",
+        "bohj18a3-behandling-med-adalimumab",
+        "bohj18a4-behandling-med-golimumab",
+        "bohj18b3-behandling-med-ustekinumab",
+        "bohj19h4-behandling-med-vedolizumab",
+        "bohj28d-behandling-med-tofacitinib"
+      ],
+      "markdown": "| Behandlingstype | Børn og unge<br>antal (%) | Voksne<br>antal (%) |\n| --- | --- | --- |\n| BOHJ18A1 - Behandling med infliximab | 239 (66) | 3.754 (37) |\n| BOHJ18A3 - Behandling med adalimumab | 59 (16) | 2.689 (26) |\n| BOHJ18A4 - Behandling med golimumab |  | 255 (3) |\n| BOHJ18B3 - Behandling med ustekinumab | 17 (5) | 1.604 (16) |\n| BOHJ19H4 - Behandling med vedolizumab | 42 (12) | 1.735 (17) |\n| BOHJ28D - Behandling med tofacitinib | 3 (1) | 126 (1) |\n| I alt | 360 | 10.163 |",
+      "summary": "Tabellen viser antal unikke patienter, der modtog hver type BMSL-behandling i perioden, og demonstrerer infliximab som den dominerende behandling blandt børn og den mest anvendte blandt voksne, mens tofacitinib er den mindst anvendte for begge aldersgrupper."
+    }
+  ],
+  "context": "Denne dokumentchunk er en del af årsrapporten for DANIBD (Det Danske Register for Inflammatorisk Tarmsygdom) for 2023 og indeholder styregruppens sammensætning samt appendikstabeller med detaljerede kvalitetsdata fra perioden 1. oktober 2022 til 30. september 2023. Den indgår i den bredere nationale indsats for at systematisere og forbedre behandlingen af IBD i Danmark gennem tværregional kvalitetsmåling, standardiseret kodning og evidensbaseret udvikling af behandlingsvejledninger. Styregruppen fungerer som den strategiske styringsenhed, mens tabellerne danner grundlag for klinisk benchmarking, evaluering af behandlingsadgang og identifikation af udfordringer i implementeringen af kvalitetsindikatorer som patientundervisning (indikator 2) og anvendelse af biologika/små molekyler (indikator 4)."
 }

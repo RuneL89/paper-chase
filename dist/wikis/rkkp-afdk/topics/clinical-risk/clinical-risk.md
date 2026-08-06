@@ -4,22 +4,19 @@ type: topic
 aliases:
   - Clinical Risk
 wiki: rkkp-afdk
-updated: '2026-08-03T19:14:15.738Z'
+updated: '2026-08-05T19:19:42.186Z'
 sources:
-  - file: AFDK_2023.pdf
-    pages: 111-115
-  - file: AFDK_2024.pdf
-    pages: 81-85
+  - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
+    pages: 66-70
 tags:
   - clinical-risk
 ---
 
 ## Claims
 
-- Livstidsrisikoen for hjertesvigt efter atrieflimren er 40% [^src1]
-- Livstidsrisikoen for hjertesvigt efter atrieflimren er 40% [^src2] ([[atrieflimren|Atrieflimren]], [[hjertesvigt|Hjertesvigt]])
+- Atrieflimren er forbundet med øget risiko for slagtilfælde, hjertesvigt, demens, og død [^src1] ([[atrieflimren]])
 
 ## Sources
 
-[^src1]: AFDK_2023.pdf, pages 111-115
-[^src2]: AFDK_2024.pdf, pages 81-85
+[^src1]: AFDK_2024.pdf, pages 66-70
+

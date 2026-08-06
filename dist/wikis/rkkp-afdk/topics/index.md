@@ -1,187 +1,109 @@
 ---
 title: Topics
-type: topic
+type: index
 aliases:
   - Topics
 wiki: rkkp-afdk
-updated: '2026-08-03T19:14:15.836Z'
+updated: '2026-08-05T23:48:06.210Z'
 children:
-  - action/index.md
-  - assessment/index.md
-  - clinical/index.md
-  - clinical-context/index.md
-  - clinical-criteria/index.md
-  - clinical-epidemiology/index.md
-  - clinical-finding/index.md
-  - clinical-framework/index.md
-  - clinical-goal/index.md
-  - clinical-indicator/index.md
-  - clinical-measure/index.md
-  - clinical-measures/index.md
-  - clinical-methodology/index.md
+  - clinical-guideline/index.md
+  - clinical-indicators/index.md
   - clinical-outcome/index.md
-  - clinical-performance/index.md
-  - clinical-projection/index.md
-  - clinical-quality/index.md
-  - clinical-rationale/index.md
-  - clinical-recommendation/index.md
+  - clinical-practice/index.md
+  - clinical-practice-decision/index.md
   - clinical-risk/index.md
-  - clinical-standard/index.md
-  - clinical-statistics/index.md
-  - clinical-systems/index.md
-  - clinical-treatment/index.md
-  - clinical-trend/index.md
-  - data-characteristic/index.md
-  - data-collection/index.md
-  - data-exclusion/index.md
-  - data-limitation/index.md
-  - data-privacy/index.md
-  - data-quality/index.md
-  - data-quality-note/index.md
-  - data-source/index.md
+  - clinical-risk-distribution/index.md
+  - clinical-tools/index.md
+  - comparative-result/index.md
+  - data-infrastructure/index.md
+  - definition/index.md
   - definitional/index.md
-  - demographic/index.md
-  - demographic-projection/index.md
-  - epidemiological/index.md
-  - exclusion/index.md
-  - finding/index.md
-  - healthcare-databases/index.md
-  - heart-failure/index.md
-  - indicator-definition/index.md
-  - indicator-status/index.md
+  - epidemiology/index.md
+  - geographic-distribution/index.md
+  - governance/index.md
+  - health-indicators/index.md
+  - healthcare-indicators/index.md
+  - healthcare-quality-indicators/index.md
+  - healthcare-quality-standards/index.md
+  - icd-codes/index.md
+  - incidence-rate/index.md
   - limitation/index.md
   - medical-conditions/index.md
-  - medical-treatments/index.md
-  - medications/index.md
-  - methodological/index.md
-  - methodology/index.md
-  - mortality/index.md
-  - mortality-trend/index.md
-  - note/index.md
-  - operational/index.md
+  - methodological-definition/index.md
+  - mortality-rate/index.md
   - organizational/index.md
-  - organizational-goal/index.md
-  - patient-count/index.md
-  - patient-outcome/index.md
+  - organizational-change/index.md
+  - organizational-practice/index.md
+  - patient-perspective/index.md
   - performance/index.md
-  - population/index.md
-  - quality-assessment/index.md
+  - pharmacovigilance/index.md
+  - policy-change/index.md
+  - policy-decision/index.md
+  - pre-hospital-treatment/index.md
   - quality-indicator/index.md
   - quality-indicator-definition/index.md
-  - quality-indicator-result/index.md
   - quality-indicators/index.md
-  - quality-performance/index.md
-  - quality-standard/index.md
-  - recommendation/index.md
-  - regional-comparison/index.md
-  - regional-performance/index.md
-  - regional-variation/index.md
-  - result/index.md
   - standard/index.md
-  - standard-setting/index.md
-  - technical/index.md
-  - temporal/index.md
-  - treatment-gap/index.md
-  - treatment-outcome/index.md
-  - treatments/index.md
-  - trend/index.md
-  - index.md
-tags:
-  - topic
-sources: []
+  - statistical-interpretation/index.md
+  - validation/index.md
 ---
 # Topics
 
-This folder contains pages and sub-folders related to topics.
+This area groups the core themes, clinical metrics, and operational frameworks documented in the Danish Atrial Fibrillation Database (AFDK) and the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) corpus. It covers the entire lifecycle of atrial fibrillation management, from epidemiological tracking and clinical risk assessment to the evaluation of treatment outcomes, pharmacovigilance, and national quality standards. Additionally, it details the methodological definitions, data infrastructure, and governance policies that underpin the registry's continuous monitoring of cardiovascular care across Danish regions.
 
 ## Pages
 
-- [[topics/action/index|Action]]
-- [[topics/assessment/index|Assessment]]
-- [[topics/clinical/index|Clinical]]
-- [[topics/clinical-context/index|Clinical Context]]
-- [[topics/clinical-criteria/index|Clinical Criteria]]
-- [[topics/clinical-epidemiology/index|Clinical Epidemiology]]
-- [[topics/clinical-finding/index|Clinical Finding]]
-- [[topics/clinical-framework/index|Clinical Framework]]
-- [[topics/clinical-goal/index|Clinical Goal]]
-- [[topics/clinical-indicator/index|Clinical Indicator]]
-- [[topics/clinical-measure/index|Clinical Measure]]
-- [[topics/clinical-measures/index|Clinical Measures]]
-- [[topics/clinical-methodology/index|Clinical Methodology]]
-- [[topics/clinical-outcome/index|Clinical Outcome]]
-- [[topics/clinical-performance/index|Clinical Performance]]
-- [[topics/clinical-projection/index|Clinical Projection]]
-- [[topics/clinical-quality/index|Clinical Quality]]
-- [[topics/clinical-rationale/index|Clinical Rationale]]
-- [[topics/clinical-recommendation/index|Clinical Recommendation]]
-- [[topics/clinical-risk/index|Clinical Risk]]
-- [[topics/clinical-standard/index|Clinical Standard]]
-- [[topics/clinical-statistics/index|Clinical Statistics]]
-- [[topics/clinical-systems/index|Clinical Systems]]
-- [[topics/clinical-treatment/index|Clinical Treatment]]
-- [[topics/clinical-trend/index|Clinical Trend]]
-- [[topics/data-characteristic/index|Data Characteristic]]
-- [[topics/data-collection/index|Data Collection]]
-- [[topics/data-exclusion/index|Data Exclusion]]
-- [[topics/data-limitation/index|Data Limitation]]
-- [[topics/data-privacy/index|Data Privacy]]
-- [[topics/data-quality/index|Data Quality]]
-- [[topics/data-quality-note/index|Data Quality Note]]
-- [[topics/data-source/index|Data Source]]
-- [[topics/definitional/index|Definitional]]
-- [[topics/demographic/index|Demographic]]
-- [[topics/demographic-projection/index|Demographic Projection]]
-- [[topics/epidemiological/index|Epidemiological]]
-- [[topics/exclusion/index|Exclusion]]
-- [[topics/finding/index|Finding]]
-- [[topics/healthcare-databases/index|Healthcare Databases]]
-- [[topics/heart-failure/index|Heart Failure]]
-- [[topics/indicator-definition/index|Indicator Definition]]
-- [[topics/indicator-status/index|Indicator Status]]
-- [[topics/limitation/index|Limitation]]
-- [[topics/medical-conditions/index|Medical Conditions]]
-- [[topics/medical-treatments/index|Medical Treatments]]
-- [[topics/medications/index|Medications]]
-- [[topics/methodological/index|Methodological]]
-- [[topics/methodology/index|Methodology]]
-- [[topics/mortality/index|Mortality]]
-- [[topics/mortality-trend/index|Mortality Trend]]
-- [[topics/note/index|Note]]
-- [[topics/operational/index|Operational]]
-- [[topics/organizational/index|Organizational]]
-- [[topics/organizational-goal/index|Organizational Goal]]
-- [[topics/patient-count/index|Patient Count]]
-- [[topics/patient-outcome/index|Patient Outcome]]
-- [[topics/performance/index|Performance]]
-- [[topics/population/index|Population]]
-- [[topics/quality-assessment/index|Quality Assessment]]
-- [[topics/quality-indicator/index|Quality Indicator]]
-- [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
-- [[topics/quality-indicator-result/index|Quality Indicator Result]]
-- [[topics/quality-indicators/index|Quality Indicators]]
-- [[topics/quality-performance/index|Quality Performance]]
-- [[topics/quality-standard/index|Quality Standard]]
-- [[topics/recommendation/index|Recommendation]]
-- [[topics/regional-comparison/index|Regional Comparison]]
-- [[topics/regional-performance/index|Regional Performance]]
-- [[topics/regional-variation/index|Regional Variation]]
-- [[topics/result/index|Result]]
-- [[topics/standard/index|Standard]]
-- [[topics/standard-setting/index|Standard Setting]]
-- [[topics/technical/index|Technical]]
-- [[topics/temporal/index|Temporal]]
-- [[topics/treatment-gap/index|Treatment Gap]]
-- [[topics/treatment-outcome/index|Treatment Outcome]]
-- [[topics/treatments/index|Treatments]]
-- [[topics/trend/index|Trend]]
+- [[topics/clinical-guideline/index|Clinical Guideline]] — Criteria for initiating anticoagulation treatment based on the CHA2DS2-VASc risk scoring system.
+- [[topics/clinical-indicators/index|Clinical Indicators]] — Diagnostic, monitoring, and adverse event metrics used to evaluate atrial fibrillation care and cardiological outcomes.
+- [[topics/clinical-outcome/index|Clinical Outcome]] — Tracks adverse events like severe bleeding and ischemic stroke associated with atrial fibrillation treatments.
+- [[topics/clinical-practice/index|Clinical Practice]] — Documents the real-world execution and timing of medical interventions, such as anticoagulation initiation pathways.
+- [[topics/clinical-practice-decision/index|Clinical Practice Decision]] — Covers localized operational choices and structured educational interventions implemented for patient management.
+- [[topics/clinical-risk/index|Clinical Risk]] — Details the severe complications and adverse health outcomes associated with atrial fibrillation.
+- [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]] — Explores the paradox of severe bleeding events occurring in patients with low traditional risk stratification scores.
+- [[topics/clinical-tools/index|Clinical Tools]] — Groups primary assessment instruments like the CHA2DS2-VASc score and integrated care models such as the ABC Pathway.
+- [[topics/comparative-result/index|Comparative Result]] — Holds registry-based analyses comparing the safety and efficacy of different anticoagulant therapies.
+- [[topics/data-infrastructure/index|Data Infrastructure]] — Documents the technical systems and pipelines integrating primary care records into national clinical quality registries.
+- [[topics/definition/index|Definition]] — Contains foundational inclusion criteria, ICD-10 codes, and exact numerators and denominators for calculating quality indicators.
+- [[topics/definitional/index|Definitional]] — Establishes specific clinical criteria and maximum allowable waiting times for satisfying healthcare quality metrics.
+- [[topics/epidemiology/index|Epidemiology]] — Details the national incidence, prevalence, and demographic profiles of atrial fibrillation in Denmark.
+- [[topics/geographic-distribution/index|Geographic Distribution]] — Maps the regional variation of health indicators and disease incidence across Danish health clusters.
+- [[topics/governance/index|Governance]] — Covers the structural oversight, strategic evaluations, and organizational anchoring of the AFDK within the Danish Cardiac Society.
+- [[topics/health-indicators/index|Health Indicators]] — Tracks specific national metrics like TSH measurement compliance and intracranial hemorrhage incidence.
+- [[topics/healthcare-indicators/index|Healthcare Indicators]] — Monitors long-term clinical outcomes such as mortality rates and heart failure incidence among atrial fibrillation patients.
+- [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]] — Evaluates safety and monitoring standards, such as annual kidney function testing for patients on DOAC therapy.
+- [[topics/healthcare-quality-standards/index|Healthcare Quality Standards]] — Defines the minimum acceptable performance thresholds and maximum adverse event limits for national reporting.
+- [[topics/icd-codes/index|Icd Codes]] — Catalogs specific ICD-10 diagnostic codes used to define and track patient populations in national registries.
+- [[topics/incidence-rate/index|Incidence Rate]] — Tracks the national and regional incidence of atrial fibrillation and its secondary complications.
+- [[topics/limitation/index|Limitation]] — Documents structural, systemic, and operational constraints affecting data completeness and registry accuracy.
+- [[topics/medical-conditions/index|Medical Conditions]] — Groups the cardiovascular and neurological conditions, and their complications, monitored within the clinical quality registries.
+- [[topics/methodological-definition/index|Methodological Definition]] — Outlines the precise mathematical formulas and statistical notation used to calculate and interpret clinical indicators.
+- [[topics/mortality-rate/index|Mortality Rate]] — Details short-term and long-term survival outcomes and mortality statistics for atrial fibrillation patients.
+- [[topics/organizational/index|Organizational]] — Covers the geographic distribution and regional disparities of specialist healthcare resources like practicing cardiologists.
+- [[topics/organizational-change/index|Organizational Change]] — Tracks structural shifts in data collection, such as integrating private specialists into national registries.
+- [[topics/organizational-practice/index|Organizational Practice]] — Documents the operational habits of specialized clinics, particularly regarding sustained patient education initiatives.
+- [[topics/patient-perspective/index|Patient Perspective]] — Reflects the immediate informational needs and desires for structured post-diagnostic education among patients.
+- [[topics/performance/index|Performance]] — Synthesizes national and regional compliance data across the standardized clinical quality indicators tracked by the AFDK.
+- [[topics/pharmacovigilance/index|Pharmacovigilance]] — Surveys medication safety, comparing bleeding risks and preventative effectiveness between DOACs and traditional vitamin K antagonists.
+- [[topics/policy-change/index|Policy Change]] — Documents methodological updates and administrative shifts that alter how quality indicators are measured and reported.
+- [[topics/policy-decision/index|Policy Decision]] — Covers administrative choices regarding the retention and evaluation of clinical quality indicators and their target standards.
+- [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]] — Details medical interventions, specifically oral anticoagulation prescriptions, administered prior to formal hospital admission.
+- [[topics/quality-indicator/index|Quality Indicator]] — Details the conceptual framework and primary national metrics used to evaluate the standard of newly diagnosed patient care.
+- [[topics/quality-indicator-definition/index|Quality Indicator Definition]] — Outlines the specific numerators, denominators, and clinical events used to track treatment adherence and safety.
+- [[topics/quality-indicators/index|Quality Indicators]] — Groups the RKKP metrics monitoring anticoagulation adherence, patient education, and critical survival endpoints.
+- [[topics/standard/index|Standard]] — Contains the definitive numerical thresholds and compliance targets governing atrial fibrillation care in Denmark.
+- [[topics/statistical-interpretation/index|Statistical Interpretation]] — Explains the application of confidence intervals to determine if clinical performance genuinely deviates from targets.
+- [[topics/validation/index|Validation]] — Addresses the methodological validation and estimated high data quality of the Danish Atrial Fibrillation Database.
 
 ## Navigation
 
 - Parent: [[index|Rkkp Afdk]]
+- Sibling: [[comparisons/index|Comparisons]]
+- Sibling: [[documents/index|Documents]]
+- Sibling: [[entities/index|Entities]]
+- Sibling: [[sources/index|Sources]]
 
 ## Statistics
 
 - Pages: 0
-- Sub-folders: 79
+- Sub-folders: 40
 - Sources: 0

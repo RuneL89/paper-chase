@@ -1,121 +1,416 @@
 {
-  "run": "2026-08-03T18:41:07.837Z",
+  "run": "2026-08-05T19:14:58.847Z",
   "topics": {
-    "merges": [],
-    "drops": [],
+    "merges": [
+      {
+        "from": [
+          "performance-data",
+          "result"
+        ],
+        "into": "performance"
+      },
+      {
+        "from": [
+          "healthcare-quality-standards",
+          "standard-80-percent",
+          "standard-90-percent"
+        ],
+        "into": "standard"
+      },
+      {
+        "from": [
+          "clinical-policy"
+        ],
+        "into": "clinical-guideline"
+      },
+      {
+        "from": [
+          "clinical-indicator"
+        ],
+        "into": "clinical-indicators"
+      }
+    ],
+    "drops": [
+      "policy"
+    ],
     "attempts": 1,
     "fallbacks": [],
     "vetoes": [],
     "fromSticky": {
-      "merges": [],
-      "drops": []
+      "merges": [
+        {
+          "from": [
+            "epidemiological"
+          ],
+          "into": "epidemiology"
+        },
+        {
+          "from": [
+            "incidence-statistic"
+          ],
+          "into": "incidence-rate"
+        },
+        {
+          "from": [
+            "coverage-limitation",
+            "data-collection-issue",
+            "system-limitation"
+          ],
+          "into": "limitation"
+        },
+        {
+          "from": [
+            "mortality-statistic"
+          ],
+          "into": "mortality-rate"
+        },
+        {
+          "from": [
+            "clinical-performance",
+            "healthcare-performance",
+            "quality-performance"
+          ],
+          "into": "performance"
+        },
+        {
+          "from": [
+            "clinical-standard",
+            "health-standard",
+            "healthcare-standard",
+            "policy-standard",
+            "quality-standard",
+            "target"
+          ],
+          "into": "standard"
+        }
+      ],
+      "drops": [
+        "temporal",
+        "methodological",
+        "methodological-note",
+        "statistical",
+        "trend",
+        "trend-observation",
+        "clinical",
+        "procedural",
+        "diagnostic",
+        "interventional",
+        "pharmacological",
+        "pharmaceutical",
+        "laboratory",
+        "regulatory",
+        "prognostic",
+        "demographic",
+        "demographic-statistic",
+        "health-statistic",
+        "healthcare-statistic",
+        "clinical-statistic",
+        "clinical-assessment",
+        "policy-assessment",
+        "quality-assessment",
+        "validity-assessment",
+        "comparative-validity",
+        "regional-comparison",
+        "health",
+        "case-count",
+        "data-analysis",
+        "clarification-request",
+        "governance-question",
+        "population-definition",
+        "metric-definition",
+        "methodology"
+      ]
     },
     "decidedThisRun": {
-      "merges": [],
-      "drops": [],
+      "merges": [
+        {
+          "from": [
+            "performance-data",
+            "result"
+          ],
+          "into": "performance",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "healthcare-quality-standards",
+            "standard-80-percent",
+            "standard-90-percent"
+          ],
+          "into": "standard",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "clinical-policy"
+          ],
+          "into": "clinical-guideline",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "clinical-indicator"
+          ],
+          "into": "clinical-indicators",
+          "signal": "edit-distance",
+          "evidence": "slugs 'clinical-indicator' and 'clinical-indicators' are edit distance 1 apart (typo variant)"
+        }
+      ],
+      "drops": [
+        "policy"
+      ],
       "denials": [
         {
-          "from": "atrieflimren",
-          "into": "atrial-fibrillation"
+          "from": "clinical-practice-decision",
+          "into": "clinical-practice",
+          "justification": "decision is distinct from practice"
         },
         {
-          "from": "data-quality-note",
-          "into": "data-quality"
+          "from": "clinical-risk-distribution",
+          "into": "clinical-risk",
+          "justification": "distribution is specific statistical aspect"
         },
         {
-          "from": "hjertesvigt",
-          "into": "heart-failure"
+          "from": "definition",
+          "into": "definitional",
+          "justification": "meta-descriptor"
         },
         {
-          "from": "indikator-4a-antikoagulation",
-          "into": "indikator-4a"
+          "from": "indikator-1",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-4a",
+          "into": "indikator-10",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-4a",
+          "into": "indikator-12",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-4a",
+          "into": "indikator-13",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-4a",
+          "into": "indikator-16",
+          "justification": "distinct clinical indicators"
         },
         {
           "from": "indikator-4b",
-          "into": "indikator-4a"
+          "into": "indikator-10",
+          "justification": "distinct clinical indicators"
         },
         {
           "from": "indikator-4b",
-          "into": "indikator-4a1"
+          "into": "indikator-12",
+          "justification": "distinct clinical indicators"
         },
         {
           "from": "indikator-4b",
-          "into": "indikator-4a2"
+          "into": "indikator-13",
+          "justification": "distinct clinical indicators"
         },
         {
           "from": "indikator-4b",
-          "into": "indikator-4a3"
+          "into": "indikator-16",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
         },
         {
           "from": "indikator-5",
-          "into": "indikator-4a"
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
         },
         {
           "from": "indikator-5",
-          "into": "indikator-4b"
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
         },
         {
           "from": "quality-indicator-definition",
-          "into": "indicator-definition"
-        },
-        {
-          "from": "quality-indicator-definition",
-          "into": "quality-indicator"
-        },
-        {
-          "from": "quality-indicator-result",
-          "into": "quality-indicator"
+          "into": "quality-indicator",
+          "justification": "definition is meta-descriptor"
         }
       ]
     },
     "proposedPairs": [
       {
-        "from": "atrieflimren",
-        "into": "atrial-fibrillation",
-        "signal": "glossary",
-        "evidence": "domain glossary: 'atrial fibrillation' ↔ 'atrieflimren'"
+        "from": "clinical-indicator",
+        "into": "clinical-indicators",
+        "signal": "edit-distance",
+        "evidence": "slugs 'clinical-indicator' and 'clinical-indicators' are edit distance 1 apart (typo variant)"
       },
       {
-        "from": "data-quality-note",
-        "into": "data-quality",
+        "from": "clinical-practice-decision",
+        "into": "clinical-practice",
         "signal": "subsequence",
-        "evidence": "tokens of 'data-quality' are a subsequence of 'data-quality-note' (name parts [note] dropped)"
+        "evidence": "tokens of 'clinical-practice' are a subsequence of 'clinical-practice-decision' (name parts [decision] dropped)"
       },
       {
-        "from": "hjertesvigt",
-        "into": "heart-failure",
-        "signal": "glossary",
-        "evidence": "domain glossary: 'heart failure' ↔ 'hjertesvigt'"
+        "from": "clinical-risk-distribution",
+        "into": "clinical-risk",
+        "signal": "subsequence",
+        "evidence": "tokens of 'clinical-risk' are a subsequence of 'clinical-risk-distribution' (name parts [distribution] dropped)"
       },
       {
-        "from": "indikator-4a-antikoagulation",
+        "from": "definition",
+        "into": "definitional",
+        "signal": "edit-distance",
+        "evidence": "slugs 'definition' and 'definitional' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
         "into": "indikator-4a",
-        "signal": "subsequence",
-        "evidence": "tokens of 'indikator-4a' are a subsequence of 'indikator-4a-antikoagulation' (name parts [antikoagulation] dropped)"
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4a",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4a' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4a",
+        "into": "indikator-12",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4a' and 'indikator-12' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4a",
+        "into": "indikator-13",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4a' and 'indikator-13' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4a",
+        "into": "indikator-16",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4a' and 'indikator-16' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-12",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-12' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-13",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-13' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-16",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-16' are edit distance 2 apart (typo variant)"
       },
       {
         "from": "indikator-4b",
         "into": "indikator-4a",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-4b' and 'indikator-4a' are edit distance 1 apart (typo variant)"
-      },
-      {
-        "from": "indikator-4b",
-        "into": "indikator-4a1",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-4b' and 'indikator-4a1' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-4b",
-        "into": "indikator-4a2",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-4b' and 'indikator-4a2' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-4b",
-        "into": "indikator-4a3",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-4b' and 'indikator-4a3' are edit distance 2 apart (typo variant)"
       },
       {
         "from": "indikator-5",
@@ -130,292 +425,215 @@
         "evidence": "slugs 'indikator-5' and 'indikator-4b' are edit distance 2 apart (typo variant)"
       },
       {
-        "from": "quality-indicator-definition",
-        "into": "indicator-definition",
-        "signal": "subsequence",
-        "evidence": "tokens of 'indicator-definition' are a subsequence of 'quality-indicator-definition' (name parts [quality] dropped)"
+        "from": "indikator-6",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-4b' are edit distance 2 apart (typo variant)"
       },
       {
         "from": "quality-indicator-definition",
         "into": "quality-indicator",
         "signal": "subsequence",
         "evidence": "tokens of 'quality-indicator' are a subsequence of 'quality-indicator-definition' (name parts [definition] dropped)"
-      },
-      {
-        "from": "quality-indicator-result",
-        "into": "quality-indicator",
-        "signal": "subsequence",
-        "evidence": "tokens of 'quality-indicator' are a subsequence of 'quality-indicator-result' (name parts [result] dropped)"
       }
     ],
     "autoApplied": []
   },
   "entities": {
-    "merges": [],
+    "merges": [
+      {
+        "from": [
+          "bfkb-kode"
+        ],
+        "into": "bfkb"
+      },
+      {
+        "from": [
+          "chad2ds2-vasc"
+        ],
+        "into": "cha2ds2-vasc"
+      },
+      {
+        "from": [
+          "landspatientregisteret-lpr"
+        ],
+        "into": "landspatientregisteret"
+      },
+      {
+        "from": [
+          "np04998-p-kreatinin"
+        ],
+        "into": "s-creatinin"
+      },
+      {
+        "from": [
+          "rkkp-styregruppe"
+        ],
+        "into": "afdk-styregruppe"
+      },
+      {
+        "from": [
+          "tsh"
+        ],
+        "into": "thyreoideastimulerende-hormon-tsh"
+      },
+      {
+        "from": [
+          "npu04998-p-creatinin"
+        ],
+        "into": "npu04998-p-kreatinin"
+      },
+      {
+        "from": [
+          "npu18016-p-creatinin"
+        ],
+        "into": "npu18016-p-kreatinin"
+      },
+      {
+        "from": [
+          "sundhedsklyngen-slagese"
+        ],
+        "into": "sundhedsklyngen-slagelse"
+      }
+    ],
     "drops": [],
-    "attempts": 1,
+    "attempts": 3,
     "fallbacks": [],
     "vetoes": [],
     "fromSticky": {
-      "merges": [],
-      "drops": [],
-      "clusters": []
-    },
-    "decidedThisRun": {
       "merges": [
+        {
+          "from": [
+            "styregruppen"
+          ],
+          "into": "afdk-styregruppe"
+        },
+        {
+          "from": [
+            "cha2ds2-vasc-score"
+          ],
+          "into": "cha2ds2-vasc"
+        },
         {
           "from": [
             "afdk"
           ],
-          "into": "databasen-for-atrieflimren-i-danmark",
-          "signal": "alias",
-          "evidence": "title 'AFDK' is an exact frontmatter alias of 'databasen-for-atrieflimren-i-danmark'"
+          "into": "databasen-for-atrieflimren-i-danmark"
         },
         {
           "from": [
-            "alvorlig-blodning"
+            "icd-10-diagnose-di48"
           ],
-          "into": "alvorlig-bloedning",
-          "signal": "transliteration",
-          "evidence": "slugs identical after Danish transliteration collapse ('alvorlig-blodning' ≡ 'alvorlig-bloedning')"
+          "into": "di48"
         },
         {
           "from": [
-            "bispebjerg-og-frederiksberg-hospital"
+            "noac"
           ],
-          "into": "bispebjerg-og-frederiksberg-hospitaler",
-          "signal": "alias",
-          "evidence": "title 'Bispebjerg og Frederiksberg Hospital' is an exact frontmatter alias of 'bispebjerg-og-frederiksberg-hospitaler'"
-        },
-        {
-          "from": [
-            "holbaek-hospital"
-          ],
-          "into": "holbaek",
-          "signal": "alias",
-          "evidence": "title 'Holbæk Hospital' is an exact frontmatter alias of 'holbaek'"
+          "into": "doac"
         },
         {
           "from": [
             "laegemiddelstatistikregistret"
           ],
-          "into": "laegemiddelstatistikregisteret",
-          "signal": "alias",
-          "evidence": "title 'Lægemiddelstatistikregistret' is an exact frontmatter alias of 'laegemiddelstatistikregisteret'"
+          "into": "laegemiddelstatistikregisteret"
         },
         {
           "from": [
-            "landspatientregistret"
+            "landspatientregistret",
+            "lpr"
           ],
-          "into": "landspatientregisteret",
-          "signal": "alias",
-          "evidence": "title 'Landspatientregistret' is an exact frontmatter alias of 'landspatientregisteret'"
+          "into": "landspatientregisteret"
         },
         {
           "from": [
-            "naestved-hospital"
+            "naestved"
           ],
-          "into": "naestved",
-          "signal": "alias",
-          "evidence": "title 'Næstved Hospital' is an exact frontmatter alias of 'naestved'"
+          "into": "naestved-sygehus"
         },
         {
           "from": [
-            "naestved-sygehus"
+            "rkkp"
           ],
-          "into": "naestved",
-          "signal": "alias",
-          "evidence": "title 'Næstved Sygehus' is an exact frontmatter alias of 'naestved'"
-        },
-        {
-          "from": [
-            "nykoebing-falster-hospital"
-          ],
-          "into": "nykoebing-falster",
-          "signal": "alias",
-          "evidence": "title 'Nykøbing Falster Hospital' is an exact frontmatter alias of 'nykoebing-falster'"
-        },
-        {
-          "from": [
-            "odense-universitetshospital"
-          ],
-          "into": "ouh-odense-universitetshospital",
-          "signal": "alias",
-          "evidence": "title 'Odense Universitetshospital' is an exact frontmatter alias of 'ouh-odense-universitetshospital'"
+          "into": "regionernes-kliniske-kvalitetsudviklingsprogram"
         },
         {
           "from": [
             "regionshospitalet-godstrup"
           ],
-          "into": "regionshospitalet-goedstrup",
-          "signal": "transliteration",
-          "evidence": "slugs identical after Danish transliteration collapse ('regionshospitalet-godstrup' ≡ 'regionshospitalet-goedstrup')"
+          "into": "regionshospitalet-goedstrup"
         },
         {
           "from": [
-            "samso-sundheds-og-akuthus"
+            "ringkobing-skjern"
           ],
-          "into": "samsoe-sundheds-og-akuthus",
-          "signal": "transliteration",
-          "evidence": "slugs identical after Danish transliteration collapse ('samso-sundheds-og-akuthus' ≡ 'samsoe-sundheds-og-akuthus')"
+          "into": "ringkoebing-skjern"
         },
         {
           "from": [
-            "slagelse-hospital"
+            "sjaellands-universitetshospital-koege"
           ],
-          "into": "slagelse",
-          "signal": "alias",
-          "evidence": "title 'Slagelse Hospital' is an exact frontmatter alias of 'slagelse'"
+          "into": "sjaellands-universitetshospital-koenge"
         },
         {
           "from": [
-            "slagelse-sygehus"
+            "slagelse"
           ],
-          "into": "slagelse",
-          "signal": "alias",
-          "evidence": "title 'Slagelse Sygehus' is an exact frontmatter alias of 'slagelse'"
+          "into": "slagelse-sygehus"
+        },
+        {
+          "from": [
+            "sonderborg"
+          ],
+          "into": "soenderborg"
+        },
+        {
+          "from": [
+            "tarnby"
+          ],
+          "into": "taarnby"
         }
       ],
       "drops": [],
-      "denials": [
-        {
-          "from": "aalborg-universitetshospital-thisted",
-          "into": "aalborg-universitetshospital"
-        },
-        {
-          "from": "alvorlig-bloedning",
-          "into": "serious-bleeding"
-        },
-        {
-          "from": "atrieflimren",
-          "into": "atrial-fibrillation"
-        },
-        {
-          "from": "databasen-for-atrieflimren-i-danmark",
-          "into": "atrieflimren-i-danmark"
-        },
-        {
-          "from": "ekkokardiografi",
-          "into": "echocardiography"
-        },
-        {
-          "from": "friklinikken-region-syddanmark-grindsted",
-          "into": "region-syddanmark"
-        },
-        {
-          "from": "indikator-4a-antikoagulation",
-          "into": "indikator-4a"
-        },
-        {
-          "from": "indikator-4b",
-          "into": "indikator-4a"
-        },
-        {
-          "from": "indikator-4b",
-          "into": "indikator-4a1"
-        },
-        {
-          "from": "indikator-4b",
-          "into": "indikator-4a2"
-        },
-        {
-          "from": "indikator-4b",
-          "into": "indikator-4a3"
-        },
-        {
-          "from": "indikator-5",
-          "into": "indikator-4a"
-        },
-        {
-          "from": "indikator-5",
-          "into": "indikator-4b"
-        },
-        {
-          "from": "indikator-5-iskemisk-apopleksi",
-          "into": "indikator-5"
-        },
-        {
-          "from": "intrakraniel-bloedning",
-          "into": "intracranial-hemorrhage"
-        },
-        {
-          "from": "iskaemisk-apopleksi",
-          "into": "ischemic-stroke"
-        },
-        {
-          "from": "klynge-syd-nordjylland",
-          "into": "klynge-syd"
-        },
-        {
-          "from": "patientuddannelse",
-          "into": "patient-education"
-        },
-        {
-          "from": "rkkp",
-          "into": "regionernes-kliniske-kvalitetsudviklingsprogram"
-        },
-        {
-          "from": "sjaellands-universitetshospital-koege",
-          "into": "sjaellands-universitetshospital"
-        },
-        {
-          "from": "sjaellands-universitetshospital-roskilde",
-          "into": "sjaellands-universitetshospital"
-        },
-        {
-          "from": "sundhedsklynge-fyn",
-          "into": "sundhedsklynge-byen"
-        },
-        {
-          "from": "sundhedsklynge-fyn",
-          "into": "sundhedsklynge-syd"
-        },
-        {
-          "from": "sundhedsklynger",
-          "into": "health-clusters"
-        }
-      ],
-      "clusters": [],
-      "clusterDenials": [
-        {
-          "members": [
-            "indikator-2-echocardiography",
-            "echocardiography"
-          ],
-          "class": 3,
-          "into": "indikator-2-echocardiography"
-        },
-        {
-          "members": [
-            "indikator-2-ekkokardiografi",
-            "ekkokardiografi"
-          ],
-          "class": 3,
-          "into": "indikator-2-ekkokardiografi"
-        },
-        {
-          "members": [
-            "indikator-3-tsh-maaling",
-            "tsh-maaling"
-          ],
-          "class": 3,
-          "into": "indikator-3-tsh-maaling"
-        },
-        {
-          "members": [
-            "indikator-7-serious-bleeding",
-            "serious-bleeding"
-          ],
-          "class": 3,
-          "into": "indikator-7-serious-bleeding"
-        },
+      "clusters": [
         {
           "members": [
             "region-hovedstaden",
             "hovedstaden"
           ],
           "class": 5,
-          "into": "region-hovedstaden"
+          "into": "region-hovedstaden",
+          "signal": "region-form"
         },
         {
           "members": [
@@ -423,7 +641,8 @@
             "midtjylland"
           ],
           "class": 5,
-          "into": "region-midtjylland"
+          "into": "region-midtjylland",
+          "signal": "region-form"
         },
         {
           "members": [
@@ -431,7 +650,8 @@
             "nordjylland"
           ],
           "class": 5,
-          "into": "region-nordjylland"
+          "into": "region-nordjylland",
+          "signal": "region-form"
         },
         {
           "members": [
@@ -439,7 +659,8 @@
             "sjaelland"
           ],
           "class": 5,
-          "into": "region-sjaelland"
+          "into": "region-sjaelland",
+          "signal": "region-form"
         },
         {
           "members": [
@@ -447,9 +668,328 @@
             "syddanmark"
           ],
           "class": 5,
-          "into": "region-syddanmark"
+          "into": "region-syddanmark",
+          "signal": "region-form"
         }
       ]
+    },
+    "decidedThisRun": {
+      "merges": [
+        {
+          "from": [
+            "godstrupklyngen"
+          ],
+          "into": "goedstrupklyngen",
+          "signal": "transliteration",
+          "evidence": "slugs identical after Danish transliteration collapse ('godstrupklyngen' ≡ 'goedstrupklyngen')"
+        },
+        {
+          "from": [
+            "bfkb-kode"
+          ],
+          "into": "bfkb",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "chad2ds2-vasc"
+          ],
+          "into": "cha2ds2-vasc",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "landspatientregisteret-lpr"
+          ],
+          "into": "landspatientregisteret",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "np04998-p-kreatinin"
+          ],
+          "into": "s-creatinin",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "rkkp-styregruppe"
+          ],
+          "into": "afdk-styregruppe",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "tsh"
+          ],
+          "into": "thyreoideastimulerende-hormon-tsh",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "npu04998-p-creatinin"
+          ],
+          "into": "npu04998-p-kreatinin",
+          "signal": "edit-distance",
+          "evidence": "slugs 'npu04998-p-creatinin' and 'npu04998-p-kreatinin' are edit distance 1 apart (typo variant)"
+        },
+        {
+          "from": [
+            "npu18016-p-creatinin"
+          ],
+          "into": "npu18016-p-kreatinin",
+          "signal": "edit-distance",
+          "evidence": "slugs 'npu18016-p-creatinin' and 'npu18016-p-kreatinin' are edit distance 1 apart (typo variant)"
+        },
+        {
+          "from": [
+            "sundhedsklyngen-slagese"
+          ],
+          "into": "sundhedsklyngen-slagelse",
+          "signal": "edit-distance",
+          "evidence": "slugs 'sundhedsklyngen-slagese' and 'sundhedsklyngen-slagelse' are edit distance 1 apart (typo variant)"
+        }
+      ],
+      "drops": [],
+      "denials": [
+        {
+          "from": "aalborg-universitetshospital-thisted",
+          "into": "aalborg-universitetshospital",
+          "justification": "distinct sub-unit/location"
+        },
+        {
+          "from": "databasen-for-atrieflimren-i-danmark",
+          "into": "atrieflimren-i-danmark",
+          "justification": "database vs concept"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-4a1",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-10",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-10",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-11",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-11",
+          "into": "indikator-4a1",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-11",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-12",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-12",
+          "into": "indikator-4a2",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-12",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-13",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-13",
+          "into": "indikator-4a3",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-13",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-15",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-15",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-16",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-16",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-4a2",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-4a3",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a1",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a2",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a3",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-4a",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-4b",
+          "justification": "distinct clinical indicators"
+        },
+        {
+          "from": "npu04998-p-creatinin",
+          "into": "p-creatinin",
+          "justification": "code vs concept"
+        },
+        {
+          "from": "npu18016-p-creatinin",
+          "into": "p-creatinin",
+          "justification": "code vs concept"
+        },
+        {
+          "from": "sundhedsklynge",
+          "into": "sundhedsklynger",
+          "justification": "generic terms"
+        },
+        {
+          "from": "sundhedsklynge-fyn",
+          "into": "sundhedsklynge-byen",
+          "justification": "distinct regions"
+        },
+        {
+          "from": "sundhedsklynge-fyn",
+          "into": "sundhedsklynge-syd",
+          "justification": "distinct regions"
+        },
+        {
+          "from": "sundhedsklyngen-slagelse",
+          "into": "sundhedsklyngen-slagelese",
+          "justification": "target is typo"
+        },
+        {
+          "from": "sundhedsklyngen-slagese",
+          "into": "sundhedsklyngen-slagelese",
+          "justification": "target is typo"
+        }
+      ],
+      "clusters": [],
+      "clusterDenials": []
     },
     "proposedPairs": [
       {
@@ -459,40 +999,154 @@
         "evidence": "tokens of 'aalborg-universitetshospital' are a subsequence of 'aalborg-universitetshospital-thisted' (name parts [thisted] dropped)"
       },
       {
-        "from": "alvorlig-bloedning",
-        "into": "serious-bleeding",
-        "signal": "glossary",
-        "evidence": "domain glossary: 'serious bleeding' ↔ 'alvorlig blødning'"
-      },
-      {
-        "from": "atrieflimren",
-        "into": "atrial-fibrillation",
-        "signal": "glossary",
-        "evidence": "domain glossary: 'atrieflimren' ↔ 'atrial fibrillation'"
-      },
-      {
         "from": "databasen-for-atrieflimren-i-danmark",
         "into": "atrieflimren-i-danmark",
         "signal": "subsequence",
         "evidence": "tokens of 'atrieflimren-i-danmark' are a subsequence of 'databasen-for-atrieflimren-i-danmark' (name parts [databasen, for] dropped)"
       },
       {
-        "from": "ekkokardiografi",
-        "into": "echocardiography",
-        "signal": "glossary",
-        "evidence": "domain glossary: 'echocardiography' ↔ 'ekkokardiografi'"
-      },
-      {
-        "from": "friklinikken-region-syddanmark-grindsted",
-        "into": "region-syddanmark",
-        "signal": "subsequence",
-        "evidence": "tokens of 'region-syddanmark' are a subsequence of 'friklinikken-region-syddanmark-grindsted' (name parts [friklinikken, grindsted] dropped)"
-      },
-      {
-        "from": "indikator-4a-antikoagulation",
+        "from": "indikator-1",
         "into": "indikator-4a",
-        "signal": "subsequence",
-        "evidence": "tokens of 'indikator-4a' are a subsequence of 'indikator-4a-antikoagulation' (name parts [antikoagulation] dropped)"
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-4a1",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-4a1' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-10",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-10' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-10",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-10' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-11",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-11' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-11",
+        "into": "indikator-4a1",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-11' and 'indikator-4a1' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-11",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-11' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-12",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-12' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-12",
+        "into": "indikator-4a2",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-12' and 'indikator-4a2' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-12",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-12' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-13",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-13' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-13",
+        "into": "indikator-4a3",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-13' and 'indikator-4a3' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-13",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-13' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-15",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-15' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-15",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-15' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-16",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-16' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-16",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-16' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-4a2",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-4a2' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-4a3",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-4a3' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-4b' are edit distance 2 apart (typo variant)"
       },
       {
         "from": "indikator-4b",
@@ -531,52 +1185,82 @@
         "evidence": "slugs 'indikator-5' and 'indikator-4b' are edit distance 2 apart (typo variant)"
       },
       {
-        "from": "indikator-5-iskemisk-apopleksi",
-        "into": "indikator-5",
-        "signal": "indicator-form",
-        "evidence": "indicator number↔name family ('indikator-5' ↔ 'indikator-5-iskemisk-apopleksi')"
+        "from": "indikator-6",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-4a' are edit distance 2 apart (typo variant)"
       },
       {
-        "from": "intrakraniel-bloedning",
-        "into": "intracranial-hemorrhage",
-        "signal": "glossary",
-        "evidence": "domain glossary: 'intracranial hemorrhage' ↔ 'intrakraniel blødning'"
+        "from": "indikator-6",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-4b' are edit distance 2 apart (typo variant)"
       },
       {
-        "from": "iskaemisk-apopleksi",
-        "into": "ischemic-stroke",
-        "signal": "glossary",
-        "evidence": "domain glossary: 'ischemic stroke' ↔ 'iskæmisk apopleksi'"
+        "from": "indikator-7",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7' and 'indikator-4a' are edit distance 2 apart (typo variant)"
       },
       {
-        "from": "klynge-syd-nordjylland",
-        "into": "klynge-syd",
+        "from": "indikator-7",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "npu04998-p-creatinin",
+        "into": "npu04998-p-kreatinin",
+        "signal": "edit-distance",
+        "evidence": "slugs 'npu04998-p-creatinin' and 'npu04998-p-kreatinin' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "npu04998-p-creatinin",
+        "into": "p-creatinin",
         "signal": "subsequence",
-        "evidence": "tokens of 'klynge-syd' are a subsequence of 'klynge-syd-nordjylland' (name parts [nordjylland] dropped)"
+        "evidence": "tokens of 'p-creatinin' are a subsequence of 'npu04998-p-creatinin' (name parts [npu04998] dropped)"
       },
       {
-        "from": "patientuddannelse",
-        "into": "patient-education",
-        "signal": "glossary",
-        "evidence": "domain glossary: 'patient education' ↔ 'patientuddannelse'"
+        "from": "npu18016-p-creatinin",
+        "into": "npu18016-p-kreatinin",
+        "signal": "edit-distance",
+        "evidence": "slugs 'npu18016-p-creatinin' and 'npu18016-p-kreatinin' are edit distance 1 apart (typo variant)"
       },
       {
-        "from": "rkkp",
-        "into": "regionernes-kliniske-kvalitetsudviklingsprogram",
-        "signal": "abbreviation",
-        "evidence": "corpus text introduces 'Regionernes Kliniske\nKvalitetsudviklingsprogram (RKKP)'"
-      },
-      {
-        "from": "sjaellands-universitetshospital-koege",
-        "into": "sjaellands-universitetshospital",
+        "from": "npu18016-p-creatinin",
+        "into": "p-creatinin",
         "signal": "subsequence",
-        "evidence": "tokens of 'sjaellands-universitetshospital' are a subsequence of 'sjaellands-universitetshospital-koege' (name parts [koege] dropped)"
+        "evidence": "tokens of 'p-creatinin' are a subsequence of 'npu18016-p-creatinin' (name parts [npu18016] dropped)"
       },
       {
-        "from": "sjaellands-universitetshospital-roskilde",
-        "into": "sjaellands-universitetshospital",
-        "signal": "subsequence",
-        "evidence": "tokens of 'sjaellands-universitetshospital' are a subsequence of 'sjaellands-universitetshospital-roskilde' (name parts [roskilde] dropped)"
+        "from": "sundhedsklynge",
+        "into": "sundhedsklynger",
+        "signal": "edit-distance",
+        "evidence": "slugs 'sundhedsklynge' and 'sundhedsklynger' are edit distance 1 apart (typo variant)"
       },
       {
         "from": "sundhedsklynge-fyn",
@@ -591,193 +1275,45 @@
         "evidence": "slugs 'sundhedsklynge-fyn' and 'sundhedsklynge-syd' are edit distance 2 apart (typo variant)"
       },
       {
-        "from": "sundhedsklynger",
-        "into": "health-clusters",
-        "signal": "glossary",
-        "evidence": "domain glossary: 'health clusters' ↔ 'sundhedsklynger'"
+        "from": "sundhedsklyngen-slagelse",
+        "into": "sundhedsklyngen-slagelese",
+        "signal": "edit-distance",
+        "evidence": "slugs 'sundhedsklyngen-slagelse' and 'sundhedsklyngen-slagelese' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "sundhedsklyngen-slagese",
+        "into": "sundhedsklyngen-slagelese",
+        "signal": "edit-distance",
+        "evidence": "slugs 'sundhedsklyngen-slagese' and 'sundhedsklyngen-slagelese' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "sundhedsklyngen-slagese",
+        "into": "sundhedsklyngen-slagelse",
+        "signal": "edit-distance",
+        "evidence": "slugs 'sundhedsklyngen-slagese' and 'sundhedsklyngen-slagelse' are edit distance 1 apart (typo variant)"
       }
     ],
     "autoApplied": [
       {
-        "from": "afdk",
-        "into": "databasen-for-atrieflimren-i-danmark",
-        "signal": "alias",
-        "evidence": "title 'AFDK' is an exact frontmatter alias of 'databasen-for-atrieflimren-i-danmark'"
-      },
-      {
-        "from": "alvorlig-blodning",
-        "into": "alvorlig-bloedning",
+        "from": "godstrupklyngen",
+        "into": "goedstrupklyngen",
         "signal": "transliteration",
-        "evidence": "slugs identical after Danish transliteration collapse ('alvorlig-blodning' ≡ 'alvorlig-bloedning')"
-      },
-      {
-        "from": "bispebjerg-og-frederiksberg-hospital",
-        "into": "bispebjerg-og-frederiksberg-hospitaler",
-        "signal": "alias",
-        "evidence": "title 'Bispebjerg og Frederiksberg Hospital' is an exact frontmatter alias of 'bispebjerg-og-frederiksberg-hospitaler'"
-      },
-      {
-        "from": "holbaek-hospital",
-        "into": "holbaek",
-        "signal": "alias",
-        "evidence": "title 'Holbæk Hospital' is an exact frontmatter alias of 'holbaek'"
-      },
-      {
-        "from": "laegemiddelstatistikregistret",
-        "into": "laegemiddelstatistikregisteret",
-        "signal": "alias",
-        "evidence": "title 'Lægemiddelstatistikregistret' is an exact frontmatter alias of 'laegemiddelstatistikregisteret'"
-      },
-      {
-        "from": "landspatientregistret",
-        "into": "landspatientregisteret",
-        "signal": "alias",
-        "evidence": "title 'Landspatientregistret' is an exact frontmatter alias of 'landspatientregisteret'"
-      },
-      {
-        "from": "naestved-hospital",
-        "into": "naestved",
-        "signal": "alias",
-        "evidence": "title 'Næstved Hospital' is an exact frontmatter alias of 'naestved'"
-      },
-      {
-        "from": "naestved-sygehus",
-        "into": "naestved",
-        "signal": "alias",
-        "evidence": "title 'Næstved Sygehus' is an exact frontmatter alias of 'naestved'"
-      },
-      {
-        "from": "nykoebing-falster-hospital",
-        "into": "nykoebing-falster",
-        "signal": "alias",
-        "evidence": "title 'Nykøbing Falster Hospital' is an exact frontmatter alias of 'nykoebing-falster'"
-      },
-      {
-        "from": "odense-universitetshospital",
-        "into": "ouh-odense-universitetshospital",
-        "signal": "alias",
-        "evidence": "title 'Odense Universitetshospital' is an exact frontmatter alias of 'ouh-odense-universitetshospital'"
-      },
-      {
-        "from": "regionshospitalet-godstrup",
-        "into": "regionshospitalet-goedstrup",
-        "signal": "transliteration",
-        "evidence": "slugs identical after Danish transliteration collapse ('regionshospitalet-godstrup' ≡ 'regionshospitalet-goedstrup')"
-      },
-      {
-        "from": "samso-sundheds-og-akuthus",
-        "into": "samsoe-sundheds-og-akuthus",
-        "signal": "transliteration",
-        "evidence": "slugs identical after Danish transliteration collapse ('samso-sundheds-og-akuthus' ≡ 'samsoe-sundheds-og-akuthus')"
-      },
-      {
-        "from": "slagelse-hospital",
-        "into": "slagelse",
-        "signal": "alias",
-        "evidence": "title 'Slagelse Hospital' is an exact frontmatter alias of 'slagelse'"
-      },
-      {
-        "from": "slagelse-sygehus",
-        "into": "slagelse",
-        "signal": "alias",
-        "evidence": "title 'Slagelse Sygehus' is an exact frontmatter alias of 'slagelse'"
+        "evidence": "slugs identical after Danish transliteration collapse ('godstrupklyngen' ≡ 'goedstrupklyngen')"
       }
     ],
-    "proposedClusters": [
-      {
-        "members": [
-          "indikator-2-echocardiography",
-          "echocardiography"
-        ],
-        "class": 3,
-        "into": "indikator-2-echocardiography",
-        "signal": "indicator-form",
-        "evidence": "indicator number↔name family ('echocardiography' ↔ 'indikator-2-echocardiography')"
-      },
-      {
-        "members": [
-          "indikator-2-ekkokardiografi",
-          "ekkokardiografi"
-        ],
-        "class": 3,
-        "into": "indikator-2-ekkokardiografi",
-        "signal": "indicator-form",
-        "evidence": "indicator number↔name family ('ekkokardiografi' ↔ 'indikator-2-ekkokardiografi')"
-      },
-      {
-        "members": [
-          "indikator-3-tsh-maaling",
-          "tsh-maaling"
-        ],
-        "class": 3,
-        "into": "indikator-3-tsh-maaling",
-        "signal": "indicator-form",
-        "evidence": "indicator number↔name family ('indikator-3-tsh-maaling' ↔ 'tsh-maaling')"
-      },
-      {
-        "members": [
-          "indikator-7-serious-bleeding",
-          "serious-bleeding"
-        ],
-        "class": 3,
-        "into": "indikator-7-serious-bleeding",
-        "signal": "indicator-form",
-        "evidence": "indicator number↔name family ('indikator-7-serious-bleeding' ↔ 'serious-bleeding')"
-      },
-      {
-        "members": [
-          "region-hovedstaden",
-          "hovedstaden"
-        ],
-        "class": 5,
-        "into": "region-hovedstaden",
-        "signal": "region-form",
-        "evidence": "region name-form family (core 'hovedstaden', 2 forms)"
-      },
-      {
-        "members": [
-          "region-midtjylland",
-          "midtjylland"
-        ],
-        "class": 5,
-        "into": "region-midtjylland",
-        "signal": "region-form",
-        "evidence": "region name-form family (core 'midtjylland', 2 forms)"
-      },
-      {
-        "members": [
-          "region-nordjylland",
-          "nordjylland"
-        ],
-        "class": 5,
-        "into": "region-nordjylland",
-        "signal": "region-form",
-        "evidence": "region name-form family (core 'nordjylland', 2 forms)"
-      },
-      {
-        "members": [
-          "region-sjaelland",
-          "sjaelland"
-        ],
-        "class": 5,
-        "into": "region-sjaelland",
-        "signal": "region-form",
-        "evidence": "region name-form family (core 'sjaelland', 2 forms)"
-      },
-      {
-        "members": [
-          "region-syddanmark",
-          "syddanmark"
-        ],
-        "class": 5,
-        "into": "region-syddanmark",
-        "signal": "region-form",
-        "evidence": "region name-form family (core 'syddanmark', 2 forms)"
-      }
-    ]
+    "proposedClusters": []
   },
   "manualEditSkips": [],
-  "removedPages": [],
-  "rewrittenLinks": [],
+  "removedPages": [
+    "entities/databases/health-registries/landspatientregisteret-lpr.md",
+    "topics/clinical-indicators/standard-80-percent.md",
+    "topics/healthcare-quality-standards/standard-90-percent.md"
+  ],
+  "rewrittenLinks": [
+    {
+      "path": "comparisons/indikator-15-andelen-af-nydiagnosticerede-patienter-med-atrieflimren-som-udvikler-iskaemisk-apopleksi-inden-for-1-aar.md",
+      "hash": "a653ede6a17de3435f2addcd3ad02607949bd1ca96bccd455df08ac9e8150a1c"
+    }
+  ],
   "splitReversals": []
 }

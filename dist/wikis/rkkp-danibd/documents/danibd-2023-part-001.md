@@ -3,11 +3,11 @@ title: danibd-2023-part-001
 type: document
 wiki: rkkp-danibd
 sources:
-  - file: DANIBD_2023.pdf
+  - file: wikis/rkkp-danibd/raw/DANIBD_2023.pdf
     pages: 1-5
-    extracted: '2026-07-25T15:16:03.829Z'
+    extracted: '2026-08-05T05:35:03.231Z'
     sha256: 7d03f209ee2d3a36b63aefb16430afe0df76998caeda7aff57e448a534319812
-updated: '2026-08-03T19:14:18.286Z'
+updated: '2026-08-05T05:35:03.231Z'
 ---
 
 ## Extracted Text: Pages 1-5

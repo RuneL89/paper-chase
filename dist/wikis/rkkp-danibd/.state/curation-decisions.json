@@ -1,81 +1,427 @@
 {
   "decisions": [
     {
-      "concern": "entities",
+      "concern": "topics",
       "action": "merge",
       "from": [
-        "landspatientregisteret"
+        "quality-metric"
       ],
-      "into": "landpatientregisteret",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:52:52.505Z",
-      "runId": "2026-08-03T18:52:52.505Z"
+      "into": "quality-indicator",
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "coverage-estimate"
+      ],
+      "into": "coverage",
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "departmental-performance"
+      ],
+      "into": "performance",
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "regional-performance"
+      ],
+      "into": "performance",
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "diagnosis-distribution"
+      ],
+      "into": "epidemiological",
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "diagnostic"
+      ],
+      "into": "epidemiological",
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "clinical-guideline"
+      ],
+      "into": "clinical-practice",
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "patient-count"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "treatment-count"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "surgical-count"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "timeline-distribution"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "systemic-observation"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "statistical"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "nordsjaelland-kirurgisk-afdeling"
+        "rkkp"
       ],
-      "into": "nordsjaelland-kirurgisk-overafdeling",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:52:52.505Z",
-      "runId": "2026-08-03T18:52:52.505Z"
+      "into": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "nordsjaellands-hospital"
+        "styreguppen"
       ],
-      "into": "nordsjaelland",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:52:52.505Z",
-      "runId": "2026-08-03T18:52:52.505Z"
+      "into": "styregruppen-for-danibd",
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "ouh-odense-kirurgisk-afdeling-a"
+        "praevaer-skleroserende-kolangitis"
       ],
-      "into": "odense-kirurgisk-afdeling-a",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:52:52.505Z",
-      "runId": "2026-08-03T18:52:52.505Z"
+      "into": "psc",
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "primar-skleroserende-kolangitis"
+        "f-calpro"
+      ],
+      "into": "calprotectin",
+      "signal": "model",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "danibd"
+      ],
+      "into": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "signal": "abbreviation",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "lpr"
+      ],
+      "into": "landspatientregisteret",
+      "signal": "abbreviation",
+      "decidedAt": "2026-08-05T05:48:23.792Z",
+      "runId": "2026-08-05T05:48:23.792Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "primaer-skleroserende-kolangitis"
+      ],
+      "into": "psc",
+      "signal": "alias",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "performance-assessment"
+      ],
+      "into": "performance",
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "dk50-crohns-sygdom"
+      ],
+      "into": "crohns-sygdom",
+      "signal": "subsequence",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "dk830f-primaer-skleroserende-kolangitis"
       ],
       "into": "primaer-skleroserende-kolangitis",
-      "signal": "transliteration",
-      "decidedAt": "2026-08-03T18:52:52.505Z",
-      "runId": "2026-08-03T18:52:52.505Z"
+      "signal": "subsequence",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "operational"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "demographic"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "epidemiological"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "procedural"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "organizational"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "administrative"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "clinical"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "evaluative"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "timeline"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "performance-statistic"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "treatment-statistic"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "sygehusmedicinregistret"
+        "f-calprotectin"
+      ],
+      "into": "calprotectin",
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "noh"
+      ],
+      "into": "nordsjaellands-hospital",
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "aarhus"
+      ],
+      "into": "aarhus-universitetshospital",
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "godstrup"
+      ],
+      "into": "regionshospitalet-goedstrup",
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "dexa-skanning"
+      ],
+      "into": "dexa-scanning",
+      "signal": "model",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "smr"
       ],
       "into": "sygehusmedicinregisteret",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:52:52.505Z",
-      "runId": "2026-08-03T18:52:52.505Z"
-    },
-    {
-      "concern": "entities",
-      "action": "merge",
-      "from": [
-        "vejle-medicinsk-afdeling"
-      ],
-      "into": "slb-vejle-medicinsk-afdeling",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:52:52.505Z",
-      "runId": "2026-08-03T18:52:52.505Z"
+      "signal": "abbreviation",
+      "decidedAt": "2026-08-05T06:08:15.589Z",
+      "runId": "2026-08-05T06:08:15.589Z"
     }
   ],
   "splits": []

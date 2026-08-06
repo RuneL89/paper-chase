@@ -1,583 +1,345 @@
 {
   "entities": [
     {
-      "name": "Region Hovedstaden",
-      "type": "organization",
-      "slug": "region-hovedstaden",
-      "folder": "entities/organizations/regions",
-      "significance": "En af fem danske regioner, der rapporteres på i ADHD-databasen med specifikke indikatorer for behandlingsforløb og psykoedukation.",
+      "name": "Indikator 4",
+      "type": "indicator",
+      "slug": "indikator-4",
+      "folder": "topics/quality-indicators/adhd",
+      "significance": "Indikator 4 måler andelen af ADHD-behandlingsforløb, hvor der er afholdt et koordinerende netværksmøde inden for 90 dage efter behandlingsstart, og er en central kvalitetsmåling i ADHD-pakkeforløbet med en fastsat standard på 90 %[^src1].",
       "mentions": [
         {
           "page": 31,
-          "context": "Region Hovedstaden har højest indikatoropfyldelse med 36 %"
+          "context": "Indikator 4 er en opgørelse af andelen af behandlingsforløb, hvor der er foretaget koordinerende netværksmøde inden for en tidsfrist på 90 dage efter behandlingsstart. Indikatoren har en fastsat standard på 90 %."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "indicator",
+      "slug": "indikator-5",
+      "folder": "topics/quality-indicators/adhd",
+      "significance": "Indikator 5 måler andelen af ADHD-behandlingsforløb, hvor patienten eller forældrene har påbegyndt ADHD-relateret psykoedukation senest 120 dage efter behandlingsstart, og er en afgørende kvalitetsindikator med en fastsat standard på ≥ 90 %[^src1].",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Indikator 5 er en opgørelse af andelen af behandlingsforløb, hvor patienten/forældre påbegynder ADHD-relateret psykoedukation inden for en tidsfrist på 120 dage efter behandlingsstart. Indikatoren har en fastsat standard på 90 %."
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen",
+      "type": "organization",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/governance",
+      "significance": "Styregruppen er den beslutningstagende gruppe, der vurderer kvalitetsindikatorernes relevans, beslutter om revision af indikatorordlyd og bibeholdelse af standarder i ADHD-pakkeforløbet[^src1].",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Styregruppen vurderer, at tværsektorielt samarbejde kan indeholde meget mere end et koordinerende netværksmøde, og at et netværksmøde i sig selv ikke nødvendigvis giver god kvalitet i behandlingen, hvis mødet ikke udmunder i gensidige forpligtelser på tværs af sektorer."
         },
         {
-          "page": 32,
-          "context": "Hovedstaden Nej 269 / 647 0 (0) 42 (38-45)"
+          "page": 31,
+          "context": "Styregruppen har nedsat en arbejdsgruppe, der vil udarbejde en revision af ordlyden på denne indikator. Indikatoren bibeholdes og ligeledes standarden."
+        },
+        {
+          "page": 35,
+          "context": "Styregruppen vurderer, at det er væsentligt at have blik for, at de privat. udredte også får psykoedukative tilbud"
+        },
+        {
+          "page": 35,
+          "context": "Styregruppen vurderer, at psykoedukation kræver kontakt mellem behandler og patient/pårørende, og således ikke kan erstattes af app/internetbaseret psykoedukation."
+        },
+        {
+          "page": 35,
+          "context": "Indikatoren vurderes fortsat relevant og standarden bibeholdes."
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "region",
+      "slug": "region-hovedstaden",
+      "folder": "entities/regions",
+      "significance": "Region Hovedstaden er den region med højest opfyldelse af Indikator 4 (36 %) og Indikator 5 (42 %), men ligger alligevel langt under den nationale standard på 90 % for begge indikatorer[^src1].",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Region Hovedstaden har højest indikatoropfyldelse med 36 % og Region Midtjylland ligger lavest med 7 %."
+        },
+        {
+          "page": 35,
+          "context": "Hovedstaden | Nej | 269 | / | 647 | 0 | (0) | 42 | (38-45) | 332 | / | 765 | 43 | 26"
         }
       ]
     },
     {
       "name": "Region Midtjylland",
-      "type": "organization",
+      "type": "region",
       "slug": "region-midtjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "En af fem danske regioner med laveste indikatoropfyldelse for koordinerende netværksmøder (7 %), men højeste for psykoedukation (50 %).",
+      "folder": "entities/regions",
+      "significance": "Region Midtjylland er den region med lavest opfyldelse af Indikator 4 (7 %) og højest opfyldelse af Indikator 5 (50 %), hvilket afspejler både ledelsesmæssige prioriteringer og regionale variationer i implementering af psykoedukation og netværkskoordination[^src1].",
       "mentions": [
         {
           "page": 31,
-          "context": "Region Midtjylland ligger lavest med 7 %"
+          "context": "Region Hovedstaden har højest indikatoropfyldelse med 36 % og Region Midtjylland ligger lavest med 7 %."
         },
         {
           "page": 31,
-          "context": "Region Midtjylland ligger igen lavest, hvilket afspejler en ledelsesmæssig beslutning"
+          "context": "Region Midtjylland ligger igen lavest, hvilket afspejler en ledelsesmæssig beslutning om, at det i udgangspunktet skal være kommunerne, der indkalder til netværksmøder efter endt udredning, hvis det vurderes relevant, og det sker ikke så hyppigt."
         },
         {
-          "page": 32,
-          "context": "Midtjylland Nej 503 / 1.013 0 (0) 50 (47-53)"
+          "page": 35,
+          "context": "Midtjylland Nej 503 / 1.013 0 (0) 50 (47-53) 484 / 1.242 39 9"
         }
       ]
     },
     {
       "name": "Region Syddanmark",
-      "type": "organization",
+      "type": "region",
       "slug": "region-syddanmark",
-      "folder": "entities/organizations/regions",
-      "significance": "En af fem danske regioner med laveste psykoedukationsopfyldelse på 7 % i den aktuelle opgørelsesperiode.",
+      "folder": "entities/regions",
+      "significance": "Region Syddanmark er den region med lavest opfyldelse af Indikator 5 (7 %), hvilket understreger alvorlige systemiske barrierer for tilgang til psykoedukation i ADHD-behandlingen[^src1].",
       "mentions": [
         {
-          "page": 32,
-          "context": "Syddanmark Nej 60 / 841 0 (0) 7 (5-9)"
-        },
-        {
-          "page": 31,
-          "context": "Region Syddanmark ligger lavest (7 %)"
+          "page": 35,
+          "context": "Syddanmark Nej 60 / 841 0 (0) 7 (5-9) 159 / 768 21 7"
         }
       ]
     },
     {
       "name": "Region Sjælland",
-      "type": "organization",
+      "type": "region",
       "slug": "region-sjaelland",
-      "folder": "entities/organizations/regions",
-      "significance": "En af fem danske regioner rapporteret i ADHD-databasen med psykoedukationsopfyldelse på 43 % i den aktuelle periode.",
+      "folder": "entities/regions",
+      "significance": "Region Sjælland er den region med anden højest opfyldelse af Indikator 5 (43 %), men ligger stadig langt fra standarden på 90 %, og viser betydelig regional variation i psykoedukationsudbydelsen[^src1].",
       "mentions": [
         {
-          "page": 32,
-          "context": "Sjælland Nej 165 / 388 0 (0) 43 (38-48)"
+          "page": 35,
+          "context": "Sjælland Nej 165 / 388 0 (0) 43 (38-48) 140 / 255 55 50"
         }
       ]
     },
     {
       "name": "Region Nordjylland",
-      "type": "organization",
+      "type": "region",
       "slug": "region-nordjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "En af fem danske regioner med psykoedukationsopfyldelse på 32 % og dokumenteret fremgang i den aktuelle periode.",
+      "folder": "entities/regions",
+      "significance": "Region Nordjylland er en af de regioner med fremgang i Indikator 5 (32 % i 2023/24), men ligger stadig langt fra standarden og deler den generelle manglende opfyldelse af tværsektorielle kvalitetskrav[^src1].",
       "mentions": [
         {
-          "page": 32,
-          "context": "Nordjylland Nej 167 / 525 0 (0) 32 (28-36)"
-        },
-        {
-          "page": 31,
-          "context": "Der ses fremgang i Midt- og Nordjylland"
+          "page": 35,
+          "context": "Nordjylland Nej 167 / 525 0 (0) 32 (28-36) 84 / 403 21 15"
         }
       ]
     },
     {
-      "name": "BUA Psykiatrisk Klinik for Unge",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-unge",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Midtjylland med laveste indikatoropfyldelse for koordinerende netværksmøder (1 %) blandt afdelinger med mere end 10 forløb.",
+      "name": "BUA Psykiatrisk Klinik for Unge i Midtjylland",
+      "type": "department",
+      "slug": "bua-psykiatrisk-klinik-for-unge-i-midtjylland",
+      "folder": "entities/departments/psychiatry",
+      "significance": "BUA Psykiatrisk Klinik for Unge i Midtjylland er den afdeling med laveste målopfyldelse af Indikator 4 (1 %), hvilket illustrerer ekstreme lokale udfordringer ved gennemførelse af koordinerende netværksmøder[^src1].",
       "mentions": [
         {
           "page": 31,
-          "context": "BUA Psykiatrisk Klinik for Unge i Midtjylland) til 64 %"
-        },
-        {
-          "page": 33,
-          "context": "BUA Psykiatrisk Klinik for Unge Nej 118 / 381 0 (0) 31 (26-36)"
+          "context": "På afdelingsniveau (afdelinger med mere end 10 forløb) spænder målopfyldelsen fra 1 % (BUA Psykiatrisk Klinik for Unge i Midtjylland) til 64 % (Odense: Børne- og Ungdomspsykiatrisk Ambulatorium)."
         }
       ]
     },
     {
       "name": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium",
-      "type": "organization",
-      "slug": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Syddanmark med højeste indikatoropfyldelse for koordinerende netværksmøder (64 %) blandt afdelinger med mere end 10 forløb.",
+      "type": "department",
+      "slug": "odense-boern-og-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/departments/psychiatry",
+      "significance": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium er den afdeling med højest målopfyldelse af Indikator 4 (64 %), men opfylder alligevel ikke den nationale standard på 90 %[^src1].",
       "mentions": [
         {
           "page": 31,
-          "context": "64 % (Odense: Børne- og Ungdomspsykiatrisk Ambulatorium)"
+          "context": "På afdelingsniveau (afdelinger med mere end 10 forløb) spænder målopfyldelsen fra 1 % (BUA Psykiatrisk Klinik for Unge i Midtjylland) til 64 % (Odense: Børne- og Ungdomspsykiatrisk Ambulatorium)."
+        }
+      ]
+    },
+    {
+      "name": "ADHD-DATABASEN",
+      "type": "system",
+      "slug": "adhd-databasen",
+      "folder": "entities/systems/healthcare",
+      "significance": "ADHD-DATABASEN er det nationale overvågnings- og rapporteringssystem, der bruges til beregning og publicering af resultaterne for Indikator 4 og Indikator 5 i ADHD-pakkeforløbet[^src1].",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "ADHD-DATABASEN"
         },
-        {
-          "page": 33,
-          "context": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium Nej 10 / 80 0 (0) 13 (6-22)"
-        }
-      ]
-    },
-    {
-      "name": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge",
-      "type": "organization",
-      "slug": "bispebjerg-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Region Hovedstaden med psykoedukationsopfyldelse på 23 % i den aktuelle periode.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge Nej 19 / 81 0 (0) 23 (15-34)"
-        }
-      ]
-    },
-    {
-      "name": "Glostrup: Psykiatrisk ambulatorium, børn og unge",
-      "type": "organization",
-      "slug": "glostrup-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Region Hovedstaden med psykoedukationsopfyldelse på 49 % i den aktuelle periode.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "Glostrup: Psykiatrisk ambulatorium, børn og unge Nej 129 / 261 0 (0) 49 (43-56)"
-        }
-      ]
-    },
-    {
-      "name": "Hillerød: Psykiatrisk ambulatorium, børn og unge",
-      "type": "organization",
-      "slug": "hillerod-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Region Sjælland med psykoedukationsopfyldelse på 47 % i den aktuelle periode.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "Hillerød: Psykiatrisk ambulatorium, børn og unge Nej 117 / 248 0 (0) 47 (41-54)"
-        }
-      ]
-    },
-    {
-      "name": "Bornholm: Psykiatrisk ambulatorium, børn og unge",
-      "type": "organization",
-      "slug": "bornholm-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Region Hovedstaden med lav psykoedukationsopfyldelse på 7 % i den aktuelle periode.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "Bornholm: Psykiatrisk ambulatorium, børn og unge Nej 4 / 57 0 (0) 7 (2-17)"
-        }
-      ]
-    },
-    {
-      "name": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium",
-      "type": "organization",
-      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Region Syddanmark med meget lav psykoedukationsopfyldelse på 1 % i den aktuelle periode.",
-      "mentions": [
-        {
-          "page": 33,
-          "context": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium Nej #/# 0 (0) 1 (0-2)"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium",
-      "type": "organization",
-      "slug": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Region Syddanmark med psykoedukationsopfyldelse på 14 % i den aktuelle periode.",
-      "mentions": [
-        {
-          "page": 33,
-          "context": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium Nej 29 / 202 0 (0) 14 (10-20)"
-        }
-      ]
-    },
-    {
-      "name": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium",
-      "type": "organization",
-      "slug": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Region Syddanmark med lav psykoedukationsopfyldelse på 7 % i den aktuelle periode.",
-      "mentions": [
-        {
-          "page": 33,
-          "context": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium Nej 19 / 266 0 (0) 7 (4-11)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Skolebørn",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-skoleboern",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Midtjylland med psykoedukationsopfyldelse på 60 % i den aktuelle periode.",
-      "mentions": [
-        {
-          "page": 33,
-          "context": "BUA Psykiatrisk Klinik for Skolebørn Nej 289 / 479 0 (0) 60 (56-65)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Småbørn",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-smaaboern",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Midtjylland med psykoedukationsopfyldelse på 65 % i den aktuelle periode.",
-      "mentions": [
-        {
-          "page": 33,
-          "context": "BUA Psykiatrisk Klinik for Småbørn Nej 95 / 146 0 (0) 65 (57-73)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Udredning",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-udredning",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Midtjylland med ingen psykoedukationsopfyldelse (0 %) i den aktuelle periode.",
-      "mentions": [
-        {
-          "page": 33,
-          "context": "BUA Psykiatrisk Klinik for Udredning Nej 0 / 6 0 (0) 0 (0-46)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Børne- og ungdomspsykiatri - Sengeafsnit",
-      "type": "organization",
-      "slug": "bua-boerne-ungdomspsykiatri-sengeafsnit",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Midtjylland med 100 % psykoedukationsopfyldelse i den aktuelle periode, dog baseret på meget få forløb.",
-      "mentions": [
-        {
-          "page": 33,
-          "context": "BUA Børne- og ungdomspsykiatri - Sengeafsnit Ja #/# 0 (0) 100 (3-100)"
-        }
-      ]
-    },
-    {
-      "name": "Børne- Unge Psyk. Afd. 40",
-      "type": "organization",
-      "slug": "boerne-unge-psyk-afd-40",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Region Sjælland med psykoedukationsopfyldelse på 43 % i den aktuelle periode.",
-      "mentions": [
-        {
-          "page": 32,
-          "context": "Børne-Unge Psyk. Afd. 40 Nej 165 / 388 0 (0) 43 (38-48)"
-        }
-      ]
-    },
-    {
-      "name": "Børne- og ungdomspsyk. Ambulatorium",
-      "type": "organization",
-      "slug": "boerne-ungdomspsyk-ambulatorium",
-      "folder": "entities/organizations/clinics",
-      "significance": "En afdeling i Region Nordjylland med psykoedukationsopfyldelse på 32 % i den aktuelle periode.",
-      "mentions": [
         {
           "page": 34,
-          "context": "Børne- og ungdomspsyk. Ambulatorium Nej 167 / 525 0 (0) 32 (28-36)"
+          "context": "ADHD-DATABASEN"
         }
       ]
     },
     {
-      "name": "ADHD-databasen",
-      "type": "topic",
-      "slug": "adhd-databasen",
-      "folder": "topics/healthcare-monitoring",
-      "significance": "Et dansk kvalitetsmonitoringssystem for ADHD-behandlingsforløb med fem indikatorer for at måle behandlingskvalitet på tværs af regioner og afdelinger.",
+      "name": "10-årsplanen",
+      "type": "policy",
+      "slug": "10-aarsplanen",
+      "folder": "topics/policies/mental-health",
+      "significance": "10-årsplanen er en national politisk initiativ, der forventes at muliggøre (gen)etablering af psykoedukative tilbud i børne- og ungdomspsykiatrien gennem øgede ressourcer[^src1].",
       "mentions": [
         {
-          "page": 31,
-          "context": "Indikator 4 er en opgørelse af andelen af behandlingsforløb, hvor der er foretaget koordinerende netværksmøde"
-        },
-        {
-          "page": 31,
-          "context": "Indikator 5 er en opgørelse af andelen af behandlingsforløb, hvor patienten/forældre påbegynder ADHD-relateret psykoedukation"
+          "page": 35,
+          "context": "Der er et håb om, at 10-årsplanen, med øgede ressourcer til psykiatrien, vil muliggøre (gen)etablering af psykoedukative tilbud."
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "region-midtjylland",
-      "predicate": "has-lowest-performance-on",
-      "object": "adhd-databasen",
-      "evidence": "Region Midtjylland ligger lavest med 7 % for koordinerende netværksmøder",
+      "subject": "indikator-4",
+      "predicate": "has-standard",
+      "object": "90-percent",
+      "evidence": "Indikatoren har en fastsat standard på 90 %.",
       "page": 31
     },
     {
+      "subject": "indikator-5",
+      "predicate": "has-standard",
+      "object": "90-percent",
+      "evidence": "Indikatoren har en fastsat standard på 90 %.",
+      "page": 31
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-decision-on",
+      "object": "indikator-4",
+      "evidence": "Styregruppen har nedsat en arbejdsgruppe, der vil udarbejde en revision af ordlyden på denne indikator. Indikatoren bibeholdes og ligeledes standarden.",
+      "page": 31
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-decision-on",
+      "object": "indikator-5",
+      "evidence": "Indikatoren vurderes fortsat relevant og standarden bibeholdes.",
+      "page": 35
+    },
+    {
       "subject": "region-hovedstaden",
-      "predicate": "has-highest-performance-on",
-      "object": "adhd-databasen",
+      "predicate": "has-indicator-4-performance",
+      "object": "36-percent",
       "evidence": "Region Hovedstaden har højest indikatoropfyldelse med 36 %",
       "page": 31
     },
     {
-      "subject": "bua-psykiatrisk-klinik-unge",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
-      "evidence": "BUA Psykiatrisk Klinik for Unge i Midtjylland",
+      "subject": "region-midtjylland",
+      "predicate": "has-indicator-4-performance",
+      "object": "7-percent",
+      "evidence": "Region Midtjylland ligger lavest med 7 %.",
       "page": 31
     },
     {
-      "subject": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium",
+      "subject": "region-midtjylland",
+      "predicate": "has-indicator-5-performance",
+      "object": "50-percent",
+      "evidence": "Midtjylland Nej 503 / 1.013 0 (0) 50 (47-53) 484 / 1.242 39 9",
+      "page": 35
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "has-indicator-5-performance",
+      "object": "7-percent",
+      "evidence": "Syddanmark Nej 60 / 841 0 (0) 7 (5-9) 159 / 768 21 7",
+      "page": 35
+    },
+    {
+      "subject": "bua-psykiatrisk-klinik-for-unge-i-midtjylland",
+      "predicate": "has-indicator-4-performance",
+      "object": "1-percent",
+      "evidence": "På afdelingsniveau (afdelinger med mere end 10 forløb) spænder målopfyldelsen fra 1 % (BUA Psykiatrisk Klinik for Unge i Midtjylland)",
+      "page": 31
+    },
+    {
+      "subject": "odense-boern-og-ungdomspsykiatrisk-ambulatorium",
+      "predicate": "has-indicator-4-performance",
+      "object": "64-percent",
+      "evidence": "til 64 % (Odense: Børne- og Ungdomspsykiatrisk Ambulatorium).",
       "page": 31
     }
   ],
   "claims": [
     {
-      "text": "På landsplan fik kun 19 % af ADHD-patienter i pakkeforløb gennemført et koordinerende netværksmøde inden for tidsfristen [^src1]",
-      "type": "performance-metric",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Indikator 4 har en fastsat standard på 90 % [^src1]",
-      "type": "standard",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Indikator 4 blev sat i drift den 25/5 2021 [^src1]",
+      "text": "Indikator 4 blev sat i drift den 25/5 2021[^src1]",
       "type": "timeline",
       "entities": [
-        "adhd-databasen"
+        "indikator-4"
       ],
       "page": 31
     },
     {
-      "text": "Region Hovedstaden har højest indikatoropfyldelse med 36 % og Region Midtjylland ligger lavest med 7 % [^src1]",
-      "type": "performance-metric",
-      "entities": [
-        "region-hovedstaden",
-        "region-midtjylland"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Ingen regioner lever op til standarden [^src1]",
-      "type": "performance-metric",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "På afdelingsniveau spænder målopfyldelsen fra 1 % (BUA Psykiatrisk Klinik for Unge i Midtjylland) til 64 % (Odense: Børne- og Ungdomspsykiatrisk Ambulatorium) [^src1]",
-      "type": "performance-metric",
-      "entities": [
-        "bua-psykiatrisk-klinik-unge",
-        "odense-boerne-ungdomspsykiatrisk-ambulatorium"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Ingen afdelinger lever op til standarden [^src1]",
-      "type": "performance-metric",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Region Midtjylland ligger igen lavest, hvilket afspejler en ledelsesmæssig beslutning om, at det i udgangspunktet skal være kommunerne, der indkalder til netværksmøder efter endt udredning [^src1]",
-      "type": "analysis",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Det tværsektorielle samarbejde er essentielt for ADHD-patienter i behandlingsforløb, idet mange af de behandlingslæssige tiltag ligger i primærsektoren [^src1]",
-      "type": "analysis",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Styregruppen har nedsat en arbejdsgruppe, der vil udarbejde en revision af ordlyden på denne indikator [^src1]",
-      "type": "decision",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Indikator 5 har en fastsat standard på 90 % [^src1]",
-      "type": "standard",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Indikator 5 blev sat i drift den 25/5 2021 [^src1]",
+      "text": "Indikator 5 blev sat i drift den 25/5 2021[^src1]",
       "type": "timeline",
       "entities": [
+        "indikator-5"
+      ],
+      "page": 31
+    },
+    {
+      "text": "På landsplan fik kun 19 % af ADHD-patienter i pakkeforløb gennemført et koordinerende netværksmøde inden for tidsfristen[^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4",
         "adhd-databasen"
       ],
       "page": 31
     },
     {
-      "text": "På landsplan modtog 34 % af ADHD-patienter i pakkeforløb ADHD-relateret psykoedukation inden for tidsfristen [^src1]",
-      "type": "performance-metric",
+      "text": "På landsplan modtog 34 % af ADHD-patienter i pakkeforløb ADHD-relateret psykoedukation inden for tidsfristen[^src1]",
+      "type": "performance",
       "entities": [
+        "indikator-5",
         "adhd-databasen"
       ],
       "page": 31
     },
     {
-      "text": "Det er uændret i forhold til sidste opgørelsesperiode, og det er langt under standarden på 90 % [^src1]",
-      "type": "performance-metric",
+      "text": "Standarden for både Indikator 4 og Indikator 5 er 90 %[^src1]",
+      "type": "standard",
       "entities": [
-        "adhd-databasen"
+        "indikator-4",
+        "indikator-5"
       ],
       "page": 31
-    },
-    {
-      "text": "Region Midtjylland ligger højst på 50 % mens Region Syddanmark ligger lavest (7 %) [^src1]",
-      "type": "performance-metric",
-      "entities": [
-        "region-midtjylland",
-        "region-syddanmark"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Der ses fremgang i Midt- og Nordjylland [^src1]",
-      "type": "performance-metric",
-      "entities": [
-        "region-midtjylland",
-        "region-nordjylland"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Ingen regioner eller afdelinger levede op til standarden [^src1]",
-      "type": "performance-metric",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Alle regioner ligger langt fra standarden [^src1]",
-      "type": "performance-metric",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "De psykoedukative tilbud er blevet nedprioriterede i en presset børne- og ungdomspsykiatri, hvor man pga. massive ventetider har haft mere fokus på udredning end på behandling [^src1]",
-      "type": "analysis",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Behandlingspopulationen indeholder patienter, som er udredt privat og henvist mhp. medicinsk behandling eller mhp. opfølgning af kompleks medicinsk behandling [^src1]",
-      "type": "analysis",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Der har været stor variation i, hvorvidt privat udredt patienter har fået psykoedukation ifm. deres udredning [^src1]",
-      "type": "analysis",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Styregruppen vurderer, at det er væsentligt at have blik for, at de privat udredte også får psykoedukative tilbud [^src1]",
-      "type": "decision",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Styregruppen vurderer, at psykoedukation kræver kontakt mellem behandler og patient/pårørende, og således ikke kan erstattes af app/internetbaseret psykoedukation [^src1]",
-      "type": "decision",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Der er et håb om, at 10-årsplanen, med øgede ressourcer til psykiatrien, vil muliggøre (gen)etablering af psykoedukative tilbud [^src1]",
-      "type": "analysis",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 31
-    },
-    {
-      "text": "Indikatoren vurderes fortsat relevant og standarden bibeholdes [^src1]",
-      "type": "decision",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 35
     }
   ],
   "timeline": [
     {
-      "date": "25/5 2021",
+      "date": "2021-05-25",
       "event": "Indikator 4 blev sat i drift",
       "entities": [
-        "adhd-databasen"
+        "indikator-4"
       ]
     },
     {
-      "date": "25/5 2021 til 31/3 2022",
-      "event": "Ældste historiske opgørelsesperiode for Indikator 4 i denne rapport",
-      "entities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "date": "25/5 2021",
+      "date": "2021-05-25",
       "event": "Indikator 5 blev sat i drift",
       "entities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "date": "25/5 2021 til 31/3 2022",
-      "event": "Ældste historiske opgørelsesperiode for Indikator 5 i denne rapport",
-      "entities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "date": "01.04.2023 - 31.03.2024",
-      "event": "Aktuelle opgørelsesperiode for Indikator 5",
-      "entities": [
-        "adhd-databasen"
+        "indikator-5"
       ]
     }
   ],
-  "context": "Denne dokumentchunk rapporterer resultater fra ADHD-databasen, et dansk kvalitetsmonitoringssystem for ADHD-behandlingsforløb. Chunken fokuserer på Indikator 4 (koordinerende netværksmøder) og Indikator 5 (psykoedukation), som begge blev sat i drift den 25. maj 2021. Rapporten viser, at begge indikatorer ligger langt under deres fastsatte standard på 90 % på både regionalt og afdelingsniveau. Resultaterne afspejler et presset børne- og ungdomspsykiatrisk system med massive ventetider, hvor behandlingstiltag som psykoedukation og koordinering på tværs af sektorer er blevet nedprioriteret til fordel for udredning. Styregruppen bag databasen har besluttet at arbejde på forbedringer, herunder revision af indikatoren for netværksmøder og håb om, at øgede ressourcer gennem en 10-årsplan vil muliggøre genoprettelse af psykoedukative tilbud."
+  "tables": [
+    {
+      "subject": "indikator-5",
+      "title": "Indikator 5: Andelen af behandlingsforløb, hvor patienten/forældre har påbegyndt ADHD-relateret psykoedukation senest 120 dage efter behandlingsstart",
+      "page": 32,
+      "rowDimension": "regioner og afdelinger",
+      "colDimension": "opfyldelsesprocent og antal forløb",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "adhd-databasen"
+      ],
+      "markdown": "| Danmark | Nej | 1.164 | / | 3.414 | 0 | (0) | 34 | (33-36) | 1.199 | / | 3.433 | 35 | 17 |\n| Hovedstaden | Nej | 269 | / | 647 | 0 | (0) | 42 | (38-45) | 332 | / | 765 | 43 | 26 |\n| Sjælland | Nej | 165 | / | 388 | 0 | (0) | 43 | (38-48) | 140 | / | 255 | 55 | 50 |\n| Syddanmark | Nej | 60 | / | 841 | 0 | (0) | 7 | (5-9) | 159 | / | 768 | 21 | 7 |\n| Midtjylland | Nej | 503 | / | 1.013 | 0 | (0) | 50 | (47-53) | 484 | / | 1.242 | 39 | 9 |\n| Nordjylland | Nej | 167 | / | 525 | 0 | (0) | 32 | (28-36) | 84 | / | 403 | 21 | 15 |",
+      "summary": "Tabellen sammenligner opfyldelsesprocenter for Indikator 5 på regions- og afdelningsniveau og viser, at alle regioner ligger langt under standarden på 90 %, med Region Syddanmark lavest (7 %) og Region Midtjylland højest (50 %)."
+    }
+  ],
+  "context": "Dette afsnit er en del af en dansk national kvalitetsrapport for ADHD-behandling, som evaluerer to centrale kvalitetsindikatorer — Indikator 4 (koordinerende netværksmøde inden for 90 dage) og Indikator 5 (psykoedukation inden for 120 dage) — baseret på data fra ADHD-DATABASEN. Rapporten dokumenterer systemiske svagheder i tværsektorielt samarbejde og behandlingskvalitet, hvor ingen region eller afdeling opfylder den fastsatte standard på 90 %, og hvor Styregruppen træffer strategiske beslutninger om indikatorrevision og videre udvikling af støttesystemer. Den bredere narrativ handler om strukturelle udfordringer i børne- og ungdomspsykiatrien, herunder pressede ressourcer, manglende koordination mellem sektorer og usikkerhed omkring behandlingsforløb for privat udredte patienter."
 }

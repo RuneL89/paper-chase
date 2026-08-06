@@ -4,55 +4,51 @@ type: entity
 aliases:
   - Herlev og Gentofte Hospital
 wiki: rkkp-afdk
-updated: '2026-08-03T19:14:15.414Z'
+updated: '2026-08-05T19:38:43.123Z'
 sources:
-  - file: AFDK_2023.pdf
-    pages: '101-105, 106-110, 16-20, 21-25, 26-30, 36-40, 41-45, 6-10, 96-100'
+  - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
+    pages: '16-20, 36-40, 41-45, 6-10'
 tags:
   - organization
 ---
+Herlev og Gentofte Hospital is a major healthcare institution located in the Capital Region of Denmark ([[region-hovedstaden|Region Hovedstaden]]) [^src4]. It is one of the specific hospitals evaluated in the Danish Atrial Fibrillation Database (Databasen for Atrieflimren i Danmark) annual report, which covers the period from July 1, 2022, to June 30, 2023, and is published by the Regions' Clinical Quality Development Programme (RKKP). The hospital is notably highlighted in the report's detailed hospital-level analyses as an institution where clinical outcomes failed to meet the required national standards for key quality indicators.
 
-# Herlev og Gentofte Hospital
+Among the specific metrics evaluated, Herlev og Gentofte Hospital was measured for [[indikator-2|Indikator 2]], which tracks the performance of echocardiography in newly diagnosed atrial fibrillation patients [^src2]. During the reporting period, the hospital achieved a compliance rate of 63.0% (95% CI: 60.3–65.7), falling significantly short of the national standard of ≥80% [^src2]. 
 
-A hospital in the Capital Region reporting atrial fibrillation quality indicators; did not meet the standard for indicator 1.
+In addition to Indicator 2, the hospital's performance is documented across several other clinical quality indicators in the registry. These include Indicator 1, which measures wait times for anticoagulation treatment [^src1], and Indicator 4a, which assesses anticoagulation treatment coverage two years after diagnosis [^src3]. The hospital is also listed in further indicator evaluations regarding long-term treatment coverage [^src4]. Across these metrics, the detailed statistical breakdowns—including numerators, denominators, and confidence intervals—provide a comprehensive view of the hospital's clinical quality and its ongoing challenges in meeting national healthcare targets.
 
 ## Mentions
-
-- Page 9: "Herlev og Gentofte Hospital Nej 753 / 841 0 (0) 89,5 (87,3-91,5)" [^src1]
-- Page 16: "Herlev og Gentofte Hospital Nej 793 / 1.259 0 (0) 63,0 (60,3-65,7)" [^src2]
-- Page 23: "Herlev og Gentofte Hospital Nej 1.254 / 1.539 0 (0) 81,5 (79,4-83,4)" [^src3]
-- Page 30: "Herlev og Gentofte Hospital Nej 502 / 572 0 (0) 87,8 (84,8-90,3)" [^src4]
-- Page 36: "Herlev og Gentofte Hospital Nej 386 / 434 0 (0) 88,9 (85,6-91,7)" [^src5]
-- Page 42: "Herlev og Gentofte Hospital Nej 336 / 392 0 (0) 85,7 (81,9-89,0)" [^src6]
-- Page 96: "Herlev og Gentofte Hospital 22 / 1.669 0 (0) 1,3 (0,8-2,0)" [^src7]
-- Page 102: "Herlev og Gentofte Hospital" [^src8]
-- Page 110: "Herlev og Gentofte Hospital 126 / 1.669 0 (0) 7,5 (6,3-8,9)" [^src9]
+- Page 9: "Herlev og Gentofte Hospital Nej 753 / 841 0 (0) 89,5 (87,3-91,5) 801 / 903 88,7 88,2" [^src1]
+- Page 16: "Herlev og Gentofte Hospital Nej 793 / 1.259 0 (0) 63,0 (60,3-65,7) 1.057 / 1.685 62,7 62,6" [^src2]
+- Page 36: "Herlev og Gentofte Hospital Nej 386 / 434 0 (0) 88,9 (85,6-91,7) 553 / 632 87,5 86,8" [^src3]
+- Page 42: "Herlev og Gentofte Hospital Nej 336 / 392 0 (0) 85,7 (81,9-89,0) 434 / 506 85,8" [^src4]
 
 ## Relationships
-
-- [[hovedstaden|Hovedstaden]] — located-in [^src1]. Evidence: "Hovedstaden Herlev og Gentofte Hospital" (Page 9)
-- [[hovedstaden|Hovedstaden]] — located-in [^src2]. Evidence: "Hovedstaden Nej 3.062 / 4.316 ... Herlev og Gentofte Hospital Nej 793 / 1.259" (Page 16)
-- [[hovedstaden|Hovedstaden]] — located-in [^src5]. Evidence: "Herlev og Gentofte Hospital rapporterer under Hovedstaden-regionen" (Page 36)
-- [[hovedstaden|Hovedstaden]] — located-in [^src6]. Evidence: "Hovedstaden region contains Herlev og Gentofte Hospital" (Page 42)
-- [[region-hovedstaden|Region Hovedstaden]] — is-in-region [^src8]. Evidence: "Herlev og Gentofte Hospital listed under Hovedstaden section" (Page 102)
+- Subject: indikator-2
+  Predicate: measures
+  Object: (this entity)
+  Evidence: "Herlev og Gentofte Hospital er en af de institutioner, der rapporteres i tabellen for Indikator 2."
+  Page: 16
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 16-20 [^src2]
+- Subject: region-hovedstaden
+  Predicate: contains-hospital
+  Object: (this entity)
+  Evidence: "Hovedstaden Nej [...] Herlev og Gentofte Hospital Nej [...]"
+  Page: 42
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 41-45 [^src4]
 
 ## Claims
+- Herlev og Gentofte Hospital opfyldte Indikator 2 hos 63,0 % (95 % CI: 60,3–65,7) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1] (herlev-og-gentofte-hospital, indikator-2)
+  Type: clinical
+  Page: 16
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 16-20 [^src2]
 
-- Herlev og Gentofte Hospital opnåede 89,5% (95% CI: 87,3-91,5) for indikatoren om ventetid til antikoagulationsbehandling og opfyldte ikke standarden ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]])
-- Herlev og Gentofte Hospital havde 63,0 % (95% CI: 60,3-65,7) af 1.259 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]])
-- Herlev og Gentofte Hospital havde 1.254 / 1.539 patienter (81,5%) med TSH-måling ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]])
-- Herlev og Gentofte Hospital opnåede 88,9% (95% CI: 85,6-91,7) for indikatoren 2 år efter diagnosen atrieflimren ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]], [[atrieflimren|Atrieflimren]])
-- Herlev og Gentofte Hospital havde 55 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 1.669 (3,3%, 95% CI 2,5-4,3) ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]])
-- Herlev og Gentofte Hospital havde 204 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 1.669 (12,2%, 95% CI 10,7-13,9) ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]])
+## Timeline
+(none)
 
 ## Sources
 
 [^src1]: AFDK_2023.pdf, pages 6-10
 [^src2]: AFDK_2023.pdf, pages 16-20
-[^src3]: AFDK_2023.pdf, pages 21-25
-[^src4]: AFDK_2023.pdf, pages 26-30
-[^src5]: AFDK_2023.pdf, pages 36-40
-[^src6]: AFDK_2023.pdf, pages 41-45
-[^src7]: AFDK_2023.pdf, pages 96-100
-[^src8]: AFDK_2023.pdf, pages 101-105
-[^src9]: AFDK_2023.pdf, pages 106-110
+[^src3]: AFDK_2023.pdf, pages 36-40
+[^src4]: AFDK_2023.pdf, pages 41-45

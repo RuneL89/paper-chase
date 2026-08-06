@@ -2,187 +2,282 @@
 title: Danmark
 type: entity
 wiki: rkkp-afdk
-updated: '2026-08-03T19:14:15.221Z'
+updated: '2026-08-05T19:35:04.202Z'
 sources:
-  - file: AFDK_2023.pdf
-    pages: >-
-      106-110, 111-115, 16-20, 36-40, 41-45, 56-60, 6-10, 66-70, 71-75, 86-90,
-      91-95, 96-100
-  - file: AFDK_2024.pdf
-    pages: >-
-      1-5, 106-110, 11-15, 16-20, 21-25, 26-30, 31-35, 36-40, 51-55, 56-60,
-      61-65, 71-75, 76-80, 81-85, 86-90, 91-95
+  - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
+    pages: '101-105, 106-110, 16-20, 36-40, 41-45, 6-10, 86-90, 91-95, 96-100'
+  - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
+    pages: '11-15, 16-20, 26-30, 31-35, 36-40, 71-75, 76-80, 81-85, 86-90'
 tags:
   - location
 ---
+**Danmark** (Denmark) serves as the national geographic aggregate and the primary benchmark unit in the clinical quality reports published by the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (Danish Atrial Fibrillation Database) under the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). In these annual reports, national results are consistently compared against regional and local hospital data to evaluate the quality of care for patients with [[atrieflimren]] (atrial fibrillation). As the overarching comparison entity, Danmark defines the baseline standards and aggregate epidemiological metrics for the entire Danish healthcare system.
 
-# Danmark
+During the reporting period from July 1, 2022, to June 30, 2023, Denmark recorded 19,671 incident (newly diagnosed) patients and 134,810 prevalent (existing) patients with atrial fibrillation [^src5]. The average age of prevalent patients was 70 years [^src5], while incident patients in the subsequent 2023/2024 period had an average age of 74 years, with an incidence rate of 3.7 per 1,000 inhabitants [^src16]. The national average [[cha2ds2-vasc|CHA2DS2-VASc]] score for incident patients was 1.73 in 2022/2023 [^src5] and 1.75 in 2023/2024 [^src16], with 60.21% of incident patients in the latter period scoring ≥2 [^src16]. 
 
-Denmark is the geographic scope of the atrial fibrillation database and the reporting unit for national-level quality indicators.
+Denmark's clinical performance is measured across several key quality indicators. For [[indikator-1|Indikator 1]], which tracks the timely initiation of [[antikoagulationsbehandling]] (anticoagulation treatment), the national fulfillment rate was 91.5% in 2022/2023 [^src1] and improved to 92% in 2023/2024, continuously meeting the ≥90% standard [^src10]. For [[indikator-2|Indikator 2]], measuring echocardiography performance, the national rate was 79.2% in 2022/2023 [^src2] and reached 80.6% in 2023/2024, fulfilling the [[standard-80-percent|Standard: ≥80 %]] [^src11]. Long-term anticoagulation coverage ([[indikator-4a|Indikator 4a]]) at two years post-diagnosis was 89.6% in 2022/2023 [^src3]. Additionally, 93.9% of patients had at least one annual S-creatinine measurement in 2022/2023 ([[indikator-4b|Indikator 4b]]) [^src17].
+
+The reports also track severe complications and mortality at the national level. The proportion of atrial fibrillation patients who developed [[iskæmisk-apopleksi|Iskæmisk apopleksi]] (ischemic stroke) within one year was 1.1% in 2021/2022 [^src7], while the rate of [[intrakraniel-bloedning|Intrakraniel blødning]] (intracranial bleeding) was 0.7% in the same period [^src7]. Severe bleeding within one year occurred in 3.1% of newly diagnosed patients in 2021/2022 [^src8] and 3.2% in 2022/2023 ([[indikator-11|Indikator 11]]) [^src18]. The development of [[hjertesvigtsindikatoren]] (heart failure) within one year was 6.5% in 2021/2022 [^src9] and 6.1% in 2022/2023 ([[indikator-15|Indikator 15]]) [^src18]. Mortality among prevalent patients was 7.6% in 2022/2023 [^src9] and 7.3% in 2023/2024 ([[indikator-9|Indikator 9]]) [^src16], while 1-year mortality for newly diagnosed patients was 13.1% in 2021/2022 ([[indikator-13|Indikator 13]]) [^src8] and 12.5% in 2022/2023 ([[indikator-12|Indikator 12]]) [^src16].
+
+As the national aggregate, Denmark encompasses five administrative regions that are reported separately to identify local variations in healthcare quality. These subdivisions include [[region-hovedstaden|Region Hovedstaden]], [[region-sjaelland|Region Sjælland]], [[region-syddanmark|Region Syddanmark]], [[region-midtjylland|Region Midtjylland]], and [[region-nordjylland|Region Nordjylland]] [^src3] [^src12]. Data from registries like [[danstroke|DanStroke]] and the national patient registers are integrated to provide this comprehensive geographical and clinical overview [^src6].
 
 ## Mentions
 
-- Page 9: "Danmark Ja 10.010 / 10.934 0 (0) 91,5 (91,0-92,1)" [^src1]
-- Page 16: "Danmark Nej 12.876 / 16.252 0 (0) 79,2 (78,6-79,8)" [^src2]
-- Page 36: "Danmark Nej 5.885 / 6.567 0 (0) 89,6 (88,9-90,3)" [^src3]
-- Page 42: "Danmark Nej 4.195 / 4.786 0 (0) 87,7 (86,7-88,6)" [^src4]
-- Page 60: "Danmark Ja 711 / 134.810 0 (0) 0,5 (0,5-0,6)" [^src5]
-- Page 66: "Databasen for Atrieflimren i Danmark" [^src6]
-- Page 67: "Danmark 2.925 / 134.810 0 (0) 2,2 (2,1-2,2)" [^src6]
-- Page 71: "Databasen for Atrieflimren i Danmark" [^src7]
-- Page 72: "Patienten har ikke bopæl i DK" [^src7]
-- Page 86: "Danmark 1.73 1.07 2.00 0.00 6.00 0 19671" [^src8]
-- Page 91: "Danmark 5267 52.6 4743 47.4 10010 - Start på AK behandling" [^src9]
-- Page 92: "Danmark 726 65.8 378 34.2 1104 - Andel af atrieflimren patienter indlagt med iskæmisk apopleksi" [^src9]
-- Page 92: "Alle 133706 99.18 1104 0.82 - Prævalente patienter med atrieflimren" [^src9]
-- Page 93: "Danmark Ja 770 / 134.741 0 (0) 0,6 (0,5-0,6) - Indikator 5 baseret på DanStroke" [^src9]
-- Page 96: "Danmark 230 / 21.045 0 (0) 1,1 (1,0-1,2)" [^src10]
-- Page 106: "Danmark 10.211 / 134.741 0 (0) 7,6 (7,4-7,7)" [^src11]
-- Page 113: "Danmark Nej 14.170/19.719 0(0) 71,9 (71,2;72,5)" [^src12]
-- Page 2: "Om der er klinisk betydningsfuld variation i kvaliteten af atrieflimren behandling mellem regioner, kommuner og hospitaler i Danmark" [^src13]
-- Page 11: "Danmark Ja 11.432 / 12.485 0 (0) 91,6 (91,1-92,0)" [^src14]
-- Page 16: "Danmark Ja 17.856 / 22.148 0 (0) 80,6 (80,1-81,1)" [^src15]
-- Page 21: "Danmark Nej 16.778 / 22.073 0 (0) 76,0 (75,4-76,6)" [^src16]
-- Page 24: "På landsplan fik 76% af de nydiagnosticerede patienter med atrieflimren målt TSH i perioden fra 60 dage før til 30 dage efter diagnosedatoen." [^src16]
-- Page 26: "Danmark Nej 9.507 / 10.668 0 (0) 89,1 (88,5-89,7)" [^src17]
-- Page 30: "Danmark Nej 8.083 / 9.119 0 (0) 88,6 (88,0-89,3)" [^src17]
-- Page 34: "Danmark Nej 5.522 / 6.324 0 (0) 87,3 (86,5-88,1)" [^src18]
-- Page 51: "Danmark Ja 731 / 136.420 0 (0) 0,5 (0,5-0,6)" [^src19]
-- Page 54: "I alt blev 0,5% af de prævalente patienter med atrieflimren indlagt med intrakraniel blødning i den aktuelle opgørelsesperiode" [^src19]
-- Page 57: "Danmark 2.917 / 136.420 0 (0) 2,1 (2,1-2,2)" [^src20]
-- Page 60: "I alt blev 2,2% af de prævalente patienter med atrieflimren indlagt med alvorlig blødning i løbet af opgørelsesperioden" [^src20]
-- Page 62: "Danmark Nej 3.051 / 19.180 0 (0) 15,9 (15,4-16,4)" [^src21]
-- Page 71: "Danmark 6356 55.6 5076 44.4 11432" [^src22]
-- Page 71: "Danmark 739 65.5 389 34.5 1128" [^src22]
-- Page 72: "Danmark 276 / 21.804 0 (0) 1,3 (1,1-1,4)" [^src22]
-- Page 73: "Danmark 739 65.5 389 34.5 1128" [^src22]
-- Page 74: "Danmark 35 4.8 266 36.3 254 34.7 133 18.1 42 5.7 3 0.4 733" [^src22]
-- Page 75: "Danmark 173 / 21.804 0 (0) 0,8 (0,7-0,9)" [^src22]
-- Page 81: "Atrieflimren i Danmark" [^src23]
-- Page 82: "Danmark 10.003 / 136.420 0 (0) 7,3 (7,2-7,5)" [^src23]
-- Page 84: "Danmark 2.720 / 21.804 0 (0) 12,5 (12,0-12,9)" [^src23]
-- Page 86: "Andelen af prævalente patienter med atrieflimren, som døde i opgørelsesperioden var 7,3% på landsplan" [^src24]
-- Page 87: "Udviklingen i incidensen af atrieflimren pr. 1000 indbyggere Danmark 3,9 3,7 3,6 3,5 3,6 3,6 3,7 3,7" [^src24]
-- Page 88: "Incidente patienter Alder ved diagnose Danmark 74 12 76 0 105 0 22073" [^src24]
-- Page 88: "Død i opgørelsesperioden Danmark 1815 8 20258 92 22073" [^src24]
-- Page 89: "Fordeling af CHA2DS2-VASc score Danmark 1.75 1.06 2.00 0.00 6.00 0 22073" [^src24]
-- Page 90: "Køn=K CHA2DS2-VASc score Danmark 3266 39.79 4943 60.21 8209" [^src24]
-- Page 91: "Danmark 70 12 72 0 105 0 136420 (alder ved diagnose)" [^src25]
-- Page 91: "Danmark 1.51 1.09 1.00 0.00 6.00 0 136420 (CHA2DS2-VASc score)" [^src25]
-- Page 91: "Danmark 24750 18 47816 35 39990 29 17894 13 4925 4 965 1 80 0 136420 (CHA2DS2-VASc fordeling)" [^src25]
-- Page 92: "Danmark 7586 13.46 20327 36.06 18260 32.39 8019 14.22 1850 3.28 308 0.55 25 0.04 56375 (køn=K)" [^src25]
-- Page 92: "Danmark 17164 21.44 27489 34.34 21730 27.15 9875 12.34 3075 3.84 657 0.82 55 0.07 80045 (køn=M)" [^src25]
-- Page 93: "Danmark 1123 5.1% (antal og andel incidente patienter hos praktiserende kardiologer)" [^src25]
-- Page 110: "Danmark Nej 14.170/19.719 0(0) 71,9 (71,2;72,5)" [^src26]
+- Page 9: "Danmark Ja 10.010 / 10.934 0 (0) 91,5 (91,0-92,1) 10.631 / 11.689 90,9 89,6" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 6-10) [^src1]
+- Page 16: "Danmark Nej 12.876 / 16.252 0 (0) 79,2 (78,6-79,8) 16.343 / 21.277 76,8 76,0" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 16-20) [^src2]
+- Page 36: "Danmark Nej 5.885 / 6.567 0 (0) 89,6 (88,9-90,3) 7.503 / 8.488 88,4 87,8" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 36-40) [^src3]
+- Page 42: "Danmark Nej 4.195 / 4.786 0 (0) 87,7 (86,7-88,6) 5.805 / 6.765 85,8" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 41-45) [^src4]
+- Page 86: "Danmark | 1.73 | 1.07 | 2.00 | 0.00 | 6.00 | 0 | 19671" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 86-90) [^src5]
+- Page 91: "Danmark 5267 52.6 4743 47.4 10010" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 91-95) [^src6]
+- Page 92: "Danmark 726 65.8 378 34.2 1104" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 91-95) [^src6]
+- Page 93: "Danmark Ja 770 / 134.741 0 (0) 0,6 (0,5-0,6) 977 / 134.210 0,7 0,8" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 91-95) [^src6]
+- Page 96: "Danmark 230 / 21.045 0 (0) 1,1 (1,0-1,2) 270 / 20.909 1,3 1,2" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 96-100) [^src7]
+- Page 101: "Danmark 50 7.0 261 36.7 237 33.3 125 17.6 34 4.8 4 0.6 711" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 101-105) [^src8]
+- Page 106: "Danmark 10.211 / 134.741 0 (0) 7,6 (7,4-7,7) 10.696 / 134.210 8,0 7,5" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 106-110) [^src9]
+- Page 109: "Andelen af prævalente patienter med atrieflimren, som døde i opgørelsesperioden var 7,6% på landsplan." (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 106-110) [^src9]
+- Page 11: "Danmark Ja 11.432 / 12.485 0 (0) 91,6 (91,1-92,0) 11.315 / 12.368 91,5 91,0" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15) [^src10]
+- Page 14: "På landsplan blev 92% af de nydiagnosticerede atrieflimren patienter med en CHA2DS2-VASc score ≥2 sat i oral AK-behandling senest 30 dage efter diagnosticering..." (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15) [^src10]
+- Page 16: "Danmark Ja 17.856 / 22.148 0 (0) 80,6 (80,1-81,1) 17.391 / 22.027 79,0 76,7" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 16-20) [^src11]
+- Page 26: "Danmark Nej 9.507 / 10.668 0 (0) 89,1 (88,5-89,7) 9.025 / 10.046 89,8 89,4" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 26-30) [^src12]
+- Page 34: "Danmark Nej 5.522 / 6.324 0 (0) 87,3 (86,5-88,1) 5.625 / 6.387 88,1 85,9" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35) [^src13]
+- Page 71: "Danmark 6356 55.6 5076 44.4 11432" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 71-75) [^src14]
+- Page 72: "Danmark 276 / 21.804 0 (0) 1,3 (1,1-1,4) 229 / 21.017 1,1 1,3" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 71-75) [^src14]
+- Page 82: "Danmark 10.003 / 136.420 0 (0) 7,3 (7,2-7,5) 10.234 / 134.801 7,6 8,0" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 81-85) [^src15]
+- Page 84: "Danmark 2.720 / 21.804 0 (0) 12,5 (12,0-12,9) 2.743 / 21.017 13,1 13,1" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 81-85) [^src15]
+- Page 87: "Danmark" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90) [^src16]
+- Page 88: "Danmark" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90) [^src16]
+- Page 89: "Danmark" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90) [^src16]
+- Page 90: "Danmark" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90) [^src16]
 
 ## Relationships
 
-- [[region-hovedstaden|Region Hovedstaden]] — included-in (incoming) — "Region Hovedstaden is listed as one of five regions with separate statistics within the Danish national data" [^src8] (Page 86)
-- [[sjaelland|Sjælland]] — included-in (incoming) — "Sjælland is listed as one of five regions with separate statistics within the Danish national data" [^src8] (Page 86)
-- [[syddanmark|Syddanmark]] — included-in (incoming) — "Syddanmark is listed as one of five regions with separate statistics within the Danish national data" [^src8] (Page 86)
-- [[midtjylland|Midtjylland]] — included-in (incoming) — "Midtjylland is listed as one of five regions with separate statistics within the Danish national data" [^src8] (Page 86)
-- [[nordjylland|Nordjylland]] — included-in (incoming) — "Nordjylland is listed as one of five regions with separate statistics within the Danish national data" [^src8] (Page 86)
-- [[indikator-2-ekkokardiografi|Indikator 2: Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato]] — measures-performance-in (incoming) — "Indikatoren måler andelen af nydiagnosticerede atrieflimren-patienter i Danmark, der får udført ekkokardiografi" [^src15] (Page 16)
-- [[indikator-4a1|Indikator 4a1]] — measures-compliance-in (incoming) — "Indikator 4a1 reports 89,1% compliance for Danmark" [^src17] (Page 26)
-- [[indikator-4a2|Indikator 4a2]] — measures-compliance-in (incoming) — "Indikator 4a2 reports 88,6% compliance for Danmark" [^src17] (Page 30)
+**Outgoing (this entity is the SUBJECT of these relationships):**
+
+- Subject: danmark
+  Predicate: contains-region
+  Object: region-hovedstaden
+  Evidence: "Hovedstaden er listet som en region under 'Danmark' i tabellen på side 36."
+  Page: 36
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 36-40 [^src3]
+- Subject: danmark
+  Predicate: contains-region
+  Object: region-sjaelland
+  Evidence: "Sjælland er listet som en region under 'Danmark' i tabellen på side 36."
+  Page: 36
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 36-40 [^src3]
+- Subject: danmark
+  Predicate: contains-region
+  Object: region-syddanmark
+  Evidence: "Syddanmark er listet som en region under 'Danmark' i tabellen på side 36."
+  Page: 36
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 36-40 [^src3]
+- Subject: danmark
+  Predicate: contains-region
+  Object: region-midtjylland
+  Evidence: "Midtjylland er listet som en region under 'Danmark' i tabellen på side 36."
+  Page: 36
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 36-40 [^src3]
+- Subject: danmark
+  Predicate: contains-region
+  Object: region-nordjylland
+  Evidence: "Nordjylland er listet som en region under 'Danmark' i tabellen på side 36."
+  Page: 36
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 36-40 [^src3]
+- Subject: danmark
+  Predicate: contains
+  Object: region-hovedstaden
+  Evidence: "Hovedstaden er én af de fem regioner i Danmark, som rapporteres separat i tabellerne"
+  Page: 26
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 26-30 [^src12]
+- Subject: danmark
+  Predicate: contains
+  Object: region-sjaelland
+  Evidence: "Sjælland er én af de fem regioner i Danmark, som rapporteres separat i tabellerne"
+  Page: 26
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 26-30 [^src12]
+- Subject: danmark
+  Predicate: contains
+  Object: region-syddanmark
+  Evidence: "Syddanmark er én af de fem regioner i Danmark, som rapporteres separat i tabellerne"
+  Page: 26
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 26-30 [^src12]
+- Subject: danmark
+  Predicate: contains
+  Object: region-midtjylland
+  Evidence: "Midtjylland er én af de fem regioner i Danmark, som rapporteres separat i tabellerne"
+  Page: 26
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 26-30 [^src12]
+- Subject: danmark
+  Predicate: contains
+  Object: region-nordjylland
+  Evidence: "Nordjylland er én af de fem regioner i Danmark, som rapporteres separat i tabellerne"
+  Page: 26
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 26-30 [^src12]
+
+**Incoming (this entity is the OBJECT of these relationships):**
+
+- Subject: indikator-2
+  Predicate: measures
+  Object: (this entity)
+  Evidence: "Danmark er den første række i tabellen for Indikator 2."
+  Page: 16
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 16-20 [^src2]
+- Subject: region-hovedstaden
+  Predicate: is-part-of
+  Object: (this entity)
+  Evidence: "Danmark | 1.73 | 1.07 | 2.00 | 0.00 | 6.00 | 0 | 19671
+Region Hovedstaden 1.66 1.08 2.00 0.00 6.00 0 5241"
+  Page: 86
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 86-90 [^src5]
+- Subject: region-sjaelland
+  Predicate: is-part-of
+  Object: (this entity)
+  Evidence: "Danmark | 1.73 | 1.07 | 2.00 | 0.00 | 6.00 | 0 | 19671
+| Sjælland | 1.82 | 1.07 | 2.00 | 0.00 | 6.00 | 0 | 3202 |"
+  Page: 86
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 86-90 [^src5]
+- Subject: region-syddanmark
+  Predicate: is-part-of
+  Object: (this entity)
+  Evidence: "Danmark | 1.73 | 1.07 | 2.00 | 0.00 | 6.00 | 0 | 19671
+| Syddanmark | 1.75 | 1.06 | 2.00 | 0.00 | 6.00 | 0 | 4580 |"
+  Page: 86
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 86-90 [^src5]
+- Subject: region-midtjylland
+  Predicate: is-part-of
+  Object: (this entity)
+  Evidence: "Danmark | 1.73 | 1.07 | 2.00 | 0.00 | 6.00 | 0 | 19671
+| Midtjylland | 1.71 | 1.06 | 2.00 | 0.00 | 6.00 | 0 | 4446 |"
+  Page: 86
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 86-90 [^src5]
+- Subject: region-nordjylland
+  Predicate: is-part-of
+  Object: (this entity)
+  Evidence: "Danmark | 1.73 | 1.07 | 2.00 | 0.00 | 6.00 | 0 | 19671
+| Nordjylland | 1.75 | 1.07 | 2.00 | 0.00 | 6.00 | 0 | 2202 |"
+  Page: 86
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 86-90 [^src5]
+- Subject: region-hovedstaden
+  Predicate: is-subdivision-of
+  Object: (this entity)
+  Evidence: "Danmark 6356 55.6 5076 44.4 11432
+Region Hovedstaden 1720 55.4 1382 44.6 3102"
+  Page: 71
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 71-75 [^src14]
+- Subject: region-sjaelland
+  Predicate: is-subdivision-of
+  Object: (this entity)
+  Evidence: "Danmark 6356 55.6 5076 44.4 11432
+| Sjælland | 1043 | 54.7 | 865 | 45.3 | 1908 |"
+  Page: 71
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 71-75 [^src14]
+- Subject: region-syddanmark
+  Predicate: is-subdivision-of
+  Object: (this entity)
+  Evidence: "Danmark 6356 55.6 5076 44.4 11432
+| Syddanmark | 1398 | 55.4 | 1127 | 44.6 | 2525 |"
+  Page: 71
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 71-75 [^src14]
+- Subject: region-midtjylland
+  Predicate: is-subdivision-of
+  Object: (this entity)
+  Evidence: "Danmark 6356 55.6 5076 44.4 11432
+| Midtjylland | 1498 | 56.9 | 1137 | 43.1 | 2635 |"
+  Page: 71
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 71-75 [^src14]
+- Subject: region-nordjylland
+  Predicate: is-subdivision-of
+  Object: (this entity)
+  Evidence: "Danmark 6356 55.6 5076 44.4 11432
+| Nordjylland | 697 | 55.2 | 565 | 44.8 | 1262 |"
+  Page: 71
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 71-75 [^src14]
+- Subject: indikator-9
+  Predicate: measures-mortality-of
+  Object: (this entity)
+  Evidence: "Indikator 9: Andelen af prævalente patienter med diagnosen atrieflimren som dør i opgørelsesperioden"
+  Page: 82
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 81-85 [^src15]
+- Subject: indikator-12
+  Predicate: measures-mortality-of
+  Object: (this entity)
+  Evidence: "Indikator 12: Andelen af nydiagnosticerede patienter med atriflimren, som dør inden for 1 år"
+  Page: 84
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 81-85 [^src15]
 
 ## Claims
 
-- Danmark opnåede 91,5% (95% CI: 91,0-92,1) for indikatoren om ventetid til antikoagulationsbehandling i perioden 01.07.2022 - 30.06.2023 ([[danmark|Danmark]])
-- Danmark opfylder ikke standarden med 79,2 % (95% CI: 78,6-79,8) af 16.252 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi i perioden 01.07.2022 - 30.06.2023 ([[danmark|Danmark]])
-- Danmark opnåede 89,6% (95% CI: 88,9-90,3) for indikatoren 2 år efter diagnosen atrieflimren i perioden 01.07.2020 - 30.06.2021 ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]])
-- Danmark opnåede 87,7% (86,7-88,6) behandlingsrate for antikoagulation hos patienter med atrieflimren 5 år efter diagnosen ([[danmark|Danmark]])
-- på landsplan var 34% af patienterne med atrieflimren ikke i aktuel antikoagulationsbehandling, da de fik deres iskæmiske apopleksi svarende til, at der var 378 iskæmiske apopleksitilfælde blandt patienter uden behandling på landsplan ([[danmark|Danmark]])
-- Danmark Ja 711 / 134.810 0 (0) 0,5 (0,5-0,6) for intracranial bleeding ([[danmark|Danmark]])
-- Standarden for incidens af intrakraniel blødning er opfyldt nationalt og i alle regioner ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]], [[danmark|Danmark]])
-- Danmark havde 2.925 tilfælde af alvorlig blødning blandt 134.810 prævalente patienter med atrieflimren i perioden 01.07.2022 - 30.06.2023, svarende til 2,2% (95% CI 2,1-2,2) ([[danmark|Danmark]])
-- Danmark opnåede 34,6% compliance med Indikator 8 (struktureret undervisningsprogram inden for 1. år efter diagnose) i perioden 01.07.2021 - 30.06.2022 ([[indikator-8-structured-education|Indikator 8]], [[danmark|Danmark]])
-- For incident patients in Denmark, the mean CHA2DS2-VASc score was 1.73 with a standard deviation of 1.07, median 2.00, minimum 0.00, and maximum 6.00 across 19,671 patients ([[danmark|Danmark]], [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]])
-- Among incident female patients in Denmark, 39.79% had a CHA2DS2-VASc score <2 and 60.21% had a score ≥2 (n=8,209) ([[danmark|Danmark]])
-- Among incident male patients in Denmark, 45.18% had a CHA2DS2-VASc score <2 and 54.82% had a score ≥2 (n=11,462) ([[danmark|Danmark]])
-- For prevalent patients in Denmark, the mean age at diagnosis was 70 years with a standard deviation of 12, median 72, minimum 0, and maximum 104 across 134,810 patients ([[danmark|Danmark]])
-- For prevalent patients in Denmark, the mean CHA2DS2-VASc score was 1.47 with a standard deviation of 1.08, median 1.00, minimum 0.00, and maximum 6.00 across 134,810 patients ([[danmark|Danmark]])
-- Among prevalent female patients in Denmark, 14.19% had a CHA2DS2-VASc score of 0, 37.57% had a score of 1, and 31.01% had a score of 2 (n=56,112) ([[danmark|Danmark]])
-- Among prevalent male patients in Denmark, 22.37% had a CHA2DS2-VASc score of 0, 35.57% had a score of 1, and 25.74% had a score of 2 (n=78,698) ([[danmark|Danmark]])
-- I Danmark blev 5267 patienter (52,6%) startet på antikoagulationsbehandling indenfor 4 måneder inden diagnose, og 4743 patienter (47,4%) blev startet indenfor 30 dage efter udskrivelse ([[danmark|Danmark]])
-- I alt 10010 patienter blev registreret med start på antikoagulationsbehandling i Danmark ([[danmark|Danmark]])
-- 726 atrieflimren-patienter (65,8%) indlagt med iskæmisk apopleksi havde indløst recept på oral antikoagulationsbehandling indenfor 100 dage før indlæggelse ([[danmark|Danmark]])
-- 378 atrieflimren-patienter (34,2%) indlagt med iskæmisk apopleksi havde IKKE indløst recept på oral antikoagulationsbehandling indenfor 100 dage før indlæggelse ([[danmark|Danmark]])
-- Blandt 133706 prævalente patienter med atrieflimsen udvikler 1104 (0,82%) iskæmisk apopleksi i opgørelsesperioden ([[danmark|Danmark]])
-- Blandt 95919 atrieflimren-patienter i DOAC-behandling udvikler 865 (0,89%) iskæmisk apopleksi ([[danmark|Danmark]])
-- Blandt 8486 atrieflimren-patienter i Marevan-behandling udvikler 48 (0,56%) iskæmisk apopleksi ([[danmark|Danmark]])
-- Blandt 1445 atrieflimren-patienter i både DOAC og Marevan-behandling udvikler 43 (2,89%) iskæmisk apopleksi ([[danmark|Danmark]])
-- Blandt 27856 atrieflimren-patienter uden antikoagulationsbehandling udvikler 148 (0,53%) iskæmisk apopleksi ([[danmark|Danmark]])
-- Danmark opfylder standarden ≤ 0,8% for indikator 5 med en andel på 0,6% (95% CI: 0,5-0,6) ([[danmark|Danmark]])
-- Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler iskæmisk apopleksi inden for 1 år, var 1,1% (230/21.045) i Danmark i perioden 01.07.2021-30.06.2022 ([[danmark|Danmark]])
-- Blandt prævalente patienter med atrieflimren, der udvikler intrakraniel blødning, var der 711 tilfælde ud af 134.099 patienter (0,53%) ([[danmark|Danmark]])
-- Blandt patienter i behandling med NOAC var der 499 tilfælde af intrakraniel blødning ud af 96.285 patienter (0,52%) ([[danmark|Danmark]])
-- Blandt patienter i behandling med Marevan var der 39 tilfælde af intrakraniel blødning ud af 8.495 patienter (0,46%) ([[danmark|Danmark]])
-- Blandt patienter i behandling med både NOAC og Marevan var der 21 tilfælde af intrakraniel blødning ud af 1.467 patienter (1,41%) ([[danmark|Danmark]])
-- Blandt patienter uden antikoagulationsbehandling var der 152 tilfælde af intrakraniel blødning ud af 27.852 patienter (0,54%) ([[danmark|Danmark]])
-- Andelen af nydiagnosticerede patienter med atrieflimren, som får intrakraniel blødning inden for 1 år, var 0,7% (140/21.045) i Danmark i perioden 01.07.2021-30.06.2022 ([[danmark|Danmark]])
-- Andelen af prævalente patienter med atrieflimren, som døde i opgørelsesperioden var 7,6% på landsplan ([[danmark|Danmark]])
-- Andelen der dør 1 år efter diagnose er 13,1% med en regional variation på 12,6-14,1% ([[danmark|Danmark]])
-- Opgørelsen omfatter kun patienter med dansk cpr-nr. og dansk bopæl ([[danmark|Danmark]])
-- Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år var 6,5% på landsplan i perioden 01.07.2021 - 30.06.2022 ([[danmark|Danmark]])
-- Danmark opfylder ikke standarden for ekkokardiografi med 71,9% (71,2;72,5) ([[danmark|Danmark]])
-- Den generelle kvalitet i Danmark er set over tid i bedring, og variationen mellem regionerne er i aftagende ([[danmark|Danmark]])
-- På landsplan blev 92% af de nydiagnosticerede atrieflimren patienter med en CHA2DS2-VASc score ≥2 sat i oral AK-behandling senest 30 dage efter diagnosticering ([[danmark|Danmark]], [[atrieflimren-i-danmark|Atrieflimren i Danmark]], [[indikator-1-antikoagulation-waiting-time|Indikator 1]])
-- Standarden på ≥ 90% er således opfyldt på landsplan og har ligget kontinuerligt over grænsen de sidste tre årsrapportsperioder ([[danmark|Danmark]], [[indikator-1-antikoagulation-waiting-time|Indikator 1]])
-- Danmark Ja 11.432 / 12.485 0 (0) 91,6 (91,1-92,0) ([[danmark|Danmark]], [[indikator-1-antikoagulation-waiting-time|Indikator 1]])
-- I Danmark blev 80,6% (95% CI: 80,1-81,1) af 22.148 nydiagnosticerede atrieflimren-patienter undersøgt med ekkokardiografi fra 6 måneder før til 3 måneder efter diagnosedato i perioden 01.05.2023 - 30.04.2024 ([[danmark|Danmark]], [[indikator-2-ekkokardiografi|Indikator 2: Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato]])
-- På landsplan fik 76% af de nydiagnosticerede patienter med atrieflimren målt TSH i perioden fra 60 dage før til 30 dage efter diagnosedatoen ([[danmark|Danmark]], [[indikator-3-tsh-measurement|Indikator 3: Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato]])
-- For Indikator 4a1 (1-year anticoagulation treatment), Danmark achieved 89,1% compliance (95% CI: 88,5-89,7) based on 9.507 / 10.668 patients ([[indikator-4a1|Indikator 4a1]], [[danmark|Danmark]])
-- For Indikator 4a2 (2-year anticoagulation treatment), Danmark achieved 88,6% compliance (95% CI: 88,0-89,3) based on 8.083 / 9.119 patients ([[indikator-4a2|Indikator 4a2]], [[danmark|Danmark]])
-- Danmark opfylder ikke standarden ≥90% for Indikator 4a3 med 87,3% (86,5-88,1) i perioden 01.07.2018 - 30.06.2019 ([[danmark|Danmark]], [[indikator-4a3|Indikator 4a3]])
-- Danmark: 93,9% af prævalente patienter med atrieflimren i DOAC-behandling havde mindst 1 måling af S-creatinin årligt (96.468 / 102.690) ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[doac|DOAC]], [[s-creatinin|S-creatinin]])
-- Der ses ingen national udvikling i andelen i løbet af de seneste tre årsrapportsperioder ([[danmark|Danmark]])
-- På landsplan udvikler 0,8% af den incidente population blødning imens den regionale variation er fra 0,5-1,0% ([[danmark|Danmark]])
-- Der ses ingen reel udvikling i andelen nationalt i løbet af de seneste tre årsrapportsperioder ([[indikator-7-incidens-alvorlig-blodning|Indikator 7: Incidens alvorlig blødning]], [[danmark|Danmark]])
-- I Danmark var 6356 atrieflimren-patienter (55,6%) startet på antikoagulationsbehandling indenfor 4 måneder inden diagnose, og 5076 patienter (44,4%) indenfor 30 dage efter udskrivelse, i alt 11.432 patienter ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[antikoagulationsbehandling|Antikoagulationsbehandling]])
-- I Danmark havde 739 atrieflimren-patienter indlagt med iskæmisk apopleksi (65,5%) indløst recept på oral antikoagulationsbehandling indenfor 100 dage før indlæggelse, mens 389 patienter (34,5%) ikke havde ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[iskaemisk-apopleksi|Iskæmisk apopleksi]], [[antikoagulationsbehandling|Antikoagulationsbehandling]])
-- Blandt nydiagnosticerede atrieflimren-patienter i Danmark udvikler 1,3% iskæmisk apopleksi inden for 1 år (95% CI: 1,1-1,4) i perioden 01.07.2022-30.06.2023 ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[iskaemisk-apopleksi|Iskæmisk apopleksi]])
-- Blandt prævalente atrieflimren-patienter i Danmark udvikler 0,83% iskæmisk apopleksi i opgørelsesperioden ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[iskaemisk-apopleksi|Iskæmisk apopleksi]])
-- Blandt atrieflimren-patienter i Danmark på DOAC-behandling udvikler 0,88% iskæmisk apopleksi ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[doac|DOAC]], [[iskaemisk-apopleksi|Iskæmisk apopleksi]])
-- Blandt atrieflimren-patienter i Danmark på Marevan-behandling udvikler 0,51% iskæmisk apopleksi ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[marevan|Marevan]], [[iskaemisk-apopleksi|Iskæmisk apopleksi]])
-- Blandt atrieflimren-patienter i Danmark på både DOAC og Marevan udvikler 3,46% iskæmisk apopleksi ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[doac|DOAC]], [[marevan|Marevan]], [[iskaemisk-apopleksi|Iskæmisk apopleksi]])
-- Blandt atrieflimren-patienter i Danmark uden antikoagulationsbehandling udvikler 0,59% iskæmisk apopleksi ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[antikoagulationsbehandling|Antikoagulationsbehandling]], [[iskaemisk-apopleksi|Iskæmisk apopleksi]])
-- Blandt prævalente atrieflimren-patienter i Danmark med intrakraniel blødning havde 36,3% en CHA2DS2-VASc Score på 1 ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[intrakraniel-bloedning|Intrakraniel blødning]], [[cha2ds2-vasc-score|CHA2DS2-VASc score]])
-- Blandt prævalente atrieflimren-patienter i Danmark udvikler 0,53% intrakraniel blødning i opgørelsesperioden ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[intrakraniel-bloedning|Intrakraniel blødning]])
-- Blandt atrieflimren-patienter i Danmark på DOAC-behandling udvikler 0,53% intrakraniel blødning ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[doac|DOAC]], [[intrakraniel-bloedning|Intrakraniel blødning]])
-- Blandt atrieflimren-patienter i Danmark på Marevan-behandling udvikler 0,82% intrakraniel blødning ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[marevan|Marevan]], [[intrakraniel-bloedning|Intrakraniel blødning]])
-- Blandt atrieflimren-patienter i Danmark på både DOAC og Marevan udvikler 1,50% intrakraniel blødning ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[doac|DOAC]], [[marevan|Marevan]], [[intrakraniel-bloedning|Intrakraniel blødning]])
-- Blandt atrieflimren-patienter i Danmark uden antikoagulationsbehandling udvikler 0,45% intrakraniel blødning ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[antikoagulationsbehandling|Antikoagulationsbehandling]], [[intrakraniel-bloedning|Intrakraniel blødning]])
-- Blandt nydiagnosticerede atrieflimren-patienter i Danmark får 0,8% intrakraniel blødning inden for 1 år (95% CI: 0,7-0,9) i perioden 01.07.2022-30.06.2023 ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]], [[intrakraniel-bloedning|Intrakraniel blødning]])
-- For Indicator 11 (serious bleeding in newly diagnosed patients), Denmark overall showed 691 / 21,804 patients (3.2%, 95% CI 2.9-3.4) developing serious bleeding in the period 01.07.2022 - 30.06.2023 ([[indikator-11-serious-bleeding-newly-diagnosed|Indikator 11: Andelen af nydiagnosticerede patienter med atriflimren, som får alvorlig blødning inden for 1 år]], [[danmark|Danmark]])
-- For Indicator 15 (heart failure in newly diagnosed patients), Denmark overall showed 1,322 / 21,804 patients (6.1%, 95% CI 5.7-6.4) developing heart failure in the period 01.07.2022 - 30.06.2023 ([[indikator-15-heart-failure-newly-diagnosed|Indikator 15: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år]], [[danmark|Danmark]], [[hjertesvigt|Hjertesvigt]])
-- Danmark: 10.003 / 136.420 døde (7,3%, 95% CI 7,2-7,5) blandt prævalente patienter med atrieflimren i perioden 01.07.2023 - 30.06.2024 ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]])
-- Danmark: 2.720 / 21.804 nydiagnosticerede patienter med atrieflimren døde inden for 1 år (12,5%, 95% CI 12,0-12,9) i perioden 01.07.2022 - 30.06.2023 ([[danmark|Danmark]], [[atrieflimren|Atrieflimren]])
-- Andelen af prævalente patienter med atrieflimren, som døde i opgørelsesperioden var 7,3% på landsplan ([[danmark|Danmark]])
-- Andelen af prævalente patienter med atrieflimren, som døde, er faldet fra 8,0% i 2021/2022 ([[danmark|Danmark]])
-- Regionalt varierer andelen af prævalente patienter med atrieflimren, som døde, fra 6,9-7,9% ([[danmark|Danmark]])
-- Andelen af nydiagnosticerede patienter med atrieflimren der dør indenfor 1 år er 12,5% ([[danmark|Danmark]])
-- Andelen af nydiagnosticerede patienter med atrieflimren der dør indenfor 1 år er faldet fra 13,1% i 2021/2022 ([[danmark|Danmark]])
-- Regionalt varierer andelen af nydiagnosticerede patienter med atrieflimren der dør indenfor 1 år fra 11,9-12,9% ([[danmark|Danmark]])
-- Analyserne er baseret på simple andele der ikke er justeret for en række faktorer der kunne variere imellem populationerne på tværs af hospitalsenheder ([[danmark|Danmark]])
-- Der er betydelig risiko for, at forskellene på hospitalsniveau kan tilskrives forskellige og ikke-sammenlignelige populationer (case-mix) snarere end forskelle i behandlingskvaliteten ([[danmark|Danmark]])
-- Incidensen af atrieflimren i Danmark var 3,7 pr. 1000 indbyggere i 2023/2024 ([[danmark|Danmark]])
-- Gennemsnitsalderen ved diagnose for incidente patienter med atrieflimren i Danmark var 74 år ([[danmark|Danmark]])
-- Antal incidente patienter med atrieflimren i Danmark var 22073 ([[danmark|Danmark]])
-- Antal døde blandt incidente patienter med atrieflimren i Danmark var 1815 (8%) ([[danmark|Danmark]])
-- Gennemsnitlig CHA2DS2-VASc score for incidente patienter med atrieflimren i Danmark var 1,75 ([[danmark|Danmark]], [[cha2ds2-vasc-score|CHA2DS2-VASc score]])
-- Blandt kvinder med atrieflimren i Danmark havde 60,21% en CHA2DS2-VASc score ≥2 ([[danmark|Danmark]], [[cha2ds2-vasc-score|CHA2DS2-VASc score]])
-- Blandt mænd med atrieflimren i Danmark havde 54,82% en CHA2DS2-VASc score ≥2 ([[danmark|Danmark]], [[cha2ds2-vasc-score|CHA2DS2-VASc score]])
-- Der er 136.420 prævalente atrieflimren-patienter i Danmark ([[danmark|Danmark]], [[atrieflimren-i-danmark|Atrieflimren i Danmark]])
-- Gennemsnitsalderen for atrieflimren-patienter i Danmark er 70 år med en spredning på 12 år ([[danmark|Danmark]])
-- Medianalderen for atrieflimren-patienter i Danmark er 72 år ([[danmark|Danmark]])
-- Gennemsnits-CHA2DS2-VASc score for Danmark er 1.51 ([[danmark|Danmark]], [[cha2ds2-vasc-score|CHA2DS2-VASc score]])
-- 18% af danske atrieflimren-patienter har CHA2DS2-VASc score 0 ([[danmark|Danmark]], [[cha2ds2-vasc-score|CHA2DS2-VASc score]])
-- 35% af danske atrieflimren-patienter har CHA2DS2-VASc score 1 ([[danmark|Danmark]], [[cha2ds2-vasc-score|CHA2DS2-VASc score]])
-- 29% af danske atrieflimren-patienter har CHA2DS2-VASc score 2 ([[danmark|Danmark]], [[cha2ds2-vasc-score|CHA2DS2-VASc score]])
-- 1.123 incidente patienter (5,1%) blev behandlet hos praktiserende kardiologer i Danmark i årsrapportsperioden ([[danmark|Danmark]], [[praktiserende-kardiologer|Praktiserende kardiologer]])
-- For ekkokardiografi-indikatoren var standarden ≥80%, og standarden var opfyldt for landet og for fire ud af fem regioner ([[danmark|Danmark]])
-- Danmark havde 71,9% (95% CI: 71,2;72,5) for ekkokardiografi-indikatoren i perioden 01.07.2019 - 30.06.2020 ([[danmark|Danmark]])
+**Performance**
+- Resultatet for Danmark for indikator 1 i perioden 01.07.2022–30.06.2023 er 91,5 % (95 % CI: 91,0–92,1) [^src1] (danmark, databasen-for-atrieflimren-i-danmark)
+- På landsplan blev 92% af de nydiagnosticerede atrieflimren patienter med en CHA2DS2-VASc score ≥2 sat i oral AK-behandling senest 30 dage efter diagnosticering [^src1] (atrieflimren, antikoagulationsbehandling, cha2ds2-vasc, danmark)
+- Standarden på ≥ 90% er således opfyldt på landsplan og har ligget kontinuerligt over grænsen de sidste tre årsrapportsperioder [^src1] (atrieflimren, antikoagulationsbehandling, danmark)
+- Danmarks nationale andel for Indikator 4a1 i perioden 01.07.2022–30.06.2023 er 89,1% (95% CI: 88,5–89,7) [^src1] (danmark, indikator-4a1)
+- Danmarks nationale andel for Indikator 4a2 i perioden 01.07.2021–30.06.2022 er 88,6% (95% CI: 88,0–89,3) [^src1] (danmark, indikator-4a2)
+
+**Clinical**
+- Nationalt blev Indikator 2 opfyldt af 79,2 % (95 % CI: 78,6–79,8) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1] (danmark, indikator-2)
+- I alt 10.010 patienter i Danmark startede antikoagulationsbehandling inden for 4 måneder før diagnose eller inden for 30 dage efter udskrivelse [^src1] (danmark, indikator-1)
+- I Danmark var 65,8 % af atrieflimren-patienter, der blev indlagt med iskæmisk apopleksi eller apopleksi af ukendt type, allerede på oral AK-behandling inden for 100 dage før indlæggelsen [^src1] (danmark, indikator-5)
+- Den nationale andel af atrieflimren-patienter med iskæmisk apopleksi i perioden 01.07.2022–30.06.2023 var 0,6 % (95 % CI: 0,5–0,6) ifølge DanStroke-data [^src1] (danmark, danstroke, indikator-5)
+
+**Healthcare-statistic**
+- I rapportperioden 1. juli 2022 – 30. juni 2023 er den nationale andel for Danmark 89,6 % (95 % CI: 88,9–90,3) [^src1] (danmark, indikator-4a)
+
+**Statistical**
+- Danmark har en andel på 87,7 % (95 % CI: 86,7–88,6) ved 5-årsanalyse for Indikator 4a [^src1] (danmark, indikator-4a)
+- Antallet af prævalente atrieflimren patienter med intrakraniel blødning i Danmark er 711 [^src1] (danmark, databasen-for-atrieflimren-i-danmark)
+- Andelen af nydiagnosticerede patienter med atrieflimren, som får alvorlig blødning inden for 1 år i Danmark, er 3,1 % (95 % CI: 2,8–3,3) for perioden 01.07.2021–30.06.2022 [^src1] (indikator-12, danmark)
+- Andelen af nydiagnosticerede patienter med atrieflimren, som dør inden for 1 år i Danmark, er 13,1 % (95 % CI: 12,6–13,5) for perioden 01.07.2021–30.06.2022 [^src1] (indikator-13, danmark)
+
+**Clinical-statistic**
+- Gennemsnittet for CHA2DS2-VASc-scoren blandt de incidente patienter i Danmark er 1.73 [^src1] (cha2ds2-vasc, danmark)
+- Gennemsnittet for CHA2DS2-VASc-scoren blandt de prævalente patienter i Danmark er 1.47 [^src1] (cha2ds2-vasc, danmark)
+
+**Epidemiological**
+- Der er 19.671 incidente patienter med atrial fibrillation i Danmark i perioden 1. juli 2022 – 30. juni 2023 [^src1] (databasen-for-atrieflimren-i-danmark, danmark)
+- Der er 134.810 prævalente patienter med atrial fibrillation i Danmark i perioden 1. juli 2022 – 30. juni 2023 [^src1] (databasen-for-atrieflimren-i-danmark, danmark)
+- I Danmark udgjorde antallet af prævalente atrieflimren-patienter med intrakraniel blødning 711 ud af 134.710 patienter, hvilket svarer til 0,53 % [^src1] (atrieflimren, intrakraniel-bloedning, danmark)
+
+**Demographic**
+- Gennemsnitsalderen for prævalente patienter med atrial fibrillation i Danmark er 70 år [^src1] (danmark)
+
+**Clinical-outcome**
+- Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler iskæmisk apopleksi inden for 1 år, var 1,1 % i Danmark i perioden 01.07.2021–30.06.2022 [^src1] (atrieflimren, iskaemisk-apopleksi, danmark)
+- Andelen af nydiagnosticerede patienter med atrieflimren, som får intrakraniel blødning inden for 1 år, var 0,7 % i Danmark i perioden 01.07.2021–30.06.2022 [^src1] (atrieflimren, intrakraniel-bloedning, danmark)
+- I perioden 01.07.2018–30.06.2019 var den nationale andel af patienter med atrieflimren, der modtog antikoagulationsbehandling, 87,3 % (95 % CI: 86,5–88,1) [^src1] (danmark, atrieflimren, antikoagulationsbehandling)
+
+**Clinical-risk-distribution**
+- Blandt prævalente atrieflimren-patienter med intrakraniel blødning i Danmark havde 36,7 % en CHA2DS2-VASc-score på 1 [^src1] (cha2ds2-vasc, intrakraniel-bloedning, danmark)
+
+**Mortality-statistic**
+- Andelen af prævalente patienter med atrieflimren, som døde i opgørelsesperioden var 7,6% på landsplan [^src1] (danmark, atrieflimren)
+
+**Incidence-statistic**
+- Indikator 16: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år, var 6,5% (95% CI: 6,1–6,8) for Danmark i perioden 01.07.2021 – 30.06.2022 [^src2] (danmark, atrieflimren, hjertesvigt)
+
+**Quality-indicator**
+- Nationalt blev 80,6 % af nydiagnosticerede atrieflimren-patienter undersøgt med ekkokardiografi inden for tidsrammen, hvilket opfylder standarden på ≥ 80% [^src1] (danmark, indikator-2, standard-80-percent)
+
+**Clinical-indicators**
+- Danmark: 96.468 / 102.690 patienter (93,9 %) havde mindst én årlig S-creatinin-måling i 2022/23 [^src1] (indikator-4b, danmark)
+
+**Clinical-indicator**
+- I perioden 01.07.2022–30.06.2023 var andelen af nydiagnosticerede patienter med atrieflimren, som udviklede alvorlig blødning inden for 1 år, 3,2 % (95 % CI: 2,9–3,4) for hele Danmark [^src1] (indikator-11, danmark)
+- I perioden 01.07.2022–30.06.2023 var andelen af nydiagnosticerede patienter med atrieflimren, som udviklede hjertesvigt inden for 1 år, 6,1 % (95 % CI: 5,7–6,4) for hele Danmark [^src1] (indikator-15, danmark)
+- Gennemsnitsalderen for incidente patienter med atrieflimren i Danmark var 74 år [^src1] (atrieflimren, danmark)
+- Gennemsnits-CHA2DS2-VASc-scoren for incidente patienter med atrieflimren i Danmark var 1,75 [^src1] (atrieflimren, danmark, cha2ds2-vasc)
+- 60,21% af de incidente patienter med atrieflimren i Danmark havde en CHA2DS2-VASc-score på ≥2 [^src1] (atrieflimren, danmark, cha2ds2-vasc)
+
+**Mortality-rate**
+- Mortaliteten for prævalente patienter med atrieflimren var 7,3% på landsplan i perioden 1. juli 2023 til 30. juni 2024 [^src1] (atrieflimren, danmark)
+- Andelen af nydiagnosticerede patienter med atrieflimren, der dør inden for 1 år, var 12,5% [^src1] (atrieflimren, danmark)
+
+**Incidence-rate**
+- Incidensen af atrieflimren i Danmark var 3,7 pr. 1000 indbyggere i 2023/2024 [^src1] (atrieflimren, danmark)
+
+## Timeline
+
+*(No timeline events provided in the source data)*
 
 ## Sources
 
@@ -190,27 +285,17 @@ Denmark is the geographic scope of the atrial fibrillation database and the repo
 [^src2]: AFDK_2023.pdf, pages 16-20
 [^src3]: AFDK_2023.pdf, pages 36-40
 [^src4]: AFDK_2023.pdf, pages 41-45
-[^src5]: AFDK_2023.pdf, pages 56-60
-[^src6]: AFDK_2023.pdf, pages 66-70
-[^src7]: AFDK_2023.pdf, pages 71-75
-[^src8]: AFDK_2023.pdf, pages 86-90
-[^src9]: AFDK_2023.pdf, pages 91-95
-[^src10]: AFDK_2023.pdf, pages 96-100
-[^src11]: AFDK_2023.pdf, pages 106-110
-[^src12]: AFDK_2023.pdf, pages 111-115
-[^src13]: AFDK_2024.pdf, pages 1-5
-[^src14]: AFDK_2024.pdf, pages 11-15
-[^src15]: AFDK_2024.pdf, pages 16-20
-[^src16]: AFDK_2024.pdf, pages 21-25
-[^src17]: AFDK_2024.pdf, pages 26-30
-[^src18]: AFDK_2024.pdf, pages 31-35
-[^src19]: AFDK_2024.pdf, pages 51-55
-[^src20]: AFDK_2024.pdf, pages 56-60
-[^src21]: AFDK_2024.pdf, pages 61-65
-[^src22]: AFDK_2024.pdf, pages 71-75
-[^src23]: AFDK_2024.pdf, pages 81-85
-[^src24]: AFDK_2024.pdf, pages 86-90
-[^src25]: AFDK_2024.pdf, pages 91-95
-[^src26]: AFDK_2024.pdf, pages 106-110
-[^src27]: AFDK_2024.pdf, pages 36-40
-[^src28]: AFDK_2024.pdf, pages 76-80
+[^src5]: AFDK_2023.pdf, pages 86-90
+[^src6]: AFDK_2023.pdf, pages 91-95
+[^src7]: AFDK_2023.pdf, pages 96-100
+[^src8]: AFDK_2023.pdf, pages 101-105
+[^src9]: AFDK_2023.pdf, pages 106-110
+[^src10]: AFDK_2024.pdf, pages 11-15
+[^src11]: AFDK_2024.pdf, pages 16-20
+[^src12]: AFDK_2024.pdf, pages 26-30
+[^src13]: AFDK_2024.pdf, pages 31-35
+[^src14]: AFDK_2024.pdf, pages 71-75
+[^src15]: AFDK_2024.pdf, pages 81-85
+[^src16]: AFDK_2024.pdf, pages 86-90
+[^src17]: AFDK_2024.pdf, pages 36-40
+[^src18]: AFDK_2024.pdf, pages 76-80

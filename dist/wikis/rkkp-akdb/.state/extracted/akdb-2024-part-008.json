@@ -2,48 +2,105 @@
   "entities": [
     {
       "name": "Indikator 6",
-      "type": "quality-indicator",
+      "type": "clinical-quality-indicator",
       "slug": "indikator-6",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 6 måler andelen af patienter, der mobiliseres indenfor 24 timer efter operation, og er en vigtig kvalitetsmåling i Akut Kirurgi Databasen.",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 6 er en central kvalitetsmåling i Akut Kirurgi Databasen, der kvantificerer andelen af patienter, der mobiliseres inden for 24 timer efter operation, og danner grundlag for national overvågning af tidlig postoperativ mobilisering samt evaluering af ERAS-principper i akut kirurgi.",
       "mentions": [
         {
           "page": 36,
+          "context": "Indikatorbeskrivelse for indikator 6"
+        },
+        {
+          "page": 36,
           "context": "Indikator 6 beskriver andelen af patienter, der mobiliseres indenfor 24 timer efter operation."
-        },
-        {
-          "page": 36,
-          "context": "I alt 1.133 af de 3.185 opererede patienter i opgørelsesperioden blev mobiliserede indenfor 24 timer efter operation, svarende til at 35,6 % nationalt blev mobiliserede indenfor 24 timer efter operation"
-        },
-        {
-          "page": 36,
-          "context": "Ingen af de indberettende enheder opfyldte udviklingsmålet på ≥ 90 %."
         }
       ]
     },
     {
-      "name": "Enhanced Recovery After Surgery",
-      "type": "clinical-program",
-      "slug": "enhanced-recovery-after-surgery",
-      "folder": "topics/clinical-practice",
-      "significance": "ERAS er en multimodal indsats, der anbefales som grundlag for tidlig mobilisering efter operation, og som viser hurtigere mave-tarm funktion, kortere indlæggelsestid og færre komplikationer.",
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den nationale kliniske database, der indsamler og analyserer data om akut kirurgiske behandlinger i Danmark, og som her rapporterer resultaterne for Indikator 6 for 2023–24.",
       "mentions": [
         {
-          "page": 37,
-          "context": "Med udgangspunkt i \"Enhanced Recovery After Surgery\" (ERAS), skal mobilisering ske på det første postoperative døgn."
-        },
+          "page": 36,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den myndighed, der udgiver og ansvarer for den endelige version af Akut Kirurgi Databasens indikatorrapporter, herunder vurderingen af Indikator 6.",
+      "mentions": [
         {
-          "page": 37,
-          "context": "Den overordnede effekt af ERAS er analyseret i systematiske reviews og meta-analyser og beskriver hurtigere mave-tarm funktion, kortere indlæggelsestid og færre komplikationer."
+          "page": 36,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "ERAS",
+      "type": "healthcare-program",
+      "slug": "eras",
+      "folder": "topics/administrative-systems/danish-civil-registration",
+      "significance": "ERAS (Enhanced Recovery After Surgery) er et evidensbaseret multimodalt forløbsprogram, som danner vidensgrundlaget for anbefalingen om tidlig mobilisering i Indikator 6, især for akutte højrisikopatienter.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Med udgangspunkt i “Enhanced Recovery After Surgery” (ERAS), skal mobilisering ske på det første postoperative døgn."
+        }
+      ]
+    },
+    {
+      "name": "LPR",
+      "type": "database",
+      "slug": "lpr",
+      "folder": "entities/databases/clinical",
+      "significance": "Landspatientregisteret (LPR) er den nationale registerplattform, hvor mobilisering registreres ved hjælp af specifikke koder (ZZP0030A og ZZP0030C), hvilket er afgørende for beregningen af Indikator 6.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Mobilisering registreres i LPR ved at angive koderne ZZP0030A (tidlig mobilisering påbegyndt) og ZZP0030C (vurderet ingen indikation for tidlig mobilisering)."
+        }
+      ]
+    },
+    {
+      "name": "ZZP0030A",
+      "type": "medical-code",
+      "slug": "zzp0030a",
+      "folder": "entities/codes/healthcare-coding",
+      "significance": "ZZP0030A er en specifik kode i Landspatientregisteret, der anvendes til at registrere, at tidlig mobilisering er påbegyndt, og som direkte indgår i tælleren for Indikator 6.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "ZZP0030A (tidlig mobilisering påbegyndt)"
+        }
+      ]
+    },
+    {
+      "name": "ZZP0030C",
+      "type": "medical-code",
+      "slug": "zzp0030c",
+      "folder": "entities/codes/healthcare-coding",
+      "significance": "ZZP0030C er en specifik kode i Landspatientregisteret, der anvendes til at registrere, at der vurderes ingen indikation for tidlig mobilisering, og som indgår i udvælgelsen af relevante observationer for Indikator 6.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "ZZP0030C (vurderet ingen indikation for tidlig mobilisering)"
         }
       ]
     },
     {
       "name": "Region Nordjylland",
-      "type": "location",
+      "type": "region",
       "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland havde den laveste andel af patienter mobiliseret indenfor 24 timer efter operation på 20,3 % i opgørelsesperioden.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Nordjylland er én af de fem regioner i Danmark, hvis resultater for Indikator 6 viser den laveste nationale andel af tidlig mobilisering (20,3 %), hvilket fremhæves som et eksempel på regional variation.",
       "mentions": [
         {
           "page": 36,
@@ -53,10 +110,10 @@
     },
     {
       "name": "Region Midtjylland",
-      "type": "location",
+      "type": "region",
       "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Midtjylland havde den højeste andel af patienter mobiliseret indenfor 24 timer efter operation på 46,4 % blandt regionerne.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Midtjylland er én af de fem regioner i Danmark, hvis resultater for Indikator 6 viser den højeste nationale andel af tidlig mobilisering (46,4 %), hvilket fremhæves som et eksempel på regional variation.",
       "mentions": [
         {
           "page": 36,
@@ -65,70 +122,15 @@
       ]
     },
     {
-      "name": "Tidlig mobilisering",
-      "type": "clinical-intervention",
-      "slug": "tidlig-mobilisering",
-      "folder": "topics/clinical-practice",
-      "significance": "Tidlig mobilisering efter operation er en vigtig intervention, der reducerer risikoen for postoperative komplikationer, især lungekomplikationer.",
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/national",
+      "significance": "Danmark er det nationale niveau, hvor Indikator 6 rapporteres som en samlet andel på 35,6 % med konfidensinterval, hvilket danner udgangspunktet for sammenligning med regionale og internationale benchmarks.",
       "mentions": [
         {
           "page": 36,
-          "context": "Indikator 6 beskriver andelen af patienter, der mobiliseres indenfor 24 timer efter operation."
-        },
-        {
-          "page": 37,
-          "context": "Inaktivitet eller immobilisering efter kirurgi eller under indlæggelse kan være skadeligt for den enkelte patient, da det påvirker det kardio-pulmonale system i en negativ retning."
-        },
-        {
-          "page": 37,
-          "context": "Flere kohorteundersøgelser har desuden vist en sammenhæng mellem forsinket mobilisering ift. større forekomst af postoperative lungekomplikationer og lav oxygenering efter abdominalkirurgi."
-        }
-      ]
-    },
-    {
-      "name": "Postoperative lungekomplikationer",
-      "type": "clinical-outcome",
-      "slug": "postoperative-lungekomplikationer",
-      "folder": "topics/clinical-outcome",
-      "significance": "Postoperative lungekomplikationer er en vigtig komplikation, der kan forebygges gennem tidlig mobilisering efter operation.",
-      "mentions": [
-        {
-          "page": 37,
-          "context": "Flere kohorteundersøgelser har desuden vist en sammenhæng mellem forsinket mobilisering ift. større forekomst af postoperative lungekomplikationer og lav oxygenering efter abdominalkirurgi."
-        },
-        {
-          "page": 37,
-          "context": "To studier har ligeledes fundet at patienter der ikke er selvstændigt mobiliseret indenfor de første 7 dage post-operativt har højere odds for at få lungekomplikationer"
-        }
-      ]
-    },
-    {
-      "name": "Akut abdominalkirurgi",
-      "type": "clinical-procedure",
-      "slug": "akut-abdominalkirurgi",
-      "folder": "topics/clinical-practice",
-      "significance": "Akut abdominalkirurgi, især for ileus og perforeret hulorgan, er forbundet med dårlig postoperativ mobilisering og øget risiko for komplikationer.",
-      "mentions": [
-        {
-          "page": 37,
-          "context": "Akutte mave-tarm kirurgiske patienter opereret for ileus og perforeret hulorgan er generelt dårligt mobiliserede post-operativt, hvilket øger risikoen for komplikationer generelt."
-        },
-        {
-          "page": 37,
-          "context": "På baggrund af ERAS-forløbene og viden om at forsinket mobilisering eller immobilisering kan medføre postoperative komplikationer anbefales det, at patienter opereret akut for ileus og perforeret hulorgan mobiliseres i samme form som ERAS-patienter med tidlig mobilisering allerede det første postoperative døgn."
-        }
-      ]
-    },
-    {
-      "name": "Akut Kirurgi Databasen",
-      "type": "organization",
-      "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/healthcare-registries",
-      "significance": "Akut Kirurgi Databasen er den database, der rapporterer på Indikator 6 og andre kvalitetsindikatorer for akut kirurgisk behandling i Danmark.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Indikator 6 beskriver andelen af patienter, der mobiliseres indenfor 24 timer efter operation. Svarende til at patienten har forladt sengen. Mobilisering registreres i LPR ved at angive koderne ZZP0030A (tidlig mobilisering påbegyndt) og ZZP0030C (vurderet ingen indikation for tidlig mobilisering)."
+          "context": "I alt 1.133 af de 3.185 opererede patienter i opgørelsesperioden blev mobiliserede indenfor 24 timer efter operation, svarende til at 35,6 % nationalt blev mobiliserede indenfor 24 timer efter operation (95 % CI: 33,9-37,3)."
         }
       ]
     }
@@ -136,46 +138,68 @@
   "relationships": [
     {
       "subject": "indikator-6",
-      "predicate": "measures",
-      "object": "tidlig-mobilisering",
-      "evidence": "Indikator 6 beskriver andelen af patienter, der mobiliseres indenfor 24 timer efter operation",
+      "predicate": "is-defined-in",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 6 beskriver andelen af patienter, der mobiliseres indenfor 24 timer efter operation.",
       "page": 36
     },
     {
-      "subject": "tidlig-mobilisering",
-      "predicate": "prevents",
-      "object": "postoperative-lungekomplikationer",
-      "evidence": "Flere kohorteundersøgelser har desuden vist en sammenhæng mellem forsinket mobilisering ift. større forekomst af postoperative lungekomplikationer",
-      "page": 37
+      "subject": "indikator-6",
+      "predicate": "uses-code",
+      "object": "zzp0030a",
+      "evidence": "Mobilisering registreres i LPR ved at angive koderne ZZP0030A (tidlig mobilisering påbegyndt) og ZZP0030C (vurderet ingen indikation for tidlig mobilisering).",
+      "page": 36
     },
     {
-      "subject": "enhanced-recovery-after-surgery",
-      "predicate": "recommends",
-      "object": "tidlig-mobilisering",
-      "evidence": "Med udgangspunkt i \"Enhanced Recovery After Surgery\" (ERAS), skal mobilisering ske på det første postoperative døgn",
-      "page": 37
+      "subject": "indikator-6",
+      "predicate": "uses-code",
+      "object": "zzp0030c",
+      "evidence": "Mobilisering registreres i LPR ved at angive koderne ZZP0030A (tidlig mobilisering påbegyndt) og ZZP0030C (vurderet ingen indikation for tidlig mobilisering).",
+      "page": 36
     },
     {
-      "subject": "akut-kirurgi-databasen",
-      "predicate": "reports-on",
-      "object": "indikator-6",
-      "evidence": "Indikator 6 beskriver andelen af patienter, der mobiliseres indenfor 24 timer efter operation. Mobilisering registreres i LPR",
+      "subject": "indikator-6",
+      "predicate": "is-reported-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut udgiver den endelige version til offentliggørelse.",
+      "page": 36
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "is-based-on-data-from",
+      "object": "lpr",
+      "evidence": "Mobilisering registreres i LPR ved at angive koderne ZZP0030A og ZZP0030C.",
+      "page": 36
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "is-informed-by",
+      "object": "eras",
+      "evidence": "Med udgangspunkt i “Enhanced Recovery After Surgery” (ERAS), skal mobilisering ske på det første postoperative døgn.",
       "page": 36
     }
   ],
   "claims": [
     {
+      "text": "Indikator 6 beskriver andelen af patienter, der mobiliseres indenfor 24 timer efter operation [^src1]",
+      "type": "definitional",
+      "entities": [
+        "indikator-6"
+      ],
+      "page": 36
+    },
+    {
       "text": "I alt 1.133 af de 3.185 opererede patienter i opgørelsesperioden blev mobiliserede indenfor 24 timer efter operation, svarende til at 35,6 % nationalt blev mobiliserede indenfor 24 timer efter operation (95 % CI: 33,9-37,3) [^src1]",
-      "type": "clinical-indicator",
+      "type": "statistical",
       "entities": [
         "indikator-6",
-        "akut-kirurgi-databasen"
+        "danmark"
       ],
       "page": 36
     },
     {
       "text": "Regionalt varierede andelen fra 20,3 % i Region Nordjylland til 46,4 % i Region Midtjylland [^src1]",
-      "type": "regional-variation",
+      "type": "statistical",
       "entities": [
         "indikator-6",
         "region-nordjylland",
@@ -185,135 +209,31 @@
     },
     {
       "text": "Ingen af de indberettende enheder opfyldte udviklingsmålet på ≥ 90 % [^src1]",
-      "type": "quality-standard",
+      "type": "performance",
       "entities": [
         "indikator-6"
       ],
       "page": 36
     },
     {
-      "text": "Inaktivitet eller immobilisering efter kirurgi eller under indlæggelse kan være skadeligt for den enkelte patient, da det påvirker det kardio-pulmonale system i en negativ retning [^src1]",
-      "type": "clinical-evidence",
-      "entities": [
-        "tidlig-mobilisering"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Den overordnede effekt af ERAS er analyseret i systematiske reviews og meta-analyser og beskriver hurtigere mave-tarm funktion, kortere indlæggelsestid og færre komplikationer [^src1]",
-      "type": "clinical-evidence",
-      "entities": [
-        "enhanced-recovery-after-surgery"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Flere kohorteundersøgelser har desuden vist en sammenhæng mellem forsinket mobilisering ift. større forekomst af postoperative lungekomplikationer og lav oxygenering efter abdominalkirurgi [^src1]",
-      "type": "clinical-evidence",
-      "entities": [
-        "tidlig-mobilisering",
-        "postoperative-lungekomplikationer"
-      ],
-      "page": 37
-    },
-    {
-      "text": "To studier har ligeledes fundet at patienter der ikke er selvstændigt mobiliseret indenfor de første 7 dage post-operativt har højere odds for at få lungekomplikationer, samt at der ses en sammenhæng mellem inaktivitet og udvikling af lungekomplikationer hos patienter der gennemgår akut højrisiko abdominalkirurgi [^src1]",
-      "type": "clinical-evidence",
-      "entities": [
-        "tidlig-mobilisering",
-        "postoperative-lungekomplikationer",
-        "akut-abdominalkirurgi"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Akutte mave-tarm kirurgiske patienter opereret for ileus og perforeret hulorgan er generelt dårligt mobiliserede post-operativt, hvilket øger risikoen for komplikationer generelt [^src1]",
-      "type": "clinical-observation",
-      "entities": [
-        "akut-abdominalkirurgi"
-      ],
-      "page": 37
-    },
-    {
       "text": "Mobilisering er defineret ved mobilisering fra liggende stilling til enten siddende eller stående stilling, hvor patienten har forladt sengen [^src1]",
-      "type": "methodology",
-      "entities": [
-        "tidlig-mobilisering"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Der er stor intra-regional variation, det tyder på at man på hvert hospital skal se hvor man ligger og arbejde med det [^src1]",
-      "type": "regional-variation",
+      "type": "definitional",
       "entities": [
         "indikator-6"
       ],
-      "page": 37
+      "page": 36
     }
   ],
   "timeline": [
     {
       "date": "01.09.2023 - 31.08.2024",
-      "event": "Opgørelsesperiode for Indikator 6, hvor 1.133 af 3.185 opererede patienter blev mobiliseret indenfor 24 timer efter operation, svarende til 35,6 % nationalt",
+      "event": "Opgørelsesperiode for Indikator 6 i Akut Kirurgi Databasen",
       "entities": [
         "indikator-6",
         "akut-kirurgi-databasen"
       ]
     }
   ],
-  "context": "Denne dokumentchunk behandler Indikator 6 (Tidlig mobilisering) fra Akut Kirurgi Databasen for perioden 2023-24. Indikatoren måler andelen af patienter, der mobiliseres indenfor 24 timer efter operation, og er baseret på ERAS-principper (Enhanced Recovery After Surgery), som viser, at tidlig mobilisering reducerer postoperative komplikationer, især lungekomplikationer. Resultaterne viser, at kun 35,6 % af patienterne nationalt blev mobiliseret indenfor 24 timer, langt under udviklingmålet på 90 %, med betydelig regional variation fra 20,3 % i Region Nordjylland til 46,4 % i Region Midtjylland. Dokumentet understreger behovet for forbedret praksis og implementering af ERAS-principper på alle hospitaler.",
-  "tables": [
-    {
-      "subject": "indikator-6",
-      "title": "Indikator 6: Tidlig mobilisering",
-      "page": 37,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "andel mobiliseret indenfor 24 timer pr. årsrapportperiode",
-      "entities": [
-        "indikator-6",
-        "danmark",
-        "region-hovedstaden",
-        "region-sjaelland",
-        "region-syddanmark",
-        "region-midtjylland",
-        "region-nordjylland",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "holbaek-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "aalborg-universitetshospital",
-        "aalborg-universitetshospital-thisted",
-        "regionshospital-nordjylland"
-      ],
-      "markdown": "| Enhed | Standard opfyldt ≥ 90% | Tæller/nævner | Uoplyst antal (%) | Andel 95% CI (01.09.2023 - 31.08.2024) | Andel 2022/23 | Andel 2021/22 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 1.133 / 3.185 | 0 (0) | 35,6 (33,9-37,3) | 29,2 | 16,2 |\n| Hovedstaden | Nej | 319 / 1.014 | 0 (0) | 31,5 (28,6-34,4) | 27,4 | 18,2 |\n| Sjælland | Nej | 148 / 574 | 0 (0) | 25,8 (22,3-29,6) | 32,3 | 18,7 |\n| Syddanmark | Nej | 305 / 658 | 0 (0) | 46,4 (42,5-50,2) | 24,9 | 8,9 |\n| Midtjylland | Nej | 313 / 703 | 0 (0) | 44,5 (40,8-48,3) | 43,6 | 22,9 |\n| Nordjylland | Nej | 48 / 236 | 0 (0) | 20,3 (15,4-26,0) | 4,0 | 0,0 |\n| Hovedstaden | Nej | 319 / 1.014 | 0 (0) | 31,5 (28,6-34,4) | 27,4 | 18,2 |\n| Amager og Hvidovre Hospital | Nej | 94 / 244 | 0 (0) | 38,5 (32,4-44,9) | 34,1 | 16,6 |\n| Bispebjerg og Frederiksberg Hospital | Nej | 57 / 180 | 0 (0) | 31,7 (24,9-39,0) | 31,5 | 25,9 |\n| Bornholms Hospital | Nej | 16 / 26 | 0 (0) | 61,5 (40,6-79,8) | 46,7 | 13,0 |\n| Herlev og Gentofte Hospital | Nej | 63 / 307 | 0 (0) | 20,5 (16,1-25,5) | 18,9 | 16,0 |\n| Hospitalerne i Nordsjælland | Nej | 83 / 204 | 0 (0) | 40,7 (33,9-47,8) | 28,6 | 17,3 |\n| Rigshospitalet | Nej | 6 / 53 | 0 (0) | 11,3 (4,3-23,0) | 12,1 | 14,3 |\n| Sjælland | Nej | 148 / 574 | 0 (0) | 25,8 (22,3-29,6) | 32,3 | 18,7 |\n| Holbæk Sygehus | Nej | 74 / 131 | 0 (0) | 56,5 (47,6-65,1) | 61,5 | 27,7 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 39 / 191 | 0 (0) | 20,4 (14,9-26,8) | 29,9 | 16,8 |\n| Sjællands Universitetshospital | Nej | 35 / 252 | 0 (0) | 13,9 (9,9-18,8) | 17,6 | 16,3 |\n| Syddanmark | Nej | 305 / 658 | 0 (0) | 46,4 (42,5-50,2) | 24,9 | 8,9 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 0 / 158 | 0 (0) | 0,0 (0,0-2,3) | 0,0 | 0,0 |\n| Odense Universitetshospital - Svendborg | Nej | 186 / 299 | 0 (0) | 62,2 (56,4-67,7) | 6,1 | 0,0 |\n| Sygehus Lillebælt | Nej | 22 / 88 | 0 (0) | 25,0 (16,4-35,4) | 31,1 | 4,4 |\n| Sygehus Sønderjylland | Nej | 97 / 113 | 0 (0) | 85,8 (78,0-91,7) | 79,5 | 46,2 |\n| Midtjylland | Nej | 313 / 703 | 0 (0) | 44,5 (40,8-48,3) | 43,6 | 22,9 |\n| Aarhus Universitetshospital | Nej | 86 / 140 | 0 (0) | 61,4 (52,8-69,5) | 61,7 | 50,0 |\n| Hospitalsenhed Midt | Nej | 18 / 139 | 0 (0) | 12,9 (7,9-19,7) | 23,3 | 1,5 |\n| Regionshospitalet Gødstrup | Nej | 49 / 173 | 0 (0) | 28,3 (21,7-35,7) | 20,8 | 4,4 |\n| Regionshospitalet Horsens | Nej | 59 / 123 | 0 (0) | 48,0 (38,9-57,2) | 56,6 | 24,5 |\n| Regionshospitalet Randers | Nej | 101 / 128 | 0 (0) | 78,9 (70,8-85,6) | 68,0 | 40,0 |\n| Nordjylland | Nej | 48 / 236 | 0 (0) | 20,3 (15,4-26,0) | 4,0 | 0,0 |\n| Aalborg Universitetshospital | Nej | 31 / 137 | 0 (0) | 22,6 (15,9-30,6) | 5,6 | 0,0 |\n| Aalborg Universitetshospital, Thisted |  |  |  |  |  | 0,0 |\n| Regionshospital Nordjylland | Nej | 17 / 99 | 0 (0) | 17,2 (10,3-26,1) | 1,1 | 0,0 |",
-      "summary": "Tabellen sammenligner andelen af patienter mobiliseret indenfor 24 timer efter operation på nationalt, regionalt og hospitalsniveau for perioden 01.09.2023-31.08.2024 samt de to foregående årsrapportperioder, og viser at ingen enheder opfyldte udviklingsmålet på ≥ 90 %, mens hospitalsandelene spænder fra 0,0 % (Esbjerg Sygehus Grindsted Sygehus) til 85,8 % (Sygehus Sønderjylland)."
-    },
-    {
-      "subject": "indikator-6",
-      "title": "Eksklusion",
-      "page": 38,
-      "rowDimension": "eksklusionsårsager",
-      "colDimension": "antal patienter",
-      "entities": [
-        "indikator-6",
-        "cpr-nummer"
-      ],
-      "markdown": "| Årsag | Antal |\n| --- | --- |\n| Ugyldigt CPRnummer. | 75 |\n| Patienten er under 18 år. | 197 |\n| Patienten er ikke opereret. | 6.238 |\n| Operationen er ikke den første operation i hospitalsopholdet. | 493 |",
-      "summary": "Tabellen viser antallet af ekskluderede patienter fordelt på fire eksklusionsårsager for indikator 6, hvor den klart største gruppe er patienter, der ikke er opereret (6.238)."
-    }
-  ]
+  "tables": [],
+  "context": "Dette afsnit fra Akut Kirurgi Databasens rapport for 2023–24 fokuserer på Indikator 6: Tidlig mobilisering, som er en central kvalitetsmåling i dansk akut kirurgi. Den beskriver andelen af patienter, der mobiliseres inden for 24 timer efter operation, og bygger på registreringer i Landspatientregisteret (LPR) via specifikke koder. Rapporten præsenterer nationale og regionale resultater, identificerer betydelig variation mellem regioner — fra 20,3 % i Region Nordjylland til 46,4 % i Region Midtjylland — og diskuterer resultaterne i lys af evidens fra Enhanced Recovery After Surgery (ERAS)-programmet samt risici forbundet med forsinket mobilisering hos akutte patienter. Den indgår i en bredere narrativ om systematisk kvalitetsudvikling i det danske sundhedsvæsen gennem standardiserede, målbare indikatorer."
 }

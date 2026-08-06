@@ -4,8 +4,8 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Denne organisation udgiver rapporten om atrieflimren i Danmark og er ansvarlig for kvalitetsudviklingsprogrammet, som dokumentet er en del af.",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Det er den overordnede organisation, der udgør rammen for kvalitetsmåling og -udvikling af behandlingen af atrieflimren i Danmark, og som udgiver rapporten, hvor denne tekstchunk er hentet fra.",
       "mentions": [
         {
           "page": 111,
@@ -18,11 +18,28 @@
       ]
     },
     {
+      "name": "Atrieflimren i Danmark",
+      "type": "document",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "entities/documents/reports",
+      "significance": "Dette er titlen på den offentliggjorte rapport, hvori denne tekstchunk indgår, og som danner grundlaget for kvalitetsmåling af atrieflimren-behandling på tværs af regionerne.",
+      "mentions": [
+        {
+          "page": 111,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 112,
+          "context": "Atrieflimren i Danmark"
+        }
+      ]
+    },
+    {
       "name": "Region Hovedstaden",
       "type": "organization",
       "slug": "region-hovedstaden",
       "folder": "entities/organizations/regions",
-      "significance": "En af de fem danske regioner, der indgår i kvalitetsudviklingsprogrammet for atrieflimren.",
+      "significance": "En af de fem danske regioner, der har leveret kommentarer (eller manglende kommentarer) til rapportens kvalitetsindikatorer for atrieflimren.",
       "mentions": [
         {
           "page": 112,
@@ -33,9 +50,9 @@
     {
       "name": "Region Sjælland",
       "type": "organization",
-      "slug": "sjaelland",
+      "slug": "region-sjaelland",
       "folder": "entities/organizations/regions",
-      "significance": "En af de fem danske regioner, der indgår i kvalitetsudviklingsprogrammet for atrieflimren.",
+      "significance": "En af de fem danske regioner, der har leveret kommentarer (eller manglende kommentarer) til rapportens kvalitetsindikatorer for atrieflimren.",
       "mentions": [
         {
           "page": 112,
@@ -46,9 +63,9 @@
     {
       "name": "Region Syddanmark",
       "type": "organization",
-      "slug": "syddanmark",
+      "slug": "region-syddanmark",
       "folder": "entities/organizations/regions",
-      "significance": "En af de fem danske regioner, der indgår i kvalitetsudviklingsprogrammet for atrieflimren.",
+      "significance": "En af de fem danske regioner, der har leveret kommentarer (eller manglende kommentarer) til rapportens kvalitetsindikatorer for atrieflimren.",
       "mentions": [
         {
           "page": 112,
@@ -59,9 +76,9 @@
     {
       "name": "Region Midtjylland",
       "type": "organization",
-      "slug": "midtjylland",
+      "slug": "region-midtjylland",
       "folder": "entities/organizations/regions",
-      "significance": "En af de fem danske regioner, der indgår i kvalitetsudviklingsprogrammet for atrieflimren.",
+      "significance": "En af de fem danske regioner, der har leveret kommentarer (eller manglende kommentarer) til rapportens kvalitetsindikatorer for atrieflimren.",
       "mentions": [
         {
           "page": 112,
@@ -72,9 +89,9 @@
     {
       "name": "Region Nordjylland",
       "type": "organization",
-      "slug": "nordjylland",
+      "slug": "region-nordjylland",
       "folder": "entities/organizations/regions",
-      "significance": "En af de fem danske regioner, der indgår i kvalitetsudviklingsprogrammet for atrieflimren.",
+      "significance": "En af de fem danske regioner, der har leveret kommentarer (eller manglende kommentarer) til rapportens kvalitetsindikatorer for atrieflimren.",
       "mentions": [
         {
           "page": 112,
@@ -83,11 +100,11 @@
       ]
     },
     {
-      "name": "Enheden for Kvalitet I Speciallægepraksis (eKVIS)",
+      "name": "De praktiserende speciallæger (Enheden for Kvalitet I Speciallægepraksis(eKVIS))",
       "type": "organization",
-      "slug": "ekvlis",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Organisationen repræsenterer de praktiserende speciallæger og indgår i kvalitetsudviklingsprogrammet for atrieflimren.",
+      "slug": "ekvis",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "En faglig enhed, der repræsenterer praktiserende speciallæger og har bidraget med kommentarer (eller manglende kommentarer) til rapportens kvalitetsindikatorer for atrieflimren.",
       "mentions": [
         {
           "page": 112,
@@ -96,33 +113,84 @@
       ]
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "subject": "atrieflimren-i-danmark",
+      "predicate": "is-published-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Atrieflimren i Danmark\nVersion: Offentliggjort version\nRegionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 111
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "provides-comments-to",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Region Hovedstaden\nIngen kommentarer",
+      "page": 112
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "provides-comments-to",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Region Sjælland\nIngen kommentarer",
+      "page": 112
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "provides-comments-to",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Region Syddanmark\nIngen kommentarer",
+      "page": 112
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "provides-comments-to",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Region Midtjylland\nIngen kommentarer",
+      "page": 112
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "provides-comments-to",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Region Nordjylland\nIngen kommentarer",
+      "page": 112
+    },
+    {
+      "subject": "ekvis",
+      "predicate": "provides-comments-to",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "De praktiserende speciallæger (Enheden for Kvalitet I Speciallægepraksis(eKVIS))\nIngen kommentarer",
+      "page": 112
+    }
+  ],
   "claims": [
     {
-      "text": "Et bredt 95% CI indikerer, at indikatorværdien kan udlægges som et resultat af tilfældig variation [^src1]",
-      "type": "methodological",
-      "entities": [],
+      "text": "Såfremt de anførte 95% CI for indikatorværdien ikke omfatter standardværdien, kan det konkluderes, at afdelingen ligger enten over eller under den opstillede standard, og at forskellen i forhold til standarden ikke kan forklares ved tilfældig variation. Der foreligger med andre ord en statistisk signifikant forskel [^src1]",
+      "type": "statistical-interpretation",
+      "entities": [
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
+      ],
       "page": 111
     },
     {
-      "text": "Et smalt interval indikerer, at indikatorværdien ikke kan udlægges som et resultat af tilfældig variation [^src1]",
-      "type": "methodological",
-      "entities": [],
+      "text": "Omfaatter 95% CI derimod standardværdien, er det ikke muligt at afgøre om indikatorværdien med sikkerhed adskiller sig fra den opstillede standard [^src1]",
+      "type": "statistical-interpretation",
+      "entities": [
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
+      ],
       "page": 111
     },
     {
-      "text": "Såfremt de anførte 95% CI for indikatorværdien ikke omfatter standardværdien, kan det konkluderes, at afdelingen ligger enten over eller under den opstillede standard, og at forskellen i forhold til standarden ikke kan forklares ved tilfældig variation [^src1]",
-      "type": "methodological",
-      "entities": [],
-      "page": 111
-    },
-    {
-      "text": "Omfatter 95% CI standardværdien, er det ikke muligt at afgøre om indikatorværdien med sikkerhed adskiller sig fra den opstillede standard [^src1]",
-      "type": "methodological",
-      "entities": [],
+      "text": "Tidligere år (95% CI): Angiver indikatorværdi i forrige opgørelsesperioder [^src1]",
+      "type": "methodological-definition",
+      "entities": [
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
+      ],
       "page": 111
     }
   ],
   "timeline": [],
-  "context": "Denne dokumentsektion præsenterer metodologiske forklaringer på statistisk analyse af kvalitetsindikatorer for atrieflimren i Danmark samt en oversigt over kommentarer fra de fem danske regioner og de praktiserende speciallæger. Afsnittet forklarer betydningen af konfidensintervaller (95% CI) ved vurdering af indikatorværdier og hvordan disse bruges til at afgøre, om en afdeling ligger statistisk signifikant over eller under etablerede standarder."
+  "tables": [],
+  "context": "Denne tekstchunk er en del af den offentliggjorte rapport 'Atrieflimren i Danmark' fra Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP), som dokumenterer kvaliteten af behandlingen af atrieflimren på tværs af de danske regioner. Chunken indeholder to centrale elementer: (1) en statistisk forklaring af, hvordan 95 % konfidensintervaller (CI) anvendes til at vurdere, om en afdelings indikatorværdi afviger signifikant fra en national standard, og (2) en oversigt over manglende kommentarer fra alle fem regioner samt eKVIS til rapportens kvalitetsindikatorer — hvilket signalerer en bred konsensus eller manglende bemærkninger til den aktuelle udgave. Rapporten fungerer som et centralt værktøj i dansk sundhedsvæsenets kvalitetsstyringssystem."
 }

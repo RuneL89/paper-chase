@@ -4,25 +4,21 @@
       "name": "Akut Kirurgi Databasen",
       "type": "organization",
       "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Akut Kirurgi Databasen er den danske kvalitetsdatabase, der monitorerer og rapporterer på kirurgiske indikatorer for akut abdominal kirurgi på tværs af danske regioner og hospitaler.",
+      "folder": "entities/organizations/healthcare-registry",
+      "significance": "Akut Kirurgi Databasen er den centrale kvalitetsdatabase, der overvåger og rapporterer indikatorer for akut abdominal kirurgi i Danmark, og det er her, indikator 4 og 5 defineres, måles og vurderes på nationalt og regionalt niveau.",
       "mentions": [
         {
           "page": 16,
-          "context": "Akut Kirurgi Databasen, Endelig version til offentliggørelse 2024.26.02"
-        },
-        {
-          "page": 17,
-          "context": "Akut Kirurgi Databasen, Endelig version til offentliggørelse 2024.26.02"
+          "context": "Akut Kirurgi Databasen"
         }
       ]
     },
     {
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
-      "type": "organization",
+      "type": "program",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er det overordnede program under hvilket Akut Kirurgi Databasen opererer og kvalitetsindikatorer udvikles og monitoreres.",
+      "folder": "topics/healthcare-quality-initiatives",
+      "significance": "Dette program er den overordnede ramme, inden for hvilken Akut Kirurgi Databasen opererer, og det styrer udviklingen, implementeringen og evalueringen af kliniske kvalitetsindikatorer i de danske regioner.",
       "mentions": [
         {
           "page": 16,
@@ -31,818 +27,166 @@
       ]
     },
     {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau, hvor aggregerede resultater for alle regioner og hospitaler rapporteres for kvalitetsindikatorer.",
+      "name": "Indikator 4",
+      "type": "indicator",
+      "slug": "indikator-4",
+      "folder": "topics/healthcare-indicators",
+      "significance": "Indikator 4 måler andelen af patienter, der modtager præoperativ optimering eller går direkte til operation inden for 240 minutter efter ankomst, og er en central kvalitetsmåling for akut kirurgisk behandling i 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Danmark Nej 218 / 3.151 0 (0) 6,9 (6,1-7,9)"
-        },
-        {
-          "page": 17,
-          "context": "Danmark Nej 532 / 2.025 0 (0) 26,3 (24,4-28,2)"
+          "context": "Indikator 4: Præoperativ optimering eller direkte til operation"
         }
       ]
     },
     {
-      "name": "Region Hovedstaden",
-      "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Hovedstaden er en af fem danske regioner, der indberetter data til Akut Kirurgi Databasen med resultater for både regionalt niveau og individuelle hospitaler.",
+      "name": "Indikator 5",
+      "type": "indicator",
+      "slug": "indikator-5",
+      "folder": "topics/healthcare-indicators",
+      "significance": "Indikator 5 måler andelen af patienter, der opereres inden for seks timer efter ankomst til sygehus for dem, der opereres inden for 24 timer, og er introduceret som en ny kvalitetsindikator i rapporten for 2022/23.",
       "mentions": [
         {
           "page": 16,
-          "context": "Hovedstaden Nej 54 / 1.095 0 (0) 4,9 (3,7-6,4)"
-        },
-        {
-          "page": 17,
-          "context": "Hovedstaden Nej 215 / 731 0 (0) 29,4 (26,1-32,9)"
+          "context": "Indikator 5: Operation indenfor 6 timer"
         }
       ]
     },
     {
-      "name": "Region Sjælland",
-      "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland er en af fem danske regioner, der indberetter data til Akut Kirurgi Databasen med resultater for både regionalt niveau og individuelle hospitaler.",
+      "name": "SKS-koden NAAZ42",
+      "type": "code",
+      "slug": "sks-kode-naaz42",
+      "folder": "entities/codes/medical-coding",
+      "significance": "SKS-koden NAAZ42 med teksten 'Anæstesiologisk præoperativ optimering' er den specifikke kode, der skal anvendes til at registrere præoperativ optimering i LPR-systemet fra 1/10-2022, og dens korrekte brug er afgørende for validitet af Indikator 4.",
       "mentions": [
         {
           "page": 16,
-          "context": "Sjælland Nej 27 / 521 0 (0) 5,2 (3,4-7,5)"
-        },
-        {
-          "page": 17,
-          "context": "Sjælland Nej 73 / 319 0 (0) 22,9 (18,4-27,9)"
+          "context": "For at kunne trække data skal afdelingerne kode patienterne, der præoptimeres med SKS-koden NAAZ42, der har teksten ” Anæstesiologisk præoperativ optimering”."
         }
       ]
     },
     {
-      "name": "Region Syddanmark",
-      "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Syddanmark er en af fem danske regioner, der indberetter data til Akut Kirurgi Databasen med resultater for både regionalt niveau og individuelle hospitaler.",
+      "name": "SOR koder",
+      "type": "code",
+      "slug": "sor-koder",
+      "folder": "entities/codes/medical-coding",
+      "significance": "SOR-koder foreslås som en mere præcis alternativ metode til at identificere patienters ophold på intensiv-, intermediær- eller opvågningspladser inden operation, da de kan adskille sådanne pladser fra almindelige sengepladser.",
       "mentions": [
         {
           "page": 16,
-          "context": "Syddanmark Nej 20 / 583 0 (0) 3,4 (2,1-5,2)"
-        },
-        {
-          "page": 17,
-          "context": "Syddanmark Nej 73 / 353 0 (0) 20,7 (16,6-25,3)"
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "location",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Midtjylland er en af fem danske regioner, der indberetter data til Akut Kirurgi Databasen og havde blandt de højeste resultater for indikator 4 på 15,1 %.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Midtjylland Nej 103 / 682 0 (0) 15,1 (12,5-18,0)"
-        },
-        {
-          "page": 17,
-          "context": "Midtjylland Nej 134 / 465 0 (0) 28,8 (24,7-33,2)"
-        }
-      ]
-    },
-    {
-      "name": "Region Nordjylland",
-      "type": "location",
-      "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland er en af fem danske regioner, der indberetter data til Akut Kirurgi Databasen med resultater for både regionalt niveau og individuelle hospitaler.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Nordjylland Nej 14 / 270 0 (0) 5,2 (2,9-8,5)"
-        },
-        {
-          "page": 17,
-          "context": "Nordjylland Nej 37 / 157 0 (0) 23,6 (17,2-31,0)"
-        }
-      ]
-    },
-    {
-      "name": "Amager og Hvidovre Hospital",
-      "type": "organization",
-      "slug": "amager-og-hvidovre-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Amager og Hvidovre Hospital er et hospital under Region Hovedstaden, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Amager og Hvidovre Hospital Nej #/# 0 (0) 0,4 (0,0-2,2)"
-        },
-        {
-          "page": 17,
-          "context": "Amager og Hvidovre Hospital Nej 16 / 139 0 (0) 11,5 (6,7-18,0)"
-        }
-      ]
-    },
-    {
-      "name": "Bispebjerg og Frederiksberg Hospitaler",
-      "type": "organization",
-      "slug": "bispebjerg-og-frederiksberg-hospitaler",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bispebjerg og Frederiksberg Hospitaler er et hospital under Region Hovedstaden, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Bispebjerg og Frederiksberg Hospitaler Nej 13 / 231 0 (0) 5,6 (3,0-9,4)"
-        },
-        {
-          "page": 17,
-          "context": "Bispebjerg og Frederiksberg Hospitaler Nej 56 / 179 0 (0) 31,3 (24,6-38,6)"
-        }
-      ]
-    },
-    {
-      "name": "Bornholms Hospital",
-      "type": "organization",
-      "slug": "bornholms-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bornholms Hospital er et hospital under Region Hovedstaden, der indberetter data til Akut Kirurgi Databasen og havde blandt de højeste resultater for indikator 5 på 73,1 %.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Bornholms Hospital Nej 9 / 30 0 (0) 30,0 (14,7-49,4)"
-        },
-        {
-          "page": 17,
-          "context": "Bornholms Hospital Nej 19 / 26 0 (0) 73,1 (52,2-88,4)"
-        }
-      ]
-    },
-    {
-      "name": "Herlev og Gentofte Hospital",
-      "type": "organization",
-      "slug": "herlev-og-gentofte-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Herlev og Gentofte Hospital er et hospital under Region Hovedstaden, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Herlev og Gentofte Hospital Nej 19 / 306 0 (0) 6,2 (3,8-9,5)"
-        },
-        {
-          "page": 17,
-          "context": "Herlev og Gentofte Hospital Nej 73 / 214 0 (0) 34,1 (27,8-40,9)"
-        }
-      ]
-    },
-    {
-      "name": "Hospitalerne i Nordsjælland",
-      "type": "organization",
-      "slug": "hospitalerne-i-nordsjaelland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalerne i Nordsjælland er et hospital under Region Hovedstaden, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Hospitalerne i Nordsjælland Nej 10 / 214 0 (0) 4,7 (2,3-8,4)"
-        }
-      ]
-    },
-    {
-      "name": "Rigshospitalet",
-      "type": "organization",
-      "slug": "rigshospitalet",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet er et hospital under Region Hovedstaden, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Rigshospitalet Nej #/# 0 (0) 3,4 (0,4-11,9)"
-        }
-      ]
-    },
-    {
-      "name": "Holbæk Sygehus",
-      "type": "organization",
-      "slug": "holbaek-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk Sygehus er et hospital under Region Sjælland, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Holbæk Sygehus Nej 14 / 117 0 (0) 12,0 (6,7-19,3)"
-        }
-      ]
-    },
-    {
-      "name": "Nykøbing F Sygehus",
-      "type": "organization",
-      "slug": "nykoebing-f-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Nykøbing F Sygehus er et hospital under Region Sjælland, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Nykøbing F Sygehus Nej #/# 0 (0) 50,0 (1,3-98,7)"
-        }
-      ]
-    },
-    {
-      "name": "Næstved, Slagelse og Ringsted sygehuse",
-      "type": "organization",
-      "slug": "naestved-slagelse-ringsted-sygehuse",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Næstved, Slagelse og Ringsted sygehuse er hospitaler under Region Sjælland, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Næstved, Slagelse og Ringsted sygehuse Nej 7 / 192 0 (0) 3,6 (1,5-7,4)"
-        }
-      ]
-    },
-    {
-      "name": "Sjællands Universitetshospital",
-      "type": "organization",
-      "slug": "sjaellands-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sjællands Universitetshospital er et hospital under Region Sjælland, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Sjællands Universitetshospital Nej 5 / 210 0 (0) 2,4 (0,8-5,5)"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg Sygehus Grindsted Sygehus",
-      "type": "organization",
-      "slug": "esbjerg-sygehus-grindsted-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Esbjerg Sygehus Grindsted Sygehus er hospitaler under Region Syddanmark, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Esbjerg Sygehus Grindsted Sygehus Nej #/# 0 (0) 0,8 (0,0-4,2)"
-        }
-      ]
-    },
-    {
-      "name": "Odense Universitetshospital - Svendborg",
-      "type": "organization",
-      "slug": "odense-universitetshospital-svendborg",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Odense Universitetshospital - Svendborg er et hospital under Region Syddanmark, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Odense Universitetshospital - Svendborg Nej 8 / 228 0 (0) 3,5 (1,5-6,8)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Lillebælt",
-      "type": "organization",
-      "slug": "sygehus-lillebaelt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Lillebælt er et hospital under Region Syddanmark, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Sygehus Lillebælt Nej #/# 0 (0) 1,0 (0,0-5,5)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Sønderjylland",
-      "type": "organization",
-      "slug": "sygehus-soenderjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Sønderjylland er et hospital under Region Syddanmark, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Sygehus Sønderjylland Nej 10 / 126 0 (0) 7,9 (3,9-14,1)"
-        }
-      ]
-    },
-    {
-      "name": "Aarhus Universitetshospital",
-      "type": "organization",
-      "slug": "aarhus-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Universitetshospital er et hospital under Region Midtjylland, der indberetter data til Akut Kirurgi Databasen og havde blandt de højeste resultater for indikator 4 på 26,6 %.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Aarhus Universitetshospital Nej 37 / 139 0 (0) 26,6 (19,5-34,8)"
-        }
-      ]
-    },
-    {
-      "name": "Hospitalsenhed Midt",
-      "type": "organization",
-      "slug": "hospitalsenhed-midt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalsenhed Midt er et hospital under Region Midtjylland, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Hospitalsenhed Midt Nej 25 / 159 0 (0) 15,7 (10,4-22,3)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Gødstrup",
-      "type": "organization",
-      "slug": "regionshospitalet-goedstrup",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Gødstrup er et hospital under Region Midtjylland, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Regionshospitalet Gødstrup Nej 5 / 161 0 (0) 3,1 (1,0-7,1)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Horsens",
-      "type": "organization",
-      "slug": "regionshospitalet-horsens",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Horsens er et hospital under Region Midtjylland, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Regionshospitalet Horsens Nej 7 / 95 0 (0) 7,4 (3,0-14,6)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Randers",
-      "type": "organization",
-      "slug": "regionshospitalet-randers",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Randers er et hospital under Region Midtjylland, der indberetter data til Akut Kirurgi Databasen og havde blandt de højeste resultater for indikator 4 på 22,7 %.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Regionshospitalet Randers Nej 29 / 128 0 (0) 22,7 (15,7-30,9)"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Universitetshospital",
-      "type": "organization",
-      "slug": "aalborg-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital er et hospital under Region Nordjylland, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Aalborg Universitetshospital Nej 6 / 174 0 (0) 3,4 (1,3-7,4)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospital Nordjylland",
-      "type": "organization",
-      "slug": "regionshospital-nordjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospital Nordjylland er et hospital under Region Nordjylland, der indberetter data til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 16,
-          "context": "Regionshospital Nordjylland Nej 8 / 96 0 (0) 8,3 (3,7-15,8)"
+          "context": "Vi anbefaler at man skifter til SOR koder for at afgøre, om patienten har opholdt sig på en intensiv/intermediær eller opvågningsplads inden operation."
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "amager-og-hvidovre-hospital",
-      "predicate": "is-part-of",
-      "object": "region-hovedstaden",
-      "evidence": "Amager og Hvidovre Hospital er opført under Region Hovedstaden i tabellen",
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-managed-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Akut Kirurgi Databasen er en del af Regionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 16
     },
     {
-      "subject": "bispebjerg-og-frederiksberg-hospitaler",
-      "predicate": "is-part-of",
-      "object": "region-hovedstaden",
-      "evidence": "Bispebjerg og Frederiksberg Hospitaler er opført under Region Hovedstaden i tabellen",
+      "subject": "indikator-4",
+      "predicate": "is-coded-by",
+      "object": "sks-kode-naaz42",
+      "evidence": "For at kunne trække data skal afdelingerne kode patienterne, der præoptimeres med SKS-koden NAAZ42",
       "page": 16
     },
     {
-      "subject": "bornholms-hospital",
-      "predicate": "is-part-of",
-      "object": "region-hovedstaden",
-      "evidence": "Bornholms Hospital er opført under Region Hovedstaden i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "herlev-og-gentofte-hospital",
-      "predicate": "is-part-of",
-      "object": "region-hovedstaden",
-      "evidence": "Herlev og Gentofte Hospital er opført under Region Hovedstaden i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "hospitalerne-i-nordsjaelland",
-      "predicate": "is-part-of",
-      "object": "region-hovedstaden",
-      "evidence": "Hospitalerne i Nordsjælland er opført under Region Hovedstaden i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "rigshospitalet",
-      "predicate": "is-part-of",
-      "object": "region-hovedstaden",
-      "evidence": "Rigshospitalet er opført under Region Hovedstaden i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "holbaek-sygehus",
-      "predicate": "is-part-of",
-      "object": "region-sjaelland",
-      "evidence": "Holbæk Sygehus er opført under Region Sjælland i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "nykoebing-f-sygehus",
-      "predicate": "is-part-of",
-      "object": "region-sjaelland",
-      "evidence": "Nykøbing F Sygehus er opført under Region Sjælland i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "naestved-slagelse-ringsted-sygehuse",
-      "predicate": "is-part-of",
-      "object": "region-sjaelland",
-      "evidence": "Næstved, Slagelse og Ringsted sygehuse er opført under Region Sjælland i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "sjaellands-universitetshospital",
-      "predicate": "is-part-of",
-      "object": "region-sjaelland",
-      "evidence": "Sjællands Universitetshospital er opført under Region Sjælland i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "esbjerg-sygehus-grindsted-sygehus",
-      "predicate": "is-part-of",
-      "object": "region-syddanmark",
-      "evidence": "Esbjerg Sygehus Grindsted Sygehus er opført under Region Syddanmark i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "odense-universitetshospital-svendborg",
-      "predicate": "is-part-of",
-      "object": "region-syddanmark",
-      "evidence": "Odense Universitetshospital - Svendborg er opført under Region Syddanmark i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "sygehus-lillebaelt",
-      "predicate": "is-part-of",
-      "object": "region-syddanmark",
-      "evidence": "Sygehus Lillebælt er opført under Region Syddanmark i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "sygehus-soenderjylland",
-      "predicate": "is-part-of",
-      "object": "region-syddanmark",
-      "evidence": "Sygehus Sønderjylland er opført under Region Syddanmark i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "aarhus-universitetshospital",
-      "predicate": "is-part-of",
-      "object": "region-midtjylland",
-      "evidence": "Aarhus Universitetshospital er opført under Region Midtjylland i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "hospitalsenhed-midt",
-      "predicate": "is-part-of",
-      "object": "region-midtjylland",
-      "evidence": "Hospitalsenhed Midt er opført under Region Midtjylland i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "regionshospitalet-goedstrup",
-      "predicate": "is-part-of",
-      "object": "region-midtjylland",
-      "evidence": "Regionshospitalet Gødstrup er opført under Region Midtjylland i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "regionshospitalet-horsens",
-      "predicate": "is-part-of",
-      "object": "region-midtjylland",
-      "evidence": "Regionshospitalet Horsens er opført under Region Midtjylland i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "regionshospitalet-randers",
-      "predicate": "is-part-of",
-      "object": "region-midtjylland",
-      "evidence": "Regionshospitalet Randers er opført under Region Midtjylland i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "aalborg-universitetshospital",
-      "predicate": "is-part-of",
-      "object": "region-nordjylland",
-      "evidence": "Aalborg Universitetshospital er opført under Region Nordjylland i tabellen",
-      "page": 16
-    },
-    {
-      "subject": "regionshospital-nordjylland",
-      "predicate": "is-part-of",
-      "object": "region-nordjylland",
-      "evidence": "Regionshospital Nordjylland er opført under Region Nordjylland i tabellen",
+      "subject": "indikator-4",
+      "predicate": "is-recommended-to-be-measured-via",
+      "object": "sor-koder",
+      "evidence": "Vi anbefaler at man skifter til SOR koder for at afgøre, om patienten har opholdt sig på en intensiv/intermediær eller opvågningsplads inden operation",
       "page": 16
     }
   ],
   "claims": [
     {
-      "text": "SKS-koden NAAZ42 Præoperativ optimering er oprettet pr. 1/10-2022 og kan således indberettes fra dette tidspunkt [^src1]",
+      "text": "Indikator 4 er opgjort for første gang i indeværende årsrapport [^src1]",
       "type": "procedural",
-      "entities": [],
-      "page": 16
-    },
-    {
-      "text": "Standarden for indikator 4 er ≥ 90 % [^src1]",
-      "type": "standard",
-      "entities": [],
-      "page": 16
-    },
-    {
-      "text": "I alt 3.151 patienter indgik i nævneren for indikator 4, og heraf fik 218 enten præoperativ optimering, eller gik direkte til operation, svarende til en andel på 6,9 % (95 % CI 6,1-7,9) nationalt [^src1]",
-      "type": "statistical",
       "entities": [
-        "danmark"
+        "indikator-4"
       ],
       "page": 16
     },
     {
-      "text": "Regionalt varierede resultaterne for indikator 4 fra 3,0 % i Region Syddanmark til 15,1 % i Region Midtjylland [^src1]",
+      "text": "I alt 3.151 patienter indgik i nævneren for Indikator 4, og heraf fik 218 enten præoperativ optimering eller gik direkte til operation [^src1]",
       "type": "statistical",
       "entities": [
-        "region-syddanmark",
-        "region-midtjylland"
+        "indikator-4"
       ],
       "page": 16
     },
     {
-      "text": "Ingen af de indberettende enheder opfyldte standarden for indikator 4 [^src1]",
+      "text": "Den nationale andel for Indikator 4 er 6,9 % (95 % CI 6,1–7,9), hvilket ligger langt under standarden på ≥ 90 % [^src1]",
       "type": "statistical",
-      "entities": [],
+      "entities": [
+        "indikator-4"
+      ],
       "page": 16
     },
     {
-      "text": "Et mindre retrospektivt studie fra 1999 viser at elektive patienter der præ-operativt bliver optimeret på intensiv med normalisering af hæmodynamiske problemstillinger klarer sig bedre post-operativt end dem der ikke bliver normaliseret [^src1]",
-      "type": "clinical-evidence",
-      "entities": [],
+      "text": "Standarden for Indikator 5 er ≥ 80 % [^src1]",
+      "type": "regulatory",
+      "entities": [
+        "indikator-5"
+      ],
       "page": 16
     },
     {
-      "text": "I det mortalitets-sænkende AHA-studie, blev patienterne optimeret på IMA / ITA / eller på operationsgangen forud for operation umiddelbart efter det var besluttet at patienten skulle opereres [^src1]",
-      "type": "clinical-evidence",
-      "entities": [],
-      "page": 16
-    },
-    {
-      "text": "Det anbefales at patienter diagnosticeret med operationskrævende ileus eller perforeret hulorgan modtager anæstesiologisk præ-operativ optimering på IMA / ITA eller operationsgangen for at sikre den optimale behandling og observation [^src1]",
-      "type": "clinical-recommendation",
-      "entities": [],
-      "page": 16
-    },
-    {
-      "text": "Standarden for indikator 5 er ≥ 80 % [^src1]",
-      "type": "standard",
-      "entities": [],
-      "page": 17
-    },
-    {
-      "text": "I alt 2.025 patienter indgik i nævneren for indikator 5, og heraf blev 532 opereret indenfor seks timer efter ankomst til sygehus, svarende til en andel på 26,3 % (95 % CI 24,4-28,2) nationalt [^src1]",
-      "type": "statistical",
+      "text": "Indikator 5 er defineret som andelen af patienter, der opereres inden for seks timer efter ankomst til sygehus for patienter, der er opereret inden for 24 timer efter ankomst til sygehus [^src1]",
+      "type": "definitional",
       "entities": [
-        "danmark"
+        "indikator-5"
       ],
-      "page": 17
-    },
-    {
-      "text": "Region Hovedstaden havde 29,4 % for indikator 5 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Region Sjælland havde 22,9 % for indikator 5 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Region Syddanmark havde 20,7 % for indikator 5 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "region-syddanmark"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Region Midtjylland havde 28,8 % for indikator 5 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Region Nordjylland havde 23,6 % for indikator 5 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "region-nordjylland"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Bornholms Hospital havde 73,1 % for indikator 5, hvilket var blandt de højeste resultater [^src1]",
-      "type": "statistical",
-      "entities": [
-        "bornholms-hospital"
-      ],
-      "page": 17
-    },
-    {
-      "text": "Herlev og Gentofte Hospital havde 34,1 % for indikator 5 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "herlev-og-gentofte-hospital"
-      ],
-      "page": 17
-    },
-    {
-      "text": "For indikator 4 blev 53 patienter ekskluderet på grund af ugyldigt CPR-nummer [^src1]",
-      "type": "exclusion-criteria",
-      "entities": [],
-      "page": 16
-    },
-    {
-      "text": "For indikator 4 blev 170 patienter ekskluderet fordi patienten er under 18 år [^src1]",
-      "type": "exclusion-criteria",
-      "entities": [],
-      "page": 16
-    },
-    {
-      "text": "For indikator 4 blev 6.190 patienter ekskluderet fordi patienten er ikke opereret [^src1]",
-      "type": "exclusion-criteria",
-      "entities": [],
-      "page": 16
-    },
-    {
-      "text": "For indikator 4 blev 470 patienter ekskluderet fordi operationen er ikke den første operation i hospitalsopholdet [^src1]",
-      "type": "exclusion-criteria",
-      "entities": [],
       "page": 16
     }
   ],
   "timeline": [
     {
-      "date": "1999",
-      "event": "Et mindre retrospektivt studie blev udført, der viste at elektive patienter der præ-operativt bliver optimeret på intensiv med normalisering af hæmodynamiske problemstillinger klarer sig bedre post-operativt",
-      "entities": []
-    },
-    {
-      "date": "2020-09-01",
-      "event": "Rapporteringsperiode for indikator 4 og 5 begyndte (01.09.2020 for tidligere år 2020/21)",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ]
-    },
-    {
-      "date": "2021-09-01",
-      "event": "Rapporteringsperiode for indikator 4 og 5 (01.09.2021 for tidligere år 2021/22)",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ]
-    },
-    {
       "date": "2022-10-01",
-      "event": "SKS-koden NAAZ42 Præoperativ optimering blev oprettet og kunne således indberettes fra dette tidspunkt",
-      "entities": []
+      "event": "SKS-koden NAAZ42 for præoperativ optimering blev oprettet og kan indberettes fra dette tidspunkt",
+      "entities": [
+        "sks-kode-naaz42",
+        "indikator-4"
+      ]
     },
     {
       "date": "2022-09-01",
-      "event": "Rapporteringsperiode for indikator 4 og 5 begyndte (01.09.2022 - 31.08.2023 for aktuelle år)",
+      "event": "Måleperioden for Indikator 4 og 5 starter den 1. september 2022",
       "entities": [
-        "akut-kirurgi-databasen"
-      ]
-    },
-    {
-      "date": "2023-08-31",
-      "event": "Rapporteringsperiode for indikator 4 og 5 endte (01.09.2022 - 31.08.2023 for aktuelle år)",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ]
-    },
-    {
-      "date": "2024-02-26",
-      "event": "Akut Kirurgi Databasen udgav endelig version til offentliggørelse",
-      "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-4",
+        "indikator-5"
       ]
     }
   ],
-  "context": "Dette dokument er en del af Akut Kirurgi Databasens årsrapport for 2023, som er en dansk kvalitetsdatabase under Regionernes Kliniske Kvalitetsudviklingsprogram. Rapporten præsenterer resultater for kvalitetsindikatorer relateret til akut abdominal kirurgi på tværs af fem danske regioner og deres hospitaler. Dokumentet fokuserer specifikt på indikator 4 (Præoperativ optimering eller direkte til operation) og indikator 5 (Operation indenfor 6 timer), med detaljerede tabeller over resultater på både regionalt og hospitalniveau, samt diskussion af klinisk evidens og anbefalinger for forbedring af patientbehandling.",
   "tables": [
     {
       "subject": "indikator-4",
-      "title": "Indikator 4: Præoperativ optimering eller direkte til operation",
+      "title": "Standard Uoplyst Aktuelle år Tidligere år",
       "page": 16,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "standardopfyldelse, tæller/nævner, uoplyste samt andel med 95% CI pr. opgørelsesår",
+      "rowDimension": "region",
+      "colDimension": "result per year",
       "entities": [
-        "indikator-4",
-        "danmark",
-        "region-hovedstaden",
-        "region-sjaelland",
-        "region-syddanmark",
-        "region-midtjylland",
-        "region-nordjylland",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "holbaek-sygehus",
-        "nykoebing-f-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "aalborg-universitetshospital",
-        "aalborg-universitetshospital-thisted",
-        "regionshospital-nordjylland"
+        "indikator-4"
       ],
-      "markdown": "| Enhed | Standard ≥ 90% opfyldt | Tæller/nævner | Uoplyst antal (%) | Andel 01.09.2022 - 31.08.2023 | 95% CI | Andel 2021/22 | Andel 2020/21 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 218 / 3.151 | 0 (0) | 6,9 | (6,1-7,9) | 3,8 | 4,0 |\n| Hovedstaden | Nej | 54 / 1.095 | 0 (0) | 4,9 | (3,7-6,4) | 4,3 | 4,2 |\n| Sjælland | Nej | 27 / 521 | 0 (0) | 5,2 | (3,4-7,5) | 1,9 | 2,4 |\n| Syddanmark | Nej | 20 / 583 | 0 (0) | 3,4 | (2,1-5,2) | 3,0 | 3,6 |\n| Midtjylland | Nej | 103 / 682 | 0 (0) | 15,1 | (12,5-18,0) | 5,4 | 5,3 |\n| Nordjylland | Nej | 14 / 270 | 0 (0) | 5,2 | (2,9-8,5) | 2,3 | 3,4 |\n| Hovedstaden | Nej | 54 / 1.095 | 0 (0) | 4,9 | (3,7-6,4) | 4,3 | 4,2 |\n| Amager og Hvidovre Hospital | Nej | #/# | 0 (0) | 0,4 | (0,0-2,2) | 2,3 | 1,1 |\n| Bispebjerg og Frederiksberg Hospitaler | Nej | 13 / 231 | 0 (0) | 5,6 | (3,0-9,4) | 3,3 | 2,4 |\n| Bornholms Hospital | Nej | 9 / 30 | 0 (0) | 30,0 | (14,7-49,4) | 8,7 | 20,7 |\n| Herlev og Gentofte Hospital | Nej | 19 / 306 | 0 (0) | 6,2 | (3,8-9,5) | 7,4 | 9,7 |\n| Hospitalerne i Nordsjælland | Nej | 10 / 214 | 0 (0) | 4,7 | (2,3-8,4) | 4,0 | 0,5 |\n| Rigshospitalet | Nej | #/# | 0 (0) | 3,4 | (0,4-11,9) | 3,6 | 5,8 |\n| Sjælland | Nej | 27 / 521 | 0 (0) | 5,2 | (3,4-7,5) | 1,9 | 2,4 |\n| Holbæk Sygehus | Nej | 14 / 117 | 0 (0) | 12,0 | (6,7-19,3) | 1,0 | 4,7 |\n| Nykøbing F Sygehus | Nej | #/# | 0 (0) | 50,0 | (1,3-98,7) | 0,0 | 0,0 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 7 / 192 | 0 (0) | 3,6 | (1,5-7,4) | 4,3 | 2,7 |\n| Sjællands Universitetshospital | Nej | 5 / 210 | 0 (0) | 2,4 | (0,8-5,5) | 0,4 | 1,2 |\n| Syddanmark | Nej | 20 / 583 | 0 (0) | 3,4 | (2,1-5,2) | 3,0 | 3,6 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | #/# | 0 (0) | 0,8 | (0,0-4,2) | 0,8 | 0,0 |\n| Odense Universitetshospital - Svendborg | Nej | 8 / 228 | 0 (0) | 3,5 | (1,5-6,8) | 1,7 | 3,5 |\n| Sygehus Lillebælt | Nej | #/# | 0 (0) | 1,0 | (0,0-5,5) | 4,4 | 5,5 |\n| Sygehus Sønderjylland | Nej | 10 / 126 | 0 (0) | 7,9 | (3,9-14,1) | 7,1 | 6,4 |\n| Midtjylland | Nej | 103 / 682 | 0 (0) | 15,1 | (12,5-18,0) | 5,4 | 5,3 |\n| Aarhus Universitetshospital | Nej | 37 / 139 | 0 (0) | 26,6 | (19,5-34,8) | 4,1 | 5,9 |\n| Hospitalsenhed Midt | Nej | 25 / 159 | 0 (0) | 15,7 | (10,4-22,3) | 7,7 | 8,5 |\n| Regionshospitalet Gødstrup | Nej | 5 / 161 | 0 (0) | 3,1 | (1,0-7,1) | 3,9 | 3,1 |\n| Regionshospitalet Horsens | Nej | 7 / 95 | 0 (0) | 7,4 | (3,0-14,6) | 1,8 | 0,8 |\n| Regionshospitalet Randers | Nej | 29 / 128 | 0 (0) | 22,7 | (15,7-30,9) | 10,5 | 8,5 |\n| Nordjylland | Nej | 14 / 270 | 0 (0) | 5,2 | (2,9-8,5) | 2,3 | 3,4 |\n| Aalborg Universitetshospital | Nej | 6 / 174 | 0 (0) | 3,4 | (1,3-7,4) | 2,9 | 1,7 |\n| Aalborg Universitetshospital, Thisted |  |  |  |  |  |  | 0,0 |\n| Regionshospital Nordjylland | Nej | 8 / 96 | 0 (0) | 8,3 | (3,7-15,8) | 1,3 | 5,8 |",
-      "summary": "Tabellen sammenligner andelen af patienter med præoperativ optimering eller direkte til operation (indikator 4) på tværs af landet, regioner og hospitaler for 2022/23 og de to foregående år; ingen enheder opfylder standarden på ≥ 90 %, og det nationale resultat er 6,9 % med Region Midtjylland højest (15,1 %)."
+      "markdown": "| Region | Standard | Uoplyst | Aktuelle år Tæller/ antal | 01.09.2022 - 31.08.2023 opfyldt nævner (%) | Andel 95% CI | Andel 2021/22 | Andel 2020/21 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 218 / 3.151 | 0 (0) | 6,9 (6,1-7,9) | 3,8 | 4,0 |\n| Hovedstaden | Nej | 54 / 1.095 | 0 (0) | 4,9 (3,7-6,4) | 4,3 | 4,2 |\n| Sjælland | Nej | 27 / 521 | 0 (0) | 5,2 (3,4-7,5) | 1,9 | 2,4 |\n| Syddanmark | Nej | 20 / 583 | 0 (0) | 3,4 (2,1-5,2) | 3,0 | 3,6 |\n| Midtjylland | Nej | 103 / 682 | 0 (0) | 15,1 (12,5-18,0) | 5,4 | 5,3 |\n| Nordjylland | Nej | 14 / 270 | 0 (0) | 5,2 (2,9-8,5) | 2,3 | 3,4 |",
+      "summary": "Tabellen sammenligner resultater for Indikator 4 på regionalt niveau for 2022/23 samt tidligere år, og viser en stor regional variation i opfyldelse, hvor Midtjylland har den højeste andel (15,1 %) og Syddanmark den laveste (3,4 %), alle langt under standarden på ≥ 90 %."
     },
     {
-      "subject": "indikator-4",
-      "title": "Antal Årsag",
-      "page": 17,
-      "rowDimension": "eksklusionsårsager",
-      "colDimension": "antal patienter",
+      "subject": "indikator-5",
+      "title": "Standard Uoplyst Aktuelle år Tidligere år",
+      "page": 16,
+      "rowDimension": "region",
+      "colDimension": "result per year",
       "entities": [
-        "indikator-4",
-        "cpr-nummer"
+        "indikator-5"
       ],
-      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 53 | Ugyldigt CPRnummer. |\n| 170 | Patienten er under 18 år. |\n| 6.190 | Patienten er ikke opereret. |\n| 470 | Operationen er ikke den første operation i hospitalsopholdet. |",
-      "summary": "Tabellen viser årsagerne til eksklusion fra indikator 4-nævneren, hvor 'Patienten er ikke opereret' er den klart hyppigste årsag med 6.190 patienter."
-    },
-    {
-      "subject": "operation-indenfor-6-timer",
-      "title": "Indikator 5: Operation indenfor 6 timer",
-      "page": 20,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "standardopfyldelse, tæller/nævner, uoplyste samt andel med 95% CI pr. opgørelsesår",
-      "entities": [
-        "operation-indenfor-6-timer",
-        "danmark",
-        "region-hovedstaden",
-        "region-sjaelland",
-        "region-syddanmark",
-        "region-midtjylland",
-        "region-nordjylland",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital"
-      ],
-      "markdown": "| Enhed | Standard ≥ 80% opfyldt | Tæller/nævner | Uoplyst antal (%) | Andel 01.09.2022 - 31.08.2023 | 95% CI | Andel 2021/22 | Andel 2020/21 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 532 / 2.025 | 0 (0) | 26,3 | (24,4-28,2) | 22,0 | 24,0 |\n| Hovedstaden | Nej | 215 / 731 | 0 (0) | 29,4 | (26,1-32,9) | 26,2 | 26,6 |\n| Sjælland | Nej | 73 / 319 | 0 (0) | 22,9 | (18,4-27,9) | 16,0 | 25,0 |\n| Syddanmark | Nej | 73 / 353 | 0 (0) | 20,7 | (16,6-25,3) | 18,8 | 18,4 |\n| Midtjylland | Nej | 134 / 465 | 0 (0) | 28,8 | (24,7-33,2) | 24,2 | 24,6 |\n| Nordjylland | Nej | 37 / 157 | 0 (0) | 23,6 | (17,2-31,0) | 16,8 | 17,9 |\n| Hovedstaden | Nej | 215 / 731 | 0 (0) | 29,4 | (26,1-32,9) | 26,2 | 26,6 |\n| Amager og Hvidovre Hospital | Nej | 16 / 139 | 0 (0) | 11,5 | (6,7-18,0) | 19,6 | 16,6 |\n| Bispebjerg og Frederiksberg Hospitaler | Nej | 56 / 179 | 0 (0) | 31,3 | (24,6-38,6) | 23,5 | 27,3 |\n| Bornholms Hospital | Nej | 19 / 26 | 0 (0) | 73,1 | (52,2-88,4) | 61,1 | 57,1 |\n| Herlev og Gentofte Hospital | Nej | 73 / 214 | 0 (0) | 34,1 | (27,8-40,9) | 34,6 | 42,8 |",
-      "summary": "Tabellen sammenligner andelen af patienter opereret indenfor seks timer (indikator 5) på tværs af landet, regioner og de første hospitaler i Region Hovedstaden; nationalt når kun 26,3 % op mod en standard på ≥ 80 %, og Bornholms Hospital ligger højest blandt de viste enheder med 73,1 %."
+      "markdown": "| Region | Standard | Uoplyst | Aktuelle år Tæller/ antal | 01.09.2022 - 31.08.2023 opfyldt nævner (%) | Andel 95% CI | Andel 2021/22 | Andel 2020/21 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 532 / 2.025 | 0 (0) | 26,3 (24,4-28,2) | 22,0 | 24,0 |\n| Hovedstaden | Nej | 215 / 731 | 0 (0) | 29,4 (26,1-32,9) | 26,2 | 26,6 |\n| Sjælland | Nej | 73 / 319 | 0 (0) | 22,9 (18,4-27,9) | 16,0 | 25,0 |\n| Syddanmark | Nej | 73 / 353 | 0 (0) | 20,7 (16,6-25,3) | 18,8 | 18,4 |\n| Midtjylland | Nej | 134 / 465 | 0 (0) | 28,8 (24,7-33,2) | 24,2 | 24,6 |\n| Nordjylland | Nej | 37 / 157 | 0 (0) | 23,6 (17,2-31,0) | 16,8 | 17,9 |",
+      "summary": "Tabellen sammenligner resultater for Indikator 5 på regionalt niveau for 2022/23 samt tidligere år, og viser, at ingen region opfylder standarden på ≥ 80 %, med en national andel på 26,3 % og regional variation fra 20,7 % i Syddanmark til 29,4 % i Hovedstaden."
     }
-  ]
+  ],
+  "context": "Dette dokumentchunk er en del af den endelige version af Akut Kirurgi Databasen fra februar 2024, der dækker måleperioden 1. september 2022 til 31. august 2023. Den fokuserer på to nye kliniske kvalitetsindikatorer — Indikator 4 (præoperativ optimering eller direkte til operation inden for 240 minutter) og Indikator 5 (operation inden for seks timer) — og præsenterer deres første nationale og regionale resultater, definitioner, kodningskrav og kritiske vurderinger. Baggrunden er et ønske om at forbedre behandlingen af akutte abdominale kirurgiske patienter, især ved at reducere ventetider og sikre tidlig hæmodynamisk stabilisering, og rapporten understreger både manglende kodningssikkerhed og behov for metodisk justering af målinger."
 }

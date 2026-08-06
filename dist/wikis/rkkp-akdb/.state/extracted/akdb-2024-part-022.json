@@ -3,30 +3,82 @@
     {
       "name": "RHN",
       "type": "organization",
-      "slug": "regionshospital-nordjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "RHN stiller spørgsmål om indikatorrelevans og eksklusionskriterier for AHA-patienter og præoperativ optimering.",
+      "slug": "rhn",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "RHN (Region Hovedstaden) er en regional sundhedsmyndighed, der aktuelt stiller spørgsmål og kræver afklaring om anvendelsen af indikator 3 og eksklusionskriterier i forbindelse med Akut Kirurgi Databasen, hvilket påvirker implementeringen og tolkningen af kvalitetsmålene.",
       "mentions": [
         {
           "page": 106,
-          "context": "RHN tænker umiddelbart, at denne indikator er mest relevant for 4X patienter"
+          "context": "patienter? RHN tænker umiddelbart, at denne indikator er mest relevant for 4X patienter."
         },
         {
           "page": 106,
-          "context": "RHN har behov for en afklaring"
+          "context": "Vedr. indikator 3:\nRHN har behov for en afklaring."
         }
       ]
     },
     {
-      "name": "AHA patient",
-      "type": "topic",
-      "slug": "aha-patient",
-      "folder": "topics/clinical-concepts",
-      "significance": "AHA-patienter er centrale for indikatorevaluering, især vedrørende antibiotikabehandling og præoperativ optimering.",
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske database, som dette dokumentchunk handler om, og som RHN stiller tekniske og kliniske spørgsmål til vedrørende indikatordefinitioner og kodningspraksis.",
       "mentions": [
         {
           "page": 106,
-          "context": "hvorfor det så bliver svært at opfylde kriteriet med antibiotika indenfor tre timer efter ankomst til sygehus"
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "indikator 3",
+      "type": "indicator",
+      "slug": "indikator-3",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 3 er en specifik kvalitetsindikator i Akut Kirurgi Databasen, som RHN anmoder om afklaring af, især vedrørende brugen af procedurekoden NAAZ42 i forbindelse med præoptimering af akut kirurgiske patienter.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Vedr. indikator 3:"
+        }
+      ]
+    },
+    {
+      "name": "NAAZ42",
+      "type": "code",
+      "slug": "sks-kode-naaz42",
+      "folder": "entities/codes/healthcare-coding",
+      "significance": "Sks-kode NAZ42 er en specifik procedurekode fra Sundhedsvæsenets Organisationsregister (SOR), som RHN spørger om anvendelsesbetingelserne for i forbindelse med præoptimering af akut kirurgiske patienter ift. indikator 3.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Må anæstesiologen så ikke anvende procedurekoden NAAZ42 eller må den kun anvendes, hvis patienten præoptimeres enten på IMA eller ITA-afsnit?"
+        }
+      ]
+    },
+    {
+      "name": "IMA",
+      "type": "location",
+      "slug": "ima",
+      "folder": "entities/locations/national",
+      "significance": "IMA henviser til Intensiv Medicinsk Afdeling, og RHN stiller spørgsmål om, hvorvidt SOR-kode NAAZ42 kun må anvendes, når præoptimering sker på IMA eller ITA-afsnit — hvilket indikerer en institutionel kodeanvendelsespolitik knyttet til afdelingsstruktur.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Må anæstesiologen så ikke anvende procedurekoden NAAZ42 eller må den kun anvendes, hvis patienten præoptimeres enten på IMA eller ITA-afsnit?"
+        }
+      ]
+    },
+    {
+      "name": "ITA-afsnit",
+      "type": "location",
+      "slug": "ita-afsnit",
+      "folder": "entities/locations/national",
+      "significance": "ITA-afsnit henviser til Intensiv Terapeutisk Afdeling eller et tilsvarende specialiseret afdelingsområde, og RHN’s spørgsmål om begrænsning af NAAZ42-anvendelse til disse afdelinger understreger betydningen af lokalisering for korrekt kodning i forbindelse med indikator 3.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Må anæstesiologen så ikke anvende procedurekoden NAAZ42 eller må den kun anvendes, hvis patienten præoptimeres enten på IMA eller ITA-afsnit?"
         }
       ]
     },
@@ -35,100 +87,99 @@
       "type": "person",
       "slug": "anaestesiolog",
       "folder": "entities/people/healthcare-professionals",
-      "significance": "Anæstesiologer udfører præoperativ optimering og anvender procedurekoder, hvilket er genstand for afklaring vedrørende indikator 3.",
+      "significance": "En anæstesiolog er den fagligt kompetente læge, hvis rolle i præoptimering af akut kirurgiske patienter er centralt for RHN’s afklaringsbehov vedrørende gyldig anvendelse af SOR-kode NAAZ42 og dermed opfyldelse af indikator 3.",
       "mentions": [
         {
-          "page": 107,
-          "context": "Hvis patienten køres på OP og præoptimeres af en anæstesiolog inden selve operationen"
-        }
-      ]
-    },
-    {
-      "name": "NAAZ42",
-      "type": "topic",
-      "slug": "naaz42-procedurekode",
-      "folder": "topics/clinical-practice",
-      "significance": "NAAZ42 er en procedurekode for præoperativ optimering, hvis anvendelse skal afklares afhængigt af hvor patienten præoptimeres.",
-      "mentions": [
-        {
-          "page": 107,
-          "context": "Må anæstesiologen så ikke anvende procedurekoden NAAZ42 eller må den kun anvendes, hvis patienten præoptimeres enten på IMA eller ITA-afsnit?"
-        }
-      ]
-    },
-    {
-      "name": "IMA",
-      "type": "topic",
-      "slug": "ima-afsnit",
-      "folder": "topics/clinical-practice",
-      "significance": "IMA-afsnit er et potentielt sted for præoperativ optimering, relevant for anvendelse af procedurekode NAAZ42.",
-      "mentions": [
-        {
-          "page": 107,
-          "context": "hvis patienten præoptimeres enten på IMA eller ITA-afsnit"
-        }
-      ]
-    },
-    {
-      "name": "ITA",
-      "type": "topic",
-      "slug": "ita-afsnit",
-      "folder": "topics/clinical-practice",
-      "significance": "ITA-afsnit er et potentielt sted for præoperativ optimering, relevant for anvendelse af procedurekode NAAZ42.",
-      "mentions": [
-        {
-          "page": 107,
-          "context": "hvis patienten præoptimeres enten på IMA eller ITA-afsnit"
+          "page": 106,
+          "context": "Hvis patienten køres på OP og præoptimeres af en anæstesiolog inden selve operationen."
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "regionshospital-nordjylland",
-      "predicate": "raises-question-about",
-      "object": "aha-patient",
-      "evidence": "RHN tænker umiddelbart, at denne indikator er mest relevant for 4X patienter",
+      "subject": "rhn",
+      "predicate": "questions-definition-of",
+      "object": "indikator-3",
+      "evidence": "RHN har behov for en afklaring. Hvis patienten køres på OP og præoptimeres af en anæstesiolog inden selve operationen.",
+      "page": 106
+    },
+    {
+      "subject": "rhn",
+      "predicate": "questions-code-application-for",
+      "object": "sks-kode-naaz42",
+      "evidence": "Må anæstesiologen så ikke anvende procedurekoden NAAZ42 eller må den kun anvendes, hvis patienten præoptimeres enten på IMA eller ITA-afsnit?",
+      "page": 106
+    },
+    {
+      "subject": "sks-kode-naaz42",
+      "predicate": "applies-to-location",
+      "object": "ima",
+      "evidence": "Må anæstesiologen så ikke anvende procedurekoden NAAZ42 eller må den kun anvendes, hvis patienten præoptimeres enten på IMA eller ITA-afsnit?",
+      "page": 106
+    },
+    {
+      "subject": "sks-kode-naaz42",
+      "predicate": "applies-to-location",
+      "object": "ita-afsnit",
+      "evidence": "Må anæstesiologen så ikke anvende procedurekoden NAAZ42 eller må den kun anvendes, hvis patienten præoptimeres enten på IMA eller ITA-afsnit?",
       "page": 106
     },
     {
       "subject": "anaestesiolog",
-      "predicate": "performs-procedure-with-code",
-      "object": "naaz42-procedurekode",
-      "evidence": "Må anæstesiologen så ikke anvende procedurekoden NAAZ42",
-      "page": 107
+      "predicate": "performs-preoptimization-for",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Hvis patienten køres på OP og præoptimeres af en anæstesiolog inden selve operationen.",
+      "page": 106
     }
   ],
   "claims": [
     {
-      "text": "RHN finder, at indikatoren er mest relevant for 4X patienter [^src1]",
-      "type": "clinical-indicator",
+      "text": "RHN tænker umiddelbart, at denne indikator er mest relevant for 4X patienter [^src1]",
+      "type": "relevance-assessment",
       "entities": [
-        "regionshospital-nordjylland"
+        "rhn",
+        "indikator-3"
       ],
       "page": 106
     },
     {
-      "text": "Patienter inkluderes i indikatoren på trods af indlæggelse i flere dage inden de bliver til en AHA patient, hvilket gør det svært at opfylde kriteriet med antibiotika indenfor tre timer efter ankomst til sygehus [^src1]",
-      "type": "clinical-indicator",
+      "text": "Der er usikkerhed om, hvorvidt der findes et eksklusionskriterie ift. denne indikator [^src1]",
+      "type": "uncertainty-claim",
       "entities": [
-        "aha-patient"
+        "indikator-3"
       ],
       "page": 106
     },
     {
-      "text": "Der er usikkerhed om, hvorvidt anæstesiologen må anvende procedurekoden NAAZ42, eller om den kun må anvendes, hvis patienten præoptimeres på IMA eller ITA-afsnit [^src1]",
-      "type": "clinical-practice",
+      "text": "Patienter inkluderes ift. indikatoren på trods af indlæggelse i flere dage inden de bliver til en AHA patient [^src1]",
+      "type": "inclusion-claim",
       "entities": [
+        "indikator-3"
+      ],
+      "page": 106
+    },
+    {
+      "text": "Det er svært at opfylde kriteriet med antibiotika indenfor tre timer efter ankomst til sygehus [^src1]",
+      "type": "feasibility-claim",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 106
+    },
+    {
+      "text": "Der er usikkerhed om, hvorvidt procedurekoden NAAZ42 må anvendes, hvis patienten præoptimeres af en anæstesiolog uden for IMA eller ITA-afsnit [^src1]",
+      "type": "coding-uncertainty",
+      "entities": [
+        "sks-kode-naaz42",
         "anaestesiolog",
-        "naaz42-procedurekode",
-        "ima-afsnit",
+        "ima",
         "ita-afsnit"
       ],
-      "page": 107
+      "page": 106
     }
   ],
   "timeline": [],
-  "context": "Dette uddrag stammer fra Akut Kirurgi Databasens (AKDB) kvalitetsindikatordokumentation og dokumenterer spørgsmål og afklaringsbehov fra Regionshospital Nordjylland (RHN) vedrørende indikatorrelevans, eksklusionskriterier og procedurekodning. Dokumentet behandler konkrete udfordringer med at implementere og måle kvalitetsindikatorer for akut kirurgiske patienter, især omkring antibiotikabehandling og præoperativ optimering.",
-  "tables": []
+  "tables": [],
+  "context": "Dette afsnit fra AKDB_2024.pdf, sider 106–107, er en del af en teknisk og klinisk afstemningsdokumentation mellem Region Hovedstaden (RHN) og Sundhedsvæsenets Kvalitetsinstitut om implementeringen af kvalitetsindikatorer i Akut Kirurgi Databasen. RHN fremfører konkrete tværgående spørgsmål om definition, eksklusion og kodning af indikator 3, herunder anvendelsen af SOR-procedurekoden NAAZ42 i forhold til præoptimeringssted (IMA/ITA-afsnit) og professionel rolle (anæstesiolog). Den bredere narrative handler om operacionalisering af nationale kvalitetsmål i det danske sundhedsvæsen, hvor regionale myndigheder møder praktiske udfordringer ved overgangen fra klinisk praksis til databaseret kvalitetsmåling — især når kodningsregler og indikatorlogik ikke fuldt ud afspejler kompleksiteten i akut kirurgisk behandling."
 }

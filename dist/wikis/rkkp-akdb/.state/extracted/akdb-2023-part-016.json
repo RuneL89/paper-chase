@@ -4,21 +4,21 @@
       "name": "Akut Kirurgi Databasen",
       "type": "organization",
       "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Akut Kirurgi Databasen er den danske database for akut kirurgisk aktivitet, der indsamler og analyserer data om opererede patienter på tværs af danske regioner.",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske kvalitetsdatabase, der indsamler og analyserer data om akut kirurgiske patienter i hele Danmark, og danner grundlag for de regionale sammenligninger og konklusioner i dette dokument.",
       "mentions": [
         {
           "page": 76,
-          "context": "Akut Kirurgi Databasen, Endelig version til offentliggørelse 2024.26.02"
+          "context": "Akut Kirurgi Databasen"
         }
       ]
     },
     {
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
-      "type": "organization",
-      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er det program under hvilket Akut Kirurgi Databasen opererer og kvalitetsdata indsamles.",
+      "type": "program",
+      "slug": "regionerne-kliniske-kvalitetsudviklingsprogram",
+      "folder": "topics/healthcare-quality/programs",
+      "significance": "Dette program er den overordnede nationale ramme, hvori Akut Kirurgi Databasen opererer, og som styrer klinisk kvalitetsudvikling på tværs af danske regioner.",
       "mentions": [
         {
           "page": 76,
@@ -27,106 +27,93 @@
       ]
     },
     {
-      "name": "Hovedstaden Region",
-      "type": "organization",
-      "slug": "hovedstaden-region",
-      "folder": "entities/organizations/regions",
-      "significance": "Hovedstaden Region er en af fem danske regioner, der rapporterer ASA-score og aldersdata for opererede patienter til Akut Kirurgi Databasen.",
+      "name": "ASA-score",
+      "type": "medical-scale",
+      "slug": "asa-score",
+      "folder": "topics/healthcare-metrics/scales",
+      "significance": "ASA-score (American Society of Anesthesiologists Physical Status Classification System) er den centrale kliniske risikoskala, hvis fordeling og statistikker (Q1, median, mean, Q3) udgør kerneindholdet i alle tre tidsperioder præsenteret på siderne 76–80, og som analyseres i boxplot-figurer og konklusioner på side 75 og 76.",
       "mentions": [
         {
           "page": 76,
-          "context": "Hovedstaden Region i alt"
+          "context": "Supplerende opgørelse af ASA-score for opererede, boxplot"
         }
       ]
     },
     {
-      "name": "Sjælland Region",
-      "type": "organization",
-      "slug": "sjaelland-region",
-      "folder": "entities/organizations/regions",
-      "significance": "Sjælland Region er en af fem danske regioner, der rapporterer ASA-score og aldersdata for opererede patienter til Akut Kirurgi Databasen.",
+      "name": "Hovedstaden",
+      "type": "region",
+      "slug": "hovedstaden",
+      "folder": "entities/regions/denmark",
+      "significance": "Region Hovedstaden er én af fem danske regioner, hvis data om ASA-score og alder præsenteres systematisk i boxplots på side 75 og 76, og som direkte sammenlignes med de øvrige regioner i konklusionerne.",
       "mentions": [
         {
           "page": 76,
-          "context": "Sjælland Region i alt"
+          "context": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark"
         }
       ]
     },
     {
-      "name": "Syddanmark Region",
-      "type": "organization",
-      "slug": "syddanmark-region",
-      "folder": "entities/organizations/regions",
-      "significance": "Syddanmark Region er en af fem danske regioner, der rapporterer ASA-score og aldersdata for opererede patienter til Akut Kirurgi Databasen.",
+      "name": "Midtjylland",
+      "type": "region",
+      "slug": "midtjylland",
+      "folder": "entities/regions/denmark",
+      "significance": "Region Midtjylland er én af fem danske regioner, hvis data om ASA-score og alder præsenteres systematisk i boxplots på side 75 og 76, og som direkte sammenlignes med de øvrige regioner i konklusionerne.",
       "mentions": [
         {
           "page": 76,
-          "context": "Syddanmark Region i alt"
+          "context": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark"
         }
       ]
     },
     {
-      "name": "Midtjylland Region",
-      "type": "organization",
-      "slug": "midtjylland-region",
-      "folder": "entities/organizations/regions",
-      "significance": "Midtjylland Region er en af fem danske regioner, der rapporterer ASA-score og aldersdata for opererede patienter til Akut Kirurgi Databasen.",
+      "name": "Nordjylland",
+      "type": "region",
+      "slug": "nordjylland",
+      "folder": "entities/regions/denmark",
+      "significance": "Region Nordjylland er én af fem danske regioner, hvis data om ASA-score og alder præsenteres systematisk i boxplots på side 75 og 76, og som direkte sammenlignes med de øvrige regioner i konklusionerne.",
       "mentions": [
         {
           "page": 76,
-          "context": "Midtjylland Region i alt"
+          "context": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark"
         }
       ]
     },
     {
-      "name": "Nordjylland Region",
-      "type": "organization",
-      "slug": "nordjylland-region",
-      "folder": "entities/organizations/regions",
-      "significance": "Nordjylland Region er en af fem danske regioner, der rapporterer ASA-score og aldersdata for opererede patienter til Akut Kirurgi Databasen.",
+      "name": "Sjælland",
+      "type": "region",
+      "slug": "sjaelland",
+      "folder": "entities/regions/denmark",
+      "significance": "Region Sjælland er én af fem danske regioner, hvis data om ASA-score og alder præsenteres systematisk i boxplots på side 75 og 76, og som direkte sammenlignes med de øvrige regioner i konklusionerne.",
       "mentions": [
         {
           "page": 76,
-          "context": "Nordjylland Region i alt"
+          "context": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark"
         }
       ]
     },
     {
-      "name": "Rigshospitalet",
-      "type": "organization",
-      "slug": "rigshospitalet",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet er et hospital under Hovedstaden Region, der rapporterer ASA-score og aldersdata for opererede patienter til Akut Kirurgi Databasen.",
+      "name": "Syddanmark",
+      "type": "region",
+      "slug": "syddanmark",
+      "folder": "entities/regions/denmark",
+      "significance": "Region Syddanmark er én af fem danske regioner, hvis data om ASA-score og alder præsenteres systematisk i boxplots på side 75 og 76, og som direkte sammenlignes med de øvrige regioner i konklusionerne.",
       "mentions": [
         {
           "page": 76,
-          "context": "Rigshospitalet"
+          "context": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark"
         }
       ]
     },
     {
-      "name": "Aarhus Universitetshospital",
-      "type": "organization",
-      "slug": "aarhus-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Universitetshospital er et hospital under Midtjylland Region, der rapporterer ASA-score og aldersdata for opererede patienter til Akut Kirurgi Databasen.",
+      "name": "alder",
+      "type": "medical-demographic-variable",
+      "slug": "alder",
+      "folder": "topics/healthcare-metrics/demographics",
+      "significance": "Alder er en central demografisk variabel, der analyseres i boxplot på side 76 for at vurdere regionale forskelle i den akut kirurgiske patientpopulation.",
       "mentions": [
         {
           "page": 76,
-          "context": "Aarhus Universitetshospital"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Universitetshospital",
-      "type": "organization",
-      "slug": "aalborg-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital er et hospital under Nordjylland Region, der rapporterer ASA-score og aldersdata for opererede patienter til Akut Kirurgi Databasen.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Aalborg Universitetshospital"
+          "context": "Supplerende analyse af alder for opererede, boxplot"
         }
       ]
     }
@@ -134,235 +121,168 @@
   "relationships": [
     {
       "subject": "akut-kirurgi-databasen",
-      "predicate": "operates-under",
-      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Akut Kirurgi Databasen opererer under Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "predicate": "is-part-of",
+      "object": "regionerne-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Akut Kirurgi Databasen er under Regionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 76
     },
     {
-      "subject": "rigshospitalet",
-      "predicate": "belongs-to",
-      "object": "hovedstaden-region",
-      "evidence": "Rigshospitalet er listet under Hovedstaden Region i alt",
+      "subject": "asa-score",
+      "predicate": "is-analyzed-in",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Supplerende opgørelse af ASA-score for opererede, boxplot",
       "page": 76
     },
     {
-      "subject": "aarhus-universitetshospital",
-      "predicate": "belongs-to",
-      "object": "midtjylland-region",
-      "evidence": "Aarhus Universitetshospital er listet under Midtjylland Region i alt",
+      "subject": "alder",
+      "predicate": "is-analyzed-in",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Supplerende analyse af alder for opererede, boxplot",
       "page": 76
     },
     {
-      "subject": "aalborg-universitetshospital",
-      "predicate": "belongs-to",
-      "object": "nordjylland-region",
-      "evidence": "Aalborg Universitetshospital er listet under Nordjylland Region i alt",
+      "subject": "asa-score",
+      "predicate": "is-compared-across",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark",
+      "page": 76
+    },
+    {
+      "subject": "asa-score",
+      "predicate": "is-compared-across",
+      "object": "midtjylland",
+      "evidence": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark",
+      "page": 76
+    },
+    {
+      "subject": "asa-score",
+      "predicate": "is-compared-across",
+      "object": "nordjylland",
+      "evidence": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark",
+      "page": 76
+    },
+    {
+      "subject": "asa-score",
+      "predicate": "is-compared-across",
+      "object": "sjaelland",
+      "evidence": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark",
+      "page": 76
+    },
+    {
+      "subject": "asa-score",
+      "predicate": "is-compared-across",
+      "object": "syddanmark",
+      "evidence": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark",
+      "page": 76
+    },
+    {
+      "subject": "alder",
+      "predicate": "is-compared-across",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark",
+      "page": 76
+    },
+    {
+      "subject": "alder",
+      "predicate": "is-compared-across",
+      "object": "midtjylland",
+      "evidence": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark",
+      "page": 76
+    },
+    {
+      "subject": "alder",
+      "predicate": "is-compared-across",
+      "object": "nordjylland",
+      "evidence": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark",
+      "page": 76
+    },
+    {
+      "subject": "alder",
+      "predicate": "is-compared-across",
+      "object": "sjaelland",
+      "evidence": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark",
+      "page": 76
+    },
+    {
+      "subject": "alder",
+      "predicate": "is-compared-across",
+      "object": "syddanmark",
+      "evidence": "Hovedstaden Midtjylland Nordjylland Sjælland Syddanmark",
       "page": 76
     }
   ],
   "claims": [
     {
-      "text": "ASA-scoren for de opererede er ikke væsentligt forskellig regionerne imellem [^src1]",
-      "type": "clinical-analysis",
+      "text": "Denne supplerende opgørelse viser, at ASA-scoren for de opererede ikke er væsentligt forskellig regionerne imellem [^src1]",
+      "type": "conclusion",
       "entities": [
-        "hovedstaden-region",
-        "midtjylland-region",
-        "nordjylland-region",
-        "sjaelland-region",
-        "syddanmark-region"
+        "asa-score",
+        "hovedstaden",
+        "midtjylland",
+        "nordjylland",
+        "sjaelland",
+        "syddanmark"
       ],
       "page": 76
     },
     {
-      "text": "Der er ikke væsentlig forskel på patienternes alder, regionerne imellem [^src1]",
-      "type": "clinical-analysis",
+      "text": "Figuren viser, at der ikke er væsentlig forskel på patienternes alder, regionerne imellem [^src2]",
+      "type": "conclusion",
       "entities": [
-        "hovedstaden-region",
-        "midtjylland-region",
-        "nordjylland-region",
-        "sjaelland-region",
-        "syddanmark-region"
-      ],
-      "page": 76
-    },
-    {
-      "text": "I perioden 01/09/2020 - 31/08/2021 blev der registreret 2.784 opererede patienter i Danmark med 580 uoplyste ASA-scores [^src1]",
-      "type": "statistical",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 76
-    },
-    {
-      "text": "I perioden 01/09/2021 - 31/08/2022 blev der registreret 3.093 opererede patienter i Danmark med 515 uoplyste ASA-scores [^src1]",
-      "type": "statistical",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 76
-    },
-    {
-      "text": "I perioden 01/09/2022 - 31/08/2023 blev der registreret 3.168 opererede patienter i Danmark med 445 uoplyste ASA-scores [^src1]",
-      "type": "statistical",
-      "entities": [
-        "akut-kirurgi-databasen"
+        "alder",
+        "hovedstaden",
+        "midtjylland",
+        "nordjylland",
+        "sjaelland",
+        "syddanmark"
       ],
       "page": 76
     }
   ],
   "timeline": [
     {
-      "date": "01/09/2020 - 31/08/2021",
-      "event": "Første rapporteringsperiode for ASA-score og aldersdata for opererede patienter i Akut Kirurgi Databasen",
+      "date": "01/09/2020",
+      "event": "Start af første registreringsperiode for ASA-score: 01/09/2020 - 31/08/2021",
       "entities": [
-        "akut-kirurgi-databasen"
+        "asa-score"
       ]
     },
     {
-      "date": "01/09/2021 - 31/08/2022",
-      "event": "Anden rapporteringsperiode for ASA-score og aldersdata for opererede patienter i Akut Kirurgi Databasen",
+      "date": "31/08/2021",
+      "event": "Slut på første registreringsperiode for ASA-score: 01/09/2020 - 31/08/2021",
       "entities": [
-        "akut-kirurgi-databasen"
+        "asa-score"
       ]
     },
     {
-      "date": "01/09/2022 - 31/08/2023",
-      "event": "Tredje rapporteringsperiode for ASA-score og aldersdata for opererede patienter i Akut Kirurgi Databasen",
+      "date": "01/09/2021",
+      "event": "Start af anden registreringsperiode for ASA-score: 01/09/2021 - 31/08/2022",
       "entities": [
-        "akut-kirurgi-databasen"
+        "asa-score"
       ]
     },
     {
-      "date": "2024-02-26",
-      "event": "Endelig version af Akut Kirurgi Databasen til offentliggørelse udgivet",
+      "date": "31/08/2022",
+      "event": "Slut på anden registreringsperiode for ASA-score: 01/09/2021 - 31/08/2022",
       "entities": [
-        "akut-kirurgi-databasen"
+        "asa-score"
+      ]
+    },
+    {
+      "date": "01/09/2022",
+      "event": "Start af tredje registreringsperiode for ASA-score: 01/09/2022 - 31/08/2023",
+      "entities": [
+        "asa-score"
+      ]
+    },
+    {
+      "date": "31/08/2023",
+      "event": "Slut på tredje registreringsperiode for ASA-score: 01/09/2022 - 31/08/2023",
+      "entities": [
+        "asa-score"
       ]
     }
   ],
-  "context": "Denne dokumentchunk indeholder supplerende analyser fra Akut Kirurgi Databasen, som er en dansk kvalitetsdatabase under Regionernes Kliniske Kvalitetsudviklingsprogram. Chunken præsenterer ASA-score (American Society of Anesthesiologists funktionsniveau) og aldersdata for opererede patienter indsamlet over tre årlige rapporteringsperioder fra september 2020 til august 2023 på tværs af fem danske regioner: Hovedstaden, Sjælland, Syddanmark, Midtjylland og Nordjylland. Dataene vises både i tabelform og som boxplot-visualiseringer, og analyserne konkluderer, at der ikke er væsentlige forskelle i ASA-score eller patientalder mellem regionerne.",
-  "sources": [
-    {
-      "file": "wikis/rkkp-akdb/raw/AKDB_2023.pdf",
-      "pages": "76-80"
-    }
-  ],
-  "tables": [
-    {
-      "subject": "asa-score",
-      "title": "Supplerende opgørelse af ASA-score for opererede 01/09/2020 - 31/08/2021",
-      "page": 76,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "ASA-score statistik (Antal, Antal uoplyste, Q1, Median, Mean, Q3)",
-      "entities": [
-        "danmark",
-        "region-hovedstaden",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "region-sjaelland",
-        "holbaek-sygehus",
-        "nykoebing-f-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "region-syddanmark",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "region-midtjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "region-nordjylland",
-        "aalborg-universitetshospital",
-        "regionshospital-nordjylland"
-      ],
-      "markdown": "| Region | Antal | Antal uoplyste | Q1 | Median | Mean | Q3 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 2.784 | 580 | 2,00 | 3,00 | 2,66 | 3,00 |\n| Hovedstaden Region i alt | 1.141 | 12 | 2,00 | 3,00 | 2,58 | 3,00 |\n| Amager og Hvidovre Hospital | 296 | 3 | 2,00 | 2,00 | 2,49 | 3,00 |\n| Bispebjerg og Frederiksberg Hospitaler | 228 | 0 | 2,00 | 3,00 | 2,51 | 3,00 |\n| Bornholms Hospital | 30 | 2 | 2,00 | 3,00 | 2,63 | 3,00 |\n| Herlev og Gentofte Hospital | 276 | 5 | 2,00 | 3,00 | 2,58 | 3,00 |\n| Hospitalerne i Nordsjælland | 226 | 0 | 2,00 | 2,50 | 2,49 | 3,00 |\n| Rigshospitalet | 85 | 2 | 3,00 | 3,00 | 3,29 | 4,00 |\n| Sjælland Region i alt | 570 | 3 | 2,00 | 3,00 | 2,58 | 3,00 |\n| Holbæk Sygehus | 99 | 0 | 2,00 | 3,00 | 2,59 | 3,00 |\n| Nykøbing F Sygehus | # | 0 | 3,00 | 3,00 | 3,00 | 3,00 |\n| Næstved, Slagelse og Ringsted sygehuse | 204 | 0 | 2,00 | 3,00 | 2,57 | 3,00 |\n| Sjællands Universitetshospital | 266 | 3 | 2,00 | 3,00 | 2,58 | 3,00 |\n| Syddanmark Region i alt | 359 | 256 | 2,00 | 3,00 | 2,94 | 3,00 |\n| Esbjerg Sygehus Grindsted Sygehus | 128 | 6 | 2,00 | 3,00 | 2,68 | 3,00 |\n| Odense Universitetshospital - Svendborg | 5 | 248 | 4,00 | 4,00 | 4,00 | 4,00 |\n| Sygehus Lillebælt | 132 | 0 | 2,00 | 3,00 | 3,01 | 4,00 |\n| Sygehus Sønderjylland | 94 | 2 | 3,00 | 3,00 | 3,16 | 4,00 |\n| Midtjylland Region i alt | 535 | 262 | 2,00 | 3,00 | 2,70 | 3,00 |\n| Aarhus Universitetshospital | 128 | 61 | 2,00 | 3,00 | 2,81 | 3,00 |\n| Hospitalsenhed Midt | 7 | 138 | 3,00 | 3,00 | 3,14 | 4,00 |\n| Regionshospitalet Gødstrup | 175 | 16 | 2,00 | 3,00 | 2,77 | 3,00 |\n| Regionshospitalet Horsens | 102 | 41 | 2,00 | 3,00 | 2,54 | 3,00 |\n| Regionshospitalet Randers | 123 | 6 | 2,00 | 3,00 | 2,58 | 3,00 |\n| Nordjylland Region i alt | 179 | 47 | 2,00 | 3,00 | 2,68 | 3,00 |\n| Aalborg Universitetshospital | 100 | 33 | 2,00 | 3,00 | 2,75 | 3,00 |\n| Regionshospital Nordjylland | 79 | 14 | 2,00 | 3,00 | 2,59 | 3,00 |",
-      "summary": "Tabellen sammenligner ASA-scorefordelingen for opererede på tværs af regioner og hospitaler i 2020/21 og viser et nationalt gennemsnit på 2,66, hvor Rigshospitalet ligger højest (3,29), og Odense Universitetshospital - Svendborg samt Hospitalsenhed Midt har langt de fleste uoplyste scorer."
-    },
-    {
-      "subject": "asa-score",
-      "title": "Supplerende opgørelse af ASA-score for opererede 01/09/2021 - 31/08/2022",
-      "page": 77,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "ASA-score statistik (Antal, Antal uoplyste, Q1, Median, Mean, Q3)",
-      "entities": [
-        "danmark",
-        "region-hovedstaden",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "region-sjaelland",
-        "holbaek-sygehus",
-        "nykoebing-f-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "region-syddanmark",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "region-midtjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "region-nordjylland",
-        "aalborg-universitetshospital",
-        "aalborg-universitetshospital-thisted",
-        "regionshospital-nordjylland"
-      ],
-      "markdown": "| Region | Antal | Antal uoplyste | Q1 | Median | Mean | Q3 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.093 | 515 | 2,00 | 3,00 | 2,68 | 3,00 |\n| Hovedstaden Region i alt | 1.247 | 19 | 2,00 | 3,00 | 2,58 | 3,00 |\n| Amager og Hvidovre Hospital | 367 | 7 | 2,00 | 3,00 | 2,56 | 3,00 |\n| Bispebjerg og Frederiksberg Hospitaler | 223 | 5 | 2,00 | 2,00 | 2,48 | 3,00 |\n| Bornholms Hospital | 22 | 2 | 2,00 | 2,00 | 2,14 | 3,00 |\n| Herlev og Gentofte Hospital | 302 | 0 | 2,00 | 2,00 | 2,48 | 3,00 |\n| Hospitalerne i Nordsjælland | 250 | 3 | 2,00 | 3,00 | 2,59 | 3,00 |\n| Rigshospitalet | 83 | 2 | 3,00 | 3,00 | 3,35 | 4,00 |\n| Sjælland Region i alt | 602 | 6 | 2,00 | 3,00 | 2,71 | 3,00 |\n| Holbæk Sygehus | 128 | 0 | 2,00 | 3,00 | 2,77 | 3,00 |\n| Nykøbing F Sygehus | 3 | 0 | 2,00 | 2,00 | 2,33 | 3,00 |\n| Næstved, Slagelse og Ringsted sygehuse | 197 | 1 | 2,00 | 3,00 | 2,79 | 3,00 |\n| Sjællands Universitetshospital | 274 | 5 | 2,00 | 3,00 | 2,64 | 3,00 |\n| Syddanmark Region i alt | 508 | 200 | 2,00 | 3,00 | 2,84 | 3,00 |\n| Esbjerg Sygehus Grindsted Sygehus | 143 | 9 | 2,00 | 3,00 | 2,80 | 3,00 |\n| Odense Universitetshospital - Svendborg | 91 | 187 | 2,00 | 3,00 | 2,87 | 3,00 |\n| Sygehus Lillebælt | 166 | 3 | 2,00 | 3,00 | 2,72 | 3,00 |\n| Sygehus Sønderjylland | 108 | 1 | 3,00 | 3,00 | 3,06 | 4,00 |\n| Midtjylland Region i alt | 539 | 248 | 2,00 | 3,00 | 2,72 | 3,00 |\n| Aarhus Universitetshospital | 118 | 47 | 2,00 | 3,00 | 2,75 | 3,00 |\n| Hospitalsenhed Midt | 5 | 154 | 3,00 | 3,00 | 2,80 | 3,00 |\n| Regionshospitalet Gødstrup | 203 | 5 | 2,00 | 3,00 | 2,74 | 3,00 |\n| Regionshospitalet Horsens | 89 | 40 | 2,00 | 3,00 | 2,73 | 3,00 |\n| Regionshospitalet Randers | 124 | 2 | 2,00 | 3,00 | 2,66 | 3,00 |\n| Nordjylland Region i alt | 197 | 42 | 2,00 | 3,00 | 2,77 | 3,00 |\n| Aalborg Universitetshospital | 121 | 31 | 2,00 | 3,00 | 2,75 | 3,00 |\n| Aalborg Universitetshospital, Thisted | 0 | 1 | 0 | 0 | 0 | 0 |\n| Regionshospital Nordjylland | 76 | 10 | 2,00 | 3,00 | 2,79 | 3,00 |",
-      "summary": "Tabellen sammenligner ASA-scorefordelingen for opererede på tværs af regioner og hospitaler i 2021/22 og viser et nationalt gennemsnit på 2,68, hvor Rigshospitalet igen ligger højest (3,35), og Odense Universitetshospital - Svendborg samt Hospitalsenhed Midt fortsat har mange uoplyste scorer."
-    },
-    {
-      "subject": "asa-score",
-      "title": "Supplerende opgørelse af ASA-score for opererede 01/09/2022 - 31/08/2023",
-      "page": 78,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "ASA-score statistik (Antal, Antal uoplyste, Q1, Median, Mean, Q3)",
-      "entities": [
-        "danmark",
-        "region-hovedstaden",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "region-sjaelland",
-        "holbaek-sygehus",
-        "nykoebing-f-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "region-syddanmark",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "region-midtjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "region-nordjylland",
-        "aalborg-universitetshospital",
-        "regionshospital-nordjylland"
-      ],
-      "markdown": "| Region | Antal | Antal uoplyste | Q1 | Median | Mean | Q3 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.168 | 445 | 2,00 | 3,00 | 2,63 | 3,00 |\n| Hovedstaden Region i alt | 1.233 | 18 | 2,00 | 3,00 | 2,51 | 3,00 |\n| Amager og Hvidovre Hospital | 287 | 7 | 2,00 | 2,00 | 2,45 | 3,00 |\n| Bispebjerg og Frederiksberg Hospitaler | 250 | 6 | 2,00 | 2,00 | 2,41 | 3,00 |\n| Bornholms Hospital | 31 | 0 | 2,00 | 2,00 | 2,16 | 3,00 |\n| Herlev og Gentofte Hospital | 346 | 2 | 2,00 | 2,00 | 2,49 | 3,00 |\n| Hospitalerne i Nordsjælland | 237 | 2 | 2,00 | 3,00 | 2,50 | 3,00 |\n| Rigshospitalet | 82 | 1 | 3,00 | 3,00 | 3,26 | 4,00 |\n| Sjælland Region i alt | 570 | 11 | 2,00 | 3,00 | 2,62 | 3,00 |\n| Holbæk Sygehus | 131 | 3 | 2,00 | 3,00 | 2,66 | 3,00 |\n| Nykøbing F Sygehus | # | 0 | 4,00 | 4,00 | 4,00 | 4,00 |\n| Næstved, Slagelse og Ringsted sygehuse | 214 | 3 | 2,00 | 3,00 | 2,71 | 3,00 |\n| Sjællands Universitetshospital | 223 | 5 | 2,00 | 2,00 | 2,50 | 3,00 |\n| Syddanmark Region i alt | 470 | 230 | 2,00 | 3,00 | 2,80 | 3,00 |\n| Esbjerg Sygehus Grindsted Sygehus | 120 | 47 | 2,00 | 3,00 | 2,72 | 3,00 |\n| Odense Universitetshospital - Svendborg | 170 | 109 | 2,00 | 3,00 | 2,80 | 3,00 |\n| Sygehus Lillebælt | 83 | 33 | 2,00 | 3,00 | 2,84 | 3,00 |\n| Sygehus Sønderjylland | 97 | 41 | 2,00 | 3,00 | 2,85 | 3,00 |\n| Midtjylland Region i alt | 637 | 147 | 2,00 | 3,00 | 2,69 | 3,00 |\n| Aarhus Universitetshospital | 159 | 0 | 2,00 | 3,00 | 2,74 | 3,00 |\n| Hospitalsenhed Midt | 94 | 90 | 2,00 | 2,00 | 2,52 | 3,00 |\n| Regionshospitalet Gødstrup | 180 | 1 | 2,00 | 3,00 | 2,73 | 3,00 |\n| Regionshospitalet Horsens | 62 | 51 | 2,00 | 3,00 | 2,73 | 3,00 |\n| Regionshospitalet Randers | 142 | 5 | 2,00 | 3,00 | 2,68 | 3,00 |\n| Nordjylland Region i alt | 258 | 39 | 2,00 | 3,00 | 2,79 | 3,00 |\n| Aalborg Universitetshospital | 167 | 29 | 2,00 | 3,00 | 2,75 | 3,00 |\n| Regionshospital Nordjylland | 91 | 10 | 2,00 | 3,00 | 2,88 | 4,00 |",
-      "summary": "Tabellen sammenligner ASA-scorefordelingen for opererede på tværs af regioner og hospitaler i 2022/23 og viser et nationalt gennemsnit på 2,63 med Rigshospitalet højest (3,26), mens Odense Universitetshospital - Svendborg fortsat har 109 uoplyste scorer."
-    }
-  ]
+  "tables": [],
+  "context": "Dette dokumentchunk udgør en del af den årlige offentliggørelse fra Akut Kirurgi Databasen under Regionernes Kliniske Kvalitetsudviklingsprogram, og indeholder to visuelle analyser (boxplots) på siderne 75 og 76: én for ASA-score og én for patientalder, begge dækkende tre årssæt (2020–2023). Dataene fremstilles som regionale sammenligninger mellem de fem danske regioner (Hovedstaden, Midtjylland, Nordjylland, Sjælland, Syddanmark), og understøtter to centrale konklusioner: ingen væsentlige regionale forskelle for hver af de to målvariable. Chunken repræsenterer den synlige, samlede præsentation af resultaterne — ikke de underliggende tabeller — og fungerer som den endelige tolkningsramme for det tidligere indsamlede datamateriale."
 }

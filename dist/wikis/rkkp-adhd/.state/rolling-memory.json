@@ -1,1043 +1,460 @@
 {
   "entities": [
     {
-      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-departments",
-      "mentionCount": 16
-    },
-    {
-      "slug": "aabenraa-psychiatric-ambulatory",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "aalborg-universitetshospital",
-      "folder": "entities/organizations/hospitals",
+      "slug": "10-aars-planen",
+      "folder": "topics/policy/mental-health-strategy",
       "mentionCount": 2
     },
     {
-      "slug": "aarhus-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "mentionCount": 1
+      "slug": "aabenna-borne-og-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "mentionCount": 5
     },
     {
       "slug": "aarhus-universitetshospital-psykiatrien",
-      "folder": "entities/organizations/healthcare",
-      "mentionCount": 4
-    },
-    {
-      "slug": "ada-psykiatriens-hus-aarhus",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "adhd",
-      "folder": "topics/medical-definition",
+      "folder": "entities/organizations/hospitals",
       "mentionCount": 3
     },
     {
-      "slug": "adhd-behandlingspakke",
-      "folder": "topics/clinical-practice",
-      "mentionCount": 1
+      "slug": "adhd-behandlingspopulation",
+      "folder": "entities/populations/adhd",
+      "mentionCount": 9
     },
     {
       "slug": "adhd-databasen",
-      "folder": "entities/organizations/healthcare",
-      "mentionCount": 47
+      "folder": "entities/organizations/healthcare-databases",
+      "mentionCount": 27
     },
     {
-      "slug": "adhd-foreningen",
-      "folder": "entities/organizations/patient-organizations",
-      "mentionCount": 2
-    },
-    {
-      "slug": "afp-psykiatrisk-klinik-2-auh",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "allan-hvolby",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 2
-    },
-    {
-      "slug": "anne-mette-lange",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 2
-    },
-    {
-      "slug": "bispebjerg-psychiatric-ambulatory",
-      "folder": "entities/organizations/psychiatric-clinics",
+      "slug": "adhd-pakkeforloeb",
+      "folder": "topics/processes",
       "mentionCount": 1
     },
     {
-      "slug": "bispebjerg-psykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "mentionCount": 13
-    },
-    {
-      "slug": "bispebjerg-psykiatrisk-ambulatorium-boern-unge",
-      "folder": "entities/organizations/psychiatric-departments",
-      "mentionCount": 1
-    },
-    {
-      "slug": "boerne-og-ungdomspsykiatrisk-selskab-i-danmark",
-      "folder": "entities/organizations/professional-societies",
+      "slug": "adhd-udredningsforlob",
+      "folder": "topics/processes",
       "mentionCount": 2
     },
     {
-      "slug": "boerne-ungdomspsyk-ambulatorium",
-      "folder": "entities/organizations/clinics",
+      "slug": "adhd-udredningspopulation",
+      "folder": "entities/populations/adhd",
+      "mentionCount": 7
+    },
+    {
+      "slug": "agx01b",
+      "folder": "entities/codes",
       "mentionCount": 2
     },
     {
-      "slug": "boerne-ungdomspsyk-ambulatorium-nordjylland",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 8
+      "slug": "atomoxetin-n06ba09",
+      "folder": "entities/medications/adhd",
+      "mentionCount": 3
     },
     {
-      "slug": "boerne-ungdomspsyk-center-aarhus",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
+      "slug": "baggrundspopulationen-2023",
+      "folder": "entities/populations/general",
+      "mentionCount": 2
     },
     {
-      "slug": "boerne-ungdomspsykiatrisk-ambulatorium-odense",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "mentionCount": 1
+      "slug": "bispebjerg-bup-ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "mentionCount": 2
     },
     {
       "slug": "boerne-unge-psyk-afd-40",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 12
+      "folder": "entities/organizations/psychiatry-clinics",
+      "mentionCount": 1
     },
     {
-      "slug": "boerne-unge-psyk-klinik-40k",
-      "folder": "entities/organizations/psychiatric-clinics",
+      "slug": "bornholm-bup-ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics",
       "mentionCount": 2
-    },
-    {
-      "slug": "boerne-unge-psyk-reg-fkt-40-r",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "boerne-unge-psyk-reg-fkt-40r",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "bolette-sondergaard",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
-    },
-    {
-      "slug": "bornholm-psychiatric-ambulatory",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "bornholm-psykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "mentionCount": 10
-    },
-    {
-      "slug": "bornholm-psykiatrisk-ambulatorium-boern-unge",
-      "folder": "entities/organizations/psychiatric-departments",
-      "mentionCount": 1
     },
     {
       "slug": "bua",
-      "folder": "entities/organizations/healthcare",
-      "mentionCount": 3
-    },
-    {
-      "slug": "bua-aabenraa",
-      "folder": "entities/organizations/clinical-units",
-      "mentionCount": 1
-    },
-    {
-      "slug": "bua-boerne-ungdomspsykiatri-sengeafsnit",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 8
-    },
-    {
-      "slug": "bua-odense",
-      "folder": "entities/organizations/clinical-units",
-      "mentionCount": 1
-    },
-    {
-      "slug": "bua-psychiatric-clinic-assessment",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "bua-psychiatric-clinic-schoolchildren",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "bua-psychiatric-clinic-toddlers",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "bua-psychiatric-clinic-youth",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "bua-psykiatrisk-dagafsnit",
-      "folder": "entities/organizations/psychiatric-departments",
-      "mentionCount": 1
-    },
-    {
-      "slug": "bua-psykiatrisk-klinik-skoleboern",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "mentionCount": 13
-    },
-    {
-      "slug": "bua-psykiatrisk-klinik-smaaboern",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "mentionCount": 15
-    },
-    {
-      "slug": "bua-psykiatrisk-klinik-smaaborin",
-      "folder": "entities/organizations/psychiatric-departments",
-      "mentionCount": 1
-    },
-    {
-      "slug": "bua-psykiatrisk-klinik-smaaborni-midtjylland",
-      "folder": "entities/organizations/clinical-units",
-      "mentionCount": 1
-    },
-    {
-      "slug": "bua-psykiatrisk-klinik-spiseforstyrrelser",
-      "folder": "entities/organizations/psychiatric-clinics",
+      "folder": "entities/organizations/hospitals",
       "mentionCount": 2
     },
     {
-      "slug": "bua-psykiatrisk-klinik-udredning",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "mentionCount": 11
+      "slug": "bua-psykiatrisk-klinik-for-skoleboern",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "mentionCount": 3
     },
     {
-      "slug": "bua-psykiatrisk-klinik-udredning-midtjylland",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "mentionCount": 1
+      "slug": "bua-psykiatrisk-klinik-for-udredning",
+      "folder": "entities/organizations/clinics",
+      "mentionCount": 3
     },
     {
-      "slug": "bua-psykiatrisk-klinik-unge",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "mentionCount": 15
+      "slug": "bua-psykiatrisk-klinik-for-unge",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "mentionCount": 2
     },
     {
-      "slug": "bua-vejle",
-      "folder": "entities/organizations/clinical-units",
-      "mentionCount": 1
-    },
-    {
-      "slug": "carelink-psykiatri-kolding",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 5
-    },
-    {
-      "slug": "carelink-psykiatri-roskilde",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 5
-    },
-    {
-      "slug": "carelink-psykiatri-viborg",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 8
+      "slug": "bua-smaborn-klinik",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "mentionCount": 6
     },
     {
       "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "mentionCount": 19
+      "folder": "entities/organizations/regions",
+      "mentionCount": 1
     },
     {
       "slug": "danmarks-statistik",
-      "folder": "entities/organizations/government-agencies",
-      "mentionCount": 2
-    },
-    {
-      "slug": "dansk-psykiatrisk-selskab",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 2
-    },
-    {
-      "slug": "dansk-psykolog-forening",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 2
-    },
-    {
-      "slug": "danske-multidisciplinaere-psykiatrigrupper",
-      "folder": "entities/organizations/psychiatric-groups",
-      "mentionCount": 2
-    },
-    {
-      "slug": "danske-regioner",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 2
-    },
-    {
-      "slug": "ditte-hammerum",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 2
-    },
-    {
-      "slug": "dmpg-guideline-adhd-children-youth",
-      "folder": "topics/guideline-development",
+      "folder": "entities/organizations/healthcare-governance",
       "mentionCount": 1
+    },
+    {
+      "slug": "danske-multidisciplinaere-psykiatrigrupper-dmpger",
+      "folder": "entities/organizations/healthcare-professional-bodies",
+      "mentionCount": 4
+    },
+    {
+      "slug": "dawba",
+      "folder": "entities/products/clinical-assessment-tools",
+      "mentionCount": 2
+    },
+    {
+      "slug": "dexamfetamin-n06ba02",
+      "folder": "entities/medications/adhd",
+      "mentionCount": 3
     },
     {
       "slug": "dmpg-retningslinje",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 1
-    },
-    {
-      "slug": "dmpg-retningslinjen-adhd",
-      "folder": "topics/clinical-standard",
+      "folder": "topics/policy/mental-health-strategy",
       "mentionCount": 2
     },
     {
-      "slug": "dmpg-retningslinjer",
-      "folder": "topics/guideline-development",
-      "mentionCount": 2
+      "slug": "dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis",
+      "folder": "topics/policy/mental-health-strategy",
+      "mentionCount": 3
     },
     {
       "slug": "dps-midtjylland",
-      "folder": "entities/organizations/healthcare",
+      "folder": "entities/organizations/healthcare-providers",
+      "mentionCount": 2
+    },
+    {
+      "slug": "esbjerg-bup-ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "mentionCount": 2
+    },
+    {
+      "slug": "glostrup-bup-ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "mentionCount": 2
+    },
+    {
+      "slug": "guanfacin-c02ac02",
+      "folder": "entities/medications/adhd",
       "mentionCount": 3
     },
     {
-      "slug": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-departments",
-      "mentionCount": 14
-    },
-    {
-      "slug": "esbjerg-psychiatric-ambulatory",
-      "folder": "entities/organizations/psychiatric-clinics",
+      "slug": "hejmdal-privathospital-viby-beh-afsnit",
+      "folder": "entities/organizations/healthcare-providers",
       "mentionCount": 1
     },
     {
-      "slug": "forening-af-praktiserende-speciallaeger",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 2
-    },
-    {
-      "slug": "glostrup-psychiatric-ambulatory",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "glostrup-psykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "mentionCount": 14
-    },
-    {
-      "slug": "glostrup-psykiatrisk-ambulatorium-boern-unge",
-      "folder": "entities/organizations/psychiatric-departments",
-      "mentionCount": 1
-    },
-    {
-      "slug": "hejmdal-privathospital-aalborg",
-      "folder": "entities/organizations/healthcare",
+      "slug": "hillerod-psykiatrisk-ambulatorium-boern-og-unge",
+      "folder": "entities/facilities/psychiatry-clinics",
       "mentionCount": 3
     },
     {
-      "slug": "hejmdal-privathospital-odense",
-      "folder": "entities/organizations/healthcare",
-      "mentionCount": 2
-    },
-    {
-      "slug": "hejmdal-privathospital-viby",
-      "folder": "entities/organizations/healthcare",
-      "mentionCount": 2
-    },
-    {
-      "slug": "hillerod-psychiatric-ambulatory",
-      "folder": "entities/organizations/psychiatric-clinics",
+      "slug": "hjemkommune",
+      "folder": "entities/organizations/regional-authorities",
       "mentionCount": 1
-    },
-    {
-      "slug": "hillerod-psykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "mentionCount": 11
-    },
-    {
-      "slug": "hillerod-psykiatrisk-ambulatorium-boern-unge",
-      "folder": "entities/organizations/psychiatric-departments",
-      "mentionCount": 1
-    },
-    {
-      "slug": "hilleroed-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "hovedstaden",
-      "folder": "entities/organizations/regions",
-      "mentionCount": 3
-    },
-    {
-      "slug": "hovedstaden-region",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 1
-    },
-    {
-      "slug": "ib-rasmussen",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 2
     },
     {
       "slug": "indikator-1",
-      "folder": "topics/quality-indicators",
+      "folder": "topics/quality-indicators/adhd-care",
       "mentionCount": 5
     },
     {
       "slug": "indikator-10",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 6
+      "folder": "topics/quality-indicators/adhd-care",
+      "mentionCount": 3
     },
     {
       "slug": "indikator-11",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 5
+      "folder": "topics/quality-indicators/adhd-care",
+      "mentionCount": 2
     },
     {
       "slug": "indikator-2a",
-      "folder": "topics/quality-indicators",
+      "folder": "topics/quality-indicators/adhd-care",
       "mentionCount": 6
     },
     {
       "slug": "indikator-2b",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 12
+      "folder": "topics/quality-indicators/adhd-care",
+      "mentionCount": 6
     },
     {
       "slug": "indikator-3",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 10
+      "folder": "topics/quality-indicators/adhd-care",
+      "mentionCount": 6
     },
     {
       "slug": "indikator-4",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 4
+      "folder": "topics/quality-indicators/adhd-care",
+      "mentionCount": 8
     },
     {
       "slug": "indikator-5",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 7
+      "folder": "topics/quality-indicators/adhd-care",
+      "mentionCount": 6
     },
     {
       "slug": "indikator-6",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 5
+      "folder": "topics/quality-indicators/adhd-care",
+      "mentionCount": 6
     },
     {
       "slug": "indikator-7a",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 2
-    },
-    {
-      "slug": "indikator-7b",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 2
-    },
-    {
-      "slug": "indikator-8",
-      "folder": "topics/quality-indicators",
+      "folder": "topics/quality-indicators/adhd-care",
       "mentionCount": 4
     },
     {
+      "slug": "indikator-7a-7b",
+      "folder": "topics/indicators",
+      "mentionCount": 1
+    },
+    {
+      "slug": "indikator-7b",
+      "folder": "topics/quality-indicators/adhd-care",
+      "mentionCount": 4
+    },
+    {
+      "slug": "indikator-8",
+      "folder": "topics/quality-indicators/adhd-care",
+      "mentionCount": 3
+    },
+    {
       "slug": "indikator-9",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 5
-    },
-    {
-      "slug": "jakob-paludan",
-      "folder": "entities/people/healthcare-administrators",
-      "mentionCount": 1
-    },
-    {
-      "slug": "jan-kristensen",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
-    },
-    {
-      "slug": "jan-vestergaard",
-      "folder": "entities/people/healthcare-professionals",
+      "folder": "topics/quality-indicators/adhd-care",
       "mentionCount": 2
     },
     {
-      "slug": "jeanette-wacher",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
+      "slug": "kiddie-sads",
+      "folder": "entities/products/clinical-assessment-tools",
+      "mentionCount": 3
     },
     {
-      "slug": "jens-tofte",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
+      "slug": "koordinerende-netvaerksmoede",
+      "folder": "topics/processes",
+      "mentionCount": 3
     },
     {
-      "slug": "klinik-boerner-unge",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "klinik-psykiatri-syd-aalborg",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "lasse-pirk",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
-    },
-    {
-      "slug": "linda-bramsen",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 2
-    },
-    {
-      "slug": "lotte-maxild-mortensen",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
+      "slug": "lisdexamfetamin-n06ba12",
+      "folder": "entities/medications/adhd",
+      "mentionCount": 3
     },
     {
       "slug": "lpr",
-      "folder": "entities/organizations/health-registries",
-      "mentionCount": 5
+      "folder": "entities/organizations/healthcare-databases",
+      "mentionCount": 1
     },
     {
-      "slug": "malene-tousgaard-foget-ostergaard",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 2
-    },
-    {
-      "slug": "mathilde-ulvsgard-hansted",
+      "slug": "malene-tousgaard-foget-oestergaard",
       "folder": "entities/people/healthcare-professionals",
       "mentionCount": 1
+    },
+    {
+      "slug": "methylphenidat-n06ba04",
+      "folder": "entities/medications/adhd",
+      "mentionCount": 3
     },
     {
       "slug": "mette-hedelund",
       "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 2
+      "mentionCount": 1
     },
     {
-      "slug": "midtjylland",
-      "folder": "entities/organizations/regions",
+      "slug": "modafinil-n06ba07",
+      "folder": "entities/medications/adhd",
       "mentionCount": 3
     },
     {
-      "slug": "midtjylland-region",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 1
-    },
-    {
-      "slug": "niels-bilenberg",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
-    },
-    {
-      "slug": "nordjylland",
-      "folder": "entities/locations/regions",
-      "mentionCount": 2
-    },
-    {
-      "slug": "nordjylland-region",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 1
-    },
-    {
-      "slug": "ny-indikator-2b",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 2
-    },
-    {
-      "slug": "ny-indikator-3",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 2
-    },
-    {
-      "slug": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-departments",
-      "mentionCount": 13
-    },
-    {
-      "slug": "odense-psychiatric-ambulatory",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "odense-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "mentionCount": 1
-    },
-    {
-      "slug": "pcgl-psyk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
+      "slug": "odense-borne-og-ungdomspsykiatrisk-ambulatorium",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "mentionCount": 7
     },
     {
       "slug": "pck-psykoterapeutisk-klinik",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 5
-    },
-    {
-      "slug": "pho-klinik-1-horsens",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 4
-    },
-    {
-      "slug": "pho-klinik-2-horsens",
-      "folder": "entities/organizations/psychiatric-clinics",
+      "folder": "entities/facilities/psychiatry-clinics",
       "mentionCount": 2
     },
     {
-      "slug": "pho-psykiatrisk-akutenhed-horsens",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "pho-sengeafsnit-regionspsykiatri-horsens",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "pma-psykiatrisk-klinik",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "pmi-klinik-depression-mani-midt",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 4
-    },
-    {
-      "slug": "pmi-klinik-psykoser-midt",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "pra-psykiatrisk-klinik-2-randers",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "pra-psykiatrisk-klinik-roende",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "privathospitaler",
-      "folder": "entities/organizations/healthcare",
-      "mentionCount": 9
-    },
-    {
-      "slug": "privathospitalerne",
-      "folder": "entities/organizations/healthcare",
+      "slug": "pho-klinik-1-for-psykiatriske-lidelser-horsens",
+      "folder": "entities/organizations/psychiatry-clinics",
       "mentionCount": 3
     },
     {
-      "slug": "ps-almenpsykiatrisk-nord-ambulatorier",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "ps-almenpsykiatrisk-nord-sengeafsnit",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "ps-almenpsykiatrisk-syd-ambulatorier",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 3
-    },
-    {
-      "slug": "ps-boerne-ungdomspsykiatrisk-ambulatorier",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 4
-    },
-    {
-      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-aabenraa",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 3
-    },
-    {
-      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-odense",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 3
-    },
-    {
-      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-vejle",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "psy-lokalpsykiatri-aabenraa",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "psy-lokalpsykiatri-almen-esbjerg",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "psy-lokalpsykiatri-brorup",
-      "folder": "entities/organizations/psychiatric-clinics",
+      "slug": "pmi-klinik-for-depression-og-mani-midt",
+      "folder": "entities/organizations/psychiatry-clinics",
       "mentionCount": 1
     },
     {
-      "slug": "psy-lokalpsykiatri-fredericia",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
+      "slug": "privathospitaler",
+      "folder": "entities/organizations/healthcare-providers",
+      "mentionCount": 8
     },
     {
-      "slug": "psy-lokalpsykiatri-haderslev",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
+      "slug": "ps-almenpsykiatrisk-syd-ambulatorier",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "mentionCount": 1
     },
     {
-      "slug": "psy-lokalpsykiatri-kolding",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
+      "slug": "pse",
+      "folder": "entities/products/assessment-tools",
+      "mentionCount": 1
     },
     {
-      "slug": "psy-lokalpsykiatri-soenderborg",
-      "folder": "entities/organizations/psychiatric-clinics",
+      "slug": "pse-scan",
+      "folder": "entities/products/clinical-assessment-tools",
       "mentionCount": 2
     },
     {
       "slug": "psy-lokalpsykiatri-toender",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 3
-    },
-    {
-      "slug": "psy-lokalpsykiatri-varde",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "psy-lokalpsykiatri-vejle",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "psy-psykiatrisk-ambulatorium-middelfart",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "psy-psykiatrisk-ambulatorium-odense",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "psy-psykiatrisk-ambulatorium-svendborg",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "psykiatrisk-ambulatorium-boern-unge-bispebjerg-b19",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "psykiatrisk-ambulatorium-boern-unge-glostrup-b29",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "psykiatrisk-ambulatorium-boern-unge-hillerod-b39",
-      "folder": "entities/organizations/psychiatric-clinics",
+      "folder": "entities/organizations/psychiatry-clinics",
       "mentionCount": 1
     },
     {
       "slug": "region-hovedstaden",
-      "folder": "entities/organizations/regional-government",
-      "mentionCount": 32
-    },
-    {
-      "slug": "region-hovedstadens-psykiatri",
-      "folder": "entities/organizations/healthcare",
-      "mentionCount": 1
+      "folder": "entities/organizations/regional-authorities",
+      "mentionCount": 12
     },
     {
       "slug": "region-midtjylland",
-      "folder": "entities/organizations/regional-government",
-      "mentionCount": 32
+      "folder": "entities/organizations/regional-authorities",
+      "mentionCount": 19
     },
     {
       "slug": "region-nordjylland",
-      "folder": "entities/organizations/regional-government",
-      "mentionCount": 28
+      "folder": "entities/organizations/regional-authorities",
+      "mentionCount": 15
     },
     {
       "slug": "region-sjaelland",
-      "folder": "entities/organizations/regional-government",
-      "mentionCount": 27
+      "folder": "entities/organizations/regional-authorities",
+      "mentionCount": 13
     },
     {
       "slug": "region-syddanmark",
-      "folder": "entities/locations",
-      "mentionCount": 29
+      "folder": "entities/organizations/regions",
+      "mentionCount": 14
     },
     {
-      "slug": "regionssundhedsdirektorkredsen",
-      "folder": "entities/organizations/health-administration",
+      "slug": "rhp",
+      "folder": "entities/organizations/healthcare-providers",
       "mentionCount": 2
     },
     {
       "slug": "rkkp",
-      "folder": "entities/organizations/healthcare",
-      "mentionCount": 3
-    },
-    {
-      "slug": "rkkp-skizofreni",
-      "folder": "entities/organizations/health-registries",
-      "mentionCount": 1
-    },
-    {
-      "slug": "rkkp-videncenter",
-      "folder": "entities/organizations/health-registries",
-      "mentionCount": 1
+      "folder": "entities/organizations/healthcare-standards",
+      "mentionCount": 4
     },
     {
       "slug": "rpg-psykiatrisk-klinik-1-godstrup",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 2
-    },
-    {
-      "slug": "rpg-psykiatrisk-klinik-1-goedstrup",
-      "folder": "entities/organizations/psychiatric-clinics",
+      "folder": "entities/organizations/psychiatry-clinics",
       "mentionCount": 1
     },
     {
       "slug": "shelagh-powell",
       "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 4
+      "mentionCount": 3
     },
     {
       "slug": "simon-hjerrild",
       "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 3
+    },
+    {
+      "slug": "speciallaeger",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 3
+    },
+    {
+      "slug": "specialpsykolog",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "mentionCount": 22
+    },
+    {
+      "slug": "sundhedsvaesnets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-standards",
+      "mentionCount": 2
+    },
+    {
+      "slug": "vejle-bup-ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics",
       "mentionCount": 4
-    },
-    {
-      "slug": "sjaelland",
-      "folder": "entities/organizations/regions",
-      "mentionCount": 3
-    },
-    {
-      "slug": "sjaelland-region",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 1
-    },
-    {
-      "slug": "soeren-bredkjaer",
-      "folder": "entities/people/healthcare-administrators",
-      "mentionCount": 1
-    },
-    {
-      "slug": "specialpsykologer",
-      "folder": "topics/clinical-practice",
-      "mentionCount": 3
-    },
-    {
-      "slug": "stine-holmen",
-      "folder": "entities/people/patient-advocates",
-      "mentionCount": 1
-    },
-    {
-      "slug": "sundhedsstyrelsen",
-      "folder": "entities/organizations/health-administration",
-      "mentionCount": 2
-    },
-    {
-      "slug": "sundhedsvaesenets-kvalitetsinstitut",
-      "folder": "entities/organizations/health-administration",
-      "mentionCount": 2
-    },
-    {
-      "slug": "sundk",
-      "folder": "entities/organizations/health-administration",
-      "mentionCount": 2
-    },
-    {
-      "slug": "syddanmark",
-      "folder": "entities/locations/regions",
-      "mentionCount": 2
-    },
-    {
-      "slug": "syddanmark-region",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 1
-    },
-    {
-      "slug": "tea-naamansen-nikolov",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
-    },
-    {
-      "slug": "tine-houmann",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 2
-    },
-    {
-      "slug": "trish-nymark",
-      "folder": "entities/people/patient-advocates",
-      "mentionCount": 2
-    },
-    {
-      "slug": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-departments",
-      "mentionCount": 12
-    },
-    {
-      "slug": "vejle-psychiatric-ambulatory",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "mentionCount": 1
-    },
-    {
-      "slug": "vibe-bolvig-hyldgard",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
-    },
-    {
-      "slug": "vidensraad-for-forebyggelse",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 1
-    },
-    {
-      "slug": "who",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 1
     }
   ],
   "topics": [
-    "action-plan",
-    "analysis",
-    "causal-analysis",
-    "clinical-assessment",
-    "clinical-disagreement",
-    "clinical-outcome",
-    "clinical-practice",
-    "clinical-rationale",
-    "clinical-standard",
-    "comparative",
-    "comparative-analysis",
-    "database-expansion",
-    "decision",
-    "definitional",
-    "diagnostic-criteria",
+    "data-quality",
+    "demographic",
     "educational-outcome",
-    "epidemiological",
-    "facility-performance",
-    "guideline-development",
-    "healthcare-system",
-    "historical-performance",
-    "indicator-definition",
-    "legal-framework",
-    "medical",
-    "medical-definition",
-    "methodological",
-    "methodology",
-    "neurobiological",
-    "observation",
-    "operational",
+    "governance",
+    "low-performance",
+    "non-compliance",
+    "outlier-performance",
     "performance",
-    "performance-metric",
-    "procedural",
-    "procedural-change",
+    "performance-change",
+    "policy",
+    "policy-change",
+    "policy-development",
     "quality-indicator",
-    "quality-indicators",
-    "quality-metrics",
     "quality-standard",
-    "quality-target",
-    "quantitative",
-    "regional-performance",
-    "regional-variation",
-    "standard",
-    "statistical",
-    "structural",
-    "timeline",
-    "trend"
+    "regional-variation"
   ],
   "sources": [
     "adhd-2023",
     "adhd-2024"
   ],
   "folderStructure": [
-    "entities/healthcare/psychiatric-clinics",
-    "entities/locations",
-    "entities/locations/countries",
-    "entities/locations/danish-regions",
-    "entities/locations/regions",
-    "entities/organizations/clinical-units",
+    "comparisons",
+    "entities/codes",
+    "entities/facilities/psychiatry-clinics",
+    "entities/medications/adhd",
     "entities/organizations/clinics",
-    "entities/organizations/government-agencies",
-    "entities/organizations/health-administration",
-    "entities/organizations/health-registries",
-    "entities/organizations/healthcare",
+    "entities/organizations/healthcare-databases",
+    "entities/organizations/healthcare-governance",
+    "entities/organizations/healthcare-professional-bodies",
+    "entities/organizations/healthcare-providers",
+    "entities/organizations/healthcare-standards",
     "entities/organizations/hospitals",
-    "entities/organizations/patient-organizations",
-    "entities/organizations/professional-societies",
-    "entities/organizations/psychiatric-clinics",
-    "entities/organizations/psychiatric-departments",
-    "entities/organizations/psychiatric-groups",
-    "entities/organizations/regional-government",
+    "entities/organizations/psychiatry-clinics",
+    "entities/organizations/regional-authorities",
     "entities/organizations/regions",
-    "entities/people/healthcare-administrators",
     "entities/people/healthcare-professionals",
-    "entities/people/patient-advocates",
-    "topics/action-plan",
-    "topics/analysis",
-    "topics/causal-analysis",
-    "topics/clinical-assessment",
-    "topics/clinical-disagreement",
-    "topics/clinical-outcome",
-    "topics/clinical-practice",
-    "topics/clinical-rationale",
-    "topics/clinical-standard",
-    "topics/comparative",
-    "topics/comparative-analysis",
-    "topics/database-expansion",
-    "topics/decision",
-    "topics/definitional",
-    "topics/diagnostic-criteria",
+    "entities/populations/adhd",
+    "entities/populations/general",
+    "entities/products/assessment-tools",
+    "entities/products/clinical-assessment-tools",
+    "topics/data-quality",
+    "topics/demographic",
     "topics/educational-outcome",
-    "topics/epidemiological",
-    "topics/facility-performance",
-    "topics/guideline-development",
-    "topics/healthcare-system",
-    "topics/historical-performance",
-    "topics/indicator-definition",
-    "topics/legal-framework",
-    "topics/medical",
-    "topics/medical-definition",
-    "topics/methodological",
-    "topics/methodology",
-    "topics/neurobiological",
-    "topics/observation",
-    "topics/operational",
+    "topics/governance",
+    "topics/indicators",
+    "topics/low-performance",
+    "topics/non-compliance",
+    "topics/outlier-performance",
     "topics/performance",
-    "topics/performance-metric",
-    "topics/procedural",
-    "topics/procedural-change",
+    "topics/performance-change",
+    "topics/policy",
+    "topics/policy-change",
+    "topics/policy-development",
+    "topics/policy/mental-health-strategy",
+    "topics/processes",
     "topics/quality-indicator",
-    "topics/quality-indicators",
-    "topics/quality-metrics",
+    "topics/quality-indicators/adhd-care",
     "topics/quality-standard",
-    "topics/quality-target",
-    "topics/quantitative",
-    "topics/regional-performance",
-    "topics/regional-variation",
-    "topics/standard",
-    "topics/statistical",
-    "topics/structural",
-    "topics/timeline",
-    "topics/trend"
+    "topics/regional-variation"
   ]
 }

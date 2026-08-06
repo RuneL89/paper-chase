@@ -2,68 +2,53 @@
   "entities": [
     {
       "name": "Indikator 4x",
-      "type": "quality-indicator",
+      "type": "indicator",
       "slug": "indikator-4x",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 4x måler andelen af patienter opereret indenfor 6 timer efter sygehusankomst for perforation, iskæmi eller postoperativ intraabdominal blødning, med et udviklingmål på ≥90 % som ikke blev opnået nationalt.",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 4x er en national kvalitetsindikator for akut kirurgi, der måler andelen af patienter med perforation, iskæmi eller postoperativ intraabdominal blødning, der opereres inden for 6 timer efter ankomst til sygehus — og dermed direkte afspejler hastigheden i behandling af livstruende akutte abdominelle tilstande.",
       "mentions": [
         {
           "page": 26,
-          "context": "Indikatorbeskrivelse for indikator 4x"
-        },
-        {
-          "page": 26,
-          "context": "Resultater af indikatoranalysen for indikator 4x"
-        },
-        {
-          "page": 27,
-          "context": "Diskussion og implikationer af årets resultater for indikator 4x"
-        },
-        {
-          "page": 27,
-          "context": "Vurdering af indikator 4x"
+          "context": "Indikator 4x beskriver andelen af patienter, der bliver opereret indenfor 6 timer efter ankomst til sygehus ud af de patienter, der opereres indenfor højst 24 timer, og hvor diagnosen er, perforation, iskæmi eller postoperativ intraabdominal blødning."
         }
       ]
     },
     {
       "name": "Indikator 4y",
-      "type": "quality-indicator",
+      "type": "indicator",
       "slug": "indikator-4y",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 4y er en supplerende indikator der måler andelen af patienter opereret indenfor 24 timer efter sygehusankomst for ileusoperationer uden iskæmi eller perforation, med udviklingmål på ≥90 %.",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "significance": "Indikator 4y er en supplerende national kvalitetsindikator for akut kirurgi, der måler andelen af patienter med ileusoperationer uden iskæmi eller perforation, der opereres inden for 24 timer efter ankomst til sygehus — og dermed adresserer en mindre akut, men stadig tidskritisk patientgruppe med behov for struktureret overvågning.",
       "mentions": [
         {
-          "page": 27,
-          "context": "Indikator 4y: Operation indenfor 24 timer (Ileusoperationer uden iskæmi eller perforation)"
-        },
-        {
-          "page": 28,
-          "context": "Indikatorbeskrivelse for indikator 4y"
-        },
-        {
-          "page": 28,
-          "context": "Resultater af indikatoranalysen for indikator 4y"
+          "page": 26,
+          "context": "Indikator 4y beskriver andelen af patienter, der bliver opereret indenfor 24 timer efter ankomst til sygehus ud af de patienter, der opereres indenfor højst 48 timer, og hvor diagnosen er ileusoperationer uden iskæmi eller perforation."
         }
       ]
     },
     {
-      "name": "Region Nordjylland",
-      "type": "location",
-      "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland havde den højeste andel (40,5 %) for indikator 4x og viste løbende forbedring over flere år, hvilket blev anbefalet som et godt eksempel for erfaringsudveksling.",
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den nationale kliniske database, der indsamler og analyserer data til beregning af kvalitetsindikatorer som Indikator 4x og 4y, og dermed fungerer som grundlaget for kvalitetsudvikling i akut kirurgi på tværs af regionerne.",
       "mentions": [
         {
           "page": 26,
-          "context": "Regionalt varierede andelen fra 22,9 % i Region Sjælland til 40,5 % i Region Nordjylland"
-        },
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesnets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den officielle myndighed, der udgiver og vurderer kvalitetsindikatorerne fra Akut Kirurgi Databasen, herunder Indikator 4x og 4y, og dermed har ledelsesmæssig ansvarlighed for deres videre anvendelse i sundhedsvæsenet.",
+      "mentions": [
         {
-          "page": 27,
-          "context": "Region Nordjylland har vist en flot forbedring løbende over de sidste par år"
-        },
-        {
-          "page": 28,
-          "context": "Regionalt varierede andelen fra 77,2 % i Region Nordjylland til 84,6 % i Region Sjælland"
+          "page": 26,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
         }
       ]
     },
@@ -71,98 +56,51 @@
       "name": "Region Sjælland",
       "type": "location",
       "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland havde den laveste andel (22,9 %) for indikator 4x og den højeste andel (84,6 %) for indikator 4y blandt regionerne.",
+      "folder": "entities/locations/national",
+      "significance": "Region Sjælland er en af de fem danske regioner, hvis resultater for Indikator 4x (22,9 %) og Indikator 4y (84,6 %) viser betydelig regional variation og dermed understreger behovet for sammenligning og erfaringsoverførsel mellem regionerne.",
       "mentions": [
         {
           "page": 26,
-          "context": "Regionalt varierede andelen fra 22,9 % i Region Sjælland til 40,5 % i Region Nordjylland"
-        },
+          "context": "Regionalt varierede andelen fra 22,9 % i Region Sjælland til 40,5 % i Region Nordjylland."
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Nordjylland er den danske region med højeste nationalt registrerede præstation for både Indikator 4x (40,5 %) og Indikator 4y (77,2 %), og fremhæves eksplicit i dokumentet som et 'godt eksempel' for erfaringsoverførsel.",
+      "mentions": [
         {
-          "page": 28,
-          "context": "Regionalt varierede andelen fra 77,2 % i Region Nordjylland til 84,6 % i Region Sjælland"
+          "page": 26,
+          "context": "Regionalt varierede andelen fra 22,9 % i Region Sjælland til 40,5 % i Region Nordjylland."
         }
       ]
     },
     {
       "name": "PUPL studiet",
       "type": "study",
-      "slug": "pupl-studiet",
-      "folder": "topics/clinical-research/studies",
-      "significance": "PUPL studiet fra slutningen af 1990'erne demonstrerede vigtigheden af hurtig indsats ved perforeret ulcus og iskæmi.",
-      "mentions": [
-        {
-          "page": 27,
-          "context": "PUPL studiet i slut nullerne viste hvor vigtig en hurtig indsats er"
-        }
-      ]
-    },
-    {
-      "name": "Perforeret ulcus",
-      "type": "clinical-condition",
-      "slug": "perforeret-ulcus",
-      "folder": "topics/clinical-concepts",
-      "significance": "Perforeret ulcus er en kritisk tilstand hvor overlevelsen falder med 2,4 % for hver time forsinkelse før operation, baseret på retrospektiv gennemgang af 2.668 danske patienter.",
-      "mentions": [
-        {
-          "page": 27,
-          "context": "For perforeret ulcus er overlevelsen dalende for hver time der går"
-        },
-        {
-          "page": 27,
-          "context": "Ved perforeret ulcus falder sandsynlighed for overlevelse med 2,4 % for hver time forsinkelse"
-        }
-      ]
-    },
-    {
-      "name": "Rigshospitalet",
-      "type": "hospital",
-      "slug": "rigshospitalet",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet havde en meget lav andel på 25,0 % for indikator 4y operationer indenfor 24 timer for ileusoperationer.",
-      "mentions": [
-        {
-          "page": 27,
-          "context": "Rigshospitalet Nej #/# 0 (0) 25,0 (0,6-80,6) 83,3 60,0"
-        }
-      ]
-    },
-    {
-      "name": "Bornholms Hospital",
-      "type": "hospital",
-      "slug": "bornholms-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bornholms Hospital var den eneste indberettende enhed der opfyldte udviklingmålet for indikator 4y med 93,3 % operationer indenfor 24 timer.",
-      "mentions": [
-        {
-          "page": 27,
-          "context": "Bornholms Hospital Ja 14 / 15 0 (0) 93,3 (68,1-99,8) 94,4 92,3"
-        }
-      ]
-    },
-    {
-      "name": "Holbæk Sygehus",
-      "type": "hospital",
-      "slug": "holbaek-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk Sygehus opfyldte udviklingmålet for indikator 4y med 91,7 % operationer indenfor 24 timer for ileusoperationer.",
-      "mentions": [
-        {
-          "page": 27,
-          "context": "Holbæk Sygehus Ja 55 / 60 0 (0) 91,7 (81,6-97,2) 79,7 86,2"
-        }
-      ]
-    },
-    {
-      "name": "Akut Kirurgi Databasen",
-      "type": "registry",
-      "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/healthcare-registries",
-      "significance": "Akut Kirurgi Databasen er kilden for alle indikatorer og resultater beskrevet i dette dokument, som rapporterer på operationstider og patientresultater for akut kirurgi i Danmark.",
+      "slug": "pulp-trial",
+      "folder": "entities/studies/clinical-trials",
+      "significance": "PUPL studiet (her refereret som 'PUPL studiet i slut nullerne') er en dansk klinisk undersøgelse, der fremhæves som evidens for vigtigheden af hurtig indsats ved akut kirurgi, og dermed støtter det vidensbaserede fundament for udviklingsmålene for Indikator 4x og 4y.",
       "mentions": [
         {
           "page": 26,
-          "context": "Akut Kirurgi Databasen Endelig version til offentliggørelse 2025.02.28"
+          "context": "PUPL studiet i slut nullerne viste hvor vigtig en hurtig indsats er og Fokus bør være at prioritere denne population højere."
+        }
+      ]
+    },
+    {
+      "name": "perforeret ulcus",
+      "type": "medical-condition",
+      "slug": "perforeret-ulcus",
+      "folder": "topics/cancer-distribution",
+      "significance": "Perforeret ulcus er en specifik, livstruende diagnose inden for Indikator 4x, hvor dokumentet angiver en kvantificeret risiko: 'sandsynlighed for overlevelse falder med 2,4 % for hver time forsinkelse', hvilket giver den kliniske vægt bag indikatorens tidsmål.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "For perforeret ulcus er overlevelsen dalende for hver time der går."
         }
       ]
     }
@@ -170,228 +108,113 @@
   "relationships": [
     {
       "subject": "indikator-4x",
-      "predicate": "measures-performance-in",
-      "object": "region-nordjylland",
-      "evidence": "Regionalt varierede andelen fra 22,9 % i Region Sjælland til 40,5 % i Region Nordjylland [^src1]",
+      "predicate": "is-calculated-from",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 4x beskriver andelen af patienter, der bliver opereret indenfor 6 timer efter ankomst til sygehus ud af de patienter, der opereres indenfor højst 24 timer, og hvor diagnosen er, perforation, iskæmi eller postoperativ intraabdominal blødning.",
       "page": 26
     },
     {
-      "subject": "indikator-4x",
-      "predicate": "measures-performance-in",
-      "object": "region-sjaelland",
-      "evidence": "Regionalt varierede andelen fra 22,9 % i Region Sjælland til 40,5 % i Region Nordjylland [^src1]",
+      "subject": "indikator-4y",
+      "predicate": "is-calculated-from",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 4y beskriver andelen af patienter, der bliver opereret indenfor 24 timer efter ankomst til sygehus ud af de patienter, der opereres indenfor højst 48 timer, og hvor diagnosen er ileusoperationer uden iskæmi eller perforation.",
       "page": 26
     },
     {
-      "subject": "region-nordjylland",
-      "predicate": "demonstrated-improvement-in",
+      "subject": "sundhedsvaesnets-kvalitetsinstitut",
+      "predicate": "publishes",
       "object": "indikator-4x",
-      "evidence": "Region Nordjylland har vist en flot forbedring løbende over de sidste par år [^src2]",
-      "page": 27
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut udgiver Indikatorbeskrivelse for indikator 4x.",
+      "page": 26
     },
     {
-      "subject": "bornholms-hospital",
-      "predicate": "met-target-for",
+      "subject": "sundhedsvaesnets-kvalitetsinstitut",
+      "predicate": "publishes",
       "object": "indikator-4y",
-      "evidence": "Bornholms Hospital opfyldte udviklingmålet med 93,3 % [^src3]",
-      "page": 27
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut udgiver Indikatorbeskrivelse for indikator 4y.",
+      "page": 26
     },
     {
-      "subject": "holbaek-sygehus",
-      "predicate": "met-target-for",
-      "object": "indikator-4y",
-      "evidence": "Holbæk Sygehus opfyldte udviklingmålet med 91,7 % [^src4]",
-      "page": 27
+      "subject": "pulp-trial",
+      "predicate": "supports-policy-for",
+      "object": "indikator-4x",
+      "evidence": "PUPL studiet i slut nullerne viste hvor vigtig en hurtig indsats er og Fokus bør være at prioritere denne population højere.",
+      "page": 26
     }
   ],
   "claims": [
     {
-      "text": "Der var i alt 852 patienter, der blev opereret indenfor 24 timer efter ankomst til sygehus for perforation, iskæmi eller postoperativ intraabdominal blødning [^src1]",
-      "type": "patient-volume",
+      "text": "Indikator 4x havde et nationalt resultat på 30,0 % (95 % CI: 27,0–33,2) for perioden, hvilket ikke opfyldte udviklingsmålet på ≥ 90 % [^src1]",
+      "type": "performance",
       "entities": [
         "indikator-4x"
       ],
       "page": 26
     },
     {
-      "text": "256 patienter blev opereret indenfor 6 timer, svarende til en andel på 30,0 % (95 % CI: 27,0-33,2) [^src1]",
-      "type": "clinical-indicator",
+      "text": "Indikator 4y havde et nationalt resultat på 82,6 % (95 % CI: 80,6–84,4) for perioden, hvilket ikke opfyldte udviklingsmålet på ≥ 90 % [^src1]",
+      "type": "performance",
       "entities": [
-        "indikator-4x"
+        "indikator-4y"
       ],
       "page": 26
     },
     {
-      "text": "Udviklingmålet på ≥ 90 % blev ikke opnået på nationalt niveau for indikator 4x [^src1]",
-      "type": "quality-standard",
-      "entities": [
-        "indikator-4x"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Ingen af de indberettende enheder opfyldte udviklingmålet for indikator 4x i perioden [^src1]",
-      "type": "quality-standard",
-      "entities": [
-        "indikator-4x"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Ved perforeret ulcus falder sandsynlighed for overlevelse med 2,4 % for hver time forsinkelse [^src2]",
+      "text": "For perforeret ulcus falder sandsynligheden for overlevelse med 2,4 % for hver time forsinkelse [^src1]",
       "type": "clinical-evidence",
       "entities": [
         "perforeret-ulcus"
       ],
-      "page": 27
+      "page": 26
     },
     {
-      "text": "Fundet ved en retrospektiv gennemgang af 2.668 patienter opereret for perforeret ulcus på danske patienter [^src2]",
-      "type": "clinical-research",
-      "entities": [
-        "perforeret-ulcus"
-      ],
-      "page": 27
-    },
-    {
-      "text": "Ventetid på operationsstue giver øget mortalitet, og længere indlæggelsestid [^src2]",
-      "type": "clinical-evidence",
+      "text": "Ventetid på operationsstue giver øget mortalitet og længere indlæggelsestid [^src1]",
+      "type": "clinical-consequence",
       "entities": [
         "indikator-4x"
       ],
-      "page": 27
-    },
-    {
-      "text": "Længere ventetid mellem indlæggelse og operation medførte længere behandling med antibiotika, længere ophold på intensiv og længere indlæggelsestid i det hele taget [^src2]",
-      "type": "clinical-evidence",
-      "entities": [
-        "indikator-4x"
-      ],
-      "page": 27
-    },
-    {
-      "text": "Årets resultat med 30 % er endnu en forbedring ift. tidligere, men stadig langt fra udviklingmålet på 80% [^src2]",
-      "type": "quality-indicator",
-      "entities": [
-        "indikator-4x"
-      ],
-      "page": 27
-    },
-    {
-      "text": "Der var i alt 1.600 patienter, der blev opereret indenfor 24 timer efter ankomst til sygehus for ileusoperationer uden iskæmi eller perforation [^src3]",
-      "type": "patient-volume",
-      "entities": [
-        "indikator-4y"
-      ],
-      "page": 28
-    },
-    {
-      "text": "1.321 patienter blev opereret indenfor 24 timer, svarende til en andel på 82,6 % (95 % CI: 80,6-84,4) [^src3]",
-      "type": "clinical-indicator",
-      "entities": [
-        "indikator-4y"
-      ],
-      "page": 28
-    },
-    {
-      "text": "Udviklingmålet på ≥ 90 % blev ikke opfyldt på nationalt niveau for indikator 4y [^src3]",
-      "type": "quality-standard",
-      "entities": [
-        "indikator-4y"
-      ],
-      "page": 28
-    },
-    {
-      "text": "Regionalt varierede andelen for indikator 4y fra 77,2 % i Region Nordjylland til 84,6 % i Region Sjælland [^src3]",
-      "type": "regional-variation",
-      "entities": [
-        "indikator-4y",
-        "region-nordjylland",
-        "region-sjaelland"
-      ],
-      "page": 28
-    },
-    {
-      "text": "Ingen af de indberettende enheder opfyldte udviklingmålet for indikator 4y i perioden [^src3]",
-      "type": "quality-standard",
-      "entities": [
-        "indikator-4y"
-      ],
-      "page": 28
+      "page": 26
     }
   ],
   "timeline": [
     {
       "date": "01.09.2023 - 31.08.2024",
-      "event": "Indikator 4x og 4y resultater blev målt for perioden",
+      "event": "Måleperiode for Indikator 4x og Indikator 4y",
       "entities": [
         "indikator-4x",
-        "indikator-4y",
-        "akut-kirurgi-databasen"
-      ]
-    },
-    {
-      "date": "Slutningen af 1990'erne",
-      "event": "PUPL studiet viste vigtigheden af hurtig indsats ved perforeret ulcus og iskæmi",
-      "entities": [
-        "pupl-studiet",
-        "perforeret-ulcus"
+        "indikator-4y"
       ]
     }
   ],
-  "context": "Dette dokument er en del af Akut Kirurgi Databasens årsrapport for 2024 og fokuserer på to operationstids-indikatorer (4x og 4y) for akut kirurgiske patienter i Danmark. Indikator 4x måler operationstid indenfor 6 timer for kritiske tilstande som perforation, iskæmi og postoperativ blødning, mens indikator 4y måler operationstid indenfor 24 timer for ileusoperationer uden iskæmi eller perforation. Begge indikatorer viser, at udviklingmålene på ≥90 % ikke blev opnået nationalt, selvom der var regional variation med Region Nordjylland som bedst performer for indikator 4x. Dokumentet diskuterer evidensen for hurtig kirurgisk behandling, især for perforeret ulcus hvor hver times forsinkelse reducerer overlevelseschancerne med 2,4 %.",
   "tables": [
     {
-      "subject": "indikator-4y",
-      "title": "Indikator 4y: Operation indenfor 24 timer (Ileusoperationer uden iskæmi eller perforation)",
-      "page": 27,
-      "rowDimension": "regioner og sygehuse",
-      "colDimension": "andel opereret indenfor 24 timer med 95 % CI pr. måleår",
+      "subject": "indikator-4x",
+      "title": "Resultater af indikatoranalysen for indikator 4x",
+      "page": 26,
+      "rowDimension": "geografisk niveau",
+      "colDimension": "præstationsmål og resultater",
       "entities": [
-        "indikator-4y",
-        "danmark",
-        "region-hovedstaden",
+        "indikator-4x",
         "region-sjaelland",
-        "region-syddanmark",
-        "region-midtjylland",
-        "region-nordjylland",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "holbaek-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "aalborg-universitetshospital",
-        "aalborg-universitetshospital-thisted",
-        "regionshospital-nordjylland"
+        "region-nordjylland"
       ],
-      "markdown": "| Enhed | Standard ≥ 90% opfyldt | Tæller/nævner | Uoplyst antal (%) | Andel (95% CI) 01.09.2023 - 31.08.2024 | Andel 2022/23 | Andel 2021/22 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 1.321 / 1.600 | 0 (0) | 82,6 (80,6-84,4) | 80,8 | 78,0 |\n| Hovedstaden | Nej | 429 / 510 | 0 (0) | 84,1 (80,7-87,2) | 83,7 | 82,0 |\n| Sjælland | Nej | 241 / 285 | 0 (0) | 84,6 (79,8-88,6) | 76,2 | 79,9 |\n| Syddanmark | Nej | 279 / 343 | 0 (0) | 81,3 (76,8-85,3) | 77,9 | 74,8 |\n| Midtjylland | Nej | 284 / 348 | 0 (0) | 81,6 (77,1-85,5) | 83,3 | 74,5 |\n| Nordjylland | Nej | 88 / 114 | 0 (0) | 77,2 (68,4-84,5) | 76,7 | 73,0 |\n| Hovedstaden | Nej | 429 / 510 | 0 (0) | 84,1 (80,7-87,2) | 83,7 | 82,0 |\n| Amager og Hvidovre Hospital | Nej | 101 / 122 | 0 (0) | 82,8 (74,9-89,0) | 69,4 | 80,5 |\n| Bispebjerg og Frederiksberg Hospital | Nej | 82 / 102 | 0 (0) | 80,4 (71,4-87,6) | 88,1 | 79,9 |\n| Bornholms Hospital | Ja | 14 / 15 | 0 (0) | 93,3 (68,1-99,8) | 94,4 | 92,3 |\n| Herlev og Gentofte Hospital | Nej | 145 / 166 | 0 (0) | 87,3 (81,3-92,0) | 87,5 | 83,3 |\n| Hospitalerne i Nordsjælland | Nej | 86 / 101 | 0 (0) | 85,1 (76,7-91,4) | 84,8 | 86,0 |\n| Rigshospitalet | Nej | #/# | 0 (0) | 25,0 (0,6-80,6) | 83,3 | 60,0 |\n| Sjælland | Nej | 241 / 285 | 0 (0) | 84,6 (79,8-88,6) | 76,2 | 79,9 |\n| Holbæk Sygehus | Ja | 55 / 60 | 0 (0) | 91,7 (81,6-97,2) | 79,7 | 86,2 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 73 / 99 | 0 (0) | 73,7 (63,9-82,1) | 70,7 | 80,8 |\n| Sjællands Universitetshospital | Nej | 113 / 126 | 0 (0) | 89,7 (83,0-94,4) | 79,8 | 76,5 |\n| Syddanmark | Nej | 279 / 343 | 0 (0) | 81,3 (76,8-85,3) | 77,9 | 74,8 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 72 / 90 | 0 (0) | 80,0 (70,2-87,7) | 77,1 | 74,4 |\n| Odense Universitetshospital - Svendborg | Nej | 141 / 171 | 0 (0) | 82,5 (75,9-87,8) | 77,9 | 75,4 |\n| Sygehus Lillebælt | Nej | 28 / 33 | 0 (0) | 84,8 (68,1-94,9) | 77,3 | 79,1 |\n| Sygehus Sønderjylland | Nej | 38 / 49 | 0 (0) | 77,6 (63,4-88,2) | 79,6 | 68,6 |\n| Midtjylland | Nej | 284 / 348 | 0 (0) | 81,6 (77,1-85,5) | 83,3 | 74,5 |\n| Aarhus Universitetshospital | Nej | 47 / 58 | 0 (0) | 81,0 (68,6-90,1) | 83,3 | 74,1 |\n| Hospitalsenhed Midt | Nej | 64 / 73 | 0 (0) | 87,7 (77,9-94,2) | 86,7 | 78,4 |\n| Regionshospitalet Gødstrup | Nej | 58 / 71 | 0 (0) | 81,7 (70,7-89,9) | 77,6 | 64,6 |\n| Regionshospitalet Horsens | Nej | 56 / 76 | 0 (0) | 73,7 (62,3-83,1) | 76,6 | 78,6 |\n| Regionshospitalet Randers | Nej | 59 / 70 | 0 (0) | 84,3 (73,6-91,9) | 90,3 | 80,4 |\n| Nordjylland | Nej | 88 / 114 | 0 (0) | 77,2 (68,4-84,5) | 76,7 | 73,0 |\n| Aalborg Universitetshospital | Nej | 36 / 54 | 0 (0) | 66,7 (52,5-78,9) | 74,7 | 68,5 |\n| Aalborg Universitetshospital, Thisted |  |  |  | 100,0 |  |  |\n| Regionshospital Nordjylland | Nej | 52 / 60 | 0 (0) | 86,7 (75,4-94,1) | 80,0 | 77,8 |",
-      "summary": "Tabellen sammenligner andelen af patienter opereret indenfor 24 timer (indikator 4y) på tværs af regioner og sygehuse for 01.09.2023-31.08.2024 med de to foregående år; nationalt er andelen 82,6 %, og kun Bornholms Hospital og Holbæk Sygehus er markeret med 'Ja' for standarden ≥ 90 %."
+      "markdown": "| Geografisk niveau | Andel (%) | 95 % CI |\n| --- | --- | --- |\n| Danmark | 30,0 | 27,0–33,2 |\n| Region Sjælland | 22,9 | – |\n| Region Nordjylland | 40,5 | – |",
+      "summary": "Tabellen sammenligner national og regional præstation for Indikator 4x og viser en markant regional spredning fra 22,9 % i Region Sjælland til 40,5 % i Region Nordjylland."
     },
     {
       "subject": "indikator-4y",
-      "title": "Antal Årsag",
-      "page": 29,
-      "rowDimension": "eksklusionsårsager",
-      "colDimension": "antal patienter",
+      "title": "Resultater af indikatoranalysen for indikator 4y",
+      "page": 26,
+      "rowDimension": "geografisk niveau",
+      "colDimension": "præstationsmål og resultater",
       "entities": [
         "indikator-4y",
-        "cpr-nummer"
+        "region-sjaelland",
+        "region-nordjylland"
       ],
-      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 75 | Ugyldigt CPRnummer. |\n| 198 | Patienten er under 18 år. |\n| 6.232 | Patienten er ikke opereret. |\n| 492 | Operationen er ikke den første operation i hospitalsopholdet. |\n| 1.085 | Patienten er opereret for en diagnose for Perfoation, iskæmi eller blødning efter 48 timer fra ankomst. |\n| 487 | Patienten er opereret efter 48 timer efter ankomst til sygehus. |",
-      "summary": "Tabellen opgør antallet og årsagerne til eksklusioner fra indikator 4y-analysen, hvor 'Patienten er ikke opereret' med 6.232 er den klart hyppigste eksklusionsårsag."
+      "markdown": "| Geografisk niveau | Andel (%) | 95 % CI |\n| --- | --- | --- |\n| Danmark | 82,6 | 80,6–84,4 |\n| Region Sjælland | 84,6 | 79,8–88,6 |\n| Region Nordjylland | 77,2 | 68,4–84,5 |",
+      "summary": "Tabellen sammenligner national og regional præstation for Indikator 4y og viser en regional variation fra 77,2 % i Region Nordjylland til 84,6 % i Region Sjælland, begge under udviklingsmålet på ≥ 90 %."
     }
-  ]
+  ],
+  "context": "Dette dokumentchunk er en del af den årlige offentliggørelse fra Sundhedsvæsenets Kvalitetsinstitut om kvalitetsindikatorer fra Akut Kirurgi Databasen, specifikt fokuseret på to tidsbaserede kirurgiske indikatorer: Indikator 4x (for livstruende tilstande som perforation og iskæmi) og Indikator 4y (for mindre akut ileus). Den indgår i en bredere narrativ om national kvalitetsmonitorering, regional sammenligning og evidensbaseret prioritering i akut kirurgi, hvor data bruges til at identificere både systemiske udfordringer (som manglende operationsstuekapacitet) og lokale gode praksis (som i Region Nordjylland), samt at støtte politiske beslutninger om ressourceallokering og procesforbedring."
 }

@@ -1,1154 +1,574 @@
 {
   "pages": {
-    "entities/healthcare/psychiatric-clinics/bispebjerg-psykiatrisk-ambulatorium.md": {
+    "comparisons/adhd-behandlingspopulation.md": {
       "mode": "strict-synthesis",
-      "dataHash": "ec67c3dcf256e8c18685cb526ac9647d6f3253f8cf2c712f11fa7a06f87a0089",
-      "synthesizedAt": "2026-07-25T08:25:21.340Z"
+      "dataHash": "f2ffa88b2ff46075c75370231231c6d2578c39e04d8d867506274bb2ae986741",
+      "synthesizedAt": "2026-08-05T18:51:10.212Z"
     },
-    "entities/healthcare/psychiatric-clinics/boerne-ungdomspsykiatrisk-ambulatorium-odense.md": {
+    "comparisons/adhd-udredningspopulation.md": {
       "mode": "strict-synthesis",
-      "dataHash": "33474fc1f1b9359ee36e7c0416fbaa84335e390de41561dae070d37e7dabb356",
-      "synthesizedAt": "2026-08-03T18:48:57.074Z"
+      "dataHash": "c1c13a1617cc7ab00575b98b0e85575b510eb84d6a593344a7d51f27917d3a9d",
+      "synthesizedAt": "2026-08-05T18:50:56.430Z"
     },
-    "entities/healthcare/psychiatric-clinics/bornholm-psykiatrisk-ambulatorium.md": {
+    "comparisons/antal-udredningsforloeb-afsluttet-indenfor-90-dage-pga-mistanke-afkraeftet.md": {
       "mode": "strict-synthesis",
-      "dataHash": "52c507d4a7f6de9ca42a729bc822b8e64e0481d6fac009f948fe0601a59cda6b",
-      "synthesizedAt": "2026-07-25T08:26:46.157Z"
+      "dataHash": "8f5aa6cac3a8d69b093a81dd1807b2e1c240a0f864a28249c871b1f6bd312688",
+      "synthesizedAt": "2026-08-05T18:51:50.783Z"
     },
-    "entities/healthcare/psychiatric-clinics/bua-psykiatrisk-klinik-skoleboern.md": {
+    "comparisons/indikator-1.md": {
       "mode": "strict-synthesis",
-      "dataHash": "b022acea872f36943f4382c23ec0de25d62918171a8e2bdbc70faa7a5c9b2269",
-      "synthesizedAt": "2026-07-25T08:29:31.561Z"
+      "dataHash": "75f19899bfc097746d001d5b5a6c96036dddaa70be98fcca675152ccfd362de7",
+      "synthesizedAt": "2026-08-05T18:46:52.496Z"
     },
-    "entities/healthcare/psychiatric-clinics/bua-psykiatrisk-klinik-smaaboern.md": {
+    "comparisons/indikator-10.md": {
       "mode": "strict-synthesis",
-      "dataHash": "b35cae6f5d82af326396ddd71a518ee6f732bf060572fedc08a7c9663afc2f1a",
-      "synthesizedAt": "2026-07-25T08:30:50.234Z"
+      "dataHash": "ce1db318e4b95cd4264996b38056f5ada4bff23b9c37138c2ce0b469cd82210b",
+      "synthesizedAt": "2026-08-05T18:57:24.393Z"
     },
-    "entities/healthcare/psychiatric-clinics/bua-psykiatrisk-klinik-udredning-midtjylland.md": {
+    "comparisons/indikator-11.md": {
       "mode": "strict-synthesis",
-      "dataHash": "cdde98abcb2594828ba96bd5ac9a4a007c0895d9b6a03b4559570e7b559c1462",
-      "synthesizedAt": "2026-08-03T18:48:56.629Z"
+      "dataHash": "c14172372469ed6148a2c3205e9482b3e0f491c9723bca79151d538847cbd7fa",
+      "synthesizedAt": "2026-08-05T18:57:21.926Z"
     },
-    "entities/healthcare/psychiatric-clinics/bua-psykiatrisk-klinik-udredning.md": {
+    "comparisons/indikator-2a.md": {
       "mode": "strict-synthesis",
-      "dataHash": "961e9ee9f9c5e06f64e82a3883304c86e28e1faf5eaa90fccd22e96fba20520d",
-      "synthesizedAt": "2026-07-25T08:31:04.594Z"
+      "dataHash": "fad4285f001cdb9ceaefecf475f362c5ec867c5f206f523e1ddb1c1de243f01a",
+      "synthesizedAt": "2026-08-05T18:45:51.550Z"
     },
-    "entities/healthcare/psychiatric-clinics/bua-psykiatrisk-klinik-unge.md": {
+    "comparisons/indikator-2b-andelen-af-udredningsforloeb-blandt-6-17-aarige-hvor-der-senest-120-dage-efter-start-af-adhd-udredning-er-foretaget-enten-manualiseret-diagnostisk-interview-eller-miljoeobservation.md": {
       "mode": "strict-synthesis",
-      "dataHash": "d0b55cfa63e2360789506ef6177f4c00f219db5d3e1993a7eac70fa70b031e35",
-      "synthesizedAt": "2026-07-25T08:32:25.651Z"
+      "dataHash": "583969020036b528f8cc5b7ca643eb6dd37f48ac738259fa7b21f34d1fcce2ae",
+      "synthesizedAt": "2026-08-05T18:45:10.199Z"
     },
-    "entities/healthcare/psychiatric-clinics/glostrup-psykiatrisk-ambulatorium.md": {
+    "comparisons/indikator-2b.md": {
       "mode": "strict-synthesis",
-      "dataHash": "c2f0a3b7fa2519ded17651887daafd3898e631c16a2ac80c5dbd13c4030b0d28",
-      "synthesizedAt": "2026-07-25T08:28:20.835Z"
+      "dataHash": "a723e928053cb40732c1029a5093129de6f9ae1e0161dd8de12ad522635f82f6",
+      "synthesizedAt": "2026-08-05T18:54:49.010Z"
     },
-    "entities/healthcare/psychiatric-clinics/hillerod-psykiatrisk-ambulatorium.md": {
+    "comparisons/indikator-3-andelen-af-udredningsforloeb-hvor-der-er-afholdt-diagnostisk-konference-med-deltagelse-af-speciallaege-i-boerne-og-ungdomspsykiatri-senest-120-dage-efter-start-af-adhd-udredning.md": {
       "mode": "strict-synthesis",
-      "dataHash": "5e700f964bf3d426274f832908a96199370e5c40a7f1373536cd862ed6f55ffc",
-      "synthesizedAt": "2026-07-25T08:28:06.826Z"
+      "dataHash": "905c0e8f4812f58f05dc194f63227cf7c427d9e28117e7c656c2f7176d2ca88f",
+      "synthesizedAt": "2026-08-05T18:45:10.333Z"
     },
-    "entities/locations/countries/danmark.md": {
+    "comparisons/indikator-3.md": {
       "mode": "strict-synthesis",
-      "dataHash": "020a959b11502a8a61fa02a6f46f611b1c912fbaa22fbe48d688f336943f6aa5",
-      "synthesizedAt": "2026-07-25T08:19:14.697Z"
+      "dataHash": "85406268f25713f93988c27b10568dc9279781db763059163f1208d230dfdd3a",
+      "synthesizedAt": "2026-08-05T18:54:34.063Z"
     },
-    "entities/locations/danish-regions/hovedstaden-region.md": {
+    "comparisons/indikator-4.md": {
       "mode": "strict-synthesis",
-      "dataHash": "38288e03ba07b4997c8438da9f3144abf44a262c858c06b915d1e502169ea924",
-      "synthesizedAt": "2026-08-03T18:48:49.064Z"
+      "dataHash": "83884ef49e26dedbff520b475ed412377478a062deba0f16e13a8850fc749d0c",
+      "synthesizedAt": "2026-08-05T18:49:44.056Z"
     },
-    "entities/locations/danish-regions/midtjylland-region.md": {
+    "comparisons/indikator-5.md": {
       "mode": "strict-synthesis",
-      "dataHash": "2bf10bbed081a71c8090b9853300f97584e83a85ae2960e59ac16209dad85ae1",
-      "synthesizedAt": "2026-08-03T18:48:50.119Z"
+      "dataHash": "3f6233307b8e768f80f5b6ecbac49e617ec9658c5df10e60dcee7ea8ec670292",
+      "synthesizedAt": "2026-08-05T18:47:41.698Z"
     },
-    "entities/locations/danish-regions/nordjylland-region.md": {
+    "comparisons/indikator-6.md": {
       "mode": "strict-synthesis",
-      "dataHash": "ca0c1c4e163ab852202561feb64be9a4aeaa2945056f7e65ac252a0aeaa3a036",
-      "synthesizedAt": "2026-08-03T18:48:51.319Z"
+      "dataHash": "1e90678b0fc45233f7b6e98e6616e830002a9dd9609480fdc19d3efaeae44f74",
+      "synthesizedAt": "2026-08-05T18:48:53.136Z"
     },
-    "entities/locations/danish-regions/sjaelland-region.md": {
+    "comparisons/indikator-7a.md": {
       "mode": "strict-synthesis",
-      "dataHash": "05de1f17739b71313a4037190ca58dbbff927ba16a2b4eed97effe19b10d1224",
-      "synthesizedAt": "2026-08-03T18:48:49.420Z"
+      "dataHash": "afadb052305fdf1dcc8cee05d715a6d5d82f75773e6ddf041342d66091471537",
+      "synthesizedAt": "2026-08-05T18:49:39.563Z"
     },
-    "entities/locations/danish-regions/syddanmark-region.md": {
+    "comparisons/indikator-7b.md": {
       "mode": "strict-synthesis",
-      "dataHash": "d1b4d6257df3b52e57ac1b499a80cf4d53d40adec564a398adca4d92543fd6f8",
-      "synthesizedAt": "2026-08-03T18:48:49.782Z"
+      "dataHash": "b454abcab0e4747ea8d484cf353c98448ee39eaf9a199b2b67180e6624fff507",
+      "synthesizedAt": "2026-08-05T18:52:16.170Z"
     },
-    "entities/locations/region-syddanmark.md": {
+    "comparisons/indikator-8.md": {
       "mode": "strict-synthesis",
-      "dataHash": "697183b485e180ac46797ad0ff18815a8dccd2bbe37f23f8792536c5dd867993",
-      "synthesizedAt": "2026-07-25T08:18:03.712Z"
+      "dataHash": "701301f746d66a9f21036937cc960c7472fc2e2d88ae42c6ed31ea30d46fa1af",
+      "synthesizedAt": "2026-08-05T18:56:31.502Z"
     },
-    "entities/locations/regions/nordjylland.md": {
+    "comparisons/indikator-9.md": {
       "mode": "strict-synthesis",
-      "dataHash": "53bf229dd39f8dd7659d1ce70213158f692c3888627728651a4d3d4a43a956ec",
-      "synthesizedAt": "2026-08-03T18:49:01.209Z"
+      "dataHash": "0a245b4c8f951de5c31b2515275f6d9bd967d93476fce0cca3f7add14d91334e",
+      "synthesizedAt": "2026-08-05T18:54:48.230Z"
     },
-    "entities/locations/regions/syddanmark.md": {
+    "comparisons/indikatoroversigt.md": {
       "mode": "strict-synthesis",
-      "dataHash": "9ef0de97fb95ece6790f0468d06968de9b2209897bbcb4117d68446e567222b8",
-      "synthesizedAt": "2026-08-03T18:49:00.675Z"
+      "dataHash": "0aae5e21807f6adf7a630c7c5be57183b35cf36730049d793606637d8a2ae416",
+      "synthesizedAt": "2026-08-05T18:52:47.192Z"
     },
-    "entities/organizations/clinical-units/bua-aabenraa.md": {
+    "comparisons/oversigt-over-de-samlede-indikatorresultater.md": {
       "mode": "strict-synthesis",
-      "dataHash": "0bdd330ae3d9c5cf09683ac5ae021842ead9040842c2228d1f79418766111a20",
-      "synthesizedAt": "2026-08-03T18:48:54.342Z"
+      "dataHash": "e9571f743cdc00e3ebb374251ac5d94e48cd626b2eef68750f9b835609447e77",
+      "synthesizedAt": "2026-08-05T18:53:22.248Z"
     },
-    "entities/organizations/clinical-units/bua-odense.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "b9ff5d5ea38792b5fb0a716a89e2a22a9e9d33e6452eba5e21c3093afa934696",
-      "synthesizedAt": "2026-08-03T18:48:54.657Z"
-    },
-    "entities/organizations/clinical-units/bua-psykiatrisk-klinik-smaaborni-midtjylland.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "82a327be45054bf879faddc51800a1055dea0a40801325d6ca367c484fd65d20",
-      "synthesizedAt": "2026-08-03T18:48:56.186Z"
-    },
-    "entities/organizations/clinical-units/bua-vejle.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "074ce9751c393994eafda31e2df4c04bcd1775a5006dc0759eb24987e6e6d5cb",
-      "synthesizedAt": "2026-08-03T18:48:55.828Z"
-    },
-    "entities/organizations/clinics/boerne-ungdomspsyk-ambulatorium.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "28abf0f518c379532c8fb44ff41848ba6a274e2a12aa87fee5b2cedf1c6726d0",
-      "synthesizedAt": "2026-08-03T18:49:00.273Z"
-    },
-    "entities/organizations/government-agencies/danmarks-statistik.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "e0ca8bf36c05a58d1b4917379d177ab90225f2dfd9ea7de6ce10dfc79b5a6220",
-      "synthesizedAt": "2026-07-25T08:33:35.182Z"
-    },
-    "entities/organizations/health-administration/regionssundhedsdirektorkredsen.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "18646e07cffe3b8409a52e19c83aaa68041e173a7f6c18bb0da3cfc35dee305f",
-      "synthesizedAt": "2026-07-25T08:33:25.868Z"
-    },
-    "entities/organizations/health-administration/sundhedsstyrelsen.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "46309404622312b8342b1ce17d6d6c6f40bcb82c6d586c0cbe66545f6e700aa4",
-      "synthesizedAt": "2026-07-25T08:42:49.802Z"
-    },
-    "entities/organizations/health-administration/sundhedsvaesenets-kvalitetsinstitut.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "c523baec5a8c0fa367102023fec2ca49e20bc08792d07cdd34fd7fb8550608e5",
-      "synthesizedAt": "2026-07-25T08:42:46.018Z"
-    },
-    "entities/organizations/health-administration/sundk.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "b1ff1f825f78fe5874689d2b9c13b56cf48fefb315c77d0f15c63577805fef22",
-      "synthesizedAt": "2026-08-03T18:49:01.647Z"
-    },
-    "entities/organizations/health-registries/lpr.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "a1a51d011c2f4ca8d897debc560b705461b19ee654bc567c2bff56b29331c533",
-      "synthesizedAt": "2026-07-25T08:34:43.832Z"
-    },
-    "entities/organizations/health-registries/rkkp-skizofreni.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "2ab03aff0431814adad4dabcb19a538ab19a99fbf1a579851ffac5c13cc9d0f9",
-      "synthesizedAt": "2026-07-25T08:43:00.657Z"
-    },
-    "entities/organizations/health-registries/rkkp-videncenter.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "697d5cc7d56087afd0b6cd0e92d8ecd55b26459d65d1bd67b34081e7fd15cebe",
-      "synthesizedAt": "2026-07-25T08:33:17.672Z"
-    },
-    "entities/organizations/healthcare/aarhus-universitetshospital-psykiatrien.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "3ef9073272190deb4b9ccee3e66189b26db4acbbf50c77197cc117b20f1551ff",
-      "synthesizedAt": "2026-07-25T08:07:53.439Z"
-    },
-    "entities/organizations/healthcare/adhd-databasen.md": {
+    "entities/codes/agx01b.md": {
       "mode": "structured-template",
-      "dataHash": "d431f15fba34eef12f381200a6fe07f14ebee8e10852e895f2cd64477ba4c69c",
-      "synthesizedAt": "2026-07-25T08:35:16.947Z"
+      "dataHash": "ddcd87e4f01051c92744991345e601ef75bf444b52795fca573571ff99e46e2e",
+      "synthesizedAt": "2026-08-05T18:25:20.946Z"
     },
-    "entities/organizations/healthcare/bua.md": {
+    "entities/facilities/psychiatry-clinics/aabenna-borne-og-ungdomspsykiatrisk-ambulatorium.md": {
       "mode": "strict-synthesis",
-      "dataHash": "e8d8c4d49dd62472c16cca2e3c658a2d4d6474ec8fec454b5d073b0256ebee43",
-      "synthesizedAt": "2026-07-25T08:13:34.122Z"
+      "dataHash": "e3d38bba6bed1b7d96ec2fa3c48fdecd01bc6b927e02348a6db7db12a2fe230a",
+      "synthesizedAt": "2026-08-05T18:07:08.455Z"
     },
-    "entities/organizations/healthcare/dps-midtjylland.md": {
+    "entities/facilities/psychiatry-clinics/bua-psykiatrisk-klinik-for-skoleboern.md": {
       "mode": "strict-synthesis",
-      "dataHash": "56d23264bdaf160278501155b1ff0da4734e1847101a5b830ca9d647b9289500",
-      "synthesizedAt": "2026-07-25T08:07:53.988Z"
+      "dataHash": "92f0451e2f2c1a499e746ac4f4079f645da94f84269ed0caa4b12f9da23c72df",
+      "synthesizedAt": "2026-08-05T18:24:30.136Z"
     },
-    "entities/organizations/healthcare/hejmdal-privathospital-aalborg.md": {
+    "entities/facilities/psychiatry-clinics/bua-psykiatrisk-klinik-for-unge.md": {
       "mode": "strict-synthesis",
-      "dataHash": "b2c5e90c399e07ea70dcef22b0138d2095776e2da56263d99ea796eb62355047",
-      "synthesizedAt": "2026-07-25T08:37:47.026Z"
+      "dataHash": "9d4e0ffcc0b1182f34cc44925562e6349aba72157688541a8e7908e95bc5a724",
+      "synthesizedAt": "2026-08-05T18:29:06.002Z"
     },
-    "entities/organizations/healthcare/hejmdal-privathospital-odense.md": {
+    "entities/facilities/psychiatry-clinics/hillerod-psykiatrisk-ambulatorium-boern-og-unge.md": {
       "mode": "strict-synthesis",
-      "dataHash": "4714caec9d3b66e955636141f64560952430c7a97f50b19acc9a00a90b697de2",
-      "synthesizedAt": "2026-07-25T13:45:48.269Z"
+      "dataHash": "abc90b0fd2bb5307c6cf60742a85fe7634bf44ccfab5108946ba216ab62e8ec3",
+      "synthesizedAt": "2026-08-05T18:05:00.586Z"
     },
-    "entities/organizations/healthcare/hejmdal-privathospital-viby.md": {
+    "entities/facilities/psychiatry-clinics/odense-borne-og-ungdomspsykiatrisk-ambulatorium.md": {
       "mode": "strict-synthesis",
-      "dataHash": "7ff5c9fb206c8a43737498306a816414470463302f09e76198a72354a7ee3bce",
-      "synthesizedAt": "2026-07-25T08:37:33.606Z"
+      "dataHash": "a67a848e9ac1d91ab51f0a22cd67e6bd42048284feaf164db67d9714a4950681",
+      "synthesizedAt": "2026-08-05T18:05:00.350Z"
     },
-    "entities/organizations/healthcare/privathospitaler.md": {
+    "entities/facilities/psychiatry-clinics/pck-psykoterapeutisk-klinik.md": {
       "mode": "strict-synthesis",
-      "dataHash": "b4ccfd089bcc108c8babd15a8c2d3c746c645971200b1f7fb3143a0ed4b21fc7",
-      "synthesizedAt": "2026-07-25T08:36:54.142Z"
+      "dataHash": "a8a5b05d6b2b0b44ffb2193ab72db1db2c96daf6f8ff684227eee20436949551",
+      "synthesizedAt": "2026-08-05T18:27:30.195Z"
     },
-    "entities/organizations/healthcare/privathospitalerne.md": {
+    "entities/medications/adhd/atomoxetin-n06ba09.md": {
       "mode": "strict-synthesis",
-      "dataHash": "9555941a5b50d3aa7b51c305a0c4314e7bfb0056c5a29bd60fd3c34f5ace2bbd",
-      "synthesizedAt": "2026-07-25T08:37:58.108Z"
+      "dataHash": "6a5f42ea9f1024b098100987161b94134b1882f8b127fc528b02f108cc81d54a",
+      "synthesizedAt": "2026-08-05T18:15:41.943Z"
     },
-    "entities/organizations/healthcare/region-hovedstadens-psykiatri.md": {
+    "entities/medications/adhd/dexamfetamin-n06ba02.md": {
       "mode": "strict-synthesis",
-      "dataHash": "c0954c10f7563ddec86cf5dbe982c7568a1da50af6435a78e7f77ce4bd81e323",
-      "synthesizedAt": "2026-07-25T08:33:34.213Z"
+      "dataHash": "b2eef01e8934cf1180854897232c65b0ab408e2a73e9bb7e0f4bd1d4d64e0a3c",
+      "synthesizedAt": "2026-08-05T18:14:28.110Z"
     },
-    "entities/organizations/healthcare/rkkp.md": {
+    "entities/medications/adhd/guanfacin-c02ac02.md": {
       "mode": "strict-synthesis",
-      "dataHash": "8d5be06d8e5b5a2aafa511aee977349e0418e06ea4bf1a51947dbc7781283cf0",
-      "synthesizedAt": "2026-07-25T08:07:29.483Z"
+      "dataHash": "a041b58c5d250cc587758a884b7a0ebb4d3f4cddebfd39481973b07e73785a37",
+      "synthesizedAt": "2026-08-05T18:16:50.023Z"
     },
-    "entities/organizations/hospitals/aalborg-universitetshospital.md": {
+    "entities/medications/adhd/lisdexamfetamin-n06ba12.md": {
       "mode": "strict-synthesis",
-      "dataHash": "5d1b155b87629de237b8c910f0c1fca1be1c6f0f8341132a95d575285050c62e",
-      "synthesizedAt": "2026-07-25T08:33:04.078Z"
+      "dataHash": "05605810166f78f99f69564f3b170b1689ed05c7c10a27294bebf3c98d00b0c6",
+      "synthesizedAt": "2026-08-05T18:16:43.149Z"
     },
-    "entities/organizations/hospitals/aarhus-universitetshospital.md": {
+    "entities/medications/adhd/methylphenidat-n06ba04.md": {
       "mode": "strict-synthesis",
-      "dataHash": "3af10830f409529e7379578fcaab129e701fe6b38254831887972d868a37942c",
-      "synthesizedAt": "2026-07-25T08:32:56.365Z"
+      "dataHash": "ef470df981a1b44856cd7a0ef3bd2582214be37357892950815b9e794498a1a2",
+      "synthesizedAt": "2026-08-05T18:14:43.630Z"
     },
-    "entities/organizations/hospitals/odense-universitetshospital.md": {
+    "entities/medications/adhd/modafinil-n06ba07.md": {
       "mode": "strict-synthesis",
-      "dataHash": "882cb2b4918e357f98de895547f2ea40e52d0758cbcdec246334660dd4144aa9",
-      "synthesizedAt": "2026-07-25T08:42:40.948Z"
+      "dataHash": "512544c1c200ae6c68fbf22aa9c56d8a07775fa01194db92ed44f8dccad11bdc",
+      "synthesizedAt": "2026-08-05T18:15:46.083Z"
     },
-    "entities/organizations/patient-organizations/adhd-foreningen.md": {
+    "entities/organizations/clinics/bua-psykiatrisk-klinik-for-udredning.md": {
       "mode": "strict-synthesis",
-      "dataHash": "0ec7143ac28694a4fcdae8b0f20cc500dc8372bc6159443703c4e92d4b7be560",
-      "synthesizedAt": "2026-07-25T08:33:21.649Z"
+      "dataHash": "1c885bc269efb923afa1860461e3b5c679003159d28ca745ce10be923d367953",
+      "synthesizedAt": "2026-08-05T18:12:35.509Z"
     },
-    "entities/organizations/professional-societies/boerne-og-ungdomspsykiatrisk-selskab-i-danmark.md": {
+    "entities/organizations/healthcare-databases/adhd-databasen.md": {
       "mode": "strict-synthesis",
-      "dataHash": "7f7803d7eef0a53cc1e1018943268a82fc4c9a5509ab9791ff861baa85a6a92a",
-      "synthesizedAt": "2026-07-25T08:33:05.420Z"
+      "dataHash": "e0151203790215147aaaf811d52e6c5a820e04c45eae9c80163a715f18975c98",
+      "synthesizedAt": "2026-08-05T17:56:08.969Z"
     },
-    "entities/organizations/professional-societies/dansk-psykiatrisk-selskab.md": {
+    "entities/organizations/healthcare-databases/lpr.md": {
       "mode": "strict-synthesis",
-      "dataHash": "12a85ce53569a4388f311b492b19e7b583468cecba5b8817efa85078c6fecd67",
-      "synthesizedAt": "2026-07-25T08:33:09.731Z"
+      "dataHash": "107fe9484edab613b84ba0810796a06451c2700497edc447eeb61014e1dcf95f",
+      "synthesizedAt": "2026-08-05T18:28:06.609Z"
     },
-    "entities/organizations/professional-societies/dansk-psykolog-forening.md": {
+    "entities/organizations/healthcare-governance/danmarks-statistik.md": {
       "mode": "strict-synthesis",
-      "dataHash": "e7d5bb4ca0cc8a2947d3801d959f92e8905d65da39945aefb7b3bcb145d511ce",
-      "synthesizedAt": "2026-07-25T08:33:15.296Z"
+      "dataHash": "bc4a4969b8826f36d3324711dbdd115d83476d026581005b1d25215f1b15b5fb",
+      "synthesizedAt": "2026-08-05T18:25:59.793Z"
     },
-    "entities/organizations/professional-societies/danske-regioner.md": {
+    "entities/organizations/healthcare-governance/styregruppen.md": {
       "mode": "strict-synthesis",
-      "dataHash": "6bf7da61fb054737b4b32741f5fadc3f6a88d9cc6af5704e4e7b6274061fd0a1",
-      "synthesizedAt": "2026-07-25T08:42:54.950Z"
+      "dataHash": "3ca13eea292ffa63b9e17229250bd3dc41f9c4c27bf77f786b431385db10684e",
+      "synthesizedAt": "2026-08-05T18:09:08.483Z"
     },
-    "entities/organizations/professional-societies/dmpg-retningslinje.md": {
+    "entities/organizations/healthcare-professional-bodies/danske-multidisciplinaere-psykiatrigrupper-dmpger.md": {
       "mode": "strict-synthesis",
-      "dataHash": "6ebb4cbe2028ef94b0127defbf3936a4df1054259c5ce3886843427298216325",
-      "synthesizedAt": "2026-07-25T08:41:44.689Z"
+      "dataHash": "30556d7d8725e085bb27862ae119078787f314e134a69dcd5eaa1b9aa8150e36",
+      "synthesizedAt": "2026-08-05T17:54:20.901Z"
     },
-    "entities/organizations/professional-societies/forening-af-praktiserende-speciallaeger.md": {
+    "entities/organizations/healthcare-providers/dps-midtjylland.md": {
       "mode": "strict-synthesis",
-      "dataHash": "d7d2112c6482a65e8114a3f00096f19b0b38300de5f5559d4098f27cd05c7d11",
-      "synthesizedAt": "2026-07-25T08:33:12.217Z"
+      "dataHash": "a1765c8c93d0233372b5233255b343f32eef6f44eaf6ef89b6d709b62d2c9166",
+      "synthesizedAt": "2026-08-05T17:53:04.902Z"
     },
-    "entities/organizations/professional-societies/vidensraad-for-forebyggelse.md": {
+    "entities/organizations/healthcare-providers/hejmdal-privathospital-viby-beh-afsnit.md": {
       "mode": "strict-synthesis",
-      "dataHash": "b25f387a4133b5b6200982ef0fbf0b688eace5999e05f4c7977109a1d3b134fa",
-      "synthesizedAt": "2026-07-25T08:41:59.463Z"
+      "dataHash": "0fcc3a52374e3079503c31e03da01c2ca7d6eda059d920433e4b1ead4cd048cc",
+      "synthesizedAt": "2026-08-05T18:25:00.747Z"
     },
-    "entities/organizations/professional-societies/who.md": {
+    "entities/organizations/healthcare-providers/privathospitaler.md": {
       "mode": "strict-synthesis",
-      "dataHash": "b133bf8aa5174694e28a21ec80419cdfc9d9e84f37f6e06409d5c0220d8fe654",
-      "synthesizedAt": "2026-07-25T08:41:52.991Z"
+      "dataHash": "e97b49201079cd3bc967f34e35cec5af1cfb5218d71768150ada0effe176dcc7",
+      "synthesizedAt": "2026-08-05T18:24:02.677Z"
     },
-    "entities/organizations/psychiatric-clinics/aabenraa-psychiatric-ambulatory.md": {
+    "entities/organizations/healthcare-providers/rhp.md": {
       "mode": "strict-synthesis",
-      "dataHash": "b8ad21292f5d8b58e2d0aa2b96307f8255b21a1684b3783342829b370656c3bf",
-      "synthesizedAt": "2026-08-03T18:48:44.643Z"
+      "dataHash": "dbd13ab09e4d006fc637d510fb73a3c8d176fad955ffee8e1359e560ac908ac9",
+      "synthesizedAt": "2026-08-05T18:18:31.522Z"
     },
-    "entities/organizations/psychiatric-clinics/ada-psykiatriens-hus-aarhus.md": {
+    "entities/organizations/healthcare-standards/rkkp.md": {
       "mode": "strict-synthesis",
-      "dataHash": "df4ed4fd069dc17d4503382324a35966a687523204ecda1dbd13875971fb5ae9",
-      "synthesizedAt": "2026-07-25T08:41:08.933Z"
+      "dataHash": "f5159b70e678798653b28e1a9b77575c4335d3b9ede1bbaac030a24ccfea009a",
+      "synthesizedAt": "2026-08-05T17:51:30.060Z"
     },
-    "entities/organizations/psychiatric-clinics/afp-psykiatrisk-klinik-2-auh.md": {
+    "entities/organizations/healthcare-standards/sundhedsvaesnets-kvalitetsinstitut.md": {
       "mode": "strict-synthesis",
-      "dataHash": "fde3fccef3e61b8d903e47f3449417e6ef0345d46b9f186eda86184ace499381",
-      "synthesizedAt": "2026-07-25T08:41:20.623Z"
+      "dataHash": "a06c1b20812f287c68f500ecc5d7b4ab1d28f457ab44473e99843f6c8f7576ec",
+      "synthesizedAt": "2026-08-05T18:18:58.834Z"
     },
-    "entities/organizations/psychiatric-clinics/bispebjerg-psychiatric-ambulatory.md": {
+    "entities/organizations/hospitals/aarhus-universitetshospital-psykiatrien.md": {
       "mode": "strict-synthesis",
-      "dataHash": "4f59f9bb63c69b48ee8b9700bc7d6663b8af39a8ae2e53553ec2a82e42ea0b91",
-      "synthesizedAt": "2026-08-03T18:48:42.473Z"
+      "dataHash": "4319c114bf989ffce4eb4611dbc4551a1e825740449d5b12d5c18f4978364d1a",
+      "synthesizedAt": "2026-08-05T17:53:07.975Z"
     },
-    "entities/organizations/psychiatric-clinics/boerne-ungdomspsyk-ambulatorium-nordjylland.md": {
+    "entities/organizations/hospitals/bua.md": {
       "mode": "strict-synthesis",
-      "dataHash": "2ce87da694f1b478b9e81e15d5c41264484c9c3439085ecc12d4782ad25a722b",
-      "synthesizedAt": "2026-07-25T08:15:54.503Z"
+      "dataHash": "5bcd4358bb1426273c2e51c467cbfa8103fea6df6c5a81a4490f564dea7914cd",
+      "synthesizedAt": "2026-08-05T17:52:44.550Z"
     },
-    "entities/organizations/psychiatric-clinics/boerne-ungdomspsyk-center-aarhus.md": {
+    "entities/organizations/psychiatry-clinics/bispebjerg-bup-ambulatorium.md": {
       "mode": "strict-synthesis",
-      "dataHash": "6cc3d609509e7c5d3c4faac5ad327cc1d41f4a75118a0cf50840b6da56dadbb4",
-      "synthesizedAt": "2026-07-25T08:42:38.746Z"
+      "dataHash": "6ef8b0f1b09e02bcace51f9a567db91e8ab86a2412adea0e7ec5efccebcc0b51",
+      "synthesizedAt": "2026-08-05T18:10:05.920Z"
     },
-    "entities/organizations/psychiatric-clinics/boerne-unge-psyk-afd-40.md": {
+    "entities/organizations/psychiatry-clinics/boerne-unge-psyk-afd-40.md": {
       "mode": "strict-synthesis",
-      "dataHash": "dca32d616e15c9f039e0a54d52428979a3fdac69306a92a02855e754c8f940b8",
-      "synthesizedAt": "2026-07-25T08:14:24.339Z"
+      "dataHash": "53fad17c46f61e7ce007687f45d7cb637cc774caed0019867cdc0e608e523136",
+      "synthesizedAt": "2026-08-05T18:07:49.614Z"
     },
-    "entities/organizations/psychiatric-clinics/boerne-unge-psyk-klinik-40k.md": {
+    "entities/organizations/psychiatry-clinics/bornholm-bup-ambulatorium.md": {
       "mode": "strict-synthesis",
-      "dataHash": "c4fc1a23279bce1899c2e68ade81dbeb5047d0cd1dbfeba5d38e820600bbd1c0",
-      "synthesizedAt": "2026-07-25T08:40:03.076Z"
+      "dataHash": "83c480cf938a582fb650d23b15c055ce601010f9cf088be994833c1463de5635",
+      "synthesizedAt": "2026-08-05T18:10:22.806Z"
     },
-    "entities/organizations/psychiatric-clinics/boerne-unge-psyk-reg-fkt-40-r.md": {
+    "entities/organizations/psychiatry-clinics/bua-smaborn-klinik.md": {
       "mode": "strict-synthesis",
-      "dataHash": "5426068aed38f21360ea22805eeaccbd58611f9ea37268759b88a2234bd18791",
-      "synthesizedAt": "2026-07-25T08:37:10.371Z"
+      "dataHash": "54f400ff1f7decefd3ea04cfaf1021141b49f10815f6d69e9d73b1e915afc192",
+      "synthesizedAt": "2026-08-05T18:08:54.428Z"
     },
-    "entities/organizations/psychiatric-clinics/boerne-unge-psyk-reg-fkt-40r.md": {
+    "entities/organizations/psychiatry-clinics/esbjerg-bup-ambulatorium.md": {
       "mode": "strict-synthesis",
-      "dataHash": "ed7773d8e292eea4e51375ed3ea3f6a6409faa3b79f08954ccf021ce5ada2604",
-      "synthesizedAt": "2026-08-03T18:49:07.463Z"
+      "dataHash": "61c6b368b0e17a3c1c3c4109cf347c1cb80e70f9a4b37a4fc7d8d1c4f713be6f",
+      "synthesizedAt": "2026-08-05T18:06:15.896Z"
     },
-    "entities/organizations/psychiatric-clinics/bornholm-psychiatric-ambulatory.md": {
+    "entities/organizations/psychiatry-clinics/glostrup-bup-ambulatorium.md": {
       "mode": "strict-synthesis",
-      "dataHash": "13dd727d8fa1b4260f07c8793c0fd8331d968d2ee9ff9b93d60963e2f261a21c",
-      "synthesizedAt": "2026-08-03T18:48:42.726Z"
+      "dataHash": "ed6d797d6b5cb2e557a7a2042b840f7d769af934a0c6e391dc25e8ad1f432f92",
+      "synthesizedAt": "2026-08-05T18:11:18.808Z"
     },
-    "entities/organizations/psychiatric-clinics/bua-boerne-ungdomspsykiatri-sengeafsnit.md": {
+    "entities/organizations/psychiatry-clinics/pho-klinik-1-for-psykiatriske-lidelser-horsens.md": {
       "mode": "strict-synthesis",
-      "dataHash": "86b34c81dec19dfc3fe00c976f7d73cf0b4bf9270b1373731e828c423bf9b3d1",
-      "synthesizedAt": "2026-07-25T08:31:53.969Z"
+      "dataHash": "30afb3155c449ddd0c740abf4e04acda9a78505bdbe9d3808a183d64c97e4489",
+      "synthesizedAt": "2026-08-05T18:27:03.913Z"
     },
-    "entities/organizations/psychiatric-clinics/bua-psychiatric-clinic-assessment.md": {
+    "entities/organizations/psychiatry-clinics/pmi-klinik-for-depression-og-mani-midt.md": {
       "mode": "strict-synthesis",
-      "dataHash": "ee3650596a4db3a7b7b88095408f8d8036a30d5db94a74f5008e6297989420d4",
-      "synthesizedAt": "2026-08-03T18:48:47.513Z"
+      "dataHash": "afa40757598666b8946d352825e430b6d0c58e57f738bc3ac1e3ee4792867bc1",
+      "synthesizedAt": "2026-08-05T18:27:02.815Z"
     },
-    "entities/organizations/psychiatric-clinics/bua-psychiatric-clinic-schoolchildren.md": {
+    "entities/organizations/psychiatry-clinics/ps-almenpsykiatrisk-syd-ambulatorier.md": {
       "mode": "strict-synthesis",
-      "dataHash": "57c7fcca0646fb9ed0f7cafe92f6e37eeb845c0a18b0a80f8db60cee53de926d",
-      "synthesizedAt": "2026-08-03T18:48:46.862Z"
+      "dataHash": "6353935f7bd45c12829c6e2c8adfb8e0752701add885814cecf35092decee360",
+      "synthesizedAt": "2026-08-05T18:28:36.057Z"
     },
-    "entities/organizations/psychiatric-clinics/bua-psychiatric-clinic-toddlers.md": {
+    "entities/organizations/psychiatry-clinics/psy-lokalpsykiatri-toender.md": {
       "mode": "strict-synthesis",
-      "dataHash": "3390a9de74b63e344bc773e96cfee05989644946d7eb49d296c38261e9f83454",
-      "synthesizedAt": "2026-08-03T18:48:47.231Z"
+      "dataHash": "f145f038f21759d0b5f4a1bf09a40a058fbcffc8a96a90beb0ada24ff593d57c",
+      "synthesizedAt": "2026-08-05T18:27:34.670Z"
     },
-    "entities/organizations/psychiatric-clinics/bua-psychiatric-clinic-youth.md": {
+    "entities/organizations/psychiatry-clinics/rpg-psykiatrisk-klinik-1-godstrup.md": {
       "mode": "strict-synthesis",
-      "dataHash": "604ea035d3afb0b5d1df1787e7f70b30a9e298debeb830b0b0a931d793426373",
-      "synthesizedAt": "2026-08-03T18:48:47.830Z"
+      "dataHash": "55c07d5695007324f1a57805ca32194fd5c0b41eef7d8c3d72ab3682baf5da63",
+      "synthesizedAt": "2026-08-05T18:28:43.919Z"
     },
-    "entities/organizations/psychiatric-clinics/bua-psykiatrisk-klinik-spiseforstyrrelser.md": {
+    "entities/organizations/psychiatry-clinics/vejle-bup-ambulatorium.md": {
       "mode": "strict-synthesis",
-      "dataHash": "30b33a17e3170e3cf6a0822f8a288036e89008639da3301fdf0cba9d235edcd9",
-      "synthesizedAt": "2026-07-25T08:37:19.444Z"
+      "dataHash": "4ab1f6b4a792783b74fff07327f2ca9e90825a9fafb91f27e723539e21288ed0",
+      "synthesizedAt": "2026-08-05T18:09:46.286Z"
     },
-    "entities/organizations/psychiatric-clinics/carelink-psykiatri-kolding.md": {
+    "entities/organizations/regional-authorities/hjemkommune.md": {
       "mode": "strict-synthesis",
-      "dataHash": "cfb8d58eab8473614df1432660d3cb0112113bda392e4f53f3feed095342f257",
-      "synthesizedAt": "2026-07-25T08:39:13.324Z"
+      "dataHash": "52ba98800960c82fcee6c157b7384ecd38f620d406924d600698d5d6da5d52c7",
+      "synthesizedAt": "2026-08-05T18:25:42.295Z"
     },
-    "entities/organizations/psychiatric-clinics/carelink-psykiatri-roskilde.md": {
+    "entities/organizations/regional-authorities/region-hovedstaden.md": {
       "mode": "strict-synthesis",
-      "dataHash": "c6aa935af02154b52530164a62ae6f3ca9f9ef4123d594f5fa0fcd3da59517d3",
-      "synthesizedAt": "2026-07-25T08:39:07.958Z"
+      "dataHash": "41b129816c62483a7e6fb8f97c21215a5af022393737c5935ac882090aa4be56",
+      "synthesizedAt": "2026-08-05T18:42:00.990Z"
     },
-    "entities/organizations/psychiatric-clinics/carelink-psykiatri-viborg.md": {
+    "entities/organizations/regional-authorities/region-midtjylland.md": {
       "mode": "strict-synthesis",
-      "dataHash": "e404b06c331712a7956b8972d310e1225fb7ba8b30ceb2c6784378f27612a442",
-      "synthesizedAt": "2026-07-25T08:39:20.057Z"
+      "dataHash": "6290e0827cf482608de133be0f4648071f890b6c342b32e0268fb91a6c2e47e0",
+      "synthesizedAt": "2026-08-05T18:39:41.986Z"
     },
-    "entities/organizations/psychiatric-clinics/esbjerg-psychiatric-ambulatory.md": {
+    "entities/organizations/regional-authorities/region-nordjylland.md": {
       "mode": "strict-synthesis",
-      "dataHash": "6413e2d0f90e181f1cf3035e51542502e5b35958ed1597a58a84534c04bc3e06",
-      "synthesizedAt": "2026-08-03T18:48:44.995Z"
+      "dataHash": "cc9ac9388c21345a003f1d95eacdd866a73f90a058b49243dd336005dd5bc348",
+      "synthesizedAt": "2026-08-05T18:42:39.719Z"
     },
-    "entities/organizations/psychiatric-clinics/glostrup-psychiatric-ambulatory.md": {
+    "entities/organizations/regional-authorities/region-sjaelland.md": {
       "mode": "strict-synthesis",
-      "dataHash": "59c6d0eaf2daa838fda1afe8e7d2844d0981451d6b331b65ad67c906d6c0f0b4",
-      "synthesizedAt": "2026-08-03T18:48:42.993Z"
+      "dataHash": "800f5876971077ccb93c44ebd2451c1d06658d0f1a65cef50c0f6404d620f927",
+      "synthesizedAt": "2026-08-05T18:42:56.060Z"
     },
-    "entities/organizations/psychiatric-clinics/hillerod-psychiatric-ambulatory.md": {
+    "entities/organizations/regions/danmark.md": {
       "mode": "strict-synthesis",
-      "dataHash": "fe0c02622d8cd4a7647a45300704b068e7c5a623cbd248ebe0272a8bd596fbae",
-      "synthesizedAt": "2026-08-03T18:48:43.279Z"
+      "dataHash": "4c981fe5c8aea186b52a59dba712182cfebe88fadcca0dccc61133e48a170295",
+      "synthesizedAt": "2026-08-05T18:27:55.780Z"
     },
-    "entities/organizations/psychiatric-clinics/hilleroed-psykiatrisk-ambulatorium.md": {
+    "entities/organizations/regions/region-syddanmark.md": {
       "mode": "strict-synthesis",
-      "dataHash": "0648143c965923c765ba6c0a6df4c9b25dcd2107f606e390950c0e08b6b1645f",
-      "synthesizedAt": "2026-08-03T18:48:59.377Z"
+      "dataHash": "c41d9ebeb21ac96f9752874ceea4360f3fac623630e9e27caf2ad2d3f44aef17",
+      "synthesizedAt": "2026-08-05T18:43:26.181Z"
     },
-    "entities/organizations/psychiatric-clinics/klinik-boerner-unge.md": {
+    "entities/people/healthcare-professionals/malene-tousgaard-foget-oestergaard.md": {
       "mode": "strict-synthesis",
-      "dataHash": "b7ed7de795133e44a16dbf55b680f3c7bd726eba2959812f5e33a2853fb8e058",
-      "synthesizedAt": "2026-07-25T13:45:51.003Z"
-    },
-    "entities/organizations/psychiatric-clinics/klinik-psykiatri-syd-aalborg.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "4799e598d438788702abedd519db97e133041e2375a947e1ee9ed045adbb2b8f",
-      "synthesizedAt": "2026-07-25T08:42:45.680Z"
-    },
-    "entities/organizations/psychiatric-clinics/odense-psychiatric-ambulatory.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "0f8df99d2fe08ced8e605becfad32b99493b746ad2deffdd4d7d8f61004e7c86",
-      "synthesizedAt": "2026-08-03T18:48:45.218Z"
-    },
-    "entities/organizations/psychiatric-clinics/pcgl-psyk-ambulatorium.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "b48ce2ebdbe57cdd9732937b873249a7e1bc115638ba89f188e0af916fb4310a",
-      "synthesizedAt": "2026-07-25T08:39:54.775Z"
-    },
-    "entities/organizations/psychiatric-clinics/pck-psykoterapeutisk-klinik.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "62f00c0015a16c0f23ed79bd6042fac0ce56b1f52230ee8fa35f2a5475cf60eb",
-      "synthesizedAt": "2026-07-25T08:40:09.321Z"
-    },
-    "entities/organizations/psychiatric-clinics/pho-klinik-1-horsens.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "a24e95f856e42c82a3defa2daa1356c92de72515d74f7d86b5a242feef47355c",
-      "synthesizedAt": "2026-07-25T08:39:41.398Z"
-    },
-    "entities/organizations/psychiatric-clinics/pho-klinik-2-horsens.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "15d59ba04004ca640805973d55ecf157f5321a3a776b9634964481337009db8a",
-      "synthesizedAt": "2026-07-25T08:41:15.474Z"
-    },
-    "entities/organizations/psychiatric-clinics/pho-psykiatrisk-akutenhed-horsens.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "3132fd3026005d691e1f986f692882f596f34b4075a13550ca22126cb26ade6e",
-      "synthesizedAt": "2026-07-25T13:46:02.921Z"
-    },
-    "entities/organizations/psychiatric-clinics/pho-sengeafsnit-regionspsykiatri-horsens.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "c747ef7df6e8dab00b336f649a66417f7b8f217c7fae514d0a4aabdfbc8d56c5",
-      "synthesizedAt": "2026-07-25T08:41:28.271Z"
-    },
-    "entities/organizations/psychiatric-clinics/pma-psykiatrisk-klinik.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "66148aaabc9b37cc243669cea16bf70097e10456f6bd97047870942bb071242f",
-      "synthesizedAt": "2026-07-25T08:40:06.689Z"
-    },
-    "entities/organizations/psychiatric-clinics/pmi-klinik-depression-mani-midt.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "20aa07673ffa67b4187ef3ba6c851fb105b5167d9fe9d039c42639c2f1904699",
-      "synthesizedAt": "2026-07-25T08:39:50.180Z"
-    },
-    "entities/organizations/psychiatric-clinics/pmi-klinik-psykoser-midt.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "8b8e393595299503cf337c676c89daf3ab2ebe388c936f19564b83f810f069c1",
-      "synthesizedAt": "2026-07-25T08:41:33.163Z"
-    },
-    "entities/organizations/psychiatric-clinics/pra-psykiatrisk-klinik-2-randers.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "fc1df1985ba145dfa34efa6fb86b4c3d5bebef9ab99a9f62c8fb0121be77cd03",
-      "synthesizedAt": "2026-07-25T08:41:37.180Z"
-    },
-    "entities/organizations/psychiatric-clinics/pra-psykiatrisk-klinik-roende.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "e10fb819437d10521101ca341c6366335155088ed05e22bbed2d0303600231be",
-      "synthesizedAt": "2026-07-25T08:41:35.868Z"
-    },
-    "entities/organizations/psychiatric-clinics/ps-almenpsykiatrisk-nord-ambulatorier.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "4c3aeb18ac640d1db564f3126551a988a844740901ce36ddeecd826ab146b04b",
-      "synthesizedAt": "2026-07-25T08:41:46.141Z"
-    },
-    "entities/organizations/psychiatric-clinics/ps-almenpsykiatrisk-nord-sengeafsnit.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "006c1daa8b9e33367703f1a84a609e040dc5b11bf5ed3e72e26c7200569667b7",
-      "synthesizedAt": "2026-07-25T08:41:46.068Z"
-    },
-    "entities/organizations/psychiatric-clinics/ps-almenpsykiatrisk-syd-ambulatorier.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "85e5e033c1eb63c1d00157a674280dc947633e8de216924e303d2f8a6996c2b1",
-      "synthesizedAt": "2026-07-25T08:42:23.177Z"
-    },
-    "entities/organizations/psychiatric-clinics/ps-boerne-ungdomspsykiatrisk-ambulatorier.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "ddd93b5d973ecd28fd6ce70cbf0bbe74de5eb528e49c9b0d598fdd51ad78f205",
-      "synthesizedAt": "2026-07-25T08:37:32.729Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-boerne-ungdomspsykiatrisk-ambulatorium-aabenraa.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "31b9ff3099a0b04f37dd0dd920297268ae4e355913bf8f36d7c581d48d77693f",
-      "synthesizedAt": "2026-08-03T18:49:03.580Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-boerne-ungdomspsykiatrisk-ambulatorium-odense.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "7a48891e6e9e0045bb74684e148c695f1c55687eb304265b7ec54cf444a28759",
-      "synthesizedAt": "2026-08-03T18:49:02.893Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-boerne-ungdomspsykiatrisk-ambulatorium-vejle.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "b14f7a83606edce9d1e50520b834f72a34ac29df288974e180c1502b29830435",
-      "synthesizedAt": "2026-08-03T18:49:04.004Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-lokalpsykiatri-aabenraa.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "d31691a6802046d22faa05e303c00ae75597d754294c047bafd3125ba42531e9",
-      "synthesizedAt": "2026-07-25T08:40:14.381Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-lokalpsykiatri-almen-esbjerg.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "82e95f9ce2a870cf7ba210445d6e49e2d3fdd9d36a3830f2ba3314a7c3b17ebd",
-      "synthesizedAt": "2026-07-25T08:40:45.713Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-lokalpsykiatri-brorup.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "c7f149916299c6204cc58d07f8607445d94ae1b7927c1157933de800bef293d8",
-      "synthesizedAt": "2026-07-25T08:41:57.145Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-lokalpsykiatri-fredericia.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "ea6100e361c0a15d44b6de41fbb11f6fce5cc3cd6cb5653f73a934e1277d1975",
-      "synthesizedAt": "2026-07-25T08:40:21.694Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-lokalpsykiatri-haderslev.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "472e6c251dec43450a607228b42dae3329ff618a44912aad1bc22d140111aee5",
-      "synthesizedAt": "2026-07-25T08:40:19.869Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-lokalpsykiatri-kolding.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "db520d8f6e699cb2b256e02cf0eaf12f5485b67bae002f5c44ea645f773f5dd3",
-      "synthesizedAt": "2026-07-25T08:40:24.952Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-lokalpsykiatri-soenderborg.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "a4061e9475ce814ee3d284b01c6f18b130aba6f1e4f2902067b92090fc012c63",
-      "synthesizedAt": "2026-07-25T08:40:30.660Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-lokalpsykiatri-toender.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "2661f0bb929e3ac6f44b9cece62d4e4e434397be4a8a7dc904934137e9e9c99b",
-      "synthesizedAt": "2026-07-25T08:40:55.842Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-lokalpsykiatri-varde.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "61a8ec77af33743239fd4d22a321618c1fadd3cafedc787b5e5bbaf664a220cf",
-      "synthesizedAt": "2026-07-25T08:40:35.459Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-lokalpsykiatri-vejle.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "ddc756140d8e1f5aa89eb3fc22ca5d9ba9dd7f54af86fa5400c9f37008578d50",
-      "synthesizedAt": "2026-07-25T08:40:42.375Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-psykiatrisk-ambulatorium-middelfart.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "637168676ba34c0af744e126a180c951f044f8505f31bd7b81a608530419fcbd",
-      "synthesizedAt": "2026-07-25T08:40:57.674Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-psykiatrisk-ambulatorium-odense.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "cdd78ffce70f234586705266239f213bbd79c12f8a83686666bd11e2959a42f9",
-      "synthesizedAt": "2026-07-25T08:41:02.013Z"
-    },
-    "entities/organizations/psychiatric-clinics/psy-psykiatrisk-ambulatorium-svendborg.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "eed0ccb5c61857ff835430880675b6a430ddb59f5caf3d129a745a841b520977",
-      "synthesizedAt": "2026-07-25T08:41:05.055Z"
-    },
-    "entities/organizations/psychiatric-clinics/psykiatrisk-ambulatorium-boern-unge-bispebjerg-b19.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "5301a09bcb96d37834b7a1572829fe9807befa3e3297722579ac669f6ea6cd94",
-      "synthesizedAt": "2026-08-03T18:49:05.181Z"
-    },
-    "entities/organizations/psychiatric-clinics/psykiatrisk-ambulatorium-boern-unge-glostrup-b29.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "3cec96ca8a58b8e31e776bd763210454e23e96fc918a8539bd48439be4d58bd2",
-      "synthesizedAt": "2026-08-03T18:49:05.864Z"
-    },
-    "entities/organizations/psychiatric-clinics/psykiatrisk-ambulatorium-boern-unge-hillerod-b39.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "76422b0af7d66f51e00aec528d2e694d2f206aced54f450f420f8c56f9596220",
-      "synthesizedAt": "2026-08-03T18:49:06.265Z"
-    },
-    "entities/organizations/psychiatric-clinics/rpg-psykiatrisk-klinik-1-godstrup.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "6990e760e65161f1407ba63180b26aaf1cfb495f694be339a620fba805958bc0",
-      "synthesizedAt": "2026-07-25T08:39:41.233Z"
-    },
-    "entities/organizations/psychiatric-clinics/rpg-psykiatrisk-klinik-1-goedstrup.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "f16c4308ae07f38bd5c178e56d1bcf5b35a76b98cd626b6e8c9007391f74407c",
-      "synthesizedAt": "2026-08-03T18:49:07.082Z"
-    },
-    "entities/organizations/psychiatric-clinics/vejle-psychiatric-ambulatory.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "e6d0cccf37af4794967d72f562fa76fe82a6b4b3f328116c1e9259c7f916fa41",
-      "synthesizedAt": "2026-08-03T18:48:45.534Z"
-    },
-    "entities/organizations/psychiatric-departments/aabenraa-boerne-ungdomspsykiatrisk-ambulatorium.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "2dd640d503468cd217f7cc1698151874fc0591e6fa3201eadf464138420488f2",
-      "synthesizedAt": "2026-07-25T08:18:48.684Z"
-    },
-    "entities/organizations/psychiatric-departments/bispebjerg-psykiatrisk-ambulatorium-boern-unge.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "188af53fb1cdf3972d7cb57e2fcc88dd1036a5641a58c0fd1994e32064292d06",
-      "synthesizedAt": "2026-08-03T18:48:51.667Z"
-    },
-    "entities/organizations/psychiatric-departments/bornholm-psykiatrisk-ambulatorium-boern-unge.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "94585330b3511d90b6845ec037b32a5ddf43eb9aec201c3c2fe33741bedb717a",
-      "synthesizedAt": "2026-08-03T18:48:52.050Z"
-    },
-    "entities/organizations/psychiatric-departments/bua-psykiatrisk-dagafsnit.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "f0d3e3dbb9a02d9c65d97e3a3fe80d8907bf7645616738ba84b1ce4462219371",
-      "synthesizedAt": "2026-07-25T08:38:45.261Z"
-    },
-    "entities/organizations/psychiatric-departments/bua-psykiatrisk-klinik-smaaborin.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "569a95b0fc5bc9b2cd5505111f6e86e7d982c3b0cc424398c0c7bd06d0c679a3",
-      "synthesizedAt": "2026-08-03T18:48:53.936Z"
-    },
-    "entities/organizations/psychiatric-departments/esbjerg-boerne-ungdomspsykiatrisk-ambulatorium.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "d23092b20f5f87b4158ee8938009822f886479e809233fbb36ad03e32724615e",
-      "synthesizedAt": "2026-07-25T08:20:30.590Z"
-    },
-    "entities/organizations/psychiatric-departments/glostrup-psykiatrisk-ambulatorium-boern-unge.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "c29a89f7bfac063399d848a507beb7bebef7d9d8acf2a64919c50c4dfe9545b1",
-      "synthesizedAt": "2026-08-03T18:48:52.350Z"
-    },
-    "entities/organizations/psychiatric-departments/hillerod-psykiatrisk-ambulatorium-boern-unge.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "4f6f8cfeb9c1fc27d083eceb846df8ea1a73603df1a82946690fc01e054a0927",
-      "synthesizedAt": "2026-08-03T18:48:53.570Z"
-    },
-    "entities/organizations/psychiatric-departments/odense-boerne-ungdomspsykiatrisk-ambulatorium.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "d86a68ac68990c56fc6ab0d3e715d9ffc138c06f03c7f51423d17b85460759c0",
-      "synthesizedAt": "2026-07-25T08:20:35.869Z"
-    },
-    "entities/organizations/psychiatric-departments/vejle-boerne-ungdomspsykiatrisk-ambulatorium.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "3cf7924d8d5e9f1c1b9eff4cd867940f16cf78c431409c391e9446d8d9599811",
-      "synthesizedAt": "2026-07-25T08:21:48.181Z"
-    },
-    "entities/organizations/psychiatric-groups/danske-multidisciplinaere-psykiatrigrupper.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "e433540d520eed5e77ba570e99227169fefdde577b52f5ad86695da5ae2f06aa",
-      "synthesizedAt": "2026-07-25T08:13:55.366Z"
-    },
-    "entities/organizations/regional-government/region-hovedstaden.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "13c3b25b83d05a0d6a02120c98781dc9b35dbe35f5d9b9350f11d4fa086fcab7",
-      "synthesizedAt": "2026-07-25T08:14:23.657Z"
-    },
-    "entities/organizations/regional-government/region-midtjylland.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "318b02cf23332afcf7b8f15b1f6333e233b75b2d3a31f03c204cbcad46b102a7",
-      "synthesizedAt": "2026-07-25T08:13:56.020Z"
-    },
-    "entities/organizations/regional-government/region-nordjylland.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "a04cbad4d433f354c8c7a692930efa1a33fd6c6fd30c1fd267083c486757c58b",
-      "synthesizedAt": "2026-07-25T08:12:57.912Z"
-    },
-    "entities/organizations/regional-government/region-sjaelland.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "0ccec94a20d31d8126fdfed87a1a0eac27ee1fee9815c38f67b2606161a7cd3b",
-      "synthesizedAt": "2026-07-25T08:11:51.596Z"
-    },
-    "entities/organizations/regions/hovedstaden.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "2ea95ba4031f231b6f6da95f54d01191aebd7b32fd8b1a5ccf530311d2e6a62b",
-      "synthesizedAt": "2026-08-03T18:48:58.023Z"
-    },
-    "entities/organizations/regions/midtjylland.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "65ed0ae7742d8ab33e1880e50522c9c260276c6d86e6b88c8a2c5d5536bd47a0",
-      "synthesizedAt": "2026-08-03T18:48:58.976Z"
-    },
-    "entities/organizations/regions/sjaelland.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "233f89cedcb55393c256f46a9b0eb9b5644a796a3b256f6e30026d23fe83e3ae",
-      "synthesizedAt": "2026-08-03T18:48:58.410Z"
-    },
-    "entities/people/healthcare-administrators/jakob-paludan.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "d54b5f2b8cba29a51dea9b3efff34d18184144caee5672dbfa8d4da17415ecbb",
-      "synthesizedAt": "2026-07-25T08:42:28.052Z"
-    },
-    "entities/people/healthcare-administrators/soeren-bredkjaer.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "e875205a9085cda22b6138442b8a852ef312652e804edd43a0c3047c9c14a0fd",
-      "synthesizedAt": "2026-07-25T08:32:46.438Z"
-    },
-    "entities/people/healthcare-professionals/allan-hvolby.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "2d97a403e29d09b457674e263b2cc7004d1ac41938f6d75650ac72659cb9b8d1",
-      "synthesizedAt": "2026-07-25T08:32:15.094Z"
-    },
-    "entities/people/healthcare-professionals/anne-mette-lange.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "a54856571911e143feac870bd0d5f050870d47a6a06ee81feaa6e224e8066a2d",
-      "synthesizedAt": "2026-07-25T08:32:27.512Z"
-    },
-    "entities/people/healthcare-professionals/bolette-sondergaard.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "6ffdd5528a6375c20a385552e93bdde9776be447cb254e98ff012bb38a67a402",
-      "synthesizedAt": "2026-07-25T08:42:16.866Z"
-    },
-    "entities/people/healthcare-professionals/ditte-hammerum.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "733fdc154934cd6241612488fb67d1415d8ab40af0517edd42ab7360003dd655",
-      "synthesizedAt": "2026-07-25T08:32:04.218Z"
-    },
-    "entities/people/healthcare-professionals/ib-rasmussen.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "c95b8eaf4aa949182ad1b4fcbf05873fef151155f60657f722a8504adc0289a8",
-      "synthesizedAt": "2026-07-25T08:32:36.424Z"
-    },
-    "entities/people/healthcare-professionals/jan-kristensen.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "3e8a55fe3f18d38a4dbe8560532210ae3c2c32b7e86591ee8c6083a0bb034271",
-      "synthesizedAt": "2026-07-25T08:32:34.511Z"
-    },
-    "entities/people/healthcare-professionals/jan-vestergaard.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "0cc4a1b0c8f1893eb48bf8e66c66ca9ec768b92dd12f0a57d9e9c2f96e8ae4a1",
-      "synthesizedAt": "2026-07-25T08:32:12.479Z"
-    },
-    "entities/people/healthcare-professionals/jeanette-wacher.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "6ba0f5f319321e379b9cc5cb60a09953011b2e3aa447ccc75eb86aa9d5fdb6cb",
-      "synthesizedAt": "2026-07-25T08:42:08.060Z"
-    },
-    "entities/people/healthcare-professionals/jens-tofte.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "bd032d47cf081fa7a9816dc61c3664bad37579b84583ab5c4387d8bb9fdb4635",
-      "synthesizedAt": "2026-07-25T08:42:14.771Z"
-    },
-    "entities/people/healthcare-professionals/lasse-pirk.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "f860b1f51e4608a57150bd19ef57055a3714ce66d0727baaf5af2875187ddcdd",
-      "synthesizedAt": "2026-07-25T08:42:32.543Z"
-    },
-    "entities/people/healthcare-professionals/linda-bramsen.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "aa7b6ca8f04efb620f75bf6b8e2d56cac20e3ecaa35f4ed7cbbe8bcc6ba5f8d4",
-      "synthesizedAt": "2026-07-25T08:32:24.833Z"
-    },
-    "entities/people/healthcare-professionals/lotte-maxild-mortensen.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "f6d2acab2f6ae1994304cf5b5bd5e797b568b19b2d5444ca5aab2bc6b41e1145",
-      "synthesizedAt": "2026-07-25T08:32:53.083Z"
-    },
-    "entities/people/healthcare-professionals/malene-tousgaard-foget-ostergaard.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "5ec59265b01d5c29468adc32b520c7baf3115b067a98d2da7894e1efd76664f3",
-      "synthesizedAt": "2026-07-25T08:07:41.492Z"
-    },
-    "entities/people/healthcare-professionals/mathilde-ulvsgard-hansted.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "03af1461dc98a876ccdf16cf5203755ebc006649081368b056519a28a607e0f4",
-      "synthesizedAt": "2026-07-25T08:42:06.385Z"
+      "dataHash": "58319eb4c3ce7b9fb3b6e5f6d0368e27c8ccedc5d7d06a20b1745805913011e2",
+      "synthesizedAt": "2026-08-05T17:51:57.125Z"
     },
     "entities/people/healthcare-professionals/mette-hedelund.md": {
       "mode": "strict-synthesis",
-      "dataHash": "9bc958a0dbb5d064a8cffaa6bfdc335a5d9ff0d784b597f4c369da8a211561a0",
-      "synthesizedAt": "2026-07-25T08:33:47.783Z"
-    },
-    "entities/people/healthcare-professionals/niels-bilenberg.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "7aa64de9c59a900d606ddec7f2c61e6fb6bd62bac121406d984e282d5c8f96b0",
-      "synthesizedAt": "2026-07-25T08:32:35.425Z"
+      "dataHash": "b0c367eb082a90e5969c3a0f837713f15147b38e9fe4d5f8a202cffae33a0afb",
+      "synthesizedAt": "2026-08-05T18:19:04.829Z"
     },
     "entities/people/healthcare-professionals/shelagh-powell.md": {
       "mode": "strict-synthesis",
-      "dataHash": "50caf0b25615b357c15134ed6f18d81933a297aa15a895e2baafda12960219a7",
-      "synthesizedAt": "2026-07-25T08:07:35.038Z"
+      "dataHash": "941f8786a05da4ecafbcbe4d2f3654d4c374a44de2b3debf022c9e43ca98f542",
+      "synthesizedAt": "2026-08-05T17:51:06.041Z"
     },
     "entities/people/healthcare-professionals/simon-hjerrild.md": {
       "mode": "strict-synthesis",
-      "dataHash": "7575cdb9e341ac314f59ceafc721a407126a61d41c9efbbef75922144419a4eb",
-      "synthesizedAt": "2026-07-25T08:07:37.844Z"
+      "dataHash": "0fac34a3716e99b69c255cca40af348a2d403612c4841a75ab4385f63a0b1ab4",
+      "synthesizedAt": "2026-08-05T17:51:24.662Z"
     },
-    "entities/people/healthcare-professionals/tea-naamansen-nikolov.md": {
+    "entities/people/healthcare-professionals/speciallaeger.md": {
       "mode": "strict-synthesis",
-      "dataHash": "58b5b4d80b4e229da59d4db7a0b8003b221b56a7fd94ab2b7dcb4d67d86a09da",
-      "synthesizedAt": "2026-07-25T08:32:52.896Z"
+      "dataHash": "0c930d2c154314476a42152e0584bcafd3886e344a08b5cf1d665ec44249bf52",
+      "synthesizedAt": "2026-08-05T18:13:15.631Z"
     },
-    "entities/people/healthcare-professionals/tine-houmann.md": {
+    "entities/people/healthcare-professionals/specialpsykolog.md": {
       "mode": "strict-synthesis",
-      "dataHash": "d385ef89f498df2457aa757a4f3b5b6e514c0f5c4e90b900b38fdff8a2d0e467",
-      "synthesizedAt": "2026-07-25T08:32:48.898Z"
+      "dataHash": "d0abf0c5454c0761d5fc42b1bf97409e0ed509ce8236160c0cf40bc763678a21",
+      "synthesizedAt": "2026-08-05T18:13:19.137Z"
     },
-    "entities/people/healthcare-professionals/vibe-bolvig-hyldgard.md": {
+    "entities/populations/adhd/adhd-behandlingspopulation.md": {
       "mode": "strict-synthesis",
-      "dataHash": "485a69774976990709d1b77888210bda107218bf1ffa7c302e5634a50c65728c",
-      "synthesizedAt": "2026-07-25T08:42:28.741Z"
+      "dataHash": "d33cf5facdc2c1227629309a1600cbe9b2f7dd08bdf895590b9274d5f9fd59c1",
+      "synthesizedAt": "2026-08-05T18:15:10.297Z"
     },
-    "entities/people/patient-advocates/stine-holmen.md": {
+    "entities/populations/adhd/adhd-udredningspopulation.md": {
       "mode": "strict-synthesis",
-      "dataHash": "8ff9f2d914503d7a589b748ebb2389dd00e058b030ceb205704aa5373d527869",
-      "synthesizedAt": "2026-07-25T08:42:19.972Z"
+      "dataHash": "56a98a475a4f1803cacd805e1888e3caf4e73c92070374bd87d67698aa94c311",
+      "synthesizedAt": "2026-08-05T18:17:02.419Z"
     },
-    "entities/people/patient-advocates/trish-nymark.md": {
+    "entities/populations/general/baggrundspopulationen-2023.md": {
       "mode": "strict-synthesis",
-      "dataHash": "416f8cb13430f1a021ba57bb4885fc6dd889aa1f7da6f16f47c4061557e10af3",
-      "synthesizedAt": "2026-07-25T08:32:46.125Z"
+      "dataHash": "852dc646960c69d03a970a4c988c52c1cbe326eef99049154776262b8c938526",
+      "synthesizedAt": "2026-08-05T18:17:40.733Z"
     },
-    "topics/action-plan/action-plan.md": {
+    "entities/products/assessment-tools/pse.md": {
       "mode": "strict-synthesis",
-      "dataHash": "40f5e2bdab5eabb49921ce797256c36c7d7aea465f86e47ec2d1e3b61ce9ccc5",
-      "synthesizedAt": "2026-08-03T18:49:16.506Z"
+      "dataHash": "1fd8a28c00e0f1ce8d7aa3ada5c37a4cc9bc2ac45501807d4206c985471f8f06",
+      "synthesizedAt": "2026-08-05T18:11:53.906Z"
     },
-    "topics/analysis/analysis.md": {
+    "entities/products/clinical-assessment-tools/dawba.md": {
       "mode": "strict-synthesis",
-      "dataHash": "2c34bc952d45b600d71b303a2ebadca61d1991e1d8f42c889f52a055e6c2bdbf",
-      "synthesizedAt": "2026-08-03T18:49:19.943Z"
+      "dataHash": "56e1aa2a8953b3fc7f0fb94ef995db4ef2a2439ed66e716e819ceb35d3a6a683",
+      "synthesizedAt": "2026-08-05T18:11:08.783Z"
     },
-    "topics/causal-analysis/causal-analysis.md": {
+    "entities/products/clinical-assessment-tools/kiddie-sads.md": {
       "mode": "strict-synthesis",
-      "dataHash": "bd3248e57f1062dd9f5402d79fc83f103fb2ff43f64d1876d421ac9ecf28ac49",
-      "synthesizedAt": "2026-08-03T18:49:14.773Z"
+      "dataHash": "e8622ad84c2c20a04a7939777a99a76a0336efacb155a923ea78231abe655b2a",
+      "synthesizedAt": "2026-08-05T18:10:52.465Z"
     },
-    "topics/clinical-assessment/clinical-assessment.md": {
+    "entities/products/clinical-assessment-tools/pse-scan.md": {
       "mode": "strict-synthesis",
-      "dataHash": "947d11a61e8a272c94b0e9b1f273aa87151810ad85063a2ee91273c3f1e448e6",
-      "synthesizedAt": "2026-07-25T08:43:37.105Z"
+      "dataHash": "aabf99b6b0632713bcaf5457512811167d62ef1eb25c660f29b1bdf616082b82",
+      "synthesizedAt": "2026-08-05T18:11:06.718Z"
     },
-    "topics/clinical-disagreement/clinical-disagreement.md": {
+    "topics/data-quality/data-quality.md": {
       "mode": "strict-synthesis",
-      "dataHash": "a85d1c87a2ea8acd57a17570688a0c9e102fea33e7679d3bc97c9daf4e0ac908",
-      "synthesizedAt": "2026-08-03T18:49:21.748Z"
+      "dataHash": "6eef2af60ef31cf5600f94d78fa14e606b6d3b38d030c0e805fa1236a1f316ac",
+      "synthesizedAt": "2026-08-05T18:32:48.846Z"
     },
-    "topics/clinical-outcome/clinical-outcome.md": {
+    "topics/demographic/demographic.md": {
       "mode": "strict-synthesis",
-      "dataHash": "14b5e463ccf5990f35bc368254414375b566f1b0e68b420075148c43fb8f7d60",
-      "synthesizedAt": "2026-08-03T18:49:10.575Z"
-    },
-    "topics/clinical-practice/adhd-behandlingspakke.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "bc73d5324a306410932fd9b4df8d8b3254580798a6d821d11bb9dc07c2fc0c7d",
-      "synthesizedAt": "2026-07-25T08:39:51.668Z"
-    },
-    "topics/clinical-practice/clinical-practice.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "fe19bfdc21a0975ab5c3c680d6d54501bfa1d7cc5b74ce7fa03ca19c7c6e2aa3",
-      "synthesizedAt": "2026-07-25T08:45:35.827Z"
-    },
-    "topics/clinical-practice/specialpsykologer.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "acf1476b04e7a9f56c73c837f4586809064f1a3167af6c50d5c9d700bdd586f8",
-      "synthesizedAt": "2026-07-25T08:43:02.212Z"
-    },
-    "topics/clinical-rationale/clinical-rationale.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "d380a7c93c7b70fbd82953b7608e92c54c0f776d2969d940a718869d34a6db32",
-      "synthesizedAt": "2026-08-03T18:49:18.460Z"
-    },
-    "topics/clinical-standard/clinical-standard.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "3561ae6ccb33ccd066912a9414e7e71acd1a57a467d99f692b15d832405fd33d",
-      "synthesizedAt": "2026-08-03T18:49:21.104Z"
-    },
-    "topics/clinical-standard/dmpg-retningslinjen-adhd.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "962aab72291638bab4d7563357ea46722d086bb41f4c38c556a499dd3a2467d0",
-      "synthesizedAt": "2026-08-03T18:49:04.812Z"
-    },
-    "topics/comparative-analysis/comparative-analysis.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "c7b638cae8d52a9943fa689d51249d447709a38dd3e7846fd06586a15a09c802",
-      "synthesizedAt": "2026-08-03T18:49:16.251Z"
-    },
-    "topics/comparative/comparative.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "e36e60d1762789cbe8a0c8774966a4f76ffb90d9402772ec33c74297cbaeb0ad",
-      "synthesizedAt": "2026-08-03T18:49:32.487Z"
-    },
-    "topics/database-expansion/database-expansion.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "0e6a77e5c37da78eaad41710d6c81b15f1679bda4a5553c097e5188f1e316718",
-      "synthesizedAt": "2026-08-03T18:49:12.069Z"
-    },
-    "topics/decision/decision.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "4dff1027405ddf66ad9ab3d5bb4539c7839ca7ed07b8e1322769b340762b7a74",
-      "synthesizedAt": "2026-08-03T18:49:18.805Z"
-    },
-    "topics/definitional/definitional.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "dcffd40097a19576e6f06ba04bbefe18c85e6f21d4e48a81c4687a227f190fd0",
-      "synthesizedAt": "2026-08-03T18:49:29.955Z"
-    },
-    "topics/diagnostic-criteria/diagnostic-criteria.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "6298de5c07fafd58406244007379f317af87f76ca781e419ed16b11c6337d9c4",
-      "synthesizedAt": "2026-08-03T18:49:28.006Z"
+      "dataHash": "d0e2dd184c825b169eb2ddc16a87d84a500395cbaeacc8dd39377473023ddf65",
+      "synthesizedAt": "2026-08-05T18:33:30.956Z"
     },
     "topics/educational-outcome/educational-outcome.md": {
       "mode": "strict-synthesis",
-      "dataHash": "7437c97f576f1a3f6ff5955c65209a53cf90fbe17c9ff30039f8023e98a85aa0",
-      "synthesizedAt": "2026-08-03T18:49:25.670Z"
+      "dataHash": "b03578505a690ba0389864c4fb7f0bb0f13aea34dffc1569fcc777284d30660f",
+      "synthesizedAt": "2026-08-05T18:35:12.403Z"
     },
-    "topics/epidemiological/epidemiological.md": {
+    "topics/governance/governance.md": {
       "mode": "strict-synthesis",
-      "dataHash": "7e831f84eddcf4c17692ce9ad55d682ff8c356c77c9fed187ea7e1186177a52f",
-      "synthesizedAt": "2026-08-03T18:49:26.749Z"
+      "dataHash": "241d7943c1043594b1d6c5269ca9f6bee0e0822b5ac69ccc9c83b90eb3137588",
+      "synthesizedAt": "2026-08-05T18:35:12.121Z"
     },
-    "topics/facility-performance/facility-performance.md": {
+    "topics/indicators/indikator-7a-7b.md": {
       "mode": "strict-synthesis",
-      "dataHash": "e82bcaf52a4ac564a3fd9b6715dd0f5855050ac0b31709627dc2e39222a019cb",
-      "synthesizedAt": "2026-08-03T18:49:23.396Z"
+      "dataHash": "655639ae17195615f1d48ead130758a07b826f8385d354fd379ccbd85f46433d",
+      "synthesizedAt": "2026-08-05T18:18:20.155Z"
     },
-    "topics/guideline-development/dmpg-guideline-adhd-children-youth.md": {
+    "topics/low-performance/low-performance.md": {
       "mode": "strict-synthesis",
-      "dataHash": "c89c3e70350d4e602988e415e621aa317deda664a1bd6f2af6bd2584b1a3671d",
-      "synthesizedAt": "2026-07-25T08:33:58.586Z"
+      "dataHash": "77e40c52381198c36145b2f09a0819887fbee724e2ebd61daf026d117b9f4178",
+      "synthesizedAt": "2026-08-05T18:35:41.167Z"
     },
-    "topics/guideline-development/dmpg-retningslinjer.md": {
+    "topics/non-compliance/non-compliance.md": {
       "mode": "strict-synthesis",
-      "dataHash": "11844c014571741f2965036dfb033b7d88a1810becb6fb16a790a8c01750e5ad",
-      "synthesizedAt": "2026-07-25T13:45:47.719Z"
+      "dataHash": "852b3d4edb1ff07f8aa85d3f226f2558e7527c0299e57ce0bb6a479d6d58c642",
+      "synthesizedAt": "2026-08-05T18:31:47.000Z"
     },
-    "topics/guideline-development/guideline-development.md": {
+    "topics/outlier-performance/outlier-performance.md": {
       "mode": "strict-synthesis",
-      "dataHash": "b58f0a0c26e2e9bc41dd1c811f241b68b73c09555d6a38fd36317a4125aafc3c",
-      "synthesizedAt": "2026-08-03T18:49:12.475Z"
+      "dataHash": "137e6cbe729b4455a3915d1389a934b8a10fee27a04f447ab8f394e28ff1a461",
+      "synthesizedAt": "2026-08-05T18:35:03.879Z"
     },
-    "topics/healthcare-system/healthcare-system.md": {
+    "topics/performance-change/performance-change.md": {
       "mode": "strict-synthesis",
-      "dataHash": "46707e414c042f09569395ad593e9ed7694330461ab8d3ccabfcac7bc81b2bd8",
-      "synthesizedAt": "2026-08-03T18:49:09.636Z"
-    },
-    "topics/historical-performance/historical-performance.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "ce023f8a812488e7b1cb9f755895f5d8438f0b93c53e882f89b64bfa284c4503",
-      "synthesizedAt": "2026-08-03T18:49:24.148Z"
-    },
-    "topics/indicator-definition/indicator-definition.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "d638b810043587cdecff649f4778bd150a0c5c9945a553e9edfc152b2888a277",
-      "synthesizedAt": "2026-08-03T18:49:22.215Z"
-    },
-    "topics/legal-framework/legal-framework.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "6e2ee8b72504b2a2c0196f05e05f22415dc88a38a1ae2112f751110e3efbd290",
-      "synthesizedAt": "2026-07-25T08:46:41.298Z"
-    },
-    "topics/medical-definition/adhd.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "777336c38e1892fa857999fc2cdc916252180f901cab0291d241b2dbf165c932",
-      "synthesizedAt": "2026-07-25T08:42:31.257Z"
-    },
-    "topics/medical-definition/medical-definition.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "d1d918d324ea14d24519c8d9744478b327603c903ed12f7280c20ef8fbe84653",
-      "synthesizedAt": "2026-08-03T18:49:26.388Z"
-    },
-    "topics/medical/medical.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "79aee0e5c0ed25d47135e683ecca118bcced550a32445c0a21dbe751aaa70ea6",
-      "synthesizedAt": "2026-08-03T18:49:27.683Z"
-    },
-    "topics/methodological/methodological.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "907506377876640990568f0cefd90946108e5001c1b7675ed50307e21843efdc",
-      "synthesizedAt": "2026-08-03T18:49:19.396Z"
-    },
-    "topics/methodology/methodology.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "35b5bbe4b964032a99c75ed4a68266685eea646a76ab4614f9dad08eb1539bad",
-      "synthesizedAt": "2026-08-03T18:49:17.523Z"
-    },
-    "topics/neurobiological/neurobiological.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "5805406a4277dca45b2f683867cdc1b87f829135bf1d067349017e2d63e8bb5e",
-      "synthesizedAt": "2026-07-25T08:48:39.279Z"
-    },
-    "topics/observation/observation.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "f64fa1d8ebbab5cad514a042f83edc6b8eaab86acf08dc6527308bb9d5d3d900",
-      "synthesizedAt": "2026-08-03T18:49:29.036Z"
-    },
-    "topics/operational/operational.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "b84378bd3ecc513cb5e5ef0bd4bf76802e44f8b01c54b2d2eb3f163e41ae3f2e",
-      "synthesizedAt": "2026-08-03T18:49:25.308Z"
-    },
-    "topics/performance-metric/performance-metric.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "097e0e3a330a49359dfc9b4e90c4c64872a85a83617912ed568485dea08f2897",
-      "synthesizedAt": "2026-08-03T18:49:12.941Z"
+      "dataHash": "3c9941c25f251d088cb216a776a83641d16ad329c80492222c8952071edd7033",
+      "synthesizedAt": "2026-08-05T18:34:12.862Z"
     },
     "topics/performance/performance.md": {
-      "mode": "structured-template",
-      "dataHash": "47c2610ebd6343c6075b89b13b81e016d0ccc4c7df7b8c0345015a642dcbbfea",
-      "synthesizedAt": "2026-07-25T09:08:58.672Z"
-    },
-    "topics/procedural-change/procedural-change.md": {
       "mode": "strict-synthesis",
-      "dataHash": "6d47e58192443a9eb43922bbdff4e8f2118d2027a0bd920f4cdeaa32d15f2dc0",
-      "synthesizedAt": "2026-08-03T18:49:15.276Z"
+      "dataHash": "fbb625c431e30717e8af2a5118d3247eca303314f573baf82b8439b0d11766b5",
+      "synthesizedAt": "2026-08-05T18:33:22.478Z"
     },
-    "topics/procedural/procedural.md": {
+    "topics/policy-change/policy-change.md": {
       "mode": "strict-synthesis",
-      "dataHash": "eecded609ca5a7b77cf7084085ceb7c66f8a09ab4aae8002227121afaa7ca161",
-      "synthesizedAt": "2026-08-03T18:49:28.701Z"
+      "dataHash": "ae39268912539a55b64357b43ee86b701aea6b7fe242904cc2c93ae0d76a5529",
+      "synthesizedAt": "2026-08-05T18:33:26.457Z"
+    },
+    "topics/policy-development/policy-development.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "663dd9d5a24d2535e5d4e09f6c60649f85017ae3681dfb61af4ff4c83000b598",
+      "synthesizedAt": "2026-08-05T18:34:00.707Z"
+    },
+    "topics/policy/mental-health-strategy/10-aars-planen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "c81f0243e0a409885c331591f8c6a8e19636acdfb92ab905a0433fe290f04afe",
+      "synthesizedAt": "2026-08-05T17:53:54.256Z"
+    },
+    "topics/policy/mental-health-strategy/dmpg-retningslinje.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "994c8b8e330fe2deb4bc6d1150fc5150a548175bb2bff65bdbdca369916b0ae5",
+      "synthesizedAt": "2026-08-05T18:26:35.647Z"
+    },
+    "topics/policy/mental-health-strategy/dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "35f3ce06900a4d44bda6b11cd71cf145a250378fc5e4085541b1df53b454114c",
+      "synthesizedAt": "2026-08-05T18:19:27.124Z"
+    },
+    "topics/policy/policy.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "fcf87b3cc6d8798b849846fd1b0f31a35b039b172b75e97d61127ef34663458b",
+      "synthesizedAt": "2026-08-05T18:36:30.981Z"
+    },
+    "topics/processes/adhd-pakkeforloeb.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "5e3347746b9d9abc0a1b291f48a3d829b2703e2d343e0532e0ea84c9a62421cc",
+      "synthesizedAt": "2026-08-05T18:27:46.440Z"
+    },
+    "topics/processes/adhd-udredningsforlob.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "665aa09f21089cbd74121dc1696ef17942b5bfeeffb3a1e3d316d22b0d56357a",
+      "synthesizedAt": "2026-08-05T18:17:58.349Z"
+    },
+    "topics/processes/koordinerende-netvaerksmoede.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f6fe1e7d3abef094031f01c99fb4e9cd8e42e86462910af03728f4e7534b796a",
+      "synthesizedAt": "2026-08-05T18:25:21.843Z"
     },
     "topics/quality-indicator/quality-indicator.md": {
       "mode": "strict-synthesis",
-      "dataHash": "a8c39ee03c4cd407a12f2e1af08bd1fcbd9f9bcbea8731a3903a4872a24f4fee",
-      "synthesizedAt": "2026-08-03T18:49:30.957Z"
+      "dataHash": "7c3d939e819176b593a185a7c9fdc2b5684f6b401ae8f8619feebbb47cca2df1",
+      "synthesizedAt": "2026-08-05T18:32:03.490Z"
     },
-    "topics/quality-indicators/indikator-1.md": {
+    "topics/quality-indicators/adhd-care/indikator-1.md": {
       "mode": "strict-synthesis",
-      "dataHash": "3cee664095273cae7b7aeefff70e500a84f226812d9c7c2338758e95add79ab8",
-      "synthesizedAt": "2026-07-25T08:34:26.301Z"
+      "dataHash": "c982978626eda1200e0249461e7a2265d65af8b181db1f8f5dae67978b26b988",
+      "synthesizedAt": "2026-08-05T17:55:45.824Z"
     },
-    "topics/quality-indicators/indikator-10.md": {
+    "topics/quality-indicators/adhd-care/indikator-10.md": {
       "mode": "strict-synthesis",
-      "dataHash": "ced4a27e9236120eaf206a9ddf8976f5ecf92e6dd2610927547c96618c0cd245",
-      "synthesizedAt": "2026-07-25T08:37:58.236Z"
+      "dataHash": "8117f131cf2e1428002d0bd8521521006fb69faa38144cb8e39046390fb0d847",
+      "synthesizedAt": "2026-08-05T18:21:45.057Z"
     },
-    "topics/quality-indicators/indikator-11.md": {
+    "topics/quality-indicators/adhd-care/indikator-11.md": {
       "mode": "strict-synthesis",
-      "dataHash": "5ea15f548a5d38fd5a03e7be1598d6d85b71b5470d4b197666bcaa8fb6218903",
-      "synthesizedAt": "2026-07-25T08:37:29.309Z"
+      "dataHash": "4210b39e51055abbc47d6bb5cefbff67f1673dfd00ac0b38c23b8ebe6439104e",
+      "synthesizedAt": "2026-08-05T18:25:36.633Z"
     },
-    "topics/quality-indicators/indikator-2a.md": {
+    "topics/quality-indicators/adhd-care/indikator-2a.md": {
       "mode": "strict-synthesis",
-      "dataHash": "9d1af3e51342972001bf6ba5a37ed56a6cd22e914fda71b87bf3906fd92141f8",
-      "synthesizedAt": "2026-07-25T08:23:22.588Z"
+      "dataHash": "1057c0e1c4605a8f67960bf0e3383bffa141101307afb2a439993a4ab26d7ed3",
+      "synthesizedAt": "2026-08-05T17:57:10.126Z"
     },
-    "topics/quality-indicators/indikator-2b.md": {
+    "topics/quality-indicators/adhd-care/indikator-2b.md": {
       "mode": "strict-synthesis",
-      "dataHash": "e30f26b6541dd41632136a9ba14486a511dd254c9a6175170a18ca24c749a5d0",
-      "synthesizedAt": "2026-07-25T08:26:45.001Z"
+      "dataHash": "b3ddc9c0f79a1d9a7b5883ed43b6351461e4db83d85639a87f52ffb90bdea78c",
+      "synthesizedAt": "2026-08-05T17:57:31.881Z"
     },
-    "topics/quality-indicators/indikator-3.md": {
-      "mode": "structured-template",
-      "dataHash": "36aac82e27964f922da552d719a47ef275aa6e4a52e819ad3a1ee70da0c63851",
-      "synthesizedAt": "2026-07-25T08:32:01.138Z"
-    },
-    "topics/quality-indicators/indikator-4.md": {
+    "topics/quality-indicators/adhd-care/indikator-3.md": {
       "mode": "strict-synthesis",
-      "dataHash": "b46f72b5db7a4b3cd0885af67257d4fa4773fed10187993bd4721122f4ee4e09",
-      "synthesizedAt": "2026-08-03T18:49:02.513Z"
+      "dataHash": "32ffea7e43218640b5c8e0d0cc4a9795c750b5344637f293245961ae16335518",
+      "synthesizedAt": "2026-08-05T18:00:02.488Z"
     },
-    "topics/quality-indicators/indikator-5.md": {
+    "topics/quality-indicators/adhd-care/indikator-4.md": {
       "mode": "strict-synthesis",
-      "dataHash": "54f9ea13d65e43a0c092083c1a788ededb64701899bacd496ce92fae630bb4f3",
-      "synthesizedAt": "2026-07-25T08:36:03.575Z"
+      "dataHash": "b4021b7d9c7308e6c5c68eacef87e8464d4bb410223a7419b5de3c1ff90afe29",
+      "synthesizedAt": "2026-08-05T18:02:52.529Z"
     },
-    "topics/quality-indicators/indikator-6.md": {
+    "topics/quality-indicators/adhd-care/indikator-5.md": {
       "mode": "strict-synthesis",
-      "dataHash": "c815a3cc920d52f5e2ec91b828eb3569c34c9b543a5a13254e70d72347f53f28",
-      "synthesizedAt": "2026-07-25T08:35:46.495Z"
+      "dataHash": "b4c34b56c6e04cde8c6dff110a256b457e0af0b0a5626b5b2643242f9ecd59fb",
+      "synthesizedAt": "2026-08-05T18:02:52.182Z"
     },
-    "topics/quality-indicators/indikator-7a.md": {
+    "topics/quality-indicators/adhd-care/indikator-6.md": {
       "mode": "strict-synthesis",
-      "dataHash": "326addae458ae219a0b9389cd293b969416790912072bed0ca26baac3685256f",
-      "synthesizedAt": "2026-07-25T08:34:56.500Z"
+      "dataHash": "d5c4677544ae73f10ef009e831f21da7a6aa4f4a27ceaba402a1b118fda78a5a",
+      "synthesizedAt": "2026-08-05T18:02:55.217Z"
     },
-    "topics/quality-indicators/indikator-7b.md": {
+    "topics/quality-indicators/adhd-care/indikator-7a.md": {
       "mode": "strict-synthesis",
-      "dataHash": "077d3bc51fc88bdf4ca38dda49c5d3c1a097662b3b6782ba5f3181e47a091c68",
-      "synthesizedAt": "2026-07-25T08:35:19.829Z"
+      "dataHash": "7f4873b0c95b9066c67202b6bf0b1fc07cb83a0e883262b084425194d337d79d",
+      "synthesizedAt": "2026-08-05T18:03:59.324Z"
     },
-    "topics/quality-indicators/indikator-8.md": {
+    "topics/quality-indicators/adhd-care/indikator-7b.md": {
       "mode": "strict-synthesis",
-      "dataHash": "0744c6b35a7de6995782e66f76392d192c181c407fe109dd5216c3efdb694ae5",
-      "synthesizedAt": "2026-07-25T08:35:55.915Z"
+      "dataHash": "4826c6557efe67deed7248c8df59fe8ac3b62ada5f42a6716a1493a2019ad957",
+      "synthesizedAt": "2026-08-05T18:06:37.365Z"
     },
-    "topics/quality-indicators/indikator-9.md": {
+    "topics/quality-indicators/adhd-care/indikator-8.md": {
       "mode": "strict-synthesis",
-      "dataHash": "556ea0762f1318462da43d786a75f2ccd58b3f2baae263ef0ae02158f5bb862f",
-      "synthesizedAt": "2026-07-25T08:37:05.021Z"
+      "dataHash": "1546b8095accdbe910502833e1a278e1240bc78dbc292ab0e280da1aa20d2fc0",
+      "synthesizedAt": "2026-08-05T18:20:40.910Z"
     },
-    "topics/quality-indicators/ny-indikator-2b.md": {
+    "topics/quality-indicators/adhd-care/indikator-9.md": {
       "mode": "strict-synthesis",
-      "dataHash": "94d5b11752b8d7ea904c2b922b3e08e45906f1f8839c7d483ec2a09e1d2c7850",
-      "synthesizedAt": "2026-07-25T08:38:24.250Z"
-    },
-    "topics/quality-indicators/ny-indikator-3.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "8cd7cc9a93ad77f17b1c0739ac43e0bc98994a183646abb4799dfb85d2c7e23e",
-      "synthesizedAt": "2026-07-25T08:38:28.962Z"
-    },
-    "topics/quality-indicators/quality-indicators.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "9d57234a29d5580b3a1bf8620935165902e9845ba3deeae68306f31ec94a486b",
-      "synthesizedAt": "2026-08-03T18:49:30.252Z"
-    },
-    "topics/quality-metrics/quality-metrics.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "54c6de00e03c21bac3819dcbd8407e72c0b529f18f758e8af5dd1e535040fc73",
-      "synthesizedAt": "2026-08-03T18:49:09.884Z"
+      "dataHash": "19b9e56a2d13694d364d2b0861382c43bc1c2902f9e80fa4fbd20c8791b69c7b",
+      "synthesizedAt": "2026-08-05T18:20:48.756Z"
     },
     "topics/quality-standard/quality-standard.md": {
       "mode": "strict-synthesis",
-      "dataHash": "05916a2ec824bf4cfafbd9e7d3719e16a378f66818c934024118ef39ac4e7c3d",
-      "synthesizedAt": "2026-08-03T18:49:11.868Z"
-    },
-    "topics/quality-target/quality-target.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "71498ba8a230bd63dba3e07897f24e2f71df2f2369de8f22183260d7468efa12",
-      "synthesizedAt": "2026-08-03T18:49:31.307Z"
-    },
-    "topics/quantitative/quantitative.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "c5ab0bc5dbab72550bbee1e712aabb16b5475c105015ce99eb986850edc8eb67",
-      "synthesizedAt": "2026-08-03T18:49:14.305Z"
-    },
-    "topics/regional-performance/regional-performance.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "d883379a555c200c67d35a128337959d9a03e9cd84b9b07fce69dc3820bd90a3",
-      "synthesizedAt": "2026-08-03T18:49:23.084Z"
+      "dataHash": "12c5d951146a197568968ba88e42273b01394ed4872bbaf6cc37ad7e8a948e4e",
+      "synthesizedAt": "2026-08-05T18:30:59.429Z"
     },
     "topics/regional-variation/regional-variation.md": {
       "mode": "strict-synthesis",
-      "dataHash": "d2ff28e80d62714bbd5be1d772dbd807940a78ecc86cdbd0f48022891dccb62c",
-      "synthesizedAt": "2026-08-03T18:49:20.810Z"
-    },
-    "topics/standard/standard.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "e6284ab8449ecbf86c6fc715d457b7219be2e6706976d650114b91c1ca9168fb",
-      "synthesizedAt": "2026-08-03T18:49:17.058Z"
-    },
-    "topics/statistical/statistical.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "c1ab3ffd67a61af723bb1a5e25f4d338e3743251a10e968021565a64a45ac1a7",
-      "synthesizedAt": "2026-08-03T18:49:10.222Z"
-    },
-    "topics/structural/structural.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "c45607b489e6c92cf023419c137631abe6ab69f02b2c35594b45b2d8d192e3dd",
-      "synthesizedAt": "2026-08-03T18:49:32.263Z"
-    },
-    "topics/timeline/timeline.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "1484c58e6f0da6dbe21df5233ba40d7e9f4b213db31440175487a21e2126a745",
-      "synthesizedAt": "2026-08-03T18:49:24.441Z"
-    },
-    "topics/trend/trend.md": {
-      "mode": "strict-synthesis",
-      "dataHash": "98b346f40bbbd658a32c6c94d5fc8971bf05883ccd5af4659ce5d79f99602ec1",
-      "synthesizedAt": "2026-08-03T18:49:14.071Z"
+      "dataHash": "d68d48453d21a4946d93369d3c71b0110229375d8a29a09cce879014bf520254",
+      "synthesizedAt": "2026-08-05T18:33:25.997Z"
     }
   }
 }

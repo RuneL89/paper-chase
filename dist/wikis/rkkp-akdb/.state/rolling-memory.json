@@ -1,59 +1,54 @@
 {
   "entities": [
     {
+      "slug": "aaben-kirurgi",
+      "folder": "entities/medical-procedures/surgical",
+      "mentionCount": 1
+    },
+    {
       "slug": "aalborg-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 27
+      "mentionCount": 10
     },
     {
       "slug": "aalborg-universitetshospital-thisted",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 13
+      "mentionCount": 5
     },
     {
       "slug": "aarhus-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 27
-    },
-    {
-      "slug": "adamsen-s",
-      "folder": "entities/people/researchers",
-      "mentionCount": 4
-    },
-    {
-      "slug": "aha-patient",
-      "folder": "topics/clinical-concepts",
-      "mentionCount": 1
-    },
-    {
-      "slug": "aha-studie",
-      "folder": "topics/clinical-research",
-      "mentionCount": 1
+      "mentionCount": 10
     },
     {
       "slug": "aha-studiet",
-      "folder": "topics/clinical-research/studies",
-      "mentionCount": 4
+      "folder": "entities/studies/clinical-trials",
+      "mentionCount": 3
     },
     {
-      "slug": "akut-abdominalkirurgi",
-      "folder": "topics/clinical-practice",
-      "mentionCount": 2
+      "slug": "akut-abdomen",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "mentionCount": 1
     },
     {
       "slug": "akut-kirurgi-databasen",
       "folder": "entities/organizations/healthcare-databases",
-      "mentionCount": 54
+      "mentionCount": 53
+    },
+    {
+      "slug": "alder",
+      "folder": "topics/healthcare-metrics/demographics",
+      "mentionCount": 1
     },
     {
       "slug": "amager-og-hvidovre-hospital",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 30
+      "mentionCount": 11
     },
     {
       "slug": "american-college-of-radiology",
-      "folder": "entities/organizations/professional-associations",
-      "mentionCount": 2
+      "folder": "entities/organizations/medical-professional-bodies",
+      "mentionCount": 1
     },
     {
       "slug": "anaestesiolog",
@@ -62,53 +57,43 @@
     },
     {
       "slug": "anne-kirstine-dyrvig",
-      "folder": "entities/people/healthcare-professionals",
+      "folder": "entities/people/healthcare-researchers",
       "mentionCount": 1
     },
     {
       "slug": "antibiotikabehandling",
-      "folder": "topics/clinical-indicators",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "mentionCount": 1
+    },
+    {
+      "slug": "apache",
+      "folder": "entities/scores/clinical-assessment",
       "mentionCount": 3
-    },
-    {
-      "slug": "antikoagulerende-behandling",
-      "folder": "topics/clinical-practice",
-      "mentionCount": 1
-    },
-    {
-      "slug": "apache-scoring",
-      "folder": "topics/clinical-assessment",
-      "mentionCount": 1
     },
     {
       "slug": "asa-score",
-      "folder": "topics/clinical-assessment",
-      "mentionCount": 3
+      "folder": "entities/scores/clinical-assessment",
+      "mentionCount": 9
     },
     {
-      "slug": "bendix-j",
-      "folder": "entities/people/researchers",
-      "mentionCount": 3
-    },
-    {
-      "slug": "birgitte-ruehmann",
-      "folder": "entities/people/healthcare-professionals",
+      "slug": "babz00",
+      "folder": "entities/codes/medical-coding",
       "mentionCount": 1
     },
     {
-      "slug": "birgitte-ruhman",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 2
+      "slug": "birgitte-ruhmann",
+      "folder": "entities/people/healthcare-administrators",
+      "mentionCount": 3
     },
     {
       "slug": "bispebjerg-og-frederiksberg-hospitaler",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 30
+      "mentionCount": 10
     },
     {
       "slug": "bornholms-hospital",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 30
+      "mentionCount": 9
     },
     {
       "slug": "camilla-leidcker",
@@ -116,144 +101,109 @@
       "mentionCount": 1
     },
     {
-      "slug": "charleson-score",
-      "folder": "topics/clinical-assessment",
-      "mentionCount": 1
-    },
-    {
-      "slug": "charlson-comorbidity-index",
-      "folder": "topics/clinical-assessment",
-      "mentionCount": 1
-    },
-    {
-      "slug": "charlson-comorbidity-score",
-      "folder": "topics/clinical-assessment",
-      "mentionCount": 1
+      "slug": "charlson-comorbiditets-indeks",
+      "folder": "topics/clinical-metrics/comorbidity-scoring",
+      "mentionCount": 3
     },
     {
       "slug": "charlson-score",
-      "folder": "topics/clinical-assessment",
-      "mentionCount": 5
+      "folder": "topics/clinical-metrics",
+      "mentionCount": 3
+    },
+    {
+      "slug": "charlson-score-0",
+      "folder": "topics/clinical-metrics/comorbidity",
+      "mentionCount": 2
+    },
+    {
+      "slug": "charlson-score-1-2",
+      "folder": "topics/clinical-metrics/comorbidity",
+      "mentionCount": 2
+    },
+    {
+      "slug": "charlson-score-ge-3",
+      "folder": "entities/scores/clinical-assessment",
+      "mentionCount": 1
     },
     {
       "slug": "cpr-nummer",
-      "folder": "topics/data-quality",
-      "mentionCount": 2
+      "folder": "topics/administrative-systems/danish-civil-registration",
+      "mentionCount": 5
     },
     {
       "slug": "cpr-registeret",
-      "folder": "entities/organizations/registries",
-      "mentionCount": 4
+      "folder": "entities/databases/government",
+      "mentionCount": 2
     },
     {
       "slug": "ct-skanning",
-      "folder": "topics/clinical-indicators",
-      "mentionCount": 3
+      "folder": "entities/medical-procedures/anesthesia",
+      "mentionCount": 1
+    },
+    {
+      "slug": "danish-clinical-register-of-emergency-surgery",
+      "folder": "entities/databases/clinical",
+      "mentionCount": 1
     },
     {
       "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "mentionCount": 26
+      "folder": "entities/locations/national",
+      "mentionCount": 10
     },
     {
-      "slug": "dansk-anaestesi-database",
-      "folder": "entities/organizations/healthcare-databases",
-      "mentionCount": 9
-    },
-    {
-      "slug": "dansk-kirurgisk-selskab",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 1
-    },
-    {
-      "slug": "dansk-radiologisk-selskab",
-      "folder": "entities/organizations/professional-associations",
-      "mentionCount": 2
-    },
-    {
-      "slug": "dansk-selskab-for-akutmedicin",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 1
-    },
-    {
-      "slug": "dansk-selskab-for-anaestesiologi-og-intensiv-medicin",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 1
-    },
-    {
-      "slug": "dansk-selskab-for-fysioterapi",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 1
-    },
-    {
-      "slug": "dansk-selskab-for-klinisk-ernaering",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 1
-    },
-    {
-      "slug": "dansk-sygepleje-selskab",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 1
-    },
-    {
-      "slug": "danske-regioner",
-      "folder": "entities/organizations/healthcare-administration",
-      "mentionCount": 3
-    },
-    {
-      "slug": "den-nationale-labdatabank",
-      "folder": "entities/organizations/registries",
-      "mentionCount": 3
-    },
-    {
-      "slug": "dorte-lindholm-buck",
-      "folder": "entities/people/researchers",
+      "slug": "dansk-anaestesi-database-dad",
+      "folder": "entities/databases/healthcare",
       "mentionCount": 4
     },
     {
-      "slug": "elpquick-studiet",
-      "folder": "topics/clinical-research/studies",
-      "mentionCount": 2
-    },
-    {
-      "slug": "emma-possfelt-moller",
-      "folder": "entities/people/healthcare-professionals",
+      "slug": "dansk-radiologisk-selskab",
+      "folder": "entities/organizations/medical-professional-bodies",
       "mentionCount": 1
     },
     {
-      "slug": "enhanced-recovery-after-surgery",
-      "folder": "topics/clinical-concepts",
-      "mentionCount": 3
+      "slug": "den-nationale-labdatabank-dnl",
+      "folder": "entities/databases/healthcare",
+      "mentionCount": 2
+    },
+    {
+      "slug": "dk65",
+      "folder": "entities/codes/medical-coding",
+      "mentionCount": 1
+    },
+    {
+      "slug": "elpquick",
+      "folder": "entities/organizations/medical-research",
+      "mentionCount": 1
     },
     {
       "slug": "epidural",
-      "folder": "topics/clinical-indicators",
-      "mentionCount": 6
+      "folder": "entities/medical-procedures/anesthesia",
+      "mentionCount": 2
     },
     {
-      "slug": "ernaering",
-      "folder": "topics/clinical-indicators",
-      "mentionCount": 6
+      "slug": "epj",
+      "folder": "entities/systems/healthcare-information-systems",
+      "mentionCount": 1
+    },
+    {
+      "slug": "eras",
+      "folder": "topics/administrative-systems/danish-civil-registration",
+      "mentionCount": 1
     },
     {
       "slug": "esbjerg-sygehus",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 3
+      "mentionCount": 1
     },
     {
       "slug": "esbjerg-sygehus-grindsted-sygehus",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 21
+      "mentionCount": 9
     },
     {
-      "slug": "fagligt-selskab-for-gastroenterologiske-sygeplejersker",
-      "folder": "entities/organizations/professional-societies",
+      "slug": "forloeb-sorkode",
+      "folder": "entities/variables/healthcare-database",
       "mentionCount": 1
-    },
-    {
-      "slug": "grindsted-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "mentionCount": 3
     },
     {
       "slug": "halfdan-lauridsen",
@@ -261,193 +211,143 @@
       "mentionCount": 1
     },
     {
-      "slug": "helene-rask-dalby",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
-    },
-    {
-      "slug": "henriette-vind-thaysen",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
-    },
-    {
-      "slug": "henrik-joergensen",
-      "folder": "entities/people/researchers",
-      "mentionCount": 4
-    },
-    {
       "slug": "henrik-nielsen",
-      "folder": "entities/people/healthcare-professionals",
+      "folder": "entities/people/healthcare-researchers",
       "mentionCount": 1
     },
     {
       "slug": "herlev-og-gentofte-hospital",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 29
+      "mentionCount": 10
     },
     {
       "slug": "holbaek-sygehus",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 33
+      "mentionCount": 12
     },
     {
       "slug": "hospitalerne-i-nordsjaelland",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 27
+      "mentionCount": 9
     },
     {
       "slug": "hospitalsenhed-midt",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 24
+      "mentionCount": 9
     },
     {
-      "slug": "hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 3
-    },
-    {
-      "slug": "hovedstaden-region",
+      "slug": "hovedstaden-region-i-alt",
       "folder": "entities/organizations/regions",
-      "mentionCount": 3
+      "mentionCount": 4
     },
     {
-      "slug": "ileus",
-      "folder": "topics/clinical-outcome",
+      "slug": "ima",
+      "folder": "entities/locations/national",
       "mentionCount": 1
     },
     {
-      "slug": "ima-afsnit",
-      "folder": "topics/clinical-practice",
+      "slug": "indberetningsvejledning-til-landspatientregisteret",
+      "folder": "topics/administrative-systems/danish-civil-registration",
       "mentionCount": 1
     },
     {
       "slug": "indikator-1",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 4
-    },
-    {
-      "slug": "indikator-1-antibiotikabehandling",
-      "folder": "topics/clinical-indicator",
-      "mentionCount": 1
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "mentionCount": 10
     },
     {
       "slug": "indikator-10",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 7
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "mentionCount": 9
     },
     {
-      "slug": "indikator-10-mortalitet-90-dage",
-      "folder": "topics/clinical-indicator",
+      "slug": "indikator-10b",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
       "mentionCount": 1
     },
     {
-      "slug": "indikator-11",
-      "folder": "topics/quality-indicators",
+      "slug": "indikator-10c",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
       "mentionCount": 2
     },
     {
-      "slug": "indikator-2",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 11
-    },
-    {
-      "slug": "indikator-2-ct-skanning",
-      "folder": "topics/clinical-indicator",
-      "mentionCount": 1
-    },
-    {
-      "slug": "indikator-3",
-      "folder": "topics/clinical-indicators",
-      "mentionCount": 5
-    },
-    {
-      "slug": "indikator-3-praeoperativ-optimering",
-      "folder": "topics/clinical-indicator",
-      "mentionCount": 1
-    },
-    {
-      "slug": "indikator-4",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 1
-    },
-    {
-      "slug": "indikator-4-operation-indenfor-seks-timer",
-      "folder": "topics/clinical-indicator",
-      "mentionCount": 1
-    },
-    {
-      "slug": "indikator-4x",
-      "folder": "topics/quality-indicators",
+      "slug": "indikator-11",
+      "folder": "topics/clinical-indicators/acute-surgery",
       "mentionCount": 4
     },
     {
-      "slug": "indikator-4y",
-      "folder": "topics/quality-indicators",
+      "slug": "indikator-2",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "mentionCount": 4
+    },
+    {
+      "slug": "indikator-3",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "mentionCount": 9
+    },
+    {
+      "slug": "indikator-4",
+      "folder": "topics/clinical-indicators/acute-surgery",
       "mentionCount": 5
     },
     {
-      "slug": "indikator-5",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 1
+      "slug": "indikator-4x",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "mentionCount": 2
     },
     {
-      "slug": "indikator-5-postoperativ-monitoring",
-      "folder": "topics/clinical-indicator",
+      "slug": "indikator-4y",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "mentionCount": 2
+    },
+    {
+      "slug": "indikator-5",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "mentionCount": 8
+    },
+    {
+      "slug": "indikator-5x",
+      "folder": "topics/healthcare-performance-indicators",
+      "mentionCount": 2
+    },
+    {
+      "slug": "indikator-5y",
+      "folder": "topics/healthcare-performance-indicators",
       "mentionCount": 1
     },
     {
       "slug": "indikator-6",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 3
-    },
-    {
-      "slug": "indikator-6-tidlig-mobilisering",
-      "folder": "topics/clinical-indicator",
-      "mentionCount": 1
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "mentionCount": 8
     },
     {
       "slug": "indikator-7",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 5
-    },
-    {
-      "slug": "indikator-7-ernaeringsgjenoptagelse",
-      "folder": "topics/clinical-indicator",
-      "mentionCount": 1
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "mentionCount": 8
     },
     {
       "slug": "indikator-8",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 3
-    },
-    {
-      "slug": "indikator-8-epidural",
-      "folder": "topics/clinical-indicator",
-      "mentionCount": 1
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "mentionCount": 7
     },
     {
       "slug": "indikator-9",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 3
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "mentionCount": 8
     },
     {
-      "slug": "indikator-9-mortalitet-30-dage",
-      "folder": "topics/clinical-indicator",
+      "slug": "indikator-9b",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
       "mentionCount": 1
     },
     {
-      "slug": "ingrid-lolle",
-      "folder": "entities/people/researchers",
-      "mentionCount": 2
-    },
-    {
-      "slug": "intermediaer-indlaeggelse",
-      "folder": "topics/clinical-indicators",
-      "mentionCount": 5
+      "slug": "indikator-9c",
+      "folder": "topics/clinical-quality-indicators/surgical-outcomes",
+      "mentionCount": 1
     },
     {
       "slug": "ita-afsnit",
-      "folder": "topics/clinical-practice",
+      "folder": "entities/locations/national",
       "mentionCount": 1
     },
     {
@@ -461,6 +361,26 @@
       "mentionCount": 1
     },
     {
+      "slug": "kjak01",
+      "folder": "entities/codes/medical-coding",
+      "mentionCount": 1
+    },
+    {
+      "slug": "kjak03",
+      "folder": "entities/codes/medical-coding",
+      "mentionCount": 1
+    },
+    {
+      "slug": "kjak04",
+      "folder": "entities/codes/medical-coding",
+      "mentionCount": 1
+    },
+    {
+      "slug": "kka",
+      "folder": "entities/codes/healthcare-coding",
+      "mentionCount": 1
+    },
+    {
       "slug": "kolding-sygehus",
       "folder": "entities/organizations/hospitals",
       "mentionCount": 1
@@ -471,48 +391,38 @@
       "mentionCount": 1
     },
     {
-      "slug": "laerings-og-kvalitetesteam-akut-kirurgi",
-      "folder": "entities/organizations/healthcare-programs",
-      "mentionCount": 10
-    },
-    {
       "slug": "landspatientregisteret",
-      "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 13
+      "folder": "entities/organizations/healthcare-databases",
+      "mentionCount": 12
     },
     {
-      "slug": "laparoskopi",
-      "folder": "topics/clinical-practice",
+      "slug": "laursen-sb",
+      "folder": "entities/people/healthcare-researchers",
       "mentionCount": 1
     },
     {
-      "slug": "laparotomi",
-      "folder": "topics/clinical-practice",
-      "mentionCount": 1
-    },
-    {
-      "slug": "line-rokkedal-joensson",
+      "slug": "line-rokkedal-jonsson",
       "folder": "entities/people/healthcare-professionals",
       "mentionCount": 1
     },
     {
-      "slug": "lkt-akutkirurgi",
-      "folder": "entities/organizations/healthcare-programs",
+      "slug": "lis",
+      "folder": "entities/systems/healthcare-information-systems",
+      "mentionCount": 1
+    },
+    {
+      "slug": "lkt",
+      "folder": "entities/organizations/healthcare-governance",
       "mentionCount": 2
     },
     {
+      "slug": "lkt-akut-kirurgi",
+      "folder": "entities/organizations/healthcare-governance",
+      "mentionCount": 4
+    },
+    {
       "slug": "lone-winther-jensen",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
-    },
-    {
-      "slug": "lpr",
-      "folder": "entities/organizations/healthcare-systems",
-      "mentionCount": 1
-    },
-    {
-      "slug": "mainz-j",
-      "folder": "entities/people/researchers",
+      "folder": "entities/people/healthcare-leadership",
       "mentionCount": 1
     },
     {
@@ -521,69 +431,44 @@
       "mentionCount": 1
     },
     {
-      "slug": "mette-aastrup-tolver",
-      "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
-    },
-    {
-      "slug": "midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 3
-    },
-    {
-      "slug": "midtjylland-region",
+      "slug": "midtjylland-region-i-alt",
       "folder": "entities/organizations/regions",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
-      "slug": "mikkel-wilhelmsen",
+      "slug": "moller-mh",
       "folder": "entities/people/researchers",
       "mentionCount": 2
     },
     {
-      "slug": "moeller-m-h",
-      "folder": "entities/people/researchers",
+      "slug": "naad0",
+      "folder": "entities/codes/medical-coding",
       "mentionCount": 1
     },
     {
-      "slug": "mortalitet-indenfor-30-dage",
-      "folder": "topics/clinical-indicators",
-      "mentionCount": 6
-    },
-    {
-      "slug": "mortalitet-indenfor-30-dage-efter-akut-kirurgi",
-      "folder": "topics/mortality-outcome",
-      "mentionCount": 2
-    },
-    {
-      "slug": "mortalitet-indenfor-90-dage",
-      "folder": "topics/clinical-indicators",
-      "mentionCount": 4
-    },
-    {
-      "slug": "morten-moller",
-      "folder": "entities/people/researchers",
-      "mentionCount": 16
-    },
-    {
-      "slug": "naaz42-procedurekode",
-      "folder": "topics/clinical-practice",
+      "slug": "naaz2",
+      "folder": "entities/codes/medical-coding",
       "mentionCount": 1
     },
     {
-      "slug": "naestved-slagelse-ringsted-sygehuse",
+      "slug": "nabb",
+      "folder": "entities/codes/healthcare-coding",
+      "mentionCount": 1
+    },
+    {
+      "slug": "nabc",
+      "folder": "entities/codes/healthcare-coding",
+      "mentionCount": 1
+    },
+    {
+      "slug": "nabe",
+      "folder": "entities/codes/healthcare-coding",
+      "mentionCount": 1
+    },
+    {
+      "slug": "naestved-slagese-og-ringsted-sygehuse",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 27
-    },
-    {
-      "slug": "nakano-a",
-      "folder": "entities/people/researchers",
-      "mentionCount": 1
-    },
-    {
-      "slug": "nasbo-projektet",
-      "folder": "entities/organizations/professional-associations",
-      "mentionCount": 1
+      "mentionCount": 10
     },
     {
       "slug": "nicolai-bang-foss",
@@ -591,89 +476,49 @@
       "mentionCount": 1
     },
     {
-      "slug": "niels-verner-knudsen",
-      "folder": "entities/people/researchers",
-      "mentionCount": 2
-    },
-    {
-      "slug": "nordeepj",
-      "folder": "topics/organizational",
-      "mentionCount": 1
-    },
-    {
-      "slug": "nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 3
-    },
-    {
-      "slug": "nordjylland-region",
+      "slug": "nordjylland-region-i-alt",
       "folder": "entities/organizations/regions",
-      "mentionCount": 3
-    },
-    {
-      "slug": "nordsjaellands-hospital",
-      "folder": "entities/organizations/hospitals",
-      "mentionCount": 1
+      "mentionCount": 5
     },
     {
       "slug": "nykoebing-f-sygehus",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 11
-    },
-    {
-      "slug": "odense-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "mentionCount": 2
+      "mentionCount": 6
     },
     {
       "slug": "odense-universitetshospital-svendborg",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 25
+      "mentionCount": 7
     },
     {
-      "slug": "operation-indenfor-6-timer",
-      "folder": "topics/clinical-indicators",
+      "slug": "opereret-1",
+      "folder": "entities/variables/healthcare-database",
+      "mentionCount": 1
+    },
+    {
+      "slug": "ouh-odense-universitetshospital-odense",
+      "folder": "entities/organizations/hospitals",
       "mentionCount": 4
     },
     {
       "slug": "p-possum",
-      "folder": "topics/clinical-assessment",
+      "folder": "entities/scores/clinical-assessment",
       "mentionCount": 2
     },
     {
       "slug": "perforeret-ulcus",
-      "folder": "topics/clinical-concepts",
-      "mentionCount": 2
-    },
-    {
-      "slug": "peter-olsen-svenningsen",
-      "folder": "entities/people/healthcare-professionals",
+      "folder": "topics/cancer-distribution",
       "mentionCount": 1
     },
     {
       "slug": "peter-svenningsen",
-      "folder": "entities/people/healthcare-professionals",
+      "folder": "entities/people/healthcare-leaders",
       "mentionCount": 2
     },
     {
-      "slug": "postoperativ-pneumoni",
-      "folder": "topics/clinical-outcome",
-      "mentionCount": 1
-    },
-    {
-      "slug": "postoperative-lungekomplikationer",
-      "folder": "topics/clinical-outcome",
+      "slug": "pulp-trial",
+      "folder": "entities/studies/clinical-trials",
       "mentionCount": 2
-    },
-    {
-      "slug": "praeoperativ-optimering",
-      "folder": "topics/clinical-indicators",
-      "mentionCount": 4
-    },
-    {
-      "slug": "pupl-studiet",
-      "folder": "topics/clinical-research/studies",
-      "mentionCount": 1
     },
     {
       "slug": "rasmus-haarup-lie",
@@ -681,64 +526,59 @@
       "mentionCount": 1
     },
     {
-      "slug": "rasmus-hasselager",
-      "folder": "entities/people/researchers",
-      "mentionCount": 2
-    },
-    {
       "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 31
+      "folder": "entities/organizations/regional-health-authorities",
+      "mentionCount": 13
     },
     {
       "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 39
+      "folder": "entities/organizations/regional-health-authorities",
+      "mentionCount": 20
     },
     {
       "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 45
+      "folder": "entities/organizations/regional-health-authorities",
+      "mentionCount": 18
     },
     {
       "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 32
+      "folder": "entities/organizations/regional-health-authorities",
+      "mentionCount": 14
     },
     {
       "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 32
+      "folder": "entities/organizations/regional-health-authorities",
+      "mentionCount": 14
+    },
+    {
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/healthcare-organizations",
+      "mentionCount": 29
     },
     {
       "slug": "regionshospital-nordjylland",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 27
+      "mentionCount": 14
     },
     {
       "slug": "regionshospitalet-goedstrup",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 24
+      "mentionCount": 10
     },
     {
       "slug": "regionshospitalet-horsens",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 26
+      "mentionCount": 10
     },
     {
       "slug": "regionshospitalet-randers",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 26
-    },
-    {
-      "slug": "regionssundhedsdirektoerkredsen",
-      "folder": "entities/organizations/professional-societies",
-      "mentionCount": 1
+      "mentionCount": 11
     },
     {
       "slug": "rigshospitalet",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 30
+      "mentionCount": 11
     },
     {
       "slug": "rikke-therkildsen",
@@ -746,9 +586,9 @@
       "mentionCount": 1
     },
     {
-      "slug": "rkkp",
-      "folder": "entities/organizations/healthcare-quality",
-      "mentionCount": 22
+      "slug": "rosenstock-s",
+      "folder": "entities/people/healthcare-researchers",
+      "mentionCount": 1
     },
     {
       "slug": "rune-trangbaek",
@@ -756,181 +596,165 @@
       "mentionCount": 1
     },
     {
-      "slug": "sds",
-      "folder": "entities/organizations/regulatory-bodies",
+      "slug": "schaffalitzky-de-muckadell-ob",
+      "folder": "entities/people/healthcare-researchers",
       "mentionCount": 1
     },
     {
-      "slug": "sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "mentionCount": 4
+      "slug": "sds",
+      "folder": "entities/organizations/healthcare-authority",
+      "mentionCount": 1
     },
     {
-      "slug": "sjaelland-region",
+      "slug": "sfi",
+      "folder": "entities/organizations/healthcare-systems",
+      "mentionCount": 1
+    },
+    {
+      "slug": "sjaelland-region-i-alt",
       "folder": "entities/organizations/regions",
       "mentionCount": 4
     },
     {
       "slug": "sjaellands-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 26
+      "mentionCount": 8
     },
     {
-      "slug": "soeren-brok-laursen",
-      "folder": "entities/people/researchers",
-      "mentionCount": 5
+      "slug": "sjaellands-universitetshospital-koege",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
     },
     {
-      "slug": "soeren-moeller-rosenstock",
-      "folder": "entities/people/researchers",
-      "mentionCount": 5
+      "slug": "sks-kode-naaz42",
+      "folder": "entities/codes/medical-coding",
+      "mentionCount": 4
     },
     {
-      "slug": "stps",
-      "folder": "entities/organizations/oversight",
+      "slug": "slagelse",
+      "folder": "entities/organizations/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "sor-koder",
+      "folder": "entities/codes/medical-coding",
       "mentionCount": 2
+    },
+    {
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "mentionCount": 10
     },
     {
       "slug": "sundhedsdatastyrelsens-teknikergruppe",
-      "folder": "entities/organizations/advisory-groups",
-      "mentionCount": 2
+      "folder": "entities/organizations/healthcare-administration",
+      "mentionCount": 1
     },
     {
-      "slug": "sundhedsvaesenet-kvalitetsinstitut",
-      "folder": "entities/organizations/healthcare-quality",
-      "mentionCount": 13
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "mentionCount": 20
     },
     {
-      "slug": "sundhedsvaesenets-organisationsregister",
-      "folder": "entities/organizations/registries",
-      "mentionCount": 3
+      "slug": "sundhedsvaesenets-organisationsregister-sor",
+      "folder": "entities/databases/government",
+      "mentionCount": 1
     },
     {
-      "slug": "supplerende-indikator-5x",
-      "folder": "topics/quality-indicators",
-      "mentionCount": 2
+      "slug": "supplerende-graf-med-aaben-kirurgi-over-tid-paa-regionalt-niveau",
+      "folder": "topics/visualizations",
+      "mentionCount": 1
     },
     {
       "slug": "surgical-apgar-score",
-      "folder": "topics/clinical-assessment",
-      "mentionCount": 2
-    },
-    {
-      "slug": "syddanmark",
-      "folder": "entities/locations/danish-regions",
+      "folder": "entities/scores/clinical-assessment",
       "mentionCount": 3
     },
     {
-      "slug": "syddanmark-region",
+      "slug": "syddanmark-region-i-alt",
       "folder": "entities/organizations/regions",
       "mentionCount": 4
     },
     {
       "slug": "sygehus-lillebaelt",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 24
+      "mentionCount": 8
     },
     {
       "slug": "sygehus-soenderjylland",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 24
+      "mentionCount": 9
     },
     {
       "slug": "sygehusmedicinregisteret",
       "folder": "entities/organizations/healthcare-databases",
-      "mentionCount": 5
+      "mentionCount": 4
     },
     {
-      "slug": "thomas-cotzand",
+      "slug": "t-0",
+      "folder": "entities/variables/healthcare-database",
+      "mentionCount": 1
+    },
+    {
+      "slug": "thomas-jorgensen",
       "folder": "entities/people/healthcare-professionals",
       "mentionCount": 1
     },
     {
-      "slug": "thomas-joergensen",
-      "folder": "entities/people/healthcare-professionals",
+      "slug": "vejle-sygehus",
+      "folder": "entities/organizations/hospitals",
       "mentionCount": 1
     },
     {
-      "slug": "tidlig-mobilisering",
-      "folder": "topics/clinical-indicators",
-      "mentionCount": 6
+      "slug": "zz2009c",
+      "folder": "entities/codes/healthcare-coding",
+      "mentionCount": 1
     },
     {
-      "slug": "vera-slyk",
-      "folder": "entities/people/healthcare-professionals",
+      "slug": "zz2009d",
+      "folder": "entities/codes/healthcare-coding",
+      "mentionCount": 1
+    },
+    {
+      "slug": "zzp0030a",
+      "folder": "entities/codes/healthcare-coding",
+      "mentionCount": 1
+    },
+    {
+      "slug": "zzp0030c",
+      "folder": "entities/codes/healthcare-coding",
       "mentionCount": 1
     }
   ],
   "topics": [
-    "administrative",
-    "analysis",
-    "availability",
-    "clinical-analysis",
+    "cancer-distribution",
     "clinical-assessment",
-    "clinical-data",
+    "clinical-consequence",
     "clinical-evidence",
-    "clinical-guideline",
     "clinical-indicator",
-    "clinical-observation",
     "clinical-outcome",
-    "clinical-performance",
-    "clinical-practice",
-    "clinical-procedure",
-    "clinical-recommendation",
-    "clinical-research",
-    "clinical-target",
-    "clinical-trend",
+    "clinical-quality",
+    "coding-uncertainty",
     "compliance",
-    "conference-presentation",
     "data-availability",
-    "data-extraction",
+    "data-privacy",
     "data-quality",
-    "data-source",
     "definition",
+    "definitional",
+    "definitional-conflict",
     "demographic",
+    "evaluation",
+    "evaluative",
     "exclusion-criteria",
-    "hospital-outcome",
-    "inclusion-criteria",
-    "limitation",
-    "methodological",
-    "methodology",
-    "methodology-change",
-    "mortality",
-    "mortality-outcome",
-    "mortality-statistic",
-    "operational",
-    "organizational",
-    "outcome",
-    "patient-volume",
+    "inter-hospital-variation",
+    "methodological-assessment",
     "performance",
-    "performance-metric",
     "policy",
-    "policy-change",
-    "policy-decision",
-    "population-definition",
-    "population-statistics",
-    "procedural",
-    "process",
-    "publication",
-    "purpose",
-    "quality-assessment",
-    "quality-improvement",
-    "quality-indicator",
-    "quality-standard",
     "recommendation",
-    "regional-outcome",
-    "regional-variation",
-    "regulatory-approval",
+    "regional-comparison",
+    "relevance-assessment",
     "standard",
-    "standard-change",
-    "standard-compliance",
-    "standard-setting",
-    "statistical",
-    "status",
-    "temporal",
-    "trend",
-    "validation",
-    "validation-process"
+    "technical-infrastructure"
   ],
   "sources": [
     "akdb-2023",
@@ -938,96 +762,72 @@
   ],
   "folderStructure": [
     "comparisons",
-    "entities/locations/countries",
-    "entities/locations/danish-regions",
-    "entities/organizations/advisory-groups",
+    "entities/codes/healthcare-coding",
+    "entities/codes/medical-coding",
+    "entities/databases/clinical",
+    "entities/databases/government",
+    "entities/databases/healthcare",
+    "entities/locations/national",
+    "entities/medical-procedures/anesthesia",
+    "entities/medical-procedures/surgical",
     "entities/organizations/healthcare-administration",
+    "entities/organizations/healthcare-authority",
     "entities/organizations/healthcare-databases",
-    "entities/organizations/healthcare-programs",
-    "entities/organizations/healthcare-quality",
-    "entities/organizations/healthcare-registries",
+    "entities/organizations/healthcare-governance",
+    "entities/organizations/healthcare-organizations",
+    "entities/organizations/healthcare-oversight",
     "entities/organizations/healthcare-systems",
     "entities/organizations/hospitals",
-    "entities/organizations/oversight",
-    "entities/organizations/professional-associations",
-    "entities/organizations/professional-societies",
+    "entities/organizations/medical-professional-bodies",
+    "entities/organizations/medical-research",
+    "entities/organizations/regional-health-authorities",
     "entities/organizations/regions",
-    "entities/organizations/registries",
-    "entities/organizations/regulatory-bodies",
+    "entities/people/healthcare-administrators",
+    "entities/people/healthcare-leaders",
+    "entities/people/healthcare-leadership",
     "entities/people/healthcare-professionals",
+    "entities/people/healthcare-researchers",
     "entities/people/researchers",
-    "topics/administrative",
-    "topics/analysis",
-    "topics/availability",
-    "topics/clinical-analysis",
+    "entities/scores/clinical-assessment",
+    "entities/studies/clinical-trials",
+    "entities/systems/healthcare-information-systems",
+    "entities/variables/healthcare-database",
+    "topics/administrative-systems/danish-civil-registration",
+    "topics/cancer-distribution",
     "topics/clinical-assessment",
-    "topics/clinical-concepts",
-    "topics/clinical-data",
+    "topics/clinical-consequence",
     "topics/clinical-evidence",
-    "topics/clinical-guideline",
     "topics/clinical-indicator",
-    "topics/clinical-indicators",
-    "topics/clinical-observation",
+    "topics/clinical-indicators/acute-surgery",
+    "topics/clinical-metrics",
+    "topics/clinical-metrics/comorbidity",
+    "topics/clinical-metrics/comorbidity-scoring",
     "topics/clinical-outcome",
-    "topics/clinical-performance",
-    "topics/clinical-practice",
-    "topics/clinical-procedure",
-    "topics/clinical-recommendation",
-    "topics/clinical-research",
-    "topics/clinical-research/studies",
-    "topics/clinical-target",
-    "topics/clinical-trend",
+    "topics/clinical-quality",
+    "topics/clinical-quality-indicators/surgical-outcomes",
+    "topics/coding-uncertainty",
     "topics/compliance",
-    "topics/conference-presentation",
     "topics/data-availability",
-    "topics/data-extraction",
+    "topics/data-privacy",
     "topics/data-quality",
-    "topics/data-source",
     "topics/definition",
+    "topics/definitional",
+    "topics/definitional-conflict",
     "topics/demographic",
+    "topics/evaluation",
+    "topics/evaluative",
     "topics/exclusion-criteria",
-    "topics/hospital-outcome",
-    "topics/inclusion-criteria",
-    "topics/limitation",
-    "topics/methodological",
-    "topics/methodology",
-    "topics/methodology-change",
-    "topics/mortality",
-    "topics/mortality-outcome",
-    "topics/mortality-statistic",
-    "topics/operational",
-    "topics/organizational",
-    "topics/outcome",
-    "topics/patient-volume",
+    "topics/healthcare-metrics/demographics",
+    "topics/healthcare-performance-indicators",
+    "topics/inter-hospital-variation",
+    "topics/methodological-assessment",
     "topics/performance",
-    "topics/performance-metric",
     "topics/policy",
-    "topics/policy-change",
-    "topics/policy-decision",
-    "topics/population-definition",
-    "topics/population-statistics",
-    "topics/procedural",
-    "topics/process",
-    "topics/publication",
-    "topics/purpose",
-    "topics/quality-assessment",
-    "topics/quality-improvement",
-    "topics/quality-indicator",
-    "topics/quality-indicators",
-    "topics/quality-standard",
     "topics/recommendation",
-    "topics/regional-outcome",
-    "topics/regional-variation",
-    "topics/regulatory-approval",
+    "topics/regional-comparison",
+    "topics/relevance-assessment",
     "topics/standard",
-    "topics/standard-change",
-    "topics/standard-compliance",
-    "topics/standard-setting",
-    "topics/statistical",
-    "topics/status",
-    "topics/temporal",
-    "topics/trend",
-    "topics/validation",
-    "topics/validation-process"
+    "topics/technical-infrastructure",
+    "topics/visualizations"
   ]
 }

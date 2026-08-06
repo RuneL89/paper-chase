@@ -1,32 +1,49 @@
 {
   "entities": [
     {
-      "name": "DANIBD",
+      "name": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme",
       "type": "organization",
-      "slug": "danibd",
-      "folder": "entities/organizations/health-registries",
-      "significance": "DANIBD er Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme, som monitorerer behandlingskvaliteten for patienter med IBD og udgør det centrale register for denne årsrapport.",
+      "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DANIBD er den nationale kvalitetsdatabase, der overvåger behandlingskvaliteten for patienter med inflammatoriske tarmsygdomme i Danmark, og denne chunk præsenterer dens anden årsrapport for 2024 som det primære dokumentationsgrundlag for IBD-kvalitetsmåling.",
       "mentions": [
         {
           "page": 1,
-          "context": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme - DANIBD"
+          "context": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme"
         },
         {
           "page": 1,
-          "context": "DANIBD gik i drift 1. oktober 2022 og rapporten viser resultater for alle syv indikatorer for første gang."
+          "context": "DANIBD"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen for DANIBD",
+      "type": "organization",
+      "slug": "styregruppen-for-danibd",
+      "folder": "entities/organizations/health-committees",
+      "significance": "Styregruppen er den beslutningskompetente enhed, der styrer DANIBD, udarbejder årsrapporten og fremsætter konklusioner og anbefalinger på baggrund af indikatorresultaterne.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Udarbejdet af: Styregruppen for DANIBD og SundKs Videncenter"
         },
         {
           "page": 1,
-          "context": "DANIBD har fokus på medicinsk og kirurgisk behandling, monitorering såvel som undervisning af patienter med inflammatorisk tarmsygdom."
+          "context": "Generelt anbefaler styregruppen, at afdelingerne fortsat har fokus på kodepraksis."
+        },
+        {
+          "page": 1,
+          "context": "På vegne af styregruppen,"
         }
       ]
     },
     {
       "name": "Sundhedsvæsenets Kvalitetsinstitut",
       "type": "organization",
-      "slug": "sundhedsvasenets-kvalitetsinstitut",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Sundhedsvæsenets Kvalitetsinstitut er udgiver af DANIBD årsrapporten og ansvarlig for kvalitetsmonitorering af inflammatoriske tarmsygdomme.",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "SundK er udgiver af DANIBD-årsrapporten og den officielle institution, der støtter kvalitetsudvikling i det danske sundhedsvæsen, hvilket gør det til en central myndighedsaktør i implementeringen af IBD-kvalitetsmåling.",
       "mentions": [
         {
           "page": 1,
@@ -38,73 +55,169 @@
       "name": "Lone Larsen",
       "type": "person",
       "slug": "lone-larsen",
-      "folder": "entities/people/steering-committee",
-      "significance": "Lone Larsen er formand for styregruppen for DANIBD og overlæge, ph.d., klinisk lektor, som underskriver årsrapporten.",
+      "folder": "entities/people/health-leaders",
+      "significance": "Lone Larsen er formand for Styregruppen for DANIBD og fremtræder som den autoriserede repræsentant for styregruppens konklusioner og anbefalinger i årsrapporten.",
       "mentions": [
         {
-          "page": 1,
+          "page": 5,
           "context": "Formand Lone Larsen, overlæge, ph.d., klinisk lektor"
         }
       ]
     },
     {
-      "name": "Styregruppen for DANIBD",
-      "type": "organization",
-      "slug": "styregruppen-for-danibd",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Styregruppen for DANIBD udarbejder årsrapporten og fremsætter konklusioner og anbefalinger for behandlingskvaliteten af IBD-patienter.",
+      "name": "Inflammatoriske tarmsygdomme",
+      "type": "medical-condition",
+      "slug": "inflammatoriske-tarmsygdomme",
+      "folder": "entities/medical-conditions/gastrointestinal",
+      "significance": "IBD er det centrale sygdomsområde, som DANIBD overvåger, og rapporten bygger helt på klinisk data fra patienter med Crohns sygdom, colitis ulcerosa og relaterede tilstande.",
       "mentions": [
         {
           "page": 1,
-          "context": "Udarbejdet af: Styregruppen for DANIBD og SundKs Videncenter"
+          "context": "inflammatoriske tarmsygdomme (IBD)"
         },
         {
           "page": 1,
-          "context": "Generelt anbefaler styregruppen, at afdelingerne fortsat har fokus på kodepraksis."
+          "context": "patienter med inflammatorisk tarmsygdom"
         }
       ]
     },
     {
-      "name": "SundKs Videncenter",
-      "type": "organization",
-      "slug": "sundks-videncenter",
-      "folder": "entities/organizations/healthcare",
-      "significance": "SundKs Videncenter medudarbejder DANIBD årsrapporten sammen med styregruppen.",
+      "name": "Crohns sygdom",
+      "type": "disease",
+      "slug": "crohns-sygdom",
+      "folder": "entities/diseases/ibd",
+      "significance": "Crohns sygdom er én af de to hovedformer for IBD, der indgår i DANIBD’s registrering og indikator 3 specifikt fokuserer på post-operativ opfølgning hos disse patienter.",
       "mentions": [
         {
           "page": 1,
-          "context": "Udarbejdet af: Styregruppen for DANIBD og SundKs Videncenter"
+          "context": "Post-operativ Crohns sygdom, opfølgning"
+        }
+      ]
+    },
+    {
+      "name": "Colitis ulcerosa",
+      "type": "disease",
+      "slug": "colitis-ulcerosa",
+      "folder": "entities/diseases/ibd",
+      "significance": "Colitis ulcerosa er den anden hovedform for IBD, der indgår i DANIBD’s registrering, og rapporten nævner specifikt klinisk oplagte tilfælde af denne sygdom i forbindelse med udredningsindikatoren.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "klinisk oplagt colitis ulcerosa"
+        }
+      ]
+    },
+    {
+      "name": "Primaer skleroserende kolangitis",
+      "type": "disease",
+      "slug": "primaer-skleroserende-kolangitis",
+      "folder": "entities/diseases/hepatic-biliary",
+      "significance": "PSC er en alvorlig komorbiditet til IBD, der overvåges via indikator 7 i DANIBD, og styregruppen fremhæver behovet for forbedret kodning af denne diagnose på hospitalsafdelinger.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Indikator 7. PSC, opfølgning"
+        },
+        {
+          "page": 1,
+          "context": "Generelt får patienter med PSC foretaget koloskopi årligt, men styregruppen undrer sig over, at der er så relativt få patienter med PSC på visse afdelinger."
+        }
+      ]
+    },
+    {
+      "name": "Fæces calprotectin måling",
+      "type": "biomarker",
+      "slug": "faeces-calprotectin-maaling",
+      "folder": "entities/biomarkers/gastrointestinal",
+      "significance": "Fæces calprotectin måling er en biologisk markør for tarmbetændelse, der bruges som klinisk redskab i IBD-styring, og indikator 5 i DANIBD fokuserer specifikt på dens anvendelse i forbindelse med BMSL.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Indikator 5. Fæces calprotectin måling, BMSL"
+        }
+      ]
+    },
+    {
+      "name": "BMSL",
+      "type": "classification-system",
+      "slug": "bmsl",
+      "folder": "entities/classification-systems/medical",
+      "significance": "BMSL er det danske klassifikationssystem for medicinske procedurer, som DANIBD bruger til at identificere og kvantificere udførte fæces calprotectin-målinger i indikator 5.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Indikator 5. Fæces calprotectin måling, BMSL"
+        }
+      ]
+    },
+    {
+      "name": "DEXA-scanning",
+      "type": "procedure",
+      "slug": "dexa-scanning",
+      "folder": "entities/procedural",
+      "significance": "DEXA-scanning er en diagnostisk procedure til vurdering af knogletæthed, som indikator 4 i DANIBD kræver skal udføres ved steroidbehandling for at forebygge osteoporose.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Indikator 4. DEXA-scanning, steroidbehandling"
+        }
+      ]
+    },
+    {
+      "name": "MR af tyndtarmen",
+      "type": "procedure",
+      "slug": "mr-af-tyndtarmen",
+      "folder": "entities/procedural",
+      "significance": "MR af tyndtarmen er en avanceret billeddiagnostisk metode, der indgår i udredningsprogrammet for nydiagnosticerede børn og unge med IBD, og styregruppen problematiserer dens manglende anvendelse i 31 % af tilfældene.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "især MR af tyndtarmen bliver ikke udført i en del tilfælde."
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "danibd",
-      "predicate": "published-by",
-      "object": "sundhedsvasenets-kvalitetsinstitut",
-      "evidence": "Udgiver: Sundhedsvæsenets Kvalitetsinstitut",
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "predicate": "is-managed-by",
+      "object": "styregruppen-for-danibd",
+      "evidence": "Udarbejdet af: Styregruppen for DANIBD og SundKs Videncenter",
+      "page": 1
+    },
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "predicate": "is-published-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Udgiver: Sundhedsvæsenets Kvalitetsinstitut, Hedeager 3, 8200 Aarhus N",
       "page": 1
     },
     {
       "subject": "styregruppen-for-danibd",
-      "predicate": "leads",
-      "object": "danibd",
-      "evidence": "Udarbejdet af: Styregruppen for DANIBD",
-      "page": 1
-    },
-    {
-      "subject": "lone-larsen",
-      "predicate": "is-chair-of",
-      "object": "styregruppen-for-danibd",
+      "predicate": "has-chair",
+      "object": "lone-larsen",
       "evidence": "Formand Lone Larsen, overlæge, ph.d., klinisk lektor",
+      "page": 5
+    },
+    {
+      "subject": "inflammatoriske-tarmsygdomme",
+      "predicate": "includes-subtype",
+      "object": "crohns-sygdom",
+      "evidence": "Post-operativ Crohns sygdom, opfølgning",
       "page": 1
     },
     {
-      "subject": "sundks-videncenter",
-      "predicate": "collaborates-with",
-      "object": "styregruppen-for-danibd",
-      "evidence": "Udarbejdet af: Styregruppen for DANIBD og SundKs Videncenter",
+      "subject": "inflammatoriske-tarmsygdomme",
+      "predicate": "includes-subtype",
+      "object": "colitis-ulcerosa",
+      "evidence": "klinisk oplagt colitis ulcerosa",
+      "page": 1
+    },
+    {
+      "subject": "primaer-skleroserende-kolangitis",
+      "predicate": "is-comorbidity-of",
+      "object": "inflammatoriske-tarmsygdomme",
+      "evidence": "Generelt får patienter med PSC foretaget koloskopi årligt",
       "page": 1
     }
   ],
@@ -113,15 +226,16 @@
       "text": "DANIBD gik i drift 1. oktober 2022 [^src1]",
       "type": "operational",
       "entities": [
-        "danibd"
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
       ],
       "page": 1
     },
     {
       "text": "Årsrapporten omfatter de 751 børn og unge samt 33.599 voksne med IBD, der er set på et af landets hospitaler i perioden 1. oktober 2023 til 30. september 2024 [^src1]",
-      "type": "patient-statistics",
+      "type": "demographic",
       "entities": [
-        "danibd"
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+        "inflammatoriske-tarmsygdomme"
       ],
       "page": 1
     },
@@ -129,73 +243,58 @@
       "text": "Der vurderes, at der næsten er 70.000 patienter i Danmark med IBD [^src1]",
       "type": "epidemiological",
       "entities": [
-        "danibd"
+        "inflammatoriske-tarmsygdomme"
       ],
       "page": 1
     },
     {
-      "text": "Næsten 50 % af patienterne ikke haft kontakt til sundhedsvæsenet med deres tarmsygdom i denne periode [^src1]",
-      "type": "patient-statistics",
-      "entities": [
-        "danibd"
-      ],
-      "page": 1
-    },
-    {
-      "text": "5.387 patienter fra sidste årsrapport figurerer ikke i denne rapport, som udtryk for, at de ikke har haft en kontakt i år [^src1]",
-      "type": "patient-statistics",
-      "entities": [
-        "danibd"
-      ],
-      "page": 1
-    },
-    {
-      "text": "For indikatoren 'Udredning, nydiagnosticerede børn og unge' er der en målopfyldelse på landsplan på 69 % [^src1]",
+      "text": "For indikatoren ”Udredning, nydiagnosticerede børn og unge” er der en målopfyldelse på landsplan på 69 % [^src1]",
       "type": "quality-indicator",
       "entities": [
-        "danibd"
+        "styregruppen-for-danibd"
       ],
       "page": 1
     },
     {
-      "text": "I indikatoren 'Medicinsk behandling, steroid' er der kun 37 % af patienterne over 50 år på landsplan, der får foretaget DEXA scanning, når de får steroid [^src1]",
+      "text": "I indikatoren ”Medicinsk behandling, steroid” er kun 37 % af patienterne over 50 år på landsplan, der får foretaget DEXA scanning, når de får steroid [^src1]",
       "type": "quality-indicator",
       "entities": [
-        "danibd"
+        "dexa-scanning"
       ],
       "page": 1
     },
     {
-      "text": "Der er en målsætning om en re-operationsrate under 8 %, men meget få afdelinger opnår dette [^src1]",
+      "text": "Der er en målsætning om en re-operationsrate under 8 % [^src1]",
       "type": "quality-indicator",
       "entities": [
-        "danibd"
+        "styregruppen-for-danibd"
       ],
       "page": 1
     }
   ],
   "timeline": [
     {
-      "date": "1. oktober 2022",
+      "date": "2022-10-01",
       "event": "DANIBD gik i drift",
       "entities": [
-        "danibd"
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
       ]
     },
     {
-      "date": "1. oktober 2023 - 30. september 2024",
-      "event": "Rapportperiode for DANIBD årsrapport 2024, omfattende 751 børn og unge samt 33.599 voksne med IBD",
+      "date": "2023-10-01",
+      "event": "Start af rapporteringsperiode for DANIBD-årsrapport 2024",
       "entities": [
-        "danibd"
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
       ]
     },
     {
-      "date": "28. februar 2025",
-      "event": "Versionsdato for DANIBD årsrapport 2024",
+      "date": "2024-09-30",
+      "event": "Afslutning af rapporteringsperiode for DANIBD-årsrapport 2024",
       "entities": [
-        "danibd"
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
       ]
     }
   ],
-  "context": "DANIBD årsrapport for 2024 præsenterer den anden årlige rapport fra Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme, som monitorerer behandlingskvaliteten for patienter med IBD på danske hospitaler. Rapporten dækker perioden 1. oktober 2023 til 30. september 2024 og omfatter 751 børn og unge samt 33.599 voksne patienter, og præsenterer resultater for alle syv kvalitetsindikatorer for første gang siden databasens opstart i oktober 2022. Styregruppen for DANIBD fremhæver flere fokuspunkter for forbedring, herunder udredning af nydiagnosticerede børn og unge, DEXA-scanning ved steroidbehandling, re-operationsrater og kodning af patienter med primær skleroserende cholangitis."
+  "tables": [],
+  "context": "Denne chunk udgør indledningen og konklusionssektionen af DANIBD’s anden årsrapport for 2024, som dækker rapporteringsperioden fra 1. oktober 2023 til 30. september 2024. Rapporten fungerer som det officielle kvalitetsmonitoreringsværktøj for inflammatoriske tarmsygdomme i Danmark og præsenterer første gang resultater for alle syv indikatorer. Den handler om systematisk evaluering af behandlingskvalitet — herunder udredning, undervisning, medicinsk og kirurgisk behandling samt opfølgning — baseret på registerdata fra 751 børn og unge samt 33.599 voksne med IBD. Rapporten understreger både fremskridt og udfordringer i klinisk praksis, især vedrørende kodning, diagnostisk omfang og forebyggende interventioner, og er udarbejdet af Styregruppen for DANIBD i samarbejde med Sundhedsvæsenets Kvalitetsinstitut."
 }

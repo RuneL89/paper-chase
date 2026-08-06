@@ -4,27 +4,11 @@
       "name": "Databasen for Atrieflimren i Danmark",
       "type": "organization",
       "slug": "databasen-for-atrieflimren-i-danmark",
-      "folder": "entities/organizations/health-registries",
-      "significance": "This is the Danish national database for atrial fibrillation that produces the annual quality report containing clinical indicators and regional performance data for atrial fibrillation care.",
+      "folder": "entities/organizations/health-databases",
+      "significance": "Databasen for Atrieflimren i Danmark er den centrale nationale database, der bruges til at overvåge kvaliteten af behandlingen af patienter med atrieflimren i Danmark, og dens årsrapport danner grundlaget for alle indikatorberegninger på siderne 56–60.",
       "mentions": [
         {
           "page": 56,
-          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
-        },
-        {
-          "page": 57,
-          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
-        },
-        {
-          "page": 58,
-          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
-        },
-        {
-          "page": 59,
-          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
-        },
-        {
-          "page": 60,
           "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
         }
       ]
@@ -33,49 +17,25 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/health-programs",
-      "significance": "RKKP is the Danish regional clinical quality development program that oversees and publishes quality indicators for atrial fibrillation care across Danish regions and municipalities.",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) er den koordinerende organisation bag udarbejdelsen af årsrapporten og ansvarlig for definition, beregning og vurdering af kliniske kvalitetsindikatorer for atrieflimren, herunder indikator 5 og 6.",
       "mentions": [
         {
           "page": 56,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
-        },
-        {
-          "page": 57,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
-        },
-        {
-          "page": 58,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
-        },
-        {
-          "page": 59,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
-        },
-        {
-          "page": 60,
           "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
         }
       ]
     },
     {
-      "name": "Landspatientregisteret",
+      "name": "Landspatientregisteret (LPR)",
       "type": "organization",
-      "slug": "landspatientregisteret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "The Danish National Patient Registry (LPR) is the primary data source used for Indicator 5, providing patient episode data on acute stroke diagnoses and treatment contacts.",
+      "slug": "landspatientregisteret-lpr",
+      "folder": "entities/organizations/health-databases",
+      "significance": "Landspatientregisteret (LPR) er det primære datagrundlag for beregning af indikator 5 i 2022–2023, da DanStroke ikke længere anvendes pga. manglende indberetninger og systemomlægninger.",
       "mentions": [
         {
           "page": 58,
-          "context": "alle personer, som var i live pr. 1. juli 2022, og som havde fået diagnosen registeret i Landspatientregisteret (LPR) mindst én gang inden for de foregående 10 år"
-        },
-        {
-          "page": 58,
-          "context": "indikatoren i år opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke"
-        },
-        {
-          "page": 58,
-          "context": "Fra Landspatientregisteret er der udtrukket patientforløb med apopleksi (DI63 og DI64)"
+          "context": "Datagrundlag og beregningsregler\nIndikator 5 opgøres for alle prævalente patienter med en atrieflimren-diagnose, dvs. alle personer, som var i\nlive pr. 1. juli 2022, og som havde fået diagnosen registeret i Landspatientregisteret (LPR) mindst én gang\ninden for de foregående 10 år."
         }
       ]
     },
@@ -83,138 +43,146 @@
       "name": "DanStroke",
       "type": "organization",
       "slug": "danstroke",
-      "folder": "entities/organizations/health-registries",
-      "significance": "DanStroke is a Danish stroke database previously used for Indicator 5 data collection, but was replaced by LPR data due to reporting gaps during a transition to a new reporting model.",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DanStroke er en tidligere anvendt database til registrering af apopleksitilfælde, men er i 2022–2023 erstattet af LPR-data for indikator 5 pga. rapporteringsproblemer ved overgang til ny indberetningsmodel og EPJ-systemer.",
       "mentions": [
         {
           "page": 58,
-          "context": "indikatoren i år opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke"
-        },
-        {
-          "page": 58,
-          "context": "DanStroke har været ramt af manglende indberetninger af apopleksitilfælde grundet overgangen til en ny indberetningsmodel i databasen"
-        },
-        {
-          "page": 58,
-          "context": "Ved at anvende LPR data er nærværende indikator ikke påvirket af de ovenfornævnte forhold i DanStroke"
+          "context": "I modsætning til tidligere er indikatoren i år opgjort på baggrund af data om akut apopleksi fra LPR frem for\ndatabasen DanStroke. Det skyldes, at DanStroke har været ramt af manglende indberetninger af\napopleksitilfælde grundet overgangen til en ny indberetningsmodel i databasen samt enkelt regioners\nomlægning til nyt EPJ system."
         }
       ]
     },
     {
-      "name": "Region Hovedstaden",
-      "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Hovedstaden (Capital Region) is one of five Danish regions with atrial fibrillation patient data; it shows higher incidence of ischemic stroke (0.9-1.0%) and intracranial bleeding (0.7%) compared to other regions.",
+      "name": "Indikator 5",
+      "type": "topic",
+      "slug": "indikator-5",
+      "folder": "topics/health-indicators",
+      "significance": "Indikator 5 måler incidensen af iskæmisk apopleksi blandt prævalente patienter med atrieflimren og er den centrale kvalitetsindikator for sekundær forebyggelse i rapporten.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 6",
+      "type": "topic",
+      "slug": "indikator-6",
+      "folder": "topics/health-indicators",
+      "significance": "Indikator 6 måler incidensen af intrakraniel blødning blandt prævalente patienter med atrieflimren og er en central sikkerhedsindikator for antikoagulationsbehandling.",
+      "mentions": [
+        {
+          "page": 60,
+          "context": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med\natrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "organization",
+      "slug": "hovedstaden",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Hovedstaden er en af de fem danske regioner og viser i rapporten en højere andel af både iskæmisk apopleksi (0,9–1,0%) og intrakraniel blødning (0,7%) end standarden, hvilket udløser en 'Nej'-vurdering for begge indikatorer.",
       "mentions": [
         {
           "page": 58,
-          "context": "Regionalt ses en højere andel i regionerne Hovedstaden og Sjælland (0.9-1.0%)"
-        },
-        {
-          "page": 59,
-          "context": "andelen er højere i Hovedstaden og Sjælland (ca. 37%) sammenlignet med de øvrige regioner"
-        },
-        {
-          "page": 59,
-          "context": "varierende fra 0,8% i Region Midtjylland til 1,4% i Region Hovedstaden"
+          "context": "Regionalt ses en højere andel i regionerne Hovedstaden og Sjælland (0,9-1,0%) end de tre øvrige (0,7%)."
         },
         {
           "page": 60,
-          "context": "Hovedstaden Nej 245 / 37.128 0 (0) 0,7 (0,6-0,7)"
+          "context": "Hovedstaden Nej 245 / 37.128 0 (0) 0,7 (0,6-0,7) 234 / 37.251 0,6 0,7"
         }
       ]
     },
     {
-      "name": "Region Sjælland",
-      "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland (Zealand Region) is one of five Danish regions with atrial fibrillation patient data; it shows higher incidence of ischemic stroke (0.9-1.0%) and meets the intracranial bleeding standard.",
+      "name": "Sjælland",
+      "type": "organization",
+      "slug": "sjaelland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Sjælland er en af de fem danske regioner og viser i rapporten en højere andel af iskæmisk apopleksi (0,9–1,0%) og en moderat andel af intrakraniel blødning (0,5%), hvilket giver en 'Ja'-vurdering for indikator 6 men en 'Nej'-vurdering for indikator 5.",
       "mentions": [
         {
           "page": 58,
-          "context": "Regionalt ses en højere andel i regionerne Hovedstaden og Sjælland (0.9-1.0%)"
-        },
-        {
-          "page": 59,
-          "context": "andelen er højere i Hovedstaden og Sjælland (ca. 37%)"
+          "context": "Regionalt ses en højere andel i regionerne Hovedstaden og Sjælland (0,9-1,0%) end de tre øvrige (0,7%)."
         },
         {
           "page": 60,
-          "context": "Sjælland Ja 103 / 22.375 0 (0) 0,5 (0,4-0,6)"
+          "context": "Sjælland Ja 103 / 22.375 0 (0) 0,5 (0,4-0,6) 121 / 22.309 0,5 0,5"
         }
       ]
     },
     {
-      "name": "Region Midtjylland",
-      "type": "location",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Midtjylland (Central Jutland Region) is one of five Danish regions with atrial fibrillation patient data; it shows lower incidence of ischemic stroke (0.7%) and the lowest intracranial bleeding rate (0.4%).",
+      "name": "Syddanmark",
+      "type": "organization",
+      "slug": "syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Syddanmark er en af de fem danske regioner og opfylder standarden for både indikator 5 og 6 med en andel på hhv. 0,7% og 0,5%, hvilket resulterer i en 'Ja'-vurdering for begge indikatorer.",
+      "mentions": [
+        {
+          "page": 60,
+          "context": "Syddanmark Ja 159 / 31.271 0 (0) 0,5 (0,4-0,6) 168 / 30.752 0,5 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "organization",
+      "slug": "midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland er en af de fem danske regioner og opfylder standarden for både indikator 5 og 6 med en andel på hhv. 0,7% og 0,4%, hvilket resulterer i en 'Ja'-vurdering for begge indikatorer.",
       "mentions": [
         {
           "page": 56,
-          "context": "Midtjylland Ja 210 / 29.513 0 (0) 0,7 (0,6-0,8)"
-        },
-        {
-          "page": 58,
-          "context": "de tre øvrige (0,7%)"
-        },
-        {
-          "page": 59,
-          "context": "varierende fra 0,8% i Region Midtjylland til 1,4% i Region Hovedstaden"
+          "context": "Midtjylland Ja 210 / 29.513 0 (0) 0,7 (0,6-0,8) 229 / 29.344 0,8 0,7"
         },
         {
           "page": 60,
-          "context": "Midtjylland Ja 132 / 29.513 0 (0) 0,4 (0,4-0,5)"
+          "context": "Midtjylland Ja 132 / 29.513 0 (0) 0,4 (0,4-0,5) 143 / 29.344 0,5 0,6"
         }
       ]
     },
     {
-      "name": "Region Nordjylland",
-      "type": "location",
-      "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland (North Jutland Region) is one of five Danish regions with atrial fibrillation patient data; it shows a declining trend in ischemic stroke incidence (-0.3 percentage points) and meets the intracranial bleeding standard.",
+      "name": "Nordjylland",
+      "type": "organization",
+      "slug": "nordjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Nordjylland er en af de fem danske regioner og opfylder standarden for både indikator 5 og 6 med en andel på hhv. 0,7% og 0,5%, men viser en faldende tendens i indikator 5 (-0,3 procentpoint over tre år).",
       "mentions": [
         {
           "page": 56,
-          "context": "Nordjylland Ja 103 / 14.523 0 (0) 0,7 (0,6-0,9)"
-        },
-        {
-          "page": 58,
-          "context": "faldende tendens hos Region Hovedstaden (-0,2 procentpoint) og Region Nordjylland (-0,3 procentpoint)"
+          "context": "Nordjylland Ja 103 / 14.523 0 (0) 0,7 (0,6-0,9) 125 / 14.640 0,9 1,0"
         },
         {
           "page": 60,
-          "context": "Nordjylland Ja 72 / 14.523 0 (0) 0,5 (0,4-0,6)"
+          "context": "Nordjylland Ja 72 / 14.523 0 (0) 0,5 (0,4-0,6) 68 / 14.640 0,5 0,4"
         }
       ]
     },
     {
-      "name": "Region Syddanmark",
+      "name": "Århus",
       "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Syddanmark (Southern Denmark Region) is one of five Danish regions with atrial fibrillation patient data; it meets both the ischemic stroke and intracranial bleeding quality standards.",
+      "slug": "aarhus",
+      "folder": "entities/locations/cities",
+      "disambiguation": "Denne Århus refererer til byen i Region Midtjylland, ikke til regionen; i tabellen på side 56 er 'Århus' en kommune i Region Midtjylland, ikke Region Østjylland (som tidligere eksisterede).",
+      "significance": "Århus er en dansk by og kommune i Region Midtjylland, og i tabellen på side 56 angiver 'Århus' kommuneniveau-data for indikator 5, hvor 43 ud af 5.595 patienter blev registreret med iskæmisk apopleksi (0,8%).",
       "mentions": [
         {
-          "page": 60,
-          "context": "Syddanmark Ja 159 / 31.271 0 (0) 0,5 (0,4-0,6)"
+          "page": 56,
+          "context": "Århus Ja 43 / 5.595 0 (0) 0,8 (0,6-1,0) 38 / 5.591 0,7 0,7"
         }
       ]
     },
     {
-      "name": "Danmark",
+      "name": "Tønder",
       "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Denmark is the national context for this quality report; national-level data shows 0.8% incidence of ischemic stroke and 0.5% incidence of intracranial bleeding among atrial fibrillation patients.",
+      "slug": "toender",
+      "folder": "entities/locations/cities",
+      "significance": "Tønder er en dansk by og kommune i Region Syddanmark, og i tabellen på side 56 angiver 'Tønder' kommuneniveau-data for indikator 5, hvor 4 ud af 1.072 patienter blev registreret med iskæmisk apopleksi (0,4%).",
       "mentions": [
         {
-          "page": 60,
-          "context": "Danmark Ja 711 / 134.810 0 (0) 0,5 (0,5-0,6)"
+          "page": 56,
+          "context": "Tønder Ja 4 / 1.072 0 (0) 0,4 (0,1-1,0) 7 / 1.068 0,7 0,8"
         }
       ]
     }
@@ -224,151 +192,220 @@
       "subject": "databasen-for-atrieflimren-i-danmark",
       "predicate": "is-managed-by",
       "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Databasen for Atrieflimren i Danmark is published under Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 — Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
       "page": 56
     },
     {
-      "subject": "databasen-for-atrieflimren-i-danmark",
+      "subject": "indikator-5",
       "predicate": "uses-data-from",
-      "object": "landspatientregisteret",
-      "evidence": "indikatoren i år opgjort på baggrund af data om akut apopleksi fra LPR",
+      "object": "landspatientregisteret-lpr",
+      "evidence": "I modsætning til tidligere er indikatoren i år opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke.",
       "page": 58
     },
     {
-      "subject": "region-hovedstaden",
-      "predicate": "has-higher-stroke-incidence-than",
-      "object": "region-midtjylland",
-      "evidence": "Regionalt ses en højere andel i regionerne Hovedstaden og Sjælland (0.9-1.0%) end de tre øvrige (0,7%)",
+      "subject": "indikator-5",
+      "predicate": "replaces-data-source",
+      "object": "danstroke",
+      "evidence": "Det skyldes, at DanStroke har været ramt af manglende indberetninger af apopleksitilfælde grundet overgangen til en ny indberetningsmodel i databasen samt enkelt regioners omlægning til nyt EPJ system.",
       "page": 58
     },
     {
-      "subject": "region-nordjylland",
-      "predicate": "shows-declining-trend-in",
-      "object": "region-nordjylland",
-      "evidence": "faldende tendens hos Region Nordjylland (-0,3 procentpoint)",
-      "page": 58
+      "subject": "hovedstaden",
+      "predicate": "fails-indicator",
+      "object": "indikator-5",
+      "evidence": "Hovedstaden Nej 245 / 37.128 0 (0) 0,7 (0,6-0,7) 234 / 37.251 0,6 0,7",
+      "page": 60
+    },
+    {
+      "subject": "hovedstaden",
+      "predicate": "fails-indicator",
+      "object": "indikator-6",
+      "evidence": "Hovedstaden Nej 245 / 37.128 0 (0) 0,7 (0,6-0,7) 234 / 37.251 0,6 0,7",
+      "page": 60
     }
   ],
   "claims": [
     {
-      "text": "Blandt de prævalente patienter var der i opgørelsesperioden 0,8% der blev registreret med et tilfælde af iskæmisk apopleksi og standarden på max. 0,8% er således opfyldt [^src1]",
-      "type": "clinical-outcome",
+      "text": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren [^src1]",
+      "type": "health",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-5"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Standard for indikator 5 er ≤ 0,8% [^src1]",
+      "type": "health",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Blandt de prævalente patienter var der i opgørelsesperioden 0,8% der blev registreret med et tilfælde af iskæmisk apopleksi og standarden på max. 0,8% er således opfyldt [^src1]",
+      "type": "health",
+      "entities": [
+        "indikator-5"
       ],
       "page": 58
     },
     {
       "text": "Andelen er faldet 0,1 procentpoint i de sidste to årsrapportsperioder [^src1]",
-      "type": "trend",
+      "type": "health",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-5"
       ],
       "page": 58
     },
     {
-      "text": "Regionalt ses en højere andel i regionerne Hovedstaden og Sjælland (0,9-1,0%) end de tre øvrige (0,7%) [^src1]",
-      "type": "regional-comparison",
+      "text": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren [^src1]",
+      "type": "health",
       "entities": [
-        "region-hovedstaden",
-        "region-sjaelland",
-        "region-midtjylland",
-        "region-nordjylland",
-        "region-syddanmark"
+        "indikator-6"
+      ],
+      "page": 60
+    },
+    {
+      "text": "Standard for indikator 6 er ≤ 0,6% [^src1]",
+      "type": "health",
+      "entities": [
+        "indikator-6"
+      ],
+      "page": 60
+    },
+    {
+      "text": "På landsplan udviklede 1,1% apopleksi 1 år efter diagnosen atrieflimren [^src1]",
+      "type": "health",
+      "entities": [
+        "indikator-5"
       ],
       "page": 58
     },
     {
-      "text": "I løbet af de sidste tre årsrapportsperioder ses faldende tendens hos Region Hovedstaden (-0,2 procentpoint) og Region Nordjylland (-0,3 procentpoint) [^src1]",
-      "type": "trend",
+      "text": "På landsplan var 34% af patienterne med atrieflimren ikke i aktuel antikoagulationsbehandling, da de fik deres iskæmiske apopleksi [^src1]",
+      "type": "health",
       "entities": [
-        "region-hovedstaden",
-        "region-nordjylland"
+        "indikator-5"
       ],
       "page": 58
-    },
-    {
-      "text": "På landsplan udviklede 1,1% apopleksi varierende fra 0,8% i Region Midtjylland til 1,4% i Region Hovedstaden [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "region-midtjylland",
-        "region-hovedstaden"
-      ],
-      "page": 59
-    },
-    {
-      "text": "på landsplan var 34% af patienterne med atrieflimren ikke i aktuel antikoagulationsbehandling, da de fik deres iskæmiske apopleksi svarende til, at der var 378 iskæmiske apopleksitilfælde blandt patienter uden behandling på landsplan [^src1]",
-      "type": "treatment-gap",
-      "entities": [
-        "danmark"
-      ],
-      "page": 59
-    },
-    {
-      "text": "Der bemærkes en variation i andelen af patienter med iskæmisk apopleksi, som ikke var i antikoagulationsbehandling på tværs af regionerne, hvor andelen er højere i Hovedstaden og Sjælland (ca. 37%) sammenlignet med de øvrige regioner (29-34%) [^src1]",
-      "type": "regional-comparison",
-      "entities": [
-        "region-hovedstaden",
-        "region-sjaelland"
-      ],
-      "page": 59
     },
     {
       "text": "Andelen af patienter med iskæmisk apopleksi er 0,89% for DOAC og 0,56% for marevan [^src1]",
-      "type": "treatment-outcome",
+      "type": "health",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-5"
       ],
       "page": 59
-    },
-    {
-      "text": "Styregruppen har ud fra de aktuelle data og litteraturen vurderet, at incidensraten for iskæmisk apopleksi blandt prævalente patienter med atrieflimren bør være mindre end 1%, og har valgt at sætte en standard på ≤ 0,8 per 100 risiko år [^src1]",
-      "type": "standard-setting",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 59
-    },
-    {
-      "text": "Standard fastholdes til ≤ 0,8 per 100 risiko år [^src1]",
-      "type": "standard-setting",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 59
-    },
-    {
-      "text": "Danmark Ja 711 / 134.810 0 (0) 0,5 (0,5-0,6) for intracranial bleeding [^src2]",
-      "type": "clinical-outcome",
-      "entities": [
-        "danmark"
-      ],
-      "page": 60
-    },
-    {
-      "text": "Hovedstaden Nej 245 / 37.128 0 (0) 0,7 (0,6-0,7) for intracranial bleeding, does not meet standard [^src2]",
-      "type": "clinical-outcome",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 60
     }
   ],
   "timeline": [
     {
       "date": "2022-07-01",
-      "event": "Start of reporting period for Indicator 5 and Indicator 6 data collection",
+      "event": "Start af opgørelsesperioden for årsrapporten 2022–2023",
       "entities": [
         "databasen-for-atrieflimren-i-danmark"
       ]
     },
     {
       "date": "2023-06-30",
-      "event": "End of reporting period for Indicator 5 and Indicator 6 data collection",
+      "event": "Slut på opgørelsesperioden for årsrapporten 2022–2023",
       "entities": [
         "databasen-for-atrieflimren-i-danmark"
       ]
     }
   ],
-  "context": "This chunk presents clinical quality indicators for atrial fibrillation care in Denmark from the annual report of the Danish Atrial Fibrillation Database (Databasen for Atrieflimren i Danmark) for the period July 1, 2022 to June 30, 2023. The report, published by the Regional Clinical Quality Development Program (RKKP), contains detailed regional and municipal-level performance data on two key safety indicators: the incidence of ischemic stroke (Indicator 5) and intracranial bleeding (Indicator 6) among prevalent atrial fibrillation patients. The data reveals that Denmark as a whole meets the national quality standards for both indicators, though significant regional variation exists, with the Capital Region (Hovedstaden) and Zealand Region (Sjælland) showing higher stroke incidence rates and a notable treatment gap in anticoagulation therapy."
+  "tables": [
+    {
+      "subject": "indikator-5",
+      "title": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren",
+      "page": 56,
+      "rowDimension": "kommuner",
+      "colDimension": "andel per periode",
+      "entities": [
+        "toender",
+        "varde",
+        "vejen",
+        "vejle",
+        "aeroe",
+        "midtjylland",
+        "favrskov",
+        "hedensted",
+        "herning",
+        "holstebro",
+        "horsens",
+        "ikast-brande",
+        "lemvig",
+        "norddjurs",
+        "odder",
+        "randers",
+        "ringkoebing-skjern",
+        "samsoe",
+        "silkeborg",
+        "skanderborg",
+        "skive",
+        "struer",
+        "syddjurs",
+        "viborg",
+        "aarhus",
+        "nordjylland",
+        "aalborg",
+        "broenderslev-dronninglund",
+        "frederikshavn",
+        "hjoerring",
+        "jammerbugt",
+        "laesoe",
+        "mariagerfjord",
+        "morsoe",
+        "rebild",
+        "thisted",
+        "vesthimmerlands"
+      ],
+      "markdown": "| Kommune | Opfyldt? | Tæller/antal | Uoplyst (%) | Andel 95% CI | Antal (2021/22) | Andel (2021/22) | Andel (2020/21) |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Tønder | Ja | 4 / 1.072 | 0 (0) | 0,4 (0,1-1,0) | 7 / 1.068 | 0,7 | 0,8 |\n| Varde | Ja | 8 / 1.400 | 0 (0) | 0,6 (0,2-1,1) | 9 / 1.386 | 0,6 | 0,4 |\n| Vejen | Ja | 6 / 1.098 | 0 (0) | 0,5 (0,2-1,2) | 5 / 1.073 | 0,5 | 0,7 |\n| Vejle | Ja | 19 / 2.559 | 0 (0) | 0,7 (0,4-1,2) | 14 / 2.582 | 0,5 | 0,6 |\n| Ærø | Ja | # / # | 0 (0) | 0,6 (0,1-2,2) | # / # | 0,9 | 1,3 |\n| Midtjylland | Ja | 210 / 29.513 | 0 (0) | 0,7 (0,6-0,8) | 229 / 29.344 | 0,8 | 0,7 |\n| Favrskov | Ja | 7 / 1.066 | 0 (0) | 0,7 (0,3-1,3) | 8 / 1.079 | 0,7 | 0,3 |\n| Hedensted | Ja | 6 / 1.093 | 0 (0) | 0,5 (0,2-1,2) | 11 / 1.117 | 1,0 | 0,2 |\n| Herning | Ja | 13 / 2.065 | 0 (0) | 0,6 (0,3-1,1) | 13 / 2.056 | 0,6 | 0,6 |\n| Holstebro | Ja | 6 / 1.330 | 0 (0) | 0,5 (0,2-1,0) | 14 / 1.307 | 1,1 | 1,1 |\n| Horsens | Ja | 16 / 1.990 | 0 (0) | 0,8 (0,5-1,3) | 14 / 1.944 | 0,7 | 0,6 |\n| Ikast-Brande | Ja | 6 / 999 | 0 (0) | 0,6 (0,2-1,3) | 6 / 991 | 0,6 | 1,0 |\n| Lemvig | Ja | # / # | 0 (0) | 0,5 (0,1-1,4) | 4 / 598 | 0,7 | 0,5 |\n| Norddjurs | Nej | 15 / 1.004 | 0 (0) | 1,5 (0,8-2,5) | 7 / 994 | 0,7 | 0,4 |\n| Odder | Ja | 4 / 637 | 0 (0) | 0,6 (0,2-1,6) | # / # | 0,5 | 0,3 |\n| Randers | Ja | 11 / 2.253 | 0 (0) | 0,5 (0,2-0,9) | 19 / 2.243 | 0,8 | 1,0 |\n| Ringkøbing-Skjern | Ja | 10 / 1.496 | 0 (0) | 0,7 (0,3-1,2) | 8 / 1.469 | 0,5 | 1,0 |\n| Samsø | Nej | # / # | 0 (0) | 1,5 (0,2-5,4) | 0 / 127 | 0,0 | 1,5 |\n| Silkeborg | Ja | 15 / 2.206 | 0 (0) | 0,7 (0,4-1,1) | 16 / 2.177 | 0,7 | 0,5 |\n| Skanderborg | Ja | 11 / 1.306 | 0 (0) | 0,8 (0,4-1,5) | 6 / 1.273 | 0,5 | 0,6 |\n| Skive | Ja | 5 / 1.386 | 0 (0) | 0,4 (0,1-0,8) | 18 / 1.398 | 1,3 | 1,0 |\n| Struer | Nej | 7 / 615 | 0 (0) | 1,1 (0,5-2,3) | 8 / 599 | 1,3 | 1,4 |\n| Syddjurs | Nej | 11 / 1.162 | 0 (0) | 0,9 (0,5-1,7) | 11 / 1.139 | 1,0 | 0,9 |\n| Viborg | Ja | 19 / 2.571 | 0 (0) | 0,7 (0,4-1,2) | 25 / 2.599 | 1,0 | 0,8 |\n| Århus | Ja | 43 / 5.595 | 0 (0) | 0,8 (0,6-1,0) | 38 / 5.591 | 0,7 | 0,7 |\n| Nordjylland | Ja | 103 / 14.523 | 0 (0) | 0,7 (0,6-0,9) | 125 / 14.640 | 0,9 | 1,0 |\n| Aalborg | Ja | 32 / 4.259 | 0 (0) | 0,8 (0,5-1,1) | 40 / 4.294 | 0,9 | 1,0 |\n| Brønderslev-Dronninglund | Ja | 8 / 955 | 0 (0) | 0,8 (0,4-1,6) | 7 / 985 | 0,7 | 0,7 |\n| Frederikshavn | Ja | 8 / 1.801 | 0 (0) | 0,4 (0,2-0,9) | 17 / 1.798 | 0,9 | 1,1 |\n| Hjørring | Ja | 8 / 1.803 | 0 (0) | 0,4 (0,2-0,9) | 16 / 1.808 | 0,9 | 0,9 |\n| Jammerbugt | Ja | 8 / 1.037 | 0 (0) | 0,8 (0,3-1,5) | 9 / 1.048 | 0,9 | 0,8 |\n| Læsø | Nej | # / # | 0 (0) | 1,2 (0,0-6,4) | 0 / 83 | 0,0 | 0,0 |\n| Mariagerfjord | Nej | 11 / 1.175 | 0 (0) | 0,9 (0,5-1,7) | 10 / 1.170 | 0,9 | 1,1 |\n| Morsø | Nej | 9 / 613 | 0 (0) | 1,5 (0,7-2,8) | 4 / 608 | 0,7 | 1,4 |\n| Rebild | Nej | 6 / 663 | 0 (0) | 0,9 (0,3-2,0) | # / # | 0,5 | 1,4 |\n| Thisted | Ja | 5 / 1.244 | 0 (0) | 0,4 (0,1-0,9) | 11 / 1.274 | 0,9 | 0,9 |\n| Vesthimmerlands | Ja | 7 / 888 | 0 (0) | 0,8 (0,3-1,6) | 8 / 913 | 0,9 | 0,7 |",
+      "summary": "Tabellen sammenligner kommunale andele af iskæmisk apopleksi blandt prævalente atrieflimren-patienter i 2022–2023 mod tidligere år, og viser en generel overholdelse af standarden (≤ 0,8%) i de fleste kommuner, mens flere kommuner (fx Norddjurs, Samsø, Struer, Syddjurs, Læsø, Mariagerfjord, Morsø, Rebild) overskrider den."
+    },
+    {
+      "subject": "indikator-6",
+      "title": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren",
+      "page": 60,
+      "rowDimension": "regioner-og-kommuner",
+      "colDimension": "andel per periode",
+      "entities": [
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
+        "albertslund",
+        "alleroed",
+        "ballerup",
+        "bornholm",
+        "broendby",
+        "dragoer",
+        "egedal",
+        "fredensborg",
+        "frederiksberg",
+        "frederikssund",
+        "frederiksvaerk-hundested",
+        "furesoe",
+        "gentofte",
+        "gladsaxe",
+        "glostrup",
+        "gribskov",
+        "helsingoer",
+        "herlev",
+        "hilleroed",
+        "hvidovre",
+        "hoeje-taastrup",
+        "hoersholm",
+        "ishoej",
+        "koebenhavn",
+        "lyngby-taarbaek",
+        "rudersdal",
+        "roedovre"
+      ],
+      "markdown": "| Region/kommune | Opfyldt? | Tæller/antal | Uoplyst (%) | Andel 95% CI | Antal (2021/22) | Andel (2021/22) | Andel (2020/21) |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Ja | 711 / 134.810 | 0 (0) | 0,5 (0,5-0,6) | 734 / 134.296 | 0,5 | 0,6 |\n| Hovedstaden | Nej | 245 / 37.128 | 0 (0) | 0,7 (0,6-0,7) | 234 / 37.251 | 0,6 | 0,7 |\n| Sjælland | Ja | 103 / 22.375 | 0 (0) | 0,5 (0,4-0,6) | 121 / 22.309 | 0,5 | 0,5 |\n| Syddanmark | Ja | 159 / 31.271 | 0 (0) | 0,5 (0,4-0,6) | 168 / 30.752 | 0,5 | 0,6 |\n| Midtjylland | Ja | 132 / 29.513 | 0 (0) | 0,4 (0,4-0,5) | 143 / 29.344 | 0,5 | 0,6 |\n| Nordjylland | Ja | 72 / 14.523 | 0 (0) | 0,5 (0,4-0,6) | 68 / 14.640 | 0,5 | 0,4 |\n| Hovedstaden | Nej | 245 / 37.128 | 0 (0) | 0,7 (0,6-0,7) | 234 / 37.251 | 0,6 | 0,7 |\n| Albertslund | Ja | # / # | 0 (0) | 0,4 (0,0-1,3) | # / # | 0,4 | 0,4 |\n| Allerød | Nej | 8 / 610 | 0 (0) | 1,3 (0,6-2,6) | 5 / 626 | 0,8 | 1,1 |\n| Ballerup | Nej | 14 / 1.229 | 0 (0) | 1,1 (0,6-1,9) | 9 / 1.210 | 0,7 | 0,3 |\n| Bornholm | Ja | 7 / 1.337 | 0 (0) | 0,5 (0,2-1,1) | 8 / 1.384 | 0,6 | 0,4 |\n| Brøndby | Nej | 6 / 851 | 0 (0) | 0,7 (0,3-1,5) | # / # | 0,2 | 0,5 |\n| Dragør | Nej | 5 / 421 | 0 (0) | 1,2 (0,4-2,7) | # / # | 0,7 | 0,5 |\n| Egedal | Ja | 4 / 916 | 0 (0) | 0,4 (0,1-1,1) | 7 / 901 | 0,8 | 1,0 |\n| Fredensborg | Ja | 5 / 944 | 0 (0) | 0,5 (0,2-1,2) | 5 / 973 | 0,5 | 0,5 |\n| Frederiksberg | Nej | 14 / 2.117 | 0 (0) | 0,7 (0,4-1,1) | 11 / 2.115 | 0,5 | 0,7 |\n| Frederikssund | Nej | 10 / 1.358 | 0 (0) | 0,7 (0,4-1,4) | 5 / 1.351 | 0,4 | 0,6 |\n| Frederiksværk-Hundested | Nej | 12 / 955 | 0 (0) | 1,3 (0,7-2,2) | 6 / 930 | 0,6 | 0,5 |\n| Furesø | Ja | # / # | 0 (0) | 0,3 (0,1-0,9) | 11 / 953 | 1,2 | 0,9 |\n| Gentofte | Ja | 11 / 1.844 | 0 (0) | 0,6 (0,3-1,1) | 11 / 1.828 | 0,6 | 0,8 |\n| Gladsaxe | Ja | 7 / 1.354 | 0 (0) | 0,5 (0,2-1,1) | 9 / 1.375 | 0,7 | 0,6 |\n| Glostrup | Nej | 6 / 523 | 0 (0) | 1,1 (0,4-2,5) | # / # | 0,6 | 0,6 |\n| Gribskov | Ja | 7 / 1.256 | 0 (0) | 0,6 (0,2-1,1) | 14 / 1.257 | 1,1 | 0,9 |\n| Helsingør | Nej | 15 / 1.703 | 0 (0) | 0,9 (0,5-1,4) | 8 / 1.719 | 0,5 | 0,6 |\n| Herlev | Nej | 4 / 605 | 0 (0) | 0,7 (0,2-1,7) | 6 / 628 | 1,0 | 1,0 |\n| Hillerød | Ja | 6 / 1.205 | 0 (0) | 0,5 (0,2-1,1) | 6 / 1.197 | 0,5 | 1,6 |\n| Hvidovre | Ja | 6 / 1.143 | 0 (0) | 0,5 (0,2-1,1) | 8 / 1.159 | 0,7 | 0,7 |\n| Høje-Taastrup | Ja | 0 / 1.093 | 0 (0) | 0,0 (0,0-0,3) | 6 / 1.060 | 0,6 | 0,3 |\n| Hørsholm | Ja | # /# | 0 (0) | 0,3 (0,0-1,0) | 4 / 709 | 0,6 | 0,7 |\n| Ishøj | Ja | 0 / 350 | 0 (0) | 0,0 (0,0-1,0) | # / # | 0,8 | 0,0 |\n| København | Nej | 55 / 8.037 | 0 (0) | 0,7 (0,5-0,9) | 49 / 8.124 | 0,6 | 0,6 |\n| Lyngby-Tårbæk | Nej | 10 / 1.294 | 0 (0) | 0,8 (0,4-1,4) | 9 / 1.306 | 0,7 | 0,8 |\n| Rudersdal | Ja | 6 / 1.506 | 0 (0) | 0,4 (0,1-0,9) | 8 / 1.475 | 0,5 | 0,8 |\n| Rødovre | Nej | 7 / 817 | 0 (0) | 0,9 (0,3-1,8) | 8 / 815 | 1,0 | 0,2 |",
+      "summary": "Tabellen sammenligner regionale og kommunale andele af intrakraniel blødning blandt prævalente atrieflimren-patienter i 2022–2023 mod tidligere år, og viser, at Region Hovedstaden og flere kommuner (fx Allerød, Ballerup, Brøndby, Dragør, Frederiksberg, Frederikssund, Frederiksværk-Hundested, Glostrup, Helsingør, Herlev, København, Lyngby-Tårbæk, Rødovre) overskrider standarden på ≤ 0,6%."
+    }
+  ],
+  "context": "Dette afsnit fra Årsrapporten 2022–2023 for Databasen for Atrieflimren i Danmark dokumenterer klinisk kvalitet i behandlingen af patienter med atrieflimren gennem to centrale indikatorer: Indikator 5 (iskæmisk apopleksi) og Indikator 6 (intrakraniel blødning). Rapporten er udarbejdet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) og baserer sig på data fra Landspatientregisteret (LPR), efter at DanStroke er udeladt som kilde pga. systemrelaterede indberetningsproblemer. Den omfatter både nationalt niveau og detaljerede regionale/kommunale resultater, herunder trendanalyser og diskussion af behandlingsimplikationer, især i forhold til antikoagulationsstrategier. Rapporten danner del af et bredere kvalitetsudviklingsprogram, der styrer sundhedsvæsenets indsats mod komplikationer ved atrieflimren."
 }

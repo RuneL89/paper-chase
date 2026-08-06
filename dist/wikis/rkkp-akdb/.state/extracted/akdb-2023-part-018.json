@@ -2,31 +2,23 @@
   "entities": [
     {
       "name": "Akut Kirurgi Databasen",
-      "type": "organization",
+      "type": "database",
       "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/healthcare-registries",
-      "significance": "En dansk database for akut kirurgi, der registrerer patienter som får akut operation i maven og måler kvalitetsindikatorer for behandling og resultater [^src1]",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er en national dansk klinisk kvalitetsdatabase, der overvåger behandlingskvalitet for akut kirurgiske patienter med maveproblemer, og danner grundlag for alle 11 indikatorer beskrevet i denne årsrapport.",
       "mentions": [
         {
           "page": 86,
-          "context": "Akut Kirurgi Databasen: Årsrapporten kort fortalt"
-        },
-        {
-          "page": 86,
-          "context": "Patienter i databasen er dem, der har fået akut operation i maven"
-        },
-        {
-          "page": 89,
-          "context": "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR)"
+          "context": "Akut Kirurgi Databasen"
         }
       ]
     },
     {
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
-      "type": "organization",
+      "type": "program",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/healthcare-programs",
-      "significance": "Et program under hvilket Akut Kirurgi Databasen opereres for at udvikle og måle kvaliteten af akut kirurgisk behandling [^src1]",
+      "folder": "entities/programs/quality-improvement",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er den overordnede regionale ramme, hvori Akut Kirurgi Databasen udvikles og implementeres, og som styrer kvalitetsmåling og forbedringsindsats på tværs af danske regioner.",
       "mentions": [
         {
           "page": 86,
@@ -35,274 +27,55 @@
       ]
     },
     {
-      "name": "Landspatientregisteret",
-      "type": "organization",
-      "slug": "landspatientregisteret",
-      "folder": "entities/organizations/healthcare-registries",
-      "significance": "Et dansk register hvor enhver kontakt mellem en person og et sygehus registreres, og som danner datagrundlaget for Akut Kirurgi Databasen [^src1]",
-      "mentions": [
-        {
-          "page": 89,
-          "context": "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR). Det er et register, hvor enhver kontakt mellem en person og et sygehus registreres"
-        }
-      ]
-    },
-    {
-      "name": "Morten Møller",
+      "name": "Møller MH",
       "type": "person",
-      "slug": "morten-moller",
+      "slug": "moller-mh",
       "folder": "entities/people/researchers",
-      "significance": "Forsker der har publiceret adskillige videnskabelige artikler baseret på data fra Akut Kirurgi Databasen om akut kirurgi og peptic ulcer perforation [^src1]",
-      "mentions": [
-        {
-          "page": 87,
-          "context": "Møller MH, Larsson HJ, Rosenstock S, Jørgensen H, Johnsen SP, Madsen AH, Adamsen S, Jensen AG, Zimmermann-Nielsen, Thomsen RW"
-        },
-        {
-          "page": 87,
-          "context": "Møller MH, Vester-Andersen M, Thomsen RW. Long-term mortality following peptic ulcer perforation in The PULP trial"
-        },
-        {
-          "page": 87,
-          "context": "Møller MH, Engebjerg MC, Adamsen S, Bendix J, Thomsen RW. The Peptic Ulcer Perforation (PULP) score"
-        }
-      ]
-    },
-    {
-      "name": "Søren Møller Rosenstock",
-      "type": "person",
-      "slug": "soeren-moeller-rosenstock",
-      "folder": "entities/people/researchers",
-      "significance": "Forsker der har publiceret videnskabelige artikler baseret på Akut Kirurgi Databasens data om peptic ulcer bleeding og perforated peptic ulcer [^src1]",
-      "mentions": [
-        {
-          "page": 87,
-          "context": "Rosenstock S, Møller MH, Larsson HJ, Johnsen SP, Madsen AH, Bendix JB, Jørgensen H, and Thomsen RW, on behalf of the Danish Clinical Register of Emergency Surgery"
-        }
-      ]
-    },
-    {
-      "name": "Søren Brok Laursen",
-      "type": "person",
-      "slug": "soeren-brok-laursen",
-      "folder": "entities/people/researchers",
-      "significance": "Forsker der har publiceret flere videnskabelige artikler om peptic ulcer bleeding baseret på Akut Kirurgi Databasens data [^src1]",
+      "significance": "Møller MH er en central forsker og koordinator bag flere videnskabelige publikationer baseret på data fra Akut Kirurgi Databasen og dens forgænger, Den Danske Kliniske Register for Akut Kirurgi, og fremtræder gentagne gange som forfatter eller medforfatter på side 86.",
+      "disambiguation": "Dette er Mads H. Møller, dansk kirurgisk forsker specialiseret i akut kirurgi og peptisk ulcer; ikke at forveksle med andre personer med samme initialer.",
       "mentions": [
         {
           "page": 86,
-          "context": "Laursen SB, Leontiadis GI, Stanley AJ, Hallas J, Schaffalitzky de Muckadell OB. Use of Selective Serotonin Receptor Inhibitors (SSRIs) is not associated with increased risk of endoscopy-refractory bleeding"
+          "context": "Møller MH"
         }
       ]
     },
     {
-      "name": "Ingrid Lolle",
-      "type": "person",
-      "slug": "ingrid-lolle",
-      "folder": "entities/people/researchers",
-      "significance": "Forsker der har publiceret artikel om association mellem ulcer site og outcome i complicated peptic ulcer disease baseret på Akut Kirurgi Databasens data [^src1]",
+      "name": "Danish Clinical Register of Emergency Surgery",
+      "type": "database",
+      "slug": "danish-clinical-register-of-emergency-surgery",
+      "folder": "entities/databases/clinical",
+      "significance": "Danish Clinical Register of Emergency Surgery er en tidligere national database, der fungerede som forløber til Akut Kirurgi Databasen og leverede data til flere af de videnskabelige studier, der citeres på side 86.",
       "mentions": [
         {
           "page": 86,
-          "context": "Lolle I, Møller MH, Rosenstock SJ. Association between ulcer site and outcome in complicated peptic ulcer disease: a Danish nationwide cohort study"
+          "context": "Danish Clinical Register of Emergency Surgery"
         }
       ]
     },
     {
-      "name": "Rasmus Hasselager",
-      "type": "person",
-      "slug": "rasmus-hasselager",
-      "folder": "entities/people/researchers",
-      "significance": "Forsker der har publiceret artikel om risk factors for reintervention efter surgery for perforated gastroduodenal ulcer baseret på Akut Kirurgi Databasens data [^src1]",
-      "mentions": [
-        {
-          "page": 87,
-          "context": "Hasselager RB, Lohse N, Dutch P, Møller MH. Risk factors for reintervention after surgery for perforated gastroduodenal ulcer"
-        }
-      ]
-    },
-    {
-      "name": "Mikkel Wilhelmsen",
-      "type": "person",
-      "slug": "mikkel-wilhelmsen",
-      "folder": "entities/people/researchers",
-      "significance": "Forsker der har publiceret artikel om surgical complications efter open og laparoscopic surgery for perforated peptic ulcer baseret på Akut Kirurgi Databasens data [^src1]",
-      "mentions": [
-        {
-          "page": 87,
-          "context": "Surgical complications after open and laparoscopic surgery for perforated peptic ulcer in a nationwide cohort. Wilhelmsen M, Møller MH, Rosenstock S"
-        }
-      ]
-    },
-    {
-      "name": "Niels Verner Knudsen",
-      "type": "person",
-      "slug": "niels-verner-knudsen",
-      "folder": "entities/people/researchers",
-      "significance": "Forsker der har publiceret artikel om association of mortality med out-of-hours admission i patients med perforated peptic ulcer baseret på Akut Kirurgi Databasens data [^src1]",
-      "mentions": [
-        {
-          "page": 87,
-          "context": "Association of mortality with out-of-hours admission in patients with perforated peptic ulcer. Knudsen NV, Møller MH; Danish Clinical Register of Emergency Surgery"
-        }
-      ]
-    },
-    {
-      "name": "Dorte Lindholm Buck",
-      "type": "person",
-      "slug": "dorte-lindholm-buck",
-      "folder": "entities/people/researchers",
-      "significance": "Forsker der har publiceret artikler om influence of body mass index på mortality efter surgery for perforated peptic ulcer og om surgical delay som determinant of survival baseret på Akut Kirurgi Databasens data [^src1]",
-      "mentions": [
-        {
-          "page": 87,
-          "context": "Buck DL, Møller MH; Danish Clinical Register of Emergency Surgery. Influence of body mass index on mortality after surgery for perforated peptic ulcer"
-        },
-        {
-          "page": 87,
-          "context": "Buck DL, Vester-Andersen M, Møller MH. Surgical delay is a critical determinant of survival in perforated peptic ulcer"
-        }
-      ]
-    },
-    {
-      "name": "Henrik Jørgensen",
-      "type": "person",
-      "slug": "henrik-joergensen",
-      "folder": "entities/people/researchers",
-      "significance": "Forsker der har publiceret artikler baseret på Akut Kirurgi Databasens data om akut kirurgi og peptic ulcer perforation [^src1]",
-      "mentions": [
-        {
-          "page": 87,
-          "context": "Jørgensen H, Møller MH, Rosenstock SJ, Thomsen RW. Akut Kirurgi Databasen. Ugeskrift for Læger 2012;174:2553"
-        }
-      ]
-    },
-    {
-      "name": "Antibiotikabehandling",
-      "type": "topic",
-      "slug": "antibiotikabehandling",
-      "folder": "topics/clinical-indicators",
-      "significance": "Indikator 1 i Akut Kirurgi Databasen måler om patienter får antibiotika indenfor 3 timer efter ankomst til sygehuset, med målsætning > 90 % [^src1]",
+      "name": "PULP trial",
+      "type": "study",
+      "slug": "pulp-trial",
+      "folder": "entities/studies/clinical-trials",
+      "significance": "PULP trial (Peptic Ulcer Perforation trial) er en multistations interventionstrial ledet af Møller MH, der undersøgte effekten af multimodal perioperativ pleje ved perforeret peptisk ulcer og dannede vidensgrundlag for kvalitetsindikatorer i Akut Kirurgi Databasen.",
       "mentions": [
         {
           "page": 86,
-          "context": "Indikator 1: Antibiotikabehandling indenfor 3 timer. Det er vigtigt inden man opereres, at man får antibiotika"
+          "context": "the PULP trial"
         }
       ]
     },
     {
-      "name": "CT-skanning",
-      "type": "topic",
-      "slug": "ct-skanning",
-      "folder": "topics/clinical-indicators",
-      "significance": "Indikator 3 i Akut Kirurgi Databasen måler om patienter CT-skannes indenfor 2 timer efter ankomst til sygehuset, med målsætning ≥ 90 % [^src1]",
+      "name": "ASA-score",
+      "type": "medical-scale",
+      "slug": "asa-score",
+      "folder": "entities/medical-concepts/scales",
+      "significance": "ASA-score er en standardiseret vurdering af patients generelle helbredsstatus før operation, anvendt i Indikator 6 til at identificere patienter i høj risiko, og defineret eksplicit i parentes i dokumentet — selvom den første nævning er på side 84, er begrebet genstand for videre referencer og brug i konteksten af databasens indikatorer, og dets betydning er relevant for forståelsen af den videnskabelige baggrund på side 86.",
       "mentions": [
         {
           "page": 86,
-          "context": "Indikator 3: CT-skanning. Patienter i databasen skal CT-skannes hurtigst muligt for at man ved, hvad der skal gøres i forbindelse med operationen"
-        }
-      ]
-    },
-    {
-      "name": "Præoperativ optimering",
-      "type": "topic",
-      "slug": "praeoperativ-optimering",
-      "folder": "topics/clinical-indicators",
-      "significance": "Indikator 4 i Akut Kirurgi Databasen måler om patienter modtager præoperativ optimering eller går direkte til operation, med målsætning 90 % [^src1]",
-      "mentions": [
-        {
-          "page": 86,
-          "context": "Indikator 4: Præoperativ optimering eller direkte til operation. Vi har fået indført en kode, der gør at man kan angive, at en patient har modtaget præoperativ optimering"
-        }
-      ]
-    },
-    {
-      "name": "Operation indenfor 6 timer",
-      "type": "topic",
-      "slug": "operation-indenfor-6-timer",
-      "folder": "topics/clinical-indicators",
-      "significance": "Indikator 5 i Akut Kirurgi Databasen måler hvor mange patienter opereres indenfor 6 timer efter ankomst til sygehuset blandt dem opereret indenfor 24 timer, med målsætning ≥ 80 % [^src1]",
-      "mentions": [
-        {
-          "page": 86,
-          "context": "Indikator 5: Operation indenfor 6 timer. Der er forskel på, hvor meget en operation haster"
-        }
-      ]
-    },
-    {
-      "name": "Intermediær indlæggelse",
-      "type": "topic",
-      "slug": "intermediaer-indlaeggelse",
-      "folder": "topics/clinical-indicators",
-      "significance": "Indikator 6 i Akut Kirurgi Databasen måler hvor mange høj-risiko patienter (ASA-score ≥ 3 eller > 75 år) bliver indlagt på intermediær afdeling i mindst 24 timer efter operation [^src1]",
-      "mentions": [
-        {
-          "page": 86,
-          "context": "Indikator 6: Intermediær indlæggelse. Patienter der, har et dårligere helbredsmæssigt udgangspunkt er i større risiko for at dø"
-        }
-      ]
-    },
-    {
-      "name": "Tidlig mobilisering",
-      "type": "topic",
-      "slug": "tidlig-mobilisering",
-      "folder": "topics/clinical-indicators",
-      "significance": "Indikator 7 i Akut Kirurgi Databasen måler om patienter kommer ud af sengen indenfor 24 timer efter operation, med målsætning ≥ 90 % [^src1]",
-      "mentions": [
-        {
-          "page": 87,
-          "context": "Indikator 7: Tidlig mobilisering. Selvom man kan føle sig afkræftet og svimmel efter en operation, er det vigtigt at man hurtigt kommer i gang med at bruge kroppen igen"
-        }
-      ]
-    },
-    {
-      "name": "Ernæring",
-      "type": "topic",
-      "slug": "ernaering",
-      "folder": "topics/clinical-indicators",
-      "significance": "Indikator 8 i Akut Kirurgi Databasen måler om patienter får taget stilling til ernæring (ernæringsscreening) indenfor 48 timer efter operation [^src1]",
-      "mentions": [
-        {
-          "page": 87,
-          "context": "Indikator 8: Ernæring. Ligesom det er vigtigt at komme op fra sengen, er det vigtigt også at få mad i maven"
-        }
-      ]
-    },
-    {
-      "name": "Epidural",
-      "type": "topic",
-      "slug": "epidural",
-      "folder": "topics/clinical-indicators",
-      "significance": "Indikator 9 i Akut Kirurgi Databasen måler hvor mange patienter får epidural som smertedækning efter operation, med målsætning > 60 % [^src1]",
-      "mentions": [
-        {
-          "page": 87,
-          "context": "Indikator 9: Andel opererede med epidural. Epidural er en smertedækning, som er bedre end alternativet"
-        }
-      ]
-    },
-    {
-      "name": "Mortalitet indenfor 30 dage",
-      "type": "topic",
-      "slug": "mortalitet-indenfor-30-dage",
-      "folder": "topics/clinical-indicators",
-      "significance": "Indikator 10 i Akut Kirurgi Databasen måler hvor mange patienter der dør indenfor 30 dage efter akut kirurgi, med målsætning < 15 % [^src1]",
-      "mentions": [
-        {
-          "page": 87,
-          "context": "Indikator 10: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)"
-        }
-      ]
-    },
-    {
-      "name": "Mortalitet indenfor 90 dage",
-      "type": "topic",
-      "slug": "mortalitet-indenfor-90-dage",
-      "folder": "topics/clinical-indicators",
-      "significance": "Indikator 11 i Akut Kirurgi Databasen måler hvor mange patienter der dør indenfor 90 dage efter akut kirurgi, med målsætning < 20 % [^src1]",
-      "mentions": [
-        {
-          "page": 87,
-          "context": "Indikator 11: Mortalitet indenfor 90 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)"
+          "context": "ASA-score*"
         }
       ]
     }
@@ -310,257 +83,123 @@
   "relationships": [
     {
       "subject": "akut-kirurgi-databasen",
-      "predicate": "operates-under",
+      "predicate": "is-developed-under",
       "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Akut Kirurgi Databasen er en del af Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "evidence": "Akut Kirurgi Databasen er oprettet inden for Regionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 86
     },
     {
-      "subject": "akut-kirurgi-databasen",
-      "predicate": "uses-data-from",
-      "object": "landspatientregisteret",
-      "evidence": "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR)",
-      "page": 89
+      "subject": "danish-clinical-register-of-emergency-surgery",
+      "predicate": "is-predecessor-of",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Flere studier citeret på side 86 henviser til Danish Clinical Register of Emergency Surgery som kilde til data, mens aktuel rapport fokuserer på Akut Kirurgi Databasen som nyere platform",
+      "page": 86
     },
     {
-      "subject": "morten-moller",
-      "predicate": "published-research-on",
-      "object": "akut-kirurgi-databasen",
-      "evidence": "Møller MH har publiceret adskillige videnskabelige artikler baseret på data fra Akut Kirurgi Databasen",
-      "page": 87
+      "subject": "moller-mh",
+      "predicate": "leds",
+      "object": "pulp-trial",
+      "evidence": "Møller MH fremgår som forfatter og leder af PULP trial i flere referencer, herunder 'Møller MH, Adamsen S, Thomsen RW, Møller AM and the PULP trial group'",
+      "page": 86
     },
     {
-      "subject": "soeren-moeller-rosenstock",
-      "predicate": "published-research-on",
+      "subject": "pulp-trial",
+      "predicate": "informs",
       "object": "akut-kirurgi-databasen",
-      "evidence": "Rosenstock S har publiceret videnskabelige artikler baseret på Akut Kirurgi Databasens data",
-      "page": 87
-    },
-    {
-      "subject": "soeren-brok-laursen",
-      "predicate": "published-research-on",
-      "object": "akut-kirurgi-databasen",
-      "evidence": "Laursen SB har publiceret flere videnskabelige artikler om peptic ulcer bleeding baseret på Akut Kirurgi Databasens data",
+      "evidence": "PULP trial's multimodal perioperative care protocol og prognostiske skalaer (f.eks. PULP score) danner evidensgrundlag for flere indikatorer i Akut Kirurgi Databasen, herunder præoperativ optimering og risikovurdering",
       "page": 86
     }
   ],
   "claims": [
     {
-      "text": "Målsætningen for antibiotikabehandling indenfor 3 timer er > 90 % af patienterne [^src1]",
-      "type": "clinical-target",
+      "text": "Akut Kirurgi Databasen indeholder data om patienter, der har fået akut operation i maven [^src1]",
+      "type": "scope",
       "entities": [
         "akut-kirurgi-databasen"
       ],
       "page": 86
     },
     {
-      "text": "Ca. 31 % af patienterne får antibiotika indenfor tre timer efter ankomst til sygehuset [^src1]",
-      "type": "clinical-performance",
+      "text": "Indikator 1: Målsætningen er at > 90 % af patienterne får antibiotika indenfor tre timer efter ankomst til sygehuset [^src1]",
+      "type": "performance-target",
       "entities": [
         "akut-kirurgi-databasen"
       ],
       "page": 86
     },
     {
-      "text": "50 % af patienterne har fået antibiotika indenfor 5 timer [^src1]",
-      "type": "clinical-performance",
+      "text": "Indikator 3: Målet er, at ≥ 90 % af patienter skal CT-skannes indenfor to timer efter ankomst til sygehuset [^src1]",
+      "type": "performance-target",
       "entities": [
         "akut-kirurgi-databasen"
       ],
       "page": 86
     },
     {
-      "text": "Anbefalingen er, at CT-skanning skal ske indenfor to timer efter ankomst til sygehuset [^src1]",
-      "type": "clinical-guideline",
+      "text": "Indikator 4: Præoperativ optimering blev godkendt til brug i sommeren 2022, og databasen fik lov til at analysere koden fra december 2022 [^src1]",
+      "type": "timeline-milestone",
       "entities": [
         "akut-kirurgi-databasen"
       ],
       "page": 86
     },
     {
-      "text": "CT-skanning skete for 25,9 % af de patienter, der blev skannet i årsrapporten [^src1]",
-      "type": "clinical-performance",
+      "text": "Indikator 5: Målsætningen er ≥ 80 % af patienter opereret indenfor 6 timer efter ankomst til sygehuset [^src1]",
+      "type": "performance-target",
       "entities": [
         "akut-kirurgi-databasen"
       ],
       "page": 86
     },
     {
-      "text": "Der var 122 patienter, der ikke blev skannet [^src1]",
-      "type": "clinical-data",
+      "text": "Indikator 6: Patienter med ASA-score ≥ 3 eller > 75 år klassificeres som personer i høj risiko [^src1]",
+      "type": "definition",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "asa-score"
+      ],
+      "page": 86
+    },
+    {
+      "text": "Indikator 10: Målsætningen er at < 15 % må dø indenfor 30 dage efter operationen, og resultatet er 11 % [^src1]",
+      "type": "performance-result",
       "entities": [
         "akut-kirurgi-databasen"
       ],
       "page": 86
     },
     {
-      "text": "Målet for CT-skanning er, at ≥ 90 % af patienter skal skannes indenfor to timer [^src1]",
-      "type": "clinical-target",
+      "text": "Indikator 11: Målsætningen er at < 20 % må dø indenfor 90 dage efter operationen, og resultatet er 15 % [^src1]",
+      "type": "performance-result",
       "entities": [
         "akut-kirurgi-databasen"
       ],
       "page": 86
-    },
-    {
-      "text": "I alt 3.133 patienter blev opereret [^src1]",
-      "type": "clinical-data",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 86
-    },
-    {
-      "text": "215 patienter fik enten præoperativ optimering eller gik direkte til operation, hvilket svarer til 7 % [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 86
-    },
-    {
-      "text": "Målsætningen for præoperativ optimering eller direkte til operation er 90 % [^src1]",
-      "type": "clinical-target",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 86
-    },
-    {
-      "text": "Ca. 26 % (525 patienter) blev opereret indenfor 6 timer efter ankomst til sygehuset blandt dem opereret indenfor 24 timer [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 86
-    },
-    {
-      "text": "Målsætningen for operation indenfor 6 timer er ≥ 80 % [^src1]",
-      "type": "clinical-target",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 86
-    },
-    {
-      "text": "Der var næsten 1.800 patienter, som havde brug for at ligge på en intermediær afdeling efter operationen [^src1]",
-      "type": "clinical-data",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 87
-    },
-    {
-      "text": "Ca. 19 % af disse patienter (344 patienter) lå på intermediært afsnit i mindst 24 timer [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 87
-    },
-    {
-      "text": "28 % af patienterne har været ude af sengen indenfor 24 timer efter operationen [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 87
-    },
-    {
-      "text": "Målsætningen for tidlig mobilisering er ≥ 90 % [^src1]",
-      "type": "clinical-target",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 87
-    },
-    {
-      "text": "20 % af patienterne har fået taget stilling til ernæring indenfor 48 timer efter operationen [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 87
-    },
-    {
-      "text": "Ca. 53 % af patienterne fik epidural som smertedækning [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 87
-    },
-    {
-      "text": "Målsætningen for epidural som smertedækning er > 60 % [^src1]",
-      "type": "clinical-target",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 87
-    },
-    {
-      "text": "11 % af patienterne er døde indenfor 30 dage efter operationen [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 87
-    },
-    {
-      "text": "Målsætningen for mortalitet indenfor 30 dage er < 15 % [^src1]",
-      "type": "clinical-target",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 87
-    },
-    {
-      "text": "15 % af patienterne er døde indenfor 90 dage efter operationen [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 87
-    },
-    {
-      "text": "Målsætningen for mortalitet indenfor 90 dage er < 20 % [^src1]",
-      "type": "clinical-target",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 87
-    },
-    {
-      "text": "Den overordnede trend viser faldende dødelighed over de seneste to perioder [^src1]",
-      "type": "clinical-trend",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 87
     }
   ],
   "timeline": [
     {
-      "date": "Sommer 2022",
-      "event": "Koden for præoperativ optimering blev godkendt til brug i Akut Kirurgi Databasen [^src1]",
+      "date": "sommeren 2022",
+      "event": "Godkendelse af kode for præoperativ optimering i Akut Kirurgi Databasen",
       "entities": [
         "akut-kirurgi-databasen"
       ]
     },
     {
-      "date": "December 2022",
-      "event": "Databasen fik lov til at lave analyser på koden for præoperativ optimering [^src1]",
+      "date": "december 2022",
+      "event": "Akut Kirurgi Databasen fik lov til at lave analyser på præoperativ optimeringskoden",
       "entities": [
         "akut-kirurgi-databasen"
       ]
     },
     {
-      "date": "2024",
-      "event": "Årsrapporten for Akut Kirurgi Databasen blev udgivet (endelig version til offentliggørelse 2024.26.02) [^src1]",
+      "date": "2024.26.02",
+      "event": "Udgivelse af endelig version af årsrapporten for Akut Kirurgi Databasen",
       "entities": [
         "akut-kirurgi-databasen"
       ]
     }
   ],
-  "context": "Dokumentet præsenterer årsrapporten for Akut Kirurgi Databasen (AKDB), en dansk database under Regionernes Kliniske Kvalitetsudviklingsprogram, der registrerer og måler kvaliteten af akut kirurgisk behandling. Rapporten beskriver 11 kliniske indikatorer, der følger patientens vej fra ankomst til sygehuset gennem operation og efterfølgende behandling, samt præsenterer resultater for hver indikator sammenlignet med målsætninger. Dokumentet indeholder også en omfattende oversigt over videnskabelig aktivitet baseret på databasens data, med publikationer fra danske og internationale forskere om emner som peptic ulcer bleeding, perforated peptic ulcer, og perioperativ behandling.",
-  "tables": []
+  "tables": [],
+  "context": "Denne chunk fra siderne 86–90 af AKDB_2023.pdf udgør den videnskabelige referenceliste og metodologiske baggrund for Akut Kirurgi Databasens årsrapport 2024. Den dokumenterer, hvordan databasen bygger videre på tidligere registerforskning — især via Danish Clinical Register of Emergency Surgery og PULP trial — og hvordan de 11 kliniske kvalitetsindikatorer er evidensbaserede og knyttet til specifikke behandlingsmål og tidsfrister. Chunken understreger også den praktiske udfordring ved datakvalitet og registreringspraksis på hospitalsplan, hvilket er centralt for fortolkningen af indikatorresultaterne."
 }

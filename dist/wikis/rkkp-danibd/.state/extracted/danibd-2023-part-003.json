@@ -4,218 +4,178 @@
       "name": "DANIBD",
       "type": "organization",
       "slug": "danibd",
-      "folder": "entities/organizations/registries",
-      "significance": "DANIBD is the Danish national quality registry for inflammatory bowel disease (IBD) that monitors treatment outcomes and surgical complications across Danish hospitals.",
+      "folder": "entities/organizations/healthcare-registry",
+      "significance": "DANIBD er den danske nationalt koordinerede registerbaserede kvalitetsindikator for inflammatoriske tarmsygdomme (IBD), som udarbejder årsrapporter og overvåger behandlingskvalitet på tværs af regioner og afdelinger.",
       "mentions": [
         {
           "page": 11,
-          "context": "BMSL omfatter i denne årsrapport behandling med infliximab (BOHJ18A1), adalimumab (BOHJ18A3), golimumab (BOHJ18A4), ustekinumab (BOHJ18B3), vedolizumab (BOHJ19H4) og tofacitinib (BOHJ28D) registreret i landspatientregisteret (LPR)"
+          "context": "DANIBD 11"
         },
         {
           "page": 12,
-          "context": "Indikator 6. Re-operation"
+          "context": "DANIBD 12"
+        },
+        {
+          "page": 13,
+          "context": "DANIBD 13"
+        },
+        {
+          "page": 14,
+          "context": "DANIBD 14"
         },
         {
           "page": 15,
-          "context": "Indikator 7. PSC, opfølgning"
+          "context": "DANIBD 15"
         }
       ]
     },
     {
-      "name": "Crohns sygdom",
-      "type": "disease",
-      "slug": "crohns-sygdom",
-      "folder": "topics/diseases/inflammatory-bowel-disease",
-      "significance": "Crohn's disease is the primary diagnosis for 61% of patients in the BMSL treatment cohort monitored by DANIBD.",
+      "name": "BMSL",
+      "type": "topic",
+      "slug": "bmsl",
+      "folder": "topics/clinical-practice/ibd-treatment",
+      "significance": "BMSL er en dansk klinisk indikator, der omfatter biologisk og small-molecule behandling af IBD-patienter, og bruges til at måle systematisk opfølgning med fæces-calprotectin (F-calpro).",
       "mentions": [
         {
           "page": 11,
-          "context": "Hovedparten af patienterne i BMSL er diagnosticerede med Crohns sygdom (61 %)"
-        },
-        {
-          "page": 12,
-          "context": "Indikator 5. Post-operativ Crohns sygdom, opfølgning"
-        }
-      ]
-    },
-    {
-      "name": "infliximab",
-      "type": "medication",
-      "slug": "infliximab",
-      "folder": "entities/medications/biologics",
-      "significance": "Infliximab (BOHJ18A1) is the most commonly prescribed biologic therapy in the BMSL cohort, used by 36% of patients.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "BMSL omfatter i denne årsrapport behandling med infliximab (BOHJ18A1), adalimumab (BOHJ18A3), golimumab (BOHJ18A4), ustekinumab (BOHJ18B3), vedolizumab (BOHJ19H4) og tofacitinib (BOHJ28D)"
+          "context": "Et behandlingsforløb med BMSL defineres med behandlingsstart, hvor der ikke har været en behandling i perioden 12 måneder før."
         },
         {
           "page": 11,
-          "context": "Der er givet 57.708 behandlinger med BMSL i perioden, hvoraf flest patienter er i behandling med infliximab (36 %)"
-        }
-      ]
-    },
-    {
-      "name": "adalimumab",
-      "type": "medication",
-      "slug": "adalimumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Adalimumab (BOHJ18A3) is one of six biologic therapies included in the BMSL treatment monitoring program.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "BMSL omfatter i denne årsrapport behandling med infliximab (BOHJ18A1), adalimumab (BOHJ18A3), golimumab (BOHJ18A4), ustekinumab (BOHJ18B3), vedolizumab (BOHJ19H4) og tofacitinib (BOHJ28D)"
-        }
-      ]
-    },
-    {
-      "name": "golimumab",
-      "type": "medication",
-      "slug": "golimumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Golimumab (BOHJ18A4) is one of six biologic therapies included in the BMSL treatment monitoring program.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "BMSL omfatter i denne årsrapport behandling med infliximab (BOHJ18A1), adalimumab (BOHJ18A3), golimumab (BOHJ18A4), ustekinumab (BOHJ18B3), vedolizumab (BOHJ19H4) og tofacitinib (BOHJ28D)"
-        }
-      ]
-    },
-    {
-      "name": "ustekinumab",
-      "type": "medication",
-      "slug": "ustekinumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Ustekinumab (BOHJ18B3) is one of six biologic therapies included in the BMSL treatment monitoring program.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "BMSL omfatter i denne årsrapport behandling med infliximab (BOHJ18A1), adalimumab (BOHJ18A3), golimumab (BOHJ18A4), ustekinumab (BOHJ18B3), vedolizumab (BOHJ19H4) og tofacitinib (BOHJ28D)"
-        }
-      ]
-    },
-    {
-      "name": "vedolizumab",
-      "type": "medication",
-      "slug": "vedolizumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Vedolizumab (BOHJ19H4) is one of six biologic therapies included in the BMSL treatment monitoring program.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "BMSL omfatter i denne årsrapport behandling med infliximab (BOHJ18A1), adalimumab (BOHJ18A3), golimumab (BOHJ18A4), ustekinumab (BOHJ18B3), vedolizumab (BOHJ19H4) og tofacitinib (BOHJ28D)"
-        }
-      ]
-    },
-    {
-      "name": "tofacitinib",
-      "type": "medication",
-      "slug": "tofacitinib",
-      "folder": "entities/medications/small-molecule-inhibitors",
-      "significance": "Tofacitinib (BOHJ28D) is one of six biologic therapies included in the BMSL treatment monitoring program.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "BMSL omfatter i denne årsrapport behandling med infliximab (BOHJ18A1), adalimumab (BOHJ18A3), golimumab (BOHJ18A4), ustekinumab (BOHJ18B3), vedolizumab (BOHJ19H4) og tofacitinib (BOHJ28D)"
-        }
-      ]
-    },
-    {
-      "name": "Ozanimod",
-      "type": "medication",
-      "slug": "ozanimod",
-      "folder": "entities/medications/small-molecule-inhibitors",
-      "significance": "Ozanimod (ATC-code L04AA38) is a newer IBD treatment not yet included in DANIBD indicators pending data availability from the hospital pharmacy registry.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "De nyere præparater: Ozanimod, Upadacitinib og Filgotinib (ATC-koder: L04AA38, L04AA44 og L04AA45) ikke er inkluderet i indikatoren"
-        }
-      ]
-    },
-    {
-      "name": "Upadacitinib",
-      "type": "medication",
-      "slug": "upadacitinib",
-      "folder": "entities/medications/small-molecule-inhibitors",
-      "significance": "Upadacitinib (ATC-code L04AA44) is a newer IBD treatment not yet included in DANIBD indicators pending data availability from the hospital pharmacy registry.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "De nyere præparater: Ozanimod, Upadacitinib og Filgotinib (ATC-koder: L04AA38, L04AA44 og L04AA45) ikke er inkluderet i indikatoren"
-        }
-      ]
-    },
-    {
-      "name": "Filgotinib",
-      "type": "medication",
-      "slug": "filgotinib",
-      "folder": "entities/medications/small-molecule-inhibitors",
-      "significance": "Filgotinib (ATC-code L04AA45) is a newer IBD treatment not yet included in DANIBD indicators pending data availability from the hospital pharmacy registry.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "De nyere præparater: Ozanimod, Upadacitinib og Filgotinib (ATC-koder: L04AA38, L04AA44 og L04AA45) ikke er inkluderet i indikatoren"
+          "context": "BMSL omfatter i denne årsrapport behandling med infliximab (BOHJ18A1), adalimumab (BOHJ18A3), golimumab (BOHJ18A4), ustekinumab (BOHJ18B3), vedolizumab (BOHJ19H4) og tofacitinib (BOHJ28D) registreret i landspatientregisteret (LPR)."
         }
       ]
     },
     {
       "name": "F-calpro",
-      "type": "biomarker",
+      "type": "medical-test",
       "slug": "f-calpro",
-      "folder": "topics/clinical-measures/biomarkers",
-      "significance": "Fecal calprotectin (F-calpro) is the primary laboratory marker used to monitor disease activity in BMSL patients, with a national target of 80% annual measurement.",
+      "folder": "entities/medical-tests",
+      "significance": "F-calpro (fæces-calprotectin) er en laboratoriemåling brugt til at vurdere mucosal inflammation hos IBD-patienter og er centr for indikator 4 om systematisk opfølgning i BMSL-behandling.",
       "mentions": [
         {
           "page": 11,
-          "context": "Oplysninger om F-calpro fås fra Laboratoriedatabasen ved koden NPU19717"
+          "context": "Oplysninger om F-calpro fås fra Laboratoriedatabasen ved koden NPU19717."
         },
         {
           "page": 11,
-          "context": "På landsplan har 78 % af patienterne i BMSL fået målt F-calpro en gang årligt, hvormed standarden på mindst 80 % er tæt på at være opfyldt"
+          "context": "På landsplan har 78 % af patienterne i BMSL fået målt F-calpro en gang årligt, hvormed standarden på mindst 80 % er tæt på at være opfyldt."
         }
       ]
     },
     {
-      "name": "Region Sjælland",
-      "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland achieved 94% compliance with systematic F-calpro monitoring in BMSL patients, exceeding the 80% standard.",
+      "name": "Indikator 4",
+      "type": "topic",
+      "slug": "indikator-4",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 4 er DANIBDs kvalitetsmål for systematisk opfølgning af IBD-patienter under BMSL-behandling via måling af F-calpro, med en målsætning på ≥80 %.",
       "mentions": [
         {
           "page": 11,
-          "context": "I Region Sjælland har 94 % af patienterne i BMSL fået systematisk opfølgning, hvormed standarden er opfyldt"
+          "context": "På landsplan har 78 % af patienterne i BMSL fået målt F-calpro en gang årligt, hvormed standarden på mindst 80 % er tæt på at være opfyldt."
         }
       ]
     },
     {
-      "name": "Region Syddanmark",
-      "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Syddanmark achieved 79% compliance with systematic F-calpro monitoring in BMSL patients, marginally below the 80% standard.",
+      "name": "Indikator 6",
+      "type": "topic",
+      "slug": "indikator-6",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 6 måler andelen af re-operationer inden for 30 dage efter primære kirurgiske indgreb hos IBD-patienter, med en målsætning på ≤8 % som udtryk for kirurgisk kvalitet.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Indikator 6. Re-operation"
+        },
+        {
+          "page": 12,
+          "context": "Målsætningen er, at der maksimalt må være re-operation indenfor 30 dage for 8 % af de foretagne kirurgiske indgreb."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7",
+      "type": "topic",
+      "slug": "indikator-7",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 7 er DANIBDs kvalitetsmål for systematisk koloskopi hos patienter med primær skleroserende kolangitis (PSC), med en målsætning på ≥80 % inden for 18 måneder pga. øget risiko for kolorektalkræft.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Indikator 7. PSC, opfølgning"
+        },
+        {
+          "page": 15,
+          "context": "Målsætningen er, at 80 % af patienter med primær skleroserende kolangitis (PSC), der får foretaget koloskopi inden for 18 måneder."
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret (LPR)",
+      "type": "database",
+      "slug": "lpr",
+      "folder": "entities/databases/national-health-registers",
+      "significance": "Landspatientregisteret (LPR) er det danske nationalt administrerede register, der indeholder data om alle hospitalsoverførsler og kirurgiske indgreb, og er det primære datagrundlag for DANIBDs beregning af BMSL-behandlinger og re-operationer.",
       "mentions": [
         {
           "page": 11,
-          "context": "Region Syddanmark er med en opfyldelse på 79 % marginaler fra at opfylde standarden"
+          "context": "BMSL omfatter i denne årsrapport behandling med [...] registreret i landspatientregisteret (LPR)."
+        },
+        {
+          "page": 14,
+          "context": "Et primært kirurgisk indgreb omfatter procedurekoder: KJFA*, KJFB*, KJFC* KJFF*, KJFH*, KJFW* i LPR..."
+        }
+      ]
+    },
+    {
+      "name": "Sygehusmedicinregisteret (SMR)",
+      "type": "database",
+      "slug": "smr",
+      "folder": "entities/databases/national-health-registers",
+      "significance": "Sygehusmedicinregisteret (SMR) er et dansk nationalt register over udleveret medicin fra sygehusapoteker, som DANIBD afventer integration af for at inkludere nyere præparater som ozanimod, upadacitinib og filgotinib i BMSL-indikatoren.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "DANIBD afventer muligheden for at trække informationer om medicinsk behandling via udleveret medicin i Sygehusmedicinregisteret (SMR), så klinikken ikke pålægges dobbelt registrering."
+        }
+      ]
+    },
+    {
+      "name": "Laboratoriedatabasen",
+      "type": "database",
+      "slug": "laboratoriedatabasen",
+      "folder": "entities/databases/national-health-registers",
+      "significance": "Laboratoriedatabasen er det nationale dansk register over laboratorieprøver, som leverer data til DANIBD om F-calpro-målinger via kode NPU19717.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Oplysninger om F-calpro fås fra Laboratoriedatabasen ved koden NPU19717."
+        }
+      ]
+    },
+    {
+      "name": "Primær skleroserende kolangitis (PSC)",
+      "type": "disease",
+      "slug": "psc",
+      "folder": "entities/diseases/ibd-comorbidities",
+      "significance": "Primær skleroserende kolangitis (PSC) er en kronisk leversygdom ofte forbundet med IBD, og er mål for Indikator 7 pga. dens markant øgede risiko for kolorektalkræft.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Indikatorens formål er at sikre systematisk opfølgning på patienter med primær skleroserende kolangitis (PSC), da studier har vist, at de er i en markant øget risiko for at udvikle kolorektalkræft."
         }
       ]
     },
     {
       "name": "Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd.",
       "type": "organization",
-      "slug": "rigshospitalet-med-klinik-mave-tarm-leversygd",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet's gastroenterology clinic had the lowest F-calpro monitoring compliance at 13% and also reported zero re-operations within 30 days of primary surgery.",
+      "slug": "rigshospitalet-med-klinik-mave-tarm-lever",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd. er en af Danmarks største specialiserede gastroenterologiske afdelinger og fremgår som eksempel på laveste målopfyldelse for Indikator 4 (13 %) samt som en af de største bidragydere til Indikator 7-data.",
       "mentions": [
         {
           "page": 11,
-          "context": "De tre afdelinger: 'Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd.', 'Nordsjælland Kirurgisk overafdeling' og 'SLB Vejle Medicinsk Afdeling' har laveste målopfyldelse med henholdsvis 13 %, 52 % og 56 %"
-        },
-        {
-          "page": 12,
-          "context": "Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd. Ja 0 / 17 0 (0) 0 (0-20)"
+          "context": "De tre afdelinger: 'Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd.', 'Nordsjælland Kirurgisk overafdeling' og 'SLB Vejle Medicinsk Afdeling' har laveste målopfyldelse med henholdsvis 13 %, 52 % og 56 %."
         },
         {
           "page": 15,
@@ -227,12 +187,16 @@
       "name": "Nordsjælland Kirurgisk overafdeling",
       "type": "organization",
       "slug": "nordsjaelland-kirurgisk-overafdeling",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Nordsjælland's surgical department had the second-lowest F-calpro monitoring compliance at 52% among departments with poor performance.",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Nordsjælland Kirurgisk overafdeling er en kirurgisk afdeling, der fremgår som en af de tre afdelinger med laveste målopfyldelse for Indikator 4 (52 %) og også indgår i Indikator 6-data med manglende tæller/nævner ('# / #').",
       "mentions": [
         {
           "page": 11,
-          "context": "De tre afdelinger: 'Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd.', 'Nordsjælland Kirurgisk overafdeling' og 'SLB Vejle Medicinsk Afdeling' har laveste målopfyldelse med henholdsvis 13 %, 52 % og 56 %"
+          "context": "De tre afdelinger: 'Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd.', 'Nordsjælland Kirurgisk overafdeling' og 'SLB Vejle Medicinsk Afdeling' har laveste målopfyldelse med henholdsvis 13 %, 52 % og 56 %."
+        },
+        {
+          "page": 12,
+          "context": "Nordsjælland Kirurgisk overafdeling Ja # / # 0 (0) 3 (0-16)"
         }
       ]
     },
@@ -240,129 +204,37 @@
       "name": "SLB Vejle Medicinsk Afdeling",
       "type": "organization",
       "slug": "slb-vejle-medicinsk-afdeling",
-      "folder": "entities/organizations/hospitals",
-      "significance": "SLB Vejle's medical department had the third-lowest F-calpro monitoring compliance at 56% among departments with poor performance.",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "SLB Vejle Medicinsk Afdeling er en medicinsk afdeling, der fremgår som en af de tre afdelinger med laveste målopfyldelse for Indikator 4 (56 %) og også indgår i både Indikator 6 og Indikator 7-data.",
       "mentions": [
         {
           "page": 11,
-          "context": "De tre afdelinger: 'Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd.', 'Nordsjælland Kirurgisk overafdeling' og 'SLB Vejle Medicinsk Afdeling' har laveste målopfyldelse med henholdsvis 13 %, 52 % og 56 %"
-        }
-      ]
-    },
-    {
-      "name": "Sygehusmedicinregisteret",
-      "type": "organization",
-      "slug": "sygehusmedicinregisteret",
-      "folder": "entities/organizations/registries",
-      "significance": "The hospital pharmacy registry (SMR) is expected to provide medication data for newer IBD treatments starting in 2024, enabling inclusion of Ozanimod, Upadacitinib, and Filgotinib in future DANIBD reports.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "DANIBD afventer muligheden for at trække informationer om medicinsk behandling via udleveret medicin i Sygehusmedicinregisteret (SMR)"
-        }
-      ]
-    },
-    {
-      "name": "landspatientregisteret",
-      "type": "organization",
-      "slug": "landspatientregisteret",
-      "folder": "entities/organizations/registries",
-      "significance": "The national patient registry (LPR) is the primary data source for BMSL treatment codes and surgical procedure codes in DANIBD.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "BMSL omfatter i denne årsrapport behandling med infliximab (BOHJ18A1), adalimumab (BOHJ18A3), golimumab (BOHJ18A4), ustekinumab (BOHJ18B3), vedolizumab (BOHJ19H4) og tofacitinib (BOHJ28D) registreret i landspatientregisteret (LPR)"
-        }
-      ]
-    },
-    {
-      "name": "primær skleroserende kolangitis",
-      "type": "disease",
-      "slug": "primaer-skleroserende-kolangitis",
-      "folder": "topics/diseases/hepatobiliary",
-      "significance": "Primary sclerosing cholangitis (PSC) is a complication in IBD patients with markedly increased colorectal cancer risk, requiring colonoscopy surveillance within 18 months.",
-      "mentions": [
-        {
-          "page": 15,
-          "context": "Indikatorens formål er at sikre systematisk opfølgning på patienter med primær skleroserende kolangitis (PSC), da studier har vist, at de er i en markant øget risiko for at udvikle kolorektalkræft"
-        }
-      ]
-    },
-    {
-      "name": "koloskopi",
-      "type": "procedure",
-      "slug": "koloskopi",
-      "folder": "topics/clinical-measures/procedures",
-      "significance": "Colonoscopy is the surveillance procedure required for PSC patients within 18 months to screen for colorectal cancer, with a national target of 80% compliance.",
-      "mentions": [
-        {
-          "page": 15,
-          "context": "Indikatoren monitorerer andelen af patienter med PSC, der får foretaget koloskopi inden for 18 måneder"
-        }
-      ]
-    },
-    {
-      "name": "Gødstrup Mave- og Tarmkirurgi",
-      "type": "organization",
-      "slug": "goedstrup-mave-tarmkirurgi",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Gødstrup's gastrointestinal surgery department reported 9% re-operation rate within 30 days, exceeding the 8% standard and marked as not meeting the target.",
-      "mentions": [
+          "context": "De tre afdelinger: 'Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd.', 'Nordsjælland Kirurgisk overafdeling' og 'SLB Vejle Medicinsk Afdeling' har laveste målopfyldelse med henholdsvis 13 %, 52 % og 56 %."
+        },
         {
           "page": 12,
-          "context": "Gødstrup Mave- og Tarmkirurgi Nej 5 / 58 0 (0) 9 (3-19)"
-        }
-      ]
-    },
-    {
-      "name": "Horsens Medicinsk Afdeling",
-      "type": "organization",
-      "slug": "horsens-medicinsk-afdeling",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Horsens Medical Department reported 17% re-operation rate within 30 days, significantly exceeding the 8% standard and marked as not meeting the target.",
-      "mentions": [
-        {
-          "page": 12,
-          "context": "Horsens Medicinsk Afdeling Nej # / # 0 (0) 17 (0-64)"
-        }
-      ]
-    },
-    {
-      "name": "OUH Svendborg Medicinsk Afd.",
-      "type": "organization",
-      "slug": "ouh-svendborg-medicinsk-afd",
-      "folder": "entities/organizations/hospitals",
-      "significance": "OUH Svendborg Medical Department reported 0% PSC colonoscopy compliance within 18 months, failing to meet the 80% standard.",
-      "mentions": [
+          "context": "SLB Vejle Medicinsk Afdeling Ja # / # 0 (0) 2 (0-11)"
+        },
         {
           "page": 15,
-          "context": "OUH Svendborg Medicinsk Afd. Nej # / # 0 (0) 0 (0-84)"
+          "context": "SLB Vejle Medicinsk Afdeling Ja 4 / 5 0 (0) 80 (28-99)"
         }
       ]
     },
     {
-      "name": "Aarhus Børn og Unge",
+      "name": "Styregruppen",
       "type": "organization",
-      "slug": "aarhus-boern-og-unge",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Children and Youth Department reported 0% PSC colonoscopy compliance within 18 months, failing to meet the 80% standard.",
+      "slug": "styreguppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Styregruppen er den beslutningskompetente gruppe bag DANIBD, der bl.a. udfører audits af kodning og anbefaler forbedringsarbejde i forbindelse med indikatorvurderinger.",
       "mentions": [
         {
-          "page": 15,
-          "context": "Aarhus Børn og Unge Nej # / # 0 (0) 0 (0-98)"
-        }
-      ]
-    },
-    {
-      "name": "AAUH Aalborg Med.gastroenterologisk område",
-      "type": "organization",
-      "slug": "aauh-aalborg-med-gastroenterologisk-omraade",
-      "folder": "entities/organizations/hospitals",
-      "significance": "AAUH Aalborg's gastroenterology department reported 79% PSC colonoscopy compliance within 18 months, marginally below the 80% standard.",
-      "mentions": [
+          "page": 11,
+          "context": "Styregruppen er opmærksom på at brugen af hjemmemonitoreringsudstyr ikke er medtaget i indikator-opgørelsen."
+        },
         {
-          "page": 15,
-          "context": "AAUH Aalborg Med.gastroenterologisk område Nej 11 / 14 0 (0) 79 (49-95)"
+          "page": 14,
+          "context": "En audit på udvalgte afdelinger, foretaget af styregruppen, har dog vist betydelig usikkerhed vedrørende kodning."
         }
       ]
     }
@@ -370,332 +242,152 @@
   "relationships": [
     {
       "subject": "danibd",
-      "predicate": "monitors",
-      "object": "crohns-sygdom",
-      "evidence": "Hovedparten af patienterne i BMSL er diagnosticerede med Crohns sygdom (61 %)",
+      "predicate": "administers",
+      "object": "indikator-4",
+      "evidence": "DANIBD rapporterer resultater for BMSL og F-calpro-opfølgning på side 11",
       "page": 11
     },
     {
       "subject": "danibd",
-      "predicate": "tracks-treatment-with",
-      "object": "infliximab",
-      "evidence": "Der er givet 57.708 behandlinger med BMSL i perioden, hvoraf flest patienter er i behandling med infliximab (36 %)",
-      "page": 11
-    },
-    {
-      "subject": "danibd",
-      "predicate": "uses-data-from",
-      "object": "landspatientregisteret",
-      "evidence": "BMSL omfatter i denne årsrapport behandling med infliximab (BOHJ18A1), adalimumab (BOHJ18A3), golimumab (BOHJ18A4), ustekinumab (BOHJ18B3), vedolizumab (BOHJ19H4) og tofacitinib (BOHJ28D) registreret i landspatientregisteret (LPR)",
-      "page": 11
-    },
-    {
-      "subject": "region-sjaelland",
-      "predicate": "achieved-compliance-with",
-      "object": "f-calpro",
-      "evidence": "I Region Sjælland har 94 % af patienterne i BMSL fået systematisk opfølgning, hvormed standarden er opfyldt",
-      "page": 11
-    },
-    {
-      "subject": "rigshospitalet-med-klinik-mave-tarm-leversygd",
-      "predicate": "reported-re-operation-rate",
-      "object": "crohns-sygdom",
-      "evidence": "Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd. Ja 0 / 17 0 (0) 0 (0-20)",
+      "predicate": "administers",
+      "object": "indikator-6",
+      "evidence": "DANIBD introducerer og præsenterer Indikator 6 på side 12",
       "page": 12
     },
     {
-      "subject": "primaer-skleroserende-kolangitis",
-      "predicate": "requires-surveillance-with",
-      "object": "koloskopi",
-      "evidence": "Indikatoren monitorerer andelen af patienter med PSC, der får foretaget koloskopi inden for 18 måneder",
+      "subject": "danibd",
+      "predicate": "administers",
+      "object": "indikator-7",
+      "evidence": "DANIBD introducerer og præsenterer Indikator 7 på side 15",
       "page": 15
+    },
+    {
+      "subject": "indikator-4",
+      "predicate": "measures",
+      "object": "f-calpro",
+      "evidence": "Indikator 4 monitorerer andelen af patienter i BMSL, der får målt F-calpro",
+      "page": 11
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "relies-on",
+      "object": "lpr",
+      "evidence": "Indikator 6 anvender procedurekoder fra LPR til at definere primære indgreb og re-operationer",
+      "page": 14
+    },
+    {
+      "subject": "indikator-7",
+      "predicate": "concerns",
+      "object": "psc",
+      "evidence": "Indikator 7 er defineret som andelen af patienter med primær skleroserende kolangitis (PSC), der får koloskopi",
+      "page": 15
+    },
+    {
+      "subject": "styreguppen",
+      "predicate": "conducts-audit-of",
+      "object": "indikator-6",
+      "evidence": "En audit på udvalgte afdelinger, foretaget af styregruppen, har vist usikkerhed vedrørende kodning i forbindelse med Indikator 6",
+      "page": 14
     }
   ],
   "claims": [
     {
-      "text": "I alt 10.523 patienter har været i behandling med BMSL i perioden, heraf 360 børn og unge (3 %)[^src1]",
-      "type": "patient-cohort",
+      "text": "I alt 10.523 patienter har været i behandling med BMSL i perioden, heraf 360 børn og unge (3 %) [^src1]",
+      "type": "patient-count",
       "entities": [
-        "danibd"
+        "bmsl"
       ],
       "page": 11
     },
     {
-      "text": "Der er givet 57.708 behandlinger med BMSL i perioden, hvoraf flest patienter er i behandling med infliximab (36 %)[^src1]",
-      "type": "treatment-volume",
+      "text": "Hovedparten af patienterne i BMSL er diagnosticerede med Crohns sygdom (61 %) [^src1]",
+      "type": "diagnosis-distribution",
       "entities": [
-        "danibd",
-        "infliximab"
+        "bmsl"
       ],
       "page": 11
     },
     {
-      "text": "Hovedparten af patienterne i BMSL er diagnosticerede med Crohns sygdom (61 %)[^src1]",
-      "type": "disease-prevalence",
-      "entities": [
-        "danibd",
-        "crohns-sygdom"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Medianalderen er 40 år for voksne og 15 år for børn og unge[^src1]",
+      "text": "Medianalderen er 40 år for voksne og 15 år for børn og unge [^src1]",
       "type": "demographic",
       "entities": [
-        "danibd"
+        "bmsl"
       ],
       "page": 11
     },
     {
-      "text": "På landsplan har 78 % af patienterne i BMSL fået målt F-calpro en gang årligt, hvormed standarden på mindst 80 % er tæt på at være opfyldt[^src1]",
-      "type": "quality-indicator",
+      "text": "Der er givet 57.708 behandlinger med BMSL i perioden [^src1]",
+      "type": "treatment-count",
       "entities": [
-        "danibd",
+        "bmsl"
+      ],
+      "page": 11
+    },
+    {
+      "text": "På landsplan har 78 % af patienterne i BMSL fået målt F-calpro en gang årligt [^src1]",
+      "type": "quality-metric",
+      "entities": [
+        "indikator-4",
         "f-calpro"
       ],
       "page": 11
     },
     {
-      "text": "I Region Sjælland har 94 % af patienterne i BMSL fået systematisk opfølgning, hvormed standarden er opfyldt[^src1]",
-      "type": "quality-indicator",
+      "text": "I Region Sjælland har 94 % af patienterne i BMSL fået systematisk opfølgning [^src1]",
+      "type": "quality-metric",
       "entities": [
-        "region-sjaelland",
-        "f-calpro"
+        "indikator-4",
+        "region-sjaelland"
       ],
       "page": 11
     },
     {
-      "text": "Region Syddanmark er med en opfyldelse på 79 % marginaler fra at opfylde standarden[^src1]",
-      "type": "quality-indicator",
+      "text": "Region Syddanmark er med en opfyldelse på 79 % marginalt fra at opfylde standarden [^src1]",
+      "type": "quality-metric",
       "entities": [
-        "region-syddanmark",
-        "f-calpro"
+        "indikator-4",
+        "region-syddanmark"
       ],
       "page": 11
     },
     {
-      "text": "Blandt de tre øvrige regioner ses en variation fra 73 % til 76 %[^src1]",
-      "type": "quality-indicator",
+      "text": "Der er foretaget 780 kirurgiske indgreb i perioden svarende til 722 patienter med IBD [^src1]",
+      "type": "surgical-count",
       "entities": [
-        "danibd",
-        "f-calpro"
-      ],
-      "page": 11
-    },
-    {
-      "text": "På afdelingsniveau ses stor variation fra 13% til 100 %[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "danibd",
-        "f-calpro"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Ud af 31 afdelinger lever 21 afdelinger fra alle regioner op til målsætningen[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "danibd",
-        "f-calpro"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Samtlige landets pædiatriske afdelinger sikrer systematisk opfølgning på børn i BMSL (97-100 %)[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "danibd",
-        "f-calpro"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd. har laveste målopfyldelse med 13 %[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "rigshospitalet-med-klinik-mave-tarm-leversygd",
-        "f-calpro"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Nordsjælland Kirurgisk overafdeling har målopfyldelse på 52 %[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "nordsjaelland-kirurgisk-overafdeling",
-        "f-calpro"
-      ],
-      "page": 11
-    },
-    {
-      "text": "SLB Vejle Medicinsk Afdeling har målopfyldelse på 56 %[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "slb-vejle-medicinsk-afdeling",
-        "f-calpro"
-      ],
-      "page": 11
-    },
-    {
-      "text": "De nyere præparater: Ozanimod, Upadacitinib og Filgotinib (ATC-koder: L04AA38, L04AA44 og L04AA45) ikke er inkluderet i indikatoren[^src1]",
-      "type": "data-limitation",
-      "entities": [
-        "danibd",
-        "ozanimod",
-        "upadacitinib",
-        "filgotinib"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Det forventes, at informationerne bliver tilgængelige i løbet af 2024, hvormed disse præparater vil indgå i den kommende årsrapport[^src1]",
-      "type": "future-plan",
-      "entities": [
-        "danibd",
-        "sygehusmedicinregisteret"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Der er foretaget 780 kirurgiske indgreb i perioden svarende til 722 patienter med IBD[^src1]",
-      "type": "surgical-volume",
-      "entities": [
-        "danibd"
+        "indikator-6"
       ],
       "page": 14
     },
     {
-      "text": "Der er indrapporteret i alt 918 operationskoder, hvoraf de hyppigste indgreb var laparoskopisk kolektomi, ileostomi (17%) og ileocækal resektion (12 %)[^src1]",
-      "type": "surgical-procedures",
+      "text": "Der er foretaget 28 re-operationer indenfor 30 dage svarende til 4 % [^src1]",
+      "type": "quality-metric",
       "entities": [
-        "danibd"
+        "indikator-6"
       ],
       "page": 14
     },
     {
-      "text": "76 % af patienterne er registreret med én procedurekode, men 17 % har to og de resterende 7 % har mellem 3-8 registrerede operationskoder[^src1]",
-      "type": "surgical-coding",
+      "text": "Halvdelen af re-operationerne sker inden for de første 7 dage (54 %) [^src1]",
+      "type": "timeline-distribution",
       "entities": [
-        "danibd"
+        "indikator-6"
       ],
       "page": 14
     },
     {
-      "text": "Der er foretaget 28 re-operationer indenfor 30 dage svarende til 4 %, hvormed målsætningen om færre end 8 % er nået[^src1]",
-      "type": "quality-indicator",
+      "text": "Danmark har en opfyldelse på 85 % (95 % CI: 81–89) for Indikator 7 [^src1]",
+      "type": "quality-metric",
       "entities": [
-        "danibd"
-      ],
-      "page": 14
-    },
-    {
-      "text": "Alle regioner lever op til målsætningen, og der ses regional variation fra 2-5 %[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "danibd"
-      ],
-      "page": 14
-    },
-    {
-      "text": "Alle afdelinger der har foretaget kirurgiske indgreb på patienter med IBD, fraset to, lever op til målsætningen[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "danibd"
-      ],
-      "page": 14
-    },
-    {
-      "text": "Der ses en variation på afdelingsniveau fra 0-17 %[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "danibd"
-      ],
-      "page": 14
-    },
-    {
-      "text": "Der er indrapporteret i alt 28 operationskoder ved re-operation, hvoraf de hyppigste indgreb var endoskopisk dilatation af tyktarm (21 %) og tyndtarmsresektion (21 %)[^src1]",
-      "type": "surgical-procedures",
-      "entities": [
-        "danibd"
-      ],
-      "page": 14
-    },
-    {
-      "text": "Halvdelen af re-operationerne inden for de første 7 dage (54 %), mens 25 % sker inden for den anden uge[^src1]",
-      "type": "surgical-timing",
-      "entities": [
-        "danibd"
-      ],
-      "page": 14
-    },
-    {
-      "text": "Gødstrup Mave- og Tarmkirurgi rapporterede 9 % re-operation rate, hvilket overstiger standarden på 8 %[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "goedstrup-mave-tarmkirurgi"
-      ],
-      "page": 12
-    },
-    {
-      "text": "Horsens Medicinsk Afdeling rapporterede 17 % re-operation rate, hvilket betydeligt overstiger standarden på 8 %[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "horsens-medicinsk-afdeling"
-      ],
-      "page": 12
-    },
-    {
-      "text": "På landsplan har 277 ud af 325 patienter med PSC fået foretaget koloskopi inden for 18 måneder, svarende til 85 %[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "danibd",
-        "primaer-skleroserende-kolangitis",
-        "koloskopi"
+        "indikator-7"
       ],
       "page": 15
     },
     {
-      "text": "Danmark opfylder standarden på 80 % for PSC kolonoskopi opfølgning[^src1]",
-      "type": "quality-indicator",
+      "text": "Sjælland har en opfyldelse på 70 % (95 % CI: 47–87) for Indikator 7 [^src1]",
+      "type": "quality-metric",
       "entities": [
-        "danibd",
-        "primaer-skleroserende-kolangitis"
-      ],
-      "page": 15
-    },
-    {
-      "text": "Region Sjælland opfylder ikke standarden med 70 % PSC kolonoskopi compliance[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "region-sjaelland",
-        "primaer-skleroserende-kolangitis"
-      ],
-      "page": 15
-    },
-    {
-      "text": "OUH Svendborg Medicinsk Afd. rapporterede 0 % PSC kolonoskopi compliance[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "ouh-svendborg-medicinsk-afd",
-        "primaer-skleroserende-kolangitis"
-      ],
-      "page": 15
-    },
-    {
-      "text": "Aarhus Børn og Unge rapporterede 0 % PSC kolonoskopi compliance[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "aarhus-boern-og-unge",
-        "primaer-skleroserende-kolangitis"
-      ],
-      "page": 15
-    },
-    {
-      "text": "AAUH Aalborg Med.gastroenterologisk område rapporterede 79 % PSC kolonoskopi compliance, marginalt under standarden på 80 %[^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "aauh-aalborg-med-gastroenterologisk-omraade",
-        "primaer-skleroserende-kolangitis"
+        "indikator-7",
+        "region-sjaelland"
       ],
       "page": 15
     }
@@ -703,22 +395,41 @@
   "timeline": [
     {
       "date": "01.10.2022 - 30.09.2023",
-      "event": "Periode for BMSL behandling og F-calpro monitoring data collection",
+      "event": "Aktuel opgørelsesperiode for alle tre indikatorer (4, 6 og 7)",
       "entities": [
-        "danibd"
-      ]
-    },
-    {
-      "date": "2024",
-      "event": "Forventet tilgængelighed af medicin data fra Sygehusmedicinregisteret (SMR) for nye IBD præparater",
-      "entities": [
-        "danibd",
-        "sygehusmedicinregisteret",
-        "ozanimod",
-        "upadacitinib",
-        "filgotinib"
+        "indikator-4",
+        "indikator-6",
+        "indikator-7"
       ]
     }
   ],
-  "context": "Denne dokumentchunk præsenterer DANIBD's årsrapport for 2023 med fokus på kvalitetsindikatorer for behandling og opfølgning af inflammatorisk tarmsygdom (IBD) i Danmark. Rapporten dækker tre hovedindikatorer: (1) F-calpro monitoring for patienter i biologisk behandling (BMSL), (2) re-operationsrater efter primær kirurgi, og (3) kolonoskopi opfølgning for patienter med primær skleroserende kolangitis (PSC). Dataene viser generelt høj kvalitet på landsplan, men med betydelig variation mellem regioner og afdelinger, hvilket indikerer behov for forbedringer på udvalgte institutioner."
+  "tables": [
+    {
+      "subject": "indikator-6",
+      "title": "Indikator 6: Andelen af kirurgiske indgreb, hvor der er foretaget en re-operation inden for 30 dage",
+      "page": 12,
+      "rowDimension": "region or department",
+      "colDimension": "re-operation rate with confidence interval",
+      "entities": [
+        "indikator-6",
+        "danibd"
+      ],
+      "markdown": "| Danmark | Ja | 28 | / | 780 | 0 | (0) | 4 | (2-5) |\n| Hovedstaden | Ja | 10 | / | 219 | 0 | (0) | 5 | (2-8) |\n| Sjælland | Ja | # | / | # | 0 | (0) | 2 | (0-7) |\n| Syddanmark | Ja | 7 | / | 171 | 0 | (0) | 4 | (2-8) |\n| Midtjylland | Ja | 8 | / | 236 | 0 | (0) | 3 | (1-7) |\n| Nordjylland | Ja | # | / | # | 0 | (0) | 2 | (0-9) |\n| Hovedstaden | Ja | 10 | / | 219 | 0 | (0) | 5 | (2-8) |\n| Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd. | Ja | 0 | / | 17 | 0 | (0) | 0 | (0-20) |\n| Bispebjerg Abdominalcenter K | Ja | 0 | / | 26 | 0 | (0) | 0 | (0-13) |\n| Herlev Gastroenheden Kir. Med., overafd. D | Ja | 3 | / | 64 | 0 | (0) | 5 | (1-13) |\n| Hvidovre Gastroenheden | Ja | 6 | / | 80 | 0 | (0) | 8 | (3-16) |\n| Nordsjælland Kirurgisk overafdeling | Ja | # | / | # | 0 | (0) | 3 | (0-16) |\n| Sjælland | Ja | # | / | # | 0 | (0) | 2 | (0-7) |\n| SUH Køge Medicin | Ja | # | / | # | 0 | (0) | 2 | (0-8) |\n| NSR Slagelse Med. Gastroenterologi | Ja | # | / | # | 0 | (0) | 0 | (0-84) |\n| Syddanmark | Ja | 7 | / | 171 | 0 | (0) | 4 | (2-8) |\n| OUH Odense Medicinsk Mave-Tarm Afdeling S | Ja | 4 | / | 90 | 0 | (0) | 4 | (1-11) |\n| EGS Esbjerg Medicinsk område | Ja | # | / | # | 0 | (0) | 6 | (1-21) |\n| SHS Aabenraa Mave-tarmsygdomme | Ja | # | / | # | 0 | (0) | 0 | (0-84) |\n| SLB Vejle Medicinsk Afdeling | Ja | # | / | # | 0 | (0) | 2 | (0-11) |\n| Midtjylland | Ja | 8 | / | 236 | 0 | (0) | 3 | (1-7) |\n| Aarhus Lever-, Mave- og Tarmsygdomme | Ja | # | / | # | 0 | (0) | 1 | (0-5) |\n| Gødstrup Mave- og Tarmkirurgi | Nej | 5 | / | 58 | 0 | (0) | 9 | (3-19) |\n| Horsens Medicinsk Afdeling | Nej | # | / | # | 0 | (0) | 17 | (0-64) |\n| Randers Medicinsk Afdeling | Ja | 0 | / | 4 | 0 | (0) | 0 | (0-60) |\n| Viborg Medicinsk Afdeling | Ja | 0 | / | 13 | 0 | (0) | 0 | (0-25) |\n| Nordjylland | Ja | # | / | # | 0 | (0) | 2 | (0-9) |\n| AAUH Aalborg Med.gastroenterologisk område | Ja | # | / | # | 0 | (0) | 2 | (0-10) |\n| RHN Hjørring Medicinske Mave- og Tarmsygd. | Ja | 0 | / | 4 | 0 | (0) | 0 | (0-60) |",
+      "summary": "Tabellen sammenligner re-operationssatsen (antal re-operationer per antal kirurgiske indgreb) på nationalt, regionalt og afdelingsniveau, hvor alle regioner opfylder målsætningen på ≤8 %, men nogle afdelinger viser højere variation (0–17 %)."
+    },
+    {
+      "subject": "indikator-7",
+      "title": "Indikator 7: Andelen af patienter med primær skleroserende kolangitis (PSC), der får foretaget koloskopi inden for 18 måneder",
+      "page": 15,
+      "rowDimension": "region or department",
+      "colDimension": "colonoscopy rate with confidence interval",
+      "entities": [
+        "indikator-7",
+        "danibd"
+      ],
+      "markdown": "| Danmark | Ja | 277 | / | 325 | 0 | (0) | 85 | (81-89) |\n| Hovedstaden | Ja | 133 | / | 155 | 0 | (0) | 86 | (79-91) |\n| Sjælland | Nej | 16 | / | 23 | 0 | (0) | 70 | (47-87) |\n| Syddanmark | Ja | 51 | / | 59 | 0 | (0) | 86 | (75-94) |\n| Midtjylland | Ja | 65 | / | 73 | 0 | (0) | 89 | (80-95) |\n| Nordjylland | Ja | 12 | / | 15 | 0 | (0) | 80 | (52-96) |\n| Hovedstaden | Ja | 133 | / | 155 | 0 | (0) | 86 | (79-91) |\n| Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd. | Ja | 66 | / | 79 | 0 | (0) | 84 | (74-91) |\n| Rigshospitalet Pædiatrisk Klinik, GGK | Nej | # | / | # | 0 | (0) | 50 | (1-99) |\n| Bispebjerg Abdominalcenter K | Ja | # | / | # | 0 | (0) | 100 | (16-100) |\n| Bornholm Medicinsk afdeling | Ja | # | / | # | 0 | (0) | 100 | (3-100) |\n| Herlev Gastroenheden Kir. Med., overafd. D | Ja | 18 | / | 22 | 0 | (0) | 82 | (60-95) |\n| Hvidovre Gastroenheden | Ja | 42 | / | 46 | 0 | (0) | 91 | (79-98) |\n| Nordsjælland Kirurgisk overafdeling | Ja | 3 | / | 3 | 0 | (0) | 100 | (29-100) |\n| Sjælland | Nej | 16 | / | 23 | 0 | (0) | 70 | (47-87) |\n| SUH Køge Medicin | Nej | 15 | / | 21 | 0 | (0) | 71 | (48-89) |\n| NFS Nykøbing F Medicin | Nej | # | / | # | 0 | (0) | 50 | (1-99) |\n| Syddanmark | Ja | 51 | / | 59 | 0 | (0) | 86 | (75-94) |\n| OUH Odense Medicinsk Mave-Tarm Afdeling S | Ja | 30 | / | 34 | 0 | (0) | 88 | (73-97) |\n| OUH Svendborg Medicinsk Afd. | Nej | # | / | # | 0 | (0) | 0 | (0-84) |\n| EGS Esbjerg Medicinsk område | Ja | 15 | / | 16 | 0 | (0) | 94 | (70-100) |\n| SHS Aabenraa Mave-tarmsygdomme | Ja | # | / | # | 0 | (0) | 100 | (16-100) |\n| SLB Vejle Medicinsk Afdeling | Ja | 4 | / | 5 | 0 | (0) | 80 | (28-99) |\n| Midtjylland | Ja | 65 | / | 73 | 0 | (0) | 89 | (80-95) |\n| Aarhus Børn og Unge | Nej | # | / | # | 0 | (0) | 0 | (0-98) |\n| Aarhus Lever-, Mave- og Tarmsygdomme | Ja | 60 | / | 66 | 0 | (0) | 91 | (81-97) |\n| Gødstrup Medicinsk Afdeling | Nej | # | / | # | 0 | (0) | 67 | (9-99) |\n| Silkeborg Diagnostisk Center Medicin | Ja | # | / | # | 0 | (0) | 100 | (3-100) |\n| Viborg Medicinsk Afdeling | Ja | # | / | # | 0 | (0) | 100 | (16-100) |\n| Nordjylland | Ja | 12 | / | 15 | 0 | (0) | 80 | (52-96) |\n| AAUH Aalborg Med.gastroenterologisk område | Nej | 11 | / | 14 | 0 | (0) | 79 | (49-95) |\n| AAUH Farsø Medicinsk område | Ja | # | / | # | 0 | (0) | 100 | (3-100) |",
+      "summary": "Tabellen sammenligner koloskopi-raten blandt PSC-patienter på nationalt, regionalt og afdelingsniveau, hvor Danmark opfylder målsætningen (85 %), men Sjælland (70 %) og flere pædiatriske og små afdelinger ligger under 80 %."
+    }
+  ],
+  "context": "Dette dokumentchunk udgør siderne 11–15 af DANIBD’s 2023-årsrapport og fokuserer på tre centrale kvalitetsindikatorer for inflammatoriske tarmsygdomme (IBD): Indikator 4 (systematisk opfølgning med F-calpro under BMSL-behandling), Indikator 6 (re-operation inden for 30 dage efter primært kirurgisk indgreb) og Indikator 7 (koloskopi hos patienter med primær skleroserende kolangitis). Chunken indeholder detaljerede resultater, metodiske forklaringer på datagrundlag og beregningsregler, samt diskussioner af implikationer og kvalitetsvurderinger — herunder bemærkninger om manglende inklusion af nye præparater i BMSL, kodningsusikkerhed i LPR og behov for bedre dataintegration fra SMR og lokale laboratoriekoder. Den indgår i en bredere national indsats for at sikre evidensbaseret, registerdrevet kvalitetsmonitorering af IBD-behandling i Danmark."
 }

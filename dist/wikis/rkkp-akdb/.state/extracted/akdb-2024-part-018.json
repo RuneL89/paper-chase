@@ -2,92 +2,14 @@
   "entities": [
     {
       "name": "Akut Kirurgi Databasen",
-      "type": "organization",
+      "type": "database",
       "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/healthcare-databases",
-      "significance": "AKDB er den centrale database for monitorering og forbedring af kvaliteten af pleje, diagnostik og behandling af højrisiko akutte abdominalkirurgiske patienter i Danmark.",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er en klinisk kvalitetsdatabase, der overvåger og forbedrer pleje, diagnostik og behandling af højrisiko akutte abdominalkirurgiske patienter, og danner grundlag for offentliggjorte indikatorresultater på nationalt og regionalt niveau.",
       "mentions": [
         {
           "page": 86,
-          "context": "Formålet med databasen er at monitorere og forbedre kvaliteten af pleje, diagnostik og behandling af højrisiko akutte abdominalkirurgiske patienter."
-        }
-      ]
-    },
-    {
-      "name": "CPR-registeret",
-      "type": "organization",
-      "slug": "cpr-registeret",
-      "folder": "entities/organizations/registries",
-      "significance": "CPR-registeret er en af de vigtigste datakilder for konstruktion af populationen og indikatorer i AKDB.",
-      "mentions": [
-        {
-          "page": 86,
-          "context": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)"
-        }
-      ]
-    },
-    {
-      "name": "Landspatientregisteret",
-      "type": "organization",
-      "slug": "landspatientregisteret",
-      "folder": "entities/organizations/registries",
-      "significance": "LPR er en primær datakilde for AKDB og modtager indberetninger af data til databasen.",
-      "mentions": [
-        {
-          "page": 86,
-          "context": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL). Registrering af data til databasen foregår som indberetning til LPR."
-        }
-      ]
-    },
-    {
-      "name": "Den Nationale Labdatabank",
-      "type": "organization",
-      "slug": "den-nationale-labdatabank",
-      "folder": "entities/organizations/registries",
-      "significance": "DNL er en datakilde for AKDB, selvom den aktuelt ikke har data til rådighed i de nationale kvalitetsdatabaser.",
-      "mentions": [
-        {
-          "page": 86,
-          "context": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL). DNL har aktuelt ikke data til rådighed i de nationale kvalitetsdatabaser, men når data bliver tilgængelige, vil de indgå i indikatorberegningen i AKDB."
-        }
-      ]
-    },
-    {
-      "name": "Dansk Anæstesi Database",
-      "type": "organization",
-      "slug": "dansk-anaestesi-database",
-      "folder": "entities/organizations/healthcare-databases",
-      "significance": "DAD er en af de øvrige datakilder, som AKDB benytter til en række indikatorer.",
-      "mentions": [
-        {
-          "page": 86,
-          "context": "De øvrige datakilder er - Den Nationale Labdatabank (DNL) - Dansk Anæstesi Database (DAD) - Sygehusmedicinregisteret (SMR)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehusmedicinregisteret",
-      "type": "organization",
-      "slug": "sygehusmedicinregisteret",
-      "folder": "entities/organizations/healthcare-databases",
-      "significance": "SMR er en af de øvrige datakilder, som AKDB benytter til en række indikatorer.",
-      "mentions": [
-        {
-          "page": 86,
-          "context": "De øvrige datakilder er - Den Nationale Labdatabank (DNL) - Dansk Anæstesi Database (DAD) - Sygehusmedicinregisteret (SMR)"
-        }
-      ]
-    },
-    {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau, hvor AKDB rapporterer aggregerede resultater for alle regioner og hospitaler.",
-      "mentions": [
-        {
-          "page": 86,
-          "context": "Indikatorsættet er udvalgt med udgangspunkt i en dokumentalistrapport. Datakilder Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)"
+          "context": "Akut Kirurgi Databasen"
         }
       ]
     },
@@ -95,12 +17,90 @@
       "name": "Sundhedsvæsenets Kvalitetsinstitut",
       "type": "organization",
       "slug": "sundhedsvaesenets-kvalitetsinstitut",
-      "folder": "entities/organizations/healthcare-quality",
-      "significance": "Sundhedsvæsenets Kvalitetsinstitut er ansvarlig for udgivelsen af AKDB-årsrapporten.",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den organisation, der udgiver den endelige version af Akut Kirurgi Databasen og står bag kvalitetsmonitoreringen af akut abdominalkirurgi i Danmark.",
       "mentions": [
         {
           "page": 86,
-          "context": "Akut Kirurgi Databasen Endelig version til offentliggørelse 2025.02.28 Sundhedsvæsenets Kvalitetsinstitut"
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "CPR-registeret",
+      "type": "database",
+      "slug": "cpr-registeret",
+      "folder": "entities/databases/government",
+      "significance": "CPR-registeret er en central dansk statsdatabase, der bruges som datakilde til konstruktion af populationen og indikatorerne i Akut Kirurgi Databasen, og indeholder personhenførbare identifikationsoplysninger.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "CPR-registeret"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret (LPR)",
+      "type": "database",
+      "slug": "landspatientregisteret-lpr",
+      "folder": "entities/databases/healthcare",
+      "significance": "Landspatientregisteret (LPR) er den primære datakilde for registrering af data til Akut Kirurgi Databasen, da registreringen foregår som indberetning til LPR, og det leverer nødvendige patientforløbsdata.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Landspatientregisteret (LPR)"
+        }
+      ]
+    },
+    {
+      "name": "Den Nationale Labdatabank (DNL)",
+      "type": "database",
+      "slug": "den-nationale-labdatabank-dnl",
+      "folder": "entities/databases/clinical",
+      "significance": "Den Nationale Labdatabank (DNL) er en supplerende datakilde til Akut Kirurgi Databasen, der skal indgå i indikatorberegningen, når data bliver tilgængelige, men har aktuelt ikke data til rådighed i de nationale kvalitetsdatabaser.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Den Nationale Labdatabank (DNL)"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Anæstesi Database (DAD)",
+      "type": "database",
+      "slug": "dansk-anaestesi-database-dad",
+      "folder": "entities/databases/clinical",
+      "significance": "Dansk Anæstesi Database (DAD) er en af de supplerende databaser, hvis data anvendes i Akut Kirurgi Databasen til beregning af indikatorer, hvilket understreger integrationen af specialiserede kliniske registre i kvalitetsmåling.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Dansk Anæstesi Database (DAD)"
+        }
+      ]
+    },
+    {
+      "name": "Sygehusmedicinregisteret (SMR)",
+      "type": "database",
+      "slug": "sygehusmedicinregisteret",
+      "folder": "entities/databases/clinical",
+      "significance": "Sygehusmedicinregisteret (SMR) er en supplerende datakilde til Akut Kirurgi Databasen, der bidrager med medicinske behandlingsdata til indikatorberegning og kvalitetsvurdering.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Sygehusmedicinregisteret (SMR)"
+        }
+      ]
+    },
+    {
+      "name": "Indberetningsvejledning til Landspatientregisteret",
+      "type": "document",
+      "slug": "indberetningsvejledning-til-landspatientregisteret",
+      "folder": "topics/administrative-systems/danish-civil-registration",
+      "significance": "Indberetningsvejledning til Landspatientregisteret er den generelle vejledning, der henvises til for korrekt indberetning til LPR, hvilket er afgørende for datakvaliteten i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Indberetningsvejledning til Landspatientregisteret"
         }
       ]
     }
@@ -108,59 +108,58 @@
   "relationships": [
     {
       "subject": "akut-kirurgi-databasen",
+      "predicate": "is-published-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Akut Kirurgi Databasen\nEndelig version til offentliggørelse 2025.02.28\nSundhedsvæsenets Kvalitetsinstitut",
+      "page": 86
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
       "predicate": "uses-data-from",
       "object": "cpr-registeret",
-      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret",
+      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)",
       "page": 86
     },
     {
       "subject": "akut-kirurgi-databasen",
       "predicate": "uses-data-from",
-      "object": "landspatientregisteret",
-      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra Landspatientregisteret (LPR)",
+      "object": "landspatientregisteret-lpr",
+      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)",
       "page": 86
     },
     {
       "subject": "akut-kirurgi-databasen",
       "predicate": "uses-data-from",
-      "object": "den-nationale-labdatabank",
-      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra Den Nationale Labdatabank (DNL)",
+      "object": "den-nationale-labdatabank-dnl",
+      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)",
       "page": 86
     },
     {
       "subject": "akut-kirurgi-databasen",
       "predicate": "uses-data-from",
-      "object": "dansk-anaestesi-database",
-      "evidence": "Databasen til en række indikatorer benytter data fra Dansk Anæstesi Database (DAD)",
+      "object": "dansk-anaestesi-database-dad",
+      "evidence": "De øvrige datakilder er\n- Den Nationale Labdatabank (DNL)\n- Dansk Anæstesi Database (DAD)\n- Sygehusmedicinregisteret (SMR)",
       "page": 86
     },
     {
       "subject": "akut-kirurgi-databasen",
       "predicate": "uses-data-from",
       "object": "sygehusmedicinregisteret",
-      "evidence": "Databasen til en række indikatorer benytter data fra Sygehusmedicinregisteret (SMR)",
+      "evidence": "De øvrige datakilder er\n- Den Nationale Labdatabank (DNL)\n- Dansk Anæstesi Database (DAD)\n- Sygehusmedicinregisteret (SMR)",
       "page": 86
     },
     {
       "subject": "akut-kirurgi-databasen",
-      "predicate": "reports-to",
-      "object": "sundhedsvaesenets-kvalitetsinstitut",
-      "evidence": "Sundhedsvæsenets Kvalitetsinstitut udgiver AKDB-årsrapporten",
+      "predicate": "has-guidance-reference",
+      "object": "indberetningsvejledning-til-landspatientregisteret",
+      "evidence": "For en generel vejledning i indberetning til LPR, henvises til Indberetningsvejledning til Landspatientregisteret.",
       "page": 86
     }
   ],
   "claims": [
     {
       "text": "Formålet med databasen er at monitorere og forbedre kvaliteten af pleje, diagnostik og behandling af højrisiko akutte abdominalkirurgiske patienter [^src1]",
-      "type": "organizational",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 86
-    },
-    {
-      "text": "Indikatorsættet er udvalgt med udgangspunkt i en dokumentalistrapport [^src1]",
-      "type": "methodology",
+      "type": "purpose",
       "entities": [
         "akut-kirurgi-databasen"
       ],
@@ -172,42 +171,58 @@
       "entities": [
         "akut-kirurgi-databasen",
         "cpr-registeret",
-        "landspatientregisteret",
-        "den-nationale-labdatabank"
+        "landspatientregisteret-lpr",
+        "den-nationale-labdatabank-dnl"
       ],
       "page": 86
     },
     {
       "text": "Registrering af data til databasen foregår som indberetning til LPR [^src1]",
-      "type": "data-source",
+      "type": "registration-method",
       "entities": [
         "akut-kirurgi-databasen",
-        "landspatientregisteret"
+        "landspatientregisteret-lpr"
       ],
       "page": 86
     },
     {
-      "text": "De øvrige datakilder er Den Nationale Labdatabank (DNL), Dansk Anæstesi Database (DAD) og Sygehusmedicinregisteret (SMR) [^src1]",
+      "text": "Databasen benytter også data fra Dansk Anæstesi Database (DAD) og Sygehusmedicinregisteret (SMR) [^src1]",
       "type": "data-source",
       "entities": [
         "akut-kirurgi-databasen",
-        "den-nationale-labdatabank",
-        "dansk-anaestesi-database",
+        "dansk-anaestesi-database-dad",
         "sygehusmedicinregisteret"
       ],
       "page": 86
     },
     {
-      "text": "Resultatet er et udtryk for registreringen, og ikke nødvendigvis for den faktiske praksis [^src1]",
-      "type": "methodology",
+      "text": "DNL har aktuelt ikke data til rådighed i de nationale kvalitetsdatabaser, men når data bliver tilgængelige, vil de indgå i indikatorberegningen i AKDB [^src1]",
+      "type": "data-availability",
+      "entities": [
+        "den-nationale-labdatabank-dnl",
+        "akut-kirurgi-databasen"
+      ],
+      "page": 86
+    },
+    {
+      "text": "Indikatorresultater, hvor der kun optræder n = 1 eller n = 2 i enten tæller eller nævner, vil af diskretionshensyn blive fjernet og erstattet med # samt en forklaringsnote i den offentliggjorte årsrapport på www.sundhed.dk [^src1]",
+      "type": "data-privacy",
       "entities": [
         "akut-kirurgi-databasen"
       ],
       "page": 86
     },
     {
-      "text": "Indikatorresultater, hvor der kun optræder n = 1 eller n = 2 i enten tæller eller nævner, vil af diskretionshensyn blive fjernet og erstattet med # samt en forklaringsnote [^src1]",
-      "type": "data-quality",
+      "text": "Forklaringsnoten lyder: ”Resultatet er af diskretionshensyn fjernet, da der er et eller to patienter/forløb i tæller eller nævner” [^src1]",
+      "type": "data-privacy",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 86
+    },
+    {
+      "text": "I kolonnen ”Udviklingsmål opfyldt” angives alene om punktestimatet ligger over eller under det vedtagne udviklingsmål: Ja = estimatet ligger på den rigtige side af udviklingsmålet; Nej = estimatet ligger på den forkerte side af udviklingsmålet [^src1]",
+      "type": "indicator-interpretation",
       "entities": [
         "akut-kirurgi-databasen"
       ],
@@ -215,36 +230,9 @@
     },
     {
       "text": "Der beregnes 95 % konfidensinterval for indikatorresultatet i aktuelle opgørelsesperiode [^src1]",
-      "type": "methodology",
+      "type": "statistical-method",
       "entities": [
         "akut-kirurgi-databasen"
-      ],
-      "page": 86
-    },
-    {
-      "text": "DNL har aktuelt ikke data til rådighed i de nationale kvalitetsdatabaser, men når data bliver tilgængelige, vil de indgå i indikatorberegningen i AKDB [^src1]",
-      "type": "data-source",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "den-nationale-labdatabank"
-      ],
-      "page": 86
-    },
-    {
-      "text": "Andelen af patienter, der er opereres inden for 6-8 timer efter ankomst til sygehus for patienter med en diagnose for perforation, iskæmi eller postoperativ intraabdominal blødning, og som er opereret før 48 t, var 21,7% (95% CI: 19,0-24,6) på nationalt niveau i perioden 01.09.2023 - 31.08.2024 [^src1]",
-      "type": "clinical-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "danmark"
-      ],
-      "page": 86
-    },
-    {
-      "text": "Andelen af patienter, der er opereres inden for 8-10 timer efter ankomst til sygehus for patienter med en diagnose for perforation, iskæmi eller postoperativ intraabdominal blødning, og som er opereret før 48 t, var 12,8% (95% CI: 10,6-15,2) på nationalt niveau i perioden 01.09.2023 - 31.08.2024 [^src1]",
-      "type": "clinical-indicator",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "danmark"
       ],
       "page": 86
     }
@@ -252,121 +240,19 @@
   "timeline": [
     {
       "date": "2025-02-28",
-      "event": "Endelig version af AKDB-årsrapporten til offentliggørelse",
+      "event": "Endelig version af Akut Kirurgi Databasen udgivet",
       "entities": [
-        "akut-kirurgi-databasen",
-        "sundhedsvaesenets-kvalitetsinstitut"
+        "akut-kirurgi-databasen"
       ]
     },
     {
-      "date": "2023-09-01 to 2024-08-31",
-      "event": "Aktuelle opgørelsesperiode for AKDB-indikatorer",
+      "date": "2023-09-01",
+      "event": "Start af opgørelsesperioden for aktuelle år (01.09.2023 - 31.08.2024)",
       "entities": [
         "akut-kirurgi-databasen"
       ]
     }
   ],
-  "context": "Dette afsnit beskriver formål, datakilder og metodologi for Akut Kirurgi Databasen (AKDB), som er en national kvalitetsdatabase for monitorering og forbedring af behandlingen af højrisiko akutte abdominalkirurgiske patienter i Danmark. Afsnittet præsenterer også supplerende opgørelser for indikatorer vedrørende operationstidspunkter (6-8 timer og 8-10 timer efter ankomst) for patienter med perforation, iskæmi eller postoperativ intraabdominal blødning, opdelt på regionalt og hospitalsniveau. Dokumentet understreger vigtigheden af at forstå, at indikatorresultater afspejler registreringen snarere end den faktiske kliniske praksis, og beskriver procedurer for håndtering af små tal og beregning af konfidensintervaller.",
-  "tables": [
-    {
-      "subject": "indikator-4x",
-      "title": "Supplerende opgørelse til indikator 4x, 6-8 timer (regionalt niveau)",
-      "page": 86,
-      "rowDimension": "regioner og Danmark",
-      "colDimension": "andel opereret inden for 6-8 timer per opgørelsesår",
-      "entities": [
-        "indikator-4x",
-        "danmark",
-        "region-hovedstaden",
-        "region-sjaelland",
-        "region-syddanmark",
-        "region-midtjylland",
-        "region-nordjylland"
-      ],
-      "markdown": "| Region | Standard opfyldt | Uoplyst (%) | Tæller/nævner | Andel (95% CI) 01.09.2023 - 31.08.2024 | Andel 2022/23 | Andel 2021/22 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 0 (0) | 185 / 852 | 21,7 (19,0-24,6) | 21,1 | 19,5 |\n| Hovedstaden | Nej | 0 (0) | 69 / 275 | 25,1 (20,1-30,6) | 21,3 | 17,6 |\n| Sjælland | Nej | 0 (0) | 41 / 170 | 24,1 (17,9-31,3) | 16,3 | 26,8 |\n| Syddanmark | Nej | 0 (0) | 30 / 159 | 18,9 (13,1-25,8) | 22,3 | 20,0 |\n| Midtjylland | Nej | 0 (0) | 38 / 206 | 18,4 (13,4-24,4) | 24,6 | 17,6 |\n| Nordjylland | Nej | 0 (0) | 7 / 42 | 16,7 (7,0-31,4) | 17,6 | 16,3 |",
-      "summary": "Tabellen sammenligner andelen af patienter opereret inden for 6-8 timer efter ankomst på tværs af Danmark og de fem regioner; Hovedstaden har den højeste andel (25,1 %) og Nordjylland den laveste (16,7 %), og ingen opfylder standarden på ≥ 90 %."
-    },
-    {
-      "subject": "indikator-4x",
-      "title": "Supplerende opgørelse til indikator 4x, 6-8 timer (hospitalsniveau)",
-      "page": 87,
-      "rowDimension": "hospitaler",
-      "colDimension": "andel opereret inden for 6-8 timer per opgørelsesår",
-      "entities": [
-        "indikator-4x",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "holbaek-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "aalborg-universitetshospital",
-        "regionshospital-nordjylland"
-      ],
-      "markdown": "| Hospital | Standard opfyldt | Uoplyst (%) | Tæller/nævner | Andel (95% CI) 01.09.2023 - 31.08.2024 | Andel 2022/23 | Andel 2021/22 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Amager og Hvidovre Hospital | Nej | 0 (0) | 17 / 64 | 26,6 (16,3-39,1) | 21,8 | 10,3 |\n| Bispebjerg og Frederiksberg Hospital | Nej | 0 (0) | 15 / 48 | 31,3 (18,7-46,3) | 23,0 | 26,5 |\n| Bornholms Hospital | Nej | 0 (0) | 4 / 6 | 66,7 (22,3-95,7) | 0,0 | 0,0 |\n| Herlev og Gentofte Hospital | Nej | 0 (0) | 18 / 79 | 22,8 (14,1-33,6) | 20,0 | 23,1 |\n| Hospitalerne i Nordsjælland | Nej | 0 (0) | 15 / 66 | 22,7 (13,3-34,7) | 26,8 | 18,2 |\n| Rigshospitalet | Nej | 0 (0) | 0 / 12 | 0,0 (0,0-26,5) | 0,0 | 0,0 |\n| Holbæk Sygehus | Nej | 0 (0) | 11 / 46 | 23,9 (12,6-38,8) | 16,7 | 33,3 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 0 (0) | 13 / 60 | 21,7 (12,1-34,2) | 19,6 | 27,5 |\n| Sjællands Universitetshospital | Nej | 0 (0) | 17 / 64 | 26,6 (16,3-39,1) | 13,6 | 24,2 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 0 (0) | 8 / 35 | 22,9 (10,4-40,1) | 20,5 | 20,0 |\n| Odense Universitetshospital - Svendborg | Nej | 0 (0) | 11 / 70 | 15,7 (8,1-26,4) | 17,5 | 17,7 |\n| Sygehus Lillebælt | Nej | 0 (0) | #/# | 11,8 (1,5-36,4) | 40,9 | 27,5 |\n| Sygehus Sønderjylland | Nej | 0 (0) | 9 / 37 | 24,3 (11,8-41,2) | 21,4 | 13,0 |\n| Aarhus Universitetshospital | Nej | 0 (0) | 12 / 41 | 29,3 (16,1-45,5) | 25,7 | 15,6 |\n| Hospitalsenhed Midt | Nej | 0 (0) | 5 / 37 | 13,5 (4,5-28,8) | 29,3 | 20,6 |\n| Regionshospitalet Gødstrup | Nej | 0 (0) | 10 / 59 | 16,9 (8,4-29,0) | 31,5 | 20,0 |\n| Regionshospitalet Horsens | Nej | 0 (0) | 4 / 28 | 14,3 (4,0-32,7) | 8,0 | 10,0 |\n| Regionshospitalet Randers | Nej | 0 (0) | 7 / 41 | 17,1 (7,2-32,1) | 20,5 | 18,9 |\n| Aalborg Universitetshospital | Nej | 0 (0) | 3 / 20 | 15,0 (3,2-37,9) | 18,4 | 17,2 |\n| Regionshospital Nordjylland | Nej | 0 (0) | 4 / 22 | 18,2 (5,2-40,3) | 16,0 | 15,0 |",
-      "summary": "Tabellen sammenligner andelen af patienter opereret inden for 6-8 timer på tværs af hospitaler i alle fem regioner; Bornholms Hospital har den højeste andel (66,7 % af 6 patienter), mens Rigshospitalet har 0,0 %, og ingen opfylder standarden på ≥ 90 %."
-    },
-    {
-      "subject": "indikator-4x",
-      "title": "Supplerende opgørelse til indikator 4x, 8-10 timer (regionalt niveau)",
-      "page": 88,
-      "rowDimension": "regioner og Danmark",
-      "colDimension": "andel opereret inden for 8-10 timer per opgørelsesår",
-      "entities": [
-        "indikator-4x",
-        "danmark",
-        "region-hovedstaden",
-        "region-sjaelland",
-        "region-syddanmark",
-        "region-midtjylland",
-        "region-nordjylland"
-      ],
-      "markdown": "| Region | Standard opfyldt | Uoplyst (%) | Tæller/nævner | Andel (95% CI) 01.09.2023 - 31.08.2024 | Andel 2022/23 | Andel 2021/22 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 0 (0) | 109 / 852 | 12,8 (10,6-15,2) | 11,5 | 15,2 |\n| Hovedstaden | Nej | 0 (0) | 24 / 275 | 8,7 (5,7-12,7) | 11,9 | 17,6 |\n| Sjælland | Nej | 0 (0) | 33 / 170 | 19,4 (13,8-26,2) | 10,5 | 10,9 |\n| Syddanmark | Nej | 0 (0) | 28 / 159 | 17,6 (12,0-24,4) | 10,8 | 12,9 |\n| Midtjylland | Nej | 0 (0) | 21 / 206 | 10,2 (6,4-15,2) | 12,1 | 18,1 |\n| Nordjylland | Nej | 0 (0) | 3 / 42 | 7,1 (1,5-19,5) | 12,2 | 8,2 |",
-      "summary": "Tabellen sammenligner andelen af patienter opereret inden for 8-10 timer på tværs af Danmark og regionerne; Sjælland har den højeste andel (19,4 %) og Nordjylland den laveste (7,1 %), og nationalt er andelen faldet fra 15,2 % i 2021/22 til 12,8 %."
-    },
-    {
-      "subject": "indikator-4x",
-      "title": "Supplerende opgørelse til indikator 4x, 8-10 timer (hospitalsniveau)",
-      "page": 88,
-      "rowDimension": "hospitaler",
-      "colDimension": "andel opereret inden for 8-10 timer per opgørelsesår",
-      "entities": [
-        "indikator-4x",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "holbaek-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "aalborg-universitetshospital",
-        "regionshospital-nordjylland"
-      ],
-      "markdown": "| Hospital | Standard opfyldt | Uoplyst (%) | Tæller/nævner | Andel (95% CI) 01.09.2023 - 31.08.2024 | Andel 2022/23 | Andel 2021/22 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Amager og Hvidovre Hospital | Nej | 0 (0) | 5 / 64 | 7,8 (2,6-17,3) | 11,5 | 12,8 |\n| Bispebjerg og Frederiksberg Hospital | Nej | 0 (0) | 6 / 48 | 12,5 (4,7-25,2) | 12,2 | 22,4 |\n| Bornholms Hospital | Nej | 0 (0) | 0 / 6 | 0,0 (0,0-45,9) | 0,0 | 33,3 |\n| Herlev og Gentofte Hospital | Nej | 0 (0) | 5 / 79 | 6,3 (2,1-14,2) | 18,5 | 17,9 |\n| Hospitalerne i Nordsjælland | Nej | 0 (0) | 8 / 66 | 12,1 (5,4-22,5) | 9,9 | 18,2 |\n| Rigshospitalet | Nej | 0 (0) | 0 / 12 | 0,0 (0,0-26,5) | 0,0 | 16,7 |\n| Holbæk Sygehus | Nej | 0 (0) | 7 / 46 | 15,2 (6,3-28,9) | 8,3 | 14,3 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 0 (0) | 12 / 60 | 20,0 (10,8-32,3) | 11,8 | 13,7 |\n| Sjællands Universitetshospital | Nej | 0 (0) | 14 / 64 | 21,9 (12,5-34,0) | 10,6 | 7,6 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 0 (0) | 7 / 35 | 20,0 (8,4-36,9) | 7,7 | 6,7 |\n| Odense Universitetshospital - Svendborg | Nej | 0 (0) | 14 / 70 | 20,0 (11,4-31,3) | 11,1 | 22,6 |\n| Sygehus Lillebælt | Nej | 0 (0) | #/# | 5,9 (0,1-28,7) | 22,7 | 7,5 |\n| Sygehus Sønderjylland | Nej | 0 (0) | 6 / 37 | 16,2 (6,2-32,0) | 7,1 | 4,3 |\n| Aarhus Universitetshospital | Nej | 0 (0) | 4 / 41 | 9,8 (2,7-23,1) | 11,4 | 25,0 |\n| Hospitalsenhed Midt | Nej | 0 (0) | #/# | 5,4 (0,7-18,2) | 4,9 | 8,8 |\n| Regionshospitalet Gødstrup | Nej | 0 (0) | 8 / 59 | 13,6 (6,0-25,0) | 9,3 | 13,3 |\n| Regionshospitalet Horsens | Nej | 0 (0) | 3 / 28 | 10,7 (2,3-28,2) | 36,0 | 33,3 |\n| Regionshospitalet Randers | Nej | 0 (0) | 4 / 41 | 9,8 (2,7-23,1) | 9,1 | 16,2 |\n| Aalborg Universitetshospital | Nej | 0 (0) | #/# | 10,0 (1,2-31,7) | 14,3 | 0,0 |\n| Regionshospital Nordjylland | Nej | 0 (0) | #/# | 4,5 (0,1-22,8) | 8,0 | 20,0 |",
-      "summary": "Tabellen sammenligner andelen af patienter opereret inden for 8-10 timer på hospitalsniveau; Sjællands Universitetshospital har den højeste andel (21,9 %), mens Bornholms Hospital og Rigshospitalet har 0,0 %, og flere hospitaler har tal fjernet af diskretionshensyn (#/#)."
-    }
-  ]
+  "tables": [],
+  "context": "Dette afsnit fra siderne 86–90 i AKDB_2024.pdf beskriver metodologien bag Akut Kirurgi Databasen, herunder dens formål, datakilder, registreringsmekanismer og fortolkning af indikatorresultater. Det er en integreret del af det danske sundhedssystem’s kvalitetsudviklingsprogram, hvor data fra flere nationale registre og databaser kombineres for at vurdere behandlingskvalitet for akutte abdominalkirurgiske patienter. Afsnittet fokuserer på tekniske og administrative aspekter — herunder dataprivacy, usikkerhedsmåling via konfidensintervaller, og betydningen af korrekt indberetning til LPR — og danner den konceptuelle ramme for de kvantitative indikatorresultater, der præsenteres på de forudgående sider (82–85). Den brede dataintegration understreger systemets ambition om tværgående klinisk kvalitetsmåling."
 }

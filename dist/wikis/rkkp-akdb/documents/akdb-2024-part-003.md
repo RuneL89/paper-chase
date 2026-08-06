@@ -5,9 +5,9 @@ wiki: rkkp-akdb
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: 11-15
-    extracted: '2026-08-03T16:36:41.230Z'
+    extracted: '2026-08-05T16:54:53.254Z'
     sha256: 4bcb5ac208ad3a267ab8ae57e168358bdfd957d90771b42f2faea0ed4d119b4e
-updated: '2026-08-03T16:36:41.230Z'
+updated: '2026-08-05T16:54:53.254Z'
 ---
 
 ## Extracted Text: Pages 11-15

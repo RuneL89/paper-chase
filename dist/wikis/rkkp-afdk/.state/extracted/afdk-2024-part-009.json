@@ -1,28 +1,53 @@
 {
   "entities": [
     {
-      "name": "Indikator 4b",
-      "type": "quality-indicator",
-      "slug": "indikator-4b",
-      "folder": "topics/quality-indicator",
-      "significance": "Måler andelen af patienter med atrieflimren i DOAC-behandling med mindst 1 årlig måling af P-creatinin, kritisk for dosering og sikkerhed.",
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Det er den overordnede organisation, der udgør rammen for udvikling og overvågning af kliniske kvalitetsindikatorer for atrieflimren i Danmark, herunder indikator 4b og indikator 5, og styrer rapporteringen i denne dokumentchunk.",
       "mentions": [
         {
+          "page": 41,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
           "page": 42,
-          "context": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt"
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
         },
         {
           "page": 43,
-          "context": "Datagrundlag og beregningsregler for Indikator 4b"
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 44,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 45,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4b",
+      "type": "topic",
+      "slug": "indikator-4b",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Denne indikator måler andelen af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC), som har fået mindst én årlig måling af P-creatinin — en kritisk kontrol af nyrefunktion for sikker dosering.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt."
         }
       ]
     },
     {
       "name": "Indikator 5",
-      "type": "quality-indicator",
+      "type": "topic",
       "slug": "indikator-5",
-      "folder": "topics/quality-indicator",
-      "significance": "Måler incidens af iskæmisk apopleksi blandt patienter med atrieflimren, vigtig for vurdering af behandlingseffektivitet.",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Denne indikator måler incidensen af iskæmisk apopleksi blandt prævalente patienter med atrieflimren, hvilket er et centralt klinisk outcome til vurdering af effekten af antikoagulationsbehandling.",
       "mentions": [
         {
           "page": 44,
@@ -35,79 +60,101 @@
       ]
     },
     {
-      "name": "Region Nordjylland",
-      "type": "organization",
-      "slug": "region-nordjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Eneste region der opfylder standarden for Indikator 4b med 95,7% og ligger kontinuerligt højere end øvrige regioner.",
+      "name": "direkte orale antikoagulantia (DOAC)",
+      "type": "pharmaceuticals",
+      "slug": "doac",
+      "folder": "entities/pharmaceuticals/anticoagulants",
+      "significance": "DOAC er den primære farmakologiske behandlingsgruppe for atrieflimren, hvis sikker anvendelse kræver regelmæssig kontrol af nyrefunktion via P-creatinin-måling, hvilket er centrale fokusområder for indikator 4b.",
       "mentions": [
         {
-          "page": 43,
-          "context": "Selvom alle regioner er indenfor overskuelig afstand af standarden, er det kun Region Nordjylland der opfylder standarden (95,7%)"
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "organization",
-      "slug": "region-midtjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Første årsrapportsperiode hvor Region Midtjylland systematisk har overført prøvesvar til Den Nationale Labdatabank.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "Nærværende årsrapportsperiode er den første hvor Region Midtjylland systematisk har overført prøvesvar til Den Nationale Labdatabank"
-        }
-      ]
-    },
-    {
-      "name": "Region Hovedstaden",
-      "type": "organization",
-      "slug": "region-hovedstaden",
-      "folder": "entities/organizations/regions",
-      "significance": "Region hvor NPU04998-kode overvejende anvendes til P-creatinin måling; opfylder ikke standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland"
+          "page": 42,
+          "context": "direkte orale antikoagulantia (DOAC)"
         },
         {
-          "page": 45,
-          "context": "Hovedstaden Nej 381 / 37.675 0 (0) 1,0 (0,9-1,1)"
+          "page": 43,
+          "context": "patienter med atrieflimren, som var i DOAC-behandling"
         }
       ]
     },
     {
-      "name": "Region Sjælland",
-      "type": "organization",
-      "slug": "region-sjaelland",
-      "folder": "entities/organizations/regions",
-      "significance": "Region hvor NPU04998-kode overvejende anvendes; opfylder ikke standarden for Indikator 5.",
+      "name": "P-creatinin",
+      "type": "laboratory-test",
+      "slug": "p-creatinin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "Målingen af P-creatinin er den kliniske standardparameter til vurdering af nyrefunktion hos patienter med atrieflimren på DOAC-behandling, og dens årlige forekomst er det centrale mål for indikator 4b.",
       "mentions": [
         {
-          "page": 43,
-          "context": "NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland"
+          "page": 42,
+          "context": "mindst 1 måling af P-creatinin årligt"
         },
         {
-          "page": 45,
-          "context": "Sjælland Nej 197 / 22.695 0 (0) 0,9 (0,8-1,0)"
+          "page": 43,
+          "context": "P-creatinin"
         }
       ]
     },
     {
-      "name": "Region Syddanmark",
-      "type": "organization",
-      "slug": "region-syddanmark",
-      "folder": "entities/organizations/regions",
-      "significance": "Region hvor NPU18016-kode overvejende anvendes; opfylder standarden for både Indikator 4b og Indikator 5.",
+      "name": "NPU04998",
+      "type": "laboratory-test",
+      "slug": "npu04998-p-creatinin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "En specifik NPU-kode til P-creatinin-måling, der primært anvendes i Region Hovedstaden og Region Sjælland, og som indgår i datagrundlaget for beregning af indikator 4b.",
       "mentions": [
         {
           "page": 43,
-          "context": "NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland"
-        },
+          "context": "NPU04998"
+        }
+      ]
+    },
+    {
+      "name": "NPU18016",
+      "type": "laboratory-test",
+      "slug": "npu18016-p-creatinin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "En alternativ NPU-kode til P-creatinin-måling, der primært anvendes i Region Syddanmark og Region Nordjylland, og som indgår i datagrundlaget for beregning af indikator 4b.",
+      "mentions": [
         {
-          "page": 45,
-          "context": "Syddanmark Ja 226 / 31.275 0 (0) 0,7 (0,6-0,8)"
+          "page": 43,
+          "context": "NPU18016"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "landspatientregisteret-lpr",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Et centralt sundhedsregister, der leverer data om patienter med atrieflimren og deres hospitalstilknytning, og som bruges til beregning af både indikator 4b og indikator 5.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Landspatientregisteret"
+        }
+      ]
+    },
+    {
+      "name": "Lægemiddelstatistikregisteret",
+      "type": "database",
+      "slug": "laegemiddelstatistikregisteret",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Et register, der indeholder information om indløste recepter for lægemidler, herunder ATC-koder for DOAC, og som bruges til at identificere patienter i DOAC-behandling i beregningen af indikator 4b.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Lægemiddelstatistikregisteret (ATC-koder)"
+        }
+      ]
+    },
+    {
+      "name": "Laboratorieregistret",
+      "type": "database",
+      "slug": "laboratorieregistret",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Et register, der indsamler laboratoriedata fra landets større laboratorier via Den Nationale Labdatabank, og som leverer P-creatinin-målinger til beregning af indikator 4b.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Laboratorieregistret"
         }
       ]
     },
@@ -115,25 +162,12 @@
       "name": "Den Nationale Labdatabank",
       "type": "organization",
       "slug": "den-nationale-labdatabank",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Central database hvor laboratoriesvar indlæses fra større laboratorier; kritisk for datakvalitet i Indikator 4b.",
+      "folder": "entities/organizations/health-data-infrastructure",
+      "significance": "En national infrastruktur, der fungerer som mellemled mellem regionale laboratorier og Sundhedsdatastyrelsen, og som er afgørende for tilgængeligheden af laboratoriedata til beregning af indikator 4b.",
       "mentions": [
         {
           "page": 43,
-          "context": "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen"
-        }
-      ]
-    },
-    {
-      "name": "Laboratoriedatabasen",
-      "type": "organization",
-      "slug": "laboratoriedatabasen",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Database hos Sundhedsdatastyrelsen hvor laboratoriesvar indlæses fra Den Nationale Labdatabank.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen"
+          "context": "Den Nationale Labdatabank"
         }
       ]
     },
@@ -141,8 +175,8 @@
       "name": "Sundhedsdatastyrelsen",
       "type": "organization",
       "slug": "sundhedsdatastyrelsen",
-      "folder": "entities/organizations/government-agencies",
-      "significance": "Styrelse der administrerer Laboratoriedatabasen hvor P-creatinin data indsamles.",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "Den nationale myndighed, der administrerer Laboratoriedatabasen, hvorfra data til indikator 4b udtrækkes, og som spiller en central rolle i den tekniske infrastruktur bag kvalitetsmåling.",
       "mentions": [
         {
           "page": 43,
@@ -151,375 +185,15 @@
       ]
     },
     {
-      "name": "Landspatientregisteret",
+      "name": "Styregruppen",
       "type": "organization",
-      "slug": "landspatientregisteret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Kilde til data for beregning af Indikator 4b og Indikator 5.",
+      "slug": "afdk-styregruppe",
+      "folder": "entities/organizations/health-standards/governance",
+      "significance": "Den beslutningskompetente gruppe under Regionernes Kliniske Kvalitetsudviklingsprogram, der anbefaler forbedringsforanstaltninger til indikator 4b, herunder fokus på nyrefunktionskontrol i epikriser og overgang til primærsektoren.",
       "mentions": [
         {
           "page": 43,
-          "context": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret"
-        }
-      ]
-    },
-    {
-      "name": "Lægemiddelstatistikregisteret",
-      "type": "organization",
-      "slug": "laegemiddelstatistikregisteret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Kilde til DOAC-behandlingsdata (ATC-koder) for Indikator 4b.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret"
-        }
-      ]
-    },
-    {
-      "name": "Laboratorieregistret",
-      "type": "organization",
-      "slug": "laboratorieregistret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Kilde til P-creatinin målinger via NPU-koder for Indikator 4b.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret"
-        }
-      ]
-    },
-    {
-      "name": "Klynge SYD",
-      "type": "organization",
-      "slug": "klynge-syd",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Nordjylland der opfylder standarden for Indikator 4b med 95,2%.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Klynge SYD Ja 2.028 / 2.131 0 (0) 95,2 (94,2-96,0)"
-        }
-      ]
-    },
-    {
-      "name": "Klynge VEST",
-      "type": "organization",
-      "slug": "klynge-vest",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Nordjylland der opfylder standarden for Indikator 4b med 95,7%.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Klynge VEST Ja 1.346 / 1.406 0 (0) 95,7 (94,5-96,7)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Lillebælt",
-      "type": "organization",
-      "slug": "sundhedsklynge-lillebaelt",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Syddanmark der opfylder standarden for Indikator 4b.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "Midtklyngen opfylder standarden i Region Midtjylland imens standarden er opfyldt af Sundhedsklynge Lillebælt i Syddanmark"
-        }
-      ]
-    },
-    {
-      "name": "Midtklyngen",
-      "type": "organization",
-      "slug": "midtklyngen",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Midtjylland der opfylder standarden for Indikator 4b.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "Midtklyngen opfylder standarden i Region Midtjylland"
-        }
-      ]
-    },
-    {
-      "name": "Klynge MIDT",
-      "type": "organization",
-      "slug": "klynge-midt",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Nordjylland med incidens af iskæmisk apopleksi på 0,6%.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Klynge MIDT Ja 33 / 5.352 0 (0) 0,6 (0,4-0,9)"
-        }
-      ]
-    },
-    {
-      "name": "Klynge NORD",
-      "type": "organization",
-      "slug": "klynge-nord",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Nordjylland med incidens af iskæmisk apopleksi på 0,8%.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Klynge NORD Ja 38 / 4.791 0 (0) 0,8 (0,6-1,1)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Bornholm",
-      "type": "organization",
-      "slug": "sundhedsklynge-bornholm",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Hovedstaden der opfylder standarden for Indikator 5 med 0,8% incidens.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Sundhedsklynge Bornholm Ja 11 / 1.309 0 (0) 0,8 (0,4-1,5)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Byen",
-      "type": "organization",
-      "slug": "sundhedsklynge-byen",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Hovedstaden der ikke opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Sundhedsklynge Byen Nej 98 / 10.352 0 (0) 0,9 (0,8-1,2)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Midt",
-      "type": "organization",
-      "slug": "sundhedsklynge-midt",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Hovedstaden der ikke opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Sundhedsklynge Midt Nej 114 / 10.794 0 (0) 1,1 (0,9-1,3)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Nord",
-      "type": "organization",
-      "slug": "sundhedsklynge-nord",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Hovedstaden der ikke opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Sundhedsklynge Nord Nej 93 / 8.795 0 (0) 1,1 (0,9-1,3)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Syd",
-      "type": "organization",
-      "slug": "sundhedsklynge-syd",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Hovedstaden der ikke opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Sundhedsklynge Syd Nej 65 / 6.425 0 (0) 1,0 (0,8-1,3)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklyngen Holbæk",
-      "type": "organization",
-      "slug": "sundhedsklyngen-holbaek",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Sjælland der opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Sundhedsklyngen Holbæk Ja 39 / 4.929 0 (0) 0,8 (0,6-1,1)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklyngen Nykøbing F",
-      "type": "organization",
-      "slug": "sundhedsklyngen-nykoebing-f",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Sjælland der opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Sundhedsklyngen Nykøbing F Ja 39 / 4.644 0 (0) 0,8 (0,6-1,1)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklyngen SUH",
-      "type": "organization",
-      "slug": "sundhedsklyngen-suh",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Sjælland der ikke opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Sundhedsklyngen SUH Nej 68 / 7.270 0 (0) 0,9 (0,7-1,2)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklyngen Slagelse",
-      "type": "organization",
-      "slug": "sundhedsklyngen-slagelse",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Sjælland der ikke opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Sundhedsklyngen Slagelse Nej 51 / 5.852 0 (0) 0,9 (0,6-1,1)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Fyn",
-      "type": "organization",
-      "slug": "sundhedsklynge-fyn",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Syddanmark der opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Sundhedsklynge Fyn Ja 91 / 11.687 0 (0) 0,8 (0,6-1,0)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Sydvestjylland",
-      "type": "organization",
-      "slug": "sundhedsklynge-sydvestjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Syddanmark der opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Sundhedsklynge Sydvestjylland Ja 41 / 6.218 0 (0) 0,7 (0,5-0,9)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Sønderjylland",
-      "type": "organization",
-      "slug": "sundhedsklynge-soenderjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Syddanmark der opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Sundhedsklynge Sønderjylland Ja 44 / 6.329 0 (0) 0,7 (0,5-0,9)"
-        }
-      ]
-    },
-    {
-      "name": "Aarhusklyngen",
-      "type": "organization",
-      "slug": "aarhusklyngen",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Midtjylland der ikke opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Aarhusklyngen Nej 51 / 5.910 0 (0) 0,9 (0,6-1,1)"
-        }
-      ]
-    },
-    {
-      "name": "Gødstrupklyngen",
-      "type": "organization",
-      "slug": "goedstrupklyngen",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Midtjylland der opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Gødstrupklyngen Ja 42 / 7.136 0 (0) 0,6 (0,4-0,8)"
-        }
-      ]
-    },
-    {
-      "name": "Horsensklyngen",
-      "type": "organization",
-      "slug": "horsensklyngen",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Midtjylland der opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Horsensklyngen Ja 28 / 5.171 0 (0) 0,5 (0,4-0,8)"
-        }
-      ]
-    },
-    {
-      "name": "Randersklyngen",
-      "type": "organization",
-      "slug": "randersklyngen",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Region Midtjylland der opfylder standarden for Indikator 5.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Randersklyngen Ja 34 / 5.561 0 (0) 0,6 (0,4-0,9)"
-        }
-      ]
-    },
-    {
-      "name": "Klynge SYD (Nordjylland)",
-      "type": "organization",
-      "slug": "klynge-syd-nordjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Sundhedsklynge i Nordjylland der ikke opfylder standarden for Indikator 5.",
-      "disambiguation": "Denne Klynge SYD er i Nordjylland, ikke at forveksle med Klynge SYD i Syddanmark.",
-      "mentions": [
-        {
-          "page": 45,
-          "context": "Klynge SYD Nej 31 / 2.785 0 (0) 1,1 (0,8-1,6)"
-        }
-      ]
-    },
-    {
-      "name": "P-creatinin",
-      "type": "clinical-measure",
-      "slug": "p-creatinin",
-      "folder": "topics/clinical-measures",
-      "significance": "Nyremarker der måles årligt for patienter på DOAC for at vurdere nyrefunktion og sikre korrekt dosering.",
-      "mentions": [
-        {
-          "page": 42,
-          "context": "Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt"
-        },
-        {
-          "page": 43,
-          "context": "Måling af nyrefunktion er afgørende for valg og eventuel tilpasning af dosis"
-        }
-      ]
-    },
-    {
-      "name": "DOAC",
-      "type": "medication",
-      "slug": "doac",
-      "folder": "topics/medications",
-      "significance": "Direkte orale antikoagulantia brugt til behandling af atrieflimren; kræver regelmæssig overvågning af nyrefunktion.",
-      "mentions": [
-        {
-          "page": 42,
-          "context": "patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC)"
-        },
-        {
-          "page": 43,
-          "context": "Patienten har ikke indløst en recept for DOAC i opgørelsesperioden"
+          "context": "Styregruppen anbefaler, at der sættes større fokus på denne indikator"
         }
       ]
     },
@@ -527,59 +201,318 @@
       "name": "Atrieflimren",
       "type": "medical-condition",
       "slug": "atrieflimren",
-      "folder": "topics/medical-conditions",
-      "significance": "Hjertearytmi der behandles med antikoagulation; fokus for kvalitetsindikatorer 4b og 5.",
+      "folder": "topics/medical-conditions/cardiovascular",
+      "significance": "Den primære sygdom, som alle indikatorer i denne chunk vedrører, og som danner den kliniske grundlag for både antikoagulationsbehandling (indikator 4b) og apopleksiforstærkelse (indikator 5).",
       "mentions": [
         {
           "page": 41,
           "context": "Atrieflimren i Danmark"
         },
         {
+          "page": 42,
+          "context": "Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC)"
+        },
+        {
           "page": 43,
-          "context": "patienter med atrieflimren, som behandles med DOAC"
-        }
-      ]
-    },
-    {
-      "name": "Iskæmisk apopleksi",
-      "type": "medical-condition",
-      "slug": "iskaemisk-apopleksi",
-      "folder": "topics/medical-conditions",
-      "significance": "Stroke-type der måles som incidens blandt patienter med atrieflimren i Indikator 5.",
-      "mentions": [
+          "context": "patienter med atrieflimren, som var i DOAC-behandling"
+        },
         {
           "page": 44,
-          "context": "Indikator 5: Incidens Iskæmisk Apopleksi"
+          "context": "Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren"
         },
         {
           "page": 45,
-          "context": "Indikator 5: Incidens af apopleksi blandt prævalente patienter med atrieflimren (LPR-baseret)"
+          "context": "Incidens af apopleksi blandt prævalente patienter med atrieflimren"
         }
       ]
     },
     {
-      "name": "NPU04998",
-      "type": "clinical-measure",
-      "slug": "npu04998",
-      "folder": "topics/clinical-measures",
-      "significance": "NPU-kode for P-creatinin måling overvejende brugt i Region Hovedstaden og Region Sjælland.",
+      "name": "iskæmisk apopleksi",
+      "type": "medical-condition",
+      "slug": "iskaemisk-apopleksi",
+      "folder": "topics/medical-conditions/neurological",
+      "significance": "Det primære komplikationsoutcome, der måles via indikator 5, og som repræsenterer en alvorlig, potentielt livstruende konsekvens af utilstrækkelig antikoagulation hos patienter med atrieflimren.",
       "mentions": [
         {
-          "page": 43,
-          "context": "NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland"
+          "page": 44,
+          "context": "Incidens Iskæmisk Apopleksi"
+        },
+        {
+          "page": 45,
+          "context": "Incidens af apopleksi blandt prævalente patienter med atrieflimren"
         }
       ]
     },
     {
-      "name": "NPU18016",
-      "type": "clinical-measure",
-      "slug": "npu18016",
-      "folder": "topics/clinical-measures",
-      "significance": "NPU-kode for P-creatinin måling overvejende brugt i Region Syddanmark og Region Nordjylland.",
+      "name": "Sundhedsklynge Bornholm",
+      "type": "organization",
+      "slug": "sundhedsklynge-bornholm",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
       "mentions": [
         {
-          "page": 43,
-          "context": "NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland"
+          "page": 45,
+          "context": "Sundhedsklynge Bornholm Ja 11 / 1.309 0 (0) 0,8 (0,4-1,5) 13 / 1.337 1,0 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Byen",
+      "type": "organization",
+      "slug": "sundhedsklynge-byen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som ikke opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Sundhedsklynge Byen Nej 98 / 10.352 0 (0) 0,9 (0,8-1,2) 76 / 10.154 0,7 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Midt",
+      "type": "organization",
+      "slug": "sundhedsklynge-midt",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som ikke opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Sundhedsklynge Midt Nej 114 / 10.794 0 (0) 1,1 (0,9-1,3) 119 / 10.535 1,1 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Nord",
+      "type": "organization",
+      "slug": "sundhedsklynge-nord",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som ikke opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Sundhedsklynge Nord Nej 93 / 8.795 0 (0) 1,1 (0,9-1,3) 82 / 8.767 0,9 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Syd",
+      "type": "organization",
+      "slug": "sundhedsklynge-syd",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som ikke opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Sundhedsklynge Syd Nej 65 / 6.425 0 (0) 1,0 (0,8-1,3) 50 / 6.343 0,8 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Holbæk",
+      "type": "organization",
+      "slug": "sundhedsklyngen-holbaek",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Sundhedsklyngen Holbæk Ja 39 / 4.929 0 (0) 0,8 (0,6-1,1) 44 / 4.929 0,9 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Nykøbing F",
+      "type": "organization",
+      "slug": "sundhedsklyngen-nykoebing-f",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Sundhedsklyngen Nykøbing F Ja 39 / 4.644 0 (0) 0,8 (0,6-1,1) 58 / 4.634 1,3 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen SUH",
+      "type": "organization",
+      "slug": "sundhedsklyngen-suh",
+      "folder": "entities/organizations/hospitals",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som ikke opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Sundhedsklyngen SUH Nej 68 / 7.270 0 (0) 0,9 (0,7-1,2) 67 / 7.015 1,0 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Slagelse",
+      "type": "organization",
+      "slug": "sundhedsklyngen-slagelse",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som ikke opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Sundhedsklyngen Slagelse Nej 51 / 5.852 0 (0) 0,9 (0,6-1,1) 53 / 5.798 0,9 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Fyn",
+      "type": "organization",
+      "slug": "sundhedsklynge-fyn",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Sundhedsklynge Fyn Ja 91 / 11.687 0 (0) 0,8 (0,6-1,0) 106 / 11.714 0,9 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Lillebælt",
+      "type": "organization",
+      "slug": "sundhedsklynge-lillebaelt",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Sundhedsklynge Lillebælt Ja 50 / 7.041 0 (0) 0,7 (0,5-0,9) 54 / 6.956 0,8 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sydvestjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-sydvestjylland",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Sundhedsklynge Sydvestjylland Ja 41 / 6.218 0 (0) 0,7 (0,5-0,9) 43 / 6.319 0,7 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sønderjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-soenderjylland",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Sundhedsklynge Sønderjylland Ja 44 / 6.329 0 (0) 0,7 (0,5-0,9) 24 / 6.276 0,4 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Aarhusklyngen",
+      "type": "organization",
+      "slug": "aarhusklyngen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som ikke opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Aarhusklyngen Nej 51 / 5.910 0 (0) 0,9 (0,6-1,1) 45 / 5.717 0,8 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrupklyngen",
+      "type": "organization",
+      "slug": "goedstrupklyngen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Gødstrupklyngen Ja 42 / 7.136 0 (0) 0,6 (0,4-0,8) 45 / 7.109 0,6 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Horsensklyngen",
+      "type": "organization",
+      "slug": "horsensklyngen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Horsensklyngen Ja 28 / 5.171 0 (0) 0,5 (0,4-0,8) 37 / 5.027 0,7 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Midtklyngen",
+      "type": "organization",
+      "slug": "midtklyngen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Midtklyngen Ja 44 / 6.213 0 (0) 0,7 (0,5-0,9) 39 / 6.164 0,6 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Randersklyngen",
+      "type": "organization",
+      "slug": "randersklyngen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale sundhedsklynger, der indgår i beregningen af indikator 5, og som opfylder standarden på ≤ 0,8% incidens af apopleksi i 2023/24.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Randersklyngen Ja 34 / 5.561 0 (0) 0,6 (0,4-0,9) 44 / 5.482 0,8 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Klynge MIDT",
+      "type": "organization",
+      "slug": "klynge-midt",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale klynger, der indgår i beregningen af indikator 4b, og som opfylder standarden på ≥ 95% måling af P-creatinin.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Klynge MIDT Ja 33 / 5.352 0 (0) 0,6 (0,4-0,9) 40 / 5.300 0,8 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Klynge NORD",
+      "type": "organization",
+      "slug": "klynge-nord",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale klynger, der indgår i beregningen af indikator 4b, og som opfylder standarden på ≥ 95% måling af P-creatinin.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Klynge NORD Ja 38 / 4.791 0 (0) 0,8 (0,6-1,1) 26 / 4.643 0,6 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Klynge SYD",
+      "type": "organization",
+      "slug": "klynge-syd",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En af de regionale klynger, der indgår i beregningen af indikator 4b, og som ikke opfylder standarden på ≥ 95% måling af P-creatinin.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Klynge SYD Nej 31 / 2.785 0 (0) 1,1 (0,8-1,6) 24 / 2.725 0,9 0,8"
         }
       ]
     }
@@ -589,354 +522,354 @@
       "subject": "indikator-4b",
       "predicate": "measures",
       "object": "doac",
-      "evidence": "Indikator 4b måler andelen af patienter med atrieflimren i DOAC-behandling med mindst 1 årlig P-creatinin måling",
+      "evidence": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt.",
       "page": 42
     },
     {
       "subject": "indikator-4b",
-      "predicate": "measures",
+      "predicate": "depends-on",
       "object": "p-creatinin",
-      "evidence": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt",
+      "evidence": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt.",
       "page": 42
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret-lpr",
+      "evidence": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret.",
+      "page": 43
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "uses-data-from",
+      "object": "laegemiddelstatistikregisteret",
+      "evidence": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret.",
+      "page": 43
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "uses-data-from",
+      "object": "laboratorieregistret",
+      "evidence": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret.",
+      "page": 43
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "is-governed-by",
+      "object": "afdk-styregruppe",
+      "evidence": "Styregruppen anbefaler, at der sættes større fokus på denne indikator",
+      "page": 43
     },
     {
       "subject": "indikator-5",
       "predicate": "measures",
       "object": "iskaemisk-apopleksi",
-      "evidence": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren",
+      "evidence": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren.",
       "page": 44
     },
     {
       "subject": "indikator-5",
-      "predicate": "measures",
+      "predicate": "depends-on",
       "object": "atrieflimren",
-      "evidence": "Indikator 5 måler incidens af iskæmisk apopleksi blandt patienter med atrieflimren",
+      "evidence": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren.",
       "page": 44
     },
     {
-      "subject": "region-nordjylland",
-      "predicate": "meets-standard",
-      "object": "indikator-4b",
-      "evidence": "Region Nordjylland opfylder standarden for Indikator 4b med 95,7%",
+      "subject": "indikator-5",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret-lpr",
+      "evidence": "Indikator 5: Incidens af apopleksi blandt prævalente patienter med atrieflimren (LPR-baseret)",
+      "page": 45
+    },
+    {
+      "subject": "npu04998-p-creatinin",
+      "predicate": "is-used-in-region",
+      "object": "region-hovedstaden",
+      "evidence": "NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland",
       "page": 43
     },
     {
-      "subject": "region-midtjylland",
-      "predicate": "reports-to",
-      "object": "den-nationale-labdatabank",
-      "evidence": "Nærværende årsrapportsperiode er den første hvor Region Midtjylland systematisk har overført prøvesvar til Den Nationale Labdatabank",
+      "subject": "npu04998-p-creatinin",
+      "predicate": "is-used-in-region",
+      "object": "region-sjaelland",
+      "evidence": "NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland",
+      "page": 43
+    },
+    {
+      "subject": "npu18016-p-creatinin",
+      "predicate": "is-used-in-region",
+      "object": "region-syddanmark",
+      "evidence": "NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland.",
+      "page": 43
+    },
+    {
+      "subject": "npu18016-p-creatinin",
+      "predicate": "is-used-in-region",
+      "object": "region-nordjylland",
+      "evidence": "NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland.",
       "page": 43
     },
     {
       "subject": "den-nationale-labdatabank",
       "predicate": "feeds-into",
-      "object": "laboratoriedatabasen",
-      "evidence": "Laboratoriesvar fra Den Nationale Labdatabank indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen",
-      "page": 43
-    },
-    {
-      "subject": "laboratoriedatabasen",
-      "predicate": "managed-by",
       "object": "sundhedsdatastyrelsen",
-      "evidence": "Laboratoriedatabasen hos Sundhedsdatastyrelsen",
-      "page": 43
-    },
-    {
-      "subject": "landspatientregisteret",
-      "predicate": "provides-data-for",
-      "object": "indikator-4b",
-      "evidence": "Data til beregning af indikatoren indhentes fra Landspatientregisteret",
-      "page": 43
-    },
-    {
-      "subject": "laegemiddelstatistikregisteret",
-      "predicate": "provides-data-for",
-      "object": "indikator-4b",
-      "evidence": "Data til beregning af indikatoren indhentes fra Lægemiddelstatistikregisteret (ATC-koder)",
-      "page": 43
-    },
-    {
-      "subject": "laboratorieregistret",
-      "predicate": "provides-data-for",
-      "object": "indikator-4b",
-      "evidence": "Data til beregning af indikatoren indhentes fra Laboratorieregistret",
-      "page": 43
-    },
-    {
-      "subject": "npu04998",
-      "predicate": "used-in",
-      "object": "region-hovedstaden",
-      "evidence": "NPU04998 overvejende anvendes i Region Hovedstaden",
-      "page": 43
-    },
-    {
-      "subject": "npu04998",
-      "predicate": "used-in",
-      "object": "region-sjaelland",
-      "evidence": "NPU04998 overvejende anvendes i Region Sjælland",
-      "page": 43
-    },
-    {
-      "subject": "npu18016",
-      "predicate": "used-in",
-      "object": "region-syddanmark",
-      "evidence": "NPU18016 overvejende anvendes i Region Syddanmark",
-      "page": 43
-    },
-    {
-      "subject": "npu18016",
-      "predicate": "used-in",
-      "object": "region-nordjylland",
-      "evidence": "NPU18016 overvejende anvendes i Region Nordjylland",
-      "page": 43
-    },
-    {
-      "subject": "klynge-syd",
-      "predicate": "meets-standard",
-      "object": "indikator-4b",
-      "evidence": "Klynge SYD opfylder standarden for Indikator 4b med 95,2%",
-      "page": 41
-    },
-    {
-      "subject": "klynge-vest",
-      "predicate": "meets-standard",
-      "object": "indikator-4b",
-      "evidence": "Klynge VEST opfylder standarden for Indikator 4b med 95,7%",
-      "page": 41
-    },
-    {
-      "subject": "sundhedsklynge-lillebaelt",
-      "predicate": "meets-standard",
-      "object": "indikator-4b",
-      "evidence": "Sundhedsklynge Lillebælt opfylder standarden for Indikator 4b",
-      "page": 43
-    },
-    {
-      "subject": "midtklyngen",
-      "predicate": "meets-standard",
-      "object": "indikator-4b",
-      "evidence": "Midtklyngen opfylder standarden for Indikator 4b",
+      "evidence": "Laboratoriesvar [...] videresendes ikke til Den Nationale Labdatabank, og dermed heller ikke til Laboratoriedatabasen [hos Sundhedsdatastyrelsen].",
       "page": 43
     }
   ],
   "claims": [
     {
       "text": "På landsplan fik 93,9% den prævalente population af patienter med atrieflimren, som var i DOAC-behandling, målt p-creatinin mindst én gang årligt [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "atrieflimren",
-        "doac",
-        "p-creatinin"
-      ],
-      "page": 43
-    },
-    {
-      "text": "Standarden på ≥ 95% for Indikator 4b er således ikke opfyldt på landsplan, men den nationale målopfyldelse er steget med 1,1 procentpoint i løbet af de sidste tre årsrapportsperioder [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4b"
-      ],
-      "page": 43
-    },
-    {
-      "text": "På regionsplan ses der variation fra 92,3-95,7% for Indikator 4b [^src1]",
-      "type": "regional-variation",
-      "entities": [
-        "indikator-4b"
-      ],
-      "page": 43
-    },
-    {
-      "text": "Region Nordjylland opfylder standarden for Indikator 4b med 95,7% og ligger kontinuerligt højere end de øvrige regioner de sidste tre årsrapportsperioder [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "region-nordjylland",
-        "indikator-4b"
-      ],
-      "page": 43
-    },
-    {
-      "text": "På klyngeniveau ses der variation fra 91,7-96,4% for Indikator 4b [^src1]",
-      "type": "regional-variation",
-      "entities": [
-        "indikator-4b"
-      ],
-      "page": 43
-    },
-    {
-      "text": "Alle klynger i Nordjylland opfylder standarden for Indikator 4b [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "region-nordjylland",
-        "indikator-4b"
-      ],
-      "page": 43
-    },
-    {
-      "text": "Ingen klynger opfylder standarden for Indikator 4b i de østdanske regioner [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4b"
-      ],
-      "page": 43
-    },
-    {
-      "text": "Måling af nyrefunktion er afgørende for valg og eventuel tilpasning af dosis DOAC, samt for om patienterne evt. har kontraindikation mod behandling med DOAC i tilfælde af svært nedsat nyrefunktionen [^src1]",
-      "type": "clinical-rationale",
-      "entities": [
-        "doac",
-        "p-creatinin"
-      ],
-      "page": 43
-    },
-    {
-      "text": "Det er kun Region Nord, der opfylder standarden for Indikator 4b [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "region-nordjylland",
-        "indikator-4b"
-      ],
-      "page": 43
-    },
-    {
-      "text": "Styregruppen anbefaler, at der sættes større fokus på Indikator 4b, og at behovet for kontrol af nyrefunktion nævnes i epikriser fra sygehusene, når patienter udskrives med et DOAC præparat [^src1]",
-      "type": "recommendation",
+      "type": "performance",
       "entities": [
         "indikator-4b",
+        "atrieflimren",
         "doac"
       ],
       "page": 43
     },
     {
-      "text": "Styregruppen anbefaler, at der er fokus på overgangene til primærsektoren især i forhold til information til patienterne om eget ansvar for blodprøve kontrol [^src1]",
-      "type": "recommendation",
-      "entities": [
-        "p-creatinin"
-      ],
-      "page": 43
-    },
-    {
-      "text": "Indikatoren 4b og standarden fastholdes [^src1]",
-      "type": "indicator-status",
+      "text": "Standarden på ≥ 95% er således ikke opfyldt på landsplan [^src1]",
+      "type": "performance",
       "entities": [
         "indikator-4b"
       ],
       "page": 43
     },
     {
-      "text": "På landsplan havde 1.128 / 136.420 (0,8%) patienter med atrieflimren incidens af iskæmisk apopleksi i perioden 01.07.2023 - 30.06.2024 [^src2]",
-      "type": "clinical-outcome",
+      "text": "Den nationale målopfyldelse er steget med 1,1 procentpoint i løbet af de sidste tre årsrapportsperioder [^src1]",
+      "type": "trend",
       "entities": [
-        "atrieflimren",
-        "iskaemisk-apopleksi"
+        "indikator-4b"
       ],
-      "page": 45
+      "page": 43
     },
     {
-      "text": "Danmark opfylder standarden ≤ 0,8% for Indikator 5 med præcis 0,8% incidens af iskæmisk apopleksi [^src2]",
-      "type": "clinical-performance",
+      "text": "På regionsplan ses der variation fra 92,3-95,7% [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4b"
+      ],
+      "page": 43
+    },
+    {
+      "text": "Kun Region Nordjylland der opfylder standarden (95,7%) [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4b",
+        "region-nordjylland"
+      ],
+      "page": 43
+    },
+    {
+      "text": "På klyngeniveau ses der variation fra 91,7-96,4% [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4b"
+      ],
+      "page": 43
+    },
+    {
+      "text": "Alle klynger i Nordjylland opfylder standarden [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4b",
+        "region-nordjylland"
+      ],
+      "page": 43
+    },
+    {
+      "text": "Midtklyngen opfylder standarden i Region Midtjylland [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4b",
+        "midtklyngen",
+        "region-midtjylland"
+      ],
+      "page": 43
+    },
+    {
+      "text": "Sundhedsklynge Lillebælt i Syddanmark opfylder standarden [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4b",
+        "sundhedsklynge-lillebaelt",
+        "region-syddanmark"
+      ],
+      "page": 43
+    },
+    {
+      "text": "Ingen klynger opfylder standarden i de østdanske regioner [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4b",
+        "region-hovedstaden",
+        "region-sjaelland"
+      ],
+      "page": 43
+    },
+    {
+      "text": "Danmarkskort på Sundhedsklyngeniveau viser incidens af apopleksi i intervallet [0%-0.8%] til ]2.8%-100%] [^src2]",
+      "type": "geographic-distribution",
       "entities": [
         "indikator-5",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen",
+        "sundhedsklynge-midt",
+        "sundhedsklynge-nord",
+        "sundhedsklynge-syd",
+        "sundhedsklyngen-holbaek",
+        "sundhedsklyngen-nykoebing-f",
+        "sundhedsklyngen-suh",
+        "sundhedsklyngen-slagelse",
+        "sundhedsklynge-fyn",
+        "sundhedsklynge-lillebaelt",
+        "sundhedsklynge-sydvestjylland",
+        "sundhedsklynge-soenderjylland",
+        "aarhusklyngen",
+        "goedstrupklyngen",
+        "horsensklyngen",
+        "midtklyngen",
+        "randersklyngen",
+        "klynge-midt",
+        "klynge-nord",
+        "klynge-syd"
+      ],
+      "page": 44
+    },
+    {
+      "text": "På landsplan er incidensen af apopleksi blandt prævalente patienter med atrieflimren 0,8% (95% CI: 0,8-0,9) [^src3]",
+      "type": "epidemiological",
+      "entities": [
+        "indikator-5",
+        "atrieflimren",
         "iskaemisk-apopleksi"
       ],
       "page": 45
     },
     {
-      "text": "Region Hovedstaden opfylder ikke standarden for Indikator 5 med 1,0% incidens af iskæmisk apopleksi [^src2]",
-      "type": "clinical-performance",
+      "text": "Standarden på ≤ 0,8% er opfyldt på landsplan [^src3]",
+      "type": "performance",
       "entities": [
-        "region-hovedstaden",
         "indikator-5"
       ],
       "page": 45
     },
     {
-      "text": "Region Sjælland opfylder ikke standarden for Indikator 5 med 0,9% incidens af iskæmisk apopleksi [^src2]",
-      "type": "clinical-performance",
+      "text": "Region Hovedstaden har en incidens på 1,0% (95% CI: 0,9-1,1) og opfylder derfor ikke standarden [^src3]",
+      "type": "performance",
       "entities": [
-        "region-sjaelland",
-        "indikator-5"
+        "indikator-5",
+        "region-hovedstaden"
       ],
       "page": 45
     },
     {
-      "text": "Region Syddanmark opfylder standarden for Indikator 5 med 0,7% incidens af iskæmisk apopleksi [^src2]",
-      "type": "clinical-performance",
+      "text": "Region Sjælland har en incidens på 0,9% (95% CI: 0,8-1,0) og opfylder derfor ikke standarden [^src3]",
+      "type": "performance",
       "entities": [
-        "region-syddanmark",
-        "indikator-5"
+        "indikator-5",
+        "region-sjaelland"
       ],
       "page": 45
     },
     {
-      "text": "Region Midtjylland opfylder standarden for Indikator 5 med 0,7% incidens af iskæmisk apopleksi [^src2]",
-      "type": "clinical-performance",
+      "text": "Region Syddanmark har en incidens på 0,7% (95% CI: 0,6-0,8) og opfylder derfor standarden [^src3]",
+      "type": "performance",
       "entities": [
-        "region-midtjylland",
-        "indikator-5"
+        "indikator-5",
+        "region-syddanmark"
       ],
       "page": 45
     },
     {
-      "text": "Region Nordjylland opfylder standarden for Indikator 5 med 0,8% incidens af iskæmisk apopleksi [^src2]",
-      "type": "clinical-performance",
+      "text": "Region Midtjylland har en incidens på 0,7% (95% CI: 0,6-0,8) og opfylder derfor standarden [^src3]",
+      "type": "performance",
       "entities": [
-        "region-nordjylland",
-        "indikator-5"
+        "indikator-5",
+        "region-midtjylland"
       ],
       "page": 45
     },
     {
-      "text": "Antal eksklusioner for Indikator 4b: 2.657 patienter uden bopæl i DK eller med erstatnings CPR-nr, 65 patienter med ukendt bopælskommune, 78.597 patienter der døde inden starten af sidste opgørelsesperiode, 33.730 patienter der ikke indløste recept for DOAC [^src1]",
-      "type": "data-quality",
+      "text": "Region Nordjylland har en incidens på 0,8% (95% CI: 0,7-1,0) og opfylder derfor standarden [^src3]",
+      "type": "performance",
       "entities": [
-        "indikator-4b",
-        "doac"
+        "indikator-5",
+        "region-nordjylland"
       ],
-      "page": 43
-    },
-    {
-      "text": "Laboratoriesvar, hvor patienten har givet negativt samtykke til at udveksle oplysninger, videresendes ikke til Den Nationale Labdatabank [^src1]",
-      "type": "data-privacy",
-      "entities": [
-        "den-nationale-labdatabank"
-      ],
-      "page": 43
-    },
-    {
-      "text": "Indberetning til registeret for Indikator 4b sker frivilligt, da der ikke er udarbejdet bekendtgørelse mv. der forpligter regionerne til at indberette laboratoriesvar [^src1]",
-      "type": "data-limitation",
-      "entities": [
-        "indikator-4b"
-      ],
-      "page": 43
+      "page": 45
     }
   ],
   "timeline": [
     {
-      "date": "01.07.2023 - 30.06.2024",
-      "event": "Aktuelle årsrapportsperiode for Indikator 4b og Indikator 5",
+      "date": "2023-07-01",
+      "event": "Start af opgørelsesperioden for indikator 4b og indikator 5 (01.07.2023 - 30.06.2024)",
       "entities": [
         "indikator-4b",
         "indikator-5"
       ]
     },
     {
-      "date": "2022/23",
-      "event": "Tidligere årsrapportsperiode for Indikator 4b og Indikator 5",
-      "entities": [
-        "indikator-4b",
-        "indikator-5"
-      ]
-    },
-    {
-      "date": "2021/22",
-      "event": "Tidligere årsrapportsperiode for Indikator 4b og Indikator 5",
+      "date": "2024-06-30",
+      "event": "Afslutning af opgørelsesperioden for indikator 4b og indikator 5 (01.07.2023 - 30.06.2024)",
       "entities": [
         "indikator-4b",
         "indikator-5"
       ]
     }
   ],
-  "context": "Denne dokumentchunk præsenterer resultater fra Regionernes Kliniske Kvalitetsudviklingsprogram for atrieflimren i Danmark, specifikt fokuseret på Indikator 4b (P-creatinin måling hos DOAC-patienter) og Indikator 5 (incidens af iskæmisk apopleksi). Dokumentet viser regional og klyngebaseret variation i opfyldelse af kvalitetsstandarder, med Region Nordjylland som bedst performer for Indikator 4b. Datagrundlaget stammer fra nationale registre (Landspatientregisteret, Lægemiddelstatistikregisteret, Laboratorieregistret), og dokumentet diskuterer vigtige implikationer for patientomsorg, herunder behovet for bedre overvågning af nyrefunktion og forbedret kommunikation mellem hospital og primærsektor."
+  "tables": [
+    {
+      "subject": "indikator-4b",
+      "title": "Resultater for Indikator 4b på klyngeniveau",
+      "page": 41,
+      "rowDimension": "klynger",
+      "colDimension": "opfyldelse og andel",
+      "entities": [
+        "klynge-syd",
+        "klynge-vest"
+      ],
+      "markdown": "| Klynge | Opfyldt | Tæller/antal | 95% CI | Andel tidligere år |\n| --- | --- | --- | --- | --- |\n| Klynge SYD | Ja | 2.028 / 2.131 | 95,2 (94,2-96,0) | 94,5 / 94,9 |\n| Klynge VEST | Ja | 1.346 / 1.406 | 95,7 (94,5-96,7) | 94,4 / 93,3 |",
+      "summary": "Tabellen sammenligner opfyldelsen af standarden for indikator 4b (≥ 95% P-creatinin-måling) på klyngeniveau, hvor både Klynge SYD og Klynge VEST opfylder standarden med andele på henholdsvis 95,2% og 95,7%."
+    },
+    {
+      "subject": "indikator-5",
+      "title": "Resultater for Indikator 5 på regions- og klyngeniveau",
+      "page": 45,
+      "rowDimension": "regioner og sundhedsklynger",
+      "colDimension": "opfyldelse, tæller/antal og incidens",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen",
+        "sundhedsklynge-midt",
+        "sundhedsklynge-nord",
+        "sundhedsklynge-syd",
+        "sundhedsklyngen-holbaek",
+        "sundhedsklyngen-nykoebing-f",
+        "sundhedsklyngen-suh",
+        "sundhedsklyngen-slagelse",
+        "sundhedsklynge-fyn",
+        "sundhedsklynge-lillebaelt",
+        "sundhedsklynge-sydvestjylland",
+        "sundhedsklynge-soenderjylland",
+        "aarhusklyngen",
+        "goedstrupklyngen",
+        "horsensklyngen",
+        "midtklyngen",
+        "randersklyngen",
+        "klynge-midt",
+        "klynge-nord",
+        "klynge-syd"
+      ],
+      "markdown": "| Enhed | Opfyldt | Tæller/antal | 95% CI | Andel tidligere år |\n| --- | --- | --- | --- | --- |\n| Danmark | Ja | 1.128 / 136.420 | 0,8 (0,8-0,9) | 0,8 / 0,8 |\n| Hovedstaden | Nej | 381 / 37.675 | 1,0 (0,9-1,1) | 0,9 / 1,0 |\n| Sjælland | Nej | 197 / 22.695 | 0,9 (0,8-1,0) | 1,0 / 0,9 |\n| Syddanmark | Ja | 226 / 31.275 | 0,7 (0,6-0,8) | 0,7 / 0,7 |\n| Midtjylland | Ja | 199 / 29.991 | 0,7 (0,6-0,8) | 0,7 / 0,8 |\n| Nordjylland | Ja | 125 / 14.784 | 0,8 (0,7-1,0) | 0,7 / 0,9 |\n| Sundhedsklynge Bornholm | Ja | 11 / 1.309 | 0,8 (0,4-1,5) | 1,0 / 0,9 |\n| Sundhedsklynge Byen | Nej | 98 / 10.352 | 0,9 (0,8-1,2) | 0,7 / 1,0 |\n| Sundhedsklynge Midt | Nej | 114 / 10.794 | 1,1 (0,9-1,3) | 1,1 / 1,1 |\n| Sundhedsklynge Nord | Nej | 93 / 8.795 | 1,1 (0,9-1,3) | 0,9 / 1,1 |\n| Sundhedsklynge Syd | Nej | 65 / 6.425 | 1,0 (0,8-1,3) | 0,8 / 1,0 |\n| Sundhedsklyngen Holbæk | Ja | 39 / 4.929 | 0,8 (0,6-1,1) | 0,9 / 0,9 |\n| Sundhedsklyngen Nykøbing F | Ja | 39 / 4.644 | 0,8 (0,6-1,1) | 1,3 / 1,0 |\n| Sundhedsklyngen SUH | Nej | 68 / 7.270 | 0,9 (0,7-1,2) | 1,0 / 0,9 |\n| Sundhedsklyngen Slagelse | Nej | 51 / 5.852 | 0,9 (0,6-1,1) | 0,9 / 0,7 |\n| Sundhedsklynge Fyn | Ja | 91 / 11.687 | 0,8 (0,6-1,0) | 0,9 / 0,7 |\n| Sundhedsklynge Lillebælt | Ja | 50 / 7.041 | 0,7 (0,5-0,9) | 0,8 / 0,7 |\n| Sundhedsklynge Sydvestjylland | Ja | 41 / 6.218 | 0,7 (0,5-0,9) | 0,7 / 0,6 |\n| Sundhedsklynge Sønderjylland | Ja | 44 / 6.329 | 0,7 (0,5-0,9) | 0,4 / 0,6 |\n| Aarhusklyngen | Nej | 51 / 5.910 | 0,9 (0,6-1,1) | 0,8 / 0,7 |\n| Gødstrupklyngen | Ja | 42 / 7.136 | 0,6 (0,4-0,8) | 0,6 / 0,8 |\n| Horsensklyngen | Ja | 28 / 5.171 | 0,5 (0,4-0,8) | 0,7 / 0,7 |\n| Midtklyngen | Ja | 44 / 6.213 | 0,7 (0,5-0,9) | 0,6 / 1,0 |\n| Randersklyngen | Ja | 34 / 5.561 | 0,6 (0,4-0,9) | 0,8 / 0,8 |\n| Nordjylland | Ja | 125 / 14.784 | 0,8 (0,7-1,0) | 0,7 / 0,9 |\n| Klynge MIDT | Ja | 33 / 5.352 | 0,6 (0,4-0,9) | 0,8 / 0,9 |\n| Klynge NORD | Ja | 38 / 4.791 | 0,8 (0,6-1,1) | 0,6 / 0,9 |\n| Klynge SYD | Nej | 31 / 2.785 | 1,1 (0,8-1,6) | 0,9 / 0,8 |",
+      "summary": "Tabellen sammenligner opfyldelsen af standarden for indikator 5 (≤ 0,8% incidens af apopleksi) på både regions- og klyngeniveau, hvor 13 enheder opfylder standarden og 13 ikke gør det, med store geografiske variationer i incidensen."
+    }
+  ],
+  "context": "Denne dokumentchunk udgør siderne 41–45 af AFDK's 2024-rapport om kvalitetsmåling for atrieflimren i Danmark og fokuserer på to centrale kliniske kvalitetsindikatorer: Indikator 4b, der måler hyppigheden af årlig P-creatinin-måling hos patienter på DOAC-behandling, og Indikator 5, der måler incidensen af iskæmisk apopleksi blandt patienter med atrieflimren. Chunken præsenterer detaljerede resultater for begge indikatorer på lands-, regions- og klyngeniveau, inklusive konfidensintervaller, historiske sammenligninger og diskussion af klinisk betydning samt anbefalinger fra Styregruppen. Den integrerer også tekniske oplysninger om datagrundlaget, herunder brugen af specifikke NPU-koder og infrastrukturen bag laboratoriedataindsamling, hvilket understreger den komplekse datainfrastruktur, der ligger bag nationale sundhedskvalitetsmålinger."
 }

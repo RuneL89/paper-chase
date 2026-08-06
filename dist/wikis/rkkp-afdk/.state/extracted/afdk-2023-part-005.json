@@ -4,11 +4,27 @@
       "name": "Databasen for Atrieflimren i Danmark",
       "type": "organization",
       "slug": "databasen-for-atrieflimren-i-danmark",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Denne database er det centrale register for atriefimren-patienter i Danmark og udgør grundlaget for alle kvalitetsindikatorer og resultater rapporteret i denne årsrapport.",
+      "folder": "entities/organizations/health-databases",
+      "significance": "Databasen for Atrieflimren i Danmark er den centrale nationale database, der overvåger kvaliteten af behandlingen af nydiagnosticerede patienter med atrieflimren i Danmark, og danner grundlag for indikatorerne 2 og 3 i årsrapporten for perioden 1. juli 2022 – 30. juni 2023.",
       "mentions": [
         {
           "page": 21,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 22,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 23,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 24,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 25,
           "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
         }
       ]
@@ -16,9 +32,9 @@
     {
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
-      "slug": "rkkp",
-      "folder": "entities/organizations/health-registries",
-      "significance": "RKKP er den organisation, der administrerer Databasen for Atrieflimren i Danmark og er ansvarlig for kvalitetsudvikling og indrapportering af data fra danske regioner.",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) er den koordinerende myndighed, der udarbejder og administrerer kvalitetsindikatorer for behandling af atrieflimren i danske regioner, herunder udgivelse af årsrapporten og styring af dataindsamling fra landspatient- og sygesikringsregistre.",
       "mentions": [
         {
           "page": 21,
@@ -26,7 +42,53 @@
         },
         {
           "page": 22,
-          "context": "RKKP er i løbende dialog med regionerne under Sundhedsplatformen vedrørende dette"
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 23,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 24,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 25,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2",
+      "type": "topic",
+      "slug": "indikator-2",
+      "folder": "topics/health-indicators",
+      "significance": "Indikator 2 måler andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi i tidsintervallet fra 6 måneder før til 3 måneder efter første diagnosedato i hospitalsregi, og er en central kvalitetsmåling i RKKPs årsrapport.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Indikator 2: Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før, til 3 måneder efter 1. diagnosedato."
+        },
+        {
+          "page": 22,
+          "context": "I Indikator 2 er opmærksomheden rettet mod hvor stor en andel af patienterne med nydiagnosticeret atrieflimren i perioden 1. juli 2022 til 30. juni 2023 i hospitalsregi, der får udført ekkokardiografi i perioden fra 6 måneder før til 3 måneder efter første diagnosedato."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 3",
+      "type": "topic",
+      "slug": "indikator-3",
+      "folder": "topics/health-indicators",
+      "significance": "Indikator 3 måler andelen af nydiagnosticerede patienter med atrieflimren, som får målt thyreoideastimulerende hormon (TSH) i tidsintervallet fra 60 dage før til 30 dage efter første diagnosedato, og er en national kvalitetsstandard med krav om ≥95 % opfyldelse.",
+      "mentions": [
+        {
+          "page": 23,
+          "context": "Indikator 3: Andel af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 60 dage før til 30 dage efter 1. diagnosedato."
+        },
+        {
+          "page": 25,
+          "context": "Indikator 3: Andel af nydiagnosticerede patienter med atrieflimren, som får målt thyreoideastimulerende hormon (TSH) fra 60 dage før, til 30 dage efter 1. diagnosedato."
         }
       ]
     },
@@ -35,15 +97,19 @@
       "type": "organization",
       "slug": "landspatientregisteret",
       "folder": "entities/organizations/health-registries",
-      "significance": "Landspatientregisteret er en vigtig datakilde for ekkokardiografi-data og anden patientinformation, som indgår i beregningen af indikator 2.",
+      "significance": "Landspatientregisteret er et nationalt sundhedsregister, der leverer data om ekkokardiografiske undersøgelser fra offentlige hospitaler og speciallægepraksis til beregning af Indikator 2, men ikke data fra privathospitaler på grund af manglende levering fra Sundhedsdatastyrelsen.",
       "mentions": [
         {
           "page": 22,
-          "context": "Data vedrørende ekkokardiografi stammer både fra Landspatientregisteret og fra Sygesikringsregisteret"
+          "context": "Data vedrørende ekkokardiografi stammer både fra Landspatientregisteret og fra Sygesikringsregisteret."
         },
         {
           "page": 22,
-          "context": "Valideringsarbejde udført af styregruppen har vist, at der forekommer en betydelig grad af manglende ydelses-rapportering af ekkokardiografi til Landspatientregisteret"
+          "context": "Ekkokardiografi, som er foretaget på privathospitaler og indberettet til Landspatientregisteret, indgår ikke, da Sundhedsdatastyrelsen ikke leverer disse data."
+        },
+        {
+          "page": 22,
+          "context": "Valideringsarbejde udført af styregruppen har vist, at der forekommer en betydelig grad af manglende ydelses-rapportering af ekkokardiografi til Landspatientregisteret, især fra afdelinger, der arbejder under Sundhedsplatformen."
         }
       ]
     },
@@ -52,15 +118,15 @@
       "type": "organization",
       "slug": "sygesikringsregisteret",
       "folder": "entities/organizations/health-registries",
-      "significance": "Sygesikringsregisteret er en vigtig datakilde for ekkokardiografi-data fra speciallægepraksis og indgår i beregningen af indikator 2.",
+      "significance": "Sygesikringsregisteret er et nationalt sundhedsregister, der leverer data om ekkokardiografiske undersøgelser fra praktiserende speciallægepraksis til beregning af Indikator 2, men kun med ugedata — ikke dagsniveau — hvilket kræver justering i beregningsreglerne.",
       "mentions": [
         {
           "page": 22,
-          "context": "Data vedrørende ekkokardiografi stammer både fra Landspatientregisteret og fra Sygesikringsregisteret"
+          "context": "Data vedrørende ekkokardiografi stammer både fra Landspatientregisteret og fra Sygesikringsregisteret."
         },
         {
           "page": 22,
-          "context": "Fra Sygesikringsregisteret er det kun muligt at trække oplysninger om i hvilken uge en ydelse er indberettet til registeret"
+          "context": "Fra Sygesikringsregisteret er det kun muligt at trække oplysninger om i hvilken uge en ydelse er indberettet til registeret og ikke hvilken dato, den rent faktisk er blevet ydet."
         }
       ]
     },
@@ -68,154 +134,38 @@
       "name": "Sundhedsdatastyrelsen",
       "type": "organization",
       "slug": "sundhedsdatastyrelsen",
-      "folder": "entities/organizations/government",
-      "significance": "Sundhedsdatastyrelsen leverer data fra Landspatientregisteret, men leverer ikke data fra privathospitaler, hvilket påvirker fuldstændigheden af indikator 2.",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "Sundhedsdatastyrelsen er den myndighed, der ikke leverer data om ekkokardiografi fra privathospitaler til Landspatientregisteret, hvilket skaber en systematisk datakildebegrænsning for Indikator 2.",
       "mentions": [
         {
           "page": 22,
-          "context": "Sundhedsdatastyrelsen ikke leverer disse data"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsplatformen",
-      "type": "organization",
-      "slug": "sundhedsplatformen",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsplatformen er et IT-system, som nogle afdelinger arbejder under, og som er forbundet med manglende indrapportering af ekkokardiografi-data til Landspatientregisteret.",
-      "mentions": [
-        {
-          "page": 22,
-          "context": "især fra afdelinger, der arbejder under Sundhedsplatformen"
-        },
-        {
-          "page": 22,
-          "context": "RKKP er i løbende dialog med regionerne under Sundhedsplatformen vedrørende dette"
+          "context": "Ekkokardiografi, som er foretaget på privathospitaler og indberettet til Landspatientregisteret, indgår ikke, da Sundhedsdatastyrelsen ikke leverer disse data."
         }
       ]
     },
     {
       "name": "Region Midtjylland",
-      "type": "organization",
+      "type": "location",
       "slug": "region-midtjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Midtjylland opfylder standarden for indikator 2 med 88% af patienter undersøgt med ekkokardiografi og har høj TSH-måling-andel på 81,9% for indikator 3.",
+      "folder": "entities/locations/regions",
+      "significance": "Region Midtjylland opfylder standarden på 80 % for Indikator 2 med en andel på 88 % af nydiagnosticerede patienter med atrieflimren, der får udført ekkokardiografi inden for den definerede periode.",
       "mentions": [
         {
           "page": 22,
-          "context": "Region Midtjylland (88%) samt Region Syddanmark (82%) opfylder standarden"
-        },
-        {
-          "page": 24,
-          "context": "Midtjylland Nej 3.640 / 4.443 0 (0) 81,9 (80,8-83,0)"
+          "context": "Region Midtjylland (88%) samt Region Syddanmark (82%) opfylder standarden."
         }
       ]
     },
     {
       "name": "Region Syddanmark",
-      "type": "organization",
+      "type": "location",
       "slug": "region-syddanmark",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Syddanmark opfylder standarden for indikator 2 med 82% af patienter undersøgt med ekkokardiografi og har TSH-måling-andel på 71,2% for indikator 3.",
+      "folder": "entities/locations/regions",
+      "significance": "Region Syddanmark opfylder standarden på 80 % for Indikator 2 med en andel på 82 % af nydiagnosticerede patienter med atrieflimren, der får udført ekkokardiografi inden for den definerede periode.",
       "mentions": [
         {
           "page": 22,
-          "context": "Region Midtjylland (88%) samt Region Syddanmark (82%) opfylder standarden"
-        },
-        {
-          "page": 24,
-          "context": "Syddanmark Nej 3.259 / 4.580 0 (0) 71,2 (69,8-72,5)"
-        }
-      ]
-    },
-    {
-      "name": "Region Hovedstaden",
-      "type": "organization",
-      "slug": "region-hovedstaden",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Hovedstaden har TSH-måling-andel på 81,1% for indikator 3 og omfatter flere større hospitaler i København-området.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Hovedstaden Nej 4.251 / 5.240 0 (0) 81,1 (80,0-82,2)"
-        }
-      ]
-    },
-    {
-      "name": "Region Sjælland",
-      "type": "organization",
-      "slug": "region-sjaelland",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Sjælland har TSH-måling-andel på 75,4% for indikator 3 og omfatter flere hospitaler på Sjælland.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Sjælland Nej 2.415 / 3.202 0 (0) 75,4 (73,9-76,9)"
-        }
-      ]
-    },
-    {
-      "name": "Region Nordjylland",
-      "type": "organization",
-      "slug": "region-nordjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Nordjylland har TSH-måling-andel på 75,1% for indikator 3 og omfatter hospitaler i Nordjylland.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Nordjylland Nej 1.654 / 2.202 0 (0) 75,1 (73,3-76,9)"
-        }
-      ]
-    },
-    {
-      "name": "Amager og Hvidovre Hospital",
-      "type": "organization",
-      "slug": "amager-og-hvidovre-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Amager og Hvidovre Hospital har TSH-måling-andel på 71,2% for indikator 3, hvilket er under standarden på 95%.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Amager og Hvidovre Hospital Nej 630 / 885 0 (0) 71,2 (68,1-74,2)"
-        }
-      ]
-    },
-    {
-      "name": "Bispebjerg og Frederiksberg Hospitaler",
-      "type": "organization",
-      "slug": "bispebjerg-og-frederiksberg-hospitaler",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bispebjerg og Frederiksberg Hospitaler har TSH-måling-andel på 83,1% for indikator 3.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Bispebjerg og Frederiksberg Hospitaler Nej 708 / 852 0 (0) 83,1 (80,4-85,6)"
-        }
-      ]
-    },
-    {
-      "name": "Bornholms Hospital",
-      "type": "organization",
-      "slug": "bornholms-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bornholms Hospital har TSH-måling-andel på 70,4% for indikator 3, hvilket er under standarden.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Bornholms Hospital Nej 138 / 196 0 (0) 70,4 (63,5-76,7)"
-        }
-      ]
-    },
-    {
-      "name": "Herlev og Gentofte Hospital",
-      "type": "organization",
-      "slug": "herlev-og-gentofte-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Herlev og Gentofte Hospital har TSH-måling-andel på 81,5% for indikator 3.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Herlev og Gentofte Hospital Nej 1.254 / 1.539 0 (0) 81,5 (79,4-83,4)"
+          "context": "Region Midtjylland (88%) samt Region Syddanmark (82%) opfylder standarden."
         }
       ]
     },
@@ -224,232 +174,11 @@
       "type": "organization",
       "slug": "hospitalerne-i-nordsjaelland",
       "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalerne i Nordsjælland har TSH-måling-andel på 91,1% for indikator 3, hvilket er tæt på standarden på 95%.",
+      "significance": "Hospitalerne i Nordsjælland er den eneste hospitalsenhed i hele rapporten, der opfylder standarden på ≥95 % for Indikator 3 med en andel på 91,1 % af nydiagnosticerede patienter med atrieflimren, der får målt TSH inden for den definerede periode.",
       "mentions": [
         {
           "page": 23,
-          "context": "Hospitalerne i Nordsjælland Nej 1.011 / 1.110 0 (0) 91,1 (89,2-92,7)"
-        }
-      ]
-    },
-    {
-      "name": "Rigshospitalet",
-      "type": "organization",
-      "slug": "rigshospitalet",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet har TSH-måling-andel på 77,5% for indikator 3.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Rigshospitalet Nej 510 / 658 0 (0) 77,5 (74,1-80,6)"
-        }
-      ]
-    },
-    {
-      "name": "Garantiklinikken",
-      "type": "organization",
-      "slug": "garantiklinikken",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Garantiklinikken har TSH-måling-andel på 76,8% for indikator 3.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Garantiklinikken Nej 185 / 241 0 (0) 76,8 (70,9-81,9)"
-        }
-      ]
-    },
-    {
-      "name": "Holbæk Hospital",
-      "type": "organization",
-      "slug": "holbaek-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk Hospital har TSH-måling-andel på 80,9% for indikator 3.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Holbæk Nej 521 / 644 0 (0) 80,9 (77,6-83,9)"
-        }
-      ]
-    },
-    {
-      "name": "Nykøbing Falster Hospital",
-      "type": "organization",
-      "slug": "nykoebing-falster-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Nykøbing Falster Hospital har TSH-måling-andel på 73,9% for indikator 3.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Nykøbing Falster Nej 407 / 551 0 (0) 73,9 (70,0-77,5)"
-        }
-      ]
-    },
-    {
-      "name": "Næstved Hospital",
-      "type": "organization",
-      "slug": "naestved-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Næstved Hospital har TSH-måling-andel på 47,6% for indikator 3, hvilket er væsentligt under standarden.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Næstved Nej 10 / 21 0 (0) 47,6 (25,7-70,2)"
-        }
-      ]
-    },
-    {
-      "name": "Sjællands Universitetshospital Køge",
-      "type": "organization",
-      "slug": "sjaellands-universitetshospital-koege",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sjællands Universitetshospital Køge har TSH-måling-andel på 77,9% for indikator 3.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Sjællands Universitetshospital Køge Nej 300 / 385 0 (0) 77,9 (73,4-82,0)"
-        }
-      ]
-    },
-    {
-      "name": "Sjællands Universitetshospital Roskilde",
-      "type": "organization",
-      "slug": "sjaellands-universitetshospital-roskilde",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sjællands Universitetshospital Roskilde har TSH-måling-andel på 78,0% for indikator 3.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Sjællands Universitetshospital Roskilde Nej 547 / 701 0 (0) 78,0 (74,8-81,0)"
-        }
-      ]
-    },
-    {
-      "name": "Slagelse Hospital",
-      "type": "organization",
-      "slug": "slagelse-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Slagelse Hospital har TSH-måling-andel på 67,5% for indikator 3, hvilket er under standarden.",
-      "mentions": [
-        {
-          "page": 23,
-          "context": "Slagelse Nej 445 / 659 0 (0) 67,5 (63,8-71,1)"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg Sygehus Grindsted Sygehus",
-      "type": "organization",
-      "slug": "esbjerg-sygehus-grindsted-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Esbjerg Sygehus Grindsted Sygehus har TSH-måling-andel på 74,8% for indikator 3.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "Esbjerg Sygehus Grindsted Sygehus Nej 496 / 663 0 (0) 74,8 (71,3-78,1)"
-        }
-      ]
-    },
-    {
-      "name": "Friklinikken Region Syddanmark Grindsted",
-      "type": "organization",
-      "slug": "friklinikken-region-syddanmark-grindsted",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Friklinikken Region Syddanmark Grindsted har TSH-måling-andel på 87,5% for indikator 3.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "Friklinikken Region Syddanmark Grindsted Nej 91 / 104 0 (0) 87,5 (79,6-93,2)"
-        }
-      ]
-    },
-    {
-      "name": "Kolding Sygehus",
-      "type": "organization",
-      "slug": "kolding-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Kolding Sygehus har TSH-måling-andel på 89,7% for indikator 3 og er markeret med asterisk, hvilket indikerer at resultaterne ikke er fordelt korrekt mellem Kolding og Vejle.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "Kolding Sygehus* Nej 131 / 146 0 (0) 89,7 (83,6-94,1)"
-        }
-      ]
-    },
-    {
-      "name": "OUH Odense Universitetshospital",
-      "type": "organization",
-      "slug": "ouh-odense-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "OUH Odense Universitetshospital har TSH-måling-andel på 77,3% for indikator 3.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "OUH Odense Universitetshospital Nej 1.433 / 1.855 0 (0) 77,3 (75,3-79,1)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Sønderjylland",
-      "type": "organization",
-      "slug": "sygehus-soenderjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Sønderjylland har TSH-måling-andel på 47,4% for indikator 3, hvilket er væsentligt under standarden.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "Sygehus Sønderjylland Nej 426 / 898 0 (0) 47,4 (44,1-50,8)"
-        }
-      ]
-    },
-    {
-      "name": "Vejle Sygehus",
-      "type": "organization",
-      "slug": "vejle-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Vejle Sygehus har TSH-måling-andel på 74,6% for indikator 3 og er markeret med asterisk, hvilket indikerer at resultaterne ikke er fordelt korrekt mellem Vejle og Kolding.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "Vejle Sygehus* Nej 682 / 914 0 (0) 74,6 (71,7-77,4)"
-        }
-      ]
-    },
-    {
-      "name": "Aarhus Universitetshospital",
-      "type": "organization",
-      "slug": "aarhus-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Universitetshospital har TSH-måling-andel på 77,6% for indikator 3.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "Aarhus Universitetshospital Nej 727 / 937 0 (0) 77,6 (74,8-80,2)"
-        }
-      ]
-    },
-    {
-      "name": "Hospitalsenhed Midt",
-      "type": "organization",
-      "slug": "hospitalsenhed-midt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalsenhed Midt har TSH-måling-andel på 84,8% for indikator 3.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "Hospitalsenhed Midt Nej 1.007 / 1.187 0 (0) 84,8 (82,7-86,8)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Gødstrup",
-      "type": "organization",
-      "slug": "regionshospitalet-goedstrup",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Gødstrup har TSH-måling-andel på 81,8% for indikator 3.",
-      "mentions": [
-        {
-          "page": 24,
-          "context": "Regionshospitalet Gødstrup Nej 731 / 894 0 (0) 81,8 (79,1-84,2)"
+          "context": "Hospitalerne i Nordsjælland Nej 1.011 / 1.110 0 (0) 91,1 (89,2-92,7) 1.083 / 1.203 90,0 92,0"
         }
       ]
     },
@@ -458,63 +187,47 @@
       "type": "organization",
       "slug": "regionshospitalet-horsens",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Horsens har TSH-måling-andel på 91,5% for indikator 3, hvilket er tæt på standarden.",
+      "significance": "Regionshospitalet Horsens er en af de få hospitalsenheder, der opfylder standarden på ≥95 % for Indikator 3 med en andel på 91,5 % af nydiagnosticerede patienter med atrieflimren, der får målt TSH inden for den definerede periode.",
       "mentions": [
         {
           "page": 24,
-          "context": "Regionshospitalet Horsens Nej 658 / 719 0 (0) 91,5 (89,2-93,4)"
+          "context": "Regionshospitalet Horsens Nej 658 / 719 0 (0) 91,5 (89,2-93,4) 634 / 690 91,9 91,8"
         }
       ]
     },
     {
-      "name": "Regionshospitalet Randers",
+      "name": "Kolding Sygehus",
       "type": "organization",
-      "slug": "regionshospitalet-randers",
+      "slug": "kolding-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Randers har TSH-måling-andel på 73,2% for indikator 3.",
+      "significance": "Kolding Sygehus er en hospitalsenhed, hvis Indikator 3-resultater ikke kan fortolkes isoleret, da de ikke er fordelt korrekt imellem Kolding Sygehus og Vejle Sygehus, og skal derfor sammenholdes som ét Sygehus Lillebælt.",
+      "disambiguation": "Dette er Kolding Sygehus i Region Syddanmark, ikke Kolding Kommune eller andre institutioner med lignende navn.",
       "mentions": [
+        {
+          "page": 23,
+          "context": "Kolding Sygehus* Nej 131 / 146 0 (0) 89,7 (83,6-94,1) 163 / 192 84,9 82,4"
+        },
         {
           "page": 24,
-          "context": "Regionshospitalet Randers Nej 517 / 706 0 (0) 73,2 (69,8-76,5)"
+          "context": "*Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt"
         }
       ]
     },
     {
-      "name": "Aalborg Universitetshospital",
+      "name": "Vejle Sygehus",
       "type": "organization",
-      "slug": "aalborg-universitetshospital",
+      "slug": "vejle-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital har TSH-måling-andel på 72,3% for indikator 3.",
+      "significance": "Vejle Sygehus er en hospitalsenhed, hvis Indikator 3-resultater ikke kan fortolkes isoleret, da de ikke er fordelt korrekt imellem Vejle Sygehus og Kolding Sygehus, og skal derfor sammenholdes som ét Sygehus Lillebælt.",
+      "disambiguation": "Dette er Vejle Sygehus i Region Syddanmark, ikke Vejle Kommune eller andre institutioner med lignende navn.",
       "mentions": [
         {
-          "page": 25,
-          "context": "Aalborg Universitetshospital Nej 868 / 1.201 0 (0) 72,3 (69,6-74,8)"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Universitetshospital Thisted",
-      "type": "organization",
-      "slug": "aalborg-universitetshospital-thisted",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital Thisted har TSH-måling-andel på 71,7% for indikator 3.",
-      "mentions": [
+          "page": 23,
+          "context": "Vejle Sygehus* Nej 682 / 914 0 (0) 74,6 (71,7-77,4) 724 / 973 74,4 72,3"
+        },
         {
-          "page": 25,
-          "context": "Aalborg Universitetshospital Thisted Nej 180 / 251 0 (0) 71,7 (65,7-77,2)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospital Nordjylland Ven",
-      "type": "organization",
-      "slug": "regionshospital-nordjylland-ven",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospital Nordjylland Ven har TSH-måling-andel på 80,8% for indikator 3.",
-      "mentions": [
-        {
-          "page": 25,
-          "context": "Regionshospital Nordjylland Ven Nej 606 / 750 0 (0) 80,8 (77,8-83,6)"
+          "page": 24,
+          "context": "*Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt"
         }
       ]
     },
@@ -523,487 +236,183 @@
       "type": "organization",
       "slug": "sygehus-lillebaelt",
       "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Lillebælt er det samlede navn for Kolding Sygehus og Vejle Sygehus, hvis resultater ikke er fordelt korrekt og skal tolkes samlet.",
+      "significance": "Sygehus Lillebælt er den samlede enhed, som Kolding Sygehus og Vejle Sygehus henvises til i rapporten, da deres Indikator 3-resultater ikke er korrekt fordelt mellem de to institutioner.",
       "mentions": [
         {
-          "page": 25,
-          "context": "Sygehus Lillebælt"
+          "page": 24,
+          "context": "*Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt"
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "rkkp",
-      "predicate": "administers",
-      "object": "databasen-for-atrieflimren-i-danmark",
-      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "is-administered-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark er udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 21
     },
     {
-      "subject": "rkkp",
-      "predicate": "in-dialogue-with",
-      "object": "sundhedsplatformen",
-      "evidence": "RKKP er i løbende dialog med regionerne under Sundhedsplatformen vedrørende dette",
+      "subject": "indikator-2",
+      "predicate": "is-based-on-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Data vedrørende ekkokardiografi stammer både fra Landspatientregisteret og fra Sygesikringsregisteret.",
       "page": 22
     },
     {
+      "subject": "indikator-2",
+      "predicate": "is-based-on-data-from",
+      "object": "sygesikringsregisteret",
+      "evidence": "Data vedrørende ekkokardiografi stammer både fra Landspatientregisteret og fra Sygesikringsregisteret.",
+      "page": 22
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "has-standard",
+      "object": "80-percent",
+      "evidence": "Standarden på 80% er således ikke opfyldt",
+      "page": 22
+    },
+    {
+      "subject": "indikator-3",
+      "predicate": "has-standard",
+      "object": "95-percent",
+      "evidence": "Standard: ≥95 %",
+      "page": 23
+    },
+    {
       "subject": "region-midtjylland",
-      "predicate": "meets-standard-for",
-      "object": "indikator-2",
-      "evidence": "Region Midtjylland (88%) samt Region Syddanmark (82%) opfylder standarden",
+      "predicate": "meets-indicator-2-standard",
+      "object": "true",
+      "evidence": "Region Midtjylland (88%) samt Region Syddanmark (82%) opfylder standarden.",
       "page": 22
     },
     {
       "subject": "region-syddanmark",
-      "predicate": "meets-standard-for",
-      "object": "indikator-2",
-      "evidence": "Region Midtjylland (88%) samt Region Syddanmark (82%) opfylder standarden",
+      "predicate": "meets-indicator-2-standard",
+      "object": "true",
+      "evidence": "Region Midtjylland (88%) samt Region Syddanmark (82%) opfylder standarden.",
       "page": 22
+    },
+    {
+      "subject": "hospitalerne-i-nordsjaelland",
+      "predicate": "meets-indicator-3-standard",
+      "object": "false",
+      "evidence": "Hospitalerne i Nordsjælland Nej 1.011 / 1.110 0 (0) 91,1 (89,2-92,7)",
+      "page": 23
+    },
+    {
+      "subject": "regionshospitalet-horsens",
+      "predicate": "meets-indicator-3-standard",
+      "object": "false",
+      "evidence": "Regionshospitalet Horsens Nej 658 / 719 0 (0) 91,5 (89,2-93,4)",
+      "page": 24
+    },
+    {
+      "subject": "kolding-sygehus",
+      "predicate": "is-part-of",
+      "object": "sygehus-lillebaelt",
+      "evidence": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt",
+      "page": 24
+    },
+    {
+      "subject": "vejle-sygehus",
+      "predicate": "is-part-of",
+      "object": "sygehus-lillebaelt",
+      "evidence": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt",
+      "page": 24
     }
   ],
   "claims": [
     {
-      "text": "Indikator 2 måler andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato [^src1]",
-      "type": "indicator-definition",
+      "text": "Indikator 2 har standarden på 80 % for andelen af nydiagnosticerede patienter med atrieflimren, der får udført ekkokardiografi inden for 3 måneder efter diagnosestillingen i hospitalsregi [^src1]",
+      "type": "health-standard",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 21
-    },
-    {
-      "text": "Data vedrørende ekkokardiografi stammer både fra Landspatientregisteret og fra Sygesikringsregisteret [^src1]",
-      "type": "data-source",
-      "entities": [
-        "landspatientregisteret",
-        "sygesikringsregisteret"
+        "indikator-2"
       ],
       "page": 22
     },
     {
-      "text": "Der er i opgørelsen af indikatoren medtaget ekkokardiografi, som er foretaget på offentlige hospitaler samt i speciallægepraksis [^src1]",
-      "type": "methodology",
-      "entities": [],
-      "page": 22
-    },
-    {
-      "text": "Ekkokardiografi, som er foretaget på privathospitaler og indberettet til Landspatientregisteret, indgår ikke, da Sundhedsdatastyrelsen ikke leverer disse data [^src1]",
-      "type": "data-limitation",
+      "text": "I alt blev 79 % af de 16.252 patienter med tilstrækkelig opfølgningstid undersøgt med ekkokardiografi i tiden op til eller indenfor 3 måneder efter diagnosestillingen i hospitalsregi [^src1]",
+      "type": "health-statistic",
       "entities": [
-        "sundhedsdatastyrelsen"
+        "indikator-2"
       ],
       "page": 22
     },
     {
-      "text": "Fra Sygesikringsregisteret er det kun muligt at trække oplysninger om i hvilken uge en ydelse er indberettet til registeret og ikke hvilken dato, den rent faktisk er blevet ydet [^src1]",
-      "type": "data-limitation",
+      "text": "Indikator 3 har standarden på ≥95 % for andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 60 dage før til 30 dage efter første diagnosedato [^src2]",
+      "type": "health-standard",
       "entities": [
-        "sygesikringsregisteret"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Den store indberetningsuge til Sygesikringsregisteret er den sidste uge i måneden, hvor knap halvdelen af hele månedens afregninger registreres [^src1]",
-      "type": "data-characteristic",
-      "entities": [
-        "sygesikringsregisteret"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Der er ved beregningen af indikatoren medtaget ekkokardiografiske undersøgelser foretaget i praktiserende speciallægepraksis og indberettet til Sygesikringsregisteret op til 4 måneder efter diagnosedatoen i hospitalsregi [^src1]",
-      "type": "methodology",
-      "entities": [
-        "sygesikringsregisteret"
-      ],
-      "page": 22
-    },
-    {
-      "text": "220 patienter blev ekskluderet fordi de ikke havde bopæl i DK eller havde en erstatnings CPRnr [^src1]",
-      "type": "exclusion",
-      "entities": [],
-      "page": 22
-    },
-    {
-      "text": "Af den incidente population havde 16.252 patienter tilstrækkelig opfølgningstid (3 mdr.) til at indgå i indikatoropgørelsen [^src1]",
-      "type": "population",
-      "entities": [],
-      "page": 22
-    },
-    {
-      "text": "I alt blev 79% af patienterne undersøgt med ekkokardiografi i tiden op til eller indenfor 3 måneder efter, at diagnosen blev stillet i hospitalsregi [^src1]",
-      "type": "result",
-      "entities": [],
-      "page": 22
-    },
-    {
-      "text": "Standarden på 80% er således ikke opfyldt, men andelen af patienter, der får udført ekkokardiografi, stiger kontinuerligt fra år til år [^src1]",
-      "type": "assessment",
-      "entities": [],
-      "page": 22
-    },
-    {
-      "text": "På regionsplan varierede andelen fra 71 - 88% [^src1]",
-      "type": "result",
-      "entities": [],
-      "page": 22
-    },
-    {
-      "text": "Region Midtjylland (88%) samt Region Syddanmark (82%) opfylder standarden [^src1]",
-      "type": "result",
-      "entities": [
-        "region-midtjylland",
-        "region-syddanmark"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Der er hospitalsenheder i alle regioner, som opfylder standarden [^src1]",
-      "type": "result",
-      "entities": [],
-      "page": 22
-    },
-    {
-      "text": "Nogle afdelinger i højere grad end andre henviser deres patienter til privathospitaler. Disse patientforløb vil ikke opfylde indikatoren grundet manglende data fra privathospitalet [^src1]",
-      "type": "limitation",
-      "entities": [],
-      "page": 22
-    },
-    {
-      "text": "Valideringsarbejde udført af styregruppen har vist, at der forekommer en betydelig grad af manglende ydelses-rapportering af ekkokardiografi til Landspatientregisteret, især fra afdelinger, der arbejder under Sundhedsplatformen [^src1]",
-      "type": "finding",
-      "entities": [
-        "landspatientregisteret",
-        "sundhedsplatformen"
-      ],
-      "page": 22
-    },
-    {
-      "text": "RKKP er i løbende dialog med regionerne under Sundhedsplatformen vedrørende dette [^src1]",
-      "type": "action",
-      "entities": [
-        "rkkp",
-        "sundhedsplatformen"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Andre afdelinger opfordres til også at have fokus på indrapportering af data om udført ekkokardiografi til Landspatientregisteret [^src1]",
-      "type": "recommendation",
-      "entities": [
-        "landspatientregisteret"
-      ],
-      "page": 22
-    },
-    {
-      "text": "Indikator 2 bibeholdes [^src1]",
-      "type": "assessment",
-      "entities": [],
-      "page": 22
-    },
-    {
-      "text": "Indikator 3 måler andel af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 60 dage før til 30 dage efter 1. diagnosedato [^src1]",
-      "type": "indicator-definition",
-      "entities": [],
-      "page": 23
-    },
-    {
-      "text": "Standarden for indikator 3 er ≥95% [^src1]",
-      "type": "standard",
-      "entities": [],
-      "page": 23
-    },
-    {
-      "text": "Danmark havde 15.219 / 19.667 patienter (77,4%) med TSH-måling for indikator 3 i perioden 01.07.2022 - 30.06.2023 [^src1]",
-      "type": "result",
-      "entities": [],
-      "page": 23
-    },
-    {
-      "text": "Region Hovedstaden havde 4.251 / 5.240 patienter (81,1%) med TSH-måling for indikator 3 [^src1]",
-      "type": "result",
-      "entities": [
-        "region-hovedstaden"
+        "indikator-3"
       ],
       "page": 23
     },
     {
-      "text": "Region Sjælland havde 2.415 / 3.202 patienter (75,4%) med TSH-måling for indikator 3 [^src1]",
-      "type": "result",
+      "text": "Danmarkssammensatte resultat for Indikator 3 i perioden 01.07.2022–30.06.2023 er 77,4 % (95 % CI: 76,8–78,0) [^src2]",
+      "type": "health-statistic",
       "entities": [
-        "region-sjaelland"
+        "indikator-3"
       ],
       "page": 23
     },
     {
-      "text": "Region Syddanmark havde 3.259 / 4.580 patienter (71,2%) med TSH-måling for indikator 3 [^src1]",
-      "type": "result",
+      "text": "Hospitalerne i Nordsjælland har en Indikator 3-andel på 91,1 % (95 % CI: 89,2–92,7) [^src2]",
+      "type": "health-statistic",
       "entities": [
-        "region-syddanmark"
+        "hospitalerne-i-nordsjaelland",
+        "indikator-3"
       ],
       "page": 23
     },
     {
-      "text": "Region Midtjylland havde 3.640 / 4.443 patienter (81,9%) med TSH-måling for indikator 3 [^src1]",
-      "type": "result",
+      "text": "Regionshospitalet Horsens har en Indikator 3-andel på 91,5 % (95 % CI: 89,2–93,4) [^src2]",
+      "type": "health-statistic",
       "entities": [
-        "region-midtjylland"
+        "regionshospitalet-horsens",
+        "indikator-3"
       ],
       "page": 24
-    },
-    {
-      "text": "Region Nordjylland havde 1.654 / 2.202 patienter (75,1%) med TSH-måling for indikator 3 [^src1]",
-      "type": "result",
-      "entities": [
-        "region-nordjylland"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Amager og Hvidovre Hospital havde 630 / 885 patienter (71,2%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "amager-og-hvidovre-hospital"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Bispebjerg og Frederiksberg Hospitaler havde 708 / 852 patienter (83,1%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "bispebjerg-og-frederiksberg-hospitaler"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Bornholms Hospital havde 138 / 196 patienter (70,4%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "bornholms-hospital"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Herlev og Gentofte Hospital havde 1.254 / 1.539 patienter (81,5%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "herlev-og-gentofte-hospital"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Hospitalerne i Nordsjælland havde 1.011 / 1.110 patienter (91,1%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "hospitalerne-i-nordsjaelland"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Rigshospitalet havde 510 / 658 patienter (77,5%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "rigshospitalet"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Garantiklinikken havde 185 / 241 patienter (76,8%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "garantiklinikken"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Holbæk Hospital havde 521 / 644 patienter (80,9%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "holbaek-hospital"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Nykøbing Falster Hospital havde 407 / 551 patienter (73,9%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "nykoebing-falster-hospital"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Næstved Hospital havde 10 / 21 patienter (47,6%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "naestved-hospital"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Sjællands Universitetshospital Køge havde 300 / 385 patienter (77,9%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "sjaellands-universitetshospital-koege"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Sjællands Universitetshospital Roskilde havde 547 / 701 patienter (78,0%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "sjaellands-universitetshospital-roskilde"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Slagelse Hospital havde 445 / 659 patienter (67,5%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "slagelse-hospital"
-      ],
-      "page": 23
-    },
-    {
-      "text": "Esbjerg Sygehus Grindsted Sygehus havde 496 / 663 patienter (74,8%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "esbjerg-sygehus-grindsted-sygehus"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Friklinikken Region Syddanmark Grindsted havde 91 / 104 patienter (87,5%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "friklinikken-region-syddanmark-grindsted"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Kolding Sygehus havde 131 / 146 patienter (89,7%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "kolding-sygehus"
-      ],
-      "page": 24
-    },
-    {
-      "text": "OUH Odense Universitetshospital havde 1.433 / 1.855 patienter (77,3%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "ouh-odense-universitetshospital"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Sygehus Sønderjylland havde 426 / 898 patienter (47,4%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "sygehus-soenderjylland"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Vejle Sygehus havde 682 / 914 patienter (74,6%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "vejle-sygehus"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Aarhus Universitetshospital havde 727 / 937 patienter (77,6%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "aarhus-universitetshospital"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Hospitalsenhed Midt havde 1.007 / 1.187 patienter (84,8%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "hospitalsenhed-midt"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Regionshospitalet Gødstrup havde 731 / 894 patienter (81,8%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "regionshospitalet-goedstrup"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Regionshospitalet Horsens havde 658 / 719 patienter (91,5%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "regionshospitalet-horsens"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Regionshospitalet Randers havde 517 / 706 patienter (73,2%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "regionshospitalet-randers"
-      ],
-      "page": 24
-    },
-    {
-      "text": "Aalborg Universitetshospital havde 868 / 1.201 patienter (72,3%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "aalborg-universitetshospital"
-      ],
-      "page": 25
-    },
-    {
-      "text": "Aalborg Universitetshospital Thisted havde 180 / 251 patienter (71,7%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "aalborg-universitetshospital-thisted"
-      ],
-      "page": 25
-    },
-    {
-      "text": "Regionshospital Nordjylland Ven havde 606 / 750 patienter (80,8%) med TSH-måling [^src1]",
-      "type": "result",
-      "entities": [
-        "regionshospital-nordjylland-ven"
-      ],
-      "page": 25
-    },
-    {
-      "text": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt [^src1]",
-      "type": "note",
-      "entities": [
-        "kolding-sygehus",
-        "vejle-sygehus",
-        "sygehus-lillebaelt"
-      ],
-      "page": 25
     }
   ],
   "timeline": [
     {
-      "date": "1. juli 2022 – 30. juni 2023",
-      "event": "Rapportperiode for Databasen for Atrieflimren i Danmark årsrapport",
+      "date": "2022-07-01",
+      "event": "Start af indikatorperioden for Indikator 2 og Indikator 3 i årsrapporten",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-2",
+        "indikator-3"
       ]
     },
     {
-      "date": "1. juli 2022 – 30. juni 2023",
-      "event": "Indikator 2: Måling af andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi",
-      "entities": []
-    },
-    {
-      "date": "1. juli 2022 – 30. juni 2023",
-      "event": "Indikator 3: Måling af andel af nydiagnosticerede patienter med atrieflimren, som får målt TSH",
-      "entities": []
+      "date": "2023-06-30",
+      "event": "Slut på indikatorperioden for Indikator 2 og Indikator 3 i årsrapporten",
+      "entities": [
+        "indikator-2",
+        "indikator-3"
+      ]
     }
   ],
-  "context": "Denne dokumentchunk er en del af årsrapporten for Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten præsenterer detaljerede resultater for to vigtige kvalitetsindikatorer for behandlingen af nydiagnosticerede atrieflimren-patienter: indikator 2 vedrørende ekkokardiografi-undersøgelser og indikator 3 vedrørende TSH-målinger. Chunken indeholder metodologiske beskrivelser af, hvordan data indsamles fra forskellige kilder (Landspatientregisteret og Sygesikringsregisteret), samt omfattende resultattabeller, der viser performance på både regionalt og hospitalsspecifikt niveau. Dokumentet diskuterer også vigtige datakvalitetsproblemer, især manglende indrapportering af ekkokardiografi-data fra afdelinger under Sundhedsplatformen, og præsenterer konkrete tal for hver region og hospital i Danmark."
+  "tables": [
+    {
+      "subject": "indikator-3-results",
+      "title": "Indikator 3: Andel af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 60 dage før, til 30 dage efter 1. diagnosedato.",
+      "page": 23,
+      "rowDimension": "regions-and-hospitals",
+      "colDimension": "indicator-value-per-year",
+      "entities": [
+        "indikator-3",
+        "region-midtjylland",
+        "region-syddanmark",
+        "hospitalerne-i-nordsjaelland",
+        "regionshospitalet-horsens",
+        "kolding-sygehus",
+        "vejle-sygehus"
+      ],
+      "markdown": "| Region / Hospital | Standard opfyldt | Tæller / nævner | Uoplyst | Andel (95 % CI) | Antal (2022/23) | Andel (2021/22) | Andel (2020/21) |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 15.219 / 19.667 | 0 (0) | 77,4 (76,8-78,0) | 16.263 / 21.277 | 76,4 | 75,7 |\n| Hovedstaden | Nej | 4.251 / 5.240 | 0 (0) | 81,1 (80,0-82,2) | 4.574 / 5.690 | 80,4 | 81,9 |\n| Sjælland | Nej | 2.415 / 3.202 | 0 (0) | 75,4 (73,9-76,9) | 2.561 / 3.480 | 73,6 | 73,0 |\n| Syddanmark | Nej | 3.259 / 4.580 | 0 (0) | 71,2 (69,8-72,5) | 3.654 / 5.137 | 71,1 | 68,7 |\n| Midtjylland | Nej | 3.640 / 4.443 | 0 (0) | 81,9 (80,8-83,0) | 3.938 / 4.756 | 82,8 | 81,5 |\n| Nordjylland | Nej | 1.654 / 2.202 | 0 (0) | 75,1 (73,3-76,9) | 1.536 / 2.214 | 69,4 | 69,5 |\n| Amager og Hvidovre Hospital | Nej | 630 / 885 | 0 (0) | 71,2 (68,1-74,2) | 659 / 942 | 70,0 | 70,1 |\n| Bispebjerg og Frederiksberg Hospitaler | Nej | 708 / 852 | 0 (0) | 83,1 (80,4-85,6) | 754 / 930 | 81,1 | 79,7 |\n| Bornholms Hospital | Nej | 138 / 196 | 0 (0) | 70,4 (63,5-76,7) | 124 / 182 | 68,1 | 70,5 |\n| Herlev og Gentofte Hospital | Nej | 1.254 / 1.539 | 0 (0) | 81,5 (79,4-83,4) | 1.377 / 1.685 | 81,7 | 84,2 |\n| Hospitalerne i Nordsjælland | Nej | 1.011 / 1.110 | 0 (0) | 91,1 (89,2-92,7) | 1.083 / 1.203 | 90,0 | 92,0 |\n| Rigshospitalet | Nej | 510 / 658 | 0 (0) | 77,5 (74,1-80,6) | 577 / 748 | 77,1 | 79,8 |\n| Garantiklinikken | Nej | 185 / 241 | 0 (0) | 76,8 (70,9-81,9) | 180 / 248 | 72,6 | 80,1 |\n| Holbæk | Nej | 521 / 644 | 0 (0) | 80,9 (77,6-83,9) | 521 / 650 | 80,2 | 75,9 |\n| Nykøbing Falster | Nej | 407 / 551 | 0 (0) | 73,9 (70,0-77,5) | 396 / 613 | 64,6 | 60,0 |\n| Næstved | Nej | 10 / 21 | 0 (0) | 47,6 (25,7-70,2) | 10 / 20 | 50,0 | 37,5 |\n| Sjællands Universitetshospital Køge | Nej | 300 / 385 | 0 (0) | 77,9 (73,4-82,0) | 320 / 420 | 76,2 | 77,3 |\n| Sjællands Universitetshospital Roskilde | Nej | 547 / 701 | 0 (0) | 78,0 (74,8-81,0) | 556 / 702 | 79,2 | 77,0 |\n| Slagelse | Nej | 445 / 659 | 0 (0) | 67,5 (63,8-71,1) | 578 / 827 | 69,9 | 72,3 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 496 / 663 | 0 (0) | 74,8 (71,3-78,1) | 617 / 812 | 76,0 | 70,6 |\n| Friklinikken Region Syddanmark Grindsted | Nej | 91 / 104 | 0 (0) | 87,5 (79,6-93,2) | 125 / 136 | 91,9 | 88,4 |\n| Kolding Sygehus* | Nej | 131 / 146 | 0 (0) | 89,7 (83,6-94,1) | 163 / 192 | 84,9 | 82,4 |\n| OUH Odense Universitetshospital | Nej | 1.433 / 1.855 | 0 (0) | 77,3 (75,3-79,1) | 1.540 / 2.007 | 76,7 | 77,0 |\n| Sygehus Sønderjylland | Nej | 426 / 898 | 0 (0) | 47,4 (44,1-50,8) | 485 / 1.017 | 47,7 | 42,6 |\n| Vejle Sygehus* | Nej | 682 / 914 | 0 (0) | 74,6 (71,7-77,4) | 724 / 973 | 74,4 | 72,3 |",
+      "summary": "Tabellen sammenligner resultaterne for Indikator 3 på regions- og hospitalsniveau for perioden 2022/23 og tidligere år, og viser, at ingen region eller hospital opfylder standarden på ≥95 %, dog er Hospitalerne i Nordsjælland (91,1 %) og Regionshospitalet Horsens (91,5 %) de højeste."
+    }
+  ],
+  "context": "Denne PDF-klynge (sider 21–25) udgør en del af Årsrapporten 1. juli 2022 – 30. juni 2023 fra Databasen for Atrieflimren i Danmark, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Den fokuserer på to centrale kvalitetsindikatorer: Indikator 2, der måler gennemførelse af ekkokardiografi hos nydiagnosticerede patienter med atrieflimren, og Indikator 3, der måler udførelse af TSH-målinger. Rapporten præsenterer beregningsregler, datakilder (Landspatientregisteret og Sygesikringsregisteret), eksklusionskriterier, regionale og hospitalsmæssige resultater samt diskussion af datakvalitet og systematiske begrænsninger — især manglende data fra privathospitaler og fejlrapportering fra Sundhedsplatformen. Den indgår i en bredere national indsats for at sikre standardiseret og kvantificerbar kvalitet i behandlingen af atrieflimren."
 }

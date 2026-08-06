@@ -1,256 +1,467 @@
 {
-  "run": "2026-08-03T18:48:35.912Z",
-  "newPdfs": [],
+  "run": "2026-08-05T16:55:06.258Z",
+  "newPdfs": [
+    "ADHD_2023.pdf",
+    "ADHD_2024.pdf"
+  ],
   "newEntities": [
     {
-      "slug": "aabenraa-psychiatric-ambulatory",
-      "title": "Aabenraa Børne og Ungdomspsykiatrisk Ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics"
+      "slug": "10-aars-planen",
+      "title": "10 års planen",
+      "folder": "topics/policy/mental-health-strategy"
     },
     {
-      "slug": "bispebjerg-psychiatric-ambulatory",
-      "title": "Bispebjerg Psykiatrisk ambulatorium, børn og unge",
-      "folder": "entities/organizations/psychiatric-clinics"
+      "slug": "aabenna-borne-og-ungdomspsykiatrisk-ambulatorium",
+      "title": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium",
+      "folder": "entities/facilities/psychiatry-clinics"
     },
     {
-      "slug": "bispebjerg-psykiatrisk-ambulatorium-boern-unge",
+      "slug": "aarhus-universitetshospital-psykiatrien",
+      "title": "Aarhus Universitetshospital, Psykiatrien",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "adhd-behandlingspopulation",
+      "title": "ADHD-behandlingspopulation",
+      "folder": "entities/populations/adhd"
+    },
+    {
+      "slug": "adhd-databasen",
+      "title": "ADHD-DATABASEN",
+      "folder": "entities/organizations/healthcare-databases"
+    },
+    {
+      "slug": "adhd-pakkeforloeb",
+      "title": "ADHD-pakkeforløb",
+      "folder": "topics/processes"
+    },
+    {
+      "slug": "adhd-udredningsforlob",
+      "title": "ADHD-udredningsforløb",
+      "folder": "topics/processes"
+    },
+    {
+      "slug": "adhd-udredningspopulation",
+      "title": "ADHD-udredningspopulation",
+      "folder": "entities/populations/adhd"
+    },
+    {
+      "slug": "agx01b",
+      "title": "AGX01B",
+      "folder": "entities/codes"
+    },
+    {
+      "slug": "atomoxetin-n06ba09",
+      "title": "Atomoxetin (N06BA09)",
+      "folder": "entities/medications/adhd"
+    },
+    {
+      "slug": "baggrundspopulationen-2023",
+      "title": "Baggrundspopulationen 2023",
+      "folder": "entities/populations/general"
+    },
+    {
+      "slug": "bispebjerg-bup-ambulatorium",
       "title": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge",
-      "folder": "entities/organizations/psychiatric-departments"
+      "folder": "entities/organizations/psychiatry-clinics"
     },
     {
-      "slug": "boerne-ungdomspsyk-ambulatorium",
-      "title": "Børne- og ungdomspsyk. Ambulatorium",
+      "slug": "boerne-unge-psyk-afd-40",
+      "title": "Børne-Unge Psyk. Afd. 40",
+      "folder": "entities/organizations/psychiatry-clinics"
+    },
+    {
+      "slug": "bornholm-bup-ambulatorium",
+      "title": "Bornholm: Psykiatrisk ambulatorium, børn og unge",
+      "folder": "entities/organizations/psychiatry-clinics"
+    },
+    {
+      "slug": "bua",
+      "title": "Børne- og Ungdomspsykiatrisk Afdeling (BUA)",
+      "folder": "entities/organizations/hospitals"
+    },
+    {
+      "slug": "bua-psykiatrisk-klinik-for-skoleboern",
+      "title": "BUA Psykiatrisk Klinik for Skolebørn",
+      "folder": "entities/facilities/psychiatry-clinics"
+    },
+    {
+      "slug": "bua-psykiatrisk-klinik-for-udredning",
+      "title": "BUA Psykiatrisk Klinik for Udredning",
       "folder": "entities/organizations/clinics"
     },
     {
-      "slug": "boerne-ungdomspsykiatrisk-ambulatorium-odense",
-      "title": "Børne- og Ungdomspsykiatrisk Ambulatorium, Odense",
-      "folder": "entities/healthcare/psychiatric-clinics"
-    },
-    {
-      "slug": "boerne-unge-psyk-reg-fkt-40r",
-      "title": "Børne-Unge Psyk. Reg.fkt. 40.R",
-      "folder": "entities/organizations/psychiatric-clinics"
-    },
-    {
-      "slug": "bornholm-psychiatric-ambulatory",
-      "title": "Bornholm Psykiatrisk ambulatorium, børn og unge",
-      "folder": "entities/organizations/psychiatric-clinics"
-    },
-    {
-      "slug": "bornholm-psykiatrisk-ambulatorium-boern-unge",
-      "title": "Bornholm: Psykiatrisk ambulatorium, børn og unge",
-      "folder": "entities/organizations/psychiatric-departments"
-    },
-    {
-      "slug": "bua-aabenraa",
-      "title": "Børne- og Ungdomsambulatorierne i Aabenraa",
-      "folder": "entities/organizations/clinical-units"
-    },
-    {
-      "slug": "bua-odense",
-      "title": "Børne- og Ungdomsambulatorierne i Odense",
-      "folder": "entities/organizations/clinical-units"
-    },
-    {
-      "slug": "bua-psychiatric-clinic-assessment",
-      "title": "BUA Psykiatrisk Klinik for Udredning",
-      "folder": "entities/organizations/psychiatric-clinics"
-    },
-    {
-      "slug": "bua-psychiatric-clinic-schoolchildren",
-      "title": "BUA Psykiatrisk Klinik for Skolebørn",
-      "folder": "entities/organizations/psychiatric-clinics"
-    },
-    {
-      "slug": "bua-psychiatric-clinic-toddlers",
-      "title": "BUA Psykiatrisk Klinik for Småbørn",
-      "folder": "entities/organizations/psychiatric-clinics"
-    },
-    {
-      "slug": "bua-psychiatric-clinic-youth",
+      "slug": "bua-psykiatrisk-klinik-for-unge",
       "title": "BUA Psykiatrisk Klinik for Unge",
-      "folder": "entities/organizations/psychiatric-clinics"
+      "folder": "entities/facilities/psychiatry-clinics"
     },
     {
-      "slug": "bua-psykiatrisk-klinik-smaaborin",
+      "slug": "bua-smaborn-klinik",
       "title": "BUA Psykiatrisk Klinik for Småbørn",
-      "folder": "entities/organizations/psychiatric-departments"
+      "folder": "entities/organizations/psychiatry-clinics"
     },
     {
-      "slug": "bua-psykiatrisk-klinik-smaaborni-midtjylland",
-      "title": "BUA Psykiatrisk Klinik for Småbørn",
-      "folder": "entities/organizations/clinical-units"
+      "slug": "danmark",
+      "title": "Danmark",
+      "folder": "entities/organizations/regions"
     },
     {
-      "slug": "bua-psykiatrisk-klinik-udredning-midtjylland",
-      "title": "BUA Psykiatrisk Klinik for Udredning i Midtjylland",
-      "folder": "entities/healthcare/psychiatric-clinics"
+      "slug": "danmarks-statistik",
+      "title": "Danmarks Statistik",
+      "folder": "entities/organizations/healthcare-governance"
     },
     {
-      "slug": "bua-vejle",
-      "title": "Børne- og Ungdomsambulatorierne i Vejle",
-      "folder": "entities/organizations/clinical-units"
+      "slug": "danske-multidisciplinaere-psykiatrigrupper-dmpger",
+      "title": "Danske Multidisciplinære Psykiatrigrupper (DMPGer)",
+      "folder": "entities/organizations/healthcare-professional-bodies"
     },
     {
-      "slug": "dmpg-retningslinjen-adhd",
-      "title": "DMPG-retningslinjen for ADHD",
-      "folder": "topics/clinical-standard"
+      "slug": "dawba",
+      "title": "DAWBA",
+      "folder": "entities/products/clinical-assessment-tools"
     },
     {
-      "slug": "esbjerg-psychiatric-ambulatory",
-      "title": "Esbjerg Børne- og Ungdomspsykiatrisk Ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics"
+      "slug": "dexamfetamin-n06ba02",
+      "title": "Dexamfetamin (N06BA02)",
+      "folder": "entities/medications/adhd"
     },
     {
-      "slug": "glostrup-psychiatric-ambulatory",
-      "title": "Glostrup Psykiatrisk ambulatorium, børn og unge",
-      "folder": "entities/organizations/psychiatric-clinics"
+      "slug": "dmpg-retningslinje",
+      "title": "DMPG-retningslinje",
+      "folder": "topics/policy/mental-health-strategy"
     },
     {
-      "slug": "glostrup-psykiatrisk-ambulatorium-boern-unge",
+      "slug": "dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis",
+      "title": "DMPG-retningslinjen: Udredning af ADHD hos børn og unge i hospitalsregi og speciallægepraksis",
+      "folder": "topics/policy/mental-health-strategy"
+    },
+    {
+      "slug": "dps-midtjylland",
+      "title": "DPS Midtjylland",
+      "folder": "entities/organizations/healthcare-providers"
+    },
+    {
+      "slug": "esbjerg-bup-ambulatorium",
+      "title": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics"
+    },
+    {
+      "slug": "glostrup-bup-ambulatorium",
       "title": "Glostrup: Psykiatrisk ambulatorium, børn og unge",
-      "folder": "entities/organizations/psychiatric-departments"
+      "folder": "entities/organizations/psychiatry-clinics"
     },
     {
-      "slug": "hillerod-psychiatric-ambulatory",
-      "title": "Hillerød Psykiatrisk ambulatorium, børn og unge",
-      "folder": "entities/organizations/psychiatric-clinics"
+      "slug": "guanfacin-c02ac02",
+      "title": "Guanfacin (C02AC02)",
+      "folder": "entities/medications/adhd"
     },
     {
-      "slug": "hillerod-psykiatrisk-ambulatorium-boern-unge",
+      "slug": "hejmdal-privathospital-viby-beh-afsnit",
+      "title": "Hejmdal Privathospital Viby, beh.afsnit",
+      "folder": "entities/organizations/healthcare-providers"
+    },
+    {
+      "slug": "hillerod-psykiatrisk-ambulatorium-boern-og-unge",
       "title": "Hillerød: Psykiatrisk ambulatorium, børn og unge",
-      "folder": "entities/organizations/psychiatric-departments"
+      "folder": "entities/facilities/psychiatry-clinics"
     },
     {
-      "slug": "hilleroed-psykiatrisk-ambulatorium",
-      "title": "Hillerød: Psykiatrisk ambulatorium, børn og unge",
-      "folder": "entities/organizations/psychiatric-clinics"
+      "slug": "hjemkommune",
+      "title": "hjemkommune",
+      "folder": "entities/organizations/regional-authorities"
     },
     {
-      "slug": "hovedstaden",
-      "title": "Hovedstaden",
+      "slug": "indikator-1",
+      "title": "Indikator 1",
+      "folder": "topics/quality-indicators/adhd-care"
+    },
+    {
+      "slug": "indikator-10",
+      "title": "Indikator 10",
+      "folder": "topics/quality-indicators/adhd-care"
+    },
+    {
+      "slug": "indikator-11",
+      "title": "Indikator 11",
+      "folder": "topics/quality-indicators/adhd-care"
+    },
+    {
+      "slug": "indikator-2a",
+      "title": "Indikator 2a",
+      "folder": "topics/quality-indicators/adhd-care"
+    },
+    {
+      "slug": "indikator-2b",
+      "title": "Indikator 2b",
+      "folder": "topics/quality-indicators/adhd-care"
+    },
+    {
+      "slug": "indikator-3",
+      "title": "Indikator 3",
+      "folder": "topics/quality-indicators/adhd-care"
+    },
+    {
+      "slug": "indikator-4",
+      "title": "Indikator 4",
+      "folder": "topics/quality-indicators/adhd-care"
+    },
+    {
+      "slug": "indikator-5",
+      "title": "Indikator 5",
+      "folder": "topics/quality-indicators/adhd-care"
+    },
+    {
+      "slug": "indikator-6",
+      "title": "Indikator 6",
+      "folder": "topics/quality-indicators/adhd-care"
+    },
+    {
+      "slug": "indikator-7a",
+      "title": "Indikator 7a",
+      "folder": "topics/quality-indicators/adhd-care"
+    },
+    {
+      "slug": "indikator-7a-7b",
+      "title": "Indikator 7a+7b",
+      "folder": "topics/indicators"
+    },
+    {
+      "slug": "indikator-7b",
+      "title": "Indikator 7b",
+      "folder": "topics/quality-indicators/adhd-care"
+    },
+    {
+      "slug": "indikator-8",
+      "title": "Indikator 8",
+      "folder": "topics/quality-indicators/adhd-care"
+    },
+    {
+      "slug": "indikator-9",
+      "title": "Indikator 9",
+      "folder": "topics/quality-indicators/adhd-care"
+    },
+    {
+      "slug": "kiddie-sads",
+      "title": "Kiddie-SADS",
+      "folder": "entities/products/clinical-assessment-tools"
+    },
+    {
+      "slug": "koordinerende-netvaerksmoede",
+      "title": "koordinerende netværksmøde",
+      "folder": "topics/processes"
+    },
+    {
+      "slug": "lisdexamfetamin-n06ba12",
+      "title": "Lisdexamfetamin (N06BA12)",
+      "folder": "entities/medications/adhd"
+    },
+    {
+      "slug": "lpr",
+      "title": "LPR",
+      "folder": "entities/organizations/healthcare-databases"
+    },
+    {
+      "slug": "malene-tousgaard-foget-oestergaard",
+      "title": "Malene Tousgaard Foget Østergaard",
+      "folder": "entities/people/healthcare-professionals"
+    },
+    {
+      "slug": "methylphenidat-n06ba04",
+      "title": "Methylphenidat (N06BA04)",
+      "folder": "entities/medications/adhd"
+    },
+    {
+      "slug": "mette-hedelund",
+      "title": "Mette Hedelund",
+      "folder": "entities/people/healthcare-professionals"
+    },
+    {
+      "slug": "modafinil-n06ba07",
+      "title": "Modafinil (N06BA07)",
+      "folder": "entities/medications/adhd"
+    },
+    {
+      "slug": "odense-borne-og-ungdomspsykiatrisk-ambulatorium",
+      "title": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium",
+      "folder": "entities/facilities/psychiatry-clinics"
+    },
+    {
+      "slug": "pck-psykoterapeutisk-klinik",
+      "title": "PCK, Psykoterapeutisk klinik",
+      "folder": "entities/facilities/psychiatry-clinics"
+    },
+    {
+      "slug": "pho-klinik-1-for-psykiatriske-lidelser-horsens",
+      "title": "PHO Klinik 1 for Psykiatriske Lidelser – Horsens",
+      "folder": "entities/organizations/psychiatry-clinics"
+    },
+    {
+      "slug": "pmi-klinik-for-depression-og-mani-midt",
+      "title": "PMI Klinik for depression og mani – Midt",
+      "folder": "entities/organizations/psychiatry-clinics"
+    },
+    {
+      "slug": "privathospitaler",
+      "title": "Privathospitaler",
+      "folder": "entities/organizations/healthcare-providers"
+    },
+    {
+      "slug": "ps-almenpsykiatrisk-syd-ambulatorier",
+      "title": "PS Almenpsykiatrisk, Syd Ambulatorier",
+      "folder": "entities/organizations/psychiatry-clinics"
+    },
+    {
+      "slug": "pse",
+      "title": "PSE",
+      "folder": "entities/products/assessment-tools"
+    },
+    {
+      "slug": "pse-scan",
+      "title": "PSE-SCAN",
+      "folder": "entities/products/clinical-assessment-tools"
+    },
+    {
+      "slug": "psy-lokalpsykiatri-toender",
+      "title": "PSY Lokalpsykiatri (Tønder)",
+      "folder": "entities/organizations/psychiatry-clinics"
+    },
+    {
+      "slug": "region-hovedstaden",
+      "title": "region-hovedstaden",
+      "folder": "entities/organizations/regional-authorities"
+    },
+    {
+      "slug": "region-midtjylland",
+      "title": "region-midtjylland",
+      "folder": "entities/organizations/regional-authorities"
+    },
+    {
+      "slug": "region-nordjylland",
+      "title": "region-nordjylland",
+      "folder": "entities/organizations/regional-authorities"
+    },
+    {
+      "slug": "region-sjaelland",
+      "title": "region-sjaelland",
+      "folder": "entities/organizations/regional-authorities"
+    },
+    {
+      "slug": "region-syddanmark",
+      "title": "region-syddanmark",
       "folder": "entities/organizations/regions"
     },
     {
-      "slug": "hovedstaden-region",
-      "title": "Hovedstaden",
-      "folder": "entities/locations/danish-regions"
+      "slug": "rhp",
+      "title": "RHP",
+      "folder": "entities/organizations/healthcare-providers"
     },
     {
-      "slug": "midtjylland",
-      "title": "Midtjylland",
-      "folder": "entities/organizations/regions"
+      "slug": "rkkp",
+      "title": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/healthcare-standards"
     },
     {
-      "slug": "midtjylland-region",
-      "title": "Midtjylland",
-      "folder": "entities/locations/danish-regions"
-    },
-    {
-      "slug": "nordjylland",
-      "title": "Nordjylland",
-      "folder": "entities/locations/regions"
-    },
-    {
-      "slug": "nordjylland-region",
-      "title": "Nordjylland",
-      "folder": "entities/locations/danish-regions"
-    },
-    {
-      "slug": "odense-psychiatric-ambulatory",
-      "title": "Odense Børne- og Ungdomspsykiatrisk Ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics"
-    },
-    {
-      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-aabenraa",
-      "title": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)",
-      "folder": "entities/organizations/psychiatric-clinics"
-    },
-    {
-      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-odense",
-      "title": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense)",
-      "folder": "entities/organizations/psychiatric-clinics"
-    },
-    {
-      "slug": "psy-boerne-ungdomspsykiatrisk-ambulatorium-vejle",
-      "title": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle)",
-      "folder": "entities/organizations/psychiatric-clinics"
-    },
-    {
-      "slug": "psykiatrisk-ambulatorium-boern-unge-bispebjerg-b19",
-      "title": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19",
-      "folder": "entities/organizations/psychiatric-clinics"
-    },
-    {
-      "slug": "psykiatrisk-ambulatorium-boern-unge-glostrup-b29",
-      "title": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29",
-      "folder": "entities/organizations/psychiatric-clinics"
-    },
-    {
-      "slug": "psykiatrisk-ambulatorium-boern-unge-hillerod-b39",
-      "title": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39",
-      "folder": "entities/organizations/psychiatric-clinics"
-    },
-    {
-      "slug": "rpg-psykiatrisk-klinik-1-goedstrup",
+      "slug": "rpg-psykiatrisk-klinik-1-godstrup",
       "title": "RPG Psykiatrisk Klinik 1 – Gødstrup",
-      "folder": "entities/organizations/psychiatric-clinics"
+      "folder": "entities/organizations/psychiatry-clinics"
     },
     {
-      "slug": "sjaelland",
-      "title": "Sjælland",
-      "folder": "entities/organizations/regions"
+      "slug": "shelagh-powell",
+      "title": "Shelagh Powell",
+      "folder": "entities/people/healthcare-professionals"
     },
     {
-      "slug": "sjaelland-region",
-      "title": "Sjælland",
-      "folder": "entities/locations/danish-regions"
+      "slug": "simon-hjerrild",
+      "title": "Simon Hjerrild",
+      "folder": "entities/people/healthcare-professionals"
     },
     {
-      "slug": "sundk",
+      "slug": "speciallaeger",
+      "title": "speciallæger",
+      "folder": "entities/people/healthcare-professionals"
+    },
+    {
+      "slug": "specialpsykolog",
+      "title": "specialpsykolog",
+      "folder": "entities/people/healthcare-professionals"
+    },
+    {
+      "slug": "styregruppen",
+      "title": "Styregruppen",
+      "folder": "entities/organizations/healthcare-governance"
+    },
+    {
+      "slug": "sundhedsvaesnets-kvalitetsinstitut",
       "title": "Sundhedsvæsenets Kvalitetsinstitut",
-      "folder": "entities/organizations/health-administration"
+      "folder": "entities/organizations/healthcare-standards"
     },
     {
-      "slug": "syddanmark",
-      "title": "Syddanmark",
-      "folder": "entities/locations/regions"
-    },
-    {
-      "slug": "syddanmark-region",
-      "title": "Syddanmark",
-      "folder": "entities/locations/danish-regions"
-    },
-    {
-      "slug": "vejle-psychiatric-ambulatory",
-      "title": "Vejle Børne- Og Ungdomspsykiatrisk Ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics"
+      "slug": "vejle-bup-ambulatorium",
+      "title": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics"
     }
   ],
   "updatedEntities": [],
-  "conflicts": 140,
-  "totalCost": 0,
-  "chunksProcessed": 0,
-  "chunksSkipped": 26,
+  "conflicts": 1,
+  "totalCost": 8.790969000000002,
+  "chunksProcessed": 26,
+  "chunksSkipped": 0,
   "chunksFailed": 0,
-  "entitiesNew": 45,
+  "entitiesNew": 79,
   "entitiesUpdated": 0,
-  "relationshipsExtracted": 0,
-  "claimsExtracted": 0,
-  "claimsByType": {},
-  "pagesByType": {
-    "entity": 44,
-    "topic": 44
+  "relationshipsExtracted": 233,
+  "claimsExtracted": 202,
+  "claimsByType": {
+    "temporal": 5,
+    "quantitative": 4,
+    "definition": 2,
+    "quality-standard": 7,
+    "statistical": 29,
+    "performance": 80,
+    "clinical-practice": 2,
+    "quality-indicator": 1,
+    "regulatory-standard": 1,
+    "statistical-claim": 10,
+    "standard": 2,
+    "trend": 1,
+    "regional-variation": 7,
+    "non-compliance": 3,
+    "causal-analysis": 1,
+    "timeline": 3,
+    "demographic": 8,
+    "regional": 2,
+    "procedural": 3,
+    "observational": 1,
+    "structural": 1,
+    "quality-assessment": 1,
+    "data-quality": 1,
+    "policy-change": 2,
+    "governance": 2,
+    "policy-development": 1,
+    "explanation": 2,
+    "performance-change": 2,
+    "policy": 6,
+    "educational-outcome": 3,
+    "outlier-performance": 1,
+    "low-performance": 1,
+    "methodological": 3,
+    "interpretive": 1,
+    "administrative": 2,
+    "process": 1
   },
-  "foldersCreated": 27,
-  "brokenLinks": 0,
-  "orphanedPages": 1,
-  "conflictsManualEdit": 140,
-  "conflictsPreservation": 0,
-  "totalTokens": 1674368,
-  "wallClockMs": 236274,
-  "feedbackRepairs": 0,
+  "pagesByType": {
+    "entity": 79,
+    "topic": 35,
+    "document": 26
+  },
+  "foldersCreated": 38,
+  "brokenLinks": 52,
+  "orphanedPages": 15,
+  "conflictsManualEdit": 0,
+  "conflictsPreservation": 1,
+  "totalTokens": 3221480,
+  "wallClockMs": 9635109,
+  "feedbackRepairs": 40,
   "curationFallbacks": 0,
   "transportFailures": 0
 }

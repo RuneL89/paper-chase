@@ -4,228 +4,38 @@
       "name": "ADHD-databasen",
       "type": "organization",
       "slug": "adhd-databasen",
-      "folder": "entities/organizations/health-registries",
-      "significance": "En dansk sundhedsdatabase, der monitorerer kvaliteten af udredning og behandling af ADHD hos børn og unge under 18 år, med data fra 1. januar 2013 til nutid.",
+      "folder": "entities/organizations/health-databases",
+      "significance": "ADHD-databasen er en central dansk sundhedsdatabase, der monitorerer kvaliteten af udredning og behandling af ADHD hos børn og unge, og som fra 25. maj 2021 også omfatter en behandlingspopulation med nye indikatorer.",
       "mentions": [
         {
           "page": 41,
-          "context": "ADHD-databasen inkluderer børn og unge under 18 år i to forløbsbaserede populationer: ADHD udredningspopulation og ADHD behandlingspopulation"
-        },
-        {
-          "page": 41,
-          "context": "Denne årsrapport dækker opgørelsesperioden 1. april 2023 til 31. marts 2024"
-        },
-        {
-          "page": 41,
-          "context": "ADHD-databasen bruger data fra LPR, hvorved klinikerne undgår dobbelt registreringer i en separat database"
+          "context": "Appendix 1: Beskrivelse af studiepopulationen"
         }
       ]
     },
     {
-      "name": "Shelagh Powell",
-      "type": "person",
-      "slug": "shelagh-powell",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Overlæge og forperson for styregruppen for ADHD-databasen, repræsentant for Region Midtjylland og Børne- og Ungdomspsykiatrisk Selskab i Danmark.",
+      "name": "Udredningspopulationen",
+      "type": "population",
+      "slug": "udredningspopulationen",
+      "folder": "topics/populations/adhd",
+      "significance": "Udredningspopulationen er den første og ældste del af ADHD-databasen, bestående af børn og unge, der har igangsat et udredningsforløb for ADHD, og den danner grundlag for procesindikatorer samt resultatindikatoren 7a (afgangsprøve før 17 år).",
       "mentions": [
         {
           "page": 41,
-          "context": "Shelagh Powell Overlæge Team 2 for skolebørns psykiatri Børne- og Ungdomspsykiatrisk Afdeling (BUA) Aarhus Universitetshospital, Psykiatrien, Region Midtjylland Forperson og repræsentant for RM"
+          "context": "a) Udredningspopulationen\nTabellen viser antal, alders- og kønsfordeling for den periode, der indgår i årsrapporten (1. april 2023 - 31. marts 2024)"
         }
       ]
     },
     {
-      "name": "Simon Hjerrild",
-      "type": "person",
-      "slug": "simon-hjerrild",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Overlæge, klinisk lektor og PhD, forperson for Dansk Psykiatrisk Selskab og medlem af styregruppen for ADHD-databasen.",
+      "name": "Behandlingspopulationen",
+      "type": "population",
+      "slug": "behandlingspopulationen",
+      "folder": "topics/populations/adhd",
+      "significance": "Behandlingspopulationen blev indført den 25. maj 2021 som en udvidelse af ADHD-databasen og omfatter børn og unge, der har startet et ADHD-pakkeforløb; den er beregningsgrundlag for tre nye procesindikatorer samt resultatindikatoren 7b (afgangsprøve før 17 år).",
       "mentions": [
         {
           "page": 41,
-          "context": "Simon Hjerrild Overlæge, Klinisk lektor, PhD Team for ADHD, klinik 2, afdeling for psykoser, Aarhus Universitetshospital, Psykiatrien, Region Midtjylland Forperson"
-        }
-      ]
-    },
-    {
-      "name": "Ditte Hammerum",
-      "type": "person",
-      "slug": "ditte-hammerum",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Sygeplejerske ved Carelink psykiatri, Nærhospital Viborg, medlem af styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Ditte Hammerum Sygeplejerske Carelink psykiatri, Nærhospital Viborg"
-        }
-      ]
-    },
-    {
-      "name": "Jan Vestergaard",
-      "type": "person",
-      "slug": "jan-vestergaard",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Praktiserende speciallæge i psykiatri i Region Hovedstaden, medlem af styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Jan Vestergaard Praktiserende speciallæge i psykiatri Region Hovedstaden"
-        }
-      ]
-    },
-    {
-      "name": "Allan Hvolby",
-      "type": "person",
-      "slug": "allan-hvolby",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Speciallæge i Børne- og Ungdomspsykiatri, medlem af styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Allan Hvolby Speciallæge i Børne- og Ungdomspsykiatri"
-        }
-      ]
-    },
-    {
-      "name": "Linda Bramsen",
-      "type": "person",
-      "slug": "linda-bramsen",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Ledende overlæge ved Børne- og Ungdomspsykiatrien i Region Nordjylland, repræsentant for RN og medlem af styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Linda Bramsen Ledende overlæge Børne- og Ungdomspsykiatrien, Region Nordjylland Repræsentant for RN"
-        }
-      ]
-    },
-    {
-      "name": "Anne-Mette Lange",
-      "type": "person",
-      "slug": "anne-mette-lange",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Klinisk psykolog ved Børne- og Ungdomspsykiatrisk Center på Aarhus Universitetshospital, repræsentant for Dansk Psykolog Forening i styregruppen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Anne-Mette Lange Klinisk psykolog Børne- og Ungdomspsykiatrisk Center, Aarhus Universitetshospital, Region Midtjylland"
-        }
-      ]
-    },
-    {
-      "name": "Ib Rasmussen",
-      "type": "person",
-      "slug": "ib-rasmussen",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Overlæge ved Klinik Psykiatri Syd på Aalborg Universitetshospital i Region Nordjylland, medlem af styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Ib Rasmussen Overlæge Klinik Psykiatri Syd, Aalborg Universitetshospital, Region Nordjylland"
-        }
-      ]
-    },
-    {
-      "name": "Niels Bilenberg",
-      "type": "person",
-      "slug": "niels-bilenberg",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Overlæge og PhD ved Børne- og Ungdomspsykiatri i Odense, repræsentant for Region Syddanmark i styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Niels Bilenberg Overlæge, PhD, Børne- og Ungdomspsykiatri, Odense, Universitetsfunktion, Psykiatrien i Region Syddanmark Repræsentant for Region Syddanmark"
-        }
-      ]
-    },
-    {
-      "name": "Jan Kristensen",
-      "type": "person",
-      "slug": "jan-kristensen",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Cheflæge ved Børne- og Ungdomspsykiatrisk Afdeling i Region Sjælland, repræsentant for Region Sjælland i styregruppen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Jan Kristensen Cheflæge Børne- og Ungdomspsykiatrisk Afdeling, Psykiatrien i Region Sjælland Repræsentant for Region Sjælland"
-        }
-      ]
-    },
-    {
-      "name": "Tine Houmann",
-      "type": "person",
-      "slug": "tine-houmann",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Overlæge ved Børne- og Ungdomspsykiatrisk Center Glostrup i Region Hovedstaden, repræsentant for RH i styregruppen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Tine Houmann Overlæge Børne- og Ungdomspsykiatrisk Center Glostrup, Region Hovedstaden. Repræsentant for RH"
-        }
-      ]
-    },
-    {
-      "name": "Trish Nymark",
-      "type": "person",
-      "slug": "trish-nymark",
-      "folder": "entities/people/patient-advocates",
-      "significance": "Formand for ADHD foreningen og pårørenderepræsentant i styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Trish Nymark Formand for ADHD foreningen Pårørenderepræsentant"
-        }
-      ]
-    },
-    {
-      "name": "Søren Bredkjær",
-      "type": "person",
-      "slug": "soeren-bredkjaer",
-      "folder": "entities/people/healthcare-administrators",
-      "significance": "Vicedirektør i Regionssundhedsdirektørkredsen ved Psykiatrien Region Sjælland, psykiatriledelsesrepræsentant i styregruppen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Søren Bredkjær Vicedirektør, Regionssundhedsdirektørkredsen Psykiatrien Region Sjælland"
-        }
-      ]
-    },
-    {
-      "name": "Lotte Maxild Mortensen",
-      "type": "person",
-      "slug": "lotte-maxild-mortensen",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Epidemiolog ved Afdeling 3 på RKKP's Videncenter, medlem af styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Lotte Maxild Mortensen Epidemiolog, Afdeling 3, RKKP's Videncenter"
-        }
-      ]
-    },
-    {
-      "name": "Tea Naamansen Nikolov",
-      "type": "person",
-      "slug": "tea-naamansen-nikolov",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Datamanager ved Afdeling 3 på RKKP's Videncenter, medlem af styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Tea Naamansen Nikolov Datamanager, Afdeling 3, RKKP's Videncenter"
-        }
-      ]
-    },
-    {
-      "name": "Malene Østergaard",
-      "type": "person",
-      "slug": "malene-oestergaard",
-      "folder": "entities/people/healthcare-professionals",
-      "significance": "Kvalitetskonsulent ved Afdeling 3 på RKKP's Videncenter, kontaktperson og repræsentant for dataansvarlig myndighed i styregruppen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Malene Østergaard Kvalitetskonsulent, Afdeling 3, RKKP's Videncenter Kontaktperson og repræsentant for dataansvarlig myndighed"
+          "context": "b) Behandlingspopulationen\nTabellen viser antal, alders- og kønsfordeling for den periode, der indgår i årsrapporten (1. april 2023 - 31. marts 2024)"
         }
       ]
     },
@@ -233,16 +43,12 @@
       "name": "Region Hovedstaden",
       "type": "organization",
       "slug": "region-hovedstaden",
-      "folder": "entities/organizations/danish-regions",
-      "significance": "En dansk region, der indgår i ADHD-databasens regionale fordeling med 2.321 udredningsforløb og 647 patienter i behandling.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Hovedstaden er en af de fem regioner, der bidrager med data til ADHD-databasen, og den har den største andel af både udrednings- og behandlingspopulationen i rapportperioden, hvilket gør den til en central aktør i den nationale overvågning.",
       "mentions": [
         {
           "page": 41,
-          "context": "Hovedstaden 228 871 1.222 2.321"
-        },
-        {
-          "page": 41,
-          "context": "Hovedstaden 50 263 334 647"
+          "context": "| Hovedstaden | 228 | 871 | 1.222 | 2.321 |\n| Hovedstaden | 50 | 263 | 334 | 647 |"
         }
       ]
     },
@@ -250,16 +56,12 @@
       "name": "Region Sjælland",
       "type": "organization",
       "slug": "region-sjaelland",
-      "folder": "entities/organizations/danish-regions",
-      "significance": "En dansk region, der indgår i ADHD-databasens regionale fordeling med 610 udredningsforløb og 388 patienter i behandling.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Sjælland er en af de fem regioner, der leverer data til ADHD-databasen, og den bidrager med den anden største udredningspopulation og den tredje største behandlingspopulation i rapportperioden.",
       "mentions": [
         {
           "page": 41,
-          "context": "Sjælland 40 226 344 610"
-        },
-        {
-          "page": 41,
-          "context": "Sjælland 7 107 274 388"
+          "context": "| Sjælland | 40 | 226 | 344 | 610 |\n| Sjælland | 7 | 107 | 274 | 388 |"
         }
       ]
     },
@@ -267,16 +69,12 @@
       "name": "Region Syddanmark",
       "type": "organization",
       "slug": "region-syddanmark",
-      "folder": "entities/organizations/danish-regions",
-      "significance": "En dansk region, der indgår i ADHD-databasens regionale fordeling med 1.171 udredningsforløb og 841 patienter i behandling.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Syddanmark er en af de fem regioner, der bidrager til ADHD-databasen, og den har den største behandlingspopulation blandt alle regioner i rapportperioden, hvilket understreger dens centrale rolle i behandlingskvalitetsmåling.",
       "mentions": [
         {
           "page": 41,
-          "context": "Syddanmark 53 537 581 1.171"
-        },
-        {
-          "page": 41,
-          "context": "Syddanmark 15 341 485 841"
+          "context": "| Syddanmark | 53 | 537 | 581 | 1.171 |\n| Syddanmark | 15 | 341 | 485 | 841 |"
         }
       ]
     },
@@ -284,16 +82,12 @@
       "name": "Region Midtjylland",
       "type": "organization",
       "slug": "region-midtjylland",
-      "folder": "entities/organizations/danish-regions",
-      "significance": "En dansk region, der indgår i ADHD-databasens regionale fordeling med 701 udredningsforløb og 1.013 patienter i behandling.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Midtjylland er en af de fem regioner i ADHD-databasen og er særligt bemærkelsesværdig, da flere styregruppemedlemmer (Shelagh Powell, Simon Hjerrild) er ansat her, hvilket markerer dens faglige lederskab inden for ADHD.",
       "mentions": [
         {
           "page": 41,
-          "context": "Midtjylland 61 265 375 701"
-        },
-        {
-          "page": 41,
-          "context": "Midtjylland 31 329 653 1.013"
+          "context": "| Midtjylland | 61 | 265 | 375 | 701 |\n| Midtjylland | 31 | 329 | 653 | 1.013 |"
         }
       ]
     },
@@ -301,408 +95,196 @@
       "name": "Region Nordjylland",
       "type": "organization",
       "slug": "region-nordjylland",
-      "folder": "entities/organizations/danish-regions",
-      "significance": "En dansk region, der indgår i ADHD-databasens regionale fordeling med 412 udredningsforløb og 525 patienter i behandling.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Nordjylland er en af de fem regioner, der leverer data til ADHD-databasen, og den har den mindste udredningspopulation men en betydelig behandlingspopulation, hvilket kan tyde på en stærkere fokus på behandlingsforløb frem for udredning.",
       "mentions": [
         {
           "page": 41,
-          "context": "Nordjylland 23 115 274 412"
-        },
-        {
-          "page": 41,
-          "context": "Nordjylland # 136 388 525"
-        }
-      ]
-    },
-    {
-      "name": "Aarhus Universitetshospital",
-      "type": "organization",
-      "slug": "aarhus-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk universitetshospital, hvor flere medlemmer af styregruppen for ADHD-databasen arbejder.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Aarhus Universitetshospital, Psykiatrien, Region Midtjylland"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Universitetshospital",
-      "type": "organization",
-      "slug": "aalborg-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dansk universitetshospital i Region Nordjylland, hvor medlem af styregruppen arbejder.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Aalborg Universitetshospital, Region Nordjylland"
-        }
-      ]
-    },
-    {
-      "name": "Børne- og Ungdomspsykiatrisk Selskab i Danmark",
-      "type": "organization",
-      "slug": "boerne-og-ungdomspsykiatrisk-selskab-i-danmark",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Dansk fagselskab, der er repræsenteret i styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Børne- og Ungdomspsykiatrisk Selskab i Danmark"
-        }
-      ]
-    },
-    {
-      "name": "Dansk Psykiatrisk Selskab",
-      "type": "organization",
-      "slug": "dansk-psykiatrisk-selskab",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Dansk fagselskab, der er repræsenteret i styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Dansk Psykiatrisk Selskab"
-        }
-      ]
-    },
-    {
-      "name": "Forening af praktiserende speciallæger",
-      "type": "organization",
-      "slug": "forening-af-praktiserende-speciallaeger",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Dansk fagforening, der er repræsenteret i styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Forening af praktiserende speciallæger"
-        }
-      ]
-    },
-    {
-      "name": "Dansk Psykolog Forening",
-      "type": "organization",
-      "slug": "dansk-psykolog-forening",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Dansk fagforening, der er repræsenteret i styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Dansk Psykolog Forening"
-        }
-      ]
-    },
-    {
-      "name": "ADHD foreningen",
-      "type": "organization",
-      "slug": "adhd-foreningen",
-      "folder": "entities/organizations/patient-organizations",
-      "significance": "Dansk patientorganisation for personer med ADHD, repræsenteret i styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "ADHD foreningen"
-        }
-      ]
-    },
-    {
-      "name": "RKKP's Videncenter",
-      "type": "organization",
-      "slug": "rkkp-videncenter",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Dansk videncenter, der administrerer ADHD-databasen gennem Afdeling 3.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "RKKP's Videncenter"
-        }
-      ]
-    },
-    {
-      "name": "Regionssundhedsdirektørkredsen",
-      "type": "organization",
-      "slug": "regionssundhedsdirektorkredsen",
-      "folder": "entities/organizations/health-administration",
-      "significance": "Dansk sundhedsadministrativ organisation, repræsenteret i styregruppen for ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Regionssundhedsdirektørkredsen"
-        }
-      ]
-    },
-    {
-      "name": "LPR",
-      "type": "organization",
-      "slug": "lpr",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Landspatientregisteret, som ADHD-databasen bruger som datakilde for at undgå dobbelt registreringer.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "ADHD-databasen bruger data fra LPR, hvorved klinikerne undgår dobbelt registreringer i en separat database"
-        }
-      ]
-    },
-    {
-      "name": "Danmarks Statistik",
-      "type": "organization",
-      "slug": "danmarks-statistik",
-      "folder": "entities/organizations/government-agencies",
-      "significance": "Dansk statistisk myndighed, som leverer data om folkeskolens afgangsprøver til ADHD-databasen.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Data om folkeskolens afgangsprøve trækkes fra Danmarks Statistik"
+          "context": "| Nordjylland | 23 | 115 | 274 | 412 |\n| Nordjylland | # | 136 | 388 | 525 |"
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "shelagh-powell",
-      "predicate": "is-chair-of",
+      "subject": "udredningspopulationen",
+      "predicate": "is-part-of",
       "object": "adhd-databasen",
-      "evidence": "Shelagh Powell Overlæge... Forperson og repræsentant for RM",
+      "evidence": "ADHD-databasen inkluderer børn og unge under 18 år i to forløbsbaserede populationer: ADHD udredningspopulation og ADHD behandlingspopulation",
       "page": 41
     },
     {
-      "subject": "simon-hjerrild",
-      "predicate": "is-chair-of",
-      "object": "dansk-psykiatrisk-selskab",
-      "evidence": "Simon Hjerrild... Forperson Dansk Psykiatrisk Selskab",
+      "subject": "behandlingspopulationen",
+      "predicate": "is-part-of",
+      "object": "adhd-databasen",
+      "evidence": "ADHD-databasen inkluderer børn og unge under 18 år i to forløbsbaserede populationer: ADHD udredningspopulation og ADHD behandlingspopulation",
       "page": 41
     },
     {
-      "subject": "linda-bramsen",
-      "predicate": "represents",
-      "object": "region-nordjylland",
-      "evidence": "Linda Bramsen... Repræsentant for RN",
+      "subject": "region-hovedstaden",
+      "predicate": "contributes-data-to",
+      "object": "adhd-databasen",
+      "evidence": "Regionsfordeling [N] for både udrednings- og behandlingspopulationen inkluderer Region Hovedstaden",
       "page": 41
     },
     {
-      "subject": "niels-bilenberg",
-      "predicate": "represents",
-      "object": "region-syddanmark",
-      "evidence": "Niels Bilenberg... Repræsentant for Region Syddanmark",
+      "subject": "region-sjaelland",
+      "predicate": "contributes-data-to",
+      "object": "adhd-databasen",
+      "evidence": "Regionsfordeling [N] for både udrednings- og behandlingspopulationen inkluderer Region Sjælland",
       "page": 41
     },
     {
-      "subject": "jan-kristensen",
-      "predicate": "represents",
-      "object": "region-sjaelland",
-      "evidence": "Jan Kristensen... Repræsentant for Region Sjælland",
+      "subject": "region-syddanmark",
+      "predicate": "contributes-data-to",
+      "object": "adhd-databasen",
+      "evidence": "Regionsfordeling [N] for både udrednings- og behandlingspopulationen inkluderer Region Syddanmark",
       "page": 41
     },
     {
-      "subject": "tine-houmann",
-      "predicate": "represents",
-      "object": "region-hovedstaden",
-      "evidence": "Tine Houmann... Repræsentant for RH",
+      "subject": "region-midtjylland",
+      "predicate": "contributes-data-to",
+      "object": "adhd-databasen",
+      "evidence": "Regionsfordeling [N] for både udrednings- og behandlingspopulationen inkluderer Region Midtjylland",
       "page": 41
     },
     {
-      "subject": "trish-nymark",
-      "predicate": "is-chair-of",
-      "object": "adhd-foreningen",
-      "evidence": "Trish Nymark Formand for ADHD foreningen",
-      "page": 41
-    },
-    {
-      "subject": "adhd-databasen",
-      "predicate": "uses-data-from",
-      "object": "lpr",
-      "evidence": "ADHD-databasen bruger data fra LPR",
-      "page": 41
-    },
-    {
-      "subject": "adhd-databasen",
-      "predicate": "uses-data-from",
-      "object": "danmarks-statistik",
-      "evidence": "Data om folkeskolens afgangsprøve trækkes fra Danmarks Statistik",
+      "subject": "region-nordjylland",
+      "predicate": "contributes-data-to",
+      "object": "adhd-databasen",
+      "evidence": "Regionsfordeling [N] for både udrednings- og behandlingspopulationen inkluderer Region Nordjylland",
       "page": 41
     }
   ],
   "claims": [
     {
-      "text": "55 % af de unge, som har været udredt for ADHD på et tidspunkt i databasens levetid (start 1/1 2013), og som i 2023 blev 17 år, har bestået folkeskolens afgangsprøve [^src1]",
-      "type": "educational-outcome",
+      "text": "Udredningspopulationen omfatter 5.215 udredningsforløb i perioden 1. april 2023 til 31. marts 2024 [^src1]",
+      "type": "demographic",
       "entities": [
-        "adhd-databasen"
+        "udredningspopulationen"
       ],
       "page": 41
     },
     {
-      "text": "Baggrundspopulationens andel af unge, der har bestået folkeskolens afgangsprøve inden det fyldte 17 år, er 86 % [^src1]",
-      "type": "educational-outcome",
-      "entities": [],
-      "page": 41
-    },
-    {
-      "text": "65 % af de unge, som i 2023 blev 17 år og som har været diagnosticeret med ADHD og startet i et ADHD-behandlingsforløb på et tidspunkt i databasens levetid (start 1/1 2013), har bestået folkeskolens afgangsprøve [^src1]",
-      "type": "educational-outcome",
+      "text": "Behandlingspopulationen omfatter 3.414 patienter i pakkeforløb i perioden 1. april 2023 til 31. marts 2024 [^src1]",
+      "type": "demographic",
       "entities": [
-        "adhd-databasen"
+        "behandlingspopulationen"
       ],
       "page": 41
     },
     {
-      "text": "ADHD eller hyperkinetisk forstyrrelse (HKD) er i følge WHO's klassifikation (ICD-10) en neuropsykiatrisk lidelse med forstyrrelse af opmærksomhed og aktivitet [^src2]",
-      "type": "medical-definition",
-      "entities": [],
-      "page": 41
-    },
-    {
-      "text": "Forstyrrelsen ses hos 2-3 % af alle børn, hyppigst hos drenge [^src2]",
-      "type": "epidemiological",
-      "entities": [],
-      "page": 41
-    },
-    {
-      "text": "Forstyrrelsen vedbliver at give problemer ind i voksenalderen hos mere end halvdelen [^src2]",
-      "type": "medical",
-      "entities": [],
-      "page": 41
-    },
-    {
-      "text": "For at opfylde kriterierne for ADHD/HKD skal kernesymptomerne (uopmærksomhed, hyperaktivitet og impulsivitet) have været til stede før 7-års alderen og have varet i mindst seks måneder [^src2]",
-      "type": "diagnostic-criteria",
-      "entities": [],
-      "page": 41
-    },
-    {
-      "text": "ADHD ledsages ofte af andre psykiatriske forstyrrelser; hyppigst adfærdsforstyrrelse, søvnforstyrrelser, indlæringsproblemer, motoriske vanskeligheder, angst og depression [^src2]",
-      "type": "medical",
-      "entities": [],
-      "page": 41
-    },
-    {
-      "text": "Samlet ses andre psykiatriske diagnoser hos 70-80 % af børnene med ADHD [^src2]",
-      "type": "epidemiological",
-      "entities": [],
-      "page": 41
-    },
-    {
-      "text": "En del af kernesymptomerne kan forklares ved en ændret funktion i hjernens frontallapper på grund af et relativt underskud af transmitterstofferne dopamin og noradrenalin i synapsespalterne [^src2]",
-      "type": "neurobiological",
-      "entities": [],
-      "page": 41
-    },
-    {
-      "text": "Der er dokumenteret en forsinket modning (myelinisering) af hjernebarken [^src2]",
-      "type": "neurobiological",
-      "entities": [],
-      "page": 41
-    },
-    {
-      "text": "Fra 25. maj 2021 blev databasen udvidet med en ADHD-behandlingspopulation [^src2]",
-      "type": "operational",
+      "text": "I udredningspopulationen udgør drenge 59 % af det samlede antal [^src1]",
+      "type": "demographic",
       "entities": [
-        "adhd-databasen"
+        "udredningspopulationen"
       ],
       "page": 41
     },
     {
-      "text": "Fra 2024 udvides databasen til også at omfatte voksne i behandling for ADHD [^src2]",
-      "type": "operational",
+      "text": "I behandlingspopulationen udgør drenge 62 % af det samlede antal [^src1]",
+      "type": "demographic",
       "entities": [
-        "adhd-databasen"
+        "behandlingspopulationen"
       ],
       "page": 41
     },
     {
-      "text": "Det endelige indikatorsæt tilpasset voksne er sat i drift 1. april 2024 [^src2]",
-      "type": "operational",
+      "text": "Region Hovedstaden har 2.321 udredningsforløb og 647 patienter i pakkeforløb [^src1]",
+      "type": "regional",
       "entities": [
-        "adhd-databasen"
+        "region-hovedstaden",
+        "udredningspopulationen",
+        "behandlingspopulationen"
       ],
       "page": 41
     },
     {
-      "text": "Denne årsrapport dækker opgørelsesperioden 1. april 2023 til 31. marts 2024 [^src3]",
-      "type": "operational",
+      "text": "Region Syddanmark har 1.171 udredningsforløb og 841 patienter i pakkeforløb [^src1]",
+      "type": "regional",
       "entities": [
-        "adhd-databasen"
+        "region-syddanmark",
+        "udredningspopulationen",
+        "behandlingspopulationen"
       ],
       "page": 41
     },
     {
-      "text": "Rådata til rapporten er opdateret 15. september 2024 [^src3]",
-      "type": "operational",
+      "text": "I behandlingspopulationen er der ingen registrerede patienter i aldersgruppen 0–5 år i Region Nordjylland (angivet som '#') [^src1]",
+      "type": "demographic",
       "entities": [
-        "adhd-databasen"
-      ],
-      "page": 41
-    },
-    {
-      "text": "I opgørelsesperioden 1. april 2023 til 31. marts 2024 var der 5.215 udredningsforløb i alt [^src4]",
-      "type": "statistical",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Blandt udredningsforløbene var kønsfordelingen 59 % drenge og 41 % piger [^src4]",
-      "type": "statistical",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 41
-    },
-    {
-      "text": "I opgørelsesperioden 1. april 2023 til 31. marts 2024 var der 3.414 patienter i pakkeforløb i alt [^src5]",
-      "type": "statistical",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Blandt patienterne i pakkeforløb var kønsfordelingen 62 % drenge og 38 % piger [^src5]",
-      "type": "statistical",
-      "entities": [
-        "adhd-databasen"
+        "region-nordjylland",
+        "behandlingspopulationen"
       ],
       "page": 41
     }
   ],
   "timeline": [
     {
-      "date": "1. januar 2013",
-      "event": "ADHD-databasen påbegynder registrering af data",
-      "entities": [
-        "adhd-databasen"
-      ]
-    },
-    {
       "date": "25. maj 2021",
-      "event": "ADHD-databasen udvides med behandlingspopulation",
+      "event": "Behandlingspopulationen blev sat i drift i ADHD-databasen",
+      "entities": [
+        "behandlingspopulationen",
+        "adhd-databasen"
+      ]
+    },
+    {
+      "date": "1. april 2023",
+      "event": "Start af opgørelsesperioden for årsrapporten 2023/24",
       "entities": [
         "adhd-databasen"
       ]
     },
     {
-      "date": "1. april 2023 til 31. marts 2024",
-      "event": "Opgørelsesperiode for årsrapporten",
-      "entities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "date": "1. april 2024",
-      "event": "Indikatorsæt for voksne i ADHD-behandling sættes i drift",
+      "date": "31. marts 2024",
+      "event": "Afslutning af opgørelsesperioden for årsrapporten 2023/24",
       "entities": [
         "adhd-databasen"
       ]
     },
     {
       "date": "15. september 2024",
-      "event": "Rådata til årsrapporten opdateres",
+      "event": "Rådata til årsrapporten blev opdateret",
       "entities": [
         "adhd-databasen"
       ]
     }
   ],
-  "context": "Dokumentet indeholder en detaljeret beskrivelse af ADHD-databasen, en dansk sundhedsdatabase, der monitorerer kvaliteten af udredning og behandling af ADHD hos børn og unge under 18 år. Dokumentet præsenterer medlemmerne af styregruppen for databasen, som består af overlæger, speciallæger, psykologer, sygeplejersker, epidemiologer og pårørenderepræsentanter fra hele Danmark. Dokumentet indeholder også statistiske data om populationen af børn og unge, der er blevet udredt eller behandlet for ADHD i perioden 1. april 2023 til 31. marts 2024, fordelt efter aldersgrupper, køn og region. Desuden præsenteres vigtige resultater vedrørende uddannelsesmæssige resultater, hvor det vises, at børn og unge med ADHD har betydeligt lavere andel af dem, der består folkeskolens afgangsprøve inden det fyldte 17. år, sammenlignet med baggrundsbefolkningen."
+  "tables": [
+    {
+      "subject": "udredningspopulationen",
+      "title": "Antal, alders- og kønsfordeling for udredningspopulationen (1. april 2023 – 31. marts 2024)",
+      "page": 41,
+      "rowDimension": "alder og køn",
+      "colDimension": "antal per region og total",
+      "entities": [
+        "udredningspopulationen",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| 0-5 år | 6-10 år | 11-17 år | Total |\n| --- | --- | --- | --- |\n| 405 | 2.014 | 2.796 | 5.215 |\n| **Kønsfordeling [%]** | | | |\n| Drenge | 77 | 73 | 46 | 59 |\n| Piger | 23 | 27 | 54 | 41 |\n| **Regionsfordeling [N]** | | | |\n| Hovedstaden | 228 | 871 | 1.222 | 2.321 |\n| Sjælland | 40 | 226 | 344 | 610 |\n| Syddanmark | 53 | 537 | 581 | 1.171 |\n| Midtjylland | 61 | 265 | 375 | 701 |\n| Nordjylland | 23 | 115 | 274 | 412 |",
+      "summary": "Tabellen præsenterer antal udredningsforløb fordelt på aldersgrupper, køn og regioner, og viser at Region Hovedstaden har flest udredningsforløb (2.321), mens flest forløb forekommer i aldersgruppen 11–17 år (2.796)."
+    },
+    {
+      "subject": "behandlingspopulationen",
+      "title": "Antal, alders- og kønsfordeling for behandlingspopulationen (1. april 2023 – 31. marts 2024)",
+      "page": 41,
+      "rowDimension": "alder og køn",
+      "colDimension": "antal per region og total",
+      "entities": [
+        "behandlingspopulationen",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| 0-5 år | 6-10 år | 11-17 år | Total |\n| --- | --- | --- | --- |\n| 104 | 1.176 | 2.134 | 3.414 |\n| **Kønsfordeling [%]** | | | |\n| Drenge | 72 | 74 | 54 | 62 |\n| Piger | 28 | 26 | 46 | 38 |\n| **Regionsfordeling [N]** | | | |\n| Hovedstaden | 50 | 263 | 334 | 647 |\n| Sjælland | 7 | 107 | 274 | 388 |\n| Syddanmark | 15 | 341 | 485 | 841 |\n| Midtjylland | 31 | 329 | 653 | 1.013 |\n| Nordjylland | # | 136 | 388 | 525 |",
+      "summary": "Tabellen viser antal patienter i ADHD-pakkeforløb fordelt på aldersgrupper, køn og regioner, og viser at Region Syddanmark har flest patienter (841), mens flest patienter er i aldersgruppen 11–17 år (2.134) og at der ikke er registrerede patienter i 0–5-års-alderen i Region Nordjylland."
+    }
+  ],
+  "context": "Denne chunk er en del af årsrapporten for ADHD-databasen 2023/24 og indeholder teknisk-appendiks med detaljeret beskrivelse af studiepopulationerne (udrednings- og behandlingspopulationen), herunder kvantitative data om antal, alders- og kønsfordeling samt regional fordeling. Den knytter sig til en bredere narrativ om systematisk kvalitetsmåling i dansk børne- og ungdomspsykiatri, hvor databasen fungerer som et nationalt værktøj til at overvåge både procesindikatorer (fx netværksmøde, psykoedukation) og resultatindikatorer (fx folkeskolens afgangsprøve). Rapporten peger samtidig på metodiske udfordringer ved brug af LPR-data og regionale forskelle i henvisningspraksis, hvilket danner baggrund for en kritisk fortolkning af resultaterne."
 }

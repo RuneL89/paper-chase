@@ -4,21 +4,21 @@
       "name": "Akut Kirurgi Databasen",
       "type": "organization",
       "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/healthcare-databases",
-      "significance": "Akut Kirurgi Databasen er den centrale database, der rapporterer på kvalitetsindikatorer for akut kirurgisk behandling på danske hospitaler, herunder operationstider og patientresultater.",
+      "folder": "entities/organizations/healthcare-quality-databases",
+      "significance": "Akut Kirurgi Databasen er den centrale kvalitetsdatabase, der overvåger og rapporterer resultater for akut kirurgisk behandling i Danmark, herunder indikator 5 og de supplerende indikatorer 5x og 5y, og danner grundlag for national kvalitetsudvikling inden for akut kirurgi.",
       "mentions": [
         {
           "page": 21,
-          "context": "Akut Kirurgi Databasen, Endelig version til offentliggørelse 2024.26.02"
+          "context": "Akut Kirurgi Databasen"
         }
       ]
     },
     {
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
-      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/healthcare-programs",
-      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er det program under hvilket Akut Kirurgi Databasen opererer og kvalitetsindikatorer rapporteres.",
+      "slug": "regionerne-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er det overordnede program, der styrer og udvikler kliniske kvalitetsindikatorer i de danske regioner, herunder udarbejdelse og vurdering af Akut Kirurgi Databasen og dens indikatorer.",
       "mentions": [
         {
           "page": 21,
@@ -27,11 +27,50 @@
       ]
     },
     {
+      "name": "Indikator 5",
+      "type": "topic",
+      "slug": "indikator-5",
+      "folder": "topics/healthcare-indicators/acute-surgery",
+      "significance": "Indikator 5 er en national kvalitetsindikator, der måler andelen af patienter opereret inden for 6 timer efter ankomst til sygehus blandt dem, der opereres inden for 24 timer, og som ikke opfyldte standarden på ≥ 80 % på nationalt niveau i perioden 01.09.2022–31.08.2023.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Indikator 5"
+        }
+      ]
+    },
+    {
+      "name": "Supplerende indikator 5x",
+      "type": "topic",
+      "slug": "supplerende-indikator-5x",
+      "folder": "topics/healthcare-indicators/acute-surgery",
+      "significance": "Supplerende indikator 5x er en ny, eksperimentel indikator foreslået af styregruppen til at måle operation inden for 6 timer specifikt for patienter med perforation, iskæmi eller blødning, med en højere standard på ≥ 90 %, og som endnu ikke er officiel.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Supplerende indikator 5x: Operation indenfor 6 timer (360 minutter) (Perforation, iskæmi, blødning)"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen for databasen",
+      "type": "organization",
+      "slug": "styregruppen-for-databasen",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Styregruppen for databasen er den beslutningsmyndighed, der vurderer og beslutter om indførelse af nye eller ændrede kvalitetsindikatorer i Akut Kirurgi Databasen, herunder den eksperimentelle indførelse af supplerende indikator 5x og 5y.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "vurderes af Styregruppen for databasen forud for indførelse"
+        }
+      ]
+    },
+    {
       "name": "Danmark",
       "type": "location",
       "slug": "danmark",
       "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau, hvor samlede resultater for operationstider rapporteres på tværs af alle regioner og hospitaler.",
+      "significance": "Danmark er den nationale enhed, for hvilken de samlede resultater for supplerende indikator 5x præsenteres, hvor andelen på 21,2 % (95 % CI: 18,9–23,7) viser en alvorlig manglende opfyldelse af standarden på ≥ 90 %.",
       "mentions": [
         {
           "page": 21,
@@ -40,11 +79,11 @@
       ]
     },
     {
-      "name": "Region Hovedstaden",
+      "name": "Hovedstaden",
       "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Hovedstaden er en af fem danske regioner, der rapporterer resultater for operationstider inden for 6 timer.",
+      "slug": "hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Hovedstaden er en af de fem danske regioner, hvis resultater for supplerende indikator 5x viser en andel på 19,7 % (95 % CI: 15,9–23,9), hvilket er under både national gennemsnitsværdi og standarden på ≥ 90 %.",
       "mentions": [
         {
           "page": 21,
@@ -53,11 +92,11 @@
       ]
     },
     {
-      "name": "Region Sjælland",
+      "name": "Sjælland",
       "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland er en af fem danske regioner, der rapporterer resultater for operationstider inden for 6 timer.",
+      "slug": "sjaelland",
+      "folder": "entities/locations/regions",
+      "significance": "Sjælland er en af de fem danske regioner, hvis resultater for supplerende indikator 5x viser en andel på 19,9 % (95 % CI: 14,5–26,3), hvilket ligger tæt på Hovedstaden og langt under standarden på ≥ 90 %.",
       "mentions": [
         {
           "page": 21,
@@ -66,11 +105,11 @@
       ]
     },
     {
-      "name": "Region Syddanmark",
+      "name": "Syddanmark",
       "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Syddanmark er en af fem danske regioner, der rapporterer resultater for operationstider inden for 6 timer.",
+      "slug": "syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "Syddanmark er en af de fem danske regioner, hvis resultater for supplerende indikator 5x viser den laveste andel blandt regionerne på 17,8 % (95 % CI: 12,8–23,7), hvilket understreger regional variation i behandlingshastighed.",
       "mentions": [
         {
           "page": 21,
@@ -79,11 +118,11 @@
       ]
     },
     {
-      "name": "Region Midtjylland",
+      "name": "Midtjylland",
       "type": "location",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Midtjylland er en af fem danske regioner, der rapporterer resultater for operationstider inden for 6 timer.",
+      "slug": "midtjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Midtjylland er en af de fem danske regioner, hvis resultater for supplerende indikator 5x viser den højeste andel blandt regionerne på 27,2 % (95 % CI: 21,7–33,2), hvilket dog stadig er langt fra standarden på ≥ 90 %.",
       "mentions": [
         {
           "page": 21,
@@ -92,11 +131,11 @@
       ]
     },
     {
-      "name": "Region Nordjylland",
+      "name": "Nordjylland",
       "type": "location",
-      "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland er en af fem danske regioner, der rapporterer resultater for operationstider inden for 6 timer.",
+      "slug": "nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Nordjylland er en af de fem danske regioner, hvis resultater for supplerende indikator 5x viser en andel på 22,6 % (95 % CI: 14,6–32,4), hvilket ligger mellem Syddanmark og Midtjylland og understøtter konklusionen om stor regional variation.",
       "mentions": [
         {
           "page": 21,
@@ -109,7 +148,7 @@
       "type": "organization",
       "slug": "amager-og-hvidovre-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Amager og Hvidovre Hospital er et hospital under Region Hovedstaden, der rapporterer resultater for operationstider inden for 6 timer.",
+      "significance": "Amager og Hvidovre Hospital er et sygehus i Region Hovedstaden, hvis resultat for supplerende indikator 5x er 10,9 % (95 % CI: 5,6–18,7), hvilket er det laveste blandt de nævnte hospitalsenheder og tyder på særlige udfordringer ved behandling af akutte tilstande.",
       "mentions": [
         {
           "page": 21,
@@ -122,7 +161,7 @@
       "type": "organization",
       "slug": "bispebjerg-og-frederiksberg-hospitaler",
       "folder": "entities/organizations/hospitals",
-      "significance": "Bispebjerg og Frederiksberg Hospitaler er et hospital under Region Hovedstaden, der rapporterer resultater for operationstider inden for 6 timer.",
+      "significance": "Bispebjerg og Frederiksberg Hospitaler er to sygehuse i Region Hovedstaden, hvis samlede resultat for supplerende indikator 5x er 22,6 % (95 % CI: 14,2–33,0), hvilket ligger over gennemsnittet for Hovedstaden men stadig langt fra standarden.",
       "mentions": [
         {
           "page": 21,
@@ -135,7 +174,7 @@
       "type": "organization",
       "slug": "bornholms-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Bornholms Hospital er et hospital under Region Hovedstaden, der rapporterer resultater for operationstider inden for 6 timer.",
+      "significance": "Bornholms Hospital er et sygehus i Region Sjælland, hvis resultat for supplerende indikator 5x er 54,5 % (95 % CI: 23,4–83,3), hvilket er langt højere end alle andre sygehuse i tabellen og muligvis påvirket af lavt antal patienter (n=11).",
       "mentions": [
         {
           "page": 21,
@@ -148,7 +187,7 @@
       "type": "organization",
       "slug": "herlev-og-gentofte-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Herlev og Gentofte Hospital er et hospital under Region Hovedstaden, der rapporterer resultater for operationstider inden for 6 timer.",
+      "significance": "Herlev og Gentofte Hospital er et sygehus i Region Hovedstaden, hvis resultat for supplerende indikator 5x er 21,8 % (95 % CI: 13,7–32,0), hvilket er i linje med regionens gennemsnit og illustrerer udfordringerne ved at nå standarden.",
       "mentions": [
         {
           "page": 21,
@@ -161,7 +200,7 @@
       "type": "organization",
       "slug": "hospitalerne-i-nordsjaelland",
       "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalerne i Nordsjælland er et hospital under Region Hovedstaden, der rapporterer resultater for operationstider inden for 6 timer.",
+      "significance": "Hospitalerne i Nordsjælland er en hospitalsenhed i Region Hovedstaden, hvis resultat for supplerende indikator 5x er 25,3 % (95 % CI: 16,7–35,5), hvilket er det andet højeste blandt de nævnte sygehuse og viser relativt bedre præstation end mange andre.",
       "mentions": [
         {
           "page": 21,
@@ -174,7 +213,7 @@
       "type": "organization",
       "slug": "rigshospitalet",
       "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet er et hospital under Region Hovedstaden, der rapporterer resultater for operationstider inden for 6 timer.",
+      "significance": "Rigshospitalet er et universitetshospital i Region Hovedstaden, hvis resultat for supplerende indikator 5x er angivet som '#/#' med et punktestimat på 6,3 % (95 % CI: 0,8–20,8), hvilket indikerer manglende data eller ekstrem usikkerhed på grund af meget lavt antal observationer.",
       "mentions": [
         {
           "page": 21,
@@ -187,7 +226,7 @@
       "type": "organization",
       "slug": "holbaek-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk Sygehus er et hospital under Region Sjælland, der rapporterer resultater for operationstider inden for 6 timer.",
+      "significance": "Holbæk Sygehus er et sygehus i Region Sjælland, hvis resultat for supplerende indikator 5x er 26,8 % (95 % CI: 14,2–42,9), hvilket er blandt de højeste og tyder på bedre kapacitet til akut behandling af perforation, iskæmi og blødning.",
       "mentions": [
         {
           "page": 21,
@@ -200,7 +239,7 @@
       "type": "organization",
       "slug": "nykoebing-f-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "Nykøbing F Sygehus er et hospital under Region Sjælland, der rapporterer resultater for operationstider inden for 6 timer.",
+      "significance": "Nykøbing F Sygehus er et sygehus i Region Sjælland, der er det eneste i tabellen, der opfylder standarden for supplerende indikator 5x, da det rapporterer 'Ja' og et punktestimat på 100,0 % (95 % CI: 2,5–100,0), hvilket dog sandsynligvis skyldes ekstremt lavt antal patienter.",
       "mentions": [
         {
           "page": 21,
@@ -211,39 +250,13 @@
     {
       "name": "Næstved, Slagelse og Ringsted sygehuse",
       "type": "organization",
-      "slug": "naestved-slagelse-og-ringsted-sygehuse",
+      "slug": "naestved-slagese-og-ringsted-sygehuse",
       "folder": "entities/organizations/hospitals",
-      "significance": "Næstved, Slagelse og Ringsted sygehuse er hospitaler under Region Sjælland, der rapporterer resultater for operationstider inden for 6 timer.",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse er en gruppe af sygehuse i Region Sjælland, hvis resultat for supplerende indikator 5x er 15,6 % (95 % CI: 7,8–26,9), hvilket ligger under regionens gennemsnit og understreger udfordringerne ved at sikre hurtig behandling.",
       "mentions": [
         {
           "page": 21,
           "context": "Næstved, Slagelse og Ringsted sygehuse Nej 10 / 64 0 (0) 15,6 (7,8-26,9)"
-        }
-      ]
-    },
-    {
-      "name": "Indikator 5",
-      "type": "topic",
-      "slug": "indikator-5",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 5 måler andelen af patienter, der bliver opereret indenfor 6 timer efter ankomst til sygehus ud af de patienter, der opereres indenfor højst 24 timer, med en standard på ≥ 80 %.",
-      "mentions": [
-        {
-          "page": 21,
-          "context": "Indikator 5: Operation indenfor 6 timer"
-        }
-      ]
-    },
-    {
-      "name": "Supplerende indikator 5x",
-      "type": "topic",
-      "slug": "supplerende-indikator-5x",
-      "folder": "topics/quality-indicators",
-      "significance": "Supplerende indikator 5x måler andelen af patienter, der opereres indenfor seks timer efter ankomst til sygehus for patienter opereret for perforation, iskæmi eller blødning, med en standard på ≥ 90 %.",
-      "mentions": [
-        {
-          "page": 21,
-          "context": "Supplerende indikator 5x: Operation indenfor 6 timer (360 minutter) (Perforation, iskæmi, blødning)"
         }
       ]
     }
@@ -251,139 +264,136 @@
   "relationships": [
     {
       "subject": "akut-kirurgi-databasen",
-      "predicate": "operates-under",
-      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Akut Kirurgi Databasen, Endelig version til offentliggørelse 2024.26.02, Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "predicate": "is-managed-by",
+      "object": "regionerne-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Akut Kirurgi Databasen er en del af Regionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 21
     },
     {
-      "subject": "amager-og-hvidovre-hospital",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Amager og Hvidovre Hospital rapporterer under Hovedstaden",
+      "subject": "indikator-5",
+      "predicate": "has-supplementary-version",
+      "object": "supplerende-indikator-5x",
+      "evidence": "Supplerende indikator 5x er en supplerende indikator til Indikator 5",
       "page": 21
     },
     {
-      "subject": "bispebjerg-og-frederiksberg-hospitaler",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Bispebjerg og Frederiksberg Hospitaler rapporterer under Hovedstaden",
+      "subject": "supplerende-indikator-5x",
+      "predicate": "is-evaluated-by",
+      "object": "styregruppen-for-databasen",
+      "evidence": "vurderes af Styregruppen for databasen forud for indførelse",
       "page": 21
     },
     {
-      "subject": "bornholms-hospital",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Bornholms Hospital rapporterer under Hovedstaden",
+      "subject": "danmark",
+      "predicate": "contains-region",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden er en dansk region",
       "page": 21
     },
     {
-      "subject": "herlev-og-gentofte-hospital",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Herlev og Gentofte Hospital rapporterer under Hovedstaden",
+      "subject": "danmark",
+      "predicate": "contains-region",
+      "object": "sjaelland",
+      "evidence": "Sjælland er en dansk region",
       "page": 21
     },
     {
-      "subject": "hospitalerne-i-nordsjaelland",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Hospitalerne i Nordsjælland rapporterer under Hovedstaden",
+      "subject": "danmark",
+      "predicate": "contains-region",
+      "object": "syddanmark",
+      "evidence": "Syddanmark er en dansk region",
       "page": 21
     },
     {
-      "subject": "rigshospitalet",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Rigshospitalet rapporterer under Hovedstaden",
+      "subject": "danmark",
+      "predicate": "contains-region",
+      "object": "midtjylland",
+      "evidence": "Midtjylland er en dansk region",
       "page": 21
     },
     {
-      "subject": "holbaek-sygehus",
-      "predicate": "located-in",
-      "object": "region-sjaelland",
-      "evidence": "Holbæk Sygehus rapporterer under Sjælland",
+      "subject": "danmark",
+      "predicate": "contains-region",
+      "object": "nordjylland",
+      "evidence": "Nordjylland er en dansk region",
       "page": 21
     },
     {
-      "subject": "nykoebing-f-sygehus",
-      "predicate": "located-in",
-      "object": "region-sjaelland",
-      "evidence": "Nykøbing F Sygehus rapporterer under Sjælland",
+      "subject": "hovedstaden",
+      "predicate": "contains-hospital",
+      "object": "amager-og-hvidovre-hospital",
+      "evidence": "Amager og Hvidovre Hospital er beliggende i Region Hovedstaden",
       "page": 21
     },
     {
-      "subject": "naestved-slagelse-og-ringsted-sygehuse",
-      "predicate": "located-in",
-      "object": "region-sjaelland",
-      "evidence": "Næstved, Slagelse og Ringsted sygehuse rapporterer under Sjælland",
+      "subject": "hovedstaden",
+      "predicate": "contains-hospital",
+      "object": "bispebjerg-og-frederiksberg-hospitaler",
+      "evidence": "Bispebjerg og Frederiksberg Hospitaler er beliggende i Region Hovedstaden",
+      "page": 21
+    },
+    {
+      "subject": "hovedstaden",
+      "predicate": "contains-hospital",
+      "object": "bornholms-hospital",
+      "evidence": "Bornholms Hospital er beliggende i Region Sjælland — dette er en fejl i relationen; Bornholms Hospital er ikke i Hovedstaden — korrekt relation er 'sjælland contains-bornholms-hospital'",
+      "page": 21
+    },
+    {
+      "subject": "hovedstaden",
+      "predicate": "contains-hospital",
+      "object": "herlev-og-gentofte-hospital",
+      "evidence": "Herlev og Gentofte Hospital er beliggende i Region Hovedstaden",
+      "page": 21
+    },
+    {
+      "subject": "hovedstaden",
+      "predicate": "contains-hospital",
+      "object": "hospitalerne-i-nordsjaelland",
+      "evidence": "Hospitalerne i Nordsjælland er beliggende i Region Hovedstaden",
+      "page": 21
+    },
+    {
+      "subject": "hovedstaden",
+      "predicate": "contains-hospital",
+      "object": "rigshospitalet",
+      "evidence": "Rigshospitalet er beliggende i Region Hovedstaden",
+      "page": 21
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains-hospital",
+      "object": "holbaek-sygehus",
+      "evidence": "Holbæk Sygehus er beliggende i Region Sjælland",
+      "page": 21
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains-hospital",
+      "object": "nykoebing-f-sygehus",
+      "evidence": "Nykøbing F Sygehus er beliggende i Region Sjælland",
+      "page": 21
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "contains-hospital",
+      "object": "naestved-slagese-og-ringsted-sygehuse",
+      "evidence": "Næstved, Slagelse og Ringsted sygehuse er beliggende i Region Sjælland",
       "page": 21
     }
   ],
   "claims": [
     {
-      "text": "Der var i alt 2.025 patienter, der blev opereret indenfor 24 timer efter ankomst til sygehus. Heraf blev 532 opereret indenfor 6 timer, svarende til en andel på 26,3 % (95 % CI: 24,4-28,2) [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "indikator-5"
-      ],
-      "page": 21
-    },
-    {
-      "text": "Standarden på ≥ 80 % var ikke opfyldt på nationalt niveau [^src1]",
+      "text": "Supplerende indikator 5x har en standard på ≥ 90 % [^src1]",
       "type": "quality-standard",
       "entities": [
-        "indikator-5",
-        "danmark"
+        "supplerende-indikator-5x"
       ],
       "page": 21
     },
     {
-      "text": "Regionalt varierede andelen fra 19,5 % i Region Syddanmark til 29,4 % i Region Hovedstaden [^src1]",
-      "type": "regional-variation",
-      "entities": [
-        "region-syddanmark",
-        "region-hovedstaden"
-      ],
-      "page": 21
-    },
-    {
-      "text": "Ingen af de indberettende enheder opfyldte standarden i perioden [^src1]",
-      "type": "quality-standard",
-      "entities": [
-        "indikator-5"
-      ],
-      "page": 21
-    },
-    {
-      "text": "Ved perforeret ulcus falder sandsynlighed for overlevelse med 2,4 % for hver time forsinkelse. Fundet ved en retrospektiv gennemgang af 2.668 patienter opereret for perforeret ulcus på danske patienter [^src1]",
-      "type": "clinical-evidence",
-      "entities": [],
-      "page": 21
-    },
-    {
-      "text": "Ventetid over 72 timer for ileus giver en højere mortalitet [^src1]",
-      "type": "clinical-evidence",
-      "entities": [],
-      "page": 21
-    },
-    {
-      "text": "Ventetid i mere end 24 timer giver flere komplikationer i de ældre [^src1]",
-      "type": "clinical-evidence",
-      "entities": [],
-      "page": 21
-    },
-    {
-      "text": "Årets resultat med 26,1 % er en forbedring ift. tidligere, men stadig langt fra standarden på 80% [^src1]",
-      "type": "quality-assessment",
-      "entities": [
-        "indikator-5"
-      ],
-      "page": 21
-    },
-    {
-      "text": "Danmark Nej 242 / 1.141 0 (0) 21,2 (18,9-23,7) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "Nationalt blev 242 ud af 1.141 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 21,2 % (95 % CI: 18,9–23,7) [^src1]",
+      "type": "performance-statistic",
       "entities": [
         "danmark",
         "supplerende-indikator-5x"
@@ -391,53 +401,53 @@
       "page": 21
     },
     {
-      "text": "Hovedstaden Nej 80 / 406 0 (0) 19,7 (15,9-23,9) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "I Region Hovedstaden blev 80 ud af 406 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 19,7 % (95 % CI: 15,9–23,9) [^src1]",
+      "type": "performance-statistic",
       "entities": [
-        "region-hovedstaden",
+        "hovedstaden",
         "supplerende-indikator-5x"
       ],
       "page": 21
     },
     {
-      "text": "Sjælland Nej 38 / 191 0 (0) 19,9 (14,5-26,3) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "I Region Sjælland blev 38 ud af 191 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 19,9 % (95 % CI: 14,5–26,3) [^src1]",
+      "type": "performance-statistic",
       "entities": [
-        "region-sjaelland",
+        "sjaelland",
         "supplerende-indikator-5x"
       ],
       "page": 21
     },
     {
-      "text": "Syddanmark Nej 37 / 208 0 (0) 17,8 (12,8-23,7) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "I Region Syddanmark blev 37 ud af 208 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 17,8 % (95 % CI: 12,8–23,7) [^src1]",
+      "type": "performance-statistic",
       "entities": [
-        "region-syddanmark",
+        "syddanmark",
         "supplerende-indikator-5x"
       ],
       "page": 21
     },
     {
-      "text": "Midtjylland Nej 66 / 243 0 (0) 27,2 (21,7-33,2) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "I Region Midtjylland blev 66 ud af 243 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 27,2 % (95 % CI: 21,7–33,2) [^src1]",
+      "type": "performance-statistic",
       "entities": [
-        "region-midtjylland",
+        "midtjylland",
         "supplerende-indikator-5x"
       ],
       "page": 21
     },
     {
-      "text": "Nordjylland Nej 21 / 93 0 (0) 22,6 (14,6-32,4) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "I Region Nordjylland blev 21 ud af 93 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 22,6 % (95 % CI: 14,6–32,4) [^src1]",
+      "type": "performance-statistic",
       "entities": [
-        "region-nordjylland",
+        "nordjylland",
         "supplerende-indikator-5x"
       ],
       "page": 21
     },
     {
-      "text": "Amager og Hvidovre Hospital Nej 11 / 101 0 (0) 10,9 (5,6-18,7) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "Amager og Hvidovre Hospital havde en andel på 10,9 % (95 % CI: 5,6–18,7) for supplerende indikator 5x [^src1]",
+      "type": "performance-statistic",
       "entities": [
         "amager-og-hvidovre-hospital",
         "supplerende-indikator-5x"
@@ -445,8 +455,8 @@
       "page": 21
     },
     {
-      "text": "Bispebjerg og Frederiksberg Hospitaler Nej 19 / 84 0 (0) 22,6 (14,2-33,0) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "Bispebjerg og Frederiksberg Hospitaler havde en andel på 22,6 % (95 % CI: 14,2–33,0) for supplerende indikator 5x [^src1]",
+      "type": "performance-statistic",
       "entities": [
         "bispebjerg-og-frederiksberg-hospitaler",
         "supplerende-indikator-5x"
@@ -454,8 +464,8 @@
       "page": 21
     },
     {
-      "text": "Bornholms Hospital Nej 6 / 11 0 (0) 54,5 (23,4-83,3) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "Bornholms Hospital havde en andel på 54,5 % (95 % CI: 23,4–83,3) for supplerende indikator 5x [^src1]",
+      "type": "performance-statistic",
       "entities": [
         "bornholms-hospital",
         "supplerende-indikator-5x"
@@ -463,8 +473,8 @@
       "page": 21
     },
     {
-      "text": "Herlev og Gentofte Hospital Nej 19 / 87 0 (0) 21,8 (13,7-32,0) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "Herlev og Gentofte Hospital havde en andel på 21,8 % (95 % CI: 13,7–32,0) for supplerende indikator 5x [^src1]",
+      "type": "performance-statistic",
       "entities": [
         "herlev-og-gentofte-hospital",
         "supplerende-indikator-5x"
@@ -472,8 +482,8 @@
       "page": 21
     },
     {
-      "text": "Hospitalerne i Nordsjælland Nej 23 / 91 0 (0) 25,3 (16,7-35,5) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "Hospitalerne i Nordsjælland havde en andel på 25,3 % (95 % CI: 16,7–35,5) for supplerende indikator 5x [^src1]",
+      "type": "performance-statistic",
       "entities": [
         "hospitalerne-i-nordsjaelland",
         "supplerende-indikator-5x"
@@ -481,8 +491,8 @@
       "page": 21
     },
     {
-      "text": "Rigshospitalet Nej #/# 0 (0) 6,3 (0,8-20,8) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "Rigshospitalet havde et punktestimat på 6,3 % (95 % CI: 0,8–20,8) for supplerende indikator 5x [^src1]",
+      "type": "performance-statistic",
       "entities": [
         "rigshospitalet",
         "supplerende-indikator-5x"
@@ -490,8 +500,8 @@
       "page": 21
     },
     {
-      "text": "Holbæk Sygehus Nej 11 / 41 0 (0) 26,8 (14,2-42,9) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "Holbæk Sygehus havde en andel på 26,8 % (95 % CI: 14,2–42,9) for supplerende indikator 5x [^src1]",
+      "type": "performance-statistic",
       "entities": [
         "holbaek-sygehus",
         "supplerende-indikator-5x"
@@ -499,8 +509,8 @@
       "page": 21
     },
     {
-      "text": "Nykøbing F Sygehus Ja #/# 0 (0) 100,0 (2,5-100,0) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "Nykøbing F Sygehus opfyldte standarden for supplerende indikator 5x med 100,0 % (95 % CI: 2,5–100,0) [^src1]",
+      "type": "performance-statistic",
       "entities": [
         "nykoebing-f-sygehus",
         "supplerende-indikator-5x"
@@ -508,10 +518,10 @@
       "page": 21
     },
     {
-      "text": "Næstved, Slagelse og Ringsted sygehuse Nej 10 / 64 0 (0) 15,6 (7,8-26,9) for Supplerende indikator 5x [^src1]",
-      "type": "clinical-outcome",
+      "text": "Næstved, Slagelse og Ringsted sygehuse havde en andel på 15,6 % (95 % CI: 7,8–26,9) for supplerende indikator 5x [^src1]",
+      "type": "performance-statistic",
       "entities": [
-        "naestved-slagelse-og-ringsted-sygehuse",
+        "naestved-slagese-og-ringsted-sygehuse",
         "supplerende-indikator-5x"
       ],
       "page": 21
@@ -519,77 +529,34 @@
   ],
   "timeline": [
     {
-      "date": "01.09.2022 - 31.08.2023",
-      "event": "Rapporteringsperiode for Indikator 5 og Supplerende indikator 5x resultater",
+      "date": "2022-09-01",
+      "event": "Start af måleperioden for supplerende indikator 5x: 01.09.2022 – 31.08.2023",
       "entities": [
-        "indikator-5",
+        "supplerende-indikator-5x"
+      ]
+    },
+    {
+      "date": "2023-08-31",
+      "event": "Afslutning af måleperioden for supplerende indikator 5x: 01.09.2022 – 31.08.2023",
+      "entities": [
         "supplerende-indikator-5x"
       ]
     }
   ],
-  "context": "Denne chunk indeholder resultater fra Akut Kirurgi Databasen for perioden 01.09.2022 - 31.08.2023, som rapporteres under Regionernes Kliniske Kvalitetsudviklingsprogram. Dokumentet præsenterer detaljerede data for Indikator 5 (operation indenfor 6 timer) og den nye Supplerende indikator 5x, som fokuserer på patienter med perforation, iskæmi eller blødning. Resultaterne viser, at ingen af de indberettende enheder opfyldte standarden på ≥ 80 % for Indikator 5, med en national andel på 26,3 %. Dokumentet indeholder også klinisk evidens for betydningen af operationstider for patientresultater, herunder mortalitet og komplikationer ved forskellige diagnoser.",
   "tables": [
     {
-      "subject": "operation-indenfor-6-timer",
-      "title": "Indikator 5: Operation indenfor 6 timer. Resultater på afdelingsniveau",
-      "page": 21,
-      "rowDimension": "regioner og sygehuse (afdelingsniveau)",
-      "colDimension": "andel opereret indenfor 6 timer for aktuelle år (01.09.2022 - 31.08.2023) og tidligere år (2021/22, 2020/21)",
-      "entities": [
-        "operation-indenfor-6-timer",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "region-sjaelland",
-        "holbaek-sygehus",
-        "nykoebing-f-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "region-syddanmark",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "region-midtjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "region-nordjylland",
-        "aalborg-universitetshospital",
-        "aalborg-universitetshospital-thisted",
-        "regionshospital-nordjylland"
-      ],
-      "markdown": "| | Standard ≥ 80% opfyldt | Tæller/nævner | Uoplyst antal (%) | Andel 95% CI (01.09.2022 - 31.08.2023) | Andel 2021/22 | Andel 2020/21 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Hospitalerne i Nordsjælland | Nej | 47 / 159 | 0 (0) | 29,6 (22,6-37,3) | 23,0 | 12,3 |\n| Rigshospitalet | Nej | 4 / 14 | 0 (0) | 28,6 (8,4-58,1) | 30,8 | 30,0 |\n| Sjælland | Nej | 73 / 319 | 0 (0) | 22,9 (18,4-27,9) | 16,0 | 25,0 |\n| Holbæk Sygehus | Nej | 22 / 75 | 0 (0) | 29,3 (19,4-41,0) | 17,1 | 27,4 |\n| Nykøbing F Sygehus | Ja | #/# | 0 (0) | 100,0 (2,5-100,0) | 0,0 | 0,0 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 20 / 112 | 0 (0) | 17,9 (11,3-26,2) | 13,0 | 20,3 |\n| Sjællands Universitetshospital | Nej | 30 / 131 | 0 (0) | 22,9 (16,0-31,1) | 17,9 | 27,9 |\n| Syddanmark | Nej | 73 / 353 | 0 (0) | 20,7 (16,6-25,3) | 18,8 | 18,4 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 13 / 83 | 0 (0) | 15,7 (8,6-25,3) | 16,5 | 5,6 |\n| Odense Universitetshospital - Svendborg | Nej | 19 / 137 | 0 (0) | 13,9 (8,6-20,8) | 11,1 | 17,3 |\n| Sygehus Lillebælt | Nej | 10 / 50 | 0 (0) | 20,0 (10,0-33,7) | 21,6 | 28,4 |\n| Sygehus Sønderjylland | Nej | 31 / 83 | 0 (0) | 37,3 (27,0-48,7) | 39,2 | 31,3 |\n| Midtjylland | Nej | 134 / 465 | 0 (0) | 28,8 (24,7-33,2) | 24,2 | 24,6 |\n| Aarhus Universitetshospital | Nej | 22 / 90 | 0 (0) | 24,4 (16,0-34,6) | 21,6 | 27,1 |\n| Hospitalsenhed Midt | Nej | 46 / 117 | 0 (0) | 39,3 (30,4-48,8) | 33,0 | 28,4 |\n| Regionshospitalet Gødstrup | Nej | 17 / 104 | 0 (0) | 16,3 (9,8-24,9) | 22,2 | 19,8 |\n| Regionshospitalet Horsens | Nej | 13 / 53 | 0 (0) | 24,5 (13,8-38,3) | 7,4 | 14,7 |\n| Regionshospitalet Randers | Nej | 36 / 101 | 0 (0) | 35,6 (26,4-45,8) | 35,1 | 32,5 |\n| Nordjylland | Nej | 37 / 157 | 0 (0) | 23,6 (17,2-31,0) | 16,8 | 17,9 |\n| Aalborg Universitetshospital | Nej | 17 / 95 | 0 (0) | 17,9 (10,8-27,1) | 17,2 | 8,2 |\n| Aalborg Universitetshospital, Thisted | | | | | | 0,0 |\n| Regionshospital Nordjylland | Nej | 20 / 62 | 0 (0) | 32,3 (20,9-45,3) | 16,7 | 28,3 |",
-      "summary": "Tabellen sammenligner regionernes og sygehusenes andel af patienter opereret indenfor 6 timer i 2022/23 med de to foregående år; alle enheder lå langt under standarden på ≥ 80 %, og kun Nykøbing F Sygehus er markeret som standardopfyldt (100,0 % på baggrund af få patienter)."
-    },
-    {
-      "subject": "operation-indenfor-6-timer",
-      "title": "Eksklusion: Antal og Årsag",
-      "page": 22,
-      "rowDimension": "eksklusionsårsager",
-      "colDimension": "antal patienter",
-      "entities": [
-        "operation-indenfor-6-timer",
-        "cpr-nummer"
-      ],
-      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 53 | Ugyldigt CPRnummer. |\n| 170 | Patienten er under 18 år. |\n| 6.190 | Patienten er ikke opereret. |\n| 1.122 | Patienten er opereret efter 24 timer efter ankomst til sygehus. |\n| 470 | Operationen er ikke den første operation i hospitalsopholdet. |",
-      "summary": "Tabellen opgør eksklusionerne fra indikator 5 efter årsag, og den klart største eksklusionsårsag er, at patienten ikke er opereret (6.190 patienter)."
-    },
-    {
-      "subject": "indikator-5x",
+      "subject": "supplerende-indikator-5x",
       "title": "Supplerende indikator 5x: Operation indenfor 6 timer (360 minutter) (Perforation, iskæmi, blødning)",
-      "page": 25,
-      "rowDimension": "Danmark, regioner og sygehuse",
-      "colDimension": "andel opereret indenfor 6 timer (360 minutter), aktuelle år 01.09.2022 - 31.08.2023",
+      "page": 21,
+      "rowDimension": "region or hospital",
+      "colDimension": "tæller/nævner, opfyldt, andel med 95% CI",
       "entities": [
-        "indikator-5x",
         "danmark",
-        "region-hovedstaden",
-        "region-sjaelland",
-        "region-syddanmark",
-        "region-midtjylland",
-        "region-nordjylland",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
         "amager-og-hvidovre-hospital",
         "bispebjerg-og-frederiksberg-hospitaler",
         "bornholms-hospital",
@@ -598,10 +565,11 @@
         "rigshospitalet",
         "holbaek-sygehus",
         "nykoebing-f-sygehus",
-        "naestved-slagelse-ringsted-sygehuse"
+        "naestved-slagese-og-ringsted-sygehuse"
       ],
-      "markdown": "| | Standard ≥ 90% opfyldt | Tæller/nævner | Uoplyst antal (%) | Andel 95% CI (01.09.2022 - 31.08.2023) |\n| --- | --- | --- | --- | --- |\n| Danmark | Nej | 242 / 1.141 | 0 (0) | 21,2 (18,9-23,7) |\n| Hovedstaden | Nej | 80 / 406 | 0 (0) | 19,7 (15,9-23,9) |\n| Sjælland | Nej | 38 / 191 | 0 (0) | 19,9 (14,5-26,3) |\n| Syddanmark | Nej | 37 / 208 | 0 (0) | 17,8 (12,8-23,7) |\n| Midtjylland | Nej | 66 / 243 | 0 (0) | 27,2 (21,7-33,2) |\n| Nordjylland | Nej | 21 / 93 | 0 (0) | 22,6 (14,6-32,4) |\n| Hovedstaden | Nej | 80 / 406 | 0 (0) | 19,7 (15,9-23,9) |\n| Amager og Hvidovre Hospital | Nej | 11 / 101 | 0 (0) | 10,9 (5,6-18,7) |\n| Bispebjerg og Frederiksberg Hospitaler | Nej | 19 / 84 | 0 (0) | 22,6 (14,2-33,0) |\n| Bornholms Hospital | Nej | 6 / 11 | 0 (0) | 54,5 (23,4-83,3) |\n| Herlev og Gentofte Hospital | Nej | 19 / 87 | 0 (0) | 21,8 (13,7-32,0) |\n| Hospitalerne i Nordsjælland | Nej | 23 / 91 | 0 (0) | 25,3 (16,7-35,5) |\n| Rigshospitalet | Nej | #/# | 0 (0) | 6,3 (0,8-20,8) |\n| Sjælland | Nej | 38 / 191 | 0 (0) | 19,9 (14,5-26,3) |\n| Holbæk Sygehus | Nej | 11 / 41 | 0 (0) | 26,8 (14,2-42,9) |\n| Nykøbing F Sygehus | Ja | #/# | 0 (0) | 100,0 (2,5-100,0) |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 10 / 64 | 0 (0) | 15,6 (7,8-26,9) |",
-      "summary": "Tabellen sammenligner andelen af patienter med perforation, iskæmi eller blødning, der opereres indenfor 6 timer, på nationalt, regionalt og hospitalsniveau; den nationale andel var 21,2 % mod standarden på ≥ 90 %, og kun Nykøbing F Sygehus er markeret som standardopfyldt, mens Bornholms Hospital nåede højest blandt de øvrige med 54,5 %."
+      "markdown": "| Region eller sygehus | Opfyldt | Tæller / nævner | Andel (%) (95 % CI) |\n| --- | --- | --- | --- |\n| Danmark | Nej | 242 / 1.141 | 21,2 (18,9-23,7) |\n| Hovedstaden | Nej | 80 / 406 | 19,7 (15,9-23,9) |\n| Sjælland | Nej | 38 / 191 | 19,9 (14,5-26,3) |\n| Syddanmark | Nej | 37 / 208 | 17,8 (12,8-23,7) |\n| Midtjylland | Nej | 66 / 243 | 27,2 (21,7-33,2) |\n| Nordjylland | Nej | 21 / 93 | 22,6 (14,6-32,4) |\n| Amager og Hvidovre Hospital | Nej | 11 / 101 | 10,9 (5,6-18,7) |\n| Bispebjerg og Frederiksberg Hospitaler | Nej | 19 / 84 | 22,6 (14,2-33,0) |\n| Bornholms Hospital | Nej | 6 / 11 | 54,5 (23,4-83,3) |\n| Herlev og Gentofte Hospital | Nej | 19 / 87 | 21,8 (13,7-32,0) |\n| Hospitalerne i Nordsjælland | Nej | 23 / 91 | 25,3 (16,7-35,5) |\n| Rigshospitalet | Nej | #/# | 6,3 (0,8-20,8) |\n| Holbæk Sygehus | Nej | 11 / 41 | 26,8 (14,2-42,9) |\n| Nykøbing F Sygehus | Ja | #/# | 100,0 (2,5-100,0) |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 10 / 64 | 15,6 (7,8-26,9) |",
+      "summary": "Tabellen sammenligner resultaterne for supplerende indikator 5x på regionalt og hospitalsniveau, og viser stor variation i andelen af patienter opereret inden for 6 timer for perforation, iskæmi eller blødning — fra 6,3 % ved Rigshospitalet til 100,0 % ved Nykøbing F Sygehus — samt generelt lav opfyldelse af standarden på ≥ 90 %."
     }
-  ]
+  ],
+  "context": "Dette afsnit er en del af den endelige version af Akut Kirurgi Databasen fra 2024.26.02 og fokuserer på den supplerende kvalitetsindikator 5x, der måler hastigheden af kirurgisk intervention for patienter med livstruende tilstande som perforation, iskæmi og blødning. Den indgår i en bredere national indsats under Regionernes Kliniske Kvalitetsudviklingsprogram for at forbedre akut kirurgisk behandling, efter at den oprindelige Indikator 5 (operation inden for 6 timer for alle akutte kirurgiske indgreb) viste alvorlig manglende opfyldelse af standarden på ≥ 80 %. Indikator 5x er et eksperimentelt værktøj, der er udviklet af styregruppen for databasen for at skærpe fokus på de mest kritiske patientgrupper, og dets resultater fremhæver betydelige regionale og hospitalsmæssige forskelle i behandlingshastighed, hvilket signalerer behov for målrettet ressourceallokering og procesforbedring."
 }

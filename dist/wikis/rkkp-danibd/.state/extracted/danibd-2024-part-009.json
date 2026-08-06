@@ -4,8 +4,8 @@
       "name": "BMSL",
       "type": "product",
       "slug": "bmsl",
-      "folder": "entities/products/healthcare-software",
-      "significance": "BMSL er et behandlingsregisteringssystem for biologiske lægemidler, der dokumenteres gennem omfattende patientkarakteristika og behandlingsdata på både landsplan og afdelingsniveau.",
+      "folder": "entities/products/health-it",
+      "significance": "BMSL er det danske nationalt implementerede behandlingsstøttesystem til registrering af biologiske og småmolekylære lægemidler for inflammatoriske tarmsygdomme, og dets anvendelse er centralt i indikator 5 i DANIBD-kvalitetsdatabasen.",
       "mentions": [
         {
           "page": 41,
@@ -22,154 +22,62 @@
       ]
     },
     {
-      "name": "infliximab",
-      "type": "medication",
-      "slug": "infliximab",
-      "folder": "entities/medications/biologics",
-      "significance": "Infliximab er det mest anvendte biologisk lægemiddel i BMSL-behandlingen, med 1.936 registreringer blandt børn (65%) og 26.287 blandt voksne (43%) i perioden oktober 2023 til september 2024.",
+      "name": "indikator 5",
+      "type": "topic",
+      "slug": "indikator-5",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 5 måler brugen af biologiske og småmolekylære lægemidler (BMSL) i behandlingen af inflammatoriske tarmsygdomme og er en central kvalitetsindikator i DANIBD-systemet.",
       "mentions": [
         {
+          "page": 41,
+          "context": "Appendikstabel 3. Karakteristika for patienter i behandling med BMSL på landsplan (indikator 5)"
+        },
+        {
+          "page": 42,
+          "context": "Appendikstabel 4. Karakteristika for patienter i behandling med BMSL på afdelingsniveau (indikator 5)"
+        },
+        {
           "page": 43,
-          "context": "BOHJ18A1 - Behandling med infliximab 1.936 (65) 26.287 (43)"
+          "context": "Appendikstabel 5. Type og antal behandlinger med BMSL (indikator 5)"
         }
       ]
     },
     {
-      "name": "adalimumab",
-      "type": "medication",
-      "slug": "adalimumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Adalimumab er det andet mest anvendte biologisk lægemiddel med 470 registreringer blandt børn (16%) og 12.194 blandt voksne (20%) i behandlingsperioden.",
+      "name": "indikator 6",
+      "type": "topic",
+      "slug": "indikator-6",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 6 registrerer kirurgiske indgreb hos patienter med IBD og er baseret på SMR-procedurekoder, hvilket gør den central for evaluering af kirurgisk behandlingsfrekvens og type.",
       "mentions": [
         {
-          "page": 43,
-          "context": "BOHJ18A3 - Behandling med adalimumab 470 (16) 12.194 (20)"
+          "page": 44,
+          "context": "Appendikstabel 6. Typer af kirurgiske indgreb foretaget på patienter med IBD (indikator 6)"
+        },
+        {
+          "page": 45,
+          "context": "Appendikstabel 7. Typer af re-operationer foretaget på patienter med IBD (indikator 6)"
         }
       ]
     },
     {
-      "name": "golimumab",
-      "type": "medication",
-      "slug": "golimumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Golimumab er et biologisk lægemiddel med mindre anvendelse, registreret med 10 behandlinger blandt børn (0%) og 1.063 blandt voksne (2%).",
+      "name": "indikator 7",
+      "type": "topic",
+      "slug": "indikator-7",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 7 fokuserer på patienter med primær skleroserende kolangitis (PSC), en alvorlig komorbiditet ved IBD, og registrerer både nydiagnostiserede og prævalente tilfælde.",
       "mentions": [
         {
-          "page": 43,
-          "context": "BOHJ18A4 - Behandling med golimumab 10 (0) 1.063 (2)"
+          "page": 45,
+          "context": "Appendikstabel 8. Karakteristika for patienter med PSC (indikator 7)"
         }
       ]
     },
     {
-      "name": "ustekinumab",
-      "type": "medication",
-      "slug": "ustekinumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Ustekinumab er et biologisk lægemiddel med 149 registreringer blandt børn (5%) og 9.010 blandt voksne (15%) i behandlingsperioden.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "BOHJ18B3 - Behandling med ustekinumab 149 (5) 9.010 (15)"
-        }
-      ]
-    },
-    {
-      "name": "vedolizumab",
-      "type": "medication",
-      "slug": "vedolizumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Vedolizumab er et biologisk lægemiddel med 365 registreringer blandt børn (12%) og 10.922 blandt voksne (18%) i behandlingsperioden.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "BOHJ19H4 - Behandling med vedolizumab 365 (12) 10.922 (18)"
-        }
-      ]
-    },
-    {
-      "name": "risankizumab",
-      "type": "medication",
-      "slug": "risankizumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Risankizumab er et biologisk lægemiddel med minimal anvendelse, registreret med 23 behandlinger blandt børn (1%) og 676 blandt voksne (1%).",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "BOHJ19N1 - Behandling med risankizumab 23 (1) 676 (1)"
-        }
-      ]
-    },
-    {
-      "name": "tofacitinib",
-      "type": "medication",
-      "slug": "tofacitinib",
-      "folder": "entities/medications/small-molecule-inhibitors",
-      "significance": "Tofacitinib er en JAK-inhibitor med 12 registreringer blandt børn (0%) og 416 blandt voksne (1%) i behandlingsperioden.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "BOHJ28D - Behandling med tofacitinib 12 (0) 416 (1)"
-        }
-      ]
-    },
-    {
-      "name": "upadacitinib",
-      "type": "medication",
-      "slug": "upadacitinib",
-      "folder": "entities/medications/small-molecule-inhibitors",
-      "significance": "Upadacitinib er en JAK-inhibitor med 6 registreringer blandt børn (0%) og 368 blandt voksne (1%) i behandlingsperioden.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "BWHP107 - Behandling med upadacitinib 6 (0) 368 (1)"
-        }
-      ]
-    },
-    {
-      "name": "filgotinib",
-      "type": "medication",
-      "slug": "filgotinib",
-      "folder": "entities/medications/small-molecule-inhibitors",
-      "significance": "Filgotinib er en JAK-inhibitor med 67 registreringer blandt børn (0%) i behandlingsperioden.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "BWHP141 - Behandling med filgotinib 67 (0)"
-        }
-      ]
-    },
-    {
-      "name": "mirikizumab",
-      "type": "medication",
-      "slug": "mirikizumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Mirikizumab er et biologisk lægemiddel med 180 registreringer blandt børn (0%) i behandlingsperioden.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "BWHP142 - Behandling med mirikizumab 180 (0)"
-        }
-      ]
-    },
-    {
-      "name": "ozanimod",
-      "type": "medication",
-      "slug": "ozanimod",
-      "folder": "entities/medications/small-molecule-inhibitors",
-      "significance": "Ozanimod er et lægemiddel med 7 registreringer blandt børn (0%) i behandlingsperioden.",
-      "mentions": [
-        {
-          "page": 43,
-          "context": "BWHP143 - Behandling med ozanimod 7 (0)"
-        }
-      ]
-    },
-    {
-      "name": "Crohns sygdom",
-      "type": "medical-condition",
-      "slug": "crohns-disease",
-      "folder": "topics/diseases/inflammatory-bowel-disease",
-      "significance": "Crohns sygdom er den hyppigste diagnose blandt børn i BMSL-behandling med 282 patienter (69%) og blandt voksne med 6.960 patienter (61%).",
+      "name": "DK50",
+      "type": "disease",
+      "slug": "dk50-crohns-sygdom",
+      "folder": "entities/diseases/ibd-comorbidities",
+      "significance": "DK50 er den danske diagnosekode for Crohns sygdom og bruges systematisk i DANIBD-tabellerne til at klassificere patienter i behandling med BMSL.",
       "mentions": [
         {
           "page": 41,
@@ -178,11 +86,11 @@
       ]
     },
     {
-      "name": "Ulcerøs colitis",
-      "type": "medical-condition",
-      "slug": "ulcerative-colitis",
-      "folder": "topics/diseases/inflammatory-bowel-disease",
-      "significance": "Ulcerøs colitis er den anden hyppigste diagnose blandt børn i BMSL-behandling med 125 patienter (31%) og blandt voksne med 4.444 patienter (39%).",
+      "name": "DK51",
+      "type": "disease",
+      "slug": "dk51-ulceroes-colitis",
+      "folder": "entities/diseases/ibd-comorbidities",
+      "significance": "DK51 er den danske diagnosekode for ulcerøs colitis og anvendes i DANIBD-tabellerne til at adskille patientgrupper i behandling med BMSL.",
       "mentions": [
         {
           "page": 41,
@@ -191,11 +99,11 @@
       ]
     },
     {
-      "name": "Primær skleroserende kolangitis",
-      "type": "medical-condition",
-      "slug": "primary-sclerosing-cholangitis",
-      "folder": "topics/medical-conditions",
-      "significance": "Primær skleroserende kolangitis er registreret hos 40 voksne patienter (0%) i BMSL-behandling og er fokus for indikator 7 med 31 nydiagnostiserede og 332 prævalente patienter.",
+      "name": "DK830F",
+      "type": "disease",
+      "slug": "dk830f-primaer-skleroserende-kolangitis",
+      "folder": "entities/diseases/hepatic-biliary",
+      "significance": "DK830F er den danske diagnosekode for primær skleroserende kolangitis (PSC), som er en kendt komorbiditet ved IBD og dækker både nydiagnostiserede og prævalente tilfælde i indikator 7.",
       "mentions": [
         {
           "page": 41,
@@ -203,16 +111,16 @@
         },
         {
           "page": 45,
-          "context": "Appendikstabel 8. Karakteristika for patienter med PSC (indikator 7) DK830F Primær skleroserende kolangitis 31 (100) 332 (100)"
+          "context": "DK830F Primær skleroserende kolangitis 31 (100) 332 (100)"
         }
       ]
     },
     {
-      "name": "Korttarmssyndrom",
-      "type": "medical-condition",
-      "slug": "korttarmssyndrom",
-      "folder": "topics/medical-conditions",
-      "significance": "Korttarmssyndrom er registreret hos 20 voksne patienter (0%) i BMSL-behandling.",
+      "name": "DK912B",
+      "type": "disease",
+      "slug": "dk912b-korttarmssyndrom",
+      "folder": "entities/diseases/gastrointestinal",
+      "significance": "DK912B er den danske diagnosekode for korttarmssyndrom, en komplikation af IBD-behandling, der inkluderes i karakteristikken af BMSL-patienter i appendikstabel 3.",
       "mentions": [
         {
           "page": 41,
@@ -221,1152 +129,353 @@
       ]
     },
     {
-      "name": "Amager og Hvidovre Hospital",
-      "type": "organization",
-      "slug": "amager-og-hvidovre-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Amager og Hvidovre Hospital er en af de største behandlingscentre med 1.117 patienter i BMSL-behandling, hvoraf 715 (64%) har Crohns sygdom og 396 (35%) har ulcerøs colitis.",
+      "name": "BOHJ18A1",
+      "type": "treatment",
+      "slug": "bohj18a1-behandling-med-infliximab",
+      "folder": "entities/treatments/gastrointestinal",
+      "significance": "BOHJ18A1 er den danske procedurekode for behandling med infliximab og er den hyppigst anvendte BMSL-behandling både hos børn og voksne ifølge appendikstabel 5.",
       "mentions": [
         {
-          "page": 42,
-          "context": "Amager og Hvidovre Hospital 1.117 715 (64) 396 (35) 6 (1) 533 (48) 584 (52) 34 (0;87) 31 (23;43) 13 (1;53) 11 (8;16)"
+          "page": 43,
+          "context": "BOHJ18A1 - Behandling med infliximab 1.936 (65) 26.287 (43)"
+        },
+        {
+          "page": 43,
+          "context": "BOHJ18A1 - Behandling med infliximab 285 (57) 4.542 (34)"
+        },
+        {
+          "page": 43,
+          "context": "BOHJ18A1 - Behandling med infliximab 244 (60) 3.874 (34)"
         }
       ]
     },
     {
-      "name": "Bispebjerg og Fr.berg Hospital",
-      "type": "organization",
-      "slug": "bispebjerg",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bispebjerg og Fr.berg Hospital behandler 593 patienter i BMSL-behandling med 352 (59%) Crohns sygdom og 240 (40%) ulcerøs colitis.",
+      "name": "BOHJ18A3",
+      "type": "treatment",
+      "slug": "bohj18a3-behandling-med-adalimumab",
+      "folder": "entities/treatments/gastrointestinal",
+      "significance": "BOHJ18A3 er den danske procedurekode for behandling med adalimumab og er den anden hyppigste BMSL-behandling efter infliximab i både registreringer og patienttal.",
       "mentions": [
         {
-          "page": 42,
-          "context": "Bispebjerg og Fr.berg Hospital 593 352 (59) 240 (40) # (0) 290 (49) 303 (51) 40 (18;89) 36 (29;49) 15 (1;40) 13 (10;19)"
+          "page": 43,
+          "context": "BOHJ18A3 - Behandling med adalimumab 470 (16) 12.194 (20)"
+        },
+        {
+          "page": 43,
+          "context": "BOHJ18A3 - Behandling med adalimumab 99 (20) 3.603 (27)"
+        },
+        {
+          "page": 43,
+          "context": "BOHJ18A3 - Behandling med adalimumab 78 (19) 3.082 (27)"
         }
       ]
     },
     {
-      "name": "Bornholms Hospital",
-      "type": "organization",
-      "slug": "bornholm",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bornholms Hospital behandler 45 patienter i BMSL-behandling med 19 (42%) Crohns sygdom og 26 (58%) ulcerøs colitis.",
+      "name": "BOHJ18B3",
+      "type": "treatment",
+      "slug": "bohj18b3-behandling-med-ustekinumab",
+      "folder": "entities/treatments/gastrointestinal",
+      "significance": "BOHJ18B3 er den danske procedurekode for behandling med ustekinumab og repræsenterer en af de nyere biologiske behandlingsmuligheder i IBD-behandlingen.",
       "mentions": [
         {
-          "page": 42,
-          "context": "Bornholms Hospital 45 19 (42) 26 (58) 22 (49) 23 (51) 44 (18;76) 45 (31;57) 13 (3;23) 13 (9;16)"
+          "page": 43,
+          "context": "BOHJ18B3 - Behandling med ustekinumab 149 (5) 9.010 (15)"
+        },
+        {
+          "page": 43,
+          "context": "BOHJ18B3 - Behandling med ustekinumab 37 (7) 2.186 (16)"
+        },
+        {
+          "page": 43,
+          "context": "BOHJ18B3 - Behandling med ustekinumab 19 (5) 1.853 (16)"
         }
       ]
     },
     {
-      "name": "Herlev og Gentofte Hospital",
-      "type": "organization",
-      "slug": "herlev",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Herlev og Gentofte Hospital behandler 847 patienter i BMSL-behandling med 511 (60%) Crohns sygdom og 332 (39%) ulcerøs colitis.",
+      "name": "BOHJ19H4",
+      "type": "treatment",
+      "slug": "bohj19h4-behandling-med-vedolizumab",
+      "folder": "entities/treatments/gastrointestinal",
+      "significance": "BOHJ19H4 er den danske procedurekode for behandling med vedolizumab og udgør en betydelig andel af BMSL-behandlinger, især blandt voksne patienter.",
       "mentions": [
         {
-          "page": 42,
-          "context": "Herlev og Gentofte Hospital 847 511 (60) 332 (39) 4 (0) 438 (52) 409 (48) 45 (18;87) 44 (32;57) 10 (1;33) 9 (7;12)"
+          "page": 43,
+          "context": "BOHJ19H4 - Behandling med vedolizumab 365 (12) 10.922 (18)"
+        },
+        {
+          "page": 43,
+          "context": "BOHJ19H4 - Behandling med vedolizumab 59 (12) 2.158 (16)"
+        },
+        {
+          "page": 43,
+          "context": "BOHJ19H4 - Behandling med vedolizumab 50 (12) 1.832 (16)"
         }
       ]
     },
     {
-      "name": "Nordsjællands Hospital",
-      "type": "organization",
-      "slug": "nordsjaellands-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Nordsjællands Hospital behandler 498 patienter i BMSL-behandling med 316 (63%) Crohns sygdom og 182 (37%) ulcerøs colitis.",
+      "name": "KJFB21",
+      "type": "procedure-code",
+      "slug": "kjfb21-laparoskopisk-ileocokal-resektion",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJFB21 er den danske SMR-procedurekode for laparoskopisk ileocøkal resektion og er den hyppigst registrerede kirurgiske procedure ved IBD i perioden 1/10/2023–30/09/2024.",
       "mentions": [
         {
-          "page": 42,
-          "context": "Nordsjællands Hospital 498 316 (63) 182 (37) 246 (49) 252 (51) 47 (17;88) 48 (32;60) 15 (2;49) 13 (9;18)"
+          "page": 44,
+          "context": "KJFB21 - Laparoskopisk ileocøkal resektion 114 10,8"
         }
       ]
     },
     {
-      "name": "Rigshospitalet",
-      "type": "organization",
-      "slug": "rigshospitalet",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet behandler 265 patienter i BMSL-behandling med 161 (61%) Crohns sygdom og 97 (37%) ulcerøs colitis.",
+      "name": "KJFH11",
+      "type": "procedure-code",
+      "slug": "kjfh11-laparoskopisk-kolektomi-og-ileostomi",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJFH11 er den danske SMR-procedurekode for laparoskopisk kolektomi og ileostomi og er den næsthøjeste registrerede kirurgiske procedure ved IBD i den angivne periode.",
       "mentions": [
         {
-          "page": 42,
-          "context": "Rigshospitalet 265 161 (61) 97 (37) 5 (2) # (1) 124 (47) 141 (53) 44 (16;81) 45 (33;54) 10 (1;23) 9 (7;12)"
+          "page": 44,
+          "context": "KJFH11 - Laparoskopisk kolektomi og ileostomi 106 10,1"
         }
       ]
     },
     {
-      "name": "Holbæk Sygehus",
-      "type": "organization",
-      "slug": "holbaek-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk Sygehus behandler 79 patienter i BMSL-behandling med 46 (58%) Crohns sygdom og 33 (42%) ulcerøs colitis.",
+      "name": "KJAH01",
+      "type": "procedure-code",
+      "slug": "kjah01-laparoskopi",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJAH01 er den danske SMR-procedurekode for laparoskopi og er den hyppigst registrerede reoperationsprocedur ved IBD ifølge appendikstabel 7.",
       "mentions": [
         {
-          "page": 42,
-          "context": "Holbæk Sygehus 79 46 (58) 33 (42) 40 (51) 39 (49) 46 (19;77) 47 (32;60) 14 (1;28) 13 (10;17)"
+          "page": 45,
+          "context": "KJAH01 - Laparoskopi 20 20,4"
         }
       ]
     },
     {
-      "name": "Næstved, Slagelse og Ringsted",
-      "type": "organization",
-      "slug": "naestved-slagelse-ringsted",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Næstved, Slagelse og Ringsted behandler 271 patienter i BMSL-behandling med 168 (62%) Crohns sygdom og 103 (38%) ulcerøs colitis.",
+      "name": "KJAH00",
+      "type": "procedure-code",
+      "slug": "kjah00-eksplorativ-laparotomi",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJAH00 er den danske SMR-procedurekode for eksplorativ laparotomi og er både den anden hyppigste kirurgiske procedure ved IBD og den hyppigste reoperationsprocedure i tabellerne.",
       "mentions": [
         {
-          "page": 42,
-          "context": "Næstved, Slagelse og Ringsted 271 168 (62) 103 (38) 143 (53) 128 (47) 47 (7;93) 45 (32;61) 14 (2;36) 13 (9;17)"
-        }
-      ]
-    },
-    {
-      "name": "Sjællands Universitetshospital",
-      "type": "organization",
-      "slug": "sjaellands-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sjællands Universitetshospital er en af de største behandlingscentre med 1.150 patienter i BMSL-behandling, hvoraf 804 (70%) har Crohns sygdom og 342 (30%) har ulcerøs colitis.",
-      "mentions": [
+          "page": 44,
+          "context": "KJAH00 - Eksplorativ laparotomi 66 6,3"
+        },
         {
-          "page": 42,
-          "context": "Sjællands Universitetshospital 1.150 804 (70) 342 (30) 4 (0) 561 (49) 589 (51) 46 (13;92) 46 (31;59) 14 (1;70) 11 (8;17)"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg Grindsted Sygehus",
-      "type": "organization",
-      "slug": "esbjerg-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Esbjerg Grindsted Sygehus behandler 628 patienter i BMSL-behandling med 380 (61%) Crohns sygdom og 246 (39%) ulcerøs colitis.",
-      "mentions": [
-        {
-          "page": 42,
-          "context": "Esbjerg Grindsted Sygehus 628 380 (61) 246 (39) # (0) # (0) 321 (51) 307 (49) 45 (17;88) 43 (31;58) 15 (1;57) 13 (9;18)"
-        }
-      ]
-    },
-    {
-      "name": "Odense Universitetshospital",
-      "type": "organization",
-      "slug": "odense-university-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Odense Universitetshospital er en af de største behandlingscentre med 1.198 patienter i BMSL-behandling, hvoraf 719 (60%) har Crohns sygdom og 474 (40%) har ulcerøs colitis.",
-      "mentions": [
-        {
-          "page": 42,
-          "context": "Odense Universitetshospital 1.198 719 (60) 474 (40) 4 (0) # (0) 623 (52) 575 (48) 42 (5;97) 39 (28;55) 14 (1;53) 12 (9;17)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Lillebælt",
-      "type": "organization",
-      "slug": "sygehus-lillebaelt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Lillebælt behandler 714 patienter i BMSL-behandling med 399 (56%) Crohns sygdom og 314 (44%) ulcerøs colitis.",
-      "mentions": [
-        {
-          "page": 42,
-          "context": "Sygehus Lillebælt 714 399 (56) 314 (44) # (0) 366 (51) 348 (49) 44 (10;92) 43 (31;57) 14 (1;48) 12 (8;17)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Sønderjylland",
-      "type": "organization",
-      "slug": "sygehus-soenderjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Sønderjylland behandler 313 patienter i BMSL-behandling med 177 (57%) Crohns sygdom og 136 (43%) ulcerøs colitis.",
-      "mentions": [
-        {
-          "page": 42,
-          "context": "Sygehus Sønderjylland 313 177 (57) 136 (43) 141 (45) 172 (55) 47 (5;87) 47 (32;59) 15 (2;36) 14 (10;18)"
-        }
-      ]
-    },
-    {
-      "name": "Aarhus Universitetshospital",
-      "type": "organization",
-      "slug": "aarhus-university-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Universitetshospital er en af de største behandlingscentre med 1.053 patienter i BMSL-behandling, hvoraf 544 (52%) har Crohns sygdom og 487 (46%) har ulcerøs colitis.",
-      "mentions": [
-        {
-          "page": 42,
-          "context": "Aarhus Universitetshospital 1.053 544 (52) 487 (46) 9 (1) 13 (1) 522 (50) 531 (50) 35 (3;84) 31 (24;44) 14 (1;52) 12 (7;18)"
-        }
-      ]
-    },
-    {
-      "name": "Hospitalsenhed Midt",
-      "type": "organization",
-      "slug": "hospitalsenhed-midt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalsenhed Midt behandler 662 patienter i BMSL-behandling med 442 (67%) Crohns sygdom og 219 (33%) ulcerøs colitis.",
-      "mentions": [
-        {
-          "page": 42,
-          "context": "Hospitalsenhed Midt 662 442 (67) 219 (33) # (0) 326 (49) 336 (51) 45 (17;89) 45 (32;56) 13 (1;47) 11 (7;17)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Gødstrup",
-      "type": "organization",
-      "slug": "goedstrup-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Gødstrup behandler 490 patienter i BMSL-behandling med 262 (53%) Crohns sygdom og 226 (46%) ulcerøs colitis.",
-      "mentions": [
-        {
-          "page": 42,
-          "context": "Regionshospitalet Gødstrup 490 262 (53) 226 (46) # (0) 262 (53) 228 (47) 45 (17;89) 42 (31;57) 16 (2;104) 13 (9;18)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Horsens",
-      "type": "organization",
-      "slug": "regionshospitalet-horsens",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Horsens behandler 386 patienter i BMSL-behandling med 241 (62%) Crohns sygdom og 145 (38%) ulcerøs colitis.",
-      "mentions": [
-        {
-          "page": 42,
-          "context": "Regionshospitalet Horsens 386 241 (62) 145 (38) 206 (53) 180 (47) 44 (18;85) 43 (30;55) 14 (1;39) 11 (8;19)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Randers",
-      "type": "organization",
-      "slug": "randers-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Randers behandler 339 patienter i BMSL-behandling med 211 (62%) Crohns sygdom og 127 (37%) ulcerøs colitis.",
-      "mentions": [
-        {
-          "page": 42,
-          "context": "Regionshospitalet Randers 339 211 (62) 127 (37) # (0) 168 (50) 171 (50) 44 (18;88) 43 (30;56) 15 (1;45) 13 (9;20)"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Universitetshospital",
-      "type": "organization",
-      "slug": "aalborg-university-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital er en af de største behandlingscentre med 1.085 patienter i BMSL-behandling, hvoraf 691 (64%) har Crohns sygdom og 390 (36%) har ulcerøs colitis.",
-      "mentions": [
-        {
-          "page": 42,
-          "context": "Aalborg Universitetshospital 1.085 691 (64) 390 (36) # (0) 3 (0) 535 (49) 550 (51) 42 (5;87) 39 (28;53) 11 (1;36) 9 (7;13)"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospital Nordjylland",
-      "type": "organization",
-      "slug": "regionshospital-nordjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospital Nordjylland behandler 138 patienter i BMSL-behandling med 84 (61%) Crohns sygdom og 54 (39%) ulcerøs colitis.",
-      "mentions": [
-        {
-          "page": 42,
-          "context": "Regionshospital Nordjylland 138 84 (61) 54 (39) 60 (43) 78 (57) 51 (17;87) 53 (33;67) 14 (3;36) 12 (9;17)"
+          "page": 45,
+          "context": "KJAH00 - Eksplorativ laparotomi 27 27,6"
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "infliximab",
-      "predicate": "is-treatment-for",
-      "object": "crohns-disease",
-      "evidence": "Behandling med infliximab er registreret for patienter med Crohns sygdom",
+      "subject": "bmsl",
+      "predicate": "is-used-for",
+      "object": "indikator-5",
+      "evidence": "Appendikstabel 3. Karakteristika for patienter i behandling med BMSL på landsplan (indikator 5)",
+      "page": 41
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "measures-treatment-of",
+      "object": "ibd",
+      "evidence": "Appendikstabel 5. Type og antal behandlinger med BMSL (indikator 5)",
       "page": 43
     },
     {
-      "subject": "infliximab",
-      "predicate": "is-treatment-for",
-      "object": "ulcerative-colitis",
-      "evidence": "Behandling med infliximab er registreret for patienter med ulcerøs colitis",
+      "subject": "indikator-6",
+      "predicate": "measures-surgery-on",
+      "object": "ibd",
+      "evidence": "Appendikstabel 6. Typer af kirurgiske indgreb foretaget på patienter med IBD (indikator 6)",
+      "page": 44
+    },
+    {
+      "subject": "indikator-7",
+      "predicate": "measures-prevalence-of",
+      "object": "dk830f-primaer-skleroserende-kolangitis",
+      "evidence": "Appendikstabel 8. Karakteristika for patienter med PSC (indikator 7)",
+      "page": 45
+    },
+    {
+      "subject": "dk50-crohns-sygdom",
+      "predicate": "is-diagnosed-with-code",
+      "object": "dk50-crohns-sygdom",
+      "evidence": "DK50* Crohns sygdom 282 (69) 6.960 (61)",
+      "page": 41
+    },
+    {
+      "subject": "dk51-ulceroes-colitis",
+      "predicate": "is-diagnosed-with-code",
+      "object": "dk51-ulceroes-colitis",
+      "evidence": "DK51* Ulcerøs colitis 125 (31) 4.444 (39)",
+      "page": 41
+    },
+    {
+      "subject": "bohj18a1-behandling-med-infliximab",
+      "predicate": "is-coded-as",
+      "object": "bohj18a1-behandling-med-infliximab",
+      "evidence": "BOHJ18A1 - Behandling med infliximab 1.936 (65) 26.287 (43)",
       "page": 43
     },
     {
-      "subject": "adalimumab",
-      "predicate": "is-treatment-for",
-      "object": "crohns-disease",
-      "evidence": "Behandling med adalimumab er registreret for patienter med Crohns sygdom",
-      "page": 43
-    },
-    {
-      "subject": "adalimumab",
-      "predicate": "is-treatment-for",
-      "object": "ulcerative-colitis",
-      "evidence": "Behandling med adalimumab er registreret for patienter med ulcerøs colitis",
-      "page": 43
-    },
-    {
-      "subject": "vedolizumab",
-      "predicate": "is-treatment-for",
-      "object": "crohns-disease",
-      "evidence": "Behandling med vedolizumab er registreret for patienter med Crohns sygdom",
-      "page": 43
-    },
-    {
-      "subject": "vedolizumab",
-      "predicate": "is-treatment-for",
-      "object": "ulcerative-colitis",
-      "evidence": "Behandling med vedolizumab er registreret for patienter med ulcerøs colitis",
-      "page": 43
-    },
-    {
-      "subject": "ustekinumab",
-      "predicate": "is-treatment-for",
-      "object": "crohns-disease",
-      "evidence": "Behandling med ustekinumab er registreret for patienter med Crohns sygdom",
-      "page": 43
-    },
-    {
-      "subject": "ustekinumab",
-      "predicate": "is-treatment-for",
-      "object": "ulcerative-colitis",
-      "evidence": "Behandling med ustekinumab er registreret for patienter med ulcerøs colitis",
-      "page": 43
-    },
-    {
-      "subject": "tofacitinib",
-      "predicate": "is-treatment-for",
-      "object": "crohns-disease",
-      "evidence": "Behandling med tofacitinib er registreret for patienter med Crohns sygdom",
-      "page": 43
-    },
-    {
-      "subject": "tofacitinib",
-      "predicate": "is-treatment-for",
-      "object": "ulcerative-colitis",
-      "evidence": "Behandling med tofacitinib er registreret for patienter med ulcerøs colitis",
-      "page": 43
-    },
-    {
-      "subject": "upadacitinib",
-      "predicate": "is-treatment-for",
-      "object": "crohns-disease",
-      "evidence": "Behandling med upadacitinib er registreret for patienter med Crohns sygdom",
-      "page": 43
-    },
-    {
-      "subject": "upadacitinib",
-      "predicate": "is-treatment-for",
-      "object": "ulcerative-colitis",
-      "evidence": "Behandling med upadacitinib er registreret for patienter med ulcerøs colitis",
-      "page": 43
-    },
-    {
-      "subject": "filgotinib",
-      "predicate": "is-treatment-for",
-      "object": "crohns-disease",
-      "evidence": "Behandling med filgotinib er registreret for patienter med Crohns sygdom",
-      "page": 43
-    },
-    {
-      "subject": "filgotinib",
-      "predicate": "is-treatment-for",
-      "object": "ulcerative-colitis",
-      "evidence": "Behandling med filgotinib er registreret for patienter med ulcerøs colitis",
-      "page": 43
-    },
-    {
-      "subject": "mirikizumab",
-      "predicate": "is-treatment-for",
-      "object": "crohns-disease",
-      "evidence": "Behandling med mirikizumab er registreret for patienter med Crohns sygdom",
-      "page": 43
-    },
-    {
-      "subject": "mirikizumab",
-      "predicate": "is-treatment-for",
-      "object": "ulcerative-colitis",
-      "evidence": "Behandling med mirikizumab er registreret for patienter med ulcerøs colitis",
-      "page": 43
-    },
-    {
-      "subject": "ozanimod",
-      "predicate": "is-treatment-for",
-      "object": "crohns-disease",
-      "evidence": "Behandling med ozanimod er registreret for patienter med Crohns sygdom",
-      "page": 43
-    },
-    {
-      "subject": "ozanimod",
-      "predicate": "is-treatment-for",
-      "object": "ulcerative-colitis",
-      "evidence": "Behandling med ozanimod er registreret for patienter med ulcerøs colitis",
-      "page": 43
+      "subject": "kjfb21-laparoskopisk-ileocokal-resektion",
+      "predicate": "is-coded-as",
+      "object": "kjfb21-laparoskopisk-ileocokal-resektion",
+      "evidence": "KJFB21 - Laparoskopisk ileocøkal resektion 114 10,8",
+      "page": 44
     }
   ],
   "claims": [
     {
-      "text": "I alt 407 børn er i behandling med BMSL på landsplan [^src1]",
-      "type": "patient-statistics",
-      "entities": [
-        "bmsl"
-      ],
-      "page": 41
-    },
-    {
-      "text": "I alt 11.464 voksne er i behandling med BMSL på landsplan [^src1]",
-      "type": "patient-statistics",
-      "entities": [
-        "bmsl"
-      ],
-      "page": 41
-    },
-    {
-      "text": "282 børn (69%) med Crohns sygdom er i behandling med BMSL [^src1]",
-      "type": "diagnosis-statistics",
-      "entities": [
-        "crohns-disease",
-        "bmsl"
-      ],
-      "page": 41
-    },
-    {
-      "text": "6.960 voksne (61%) med Crohns sygdom er i behandling med BMSL [^src1]",
-      "type": "diagnosis-statistics",
-      "entities": [
-        "crohns-disease",
-        "bmsl"
-      ],
-      "page": 41
-    },
-    {
-      "text": "125 børn (31%) med ulcerøs colitis er i behandling med BMSL [^src1]",
-      "type": "diagnosis-statistics",
-      "entities": [
-        "ulcerative-colitis",
-        "bmsl"
-      ],
-      "page": 41
-    },
-    {
-      "text": "4.444 voksne (39%) med ulcerøs colitis er i behandling med BMSL [^src1]",
-      "type": "diagnosis-statistics",
-      "entities": [
-        "ulcerative-colitis",
-        "bmsl"
-      ],
-      "page": 41
-    },
-    {
-      "text": "40 voksne (0%) med primær skleroserende kolangitis er i behandling med BMSL [^src1]",
-      "type": "diagnosis-statistics",
-      "entities": [
-        "primary-sclerosing-cholangitis",
-        "bmsl"
-      ],
-      "page": 41
-    },
-    {
-      "text": "20 voksne (0%) med korttarmssyndrom er i behandling med BMSL [^src1]",
-      "type": "diagnosis-statistics",
-      "entities": [
-        "korttarmssyndrom",
-        "bmsl"
-      ],
-      "page": 41
-    },
-    {
-      "text": "172 børn (42%) i BMSL-behandling er kvinder [^src1]",
+      "text": "I alt 407 børn og 11.464 voksne patienter var i behandling med BMSL på landsplan i perioden [^src1]",
       "type": "demographic",
       "entities": [
-        "bmsl"
+        "bmsl",
+        "indikator-5"
       ],
       "page": 41
     },
     {
-      "text": "235 børn (58%) i BMSL-behandling er mænd [^src1]",
+      "text": "For børn var gennemsnitsalderen 14 år (min;max: 0;18) og medianen 15 år (Q1;Q3: 13;16) [^src1]",
       "type": "demographic",
       "entities": [
-        "bmsl"
+        "bmsl",
+        "indikator-5"
       ],
       "page": 41
     },
     {
-      "text": "5.755 voksne (50%) i BMSL-behandling er kvinder [^src1]",
+      "text": "For voksne var gennemsnitsalderen 43 år (min;max: 17;97) og medianen 41 år (Q1;Q3: 30;56) [^src1]",
       "type": "demographic",
       "entities": [
-        "bmsl"
+        "bmsl",
+        "indikator-5"
       ],
       "page": 41
     },
     {
-      "text": "5.709 voksne (50%) i BMSL-behandling er mænd [^src1]",
-      "type": "demographic",
+      "text": "BOHJ18A1 (infliximab) udgjorde 65 % af alle BMSL-behandlinger hos børn og 43 % hos voksne [^src2]",
+      "type": "treatment",
       "entities": [
+        "bohj18a1-behandling-med-infliximab",
         "bmsl"
       ],
-      "page": 41
-    },
-    {
-      "text": "Gennemsnitsalderen for børn i BMSL-behandling er 14 år (min 0; max 18) [^src1]",
-      "type": "demographic",
-      "entities": [
-        "bmsl"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Gennemsnitsalderen for voksne i BMSL-behandling er 43 år (min 17; max 97) [^src1]",
-      "type": "demographic",
-      "entities": [
-        "bmsl"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Medianaldren for børn i BMSL-behandling er 15 år (Q1 13; Q3 16) [^src1]",
-      "type": "demographic",
-      "entities": [
-        "bmsl"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Medianaldren for voksne i BMSL-behandling er 41 år (Q1 30; Q3 56) [^src1]",
-      "type": "demographic",
-      "entities": [
-        "bmsl"
-      ],
-      "page": 41
-    },
-    {
-      "text": "1.936 behandlinger med infliximab blandt børn (65%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "infliximab"
-      ],
       "page": 43
     },
     {
-      "text": "26.287 behandlinger med infliximab blandt voksne (43%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
+      "text": "KJFB21 (laparoskopisk ileocøkal resektion) blev foretaget 114 gange og udgjorde 10,8 % af alle kirurgiske indgreb ved IBD [^src3]",
+      "type": "procedural",
       "entities": [
-        "infliximab"
+        "kjfb21-laparoskopisk-ileocokal-resektion",
+        "indikator-6"
       ],
-      "page": 43
-    },
-    {
-      "text": "470 behandlinger med adalimumab blandt børn (16%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "adalimumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "12.194 behandlinger med adalimumab blandt voksne (20%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "adalimumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "10 behandlinger med golimumab blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "golimumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "1.063 behandlinger med golimumab blandt voksne (2%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "golimumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "149 behandlinger med ustekinumab blandt børn (5%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "ustekinumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "9.010 behandlinger med ustekinumab blandt voksne (15%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "ustekinumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "365 behandlinger med vedolizumab blandt børn (12%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "vedolizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "10.922 behandlinger med vedolizumab blandt voksne (18%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "vedolizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "23 behandlinger med risankizumab blandt børn (1%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "risankizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "676 behandlinger med risankizumab blandt voksne (1%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "risankizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "12 behandlinger med tofacitinib blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "tofacitinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "416 behandlinger med tofacitinib blandt voksne (1%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "tofacitinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "6 behandlinger med upadacitinib blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "upadacitinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "368 behandlinger med upadacitinib blandt voksne (1%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "upadacitinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "67 behandlinger med filgotinib blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "filgotinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "180 behandlinger med mirikizumab blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "mirikizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "7 behandlinger med ozanimod blandt børn (0%) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "ozanimod"
-      ],
-      "page": 43
-    },
-    {
-      "text": "285 børn (57%) behandlet med infliximab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "infliximab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "4.542 voksne (34%) behandlet med infliximab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "infliximab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "99 børn (20%) behandlet med adalimumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "adalimumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "3.603 voksne (27%) behandlet med adalimumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "adalimumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "3 børn (1%) behandlet med golimumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "golimumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "341 voksne (3%) behandlet med golimumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "golimumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "37 børn (7%) behandlet med ustekinumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "ustekinumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "2.186 voksne (16%) behandlet med ustekinumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "ustekinumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "59 børn (12%) behandlet med vedolizumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "vedolizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "2.158 voksne (16%) behandlet med vedolizumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "vedolizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "9 børn (2%) behandlet med risankizumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "risankizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "237 voksne (2%) behandlet med risankizumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "risankizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "5 børn (1%) behandlet med tofacitinib er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "tofacitinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "157 voksne (1%) behandlet med tofacitinib er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "tofacitinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "3 børn (1%) behandlet med upadacitinib er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "upadacitinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "155 voksne (1%) behandlet med upadacitinib er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "upadacitinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "34 børn (0%) behandlet med filgotinib er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "filgotinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "87 børn (1%) behandlet med mirikizumab er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "mirikizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "5 børn (0%) behandlet med ozanimod er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "ozanimod"
-      ],
-      "page": 43
-    },
-    {
-      "text": "244 børn (60%) behandlet med infliximab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "infliximab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "3.874 voksne (34%) behandlet med infliximab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "infliximab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "78 børn (19%) behandlet med adalimumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "adalimumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "3.082 voksne (27%) behandlet med adalimumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "adalimumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "3 børn (1%) behandlet med golimumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "golimumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "252 voksne (2%) behandlet med golimumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "golimumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "19 børn (5%) behandlet med ustekinumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "ustekinumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "1.853 voksne (16%) behandlet med ustekinumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "ustekinumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "50 børn (12%) behandlet med vedolizumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "vedolizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "1.832 voksne (16%) behandlet med vedolizumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "vedolizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "8 børn (2%) behandlet med risankizumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "risankizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "225 voksne (2%) behandlet med risankizumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "risankizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "105 voksne (1%) behandlet med tofacitinib (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "tofacitinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "3 børn (1%) behandlet med upadacitinib (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "upadacitinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "123 voksne (1%) behandlet med upadacitinib (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "upadacitinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "31 børn (0%) behandlet med filgotinib (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "filgotinib"
-      ],
-      "page": 43
-    },
-    {
-      "text": "82 børn (1%) behandlet med mirikizumab (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "mirikizumab"
-      ],
-      "page": 43
-    },
-    {
-      "text": "5 børn (0%) behandlet med ozanimod (seneste type) er registreret i perioden 1/10/2023 - 30/09/2024 [^src2]",
-      "type": "pharmaceutical-treatment-statistics",
-      "entities": [
-        "ozanimod"
-      ],
-      "page": 43
-    },
-    {
-      "text": "114 laparoskopiske ileocøkale resektioner (10,8%) er foretaget på patienter med IBD i perioden 1/10/2023-30/09-2024 [^src3]",
-      "type": "surgical-procedures",
-      "entities": [],
       "page": 44
     },
     {
-      "text": "106 laparoskopiske kolektomier og ileostomier (10,1%) er foretaget på patienter med IBD i perioden 1/10/2023-30/09-2024 [^src3]",
-      "type": "surgical-procedures",
-      "entities": [],
-      "page": 44
-    },
-    {
-      "text": "78 laparoskopier (7,4%) er foretaget på patienter med IBD i perioden 1/10/2023-30/09-2024 [^src3]",
-      "type": "surgical-procedures",
-      "entities": [],
-      "page": 44
-    },
-    {
-      "text": "66 eksplorativ laparotomier (6,3%) er foretaget på patienter med IBD i perioden 1/10/2023-30/09-2024 [^src3]",
-      "type": "surgical-procedures",
-      "entities": [],
-      "page": 44
-    },
-    {
-      "text": "65 tyndtarmsresektioner (6,2%) er foretaget på patienter med IBD i perioden 1/10/2023-30/09-2024 [^src3]",
-      "type": "surgical-procedures",
-      "entities": [],
-      "page": 44
-    },
-    {
-      "text": "31 nydiagnostiserede patienter med primær skleroserende kolangitis (100%) er registreret [^src4]",
-      "type": "diagnosis-statistics",
+      "text": "KJAH00 (eksplorativ laparotomi) var den hyppigste reoperationsprocedur med 27 forekomster (27,6 %) [^src4]",
+      "type": "procedural",
       "entities": [
-        "primary-sclerosing-cholangitis"
+        "kjah00-eksplorativ-laparotomi",
+        "indikator-6"
       ],
       "page": 45
     },
     {
-      "text": "332 prævalente patienter med primær skleroserende kolangitis (100%) er registreret [^src4]",
-      "type": "diagnosis-statistics",
+      "text": "Der var 31 nydiagnostiserede og 332 prævalente tilfælde af PSC (DK830F) i indikator 7 [^src5]",
+      "type": "epidemiological",
       "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "10 kvinder (32%) blandt nydiagnostiserede patienter med primær skleroserende kolangitis [^src4]",
-      "type": "demographic",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "21 mænd (68%) blandt nydiagnostiserede patienter med primær skleroserende kolangitis [^src4]",
-      "type": "demographic",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "105 kvinder (32%) blandt prævalente patienter med primær skleroserende kolangitis [^src4]",
-      "type": "demographic",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "227 mænd (68%) blandt prævalente patienter med primær skleroserende kolangitis [^src4]",
-      "type": "demographic",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "Gennemsnitsalderen for nydiagnostiserede patienter med primær skleroserende kolangitis er 45 år (min 16; max 87) [^src4]",
-      "type": "demographic",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "Gennemsnitsalderen for prævalente patienter med primær skleroserende kolangitis er 46 år (min 16; max 90) [^src4]",
-      "type": "demographic",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "Medianaldren for nydiagnostiserede patienter med primær skleroserende kolangitis er 44 år (Q1 26; Q3 62) [^src4]",
-      "type": "demographic",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "Medianaldren for prævalente patienter med primær skleroserende kolangitis er 44 år (Q1 35; Q3 57) [^src4]",
-      "type": "demographic",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "Gennemsnitligt antal kontakter for nydiagnostiserede patienter med primær skleroserende kolangitis er 9 (min 1; max 23) [^src4]",
-      "type": "patient-contact-statistics",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "Gennemsnitligt antal kontakter for prævalente patienter med primær skleroserende kolangitis er 8 (min 1; max 23) [^src4]",
-      "type": "patient-contact-statistics",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "Medianantal kontakter for nydiagnostiserede patienter med primær skleroserende kolangitis er 4 (Q1 3; Q3 13) [^src4]",
-      "type": "patient-contact-statistics",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "Medianantal kontakter for prævalente patienter med primær skleroserende kolangitis er 6 (Q1 3; Q3 12) [^src4]",
-      "type": "patient-contact-statistics",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "78 fysiske kontakter (67%) blandt nydiagnostiserede patienter med primær skleroserende kolangitis [^src4]",
-      "type": "contact-type-statistics",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "38 virtuelle kontakter (33%) blandt nydiagnostiserede patienter med primær skleroserende kolangitis [^src4]",
-      "type": "contact-type-statistics",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "829 fysiske kontakter (62%) blandt prævalente patienter med primær skleroserende kolangitis [^src4]",
-      "type": "contact-type-statistics",
-      "entities": [
-        "primary-sclerosering-cholangitis"
-      ],
-      "page": 45
-    },
-    {
-      "text": "517 virtuelle kontakter (38%) blandt prævalente patienter med primær skleroserende kolangitis [^src4]",
-      "type": "contact-type-statistics",
-      "entities": [
-        "primary-sclerosering-cholangitis"
+        "dk830f-primaer-skleroserende-kolangitis",
+        "indikator-7"
       ],
       "page": 45
     }
   ],
-  "timeline": [],
-  "context": "Denne dokumentchunk indeholder detaljerede tabellariske data fra DANIBD-registeret for perioden oktober 2023 til september 2024, med fokus på patientkarakteristika, biologisk lægemiddelbehandling (BMSL), kirurgiske indgreb og primær skleroserende kolangitis (PSC). Dataene dokumenterer behandlingsmønstre for inflammatorisk tarmsygdom blandt både børn og voksne på tværs af danske hospitaler og behandlingscentre, samt karakteristika for patienter med PSC som en komorbid tilstand."
+  "timeline": [
+    {
+      "date": "2023-10-01",
+      "event": "Start af opgørelsesperioden for BMSL-behandlinger og kirurgiske indgreb i indikator 5, 6 og 7",
+      "entities": [
+        "indikator-5",
+        "indikator-6",
+        "indikator-7"
+      ]
+    },
+    {
+      "date": "2024-09-30",
+      "event": "Slut på opgørelsesperioden for BMSL-behandlinger og kirurgiske indgreb i indikator 5, 6 og 7",
+      "entities": [
+        "indikator-5",
+        "indikator-6",
+        "indikator-7"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "bmsl-patient-characteristics-national",
+      "title": "Karakteristika for patienter i behandling med BMSL på landsplan (indikator 5)",
+      "page": 41,
+      "rowDimension": "patient groups",
+      "colDimension": "characteristics and percentages",
+      "entities": [
+        "bmsl",
+        "indikator-5"
+      ],
+      "markdown": "| | Landsplan | Børn | Voksne |\n| --- | --- | --- | --- |\n| Patienter i alt | 407 (100) | 11.464 (100) | |\n| Diagnose | | | |\n| DK50* Crohns sygdom | 282 (69) | 6.960 (61) | |\n| DK51* Ulcerøs colitis | 125 (31) | 4.444 (39) | |\n| DK830F Primær skleroserende kolangitis | 40 (0) | | |\n| DK912B Korttarmssyndrom | 20 (0) | | |\n| Køn | | | |\n| Kvinde | 172 (42) | 5.755 (50) | |\n| Mand | 235 (58) | 5.709 (50) | |\n| Alder | | | |\n| Gennemsnit, år (Min;Max) | 14 (0;18) | 43 (17;97) | |\n| Median, år (Q1;Q3) | 15 (13;16) | 41 (30;56) | |",
+      "summary": "Tabellen sammenligner demografiske og diagnostiske karakteristika for børn og voksne patienter i behandling med BMSL på nationalt plan, hvor Crohns sygdom dominerer hos børn og ulcerøs colitis er mere udbredt hos voksne."
+    },
+    {
+      "subject": "bmsl-treatment-types",
+      "title": "Type og antal behandlinger med BMSL (indikator 5)",
+      "page": 43,
+      "rowDimension": "treatment codes",
+      "colDimension": "counts and percentages by age group",
+      "entities": [
+        "bmsl",
+        "indikator-5"
+      ],
+      "markdown": "| | | | | | Børn | | Voksne | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| BOHJ18A1 | - | Behandling | med | infliximab | 1.936 | (65) | 26.287 | (43) |\n| BOHJ18A3 | - | Behandling | med | adalimumab | 470 | (16) | 12.194 | (20) |\n| BOHJ18A4 | - | Behandling | med | golimumab | 10 | (0) | 1.063 | (2) |\n| BOHJ18B3 | - | Behandling | med | ustekinumab | 149 | (5) | 9.010 | (15) |\n| BOHJ19H4 | - | Behandling | med | vedolizumab | 365 | (12) | 10.922 | (18) |\n| BOHJ19N1 | - | Behandling | med | risankizumab | 23 | (1) | 676 | (1) |\n| BOHJ28D | - | Behandling | med | tofacitinib | 12 | (0) | 416 | (1) |\n| BWHP107 | - | Behandling | med | upadacitinib | 6 | (0) | 368 | (1) |\n| BWHP141 | - | Behandling | med | filgotinib | 67 | (0) | | |\n| BWHP142 | - | Behandling | med | mirikizumab | 180 | (0) | | |\n| BWHP143 | - | Behandling | med | ozanimod | 7 | (0) | | |\n| I alt | | | | | 2.971 | | 61.190 | |",
+      "summary": "Tabellen viser antal og procentvis fordeling af BMSL-behandlinger efter type og aldersgruppe, hvor infliximab er den dominerende behandling både hos børn og voksne."
+    },
+    {
+      "subject": "ibd-surgical-procedures",
+      "title": "Typer af kirurgiske indgreb foretaget på patienter med IBD (indikator 6)",
+      "page": 44,
+      "rowDimension": "procedure codes",
+      "colDimension": "count and percentage",
+      "entities": [
+        "indikator-6"
+      ],
+      "markdown": "| Operationskoder indberettet i perioden 1/10/2023-30/09-2024 | Antal | Procent |\n| --- | --- | --- |\n| KJFB21 - Laparoskopisk ileocøkal resektion | 114 | 10,8 |\n| KJFH11 - Laparoskopisk kolektomi og ileostomi | 106 | 10,1 |\n| KJAH01 - Laparoskopi | 78 | 7,4 |\n| KJAH00 - Eksplorativ laparotomi | 66 | 6,3 |\n| KJFB00 - Tyndtarmsresektion | 65 | 6,2 |\n| KJFG40 - Revision af enterostomi el. kolostomi u. laparotomi | 51 | 4,9 |\n| KJFB20 - Ileocøkal resektion | 40 | 3,8 |\n| KJGB61 - Lap excis af endetarm og ileoanal anastom eft tidl | 35 | 3,3 |\n| KJFG00 - Lukning af ileostomi uden tarmresektion | 31 | 2,9 |\n| KJGB33 - Laparoskopisk og intersphincterisk excision af ende | 30 | 2,9 |\n| KJFH10 - Kolektomi og ileostomi | 26 | 2,5 |\n| KJFB33 - Anden samtidig resektion af tyndtarm og tyktarm | 25 | 2,4 |\n| KJWA00 - Sutur af sårruptur eft. gastroenterologisk operatio | 18 | 1,7 |\n| KJFA15 - Endoskopisk polypektomi i tyktarm | 17 | 1,6 |\n| KJFF13 - Terminal enterostomi | 17 | 1,6 |\n| KJGB31 - Laparoskopisk og perineal excision af endetarm | 17 | 1,6 |\n| KJFG26 - Lukn. af terminal ileostomi/anlæg. af anastom. til | 14 | 1,3 |\n| KJFG50 - Revision af enterostomi el. kolostomi m. laparotomi | 14 | 1,3 |\n| KJFB31 - Laparoskopisk højresidig hemikolektomi | 12 | 1,1 |\n| KJFF10 - Loop enterostomi | 12 | 1,1 |\n| KJFF11 - Laparoskopisk loop enterostomi | 12 | 1,1 |\n| KJFB01 - Laparoskopisk tyndtarmsresektion | 11 | 1,0 |\n| KJFA58 - Endoskopisk dilatation af tyktarm | 8 | 0,8 |\n| KJFB30 - Højresidig hemikolektomi | 8 | 0,8 |\n| KJFB34 - An. laparoskop. samtid. resekt. af tyndtarm og tykt | 8 | 0,8 |\n| KJFB60 - Resektion af colon sigmoideum m. kolostomi | 8 | 0,8 |\n| KJFG20 - Lukning af ileostomi med tarmresektion | 8 | 0,8 |\n| KJGB04 - Laparoskopisk og transanal resektion af endetarm | 8 | 0,8 |\n| KJFH01 - Laparoskopisk kolektomi og ileorektostomi | 7 | 0,7 |\n| KJGB30 - Abdominal og perineal excision af endetarm | 7 | 0,7 |\n| KJFB31B - Laparoskopisk subtotal kolektomi | 6 | 0,6 |\n| KJFB96 - Anden tarmresektion | 6 | 0,6 |\n| KJFG96 - Anden operation på enterostomi og tarmreservoir | 6 | 0,6 |\n| KJFK10 - Løsning af adhærencer ved ileus | 6 | 0,6 |\n| KJGB32 - Abdominal og intersphincterisk excision af endetarm | 6 | 0,6 |\n| KJAH33 - Åbning af laparostomi | 5 | 0,5 |\n| KJFA60 - Tarmplastik ved striktur i tyndtarm | 5 | 0,5 |\n| KJFC00 - Enteroenterostomi | 5 | 0,5 |\n| KJFG40K - Åben operation for stomihernie med anvendelse af m | 5 | 0,5 |\n| KJFG41A - Laparoskopisk operation for stomihernie | 5 | 0,5 |\n| Øvrige | 123 | 11,7 |",
+      "summary": "Tabellen lister SMR-procedurekoder for kirurgiske indgreb ved IBD, hvor laparoskopiske procedurer dominerer, og KJFB21 er den hyppigst forekommende."
+    },
+    {
+      "subject": "ibd-reoperations",
+      "title": "Typer af re-operationer foretaget på patienter med IBD (indikator 6)",
+      "page": 45,
+      "rowDimension": "procedure codes",
+      "colDimension": "count and percentage",
+      "entities": [
+        "indikator-6"
+      ],
+      "markdown": "| Typer af re-operation | Antal | Procent |\n| --- | --- | --- |\n| KJAH00 - Eksplorativ laparotomi | 27 | 27,6 |\n| KJAH01 - Laparoskopi | 20 | 20,4 |\n| KJFB00 - Tyndtarmsresektion | 8 | 8,2 |\n| KJWA00 - Sutur af sårruptur eft. gastroenterologisk operatio | 8 | 8,2 |\n| KJFF13 - Terminal enterostomi | 6 | 6,1 |\n| KJFF10 - Loop enterostomi | # | 3,1 |\n| KJFK10 - Løsning af adhærencer ved ileus | # | 3,1 |\n| KJWE00 - Reop. for dyb blødn. eft. gastroenterol. op. | # | 3,1 |\n| KJFB33 - Anden samtidig resektion af tyndtarm og tyktarm | # | 2,0 |\n| KJFC00 - Enteroenterostomi | # | 2,0 |\n| KJWB00 - Reop. v. overfl. infekt. eft. gastroenterol. op. | # | 2,0 |\n| KJFA71 - Laparoskopisk sutur af tyndtarm | # | 1,0 |\n| KJFA96 - Anden lokal tarmoperation | # | 1,0 |\n| KJFA97 - Anden lokal laparoskopisk tarmoperation | # | 1,0 |\n| KJFB20 - Ileocøkal resektion | # | 1,0 |\n| KJFB30 - Højresidig hemikolektomi | # | 1,0 |\n| KJFB50 - Anden colonresektion | # | 1,0 |\n| KJFB60 - Resektion af colon sigmoideum m. kolostomi | # | 1,0 |\n| KJFB96 - Anden tarmresektion | # | 1,0 |\n| KJFC10 - Ileotransversostomi | # | 1,0 |\n| KJFH11 - Laparoskopisk kolektomi og ileostomi | # | 1,0 |\n| KJFK00 - Deling af streng ved ileus | # | 1,0 |\n| KJFW96 - Anden operation på tyndtarm el. tyktarm | # | 1,0 |\n| KJWD00 - Reop. for overfl. blødn. eft. gastroenterol. op. | # | 1,0 |\n| KJWF00 - Reop. for sutur/anastom-insuff. eft. gastroenterol. | # | 1,0 |",
+      "summary": "Tabellen viser reoperationsprocedurer ved IBD, hvor eksplorativ laparotomi og laparoskopi er de to hyppigste, hvilket indikerer diagnosticerende og undersøgende formål."
+    },
+    {
+      "subject": "psc-patient-characteristics",
+      "title": "Karakteristika for patienter med PSC (indikator 7)",
+      "page": 45,
+      "rowDimension": "patient categories",
+      "colDimension": "characteristics and percentages",
+      "entities": [
+        "dk830f-primaer-skleroserende-kolangitis",
+        "indikator-7"
+      ],
+      "markdown": "| | Nydiagnostiseret | Prævalent |\n| --- | --- | --- |\n| Diagnose | | |\n| DK830F Primær skleroserende kolangitis | 31 (100) | 332 (100) |\n| Køn | | |\n| Kvinde | 10 (32) | 105 (32) |\n| Mand | 21 (68) | 227 (68) |\n| Alder | | |\n| Gennemsnit, år (Min;Max) | 45 (16;87) | 46 (16;90) |\n| Median, år (Q1;Q3) | 44 (26;62) | 44 (35;57) |\n| Kontakter | | |\n| Gennemsnit, antal (Min;Max) | 9 (1;23) | 8 (1;23) |\n| Median, antal (Q1;Q3) | 4 (3;13) | 6 (3;12) |\n| Kontakttype | | |\n| Fysisk | 78 (67) | 829 (62) |\n| Virtuel | 38 (33) | 517 (38) |",
+      "summary": "Tabellen sammenligner nydiagnostiserede og prævalente PSC-patienter og viser ensartet kønsfordeling og aldersprofil samt en stærk dominans af fysiske kontakter."
+    }
+  ],
+  "context": "Denne dokumentchunk fra siderne 41–45 af DANIBD 2024-rapporten indeholder appendikstabeller til tre centrale kvalitetsindikatorer (5, 6 og 7) i den danske kvalitetsdatabase for inflammatoriske tarmsygdomme. Indikator 5 omhandler brugen af biologiske og småmolekylære lægemidler (BMSL), herunder patientkarakteristika, behandlingsfrekvens og præparatfordeling. Indikator 6 fokuserer på kirurgiske indgreb og reoperationer hos IBD-patienter, kodet via SMR-procedurekoder. Indikator 7 beskriver epidemiologiske og kliniske karakteristika for patienter med primær skleroserende kolangitis (PSC), en alvorlig komorbiditet ved IBD. Sammen udgør disse tabeller et detaljeret kvantitativt grundlag for kvalitetsmonitorering og udvikling af behandlingsstandarder i dansk IBD-pleje."
 }

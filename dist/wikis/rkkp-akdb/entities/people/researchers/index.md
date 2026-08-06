@@ -4,50 +4,29 @@ type: index
 aliases:
   - Researchers
 wiki: rkkp-akdb
-updated: '2026-08-03T16:58:14.564Z'
+updated: '2026-08-05T20:34:15.415Z'
 children:
-  - adamsen-s.md
-  - bendix-j.md
-  - dorte-lindholm-buck.md
-  - henrik-joergensen.md
-  - ingrid-lolle.md
-  - mainz-j.md
-  - mikkel-wilhelmsen.md
-  - moeller-m-h.md
-  - morten-moller.md
-  - nakano-a.md
-  - niels-verner-knudsen.md
-  - rasmus-hasselager.md
-  - soeren-brok-laursen.md
-  - soeren-moeller-rosenstock.md
+  - moller-mh.md
 ---
 # Researchers
 
-This folder contains pages and sub-folders related to researchers.
+This folder catalogs researchers whose scientific publications and clinical trials provide the methodological and evidence-based foundation for the Danish Emergency Surgery Database. It currently documents Mads H. Møller, a prominent Danish surgical researcher who leads the PULP trial and has extensively published on preoperative delays and mortality in patients with perforated peptic ulcers. By tracking these individuals, the wiki maps the academic and clinical research ecosystem that drives the database's quality indicators and treatment timeframes.
 
 ## Pages
 
-- [[adamsen-s|Adamsen S.]]
-- [[bendix-j|Bendix J.]]
-- [[dorte-lindholm-buck|Dorte Lindholm Buck]]
-- [[henrik-joergensen|Henrik Jørgensen]]
-- [[ingrid-lolle|Ingrid Lolle]]
-- [[mainz-j|Mainz J.]]
-- [[mikkel-wilhelmsen|Mikkel Wilhelmsen]]
-- [[moeller-m-h|Møller M.H]]
-- [[morten-moller|Morten Møller]]
-- [[nakano-a|Nakano A.]]
-- [[niels-verner-knudsen|Niels Verner Knudsen]]
-- [[rasmus-hasselager|Rasmus Hasselager]]
-- [[soeren-brok-laursen|Søren Brok Laursen]]
-- [[soeren-moeller-rosenstock|Søren Møller Rosenstock]]
+- [[moller-mh|Møller MH]] — Danish surgical researcher leading the PULP trial and specializing in preoperative delays and mortality for perforated peptic ulcers.
 
 ## Navigation
 
-- Parent: [[index|Rkkp Akdb]]
+- Parent: [[entities/people/index|People]]
+- Sibling: [[entities/people/healthcare-administrators/index|Healthcare Administrators]]
+- Sibling: [[entities/people/healthcare-leaders/index|Healthcare Leaders]]
+- Sibling: [[entities/people/healthcare-leadership/index|Healthcare Leadership]]
+- Sibling: [[entities/people/healthcare-professionals/index|Healthcare Professionals]]
+- Sibling: [[entities/people/healthcare-researchers/index|Healthcare Researchers]]
 
 ## Statistics
 
-- Pages: 14
+- Pages: 1
 - Sub-folders: 0
 - Sources: 0

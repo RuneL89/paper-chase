@@ -4,48 +4,75 @@ type: entity
 aliases:
   - Hospitalerne i Nordsjælland
 wiki: rkkp-afdk
-updated: '2026-08-03T19:14:15.418Z'
+updated: '2026-08-05T19:41:37.127Z'
 sources:
-  - file: AFDK_2023.pdf
-    pages: '101-105, 106-110, 16-20, 21-25, 26-30, 36-40, 41-45, 6-10, 96-100'
+  - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
+    pages: '16-20, 21-25, 26-30, 36-40, 41-45, 6-10'
 tags:
   - organization
 ---
 
-# Hospitalerne i Nordsjælland
+**Hospitalerne i Nordsjælland** (Hospitals in North Zealand) is a hospital group operating within the [[region-hovedstaden|Capital Region of Denmark]] (Region Hovedstaden). It is a key participant in the Danish national clinical quality database for atrial fibrillation (Databasen for Atrieflimren i Danmark), which evaluates healthcare units on standardized clinical indicators to ensure high-quality treatment and prevent thromboembolic events.
 
-A hospital in the Capital Region reporting atrial fibrillation quality indicators; met the standard for indicator 1.
+During the reporting period of July 1, 2022, to June 30, 2023, the hospital group was evaluated across several critical quality indicators. For Indicator 1, which focuses on waiting times for anticoagulation treatment, the group successfully met the national standard [^src1]. 
+
+For [[indikator-2|Indicator 2]], which measures the rate of echocardiography performed on newly diagnosed atrial fibrillation patients, the group achieved a compliance rate of 77.7% (95% CI: 74.9–80.3) [^src2]. This result fell short of the national standard of ≥80% for this specific metric [^src2]. 
+
+Regarding [[indikator-3|Indicator 3]], which tracks TSH measurements to screen for underlying thyroid disease, Hospitalerne i Nordsjælland recorded a high performance rate of 91.1% (95% CI: 89.2–92.7) [^src3]. The annual report notes that this 91-92% performance level is very close to the standard [^src4], although the structured data marks the group as not officially meeting the threshold for this specific indicator [^src3].
+
+The group was also assessed on anticoagulation treatment coverage at later stages post-diagnosis (Indicator 4a). Two years after diagnosis, the treatment rate was 89.0% (95% CI: 85.2–92.1) [^src5], and at the five-year mark, the rate was 85.2% (95% CI: 80.1–89.5) [^src6]. In both of these follow-up metrics, the hospital group narrowly missed the ≥90% national standard [^src5] [^src6]. 
+
+Overall, Hospitalerne i Nordsjælland demonstrates a strong commitment to clinical quality, successfully meeting the standard for initial treatment timelines while remaining highly competitive and close to the targets for diagnostic screening and long-term anticoagulation management.
 
 ## Mentions
-
-- Page 9: "Hospitalerne i Nordsjælland Ja 520 / 565 0 (0) 92,0 (89,5-94,1)" [^src1]
-- Page 16: "Hospitalerne i Nordsjælland Nej 727 / 936 0 (0) 77,7 (74,9-80,3)" [^src2]
-- Page 23: "Hospitalerne i Nordsjælland Nej 1.011 / 1.110 0 (0) 91,1 (89,2-92,7)" [^src3]
-- Page 29: "Regionshospitalet Horsens og Hospitalerne i Nordsjælland (91-92%) er tæt på" [^src4]
-- Page 36: "Hospitalerne i Nordsjælland Nej 306 / 344 0 (0) 89,0 (85,2-92,1)" [^src5]
-- Page 42: "Hospitalerne i Nordsjælland Nej 202 / 237 0 (0) 85,2 (80,1-89,5)" [^src6]
-- Page 96: "Hospitalerne i Nordsjælland 13 / 1.194 0 (0) 1,1 (0,6-1,9)" [^src7]
-- Page 102: "Hospitalerne i Nordsjælland" [^src8]
-- Page 110: "Hospitalerne i Nordsjælland 87 / 1.194 0 (0) 7,3 (5,9-8,9)" [^src9]
+- Page 9: "Hospitalerne i Nordsjælland Ja 520 / 565 0 (0) 92,0 (89,5-94,1) 549 / 604 90,9 88,0" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 6-10)
+- Page 16: "Hospitalerne i Nordsjælland Nej 727 / 936 0 (0) 77,7 (74,9-80,3) 852 / 1.203 70,8 69,6" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 16-20)
+- Page 23: "Hospitalerne i Nordsjælland Nej 1.011 / 1.110 0 (0) 91,1 (89,2-92,7) 1.083 / 1.203 90,0 92,0" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 21-25)
+- Page 29: "Regionshospitalet Horsens og Hospitalerne i Nordsjælland (91-92%) er tæt på." (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 26-30)
+- Page 36: "Hospitalerne i Nordsjælland Nej 306 / 344 0 (0) 89,0 (85,2-92,1) 369 / 436 84,6 84,1" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 36-40)
+- Page 42: "Hospitalerne i Nordsjælland Nej 202 / 237 0 (0) 85,2 (80,1-89,5) 335 / 406 82,5" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 41-45)
 
 ## Relationships
+Outgoing (this entity is the SUBJECT of these relationships):
+- Subject: hospitalerne-i-nordsjaelland
+  Predicate: meets-indicator-3-standard
+  Object: false
+  Evidence: "Hospitalerne i Nordsjælland Nej 1.011 / 1.110 0 (0) 91,1 (89,2-92,7)"
+  Page: 23
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 21-25
+- Subject: hospitalerne-i-nordsjaelland
+  Predicate: has-high-performance-in
+  Object: indikator-3
+  Evidence: "Regionshospitalet Horsens og Hospitalerne i Nordsjælland (91-92%) er tæt på [standarden]."
+  Page: 29
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 26-30
 
-- [[hovedstaden|Hovedstaden]] — located-in [^src1]. Evidence: "Hovedstaden Hospitalerne i Nordsjælland" (Page 9)
-- [[hovedstaden|Hovedstaden]] — located-in [^src2]. Evidence: "Hovedstaden Nej 3.062 / 4.316 ... Hospitalerne i Nordsjælland Nej 727 / 936" (Page 16)
-- [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] — reports-to [^src4]. Evidence: "Regionshospitalet Horsens og Hospitalerne i Nordsjælland (91-92%) er tæt på" (Page 29)
-- [[hovedstaden|Hovedstaden]] — located-in [^src5]. Evidence: "Hospitalerne i Nordsjælland rapporterer under Hovedstaden-regionen" (Page 36)
-- [[hovedstaden|Hovedstaden]] — located-in [^src6]. Evidence: "Hovedstaden region contains Hospitalerne i Nordsjælland" (Page 42)
-- [[region-hovedstaden|Region Hovedstaden]] — is-in-region [^src8]. Evidence: "Hospitalerne i Nordsjælland listed under Hovedstaden section" (Page 102)
+Incoming (this entity is the OBJECT of these relationships):
+- Subject: indikator-2
+  Predicate: measures
+  Object: (this entity)
+  Evidence: "Hospitalerne i Nordsjælland er en af de institutioner, der rapporteres i tabellen for Indikator 2."
+  Page: 16
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 16-20
+- Subject: region-hovedstaden
+  Predicate: contains-hospital
+  Object: (this entity)
+  Evidence: "Hovedstaden Nej [...] Hospitalerne i Nordsjælland Nej [...]"
+  Page: 42
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 41-45
 
 ## Claims
+- Hospitalerne i Nordsjælland opfyldte Indikator 2 hos 77,7 % (95 % CI: 74,9–80,3) af nydiagnosticerede patienter med atrieflimren i perioden 1. juli 2022 – 30. juni 2023 [^src1] (hospitalerne-i-nordsjaelland, indikator-2)
+  Type: clinical
+  Page: 16
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 16-20
+- Hospitalerne i Nordsjælland har en Indikator 3-andel på 91,1 % (95 % CI: 89,2–92,7) [^src2] (hospitalerne-i-nordsjaelland, indikator-3)
+  Type: health-statistic
+  Page: 23
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 21-25
 
-- Hospitalerne i Nordsjælland opnåede 92,0% (95% CI: 89,5-94,1) for indikatoren om ventetid til antikoagulationsbehandling ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]])
-- Hospitalerne i Nordsjælland havde 77,7 % (95% CI: 74,9-80,3) af 936 nydiagnosticerede atrieflimren-patienter, der fik udført ekkokardiografi ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]])
-- Hospitalerne i Nordsjælland havde 1.011 / 1.110 patienter (91,1%) med TSH-måling ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]])
-- Heller ingen hospitaler opfylder standarden, men Regionshospitalet Horsens og Hospitalerne i Nordsjælland (91-92%) er tæt på ([[regionshospitalet-horsens|Regionshospitalet Horsens]], [[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]])
-- Hospitalerne i Nordsjælland opnåede 89,0% (95% CI: 85,2-92,1) for indikatoren 2 år efter diagnosen atrieflimren ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]], [[atrieflimren|Atrieflimren]])
-- Hospitalerne i Nordsjælland havde 34 nydiagnosticerede atrieflimren patienter med alvorlig blødning inden for 1 år ud af 1.194 (2,8%, 95% CI 2,0-4,0) ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]])
-- Hospitalerne i Nordsjælland havde 140 nydiagnosticerede atrieflimren patienter, der døde inden for 1 år ud af 1.194 (11,7%, 95% CI 10,0-13,7) ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]])
+## Timeline
+(none)
 
 ## Sources
 
@@ -55,6 +82,3 @@ A hospital in the Capital Region reporting atrial fibrillation quality indicator
 [^src4]: AFDK_2023.pdf, pages 26-30
 [^src5]: AFDK_2023.pdf, pages 36-40
 [^src6]: AFDK_2023.pdf, pages 41-45
-[^src7]: AFDK_2023.pdf, pages 96-100
-[^src8]: AFDK_2023.pdf, pages 101-105
-[^src9]: AFDK_2023.pdf, pages 106-110

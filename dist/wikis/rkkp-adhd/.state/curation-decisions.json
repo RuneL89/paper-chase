@@ -1,147 +1,493 @@
 {
   "decisions": [
     {
-      "concern": "entities",
+      "concern": "topics",
       "action": "merge",
       "from": [
-        "aabenraa"
+        "regulatory-standard"
       ],
-      "into": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:48:36.158Z",
-      "runId": "2026-08-03T18:48:36.158Z"
+      "into": "quality-standard",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "standard"
+      ],
+      "into": "quality-standard",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "clinical-practice"
+      ],
+      "into": "quality-indicator",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "regional"
+      ],
+      "into": "regional-variation",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "temporal"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "quantitative"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "definition"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "statistical"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "statistical-claim"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "trend"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "causal-analysis"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "timeline"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "procedural"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "observational"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "bispebjerg"
+        "aabennraa-bup-ambulatorium"
       ],
-      "into": "bispebjerg-psykiatrisk-ambulatorium",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:48:36.158Z",
-      "runId": "2026-08-03T18:48:36.158Z"
+      "into": "aabenna-borne-og-ungdomspsykiatrisk-ambulatorium",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "bornholm"
+        "aabennraa-bupa"
       ],
-      "into": "bornholm-psykiatrisk-ambulatorium",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:48:36.158Z",
-      "runId": "2026-08-03T18:48:36.158Z"
+      "into": "aabenna-borne-og-ungdomspsykiatrisk-ambulatorium",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "carelink-psykiatri-naerhospital-viborg"
+        "boerne-og-ungdomspsykiatrisk-ambulatorium-odense"
       ],
-      "into": "carelink-psykiatri-viborg",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:48:36.158Z",
-      "runId": "2026-08-03T18:48:36.158Z"
+      "into": "odense-borne-og-ungdomspsykiatrisk-ambulatorium",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "esbjerg"
+        "odense-boern-og-ungdomspsykiatrisk-ambulatorium"
       ],
-      "into": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:48:36.158Z",
-      "runId": "2026-08-03T18:48:36.158Z"
+      "into": "odense-borne-og-ungdomspsykiatrisk-ambulatorium",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "glostrup"
+        "odense-bup-ambulatorium"
       ],
-      "into": "glostrup-psykiatrisk-ambulatorium",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:48:36.158Z",
-      "runId": "2026-08-03T18:48:36.158Z"
+      "into": "odense-borne-og-ungdomspsykiatrisk-ambulatorium",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "hilleroed"
+        "odense-bupa"
       ],
-      "into": "hillerod-psykiatrisk-ambulatorium",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:48:36.158Z",
-      "runId": "2026-08-03T18:48:36.158Z"
+      "into": "odense-borne-og-ungdomspsykiatrisk-ambulatorium",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "klinik-for-boern-og-unge"
+        "hillerod-bup-ambulatorium"
       ],
-      "into": "klinik-boerner-unge",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:48:36.158Z",
-      "runId": "2026-08-03T18:48:36.158Z"
+      "into": "hillerod-psykiatrisk-ambulatorium-boern-og-unge",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "malene-oestergaard"
+        "vejle-bupa"
       ],
-      "into": "malene-tousgaard-foget-ostergaard",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:48:36.158Z",
-      "runId": "2026-08-03T18:48:36.158Z"
+      "into": "vejle-bup-ambulatorium",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "odense"
+        "bua-smaborn"
       ],
-      "into": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:48:36.158Z",
-      "runId": "2026-08-03T18:48:36.158Z"
+      "into": "bua-smaborn-klinik",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "psy-lokalpsykiatri-tonder"
+        "udredningspopulationen"
       ],
-      "into": "psy-lokalpsykiatri-toender",
-      "signal": "transliteration",
-      "decidedAt": "2026-08-03T18:48:36.158Z",
-      "runId": "2026-08-03T18:48:36.158Z"
+      "into": "adhd-udredningspopulation",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "rkkp-adhd"
+        "behandlingspopulationen"
       ],
-      "into": "adhd-databasen",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:48:36.158Z",
-      "runId": "2026-08-03T18:48:36.158Z"
+      "into": "adhd-behandlingspopulation",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
     },
     {
       "concern": "entities",
       "action": "merge",
       "from": [
-        "vejle"
+        "10-aarsplanen"
       ],
-      "into": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
-      "signal": "alias",
-      "decidedAt": "2026-08-03T18:48:36.158Z",
-      "runId": "2026-08-03T18:48:36.158Z"
+      "into": "10-aars-planen",
+      "signal": "edit-distance",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "k-sads"
+      ],
+      "into": "kiddie-sads",
+      "signal": "initials",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "entities",
+      "action": "cluster",
+      "from": [
+        "hovedstaden"
+      ],
+      "into": "region-hovedstaden",
+      "signal": "region-form",
+      "class": 5,
+      "rationale": "region name-form family",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "entities",
+      "action": "cluster",
+      "from": [
+        "midtjylland"
+      ],
+      "into": "region-midtjylland",
+      "signal": "region-form",
+      "class": 5,
+      "rationale": "region name-form family",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "entities",
+      "action": "cluster",
+      "from": [
+        "nordjylland"
+      ],
+      "into": "region-nordjylland",
+      "signal": "region-form",
+      "class": 5,
+      "rationale": "region name-form family",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "entities",
+      "action": "cluster",
+      "from": [
+        "sjaelland"
+      ],
+      "into": "region-sjaelland",
+      "signal": "region-form",
+      "class": 5,
+      "rationale": "region name-form family",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "entities",
+      "action": "cluster",
+      "from": [
+        "syddanmark"
+      ],
+      "into": "region-syddanmark",
+      "signal": "region-form",
+      "class": 5,
+      "rationale": "region name-form family",
+      "decidedAt": "2026-08-05T17:15:25.826Z",
+      "runId": "2026-08-05T17:15:25.826Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "quality-assessment"
+      ],
+      "into": "data-quality",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:48:02.623Z",
+      "runId": "2026-08-05T17:48:02.623Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "structural"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:48:02.623Z",
+      "runId": "2026-08-05T17:48:02.623Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "explanation"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:48:02.623Z",
+      "runId": "2026-08-05T17:48:02.623Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "methodological"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:48:02.623Z",
+      "runId": "2026-08-05T17:48:02.623Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "interpretive"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:48:02.623Z",
+      "runId": "2026-08-05T17:48:02.623Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "administrative"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:48:02.623Z",
+      "runId": "2026-08-05T17:48:02.623Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "process"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:48:02.623Z",
+      "runId": "2026-08-05T17:48:02.623Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "boerne-og-ungdomspsykiatrisk-afd-40"
+      ],
+      "into": "bua",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:48:02.623Z",
+      "runId": "2026-08-05T17:48:02.623Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "psy-boerne-og-ungdomspsykiatrisk-ambulatorium-vejle"
+      ],
+      "into": "vejle-bup-ambulatorium",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:48:02.623Z",
+      "runId": "2026-08-05T17:48:02.623Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "speciallaege-i-boerne-og-ungdomspsykiatri"
+      ],
+      "into": "speciallaeger",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:48:02.623Z",
+      "runId": "2026-08-05T17:48:02.623Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "bua-psykiatrisk-klinik-for-smaboern"
+      ],
+      "into": "bua-smaborn-klinik",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:48:02.623Z",
+      "runId": "2026-08-05T17:48:02.623Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "dmpg-retningslinjen-for-adhd"
+      ],
+      "into": "dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis",
+      "signal": "model",
+      "decidedAt": "2026-08-05T17:48:02.623Z",
+      "runId": "2026-08-05T17:48:02.623Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "bua-psykiatrisk-klinik-for-unge-i-midtjylland"
+      ],
+      "into": "bua-psykiatrisk-klinik-for-unge",
+      "signal": "subsequence",
+      "decidedAt": "2026-08-05T17:48:02.623Z",
+      "runId": "2026-08-05T17:48:02.623Z"
     }
   ],
   "splits": []

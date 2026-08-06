@@ -2,230 +2,365 @@
 title: Performance
 type: topic
 wiki: rkkp-adhd
-updated: '2026-08-03T19:14:17.586Z'
+updated: '2026-08-05T18:33:22.452Z'
 sources:
-  - file: ADHD_2023.pdf
-    pages: '1-5, 11-15, 16-20, 21-25, 26-30, 31-35, 6-10'
-  - file: ADHD_2024.pdf
+  - file: wikis/rkkp-adhd/raw/ADHD_2023.pdf
+    pages: '21-25, 26-30, 31-35, 6-10'
+  - file: wikis/rkkp-adhd/raw/ADHD_2024.pdf
     pages: >-
       1-5, 11-15, 16-20, 21-25, 26-30, 31-35, 41-45, 46-50, 51-55, 56-60, 6-10,
       66-70
 tags:
   - performance
 ---
+# Performance
+
+The topic of **Performance** in this corpus refers to the systematic evaluation of clinical quality, timeliness, and adherence to national standards in the assessment and treatment of ADHD across [[Danmark]]. Tracked through the [[ADHD-DATABASEN]], performance is measured using 11 specific national indicators (Indikator 1 through Indikator 11) that apply to both the child and adolescent psychiatric population and the adult [[ADHD-behandlingspopulation]]. Overall, the data reveals a systemic struggle to meet the established development goals, which are typically set at ≥90%, with significant regional and departmental variations.
+
+For children and adolescents, performance is heavily tied to strict timelines, such as completing somatic assessments within 90 days or clinical environment observations for 0-5-year-olds within 120 days. In the 2024/2025 period, national performance for somatic assessment (Indikator 1) reached 65%, an improvement from previous years but still below the 90% target [^src7]. Regional disparities are stark: [[region-midtjylland]] saw significant improvements, while [[Region Sjælland — Sjælland]] experienced declines [^src7]. Certain departments consistently demonstrate high performance; for instance, [[Odense: Børne- og Ungdomspsykiatrisk Ambulatorium]] and [[Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium]] frequently meet or exceed standards for environment observations and diagnostic conferences (Indikator 2a and 2b) [^src8]. Conversely, [[Privathospitaler]] generally report 0% fulfillment for these specific timeline-based indicators [^src8]. Coordination and psychoeducation (Indikator 3, 4, and 5) remain critically low nationwide, with national averages hovering between 20% and 33%, far below the 90% goals [^src9], [^src10], [^src11].
+
+Performance in the adult ADHD population (Indikator 8 through 11) presents a different set of challenges. While medication prescription rates are relatively high (70% nationally for Indikator 11), interventions such as psychoeducation (Indikator 8), psychotherapy (Indikator 9), and the assessment of social support needs (Indikator 10) severely underperform [^src12], [^src13], [^src14], [^src15]. For example, only 1% of relevant adult patients received indicated psychotherapy within the timeframe, though [[PCK, Psykoterapeutisk klinik]] in the [[region-hovedstaden]] achieved 9% [^src13]. Similarly, only one hospital department with more than three patients, [[PHO Klinik 1 for Psykiatriske Lidelser – Horsens]], met the standard for assessing social support needs at 97% [^src14]. No region in Denmark collectively meets the standards for adult psychoeducation, psychotherapy, or social support assessment [^src5].
+
+The corpus notes that low fulfillment rates do not always indicate a complete lack of clinical care. Internal analyses suggest that many children and young people do receive the relevant procedures, but often after the strict 90- or 120-day deadlines have passed, which negatively impacts the reported performance metrics [^src16]. Furthermore, for the adult population, the exceptionally low fulfillment rates are primarily attributed to registration challenges rather than an absolute absence of treatment [^src16].
 
 ## Claims
 
-- På landsplan blev der, inden for tidsfristen, gennemført miljøobservation i 59 % af udredningsforløbene [^src1] ([[adhd-databasen|ADHD-DATABASEN]])
-- Dette er en mindre tilbagegang i forhold til tidligere (63 % i 2022/23) [^src1] ([[adhd-databasen|ADHD-DATABASEN]])
-- Region Sjælland har fordoblet antal udredningsforløb fra 20 til 40 fra sidste til nuværende opgørelsesår [^src1] ([[region-sjaelland|Region Sjælland]])
-- I Region Hovedstaden ses fremgang til trods for, at antallet af udredningsforløb er steget betydeligt fra 196 til 228 [^src1] ([[region-hovedstaden|Region Hovedstaden]])
-- Region Nordjylland har meget få førskolebørn, der er udredt i perioden (23 i alt) [^src1] ([[region-nordjylland|Region Nordjylland]])
-- For indikator 2b blev der blandt 6-17 årige på landsplan gennemført enten manualiseret diagnostisk interview eller miljøobservation i 48 % af udredningsforløbene (2.331 / 4.810) [^src1] ([[indikator-2b|Indikator 2b]])
-- Region Syddanmark har 77 % andel på indikator 2b (864 / 1.118) [^src1] ([[region-syddanmark|Region Syddanmark]], [[indikator-2b|Indikator 2b]])
-- Region Hovedstaden har 46 % andel på indikator 2b (971 / 2.093) [^src1] ([[region-hovedstaden|Region Hovedstaden]], [[indikator-2b|Indikator 2b]])
-- Region Sjælland har 31 % andel på indikator 2b (175 / 570) [^src1] ([[region-sjaelland|Region Sjælland]], [[indikator-2b|Indikator 2b]])
-- Region Midtjylland har 31 % andel på indikator 2b (201 / 640) [^src1] ([[region-midtjylland|Region Midtjylland]], [[indikator-2b|Indikator 2b]])
-- Region Nordjylland har 31 % andel på indikator 2b (120 / 389) [^src1] ([[region-nordjylland|Region Nordjylland]], [[indikator-2b|Indikator 2b]])
-- Børne- og Ungdomsambulatorierne i Aabenraa har 89 % andel på indikator 2b (240 / 271) [^src1] ([[aabenraa-boerne-ungdomspsykiatrisk-ambulatorium|Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium]], [[indikator-2b|Indikator 2b]])
-- Børne- og Ungdomsambulatorierne i Odense har 98 % andel på indikator 2b (171 / 174) [^src1] ([[odense-boerne-ungdomspsykiatrisk-ambulatorium|Børne- og ungdomspsykiatrisk ambulatorium i Odense]], [[indikator-2b|Indikator 2b]])
-- Børne- og Ungdomsambulatorierne i Vejle har 58 % andel på indikator 2b (229 / 392) [^src1] ([[vejle-boerne-ungdomspsykiatrisk-ambulatorium|Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium]], [[indikator-2b|Indikator 2b]])
-- BUA Psykiatrisk Klinik for Småbørn har 75 % andel på indikator 2b (76 / 101) [^src1] ([[bua-psykiatrisk-klinik-smaaboern|BUA Psykiatrisk Klinik for Småbørn]], [[indikator-2b|Indikator 2b]])
-- På landsplan blev Indikator 2b opfyldt i 48 % af udredningsforløbene, hvilket er under den fastlagte standard på 90 % [^src2] ([[indikator-2b|Indikator 2b]])
-- Region Sjælland opnåede 31 % opfyldelse af Indikator 2b [^src2] ([[indikator-2b|Indikator 2b]], [[region-sjaelland|Region Sjælland]])
-- Region Midtjylland opnåede 31 % opfyldelse af Indikator 2b [^src2] ([[indikator-2b|Indikator 2b]], [[region-midtjylland|Region Midtjylland]])
-- Region Nordjylland opnåede 31 % opfyldelse af Indikator 2b [^src2] ([[indikator-2b|Indikator 2b]], [[region-nordjylland|Region Nordjylland]])
-- Region Syddanmark opnåede 77 % opfyldelse af Indikator 2b [^src2] ([[indikator-2b|Indikator 2b]], [[region-syddanmark|Region Syddanmark]])
-- BUA Psykiatrisk Klinik for Udredning i Midtjylland opnåede 22 % opfyldelse af Indikator 2b blandt 433 udredningsforløb [^src2] ([[bua-psykiatrisk-klinik-udredning|BUA Psykiatrisk Klinik for Udredning]], [[indikator-2b|Indikator 2b]])
-- Børne- og Ungdomspsykiatrisk Ambulatorium, Odense opnåede 98 % opfyldelse af Indikator 2b blandt 174 udredningsforløb og er som den eneste afdeling opfylder standarden [^src2] ([[odense-boerne-ungdomspsykiatrisk-ambulatorium|Børne- og ungdomspsykiatrisk ambulatorium i Odense]], [[indikator-2b|Indikator 2b]])
-- Danmark opnåede 21 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024 (1.105 / 5.215) [^src2] ([[indikator-3|Indikator 3]], [[danmark|Danmark]])
-- Region Hovedstaden opnåede 23 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024 (533 / 2.321) [^src2] ([[indikator-3|Indikator 3]], [[region-hovedstaden|Region Hovedstaden]])
-- Region Sjælland opnåede 31 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024 (187 / 610) [^src2] ([[indikator-3|Indikator 3]], [[region-sjaelland|Region Sjælland]])
-- Region Syddanmark opnåede 10 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024 (112 / 1.171) [^src2] ([[indikator-3|Indikator 3]], [[region-syddanmark|Region Syddanmark]])
-- Region Midtjylland opnåede 19 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024 (132 / 701) [^src2] ([[indikator-3|Indikator 3]], [[region-midtjylland|Region Midtjylland]])
-- Region Nordjylland opnåede 34 % opfyldelse af Indikator 3 i perioden 01.04.2023-31.03.2024 (141 / 412) [^src2] ([[indikator-3|Indikator 3]], [[region-nordjylland|Region Nordjylland]])
-- Bispebjerg: Psykiatrisk ambulatorium, børn og unge opnåede 27 % opfyldelse af Indikator 3 blandt 484 udredningsforløb [^src2] ([[bispebjerg-psykiatrisk-ambulatorium|Bispebjerg: Psykiatrisk ambulatorium, børn og unge]], [[indikator-3|Indikator 3]])
-- Bornholm: Psykiatrisk ambulatorium, børn og unge opnåede 28 % opfyldelse af Indikator 3 blandt 112 udredningsforløb [^src2] ([[bornholm-psykiatrisk-ambulatorium|Bornholm: Psykiatrisk ambulatorium, børn og unge]], [[indikator-3|Indikator 3]])
-- Glostrup: Psykiatrisk ambulatorium, børn og unge opnåede 19 % opfyldelse af Indikator 3 blandt 1.221 udredningsforløb [^src2] ([[glostrup-psykiatrisk-ambulatorium|Glostrup: Psykiatrisk ambulatorium, børn og unge]], [[indikator-3|Indikator 3]])
-- Hillerød: Psykiatrisk ambulatorium, børn og unge opnåede 27 % opfyldelse af Indikator 3 blandt 504 udredningsforløb [^src2] ([[hillerod-psykiatrisk-ambulatorium|Hillerød: Psykiatrisk ambulatorium, børn og unge]], [[indikator-3|Indikator 3]])
-- Børne-Unge Psyk. Afd. 40 opnåede 31 % opfyldelse af Indikator 3 blandt 610 udredningsforløb [^src2] ([[boerne-unge-psyk-afd-40|Børne-Unge Psyk. Afd. 40]], [[indikator-3|Indikator 3]])
-- Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium opnåede 5 % opfyldelse af Indikator 3 blandt 286 udredningsforløb [^src2] ([[aabenraa-boerne-ungdomspsykiatrisk-ambulatorium|Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium]], [[indikator-3|Indikator 3]])
-- Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium opnåede 11 % opfyldelse af Indikator 3 blandt 304 udredningsforløb [^src2] ([[esbjerg-boerne-ungdomspsykiatrisk-ambulatorium|Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium]], [[indikator-3|Indikator 3]])
-- Odense: Børne- og Ungdomspsykiatrisk Ambulatorium opnåede 37 % opfyldelse af Indikator 3 blandt 175 udredningsforløb [^src2] ([[odense-boerne-ungdomspsykiatrisk-ambulatorium|Børne- og ungdomspsykiatrisk ambulatorium i Odense]], [[indikator-3|Indikator 3]])
-- Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium opnåede 0 % opfyldelse af Indikator 3 blandt 406 udredningsforløb [^src2] ([[vejle-boerne-ungdomspsykiatrisk-ambulatorium|Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium]], [[indikator-3|Indikator 3]])
-- BUA Psykiatrisk Klinik for Skolebørn opnåede 36 % opfyldelse af Indikator 3 blandt 80 udredningsforløb [^src2] ([[bua-psykiatrisk-klinik-skoleboern|BUA Psykiatrisk Klinik for Skolebørn]], [[indikator-3|Indikator 3]])
-- BUA Psykiatrisk Klinik for Småbørn opnåede 13 % opfyldelse af Indikator 3 blandt 162 udredningsforløb [^src2] ([[bua-psykiatrisk-klinik-smaaboern|BUA Psykiatrisk Klinik for Småbørn]], [[indikator-3|Indikator 3]])
-- BUA Psykiatrisk Klinik for Udredning opnåede 17 % opfyldelse af Indikator 3 blandt 433 udredningsforløb [^src2] ([[bua-psykiatrisk-klinik-udredning|BUA Psykiatrisk Klinik for Udredning]], [[indikator-3|Indikator 3]])
-- BUA Psykiatrisk Klinik for Unge opnåede 35 % opfyldelse af Indikator 3 blandt 26 udredningsforløb [^src2] ([[bua-psykiatrisk-klinik-unge|BUA Psykiatrisk Klinik for Unge]], [[indikator-3|Indikator 3]])
-- Børne- og ungdomspsyk. Ambulatorium i Region Nordjylland opnåede 34 % opfyldelse af Indikator 3 blandt 412 udredningsforløb [^src2] ([[boerne-ungdomspsyk-ambulatorium-nordjylland|Børne- og ungdomspsyk. Ambulatorium]], [[indikator-3|Indikator 3]])
-- På landsplan blev der afholdt konference i 21 % af udredningsforløbene inden for tidsfristen for indikator 3, hvilket er langt under den fastlagte standard på 90 % [^src3] ([[adhd-databasen|ADHD-DATABASEN]])
-- Ingen regioner lever op til standarden for indikator 3, og der ses generelt tilbagegang i treårsperioden [^src3] ([[adhd-databasen|ADHD-DATABASEN]])
-- Ingen afdelinger levede op til standarden for indikator 3 [^src3] ([[adhd-databasen|ADHD-DATABASEN]])
-- Danmark havde 0 % opfyldelse af indikator 4 i perioden 01.04.2023 - 31.03.2024 med 663 forløb ud af 3.414 [^src3] ([[adhd-databasen|ADHD-DATABASEN]])
-- Indikator 1 opfyldelse var 65 (63-66) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 59 % for 2023/24 og 60 % for 2022/23 [^src4] ([[indikator-1|Indikator 1]])
-- Indikator 2a opfyldelse var 60 (55-65) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 59 % for 2023/24 og 63 % for 2022/23 [^src4] ([[indikator-2a|Indikator 2a]])
-- Indikator 2b opfyldelse var 51 (49-52) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 49 % for 2023/24 og 43 % for 2022/23 [^src4] ([[indikator-2b|Indikator 2b]])
-- Indikator 3 opfyldelse var 27 (25-28) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 23 % for 2023/24 og 25 % for 2022/23 [^src4] ([[indikator-3|Indikator 3]])
-- Indikator 4 opfyldelse var 20 (19-21) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 19 % for 2023/24 og 20 % for 2022/23 [^src4] ([[indikator-4|Indikator 4]])
-- Indikator 5 opfyldelse var 33 (32-35) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 33 % for 2023/24 og 35 % for 2022/23 [^src4] ([[indikator-5|Indikator 5]])
-- Indikator 6 opfyldelse var 68 (66-69) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 63 % for 2023/24 og 63 % for 2022/23 [^src4] ([[indikator-6|Indikator 6]])
-- Indikator 7a opfyldelse var 53 (51-55) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 57 % for 2023/24 og 59 % for 2022/23 [^src4] ([[indikator-7a|Indikator 7a]])
-- Indikator 7b opfyldelse var 58 (55-60) % for perioden 01.04.2024 - 31.03.2025, sammenlignet med 66 % for 2023/24 og 67 % for 2022/23 [^src4] ([[indikator-7b|Indikator 7b]])
-- Indikator 8 opfyldelse var 36 (34-38) % for perioden 01.04.2024 - 31.03.2025 [^src4] ([[indikator-8|Indikator 8]])
-- Indikator 9 opfyldelse var 1 (1-2) % for perioden 01.04.2024 - 31.03.2025 [^src4] ([[indikator-9|Indikator 9]])
-- Indikator 10 opfyldelse var 37 (35-38) % for perioden 01.04.2024 - 31.03.2025 [^src4] ([[indikator-10|Indikator 10]])
-- Indikator 11 opfyldelse var 70 (68-72) % for perioden 01.04.2024 - 31.03.2025 [^src4] ([[indikator-11|Indikator 11]])
-- På landsplan blev 65 % udredt somatisk inden for tidsfristen, hvilket ligger under udviklingsmålet på 90 % [^src5] ([[danmark|Danmark]], [[indikator-1|Indikator 1]])
-- Det er dog første gang i flere år at landsresultatet er forbedret siden sidste opgørelse [^src5] ([[danmark|Danmark]], [[indikator-1|Indikator 1]])
-- Region Midtjylland viste fremgang fra 36 % i 2023/24 til 71 % i 2024/25 [^src5] ([[region-midtjylland|Region Midtjylland]], [[indikator-1|Indikator 1]])
-- Midtjylland dermed er tilbage til niveauet fra 2020/2021 [^src5] ([[region-midtjylland|Region Midtjylland]], [[indikator-1|Indikator 1]])
-- Sjælland har som den eneste region oplevet nedgang fra 60 % i 2023/24 til 49 % i 2024/25 [^src5] ([[region-sjaelland|Region Sjælland]], [[indikator-1|Indikator 1]])
-- Resultaterne i Sjælland har været nedadgående siden 2021/2022 [^src5] ([[region-sjaelland|Region Sjælland]], [[indikator-1|Indikator 1]])
-- Privathospitalerne ligger andelen på 0 % da der er registreret 0 somatiske udredninger [^src5] ([[privathospitaler|Privathospitaler]], [[indikator-1|Indikator 1]])
-- Der var fire afdelinger der nåede udviklingsmålet, hvilket er tre flere end i 2023/24 [^src5] ([[indikator-1|Indikator 1]])
-- BUA Psykiatrisk Klinik for Skolebørn opnåede 96 % [^src5] ([[bua-psykiatrisk-klinik-skoleboern|BUA Psykiatrisk Klinik for Skolebørn]], [[indikator-1|Indikator 1]])
-- BUA Psykiatrisk Klinik for Småbørn opnåede 95 % [^src5] ([[bua-psykiatrisk-klinik-smaaboern|BUA Psykiatrisk Klinik for Småbørn]], [[indikator-1|Indikator 1]])
-- PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) nåede 90 % [^src5] ([[odense-boerne-ungdomspsykiatrisk-ambulatorium|Børne- og ungdomspsykiatrisk ambulatorium i Odense]], [[indikator-1|Indikator 1]])
-- PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) nåede 91 % [^src5] ([[aabenraa-boerne-ungdomspsykiatrisk-ambulatorium|Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium]], [[indikator-1|Indikator 1]])
-- Der var ingen afdelinger i Hovedstaden, Sjælland og Nordjylland der kom op på udviklingsmålet [^src5] ([[region-hovedstaden|Region Hovedstaden]], [[region-sjaelland|Region Sjælland]], [[region-nordjylland|Region Nordjylland]], [[indikator-1|Indikator 1]])
-- På afdelingsniveau svingede andelen således fra nul til 96 % [^src5] ([[indikator-1|Indikator 1]])
-- Danmark opnåede 60% for Indikator 2a blandt 0-5-årige [^src5] ([[danmark|Danmark]], [[indikator-2a|Indikator 2a]])
-- Region Syddanmark opnåede 88% for Indikator 2a [^src5] ([[region-syddanmark|Region Syddanmark]], [[indikator-2a|Indikator 2a]])
-- Region Midtjylland opnåede 86% for Indikator 2a [^src5] ([[region-midtjylland|Region Midtjylland]], [[indikator-2a|Indikator 2a]])
-- På landsplan blev der gennemført miljøobservation i 60 % af udredningsforløbene inden for tidsfristen for indikator 2a [^src6] ([[danmark|Danmark]], [[indikator-2a|Indikator 2a]])
-- Region Sjælland ligger lavest med en andel på 17 % for indikator 2a, hvilket er et fald fra 25 % året før [^src6] ([[region-sjaelland|Region Sjælland]], [[indikator-2a|Indikator 2a]])
-- Den højeste målopfyldelse for indikator 2a ses i Syddanmark (88 %) – der dog ligger et procentpoint lavere end året forinden – tæt efterfulgt af Midtjylland (86 %) [^src6] ([[region-syddanmark|Region Syddanmark]], [[region-midtjylland|Region Midtjylland]], [[indikator-2a|Indikator 2a]])
-- Privathospitalerne opnåede en andel på 0 % for indikator 2a [^src6] ([[indikator-2a|Indikator 2a]])
-- PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) og PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) begge nåede udviklingsmålet med 100 % opfyldelse af indikator 2a, hvilket også var tilfældet både i 2023/24 og 2022/23 [^src6] ([[vejle-boerne-ungdomspsykiatrisk-ambulatorium|Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium]], [[aabenraa-boerne-ungdomspsykiatrisk-ambulatorium|Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium]], [[indikator-2a|Indikator 2a]])
-- Der er ifølge data modtaget fra privathospitalerne ikke foretaget klinisk miljøobservation på nogen af patientforløbene for indikator 2a [^src6] ([[indikator-2a|Indikator 2a]])
-- For indikator 2b blev der på landsplan gennemført diagnostisk interview eller miljøobservation i 51 % af udredningsforløbene blandt 6-17-årige inden for tidsfristen [^src6] ([[danmark|Danmark]], [[indikator-2b|Indikator 2b]])
-- PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) opnåede 94 % opfyldelse af indikator 2b [^src6] ([[odense-boerne-ungdomspsykiatrisk-ambulatorium|Børne- og ungdomspsykiatrisk ambulatorium i Odense]], [[indikator-2b|Indikator 2b]])
-- PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Aabenraa) opnåede 93 % opfyldelse af indikator 2b [^src6] ([[aabenraa-boerne-ungdomspsykiatrisk-ambulatorium|Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium]], [[indikator-2b|Indikator 2b]])
-- BUA Psykiatrisk Klinik for Småbørn opnåede 94 % opfyldelse af indikator 2b [^src6] ([[bua-psykiatrisk-klinik-smaaboern|BUA Psykiatrisk Klinik for Småbørn]], [[indikator-2b|Indikator 2b]])
-- BUA Psykiatrisk Klinik for Spiseforstyrrelser opnåede 100 % opfyldelse af indikator 2b [^src6] ([[bua-psykiatrisk-klinik-spiseforstyrrelser|BUA Psykiatrisk Klinik for Spiseforstyrrelser]], [[indikator-2b|Indikator 2b]])
-- Børne-Unge Psyk. Reg.fkt. 40.R opnåede 100 % opfyldelse af indikator 2b [^src6] ([[boerne-unge-psyk-reg-fkt-40-r|Børne-Unge Psyk. Reg.fkt. 40.R]], [[indikator-2b|Indikator 2b]])
-- Region Hovedstaden opnåede 49 % opfyldelse af indikator 2b [^src6] ([[region-hovedstaden|Region Hovedstaden]], [[indikator-2b|Indikator 2b]])
-- Region Sjælland opnåede 32 % opfyldelse af indikator 2b [^src6] ([[region-sjaelland|Region Sjælland]], [[indikator-2b|Indikator 2b]])
-- Region Syddanmark opnåede 70 % opfyldelse af indikator 2b [^src6] ([[region-syddanmark|Region Syddanmark]], [[indikator-2b|Indikator 2b]])
-- Region Midtjylland opnåede 55 % opfyldelse af indikator 2b [^src6] ([[region-midtjylland|Region Midtjylland]], [[indikator-2b|Indikator 2b]])
-- Region Nordjylland opnåede 39 % opfyldelse af indikator 2b [^src6] ([[region-nordjylland|Region Nordjylland]], [[indikator-2b|Indikator 2b]])
-- Indikator 2b blev opfyldt i 51 % af udredningsforløbene på landsplan, hvilket er betydeligt under det fastlagte udviklingmål på 90 % [^src7] ([[indikator-2b|Indikator 2b]])
-- Resultatet på Indikator 2b er to procentpoint højere end året forinden [^src7] ([[indikator-2b|Indikator 2b]])
-- Privathospitalerne opnåede en andel på 7 % på Indikator 2b, hvor de året forinden lå på 84 % [^src7] ([[indikator-2b|Indikator 2b]], [[privathospitalerne|Privathospitalerne]])
-- PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) opnåede 94 % på Indikator 2b [^src7] ([[indikator-2b|Indikator 2b]], [[odense-boerne-ungdomspsykiatrisk-ambulatorium|Børne- og ungdomspsykiatrisk ambulatorium i Odense]])
-- BUA Psykiatrisk Klinik for Småbørn opnåede 94 % på Indikator 2b med stor stigning fra 76 % året før [^src7] ([[indikator-2b|Indikator 2b]], [[bua-psykiatrisk-klinik-smaaboern|BUA Psykiatrisk Klinik for Småbørn]])
-- PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) opnåede 93 % på Indikator 2b [^src7] ([[indikator-2b|Indikator 2b]], [[aabenraa-boerne-ungdomspsykiatrisk-ambulatorium|Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium]])
-- Indikator 3 blev opfyldt i 27 % af udredningsforløbene på landsplan, hvilket er langt under udviklingmålet på 90 % [^src7] ([[indikator-3|Indikator 3]])
-- Trendgrafen for Indikator 3 viser en nedadgående udvikling siden indikatoren blev indført, men i år er landsgennemsnittet steget for første gang siden 2018/19 [^src7] ([[indikator-3|Indikator 3]])
-- Der var i alt 16 registrerede forløb på privathospitaler og ingen af disse opfyldte Indikator 3 [^src7] ([[indikator-3|Indikator 3]], [[privathospitalerne|Privathospitalerne]])
-- BUA Psykiatrisk Klinik for Skolebørn opnåede højeste opfyldelse på Indikator 3 med 66 % i 2024/25, en stigning fra 34 % året før [^src7] ([[indikator-3|Indikator 3]], [[bua-psykiatrisk-klinik-skoleboern|BUA Psykiatrisk Klinik for Skolebørn]])
-- Blandt afdelinger med mere end tre forløb varierer resultaterne på Indikator 3 fra 66 % ned til 8 % på PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) [^src7] ([[indikator-3|Indikator 3]], [[vejle-boerne-ungdomspsykiatrisk-ambulatorium|Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium]])
-- I alle regioner har trenden på Indikator 3 været nedadgående gennem flere år [^src7] ([[indikator-3|Indikator 3]])
-- På landsplan blev der afholdt et koordinerende netværksmøde i 20 % af behandlingsforløbene inden for tidsfristen, hvilket er langt under det fastlagte udviklingsmål på 90 % [^src8] ([[danmark|Danmark]], [[adhd-databasen|ADHD-DATABASEN]])
-- Ser man på landsgennemsnittet over tid har indikatoren ligget stabilt omkring 20 % siden den trådte i kraft [^src8] ([[danmark|Danmark]])
-- Regionsresultaterne varierer fra 6 % i Midtjylland til 29 % i Hovedstaden og ingen regioner lever således op til udviklingsmålet [^src8] ([[region-midtjylland|Region Midtjylland]], [[region-hovedstaden|Region Hovedstaden]])
-- Resultaterne i Hovedstaden har været faldende over de seneste tre perioder [^src8] ([[region-hovedstaden|Region Hovedstaden]])
-- Ingen afdelinger nåede udviklingsmålet og resultaterne blandt afdelinger med minimum tre forløb varierede fra 1 % på BUA Psykiatrisk Klinik for Unge til 52 % på PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) [^src8] ([[bua-psykiatrisk-klinik-unge|BUA Psykiatrisk Klinik for Unge]], [[esbjerg-boerne-ungdomspsykiatrisk-ambulatorium|Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium]])
-- De private aktører lå mellem 1 % (Carelink Psykiatri Viborg) og 5 % (Carelink Psykiatri Kolding) [^src8] ([[carelink-psykiatri-viborg|Carelink Psykiatri Viborg]], [[carelink-psykiatri-kolding|Carelink Psykiatri Kolding]])
-- Denne indikator har hele dens levetid ligget stabilt langt fra målopfyldelsen [^src8] ([[adhd-databasen|ADHD-DATABASEN]])
-- Region Hovedstaden og Region Syddanmark er de regioner der er registret med flest netværksmøder indenfor tidsfristen, men stadig langt fra udviklingsmålet på 90% [^src8] ([[region-hovedstaden|Region Hovedstaden]], [[region-syddanmark|Region Syddanmark]])
-- Privathospitalerne har meget lav målopfyldelse - igen baseret på et bemærkelsesværdigt lavt antal patienter og det er usikkert hvad tallene afspejler [^src8] ([[adhd-databasen|ADHD-DATABASEN]])
-- På landsplan fik påbegyndte 33 % af ADHD-patienter/forældre psykoedukation inden for tidsfristen, hvilket er på niveau med de tidligere opgørelsesår [^src9] ([[danmark|Danmark]], [[indikator-5|Indikator 5]])
-- Syddanmark ligger, ligesom i 2023/24, lavest med en andel på 9% [^src9] ([[region-syddanmark|Region Syddanmark]], [[indikator-5|Indikator 5]])
-- Sjælland og Midtjylland ligger begge på 50 %, hvilket for Sjælland er en 8 procentpoints forbedring sammenlignet med året inden [^src9] ([[region-sjaelland|Region Sjælland]], [[region-midtjylland|Region Midtjylland]], [[indikator-5|Indikator 5]])
-- Hovedstaden og Nordjylland opnåede hhv. 35 og 33 % [^src9] ([[region-hovedstaden|Region Hovedstaden]], [[region-nordjylland|Region Nordjylland]], [[indikator-5|Indikator 5]])
-- Ingen regioner har således nået udviklingsmålet på 90 % [^src9] ([[indikator-5|Indikator 5]])
-- Blandt afdelinger med mere end tre forløb spænder målopfyldelsen fra 5 % (PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) til 81 % (BUA Psykiatrisk Klinik for Småbørn) [^src9] ([[aabenraa-boerne-ungdomspsykiatrisk-ambulatorium|Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium]], [[bua-psykiatrisk-klinik-smaaboern|BUA Psykiatrisk Klinik for Småbørn]], [[indikator-5|Indikator 5]])
-- Ingen afdelinger nåede udviklingsmålet [^src9] ([[indikator-5|Indikator 5]])
-- Ingen er registreret som påbegyndt psykoedukation på de private hospitaler [^src9] ([[indikator-5|Indikator 5]])
-- 3.536 forløb blandt børn og unge under 18 var i behandling med ADHD-medicin i Danmark i perioden 01.04.2024 - 31.03.2025, svarende til 68 % [^src9] ([[danmark|Danmark]], [[indikator-6|Indikator 6]])
-- Region Hovedstaden opnåede 67 % målopfyldelse for Indikator 6 [^src9] ([[region-hovedstaden|Region Hovedstaden]], [[indikator-6|Indikator 6]])
-- Region Sjælland opnåede 56 % målopfyldelse for Indikator 6 [^src9] ([[region-sjaelland|Region Sjælland]], [[indikator-6|Indikator 6]])
-- Region Syddanmark opnåede 72 % målopfyldelse for Indikator 6 [^src9] ([[region-syddanmark|Region Syddanmark]], [[indikator-6|Indikator 6]])
-- Region Midtjylland opnåede 58 % målopfyldelse for Indikator 6 [^src9] ([[region-midtjylland|Region Midtjylland]], [[indikator-6|Indikator 6]])
-- Region Nordjylland opnåede 82 % målopfyldelse for Indikator 6 [^src9] ([[region-nordjylland|Region Nordjylland]], [[indikator-6|Indikator 6]])
-- På landsplan påbegyndte 36 % af de voksne ADHD-patienter psykoedukation inden for tidsfristen, hvilket er betydeligt under udviklingsmålet på 90 [^src10] ([[adhd-databasen|ADHD-DATABASEN]])
-- Blandt afdelinger med minimum tre patienter var der ingen der nåede udviklingsmålet [^src10] ([[adhd-databasen|ADHD-DATABASEN]])
-- Blandt de 786 patienter var indikatoren kun opfyldt for 10 patienter (1%) [^src11] ([[indikator-9|Indikator 9]])
-- På landsplan er 37 % af de voksne ADHD-patienters sociale støttebehov blevet vurderet indenfor tidsfristen [^src12] ([[danmark|Danmark]], [[indikator-10|Indikator 10]])
-- De regionale resultater for Indikator 10 varierer fra 14 % i Nordjylland til 52 % i Midtjylland [^src12] ([[region-nordjylland|Region Nordjylland]], [[region-midtjylland|Region Midtjylland]], [[indikator-10|Indikator 10]])
-- Der er ingen regioner der nåede udviklingsmålet på 90 % for Indikator 10 [^src12] ([[indikator-10|Indikator 10]])
-- Blandt afdelinger med mere end tre patienter er der én der har nået udviklingsmålet: PHO Klinik 1 for Psykiatriske Lidelser - Horsens (97 %) [^src12] ([[pho-klinik-1-horsens|PHO Klinik 1 for Psykiatriske Lidelser – Horsens]], [[indikator-10|Indikator 10]])
-- Der er seks afdelinger med et resultat på 0 % for Indikator 10 (otte hvis privathospitalerne tælles med) [^src12] ([[indikator-10|Indikator 10]])
-- Region Hovedstaden ligger over eller svarende til landsgennemsnittet for de fleste indikatorer [^src13] ([[region-hovedstaden|Region Hovedstaden]], [[adhd-databasen|ADHD-DATABASEN]])
-- Indikator 2a viser fremgang i Region Hovedstaden som ligger svarende til landsgennemsnittet [^src13] ([[region-hovedstaden|Region Hovedstaden]], [[indikator-2a|Indikator 2a]])
-- Der ses en lille stigning for indikator 2b som for Region Hovedstaden ligger svarende til landsgennemsnittet [^src13] ([[region-hovedstaden|Region Hovedstaden]], [[indikator-2b|Indikator 2b]])
-- Der ses udfordringer med opfyldelse af indikator 3 samt fald i forhold til seneste år [^src13] ([[indikator-3|Indikator 3]])
-- Region Hovedstaden ligger på 32% for indikator 8 og dermed langt fra udviklingsmålet [^src13] ([[region-hovedstaden|Region Hovedstaden]], [[indikator-8|Indikator 8]])
-- Region Hovedstaden ligger med 49% over landsgennemsnittet for indikator 10 [^src13] ([[region-hovedstaden|Region Hovedstaden]], [[indikator-10|Indikator 10]])
-- Region Hovedstaden ligger på 37% for indikator 11 [^src13] ([[region-hovedstaden|Region Hovedstaden]], [[indikator-11|Indikator 11]])
-- Region Nordjylland rapporterer at målopfyldelsen for Børne- og Ungdomspsykiatrien er påvirket af de fastsatte tidsfrister (90 eller 120 dage efter opstart) [^src13] ([[region-nordjylland|Region Nordjylland]])
-- Andelen af udredningsforløb, hvor der er foretaget somatisk udredning senest 120 dage efter start af ADHD-udredning, var 59% (95% CI: 58-61) for hele Danmark i perioden 01.04.2023 - 31.03.2024 [^src14] ([[adhd-databasen|ADHD-DATABASEN]], [[danmark|Danmark]])
-- Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning, var 59% (95% CI: 54-64) for hele Danmark [^src14] ([[adhd-databasen|ADHD-DATABASEN]], [[danmark|Danmark]])
-- Andelen af udredningsforløb blandt 6-17 årige, hvor der senest 120 dage efter start af ADHD-udredning er foretaget enten manualiseret diagnostisk interview eller miljøobservation, var 48% (95% CI: 47-50) for hele Danmark [^src14] ([[adhd-databasen|ADHD-DATABASEN]], [[danmark|Danmark]])
-- Andelen af udredningsforløb, hvor der er afholdt diagnostisk konference med deltagelse af speciallæge i børne- og ungdomspsykiatri senest 120 dage efter start af ADHD-udredning, var 21% (95% CI: 20-22) for hele Danmark [^src14] ([[adhd-databasen|ADHD-DATABASEN]], [[danmark|Danmark]])
-- Andelen af behandlingsforløb, hvor der er foretaget koordinerende netværksmøde senest 90 dage efter behandlingsstart, var 19% (95% CI: 18-21) for hele Danmark [^src14] ([[adhd-databasen|ADHD-DATABASEN]], [[danmark|Danmark]])
-- Andelen af behandlingsforløb, hvor patienten/forældre har påbegyndt ADHD-relateret psykoedukation senest 120 dage efter behandlingsstart, var 34% (95% CI: 32-36) for hele Danmark [^src14] ([[adhd-databasen|ADHD-DATABASEN]], [[danmark|Danmark]])
-- Andelen af behandlingsforløb, hvor patienten er i behandling med ADHD-medicin, var 62% (95% CI: 60-64) for hele Danmark [^src14] ([[adhd-databasen|ADHD-DATABASEN]], [[danmark|Danmark]])
-- Hovedstaden-regionen rapporterer 1.486 / 2.321 forløb med somatisk udredning (64%, 95% CI: 62-66) [^src14] ([[region-hovedstaden|Region Hovedstaden]])
-- Sjælland-regionen rapporterer 363 / 610 forløb med somatisk udredning (60%, 95% CI: 55-63) [^src14] ([[region-sjaelland|Region Sjælland]])
-- Syddanmark-regionen rapporterer 725 / 1.171 forløb med somatisk udredning (62%, 95% CI: 59-65) [^src14] ([[region-syddanmark|Region Syddanmark]])
-- Midtjylland-regionen rapporterer 249 / 701 forløb med somatisk udredning (36%, 95% CI: 32-39) [^src14] ([[region-midtjylland|Region Midtjylland]])
-- Nordjylland-regionen rapporterer 265 / 412 forløb med somatisk udredning (64%, 95% CI: 59-69) [^src14] ([[region-nordjylland|Region Nordjylland]])
-- Aabenraa Børne og Ungdomspsykiatrisk Ambulatorium opfylder standarden for somatisk udredning med 90% (95% CI: 86-93) [^src14] ([[aabenraa-boerne-ungdomspsykiatrisk-ambulatorium|Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium]])
-- BUA Psykiatrisk Klinik for Udredning rapporterer meget lav opfyldelse af somatisk udredningsindikator med 13% (95% CI: 10-17) [^src14] ([[bua-psykiatrisk-klinik-udredning|BUA Psykiatrisk Klinik for Udredning]])
-- Fra voksenpopulationen i hospitalsregi er der ikke nogen regioner, der opfylder indikatorerne for psykoedukation, psykoterapi eller vurdering af sociale støttebehov [^src15] ([[adhd-databasen|ADHD-DATABASEN]])
-- Indikatoren omkring psykoterapi viser, at der ikke reelt leveres psykoterapi rettet mod ADHD i den hospitalsbaserede psykiatri [^src15] ([[adhd-databasen|ADHD-DATABASEN]])
-- For første gang i flere år ses en lille fremgang på landsplan på alle udredningsindikatorerne [^src15] ([[adhd-databasen|ADHD-DATABASEN]])
-- På landsplan var 70 % af de voksne i behandling med ADHD-medicin [^src16] ([[danmark|Danmark]], [[adhd-databasen|ADHD-DATABASEN]])
-- Forstyrrelsen fortsætter med at give problemer ind i voksenalderen hos mere end halvdelen [^src16] ([[adhd|ADHD]])
-- ADHD ledsages ofte af andre psykiatriske forstyrrelser; hyppigst adfærdsforstyrrelse, søvnforstyrrelser, indlæringsproblemer, motoriske vanskeligheder, angst og depression [^src16] ([[adhd|ADHD]])
-- Hos unge og voksne er der øget risiko for misbrug, kriminalitet og personlighedsforstyrrelse [^src16] ([[adhd|ADHD]])
-- Prognosen afhænger af graden af egne ressourcer, støtte fra omgivelserne, socialisering og følgetilstande i form af øvrige psykiatriske diagnoser [^src16] ([[adhd|ADHD]])
-- Langtidsopfølgende studier peger på at uddannelse, erhverv, familieliv, økonomi og almen funktion alle er negativt påvirkede af ADHD-diagnosen i barndom og ungdom [^src16] ([[adhd|ADHD]])
-- En væsentlig andel af børn og unge som diagnosticeres med ADHD har symptomer og funktionsnedsættelse i voksenalder [^src16] ([[adhd|ADHD]])
-- Danmark havde 19 % opfyldelse af indikator 4 i 2022/23 og 21 % i 2021/22 [^src3] ([[adhd-databasen|ADHD-DATABASEN]])
-- På landsplan blev 59 % udredt somatisk inden for tidsfristen, hvilket er under den fastlagte standard på 90 % [^src17] ([[danmark|Danmark]])
-- Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium opfylder standarden med indikatoropfyldelse af 90 % af de i alt 286 udredningsforløb [^src17] ([[aabenraa-boerne-ungdomspsykiatrisk-ambulatorium|Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium]])
-- Børne- og ungdomspsykiatrisk ambulatorium i Odense er meget tæt på at nå standarden med somatisk udredning i 89 % af deres 175 udredningsforløb [^src17] ([[odense-boerne-ungdomspsykiatrisk-ambulatorium|Børne- og ungdomspsykiatrisk ambulatorium i Odense]])
-- Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning på landsplan var 59 % i 2023/24 [^src17] ([[danmark|Danmark]])
-- Region Syddanmark opfylder standarden for klinisk miljøobservation med 91 % compliance [^src17] ([[region-syddanmark|Region Syddanmark]])
-- Region Midtjylland opfylder standarden for klinisk miljøobservation med 90 % compliance [^src17] ([[region-midtjylland|Region Midtjylland]])
-- Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium opfylder standarden for klinisk miljøobservation med 100 % compliance blandt 15 forløb [^src17] ([[aabenraa-boerne-ungdomspsykiatrisk-ambulatorium|Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium]])
-- Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium opfylder standarden for klinisk miljøobservation med 100 % compliance blandt 14 forløb [^src17] ([[vejle-boerne-ungdomspsykiatrisk-ambulatorium|Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium]])
-- Bornholm: Psykiatrisk ambulatorium, børn og unge har 0 % compliance for klinisk miljøobservation blandt 7 forløb [^src17] ([[bornholm-psykiatrisk-ambulatorium|Bornholm: Psykiatrisk ambulatorium, børn og unge]])
-- På landsplan fik kun 19 % af ADHD-patienter i pakkeforløb gennemført et koordinerende netværksmøde inden for tidsfristen [^src18] ([[adhd-databasen|ADHD-DATABASEN]])
-- Region Hovedstaden har højest indikatoropfyldelse med 36 % og Region Midtjylland ligger lavest med 7 % [^src18] ([[region-hovedstaden|Region Hovedstaden]], [[region-midtjylland|Region Midtjylland]])
-- Ingen regioner lever op til standarden [^src18] ([[adhd-databasen|ADHD-DATABASEN]])
-- På afdelingsniveau spænder målopfyldelsen fra 1 % (BUA Psykiatrisk Klinik for Unge i Midtjylland) til 64 % (Odense: Børne- og Ungdomspsykiatrisk Ambulatorium) [^src18] ([[bua-psykiatrisk-klinik-unge|BUA Psykiatrisk Klinik for Unge]], [[odense-boerne-ungdomspsykiatrisk-ambulatorium|Børne- og ungdomspsykiatrisk ambulatorium i Odense]])
-- Ingen afdelinger lever op til standarden [^src18] ([[adhd-databasen|ADHD-DATABASEN]])
-- På landsplan modtog 34 % af ADHD-patienter i pakkeforløb ADHD-relateret psykoedukation inden for tidsfristen [^src18] ([[adhd-databasen|ADHD-DATABASEN]])
-- Det er uændret i forhold til sidste opgørelsesperiode, og det er langt under standarden på 90 % [^src18] ([[adhd-databasen|ADHD-DATABASEN]])
-- Region Midtjylland ligger højst på 50 % mens Region Syddanmark ligger lavest (7 %) [^src18] ([[region-midtjylland|Region Midtjylland]], [[region-syddanmark|Region Syddanmark]])
-- Der ses fremgang i Midt- og Nordjylland [^src18] ([[region-midtjylland|Region Midtjylland]], [[region-nordjylland|Region Nordjylland]])
-- Ingen regioner eller afdelinger levede op til standarden [^src18] ([[adhd-databasen|ADHD-DATABASEN]])
-- Alle regioner ligger langt fra standarden [^src18] ([[adhd-databasen|ADHD-DATABASEN]])
-- Der igen i år ses et fald på de fleste indikatorer og der er en bekymrende lav målopfyldelse på landsplan [^src19] ([[adhd-databasen|ADHD-DATABASEN]])
+- Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium opfylder standarden for Indikator 1 med 90 % (95 % CI: 86–93) [^src1] (aabenna-borne-og-ungdomspsykiatrisk-ambulatorium, indikator-1)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2023.pdf, pages 6-10
+- Odense: Børne- og Ungdomspsykiatrisk Ambulatorium har en opfyldelse på 89 % (95 % CI: 84–93) for Indikator 1 i perioden 01.04.2023–31.03.2024 [^src1] (odense-borne-og-ungdomspsykiatrisk-ambulatorium, indikator-1)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2023.pdf, pages 6-10
+- Hillerød: Psykiatrisk ambulatorium, børn og unge har en opfyldelse på 81 % (95 % CI: 77–84) for Indikator 1 i perioden 01.04.2023–31.03.2024 [^src1] (hillerod-psykiatrisk-ambulatorium-boern-og-unge, indikator-1)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2023.pdf, pages 6-10
+- Indikator 2b blev opfyldt i 48 % af udredningsforløbene på landsplan, hvilket er under den fastlagte standard på 90 %[^src1]. (indikator-2b)
+  Type: performance
+  Page: 21
+  Source: wikis/rkkp-adhd/raw/ADHD_2023.pdf, pages 21-25
+- Regional variation for Indikator 2b går fra 31 % i Region Sjælland, Midtjylland og Nordjylland til 77 % i Region Syddanmark[^src1]. (indikator-2b, region-syddanmark)
+  Type: performance
+  Page: 21
+  Source: wikis/rkkp-adhd/raw/ADHD_2023.pdf, pages 21-25
+- BUA Psykiatrisk Klinik for Udredning i Midtjylland opfyldte Indikator 2b i 22 % af 433 udredningsforløb[^src1]. (bua-psykiatrisk-klinik-for-udredning)
+  Type: performance
+  Page: 21
+  Source: wikis/rkkp-adhd/raw/ADHD_2023.pdf, pages 21-25
+- Børne- og Ungdomspsykiatrisk Ambulatorium, Odense opfyldte Indikator 2b i 98 % af 174 udredningsforløb og er den eneste afdeling, der opfylder standarden[^src1]. (odense-borne-og-ungdomspsykiatrisk-ambulatorium)
+  Type: performance
+  Page: 21
+  Source: wikis/rkkp-adhd/raw/ADHD_2023.pdf, pages 21-25
+- Indikator 3 viser 0 % opfyldelse i flere afdelinger, herunder Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium (0 / 406) og Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium (15 / 286 = 5 %)[^src1]. (indikator-3)
+  Type: performance
+  Page: 21
+  Source: wikis/rkkp-adhd/raw/ADHD_2023.pdf, pages 21-25
+- Indikator 3 har en opfyldelsesprocent på 21 % på landsplan [^src1] (indikator-3)
+  Type: performance
+  Page: 26
+  Source: wikis/rkkp-adhd/raw/ADHD_2023.pdf, pages 26-30
+- På landsplan fik kun 19 % af ADHD-patienter i pakkeforløb gennemført et koordinerende netværksmøde inden for tidsfristen[^src1] (indikator-4, adhd-databasen)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2023.pdf, pages 31-35
+- På landsplan modtog 34 % af ADHD-patienter i pakkeforløb ADHD-relateret psykoedukation inden for tidsfristen[^src1] (indikator-5, adhd-databasen)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2023.pdf, pages 31-35
+- Der er ikke nogen regioner, der opfylder indikatorerne for psykoedukation, psykoterapi eller vurdering af sociale støttebehov for voksenpopulationen [^src1] (adhd-databasen, region-midtjylland)
+  Type: performance
+  Page: 5
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 1-5
+- Indikator 1 har et udviklingsmål på ≥ 90 %, men opnåede kun 65 % (95 % CI: 63–66) i perioden 01.04.2024–31.03.2025 [^src1] (indikator-1)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 6-10
+- Indikator 2a har et udviklingsmål på ≥ 90 %, men opnåede kun 60 % (95 % CI: 55–65) i perioden 01.04.2024–31.03.2025 [^src1] (indikator-2a)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 6-10
+- Indikator 2b har et udviklingsmål på ≥ 90 %, men opnåede kun 51 % (95 % CI: 49–52) i perioden 01.04.2024–31.03.2025 [^src1] (indikator-2b)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 6-10
+- Indikator 3 har et udviklingsmål på ≥ 90 %, men opnåede kun 27 % (95 % CI: 25–28) i perioden 01.04.2024–31.03.2025 [^src1] (indikator-3)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 6-10
+- Indikator 4 har et udviklingsmål på ≥ 90 %, men opnåede kun 20 % (95 % CI: 19–21) i perioden 01.04.2024–31.03.2025 [^src1] (indikator-4)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 6-10
+- Indikator 5 har et udviklingsmål på ≥ 90 %, men opnåede kun 33 % (95 % CI: 32–35) i perioden 01.04.2024–31.03.2025 [^src1] (indikator-5)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 6-10
+- Indikator 6 har ingen udviklingsmål, men opnåede 68 % (95 % CI: 66–69) i perioden 01.04.2024–31.03.2025 [^src1] (indikator-6)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 6-10
+- Indikator 7a opnåede 53 % (95 % CI: 51–55) i perioden 01.04.2024–31.03.2025, hvilket er en nedgang fra 59 % i 2022/23 [^src1] (indikator-7a)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 6-10
+- Indikator 7b opnåede 58 % (95 % CI: 55–60) i perioden 01.04.2024–31.03.2025, hvilket er en nedgang fra 67 % i 2022/23 [^src1] (indikator-7b)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 6-10
+- Indikator 8 opnåede 36 % (95 % CI: 34–38) i perioden 01.04.2024–31.03.2025 og rapporteres første gang uden historik [^src1] (indikator-8)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 6-10
+- Indikator 9 opnåede 1 % (95 % CI: 1–2) i perioden 01.04.2024–31.03.2025 og rapporteres første gang uden historik [^src1] (indikator-9)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 6-10
+- Indikator 10 har et udviklingsmål på ≥ 90 %, men opnåede kun 37 % (95 % CI: 35–38) i perioden 01.04.2024–31.03.2025 [^src1] (indikator-10)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 6-10
+- Indikator 11 opnåede 70 % (95 % CI: 68–72) i perioden 01.04.2024–31.03.2025 og rapporteres første gang uden historik [^src1] (indikator-11)
+  Type: performance
+  Page: 6
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 6-10
+- På landsplan blev 65 % udredt somatisk inden for tidsfristen, hvilket ligger under udviklingsmålet på 90 % [^src1] (indikator-1)
+  Type: performance
+  Page: 11
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 11-15
+- Det er første gang i flere år at landsresultatet er forbedret siden sidste opgørelse [^src1] (indikator-1)
+  Type: performance
+  Page: 11
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 11-15
+- I Midtjylland steg andelen fra 36 % i 2023/24 til 71 % i 2024/25 [^src1] (region-midtjylland, indikator-1)
+  Type: performance
+  Page: 11
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 11-15
+- Sjælland har oplevet nedgang fra 60 % i 2023/24 til 49 % i 2024/25 [^src1] (region-sjaelland, indikator-1)
+  Type: performance
+  Page: 11
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 11-15
+- Der var fire afdelinger der nåede udviklingsmålet, hvilket er tre flere end i 2023/24 [^src1] (indikator-1)
+  Type: performance
+  Page: 11
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 11-15
+- Andelen af udredningsforløb blandt 0-5-årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning, er 60 % på landsplan [^src1] (indikator-2a)
+  Type: performance
+  Page: 11
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 11-15
+- På landsplan blev der gennemført miljøobservation i 60 % af udredningsforløbene inden for tidsfristen for Indikator 2a [^src1] (indikator-2a)
+  Type: performance
+  Page: 16
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 16-20
+- Region Sjælland ligger lavest med en andel på 17 % for Indikator 2a [^src1] (region-sjaelland, indikator-2a)
+  Type: performance
+  Page: 16
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 16-20
+- Region Syddanmark opnåede 88 % for Indikator 2a [^src1] (region-syddanmark, indikator-2a)
+  Type: performance
+  Page: 16
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 16-20
+- Der er to afdelinger der nåede udviklingsmålet for Indikator 2a: PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) og PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) begge med 100 % opfyldelse [^src1] (vejle-bup-ambulatorium, aabenna-borne-og-ungdomspsykiatrisk-ambulatorium, indikator-2a)
+  Type: performance
+  Page: 16
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 16-20
+- Privathospitalerne opnåede en andel på 0 % for Indikator 2a [^src1] (privathospitaler, indikator-2a)
+  Type: performance
+  Page: 16
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 16-20
+- For Indikator 2b opnåede Danmark en andel på 51 % (2.513 / 4.942) [^src1] (indikator-2b)
+  Type: performance
+  Page: 16
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 16-20
+- Region Syddanmark opnåede 70 % for Indikator 2b [^src1] (region-syddanmark, indikator-2b)
+  Type: performance
+  Page: 16
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 16-20
+- PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) opnåede 94 % for Indikator 2b [^src1] (odense-borne-og-ungdomspsykiatrisk-ambulatorium, indikator-2b)
+  Type: performance
+  Page: 16
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 16-20
+- PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Aabenraa) opnåede 93 % for Indikator 2b [^src1] (aabenna-borne-og-ungdomspsykiatrisk-ambulatorium, indikator-2b)
+  Type: performance
+  Page: 16
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 16-20
+- BUA Psykiatrisk Klinik for Småbørn opnåede 94 % for Indikator 2b [^src1] (bua-smaborn-klinik, indikator-2b)
+  Type: performance
+  Page: 16
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 16-20
+- Hejmdal Privathospital Viby, beh.afsnit opnåede 0 % for Indikator 2b [^src1] (hejmdal-privathospital-viby-beh-afsnit, indikator-2b)
+  Type: performance
+  Page: 16
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 16-20
+- På landsplan blev indikatoren opfyldt i 51 % af udredningsforløbene, hvilket er betydeligt under det fastlagte udviklingsmål på 90 % [^src1] (indikator-2b)
+  Type: performance
+  Page: 21
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 21-25
+- På landsplan blev der afholdt konference i 27 % af udredningsforløbene inden for tidsfristen, hvilket er langt under udviklingsmålet på 90 % [^src1] (indikator-3)
+  Type: performance
+  Page: 21
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 21-25
+- Indikator 4 har hele dens levetid ligget stabilt langt fra målopfyldelsen [^src1] (indikator-4)
+  Type: performance
+  Page: 26
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 26-30
+- På landsplan blev der afholdt et koordinerende netværksmøde i 20 % af behandlingsforløbene inden for tidsfristen, hvilket er langt under det fastlagte udviklingsmål på 90 % [^src1] (indikator-4)
+  Type: performance
+  Page: 26
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 26-30
+- Regionsresultaterne varierer fra 6 % i Midtjylland til 29 % i Hovedstaden [^src1] (indikator-4, region-midtjylland, region-hovedstaden)
+  Type: performance
+  Page: 26
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 26-30
+- Ingen afdelinger nåede udviklingsmålet og resultaterne blandt afdelinger med minimum tre forløb varierede fra 1 % på BUA Psykiatrisk Klinik for Unge til 52 % på PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) [^src1] (indikator-4, bua-psykiatrisk-klinik-for-unge, psy-boerne-og-ungdomspsykiatrisk-ambulatorium-esbjerg)
+  Type: performance
+  Page: 26
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 26-30
+- Indikator 5 har et udviklingsmål på ≥ 90 % for perioden 01.04.2024 - 31.03.2025 [^src1] (indikator-5)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- På landsplan fik 33 % af ADHD-patienter/forældre psykoedukation inden for tidsfristen [^src1] (indikator-5)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- Syddanmark ligger lavest med en andel på 9 % for Indikator 5 [^src1] (region-syddanmark, indikator-5)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- Sjælland og Midtjylland ligger begge på 50 % for Indikator 5 [^src1] (region-sjaelland, region-midtjylland, indikator-5)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- Hovedstaden og Nordjylland opnåede hhv. 35 og 33 % for Indikator 5 [^src1] (region-hovedstaden, region-nordjylland, indikator-5)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) har en psykoedukationsrate på 5 % [^src1] (indikator-5)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- BUA Psykiatrisk Klinik for Småbørn har en psykoedukationsrate på 81 % [^src1] (bua-smaborn-klinik, indikator-5)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- Ingen regioner har nået udviklingsmålet på 90 % for Indikator 5 [^src1] (indikator-5)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- Ingen afdelinger nåede udviklingsmålet på 90 % for Indikator 5 [^src1] (indikator-5)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- Ingen er registreret som påbegyndt psykoedukation på de private hospitaler [^src1] (privathospitaler, indikator-5)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- Indikator 6 har et udviklingsmål på ≥ 90 % [^src1] (indikator-6)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- På landsplan er andelen af behandlingsforløb med ADHD-medicin 68 % [^src1] (indikator-6)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- Nordjylland har den højeste medicinrate blandt regionerne med 82 % [^src1] (region-nordjylland, indikator-6)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- Syddanmark har den næsthøjeste medicinrate blandt regionerne med 72 % [^src1] (region-syddanmark, indikator-6)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- Psykiatrisk ambulatorium, børn og unge, Bornh, B37 har den højeste medicinrate blandt de nævnte ambulatorier med 86 % [^src1] (bornholm-bup-ambulatorium, indikator-6)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 har en medicinrate på 61 % [^src1] (bispebjerg-bup-ambulatorium, indikator-6)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 har en medicinrate på 68 % [^src1] (glostrup-bup-ambulatorium, indikator-6)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 har en medicinrate på 69 % [^src1] (hillerod-psykiatrisk-ambulatorium-boern-og-unge, indikator-6)
+  Type: performance
+  Page: 31
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 31-35
+- På landsplan påbegyndte 36 % af de voksne ADHD-patienter psykoedukation inden for tidsfristen, hvilket er betydeligt under udviklingsmålet på 90.[^src1] (indikator-8, adhd-behandlingspopulation)
+  Type: performance
+  Page: 41
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 41-45
+- På landsplan har der været 786 patienter med et års opfølgning for hvem psykoterapi var relevant, og blandt disse er indikatoren kun opfyldt for 10 patienter (1 %) [^src1] (indikator-9, adhd-behandlingspopulation)
+  Type: performance
+  Page: 46
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 46-50
+- Blandt afdelinger med minimum tre patienter i nævneren varierer resultaterne fra 0 % (på de fleste afdelinger) til 9 % (PCK, Psykoterapeutisk klinik i Hovedstaden) [^src1] (indikator-9, pck-psykoterapeutisk-klinik, region-hovedstaden)
+  Type: performance
+  Page: 46
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 46-50
+- På landsplan er 37 % af de voksne ADHD-patienters sociale støttebehov blevet vurderet indenfor tidsfristen[^src1] (indikator-10, danmark)
+  Type: performance
+  Page: 51
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 51-55
+- Der er ingen regioner, der samlet set opfylder Indikator 10[^src1] (indikator-10, region-hovedstaden, region-sjaelland, region-syddanmark, region-midtjylland, region-nordjylland)
+  Type: performance
+  Page: 51
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 51-55
+- Kun én hospitalsafdeling med mere end tre patienter opfylder Indikator 10: PHO Klinik 1 for Psykiatriske Lidelser - Horsens (97 %)[^src1] (indikator-10, pho-klinik-1-for-psykiatriske-lidelser-horsens)
+  Type: performance
+  Page: 51
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 51-55
+- Der er seks afdelinger med et resultat på 0 % for Indikator 10 (otte hvis privathospitalerne tælles med)[^src1] (indikator-10, privathospitaler)
+  Type: performance
+  Page: 51
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 51-55
+- På landsplan var 70 % af de voksne i behandling med ADHD-medicin[^src1]. (indikator-11)
+  Type: performance
+  Page: 56
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 56-60
+- Hovedstaden lå væsentligt lavere end de øvrige regioner med et resultat på 37 %[^src1]. (region-hovedstaden, indikator-11)
+  Type: performance
+  Page: 56
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 56-60
+- Næstlavest lå Syddanmark på 67 %[^src1]. (region-syddanmark, indikator-11)
+  Type: performance
+  Page: 56
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 56-60
+- Nordjylland lå højest med 85 %[^src1]. (region-nordjylland, indikator-11)
+  Type: performance
+  Page: 56
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 56-60
+- For Børne- og Ungdomspsykiatrien er målopfyldelsen fortsat påvirket af de fastsatte tidsfrister (90 eller 120 dage efter opstart) [^src1] (region-nordjylland)
+  Type: performance
+  Page: 66
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 66-70
+- Interne analyser viser, at flere børn og unge modtager de relevante procedurer, dog efter tidsfristen [^src1] (region-nordjylland)
+  Type: performance
+  Page: 66
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 66-70
+- For voksenpopulationen skyldes den lave målopfyldelse primært registreringsudfordringer [^src1] (region-nordjylland)
+  Type: performance
+  Page: 66
+  Source: wikis/rkkp-adhd/raw/ADHD_2024.pdf, pages 66-70
 
 ## Sources
 
-[^src1]: ADHD_2023.pdf, pages 16-20
+[^src1]: ADHD_2023.pdf, pages 6-10
 [^src2]: ADHD_2023.pdf, pages 21-25
 [^src3]: ADHD_2023.pdf, pages 26-30
-[^src4]: ADHD_2024.pdf, pages 6-10
-[^src5]: ADHD_2024.pdf, pages 11-15
-[^src6]: ADHD_2024.pdf, pages 16-20
-[^src7]: ADHD_2024.pdf, pages 21-25
-[^src8]: ADHD_2024.pdf, pages 26-30
-[^src9]: ADHD_2024.pdf, pages 31-35
-[^src10]: ADHD_2024.pdf, pages 41-45
-[^src11]: ADHD_2024.pdf, pages 46-50
-[^src12]: ADHD_2024.pdf, pages 51-55
-[^src13]: ADHD_2024.pdf, pages 66-70
-[^src14]: ADHD_2023.pdf, pages 6-10
-[^src15]: ADHD_2024.pdf, pages 1-5
-[^src16]: ADHD_2024.pdf, pages 56-60
-[^src17]: ADHD_2023.pdf, pages 11-15
-[^src18]: ADHD_2023.pdf, pages 31-35
-[^src19]: ADHD_2023.pdf, pages 1-5
-
+[^src4]: ADHD_2023.pdf, pages 31-35
+[^src5]: ADHD_2024.pdf, pages 1-5
+[^src6]: ADHD_2024.pdf, pages 6-10
+[^src7]: ADHD_2024.pdf, pages 11-15
+[^src8]: ADHD_2024.pdf, pages 16-20
+[^src9]: ADHD_2024.pdf, pages 21-25
+[^src10]: ADHD_2024.pdf, pages 26-30
+[^src11]: ADHD_2024.pdf, pages 31-35
+[^src12]: ADHD_2024.pdf, pages 41-45
+[^src13]: ADHD_2024.pdf, pages 46-50
+[^src14]: ADHD_2024.pdf, pages 51-55
+[^src15]: ADHD_2024.pdf, pages 56-60
+[^src16]: ADHD_2024.pdf, pages 66-70

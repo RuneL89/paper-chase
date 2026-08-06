@@ -2,121 +2,152 @@
   "entities": [
     {
       "name": "Indikator 10",
-      "type": "quality-indicator",
+      "type": "topic",
       "slug": "indikator-10",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 10 måler andelen af behandlingsforløb blandt voksne, hvor patientens sociale støttebehov er vurderet senest 120 dage efter behandlingsstart, og er en central kvalitetsmåling i ADHD-databasen.",
+      "folder": "topics/quality-indicators/adhd-care",
+      "significance": "Indikator 10 er en kvalitetsindikator for ADHD-plejen, der måler andelen af voksne ADHD-behandlingsforløb, hvor patientens sociale støttebehov er vurderet senest 120 dage efter behandlingsstart, og den er centrale i evalueringen af plejen på lands- og regionsplan i perioden 01.04.2024–31.03.2025[^src1].",
       "mentions": [
         {
           "page": 51,
-          "context": "Indikator 10: Sociale støttebehov - Andelen af behandlingsforløb blandt voksne, hvor patientens sociale støttebehov er vurderet senest 120 dage efter behandlingsstart"
+          "context": "Indikator 10: Sociale støttebehov"
         },
         {
           "page": 51,
           "context": "Indikator 10: Andelen af behandlingsforløb, hvor patientens sociale støttebehov er vurderet senest 120 dage efter behandlingsstart"
-        },
-        {
-          "page": 51,
-          "context": "Indikator 10 drejer sig om hvorvidt patientens sociale støttebehov er blevet vurderet senest 120 dage efter start af ADHD-pakkeforløb"
         }
       ]
     },
     {
-      "name": "PHO Klinik 1 for Psykiatriske Lidelser - Horsens",
-      "type": "organization",
-      "slug": "pho-klinik-1-horsens",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PHO Klinik 1 for Psykiatriske Lidelser - Horsens er den eneste afdeling blandt dem med mere end tre patienter, der har nået udviklingsmålet på 90 % for Indikator 10 med 97 % opfyldelse.",
+      "name": "ADHD-behandlingspopulation",
+      "type": "population",
+      "slug": "adhd-behandlingspopulation",
+      "folder": "entities/populations/adhd",
+      "significance": "ADHD-behandlingspopulationen udgør indikatorpopulationen for Indikator 10 og definerer de voksne patienter (18+ år), hvis pakkeforløb starter i opgørelsesperioden, og som dermed er omfattet af kvalitetsmålingen[^src1].",
       "mentions": [
         {
           "page": 51,
-          "context": "PHO Klinik 1 for Psykiatriske Lidelser - Horsens Ja 143 / 148 97 (92-99)"
+          "context": "Indikatorpopulation (nævner): Antal forløb i \"ADHD-behandlingspopulation\", hvor dato for start af pakkeforløb er i opgørelsesperioden"
+        }
+      ]
+    },
+    {
+      "name": "styregruppen",
+      "type": "organization",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Styregruppen er den beslutningsmæssige gruppe, der har godkendt bibeholdelsen af Indikator 10 og aftalt forbedringsarbejde på registreringspraksis blandt regionerne og aktørerne, hvilket gør den central for implementeringen af kvalitetsindikatoren[^src1].",
+      "mentions": [
+        {
+          "page": 51,
+          "context": "Der er bred enighed i styregruppen om indikatorens berettigelse"
         },
         {
           "page": 51,
-          "context": "Blandt afdelinger med mere end tre patienter er der én der har nået udviklingsmålet: PHO Klinik 1 for Psykiatriske Lidelser - Horsens (97 %)"
+          "context": "Beslutning: Indikatoren bibeholdes. Styregruppen aftaler at repræsentanterne for de enkelte regioner og aktører går tilbage og arbejder på bedre registreringspraksis."
+        }
+      ]
+    },
+    {
+      "name": "DMPG-retningslinje",
+      "type": "topic",
+      "slug": "dmpg-retningslinje",
+      "folder": "topics/policy/mental-health-strategy",
+      "significance": "DMPG-retningslinjen er et kommende fagligt arbejde, der skal definere praksis for ”social screening”, og det henvises til denne i forbindelse med indholdet i vurderingen af sociale støttebehov, hvilket understreger dens rolle som fremtidig faglig ramme for indikatoren[^src1].",
+      "mentions": [
+        {
+          "page": 51,
+          "context": "Her henvises til datadefinitionerne, men også til det kommende arbejde i DMPG-retningslinje regi omkring ”social screening”."
         }
       ]
     },
     {
       "name": "Danmark",
-      "type": "location",
+      "type": "region",
       "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau, hvor 37 % af de voksne ADHD-patienters sociale støttebehov blev vurderet indenfor tidsfristen for Indikator 10.",
+      "folder": "entities/organizations/regions",
+      "significance": "Danmark angiver det nationale niveau, hvor Indikator 10 beregnes til 37 % (95 % CI: 35–38), hvilket er betydeligt under udviklingsmålet på 90 %, og dermed fungerer som den overordnede referenceramme for regional variation[^src1].",
       "mentions": [
         {
           "page": 51,
-          "context": "Danmark Nej 968 / 2.648 37 (35-38)"
-        },
-        {
-          "page": 51,
-          "context": "På landsplan er 37 % af de voksne ADHD-patienters sociale støttebehov blevet vurderet indenfor tidsfristen"
+          "context": "| Danmark | Nej | 968 | / | 2.648 | 37 | (35-38) |"
         }
       ]
     },
     {
       "name": "Region Hovedstaden",
-      "type": "organization",
+      "type": "region",
       "slug": "region-hovedstaden",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Hovedstaden opnåede 49 % opfyldelse af Indikator 10, hvilket er betydeligt under udviklingsmålet på 90 %.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Hovedstaden er én af de seks regioner, der rapporterer resultater for Indikator 10, med en opfyldelsesgrad på 49 % (95 % CI: 43–54), hvilket placerer den som den næstbedste region efter Midtjylland[^src1].",
       "mentions": [
         {
           "page": 51,
-          "context": "Hovedstaden Nej 151 / 311 49 (43-54)"
+          "context": "| Hovedstaden | Nej | 151 | / | 311 | 49 | (43-54) |"
         }
       ]
     },
     {
       "name": "Region Sjælland",
-      "type": "organization",
+      "type": "region",
       "slug": "region-sjaelland",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Sjælland opnåede 37 % opfyldelse af Indikator 10, hvilket er betydeligt under udviklingsmålet på 90 %.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Sjælland er én af de seks regioner, der rapporterer resultater for Indikator 10, med en opfyldelsesgrad på 37 % (95 % CI: 28–46), hvilket svarer til det nationale gennemsnit, men ikke opfylder udviklingsmålet på 90 %[^src1].",
       "mentions": [
         {
           "page": 51,
-          "context": "Sjælland Nej 42 / 114 37 (28-46)"
+          "context": "| Sjælland | Nej | 42 | / | 114 | 37 | (28-46) |"
         }
       ]
     },
     {
       "name": "Region Syddanmark",
-      "type": "organization",
+      "type": "region",
       "slug": "region-syddanmark",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Syddanmark opnåede 23 % opfyldelse af Indikator 10, hvilket er blandt de laveste regionale resultater.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Syddanmark er én af de seks regioner, der rapporterer resultater for Indikator 10, med en opfyldelsesgrad på 23 % (95 % CI: 21–26), hvilket er den tredje laveste regionale værdi og langt fra udviklingsmålet på 90 %[^src1].",
       "mentions": [
         {
           "page": 51,
-          "context": "Syddanmark Nej 259 / 1.110 23 (21-26)"
+          "context": "| Syddanmark | Nej | 259 | / | 1.110 | 23 | (21-26) |"
         }
       ]
     },
     {
       "name": "Region Midtjylland",
-      "type": "organization",
+      "type": "region",
       "slug": "region-midtjylland",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Midtjylland opnåede 52 % opfyldelse af Indikator 10, hvilket er det højeste regionale resultat blandt alle regioner.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland er den region med højeste opfyldelsesgrad for Indikator 10 (52 %, 95 % CI: 49–56), hvilket gør den unik blandt alle regioner, selvom den stadig ligger langt under udviklingsmålet på 90 %[^src1].",
       "mentions": [
         {
           "page": 51,
-          "context": "Midtjylland Nej 493 / 940 52 (49-56)"
+          "context": "| Midtjylland | Nej | 493 | / | 940 | 52 | (49-56) |"
         }
       ]
     },
     {
       "name": "Region Nordjylland",
-      "type": "organization",
+      "type": "region",
       "slug": "region-nordjylland",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Nordjylland opnåede 14 % opfyldelse af Indikator 10, hvilket er det laveste regionale resultat.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Nordjylland er den region med laveste opfyldelsesgrad for Indikator 10 (14 %, 95 % CI: 9–20), hvilket illustrerer den største udfordring i registreringen af sociale støttebehov blandt voksne ADHD-patienter[^src1].",
       "mentions": [
         {
           "page": 51,
-          "context": "Nordjylland Nej 23 / 163 14 (9-20)"
+          "context": "| Nordjylland | Nej | 23 | / | 163 | 14 | (9-20) |"
+        }
+      ]
+    },
+    {
+      "name": "PHO Klinik 1 for Psykiatriske Lidelser - Horsens",
+      "type": "facility",
+      "slug": "pho-klinik-1-for-psykiatriske-lidelser-horsens",
+      "folder": "entities/facilities/psychiatry-clinics",
+      "significance": "PHO Klinik 1 for Psykiatriske Lidelser - Horsens er den eneste afdeling blandt alle rapporterede enheder med mere end tre patienter, der opfylder Indikator 10 (97 %, 95 % CI: 92–99), og dermed fungerer som en positiv outlier og benchmark for god praksis[^src1].",
+      "mentions": [
+        {
+          "page": 51,
+          "context": "Blandt afdelinger med mere end tre patienter er der én der har nået udviklingsmålet: PHO Klinik 1 for Psykiatriske Lidelser - Horsens (97 %)."
         }
       ]
     },
@@ -124,549 +155,12 @@
       "name": "Privathospitaler",
       "type": "organization",
       "slug": "privathospitaler",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Privathospitaler opnåede 0 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag (0 / 10), hvilket gør det ikke muligt at vurdere deres kvalitetsperformance.",
+      "folder": "entities/organizations/healthcare-providers",
+      "significance": "Privathospitaler er en kategori af leverandører, der rapporterer 0 % opfyldelse af Indikator 10 (0/10), hvilket gør det umuligt at vurdere deres overholdelse af kvalitetsindikatoren på grund af det næsten ikke-eksisterende datagrundlag[^src1].",
       "mentions": [
         {
           "page": 51,
-          "context": "Privathospitaler Nej 0 / 10 0 (0-31)"
-        },
-        {
-          "page": 51,
-          "context": "det næsten ikkeeksisterende antal forløb indrapporteret fra privathospitaler det ikke muligt at vurdere om de lever op til kvalitetsindikatorerne"
-        }
-      ]
-    },
-    {
-      "name": "PCGL, Psyk. ambulatorium",
-      "type": "organization",
-      "slug": "pcgl-psyk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PCGL, Psyk. ambulatorium opnåede 53 % opfyldelse af Indikator 10, hvilket er under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PCGL, Psyk. ambulatorium Nej 83 / 156 53 (45-61)"
-        }
-      ]
-    },
-    {
-      "name": "PCK, Psykoterapeutisk klinik",
-      "type": "organization",
-      "slug": "pck-psykoterapeutisk-klinik",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PCK, Psykoterapeutisk klinik opnåede 50 % opfyldelse af Indikator 10, hvilket er under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PCK, Psykoterapeutisk klinik Nej 68 / 135 50 (42-59)"
-        }
-      ]
-    },
-    {
-      "name": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19",
-      "type": "organization",
-      "slug": "bispebjerg-psykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg opnåede 0 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag (0 / 8).",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 Nej 0 / 8 0 (0-37)"
-        }
-      ]
-    },
-    {
-      "name": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29",
-      "type": "organization",
-      "slug": "glostrup-psykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Psykiatrisk ambulatorium, børn og unge, Glostrup opnåede 0 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag (0 / 7).",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 Nej 0 / 7 0 (0-41)"
-        }
-      ]
-    },
-    {
-      "name": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39",
-      "type": "organization",
-      "slug": "hillerod-psykiatrisk-ambulatorium",
-      "folder": "entities/healthcare/psychiatric-clinics",
-      "significance": "Psykiatrisk ambulatorium, børn og unge, Hillerød opnåede 0 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag (0 / 5).",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 Nej 0 / 5 0 (0-52)"
-        }
-      ]
-    },
-    {
-      "name": "Børne-Unge Psyk. Klinik 40.K",
-      "type": "organization",
-      "slug": "boerne-unge-psyk-klinik-40k",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Børne-Unge Psyk. Klinik 40.K opnåede 0 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag (0 / 15).",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "Børne-Unge Psyk. Klinik 40.K Nej 0 / 15 0 (0-22)"
-        }
-      ]
-    },
-    {
-      "name": "PMA Psykiatrisk Klinik",
-      "type": "organization",
-      "slug": "pma-psykiatrisk-klinik",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PMA Psykiatrisk Klinik opnåede 43 % opfyldelse af Indikator 10, hvilket er under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PMA Psykiatrisk Klinik Nej 42 / 97 43 (33-54)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense)",
-      "type": "organization",
-      "slug": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) opnåede 100 % opfyldelse af Indikator 10, men med et meget begrænset datagrundlag.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) Ja #/# 100 (3-100)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg)",
-      "type": "organization",
-      "slug": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) opnåede 25 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) Nej #/# 25 (3-65)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle)",
-      "type": "organization",
-      "slug": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) opnåede 9 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) Nej #/# 9 (0-41)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)",
-      "type": "organization",
-      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) opnåede 0 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag (0 / 3).",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) Nej 0 / 3 0 (0-71)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Lokalpsykiatri (Aabenraa)",
-      "type": "organization",
-      "slug": "psy-lokalpsykiatri-aabenraa",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Lokalpsykiatri (Aabenraa) opnåede 18 % opfyldelse af Indikator 10, hvilket er betydeligt under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Lokalpsykiatri (Aabenraa) Nej 21 / 115 18 (12-27)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Lokalpsykiatri (Fredericia)",
-      "type": "organization",
-      "slug": "psy-lokalpsykiatri-fredericia",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Lokalpsykiatri (Fredericia) opnåede 16 % opfyldelse af Indikator 10, hvilket er betydeligt under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Lokalpsykiatri (Fredericia) Nej 10 / 63 16 (8-27)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Lokalpsykiatri (Haderslev)",
-      "type": "organization",
-      "slug": "psy-lokalpsykiatri-haderslev",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Lokalpsykiatri (Haderslev) opnåede 28 % opfyldelse af Indikator 10, hvilket er betydeligt under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Lokalpsykiatri (Haderslev) Nej 27 / 95 28 (20-39)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Lokalpsykiatri (Kolding)",
-      "type": "organization",
-      "slug": "psy-lokalpsykiatri-kolding",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Lokalpsykiatri (Kolding) opnåede 9 % opfyldelse af Indikator 10, hvilket er blandt de laveste resultater.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Lokalpsykiatri (Kolding) Nej 3 / 35 9 (2-23)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Lokalpsykiatri (Sønderborg)",
-      "type": "organization",
-      "slug": "psy-lokalpsykiatri-soenderborg",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Lokalpsykiatri (Sønderborg) opnåede 27 % opfyldelse af Indikator 10, hvilket er betydeligt under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Lokalpsykiatri (Sønderborg) Nej 37 / 136 27 (20-35)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Lokalpsykiatri (Tønder)",
-      "type": "organization",
-      "slug": "psy-lokalpsykiatri-toender",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Lokalpsykiatri (Tønder) opnåede 81 % opfyldelse af Indikator 10, hvilket er det højeste resultat blandt lokalpsykiatri-klinikkerne, men stadig under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Lokalpsykiatri (Tønder) Nej 38 / 47 81 (67-91)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Lokalpsykiatri (Varde)",
-      "type": "organization",
-      "slug": "psy-lokalpsykiatri-varde",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Lokalpsykiatri (Varde) opnåede 9 % opfyldelse af Indikator 10, hvilket er blandt de laveste resultater.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Lokalpsykiatri (Varde) Nej 6 / 67 9 (3-18)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Lokalpsykiatri (Vejle)",
-      "type": "organization",
-      "slug": "psy-lokalpsykiatri-vejle",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Lokalpsykiatri (Vejle) opnåede 47 % opfyldelse af Indikator 10, hvilket er under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Lokalpsykiatri (Vejle) Nej 40 / 86 47 (36-58)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Lokalpsykiatri Almen (Esbjerg)",
-      "type": "organization",
-      "slug": "psy-lokalpsykiatri-almen-esbjerg",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Lokalpsykiatri Almen (Esbjerg) opnåede 14 % opfyldelse af Indikator 10, hvilket er betydeligt under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Lokalpsykiatri Almen (Esbjerg) Nej 10 / 70 14 (7-25)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Psykiatrisk Ambulatorium (Middelfart)",
-      "type": "organization",
-      "slug": "psy-psykiatrisk-ambulatorium-middelfart",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Psykiatrisk Ambulatorium (Middelfart) opnåede 7 % opfyldelse af Indikator 10, hvilket er blandt de laveste resultater.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Psykiatrisk Ambulatorium (Middelfart) Nej 3 / 42 7 (1-19)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Psykiatrisk Ambulatorium (Odense)",
-      "type": "organization",
-      "slug": "psy-psykiatrisk-ambulatorium-odense",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Psykiatrisk Ambulatorium (Odense) opnåede 29 % opfyldelse af Indikator 10, hvilket er betydeligt under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Psykiatrisk Ambulatorium (Odense) Nej 41 / 143 29 (21-37)"
-        }
-      ]
-    },
-    {
-      "name": "PSY Psykiatrisk Ambulatorium (Svendborg)",
-      "type": "organization",
-      "slug": "psy-psykiatrisk-ambulatorium-svendborg",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PSY Psykiatrisk Ambulatorium (Svendborg) opnåede 13 % opfyldelse af Indikator 10, hvilket er blandt de laveste resultater.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PSY Psykiatrisk Ambulatorium (Svendborg) Nej 17 / 127 13 (8-21)"
-        }
-      ]
-    },
-    {
-      "name": "ADA Psykiatriens Hus Aarhus",
-      "type": "organization",
-      "slug": "ada-psykiatriens-hus-aarhus",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "ADA Psykiatriens Hus Aarhus opnåede 100 % opfyldelse af Indikator 10, men med et meget begrænset datagrundlag.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "ADA Psykiatriens Hus Aarhus Ja #/# 100 (3-100)"
-        }
-      ]
-    },
-    {
-      "name": "AFP Psykiatrisk Klinik 2 - AUH",
-      "type": "organization",
-      "slug": "afp-psykiatrisk-klinik-2-auh",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "AFP Psykiatrisk Klinik 2 - AUH opnåede 45 % opfyldelse af Indikator 10, hvilket er under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "AFP Psykiatrisk Klinik 2 - AUH Nej 108 / 238 45 (39-52)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Unge",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-unge",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "BUA Psykiatrisk Klinik for Unge opnåede 3 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "BUA Psykiatrisk Klinik for Unge Nej #/# 3 (0-14)"
-        }
-      ]
-    },
-    {
-      "name": "PHO Klinik 2 for Psykiatriske Lidelser - Horsens",
-      "type": "organization",
-      "slug": "pho-klinik-2-horsens",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PHO Klinik 2 for Psykiatriske Lidelser - Horsens opnåede 100 % opfyldelse af Indikator 10, men med et meget begrænset datagrundlag.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PHO Klinik 2 for Psykiatriske Lidelser - Horsens Ja #/# 100 (3-100)"
-        }
-      ]
-    },
-    {
-      "name": "PHO Psykiatrisk Akutenhed - Horsens",
-      "type": "organization",
-      "slug": "pho-psykiatrisk-akutenhed-horsens",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PHO Psykiatrisk Akutenhed - Horsens opnåede 100 % opfyldelse af Indikator 10, men med et meget begrænset datagrundlag.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PHO Psykiatrisk Akutenhed - Horsens Ja #/# 100 (16-100)"
-        }
-      ]
-    },
-    {
-      "name": "PHO Sengeafsnit Regionspsykiatri Horsens",
-      "type": "organization",
-      "slug": "pho-sengeafsnit-regionspsykiatri-horsens",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PHO Sengeafsnit Regionspsykiatri Horsens opnåede 100 % opfyldelse af Indikator 10, men med et meget begrænset datagrundlag.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PHO Sengeafsnit Regionspsykiatri Horsens Ja #/# 100 (3-100)"
-        }
-      ]
-    },
-    {
-      "name": "PMI Klinik for depression og mani - Midt",
-      "type": "organization",
-      "slug": "pmi-klinik-depression-mani-midt",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PMI Klinik for depression og mani - Midt opnåede 80 % opfyldelse af Indikator 10, hvilket er under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PMI Klinik for depression og mani - Midt Nej 4 / 5 80 (28-99)"
-        }
-      ]
-    },
-    {
-      "name": "PMI Klinik for psykoser - Midt",
-      "type": "organization",
-      "slug": "pmi-klinik-psykoser-midt",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PMI Klinik for psykoser - Midt opnåede 42 % opfyldelse af Indikator 10, hvilket er under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PMI Klinik for psykoser - Midt Nej 76 / 183 42 (34-49)"
-        }
-      ]
-    },
-    {
-      "name": "PRA Psykiatrisk Klinik - Rønde",
-      "type": "organization",
-      "slug": "pra-psykiatrisk-klinik-roende",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PRA Psykiatrisk Klinik - Rønde opnåede 22 % opfyldelse af Indikator 10, hvilket er betydeligt under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PRA Psykiatrisk Klinik - Rønde Nej 15 / 67 22 (13-34)"
-        }
-      ]
-    },
-    {
-      "name": "PRA Psykiatrisk Klinik 2 - Randers",
-      "type": "organization",
-      "slug": "pra-psykiatrisk-klinik-2-randers",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PRA Psykiatrisk Klinik 2 - Randers opnåede 27 % opfyldelse af Indikator 10, hvilket er betydeligt under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PRA Psykiatrisk Klinik 2 - Randers Nej 3 / 11 27 (6-61)"
-        }
-      ]
-    },
-    {
-      "name": "RPG Psykiatrisk Klinik 1 – Gødstrup",
-      "type": "organization",
-      "slug": "rpg-psykiatrisk-klinik-1-goedstrup",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "RPG Psykiatrisk Klinik 1 – Gødstrup opnåede 56 % opfyldelse af Indikator 10, hvilket er under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "RPG Psykiatrisk Klinik 1 – Gødstrup Nej 138 / 246 56 (50-62)"
-        }
-      ]
-    },
-    {
-      "name": "PS Almenpsykiatrisk, Nord Ambulatorier",
-      "type": "organization",
-      "slug": "ps-almenpsykiatrisk-nord-ambulatorier",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PS Almenpsykiatrisk, Nord Ambulatorier opnåede 17 % opfyldelse af Indikator 10, hvilket er betydeligt under udviklingsmålet på 90 %.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PS Almenpsykiatrisk, Nord Ambulatorier Nej 22 / 126 17 (11-25)"
-        }
-      ]
-    },
-    {
-      "name": "PS Almenpsykiatrisk, Nord Sengeafsnit",
-      "type": "organization",
-      "slug": "ps-almenpsykiatrisk-nord-sengeafsnit",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PS Almenpsykiatrisk, Nord Sengeafsnit opnåede 0 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PS Almenpsykiatrisk, Nord Sengeafsnit Nej #/# 0 (0-84)"
-        }
-      ]
-    },
-    {
-      "name": "PS Almenpsykiatrisk, Syd Ambulatorier",
-      "type": "organization",
-      "slug": "ps-almenpsykiatrisk-syd-ambulatorier",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PS Almenpsykiatrisk, Syd Ambulatorier opnåede 0 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag (0 / 20).",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PS Almenpsykiatrisk, Syd Ambulatorier Nej 0 / 20 0 (0-17)"
-        }
-      ]
-    },
-    {
-      "name": "PS Børne- og Ungdomspsykiatrisk Ambulatorier",
-      "type": "organization",
-      "slug": "ps-boerne-ungdomspsykiatrisk-ambulatorier",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PS Børne- og Ungdomspsykiatrisk Ambulatorier opnåede 7 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "PS Børne- og Ungdomspsykiatrisk Ambulatorier Nej #/# 7 (0-32)"
-        }
-      ]
-    },
-    {
-      "name": "Carelink Psykiatri Kolding",
-      "type": "organization",
-      "slug": "carelink-psykiatri-kolding",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Carelink Psykiatri Kolding opnåede 0 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag (0 / 3).",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "Carelink Psykiatri Kolding Nej 0 / 3 0 (0-71)"
-        }
-      ]
-    },
-    {
-      "name": "Carelink Psykiatri Roskilde",
-      "type": "organization",
-      "slug": "carelink-psykiatri-roskilde",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Carelink Psykiatri Roskilde opnåede 0 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "Carelink Psykiatri Roskilde Nej #/# 0 (0-98)"
-        }
-      ]
-    },
-    {
-      "name": "Carelink Psykiatri Viborg",
-      "type": "organization",
-      "slug": "carelink-psykiatri-viborg",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Carelink Psykiatri Viborg opnåede 0 % opfyldelse af Indikator 10 med et meget begrænset datagrundlag (0 / 6).",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "Carelink Psykiatri Viborg Nej 0 / 6 0 (0-46)"
+          "context": "| Privathospitaler | Nej | 0 | / | 10 | 0 | (0-31) |"
         }
       ]
     },
@@ -674,25 +168,12 @@
       "name": "ADHD-databasen",
       "type": "organization",
       "slug": "adhd-databasen",
-      "folder": "entities/organizations/health-registries",
-      "significance": "ADHD-databasen er det register, hvori Indikator 10 registreres og rapporteres for at måle kvaliteten af vurdering af sociale støttebehov blandt voksne ADHD-patienter.",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "ADHD-databasen er den tekniske platform, hvor data til Indikator 10 registreres og udtrækkes fra, og dens begrænsninger i registreringspraksis identificeres som en central forklaring på den lave opfyldelsesgrad[^src1].",
       "mentions": [
         {
           "page": 51,
-          "context": "Indikator 10 drejer sig om hvorvidt patientens sociale støttebehov er blevet vurderet senest 120 dage efter start af ADHD-pakkeforløb"
-        }
-      ]
-    },
-    {
-      "name": "DMPG-retningslinje",
-      "type": "organization",
-      "slug": "dmpg-retningslinje",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "DMPG-retningslinje arbejder på udvikling af retningslinjer omkring 'social screening' som del af vurderingen af sociale støttebehov.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "det kommende arbejde i DMPG-retningslinje regi omkring \"social screening\""
+          "context": "ADHD-DATABASEN"
         }
       ]
     }
@@ -701,179 +182,127 @@
     {
       "subject": "indikator-10",
       "predicate": "measures",
-      "object": "danmark",
-      "evidence": "På landsplan er 37 % af de voksne ADHD-patienters sociale støttebehov blevet vurderet indenfor tidsfristen",
+      "object": "adhd-behandlingspopulation",
+      "evidence": "Indikatorpopulation (nævner): Antal forløb i \"ADHD-behandlingspopulation\", hvor dato for start af pakkeforløb er i opgørelsesperioden",
       "page": 51
     },
     {
-      "subject": "indikator-10",
-      "predicate": "measures",
-      "object": "region-hovedstaden",
-      "evidence": "Hovedstaden Nej 151 / 311 49 (43-54)",
-      "page": 51
-    },
-    {
-      "subject": "indikator-10",
-      "predicate": "measures",
-      "object": "region-sjaelland",
-      "evidence": "Sjælland Nej 42 / 114 37 (28-46)",
-      "page": 51
-    },
-    {
-      "subject": "indikator-10",
-      "predicate": "measures",
-      "object": "region-syddanmark",
-      "evidence": "Syddanmark Nej 259 / 1.110 23 (21-26)",
-      "page": 51
-    },
-    {
-      "subject": "indikator-10",
-      "predicate": "measures",
-      "object": "region-midtjylland",
-      "evidence": "Midtjylland Nej 493 / 940 52 (49-56)",
-      "page": 51
-    },
-    {
-      "subject": "indikator-10",
-      "predicate": "measures",
-      "object": "region-nordjylland",
-      "evidence": "Nordjylland Nej 23 / 163 14 (9-20)",
-      "page": 51
-    },
-    {
-      "subject": "pho-klinik-1-horsens",
-      "predicate": "achieved-target",
+      "subject": "styregruppen",
+      "predicate": "approves-retention-of",
       "object": "indikator-10",
-      "evidence": "PHO Klinik 1 for Psykiatriske Lidelser - Horsens Ja 143 / 148 97 (92-99)",
+      "evidence": "Beslutning: Indikatoren bibeholdes. Styregruppen aftaler at repræsentanterne for de enkelte regioner og aktører går tilbage og arbejder på bedre registreringspraksis.",
       "page": 51
     },
     {
-      "subject": "indikator-10",
-      "predicate": "registered-in",
-      "object": "adhd-databasen",
-      "evidence": "Indikator 10 drejer sig om hvorvidt patientens sociale støttebehov er blevet vurderet senest 120 dage efter start af ADHD-pakkeforløb",
+      "subject": "dmpg-retningslinje",
+      "predicate": "defines-practice-for",
+      "object": "indikator-10",
+      "evidence": "Her henvises til datadefinitionerne, men også til det kommende arbejde i DMPG-retningslinje regi omkring ”social screening”.",
+      "page": 51
+    },
+    {
+      "subject": "adhd-databasen",
+      "predicate": "contains-data-for",
+      "object": "indikator-10",
+      "evidence": "ADHD-DATABASEN",
       "page": 51
     }
   ],
   "claims": [
     {
-      "text": "Indikator 10 måler andelen af behandlingsforløb blandt voksne, hvor patientens sociale støttebehov er vurderet senest 120 dage efter behandlingsstart [^src1]",
-      "type": "quality-indicator",
+      "text": "Indikator 10 har et udviklingsmål på ≥ 90 % for perioden 01.04.2024–31.03.2025[^src1]",
+      "type": "policy",
       "entities": [
         "indikator-10"
       ],
       "page": 51
     },
     {
-      "text": "Udviklingmålet for Indikator 10 er ≥ 90 % [^src1]",
-      "type": "quality-target",
-      "entities": [
-        "indikator-10"
-      ],
-      "page": 51
-    },
-    {
-      "text": "På landsplan er 37 % af de voksne ADHD-patienters sociale støttebehov blevet vurderet indenfor tidsfristen [^src1]",
+      "text": "På landsplan er 37 % af de voksne ADHD-patienters sociale støttebehov blevet vurderet indenfor tidsfristen[^src1]",
       "type": "performance",
       "entities": [
-        "danmark",
-        "indikator-10"
+        "indikator-10",
+        "danmark"
       ],
       "page": 51
     },
     {
-      "text": "De regionale resultater for Indikator 10 varierer fra 14 % i Nordjylland til 52 % i Midtjylland [^src1]",
+      "text": "Der er ingen regioner, der samlet set opfylder Indikator 10[^src1]",
       "type": "performance",
       "entities": [
-        "region-nordjylland",
+        "indikator-10",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
         "region-midtjylland",
-        "indikator-10"
+        "region-nordjylland"
       ],
       "page": 51
     },
     {
-      "text": "Der er ingen regioner der nåede udviklingsmålet på 90 % for Indikator 10 [^src1]",
+      "text": "Kun én hospitalsafdeling med mere end tre patienter opfylder Indikator 10: PHO Klinik 1 for Psykiatriske Lidelser - Horsens (97 %)[^src1]",
       "type": "performance",
       "entities": [
-        "indikator-10"
+        "indikator-10",
+        "pho-klinik-1-for-psykiatriske-lidelser-horsens"
       ],
       "page": 51
     },
     {
-      "text": "Blandt afdelinger med mere end tre patienter er der én der har nået udviklingsmålet: PHO Klinik 1 for Psykiatriske Lidelser - Horsens (97 %) [^src1]",
+      "text": "Der er seks afdelinger med et resultat på 0 % for Indikator 10 (otte hvis privathospitalerne tælles med)[^src1]",
       "type": "performance",
       "entities": [
-        "pho-klinik-1-horsens",
-        "indikator-10"
+        "indikator-10",
+        "privathospitaler"
       ],
       "page": 51
     },
     {
-      "text": "Der er seks afdelinger med et resultat på 0 % for Indikator 10 (otte hvis privathospitalerne tælles med) [^src1]",
-      "type": "performance",
+      "text": "Den lave opfyldelsesgrad for Indikator 10 forklares delvist ved registreringspraksis, da vurderingen oftest registreres på en måde, der ikke opfanges i databasen[^src1]",
+      "type": "explanation",
       "entities": [
-        "indikator-10"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Dette er første gang, der registreres data på indikatoren omhandlende vurdering af sociale støttebehov [^src1]",
-      "type": "observation",
-      "entities": [
-        "indikator-10"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Den lave opfyldelsesgrad for Indikator 10 delvist forklares ved registreringspraksis, da vurderingen oftest registreres på en måde, der ikke opfanges i databasen [^src1]",
-      "type": "clinical-rationale",
-      "entities": [
-        "indikator-10"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Et ikke-ubetydeligt antal forløb indrapporteres fra børne- og ungdomspsykiatriske ambulatorier, og det drøftes i styregruppen om disse skal udgå fra voksenpopulationen [^src1]",
-      "type": "observation",
-      "entities": [
-        "indikator-10"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Det næsten ikkeeksisterende antal forløb indrapporteret fra privathospitaler gør det ikke muligt at vurdere om de lever op til kvalitetsindikatorerne [^src1]",
-      "type": "observation",
-      "entities": [
-        "privathospitaler",
-        "indikator-10"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Styregruppen aftaler at repræsentanterne for de enkelte regioner og aktører går tilbage og arbejder på bedre registreringspraksis [^src1]",
-      "type": "decision",
-      "entities": [
-        "indikator-10"
-      ],
-      "page": 51
-    },
-    {
-      "text": "Indikatoren bibeholdes [^src1]",
-      "type": "decision",
-      "entities": [
-        "indikator-10"
+        "indikator-10",
+        "adhd-databasen"
       ],
       "page": 51
     }
   ],
   "timeline": [
     {
-      "date": "01.04.2024 - 31.03.2025",
-      "event": "Opgørelsesperiode for Indikator 10 data",
+      "date": "01.04.2024",
+      "event": "Start af opgørelsesperioden for Indikator 10",
+      "entities": [
+        "indikator-10"
+      ]
+    },
+    {
+      "date": "31.03.2025",
+      "event": "Slut på opgørelsesperioden for Indikator 10",
       "entities": [
         "indikator-10"
       ]
     }
   ],
-  "context": "Dette afsnit præsenterer Indikator 10 fra ADHD-databasen, som måler andelen af behandlingsforløb blandt voksne, hvor patientens sociale støttebehov er vurderet senest 120 dage efter behandlingsstart. Det er første gang denne indikator rapporteres, og resultaterne viser betydelige mangler i opfyldelsen af kvalitetsmålet på 90 % både på nationalt niveau (37 %) og på regionalt niveau (14-52 %). Styregruppen diskuterer årsagerne til den lave opfyldelsesgrad, herunder registreringspraksis og datagrundlag fra børne- og ungdomspsykiatriske ambulatorier og privathospitaler, og beslutter at arbejde på forbedring af registreringspraksis."
+  "tables": [
+    {
+      "subject": "indikator-10",
+      "title": "Indikator 10: Andelen af behandlingsforløb, hvor patientens sociale støttebehov er vurderet senest 120 dage efter behandlingsstart",
+      "page": 51,
+      "rowDimension": "region og afdeling",
+      "colDimension": "antal i tæller, antal i nævner, procentandel, 95 % konfidensinterval",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "privathospitaler",
+        "adhd-databasen"
+      ],
+      "markdown": "| Danmark | Nej | 968 | / | 2.648 | 37 | (35-38) |\n| Hovedstaden | Nej | 151 | / | 311 | 49 | (43-54) |\n| Sjælland | Nej | 42 | / | 114 | 37 | (28-46) |\n| Syddanmark | Nej | 259 | / | 1.110 | 23 | (21-26) |\n| Midtjylland | Nej | 493 | / | 940 | 52 | (49-56) |\n| Nordjylland | Nej | 23 | / | 163 | 14 | (9-20) |\n| Privathospitaler | Nej | 0 | / | 10 | 0 | (0-31) |",
+      "summary": "Tabellen sammenligner opfyldelsesgraden af Indikator 10 på nationalt, regions- og afdelningsniveau, og viser en stor regional variation fra 14 % i Nordjylland til 52 % i Midtjylland, uden at nogen region når det fastsatte udviklingsmål på 90 %."
+    }
+  ],
+  "context": "Dette dokumentchunk fra siderne 51–55 i ADHD_2024.pdf præsenterer den første offentlige rapportering af Indikator 10 – en ny kvalitetsindikator for voksen-ADHD-plejen, der måler vurdering af sociale støttebehov inden for 120 dage efter behandlingsstart. Chunken indgår i en bredere evaluering af dansk ADHD-pleje i 2024, hvor indikatoren introduceres som en del af den nationale kvalitetsmåling baseret på ADHD-databasen og styret af styregruppen. Den beskriver både tekniske beregningsregler, empiriske resultater på tværs af regioner og psykiatrisk afdelinger, samt en diskussion af de lave opfyldelsesgrader, der tilskrives manglende registreringspraksis snarere end manglende klinisk vurdering – og foreslår derfor forbedringsarbejde i stedet for ændring af indikatoren selv."
 }

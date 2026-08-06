@@ -4,21 +4,21 @@
       "name": "Akut Kirurgi Databasen",
       "type": "organization",
       "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/healthcare-databases",
-      "significance": "Akut Kirurgi Databasen er en dansk kvalitetsdatabase, der registrerer og analyserer indikatorer for akut kirurgisk behandling på tværs af danske hospitaler og regioner.",
+      "folder": "entities/organizations/healthcare-registry",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske kvalitetsdatabase, der indsamler og rapporterer data om akut kirurgiske indgreb på tværs af danske regioner, og danner grundlag for indikatoranalyser som indikator 8 og 9 i denne rapport.",
       "mentions": [
         {
           "page": 41,
-          "context": "Akut Kirurgi Databasen, Endelig version til offentliggørelse 2024.26.02"
+          "context": "Akut Kirurgi Databasen"
         }
       ]
     },
     {
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
-      "type": "organization",
-      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/healthcare-programs",
-      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er det overordnede program under hvilket Akut Kirurgi Databasen opererer og rapporterer kvalitetsindikatorer.",
+      "type": "program",
+      "slug": "regionerne-kliniske-kvalitetsudviklingsprogram",
+      "folder": "topics/healthcare-quality/programs",
+      "significance": "Dette program er det overordnede kvalitetsudviklingsinitiativ, der styrer og finansierer Akut Kirurgi Databasen og dens indikatorrapporter, herunder udarbejdelse af standarder, evaluering af resultater og beslutningstagning i styregruppen.",
       "mentions": [
         {
           "page": 41,
@@ -27,210 +27,54 @@
       ]
     },
     {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau, hvor aggregerede resultater for alle regioner rapporteres for epidural-indikatoren.",
+      "name": "Indikator 8",
+      "type": "indicator",
+      "slug": "indikator-8",
+      "folder": "topics/healthcare-quality/indicators",
+      "significance": "Indikator 8 måler andelen af opererede patienter, hvor der er taget stilling til ernæring indenfor 48 timer efter operation, og er en central kvalitetsmåling med dokumenteret evidensbaggrund for tidlig ernæring.",
       "mentions": [
         {
           "page": 41,
-          "context": "Danmark Nej 1.667 / 3.147 0 (0) 53,0 (51,2-54,7) 49,0 44,7"
+          "context": "Indikator 8: Ernæring. Resultater på afdelingsniveau"
         }
       ]
     },
     {
-      "name": "Region Hovedstaden",
-      "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Hovedstaden rapporteres som en af fem danske regioner med resultater for ernæring- og epidural-indikatorer, med høj andel af ernæringsregistrering på 32,4 %.",
+      "name": "Indikator 9",
+      "type": "indicator",
+      "slug": "indikator-9",
+      "folder": "topics/healthcare-quality/indicators",
+      "significance": "Indikator 9 måler andelen af opererede patienter, der har fået anlagt epidural i forbindelse med operationen, med en national standard på over 60 %, og viser betydelige regionale variationer i opfyldelse.",
       "mentions": [
         {
           "page": 41,
-          "context": "Hovedstaden Nej 642 / 1.093 0 (0) 58,7 (55,8-61,7) 58,9 54,9"
+          "context": "Indikator 9: Andel opererede med epidural"
         }
       ]
     },
     {
-      "name": "Region Sjælland",
-      "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland er en af fem danske regioner med rapporterede resultater for epidural-indikatoren.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Sjælland Nej 231 / 522 0 (0) 44,3 (39,9-48,6) 44,9 47,7"
-        }
-      ]
-    },
-    {
-      "name": "Region Syddanmark",
-      "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Syddanmark rapporteres med laveste andel af ernæringsregistrering på 0,2 % og variabel epidural-andel på 56,9 %.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Syddanmark Nej 333 / 585 0 (0) 56,9 (52,8-61,0) 37,6 21,7"
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "location",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Midtjylland rapporteres som en af fem danske regioner med resultater for epidural-indikatoren.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Midtjylland Nej 363 / 677 0 (0) 53,6 (49,8-57,4) 52,8 50,2"
-        }
-      ]
-    },
-    {
-      "name": "Region Nordjylland",
-      "type": "location",
-      "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland rapporteres som en af fem danske regioner med laveste epidural-andel på 36,3 % og har foreslået nye registreringskoder for ernæring.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Nordjylland Nej 98 / 270 0 (0) 36,3 (30,6-42,3) 28,4 27,7"
-        }
-      ]
-    },
-    {
-      "name": "Amager og Hvidovre Hospital",
+      "name": "Styregruppen",
       "type": "organization",
-      "slug": "amager-og-hvidovre-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Amager og Hvidovre Hospital opfylder epidural-standarden med 71,5 % andel af patienter med epidural.",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Styregruppen er den beslutningskompetente enhed under Regionernes Kliniske Kvalitetsudviklingsprogram, der behandler forslag til ændringer af indikatorer, godkender standarder og vurderer implementeringsproblemer som registreringsudfordringer.",
       "mentions": [
         {
           "page": 41,
-          "context": "Amager og Hvidovre Hospital Ja 181 / 253 0 (0) 71,5 (65,6-77,0) 74,4 73,1"
+          "context": "Til styregruppen er der kommet flere spørgsmål om registrering."
         }
       ]
     },
     {
-      "name": "Bispebjerg og Frederiksberg Hospitaler",
+      "name": "LKT",
       "type": "organization",
-      "slug": "bispebjerg-og-frederiksberg-hospitaler",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bispebjerg og Frederiksberg Hospitaler opfylder epidural-standarden med 65,9 % andel af patienter med epidural.",
+      "slug": "lkt",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "LKT (Lægeforeningens Kvalitetsudvalg) er en faglig rådgivende instans, der har støttet registreringen af indikator 8, hvilket fremhæves som en positiv faktor i vurderingen af indikatoren.",
       "mentions": [
         {
           "page": 41,
-          "context": "Bispebjerg og Frederiksberg Hospitaler Ja 153 / 232 0 (0) 65,9 (59,5-72,0) 61,3 63,6"
-        }
-      ]
-    },
-    {
-      "name": "Bornholms Hospital",
-      "type": "organization",
-      "slug": "bornholms-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bornholms Hospital opfylder ikke epidural-standarden med 40,0 % andel af patienter med epidural.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Bornholms Hospital Nej 12 / 30 0 (0) 40,0 (22,7-59,4) 52,2 44,8"
-        }
-      ]
-    },
-    {
-      "name": "Herlev og Gentofte Hospital",
-      "type": "organization",
-      "slug": "herlev-og-gentofte-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Herlev og Gentofte Hospital opfylder ikke epidural-standarden med 47,6 % andel af patienter med epidural.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Herlev og Gentofte Hospital Nej 146 / 307 0 (0) 47,6 (41,9-53,3) 52,0 45,7"
-        }
-      ]
-    },
-    {
-      "name": "Hospitalerne i Nordsjælland",
-      "type": "organization",
-      "slug": "hospitalerne-i-nordsjaelland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalerne i Nordsjælland opfylder ikke epidural-standarden med 55,9 % andel af patienter med epidural.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Hospitalerne i Nordsjælland Nej 119 / 213 0 (0) 55,9 (48,9-62,6) 46,2 41,3"
-        }
-      ]
-    },
-    {
-      "name": "Rigshospitalet",
-      "type": "organization",
-      "slug": "rigshospitalet",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet opfylder ikke epidural-standarden med 53,4 % andel af patienter med epidural.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Rigshospitalet Nej 31 / 58 0 (0) 53,4 (39,9-66,7) 50,9 33,3"
-        }
-      ]
-    },
-    {
-      "name": "Holbæk Sygehus",
-      "type": "organization",
-      "slug": "holbaek-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk Sygehus opfylder ikke epidural-standarden med 50,0 % andel af patienter med epidural.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Holbæk Sygehus Nej 59 / 118 0 (0) 50,0 (40,7-59,3) 37,6 30,6"
-        }
-      ]
-    },
-    {
-      "name": "Nykøbing F Sygehus",
-      "type": "organization",
-      "slug": "nykoebing-f-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Nykøbing F Sygehus opfylder ikke epidural-standarden med 50,0 % andel af patienter med epidural.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Nykøbing F Sygehus Nej #/# 0 (0) 50,0 (1,3-98,7) 33,3 0,0"
-        }
-      ]
-    },
-    {
-      "name": "Næstved, Slagelse og Ringsted sygehuse",
-      "type": "organization",
-      "slug": "naestved-slagelse-og-ringsted-sygehuse",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Næstved, Slagelse og Ringsted sygehuse opfylder ikke epidural-standarden med 27,8 % andel af patienter med epidural.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Næstved, Slagelse og Ringsted sygehuse Nej 54 / 194 0 (0) 27,8 (21,7-34,7) 30,4 37,6"
-        }
-      ]
-    },
-    {
-      "name": "Sjællands Universitetshospital",
-      "type": "organization",
-      "slug": "sjaellands-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sjællands Universitetshospital opfylder ikke epidural-standarden med 56,3 % andel af patienter med epidural.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Sjællands Universitetshospital Nej 117 / 208 0 (0) 56,3 (49,2-63,1) 59,1 61,7"
+          "context": "Det har været gavnligt at LKT har bakket op om registreringen"
         }
       ]
     },
@@ -239,11 +83,11 @@
       "type": "organization",
       "slug": "esbjerg-sygehus-grindsted-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "Esbjerg Sygehus Grindsted Sygehus opfylder epidural-standarden med 65,6 % andel af patienter med epidural.",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus er et hospitalskompleks i Region Syddanmark, der i rapportperioden opnåede 65,6 % opfyldelse af indikator 9 (epidural), hvilket overgik den nationale standard på >60 %.",
       "mentions": [
         {
           "page": 41,
-          "context": "Esbjerg Sygehus Grindsted Sygehus Ja 86 / 131 0 (0) 65,6 (56,9-73,7) 43,2 38,6"
+          "context": "Esbjerg Sygehus Grindsted Sygehus"
         }
       ]
     },
@@ -252,37 +96,11 @@
       "type": "organization",
       "slug": "odense-universitetshospital-svendborg",
       "folder": "entities/organizations/hospitals",
-      "significance": "Odense Universitetshospital - Svendborg opfylder epidural-standarden med 60,9 % andel af patienter med epidural.",
+      "significance": "Odense Universitetshospital - Svendborg er et regionalt universitetshospital i Region Syddanmark, der opnåede 60,9 % opfyldelse af indikator 9 i rapportperioden, netop over den krævede standard på >60 %.",
       "mentions": [
         {
           "page": 41,
-          "context": "Odense Universitetshospital - Svendborg Ja 140 / 230 0 (0) 60,9 (54,2-67,2) 28,9 5,7"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Lillebælt",
-      "type": "organization",
-      "slug": "sygehus-lillebaelt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Lillebælt opfylder ikke epidural-standarden med 58,2 % andel af patienter med epidural.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Sygehus Lillebælt Nej 57 / 98 0 (0) 58,2 (47,8-68,1) 43,1 33,6"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Sønderjylland",
-      "type": "organization",
-      "slug": "sygehus-soenderjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Sønderjylland opfylder ikke epidural-standarden med 39,7 % andel af patienter med epidural.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Sygehus Sønderjylland Nej 50 / 126 0 (0) 39,7 (31,1-48,8) 43,9 26,9"
+          "context": "Odense Universitetshospital - Svendborg"
         }
       ]
     },
@@ -291,37 +109,24 @@
       "type": "organization",
       "slug": "aarhus-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Universitetshospital opfylder epidural-standarden med 70,5 % andel af patienter med epidural.",
+      "significance": "Aarhus Universitetshospital er et regionalt universitetshospital i Region Midtjylland, der opnåede 70,5 % opfyldelse af indikator 9, hvilket var den højeste andel blandt de store universitetshospitaler i rapporten.",
       "mentions": [
         {
           "page": 41,
-          "context": "Aarhus Universitetshospital Ja 98 / 139 0 (0) 70,5 (62,2-77,9) 63,7 68,6"
-        }
-      ]
-    },
-    {
-      "name": "Hospitalsenhed Midt",
-      "type": "organization",
-      "slug": "hospitalsenhed-midt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalsenhed Midt opfylder ikke epidural-standarden med 32,1 % andel af patienter med epidural.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Hospitalsenhed Midt Nej 51 / 159 0 (0) 32,1 (24,9-39,9) 30,8 27,9"
+          "context": "Aarhus Universitetshospital"
         }
       ]
     },
     {
       "name": "Regionshospitalet Gødstrup",
       "type": "organization",
-      "slug": "regionshospitalet-goedstrup",
+      "slug": "regionshospitalet-godstrup",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Gødstrup opfylder epidural-standarden med 63,3 % andel af patienter med epidural.",
+      "significance": "Regionshospitalet Gødstrup er et regionshospital i Region Midtjylland, der opnåede 63,3 % opfyldelse af indikator 9, hvilket overgik den nationale standard på >60 %.",
       "mentions": [
         {
           "page": 41,
-          "context": "Regionshospitalet Gødstrup Ja 100 / 158 0 (0) 63,3 (55,3-70,8) 59,7 47,8"
+          "context": "Regionshospitalet Gødstrup"
         }
       ]
     },
@@ -330,11 +135,11 @@
       "type": "organization",
       "slug": "regionshospitalet-horsens",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Horsens opfylder epidural-standarden med 66,7 % andel af patienter med epidural.",
+      "significance": "Regionshospitalet Horsens er et regionshospital i Region Midtjylland, der opnåede 66,7 % opfyldelse af indikator 9, hvilket var den højeste andel blandt alle regionshospitaler i rapporten.",
       "mentions": [
         {
           "page": 41,
-          "context": "Regionshospitalet Horsens Ja 62 / 93 0 (0) 66,7 (56,1-76,1) 58,2 60,2"
+          "context": "Regionshospitalet Horsens"
         }
       ]
     },
@@ -343,24 +148,11 @@
       "type": "organization",
       "slug": "regionshospitalet-randers",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Randers opfylder ikke epidural-standarden med 40,6 % andel af patienter med epidural.",
+      "significance": "Regionshospitalet Randers er et regionshospital i Region Midtjylland, der opnåede 40,6 % opfyldelse af indikator 9 — langt under den nationale standard — og har fremsat forslag om at gøre indikatoren frivillig eller fjerne den.",
       "mentions": [
         {
           "page": 41,
-          "context": "Regionshospitalet Randers Nej 52 / 128 0 (0) 40,6 (32,0-49,7) 47,8 44,0"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Universitetshospital",
-      "type": "organization",
-      "slug": "aalborg-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital opfylder ikke epidural-standarden med 40,0 % andel af patienter med epidural.",
-      "mentions": [
-        {
-          "page": 41,
-          "context": "Aalborg Universitetshospital Nej 70 / 175 0 (0) 40,0 (32,7-47,7) 25,4 16,7"
+          "context": "Regionshospitalet Randers"
         }
       ]
     },
@@ -369,11 +161,11 @@
       "type": "organization",
       "slug": "regionshospital-nordjylland",
       "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospital Nordjylland opfylder ikke epidural-standarden med 29,5 % andel af patienter med epidural.",
+      "significance": "Regionshospital Nordjylland er et regionshospital i Region Nordjylland, der opnåede 29,5 % opfyldelse af indikator 9, hvilket var den laveste andel blandt alle listede hospitalsenheder i rapporten.",
       "mentions": [
         {
           "page": 41,
-          "context": "Regionshospital Nordjylland Nej 28 / 95 0 (0) 29,5 (20,6-39,7) 34,2 43,0"
+          "context": "Regionshospital Nordjylland"
         }
       ]
     }
@@ -381,190 +173,78 @@
   "relationships": [
     {
       "subject": "akut-kirurgi-databasen",
-      "predicate": "operates-under",
-      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Akut Kirurgi Databasen, Endelig version til offentliggørelse 2024.26.02, Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "predicate": "is-managed-by",
+      "object": "regionerne-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Akut Kirurgi Databasen er en del af Regionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 41
     },
     {
-      "subject": "region-hovedstaden",
-      "predicate": "reports-to",
-      "object": "akut-kirurgi-databasen",
-      "evidence": "Hovedstaden Nej 642 / 1.093 0 (0) 58,7 (55,8-61,7) 58,9 54,9",
+      "subject": "indikator-8",
+      "predicate": "is-evaluated-by",
+      "object": "styregruppen",
+      "evidence": "Der er basis for at tage problemstillingen med registrering og videreførelse af indikatoren til styregruppens årsmøde.",
       "page": 41
     },
     {
-      "subject": "region-sjaelland",
-      "predicate": "reports-to",
-      "object": "akut-kirurgi-databasen",
-      "evidence": "Sjælland Nej 231 / 522 0 (0) 44,3 (39,9-48,6) 44,9 47,7",
+      "subject": "indikator-9",
+      "predicate": "is-evaluated-by",
+      "object": "styregruppen",
+      "evidence": "Styregruppen har modtaget ønske om en kode der hedder ”Ernæring genoptaget”.",
       "page": 41
     },
     {
-      "subject": "region-syddanmark",
-      "predicate": "reports-to",
-      "object": "akut-kirurgi-databasen",
-      "evidence": "Syddanmark Nej 333 / 585 0 (0) 56,9 (52,8-61,0) 37,6 21,7",
-      "page": 41
-    },
-    {
-      "subject": "region-midtjylland",
-      "predicate": "reports-to",
-      "object": "akut-kirurgi-databasen",
-      "evidence": "Midtjylland Nej 363 / 677 0 (0) 53,6 (49,8-57,4) 52,8 50,2",
-      "page": 41
-    },
-    {
-      "subject": "region-nordjylland",
-      "predicate": "reports-to",
-      "object": "akut-kirurgi-databasen",
-      "evidence": "Nordjylland Nej 98 / 270 0 (0) 36,3 (30,6-42,3) 28,4 27,7",
-      "page": 41
-    },
-    {
-      "subject": "amager-og-hvidovre-hospital",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Amager og Hvidovre Hospital Ja 181 / 253 0 (0) 71,5 (65,6-77,0) 74,4 73,1",
-      "page": 41
-    },
-    {
-      "subject": "bispebjerg-og-frederiksberg-hospitaler",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Bispebjerg og Frederiksberg Hospitaler Ja 153 / 232 0 (0) 65,9 (59,5-72,0) 61,3 63,6",
-      "page": 41
-    },
-    {
-      "subject": "bornholms-hospital",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Bornholms Hospital Nej 12 / 30 0 (0) 40,0 (22,7-59,4) 52,2 44,8",
-      "page": 41
-    },
-    {
-      "subject": "herlev-og-gentofte-hospital",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Herlev og Gentofte Hospital Nej 146 / 307 0 (0) 47,6 (41,9-53,3) 52,0 45,7",
-      "page": 41
-    },
-    {
-      "subject": "hospitalerne-i-nordsjaelland",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Hospitalerne i Nordsjælland Nej 119 / 213 0 (0) 55,9 (48,9-62,6) 46,2 41,3",
-      "page": 41
-    },
-    {
-      "subject": "rigshospitalet",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Rigshospitalet Nej 31 / 58 0 (0) 53,4 (39,9-66,7) 50,9 33,3",
-      "page": 41
-    },
-    {
-      "subject": "holbaek-sygehus",
-      "predicate": "located-in",
-      "object": "region-sjaelland",
-      "evidence": "Holbæk Sygehus Nej 59 / 118 0 (0) 50,0 (40,7-59,3) 37,6 30,6",
-      "page": 41
-    },
-    {
-      "subject": "nykoebing-f-sygehus",
-      "predicate": "located-in",
-      "object": "region-sjaelland",
-      "evidence": "Nykøbing F Sygehus Nej #/# 0 (0) 50,0 (1,3-98,7) 33,3 0,0",
-      "page": 41
-    },
-    {
-      "subject": "naestved-slagelse-og-ringsted-sygehuse",
-      "predicate": "located-in",
-      "object": "region-sjaelland",
-      "evidence": "Næstved, Slagelse og Ringsted sygehuse Nej 54 / 194 0 (0) 27,8 (21,7-34,7) 30,4 37,6",
-      "page": 41
-    },
-    {
-      "subject": "sjaellands-universitetshospital",
-      "predicate": "located-in",
-      "object": "region-sjaelland",
-      "evidence": "Sjællands Universitetshospital Nej 117 / 208 0 (0) 56,3 (49,2-63,1) 59,1 61,7",
+      "subject": "indikator-8",
+      "predicate": "is-supported-by",
+      "object": "lkt",
+      "evidence": "Det har været gavnligt at LKT har bakket op om registreringen",
       "page": 41
     },
     {
       "subject": "esbjerg-sygehus-grindsted-sygehus",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
+      "predicate": "meets-standard-of",
+      "object": "indikator-9",
       "evidence": "Esbjerg Sygehus Grindsted Sygehus Ja 86 / 131 0 (0) 65,6 (56,9-73,7) 43,2 38,6",
       "page": 41
     },
     {
       "subject": "odense-universitetshospital-svendborg",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
+      "predicate": "meets-standard-of",
+      "object": "indikator-9",
       "evidence": "Odense Universitetshospital - Svendborg Ja 140 / 230 0 (0) 60,9 (54,2-67,2) 28,9 5,7",
       "page": 41
     },
     {
-      "subject": "sygehus-lillebaelt",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Sygehus Lillebælt Nej 57 / 98 0 (0) 58,2 (47,8-68,1) 43,1 33,6",
-      "page": 41
-    },
-    {
-      "subject": "sygehus-soenderjylland",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Sygehus Sønderjylland Nej 50 / 126 0 (0) 39,7 (31,1-48,8) 43,9 26,9",
-      "page": 41
-    },
-    {
       "subject": "aarhus-universitetshospital",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
+      "predicate": "meets-standard-of",
+      "object": "indikator-9",
       "evidence": "Aarhus Universitetshospital Ja 98 / 139 0 (0) 70,5 (62,2-77,9) 63,7 68,6",
       "page": 41
     },
     {
-      "subject": "hospitalsenhed-midt",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
-      "evidence": "Hospitalsenhed Midt Nej 51 / 159 0 (0) 32,1 (24,9-39,9) 30,8 27,9",
-      "page": 41
-    },
-    {
-      "subject": "regionshospitalet-goedstrup",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
+      "subject": "regionshospitalet-godstrup",
+      "predicate": "meets-standard-of",
+      "object": "indikator-9",
       "evidence": "Regionshospitalet Gødstrup Ja 100 / 158 0 (0) 63,3 (55,3-70,8) 59,7 47,8",
       "page": 41
     },
     {
       "subject": "regionshospitalet-horsens",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
+      "predicate": "meets-standard-of",
+      "object": "indikator-9",
       "evidence": "Regionshospitalet Horsens Ja 62 / 93 0 (0) 66,7 (56,1-76,1) 58,2 60,2",
       "page": 41
     },
     {
       "subject": "regionshospitalet-randers",
-      "predicate": "located-in",
-      "object": "region-midtjylland",
-      "evidence": "Regionshospitalet Randers Nej 52 / 128 0 (0) 40,6 (32,0-49,7) 47,8 44,0",
-      "page": 41
-    },
-    {
-      "subject": "aalborg-universitetshospital",
-      "predicate": "located-in",
-      "object": "region-nordjylland",
-      "evidence": "Aalborg Universitetshospital Nej 70 / 175 0 (0) 40,0 (32,7-47,7) 25,4 16,7",
+      "predicate": "proposes-to-modify",
+      "object": "indikator-9",
+      "evidence": "Fra Randers foreslås det, at indikatoren gøres frivillig eller fjernes, da den kræver meget efterregistrering.",
       "page": 41
     },
     {
       "subject": "regionshospital-nordjylland",
-      "predicate": "located-in",
-      "object": "region-nordjylland",
+      "predicate": "does-not-meet-standard-of",
+      "object": "indikator-9",
       "evidence": "Regionshospital Nordjylland Nej 28 / 95 0 (0) 29,5 (20,6-39,7) 34,2 43,0",
       "page": 41
     }
@@ -572,319 +252,75 @@
   "claims": [
     {
       "text": "I alt 617 af de 3.147 opererede patienter i opgørelsesperioden fik taget stilling til ernæring indenfor 48 timer efter operation, svarende til 19,6 % nationalt (95 % CI: 18,2-21,0) [^src1]",
-      "type": "clinical-indicator",
+      "type": "quality-metric",
       "entities": [
-        "akut-kirurgi-databasen",
-        "danmark"
+        "indikator-8"
       ],
       "page": 41
     },
     {
       "text": "Regionalt varierede andelen fra 0,2 % i Region Syddanmark til 32,4 % i Region Hovedstaden [^src1]",
-      "type": "clinical-indicator",
+      "type": "quality-metric",
       "entities": [
-        "region-syddanmark",
-        "region-hovedstaden"
+        "indikator-8"
       ],
       "page": 41
     },
     {
-      "text": "Danmark Nej 1.667 / 3.147 0 (0) 53,0 (51,2-54,7) 49,0 44,7 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
+      "text": "Standarden for indikator 9 er > 60 % [^src1]",
+      "type": "regulatory-standard",
       "entities": [
-        "danmark"
+        "indikator-9"
       ],
       "page": 41
     },
     {
-      "text": "Hovedstaden Nej 642 / 1.093 0 (0) 58,7 (55,8-61,7) 58,9 54,9 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
+      "text": "Nationalt opfyldte 53,0 % af de 3.147 opererede patienter indikator 9 (95 % CI: 51,2-54,7) [^src1]",
+      "type": "quality-metric",
       "entities": [
-        "region-hovedstaden"
+        "indikator-9"
       ],
       "page": 41
     },
     {
-      "text": "Sjælland Nej 231 / 522 0 (0) 44,3 (39,9-48,6) 44,9 47,7 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
+      "text": "Antal ekskluderede patienter: 53 med ugyldigt CPR-nummer, 172 under 18 år, 6.186 ikke opereret, 473 med ikke-første operation i hospitalsopholdet [^src1]",
+      "type": "data-exclusion",
       "entities": [
-        "region-sjaelland"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Syddanmark Nej 333 / 585 0 (0) 56,9 (52,8-61,0) 37,6 21,7 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "region-syddanmark"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Midtjylland Nej 363 / 677 0 (0) 53,6 (49,8-57,4) 52,8 50,2 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Nordjylland Nej 98 / 270 0 (0) 36,3 (30,6-42,3) 28,4 27,7 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "region-nordjylland"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Amager og Hvidovre Hospital Ja 181 / 253 0 (0) 71,5 (65,6-77,0) 74,4 73,1 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "amager-og-hvidovre-hospital"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Bispebjerg og Frederiksberg Hospitaler Ja 153 / 232 0 (0) 65,9 (59,5-72,0) 61,3 63,6 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "bispebjerg-og-frederiksberg-hospitaler"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Bornholms Hospital Nej 12 / 30 0 (0) 40,0 (22,7-59,4) 52,2 44,8 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "bornholms-hospital"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Herlev og Gentofte Hospital Nej 146 / 307 0 (0) 47,6 (41,9-53,3) 52,0 45,7 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "herlev-og-gentofte-hospital"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Hospitalerne i Nordsjælland Nej 119 / 213 0 (0) 55,9 (48,9-62,6) 46,2 41,3 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "hospitalerne-i-nordsjaelland"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Rigshospitalet Nej 31 / 58 0 (0) 53,4 (39,9-66,7) 50,9 33,3 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "rigshospitalet"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Holbæk Sygehus Nej 59 / 118 0 (0) 50,0 (40,7-59,3) 37,6 30,6 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "holbaek-sygehus"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Nykøbing F Sygehus Nej #/# 0 (0) 50,0 (1,3-98,7) 33,3 0,0 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "nykoebing-f-sygehus"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Næstved, Slagelse og Ringsted sygehuse Nej 54 / 194 0 (0) 27,8 (21,7-34,7) 30,4 37,6 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "naestved-slagelse-og-ringsted-sygehuse"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Sjællands Universitetshospital Nej 117 / 208 0 (0) 56,3 (49,2-63,1) 59,1 61,7 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "sjaellands-universitetshospital"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Esbjerg Sygehus Grindsted Sygehus Ja 86 / 131 0 (0) 65,6 (56,9-73,7) 43,2 38,6 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "esbjerg-sygehus-grindsted-sygehus"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Odense Universitetshospital - Svendborg Ja 140 / 230 0 (0) 60,9 (54,2-67,2) 28,9 5,7 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "odense-universitetshospital-svendborg"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Sygehus Lillebælt Nej 57 / 98 0 (0) 58,2 (47,8-68,1) 43,1 33,6 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "sygehus-lillebaelt"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Sygehus Sønderjylland Nej 50 / 126 0 (0) 39,7 (31,1-48,8) 43,9 26,9 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "sygehus-soenderjylland"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Aarhus Universitetshospital Ja 98 / 139 0 (0) 70,5 (62,2-77,9) 63,7 68,6 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "aarhus-universitetshospital"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Hospitalsenhed Midt Nej 51 / 159 0 (0) 32,1 (24,9-39,9) 30,8 27,9 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "hospitalsenhed-midt"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Regionshospitalet Gødstrup Ja 100 / 158 0 (0) 63,3 (55,3-70,8) 59,7 47,8 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "regionshospitalet-goedstrup"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Regionshospitalet Horsens Ja 62 / 93 0 (0) 66,7 (56,1-76,1) 58,2 60,2 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "regionshospitalet-horsens"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Regionshospitalet Randers Nej 52 / 128 0 (0) 40,6 (32,0-49,7) 47,8 44,0 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "regionshospitalet-randers"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Aalborg Universitetshospital Nej 70 / 175 0 (0) 40,0 (32,7-47,7) 25,4 16,7 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "aalborg-universitetshospital"
-      ],
-      "page": 41
-    },
-    {
-      "text": "Regionshospital Nordjylland Nej 28 / 95 0 (0) 29,5 (20,6-39,7) 34,2 43,0 for epidural-indikatoren [^src2]",
-      "type": "clinical-indicator",
-      "entities": [
-        "regionshospital-nordjylland"
+        "akut-kirurgi-databasen"
       ],
       "page": 41
     }
   ],
-  "timeline": [],
-  "context": "Denne dokumentchunk indeholder resultater fra Akut Kirurgi Databasen for perioden 01.09.2022 - 31.08.2023, som rapporteres under Regionernes Kliniske Kvalitetsudviklingsprogram. Chunken præsenterer detaljerede data for to kliniske indikatorer: Indikator 8 (Ernæring) og Indikator 9 (Epidural), med resultater på både regionalt og afdelingsniveau for alle danske hospitaler. Dataene viser betydelige variationer mellem regioner og hospitaler i implementeringen af disse kvalitetsindikatorer.",
-  "tables": [
+  "timeline": [
     {
-      "subject": "indikator-7",
-      "title": "Indikatortabel, resultater på afdelingsniveau (fortsat fra forrige side)",
-      "page": 41,
-      "rowDimension": "regioner og afdelinger",
-      "colDimension": "andel og standardopfyldelse per år",
+      "date": "01.09.2022 - 31.08.2023",
+      "event": "Rapportperioden for indikator 8 og 9, hvor data blev indsamlet fra Akut Kirurgi Databasen",
       "entities": [
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "region-midtjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "region-nordjylland",
-        "aalborg-universitetshospital",
-        "aalborg-universitetshospital-thisted",
-        "regionshospital-nordjylland"
-      ],
-      "markdown": "| Enhed | Standard opfyldt | Tæller/nævner | Uoplyst antal (%) | Andel 01.09.2022 - 31.08.2023 | 95% CI | Andel 2021/22 | Andel 2020/21 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Esbjerg Sygehus Grindsted Sygehus |  | 0 / 131 | 0 (0) | 0,0 | (0,0-2,8) | 0,0 | 0,0 |\n| Odense Universitetshospital - Svendborg |  | #/# | 0 (0) | 0,4 | (0,0-2,4) | 0,0 | 0,0 |\n| Sygehus Lillebælt |  | 0 / 98 | 0 (0) | 0,0 | (0,0-3,7) | 0,0 | 0,9 |\n| Sygehus Sønderjylland |  | 0 / 126 | 0 (0) | 0,0 | (0,0-2,9) | 0,0 | 0,0 |\n| Midtjylland |  | 94 / 677 | 0 (0) | 13,9 | (11,4-16,7) | 5,1 | 0,0 |\n| Aarhus Universitetshospital |  | 0 / 139 | 0 (0) | 0,0 | (0,0-2,6) | 0,0 | 0,0 |\n| Hospitalsenhed Midt |  | 28 / 159 | 0 (0) | 17,6 | (12,0-24,4) | 0,0 | 0,0 |\n| Regionshospitalet Gødstrup |  | 3 / 158 | 0 (0) | 1,9 | (0,4-5,4) | 1,1 | 0,0 |\n| Regionshospitalet Horsens |  | 0 / 93 | 0 (0) | 0,0 | (0,0-3,9) | 0,0 | 0,0 |\n| Regionshospitalet Randers |  | 63 / 128 | 0 (0) | 49,2 | (40,3-58,2) | 28,7 | 0,0 |\n| Nordjylland |  | 17 / 270 | 0 (0) | 6,3 | (3,7-9,9) | 0,5 | 0,0 |\n| Aalborg Universitetshospital |  | 0 / 175 | 0 (0) | 0,0 | (0,0-2,1) | 0,0 | 0,0 |\n| Aalborg Universitetshospital, Thisted |  |  |  | 0,0 |  |  |  |\n| Regionshospital Nordjylland |  | 17 / 95 | 0 (0) | 17,9 | (10,8-27,1) | 1,3 | 0,0 |",
-      "summary": "Fortsat tabel, der sammenligner afdelingernes og regionernes andele for indikatoren i den aktuelle periode og de to foregående år; de fleste afdelinger rapporterer 0,0 %, mens Regionshospitalet Randers har den højeste andel på 49,2 %."
-    },
+        "indikator-8",
+        "indikator-9",
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "tables": [
     {
       "subject": "indikator-9",
       "title": "Indikator 9: Andel opererede med epidural",
-      "page": 44,
-      "rowDimension": "land, regioner og afdelinger",
-      "colDimension": "andel opererede med epidural og standardopfyldelse per år",
+      "page": 41,
+      "rowDimension": "hospitals",
+      "colDimension": "andelen opfyldt og konfidensinterval per periode",
       "entities": [
-        "indikator-9",
-        "danmark",
-        "region-hovedstaden",
-        "region-sjaelland",
-        "region-syddanmark",
-        "region-midtjylland",
-        "region-nordjylland",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "holbaek-sygehus",
-        "nykoebing-f-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
         "esbjerg-sygehus-grindsted-sygehus",
         "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
         "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
+        "regionshospitalet-godstrup",
         "regionshospitalet-horsens",
         "regionshospitalet-randers",
-        "aalborg-universitetshospital",
-        "aalborg-universitetshospital-thisted",
         "regionshospital-nordjylland"
       ],
-      "markdown": "| Enhed | Standard opfyldt | Tæller/nævner | Uoplyst antal (%) | Andel 01.09.2022 - 31.08.2023 | 95% CI | Andel 2021/22 | Andel 2020/21 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 1.667 / 3.147 | 0 (0) | 53,0 | (51,2-54,7) | 49,0 | 44,7 |\n| Hovedstaden | Nej | 642 / 1.093 | 0 (0) | 58,7 | (55,8-61,7) | 58,9 | 54,9 |\n| Sjælland | Nej | 231 / 522 | 0 (0) | 44,3 | (39,9-48,6) | 44,9 | 47,7 |\n| Syddanmark | Nej | 333 / 585 | 0 (0) | 56,9 | (52,8-61,0) | 37,6 | 21,7 |\n| Midtjylland | Nej | 363 / 677 | 0 (0) | 53,6 | (49,8-57,4) | 52,8 | 50,2 |\n| Nordjylland | Nej | 98 / 270 | 0 (0) | 36,3 | (30,6-42,3) | 28,4 | 27,7 |\n| Amager og Hvidovre Hospital | Ja | 181 / 253 | 0 (0) | 71,5 | (65,6-77,0) | 74,4 | 73,1 |\n| Bispebjerg og Frederiksberg Hospitaler | Ja | 153 / 232 | 0 (0) | 65,9 | (59,5-72,0) | 61,3 | 63,6 |\n| Bornholms Hospital | Nej | 12 / 30 | 0 (0) | 40,0 | (22,7-59,4) | 52,2 | 44,8 |\n| Herlev og Gentofte Hospital | Nej | 146 / 307 | 0 (0) | 47,6 | (41,9-53,3) | 52,0 | 45,7 |\n| Hospitalerne i Nordsjælland | Nej | 119 / 213 | 0 (0) | 55,9 | (48,9-62,6) | 46,2 | 41,3 |\n| Rigshospitalet | Nej | 31 / 58 | 0 (0) | 53,4 | (39,9-66,7) | 50,9 | 33,3 |\n| Holbæk Sygehus | Nej | 59 / 118 | 0 (0) | 50,0 | (40,7-59,3) | 37,6 | 30,6 |\n| Nykøbing F Sygehus | Nej | #/# | 0 (0) | 50,0 | (1,3-98,7) | 33,3 | 0,0 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 54 / 194 | 0 (0) | 27,8 | (21,7-34,7) | 30,4 | 37,6 |\n| Sjællands Universitetshospital | Nej | 117 / 208 | 0 (0) | 56,3 | (49,2-63,1) | 59,1 | 61,7 |\n| Esbjerg Sygehus Grindsted Sygehus | Ja | 86 / 131 | 0 (0) | 65,6 | (56,9-73,7) | 43,2 | 38,6 |\n| Odense Universitetshospital - Svendborg | Ja | 140 / 230 | 0 (0) | 60,9 | (54,2-67,2) | 28,9 | 5,7 |\n| Sygehus Lillebælt | Nej | 57 / 98 | 0 (0) | 58,2 | (47,8-68,1) | 43,1 | 33,6 |\n| Sygehus Sønderjylland | Nej | 50 / 126 | 0 (0) | 39,7 | (31,1-48,8) | 43,9 | 26,9 |\n| Aarhus Universitetshospital | Ja | 98 / 139 | 0 (0) | 70,5 | (62,2-77,9) | 63,7 | 68,6 |\n| Hospitalsenhed Midt | Nej | 51 / 159 | 0 (0) | 32,1 | (24,9-39,9) | 30,8 | 27,9 |\n| Regionshospitalet Gødstrup | Ja | 100 / 158 | 0 (0) | 63,3 | (55,3-70,8) | 59,7 | 47,8 |\n| Regionshospitalet Horsens | Ja | 62 / 93 | 0 (0) | 66,7 | (56,1-76,1) | 58,2 | 60,2 |\n| Regionshospitalet Randers | Nej | 52 / 128 | 0 (0) | 40,6 | (32,0-49,7) | 47,8 | 44,0 |\n| Aalborg Universitetshospital | Nej | 70 / 175 | 0 (0) | 40,0 | (32,7-47,7) | 25,4 | 16,7 |\n| Aalborg Universitetshospital, Thisted |  |  |  | 0,0 |  |  |  |\n| Regionshospital Nordjylland | Nej | 28 / 95 | 0 (0) | 29,5 | (20,6-39,7) | 34,2 | 43,0 |",
-      "summary": "Tabellen sammenligner andelen af opererede patienter med epidural på nationalt, regionalt og afdelingsniveau for 2022/23 og de to foregående år; nationalt er andelen 53,0 % mod standarden > 60 %, og kun syv afdelinger (Amager og Hvidovre, Bispebjerg og Frederiksberg, Esbjerg/Grindsted, Odense-Svendborg, Aarhus, Gødstrup og Horsens) opfylder standarden."
-    },
-    {
-      "subject": "eksklusion",
-      "title": "Eksklusion",
-      "page": 41,
-      "rowDimension": "årsager til eksklusion",
-      "colDimension": "antal patienter",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "cpr-nummer"
-      ],
-      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 53 | Ugyldigt CPRnummer. |\n| 172 | Patienten er under 18 år. |\n| 6.186 | Patienten er ikke opereret. |\n| 473 | Operationen er ikke den første operation i hospitalsopholdet. |",
-      "summary": "Tabellen viser antallet af ekskluderede patienter fordelt på fire årsager; den klart største gruppe er de 6.186 patienter, der ikke er opereret."
+      "markdown": "| Hospital | Standard | Tæller/antal | Aktuelle år (01.09.2022 - 31.08.2023) | 2021/22 | 2020/21 |\n| --- | --- | --- | --- | --- | --- |\n| Esbjerg Sygehus Grindsted Sygehus | Ja | 86 / 131 | 65,6 (56,9-73,7) | 43,2 | 38,6 |\n| Odense Universitetshospital - Svendborg | Ja | 140 / 230 | 60,9 (54,2-67,2) | 28,9 | 5,7 |\n| Aarhus Universitetshospital | Ja | 98 / 139 | 70,5 (62,2-77,9) | 63,7 | 68,6 |\n| Regionshospitalet Gødstrup | Ja | 100 / 158 | 63,3 (55,3-70,8) | 59,7 | 47,8 |\n| Regionshospitalet Horsens | Ja | 62 / 93 | 66,7 (56,1-76,1) | 58,2 | 60,2 |\n| Regionshospitalet Randers | Nej | 52 / 128 | 40,6 (32,0-49,7) | 47,8 | 44,0 |\n| Regionshospital Nordjylland | Nej | 28 / 95 | 29,5 (20,6-39,7) | 34,2 | 43,0 |",
+      "summary": "Tabellen sammenligner opfyldelsen af indikator 9 (epidural) på hospitalsniveau og viser, at seks hospitaler opfylder den nationale standard (>60 %), mens to — Regionshospitalet Randers og Regionshospital Nordjylland — ligger langt under."
     }
-  ]
+  ],
+  "context": "Denne dokumentchunk udgør siderne 41–45 af den endelige offentlige version af Akut Kirurgi Databasen fra 2024, udgivet under Regionernes Kliniske Kvalitetsudviklingsprogram. Den fokuserer på to centrale kvalitetsindikatorer: Indikator 8 (tidlig ernæring efter operation) og Indikator 9 (anlæggelse af epidural ved operation), og præsenterer både nationale og regionale resultater samt detaljerede hospitalsdata for rapportperioden 01.09.2022–31.08.2023. Chunken indeholder også diskussioner om registreringsudfordringer, evidensbaggrund og forslag fra sygehuse til justering af indikatorer — hvilket peger på en bredere narrativ om kvalitetsmålingens praktiske implementering, datakvalitet og samspillet mellem klinisk evidens, administrative krav og lokalt udførelsesniveau i det danske sundhedsvæsen."
 }

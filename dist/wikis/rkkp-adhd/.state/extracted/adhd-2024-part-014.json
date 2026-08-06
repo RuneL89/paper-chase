@@ -1,69 +1,14 @@
 {
   "entities": [
     {
-      "name": "ADHD-databasen",
-      "type": "organization",
-      "slug": "adhd-databasen",
-      "folder": "entities/organizations/health-registries",
-      "significance": "ADHD-databasen er den centrale database, der inkluderer voksne, børn og unge og indeholder to overordnede forløbsbaserede populationer: ADHD-udredningspopulation og ADHD-behandlingspopulation, hvis beregningsregler og populationsdannelse er dokumenteret i dette appendiks.",
-      "mentions": [
-        {
-          "page": 66,
-          "context": "ADHD-databasen er en database, der inkluderer voksne, børn og unge. Databasen indeholder to overordnede forløbsbaserede populationer: ADHD-udredningspopulation (kun med børn/unge under 18 år) og ADHD-behandlingspopulation (både børn/unge og voksne)."
-        },
-        {
-          "page": 66,
-          "context": "Første kriterium for inklusion af et udredningsforløb er LPR-forløbsmarkøren 'ADHD udredning start' (AGX01A)."
-        },
-        {
-          "page": 67,
-          "context": "Inklusion af et behandlingsforløb i behandlingspopulation kræver LPR-forløbsmarkøren 'BUP ADHD: pakkeforløb start' (AHB01A) eller 'ADHD: pakkeforløb start' (AGB12A)"
-        }
-      ]
-    },
-    {
-      "name": "Region Hovedstaden",
-      "type": "organization",
-      "slug": "region-hovedstaden",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Hovedstaden er en af fem danske regioner, der har givet kommentarer til årsrapporten og rapporterer på flere indikatorer i ADHD-databasen, herunder udfordringer med registreringspraksis og implementering af arbejdsgange.",
-      "mentions": [
-        {
-          "page": 68,
-          "context": "Region Hovedstaden: Overordnet for RHP opfyldes udviklingsmålet ikke for flere indikatorer i databasen, men regionen ligger over eller svarende til landsgennemsnittet for de fleste indikatorer."
-        },
-        {
-          "page": 68,
-          "context": "Voksenpsykiatrien er præget af at databasen er ny og arbejdsgangene ikke er fuldt implementeret endnu."
-        }
-      ]
-    },
-    {
-      "name": "Region Sjælland",
-      "type": "organization",
-      "slug": "region-sjaelland",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Sjælland har givet omfattende kommentarer til årsrapporten, især vedrørende inkludering af Specialpsykologers kompetencer i ADHD-diagnosticering og ændring af indikator 3.",
-      "mentions": [
-        {
-          "page": 69,
-          "context": "Region Sjælland: Psykiatrien Region Sjælland/Børne- og ungdomspsykiatri: Vi har fra SFR B&U-psyk Region Sjælland i mange år kommenteret, at det var uhensigtsmæssigt ikke at inkludere Specialpsykologers dokumenterede kompetencer i RKKP ADHD."
-        },
-        {
-          "page": 69,
-          "context": "Vi indstiller derfor, at indikator 3 med det samme ændres til at inkludere Specialpsykologer ifm. diagnosticering"
-        }
-      ]
-    },
-    {
       "name": "Region Syddanmark",
       "type": "organization",
       "slug": "region-syddanmark",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Syddanmark er en af fem danske regioner, der har givet feedback til årsrapporten, dog uden konkrete kommentarer.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Syddanmark er en af de fem regioner, der har bidraget med feedback til årsrapporten for ADHD-databasen, og dens manglende kommentarer på siderne 66–70 er en del af den samlede regionale høring fra december 2024 til januar 2025.",
       "mentions": [
         {
-          "page": 69,
+          "page": 66,
           "context": "Region Syddanmark har meldt tilbage, at der ingen kommentarer er til årsrapporten"
         }
       ]
@@ -72,11 +17,11 @@
       "name": "Region Midtjylland",
       "type": "organization",
       "slug": "region-midtjylland",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Midtjylland er en af fem danske regioner, der har givet feedback til årsrapporten, dog uden konkrete kommentarer.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland er en af de fem regioner, der har bidraget med feedback til årsrapporten for ADHD-databasen, og dens manglende kommentarer på siderne 66–70 er en del af den samlede regionale høring fra december 2024 til januar 2025.",
       "mentions": [
         {
-          "page": 69,
+          "page": 66,
           "context": "Region Midtjylland har meldt tilbage, at der ingen kommentarer er til årsrapporten"
         }
       ]
@@ -85,535 +30,125 @@
       "name": "Region Nordjylland",
       "type": "organization",
       "slug": "region-nordjylland",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Nordjylland har givet kommentarer til årsrapporten vedrørende målopfyldelse påvirket af fastsatte tidsfrister og registreringsudfordringer i både børne- og ungdomspsykiatri og voksenpsykiatri.",
-      "mentions": [
-        {
-          "page": 70,
-          "context": "Region Nordjylland: For Børne- og Ungdomspsykiatrien er målopfyldelsen fortsat påvirket af de fastsatte tidsfrister (90 eller 120 dage efter opstart)."
-        },
-        {
-          "page": 70,
-          "context": "For voksenpopulationen skyldes den lave målopfyldelse primært registreringsudfordringer."
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsvæsenets Kvalitetsinstitut",
-      "type": "organization",
-      "slug": "sundhedsvaesenets-kvalitetsinstitut",
-      "folder": "entities/organizations/health-administration",
-      "significance": "Sundhedsvæsenets Kvalitetsinstitut er ansvarlig for årsrapporten, og resultater og kommentarer i afsnittet 'Regionale kommentarer' er uden for regi af instituttet.",
-      "mentions": [
-        {
-          "page": 68,
-          "context": "Resultater og kommentarer i afsnittet 'Regionale kommentarer' er uden for regi af Sundhedsvæsenets Kvalitetsinstitut."
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsstyrelsen",
-      "type": "organization",
-      "slug": "sundhedsstyrelsen",
-      "folder": "entities/organizations/health-administration",
-      "significance": "Sundhedsstyrelsen har godkendt Specialpsykologers kompetencer til at stille psykiatriske diagnoser og har ikke forbehold til deres inkludering i ADHD-diagnosticering.",
-      "mentions": [
-        {
-          "page": 69,
-          "context": "Dette er beskrevet og godkendt af Sundhedsstyrelsen samt Danske Regioner, og der er ikke forbehold at tage ift. punktet i RKKP ADHD."
-        },
-        {
-          "page": 69,
-          "context": "Der tages fra Sundhedsstyrelsen og Danske Regioner ikke forbehold ift. hvilke diagnoser Specialpsykologer kan diagnosticere."
-        }
-      ]
-    },
-    {
-      "name": "Danske Regioner",
-      "type": "organization",
-      "slug": "danske-regioner",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Danske Regioner har godkendt Specialpsykologers kompetencer til at stille psykiatriske diagnoser og har ikke forbehold til deres inkludering i ADHD-diagnosticering.",
-      "mentions": [
-        {
-          "page": 69,
-          "context": "Dette er beskrevet og godkendt af Sundhedsstyrelsen samt Danske Regioner, og der er ikke forbehold at tage ift. punktet i RKKP ADHD."
-        },
-        {
-          "page": 69,
-          "context": "Der tages fra Sundhedsstyrelsen og Danske Regioner ikke forbehold ift. hvilke diagnoser Specialpsykologer kan diagnosticere."
-        }
-      ]
-    },
-    {
-      "name": "RKKP ADHD",
-      "type": "organization",
-      "slug": "rkkp-adhd",
-      "folder": "entities/organizations/health-registries",
-      "significance": "RKKP ADHD er det kvalitetsregister, der styrer indikatorer for ADHD-diagnosticering og behandling, og som Region Sjælland har kritiseret for ikke at inkludere Specialpsykologers kompetencer.",
-      "mentions": [
-        {
-          "page": 69,
-          "context": "Vi har fra SFR B&U-psyk Region Sjælland i mange år kommenteret, at det var uhensigtsmæssigt ikke at inkludere Specialpsykologers dokumenterede kompetencer i RKKP ADHD."
-        }
-      ]
-    },
-    {
-      "name": "RKKP Skizofreni",
-      "type": "organization",
-      "slug": "rkkp-skizofreni",
-      "folder": "entities/organizations/health-registries",
-      "significance": "RKKP Skizofreni er et sammenlignbart kvalitetsregister, der allerede har inkluderet Specialpsykologer sammen med Speciallæger i deres diagnosticeringskriterier.",
-      "mentions": [
-        {
-          "page": 69,
-          "context": "Det har også i en del år været påpeget, at gruppen bag RKKP Skizofreni har inkluderet Specialpsykologer sammen med Speciallæger i deres kriterier uden behov for at lave yderligere forarbejde."
-        }
-      ]
-    },
-    {
-      "name": "Indikator 1",
-      "type": "topic",
-      "slug": "indikator-1",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 1 er en kvalitetsindikator for børn og unge i ADHD-databasen, som omtales i Region Hovedstadens kommentarer.",
-      "mentions": [
-        {
-          "page": 68,
-          "context": "Indikator 1 -7 børn og unge:"
-        }
-      ]
-    },
-    {
-      "name": "Indikator 2a",
-      "type": "topic",
-      "slug": "indikator-2a",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 2a vedrører klinisk miljøobservation for 0-5-årige og viser fremgang i Region Hovedstaden, men har registreringsproblemer.",
-      "mentions": [
-        {
-          "page": 68,
-          "context": "Indikator 2a Klinisk miljøobservation for 0-5-årige: Der er fremgang for denne indikator i RHP som ligger svarende til landsgennemsnittet. RHP er enige med Styregruppen i at der for denne indikator er registreringsproblemer."
-        }
-      ]
-    },
-    {
-      "name": "Indikator 2b",
-      "type": "topic",
-      "slug": "indikator-2b",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 2b vedrører diagnostisk interview eller miljøobservation for 6-17-årige og viser en lille stigning i Region Hovedstaden, men har registreringsproblemer.",
-      "mentions": [
-        {
-          "page": 68,
-          "context": "Indikator 2b Diagnostisk interview eller miljøobservation for 6-17-årige: Der ses en lille stigning for denne indikator som for RHP ligger svarende til landsgennemsnittet."
-        }
-      ]
-    },
-    {
-      "name": "Indikator 3",
-      "type": "topic",
-      "slug": "indikator-3",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 3 vedrører afholdt diagnostisk konference og er genstand for revision efter udfordringer med opfyldelse og fald i forhold til seneste år. Region Sjælland indstiller, at indikatoren ændres til at inkludere Specialpsykologer.",
-      "mentions": [
-        {
-          "page": 68,
-          "context": "Indikator 3 Afholdt diagnostisk konference: Der ses som i de øvrige regioner udfordringer med opfyldelse af denne indikator samt fald i forhold til seneste år."
-        },
-        {
-          "page": 69,
-          "context": "Vi indstiller derfor, at indikator 3 med det samme ændres til at inkludere Specialpsykologer ifm. diagnosticering"
-        }
-      ]
-    },
-    {
-      "name": "Indikator 4",
-      "type": "topic",
-      "slug": "indikator-4",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 4 vedrører koordinerende netværksmøde og er genstand for revision efter Region Hovedstadens feedback.",
-      "mentions": [
-        {
-          "page": 68,
-          "context": "Indikator 4 og 5 om koordinerende netværksmøde og psykoedukation: RHP bakker om op revision af disse indikatorer."
-        }
-      ]
-    },
-    {
-      "name": "Indikator 5",
-      "type": "topic",
-      "slug": "indikator-5",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 5 vedrører psykoedukation og er genstand for revision efter Region Hovedstadens feedback, især i lyset af kommende nye forhold vedr. udrednings- og behandlingsret.",
-      "mentions": [
-        {
-          "page": 68,
-          "context": "Indikator 4 og 5 om koordinerende netværksmøde og psykoedukation: RHP bakker om op revision af disse indikatorer. For indikator 5 om psykoedukation, som må betragtes som en del af behandlingen, skal man være opmærksom på kommende nye forhold vedr. udrednings-og behandlingsret for børn og unge."
-        }
-      ]
-    },
-    {
-      "name": "Indikator 6",
-      "type": "topic",
-      "slug": "indikator-6",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 6 vedrører andel af patienter i farmakologisk behandling og Region Hovedstaden bakker op om styregruppens overvejelse om at placere indikatoren i supplerende materiale fremover.",
-      "mentions": [
-        {
-          "page": 68,
-          "context": "Indikator 6 om andel af patienter i farmakologisk behandling: RHP bakker op om styregruppens overvejelse om at placere indikatoren i supplerende materiale fremover."
-        }
-      ]
-    },
-    {
-      "name": "Indikator 8",
-      "type": "topic",
-      "slug": "indikator-8",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 8 vedrører psykoedukation for voksne og Region Hovedstaden ligger på 32%, langt fra udviklingsmålet, med inkomplet registrering på grund af patienter med autisme eller anden psykopatologi.",
-      "mentions": [
-        {
-          "page": 68,
-          "context": "Indikator 8 -11 Voksne:"
-        },
-        {
-          "page": 68,
-          "context": "Indikator 8 om psykoedukation: RHP ligger på 32% og dermed langt fra udviklingsmålet, men lige under landsgennemsnittet for psykoedukation."
-        }
-      ]
-    },
-    {
-      "name": "Indikator 9",
-      "type": "topic",
-      "slug": "indikator-9",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 9 vedrører psykoterapi for voksne og Region Hovedstaden er enig med styregruppen i at det lave rapporterede antal skyldes at den aktuelle ADHD-behandlingspakke på 9 timer ikke er af et omfang, der kan inkorporere psykoterapi.",
-      "mentions": [
-        {
-          "page": 68,
-          "context": "Indikator 9 om psykoterapi: RHP er enig med styregruppen i at en væsentlig årsag til det lave rapporterede antal patienter der får psykoterapi skyldes at den aktuelle ADHD-behandlingspakke på 9 timer ikke i er af et omfang, der kan inkorporere psykoterapi."
-        }
-      ]
-    },
-    {
-      "name": "Indikator 10",
-      "type": "topic",
-      "slug": "indikator-10",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 10 vedrører vurdering af sociale støttebehov for voksne og Region Hovedstaden ligger med 49% over landsgennemsnittet, men det reelle antal vurderes at være højere.",
-      "mentions": [
-        {
-          "page": 68,
-          "context": "Indikator 10 om vurdering af sociale støttebehov: RHP ligger med 49% over landsgennemsnittet."
-        }
-      ]
-    },
-    {
-      "name": "Indikator 11",
-      "type": "topic",
-      "slug": "indikator-11",
-      "folder": "topics/quality-indicators",
-      "significance": "Indikator 11 vedrører andelen af patienter i farmakologisk behandling for voksne og Region Hovedstaden ligger på 37%, men styregruppen bemærker at dette hovedsageligt skyldes registreringsvanskeligheder.",
-      "mentions": [
-        {
-          "page": 68,
-          "context": "Indikator 11 om andelen af patienter i farmakologisk behandling: RHP ligger på 37%, og som styregruppen bemærker er dette hovedsageligt betinget af registreringsvanskeligheder."
-        }
-      ]
-    },
-    {
-      "name": "LPR",
-      "type": "organization",
-      "slug": "lpr",
-      "folder": "entities/organizations/health-registries",
-      "significance": "LPR (Landspatientregisteret) er det landsdækkende patientregister, hvorfra ADHD-databasen henter forløbsmarkører for ADHD-udredning og behandling.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Nordjylland er en af de fem regioner, der har bidraget med feedback til årsrapporten for ADHD-databasen, og dens kommentarer på side 66 beskriver udfordringer ved målopfyldelse for både børn/unge og voksne i forhold til tidsfrister og registreringspraksis.",
       "mentions": [
         {
           "page": 66,
-          "context": "Første kriterium for inklusion af et udredningsforløb er LPR-forløbsmarkøren 'ADHD udredning start' (AGX01A)."
-        },
-        {
-          "page": 67,
-          "context": "Inklusion af et behandlingsforløb i behandlingspopulation kræver LPR-forløbsmarkøren 'BUP ADHD: pakkeforløb start' (AHB01A) eller 'ADHD: pakkeforløb start' (AGB12A)"
+          "context": "Region Nordjylland:\nFor Børne- og Ungdomspsykiatrien er målopfyldelsen fortsat påvirket af de fastsatte tidsfrister (90 eller 120 dage efter opstart). Interne analyser viser, at flere børn og unge modtager de relevante procedurer, dog efter tidsfristen. Der arbejdes løbende på at forbedre målopfyldelsen.\nFor voksenpopulationen skyldes den lave målopfyldelse primært registreringsudfordringer. Begge almenpsykiatriske afdelinger arbejder fremadrettet med at sikre korrekt registrering, så data i årsrapporten bedre afspejler den kliniske praksis"
         }
       ]
     },
     {
-      "name": "Specialpsykologer",
-      "type": "topic",
-      "slug": "specialpsykologer",
-      "folder": "topics/clinical-practice",
-      "significance": "Specialpsykologer er faggruppe, som Region Sjælland indstiller skal inkluderes i ADHD-diagnosticering ifølge indikator 3, da de er uddannet til at stille psykiatriske diagnoser og kan løse flaskehalse i diagnosticeringsprocessen.",
+      "name": "RHP",
+      "type": "organization",
+      "slug": "rhp",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "RHP (Region Hovedstaden Psykiatri) er en central aktør i ADHD-databasens høringsproces og leverer detaljerede kommentarer til indikatorer, især om registreringsudfordringer og klinisk praksis i både børn/unge- og voksenpsykiatri.",
       "mentions": [
         {
-          "page": 69,
-          "context": "Vi har fra SFR B&U-psyk Region Sjælland i mange år kommenteret, at det var uhensigtsmæssigt ikke at inkludere Specialpsykologers dokumenterede kompetencer i RKKP ADHD."
-        },
-        {
-          "page": 69,
-          "context": "Der står i lovgivningen, at Specialpsykologer 'må stille psykiatriske diagnoser'"
-        },
-        {
-          "page": 69,
-          "context": "Vi indstiller derfor, at indikator 3 med det samme ændres til at inkludere Specialpsykologer ifm. diagnosticering"
+          "page": 66,
+          "context": "Overordnet for RHP opfyldes udviklingsmålet ikke for flere indikatorer i databasen, men regionen ligger over eller svarende til landsgennemsnittet for de fleste indikatorer. Samlet ses der for flere indikatorer udfordringer ift. registreringsparksis. Der arbejdes i RHP med bedring af registrering ved bl.a. at afdække brug af andre faggrupper til registrering, indførsel af automatisk registrering (automatisk kodedrop i Sundheds Platformen) samt fokus på øget information om korrekt registreringspraksis. Voksenpsykiatrien er præget af at databasen er ny og arbejdsgangene ikke er fuldt implementeret endnu."
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "adhd-databasen",
-      "predicate": "includes-population",
-      "object": "indikator-2a",
-      "evidence": "ADHD-databasen indeholder indikatorer for børn og unge, herunder indikator 2a om klinisk miljøobservation for 0-5-årige",
+      "subject": "region-syddanmark",
+      "predicate": "participated-in-consultation",
+      "object": "adhd-databasen",
+      "evidence": "Region Syddanmark har meldt tilbage, at der ingen kommentarer er til årsrapporten",
       "page": 66
     },
     {
-      "subject": "region-hovedstaden",
-      "predicate": "reports-on",
+      "subject": "region-midtjylland",
+      "predicate": "participated-in-consultation",
       "object": "adhd-databasen",
-      "evidence": "Region Hovedstaden har givet kommentarer til årsrapporten for ADHD-databasen",
-      "page": 68
-    },
-    {
-      "subject": "region-sjaelland",
-      "predicate": "recommends-change-to",
-      "object": "indikator-3",
-      "evidence": "Vi indstiller derfor, at indikator 3 med det samme ændres til at inkludere Specialpsykologer ifm. diagnosticering",
-      "page": 69
-    },
-    {
-      "subject": "sundhedsstyrelsen",
-      "predicate": "approves",
-      "object": "specialpsykologer",
-      "evidence": "Dette er beskrevet og godkendt af Sundhedsstyrelsen samt Danske Regioner, og der er ikke forbehold at tage ift. punktet i RKKP ADHD",
-      "page": 69
+      "evidence": "Region Midtjylland har meldt tilbage, at der ingen kommentarer er til årsrapporten",
+      "page": 66
     },
     {
       "subject": "region-nordjylland",
-      "predicate": "reports-on",
+      "predicate": "participated-in-consultation",
       "object": "adhd-databasen",
-      "evidence": "Region Nordjylland har givet kommentarer til årsrapporten vedrørende målopfyldelse påvirket af fastsatte tidsfrister",
-      "page": 70
+      "evidence": "For Børne- og Ungdomspsykiatrien er målopfyldelsen fortsat påvirket af de fastsatte tidsfrister (90 eller 120 dage efter opstart). Interne analyser viser, at flere børn og unge modtager de relevante procedurer, dog efter tidsfristen. Der arbejdes løbende på at forbedre målopfyldelsen.",
+      "page": 66
+    },
+    {
+      "subject": "rhp",
+      "predicate": "participated-in-consultation",
+      "object": "adhd-databasen",
+      "evidence": "Årsrapporten har været i høring ved regioner og afdelinger fra den 4. december til den 17. januar 2025.",
+      "page": 66
     }
   ],
   "claims": [
     {
-      "text": "ADHD-databasen indeholder to overordnede forløbsbaserede populationer: ADHD-udredningspopulation (kun med børn/unge under 18 år) og ADHD-behandlingspopulation (både børn/unge og voksne) [^src1]",
-      "type": "structural",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 66
-    },
-    {
-      "text": "Første kriterium for inklusion af et udredningsforløb er LPR-forløbsmarkøren 'ADHD udredning start' (AGX01A) [^src1]",
-      "type": "procedural",
-      "entities": [
-        "adhd-databasen",
-        "lpr"
-      ],
-      "page": 66
-    },
-    {
-      "text": "Inklusion af et behandlingsforløb i behandlingspopulation kræver LPR-forløbsmarkøren 'BUP ADHD: pakkeforløb start' (AHB01A) eller 'ADHD: pakkeforløb start' (AGB12A) og mindst en diagnosekode (A-, B- eller tillægsdiagnose) for ADHD (DF 90.0, 90.1, 90.8, 98.8C) [^src1]",
-      "type": "procedural",
-      "entities": [
-        "adhd-databasen",
-        "lpr"
-      ],
-      "page": 67
-    },
-    {
-      "text": "Årsrapporten har været i høring ved regioner og afdelinger fra den 4. december til den 17. januar 2025 [^src1]",
-      "type": "procedural",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 68
-    },
-    {
-      "text": "Region Hovedstaden ligger over eller svarende til landsgennemsnittet for de fleste indikatorer [^src1]",
-      "type": "performance",
-      "entities": [
-        "region-hovedstaden",
-        "adhd-databasen"
-      ],
-      "page": 68
-    },
-    {
-      "text": "Voksenpsykiatrien i Region Hovedstaden er præget af at databasen er ny og arbejdsgangene ikke er fuldt implementeret endnu [^src1]",
-      "type": "operational",
-      "entities": [
-        "region-hovedstaden",
-        "adhd-databasen"
-      ],
-      "page": 68
-    },
-    {
-      "text": "Indikator 2a viser fremgang i Region Hovedstaden som ligger svarende til landsgennemsnittet [^src1]",
-      "type": "performance",
-      "entities": [
-        "region-hovedstaden",
-        "indikator-2a"
-      ],
-      "page": 68
-    },
-    {
-      "text": "Der ses en lille stigning for indikator 2b som for Region Hovedstaden ligger svarende til landsgennemsnittet [^src1]",
-      "type": "performance",
-      "entities": [
-        "region-hovedstaden",
-        "indikator-2b"
-      ],
-      "page": 68
-    },
-    {
-      "text": "Der ses udfordringer med opfyldelse af indikator 3 samt fald i forhold til seneste år [^src1]",
-      "type": "performance",
-      "entities": [
-        "indikator-3"
-      ],
-      "page": 68
-    },
-    {
-      "text": "Region Hovedstaden bakker op om revision af indikator 4 og 5 [^src1]",
-      "type": "decision",
-      "entities": [
-        "region-hovedstaden",
-        "indikator-4",
-        "indikator-5"
-      ],
-      "page": 68
-    },
-    {
-      "text": "Region Hovedstaden bakker op om styregruppens overvejelse om at placere indikator 6 i supplerende materiale fremover [^src1]",
-      "type": "decision",
-      "entities": [
-        "region-hovedstaden",
-        "indikator-6"
-      ],
-      "page": 68
-    },
-    {
-      "text": "Region Hovedstaden ligger på 32% for indikator 8 og dermed langt fra udviklingsmålet [^src1]",
-      "type": "performance",
-      "entities": [
-        "region-hovedstaden",
-        "indikator-8"
-      ],
-      "page": 68
-    },
-    {
-      "text": "Den aktuelle ADHD-behandlingspakke på 9 timer er ikke af et omfang, der kan inkorporere psykoterapi [^src1]",
-      "type": "operational",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 68
-    },
-    {
-      "text": "Region Hovedstaden ligger med 49% over landsgennemsnittet for indikator 10 [^src1]",
-      "type": "performance",
-      "entities": [
-        "region-hovedstaden",
-        "indikator-10"
-      ],
-      "page": 68
-    },
-    {
-      "text": "Region Hovedstaden ligger på 37% for indikator 11 [^src1]",
-      "type": "performance",
-      "entities": [
-        "region-hovedstaden",
-        "indikator-11"
-      ],
-      "page": 68
-    },
-    {
-      "text": "Specialpsykologer må stille psykiatriske diagnoser ifølge lovgivningen [^src1]",
-      "type": "legal-framework",
-      "entities": [
-        "specialpsykologer"
-      ],
-      "page": 69
-    },
-    {
-      "text": "RKKP Skizofreni har inkluderet Specialpsykologer sammen med Speciallæger i deres kriterier uden behov for at lave yderligere forarbejde [^src1]",
-      "type": "comparative",
-      "entities": [
-        "rkkp-skizofreni",
-        "specialpsykologer"
-      ],
-      "page": 69
-    },
-    {
-      "text": "Region Sjælland indstiller, at indikator 3 ændres til at inkludere Specialpsykologer ifm. diagnosticering [^src1]",
-      "type": "decision",
-      "entities": [
-        "region-sjaelland",
-        "indikator-3",
-        "specialpsykologer"
-      ],
-      "page": 69
-    },
-    {
       "text": "Region Syddanmark har meldt tilbage, at der ingen kommentarer er til årsrapporten [^src1]",
-      "type": "procedural",
+      "type": "administrative",
       "entities": [
         "region-syddanmark"
       ],
-      "page": 69
+      "page": 66
     },
     {
       "text": "Region Midtjylland har meldt tilbage, at der ingen kommentarer er til årsrapporten [^src1]",
-      "type": "procedural",
+      "type": "administrative",
       "entities": [
         "region-midtjylland"
       ],
-      "page": 69
+      "page": 66
     },
     {
-      "text": "Region Nordjylland rapporterer at målopfyldelsen for Børne- og Ungdomspsykiatrien er påvirket af de fastsatte tidsfrister (90 eller 120 dage efter opstart) [^src1]",
+      "text": "For Børne- og Ungdomspsykiatrien er målopfyldelsen fortsat påvirket af de fastsatte tidsfrister (90 eller 120 dage efter opstart) [^src1]",
       "type": "performance",
       "entities": [
         "region-nordjylland"
       ],
-      "page": 70
+      "page": 66
     },
     {
-      "text": "Interne analyser i Region Nordjylland viser, at flere børn og unge modtager de relevante procedurer, dog efter tidsfristen [^src1]",
-      "type": "observation",
+      "text": "Interne analyser viser, at flere børn og unge modtager de relevante procedurer, dog efter tidsfristen [^src1]",
+      "type": "performance",
       "entities": [
         "region-nordjylland"
       ],
-      "page": 70
+      "page": 66
     },
     {
-      "text": "For voksenpopulationen i Region Nordjylland skyldes den lave målopfyldelse primært registreringsudfordringer [^src1]",
-      "type": "operational",
+      "text": "For voksenpopulationen skyldes den lave målopfyldelse primært registreringsudfordringer [^src1]",
+      "type": "performance",
       "entities": [
         "region-nordjylland"
       ],
-      "page": 70
+      "page": 66
+    },
+    {
+      "text": "Begge almenpsykiatriske afdelinger arbejder fremadrettet med at sikre korrekt registrering, så data i årsrapporten bedre afspejler den kliniske praksis [^src1]",
+      "type": "process",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 66
     }
   ],
   "timeline": [
     {
-      "date": "4. december 2024",
-      "event": "Årsrapporten for ADHD-databasen blev sendt i høring ved regioner og afdelinger",
+      "date": "2024-12-04",
+      "event": "Årsrapporten for ADHD-databasen blev sendt i høring til regioner og afdelinger",
       "entities": [
         "adhd-databasen"
       ]
     },
     {
-      "date": "17. januar 2025",
-      "event": "Høringen af årsrapporten for ADHD-databasen sluttede",
+      "date": "2025-01-17",
+      "event": "Høringsperioden for årsrapporten for ADHD-databasen blev afsluttet",
       "entities": [
         "adhd-databasen"
       ]
     }
   ],
-  "context": "Dette appendiks dokumenterer beregningsregler og populationsdannelse for ADHD-databasen samt regionale kommentarer til årsrapporten fra fem danske regioner. ADHD-databasen er en landsdækkende database, der inkluderer både børn, unge og voksne med ADHD, og som opererer med to overordnede forløbsbaserede populationer: ADHD-udredningspopulation og ADHD-behandlingspopulation. Regionerne har givet feedback på deres målopfyldelse for forskellige indikatorer, hvor flere regioner rapporterer registreringsproblemer, implementeringsudfordringer og behov for revision af indikatorer. Region Sjælland har særligt indstillet, at Specialpsykologer inkluderes i diagnosticeringskriteriet for indikator 3, baseret på deres lovfæstede kompetencer til at stille psykiatriske diagnoser."
+  "tables": [],
+  "context": "Dette dokumentudsnit (sider 66–70) er en del af Appendix 4 i årsrapporten for ADHD-databasen og indeholder regionale kommentarer fra høringsprocessen, der foregik fra 4. december 2024 til 17. januar 2025. Det omhandler regionernes evaluering af kvalitetsindikatorerne i forhold til klinisk praksis, registreringsudfordringer og implementeringsbarrierer – især med fokus på forskelle mellem børn/unge og voksne samt variationer i målopfyldelse. Uden for Region Hovedstaden og Region Sjælland (som kommenterer på tidligere sider) bidrager Region Syddanmark, Region Midtjylland og Region Nordjylland her med direkte input, hvoraf sidstnævnte giver konkrete analyser af tidsfristovertrædelser og registreringsproblemer i voksenpsykiatrien."
 }

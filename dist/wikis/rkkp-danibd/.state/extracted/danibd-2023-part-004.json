@@ -4,40 +4,41 @@
       "name": "DANIBD",
       "type": "organization",
       "slug": "danibd",
-      "folder": "entities/organizations/registries",
-      "significance": "DANIBD er Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme, som monitorerer, evaluerer og forbedrer behandlingskvaliteten af IBD i Danmark via et indikatorsæt udviklet af styregruppen.",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DANIBD er den danske kvalitetsdatabase for inflammatoriske tarmsygdomme, som har til formål at monitorere, evaluere og forbedre behandlingskvaliteten af IBD i Danmark via et evidensbaseret indikatorsæt.",
       "mentions": [
         {
           "page": 16,
-          "context": "Sorteret kontroldiagram: Resultat af indikator 7 med konfidensinterval på lands- og afdelingsniveau for aktuelle opgørelsesperiode"
+          "context": "DANIBD"
+        },
+        {
+          "page": 17,
+          "context": "DANIBD"
         },
         {
           "page": 18,
-          "context": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD) har til formål at monitorere, evaluere og forbedre behandlingskvaliteten af IBD i Danmark"
+          "context": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD)"
         },
         {
           "page": 19,
-          "context": "DANIBD omfatter patienter med IBD behandlet på et offentligt dansk hospital. DANIBDs opgørelsesperiode går fra 1. oktober til 30. september."
+          "context": "DANIBD omfatter patienter med IBD behandlet på et offentligt dansk hospital."
         },
         {
           "page": 20,
-          "context": "Dækningsgraden beskriver i hvilket omfang databasen inkluderer alle relevante patientforløb i henhold til databasens inklusionskriterier"
+          "context": "DANIBD identificerer patienter med IBD ved mindst to hospitalskontakter for IBD"
         }
       ]
     },
     {
       "name": "PSC",
-      "type": "condition",
+      "type": "disease",
       "slug": "psc",
-      "folder": "topics/medical-conditions",
-      "significance": "Primær skleroserende kolangitis (PSC) er en tilstand, der ofte optræder sammen med IBD, og patienter med PSC skal screenes med koloskopi inden for 18 måneder ifølge indikator 7.",
+      "folder": "entities/diseases/hepatobiliary",
+      "significance": "Primær skleroserende kolangitis (PSC) er en kronisk leversygdom, der ofte forekommer sammen med IBD, og som er central for indikator 7 i DANIBD-rapporten på siderne 16–17.",
+      "disambiguation": "Refererer til 'Primær skleroserende kolangitis', ikke til andre betydninger af akronymerne PSC (f.eks. 'Professional Services Corporation' eller 'Port Security Coordinator').",
       "mentions": [
         {
           "page": 16,
-          "context": "Sorteret kontroldiagram: Resultat af indikator 7 med konfidensinterval på lands- og afdelingsniveau for aktuelle opgørelsesperiode"
-        },
-        {
-          "page": 17,
           "context": "Patienter med PSC defineres som patienter med PSC som a-diagnose med IBD som b-diagnose og omvendt, samt PSC som a-diagnose for patienter, der tidligere har haft minimum to IBD a-diagnoser."
         },
         {
@@ -46,20 +47,21 @@
         },
         {
           "page": 19,
-          "context": "DK830F 'Primær skleroserende kolangitis': med DK50* eller DK51* som b-diagnose"
+          "context": "DK830F ‘Primær skleroserende kolangitis’:"
         }
       ]
     },
     {
       "name": "IBD",
-      "type": "condition",
+      "type": "disease",
       "slug": "ibd",
-      "folder": "topics/medical-conditions",
-      "significance": "Inflammatory bowel disease (IBD) omfatter colitis ulcerosa og Crohns sygdom og er hovedfokus for DANIBD-databasen, som monitorerer behandlingskvaliteten af disse sygdomme i Danmark.",
+      "folder": "entities/diseases/gastrointestinal",
+      "significance": "Inflammatorisk tarmsygdom (IBD) er den overordnede sygdomskategori, som DANIBD fokuserer på, og omfatter colitis ulcerosa og Crohns sygdom — både centralt defineret i inklusionskriterierne og i klinisk beskrivelse på siderne 18–19.",
+      "disambiguation": "Refererer til 'inflammatory bowel disease' (colitis ulcerosa og Crohns sygdom), ikke til andre brug af akronymet IBD (f.eks. 'International Business Development' eller 'Intelligent Building Design').",
       "mentions": [
         {
-          "page": 17,
-          "context": "Patienter med PSC defineres som patienter med PSC som a-diagnose med IBD som b-diagnose og omvendt"
+          "page": 16,
+          "context": "Resultat af indikator 7 med konfidensinterval på lands- og afdelingsniveau for aktuelle opgørelsesperiode"
         },
         {
           "page": 17,
@@ -70,209 +72,64 @@
           "context": "Kronisk inflammatorisk tarmsygdom (inflammatory bowel disease, IBD) dækker over to hovedformer, colitis ulcerosa (UC) og Crohns sygdom (CD)."
         },
         {
-          "page": 18,
-          "context": "Både UC og CD kan debutere i alle aldre, men opstår oftest hos 20-40-årige, og påvirker ca. 7. mio. mennesker på verdensplan"
-        },
-        {
-          "page": 18,
-          "context": "i Danmark har ca. 70.000 danskere sygdommen, svarende til ca. 1% af befolkningen."
-        },
-        {
           "page": 19,
           "context": "DANIBD omfatter patienter med IBD behandlet på et offentligt dansk hospital."
-        },
-        {
-          "page": 20,
-          "context": "Dækningsgraden beskriver i hvilket omfang databasen inkluderer alle relevante patientforløb i henhold til databasens inklusionskriterier (patientgrundlag)."
         }
       ]
     },
     {
-      "name": "Colitis ulcerosa",
-      "type": "condition",
-      "slug": "colitis-ulcerosa",
-      "folder": "topics/medical-conditions",
-      "significance": "Colitis ulcerosa (UC) er en af to hovedformer af IBD, som DANIBD monitorerer, og er karakteriseret ved inflammation i tyktarmen.",
-      "mentions": [
-        {
-          "page": 18,
-          "context": "Kronisk inflammatorisk tarmsygdom (inflammatory bowel disease, IBD) dækker over to hovedformer, colitis ulcerosa (UC) og Crohns sygdom (CD)."
-        },
-        {
-          "page": 19,
-          "context": "DK51* 'Ulcerøs colitis' (UC)"
-        }
-      ]
-    },
-    {
-      "name": "Crohns sygdom",
-      "type": "condition",
-      "slug": "crohns-sygdom",
-      "folder": "topics/medical-conditions",
-      "significance": "Crohns sygdom (CD) er en af to hovedformer af IBD, som DANIBD monitorerer, og kan påvirke hele mave-tarmkanalen.",
-      "mentions": [
-        {
-          "page": 18,
-          "context": "Kronisk inflammatorisk tarmsygdom (inflammatory bowel disease, IBD) dækker over to hovedformer, colitis ulcerosa (UC) og Crohns sygdom (CD)."
-        },
-        {
-          "page": 19,
-          "context": "DK50* 'Crohns sygdom' (CD)"
-        }
-      ]
-    },
-    {
-      "name": "Region Sjælland",
-      "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland er den eneste region blandt fem, der ikke opfylder målsætningen på mindst 80 % koloskopi inden for 18 måneder for PSC-patienter, med kun 70 % opfyldelse.",
+      "name": "Styregruppen for DANIBD",
+      "type": "organization",
+      "slug": "styregruppen-for-danibd",
+      "folder": "entities/organizations/health-governance",
+      "significance": "Styregruppen for DANIBD er den beslutningsmæssige og udviklingsmæssige enhed, der har udviklet indikatorsættet, diskuterer diagnosekodningsproblemer og anbefaler audits til afdelingerne, hvilket fremgår af kommentar- og diskussionsafsnittene på side 17.",
       "mentions": [
         {
           "page": 17,
-          "context": "Fire ud af fem regioner lever op til målsætningen, idet Region Sjælland med 70 % ikke lever op til målsætningen."
+          "context": "Styregruppen har diskuteret, om antallet af patienter med PSC er for lavt som udtryk for problemer med tilstrækkelig diagnosekodning. Styregruppen vil arbejde videre med denne indikator og opfordrer afdelingerne til at lave audit, hvis indikatoren ikke er opfyldt."
         }
       ]
     },
     {
-      "name": "Landpatientregisteret",
-      "type": "organization",
-      "slug": "landpatientregisteret",
-      "folder": "entities/organizations/registries",
-      "significance": "Landpatientregisteret (LPR) er en af de nationale registre, som DANIBD anvender til dataindberetning og til at identificere patienter med IBD baseret på aktionsdiagnoser.",
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/health-registries",
+      "significance": "Landspatientregisteret (LPR) er det nationale register, som DANIBD primært bygger på til identifikation af IBD-patienter via aktionsdiagnoser, og som definerer inklusionskriterierne for patientgrundlaget på siderne 19–20.",
       "mentions": [
         {
           "page": 19,
-          "context": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Landpatientregisteret (LPR)"
-        },
-        {
-          "page": 19,
-          "context": "Det organisatoriske tilhørsforhold er som udgangspunkt bestemt ved den enhed, hvor patienten har haft en hospitalskontakt for IBD i LPR"
+          "context": "DANIBD omfatter patienter med IBD behandlet på et offentligt dansk hospital. [...] Det organisatoriske tilhørsforhold er som udgangspunkt bestemt ved den enhed, hvor patienten har haft en hospitalskontakt for IBD i LPR"
         },
         {
           "page": 20,
-          "context": "DANIBD baseret på aktionsdiagnoser for inflammatoriske tarmsygdomme registreret i Landspatientregisteret (LPR)"
+          "context": "DANIBD er baseret på aktionsdiagnoser for inflammatoriske tarmsygdomme registreret i Landspatientregisteret (LPR)"
         }
       ]
     },
     {
-      "name": "Det Centrale Personregister",
-      "type": "organization",
-      "slug": "det-centrale-personregister",
-      "folder": "entities/organizations/registries",
-      "significance": "Det Centrale Personregister (CPR) er en af de nationale registre, som DANIBD anvender til dataindberetning for IBD-patienter.",
+      "name": "Jacobsen HA et al.",
+      "type": "person",
+      "slug": "jacobsen-ha-et-al",
+      "folder": "entities/people/researchers",
+      "significance": "Jacobsen HA et al. er forfatterne til et valideringsstudie fra 2022, der dokumenterer en høj positiv prædiktiv værdi (PPV = 0,95) for IBD-diagnoser i LPR — en kilde, der bruges til at vurdere DANIBDs dækningsgrad på side 20.",
       "mentions": [
         {
-          "page": 19,
-          "context": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Det Centrale Personregister (CPR)"
-        }
-      ]
-    },
-    {
-      "name": "Lægemiddelstatistikregisteret",
-      "type": "organization",
-      "slug": "laegemiddelstatistikregisteret",
-      "folder": "entities/organizations/registries",
-      "significance": "Lægemiddelstatistikregisteret (LSR) er en af de nationale registre, som DANIBD anvender til dataindberetning for IBD-patienter.",
-      "mentions": [
-        {
-          "page": 19,
-          "context": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Lægemiddelstatistikregisteret (LSR)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehusmedicinregistret",
-      "type": "organization",
-      "slug": "sygehusmedicinregistret",
-      "folder": "entities/organizations/registries",
-      "significance": "Sygehusmedicinregistret (SMR) er en af de nationale registre, som DANIBD anvender til dataindberetning for IBD-patienter.",
-      "mentions": [
-        {
-          "page": 19,
-          "context": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Sygehusmedicinregistret (SMR)"
-        }
-      ]
-    },
-    {
-      "name": "Laboratorieregisteret",
-      "type": "organization",
-      "slug": "laboratorieregisteret",
-      "folder": "entities/organizations/registries",
-      "significance": "Laboratorieregisteret (LABKA) er en af de nationale registre, som DANIBD anvender til dataindberetning for IBD-patienter.",
-      "mentions": [
-        {
-          "page": 19,
-          "context": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Laboratorieregisteret (LABKA)"
-        }
-      ]
-    },
-    {
-      "name": "Sygesikringsregisteret",
-      "type": "organization",
-      "slug": "sygesikringsregisteret",
-      "folder": "entities/organizations/registries",
-      "significance": "Sygesikringsregisteret (SSR) er en af de nationale registre, som DANIBD anvender til dataindberetning for IBD-patienter.",
-      "mentions": [
-        {
-          "page": 19,
-          "context": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Sygesikringsregisteret (SSR)"
-        }
-      ]
-    },
-    {
-      "name": "Dansk Selskab for Gastroenterologi",
-      "type": "organization",
-      "slug": "dansk-selskab-for-gastroenterologi",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Dansk Selskab for Gastroenterologi har udgivet anbefalinger for behandling af IBD, som er relevante for DANIBD's indikatorsæt.",
-      "mentions": [
-        {
-          "page": 18,
-          "context": "jf. anbefalinger fra Dansk Selskab for Gastroenterologi og det uafhængige Medicinrådet"
-        }
-      ]
-    },
-    {
-      "name": "Medicinrådet",
-      "type": "organization",
-      "slug": "medicinraadet",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Medicinrådet (tidligere Rådet for Anvendelsen af Dyr Sygehusmedicin, RADS) har udgivet anbefalinger for behandling af IBD, som er relevante for DANIBD's indikatorsæt.",
-      "mentions": [
-        {
-          "page": 18,
-          "context": "jf. anbefalinger fra Dansk Selskab for Gastroenterologi og det uafhængige Medicinrådet (tidligere Rådet for Anvendelsen af Dyr Sygehusmedicin, RADS)."
+          "page": 20,
+          "context": "Reference: Jacobsen HA et al. Validity of Inflammatory Bowel Disease Diagnoses in the Danish National Patient Registry: A Population-Based Study from the North Denmark Region. Clin Epidemiol. 2022;14:1099-1109."
         }
       ]
     },
     {
       "name": "GASTROBIO",
-      "type": "organization",
+      "type": "database",
       "slug": "gastrobio",
-      "folder": "entities/organizations/registries",
-      "significance": "GASTROBIO er en regional IBD-database i Region Nordjylland, som blev brugt i valideringsstudiet af Jacobsen et al. til at verificere IBD-diagnoser i Landpatientregisteret.",
+      "folder": "entities/databases/health-registries",
+      "significance": "GASTROBIO er en regional IBD-database fra Region Nordjylland, som anvendes som reference i Jacobsen et al.'s valideringsstudie til at beregne den positive prædiktive værdi af IBD-diagnoser i LPR, og dermed understøtte vurderingen af DANIBDs dækningsgrad.",
       "mentions": [
         {
           "page": 20,
           "context": "I studiet af Jacobsen et al fra 2022 undersøges den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR ift. den regionale IBD database GASTROBIO. GASTROBIO anvender journalgennemgang til at verificere patienter med IBD behandlet i Region Nordjylland."
-        }
-      ]
-    },
-    {
-      "name": "Jacobsen HA",
-      "type": "person",
-      "slug": "jacobsen-ha",
-      "folder": "entities/people/researchers",
-      "significance": "Jacobsen HA er forfatter af et valideringsstudie fra 2022, som undersøgte den positive prædiktive værdi af IBD-diagnoser i Landpatientregisteret og fandt en høj PPV på 0,95.",
-      "mentions": [
-        {
-          "page": 20,
-          "context": "I studiet af Jacobsen et al fra 2022 undersøges den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR ift. den regionale IBD database GASTROBIO."
-        },
-        {
-          "page": 20,
-          "context": "Reference: Jacobsen HA et al. Validity of Inflammatory Bowel Disease Diagnoses in the Danish National Patient Registry: A Population-Based Study from the North Denmark Region. Clin Epidemiol. 2022;14:1099-1109."
         }
       ]
     }
@@ -280,87 +137,38 @@
   "relationships": [
     {
       "subject": "danibd",
-      "predicate": "monitors",
-      "object": "ibd",
-      "evidence": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD) har til formål at monitorere, evaluere og forbedre behandlingskvaliteten af IBD i Danmark",
-      "page": 18
+      "predicate": "is-based-on",
+      "object": "landspatientregisteret",
+      "evidence": "DANIBD er baseret på aktionsdiagnoser for inflammatoriske tarmsygdomme registreret i Landspatientregisteret (LPR)",
+      "page": 20
     },
     {
       "subject": "danibd",
-      "predicate": "uses-data-from",
-      "object": "landpatientregisteret",
-      "evidence": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Landpatientregisteret (LPR)",
-      "page": 19
-    },
-    {
-      "subject": "danibd",
-      "predicate": "uses-data-from",
-      "object": "det-centrale-personregister",
-      "evidence": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Det Centrale Personregister (CPR)",
-      "page": 19
-    },
-    {
-      "subject": "danibd",
-      "predicate": "uses-data-from",
-      "object": "laegemiddelstatistikregisteret",
-      "evidence": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Lægemiddelstatistikregisteret (LSR)",
-      "page": 19
-    },
-    {
-      "subject": "danibd",
-      "predicate": "uses-data-from",
-      "object": "sygehusmedicinregistret",
-      "evidence": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Sygehusmedicinregistret (SMR)",
-      "page": 19
-    },
-    {
-      "subject": "danibd",
-      "predicate": "uses-data-from",
-      "object": "laboratorieregisteret",
-      "evidence": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Laboratorieregisteret (LABKA)",
-      "page": 19
-    },
-    {
-      "subject": "danibd",
-      "predicate": "uses-data-from",
-      "object": "sygesikringsregisteret",
-      "evidence": "Hospitalsenheder, der behandler patienter med IBD, er omfattet af dataindberetning til DANIBD via de nationale registre; Sygesikringsregisteret (SSR)",
-      "page": 19
-    },
-    {
-      "subject": "colitis-ulcerosa",
-      "predicate": "is-form-of",
-      "object": "ibd",
-      "evidence": "Kronisk inflammatorisk tarmsygdom (inflammatory bowel disease, IBD) dækker over to hovedformer, colitis ulcerosa (UC) og Crohns sygdom (CD).",
-      "page": 18
-    },
-    {
-      "subject": "crohns-sygdom",
-      "predicate": "is-form-of",
-      "object": "ibd",
-      "evidence": "Kronisk inflammatorisk tarmsygdom (inflammatory bowel disease, IBD) dækker over to hovedformer, colitis ulcerosa (UC) og Crohns sygdom (CD).",
-      "page": 18
-    },
-    {
-      "subject": "psc",
-      "predicate": "associated-with",
-      "object": "ibd",
-      "evidence": "Patienter med PSC defineres som patienter med PSC som a-diagnose med IBD som b-diagnose og omvendt",
+      "predicate": "has-governing-body",
+      "object": "styreguppen-for-danibd",
+      "evidence": "Styregruppen for DANIBD har udviklet indikatorsættet og diskuterer kliniske og kodningstekniske udfordringer",
       "page": 17
     },
     {
-      "subject": "jacobsen-ha",
-      "predicate": "authored-study-on",
-      "object": "landpatientregisteret",
-      "evidence": "I studiet af Jacobsen et al fra 2022 undersøges den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR",
+      "subject": "jacobsen-ha-et-al",
+      "predicate": "authored-study-comparing",
+      "object": "gastrobio",
+      "evidence": "I studiet af Jacobsen et al fra 2022 undersøges den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR ift. den regionale IBD database GASTROBIO",
       "page": 20
     },
     {
-      "subject": "jacobsen-ha",
-      "predicate": "validated-against",
-      "object": "gastrobio",
-      "evidence": "I studiet af Jacobsen et al fra 2022 undersøges den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR ift. den regionale IBD database GASTROBIO.",
-      "page": 20
+      "subject": "ibd",
+      "predicate": "includes-subtype",
+      "object": "uc",
+      "evidence": "Kronisk inflammatorisk tarmsygdom (inflammatory bowel disease, IBD) dækker over to hovedformer, colitis ulcerosa (UC) og Crohns sygdom (CD).",
+      "page": 18
+    },
+    {
+      "subject": "ibd",
+      "predicate": "includes-subtype",
+      "object": "cd",
+      "evidence": "Kronisk inflammatorisk tarmsygdom (inflammatory bowel disease, IBD) dækker over to hovedformer, colitis ulcerosa (UC) og Crohns sygdom (CD).",
+      "page": 18
     }
   ],
   "claims": [
@@ -383,7 +191,7 @@
     },
     {
       "text": "På landsplan har 85 % af patienterne fået foretaget en koloskopi inden for 18 måneder, hvoraf målsætningen på mindst 80 % er opfyldt [^src1]",
-      "type": "quality-indicator",
+      "type": "performance",
       "entities": [
         "danibd"
       ],
@@ -391,7 +199,7 @@
     },
     {
       "text": "I 58 % af de foretagne koloskopier er der udtaget biopsi (KUJF35) [^src1]",
-      "type": "quality-indicator",
+      "type": "procedural",
       "entities": [
         "danibd"
       ],
@@ -399,22 +207,22 @@
     },
     {
       "text": "Fire ud af fem regioner lever op til målsætningen, idet Region Sjælland med 70 % ikke lever op til målsætningen [^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 17
-    },
-    {
-      "text": "På afdelingsniveau lever 14 ud af 21 afdelinger op til målsætningen [^src1]",
-      "type": "quality-indicator",
+      "type": "regional-performance",
       "entities": [
         "danibd"
       ],
       "page": 17
     },
     {
-      "text": "IBD påvirker ca. 7. mio. mennesker på verdensplan [^src1]",
+      "text": "På afdelingsniveau lever 14 ud af 21 afdelinger op til målsætningen [^src1]",
+      "type": "departmental-performance",
+      "entities": [
+        "danibd"
+      ],
+      "page": 17
+    },
+    {
+      "text": "IBD påvirker ca. 70.000 danskere, svarende til ca. 1% af befolkningen [^src2]",
       "type": "epidemiological",
       "entities": [
         "ibd"
@@ -422,44 +230,62 @@
       "page": 18
     },
     {
-      "text": "i Danmark har ca. 70.000 danskere sygdommen, svarende til ca. 1% af befolkningen [^src1]",
-      "type": "epidemiological",
+      "text": "Der findes i dag ingen præcise tværregionale og uafhængige opgørelser over monitoreringen af behandlingen af IBD og vigtige associerede outcomes [^src2]",
+      "type": "systemic-observation",
       "entities": [
+        "ibd",
+        "danibd"
+      ],
+      "page": 18
+    },
+    {
+      "text": "DANIBD har til formål at monitorere, evaluere og forbedre behandlingskvaliteten af IBD i Danmark [^src2]",
+      "type": "mission",
+      "entities": [
+        "danibd"
+      ],
+      "page": 18
+    },
+    {
+      "text": "DANIBD omfatter alle patienter med IBD i Danmark [^src3]",
+      "type": "coverage",
+      "entities": [
+        "danibd",
         "ibd"
       ],
-      "page": 18
+      "page": 19
     },
     {
-      "text": "Både UC og CD kan debutere i alle aldre, men opstår oftest hos 20-40-årige [^src1]",
-      "type": "clinical",
+      "text": "Patienter med IBD skal have mindst to hospitalskontakter med følgende aktionsdiagnoser registreret i LPR: DK50* ‘Crohns sygdom’, DK51* ‘Ulcerøs colitis’, DK912B ‘Korttarmssyndrom’ med DK50*/DK51* som b-diagnose, eller DK830F ‘Primær skleroserende kolangitis’ [^src3]",
+      "type": "eligibility-criteria",
       "entities": [
-        "colitis-ulcerosa",
-        "crohns-sygdom"
+        "ibd",
+        "psc",
+        "landspatientregisteret"
       ],
-      "page": 18
+      "page": 19
     },
     {
-      "text": "I studiet af Jacobsen et al fra 2022 findes en høj PPV for to IBD-diagnoser svarende til en PPV på 0,95 (95% CI, 0,95-0,96) [^src1]",
+      "text": "Den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR er 0,95 (95% CI, 0,95–0,96) ift. GASTROBIO [^src4]",
       "type": "validation",
       "entities": [
-        "jacobsen-ha",
-        "ibd"
+        "landspatientregisteret",
+        "gastrobio"
       ],
       "page": 20
     },
     {
-      "text": "Da DANIBD identificerer patienter med IBD ved mindst to hospitalskontakter for IBD og kun få patienter får stillet diagnosen andet sted, vil databasens dækningsgrad med stor sandsynlighed være over 90 % [^src1]",
-      "type": "quality-indicator",
+      "text": "Databasens dækningsgrad med stor sandsynlighed er over 90 % [^src4]",
+      "type": "coverage-estimate",
       "entities": [
-        "danibd",
-        "ibd"
+        "danibd"
       ],
       "page": 20
     }
   ],
   "timeline": [
     {
-      "date": "1. oktober til 30. september",
+      "date": "1. oktober – 30. september",
       "event": "DANIBDs opgørelsesperiode",
       "entities": [
         "danibd"
@@ -467,13 +293,13 @@
     },
     {
       "date": "2022",
-      "event": "Jacobsen et al publicerer valideringsstudie af IBD-diagnoser i Landpatientregisteret",
+      "event": "Jacobsen HA et al. publicerer valideringsstudiet om IBD-diagnoser i LPR",
       "entities": [
-        "jacobsen-ha",
-        "landpatientregisteret",
-        "ibd"
+        "jacobsen-ha-et-al",
+        "landspatientregisteret"
       ]
     }
   ],
-  "context": "Denne dokumentchunk beskriver DANIBD (Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme), som er en national kvalitetsdatabase, der monitorerer behandlingen af inflammatorisk tarmsygdom (IBD) på danske hospitaler. Chunken præsenterer resultater fra indikator 7, som måler andelen af PSC-patienter, der får foretaget koloskopi inden for 18 måneder, samt giver en detaljeret beskrivelse af IBD som sygdomsområde, databasens datagrundlag baseret på nationale registre, og dækningsgraden af databasen valideret gennem tidligere forskning. Materialet dokumenterer, at DANIBD omfatter omkring 70.000 danske patienter med IBD og anvender data fra seks nationale registre til at sikre kvalitetsbaseret behandling på alle relevante afdelinger i Danmark."
+  "tables": [],
+  "context": "Dette afsnit fra DANIBD-årsrapporten (sider 16–20) danner en teknisk og epidemiologisk grundlag for kvalitetsmonitorering af inflammatoriske tarmsygdomme i Danmark. Det introducerer indikator 7 (koloskopi ved PSC/IBD-komorbiditet), præsenterer resultater fra den aktuelle opgørelsesperiode, redegør for datagrundlaget og inklusionskriterierne i Landspatientregisteret, og diskuterer validitet og dækningsgrad via reference til det regionale GASTROBIO-register og Jacobsen et al.'s 2022-studie. Sammenhængen mellem PSC og IBD, organisatorisk ansvar (styregruppen), og systemiske begrænsninger i datakvalitet udgør kerneelementerne i denne del af rapporten, som er rettet mod sundhedsvæsenets kvalitetsansvarlige og kliniske ledere."
 }

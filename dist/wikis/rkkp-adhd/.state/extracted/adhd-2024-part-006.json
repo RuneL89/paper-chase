@@ -1,480 +1,168 @@
 {
   "entities": [
     {
-      "name": "ADHD-databasen",
+      "name": "Indikator 4",
+      "type": "quality-indicator",
+      "slug": "indikator-4",
+      "folder": "topics/quality-indicators/adhd-care",
+      "significance": "Indikator 4 er en central kvalitetsindikator i ADHD-databasen, der måler andelen af behandlingsforløb blandt børn og unge under 18 år, hvor der er afholdt et koordinerende netværksmøde senest 90 dage efter behandlingsstart — og som nu er revideret til at omfatte udredningsforløb med fokus på tidlig kontakt til hjemkommunen.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Indikator 4: Andelen af behandlingsforløb, hvor der er foretaget koordinerende netværksmøde senest 90 dage efter behandlingsstart. Trendgraf på regionsniveau."
+        },
+        {
+          "page": 26,
+          "context": "Indikator 4 drejer sig om hvorvidt der er afholdt et koordinerende netværksmøde senest 90 dage efter start af ADHD-udredning."
+        },
+        {
+          "page": 26,
+          "context": "Styregruppen har arbejdet med en revision af indikatoren og lavet en ny ordlyd samt ændret indikatoren til at omfatte udredningspopulationen."
+        }
+      ]
+    },
+    {
+      "name": "styregruppen",
+      "type": "organization",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Styregruppen er den beslutningskompetente gruppe, der har godkendt både den oprindelige udformning af Indikator 4 og dens reviderede ordlyd, herunder beslutningen om at udvide indikatoren til at omfatte udredningspopulationen og fokusere på tidlig kontakt til hjemkommunen.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Der er enighed i styregruppen om at der skal være en lægefaglig vurdering i alle udredninger..."
+        },
+        {
+          "page": 26,
+          "context": "Beslutning:\nDen diagnostiske konference er hovedhjørnestenen i en god udredning. Styregruppen vil kigge på revision af ordlyden af denne indikator..."
+        },
+        {
+          "page": 26,
+          "context": "Beslutning:\nStyregruppen har arbejdet med en revision af indikatoren og lavet en ny ordlyd samt ændret indikatoren til at omfatte udredningspopulationen."
+        }
+      ]
+    },
+    {
+      "name": "ADHD-DATABASEN",
       "type": "organization",
       "slug": "adhd-databasen",
-      "folder": "entities/organizations/health-registries",
-      "significance": "ADHD-databasen er det centrale register, der dokumenterer og måler kvalitetsindikatorer for ADHD-udredning og behandling på tværs af danske regioner og afdelinger.",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "ADHD-DATABASEN er det officielle sundhedsvæsenets registrerings- og overvågningsværktøj for ADHD-kvalitetsindikatorer, hvori Indikator 4 er defineret, beregnet og rapporteret — og hvor styregruppens beslutninger om revidering af indikatorer implementeres.",
       "mentions": [
         {
           "page": 26,
-          "context": "ADHD-DATABASEN diagnostiske konferencer"
+          "context": "ADHD-DATABASEN"
+        }
+      ]
+    },
+    {
+      "name": "koordinerende netværksmøde",
+      "type": "process",
+      "slug": "koordinerende-netvaerksmoede",
+      "folder": "topics/processes",
+      "significance": "Koordinerende netværksmøde er den specifikke proces, der oprindeligt var målt af Indikator 4, og som blev vurderet som langt fra målopfyldelse — hvilket førte til styregruppens beslutning om at erstatte den med en mere realistisk og tværsektorielt relevant indikator om tidlig kontakt til hjemkommunen.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Indikator 4: Koordinerende netværksmøde"
         },
         {
           "page": 26,
-          "context": "ADHD-DATABASEN Indikator 4: Koordinerende netværksmøde"
-        }
-      ]
-    },
-    {
-      "name": "Region Hovedstaden",
-      "type": "organization",
-      "slug": "region-hovedstaden",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Hovedstaden er en af de fem danske regioner, der rapporterer ADHD-indikatorer til databasen, og viser blandt de højeste resultater for koordinerende netværksmøder på 29 %.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Hovedstaden Nej 556 / 1.905 29 (27-31)"
+          "context": "Indikator 4 drejer sig om hvorvidt der er afholdt et koordinerende netværksmøde senest 90 dage efter start af ADHD-udredning."
         },
         {
           "page": 26,
-          "context": "Region Hovedstaden og Region Syddanmark er de regioner der er registret med flest netværksmøder indenfor tidsfristen"
+          "context": "Denne indikator har hele dens levetid ligget stabilt langt fra målopfyldelsen."
         }
       ]
     },
     {
-      "name": "Region Sjælland",
+      "name": "udredningspopulationen",
+      "type": "population",
+      "slug": "adhd-udredningspopulation",
+      "folder": "entities/populations/adhd",
+      "significance": "Udredningspopulationen er den nye målgruppe for den reviderede Indikator 4, hvilket udvider indikatorens rækkevidde fra udelukkende behandlingsforløb til også at omfatte patienter i udredningsfasen — i overensstemmelse med styregruppens ønske om tidlig tværsektoriel koordination.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "ændret indikatoren til at omfatte udredningspopulationen."
+        }
+      ]
+    },
+    {
+      "name": "hjemkommune",
       "type": "organization",
-      "slug": "region-sjaelland",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Sjælland rapporterer ADHD-indikatorer med 19 % opfyldelse af koordinerende netværksmøder inden for tidsfristen.",
+      "slug": "hjemkommune",
+      "folder": "entities/organizations/regional-authorities",
+      "significance": "Hjemkommunen er den centrale aktør i den reviderede Indikator 4, hvis opfyldelse nu måles ved kontakt til kommunen inden for 120 dage efter udredningsstart — understregende dens nøgles rolle i tværsektorielt samarbejde omkring ADHD-patienter.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sjælland Nej 95 / 498 19 (16-23)"
-        }
-      ]
-    },
-    {
-      "name": "Region Syddanmark",
-      "type": "organization",
-      "slug": "region-syddanmark",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Syddanmark er blandt de regioner med højest opfyldelse af koordinerende netværksmøder på 24 % og er nævnt som en af de bedre performende regioner.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Syddanmark Nej 214 / 890 24 (21-27)"
-        },
-        {
-          "page": 26,
-          "context": "Region Hovedstaden og Region Syddanmark er de regioner der er registret med flest netværksmøder indenfor tidsfristen"
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "organization",
-      "slug": "region-midtjylland",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Midtjylland har den laveste opfyldelse blandt regionerne på 6 % for koordinerende netværksmøder inden for tidsfristen.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Midtjylland Nej 66 / 1.107 6 (5-8)"
-        },
-        {
-          "page": 26,
-          "context": "Regionsresultaterne varierer fra 6 % i Midtjylland til 29 % i Hovedstaden"
-        }
-      ]
-    },
-    {
-      "name": "Region Nordjylland",
-      "type": "organization",
-      "slug": "region-nordjylland",
-      "folder": "entities/organizations/regional-government",
-      "significance": "Region Nordjylland rapporterer 18 % opfyldelse af koordinerende netværksmøder inden for tidsfristen.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Nordjylland Nej 99 / 555 18 (15-21)"
-        }
-      ]
-    },
-    {
-      "name": "Bispebjerg Psykiatrisk Ambulatorium, børn og unge",
-      "type": "organization",
-      "slug": "bispebjerg-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Bispebjerg Psykiatrisk Ambulatorium for børn og unge rapporterer 19 % opfyldelse af koordinerende netværksmøder.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 Nej 84 / 441 19 (15-23)"
-        }
-      ]
-    },
-    {
-      "name": "Bornholm Psykiatrisk Ambulatorium, børn og unge",
-      "type": "organization",
-      "slug": "bornholm-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Bornholm Psykiatrisk Ambulatorium for børn og unge rapporterer 3 % opfyldelse af koordinerende netværksmøder.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Bornh, B37 Nej 3 / 86 3 (1-10)"
-        }
-      ]
-    },
-    {
-      "name": "Glostrup Psykiatrisk Ambulatorium, børn og unge",
-      "type": "organization",
-      "slug": "glostrup-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Glostrup Psykiatrisk Ambulatorium for børn og unge rapporterer 37 % opfyldelse af koordinerende netværksmøder, blandt de højeste blandt afdelinger.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 Nej 347 / 947 37 (34-40)"
-        }
-      ]
-    },
-    {
-      "name": "Hillerød Psykiatrisk Ambulatorium, børn og unge",
-      "type": "organization",
-      "slug": "hillerod-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Hillerød Psykiatrisk Ambulatorium for børn og unge rapporterer 28 % opfyldelse af koordinerende netværksmøder.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 Nej 122 / 431 28 (24-33)"
-        }
-      ]
-    },
-    {
-      "name": "Børne-Unge Psyk. Klinik 40.K",
-      "type": "organization",
-      "slug": "boerne-unge-psyk-afd-40",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "Børne-Unge Psyk. Klinik 40.K rapporterer 19 % opfyldelse af koordinerende netværksmøder.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Børne-Unge Psyk. Klinik 40.K Nej 95 / 497 19 (16-23)"
-        }
-      ]
-    },
-    {
-      "name": "Odense Børne- og Ungdomspsykiatrisk Ambulatorium",
-      "type": "organization",
-      "slug": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Odense Børne- og Ungdomspsykiatrisk Ambulatorium rapporterer 50 % opfyldelse af koordinerende netværksmøder, blandt de højeste blandt afdelinger.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) Nej 53 / 107 50 (40-59)"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg Børne- og Ungdomspsykiatrisk Ambulatorium",
-      "type": "organization",
-      "slug": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Esbjerg Børne- og Ungdomspsykiatrisk Ambulatorium rapporterer 52 % opfyldelse af koordinerende netværksmøder, blandt de højeste blandt afdelinger.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) Nej 117 / 224 52 (45-59)"
-        },
-        {
-          "page": 26,
-          "context": "resultaterne blandt afdelinger med minimum tre forløb varierede fra 1 % på BUA Psykiatrisk Klinik for Unge til 52 % på PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg)"
-        }
-      ]
-    },
-    {
-      "name": "Vejle Børne- og Ungdomspsykiatrisk Ambulatorium",
-      "type": "organization",
-      "slug": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Vejle Børne- og Ungdomspsykiatrisk Ambulatorium rapporterer 6 % opfyldelse af koordinerende netværksmøder.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) Nej 18 / 281 6 (4-10)"
-        }
-      ]
-    },
-    {
-      "name": "Aabenraa Børne- og Ungdomspsykiatrisk Ambulatorium",
-      "type": "organization",
-      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Aabenraa Børne- og Ungdomspsykiatrisk Ambulatorium rapporterer 9 % opfyldelse af koordinerende netværksmøder.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) Nej 26 / 278 9 (6-13)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Børne- og Ungdomspsykiatri - Sengeafsnit",
-      "type": "organization",
-      "slug": "bua-boerne-ungdomspsykiatri-sengeafsnit",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "BUA Børne- og Ungdomspsykiatri - Sengeafsnit rapporterer 0 % opfyldelse af koordinerende netværksmøder inden for tidsfristen.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "BUA Børne- og Ungdomspsykiatri - Sengeafsnit Nej #/# 0 (0-98)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Skolebørn",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-skoleboern",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "BUA Psykiatrisk Klinik for Skolebørn rapporterer 8 % opfyldelse af koordinerende netværksmøder.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "BUA Psykiatrisk Klinik for Skolebørn Nej 43 / 517 8 (6-11)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Småbørn",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-smaaboern",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "BUA Psykiatrisk Klinik for Småbørn rapporterer 9 % opfyldelse af koordinerende netværksmøder.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "BUA Psykiatrisk Klinik for Småbørn Nej 18 / 193 9 (6-14)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Unge",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-unge",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "BUA Psykiatrisk Klinik for Unge rapporterer 1 % opfyldelse af koordinerende netværksmøder, blandt de laveste blandt afdelinger.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "BUA Psykiatrisk Klinik for Unge Nej 4 / 393 1 (0-3)"
-        },
-        {
-          "page": 26,
-          "context": "resultaterne blandt afdelinger med minimum tre forløb varierede fra 1 % på BUA Psykiatrisk Klinik for Unge"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Udredning",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-udredning",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "BUA Psykiatrisk Klinik for Udredning rapporterer 0 % opfyldelse af koordinerende netværksmøder inden for tidsfristen.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "BUA – Psykiatrisk Klinik for Udredning Nej #/# 0 (0-98)"
-        }
-      ]
-    },
-    {
-      "name": "PS Børne- og Ungdomspsykiatrisk Ambulatorier",
-      "type": "organization",
-      "slug": "boerne-ungdomspsyk-ambulatorium-nordjylland",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "PS Børne- og Ungdomspsykiatrisk Ambulatorier i Nordjylland rapporterer 18 % opfyldelse af koordinerende netværksmøder.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "PS Børne- og Ungdomspsykiatrisk Ambulatorier Nej 99 / 555 18 (15-21)"
-        }
-      ]
-    },
-    {
-      "name": "Carelink Psykiatri Kolding",
-      "type": "organization",
-      "slug": "carelink-psykiatri-kolding",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Carelink Psykiatri Kolding er en privat aktør, der rapporterer 5 % opfyldelse af koordinerende netværksmøder.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Carelink Psykiatri Kolding Nej 7 / 141 5 (2-10)"
-        }
-      ]
-    },
-    {
-      "name": "Carelink Psykiatri Roskilde",
-      "type": "organization",
-      "slug": "carelink-psykiatri-roskilde",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Carelink Psykiatri Roskilde er en privat aktør, der rapporterer 0 % opfyldelse af koordinerende netværksmøder.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Carelink Psykiatri Roskilde Nej 0 / 8 0 (0-37)"
-        }
-      ]
-    },
-    {
-      "name": "Carelink Psykiatri Viborg",
-      "type": "organization",
-      "slug": "carelink-psykiatri-viborg",
-      "folder": "entities/organizations/psychiatric-clinics",
-      "significance": "Carelink Psykiatri Viborg er en privat aktør, der rapporterer 1 % opfyldelse af koordinerende netværksmøder.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Carelink Psykiatri Viborg Nej #/# 1 (0-5)"
-        },
-        {
-          "page": 26,
-          "context": "De private aktører lå mellem 1 % (Carelink Psykiatri Viborg) og 5 % (Carelink Psykiatri Kolding)"
-        }
-      ]
-    },
-    {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau, hvor ADHD-indikatorer rapporteres med 20 % opfyldelse af koordinerende netværksmøder inden for tidsfristen.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Danmark Nej 1.038 / 5.222 20 (19-21)"
-        },
-        {
-          "page": 26,
-          "context": "På landsplan blev der afholdt et koordinerende netværksmøde i 20 % af behandlingsforløbene inden for tidsfristen"
+          "context": "Andelen af udredningsforløb, hvor patientens hjemkommune er kontaktet indenfor 120 dage efter udredningsstart"
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "region-hovedstaden",
-      "predicate": "reports-to",
+      "subject": "indikator-4",
+      "predicate": "is-defined-by",
       "object": "adhd-databasen",
-      "evidence": "Hovedstaden Nej 556 / 1.905 29 (27-31)",
+      "evidence": "Indikator 4 er en del af ADHD-DATABASEN",
       "page": 26
     },
     {
-      "subject": "region-sjaelland",
-      "predicate": "reports-to",
-      "object": "adhd-databasen",
-      "evidence": "Sjælland Nej 95 / 498 19 (16-23)",
+      "subject": "styregruppen",
+      "predicate": "has-decided-to-revise",
+      "object": "indikator-4",
+      "evidence": "Styregruppen har arbejdet med en revision af indikatoren og lavet en ny ordlyd samt ændret indikatoren til at omfatte udredningspopulationen.",
       "page": 26
     },
     {
-      "subject": "region-syddanmark",
-      "predicate": "reports-to",
-      "object": "adhd-databasen",
-      "evidence": "Syddanmark Nej 214 / 890 24 (21-27)",
+      "subject": "indikator-4",
+      "predicate": "measures-process",
+      "object": "koordinerende-netvaerksmoede",
+      "evidence": "Indikator 4 drejer sig om hvorvidt der er afholdt et koordinerende netværksmøde senest 90 dage efter start af ADHD-udredning.",
       "page": 26
     },
     {
-      "subject": "region-midtjylland",
-      "predicate": "reports-to",
-      "object": "adhd-databasen",
-      "evidence": "Midtjylland Nej 66 / 1.107 6 (5-8)",
+      "subject": "indikator-4",
+      "predicate": "now-applies-to",
+      "object": "adhd-udredningspopulation",
+      "evidence": "ændret indikatoren til at omfatte udredningspopulationen.",
       "page": 26
     },
     {
-      "subject": "region-nordjylland",
-      "predicate": "reports-to",
-      "object": "adhd-databasen",
-      "evidence": "Nordjylland Nej 99 / 555 18 (15-21)",
-      "page": 26
-    },
-    {
-      "subject": "bispebjerg-psykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19",
-      "page": 26
-    },
-    {
-      "subject": "glostrup-psykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Psykiatrisk ambulatorium, børn og unge, Glostrup, B29",
-      "page": 26
-    },
-    {
-      "subject": "hillerod-psykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Psykiatrisk ambulatorium, børn og unge, Hillerød, B39",
-      "page": 26
-    },
-    {
-      "subject": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense)",
-      "page": 26
-    },
-    {
-      "subject": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg)",
-      "page": 26
-    },
-    {
-      "subject": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle)",
-      "page": 26
-    },
-    {
-      "subject": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa)",
+      "subject": "indikator-4",
+      "predicate": "requires-contact-with",
+      "object": "hjemkommune",
+      "evidence": "Andelen af udredningsforløb, hvor patientens hjemkommune er kontaktet indenfor 120 dage efter udredningsstart",
       "page": 26
     }
   ],
   "claims": [
     {
+      "text": "Indikator 4 har hele dens levetid ligget stabilt langt fra målopfyldelsen [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4"
+      ],
+      "page": 26
+    },
+    {
       "text": "På landsplan blev der afholdt et koordinerende netværksmøde i 20 % af behandlingsforløbene inden for tidsfristen, hvilket er langt under det fastlagte udviklingsmål på 90 % [^src1]",
       "type": "performance",
       "entities": [
-        "danmark",
-        "adhd-databasen"
+        "indikator-4"
       ],
       "page": 26
     },
     {
-      "text": "Ser man på landsgennemsnittet over tid har indikatoren ligget stabilt omkring 20 % siden den trådte i kraft [^src1]",
+      "text": "Regionsresultaterne varierer fra 6 % i Midtjylland til 29 % i Hovedstaden [^src1]",
       "type": "performance",
       "entities": [
-        "danmark"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Regionsresultaterne varierer fra 6 % i Midtjylland til 29 % i Hovedstaden og ingen regioner lever således op til udviklingsmålet [^src1]",
-      "type": "performance",
-      "entities": [
+        "indikator-4",
         "region-midtjylland",
-        "region-hovedstaden"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Resultaterne i Hovedstaden har været faldende over de seneste tre perioder [^src1]",
-      "type": "performance",
-      "entities": [
         "region-hovedstaden"
       ],
       "page": 26
@@ -483,122 +171,17 @@
       "text": "Ingen afdelinger nåede udviklingsmålet og resultaterne blandt afdelinger med minimum tre forløb varierede fra 1 % på BUA Psykiatrisk Klinik for Unge til 52 % på PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) [^src1]",
       "type": "performance",
       "entities": [
-        "bua-psykiatrisk-klinik-unge",
-        "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium"
-      ],
-      "page": 26
-    },
-    {
-      "text": "De private aktører lå mellem 1 % (Carelink Psykiatri Viborg) og 5 % (Carelink Psykiatri Kolding) [^src1]",
-      "type": "performance",
-      "entities": [
-        "carelink-psykiatri-viborg",
-        "carelink-psykiatri-kolding"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Denne indikator har hele dens levetid ligget stabilt langt fra målopfyldelsen [^src1]",
-      "type": "performance",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Region Hovedstaden og Region Syddanmark er de regioner der er registret med flest netværksmøder indenfor tidsfristen, men stadig langt fra udviklingsmålet på 90% [^src1]",
-      "type": "performance",
-      "entities": [
-        "region-hovedstaden",
-        "region-syddanmark"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Denne indikator har mange steder været nedprioriteret i et presset system [^src1]",
-      "type": "operational",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Dertil compliceres mulighederne for afholdelse af netværksmøder af at primærsektor (skoler, PPR og kommuner) også er pressede og kan melde afbud til møderne [^src1]",
-      "type": "operational",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Flere regioner har dog god erfaring med at lave netværksmøder online hvilket har øget mulighederne for gennemførelse [^src1]",
-      "type": "operational",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Privathospitalerne har meget lav målopfyldelse - igen baseret på et bemærkelsesværdigt lavt antal patienter og det er usikkert hvad tallene afspejler [^src1]",
-      "type": "performance",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Det tværsektorielle samarbejde er essentielt for ADHD-patienter i udrednings- og behandlingsforløb, idet mange behandlingstiltag ligger i primær regi og det er vigtigt at der sker en koordinering af tiltagene på tværs af sektorer [^src1]",
-      "type": "clinical-rationale",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Det tværsektorielle samarbejde kan foregå på mange andre måder end ved netværksmøde og et netværksmøde i sig selv har ikke høj værdi, hvis det ikke munder ud i gensidigt forpligtende aftaler [^src1]",
-      "type": "clinical-rationale",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Styregruppen finder at det er væsentligt at primær sektor involveres allerede fra udredning start [^src1]",
-      "type": "clinical-rationale",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Styregruppen har arbejdet med en revision af indikatoren og lavet en ny ordlyd samt ændret indikatoren til at omfatte udredningspopulationen [^src1]",
-      "type": "procedural-change",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Ordlyd af reviderede Indikator: Andelen af udredningsforløb, hvor patientens hjemkommune er kontaktet indenfor 120 dage efter udredningsstart [^src1]",
-      "type": "procedural-change",
-      "entities": [
-        "adhd-databasen"
+        "indikator-4",
+        "bua-psykiatrisk-klinik-for-unge",
+        "psy-boerne-og-ungdomspsykiatrisk-ambulatorium-esbjerg"
       ],
       "page": 26
     },
     {
       "text": "Den reviderede indikator har været i høring og forventes implementeret indenfor de kommende måneder [^src1]",
-      "type": "procedural-change",
+      "type": "policy",
       "entities": [
-        "adhd-databasen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Med implementering af ny indikatordefinition ift. det tværsektorielle samarbejde kommer et øget fokus på både vigtigheden og bredden i det tværsektorielle samarbejde [^src1]",
-      "type": "procedural-change",
-      "entities": [
-        "adhd-databasen"
+        "indikator-4"
       ],
       "page": 26
     }
@@ -606,25 +189,44 @@
   "timeline": [
     {
       "date": "01.04.2024 - 31.03.2025",
-      "event": "Aktuelle måleperiode for Indikator 4: Koordinerende netværksmøde",
+      "event": "Gældende udviklingsmål for Indikator 4 er ≥ 90 % opnået nævner",
       "entities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "date": "2023/24",
-      "event": "Tidligere måleperiode for Indikator 4 med 19 % opfyldelse på landsplan",
-      "entities": [
-        "adhd-databasen"
+        "indikator-4"
       ]
     },
     {
       "date": "2022/23",
-      "event": "Tidligere måleperiode for Indikator 4 med 20 % opfyldelse på landsplan",
+      "event": "Målopfyldelse for Indikator 4 på landsplan var 20 %",
       "entities": [
-        "adhd-databasen"
+        "indikator-4"
+      ]
+    },
+    {
+      "date": "2023/24",
+      "event": "Målopfyldelse for Indikator 4 på landsplan var 20 %",
+      "entities": [
+        "indikator-4"
       ]
     }
   ],
-  "context": "Denne dokumentchunk behandler Indikator 4 fra ADHD-databasen, som måler andelen af behandlingsforløb blandt børn og unge under 18 år, hvor der er afholdt et koordinerende netværksmøde senest 90 dage efter behandlingsstart. Indikatoren har siden dens indførelse ligget stabilt langt under det fastlagte udviklingsmål på 90 %, med en landsgennemsnitlig opfyldelse på 20 %. Styregruppen bag ADHD-databasen har identificeret flere barrierer for opfyldelse, herunder presset på både specialiseret psykiatri og primærsektor, geografiske udfordringer, og prioritering af andre opgaver. Som svar på disse udfordringer har styregruppen revideret indikatoren til at fokusere på kontakt til patientens hjemkommune inden for 120 dage efter udredningsstart, med det formål at styrke det tværsektorielle samarbejde fra udredningens start."
+  "tables": [
+    {
+      "subject": "indikator-4",
+      "title": "Indikator 4: Andelen af behandlingsforløb, hvor der er foretaget koordinerende netværksmøde senest 90 dage efter behandlingsstart",
+      "page": 26,
+      "rowDimension": "region eller afdeling",
+      "colDimension": "andel i procent med 95% konfidensinterval og antal",
+      "entities": [
+        "indikator-4",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Danmark | Nej | 1.038 | / | 5.222 | 20 | (19-21) | 697 | / | 3.603 | 19 | 20 |\n| Hovedstaden | Nej | 556 | / | 1.905 | 29 | (27-31) | 240 | / | 681 | 35 | 41 |\n| Sjælland | Nej | 95 | / | 498 | 19 | (16-23) | 82 | / | 399 | 21 | 17 |\n| Syddanmark | Nej | 214 | / | 890 | 24 | (21-27) | 207 | / | 840 | 25 | 26 |\n| Midtjylland | Nej | 66 | / | 1.107 | 6 | (5-8) | 73 | / | 1.066 | 7 | 8 |\n| Nordjylland | Nej | 99 | / | 555 | 18 | (15-21) | 89 | / | 535 | 17 | 13 |\n| Privathospitaler | Nej | 8 | / | 267 | 3 | (1-6) | 6 | / | 77 | 8 | |\n| Psykiatrisk ambulatorium, børn og unge, Bispebjerg, B19 | Nej | 84 | / | 441 | 19 | (15-23) | 22 | / | 86 | 26 | 34 |\n| Psykiatrisk ambulatorium, børn og unge, Bornh, B37 | Nej | 3 | / | 86 | 3 | (1-10) | 3 | / | 55 | 5 | 17 |\n| Psykiatrisk ambulatorium, børn og unge, Glostrup, B29 | Nej | 347 | / | 947 | 37 | (34-40) | 151 | / | 284 | 53 | 57 |\n| Psykiatrisk ambulatorium, børn og unge, Hillerød, B39 | Nej | 122 | / | 431 | 28 | (24-33) | 64 | / | 255 | 25 | 33 |\n| Børne-Unge Psyk. Klinik 40.K | Nej | 95 | / | 497 | 19 | (16-23) | 81 | / | 398 | 20 | 17 |\n| Børne-Unge Psyk. Reg.fkt. 40.R | Nej | #/# | 0 | (0-98) | | | | | | | |\n| PSY Børne og Ungdomspsykiatrisk ambulatorium (Odense) | Nej | 53 | / | 107 | 50 | (40-59) | 51 | / | 79 | 65 | 39 |\n| PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Esbjerg) | Nej | 117 | / | 224 | 52 | (45-59) | 92 | / | 205 | 45 | 38 |\n| PSY Børne- Og Ungdomspsykiatrisk Ambulatorium (Vejle) | Nej | 18 | / | 281 | 6 | (4-10) | 35 | / | 269 | 13 | 25 |\n| PSY Børne- og Ungdomspsykiatrisk Ambulatorium (Aabenraa) | Nej | 26 | / | 278 | 9 | (6-13) | 29 | / | 286 | 10 | 10 |\n| BUA Børne- og Ungdomspsykiatri - Sengeafsnit | Nej | #/# | 0 | (0-98) | #/# | 100 | 0 | | | | |\n| BUA Psykiatrisk Klinik for Skolebørn | Nej | 43 | / | 517 | 8 | (6-11) | 51 | / | 500 | 10 | 9 |\n| BUA Psykiatrisk Klinik for Småbørn | Nej | 18 | / | 193 | 9 | (6-14) | 15 | / | 149 | 10 | 13 |\n| BUA Psykiatrisk Klinik for Unge | Nej | 4 | / | 393 | 1 | (0-3) | 5 | / | 410 | 1 | 2 |\n| BUA – Psykiatrisk Dagafsnit | Nej | #/# | 50 | (1-99) | | | | | | | |\n| BUA – Psykiatrisk Klinik for Udredning | Nej | #/# | 0 | (0-98) | #/# | 17 | 2 | | | | |\n| Carelink Psykiatri Kolding | Nej | 7 | / | 141 | 5 | (2-10) | 4 | / | 36 | 11 | |\n| Carelink Psykiatri Roskilde | Nej | 0 | / | 8 | 0 | (0-37) | #/# | 0 | | | |\n| Carelink Psykiatri Viborg | Nej | #/# | 1 | (0-5) | #/# | 5 | | | | | |",
+      "summary": "Tabellen sammenligner målopfyldelsen af Indikator 4 på nationalt, regionalt og afdelingsniveau for perioden 2023/24 og tidligere år, og viser systematisk manglende opfyldelse af udviklingsmålet på ≥ 90 %, med størst variation mellem afdelinger (1–52 %)."
+    }
+  ],
+  "context": "Dette afsnit fra ADHD-DATABASEN-rapporten (sider 26–30) dokumenterer en strukturel evaluering og strategisk revidering af kvalitetsindikator 4, der oprindeligt målte gennemførelsen af koordinerende netværksmøder i ADHD-behandlingsforløb. Den brede analyse viser kronisk manglende målopfyldelse på tværs af regioner og afdelinger, hvilket fører til en beslutning fra styregruppen om at erstatte indikatoren med en mere operationel og tværsektorielt realistisk version, der fokuserer på tidlig kontakt til patientens hjemkommune i udredningsfasen. Dette afspejler en bredere politisk og klinisk anerkendelse af, at effektiv ADHD-indsats kræver tidlig og struktureret samarbejdskoordinering mellem specialpsykiatri og primærsektor — især kommunen."
 }

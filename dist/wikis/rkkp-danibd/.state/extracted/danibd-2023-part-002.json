@@ -5,71 +5,137 @@
       "type": "organization",
       "slug": "danibd",
       "folder": "entities/organizations/health-registries",
-      "significance": "DANIBD is a Danish national quality registry for inflammatory bowel disease (IBD) that monitors patient characteristics and clinical indicators across hospital departments.",
+      "significance": "DANIBD er det danske nationalt register for patienter med inflammatorisk tarmsygdom (IBD), som indsamler og rapporterer kliniske kvalitetsindikatorer og patientkarakteristika for voksne og børn med IBD i Danmark.",
       "mentions": [
         {
           "page": 6,
-          "context": "DANIBD Karakteristika for voksne med IBD"
+          "context": "DANIBD"
         },
         {
           "page": 7,
-          "context": "DANIBDs hjemmeside"
+          "context": "DANIBD"
+        },
+        {
+          "page": 8,
+          "context": "DANIBD"
+        },
+        {
+          "page": 9,
+          "context": "DANIBD"
+        },
+        {
+          "page": 10,
+          "context": "DANIBD"
         }
       ]
     },
     {
-      "name": "Colitis ulcerosa",
-      "type": "disease",
-      "slug": "colitis-ulcerosa",
-      "folder": "topics/diseases/inflammatory-bowel-disease",
-      "significance": "Colitis ulcerosa is the most common IBD diagnosis among both newly diagnosed and prevalent adult patients in the DANIBD registry, affecting 58% of both groups.",
+      "name": "IBD",
+      "type": "medical-condition",
+      "slug": "ibd",
+      "folder": "entities/medical-conditions/gastrointestinal",
+      "significance": "IBD (inflammatorisk tarmsygdom) er den overordnede diagnosekategori, som omfatter Crohns sygdom, colitis ulcerosa og relaterede tilstande, og udgør grundlaget for alle registrerede patienter og indikatorer i DANIBD-rapporten.",
       "mentions": [
         {
           "page": 6,
-          "context": "De nydiagnosticerede voksne har oftest colitis ulcerosa (58 %)"
+          "context": "voksne med IBD"
         },
         {
           "page": 6,
-          "context": "Som for de nydiagnosticerede er flest diagnosticeret med colitis ulcerosa (58 %)"
+          "context": "nydiagnosticerede med IBD"
+        },
+        {
+          "page": 7,
+          "context": "patienter med IBD"
+        },
+        {
+          "page": 9,
+          "context": "patienter med IBD i behandling med BMSL"
+        },
+        {
+          "page": 9,
+          "context": "patienter med IBD i medicinsk behandling med BMSL"
         }
       ]
     },
     {
       "name": "Crohns sygdom",
-      "type": "disease",
+      "type": "medical-condition",
       "slug": "crohns-sygdom",
-      "folder": "topics/diseases/inflammatory-bowel-disease",
-      "significance": "Crohn's disease is the second most common IBD diagnosis in the DANIBD registry, affecting 41% of both newly diagnosed and prevalent adult patients.",
+      "folder": "entities/medical-conditions/gastrointestinal",
+      "significance": "Crohns sygdom er en af de primære underdiagnoser inden for IBD, repræsenteret med kode DK50* i DANIBD-rapporten, og udgør 41 % af både nydiagnosticerede og prævalente voksne med IBD i perioden.",
       "mentions": [
         {
           "page": 6,
-          "context": "DK50* Crohns sygdom 898 (41) 12.529 (41)"
+          "context": "DK50* Crohns sygdom"
+        },
+        {
+          "page": 9,
+          "context": "Post-operativ Crohns sygdom, opfølgning"
         }
       ]
     },
     {
-      "name": "Primær skleroserende kolangitis",
-      "type": "disease",
-      "slug": "primar-skleroserende-kolangitis",
-      "folder": "topics/diseases/inflammatory-bowel-disease",
-      "significance": "Primary sclerosing cholangitis (PSC) is a rare comorbidity in IBD patients, affecting 1% of both newly diagnosed and prevalent patients in the registry.",
+      "name": "colitis ulcerosa",
+      "type": "medical-condition",
+      "slug": "colitis-ulcerosa",
+      "folder": "entities/medical-conditions/gastrointestinal",
+      "significance": "Colitis ulcerosa er den mest almindelige IBD-underdiagnose blandt både nydiagnosticerede (58 %) og prævalente (58 %) voksne i DANIBD-rapporten, kodet som DK51*.",
       "mentions": [
         {
           "page": 6,
-          "context": "DK830F Primær skleroserende kolangitis1 33 (1) 212 (1)"
+          "context": "colitis ulcerosa (58 %)"
+        },
+        {
+          "page": 6,
+          "context": "DK51* colitis ulcerosa"
         }
       ]
     },
     {
-      "name": "Korttarmssyndrom",
-      "type": "disease",
+      "name": "primær skleroserende kolangitis",
+      "type": "medical-condition",
+      "slug": "praevaer-skleroserende-kolangitis",
+      "folder": "entities/medical-conditions/hepato-biliary",
+      "significance": "Primær skleroserende kolangitis (PSC) er en sjælden komorbid tilstand ved IBD, kodet som DK830F, og udgør 1 % af både nydiagnosticerede og prævalente voksne i DANIBD-rapporten.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "DK830F Primær skleroserende kolangitis"
+        },
+        {
+          "page": 7,
+          "context": "Indikator 7. PSC, opfølgning"
+        }
+      ]
+    },
+    {
+      "name": "korttarmssyndrom",
+      "type": "medical-condition",
       "slug": "korttarmssyndrom",
-      "folder": "topics/diseases/inflammatory-bowel-disease",
-      "significance": "Short bowel syndrome is a rare condition affecting less than 1% of IBD patients in the DANIBD registry.",
+      "folder": "entities/medical-conditions/gastrointestinal",
+      "significance": "Korttarmssyndrom er en sjælden komplikation ved IBD, kodet som DK912B, og udgør mindre end 1 % af både nydiagnosticerede og prævalente voksne i DANIBD-rapporten.",
       "mentions": [
         {
           "page": 6,
-          "context": "DK912B Korttarmssyndrom 9 (0) 79 (0)"
+          "context": "DK912B Korttarmssyndrom"
+        }
+      ]
+    },
+    {
+      "name": "Biologiske og målrettede syntetiske lægemidler",
+      "type": "treatment",
+      "slug": "bmsl",
+      "folder": "entities/treatments/gastrointestinal",
+      "significance": "BMSL er den standardiserede forkortelse for biologiske og målrettede syntetiske lægemidler, som anvendes til behandling af moderat til svær IBD, og som danner grundlag for indikator 4 i DANIBD-rapporten.",
+      "mentions": [
+        {
+          "page": 9,
+          "context": "Biologiske og målrettede syntetiske lægemidler (BMSL)"
+        },
+        {
+          "page": 9,
+          "context": "Indikator 4. Medicinsk behandling, BMSL"
         }
       ]
     },
@@ -77,452 +143,29 @@
       "name": "F-calpro",
       "type": "biomarker",
       "slug": "f-calpro",
-      "folder": "topics/biomarkers",
-      "significance": "Fecal calprotectin (F-calpro) is a biomarker used to monitor inflammatory activity in IBD patients receiving biological and targeted synthetic drugs (BMSL), with annual measurement required as a minimum criterion.",
+      "folder": "entities/biomarkers/gastrointestinal",
+      "significance": "F-calpro (fækal calprotectin) er den biomarkør, der bruges til at vurdere inflammatorisk aktivitet i tarmmukosa hos patienter med IBD i behandling med BMSL, og som måles årligt ifølge indikator 4.",
       "mentions": [
         {
-          "page": 9,
-          "context": "Biomarkøren calprotectin afspejler graden af inflammatorisk aktivitet i tarmmukosa, hvorfor monitorering af calprotectin en gang årligt er fastlagt som et minimumskriterium"
+          "page": 7,
+          "context": "F-calpro"
         },
         {
           "page": 9,
-          "context": "Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt"
+          "context": "F-calpro mindst én gang årligt"
         }
       ]
     },
     {
-      "name": "BMSL",
-      "type": "treatment",
-      "slug": "bmsl",
-      "folder": "topics/treatments",
-      "significance": "Biological and targeted synthetic drugs (BMSL) are used to treat IBD patients with moderate to severe disease activity, requiring regular monitoring of treatment outcomes.",
+      "name": "Montreal",
+      "type": "classification-system",
+      "slug": "montreal",
+      "folder": "entities/classification-systems/medical",
+      "significance": "Montreal-klassifikationen er den internationale klassifikationsramme for aldersbaseret stratificering af IBD-patienter, som anvendes i DANIBD-rapporten til at opgøre alder for samtlige patienter.",
       "mentions": [
         {
-          "page": 9,
-          "context": "Biologiske og målrettede syntetiske lægemidler (BMSL) anvendes i behandlingen af patienter med moderat til svær sygdomsaktivitet"
-        }
-      ]
-    },
-    {
-      "name": "Rigshospitalet",
-      "type": "hospital",
-      "slug": "rigshospitalet",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet is a major teaching hospital in Copenhagen participating in the DANIBD registry with a medical clinic for gastrointestinal and liver diseases.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd."
-        }
-      ]
-    },
-    {
-      "name": "Bispebjerg",
-      "type": "hospital",
-      "slug": "bispebjerg",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bispebjerg Hospital is a Copenhagen hospital with an abdominal center participating in the DANIBD registry, achieving 84% compliance with F-calpro monitoring standards.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Bispebjerg Abdominalcenter K"
-        }
-      ]
-    },
-    {
-      "name": "Bornholm",
-      "type": "hospital",
-      "slug": "bornholm",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bornholm Hospital's medical department participates in the DANIBD registry with 80% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Bornholm Medicinsk afdeling"
-        }
-      ]
-    },
-    {
-      "name": "Herlev",
-      "type": "hospital",
-      "slug": "herlev",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Herlev Hospital's gastroenterology unit participates in the DANIBD registry with 68% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Herlev Gastroenheden Kir. Med., overafd. D"
-        }
-      ]
-    },
-    {
-      "name": "Hvidovre",
-      "type": "hospital",
-      "slug": "hvidovre",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hvidovre Hospital participates in the DANIBD registry with two departments achieving high compliance rates: the Children and Youth Department at 99% and the Gastroenterology Unit at 95%.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Hvidovre Børne- og Ungeafdelingen"
-        },
-        {
-          "page": 9,
-          "context": "Hvidovre Gastroenheden"
-        }
-      ]
-    },
-    {
-      "name": "Nordsjælland",
-      "type": "hospital",
-      "slug": "nordsjaelland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Nordsjælland Hospital's surgical department participates in the DANIBD registry with 52% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Nordsjælland Kirurgisk overafdeling"
-        }
-      ]
-    },
-    {
-      "name": "Køge Hospital",
-      "type": "hospital",
-      "slug": "koege-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Køge Hospital's medical department participates in the DANIBD registry with 93% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "SUH Køge Medicin"
-        }
-      ]
-    },
-    {
-      "name": "Roskilde Hospital",
-      "type": "hospital",
-      "slug": "roskilde-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Roskilde Hospital's pediatric department participates in the DANIBD registry with 100% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "SUH Roskilde Pædiatri"
-        }
-      ]
-    },
-    {
-      "name": "Holbæk Hospital",
-      "type": "hospital",
-      "slug": "holbaek-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk Hospital's medical department participates in the DANIBD registry with 90% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "HOL Holbæk Medicin"
-        }
-      ]
-    },
-    {
-      "name": "Nykøbing F Hospital",
-      "type": "hospital",
-      "slug": "nykoebing-f-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Nykøbing F Hospital's medical department participates in the DANIBD registry with 91% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "NFS Nykøbing F Medicin"
-        }
-      ]
-    },
-    {
-      "name": "Slagelse Hospital",
-      "type": "hospital",
-      "slug": "slagelse-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Slagelse Hospital participates in the DANIBD registry with two departments achieving high compliance: medical gastroenterology at 99% and pediatrics at 100%.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "NSR Slagelse Med. Gastroenterologi"
-        },
-        {
-          "page": 9,
-          "context": "NSR Slagelse Pædiatri"
-        }
-      ]
-    },
-    {
-      "name": "Odense University Hospital",
-      "type": "hospital",
-      "slug": "odense-university-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Odense University Hospital participates in the DANIBD registry with multiple departments, including children and youth (100% compliance) and medical gastroenterology (74% compliance).",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "OUH Odense Børne- og Ungeafdeling H"
-        },
-        {
-          "page": 9,
-          "context": "OUH Odense Medicinsk Mave-Tarm Afdeling S"
-        }
-      ]
-    },
-    {
-      "name": "Svendborg Hospital",
-      "type": "hospital",
-      "slug": "svendborg-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Svendborg Hospital's medical department participates in the DANIBD registry with 94% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "OUH Svendborg Medicinsk Afd."
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg Hospital",
-      "type": "hospital",
-      "slug": "esbjerg-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Esbjerg Hospital's medical department participates in the DANIBD registry with 93% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "EGS Esbjerg Medicinsk område"
-        }
-      ]
-    },
-    {
-      "name": "Aabenraa Hospital",
-      "type": "hospital",
-      "slug": "aabenraa-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aabenraa Hospital's gastrointestinal disease department participates in the DANIBD registry with 99% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "SHS Aabenraa Mave-tarmsygdomme"
-        }
-      ]
-    },
-    {
-      "name": "Tønder Hospital",
-      "type": "hospital",
-      "slug": "toender-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Tønder Hospital's medical day hospital participates in the DANIBD registry with 93% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "SHS Tønder Medicinsk Daghospital"
-        }
-      ]
-    },
-    {
-      "name": "Kolding Hospital",
-      "type": "hospital",
-      "slug": "kolding-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Kolding Hospital's children and youth department participates in the DANIBD registry with 100% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "SLB Kolding Børne- og Ungeafdeling"
-        }
-      ]
-    },
-    {
-      "name": "Vejle Hospital",
-      "type": "hospital",
-      "slug": "vejle-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Vejle Hospital's medical department participates in the DANIBD registry with 56% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "SLB Vejle Medicinsk Afdeling"
-        }
-      ]
-    },
-    {
-      "name": "Aarhus University Hospital",
-      "type": "hospital",
-      "slug": "aarhus-university-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus University Hospital participates in the DANIBD registry with multiple departments, including children and youth (99% compliance) and liver, gastrointestinal and stomach diseases (61% compliance).",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Aarhus Børn og Unge"
-        },
-        {
-          "page": 9,
-          "context": "Aarhus Lever-, Mave- og Tarmsygdomme"
-        }
-      ]
-    },
-    {
-      "name": "Gødstrup Hospital",
-      "type": "hospital",
-      "slug": "goedstrup-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Gødstrup Hospital's medical department participates in the DANIBD registry with 78% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Gødstrup Medicinsk Afdeling"
-        }
-      ]
-    },
-    {
-      "name": "Horsens Hospital",
-      "type": "hospital",
-      "slug": "horsens-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Horsens Hospital's medical department participates in the DANIBD registry with 75% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Horsens Medicinsk Afdeling"
-        }
-      ]
-    },
-    {
-      "name": "Randers Hospital",
-      "type": "hospital",
-      "slug": "randers-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Randers Hospital's medical department participates in the DANIBD registry with 98% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Randers Medicinsk Afdeling"
-        }
-      ]
-    },
-    {
-      "name": "Silkeborg Hospital",
-      "type": "hospital",
-      "slug": "silkeborg-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Silkeborg Hospital's diagnostic center medical department participates in the DANIBD registry with 98% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Silkeborg Diagnostisk Center Medicin"
-        }
-      ]
-    },
-    {
-      "name": "Viborg Hospital",
-      "type": "hospital",
-      "slug": "viborg-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Viborg Hospital's medical department participates in the DANIBD registry with 77% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Viborg Medicinsk Afdeling"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg University Hospital",
-      "type": "hospital",
-      "slug": "aalborg-university-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg University Hospital participates in the DANIBD registry with two departments: children's area (97% compliance) and medical gastroenterology (74% compliance).",
-      "mentions": [
-        {
-          "page": 10,
-          "context": "AAUH Aalborg Børneområde"
-        },
-        {
-          "page": 10,
-          "context": "AAUH Aalborg Med.gastroenterologisk område"
-        }
-      ]
-    },
-    {
-      "name": "Hjørring Hospital",
-      "type": "hospital",
-      "slug": "hjoerring-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hjørring Hospital's medical gastrointestinal disease department participates in the DANIBD registry with 95% compliance in F-calpro monitoring.",
-      "mentions": [
-        {
-          "page": 10,
-          "context": "RHN Hjørring Medicinske Mave- og Tarmsygd."
-        }
-      ]
-    },
-    {
-      "name": "Hovedstaden Region",
-      "type": "region",
-      "slug": "hovedstaden-region",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Hovedstaden (Capital Region) is one of five Danish regions participating in the DANIBD registry, with 73% compliance in F-calpro monitoring, below the 80% standard.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Hovedstaden Nej 2.190 / 3.018 0 (0) 73 (71-74)"
-        }
-      ]
-    },
-    {
-      "name": "Sjælland Region",
-      "type": "region",
-      "slug": "sjaelland-region",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Sjælland (Zealand) Region participates in the DANIBD registry with 94% compliance in F-calpro monitoring, exceeding the 80% standard.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Sjælland Ja 1.169 / 1.249 0 (0) 94 (92-95)"
-        }
-      ]
-    },
-    {
-      "name": "Syddanmark Region",
-      "type": "region",
-      "slug": "syddanmark-region",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Syddanmark (Southern Denmark) Region participates in the DANIBD registry with 79% compliance in F-calpro monitoring, just below the 80% standard.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Syddanmark Nej 1.967 / 2.482 0 (0) 79 (78-81)"
-        }
-      ]
-    },
-    {
-      "name": "Midtjylland Region",
-      "type": "region",
-      "slug": "midtjylland-region",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Midtjylland (Central Jutland) Region participates in the DANIBD registry with 76% compliance in F-calpro monitoring, below the 80% standard.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Midtjylland Nej 2.101 / 2.761 0 (0) 76 (74-78)"
-        }
-      ]
-    },
-    {
-      "name": "Nordjylland Region",
-      "type": "region",
-      "slug": "nordjylland-region",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Nordjylland (Northern Jutland) Region participates in the DANIBD registry with 76% compliance in F-calpro monitoring, below the 80% standard.",
-      "mentions": [
-        {
-          "page": 9,
-          "context": "Nordjylland Nej 772 / 1.013 0 (0) 76 (73-79)"
+          "page": 6,
+          "context": "alder opgjort ift. Montreal for samtlige patienter"
         }
       ]
     }
@@ -530,586 +173,206 @@
   "relationships": [
     {
       "subject": "danibd",
-      "predicate": "monitors",
-      "object": "colitis-ulcerosa",
-      "evidence": "DANIBD registry tracks patient characteristics for colitis ulcerosa, which affects 58% of both newly diagnosed and prevalent adult patients",
+      "predicate": "maintains-register-for",
+      "object": "ibd",
+      "evidence": "DANIBD er det danske nationalt register for patienter med inflammatorisk tarmsygdom (IBD)",
       "page": 6
     },
     {
-      "subject": "danibd",
-      "predicate": "monitors",
+      "subject": "ibd",
+      "predicate": "has-subtype",
       "object": "crohns-sygdom",
-      "evidence": "DANIBD registry tracks patient characteristics for Crohn's disease, which affects 41% of both newly diagnosed and prevalent adult patients",
+      "evidence": "DK50* Crohns sygdom",
       "page": 6
     },
     {
-      "subject": "danibd",
-      "predicate": "monitors",
-      "object": "primar-skleroserende-kolangitis",
-      "evidence": "DANIBD registry tracks primary sclerosing cholangitis as a comorbidity in IBD patients",
+      "subject": "ibd",
+      "predicate": "has-subtype",
+      "object": "colitis-ulcerosa",
+      "evidence": "DK51* colitis ulcerosa",
+      "page": 6
+    },
+    {
+      "subject": "ibd",
+      "predicate": "has-associated-condition",
+      "object": "praevaer-skleroserende-kolangitis",
+      "evidence": "DK830F Primær skleroserende kolangitis",
+      "page": 6
+    },
+    {
+      "subject": "ibd",
+      "predicate": "has-complication",
+      "object": "korttarmssyndrom",
+      "evidence": "DK912B Korttarmssyndrom",
       "page": 6
     },
     {
       "subject": "bmsl",
-      "predicate": "requires-monitoring-with",
-      "object": "f-calpro",
-      "evidence": "Monitorering af calprotectin en gang årligt er fastlagt som et minimumskriterium for opfølgning hos patienter i behandling med BMSL",
+      "predicate": "is-treatment-for",
+      "object": "ibd",
+      "evidence": "Biologiske og målrettede syntetiske lægemidler (BMSL) anvendes i behandlingen af patienter med moderat til svær sygdomsaktivitet",
       "page": 9
     },
     {
-      "subject": "rigshospitalet",
-      "predicate": "participates-in",
-      "object": "danibd",
-      "evidence": "Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd. participates in DANIBD indicator monitoring",
+      "subject": "f-calpro",
+      "predicate": "monitors",
+      "object": "ibd",
+      "evidence": "Biomarkøren calprotectin afspejler graden af inflammatorisk aktivitet i tarmmukosa",
       "page": 9
     },
     {
-      "subject": "bispebjerg",
-      "predicate": "participates-in",
-      "object": "danibd",
-      "evidence": "Bispebjerg Abdominalcenter K participates in DANIBD indicator monitoring",
-      "page": 9
-    },
-    {
-      "subject": "hovedstaden-region",
-      "predicate": "contains",
-      "object": "rigshospitalet",
-      "evidence": "Rigshospitalet is listed under Hovedstaden region in the DANIBD registry",
-      "page": 9
-    },
-    {
-      "subject": "hovedstaden-region",
-      "predicate": "contains",
-      "object": "bispebjerg",
-      "evidence": "Bispebjerg is listed under Hovedstaden region in the DANIBD registry",
-      "page": 9
-    },
-    {
-      "subject": "sjaelland-region",
-      "predicate": "contains",
-      "object": "koege-hospital",
-      "evidence": "Køge Hospital is listed under Sjælland region in the DANIBD registry",
-      "page": 9
-    },
-    {
-      "subject": "syddanmark-region",
-      "predicate": "contains",
-      "object": "odense-university-hospital",
-      "evidence": "Odense University Hospital is listed under Syddanmark region in the DANIBD registry",
-      "page": 9
-    },
-    {
-      "subject": "midtjylland-region",
-      "predicate": "contains",
-      "object": "aarhus-university-hospital",
-      "evidence": "Aarhus University Hospital is listed under Midtjylland region in the DANIBD registry",
-      "page": 9
-    },
-    {
-      "subject": "nordjylland-region",
-      "predicate": "contains",
-      "object": "aalborg-university-hospital",
-      "evidence": "Aalborg University Hospital is listed under Nordjylland region in the DANIBD registry",
-      "page": 10
+      "subject": "montreal",
+      "predicate": "classifies",
+      "object": "ibd",
+      "evidence": "alder opgjort ift. Montreal for samtlige patienter",
+      "page": 6
     }
   ],
   "claims": [
     {
       "text": "Fra 1. oktober 2022 til og med 30. september 2023 har 32.641 voksne med IBD været i kontakt med en hospitalsafdeling [^src1]",
-      "type": "statistical",
+      "type": "epidemiological",
       "entities": [
+        "ibd",
         "danibd"
       ],
       "page": 6
     },
     {
-      "text": "7 % af de 32.641 voksne med IBD er nydiagnosticerede med IBD [^src1]",
-      "type": "statistical",
+      "text": "7 % af de voksne med IBD er nydiagnosticerede [^src1]",
+      "type": "epidemiological",
       "entities": [
+        "ibd",
         "danibd"
       ],
       "page": 6
     },
     {
-      "text": "De nydiagnosticerede voksne har oftest colitis ulcerosa (58 %) [^src1]",
-      "type": "statistical",
+      "text": "58 % af de nydiagnosticerede voksne har colitis ulcerosa [^src1]",
+      "type": "epidemiological",
       "entities": [
-        "colitis-ulcerosa"
-      ],
-      "page": 6
-    },
-    {
-      "text": "Halvdelen af nydiagnosticerede voksne er i alderen 18-39 år (50 %) med en median alder på 39 år [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Blandt tidligere diagnosticerede voksne med IBD er flest diagnosticeret med colitis ulcerosa (58 %) [^src1]",
-      "type": "statistical",
-      "entities": [
-        "colitis-ulcerosa"
-      ],
-      "page": 6
-    },
-    {
-      "text": "Blandt tidligere diagnosticerede voksne med IBD er der flest kvinder (54 %) og medianalderen er 49 år [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Blandt nydiagnosticerede patienter: Crohns sygdom 898 (41%), colitis ulcerosa 1.275 (58%), Primær skleroserende kolangitis 33 (1%), Korttarmssyndrom 9 (0%) [^src1]",
-      "type": "statistical",
-      "entities": [
-        "crohns-sygdom",
         "colitis-ulcerosa",
-        "primar-skleroserende-kolangitis",
-        "korttarmssyndrom"
+        "ibd"
       ],
       "page": 6
     },
     {
-      "text": "Blandt tidligere diagnosticerede patienter: Crohns sygdom 12.529 (41%), colitis ulcerosa 17.606 (58%), Primær skleroserende kolangitis 212 (1%), Korttarmssyndrom 79 (0%) [^src1]",
-      "type": "statistical",
+      "text": "50 % af de nydiagnosticerede voksne er i alderen 18–39 år [^src1]",
+      "type": "demographic",
       "entities": [
-        "crohns-sygdom",
-        "colitis-ulcerosa",
-        "primar-skleroserende-kolangitis",
-        "korttarmssyndrom"
+        "ibd"
       ],
       "page": 6
     },
     {
-      "text": "Blandt nydiagnosticerede patienter: Kvinde 1.139 (51%), Mand 1.076 (49%) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Blandt tidligere diagnosticerede patienter: Kvinde 16.356 (54%), Mand 14.070 (46%) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Gennemsnitsalderen for nydiagnosticerede patienter er 43 år (Min;Max: 18;91) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Gennemsnitsalderen for tidligere diagnosticerede patienter er 49 år (Min;Max: 18;100) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Medianalderen for nydiagnosticerede patienter er 39 år (Q1;Q3: 27;57) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Medianalderen for tidligere diagnosticerede patienter er 49 år (Q1;Q3: 35;62) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Blandt nydiagnosticerede patienter: 18-29 år 668 (30%), 30-39 år 443 (20%), 40-49 år 291 (13%), 50-59 år 336 (15%), 60-69 år 238 (11%), 70-79 år 184 (8%), 80-89 år 52 (2%), 90 år eller ældre 3 (0%) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Blandt tidligere diagnosticerede patienter: 18-29 år 4.601 (15%), 30-39 år 5.633 (19%), 40-49 år 5.460 (18%), 50-59 år 5.849 (19%), 60-69 år 4.519 (15%), 70-79 år 3.239 (11%), 80-89 år 1.009 (3%), 90 år eller ældre 116 (0%) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Gennemsnitligt antal kontakter for nydiagnosticerede patienter: 11 (Min;Max: 1;51) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Gennemsnitligt antal kontakter for tidligere diagnosticerede patienter: 11 (Min;Max: 1;69) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Mediantal kontakter for nydiagnosticerede patienter: 9 (Q1;Q3: 5;14) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Mediantal kontakter for tidligere diagnosticerede patienter: 9 (Q1;Q3: 5;14) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Blandt nydiagnosticerede patienter: Fysisk fremmøde 8.848 (66%), Virtuel 4.553 (34%) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Blandt tidligere diagnosticerede patienter: Fysisk fremmøde 102.714 (64%), Virtuel 56.541 (36%) [^src1]",
-      "type": "statistical",
-      "entities": [],
-      "page": 6
-    },
-    {
-      "text": "Indikator 1.a Udredning, nydiagnosticerede voksne afventer komplet opfølgning og præsenteres derfor først i næste årsrapport [^src2]",
-      "type": "procedural",
+      "text": "Medianalderen for nydiagnosticerede voksne er 39 år [^src1]",
+      "type": "demographic",
       "entities": [
-        "danibd"
+        "ibd"
       ],
-      "page": 8
+      "page": 6
     },
     {
-      "text": "Indikator 1.b Udredning, nydiagnosticerede børn og unge afventer komplet opfølgning og præsenteres derfor først i næste årsrapport [^src2]",
-      "type": "procedural",
+      "text": "Medianalderen for prævalente voksne med IBD er 49 år [^src1]",
+      "type": "demographic",
       "entities": [
-        "danibd"
+        "ibd"
       ],
-      "page": 8
+      "page": 6
     },
     {
-      "text": "Indikator 2. Undervisning, nydiagnosticerede afventer komplet opfølgning og præsenteres derfor først i næste årsrapport [^src2]",
-      "type": "procedural",
+      "text": "54 % af de prævalente voksne med IBD er kvinder [^src1]",
+      "type": "demographic",
       "entities": [
-        "danibd"
+        "ibd"
       ],
-      "page": 8
+      "page": 6
     },
     {
-      "text": "Indikator 3. Medicinsk behandling, steroid afventer komplet opfølgning og præsenteres derfor først i næste årsrapport [^src2]",
-      "type": "procedural",
-      "entities": [
-        "danibd"
-      ],
-      "page": 8
-    },
-    {
-      "text": "Målsætningen for indikator 4 er, at 80 % af alle patienter i BMSL får målt F-calpro én gang årligt [^src3]",
-      "type": "quality-standard",
+      "text": "Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt, er 78 % (95 % CI: 77–79) på landsplan for perioden 1. oktober 2022 til 30. september 2023 [^src1]",
+      "type": "quality-indicator",
       "entities": [
         "bmsl",
-        "f-calpro"
+        "f-calpro",
+        "ibd"
       ],
-      "page": 9
+      "page": 7
     },
     {
-      "text": "Danmark: 8.199 / 10.523 patienter (78%) får målt F-calpro mindst én gang årligt, hvilket ligger under målsætningen på 80% [^src3]",
+      "text": "Andelen af kirurgiske indgreb, hvor der er foretaget re-operation inden for 30 dage, er 4 % (95 % CI: 2–5) [^src1]",
       "type": "quality-indicator",
       "entities": [
-        "danibd"
+        "ibd"
       ],
-      "page": 9
+      "page": 7
     },
     {
-      "text": "Hovedstaden: 2.190 / 3.018 patienter (73%) får målt F-calpro mindst én gang årligt [^src3]",
+      "text": "Andelen af patienter med primær skleroserende kolangitis, der får foretaget koloskopi inden for 18 måneder, er 85 % (95 % CI: 81–89) [^src1]",
       "type": "quality-indicator",
       "entities": [
-        "hovedstaden-region"
+        "praevaer-skleroserende-kolangitis"
       ],
-      "page": 9
-    },
-    {
-      "text": "Sjælland: 1.169 / 1.249 patienter (94%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "sjaelland-region"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Syddanmark: 1.967 / 2.482 patienter (79%) får målt F-calpro mindst én gang årligt [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "syddanmark-region"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Midtjylland: 2.101 / 2.761 patienter (76%) får målt F-calpro mindst én gang årligt [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "midtjylland-region"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Nordjylland: 772 / 1.013 patienter (76%) får målt F-calpro mindst én gang årligt [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "nordjylland-region"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd.: 38 / 286 patienter (13%) får målt F-calpro mindst én gang årligt [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "rigshospitalet"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Bispebjerg Abdominalcenter K: 423 / 505 patienter (84%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "bispebjerg"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Bornholm Medicinsk afdeling: 36 / 45 patienter (80%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "bornholm"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Herlev Gastroenheden Kir. Med., overafd. D: 535 / 791 patienter (68%) får målt F-calpro mindst én gang årligt [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "herlev"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Hvidovre Børne- og Ungeafdelingen: 144 / 145 patienter (99%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "hvidovre"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Hvidovre Gastroenheden: 805 / 846 patienter (95%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "hvidovre"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Nordsjælland Kirurgisk overafdeling: 209 / 400 patienter (52%) får målt F-calpro mindst én gang årligt [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "nordsjaelland"
-      ],
-      "page": 9
-    },
-    {
-      "text": "SUH Køge Medicin: 700 / 755 patienter (93%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "koege-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "SUH Roskilde Pædiatri: 24 / 24 patienter (100%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "roskilde-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "HOL Holbæk Medicin: 44 / 49 patienter (90%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "holbaek-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "NFS Nykøbing F Medicin: 182 / 200 patienter (91%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "nykoebing-f-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "NSR Slagelse Med. Gastroenterologi: 218 / 220 patienter (99%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "slagelse-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "NSR Slagelse Pædiatri: 100% af patienter får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "slagelse-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "OUH Odense Børne- og Ungeafdeling H: 61 / 61 patienter (100%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "odense-university-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "OUH Odense Medicinsk Mave-Tarm Afdeling S: 561 / 756 patienter (74%) får målt F-calpro mindst én gang årligt [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "odense-university-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "OUH Svendborg Medicinsk Afd.: 225 / 240 patienter (94%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "svendborg-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "EGS Esbjerg Medicinsk område: 515 / 552 patienter (93%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "esbjerg-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "SHS Aabenraa Mave-tarmsygdomme: 203 / 206 patienter (99%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "aabenraa-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "SHS Tønder Medicinsk Daghospital: 42 / 45 patienter (93%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "toender-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "SLB Kolding Børne- og Ungeafdeling: 25 / 25 patienter (100%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "kolding-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "SLB Vejle Medicinsk Afdeling: 335 / 597 patienter (56%) får målt F-calpro mindst én gang årligt [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "vejle-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Aarhus Børn og Unge: 101 / 102 patienter (99%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "aarhus-university-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Aarhus Lever-, Mave- og Tarmsygdomme: 623 / 1.024 patienter (61%) får målt F-calpro mindst én gang årligt [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "aarhus-university-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Gødstrup Medicinsk Afdeling: 336 / 430 patienter (78%) får målt F-calpro mindst én gang årligt [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "goedstrup-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Horsens Medicinsk Afdeling: 268 / 356 patienter (75%) får målt F-calpro mindst én gang årligt [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "horsens-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Randers Medicinsk Afdeling: 280 / 285 patienter (98%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "randers-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Silkeborg Diagnostisk Center Medicin: 278 / 284 patienter (98%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "silkeborg-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "Viborg Medicinsk Afdeling: 215 / 280 patienter (77%) får målt F-calpro mindst én gang årligt [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "viborg-hospital"
-      ],
-      "page": 9
-    },
-    {
-      "text": "AAUH Aalborg Børneområde: 35 / 36 patienter (97%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "aalborg-university-hospital"
-      ],
-      "page": 10
-    },
-    {
-      "text": "AAUH Aalborg Med.gastroenterologisk område: 677 / 914 patienter (74%) får målt F-calpro mindst én gang årligt [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "aalborg-university-hospital"
-      ],
-      "page": 10
-    },
-    {
-      "text": "RHN Hjørring Medicinske Mave- og Tarmsygd.: 60 / 63 patienter (95%) får målt F-calpro mindst én gang årligt, opfyldende målsætningen [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "hjoerring-hospital"
-      ],
-      "page": 10
+      "page": 7
     }
   ],
   "timeline": [
     {
-      "date": "1. oktober 2022 - 30. september 2023",
-      "event": "32.641 voksne med IBD var i kontakt med en hospitalsafdeling i Danmark, hvoraf 2.215 (7%) var nydiagnosticerede",
+      "date": "2022-10-01",
+      "event": "Start af opgørelsesperioden for DANIBD-rapporten 2023",
+      "entities": [
+        "danibd"
+      ]
+    },
+    {
+      "date": "2023-09-30",
+      "event": "Slut på opgørelsesperioden for DANIBD-rapporten 2023",
       "entities": [
         "danibd"
       ]
     }
   ],
-  "context": "Denne dokumentchunk præsenterer karakteristika og kvalitetsindikatorer for voksne patienter med inflammatorisk tarmsygdom (IBD) fra den danske nationale kvalitetsregister DANIBD for perioden 1. oktober 2022 til 30. september 2023. Dokumentet indeholder detaljerede demografiske data om nydiagnosticerede og tidligere diagnosticerede patienter, samt resultater af syv kliniske kvalitetsindikatorer målt på lands-, regions- og afdelingsniveau. Fokus ligger særligt på indikator 4 vedrørende monitorering af biomarkøren calprotectin (F-calpro) hos patienter i behandling med biologiske og målrettede syntetiske lægemidler (BMSL), hvor Danmark som helhed opnåede 78% compliance mod en målsætning på 80%."
+  "tables": [
+    {
+      "subject": "patientkarakteristika",
+      "title": "Tabel 2. Patientkarakteristika for nydiagnosticerede og prævalente voksne med en kontakt til et hospital i perioden 1. oktober 2022 til og med 30. september 2023",
+      "page": 6,
+      "rowDimension": "karakteristika",
+      "colDimension": "værdier for nydiagnosticerede og prævalente",
+      "entities": [
+        "ibd",
+        "danibd"
+      ],
+      "markdown": "| Karakteristika | Nydiagnosticeret | Prævalent med en hospitalskontakt i perioden 1/10/22-30/9/23 |\n| --- | --- | --- |\n| Patienter i alt | 2.215 (100) | 30.426 (100) |\n| Diagnose |  |  |\n| DK50* Crohns sygdom | 898 (41) | 12.529 (41) |\n| DK51* colitis ulcerosa | 1.275 (58) | 17.606 (58) |\n| DK830F Primær skleroserende kolangitis | 33 (1) | 212 (1) |\n| DK912B Korttarmssyndrom | 9 (0) | 79 (0) |\n| Køn |  |  |\n| Kvinde | 1.139 (51) | 16.356 (54) |\n| Mand | 1.076 (49) | 14.070 (46) |\n| Alder |  |  |\n| Gennemsnit, år (Min;Max) | 43 (18;91) | 49 (18;100) |\n| Median, år (Q1;Q3) | 39 (27;57) | 49 (35;62) |\n| Aldersgruppe |  |  |\n| 18-29 år | 668 (30) | 4.601 (15) |\n| 30-39 år | 443 (20) | 5.633 (19) |\n| 40-49 år | 291 (13) | 5.460 (18) |\n| 50-59 år | 336 (15) | 5.849 (19) |\n| 60-69 år | 238 (11) | 4.519 (15) |\n| 70-79 år | 184 (8) | 3.239 (11) |\n| 80-89 år | 52 (2) | 1.009 (3) |\n| 90 år eller ældre | 3 (0) | 116 (0) |\n| Kontakter |  |  |\n| Gennemsnit, antal (Min;Max) | 11 (1;51) | 11 (1;69) |\n| Median, antal (Q1;Q3) | 9 (5;14) | 9 (5;14) |\n| Kontakttype |  |  |\n| Fysisk fremmøde | 8.848 (66) | 102.714 (64) |\n| Virtuel | 4.553 (34) | 56.541 (36) |",
+      "summary": "Tabellen sammenligner demografiske, diagnostiske og kontaktmæssige karakteristika for nydiagnosticerede og prævalente voksne med IBD, og viser at begge grupper domineres af colitis ulcerosa (58 %), kvinder (51–54 %) og en median alder på henholdsvis 39 og 49 år."
+    },
+    {
+      "subject": "indikatorresultater",
+      "title": "Tabel 4. Oversigt over indikatorresultaterne på landsplan",
+      "page": 7,
+      "rowDimension": "indikator",
+      "colDimension": "standard, opfyldelse, andel og konfidensinterval",
+      "entities": [
+        "danibd",
+        "ibd"
+      ],
+      "markdown": "| Indikatoropfyldelse | Uoplyst | 01.10.2022 - 30.09.2023 | Standard % | Andel (95% CI) |\n| --- | --- | --- | --- | --- |\n| 1.a Udredning, nydiagnosticerede voksne | 0 | - | ≥ 80 % | 0 - |\n| 1.b Udredning, nydiagnosticerede børn og unge | 0 | - | ≥ 80 % | 0 - |\n| 2. Undervisning, nydiagnosticerede | 0 | - | Ikke fastlagt | 0 - |\n| 3. Medicinsk behandling, steroid | 0 | - | ≥ 80 % | 0 - |\n| 4. Medicinsk behandling, BMSL | 0 | 78 (77-79) | ≥ 80 % | 0 78 (77-79) |\n| 5. Post-operativ Crohns sygdom, opfølgning | 0 | - | ≥ 80 % | 0 |\n| 6. Reoperation | 0 | 4 (2-5) | ≤ 8 % | 0 4 (2-5) |\n| 7. PSC, opfølgning | 0 | 85 (81-89) | ≥ 80 % | 0 85 (81-89) |",
+      "summary": "Tabellen viser kvalitetsindikatorernes opfyldelse på landsplan, hvor kun indikator 4 (BMSL/F-calpro), 6 (reoperation) og 7 (PSC/koloskopi) har rapporterede resultater, mens de øvrige er markeret som 'afventer komplet opfølgning'."
+    },
+    {
+      "subject": "indikator-4-regioner",
+      "title": "Indikator 4: Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt",
+      "page": 9,
+      "rowDimension": "region eller afdeling",
+      "colDimension": "opfyldelse, tæller/nævner, andel og konfidensinterval",
+      "entities": [
+        "danibd",
+        "bmsl",
+        "f-calpro",
+        "ibd"
+      ],
+      "markdown": "| Region | Standard opfyldt | Tæller / nævner | Uoplyst | Andel | 95% CI |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 8.199 / 10.523 | 0 (0) | 78 | (77-79) |\n| Hovedstaden | Nej | 2.190 / 3.018 | 0 (0) | 73 | (71-74) |\n| Sjælland | Ja | 1.169 / 1.249 | 0 (0) | 94 | (92-95) |\n| Syddanmark | Nej | 1.967 / 2.482 | 0 (0) | 79 | (78-81) |\n| Midtjylland | Nej | 2.101 / 2.761 | 0 (0) | 76 | (74-78) |\n| Nordjylland | Nej | 772 / 1.013 | 0 (0) | 76 | (73-79) |\n| Hovedstaden | Nej | 2.190 / 3.018 | 0 (0) | 73 | (71-74) |\n| Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd. | Nej | 38 / 286 | 0 (0) | 13 | (10-18) |\n| Bispebjerg Abdominalcenter K | Ja | 423 / 505 | 0 (0) | 84 | (80-87) |\n| Bornholm Medicinsk afdeling | Ja | 36 / 45 | 0 (0) | 80 | (65-90) |\n| Herlev Gastroenheden Kir. Med., overafd. D | Nej | 535 / 791 | 0 (0) | 68 | (64-71) |\n| Hvidovre Børne- og Ungeafdelingen | Ja | 144 / 145 | 0 (0) | 99 | (96-100) |\n| Hvidovre Gastroenheden | Ja | 805 / 846 | 0 (0) | 95 | (93-97) |\n| Nordsjælland Kirurgisk overafdeling | Nej | 209 / 400 | 0 (0) | 52 | (47-57) |\n| Sjælland | Ja | 1.169 / 1.249 | 0 (0) | 94 | (92-95) |\n| SUH Køge Medicin | Ja | 700 / 755 | 0 (0) | 93 | (91-94) |\n| SUH Roskilde Pædiatri | Ja | 24 / 24 | 0 (0) | 100 | (86-100) |\n| HOL Holbæk Medicin | Ja | 44 / 49 | 0 (0) | 90 | (78-97) |\n| NFS Nykøbing F Medicin | Ja | 182 / 200 | 0 (0) | 91 | (86-95) |\n| NSR Slagelse Med. Gastroenterologi | Ja | 218 / 220 | 0 (0) | 99 | (97-100) |\n| NSR Slagelse Pædiatri | Ja | # / # | 0 (0) | 100 | (3-100) |\n| Syddanmark | Nej | 1.967 / 2.482 | 0 (0) | 79 | (78-81) |\n| OUH Odense Børne- og Ungeafdeling H | Ja | 61 / 61 | 0 (0) | 100 | (94-100) |\n| OUH Odense Medicinsk Mave-Tarm Afdeling S | Nej | 561 / 756 | 0 (0) | 74 | (71-77) |\n| OUH Svendborg Medicinsk Afd. | Ja | 225 / 240 | 0 (0) | 94 | (90-96) |\n| EGS Esbjerg Medicinsk område | Ja | 515 / 552 | 0 (0) | 93 | (91-95) |\n| SHS Aabenraa Mave-tarmsygdomme | Ja | 203 / 206 | 0 (0) | 99 | (96-100) |\n| SHS Tønder Medicinsk Daghospital | Ja | 42 / 45 | 0 (0) | 93 | (82-99) |\n| SLB Kolding Børne- og Ungeafdeling | Ja | 25 / 25 | 0 (0) | 100 | (86-100) |\n| SLB Vejle Medicinsk Afdeling | Nej | 335 / 597 | 0 (0) | 56 | (52-60) |\n| Midtjylland | Nej | 2.101 / 2.761 | 0 (0) | 76 | (74-78) |\n| Aarhus Børn og Unge | Ja | 101 / 102 | 0 (0) | 99 | (95-100) |\n| Aarhus Lever-, Mave- og Tarmsygdomme | Nej | 623 / 1.024 | 0 (0) | 61 | (58-64) |\n| Gødstrup Medicinsk Afdeling | Nej | 336 / 430 | 0 (0) | 78 | (74-82) |\n| Horsens Medicinsk Afdeling | Nej | 268 / 356 | 0 (0) | 75 | (70-80) |\n| Randers Medicinsk Afdeling | Ja | 280 / 285 | 0 (0) | 98 | (96-99) |\n| Silkeborg Diagnostisk Center Medicin | Ja | 278 / 284 | 0 (0) | 98 | (95-99) |\n| Viborg Medicinsk Afdeling | Nej | 215 / 280 | 0 (0) | 77 | (71-82) |\n| Nordjylland | Nej | 772 / 1.013 | 0 (0) | 76 | (73-79) |\n| AAUH Aalborg Børneområde | Ja | 35 / 36 | 0 (0) | 97 | (85-100) |\n| AAUH Aalborg Med.gastroenterologisk område | Nej | 677 / 914 | 0 (0) | 74 | (71-77) |\n| RHN Hjørring Medicinske Mave- og Tarmsygd. | Ja | 60 / 63 | 0 (0) | 95 | (87-99) |",
+      "summary": "Tabellen viser regional og afdelingsvis opfyldelse af indikator 4 (årlig F-calpro-måling hos patienter med IBD i BMSL-behandling), hvor Sjælland og flere pædiatriske afdelinger opnår >90 %, mens nogle store centrale enheder som Rigshospitalet ligger langt under målsætningen på 80 %."
+    }
+  ],
+  "context": "Dette dokumentudsnit udgør siderne 6–10 af DANIBD's årsrapport for 2023 og præsenterer epidemiologiske data og kvalitetsindikatorer for voksne med inflammatorisk tarmsygdom (IBD) i Danmark i perioden fra 1. oktober 2022 til 30. september 2023. Rapporten bygger på nationale registerdata og fokuserer på patientkarakteristika, diagnosticering, behandlingskvalitet og efterudredning, med særlig vægt på anvendelsen af biologiske og målrettede syntetiske lægemidler (BMSL) samt tilhørende biomarkørmonitorering. Den indgår i en bredere dansk kvalitetsstyringsinitiativ for kroniske sygdomme, hvor DANIBD fungerer som det officielle kvalitetsregister for IBD."
 }

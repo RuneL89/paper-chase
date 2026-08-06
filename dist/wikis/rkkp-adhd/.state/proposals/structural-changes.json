@@ -1,970 +1,619 @@
 {
   "changes": [
     {
-      "timestamp": "2026-07-25T07:51:53.781Z",
+      "timestamp": "2026-08-05T17:17:34.803Z",
       "type": "new-folder",
-      "path": "entities/healthcare/psychiatric-clinics",
-      "reason": "8 entities placed in this folder",
+      "path": "comparisons",
+      "reason": "12 comparison pages created from extracted comparison tables",
       "affectedEntities": [
-        "bispebjerg-psykiatrisk-ambulatorium",
-        "bornholm-psykiatrisk-ambulatorium",
-        "bua-psykiatrisk-klinik-skoleboern",
-        "bua-psykiatrisk-klinik-smaaboern",
-        "bua-psykiatrisk-klinik-udredning",
-        "bua-psykiatrisk-klinik-unge",
-        "glostrup-psykiatrisk-ambulatorium",
-        "hillerod-psykiatrisk-ambulatorium"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/locations",
-      "reason": "1 entity placed in this folder",
-      "affectedEntities": [
-        "region-syddanmark"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/locations/countries",
-      "reason": "1 entity placed in this folder",
-      "affectedEntities": [
-        "danmark"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/organizations/government-agencies",
-      "reason": "1 entity placed in this folder",
-      "affectedEntities": [
-        "danmarks-statistik"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/organizations/health-administration",
-      "reason": "1 entity placed in this folder",
-      "affectedEntities": [
-        "regionssundhedsdirektorkredsen"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/organizations/health-registries",
-      "reason": "2 entities placed in this folder",
-      "affectedEntities": [
-        "lpr",
-        "rkkp-videncenter"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/organizations/healthcare",
-      "reason": "6 entities placed in this folder",
-      "affectedEntities": [
-        "aarhus-universitetshospital-psykiatrien",
+        "aabenna-borne-og-ungdomspsykiatrisk-ambulatorium",
+        "adhd-behandlingspopulation",
         "adhd-databasen",
-        "bua",
-        "dps-midtjylland",
-        "region-hovedstadens-psykiatri",
-        "rkkp"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/organizations/hospitals",
-      "reason": "2 entities placed in this folder",
-      "affectedEntities": [
-        "aalborg-universitetshospital",
-        "aarhus-universitetshospital"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/organizations/patient-organizations",
-      "reason": "1 entity placed in this folder",
-      "affectedEntities": [
-        "adhd-foreningen"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/organizations/professional-societies",
-      "reason": "4 entities placed in this folder",
-      "affectedEntities": [
-        "boerne-og-ungdomspsykiatrisk-selskab-i-danmark",
-        "dansk-psykiatrisk-selskab",
-        "dansk-psykolog-forening",
-        "forening-af-praktiserende-speciallaeger"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/organizations/psychiatric-clinics",
-      "reason": "3 entities placed in this folder",
-      "affectedEntities": [
-        "boerne-ungdomspsyk-ambulatorium-nordjylland",
+        "adhd-udredningspopulation",
+        "baggrundspopulationen-2023",
+        "bispebjerg-bup-ambulatorium",
         "boerne-unge-psyk-afd-40",
-        "bua-boerne-ungdomspsykiatri-sengeafsnit"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/organizations/psychiatric-departments",
-      "reason": "4 entities placed in this folder",
-      "affectedEntities": [
-        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-        "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-        "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-        "vejle-boerne-ungdomspsykiatrisk-ambulatorium"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/organizations/psychiatric-groups",
-      "reason": "1 entity placed in this folder",
-      "affectedEntities": [
-        "danske-multidisciplinaere-psykiatrigrupper"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/organizations/regional-government",
-      "reason": "4 entities placed in this folder",
-      "affectedEntities": [
-        "region-hovedstaden",
-        "region-midtjylland",
-        "region-nordjylland",
-        "region-sjaelland"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/people/healthcare-administrators",
-      "reason": "1 entity placed in this folder",
-      "affectedEntities": [
-        "soeren-bredkjaer"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/people/healthcare-professionals",
-      "reason": "14 entities placed in this folder",
-      "affectedEntities": [
-        "allan-hvolby",
-        "anne-mette-lange",
-        "ditte-hammerum",
-        "ib-rasmussen",
-        "jan-kristensen",
-        "jan-vestergaard",
-        "linda-bramsen",
-        "lotte-maxild-mortensen",
-        "malene-tousgaard-foget-ostergaard",
-        "niels-bilenberg",
-        "shelagh-powell",
-        "simon-hjerrild",
-        "tea-naamansen-nikolov",
-        "tine-houmann"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "entities/people/patient-advocates",
-      "reason": "1 entity placed in this folder",
-      "affectedEntities": [
-        "trish-nymark"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/action-plan",
-      "reason": "Topic page 'action-plan' created from claims of type 'action-plan'",
-      "affectedEntities": [
-        "region-midtjylland"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/clinical-assessment",
-      "reason": "Topic page 'clinical-assessment' created from claims of type 'clinical-assessment'",
-      "affectedEntities": [
-        "danmark"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/clinical-disagreement",
-      "reason": "Topic page 'clinical-disagreement' created from claims of type 'clinical-disagreement'",
-      "affectedEntities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/clinical-outcome",
-      "reason": "Topic page 'clinical-outcome' created from claims of type 'clinical-outcome'",
-      "affectedEntities": [
-        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-        "adhd-databasen",
-        "bua-psykiatrisk-klinik-udredning",
-        "danmark",
-        "region-hovedstaden",
-        "region-midtjylland",
-        "region-nordjylland",
-        "region-sjaelland",
-        "region-syddanmark"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/clinical-practice",
-      "reason": "Topic page 'clinical-practice' created from claims of type 'clinical-practice'",
-      "affectedEntities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/clinical-rationale",
-      "reason": "Topic page 'clinical-rationale' created from claims of type 'clinical-rationale'",
-      "affectedEntities": [
-        "indikator-2a"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/clinical-standard",
-      "reason": "Topic page 'clinical-standard' created from claims of type 'clinical-standard'",
-      "affectedEntities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/database-expansion",
-      "reason": "Topic page 'database-expansion' created from claims of type 'database-expansion'",
-      "affectedEntities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/decision",
-      "reason": "Topic page 'decision' created from claims of type 'decision'",
-      "affectedEntities": [
-        "adhd-databasen",
-        "indikator-2a"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/diagnostic-criteria",
-      "reason": "Topic page 'diagnostic-criteria' created from claims of type 'diagnostic-criteria'"
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/educational-outcome",
-      "reason": "Topic page 'educational-outcome' created from claims of type 'educational-outcome'",
-      "affectedEntities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/epidemiological",
-      "reason": "Topic page 'epidemiological' created from claims of type 'epidemiological'"
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/facility-performance",
-      "reason": "Topic page 'facility-performance' created from claims of type 'facility-performance'",
-      "affectedEntities": [
-        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-        "bispebjerg-psykiatrisk-ambulatorium",
-        "boerne-ungdomspsyk-ambulatorium-nordjylland",
-        "bornholm-psykiatrisk-ambulatorium",
-        "bua-boerne-ungdomspsykiatri-sengeafsnit",
-        "bua-psykiatrisk-klinik-skoleboern",
-        "bua-psykiatrisk-klinik-smaaboern",
-        "bua-psykiatrisk-klinik-udredning",
-        "bua-psykiatrisk-klinik-unge",
-        "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-        "glostrup-psykiatrisk-ambulatorium",
-        "hillerod-psykiatrisk-ambulatorium",
-        "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-        "vejle-boerne-ungdomspsykiatrisk-ambulatorium"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/guideline-development",
-      "reason": "Topic page 'guideline-development' created from claims of type 'guideline-development'",
-      "affectedEntities": [
-        "danske-multidisciplinaere-psykiatrigrupper"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/healthcare-system",
-      "reason": "Topic page 'healthcare-system' created from claims of type 'healthcare-system'"
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/legal-framework",
-      "reason": "Topic page 'legal-framework' created from claims of type 'legal-framework'",
-      "affectedEntities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/medical",
-      "reason": "Topic page 'medical' created from claims of type 'medical'"
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/medical-definition",
-      "reason": "Topic page 'medical-definition' created from claims of type 'medical-definition'"
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/methodology",
-      "reason": "Topic page 'methodology' created from claims of type 'methodology'",
-      "affectedEntities": [
-        "adhd-databasen",
-        "indikator-2a",
-        "indikator-2b",
-        "indikator-3"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/neurobiological",
-      "reason": "Topic page 'neurobiological' created from claims of type 'neurobiological'"
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/observation",
-      "reason": "Topic page 'observation' created from claims of type 'observation'",
-      "affectedEntities": [
-        "adhd-databasen",
-        "region-hovedstaden",
-        "region-hovedstadens-psykiatri",
-        "region-nordjylland",
-        "region-sjaelland"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/operational",
-      "reason": "Topic page 'operational' created from claims of type 'operational'",
-      "affectedEntities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/performance",
-      "reason": "Topic page 'performance' created from claims of type 'performance'",
-      "affectedEntities": [
-        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-        "adhd-databasen",
-        "bispebjerg-psykiatrisk-ambulatorium",
-        "boerne-ungdomspsyk-ambulatorium-nordjylland",
-        "boerne-unge-psyk-afd-40",
-        "bornholm-psykiatrisk-ambulatorium",
-        "bua-psykiatrisk-klinik-skoleboern",
-        "bua-psykiatrisk-klinik-smaaboern",
-        "bua-psykiatrisk-klinik-udredning",
-        "bua-psykiatrisk-klinik-unge",
-        "danmark",
-        "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-        "glostrup-psykiatrisk-ambulatorium",
-        "hillerod-psykiatrisk-ambulatorium",
-        "indikator-2b",
+        "bornholm-bup-ambulatorium",
+        "bua-smaborn-klinik",
+        "esbjerg-bup-ambulatorium",
+        "glostrup-bup-ambulatorium",
+        "hillerod-psykiatrisk-ambulatorium-boern-og-unge",
         "indikator-3",
-        "odense-boerne-ungdomspsykiatrisk-ambulatorium",
+        "indikator-4",
+        "odense-borne-og-ungdomspsykiatrisk-ambulatorium",
         "region-hovedstaden",
         "region-midtjylland",
         "region-nordjylland",
         "region-sjaelland",
         "region-syddanmark",
-        "vejle-boerne-ungdomspsykiatrisk-ambulatorium"
+        "vejle-bup-ambulatorium"
       ]
     },
     {
-      "timestamp": "2026-07-25T07:51:53.781Z",
+      "timestamp": "2026-08-05T17:17:34.803Z",
       "type": "new-folder",
-      "path": "topics/procedural",
-      "reason": "Topic page 'procedural' created from claims of type 'procedural'",
+      "path": "entities/codes",
+      "reason": "1 entity placed in this folder",
       "affectedEntities": [
-        "adhd-databasen"
+        "agx01b"
       ]
     },
     {
-      "timestamp": "2026-07-25T07:51:53.781Z",
+      "timestamp": "2026-08-05T17:17:34.803Z",
       "type": "new-folder",
-      "path": "topics/procedural-change",
-      "reason": "Topic page 'procedural-change' created from claims of type 'procedural-change'",
+      "path": "entities/departments/psychiatry",
+      "reason": "1 entity placed in this folder",
       "affectedEntities": [
-        "region-midtjylland"
+        "bua-psykiatrisk-klinik-for-unge-i-midtjylland"
       ]
     },
     {
-      "timestamp": "2026-07-25T07:51:53.781Z",
+      "timestamp": "2026-08-05T17:17:34.803Z",
       "type": "new-folder",
-      "path": "topics/quality-indicators",
-      "reason": "Topic folder created from extracted claims"
+      "path": "entities/facilities/psychiatry-clinics",
+      "reason": "3 entities placed in this folder",
+      "affectedEntities": [
+        "aabenna-borne-og-ungdomspsykiatrisk-ambulatorium",
+        "hillerod-psykiatrisk-ambulatorium-boern-og-unge",
+        "odense-borne-og-ungdomspsykiatrisk-ambulatorium"
+      ]
     },
     {
-      "timestamp": "2026-07-25T07:51:53.781Z",
+      "timestamp": "2026-08-05T17:17:34.803Z",
       "type": "new-folder",
-      "path": "topics/regional-performance",
-      "reason": "Topic page 'regional-performance' created from claims of type 'regional-performance'",
+      "path": "entities/medications/adhd",
+      "reason": "6 entities placed in this folder",
       "affectedEntities": [
-        "adhd-databasen",
-        "region-hovedstaden",
-        "region-midtjylland",
-        "region-nordjylland",
-        "region-sjaelland",
-        "region-syddanmark"
+        "atomoxetin-n06ba09",
+        "dexamfetamin-n06ba02",
+        "guanfacin-c02ac02",
+        "lisdexamfetamin-n06ba12",
+        "methylphenidat-n06ba04",
+        "modafinil-n06ba07"
       ]
     },
     {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-folder",
-      "path": "topics/standard",
-      "reason": "Topic page 'standard' created from claims of type 'standard'",
-      "affectedEntities": [
-        "adhd-databasen",
-        "indikator-2a"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-page-type",
-      "path": "healthcare-facility",
-      "reason": "New entity page type 'healthcare-facility' discovered during extraction",
-      "affectedEntities": [
-        "bispebjerg-psykiatrisk-ambulatorium",
-        "bornholm-psykiatrisk-ambulatorium",
-        "bua-psykiatrisk-klinik-skoleboern",
-        "bua-psykiatrisk-klinik-smaaboern",
-        "bua-psykiatrisk-klinik-udredning",
-        "bua-psykiatrisk-klinik-unge",
-        "glostrup-psykiatrisk-ambulatorium",
-        "hillerod-psykiatrisk-ambulatorium"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-page-type",
-      "path": "location",
-      "reason": "New entity page type 'location' discovered during extraction",
-      "affectedEntities": [
-        "danmark",
-        "region-syddanmark"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-page-type",
-      "path": "organization",
-      "reason": "New entity page type 'organization' discovered during extraction",
-      "affectedEntities": [
-        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-        "aalborg-universitetshospital",
-        "aarhus-universitetshospital",
-        "aarhus-universitetshospital-psykiatrien",
-        "adhd-databasen",
-        "adhd-foreningen",
-        "boerne-og-ungdomspsykiatrisk-selskab-i-danmark",
-        "boerne-ungdomspsyk-ambulatorium-nordjylland",
-        "boerne-unge-psyk-afd-40",
-        "bua",
-        "bua-boerne-ungdomspsykiatri-sengeafsnit",
-        "danmarks-statistik",
-        "dansk-psykiatrisk-selskab",
-        "dansk-psykolog-forening",
-        "danske-multidisciplinaere-psykiatrigrupper",
-        "dps-midtjylland",
-        "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-        "forening-af-praktiserende-speciallaeger",
-        "lpr",
-        "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-        "region-hovedstaden",
-        "region-hovedstadens-psykiatri",
-        "region-midtjylland",
-        "region-nordjylland",
-        "region-sjaelland",
-        "regionssundhedsdirektorkredsen",
-        "rkkp",
-        "rkkp-videncenter",
-        "vejle-boerne-ungdomspsykiatrisk-ambulatorium"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-page-type",
-      "path": "person",
-      "reason": "New entity page type 'person' discovered during extraction",
-      "affectedEntities": [
-        "allan-hvolby",
-        "anne-mette-lange",
-        "ditte-hammerum",
-        "ib-rasmussen",
-        "jan-kristensen",
-        "jan-vestergaard",
-        "linda-bramsen",
-        "lotte-maxild-mortensen",
-        "malene-tousgaard-foget-ostergaard",
-        "niels-bilenberg",
-        "shelagh-powell",
-        "simon-hjerrild",
-        "soeren-bredkjaer",
-        "tea-naamansen-nikolov",
-        "tine-houmann",
-        "trish-nymark"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-page-type",
-      "path": "quality-indicator",
-      "reason": "New entity page type 'quality-indicator' discovered during extraction",
-      "affectedEntities": [
-        "indikator-3"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T07:51:53.781Z",
-      "type": "new-page-type",
-      "path": "topic",
-      "reason": "New entity page type 'topic' discovered during extraction",
-      "affectedEntities": [
-        "indikator-2a",
-        "indikator-2b"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T08:07:12.964Z",
-      "type": "new-page-type",
-      "path": "medical",
-      "reason": "New entity page type 'medical' discovered during extraction",
-      "affectedEntities": [
-        "adhd-behandlingspakke"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T13:45:30.360Z",
-      "type": "new-folder",
-      "path": "topics/clinical-outcome",
-      "reason": "Topic page 'clinical-outcome' created from claims of type 'clinical-outcome'",
-      "affectedEntities": [
-        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-        "adhd",
-        "adhd-databasen",
-        "bua-psykiatrisk-klinik-udredning",
-        "danmark",
-        "region-hovedstaden",
-        "region-midtjylland",
-        "region-nordjylland",
-        "region-sjaelland",
-        "region-syddanmark"
-      ]
-    },
-    {
-      "timestamp": "2026-07-25T13:45:30.360Z",
-      "type": "new-folder",
-      "path": "topics/regional-variation",
-      "reason": "Topic page 'regional-variation' created from claims of type 'regional-variation'",
-      "affectedEntities": [
-        "indikator-2b",
-        "region-nordjylland",
-        "region-sjaelland",
-        "region-syddanmark"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "entities/locations/danish-regions",
-      "reason": "5 entities placed in this folder",
-      "affectedEntities": [
-        "hovedstaden-region",
-        "midtjylland-region",
-        "nordjylland-region",
-        "sjaelland-region",
-        "syddanmark-region"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "entities/locations/regions",
-      "reason": "2 entities placed in this folder",
-      "affectedEntities": [
-        "nordjylland",
-        "syddanmark"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "entities/organizations/clinical-units",
-      "reason": "4 entities placed in this folder",
-      "affectedEntities": [
-        "bua-aabenraa",
-        "bua-odense",
-        "bua-psykiatrisk-klinik-smaaborni-midtjylland",
-        "bua-vejle"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
+      "timestamp": "2026-08-05T17:17:34.803Z",
       "type": "new-folder",
       "path": "entities/organizations/clinics",
       "reason": "1 entity placed in this folder",
       "affectedEntities": [
-        "boerne-ungdomspsyk-ambulatorium"
+        "bua-psykiatrisk-klinik-for-udredning"
       ]
     },
     {
-      "timestamp": "2026-08-03T18:48:40.024Z",
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "entities/organizations/healthcare-databases",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "entities/organizations/healthcare-governance",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "styregruppen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "entities/organizations/healthcare-professional-bodies",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "danske-multidisciplinaere-psykiatrigrupper-dmpger"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "entities/organizations/healthcare-providers",
+      "reason": "2 entities placed in this folder",
+      "affectedEntities": [
+        "dps-midtjylland",
+        "rhp"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "entities/organizations/healthcare-standards",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "rkkp"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "entities/organizations/hospitals",
+      "reason": "2 entities placed in this folder",
+      "affectedEntities": [
+        "aarhus-universitetshospital-psykiatrien",
+        "bua"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "entities/organizations/psychiatry-clinics",
+      "reason": "7 entities placed in this folder",
+      "affectedEntities": [
+        "bispebjerg-bup-ambulatorium",
+        "boerne-unge-psyk-afd-40",
+        "bornholm-bup-ambulatorium",
+        "bua-smaborn-klinik",
+        "esbjerg-bup-ambulatorium",
+        "glostrup-bup-ambulatorium",
+        "vejle-bup-ambulatorium"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "entities/organizations/regional-authorities",
+      "reason": "0 entities placed in this folder"
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
       "type": "new-folder",
       "path": "entities/organizations/regions",
+      "reason": "0 entities placed in this folder"
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "entities/people/healthcare-professionals",
+      "reason": "5 entities placed in this folder",
+      "affectedEntities": [
+        "malene-tousgaard-foget-oestergaard",
+        "shelagh-powell",
+        "simon-hjerrild",
+        "speciallaeger",
+        "specialpsykolog"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "entities/populations/adhd",
+      "reason": "2 entities placed in this folder",
+      "affectedEntities": [
+        "adhd-behandlingspopulation",
+        "adhd-udredningspopulation"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "entities/populations/general",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "baggrundspopulationen-2023"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "entities/products/assessment-tools",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "pse"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "entities/products/clinical-assessment-tools",
       "reason": "3 entities placed in this folder",
       "affectedEntities": [
-        "hovedstaden",
-        "midtjylland",
-        "sjaelland"
+        "dawba",
+        "kiddie-sads",
+        "pse-scan"
       ]
     },
     {
-      "timestamp": "2026-08-03T18:48:40.024Z",
+      "timestamp": "2026-08-05T17:17:34.803Z",
       "type": "new-folder",
-      "path": "topics/analysis",
-      "reason": "Topic page 'analysis' created from claims of type 'analysis'",
+      "path": "topics/demographic",
+      "reason": "Topic page 'demographic' created from claims of type 'demographic'",
       "affectedEntities": [
+        "adhd-behandlingspopulation",
+        "adhd-udredningspopulation",
+        "region-nordjylland"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "topics/indicators",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "topics/non-compliance",
+      "reason": "Topic page 'non-compliance' created from claims of type 'non-compliance'",
+      "affectedEntities": [
+        "indikator-3"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "topics/performance",
+      "reason": "Topic page 'performance' created from claims of type 'performance'",
+      "affectedEntities": [
+        "aabenna-borne-og-ungdomspsykiatrisk-ambulatorium",
         "adhd-databasen",
-        "indikator-2b",
-        "region-midtjylland",
-        "region-syddanmark"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/causal-analysis",
-      "reason": "Topic page 'causal-analysis' created from claims of type 'causal-analysis'",
-      "affectedEntities": [
-        "danmark",
-        "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-        "region-syddanmark",
-        "vejle-boerne-ungdomspsykiatrisk-ambulatorium"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/comparative",
-      "reason": "Topic page 'comparative' created from claims of type 'comparative'",
-      "affectedEntities": [
-        "rkkp-skizofreni",
-        "specialpsykologer"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/comparative-analysis",
-      "reason": "Topic page 'comparative-analysis' created from claims of type 'comparative-analysis'",
-      "affectedEntities": [
-        "region-midtjylland"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/definitional",
-      "reason": "Topic page 'definitional' created from claims of type 'definitional'",
-      "affectedEntities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/historical-performance",
-      "reason": "Topic page 'historical-performance' created from claims of type 'historical-performance'",
-      "affectedEntities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/indicator-definition",
-      "reason": "Topic page 'indicator-definition' created from claims of type 'indicator-definition'",
-      "affectedEntities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/methodological",
-      "reason": "Topic page 'methodological' created from claims of type 'methodological'",
-      "affectedEntities": [
-        "indikator-2a",
-        "indikator-2b",
-        "indikator-3",
-        "ny-indikator-2b",
-        "ny-indikator-3"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/methodology",
-      "reason": "Topic page 'methodology' created from claims of type 'methodology'",
-      "affectedEntities": [
-        "adhd-databasen",
-        "danmark",
-        "indikator-11",
-        "indikator-2a",
-        "lpr"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/observation",
-      "reason": "Topic page 'observation' created from claims of type 'observation'",
-      "affectedEntities": [
-        "adhd-databasen",
-        "bua",
-        "danmark",
-        "indikator-10",
-        "indikator-11",
-        "indikator-2a",
-        "indikator-8",
-        "indikator-9",
-        "lpr",
-        "privathospitaler",
-        "region-hovedstaden",
-        "region-hovedstadens-psykiatri",
-        "region-nordjylland",
-        "region-sjaelland"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/operational",
-      "reason": "Topic page 'operational' created from claims of type 'operational'",
-      "affectedEntities": [
-        "adhd-databasen",
+        "bua-psykiatrisk-klinik-for-udredning",
+        "hillerod-psykiatrisk-ambulatorium-boern-og-unge",
         "indikator-1",
-        "indikator-2a",
         "indikator-2b",
         "indikator-3",
-        "privathospitaler",
-        "region-hovedstaden",
-        "region-midtjylland",
-        "region-nordjylland",
-        "region-sjaelland",
-        "region-syddanmark"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/performance-metric",
-      "reason": "Topic page 'performance-metric' created from claims of type 'performance-metric'",
-      "affectedEntities": [
-        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-        "adhd-databasen",
-        "bornholm-psykiatrisk-ambulatorium-boern-unge",
-        "bua-psykiatrisk-klinik-unge",
-        "danmark",
-        "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-        "region-hovedstaden",
-        "region-midtjylland",
-        "region-nordjylland",
-        "region-syddanmark",
-        "vejle-boerne-ungdomspsykiatrisk-ambulatorium"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/procedural",
-      "reason": "Topic page 'procedural' created from claims of type 'procedural'",
-      "affectedEntities": [
-        "adhd-databasen",
+        "indikator-4",
         "indikator-5",
-        "indikator-9",
-        "lpr",
-        "region-midtjylland",
+        "odense-borne-og-ungdomspsykiatrisk-ambulatorium",
         "region-syddanmark"
       ]
     },
     {
-      "timestamp": "2026-08-03T18:48:40.024Z",
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "topics/policy/mental-health-strategy",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "topics/processes",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
       "type": "new-folder",
       "path": "topics/quality-indicator",
       "reason": "Topic page 'quality-indicator' created from claims of type 'quality-indicator'",
       "affectedEntities": [
-        "indikator-10"
+        "adhd-databasen",
+        "indicator-2b"
       ]
     },
     {
-      "timestamp": "2026-08-03T18:48:40.024Z",
+      "timestamp": "2026-08-05T17:17:34.803Z",
       "type": "new-folder",
-      "path": "topics/quality-metrics",
-      "reason": "Topic page 'quality-metrics' created from claims of type 'quality-metrics'",
-      "affectedEntities": [
-        "adhd-databasen"
-      ]
+      "path": "topics/quality-indicators/adhd-care",
+      "reason": "Topic folder created from extracted claims"
     },
     {
-      "timestamp": "2026-08-03T18:48:40.024Z",
+      "timestamp": "2026-08-05T17:17:34.803Z",
       "type": "new-folder",
       "path": "topics/quality-standard",
       "reason": "Topic page 'quality-standard' created from claims of type 'quality-standard'",
       "affectedEntities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/quality-target",
-      "reason": "Topic page 'quality-target' created from claims of type 'quality-target'",
-      "affectedEntities": [
-        "indikator-10"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/quantitative",
-      "reason": "Topic page 'quantitative' created from claims of type 'quantitative'",
-      "affectedEntities": [
-        "region-midtjylland"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/statistical",
-      "reason": "Topic page 'statistical' created from claims of type 'statistical'",
-      "affectedEntities": [
         "adhd-databasen",
-        "boerne-ungdomspsyk-ambulatorium",
-        "bua-psykiatrisk-klinik-smaaboern",
-        "danmark",
-        "hovedstaden",
+        "indicator-2b",
+        "indikator-1",
         "indikator-2b",
-        "midtjylland",
-        "nordjylland",
+        "indikator-3",
+        "indikator-4",
+        "indikator-5",
+        "indikator-6",
+        "styregruppen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-folder",
+      "path": "topics/regional-variation",
+      "reason": "Topic page 'regional-variation' created from claims of type 'regional-variation'",
+      "affectedEntities": [
+        "adhd-behandlingspopulation",
+        "adhd-udredningspopulation",
+        "indikator-3",
         "region-hovedstaden",
-        "region-midtjylland",
         "region-nordjylland",
-        "region-sjaelland",
-        "region-syddanmark",
-        "sjaelland",
-        "syddanmark"
+        "region-syddanmark"
       ]
     },
     {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/structural",
-      "reason": "Topic page 'structural' created from claims of type 'structural'",
-      "affectedEntities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/timeline",
-      "reason": "Topic page 'timeline' created from claims of type 'timeline'",
-      "affectedEntities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
-      "type": "new-folder",
-      "path": "topics/trend",
-      "reason": "Topic page 'trend' created from claims of type 'trend'",
-      "affectedEntities": [
-        "adhd-databasen",
-        "danmark",
-        "indikator-2b",
-        "region-midtjylland"
-      ]
-    },
-    {
-      "timestamp": "2026-08-03T18:48:40.024Z",
+      "timestamp": "2026-08-05T17:17:34.803Z",
       "type": "new-page-type",
-      "path": "clinical-standard",
-      "reason": "New entity page type 'clinical-standard' discovered during extraction",
+      "path": "code",
+      "reason": "New entity page type 'code' discovered during extraction",
       "affectedEntities": [
-        "dmpg-retningslinjen-adhd"
+        "agx01b"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-page-type",
+      "path": "department",
+      "reason": "New entity page type 'department' discovered during extraction",
+      "affectedEntities": [
+        "bua-psykiatrisk-klinik-for-unge-i-midtjylland"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-page-type",
+      "path": "facility",
+      "reason": "New entity page type 'facility' discovered during extraction",
+      "affectedEntities": [
+        "aabenna-borne-og-ungdomspsykiatrisk-ambulatorium",
+        "hillerod-psykiatrisk-ambulatorium-boern-og-unge",
+        "odense-borne-og-ungdomspsykiatrisk-ambulatorium"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-page-type",
+      "path": "indicator",
+      "reason": "New entity page type 'indicator' discovered during extraction",
+      "affectedEntities": [
+        "indikator-1",
+        "indikator-2a",
+        "indikator-2b",
+        "indikator-3",
+        "indikator-4",
+        "indikator-5",
+        "indikator-6",
+        "indikator-7a",
+        "indikator-7a-7b",
+        "indikator-7b"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-page-type",
+      "path": "medication",
+      "reason": "New entity page type 'medication' discovered during extraction",
+      "affectedEntities": [
+        "atomoxetin-n06ba09",
+        "dexamfetamin-n06ba02",
+        "guanfacin-c02ac02",
+        "lisdexamfetamin-n06ba12",
+        "methylphenidat-n06ba04",
+        "modafinil-n06ba07"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-page-type",
+      "path": "organization",
+      "reason": "New entity page type 'organization' discovered during extraction",
+      "affectedEntities": [
+        "aarhus-universitetshospital-psykiatrien",
+        "adhd-databasen",
+        "bispebjerg-bup-ambulatorium",
+        "boerne-unge-psyk-afd-40",
+        "bornholm-bup-ambulatorium",
+        "bua",
+        "bua-psykiatrisk-klinik-for-udredning",
+        "bua-smaborn-klinik",
+        "danske-multidisciplinaere-psykiatrigrupper-dmpger",
+        "dps-midtjylland",
+        "esbjerg-bup-ambulatorium",
+        "glostrup-bup-ambulatorium",
+        "rhp",
+        "rkkp",
+        "styregruppen",
+        "vejle-bup-ambulatorium"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-page-type",
+      "path": "person",
+      "reason": "New entity page type 'person' discovered during extraction",
+      "affectedEntities": [
+        "malene-tousgaard-foget-oestergaard",
+        "shelagh-powell",
+        "simon-hjerrild",
+        "speciallaeger",
+        "specialpsykolog"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-page-type",
+      "path": "policy",
+      "reason": "New entity page type 'policy' discovered during extraction",
+      "affectedEntities": [
+        "10-aars-planen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-page-type",
+      "path": "population",
+      "reason": "New entity page type 'population' discovered during extraction",
+      "affectedEntities": [
+        "adhd-behandlingspopulation",
+        "adhd-udredningspopulation",
+        "baggrundspopulationen-2023"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-page-type",
+      "path": "process",
+      "reason": "New entity page type 'process' discovered during extraction",
+      "affectedEntities": [
+        "adhd-udredningsforlob"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:17:34.803Z",
+      "type": "new-page-type",
+      "path": "product",
+      "reason": "New entity page type 'product' discovered during extraction",
+      "affectedEntities": [
+        "dawba",
+        "kiddie-sads",
+        "pse",
+        "pse-scan"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:50:00.172Z",
+      "type": "new-folder",
+      "path": "topics/data-quality",
+      "reason": "Topic page 'data-quality' created from claims of type 'data-quality'",
+      "affectedEntities": [
+        "adhd-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:50:00.172Z",
+      "type": "new-folder",
+      "path": "topics/educational-outcome",
+      "reason": "Topic page 'educational-outcome' created from claims of type 'educational-outcome'",
+      "affectedEntities": [
+        "adhd-behandlingspopulation",
+        "adhd-databasen",
+        "adhd-udredningspopulation",
+        "baggrundspopulationen-2023"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:50:00.172Z",
+      "type": "new-folder",
+      "path": "topics/governance",
+      "reason": "Topic page 'governance' created from claims of type 'governance'",
+      "affectedEntities": [
+        "indikator-11",
+        "indikator-3",
+        "speciallaeger",
+        "specialpsykolog",
+        "styregruppen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:50:00.172Z",
+      "type": "new-folder",
+      "path": "topics/low-performance",
+      "reason": "Topic page 'low-performance' created from claims of type 'low-performance'"
+    },
+    {
+      "timestamp": "2026-08-05T17:50:00.172Z",
+      "type": "new-folder",
+      "path": "topics/outlier-performance",
+      "reason": "Topic page 'outlier-performance' created from claims of type 'outlier-performance'",
+      "affectedEntities": [
+        "pho-klinik-1-for-psykiatriske-lidelser-horsens",
+        "pmi-klinik-for-depression-og-mani-midt",
+        "psy-lokalpsykiatri-toender"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:50:00.172Z",
+      "type": "new-folder",
+      "path": "topics/performance-change",
+      "reason": "Topic page 'performance-change' created from claims of type 'performance-change'",
+      "affectedEntities": [
+        "indikator-3",
+        "region-midtjylland",
+        "region-syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:50:00.172Z",
+      "type": "new-folder",
+      "path": "topics/policy",
+      "reason": "Topic page 'policy' created from claims of type 'policy'",
+      "affectedEntities": [
+        "dmpg-retningslinje",
+        "indikator-10",
+        "indikator-11",
+        "indikator-4",
+        "indikator-5",
+        "indikator-9",
+        "styregruppen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:50:00.172Z",
+      "type": "new-folder",
+      "path": "topics/policy-change",
+      "reason": "Topic page 'policy-change' created from claims of type 'policy-change'",
+      "affectedEntities": [
+        "indikator-2b",
+        "indikator-4"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:50:00.172Z",
+      "type": "new-folder",
+      "path": "topics/policy-development",
+      "reason": "Topic page 'policy-development' created from claims of type 'policy-development'",
+      "affectedEntities": [
+        "danske-multidisciplinaere-psykiatrigrupper-dmpger",
+        "indikator-5"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:50:00.172Z",
+      "type": "new-page-type",
+      "path": "document",
+      "reason": "New entity page type 'document' discovered during extraction",
+      "affectedEntities": [
+        "dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:50:00.172Z",
+      "type": "new-page-type",
+      "path": "psychiatry-clinic",
+      "reason": "New entity page type 'psychiatry-clinic' discovered during extraction",
+      "affectedEntities": [
+        "pho-klinik-1-for-psykiatriske-lidelser-horsens",
+        "pmi-klinik-for-depression-og-mani-midt",
+        "psy-lokalpsykiatri-toender"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:50:00.172Z",
+      "type": "new-page-type",
+      "path": "region",
+      "reason": "New entity page type 'region' discovered during extraction",
+      "affectedEntities": [
+        "danmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-05T17:50:00.172Z",
+      "type": "new-page-type",
+      "path": "topic",
+      "reason": "New entity page type 'topic' discovered during extraction",
+      "affectedEntities": [
+        "dmpg-retningslinje",
+        "indikator-10",
+        "indikator-11",
+        "indikator-8",
+        "indikator-9"
       ]
     }
   ],
   "knownPageTypes": [
-    "clinical-standard",
-    "healthcare-facility",
-    "location",
-    "medical",
+    "code",
+    "department",
+    "document",
+    "facility",
+    "indicator",
+    "medication",
     "organization",
     "person",
-    "quality-indicator",
+    "policy",
+    "population",
+    "process",
+    "product",
+    "psychiatry-clinic",
+    "region",
     "topic"
   ]
 }

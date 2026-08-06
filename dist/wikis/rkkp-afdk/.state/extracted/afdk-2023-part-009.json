@@ -4,11 +4,27 @@
       "name": "Databasen for Atrieflimren i Danmark",
       "type": "organization",
       "slug": "databasen-for-atrieflimren-i-danmark",
-      "folder": "entities/organizations/health-registries",
-      "significance": "This is the Danish atrial fibrillation database that publishes the annual report containing quality indicators for anticoagulation treatment across Danish regions and hospitals.",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "Databasen for Atrieflimren i Danmark er den centrale nationale database, der registrerer og udvælger kvalitetsindikatorer for behandling af atrieflimren i Danmark, og danner grundlag for årsrapporten, der analyserer antikoagulationsbehandlingens omfang 2 år og 5 år efter diagnose.",
       "mentions": [
         {
           "page": 41,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 42,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 43,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 44,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 45,
           "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
         }
       ]
@@ -17,12 +33,62 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/health-registries",
-      "significance": "RKKP is the Danish regional clinical quality development program that oversees and publishes quality indicators for atrial fibrillation treatment across Danish healthcare regions.",
+      "folder": "entities/organizations/healthcare-projects",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) er det tværregionale kvalitetsprogram, der styrer og publicerer data fra Databasen for Atrieflimren i Danmark, og som fungerer som udgiver af årsrapporten samt administrativ ramme for indikator 4a.",
       "mentions": [
         {
           "page": 41,
           "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 42,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 43,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 44,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 45,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4a",
+      "type": "topic",
+      "slug": "indikator-4a",
+      "folder": "topics/healthcare-quality-indicators",
+      "significance": "Indikator 4a er en national kvalitetsindikator, der måler andelen af patienter med atrieflimren og indikation for antikoagulationsbehandling, der faktisk modtager sådan behandling — både 2 år og 5 år efter diagnosen — og anvendes til vurdering af klinisk kvalitet på regions- og hospitalsniveau.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Indikator 4a: Andel af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population, hvor det er indiceret). 2 år efter diagnosen atrieflimren."
+        },
+        {
+          "page": 44,
+          "context": "Indikator 4a: Andel af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population, hvor det er indiceret). 5 år efter diagnosen atrieflimren."
+        },
+        {
+          "page": 45,
+          "context": "Indikator 4a: Andel af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population, hvor det er indiceret). 5 år efter diagnosen atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "Standard: ≥90 %",
+      "type": "topic",
+      "slug": "standard-90-percent",
+      "folder": "topics/healthcare-quality-standards",
+      "significance": "Standarden på ≥90 % er den nationale kvalitetsmål-sætning for Indikator 4a, der definerer, hvornår en region eller et hospital opfylder kravet til behandlingsdækning for antikoagulation hos patienter med atrieflimren.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Standard: ≥90 %"
         }
       ]
     },
@@ -31,11 +97,11 @@
       "type": "location",
       "slug": "danmark",
       "folder": "entities/locations/countries",
-      "significance": "Denmark is the national jurisdiction covered by the atrial fibrillation database and quality indicator reporting.",
+      "significance": "Danmark er den nationale enhed, der angives som samlet resultat for Indikator 4a i rapporten, og bruges som reference for sammenligning med regionale og lokale resultater.",
       "mentions": [
         {
           "page": 42,
-          "context": "Danmark Nej 4.195 / 4.786 0 (0) 87,7 (86,7-88,6)"
+          "context": "Danmark Nej 4.195 / 4.786 0 (0) 87,7 (86,7-88,6) 5.805 / 6.765 85,8"
         }
       ]
     },
@@ -43,12 +109,16 @@
       "name": "Hovedstaden",
       "type": "location",
       "slug": "hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Hovedstaden (Capital Region) is one of five Danish regions reporting anticoagulation treatment indicators for atrial fibrillation patients.",
+      "folder": "entities/locations/regions",
+      "significance": "Hovedstaden er én af de fem danske regioner, hvis resultater for Indikator 4a præsenteres separat i rapporten, og som viser en andel på 85,2 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 42,
-          "context": "Hovedstaden Nej 1.090 / 1.280 0 (0) 85,2 (83,1-87,1)"
+          "context": "Hovedstaden Nej 1.090 / 1.280 0 (0) 85,2 (83,1-87,1) 1.680 / 2.013 83,5"
+        },
+        {
+          "page": 43,
+          "context": "Hovedstaden Nej 1.090 / 1.280 0 (0) 85,2 (83,1-87,1) 1.680 / 2.013 83,5"
         }
       ]
     },
@@ -56,12 +126,16 @@
       "name": "Sjælland",
       "type": "location",
       "slug": "sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Sjælland (Zealand Region) is one of five Danish regions reporting anticoagulation treatment indicators for atrial fibrillation patients.",
+      "folder": "entities/locations/regions",
+      "significance": "Sjælland er én af de fem danske regioner, hvis resultater for Indikator 4a præsenteres separat i rapporten, og som viser en andel på 85,6 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 42,
-          "context": "Sjælland Nej 787 / 919 0 (0) 85,6 (83,2-87,8)"
+          "context": "Sjælland Nej 787 / 919 0 (0) 85,6 (83,2-87,8) 946 / 1.149 82,3"
+        },
+        {
+          "page": 43,
+          "context": "Sjælland Nej 787 / 919 0 (0) 85,6 (83,2-87,8) 946 / 1.149 82,3"
         }
       ]
     },
@@ -69,12 +143,16 @@
       "name": "Syddanmark",
       "type": "location",
       "slug": "syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Syddanmark (Southern Denmark Region) is one of five Danish regions reporting anticoagulation treatment indicators for atrial fibrillation patients.",
+      "folder": "entities/locations/regions",
+      "significance": "Syddanmark er én af de fem danske regioner, hvis resultater for Indikator 4a præsenteres separat i rapporten, og som viser en andel på 89,2 % ved 5-årsanalyse — den højeste regionale andel blandt de fire regioner uden 'Ja'-status.",
       "mentions": [
         {
           "page": 42,
-          "context": "Syddanmark Nej 970 / 1.087 0 (0) 89,2 (87,2-91,0)"
+          "context": "Syddanmark Nej 970 / 1.087 0 (0) 89,2 (87,2-91,0) 1.350 / 1.521 88,8"
+        },
+        {
+          "page": 43,
+          "context": "Syddanmark Nej 970 / 1.087 0 (0) 89,2 (87,2-91,0) 1.350 / 1.521 88,8"
         }
       ]
     },
@@ -82,12 +160,16 @@
       "name": "Midtjylland",
       "type": "location",
       "slug": "midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Midtjylland (Central Jutland Region) is one of five Danish regions reporting anticoagulation treatment indicators for atrial fibrillation patients.",
+      "folder": "entities/locations/regions",
+      "significance": "Midtjylland er én af de fem danske regioner, hvis resultater for Indikator 4a præsenteres separat i rapporten, og som viser en andel på 88,5 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 42,
-          "context": "Midtjylland Nej 852 / 963 0 (0) 88,5 (86,3-90,4)"
+          "context": "Midtjylland Nej 852 / 963 0 (0) 88,5 (86,3-90,4) 1.158 / 1.329 87,1"
+        },
+        {
+          "page": 43,
+          "context": "Midtjylland Nej 852 / 963 0 (0) 88,5 (86,3-90,4) 1.158 / 1.329 87,1"
         }
       ]
     },
@@ -95,12 +177,16 @@
       "name": "Nordjylland",
       "type": "location",
       "slug": "nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Nordjylland (Northern Jutland Region) is one of five Danish regions reporting anticoagulation treatment indicators for atrial fibrillation patients, and the only region meeting the ≥90% standard at 5 years post-diagnosis.",
+      "folder": "entities/locations/regions",
+      "significance": "Nordjylland er én af de fem danske regioner, hvis resultater for Indikator 4a præsenteres separat i rapporten, og som er den eneste region med 'Ja'-status, da dens andel på 92,4 % overholder standarden på ≥90 %.",
       "mentions": [
         {
           "page": 42,
-          "context": "Nordjylland Ja 496 / 537 0 (0) 92,4 (89,8-94,5)"
+          "context": "Nordjylland Ja 496 / 537 0 (0) 92,4 (89,8-94,5) 671 / 753 89,1"
+        },
+        {
+          "page": 43,
+          "context": "Nordjylland Ja 496 / 537 0 (0) 92,4 (89,8-94,5) 671 / 753 89,1"
         }
       ]
     },
@@ -109,11 +195,11 @@
       "type": "organization",
       "slug": "amager-og-hvidovre-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital in the Capital Region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Amager og Hvidovre Hospital er et sygehus i Region Hovedstaden, hvis resultater for Indikator 4a inkluderer en andel på 87,8 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 42,
-          "context": "Amager og Hvidovre Hospital Nej 172 / 196 0 (0) 87,8 (82,3-92,0)"
+          "context": "Amager og Hvidovre Hospital Nej 172 / 196 0 (0) 87,8 (82,3-92,0) 246 / 299 82,3"
         }
       ]
     },
@@ -122,11 +208,11 @@
       "type": "organization",
       "slug": "bispebjerg-og-frederiksberg-hospitaler",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital in the Capital Region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Bispebjerg og Frederiksberg Hospitaler er to samarbejdende sygehuse i Region Hovedstaden, hvis fælles resultater for Indikator 4a inkluderer en andel på 84,9 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 42,
-          "context": "Bispebjerg og Frederiksberg Hospitaler Nej 197 / 232 0 (0) 84,9 (79,6-89,3)"
+          "context": "Bispebjerg og Frederiksberg Hospitaler Nej 197 / 232 0 (0) 84,9 (79,6-89,3) 345 / 407 84,8"
         }
       ]
     },
@@ -135,11 +221,11 @@
       "type": "organization",
       "slug": "bornholms-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital in the Capital Region meeting the ≥90% standard for anticoagulation treatment in atrial fibrillation patients at 5 years post-diagnosis.",
+      "significance": "Bornholms Hospital er et sygehus i Region Sjælland, hvis resultater for Indikator 4a inkluderer en andel på 91,3 % ved 5-årsanalyse — den eneste institution på hospitalsniveau med 'Ja'-status ud over Nordjylland-regionen.",
       "mentions": [
         {
           "page": 42,
-          "context": "Bornholms Hospital Ja 42 / 46 0 (0) 91,3 (79,2-97,6)"
+          "context": "Bornholms Hospital Ja 42 / 46 0 (0) 91,3 (79,2-97,6) 64 / 71 90,1"
         }
       ]
     },
@@ -148,11 +234,11 @@
       "type": "organization",
       "slug": "herlev-og-gentofte-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital in the Capital Region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Herlev og Gentofte Hospital er et sygehus i Region Hovedstaden, hvis resultater for Indikator 4a inkluderer en andel på 85,7 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 42,
-          "context": "Herlev og Gentofte Hospital Nej 336 / 392 0 (0) 85,7 (81,9-89,0)"
+          "context": "Herlev og Gentofte Hospital Nej 336 / 392 0 (0) 85,7 (81,9-89,0) 434 / 506 85,8"
         }
       ]
     },
@@ -161,11 +247,11 @@
       "type": "organization",
       "slug": "hospitalerne-i-nordsjaelland",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital in the Capital Region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Hospitalerne i Nordsjælland er et hospitalssammenslutning i Region Sjælland, hvis resultater for Indikator 4a inkluderer en andel på 85,2 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 42,
-          "context": "Hospitalerne i Nordsjælland Nej 202 / 237 0 (0) 85,2 (80,1-89,5)"
+          "context": "Hospitalerne i Nordsjælland Nej 202 / 237 0 (0) 85,2 (80,1-89,5) 335 / 406 82,5"
         }
       ]
     },
@@ -174,11 +260,11 @@
       "type": "organization",
       "slug": "rigshospitalet",
       "folder": "entities/organizations/hospitals",
-      "significance": "A major hospital in the Capital Region reporting anticoagulation treatment data for atrial fibrillation patients, with the lowest performance rate in the Capital Region at 79.7%.",
+      "significance": "Rigshospitalet er et universitetshospital i Region Hovedstaden, hvis resultater for Indikator 4a inkluderer den laveste andel blandt alle listede sygehuse på 79,7 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 42,
-          "context": "Rigshospitalet Nej 141 / 177 0 (0) 79,7 (73,0-85,3)"
+          "context": "Rigshospitalet Nej 141 / 177 0 (0) 79,7 (73,0-85,3) 256 / 324 79,0"
         }
       ]
     },
@@ -187,11 +273,11 @@
       "type": "organization",
       "slug": "garantiklinikken",
       "folder": "entities/organizations/hospitals",
-      "significance": "A clinic in Sjælland region reporting anticoagulation treatment data for atrial fibrillation patients, achieving 100% treatment rate in the previous year.",
+      "significance": "Garantiklinikken er en klinik i Region Syddanmark, hvis resultater for Indikator 4a inkluderer en andel på 88,2 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 42,
-          "context": "Garantiklinikken Nej 15 / 17 0 (0) 88,2 (63,6-98,5)"
+          "context": "Garantiklinikken Nej 15 / 17 0 (0) 88,2 (63,6-98,5) 6 / 6 100,0"
         }
       ]
     },
@@ -200,11 +286,11 @@
       "type": "organization",
       "slug": "holbaek",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital in Sjælland region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Holbæk er et sygehus i Region Sjælland, hvis resultater for Indikator 4a inkluderer en andel på 83,4 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 42,
-          "context": "Holbæk Nej 156 / 187 0 (0) 83,4 (77,3-88,4)"
+          "context": "Holbæk Nej 156 / 187 0 (0) 83,4 (77,3-88,4) 177 / 215 82,3"
         }
       ]
     },
@@ -213,11 +299,11 @@
       "type": "organization",
       "slug": "nykoebing-falster",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital in Sjælland region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Nykøbing Falster er et sygehus i Region Sjælland, hvis resultater for Indikator 4a inkluderer en andel på 81,5 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 42,
-          "context": "Nykøbing Falster Nej 123 / 151 0 (0) 81,5 (74,3-87,3)"
+          "context": "Nykøbing Falster Nej 123 / 151 0 (0) 81,5 (74,3-87,3) 186 / 220 84,5"
         }
       ]
     },
@@ -226,24 +312,24 @@
       "type": "organization",
       "slug": "naestved",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital in Sjælland region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Næstved er et sygehus i Region Sjælland, hvis resultater for Indikator 4a inkluderer en andel på 89,9 % ved 5-årsanalyse — den højeste andel blandt alle listede sygehuse uden 'Ja'-status.",
       "mentions": [
         {
           "page": 42,
-          "context": "Næstved Nej 62 / 69 0 (0) 89,9 (80,2-95,8)"
+          "context": "Næstved Nej 62 / 69 0 (0) 89,9 (80,2-95,8) 40 / 48 83,3"
         }
       ]
     },
     {
       "name": "Sjællands Universitetshospital Køge",
       "type": "organization",
-      "slug": "sjaellands-universitetshospital-koege",
+      "slug": "sjaellands-universitetshospital-koenge",
       "folder": "entities/organizations/hospitals",
-      "significance": "A university hospital in Sjælland region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Sjællands Universitetshospital Køge er et sygehus i Region Sjælland, hvis resultater for Indikator 4a inkluderer en andel på 80,4 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 42,
-          "context": "Sjællands Universitetshospital Køge Nej 41 / 51 0 (0) 80,4 (66,9-90,2)"
+          "context": "Sjællands Universitetshospital Køge Nej 41 / 51 0 (0) 80,4 (66,9-90,2) 74 / 88 84,1"
         }
       ]
     },
@@ -252,11 +338,11 @@
       "type": "organization",
       "slug": "sjaellands-universitetshospital-roskilde",
       "folder": "entities/organizations/hospitals",
-      "significance": "A university hospital in Sjælland region meeting the ≥90% standard for anticoagulation treatment in atrial fibrillation patients at 5 years post-diagnosis.",
+      "significance": "Sjællands Universitetshospital Roskilde er et sygehus i Region Sjælland, hvis resultater for Indikator 4a inkluderer en andel på 90,6 % ved 5-årsanalyse — det eneste sygehus i Region Sjælland med 'Ja'-status.",
       "mentions": [
         {
           "page": 42,
-          "context": "Sjællands Universitetshospital Roskilde Ja 213 / 235 0 (0) 90,6 (86,2-94,0)"
+          "context": "Sjællands Universitetshospital Roskilde Ja 213 / 235 0 (0) 90,6 (86,2-94,0) 227 / 264 86,0"
         }
       ]
     },
@@ -265,11 +351,11 @@
       "type": "organization",
       "slug": "slagelse",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital in Sjælland region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Slagelse er et sygehus i Region Sjælland, hvis resultater for Indikator 4a inkluderer en andel på 84,7 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 42,
-          "context": "Slagelse Nej 177 / 209 0 (0) 84,7 (79,1-89,3)"
+          "context": "Slagelse Nej 177 / 209 0 (0) 84,7 (79,1-89,3) 236 / 308 76,6"
         }
       ]
     },
@@ -278,11 +364,11 @@
       "type": "organization",
       "slug": "esbjerg-sygehus-grindsted-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital in Syddanmark region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus er et sygehus i Region Syddanmark, hvis resultater for Indikator 4a inkluderer en andel på 88,0 % ved 5-årsanalyse.",
       "mentions": [
         {
-          "page": 43,
-          "context": "Esbjerg Sygehus Grindsted Sygehus Nej 147 / 167 0 (0) 88,0 (82,1-92,5)"
+          "page": 42,
+          "context": "Esbjerg Sygehus Grindsted Sygehus Nej 147 / 167 0 (0) 88,0 (82,1-92,5) 246 / 266 92,5"
         }
       ]
     },
@@ -291,24 +377,25 @@
       "type": "organization",
       "slug": "friklinikken-region-syddanmark-grindsted",
       "folder": "entities/organizations/hospitals",
-      "significance": "A private clinic in Syddanmark region meeting the ≥90% standard for anticoagulation treatment in atrial fibrillation patients at 5 years post-diagnosis, achieving 100% treatment rate.",
+      "significance": "Friklinikken Region Syddanmark Grindsted er en klinik i Region Syddanmark, hvis resultater for Indikator 4a inkluderer en andel på 100,0 % ved 5-årsanalyse — den eneste institution med fuld dækning.",
       "mentions": [
         {
-          "page": 43,
-          "context": "Friklinikken Region Syddanmark Grindsted Ja 26 / 26 0 (0) 100,0 (86,8-100,0)"
+          "page": 42,
+          "context": "Friklinikken Region Syddanmark Grindsted Ja 26 / 26 0 (0) 100,0 (86,8-100,0) 33 / 33 100,0"
         }
       ]
     },
     {
-      "name": "Kolding Sygehus",
+      "name": "Kolding Sygehus*",
       "type": "organization",
       "slug": "kolding-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital in Syddanmark region reporting anticoagulation treatment data for atrial fibrillation patients, with results that should be interpreted together with Vejle Sygehus as part of Sygehus Lillebælt.",
+      "significance": "Kolding Sygehus er et sygehus i Region Syddanmark, hvis resultater for Indikator 4a inkluderer den laveste andel blandt alle listede sygehuse på 71,1 % ved 5-årsanalyse — med en asterisk-bemærkning om fejl i datafordeling.",
+      "disambiguation": "Denne entitet henviser specifikt til Kolding Sygehus som del af Sygehus Lillebælt, ikke til et selvstændigt sygehus; bemærkningen '*' henviser til at resultaterne ikke er korrekt fordelt mellem Kolding og Vejle Sygehus.",
       "mentions": [
         {
-          "page": 43,
-          "context": "Kolding Sygehus* Nej 27 / 38 0 (0) 71,1 (54,1-84,6)"
+          "page": 42,
+          "context": "Kolding Sygehus* Nej 27 / 38 0 (0) 71,1 (54,1-84,6) 32 / 40 80,0"
         }
       ]
     },
@@ -317,11 +404,11 @@
       "type": "organization",
       "slug": "ouh-odense-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "A university hospital in Syddanmark region meeting the ≥90% standard for anticoagulation treatment in atrial fibrillation patients at 5 years post-diagnosis.",
+      "significance": "OUH Odense Universitetshospital er et universitetshospital i Region Syddanmark, hvis resultater for Indikator 4a inkluderer en andel på 90,4 % ved 5-årsanalyse — den første universitetshospital med 'Ja'-status i rapporten.",
       "mentions": [
         {
-          "page": 43,
-          "context": "OUH Odense Universitetshospital Ja 404 / 447 0 (0) 90,4 (87,3-93,0)"
+          "page": 42,
+          "context": "OUH Odense Universitetshospital Ja 404 / 447 0 (0) 90,4 (87,3-93,0) 516 / 588 87,8"
         }
       ]
     },
@@ -330,24 +417,25 @@
       "type": "organization",
       "slug": "sygehus-soenderjylland",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital in Syddanmark region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Sygehus Sønderjylland er et sygehus i Region Syddanmark, hvis resultater for Indikator 4a inkluderer en andel på 88,7 % ved 5-årsanalyse.",
       "mentions": [
         {
-          "page": 43,
-          "context": "Sygehus Sønderjylland Nej 165 / 186 0 (0) 88,7 (83,3-92,9)"
+          "page": 42,
+          "context": "Sygehus Sønderjylland Nej 165 / 186 0 (0) 88,7 (83,3-92,9) 263 / 298 88,3"
         }
       ]
     },
     {
-      "name": "Vejle Sygehus",
+      "name": "Vejle Sygehus*",
       "type": "organization",
       "slug": "vejle-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital in Syddanmark region meeting the ≥90% standard for anticoagulation treatment in atrial fibrillation patients at 5 years post-diagnosis, with results that should be interpreted together with Kolding Sygehus as part of Sygehus Lillebælt.",
+      "significance": "Vejle Sygehus er et sygehus i Region Syddanmark, hvis resultater for Indikator 4a inkluderer en andel på 90,1 % ved 5-årsanalyse — med en asterisk-bemærkning om fejl i datafordeling.",
+      "disambiguation": "Denne entitet henviser specifikt til Vejle Sygehus som del af Sygehus Lillebælt, ikke til et selvstændigt sygehus; bemærkningen '*' henviser til at resultaterne ikke er korrekt fordelt mellem Kolding og Vejle Sygehus.",
       "mentions": [
         {
-          "page": 43,
-          "context": "Vejle Sygehus* Ja 201 / 223 0 (0) 90,1 (85,4-93,7)"
+          "page": 42,
+          "context": "Vejle Sygehus* Ja 201 / 223 0 (0) 90,1 (85,4-93,7) 260 / 296 87,8"
         }
       ]
     },
@@ -356,11 +444,11 @@
       "type": "organization",
       "slug": "aarhus-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "A university hospital in Midtjylland region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Aarhus Universitetshospital er et universitetshospital i Region Midtjylland, hvis resultater for Indikator 4a inkluderer en andel på 87,7 % ved 5-årsanalyse.",
       "mentions": [
         {
-          "page": 43,
-          "context": "Aarhus Universitetshospital Nej 150 / 171 0 (0) 87,7 (81,8-92,2)"
+          "page": 42,
+          "context": "Aarhus Universitetshospital Nej 150 / 171 0 (0) 87,7 (81,8-92,2) 219 / 268 81,7"
         }
       ]
     },
@@ -369,11 +457,11 @@
       "type": "organization",
       "slug": "hospitalsenhed-midt",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital unit in Midtjylland region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Hospitalsenhed Midt er en underenhed i Region Midtjylland, hvis resultater for Indikator 4a inkluderer en andel på 88,3 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 43,
-          "context": "Hospitalsenhed Midt Nej 218 / 247 0 (0) 88,3 (83,6-92,0)"
+          "context": "Hospitalsenhed Midt Nej 218 / 247 0 (0) 88,3 (83,6-92,0) 315 / 345 91,3"
         }
       ]
     },
@@ -382,11 +470,11 @@
       "type": "organization",
       "slug": "hospitalsenheden-vest",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital unit in Midtjylland region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Hospitalsenheden Vest er en underenhed i Region Midtjylland, hvis resultater for Indikator 4a inkluderer en andel på 87,9 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 43,
-          "context": "Hospitalsenheden Vest Nej 182 / 207 0 (0) 87,9 (82,7-92,0)"
+          "context": "Hospitalsenheden Vest Nej 182 / 207 0 (0) 87,9 (82,7-92,0) 249 / 291 85,6"
         }
       ]
     },
@@ -395,11 +483,11 @@
       "type": "organization",
       "slug": "regionshospitalet-horsens",
       "folder": "entities/organizations/hospitals",
-      "significance": "A regional hospital in Midtjylland region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Regionshospitalet Horsens er et sygehus i Region Midtjylland, hvis resultater for Indikator 4a inkluderer en andel på 89,0 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 43,
-          "context": "Regionshospitalet Horsens Nej 130 / 146 0 (0) 89,0 (82,8-93,6)"
+          "context": "Regionshospitalet Horsens Nej 130 / 146 0 (0) 89,0 (82,8-93,6) 185 / 209 88,5"
         }
       ]
     },
@@ -408,11 +496,11 @@
       "type": "organization",
       "slug": "regionshospitalet-randers",
       "folder": "entities/organizations/hospitals",
-      "significance": "A regional hospital in Midtjylland region reporting anticoagulation treatment data for atrial fibrillation patients.",
+      "significance": "Regionshospitalet Randers er et sygehus i Region Midtjylland, hvis resultater for Indikator 4a inkluderer en andel på 89,6 % ved 5-årsanalyse.",
       "mentions": [
         {
           "page": 43,
-          "context": "Regionshospitalet Randers Nej 172 / 192 0 (0) 89,6 (84,4-93,5)"
+          "context": "Regionshospitalet Randers Nej 172 / 192 0 (0) 89,6 (84,4-93,5) 190 / 216 88,0"
         }
       ]
     },
@@ -421,11 +509,11 @@
       "type": "organization",
       "slug": "aalborg-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "A university hospital in Nordjylland region meeting the ≥90% standard for anticoagulation treatment in atrial fibrillation patients at 5 years post-diagnosis.",
+      "significance": "Aalborg Universitetshospital er et universitetshospital i Region Nordjylland, hvis resultater for Indikator 4a inkluderer en andel på 91,7 % ved 5-årsanalyse — den første af tre 'Ja'-institutioner i Nordjylland.",
       "mentions": [
         {
           "page": 43,
-          "context": "Aalborg Universitetshospital Ja 253 / 276 0 (0) 91,7 (87,8-94,6)"
+          "context": "Aalborg Universitetshospital Ja 253 / 276 0 (0) 91,7 (87,8-94,6) 391 / 442 88,5"
         }
       ]
     },
@@ -434,11 +522,11 @@
       "type": "organization",
       "slug": "aalborg-universitetshospital-thisted",
       "folder": "entities/organizations/hospitals",
-      "significance": "A university hospital unit in Nordjylland region meeting the ≥90% standard for anticoagulation treatment in atrial fibrillation patients at 5 years post-diagnosis.",
+      "significance": "Aalborg Universitetshospital Thisted er en underafdeling af Aalborg Universitetshospital i Region Nordjylland, hvis resultater for Indikator 4a inkluderer en andel på 93,4 % ved 5-årsanalyse — den højeste andel blandt alle listede institutioner.",
       "mentions": [
         {
           "page": 43,
-          "context": "Aalborg Universitetshospital Thisted Ja 71 / 76 0 (0) 93,4 (85,3-97,8)"
+          "context": "Aalborg Universitetshospital Thisted Ja 71 / 76 0 (0) 93,4 (85,3-97,8) 72 / 83 86,7"
         }
       ]
     },
@@ -447,11 +535,11 @@
       "type": "organization",
       "slug": "regionshospital-nordjylland-ven",
       "folder": "entities/organizations/hospitals",
-      "significance": "A regional hospital in Nordjylland region meeting the ≥90% standard for anticoagulation treatment in atrial fibrillation patients at 5 years post-diagnosis.",
+      "significance": "Regionshospital Nordjylland Ven er et sygehus i Region Nordjylland, hvis resultater for Indikator 4a inkluderer en andel på 93,0 % ved 5-årsanalyse — den anden højeste andel blandt alle listede institutioner.",
       "mentions": [
         {
           "page": 43,
-          "context": "Regionshospital Nordjylland Ven Ja 172 / 185 0 (0) 93,0 (88,3-96,2)"
+          "context": "Regionshospital Nordjylland Ven Ja 172 / 185 0 (0) 93,0 (88,3-96,2) 208 / 228 91,2"
         }
       ]
     },
@@ -460,11 +548,11 @@
       "type": "organization",
       "slug": "sygehus-lillebaelt",
       "folder": "entities/organizations/hospitals",
-      "significance": "A hospital system in Syddanmark region comprising Kolding Sygehus and Vejle Sygehus, whose indicator results should be interpreted together.",
+      "significance": "Sygehus Lillebælt er et sygehus i Region Syddanmark, der omfatter både Kolding Sygehus og Vejle Sygehus, og hvis resultater for Indikator 4a skal fortolkes samlet på grund af fejl i datafordeling.",
       "mentions": [
         {
           "page": 43,
-          "context": "Sygehus Lillebælt"
+          "context": "*Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt"
         }
       ]
     }
@@ -472,345 +560,291 @@
   "relationships": [
     {
       "subject": "databasen-for-atrieflimren-i-danmark",
-      "predicate": "published-by",
+      "predicate": "is-managed-by",
       "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
+      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 — Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
       "page": 41
     },
     {
-      "subject": "amager-og-hvidovre-hospital",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Hovedstaden region contains Amager og Hvidovre Hospital",
+      "subject": "indikator-4a",
+      "predicate": "is-defined-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Indikator 4a: Andel af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population, hvor det er indiceret). 2 år efter diagnosen atrieflimren.",
+      "page": 41
+    },
+    {
+      "subject": "standard-90-percent",
+      "predicate": "is-target-for",
+      "object": "indikator-4a",
+      "evidence": "Standard: ≥90 %",
       "page": 42
     },
     {
-      "subject": "bispebjerg-og-frederiksberg-hospitaler",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Hovedstaden region contains Bispebjerg og Frederiksberg Hospitaler",
+      "subject": "hovedstaden",
+      "predicate": "contains-hospital",
+      "object": "amager-og-hvidovre-hospital",
+      "evidence": "Hovedstaden Nej [...] Amager og Hvidovre Hospital Nej [...]",
       "page": 42
     },
     {
-      "subject": "bornholms-hospital",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Hovedstaden region contains Bornholms Hospital",
+      "subject": "hovedstaden",
+      "predicate": "contains-hospital",
+      "object": "bispebjerg-og-frederiksberg-hospitaler",
+      "evidence": "Hovedstaden Nej [...] Bispebjerg og Frederiksberg Hospitaler Nej [...]",
       "page": 42
     },
     {
-      "subject": "herlev-og-gentofte-hospital",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Hovedstaden region contains Herlev og Gentofte Hospital",
+      "subject": "hovedstaden",
+      "predicate": "contains-hospital",
+      "object": "herlev-og-gentofte-hospital",
+      "evidence": "Hovedstaden Nej [...] Herlev og Gentofte Hospital Nej [...]",
       "page": 42
     },
     {
-      "subject": "hospitalerne-i-nordsjaelland",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Hovedstaden region contains Hospitalerne i Nordsjælland",
+      "subject": "hovedstaden",
+      "predicate": "contains-hospital",
+      "object": "hospitalerne-i-nordsjaelland",
+      "evidence": "Hovedstaden Nej [...] Hospitalerne i Nordsjælland Nej [...]",
       "page": 42
     },
     {
-      "subject": "rigshospitalet",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Hovedstaden region contains Rigshospitalet",
+      "subject": "hovedstaden",
+      "predicate": "contains-hospital",
+      "object": "rigshospitalet",
+      "evidence": "Hovedstaden Nej [...] Rigshospitalet Nej [...]",
       "page": 42
     },
     {
-      "subject": "garantiklinikken",
-      "predicate": "located-in",
-      "object": "sjaelland",
-      "evidence": "Sjælland region contains Garantiklinikken",
+      "subject": "sjaelland",
+      "predicate": "contains-hospital",
+      "object": "bornholms-hospital",
+      "evidence": "Sjælland Nej [...] Bornholms Hospital Ja [...]",
       "page": 42
     },
     {
-      "subject": "holbaek",
-      "predicate": "located-in",
-      "object": "sjaelland",
-      "evidence": "Sjælland region contains Holbæk",
+      "subject": "sjaelland",
+      "predicate": "contains-hospital",
+      "object": "holbaek",
+      "evidence": "Sjælland Nej [...] Holbæk Nej [...]",
       "page": 42
     },
     {
-      "subject": "nykoebing-falster",
-      "predicate": "located-in",
-      "object": "sjaelland",
-      "evidence": "Sjælland region contains Nykøbing Falster",
+      "subject": "sjaelland",
+      "predicate": "contains-hospital",
+      "object": "nykoebing-falster",
+      "evidence": "Sjælland Nej [...] Nykøbing Falster Nej [...]",
       "page": 42
     },
     {
-      "subject": "naestved",
-      "predicate": "located-in",
-      "object": "sjaelland",
-      "evidence": "Sjælland region contains Næstved",
+      "subject": "sjaelland",
+      "predicate": "contains-hospital",
+      "object": "naestved",
+      "evidence": "Sjælland Nej [...] Næstved Nej [...]",
       "page": 42
     },
     {
-      "subject": "sjaellands-universitetshospital-koege",
-      "predicate": "located-in",
-      "object": "sjaelland",
-      "evidence": "Sjælland region contains Sjællands Universitetshospital Køge",
+      "subject": "sjaelland",
+      "predicate": "contains-hospital",
+      "object": "sjaellands-universitetshospital-koenge",
+      "evidence": "Sjælland Nej [...] Sjællands Universitetshospital Køge Nej [...]",
       "page": 42
     },
     {
-      "subject": "sjaellands-universitetshospital-roskilde",
-      "predicate": "located-in",
-      "object": "sjaelland",
-      "evidence": "Sjælland region contains Sjællands Universitetshospital Roskilde",
+      "subject": "sjaelland",
+      "predicate": "contains-hospital",
+      "object": "sjaellands-universitetshospital-roskilde",
+      "evidence": "Sjælland Nej [...] Sjællands Universitetshospital Roskilde Ja [...]",
       "page": 42
     },
     {
-      "subject": "slagelse",
-      "predicate": "located-in",
-      "object": "sjaelland",
-      "evidence": "Sjælland region contains Slagelse",
+      "subject": "sjaelland",
+      "predicate": "contains-hospital",
+      "object": "slagelse",
+      "evidence": "Sjælland Nej [...] Slagelse Nej [...]",
       "page": 42
     },
     {
-      "subject": "esbjerg-sygehus-grindsted-sygehus",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Syddanmark region contains Esbjerg Sygehus Grindsted Sygehus",
-      "page": 43
+      "subject": "syddanmark",
+      "predicate": "contains-hospital",
+      "object": "esbjerg-sygehus-grindsted-sygehus",
+      "evidence": "Syddanmark Nej [...] Esbjerg Sygehus Grindsted Sygehus Nej [...]",
+      "page": 42
     },
     {
-      "subject": "friklinikken-region-syddanmark-grindsted",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Syddanmark region contains Friklinikken Region Syddanmark Grindsted",
-      "page": 43
+      "subject": "syddanmark",
+      "predicate": "contains-hospital",
+      "object": "friklinikken-region-syddanmark-grindsted",
+      "evidence": "Syddanmark Nej [...] Friklinikken Region Syddanmark Grindsted Ja [...]",
+      "page": 42
     },
     {
-      "subject": "kolding-sygehus",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Syddanmark region contains Kolding Sygehus",
-      "page": 43
+      "subject": "syddanmark",
+      "predicate": "contains-hospital",
+      "object": "kolding-sygehus",
+      "evidence": "Syddanmark Nej [...] Kolding Sygehus* Nej [...]",
+      "page": 42
     },
     {
-      "subject": "ouh-odense-universitetshospital",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Syddanmark region contains OUH Odense Universitetshospital",
-      "page": 43
+      "subject": "syddanmark",
+      "predicate": "contains-hospital",
+      "object": "ouh-odense-universitetshospital",
+      "evidence": "Syddanmark Nej [...] OUH Odense Universitetshospital Ja [...]",
+      "page": 42
     },
     {
-      "subject": "sygehus-soenderjylland",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Syddanmark region contains Sygehus Sønderjylland",
-      "page": 43
+      "subject": "syddanmark",
+      "predicate": "contains-hospital",
+      "object": "sygehus-soenderjylland",
+      "evidence": "Syddanmark Nej [...] Sygehus Sønderjylland Nej [...]",
+      "page": 42
     },
     {
-      "subject": "vejle-sygehus",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Syddanmark region contains Vejle Sygehus",
-      "page": 43
+      "subject": "syddanmark",
+      "predicate": "contains-hospital",
+      "object": "vejle-sygehus",
+      "evidence": "Syddanmark Nej [...] Vejle Sygehus* Ja [...]",
+      "page": 42
     },
     {
-      "subject": "aarhus-universitetshospital",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Midtjylland region contains Aarhus Universitetshospital",
-      "page": 43
-    },
-    {
-      "subject": "hospitalsenhed-midt",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Midtjylland region contains Hospitalsenhed Midt",
-      "page": 43
-    },
-    {
-      "subject": "hospitalsenheden-vest",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Midtjylland region contains Hospitalsenheden Vest",
-      "page": 43
-    },
-    {
-      "subject": "regionshospitalet-horsens",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Midtjylland region contains Regionshospitalet Horsens",
-      "page": 43
-    },
-    {
-      "subject": "regionshospitalet-randers",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "Midtjylland region contains Regionshospitalet Randers",
-      "page": 43
-    },
-    {
-      "subject": "aalborg-universitetshospital",
-      "predicate": "located-in",
-      "object": "nordjylland",
-      "evidence": "Nordjylland region contains Aalborg Universitetshospital",
-      "page": 43
-    },
-    {
-      "subject": "aalborg-universitetshospital-thisted",
-      "predicate": "located-in",
-      "object": "nordjylland",
-      "evidence": "Nordjylland region contains Aalborg Universitetshospital Thisted",
-      "page": 43
-    },
-    {
-      "subject": "regionshospital-nordjylland-ven",
-      "predicate": "located-in",
-      "object": "nordjylland",
-      "evidence": "Nordjylland region contains Regionshospital Nordjylland Ven",
-      "page": 43
-    },
-    {
-      "subject": "kolding-sygehus",
-      "predicate": "part-of",
+      "subject": "syddanmark",
+      "predicate": "contains-hospital",
       "object": "sygehus-lillebaelt",
-      "evidence": "Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt",
+      "evidence": "Sygehus Lillebælt",
       "page": 43
     },
     {
-      "subject": "vejle-sygehus",
-      "predicate": "part-of",
-      "object": "sygehus-lillebaelt",
-      "evidence": "Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt",
+      "subject": "midtjylland",
+      "predicate": "contains-hospital",
+      "object": "aarhus-universitetshospital",
+      "evidence": "Midtjylland Nej [...] Aarhus Universitetshospital Nej [...]",
+      "page": 42
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains-hospital",
+      "object": "hospitalsenhed-midt",
+      "evidence": "Midtjylland Nej [...] Hospitalsenhed Midt Nej [...]",
+      "page": 43
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains-hospital",
+      "object": "hospitalsenheden-vest",
+      "evidence": "Midtjylland Nej [...] Hospitalsenheden Vest Nej [...]",
+      "page": 43
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains-hospital",
+      "object": "regionshospitalet-horsens",
+      "evidence": "Midtjylland Nej [...] Regionshospitalet Horsens Nej [...]",
+      "page": 43
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "contains-hospital",
+      "object": "regionshospitalet-randers",
+      "evidence": "Midtjylland Nej [...] Regionshospitalet Randers Nej [...]",
+      "page": 43
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "contains-hospital",
+      "object": "aalborg-universitetshospital",
+      "evidence": "Nordjylland Ja [...] Aalborg Universitetshospital Ja [...]",
+      "page": 43
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "contains-hospital",
+      "object": "aalborg-universitetshospital-thisted",
+      "evidence": "Nordjylland Ja [...] Aalborg Universitetshospital Thisted Ja [...]",
+      "page": 43
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "contains-hospital",
+      "object": "regionshospital-nordjylland-ven",
+      "evidence": "Nordjylland Ja [...] Regionshospital Nordjylland Ven Ja [...]",
       "page": 43
     }
   ],
   "claims": [
     {
-      "text": "Indikator 4a måler andel af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population, hvor det er indiceret) 5 år efter diagnosen atrieflimren [^src1]",
-      "type": "clinical-indicator",
-      "entities": [],
+      "text": "Indikator 4a måler andelen af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population, hvor det er indiceret), både 2 år og 5 år efter diagnosen atrieflimren [^src1]",
+      "type": "definition",
+      "entities": [
+        "indikator-4a"
+      ],
       "page": 41
     },
     {
-      "text": "Danmark opnåede 87,7% (86,7-88,6) behandlingsrate for antikoagulation hos patienter med atrieflimren 5 år efter diagnosen [^src1]",
-      "type": "clinical-performance",
+      "text": "Standarden for Indikator 4a er ≥90 % [^src1]",
+      "type": "standard",
       "entities": [
-        "danmark"
+        "standard-90-percent",
+        "indikator-4a"
       ],
       "page": 42
     },
     {
-      "text": "Hovedstaden opnåede 85,2% (83,1-87,1) behandlingsrate for antikoagulation hos patienter med atrieflimren 5 år efter diagnosen [^src1]",
-      "type": "clinical-performance",
+      "text": "Danmark har en andel på 87,7 % (95 % CI: 86,7–88,6) ved 5-årsanalyse for Indikator 4a [^src1]",
+      "type": "statistical",
       "entities": [
-        "hovedstaden"
+        "danmark",
+        "indikator-4a"
       ],
       "page": 42
     },
     {
-      "text": "Sjælland opnåede 85,6% (83,2-87,8) behandlingsrate for antikoagulation hos patienter med atrieflimren 5 år efter diagnosen [^src1]",
-      "type": "clinical-performance",
+      "text": "Nordjylland er den eneste region, der opfylder standarden på ≥90 %, med en andel på 92,4 % (95 % CI: 89,8–94,5) ved 5-årsanalyse [^src1]",
+      "type": "performance",
       "entities": [
-        "sjaelland"
+        "nordjylland",
+        "standard-90-percent",
+        "indikator-4a"
       ],
       "page": 42
     },
     {
-      "text": "Syddanmark opnåede 89,2% (87,2-91,0) behandlingsrate for antikoagulation hos patienter med atrieflimren 5 år efter diagnosen [^src1]",
-      "type": "clinical-performance",
+      "text": "Aalborg Universitetshospital Thisted har den højeste andel blandt alle listede institutioner, nemlig 93,4 % (95 % CI: 85,3–97,8) ved 5-årsanalyse [^src1]",
+      "type": "performance",
       "entities": [
-        "syddanmark"
-      ],
-      "page": 42
-    },
-    {
-      "text": "Midtjylland opnåede 88,5% (86,3-90,4) behandlingsrate for antikoagulation hos patienter med atrieflimren 5 år efter diagnosen [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "midtjylland"
-      ],
-      "page": 42
-    },
-    {
-      "text": "Nordjylland opnåede 92,4% (89,8-94,5) behandlingsrate for antikoagulation hos patienter med atrieflimren 5 år efter diagnosen og opfyldte dermed standarden ≥90% [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "nordjylland"
-      ],
-      "page": 42
-    },
-    {
-      "text": "Bornholms Hospital opnåede 91,3% (79,2-97,6) behandlingsrate og opfyldte standarden ≥90% [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "bornholms-hospital"
-      ],
-      "page": 42
-    },
-    {
-      "text": "Rigshospitalet opnåede 79,7% (73,0-85,3) behandlingsrate, hvilket var den laveste rate blandt hospitalerne i Hovedstaden [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "rigshospitalet"
-      ],
-      "page": 42
-    },
-    {
-      "text": "Sjællands Universitetshospital Roskilde opnåede 90,6% (86,2-94,0) behandlingsrate og opfyldte standarden ≥90% [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "sjaellands-universitetshospital-roskilde"
-      ],
-      "page": 42
-    },
-    {
-      "text": "Friklinikken Region Syddanmark Grindsted opnåede 100,0% (86,8-100,0) behandlingsrate og opfyldte standarden ≥90% [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "friklinikken-region-syddanmark-grindsted"
+        "aalborg-universitetshospital-thisted",
+        "indikator-4a"
       ],
       "page": 43
     },
     {
-      "text": "OUH Odense Universitetshospital opnåede 90,4% (87,3-93,0) behandlingsrate og opfyldte standarden ≥90% [^src1]",
-      "type": "clinical-performance",
+      "text": "Kolding Sygehus har den laveste andel blandt alle listede sygehuse, nemlig 71,1 % (95 % CI: 54,1–84,6) ved 5-årsanalyse [^src1]",
+      "type": "performance",
       "entities": [
-        "ouh-odense-universitetshospital"
+        "kolding-sygehus",
+        "indikator-4a"
       ],
-      "page": 43
+      "page": 42
     },
     {
-      "text": "Vejle Sygehus opnåede 90,1% (85,4-93,7) behandlingsrate og opfyldte standarden ≥90% [^src1]",
-      "type": "clinical-performance",
+      "text": "Rigshospitalet har den laveste andel blandt alle listede sygehuse, nemlig 79,7 % (95 % CI: 73,0–85,3) ved 5-årsanalyse [^src1]",
+      "type": "performance",
       "entities": [
-        "vejle-sygehus"
+        "rigshospitalet",
+        "indikator-4a"
       ],
-      "page": 43
+      "page": 42
     },
     {
-      "text": "Aalborg Universitetshospital opnåede 91,7% (87,8-94,6) behandlingsrate og opfyldte standarden ≥90% [^src1]",
-      "type": "clinical-performance",
+      "text": "Friklinikken Region Syddanmark Grindsted har en andel på 100,0 % (95 % CI: 86,8–100,0) ved 5-årsanalyse [^src1]",
+      "type": "performance",
       "entities": [
-        "aalborg-universitetshospital"
+        "friklinikken-region-syddanmark-grindsted",
+        "indikator-4a"
       ],
-      "page": 43
-    },
-    {
-      "text": "Aalborg Universitetshospital Thisted opnåede 93,4% (85,3-97,8) behandlingsrate og opfyldte standarden ≥90% [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "aalborg-universitetshospital-thisted"
-      ],
-      "page": 43
-    },
-    {
-      "text": "Regionshospital Nordjylland Ven opnåede 93,0% (88,3-96,2) behandlingsrate og opfyldte standarden ≥90% [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "regionshospital-nordjylland-ven"
-      ],
-      "page": 43
+      "page": 42
     },
     {
       "text": "Indikatorresultaterne for Kolding Sygehus og Vejle Sygehus er ikke fordelt korrekt imellem de to enheder og skal derfor fortolkes samlet som ét Sygehus Lillebælt [^src1]",
-      "type": "data-quality-note",
+      "type": "methodological-note",
       "entities": [
         "kolding-sygehus",
         "vejle-sygehus",
@@ -821,17 +855,65 @@
   ],
   "timeline": [
     {
-      "date": "2017-07-01 to 2018-06-30",
-      "event": "Måleperiode for tidligere år (2016/17) data for antikoagulationsbehandling hos patienter med atrieflimren 5 år efter diagnosen",
-      "entities": []
+      "date": "1. juli 2022",
+      "event": "Start af rapportperioden for Databasen for Atrieflimren i Danmark Årsrapport 2022–2023",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ]
     },
     {
-      "date": "2022-07-01 to 2023-06-30",
-      "event": "Årsrapportperiode for Databasen for Atrieflimren i Danmark med aktuelle år data for antikoagulationsbehandling hos patienter med atrieflimren 5 år efter diagnosen",
+      "date": "30. juni 2023",
+      "event": "Afslutning af rapportperioden for Databasen for Atrieflimren i Danmark Årsrapport 2022–2023",
       "entities": [
         "databasen-for-atrieflimren-i-danmark"
       ]
     }
   ],
-  "context": "Denne dokumentchunk indeholder detaljerede kvalitetsindikatorer for antikoagulationsbehandling hos patienter med atrieflimren i Danmark, organiseret efter regioner og hospitaler. Dataene viser behandlingsrater 5 år efter diagnosen for perioden 1. juli 2022 til 30. juni 2023, sammenlignet med tidligere år (2016/17). Standarden for behandling er sat til ≥90%, og kun Nordjylland region og enkelte hospitaler opfylder denne standard. Dokumentet er udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) som del af deres årlige rapportering fra Databasen for Atrieflimren i Danmark."
+  "tables": [
+    {
+      "subject": "indikator-4a",
+      "title": "Indikator 4a: Andel af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population, hvor det er indiceret). 5 år efter diagnosen atrieflimren.",
+      "page": 42,
+      "rowDimension": "regioner-og-sygehuse",
+      "colDimension": "resultater-for-indikator-4a",
+      "entities": [
+        "danmark",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "garantiklinikken",
+        "holbaek",
+        "nykoebing-falster",
+        "naestved",
+        "sjaellands-universitetshospital-koenge",
+        "sjaellands-universitetshospital-roskilde",
+        "slagelse",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "friklinikken-region-syddanmark-grindsted",
+        "kolding-sygehus",
+        "ouh-odense-universitetshospital",
+        "sygehus-soenderjylland",
+        "vejle-sygehus",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "hospitalsenheden-vest",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "regionshospital-nordjylland-ven"
+      ],
+      "markdown": "| Enhed | Uoplyst | Tæller/antal | 95% CI | Andel | Tidligere år (Andel) |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 4.195 / 4.786 | 87,7 (86,7-88,6) | 5.805 / 6.765 | 85,8 |\n| Hovedstaden | Nej | 1.090 / 1.280 | 85,2 (83,1-87,1) | 1.680 / 2.013 | 83,5 |\n| Sjælland | Nej | 787 / 919 | 85,6 (83,2-87,8) | 946 / 1.149 | 82,3 |\n| Syddanmark | Nej | 970 / 1.087 | 89,2 (87,2-91,0) | 1.350 / 1.521 | 88,8 |\n| Midtjylland | Nej | 852 / 963 | 88,5 (86,3-90,4) | 1.158 / 1.329 | 87,1 |\n| Nordjylland | Ja | 496 / 537 | 92,4 (89,8-94,5) | 671 / 753 | 89,1 |\n| Amager og Hvidovre Hospital | Nej | 172 / 196 | 87,8 (82,3-92,0) | 246 / 299 | 82,3 |\n| Bispebjerg og Frederiksberg Hospitaler | Nej | 197 / 232 | 84,9 (79,6-89,3) | 345 / 407 | 84,8 |\n| Bornholms Hospital | Ja | 42 / 46 | 91,3 (79,2-97,6) | 64 / 71 | 90,1 |\n| Herlev og Gentofte Hospital | Nej | 336 / 392 | 85,7 (81,9-89,0) | 434 / 506 | 85,8 |\n| Hospitalerne i Nordsjælland | Nej | 202 / 237 | 85,2 (80,1-89,5) | 335 / 406 | 82,5 |\n| Rigshospitalet | Nej | 141 / 177 | 79,7 (73,0-85,3) | 256 / 324 | 79,0 |\n| Garantiklinikken | Nej | 15 / 17 | 88,2 (63,6-98,5) | 6 / 6 | 100,0 |\n| Holbæk | Nej | 156 / 187 | 83,4 (77,3-88,4) | 177 / 215 | 82,3 |\n| Nykøbing Falster | Nej | 123 / 151 | 81,5 (74,3-87,3) | 186 / 220 | 84,5 |\n| Næstved | Nej | 62 / 69 | 89,9 (80,2-95,8) | 40 / 48 | 83,3 |\n| Sjællands Universitetshospital Køge | Nej | 41 / 51 | 80,4 (66,9-90,2) | 74 / 88 | 84,1 |\n| Sjællands Universitetshospital Roskilde | Ja | 213 / 235 | 90,6 (86,2-94,0) | 227 / 264 | 86,0 |\n| Slagelse | Nej | 177 / 209 | 84,7 (79,1-89,3) | 236 / 308 | 76,6 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 147 / 167 | 88,0 (82,1-92,5) | 246 / 266 | 92,5 |\n| Friklinikken Region Syddanmark Grindsted | Ja | 26 / 26 | 100,0 (86,8-100,0) | 33 / 33 | 100,0 |\n| Kolding Sygehus* | Nej | 27 / 38 | 71,1 (54,1-84,6) | 32 / 40 | 80,0 |\n| OUH Odense Universitetshospital | Ja | 404 / 447 | 90,4 (87,3-93,0) | 516 / 588 | 87,8 |\n| Sygehus Sønderjylland | Nej | 165 / 186 | 88,7 (83,3-92,9) | 263 / 298 | 88,3 |\n| Vejle Sygehus* | Ja | 201 / 223 | 90,1 (85,4-93,7) | 260 / 296 | 87,8 |\n| Aarhus Universitetshospital | Nej | 150 / 171 | 87,7 (81,8-92,2) | 219 / 268 | 81,7 |\n| Hospitalsenhed Midt | Nej | 218 / 247 | 88,3 (83,6-92,0) | 315 / 345 | 91,3 |\n| Hospitalsenheden Vest | Nej | 182 / 207 | 87,9 (82,7-92,0) | 249 / 291 | 85,6 |\n| Regionshospitalet Horsens | Nej | 130 / 146 | 89,0 (82,8-93,6) | 185 / 209 | 88,5 |\n| Regionshospitalet Randers | Nej | 172 / 192 | 89,6 (84,4-93,5) | 190 / 216 | 88,0 |\n| Aalborg Universitetshospital | Ja | 253 / 276 | 91,7 (87,8-94,6) | 391 / 442 | 88,5 |\n| Aalborg Universitetshospital Thisted | Ja | 71 / 76 | 93,4 (85,3-97,8) | 72 / 83 | 86,7 |\n| Regionshospital Nordjylland Ven | Ja | 172 / 185 | 93,0 (88,3-96,2) | 208 / 228 | 91,2 |",
+      "summary": "Tabellen sammenligner andelen af patienter med atrieflimren, der modtager antikoagulationsbehandling 5 år efter diagnose, på tværs af regioner og sygehuse, og viser, at kun Nordjylland-regionen og otte sygehuse opfylder standarden på ≥90 %."
+    }
+  ],
+  "context": "Dette dokumentudsnit er en del af årsrapporten fra Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten fokuserer på kvalitetsindikator 4a, der måler behandlingsdækning for antikoagulation hos patienter med atrieflimren, både 2 år og 5 år efter diagnose, og sammenligner resultaterne på nationalt, regions- og hospitalsniveau i forhold til en standard på ≥90 %. Udsnittet indeholder detaljerede statistiske resultater, herunder andele, konfidensintervaller og tæller/nævner-data, og fremhæver både overholdelse og manglende overholdelse af standarden samt metodologiske bemærkninger om datakvalitet. Den brede geografiske og organisatoriske dækning reflekterer RKKPs rolle som koordinator af klinisk kvalitetsmåling i det danske sundhedsvæsen."
 }

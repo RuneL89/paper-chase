@@ -4,21 +4,21 @@
       "name": "Akut Kirurgi Databasen",
       "type": "organization",
       "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/healthcare-registries",
-      "significance": "Akut Kirurgi Databasen er den danske database for akut kirurgiske patienter, hvis data præsenteres i denne rapport med ASA-score statistikker fordelt på regioner og hospitaler.",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "Akut Kirurgi Databasen er den centrale nationale database, der registrerer og rapporterer kliniske data om akut kirurgiske indgreb i Danmark, og danner grundlag for kvalitetsudvikling og regional sammenligning i sundhedsvæsenet.",
       "mentions": [
         {
           "page": 76,
-          "context": "Akut Kirurgi Databasen, Endelig version til offentliggørelse 2025.02.28"
+          "context": "Akut Kirurgi Databasen"
         }
       ]
     },
     {
       "name": "Sundhedsvæsenets Kvalitetsinstitut",
       "type": "organization",
-      "slug": "sundhedsvaesenet-kvalitetsinstitut",
-      "folder": "entities/organizations/healthcare-quality",
-      "significance": "Sundhedsvæsenets Kvalitetsinstitut er ansvarlig for udgivelsen af denne rapport om Akut Kirurgi Databasen.",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den offentlige myndighed, der udgiver og administrerer Akut Kirurgi Databasen, og som har ansvaret for kvalitetsmåling og -udvikling i det danske sundhedsvæsen.",
       "mentions": [
         {
           "page": 76,
@@ -27,572 +27,104 @@
       ]
     },
     {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau, hvor der rapporteres samlede ASA-score data for alle opererede patienter i perioden.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Danmark 3.785 100,0 58,00 70,00 66,21 79,00"
-        }
-      ]
-    },
-    {
-      "name": "Region Hovedstaden",
-      "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Hovedstaden er en af fem danske regioner, der rapporteres ASA-score data for i denne analyse.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Hovedstaden Region i alt 1.214 100,0 57,00 69,00 65,20 78,00"
-        }
-      ]
-    },
-    {
-      "name": "Amager og Hvidovre Hospital",
-      "type": "organization",
-      "slug": "amager-og-hvidovre-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Amager og Hvidovre Hospital er et hospital i Region Hovedstaden med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Amager og Hvidovre Hospital 294 24,2 56,00 67,00 64,05 76,00"
-        }
-      ]
-    },
-    {
-      "name": "Bispebjerg og Frederiksberg Hospital",
-      "type": "organization",
-      "slug": "bispebjerg-og-frederiksberg-hospitaler",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bispebjerg og Frederiksberg Hospital er et hospital i Region Hovedstaden med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Bispebjerg og Frederiksberg Hospital 191 15,7 57,00 68,00 65,90 78,00"
-        }
-      ]
-    },
-    {
-      "name": "Bornholms Hospital",
-      "type": "organization",
-      "slug": "bornholms-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bornholms Hospital er et hospital i Region Hovedstaden med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Bornholms Hospital 30 2,5 71,00 77,00 72,82 84,00"
-        }
-      ]
-    },
-    {
-      "name": "Herlev og Gentofte Hospital",
-      "type": "organization",
-      "slug": "herlev-og-gentofte-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Herlev og Gentofte Hospital er et hospital i Region Hovedstaden med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Herlev og Gentofte Hospital 348 28,7 58,00 72,00 67,63 80,00"
-        }
-      ]
-    },
-    {
-      "name": "Hospitalerne i Nordsjælland",
-      "type": "organization",
-      "slug": "hospitalerne-i-nordsjaelland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalerne i Nordsjælland er et hospital i Region Hovedstaden med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Hospitalerne i Nordsjælland 230 18,9 59,00 68,00 66,34 78,00"
-        }
-      ]
-    },
-    {
-      "name": "Rigshospitalet",
-      "type": "organization",
-      "slug": "rigshospitalet",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet er et hospital i Region Hovedstaden med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Rigshospitalet 121 10,0 43,00 69,50 55,76 78,00"
-        }
-      ]
-    },
-    {
-      "name": "Region Sjælland",
-      "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland er en af fem danske regioner, der rapporteres ASA-score data for i denne analyse.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Sjælland Region i alt 649 100,0 61,00 73,00 68,71 80,00"
-        }
-      ]
-    },
-    {
-      "name": "Holbæk Sygehus",
-      "type": "organization",
-      "slug": "holbaek-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk Sygehus er et hospital i Region Sjælland med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Holbæk Sygehus 157 24,2 63,00 74,00 69,16 80,00"
-        }
-      ]
-    },
-    {
-      "name": "Næstved, Slagelse og Ringsted sygehuse",
-      "type": "organization",
-      "slug": "naestved-slagelse-ringsted-sygehuse",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Næstved, Slagelse og Ringsted sygehuse er hospitaler i Region Sjælland med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Næstved, Slagelse og Ringsted sygehuse 209 32,2 60,00 71,00 68,56 79,00"
-        }
-      ]
-    },
-    {
-      "name": "Sjællands Universitetshospital",
-      "type": "organization",
-      "slug": "sjaellands-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sjællands Universitetshospital er et hospital i Region Sjælland med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Sjællands Universitetshospital 283 43,6 59,00 73,00 68,56 79,00"
-        }
-      ]
-    },
-    {
-      "name": "Region Syddanmark",
-      "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Syddanmark er en af fem danske regioner, der rapporteres ASA-score data for i denne analyse.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Syddanmark Region i alt 821 100,0 56,00 69,50 65,22 78,00"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg Sygehus Grindsted Sygehus",
-      "type": "organization",
-      "slug": "esbjerg-sygehus-grindsted-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Esbjerg Sygehus Grindsted Sygehus er hospitaler i Region Syddanmark med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Esbjerg Sygehus Grindsted Sygehus 205 25,0 54,00 68,00 65,80 79,00"
-        }
-      ]
-    },
-    {
-      "name": "Odense Universitetshospital - Svendborg",
-      "type": "organization",
-      "slug": "odense-universitetshospital-svendborg",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Odense Universitetshospital - Svendborg er et hospital i Region Syddanmark med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Odense Universitetshospital - Svendborg 380 46,3 52,00 69,00 63,17 78,00"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Lillebælt",
-      "type": "organization",
-      "slug": "sygehus-lillebaelt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Lillebælt er et hospital i Region Syddanmark med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Sygehus Lillebælt 112 13,6 62,00 70,00 68,77 77,50"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Sønderjylland",
-      "type": "organization",
-      "slug": "sygehus-soenderjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Sygehus Sønderjylland er et hospital i Region Syddanmark med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Sygehus Sønderjylland 124 15,1 61,50 70,50 67,31 78,00"
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "location",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Midtjylland er en af fem danske regioner, der rapporteres ASA-score data for i denne analyse.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Midtjylland Region i alt 828 100,0 58,00 70,00 66,90 78,00"
-        }
-      ]
-    },
-    {
-      "name": "Aarhus Universitetshospital",
-      "type": "organization",
-      "slug": "aarhus-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Universitetshospital er et hospital i Region Midtjylland med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Aarhus Universitetshospital 177 21,4 53,00 68,00 63,50 77,00"
-        }
-      ]
-    },
-    {
-      "name": "Hospitalsenhed Midt",
-      "type": "organization",
-      "slug": "hospitalsenhed-midt",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hospitalsenhed Midt er et hospital i Region Midtjylland med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Hospitalsenhed Midt 166 20,0 58,00 70,00 67,07 79,00"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Gødstrup",
-      "type": "organization",
-      "slug": "regionshospitalet-goedstrup",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Gødstrup er et hospital i Region Midtjylland med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Regionshospitalet Gødstrup 190 22,9 58,00 69,00 65,76 78,00"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Horsens",
-      "type": "organization",
-      "slug": "regionshospitalet-horsens",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Horsens er et hospital i Region Midtjylland med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Regionshospitalet Horsens 143 17,3 64,00 72,00 70,55 79,00"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospitalet Randers",
-      "type": "organization",
-      "slug": "regionshospitalet-randers",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospitalet Randers er et hospital i Region Midtjylland med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Regionshospitalet Randers 152 18,4 60,00 72,00 68,64 79,00"
-        }
-      ]
-    },
-    {
-      "name": "Region Nordjylland",
-      "type": "location",
-      "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland er en af fem danske regioner, der rapporteres ASA-score data for i denne analyse.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Nordjylland Region i alt 273 100,0 55,00 69,00 65,60 78,00"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Universitetshospital",
-      "type": "organization",
-      "slug": "aalborg-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital er et hospital i Region Nordjylland med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Aalborg Universitetshospital 163 59,7 53,00 66,00 63,30 77,00"
-        }
-      ]
-    },
-    {
-      "name": "Regionshospital Nordjylland",
-      "type": "organization",
-      "slug": "regionshospital-nordjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Regionshospital Nordjylland er et hospital i Region Nordjylland med rapporterede ASA-score data.",
-      "mentions": [
-        {
-          "page": 76,
-          "context": "Regionshospital Nordjylland 110 40,3 60,00 73,00 69,01 79,00"
-        }
-      ]
-    },
-    {
       "name": "ASA-score",
-      "type": "topic",
+      "type": "score",
       "slug": "asa-score",
-      "folder": "topics/clinical-assessment",
-      "significance": "ASA-score er en klassifikation af patienternes fysiske status før operation, som rapporteres i denne analyse med statistikker fordelt på regioner og hospitaler.",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "ASA-score (American Society of Anesthesiologists Physical Status Classification System) er en standardiseret klinisk vurdering af patientens generelle helbredstilstand før operation, og bruges her som central præstationsindikator i Akut Kirurgi Databasen.",
       "mentions": [
         {
           "page": 76,
-          "context": "Supplerende opgørelse af ASA-score for opererede"
+          "context": "Supplerende opgørelse af ASA-score for opererede, boxplot"
         }
       ]
     },
     {
-      "name": "Aalborg Universitetshospital, Thisted",
-      "type": "organization",
-      "slug": "aalborg-universitetshospital-thisted",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Universitetshospital, Thisted er en lokation af Aalborg Universitetshospital med rapporterede ASA-score data.",
+      "name": "Hovedstaden",
+      "type": "region",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Hovedstaden er én af de fem regioner i Danmark, hvis akut kirurgiske data inkluderet i databasen viser en gennemsnitlig ASA-score på 2,56 i perioden 01/09/2023–31/08/2024, hvilket indgår i den regionale sammenligning i figuren på side 76.",
       "mentions": [
         {
           "page": 76,
-          "context": "Aalborg Universitetshospital, Thisted 0 1 0 0 0 0"
+          "context": "Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "region",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Midtjylland er én af de fem regioner i Danmark, hvis akut kirurgiske data inkluderet i databasen viser en gennemsnitlig ASA-score på 2,68 i perioden 01/09/2023–31/08/2024, hvilket indgår i den regionale sammenligning i figuren på side 76.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "region",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Nordjylland er én af de fem regioner i Danmark, hvis akut kirurgiske data inkluderet i databasen viser en gennemsnitlig ASA-score på 2,90 i perioden 01/09/2023–31/08/2024 — den højeste blandt regionerne — hvilket indgår i den regionale sammenligning i figuren på side 76.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "region",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Sjælland er én af de fem regioner i Danmark, hvis akut kirurgiske data inkluderet i databasen viser en gennemsnitlig ASA-score på 2,56 i perioden 01/09/2023–31/08/2024, hvilket indgår i den regionale sammenligning i figuren på side 76.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "region",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Syddanmark er én af de fem regioner i Danmark, hvis akut kirurgiske data inkluderet i databasen viser en gennemsnitlig ASA-score på 2,74 i perioden 01/09/2023–31/08/2024, hvilket indgår i den regionale sammenligning i figuren på side 76.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Syddanmark"
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "amager-og-hvidovre-hospital",
-      "predicate": "is-part-of",
-      "object": "region-hovedstaden",
-      "evidence": "Amager og Hvidovre Hospital 294 24,2 56,00 67,00 64,05 76,00 under Hovedstaden Region i alt",
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-administered-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut",
       "page": 76
     },
     {
-      "subject": "bispebjerg-og-frederiksberg-hospitaler",
-      "predicate": "is-part-of",
-      "object": "region-hovedstaden",
-      "evidence": "Bispebjerg og Frederiksberg Hospital 191 15,7 57,00 68,00 65,90 78,00 under Hovedstaden Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "bornholms-hospital",
-      "predicate": "is-part-of",
-      "object": "region-hovedstaden",
-      "evidence": "Bornholms Hospital 30 2,5 71,00 77,00 72,82 84,00 under Hovedstaden Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "herlev-og-gentofte-hospital",
-      "predicate": "is-part-of",
-      "object": "region-hovedstaden",
-      "evidence": "Herlev og Gentofte Hospital 348 28,7 58,00 72,00 67,63 80,00 under Hovedstaden Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "hospitalerne-i-nordsjaelland",
-      "predicate": "is-part-of",
-      "object": "region-hovedstaden",
-      "evidence": "Hospitalerne i Nordsjælland 230 18,9 59,00 68,00 66,34 78,00 under Hovedstaden Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "rigshospitalet",
-      "predicate": "is-part-of",
-      "object": "region-hovedstaden",
-      "evidence": "Rigshospitalet 121 10,0 43,00 69,50 55,76 78,00 under Hovedstaden Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "holbaek-sygehus",
-      "predicate": "is-part-of",
-      "object": "region-sjaelland",
-      "evidence": "Holbæk Sygehus 157 24,2 63,00 74,00 69,16 80,00 under Sjælland Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "naestved-slagelse-ringsted-sygehuse",
-      "predicate": "is-part-of",
-      "object": "region-sjaelland",
-      "evidence": "Næstved, Slagelse og Ringsted sygehuse 209 32,2 60,00 71,00 68,56 79,00 under Sjælland Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "sjaellands-universitetshospital",
-      "predicate": "is-part-of",
-      "object": "region-sjaelland",
-      "evidence": "Sjællands Universitetshospital 283 43,6 59,00 73,00 68,56 79,00 under Sjælland Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "esbjerg-sygehus-grindsted-sygehus",
-      "predicate": "is-part-of",
-      "object": "region-syddanmark",
-      "evidence": "Esbjerg Sygehus Grindsted Sygehus 205 25,0 54,00 68,00 65,80 79,00 under Syddanmark Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "odense-universitetshospital-svendborg",
-      "predicate": "is-part-of",
-      "object": "region-syddanmark",
-      "evidence": "Odense Universitetshospital - Svendborg 380 46,3 52,00 69,00 63,17 78,00 under Syddanmark Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "sygehus-lillebaelt",
-      "predicate": "is-part-of",
-      "object": "region-syddanmark",
-      "evidence": "Sygehus Lillebælt 112 13,6 62,00 70,00 68,77 77,50 under Syddanmark Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "sygehus-soenderjylland",
-      "predicate": "is-part-of",
-      "object": "region-syddanmark",
-      "evidence": "Sygehus Sønderjylland 124 15,1 61,50 70,50 67,31 78,00 under Syddanmark Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "aarhus-universitetshospital",
-      "predicate": "is-part-of",
-      "object": "region-midtjylland",
-      "evidence": "Aarhus Universitetshospital 177 21,4 53,00 68,00 63,50 77,00 under Midtjylland Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "hospitalsenhed-midt",
-      "predicate": "is-part-of",
-      "object": "region-midtjylland",
-      "evidence": "Hospitalsenhed Midt 166 20,0 58,00 70,00 67,07 79,00 under Midtjylland Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "regionshospitalet-goedstrup",
-      "predicate": "is-part-of",
-      "object": "region-midtjylland",
-      "evidence": "Regionshospitalet Gødstrup 190 22,9 58,00 69,00 65,76 78,00 under Midtjylland Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "regionshospitalet-horsens",
-      "predicate": "is-part-of",
-      "object": "region-midtjylland",
-      "evidence": "Regionshospitalet Horsens 143 17,3 64,00 72,00 70,55 79,00 under Midtjylland Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "regionshospitalet-randers",
-      "predicate": "is-part-of",
-      "object": "region-midtjylland",
-      "evidence": "Regionshospitalet Randers 152 18,4 60,00 72,00 68,64 79,00 under Midtjylland Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "aalborg-universitetshospital",
-      "predicate": "is-part-of",
-      "object": "region-nordjylland",
-      "evidence": "Aalborg Universitetshospital 163 59,7 53,00 66,00 63,30 77,00 under Nordjylland Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "regionshospital-nordjylland",
-      "predicate": "is-part-of",
-      "object": "region-nordjylland",
-      "evidence": "Regionshospital Nordjylland 110 40,3 60,00 73,00 69,01 79,00 under Nordjylland Region i alt",
-      "page": 76
-    },
-    {
-      "subject": "aalborg-universitetshospital-thisted",
-      "predicate": "is-part-of",
-      "object": "aalborg-universitetshospital",
-      "evidence": "Aalborg Universitetshospital, Thisted 0 1 0 0 0 0 under Nordjylland Region i alt",
+      "subject": "asa-score",
+      "predicate": "is-measured-in",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Supplerende opgørelse af ASA-score for opererede",
       "page": 76
     }
   ],
   "claims": [
     {
-      "text": "I Danmark var der i alt 3.785 opererede patienter i perioden 01/09/2023 - 31/08/2024 med en median alder på 70,00 år [^src1]",
-      "type": "patient-volume",
-      "entities": [
-        "danmark",
-        "akut-kirurgi-databasen"
-      ],
-      "page": 76
-    },
-    {
-      "text": "Region Hovedstaden havde 1.214 opererede patienter (100,0% af regionens andel) med en median alder på 69,00 år i perioden 01/09/2023 - 31/08/2024 [^src1]",
-      "type": "patient-volume",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 76
-    },
-    {
-      "text": "Region Sjælland havde 649 opererede patienter med en median alder på 73,00 år i perioden 01/09/2023 - 31/08/2024 [^src1]",
-      "type": "patient-volume",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 76
-    },
-    {
-      "text": "Region Syddanmark havde 821 opererede patienter med en median alder på 69,50 år i perioden 01/09/2023 - 31/08/2024 [^src1]",
-      "type": "patient-volume",
-      "entities": [
-        "region-syddanmark"
-      ],
-      "page": 76
-    },
-    {
-      "text": "Region Midtjylland havde 828 opererede patienter med en median alder på 70,00 år i perioden 01/09/2023 - 31/08/2024 [^src1]",
-      "type": "patient-volume",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 76
-    },
-    {
-      "text": "Region Nordjylland havde 273 opererede patienter med en median alder på 69,00 år i perioden 01/09/2023 - 31/08/2024 [^src1]",
-      "type": "patient-volume",
-      "entities": [
-        "region-nordjylland"
-      ],
-      "page": 76
-    },
-    {
-      "text": "ASA-scoren for de opererede var ikke væsentligt forskellig regionerne imellem [^src1]",
-      "type": "clinical-observation",
+      "text": "Denne supplerende opgørelse viser, at ASA-scoren for de opererede ikke er væsentligt forskellig regionerne imellem [^src1]",
+      "type": "interpretive",
       "entities": [
         "asa-score",
         "region-hovedstaden",
@@ -606,181 +138,45 @@
   ],
   "timeline": [
     {
-      "date": "01/09/2023 - 31/08/2024",
-      "event": "Rapporteringsperiode for ASA-score data for opererede patienter i Akut Kirurgi Databasen",
+      "date": "2021-09-01",
+      "event": "Startdato for den første rapporterede periode for ASA-score-analyse: 01/09/2021 - 31/08/2022",
       "entities": [
-        "akut-kirurgi-databasen",
-        "danmark"
+        "asa-score"
       ]
     },
     {
-      "date": "01/09/2021 - 31/08/2022",
-      "event": "Første rapporteringsperiode for supplerende opgørelse af ASA-score for opererede",
+      "date": "2022-09-01",
+      "event": "Startdato for den anden rapporterede periode for ASA-score-analyse: 01/09/2022 - 31/08/2023",
       "entities": [
-        "akut-kirurgi-databasen"
+        "asa-score"
       ]
     },
     {
-      "date": "01/09/2022 - 31/08/2023",
-      "event": "Anden rapporteringsperiode for supplerende opgørelse af ASA-score for opererede",
+      "date": "2023-09-01",
+      "event": "Startdato for den tredje rapporterede periode for ASA-score-analyse: 01/09/2023 - 31/08/2024",
       "entities": [
-        "akut-kirurgi-databasen"
+        "asa-score"
       ]
     }
   ],
-  "context": "Denne rapport fra Akut Kirurgi Databasen præsenterer detaljerede statistikker over ASA-score (American Society of Anesthesiologists funktionsniveau) for opererede patienter i Danmark fordelt på fem regioner og deres respektive hospitaler. Dataene dækker perioden 01/09/2023 - 31/08/2024 og viser, at ASA-scoren ikke er væsentligt forskellig mellem regionerne, hvilket indikerer en ensartet patientsammensetning på tværs af det danske sundhedsvæsen.",
   "tables": [
     {
-      "subject": "akut-kirurgi-databasen",
-      "title": "Alder for opererede, 01/09/2023 - 31/08/2024",
+      "subject": "asa-score-by-region",
+      "title": "Supplerende opgørelse af ASA-score for opererede, boxplot",
       "page": 76,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "antal, procent og aldersstatistik (Q1, median, mean, Q3)",
+      "rowDimension": "ASA funktionsniveau",
+      "colDimension": "region",
       "entities": [
-        "danmark",
-        "region-hovedstaden",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "region-sjaelland",
-        "holbaek-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "region-syddanmark",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "region-midtjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "region-nordjylland",
-        "aalborg-universitetshospital",
-        "regionshospital-nordjylland"
-      ],
-      "markdown": "| Region/Hospital | Antal | % | Q1 | Median | Mean | Q3 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.785 | 100,0 | 58,00 | 70,00 | 66,21 | 79,00 |\n| Hovedstaden Region i alt | 1.214 | 100,0 | 57,00 | 69,00 | 65,20 | 78,00 |\n| Amager og Hvidovre Hospital | 294 | 24,2 | 56,00 | 67,00 | 64,05 | 76,00 |\n| Bispebjerg og Frederiksberg Hospital | 191 | 15,7 | 57,00 | 68,00 | 65,90 | 78,00 |\n| Bornholms Hospital | 30 | 2,5 | 71,00 | 77,00 | 72,82 | 84,00 |\n| Herlev og Gentofte Hospital | 348 | 28,7 | 58,00 | 72,00 | 67,63 | 80,00 |\n| Hospitalerne i Nordsjælland | 230 | 18,9 | 59,00 | 68,00 | 66,34 | 78,00 |\n| Rigshospitalet | 121 | 10,0 | 43,00 | 69,50 | 55,76 | 78,00 |\n| Sjælland Region i alt | 649 | 100,0 | 61,00 | 73,00 | 68,71 | 80,00 |\n| Holbæk Sygehus | 157 | 24,2 | 63,00 | 74,00 | 69,16 | 80,00 |\n| Næstved, Slagelse og Ringsted sygehuse | 209 | 32,2 | 60,00 | 71,00 | 68,56 | 79,00 |\n| Sjællands Universitetshospital | 283 | 43,6 | 59,00 | 73,00 | 68,56 | 79,00 |\n| Syddanmark Region i alt | 821 | 100,0 | 56,00 | 69,50 | 65,22 | 78,00 |\n| Esbjerg Sygehus Grindsted Sygehus | 205 | 25,0 | 54,00 | 68,00 | 65,80 | 79,00 |\n| Odense Universitetshospital - Svendborg | 380 | 46,3 | 52,00 | 69,00 | 63,17 | 78,00 |\n| Sygehus Lillebælt | 112 | 13,6 | 62,00 | 70,00 | 68,77 | 77,50 |\n| Sygehus Sønderjylland | 124 | 15,1 | 61,50 | 70,50 | 67,31 | 78,00 |\n| Midtjylland Region i alt | 828 | 100,0 | 58,00 | 70,00 | 66,90 | 78,00 |\n| Aarhus Universitetshospital | 177 | 21,4 | 53,00 | 68,00 | 63,50 | 77,00 |\n| Hospitalsenhed Midt | 166 | 20,0 | 58,00 | 70,00 | 67,07 | 79,00 |\n| Regionshospitalet Gødstrup | 190 | 22,9 | 58,00 | 69,00 | 65,76 | 78,00 |\n| Regionshospitalet Horsens | 143 | 17,3 | 64,00 | 72,00 | 70,55 | 79,00 |\n| Regionshospitalet Randers | 152 | 18,4 | 60,00 | 72,00 | 68,64 | 79,00 |\n| Nordjylland Region i alt | 273 | 100,0 | 55,00 | 69,00 | 65,60 | 78,00 |\n| Aalborg Universitetshospital | 163 | 59,7 | 53,00 | 66,00 | 63,30 | 77,00 |\n| Regionshospital Nordjylland | 110 | 40,3 | 60,00 | 73,00 | 69,01 | 79,00 |",
-      "summary": "Tabellen sammenligner alderen på opererede patienter på tværs af regioner og hospitaler i 2023/24; medianalderen ligger omkring 70 år, med Bornholms Hospital højest (77) og Rigshospitalet med lavest gennemsnitsalder (55,76)."
-    },
-    {
-      "subject": "asa-score",
-      "title": "Supplerende opgørelse af ASA-score for opererede, 01/09/2021 - 31/08/2022",
-      "page": 77,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "antal, antal uoplyste og ASA-statistik (Q1, median, mean, Q3)",
-      "entities": [
-        "danmark",
         "asa-score",
         "region-hovedstaden",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "region-sjaelland",
-        "holbaek-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "region-syddanmark",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
         "region-midtjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
         "region-nordjylland",
-        "aalborg-universitetshospital",
-        "aalborg-universitetshospital-thisted",
-        "regionshospital-nordjylland"
-      ],
-      "markdown": "| Region/Hospital | Antal | Antal uoplyste | Q1 | Median | Mean | Q3 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.104 | 516 | 2,00 | 3,00 | 2,68 | 3,00 |\n| Hovedstaden Region i alt | 1.251 | 19 | 2,00 | 3,00 | 2,58 | 3,00 |\n| Amager og Hvidovre Hospital | 367 | 7 | 2,00 | 3,00 | 2,56 | 3,00 |\n| Bispebjerg og Frederiksberg Hospital | 223 | 5 | 2,00 | 2,00 | 2,48 | 3,00 |\n| Bornholms Hospital | 22 | 2 | 2,00 | 2,00 | 2,14 | 3,00 |\n| Herlev og Gentofte Hospital | 302 | 0 | 2,00 | 2,00 | 2,48 | 3,00 |\n| Hospitalerne i Nordsjælland | 250 | 3 | 2,00 | 3,00 | 2,59 | 3,00 |\n| Rigshospitalet | 87 | 2 | 3,00 | 3,00 | 3,33 | 4,00 |\n| Sjælland Region i alt | 602 | 6 | 2,00 | 3,00 | 2,71 | 3,00 |\n| Holbæk Sygehus | 128 | 0 | 2,00 | 3,00 | 2,77 | 3,00 |\n| Næstved, Slagelse og Ringsted sygehuse | 197 | 1 | 2,00 | 3,00 | 2,79 | 3,00 |\n| Sjællands Universitetshospital | 277 | 5 | 2,00 | 3,00 | 2,64 | 3,00 |\n| Syddanmark Region i alt | 515 | 201 | 2,00 | 3,00 | 2,84 | 3,00 |\n| Esbjerg Sygehus Grindsted Sygehus | 143 | 10 | 2,00 | 3,00 | 2,80 | 3,00 |\n| Odense Universitetshospital - Svendborg | 92 | 187 | 2,00 | 3,00 | 2,87 | 3,00 |\n| Sygehus Lillebælt | 166 | 3 | 2,00 | 3,00 | 2,72 | 3,00 |\n| Sygehus Sønderjylland | 114 | 1 | 2,00 | 3,00 | 3,04 | 4,00 |\n| Midtjylland Region i alt | 539 | 248 | 2,00 | 3,00 | 2,72 | 3,00 |\n| Aarhus Universitetshospital | 118 | 47 | 2,00 | 3,00 | 2,75 | 3,00 |\n| Hospitalsenhed Midt | 5 | 154 | 3,00 | 3,00 | 2,80 | 3,00 |\n| Regionshospitalet Gødstrup | 203 | 5 | 2,00 | 3,00 | 2,74 | 3,00 |\n| Regionshospitalet Horsens | 89 | 40 | 2,00 | 3,00 | 2,73 | 3,00 |\n| Regionshospitalet Randers | 124 | 2 | 2,00 | 3,00 | 2,66 | 3,00 |\n| Nordjylland Region i alt | 197 | 42 | 2,00 | 3,00 | 2,77 | 3,00 |\n| Aalborg Universitetshospital | 121 | 31 | 2,00 | 3,00 | 2,75 | 3,00 |\n| Aalborg Universitetshospital, Thisted | 0 | 1 | 0 | 0 | 0 | 0 |\n| Regionshospital Nordjylland | 76 | 10 | 2,00 | 3,00 | 2,79 | 3,00 |",
-      "summary": "Tabellen sammenligner ASA-score for opererede på tværs af regioner og hospitaler i 2021/22; medianen er overalt 2-3, med Rigshospitalet højest (mean 3,33) og store andele uoplyste i Syddanmark og Midtjylland."
-    },
-    {
-      "subject": "asa-score",
-      "title": "ASA-score for opererede, 01/09/2022 - 31/08/2023",
-      "page": 78,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "antal, antal uoplyste og ASA-statistik (Q1, median, mean, Q3)",
-      "entities": [
-        "danmark",
-        "asa-score",
-        "region-hovedstaden",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
         "region-sjaelland",
-        "holbaek-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "region-syddanmark",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "region-midtjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "region-nordjylland",
-        "aalborg-universitetshospital",
-        "regionshospital-nordjylland"
+        "region-syddanmark"
       ],
-      "markdown": "| Region/Hospital | Antal | Antal uoplyste | Q1 | Median | Mean | Q3 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.352 | 287 | 2,00 | 3,00 | 2,64 | 3,00 |\n| Hovedstaden Region i alt | 1.235 | 18 | 2,00 | 3,00 | 2,51 | 3,00 |\n| Amager og Hvidovre Hospital | 289 | 7 | 2,00 | 2,00 | 2,45 | 3,00 |\n| Bispebjerg og Frederiksberg Hospital | 250 | 6 | 2,00 | 2,00 | 2,41 | 3,00 |\n| Bornholms Hospital | 31 | 0 | 2,00 | 2,00 | 2,16 | 3,00 |\n| Herlev og Gentofte Hospital | 346 | 2 | 2,00 | 2,00 | 2,49 | 3,00 |\n| Hospitalerne i Nordsjælland | 237 | 2 | 2,00 | 3,00 | 2,50 | 3,00 |\n| Rigshospitalet | 82 | 1 | 3,00 | 3,00 | 3,26 | 4,00 |\n| Sjælland Region i alt | 578 | 11 | 2,00 | 3,00 | 2,63 | 3,00 |\n| Holbæk Sygehus | 138 | 3 | 2,00 | 3,00 | 2,69 | 3,00 |\n| Næstved, Slagelse og Ringsted sygehuse | 215 | 3 | 2,00 | 3,00 | 2,72 | 3,00 |\n| Sjællands Universitetshospital | 225 | 5 | 2,00 | 3,00 | 2,52 | 3,00 |\n| Syddanmark Region i alt | 639 | 68 | 2,00 | 3,00 | 2,80 | 3,00 |\n| Esbjerg Sygehus Grindsted Sygehus | 163 | 5 | 2,00 | 3,00 | 2,72 | 3,00 |\n| Odense Universitetshospital - Svendborg | 233 | 45 | 2,00 | 3,00 | 2,78 | 3,00 |\n| Sygehus Lillebælt | 118 | 4 | 2,00 | 3,00 | 2,87 | 3,00 |\n| Sygehus Sønderjylland | 125 | 14 | 2,00 | 3,00 | 2,85 | 3,00 |\n| Midtjylland Region i alt | 638 | 152 | 2,00 | 3,00 | 2,69 | 3,00 |\n| Aarhus Universitetshospital | 161 | 0 | 2,00 | 3,00 | 2,74 | 3,00 |\n| Hospitalsenhed Midt | 94 | 90 | 2,00 | 2,00 | 2,52 | 3,00 |\n| Regionshospitalet Gødstrup | 181 | 1 | 2,00 | 3,00 | 2,72 | 3,00 |\n| Regionshospitalet Horsens | 63 | 56 | 2,00 | 3,00 | 2,71 | 3,00 |\n| Regionshospitalet Randers | 139 | 5 | 2,00 | 3,00 | 2,68 | 3,00 |\n| Nordjylland Region i alt | 262 | 38 | 2,00 | 3,00 | 2,80 | 3,00 |\n| Aalborg Universitetshospital | 171 | 28 | 2,00 | 3,00 | 2,76 | 3,00 |\n| Regionshospital Nordjylland | 91 | 10 | 2,00 | 3,00 | 2,88 | 4,00 |",
-      "summary": "Tabellen sammenligner ASA-score for opererede på tværs af regioner og hospitaler i 2022/23; niveauet er stabilt med median 3 nationalt og faldende andel uoplyste scorer."
-    },
-    {
-      "subject": "asa-score",
-      "title": "ASA-score for opererede, 01/09/2023 - 31/08/2024",
-      "page": 79,
-      "rowDimension": "regioner og hospitaler",
-      "colDimension": "antal, antal uoplyste og ASA-statistik (Q1, median, mean, Q3)",
-      "entities": [
-        "danmark",
-        "asa-score",
-        "region-hovedstaden",
-        "amager-og-hvidovre-hospital",
-        "bispebjerg-og-frederiksberg-hospitaler",
-        "bornholms-hospital",
-        "herlev-og-gentofte-hospital",
-        "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
-        "region-sjaelland",
-        "holbaek-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
-        "sjaellands-universitetshospital",
-        "region-syddanmark",
-        "esbjerg-sygehus-grindsted-sygehus",
-        "odense-universitetshospital-svendborg",
-        "sygehus-lillebaelt",
-        "sygehus-soenderjylland",
-        "region-midtjylland",
-        "aarhus-universitetshospital",
-        "hospitalsenhed-midt",
-        "regionshospitalet-goedstrup",
-        "regionshospitalet-horsens",
-        "regionshospitalet-randers",
-        "region-nordjylland",
-        "aalborg-universitetshospital",
-        "regionshospital-nordjylland"
-      ],
-      "markdown": "| Region/Hospital | Antal | Antal uoplyste | Q1 | Median | Mean | Q3 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.426 | 242 | 2,00 | 3,00 | 2,65 | 3,00 |\n| Hovedstaden Region i alt | 1.140 | 21 | 2,00 | 3,00 | 2,56 | 3,00 |\n| Amager og Hvidovre Hospital | 274 | 8 | 2,00 | 3,00 | 2,56 | 3,00 |\n| Bispebjerg og Frederiksberg Hospital | 184 | 4 | 2,00 | 3,00 | 2,54 | 3,00 |\n| Bornholms Hospital | 27 | 1 | 2,00 | 3,00 | 2,67 | 3,00 |\n| Herlev og Gentofte Hospital | 338 | 3 | 2,00 | 2,00 | 2,47 | 3,00 |\n| Hospitalerne i Nordsjælland | 221 | 5 | 2,00 | 2,00 | 2,46 | 3,00 |\n| Rigshospitalet | 96 | 0 | 2,00 | 3,00 | 3,11 | 3,50 |\n| Sjælland Region i alt | 628 | 8 | 2,00 | 3,00 | 2,56 | 3,00 |\n| Holbæk Sygehus | 151 | 1 | 2,00 | 3,00 | 2,54 | 3,00 |\n| Næstved, Slagelse og Ringsted sygehuse | 202 | 2 | 2,00 | 3,00 | 2,55 | 3,00 |\n| Sjællands Universitetshospital | 275 | 5 | 2,00 | 3,00 | 2,58 | 3,00 |\n| Syddanmark Region i alt | 764 | 26 | 2,00 | 3,00 | 2,74 | 3,00 |\n| Esbjerg Sygehus Grindsted Sygehus | 197 | 3 | 2,00 | 3,00 | 2,83 | 3,00 |\n| Odense Universitetshospital - Svendborg | 344 | 13 | 2,00 | 3,00 | 2,65 | 3,00 |\n| Sygehus Lillebælt | 110 | 0 | 2,00 | 3,00 | 2,84 | 3,00 |\n| Sygehus Sønderjylland | 113 | 10 | 2,00 | 3,00 | 2,77 | 3,00 |\n| Midtjylland Region i alt | 646 | 170 | 2,00 | 3,00 | 2,68 | 3,00 |\n| Aarhus Universitetshospital | 168 | 1 | 2,00 | 3,00 | 2,80 | 3,00 |\n| Hospitalsenhed Midt | 86 | 79 | 2,00 | 3,00 | 2,84 | 3,00 |\n| Regionshospitalet Gødstrup | 187 | 2 | 2,00 | 3,00 | 2,55 | 3,00 |\n| Regionshospitalet Horsens | 56 | 87 | 2,00 | 3,00 | 2,59 | 3,00 |\n| Regionshospitalet Randers | 149 | 1 | 2,00 | 3,00 | 2,64 | 3,00 |\n| Nordjylland Region i alt | 248 | 17 | 2,00 | 3,00 | 2,90 | 3,00 |\n| Aalborg Universitetshospital | 152 | 5 | 2,00 | 3,00 | 2,97 | 4,00 |\n| Regionshospital Nordjylland | 96 | 12 | 2,00 | 3,00 | 2,78 | 3,00 |",
-      "summary": "Tabellen sammenligner ASA-score for opererede på tværs af regioner og hospitaler i 2023/24; niveauet er næsten ens overalt, dog med fortsat mange uoplyste scorer på Hospitalsenhed Midt og Regionshospitalet Horsens."
+      "markdown": "| ASA funktionsniveau | Hovedstaden | Midtjylland | Nordjylland | Sjælland | Syddanmark |\n| --- | --- | --- | --- | --- | --- |\n| 1 |  |  |  |  |  |\n| 2 |  |  |  |  |  |\n| 3 |  |  |  |  |  |\n| 4 |  |  |  |  |  |\n| 5 |  |  |  |  |  |\n| 6 |  |  |  |  |  |\n| 7 |  |  |  |  |  |",
+      "summary": "Tabellen viser regionale fordelinger af ASA-score (1–7) for akut kirurgiske patienter over tre perioder, med fokus på Q1, median, gennemsnit og Q3, og konkluderer, at forskellene mellem regionerne ikke er væsentlige."
     }
-  ]
+  ],
+  "context": "Dette afsnit fra Akut Kirurgi Databasen (AKDB) 2024-rapporten fokuserer på supplerende analyse af ASA-score for akut kirurgiske patienter på tværs af Danmarks fem regioner over tre årspærre (2021–2024). Det indgår i et bredere kvalitetsudviklingsprogram under Sundhedsvæsenets Kvalitetsinstitut, hvor ASA-score anvendes som en central komorbiditetsrelateret indikator til at justere for patientrisiko ved sammenligning af kirurgiske udfald. Figuren på side 76 visualiserer regionale statistikker (Q1, median, gennemsnit, Q3) i et boxplot-format og understreger en overordnet ensartethed i patientpopulationens præoperative helbredstilstand på tværs af regionerne — en konklusion, der støtter brugen af ASA-score som stabil justeringsvariabel i kvalitetsmåling."
 }

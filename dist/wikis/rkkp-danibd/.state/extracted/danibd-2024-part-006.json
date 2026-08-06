@@ -2,31 +2,23 @@
   "entities": [
     {
       "name": "BMSL",
-      "type": "product",
+      "type": "treatment",
       "slug": "bmsl",
-      "folder": "entities/products/healthcare-software",
-      "significance": "BMSL er en behandlingsform for IBD-patienter, og indikatoren måler hvor stor en andel af patienterne får målt F-calprotectin årligt under denne behandling.",
+      "folder": "entities/treatments/gastrointestinal",
+      "significance": "BMSL er den centrale biologiske behandling for inflammatoriske tarmsygdomme (IBD) i DANIBD-rapporten og danner grundlaget for indikator 5, herunder beregning af behandlingsforløb, registrering af nye præparater og overvågning af f-calprotectin-målinger.",
       "mentions": [
         {
           "page": 26,
           "context": "Et behandlingsforløb med BMSL defineres med behandlingsstart, hvor der ikke har været en behandling i perioden 12 måneder før."
-        },
-        {
-          "page": 27,
-          "context": "I alt 11.871 patienter har været i behandling med BMSL svarende til 35 % af de patienter, der er set i opgørelsesperioden."
-        },
-        {
-          "page": 27,
-          "context": "Der er givet 64.161 behandlinger med BMSL i opgørelsesperioden, hvoraf flest behandlinger er givet med infliximab (44 %) efterfulgt af adalimumab (20 %) og vedolizumab (18 %)."
         }
       ]
     },
     {
       "name": "upadacitinib",
-      "type": "product",
+      "type": "drug",
       "slug": "upadacitinib",
-      "folder": "entities/medications/small-molecule-inhibitors",
-      "significance": "Upadacitinib er et nyt lægemiddel, for hvilket der blev oprettet behandlingskoder i 2024, hvilket muliggør indberetning af BMSL-behandling for patienter behandlet med dette præparat.",
+      "folder": "entities/products/health-it",
+      "significance": "Upadacitinib er et nyt behandlingspræparat for IBD, som i 2024 fik tilføjet ny behandlingskode i Landspatientregisteret (LPR), hvilket muliggør inklusion i DANIBD-rapportens indikator 5-data.",
       "mentions": [
         {
           "page": 26,
@@ -36,10 +28,10 @@
     },
     {
       "name": "filgotinib",
-      "type": "product",
+      "type": "drug",
       "slug": "filgotinib",
-      "folder": "entities/medications/small-molecule-inhibitors",
-      "significance": "Filgotinib er et nyt lægemiddel, for hvilket der blev oprettet behandlingskoder i 2024, hvilket muliggør indberetning af BMSL-behandling for patienter behandlet med dette præparat.",
+      "folder": "entities/products/health-it",
+      "significance": "Filgotinib er et nyt behandlingspræparat for IBD, som i 2024 fik tilføjet ny behandlingskode i Landspatientregisteret (LPR), hvilket muliggør inklusion i DANIBD-rapportens indikator 5-data.",
       "mentions": [
         {
           "page": 26,
@@ -49,10 +41,10 @@
     },
     {
       "name": "risankizumab",
-      "type": "product",
+      "type": "drug",
       "slug": "risankizumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Risankizumab er et nyt biologisk lægemiddel, for hvilket der blev oprettet behandlingskoder i 2024, hvilket muliggør indberetning af BMSL-behandling for patienter behandlet med dette præparat.",
+      "folder": "entities/products/health-it",
+      "significance": "Risankizumab er et nyt behandlingspræparat for IBD, som i 2024 fik tilføjet ny behandlingskode i Landspatientregisteret (LPR), hvilket muliggør inklusion i DANIBD-rapportens indikator 5-data.",
       "mentions": [
         {
           "page": 26,
@@ -62,10 +54,23 @@
     },
     {
       "name": "mirikizumab",
-      "type": "product",
+      "type": "drug",
       "slug": "mirikizumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Mirikizumab er et nyt biologisk lægemiddel, for hvilket der blev oprettet behandlingskoder i 2024, hvilket muliggør indberetning af BMSL-behandling for patienter behandlet med dette præparat.",
+      "folder": "entities/products/health-it",
+      "significance": "Mirikizumab er et nyt behandlingspræparat for IBD, som i 2024 fik tilføjet ny behandlingskode i Landspatientregisteret (LPR), hvilket muliggør inklusion i DANIBD-rapportens indikator 5-data.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR)."
+        }
+      ]
+    },
+    {
+      "name": "ozanimod",
+      "type": "drug",
+      "slug": "ozanimod",
+      "folder": "entities/products/health-it",
+      "significance": "Ozanimod er et nyt behandlingspræparat for IBD, som i 2024 fik tilføjet ny behandlingskode i Landspatientregisteret (LPR), hvilket muliggør inklusion i DANIBD-rapportens indikator 5-data.",
       "mentions": [
         {
           "page": 26,
@@ -75,10 +80,10 @@
     },
     {
       "name": "Landspatientregisteret",
-      "type": "organization",
-      "slug": "landpatientregisteret",
-      "folder": "entities/organizations/registries",
-      "significance": "Landspatientregisteret (LPR) er det register, hvor nye behandlingskoder for BMSL-lægemidler blev oprettet i 2024, hvilket muliggør indberetning af behandlinger.",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/national-health-registers",
+      "significance": "Landspatientregisteret (LPR) er det nationale register, hvori nye behandlingskoder for BMSL-præparater blev oprettet i 2024, og som nu muliggør registrering af patienter behandlet med upadacitinib, filgotinib, risankizumab, mirikizumab og ozanimod i DANIBD-rapporten.",
       "mentions": [
         {
           "page": 26,
@@ -88,10 +93,10 @@
     },
     {
       "name": "Sygehusmedicinregisteret",
-      "type": "organization",
+      "type": "database",
       "slug": "sygehusmedicinregisteret",
-      "folder": "entities/organizations/registries",
-      "significance": "Sygehusmedicinregisteret (SMR) er et register, hvorfra DANIBD afventer mulighed for automatisk at trække informationer om medicinsk behandling for at undgå dobbeltregistrering i LPR.",
+      "folder": "entities/databases/health-registries",
+      "significance": "Sygehusmedicinregisteret (SMR) er det register, som DANIBD afventer mulighed for at trække automatisk medicinsk behandlingsinformation fra, så klinikker undgår dobbeltregistrering i LPR.",
       "mentions": [
         {
           "page": 26,
@@ -100,11 +105,11 @@
       ]
     },
     {
-      "name": "Nordsjællands Hospital",
-      "type": "organization",
-      "slug": "nordsjaellands-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Nordsjællands Hospital anvender den lokale NPU-kode PTP00001 F-calprotectin POC til måling af F-calprotectin, som blev inkluderet efter sidste audit.",
+      "name": "F-calprotectin",
+      "type": "biomarker",
+      "slug": "f-calprotectin",
+      "folder": "entities/biomarkers/gastrointestinal",
+      "significance": "F-calprotectin er en central laboratoriemarkør for mucosal inflammation hos IBD-patienter, hvis måling udgør indikator 5 i DANIBD-rapporten, og som i 2024 også omfatter den lokale NPU-kode PTP00001 anvendt på Nordsjællands Hospital.",
       "mentions": [
         {
           "page": 26,
@@ -113,409 +118,80 @@
       ]
     },
     {
-      "name": "Vejle medicinsk afdeling",
-      "type": "organization",
-      "slug": "vejle-medicinsk-afdeling",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Vejle medicinsk afdeling har forbedret sig markant med 24 procentpoint i forhold til sidste år vedrørende måling af F-calprotectin hos patienter i BMSL-behandling.",
-      "mentions": [
-        {
-          "page": 27,
-          "context": "Særligt to afdelinger – Vejle medicinsk afdeling og Aalborg Med. Gastroenterologisk afdeling - har forbedret sig markant ift. sidste år med henholdsvis 24 og 18 procentpoint."
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Med. Gastroenterologisk afdeling",
-      "type": "organization",
-      "slug": "aauh-aalborg-med-gastroenterologisk-omraade",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Med. Gastroenterologisk afdeling har forbedret sig markant med 18 procentpoint i forhold til sidste år vedrørende måling af F-calprotectin hos patienter i BMSL-behandling.",
-      "mentions": [
-        {
-          "page": 27,
-          "context": "Særligt to afdelinger – Vejle medicinsk afdeling og Aalborg Med. Gastroenterologisk afdeling - har forbedret sig markant ift. sidste år med henholdsvis 24 og 18 procentpoint."
-        }
-      ]
-    },
-    {
-      "name": "Rigshospitalet Mave-, Tarm- og Leversygdomme",
-      "type": "organization",
-      "slug": "rigshospitalet-mave-tarm-leversygdomme",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet Mave-, Tarm- og Leversygdomme har bemærkelsesværdig få patienter i BMSL-behandling, der får målt F-calprotectin en gang årligt, og opfylder ikke udviklingsmålet.",
-      "mentions": [
-        {
-          "page": 27,
-          "context": "Dette betyder samtidig, at Rigshospitalet Mave-, Tarm- og Leversygdomme igen i år har bemærkelsesværdig få patienter i behandling med BMSL, der får målt F-calprotectin en gang årligt."
-        }
-      ]
-    },
-    {
-      "name": "infliximab",
-      "type": "product",
-      "slug": "infliximab",
-      "folder": "entities/medications/biologics",
-      "significance": "Infliximab er det mest anvendte BMSL-lægemiddel med 44 % af alle BMSL-behandlinger i opgørelsesperioden.",
-      "mentions": [
-        {
-          "page": 27,
-          "context": "Der er givet 64.161 behandlinger med BMSL i opgørelsesperioden, hvoraf flest behandlinger er givet med infliximab (44 %) efterfulgt af adalimumab (20 %) og vedolizumab (18 %)."
-        }
-      ]
-    },
-    {
-      "name": "adalimumab",
-      "type": "product",
-      "slug": "adalimumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Adalimumab er det næstmest anvendte BMSL-lægemiddel med 20 % af alle BMSL-behandlinger i opgørelsesperioden.",
-      "mentions": [
-        {
-          "page": 27,
-          "context": "Der er givet 64.161 behandlinger med BMSL i opgørelsesperioden, hvoraf flest behandlinger er givet med infliximab (44 %) efterfulgt af adalimumab (20 %) og vedolizumab (18 %)."
-        }
-      ]
-    },
-    {
-      "name": "vedolizumab",
-      "type": "product",
-      "slug": "vedolizumab",
-      "folder": "entities/medications/biologics",
-      "significance": "Vedolizumab er det tredjemest anvendte BMSL-lægemiddel med 18 % af alle BMSL-behandlinger i opgørelsesperioden.",
-      "mentions": [
-        {
-          "page": 27,
-          "context": "Der er givet 64.161 behandlinger med BMSL i opgørelsesperioden, hvoraf flest behandlinger er givet med infliximab (44 %) efterfulgt af adalimumab (20 %) og vedolizumab (18 %)."
-        }
-      ]
-    },
-    {
-      "name": "Crohns sygdom",
-      "type": "medical-condition",
-      "slug": "crohns-disease",
-      "folder": "topics/diseases/inflammatory-bowel-disease",
-      "significance": "Crohns sygdom er diagnosen for 61 % af patienterne i BMSL-behandling i opgørelsesperioden.",
-      "mentions": [
-        {
-          "page": 27,
-          "context": "Hovedparten af patienterne i behandling med BMSL er diagnosticerede med Crohns sygdom (61 %) og medianalderen er 41 år for voksne og 15 år for børn og unge."
-        }
-      ]
-    },
-    {
-      "name": "F-calprotectin",
-      "type": "medical-test",
-      "slug": "fecal-calprotectin",
-      "folder": "topics/medical-tests",
-      "significance": "F-calprotectin er en vigtig måling for monitorering af IBD-patienter i BMSL-behandling, og indikatoren måler hvor stor en andel af patienterne får målt denne årligt.",
+      "name": "NPU-kode",
+      "type": "code",
+      "slug": "npu-kode",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "NPU-koden PTP00001 'F-calprotectin POC' er en specifik lokal kode til måling af f-calprotectin, som i 2024 blev inkluderet i DANIBD-rapporten som opfølgning på sidste audit og anvendes på Nordsjællands Hospital.",
       "mentions": [
         {
           "page": 26,
-          "context": "Som opfølgning på sidste audit er den lokale NPU-kode for måling af F-calprotectin også inkluderet (PTP00001 F-calprotectin POC)."
-        },
-        {
-          "page": 27,
-          "context": "På landsplan har 83 % af patienterne i behandling med BMSL fået målt F-calprotectin en gang årligt, hvormed udviklingsmålet på mindst 80 % er nået."
+          "context": "Som opfølgning på sidste audit er den lokale NPU-kode for måling af F-calprotectin også inkluderet (PTP00001 F-calprotectin POC). Koden anvendes på Nordsjællands Hospital."
         }
       ]
     },
     {
-      "name": "Region Sjælland",
-      "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland er en af tre regioner, der har nået udviklingsmålet for F-calprotectin måling hos BMSL-patienter.",
+      "name": "Nordsjællands Hospital",
+      "type": "healthcare-facility",
+      "slug": "nordsjaellands-hospital",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Nordsjællands Hospital er det hospital, hvor den lokale NPU-kode for måling af F-calprotectin (PTP00001 F-calprotectin POC) anvendes, og som dermed bidrager til indikator 5-data i DANIBD-rapporten.",
       "mentions": [
         {
-          "page": 27,
-          "context": "I tre regioner Sjælland, Syddanmark og Nordjylland er udviklingsmålet nået, mens de to øvrige er tæt på."
+          "page": 26,
+          "context": "Som opfølgning på sidste audit er den lokale NPU-kode for måling af F-calprotectin også inkluderet (PTP00001 F-calprotectin POC). Koden anvendes på Nordsjællands Hospital."
         }
       ]
     },
     {
-      "name": "Region Syddanmark",
-      "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Syddanmark er en af tre regioner, der har nået udviklingsmålet for F-calprotectin måling hos BMSL-patienter.",
+      "name": "Indikator 5",
+      "type": "quality-indicator",
+      "slug": "indikator-5",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 5 er en central kvalitetsindikator i DANIBD-rapporten, der overvåger andelen af IBD-patienter i behandling med BMSL, der får målt F-calprotectin årligt, og som i 2024 nåede udviklingsmålet på mindst 80 % på landsplan.",
       "mentions": [
         {
-          "page": 27,
-          "context": "I tre regioner Sjælland, Syddanmark og Nordjylland er udviklingsmålet nået, mens de to øvrige er tæt på."
+          "page": 26,
+          "context": "Sorteret resultat af indikator 5 med konfidensinterval på lands- og afdelingsniveau for aktuelle opgørelsesperiode"
         }
       ]
     },
     {
-      "name": "Region Nordjylland",
-      "type": "location",
-      "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland er en af tre regioner, der har nået udviklingsmålet for F-calprotectin måling hos BMSL-patienter.",
+      "name": "Indikator 6",
+      "type": "quality-indicator",
+      "slug": "indikator-6",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 6 er en central kvalitetsindikator i DANIBD-rapporten, der overvåger andelen af kirurgiske indgreb på IBD-patienter, der kræver re-operation inden for 30 dage, og som i 2024 ikke nåede udviklingsmålet på maksimalt 8 % på landsplan.",
       "mentions": [
         {
-          "page": 27,
-          "context": "I tre regioner Sjælland, Syddanmark og Nordjylland er udviklingsmålet nået, mens de to øvrige er tæt på."
+          "page": 26,
+          "context": "Indikator 6. Re-operation"
         }
       ]
     },
     {
-      "name": "Bispebjerg Abdominalcenter",
-      "type": "organization",
-      "slug": "bispebjerg-abdominalcenter",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bispebjerg Abdominalcenter har en re-operationsrate på 17 % for kirurgiske indgreb, hvilket ligger over udviklingsmålet på 8 %.",
+      "name": "re-operation",
+      "type": "procedural",
+      "slug": "re-operation",
+      "folder": "topics/procedural",
+      "significance": "Re-operation er en alvorlig komplikation efter primært kirurgisk indgreb på IBD-patienter, som indikator 6 overvåger inden for 30 dage, og som i 2024 forekom i 13 % af alle kirurgiske indgreb på landsplan.",
       "mentions": [
         {
-          "page": 28,
-          "context": "Bispebjerg Abdominalcenter K 6 / 36 17 (6-33) 7"
+          "page": 26,
+          "context": "Re-operation foretaget efter et primært kirurgisk indgreb betragtes som en vanskelig og alvorlig sygdomskomplikation, som medfører belastning af såvel patienten som sygehusvæsenet."
         }
       ]
     },
     {
-      "name": "Bornholm Kirurgisk Afdeling",
-      "type": "organization",
-      "slug": "bornholm-kirurgisk-afdeling",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Bornholm Kirurgisk Afdeling har en re-operationsrate på 0 % for kirurgiske indgreb, hvilket ligger under udviklingsmålet på 8 %.",
+      "name": "primært kirurgisk indgreb",
+      "type": "procedural",
+      "slug": "primaert-kirurgisk-indgreb",
+      "folder": "topics/procedural",
+      "significance": "Primært kirurgisk indgreb er definitionsmæssigt grundlaget for beregning af indikator 6, og omfatter en række specificerede procedurekoder (fx KJFB*, KJFC* osv.), hvor der ikke har været et tidligere indgreb med samme koder inden for 30 dage.",
       "mentions": [
         {
-          "page": 28,
-          "context": "Bornholm Kirurgisk Afdeling # / # 0 (0-98)"
-        }
-      ]
-    },
-    {
-      "name": "Herlev Mave-, Tarm- og Leversygd.",
-      "type": "organization",
-      "slug": "herlev-mave-tarm-leversygd",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Herlev Mave-, Tarm- og Leversygd. har en re-operationsrate på 18 % for kirurgiske indgreb, hvilket ligger over udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 28,
-          "context": "Herlev Mave-, Tarm- og Leversygd. 8 / 44 18 (8-33) 10"
-        }
-      ]
-    },
-    {
-      "name": "Hvidovre Gastroenheden",
-      "type": "organization",
-      "slug": "hvidovre-gastroenheden",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hvidovre Gastroenheden har en re-operationsrate på 13 % for kirurgiske indgreb, hvilket ligger over udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 28,
-          "context": "Hvidovre Gastroenheden 13 / 101 13 (7-21) 17"
-        }
-      ]
-    },
-    {
-      "name": "Nordsjælland Kirurgisk Afdeling",
-      "type": "organization",
-      "slug": "nordsjaelland-kirurgisk-afdeling",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Nordsjælland Kirurgisk Afdeling har en re-operationsrate på 21 % for kirurgiske indgreb, hvilket ligger over udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 28,
-          "context": "Nordsjælland Kirurgisk Afdeling 6 / 29 21 (8-40) 9"
-        }
-      ]
-    },
-    {
-      "name": "Rigshospitalet Kirurgisk Gastroenterologi",
-      "type": "organization",
-      "slug": "rigshospitalet-kirurgisk-gastroenterologi",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet Kirurgisk Gastroenterologi har en re-operationsrate på 12 % for kirurgiske indgreb, hvilket ligger over udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 28,
-          "context": "Rigshospitalet Kirurgisk Gastroenterologi # / # 12 (1-36) 5"
-        }
-      ]
-    },
-    {
-      "name": "Holbæk Kirurgi",
-      "type": "organization",
-      "slug": "holbaek-kirurgi",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk Kirurgi har en re-operationsrate på 33 % for kirurgiske indgreb, hvilket ligger betydeligt over udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 28,
-          "context": "HOL Holbæk Kirurgi # / # 33 (1-91)"
-        }
-      ]
-    },
-    {
-      "name": "Slagelse Kirurgi",
-      "type": "organization",
-      "slug": "slagelse-kirurgi",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Slagelse Kirurgi har en re-operationsrate på 50 % for kirurgiske indgreb, hvilket ligger betydeligt over udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 28,
-          "context": "NSR Slagelse Kirurgi # / # 50 (1-99) 0"
-        }
-      ]
-    },
-    {
-      "name": "Køge Kirurgi",
-      "type": "organization",
-      "slug": "koege-kirurgi",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Køge Kirurgi har en re-operationsrate på 2 % for kirurgiske indgreb, hvilket ligger under udviklingsmålet på 8 % og er blandt de bedste afdelinger.",
-      "mentions": [
-        {
-          "page": 28,
-          "context": "SUH Køge Kirurgi # / # 2 (0-8) 6"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg Mave- og Tarmsygd. Afd.",
-      "type": "organization",
-      "slug": "esbjerg-mave-og-tarmsygd-afd",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Esbjerg Mave- og Tarmsygd. Afd. har en re-operationsrate på 14 % for kirurgiske indgreb, hvilket ligger over udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 28,
-          "context": "EGS Esbjerg Mave- og Tarmsygd. Afd. 4 / 28 14 (4-33) 16"
-        }
-      ]
-    },
-    {
-      "name": "Odense Kirurgisk Afdeling A",
-      "type": "organization",
-      "slug": "odense-kirurgisk-afdeling-a",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Odense Kirurgisk Afdeling A har en re-operationsrate på 17 % for kirurgiske indgreb, hvilket ligger over udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 28,
-          "context": "OUH Odense Kirurgisk Afdeling A 22 / 127 17 (11-25) 13"
-        }
-      ]
-    },
-    {
-      "name": "Aabenraa Mave- og Tarmsygd.",
-      "type": "organization",
-      "slug": "aabenraa-mave-og-tarmsygd",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aabenraa Mave- og Tarmsygd. har en re-operationsrate på 0 % for kirurgiske indgreb, hvilket ligger under udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 28,
-          "context": "SHS Aabenraa Mave- og Tarmsygd. # / # 0 (0-71) 0"
-        }
-      ]
-    },
-    {
-      "name": "Vejle Organ- og Plastikkirurgisk Afd.",
-      "type": "organization",
-      "slug": "vejle-organ-og-plastikkirurgisk-afd",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Vejle Organ- og Plastikkirurgisk Afd. har en re-operationsrate på 6 % for kirurgiske indgreb, hvilket ligger under udviklingsmålet på 8 % og er blandt de bedste afdelinger.",
-      "mentions": [
-        {
-          "page": 28,
-          "context": "SLB Vejle Organ- og Plastikkirurgisk Afd. # / # 6 (1-19) 10"
-        }
-      ]
-    },
-    {
-      "name": "Aarhus Mave- og Tarmkirurgi",
-      "type": "organization",
-      "slug": "aarhus-mave-og-tarmkirurgi",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Mave- og Tarmkirurgi har en re-operationsrate på 9 % for kirurgiske indgreb, hvilket ligger tæt på udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 29,
-          "context": "Aarhus Mave- og Tarmkirurgi 11 / 120 9 (5-16) 8"
-        }
-      ]
-    },
-    {
-      "name": "Gødstrup Mave- og Tarmkirurgi",
-      "type": "organization",
-      "slug": "goedstrup-mave-og-tarmkirurgi",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Gødstrup Mave- og Tarmkirurgi har en re-operationsrate på 14 % for kirurgiske indgreb, hvilket ligger over udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 29,
-          "context": "Gødstrup Mave- og Tarmkirurgi 7 / 49 14 (6-27) 24"
-        }
-      ]
-    },
-    {
-      "name": "Viborg Kirurgi",
-      "type": "organization",
-      "slug": "viborg-kirurgi",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Viborg Kirurgi har en re-operationsrate på 12 % for kirurgiske indgreb, hvilket ligger over udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 29,
-          "context": "HE Midt Viborg Kirurgi # / # 12 (1-36) 15"
-        }
-      ]
-    },
-    {
-      "name": "Horsens Kirurgi",
-      "type": "organization",
-      "slug": "horsens-kirurgi",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Horsens Kirurgi har en re-operationsrate på 0 % for kirurgiske indgreb, hvilket ligger under udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 29,
-          "context": "Horsens Kirurgi # / # 0 (0-98) 29"
-        }
-      ]
-    },
-    {
-      "name": "Randers Mave- og Tarmkirurgi",
-      "type": "organization",
-      "slug": "randers-mave-og-tarmkirurgi",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Randers Mave- og Tarmkirurgi har en re-operationsrate på 20 % for kirurgiske indgreb, hvilket ligger over udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 29,
-          "context": "Randers Mave- og Tarmkirurgi # / # 20 (1-72) 17"
-        }
-      ]
-    },
-    {
-      "name": "AAUH Mave-Tarmkirurgisk Afdeling",
-      "type": "organization",
-      "slug": "aauh-mave-tarmkirurgisk-afdeling",
-      "folder": "entities/organizations/hospitals",
-      "significance": "AAUH Mave-Tarmkirurgisk Afdeling har en re-operationsrate på 16 % for kirurgiske indgreb, hvilket ligger over udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 29,
-          "context": "AAUH Mave-Tarmkirurgisk Afdeling 10 / 63 16 (8-27) 5"
-        }
-      ]
-    },
-    {
-      "name": "Hjørring Kirurgi",
-      "type": "organization",
-      "slug": "hjoerring-kirurgi",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hjørring Kirurgi har en re-operationsrate på 0 % for kirurgiske indgreb, hvilket ligger under udviklingsmålet på 8 %.",
-      "mentions": [
-        {
-          "page": 29,
-          "context": "RHN Hjørring Kirurgi 0 / 4 0 (0-60) 0"
+          "page": 26,
+          "context": "Et primært kirurgisk indgreb omfatter procedurekoder: KJFB*, KJFC* KJFF*, KJFG (fraset 40H/K, 41A, 50A og 60), KJFH*, KJFW*, KJGB* samt KJFA660/61/63/76/86/96-98. Et primært indgreb defineres ved, at der ikke har været et kirurgisk indgreb med tilsvarende koder 30 dage forinden."
         }
       ]
     }
@@ -523,243 +199,134 @@
   "relationships": [
     {
       "subject": "bmsl",
-      "predicate": "is-measured-by",
-      "object": "fecal-calprotectin",
-      "evidence": "På landsplan har 83 % af patienterne i behandling med BMSL fået målt F-calprotectin en gang årligt",
-      "page": 27
-    },
-    {
-      "subject": "upadacitinib",
-      "predicate": "has-treatment-code-in",
-      "object": "landpatientregisteret",
-      "evidence": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR)",
+      "predicate": "has-new-treatment-code-in",
+      "object": "landspatientregisteret",
+      "evidence": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR).",
       "page": 26
     },
     {
-      "subject": "filgotinib",
-      "predicate": "has-treatment-code-in",
-      "object": "landpatientregisteret",
-      "evidence": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR)",
+      "subject": "f-calprotectin",
+      "predicate": "measured-with-npu-code",
+      "object": "npu-kode",
+      "evidence": "Som opfølgning på sidste audit er den lokale NPU-kode for måling af F-calprotectin også inkluderet (PTP00001 F-calprotectin POC).",
       "page": 26
     },
     {
-      "subject": "risankizumab",
-      "predicate": "has-treatment-code-in",
-      "object": "landpatientregisteret",
-      "evidence": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR)",
+      "subject": "npu-kode",
+      "predicate": "used-at",
+      "object": "nordsjaellands-hospital",
+      "evidence": "Koden anvendes på Nordsjællands Hospital.",
       "page": 26
     },
     {
-      "subject": "mirikizumab",
-      "predicate": "has-treatment-code-in",
-      "object": "landpatientregisteret",
-      "evidence": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR)",
+      "subject": "indikator-5",
+      "predicate": "measures-frequency-of",
+      "object": "f-calprotectin",
+      "evidence": "Denne indikator viser en udvikling i forhold til sidste år, og det er tydeligt, at der er fokus på at måle f-calprotectin hos denne patientgruppe.",
       "page": 26
     },
     {
-      "subject": "nordsjaellands-hospital",
-      "predicate": "uses-npu-code",
-      "object": "fecal-calprotectin",
-      "evidence": "Koden anvendes på Nordsjællands Hospital",
+      "subject": "indikator-6",
+      "predicate": "measures-rate-of",
+      "object": "re-operation",
+      "evidence": "Indikatoren monitorerer derfor andelen af patienter, der re-opereres indenfor 30 dage.",
       "page": 26
-    },
-    {
-      "subject": "vejle-medicinsk-afdeling",
-      "predicate": "improved-in-indicator",
-      "object": "bmsl",
-      "evidence": "Særligt to afdelinger – Vejle medicinsk afdeling og Aalborg Med. Gastroenterologisk afdeling - har forbedret sig markant ift. sidste år med henholdsvis 24 og 18 procentpoint",
-      "page": 27
-    },
-    {
-      "subject": "aauh-aalborg-med-gastroenterologisk-omraade",
-      "predicate": "improved-in-indicator",
-      "object": "bmsl",
-      "evidence": "Særligt to afdelinger – Vejle medicinsk afdeling og Aalborg Med. Gastroenterologisk afdeling - har forbedret sig markant ift. sidste år med henholdsvis 24 og 18 procentpoint",
-      "page": 27
     }
   ],
   "claims": [
     {
-      "text": "Et behandlingsforløb med BMSL defineres med behandlingsstart, hvor der ikke har været en behandling i perioden 12 måneder før [^src1]",
-      "type": "definition",
-      "entities": [
-        "bmsl"
-      ],
-      "page": 26
-    },
-    {
       "text": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR) [^src1]",
-      "type": "regulatory",
+      "type": "administrative",
       "entities": [
         "upadacitinib",
         "filgotinib",
         "risankizumab",
         "mirikizumab",
-        "landpatientregisteret"
+        "ozanimod",
+        "landspatientregisteret"
       ],
       "page": 26
     },
     {
-      "text": "I alt 11.871 patienter har været i behandling med BMSL svarende til 35 % af de patienter, der er set i opgørelsesperioden [^src1]",
-      "type": "patient-statistics",
+      "text": "DANIBD afventer stadig muligheden for automatisk at trække informationer om medicinsk behandling via Sygehusmedicinregisteret (SMR), så klinikken ikke behøver at dobbelt registrere behandlingen i LPR [^src1]",
+      "type": "operational",
       "entities": [
-        "bmsl"
+        "sygehusmedicinregisteret",
+        "landspatientregisteret"
       ],
-      "page": 27
+      "page": 26
     },
     {
-      "text": "Heraf er 407 børn og unge i behandling med BMSL [^src1]",
-      "type": "patient-statistics",
+      "text": "Som opfølgning på sidste audit er den lokale NPU-kode for måling af F-calprotectin også inkluderet (PTP00001 F-calprotectin POC) [^src1]",
+      "type": "administrative",
       "entities": [
-        "bmsl"
+        "f-calprotectin",
+        "npu-kode"
       ],
-      "page": 27
+      "page": 26
     },
     {
-      "text": "Hovedparten af patienterne i behandling med BMSL er diagnosticerede med Crohns sygdom (61 %) og medianalderen er 41 år for voksne og 15 år for børn og unge [^src1]",
-      "type": "patient-statistics",
+      "text": "Koden anvendes på Nordsjællands Hospital [^src1]",
+      "type": "administrative",
       "entities": [
-        "bmsl",
-        "crohns-disease"
+        "npu-kode",
+        "nordsjaellands-hospital"
       ],
-      "page": 27
+      "page": 26
     },
     {
-      "text": "Der er givet 64.161 behandlinger med BMSL i opgørelsesperioden, hvoraf flest behandlinger er givet med infliximab (44 %) efterfulgt af adalimumab (20 %) og vedolizumab (18 %) [^src1]",
-      "type": "pharmaceutical-treatment-statistics",
+      "text": "Et primært kirurgisk indgreb omfatter procedurekoder: KJFB*, KJFC* KJFF*, KJFG (fraset 40H/K, 41A, 50A og 60), KJFH*, KJFW*, KJGB* samt KJFA660/61/63/76/86/96-98 [^src1]",
+      "type": "procedural",
       "entities": [
-        "bmsl",
-        "infliximab",
-        "adalimumab",
-        "vedolizumab"
+        "primaert-kirurgisk-indgreb"
       ],
-      "page": 27
+      "page": 26
     },
     {
-      "text": "Hovedparten af patienterne har fået samme (85 %) eller to forskellige behandlinger (13 %) i opgørelsesperioden [^src1]",
-      "type": "pharmaceutical-treatment-statistics",
+      "text": "Et primært indgreb defineres ved, at der ikke har været et kirurgisk indgreb med tilsvarende koder 30 dage forinden [^src1]",
+      "type": "procedural",
       "entities": [
-        "bmsl"
+        "primaert-kirurgisk-indgreb"
       ],
-      "page": 27
-    },
-    {
-      "text": "På landsplan har 83 % af patienterne i behandling med BMSL fået målt F-calprotectin en gang årligt, hvormed udviklingsmålet på mindst 80 % er nået [^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "bmsl",
-        "fecal-calprotectin"
-      ],
-      "page": 27
-    },
-    {
-      "text": "I tre regioner Sjælland, Syddanmark og Nordjylland er udviklingsmålet nået, mens de to øvrige er tæt på [^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "region-sjaelland",
-        "region-syddanmark",
-        "region-nordjylland"
-      ],
-      "page": 27
-    },
-    {
-      "text": "Vejle medicinsk afdeling og Aalborg Med. Gastroenterologisk afdeling har forbedret sig markant ift. sidste år med henholdsvis 24 og 18 procentpoint [^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "vejle-medicinsk-afdeling",
-        "aauh-aalborg-med-gastroenterologisk-omraade"
-      ],
-      "page": 27
-    },
-    {
-      "text": "Rigshospitalet Mave-, Tarm- og Leversygdomme har bemærkelsesværdig få patienter i behandling med BMSL, der får målt F-calprotectin en gang årligt [^src1]",
-      "type": "quality-indicator",
-      "entities": [
-        "rigshospitalet-mave-tarm-leversygdomme",
-        "bmsl",
-        "fecal-calprotectin"
-      ],
-      "page": 27
-    },
-    {
-      "text": "Der er foretaget 780 kirurgiske indgreb i perioden på 705 unikke patienter [^src2]",
-      "type": "surgical-statistics",
-      "entities": [],
-      "page": 29
-    },
-    {
-      "text": "Der er foretaget en enkelt procedure i 59 % af indgrebene, mens 22 %, 10 % og 9 % har fået foretaget henholdsvis to, tre eller fire procedurer [^src2]",
-      "type": "surgical-statistics",
-      "entities": [],
-      "page": 29
-    },
-    {
-      "text": "De hyppigste indgreb var laparoskopisk ileocøkal resektion (11 %) og kolektomi og ileostomi (10 %) og efterfulgt af laparoskopi (7 %), eksplorativ laparotomi (6 %) og tyndtarmsresektion (6 %) [^src2]",
-      "type": "surgical-procedures",
-      "entities": [],
-      "page": 29
-    },
-    {
-      "text": "På landsplan er der foretaget 98 re-operationer indenfor 30 dage svarende til 13 %, hvormed udviklingsmålet om færre end 8 % ikke er nået [^src2]",
-      "type": "quality-indicator",
-      "entities": [],
-      "page": 29
-    },
-    {
-      "text": "Kun Region Sjælland har med 4 % et resultat under udviklingsmålet [^src2]",
-      "type": "quality-indicator",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 29
-    },
-    {
-      "text": "For de øvrige regioner er der foretaget re-operation indenfor 30 dage i forbindelse med 11 % til 15 % af indgrebene [^src2]",
-      "type": "quality-indicator",
-      "entities": [],
-      "page": 29
-    },
-    {
-      "text": "Køge Kirurgi og Vejle Organ- og Plastikkirurgisk afdeling er de eneste, der ligger under de 5 %, for afdelinger med flere end 10 indgreb [^src2]",
-      "type": "quality-indicator",
-      "entities": [
-        "koege-kirurgi",
-        "vejle-organ-og-plastikkirurgisk-afd"
-      ],
-      "page": 29
-    },
-    {
-      "text": "De fem hyppigste procedurer ved re-operation var eksplorativ laparotomi (28 %), laparoskopi (20 %), tyndtarmsresektion (8 %), sutur af sårruptur eft. gastroenterologisk operation (8 %) og terminal enterostomi (6 %) svarende til 71 % af indgrebene [^src2]",
-      "type": "surgical-procedures",
-      "entities": [],
-      "page": 29
-    },
-    {
-      "text": "70 % af re-operationerne blev foretaget inden for de første 7 dage [^src2]",
-      "type": "surgical-timing",
-      "entities": [],
-      "page": 30
+      "page": 26
     }
   ],
   "timeline": [
     {
       "date": "2024",
-      "event": "Nye behandlingskoder for upadacitinib, filgotinib, risankizumab, mirikizumab og ozanimod blev oprettet i landspatientregisteret",
+      "event": "Der blev oprettet nye behandlingskoder for upadacitinib, filgotinib, risankizumab, mirikizumab og ozanimod i Landspatientregisteret (LPR)",
       "entities": [
         "upadacitinib",
         "filgotinib",
         "risankizumab",
         "mirikizumab",
-        "landpatientregisteret"
+        "ozanimod",
+        "landspatientregisteret"
       ]
     },
     {
-      "date": "01.10.2023 - 30.09.2024",
-      "event": "Opgørelsesperiode for indikator 5 (F-calprotectin måling) og indikator 6 (re-operation)",
+      "date": "2024",
+      "event": "Den lokale NPU-kode for måling af F-calprotectin (PTP00001 F-calprotectin POC) blev inkluderet i DANIBD-rapporten som opfølgning på sidste audit",
       "entities": [
-        "bmsl"
+        "f-calprotectin",
+        "npu-kode"
       ]
     }
   ],
-  "context": "Denne dokumentchunk præsenterer resultater fra DANIBD's årsrapport 2024 for to vigtige kvalitetsindikatorer inden for behandling af inflammatorisk tarmsygdom (IBD). Indikatoren for biologisk medicin (BMSL) måler hvor stor en andel af IBD-patienter får målt F-calprotectin årligt som led i deres behandlingsmonitorering, mens re-operationsindikatoren vurderer kirurgisk kvalitet ved at måle andelen af patienter, der kræver genoperation inden for 30 dage efter primær kirurgisk indgreb. Chunken dokumenterer både nationale resultater og regionale/afdelingsniveaudata, samt identificerer afdelinger med særlig god eller dårlig performance."
+  "tables": [
+    {
+      "subject": "indikator-6",
+      "title": "Indikator 6: Andelen af kirurgiske indgreb, hvor der er foretaget en re-operation inden for 30 dage",
+      "page": 26,
+      "rowDimension": "region or department",
+      "colDimension": "percentage and confidence interval per year",
+      "entities": [
+        "indikator-6",
+        "re-operation"
+      ],
+      "markdown": "| Danmark | 98 | / | 770 | 13 | (10-15) | 11 |\n| Hovedstaden | 35 | / | 228 | 15 | (11-21) | 12 |\n| Sjælland | 4 | / | 89 | 4 | (1-11) | 6 |\n| Syddanmark | 28 | / | 194 | 14 | (10-20) | 12 |\n| Midtjylland | 21 | / | 192 | 11 | (7-16) | 13 |\n| Nordjylland | 10 | / | 67 | 15 | (7-26) | 5 |\n| Hovedstaden | 35 | / | 228 | 15 | (11-21) | 12 |\n| Bispebjerg Abdominalcenter K | 6 | / | 36 | 17 | (6-33) | 7 |\n| Bornholm Kirurgisk Afdeling | # | / | # | 0 | (0-98) | 0 |\n| Herlev Mave-, Tarm- og Leversygd. | 8 | / | 44 | 18 | (8-33) | 10 |\n| Hvidovre Gastroenheden | 13 | / | 101 | 13 | (7-21) | 17 |\n| Nordsjælland Kirurgisk Afdeling | 6 | / | 29 | 21 | (8-40) | 9 |\n| Rigshospitalet Kirurgisk Gastroenterologi | # | / | # | 12 | (1-36) | 5 |\n| Sjælland | 4 | / | 89 | 4 | (1-11) | 6 |\n| HOL Holbæk Kirurgi | # | / | # | 33 | (1-91) | 0 |\n| NSR Slagelse Kirurgi | # | / | # | 50 | (1-99) | 0 |\n| SUH Køge Kirurgi | # | / | # | 2 | (0-8) | 6 |\n| Syddanmark | 28 | / | 194 | 14 | (10-20) | 12 |\n| EGS Esbjerg Mave- og Tarmsygd. Afd. | 4 | / | 28 | 14 | (4-33) | 16 |\n| OUH Odense Kirurgisk Afdeling A | 22 | / | 127 | 17 | (11-25) | 13 |\n| SHS Aabenraa Mave- og Tarmsygd. | # | / | # | 0 | (0-71) | 0 |\n| SLB Vejle Organ- og Plastikkirurgisk Afd. | # | / | # | 6 | (1-19) | 10 |\n| Midtjylland | 21 | / | 192 | 11 | (7-16) | 13 |\n| Aarhus Mave- og Tarmkirurgi | 11 | / | 120 | 9 | (5-16) | 8 |\n| Gødstrup Mave- og Tarmkirurgi | 7 | / | 49 | 14 | (6-27) | 24 |\n| HE Midt Viborg Kirurgi | # | / | # | 12 | (1-36) | 15 |\n| Horsens Kirurgi | # | / | # | 0 | (0-98) | 29 |\n| Randers Mave- og Tarmkirurgi | # | / | # | 20 | (1-72) | 17 |\n| Nordjylland | 10 | / | 67 | 15 | (7-26) | 5 |\n| AAUH Mave-Tarmkirurgisk Afdeling | 10 | / | 63 | 16 | (8-27) | 5 |\n| RHN Hjørring Kirurgi | 0 | / | 4 | 0 | (0-60) | 0 |",
+      "summary": "Tabellen sammenligner andelen af re-operationer inden for 30 dage på lands- og afdelingsniveau for 2024 og tidligere år, og viser, at kun Region Sjælland (4 %) opfylder udviklingsmålet på ≤ 8 %, mens landsresultatet er 13 %."
+    }
+  ],
+  "context": "Dette afsnit fra DANIBD 2024-rapporten (sider 26–30) beskriver metodiske ændringer og resultater for to centrale kvalitetsindikatorer: Indikator 5 (F-calprotectin-måling hos patienter i BMSL-behandling) og Indikator 6 (re-operation inden for 30 dage efter primært kirurgisk indgreb). Det dokumenterer implementeringen af nye behandlingskoder i Landspatientregisteret for moderne biologika og JAK-inhibitorer, integrationen af en lokal NPU-kode for point-of-care f-calprotectin-måling, samt en detaljeret analyse af kirurgiske kvalitetsdata, herunder revision af procedurekoder og variation mellem regioner og afdelinger. Rapporten understreger både fremskridt – som opfyldelse af udviklingsmålet for indikator 5 – og udfordringer – som manglende opfyldelse af indikator 6 på landsplan og betydelig regional spredning."
 }

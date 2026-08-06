@@ -4,8 +4,8 @@
       "name": "DANIBD",
       "type": "organization",
       "slug": "danibd",
-      "folder": "entities/organizations/healthcare",
-      "significance": "DANIBD er det danske nationale register for inflammatorisk tarmsygdom (IBD) og primær skleroserende kolangitis (PSC), som dokumenterer kirurgiske indgreb, re-operationer og patientkarakteristika på tværs af danske regioner.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "DANIBD er den danske nationalregister for patienter med inflammatorisk tarmsygdom (IBD), og dette afsnit indeholder appendikstabeller og regionale kommentarer fra dens årsrapport 2023, hvilket danner kernen i den nationale kvalitetsmåling af IBD-behandling.",
       "mentions": [
         {
           "page": 26,
@@ -22,24 +22,92 @@
       ]
     },
     {
-      "name": "Nordsjællands Hospital",
+      "name": "IBD",
+      "type": "medical-condition",
+      "slug": "ibd",
+      "folder": "entities/medical-conditions/gastrointestinal",
+      "significance": "Inflammatorisk tarmsygdom (IBD) er den centrale sygdomskategori, som DANIBD registrerer og evaluerer behandlingskvalitet for, og alle indgreb, re-operationer og patientkarakteristika i chunken refererer eksplicit til patienter med denne diagnose.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "patienter med IBD"
+        },
+        {
+          "page": 27,
+          "context": "patienter med IBD"
+        }
+      ]
+    },
+    {
+      "name": "PSC",
+      "type": "medical-condition",
+      "slug": "psc",
+      "folder": "entities/medical-conditions/hepatic-biliary",
+      "significance": "Primær skleroserende kolangitis (PSC) er en komorbid lever- og galdegangssygdom ofte forbundet med IBD, og Appendikstabel 7 præsenterer epidemiologiske data for PSC-patienter i DANIBD-registeret, hvilket understreger den integrerede overvågning af IBD-komplikationer.",
+      "mentions": [
+        {
+          "page": 27,
+          "context": "patienter med PSC"
+        },
+        {
+          "page": 27,
+          "context": "DK830F Primær skleroserende kolangitis"
+        }
+      ]
+    },
+    {
+      "name": "NOH",
       "type": "organization",
-      "slug": "nordsjaellands-hospital",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Nordsjællands Hospital er en del af Region Hovedstaden og rapporterer til DANIBD-registeret med kommentarer om medicinsk behandling, calprotectin-måling og patientundervisning.",
+      "slug": "noh",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Nordsjællands Hospital (NOH) er den eneste regionale enhed i chunken, der giver detaljerede operationelle kommentarer til DANIBD-indikatorer — især vedrørende calprotectin-måling og patientuddannelse — hvilket gør det til en central kilde for lokal implementering af kvalitetsmål.",
       "mentions": [
         {
           "page": 28,
           "context": "Nordsjællands Hospital"
+        },
+        {
+          "page": 28,
+          "context": "NOH"
+        }
+      ]
+    },
+    {
+      "name": "Constant – Care",
+      "type": "product",
+      "slug": "constant-care",
+      "folder": "entities/products/health-it",
+      "significance": "Constant – Care er en digital patientapp anvendt på NOH til overvågning af IBD-patienter, herunder poc-måling af calprotectin, og dens tekniske begrænsning (manglende national/international kode) identificeres som et strukturelt barrieremål for national dataindsamling.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "vores app Constant – Care"
+        }
+      ]
+    },
+    {
+      "name": "calprotectin",
+      "type": "biomarker",
+      "slug": "calprotectin",
+      "folder": "entities/biomarkers/gastrointestinal",
+      "significance": "Calprotectin er en central biomarkør til vurdering af mucosal inflammation hos IBD-patienter, og chunken beskriver dens anvendelse i både poc-testform og standardlaboratorieanalyse samt dens rolle i behandlingsjustering, især under biologisk terapi.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "måling af calpro."
+        },
+        {
+          "page": 28,
+          "context": "måling af calprotectin"
         }
       ]
     },
     {
       "name": "Region Hovedstaden",
-      "type": "organization",
+      "type": "location",
       "slug": "region-hovedstaden",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Region Hovedstaden er en dansk sundhedsregion, der indrapporterer data til DANIBD-registeret og har kommentarer vedrørende indikatorer for IBD-behandling.",
+      "folder": "entities/locations/administrative",
+      "significance": "Region Hovedstaden er den eneste region i chunken, der leverer kommentarer til DANIBD-indikatorer, og dens repræsentation via NOH udgør den primære kilde til operativ og organisatorisk kontekst for implementering af kvalitetsmål.",
       "mentions": [
         {
           "page": 28,
@@ -49,10 +117,10 @@
     },
     {
       "name": "Region Sjælland",
-      "type": "organization",
+      "type": "location",
       "slug": "region-sjaelland",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Region Sjælland er en dansk sundhedsregion, der indrapporterer til DANIBD-registeret.",
+      "folder": "entities/locations/administrative",
+      "significance": "Region Sjælland er én af de fem regioner, der rapporterer 'Ingen kommentarer' til DANIBD-rapportens regionale appendiks, hvilket dokumenterer manglende lokal input til national kvalitetsmåling for IBD i denne region.",
       "mentions": [
         {
           "page": 28,
@@ -62,10 +130,10 @@
     },
     {
       "name": "Region Syddanmark",
-      "type": "organization",
+      "type": "location",
       "slug": "region-syddanmark",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Region Syddanmark er en dansk sundhedsregion, der indrapporterer til DANIBD-registeret.",
+      "folder": "entities/locations/administrative",
+      "significance": "Region Syddanmark er én af de fem regioner, der rapporterer 'Ingen kommentarer' til DANIBD-rapportens regionale appendiks, hvilket dokumenterer manglende lokal input til national kvalitetsmåling for IBD i denne region.",
       "mentions": [
         {
           "page": 28,
@@ -75,10 +143,10 @@
     },
     {
       "name": "Region Midtjylland",
-      "type": "organization",
+      "type": "location",
       "slug": "region-midtjylland",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Region Midtjylland er en dansk sundhedsregion, der indrapporterer til DANIBD-registeret.",
+      "folder": "entities/locations/administrative",
+      "significance": "Region Midtjylland er én af de fem regioner, der rapporterer 'Ingen kommentarer' til DANIBD-rapportens regionale appendiks, hvilket dokumenterer manglende lokal input til national kvalitetsmåling for IBD i denne region.",
       "mentions": [
         {
           "page": 28,
@@ -88,257 +156,169 @@
     },
     {
       "name": "Region Nordjylland",
-      "type": "organization",
+      "type": "location",
       "slug": "region-nordjylland",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Region Nordjylland er en dansk sundhedsregion, der indrapporterer til DANIBD-registeret.",
+      "folder": "entities/locations/administrative",
+      "significance": "Region Nordjylland er én af de fem regioner, der rapporterer 'Ingen kommentarer' til DANIBD-rapportens regionale appendiks, hvilket dokumenterer manglende lokal input til national kvalitetsmåling for IBD i denne region.",
       "mentions": [
         {
           "page": 28,
           "context": "Region Nordjylland"
         }
       ]
-    },
-    {
-      "name": "IBD",
-      "type": "condition",
-      "slug": "ibd",
-      "folder": "topics/medical-conditions",
-      "significance": "IBD (inflammatorisk tarmsygdom) er den primære sygdomstilstand, som DANIBD-registeret dokumenterer gennem kirurgiske indgreb, re-operationer og patientdata.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Typer af kirurgiske indgreb foretaget på patienter med IBD (indikator 6)"
-        },
-        {
-          "page": 27,
-          "context": "Typer af re-operationer foretaget på patienter med IBD (indikator 6)"
-        }
-      ]
-    },
-    {
-      "name": "PSC",
-      "type": "condition",
-      "slug": "psc",
-      "folder": "topics/medical-conditions",
-      "significance": "PSC (primær skleroserende kolangitis) er en leversygdom, som DANIBD-registeret dokumenterer med patientkarakteristika, kønsfordeling, aldersdata og kontakttyper.",
-      "mentions": [
-        {
-          "page": 27,
-          "context": "Karakteristika for patienter med PSC (indikator 7)"
-        },
-        {
-          "page": 27,
-          "context": "DK830F Primær skleroserende kolangitis"
-        }
-      ]
-    },
-    {
-      "name": "Constant Care",
-      "type": "product",
-      "slug": "constant-care",
-      "folder": "entities/products/healthcare-software",
-      "significance": "Constant Care er en app, som Nordsjællands Hospital bruger til at monitorere cirka 85-90 % af deres IBD-patienter, og som inkluderer måling af calprotectin som en point-of-care-prøve.",
-      "mentions": [
-        {
-          "page": 28,
-          "context": "I denne app indgår måling af calprotectin som en poc prøve"
-        }
-      ]
     }
   ],
   "relationships": [
     {
-      "subject": "nordsjaellands-hospital",
-      "predicate": "is-part-of",
+      "subject": "danibd",
+      "predicate": "maintains-register-for",
+      "object": "ibd",
+      "evidence": "Appendikstabel 5. Typer af kirurgiske indgreb foretaget på patienter med IBD",
+      "page": 26
+    },
+    {
+      "subject": "danibd",
+      "predicate": "maintains-register-for",
+      "object": "psc",
+      "evidence": "Appendikstabel 7. Karakteristika for patienter med PSC",
+      "page": 27
+    },
+    {
+      "subject": "noh",
+      "predicate": "is-located-in",
       "object": "region-hovedstaden",
-      "evidence": "Nordsjællands Hospital Ad indikator 4. Medicinsk behandling BMSL, måling af calpro. På NOH monitoreres ca. 85-90 % af vores IBD patienter",
+      "evidence": "Region Hovedstaden\nNordsjællands Hospital",
       "page": 28
     },
     {
-      "subject": "nordsjaellands-hospital",
-      "predicate": "uses",
-      "object": "constant-care",
+      "subject": "constant-care",
+      "predicate": "is-used-by",
+      "object": "noh",
       "evidence": "På NOH monitoreres ca. 85-90 % af vores IBD patienter via vores app Constant – Care",
       "page": 28
     },
     {
-      "subject": "danibd",
-      "predicate": "documents",
-      "object": "ibd",
-      "evidence": "Typer af kirurgiske indgreb foretaget på patienter med IBD (indikator 6)",
-      "page": 26
-    },
-    {
-      "subject": "danibd",
-      "predicate": "documents",
-      "object": "psc",
-      "evidence": "Karakteristika for patienter med PSC (indikator 7)",
-      "page": 27
+      "subject": "calprotectin",
+      "predicate": "is-measured-via",
+      "object": "constant-care",
+      "evidence": "I denne app indgår måling af calprotectin som en poc prøve",
+      "page": 28
     }
   ],
   "claims": [
     {
-      "text": "I perioden 1/10/2022 - 30/09/2023 blev der foretaget 152 laparoskopiske kolektomier og ileostomier (KJFH11), hvilket udgør 16,6 % af alle kirurgiske indgreb på IBD-patienter [^src1]",
-      "type": "surgical-procedure",
+      "text": "Appendikstabel 5 viser antal og procent for 27 typer af kirurgiske indgreb foretaget på patienter med IBD i perioden 1/10/2022–30/09/2023, hvoraf 'KJFH11 - Laparoskopisk kolektomi og ileostomi' er det hyppigste med 152 procedurer (16,6 %) [^src1]",
+      "type": "statistical",
       "entities": [
-        "ibd",
-        "danibd"
+        "danibd",
+        "ibd"
       ],
       "page": 26
     },
     {
-      "text": "Laparoskopisk ileocækal resektion (KJFB21) blev foretaget 106 gange (11,5 %) i perioden 1/10/2022 - 30/09/2023 [^src1]",
-      "type": "surgical-procedure",
+      "text": "Appendikstabel 6 viser antal og procent for re-operationer på patienter med IBD i samme periode, hvor 'KJFA58 - Endoskopisk dilatation af tyktarm' og 'KJFB00 - Tyndtarmsresektion' begge optræder 6 gange (21,4 % hver) [^src1]",
+      "type": "statistical",
       "entities": [
-        "ibd",
-        "danibd"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Endoskopisk dilatation af tyktarm (KJFA58) blev foretaget 100 gange (10,9 %) i perioden 1/10/2022 - 30/09/2023 [^src1]",
-      "type": "surgical-procedure",
-      "entities": [
-        "ibd",
-        "danibd"
-      ],
-      "page": 26
-    },
-    {
-      "text": "Der blev registreret 28 re-operationer på IBD-patienter i perioden 1/10/2022 - 30/09/2023, hvor endoskopisk dilatation af tyktarm (KJFA58) og tyndtarmsresektion (KJFB00) hver udgjorde 21,4 % [^src1]",
-      "type": "surgical-procedure",
-      "entities": [
-        "ibd",
-        "danibd"
+        "danibd",
+        "ibd"
       ],
       "page": 27
     },
     {
-      "text": "Der blev registreret 35 nydiagnosticerede patienter med primær skleroserende kolangitis (DK830F) i perioden 1/10/2022 - 30/09/2023 [^src1]",
-      "type": "patient-count",
+      "text": "Appendikstabel 7 viser, at der i perioden 1/10/2022–30/09/2023 blev diagnosticeret 35 nye tilfælde af PSC (DK830F), mens der var 213 prævalente PSC-patienter med hospitalskontakt i perioden [^src1]",
+      "type": "statistical",
       "entities": [
-        "psc",
-        "danibd"
+        "danibd",
+        "psc"
       ],
       "page": 27
     },
     {
-      "text": "Der blev registreret 213 prævalente patienter med primær skleroserende kolangitis (DK830F) med en hospitalskontakt i perioden 1/10/2022 - 30/09/2023 [^src1]",
-      "type": "patient-count",
+      "text": "På Nordsjællands Hospital monitoreres ca. 85–90 % af IBD-patienterne via appen Constant – Care [^src1]",
+      "type": "operational",
       "entities": [
-        "psc",
-        "danibd"
-      ],
-      "page": 27
-    },
-    {
-      "text": "Blandt 35 nydiagnosticerede PSC-patienter var 26 (74 %) mand og 9 (26 %) kvinde [^src1]",
-      "type": "demographic",
-      "entities": [
-        "psc",
-        "danibd"
-      ],
-      "page": 27
-    },
-    {
-      "text": "Blandt 213 prævalente PSC-patienter med hospitalskontakt var 139 (65 %) mand og 74 (35 %) kvinde [^src1]",
-      "type": "demographic",
-      "entities": [
-        "psc",
-        "danibd"
-      ],
-      "page": 27
-    },
-    {
-      "text": "Gennemsnitsalderen for 35 nydiagnosticerede PSC-patienter var 45 år (min 8; max 80) [^src1]",
-      "type": "demographic",
-      "entities": [
-        "psc",
-        "danibd"
-      ],
-      "page": 27
-    },
-    {
-      "text": "Gennemsnitsalderen for 213 prævalente PSC-patienter med hospitalskontakt var 46 år (min 17; max 88) [^src1]",
-      "type": "demographic",
-      "entities": [
-        "psc",
-        "danibd"
-      ],
-      "page": 27
-    },
-    {
-      "text": "Blandt 35 nydiagnosticerede PSC-patienter var 164 (63 %) fysiske fremmøder og 96 (37 %) virtuelle kontakter [^src1]",
-      "type": "contact-type",
-      "entities": [
-        "psc",
-        "danibd"
-      ],
-      "page": 27
-    },
-    {
-      "text": "Blandt 213 prævalente PSC-patienter med hospitalskontakt var 729 (65 %) fysiske fremmøder og 396 (35 %) virtuelle kontakter [^src1]",
-      "type": "contact-type",
-      "entities": [
-        "psc",
-        "danibd"
-      ],
-      "page": 27
-    },
-    {
-      "text": "På Nordsjællands Hospital monitoreres ca. 85-90 % af IBD-patienterne via appen Constant Care [^src1]",
-      "type": "clinical-practice",
-      "entities": [
-        "nordsjaellands-hospital",
-        "ibd",
-        "constant-care"
+        "noh",
+        "constant-care",
+        "ibd"
       ],
       "page": 28
     },
     {
-      "text": "Calprotectin-måling i Constant Care har kun en regional kode, hvilket skaber problemer med dataudtræk på nationalt plan [^src1]",
-      "type": "data-quality",
+      "text": "Målet for 'hvilende' IBD-patienter på NOH er én årlig calprotectin-måling, mens målingsrater for patienter i biologisk behandling er individualiserede [^src1]",
+      "type": "clinical-guideline",
       "entities": [
-        "nordsjaellands-hospital",
-        "constant-care"
+        "noh",
+        "calprotectin",
+        "ibd"
       ],
       "page": 28
     },
     {
-      "text": "Nordsjællands Hospital tilbyder patientskole to gange årligt med undervisning fra sygeplejersker, læger, diætister og socialrådgivere [^src1]",
-      "type": "patient-education",
+      "text": "Patientundervisning på NOH foregår ad hoc ved indrulning i Constant – Care og ved opstart af medicin, samt to gange årligt via patientskole med undervisning af sygeplejersker, læger, diætister og socialrådgivere [^src1]",
+      "type": "operational",
       "entities": [
-        "nordsjaellands-hospital"
+        "noh",
+        "constant-care"
       ],
       "page": 28
     }
   ],
   "timeline": [
     {
-      "date": "1/10/2022 - 30/09/2023",
-      "event": "Operationskoder for kirurgiske indgreb på IBD-patienter blev indberettet til DANIBD-registeret",
+      "date": "2022-10-01",
+      "event": "Start af indberetningsperiode for Appendikstabellerne 5, 6 og 7 i DANIBD-rapporten 2023",
       "entities": [
-        "danibd",
-        "ibd"
+        "danibd"
       ]
     },
     {
-      "date": "1/10/2022 - 30/09/2023",
-      "event": "Re-operationer på IBD-patienter blev registreret i DANIBD",
+      "date": "2023-09-30",
+      "event": "Slut på indberetningsperiode for Appendikstabellerne 5, 6 og 7 i DANIBD-rapporten 2023",
       "entities": [
-        "danibd",
-        "ibd"
-      ]
-    },
-    {
-      "date": "1/10/2022 - 30/09/2023",
-      "event": "Karakteristika for patienter med PSC blev dokumenteret i DANIBD-registeret",
-      "entities": [
-        "danibd",
-        "psc"
+        "danibd"
       ]
     }
   ],
-  "context": "Dette afsnit af DANIBD-rapporten (2023) præsenterer detaljerede tabeldata om kirurgiske indgreb, re-operationer og patientkarakteristika for inflammatorisk tarmsygdom (IBD) og primær skleroserende kolangitis (PSC) i Danmark i perioden oktober 2022 til september 2023. Rapporten inkluderer også regionale kommentarer fra alle fem danske sundhedsregioner, hvor Nordsjællands Hospital i Region Hovedstaden dokumenterer deres kliniske praksis omkring medicinsk behandling, calprotectin-måling og patientundervisning gennem appen Constant Care. Dataene viser, at laparoskopisk kolektomi med ileostomi var den hyppigste kirurgiske procedure blandt IBD-patienter, og at PSC-patienterne havde en kønsfordeling på cirka 65 % mand og 35 % kvinde."
+  "tables": [
+    {
+      "subject": "surgical-procedures-ibd",
+      "title": "Appendikstabel 5. Typer af kirurgiske indgreb foretaget på patienter med IBD (indikator 6)",
+      "page": 26,
+      "rowDimension": "operations-codes",
+      "colDimension": "count and percentage",
+      "entities": [
+        "danibd",
+        "ibd"
+      ],
+      "markdown": "| Operationskoder indberettet i perioden 1/10/2022 - 30/09/2023 | Antal | Procent |\n| --- | --- | --- |\n| KJFH11 - Laparoskopisk kolektomi og ileostomi | 152 | 16,6 |\n| KJFB21 - Laparoskopisk ileocækal resektion | 106 | 11,5 |\n| KJFA58 - Endoskopisk dilatation af tyktarm | 100 | 10,9 |\n| KJFA38 - Endoskopisk dilatation af tyndtarm | 84 | 9,2 |\n| KJFB20 - Ileocækal resektion | 62 | 6,8 |\n| KJFB00 - Tyndtarmsresektion | 60 | 6,5 |\n| KJFH10 - Kolektomi og ileostomi | 32 | 3,5 |\n| KJFG40 - Revision af enterostomi el. kolostomi u. laparotomi | 21 | 2,3 |\n| KJFF13 - Terminal enterostomi | 15 | 1,6 |\n| KJFB33 - Anden samtidig resektion af tyndtarm og tyktarm | 14 | 1,5 |\n| KJFA15 - Endoskopisk polypektomi i tyktarm | 12 | 1,3 |\n| KJFF10 - Loop enterostomi | 12 | 1,3 |\n| KJFB30 - Højresidig hemikolektomi | 10 | 1,1 |\n| KJFF11 - Laparoskopisk loop enterostomi | 10 | 1,1 |\n| KJFB31 - Laparoskopisk højresidig hemikolektomi | 9 | 1,0 |\n| KJFH21 - Laparoskopisk proktokolektomi og ileostomi | 9 | 1,0 |\n| KJFA60 - Tarmplastik ved striktur i tyndtarm | 8 | 0,9 |\n| KJFA70 - Sutur af tyndtarm | 8 | 0,9 |\n| KJFB01 - Laparoskopisk tyndtarmsresektion | 8 | 0,9 |\n| KJFB46 - Resektion af colon sigmoideum | 8 | 0,9 |\n| KJFB50 - Anden colonresektion | 8 | 0,9 |\n| KJFF27 - Laparoskopisk sigmoideostomi | 8 | 0,9 |\n| KJFG20 - Lukning af ileostomi med tarmresektion | 8 | 0,9 |\n| KJFG50 - Revision af enterostomi el. kolostomi m. laparotomi | 8 | 0,9 |\n| KJFK10 - Løsning af adhærencer ved ileus | 8 | 0,9 |\n| KJFB96 - Anden tarmresektion | 7 | 0,8 |\n| KJFH20 - Proktokolektomi og ileostomi | 7 | 0,8 |\n| KJFG00 - Lukning af ileostomi uden tarmresektion | 6 | 0,7 |\n| KJFH01 - Laparoskopisk kolektomi og ileorektostomi | 6 | 0,7 |\n| KJFC00 - Enteroenterostomi | 5 | 0,5 |\n| KJFF16 - Konvertering af ileoanal anastom. til ileostomi | 5 | 0,5 |\n| KJGB61 - Lap excis af endetarm og ileoanal anastom eft tidl | 5 | 0,5 |\n| Øvrige | 97 | 10,6 |",
+      "summary": "Tabellen sammenligner 27 specifikke kirurgiske procedurer for IBD-patienter efter operationskode, antal og procentandel, hvor laparoskopisk kolektomi og ileostomi er den hyppigste procedure."
+    },
+    {
+      "subject": "re-operations-ibd",
+      "title": "Appendikstabel 6. Typer af re-operationer foretaget på patienter med IBD (indikator 6)",
+      "page": 27,
+      "rowDimension": "re-operation-codes",
+      "colDimension": "count and percentage",
+      "entities": [
+        "danibd",
+        "ibd"
+      ],
+      "markdown": "| Type af re-operation | Antal | Procent |\n| --- | --- | --- |\n| KJFA58 - Endoskopisk dilatation af tyktarm | 6 | 21,4 |\n| KJFB00 - Tyndtarmsresektion | 6 | 21,4 |\n| KJFF10 - Loop enterostomi | 4 | 14,3 |\n| KJFB96 - Anden tarmresektion | # | 7,1 |\n| KJFA38 - Endoskopisk dilatation af tyndtarm | # | 3,6 |\n| KJFA96 - Anden lokal tarmoperation | # | 3,6 |\n| KJFB20 - Ileocækal resektion | # | 3,6 |\n| KJFB21 - Laparoskopisk ileocækal resektion | # | 3,6 |\n| KJFB33 - Anden samtidig resektion af tyndtarm og tyktarm | # | 3,6 |\n| KJFB46 - Resektion af colon sigmoideum | # | 3,6 |\n| KJFC00 - Enteroenterostomi | # | 3,6 |\n| KJFF13 - Terminal enterostomi | # | 3,6 |\n| KJFH10 - Kolektomi og ileostomi | # | 3,6 |\n| KJFH11 - Laparoskopisk kolektomi og ileostomi | # | 3,6 |",
+      "summary": "Tabellen sammenligner 14 typer af re-operationer for IBD-patienter efter kode, antal og procentandel, hvor endoskopisk dilatation af tyktarm og tyndtarmsresektion deler førstepladsen med 6 forekomster hver (21,4 %)."
+    },
+    {
+      "subject": "psc-patients",
+      "title": "Appendikstabel 7. Karakteristika for patienter med PSC (indikator 7)",
+      "page": 27,
+      "rowDimension": "patient-characteristics",
+      "colDimension": "newly-diagnosed and prevalent counts with percentages",
+      "entities": [
+        "danibd",
+        "psc"
+      ],
+      "markdown": "| | Nydiagnosticeret | Prævalent med en hospitalskontakt i perioden |\n| --- | --- | --- |\n| DK830F Primær skleroserende kolangitis | 35 (100) | 213 (100) |\n| Køn | | |\n| Kvinde | 9 (26) | 74 (35) |\n| Mand | 26 (74) | 139 (65) |\n| Alder | | |\n| Gennemsnit, år (Min;Max) | 45 (8;80) | 46 (17;88) |\n| Median, år (Q1;Q3) | 42 (36;56) | 44 (34;56) |\n| Kontakter | | |\n| Gennemsnit, antal (Min;Max) | 11 (2;21) | 10 (1;28) |\n| Median, antal (Q1;Q3) | 10 (6;15) | 9 (4;14) |\n| Kontakttype | | |\n| Fysisk fremmøde | 164 (63) | 729 (65) |\n| Virtuel | 96 (37) | 396 (35) |",
+      "summary": "Tabellen sammenligner demografiske og kliniske karakteristika for nydiagnosticerede og prævalente PSC-patienter, herunder køn, alder, antal hospitalskontakter og kontakttype, med klare forskelle i aldersfordeling og kontaktmønstre."
+    }
+  ],
+  "context": "Dette afsnit fra DANIBD-rapporten 2023 (sider 26–29) udgør en teknisk og klinisk appendiks til den nationale kvalitetsmåling af behandlingen af inflammatorisk tarmsygdom (IBD) i Danmark. Det omfatter tre strukturerede tabeller: én over primære kirurgiske procedurer, én over re-operationer og én over karakteristika for patienter med primær skleroserende kolangitis (PSC) — en alvorlig komorbid tilstand. Desuden indeholder det regionale kommentarer, hvor kun Region Hovedstaden (repræsenteret ved Nordsjællands Hospital) giver detaljerede operationelle forklaringer på tværs af indikatorer for biomarkørmonitorering (calprotectin) og patientuddannelse, hvilket afslører både lokale succeser og systemiske barrierer som manglende national kode til digitale tests. Denne chunk er derfor centralt beliggende for forståelsen af både klinisk praksis og datainfrastruktur i dansk IBD-overvågning."
 }

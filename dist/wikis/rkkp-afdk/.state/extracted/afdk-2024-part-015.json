@@ -1,359 +1,15 @@
 {
   "entities": [
     {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau for alle rapporterede data om atrieflimren-patienter og antikoagulationsbehandling i denne analyse.",
+      "name": "Atrieflimren i Danmark",
+      "type": "document",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "entities/documents/reports",
+      "significance": "Dette er den offentliggjorte version af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) rapport om atrieflimren i Danmark, som indeholder supplerende analyser og kvalitetsindikatorer for perioden 2022–2023 og tidligere år, og danner grundlaget for alle data i denne chunk.",
       "mentions": [
         {
           "page": 71,
-          "context": "Danmark 6356 55.6 5076 44.4 11432"
-        },
-        {
-          "page": 71,
-          "context": "Danmark 739 65.5 389 34.5 1128"
-        },
-        {
-          "page": 72,
-          "context": "Danmark 276 / 21.804 0 (0) 1,3 (1,1-1,4)"
-        },
-        {
-          "page": 73,
-          "context": "Danmark 739 65.5 389 34.5 1128"
-        },
-        {
-          "page": 74,
-          "context": "Danmark 35 4.8 266 36.3 254 34.7 133 18.1 42 5.7 3 0.4 733"
-        },
-        {
-          "page": 75,
-          "context": "Danmark 173 / 21.804 0 (0) 0,8 (0,7-0,9)"
-        }
-      ]
-    },
-    {
-      "name": "Region Hovedstaden",
-      "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Hovedstaden er en af fem danske regioner med rapporterede data om atrieflimren-patienter og behandlingsresultater.",
-      "mentions": [
-        {
-          "page": 71,
-          "context": "Region Hovedstaden 1720 55.4 1382 44.6 3102"
-        },
-        {
-          "page": 71,
-          "context": "Region Hovedstaden 242 63.5 139 36.5 381"
-        },
-        {
-          "page": 72,
-          "context": "Hovedstaden 85 / 5.905 0 (0) 1,4 (1,2-1,8)"
-        },
-        {
-          "page": 73,
-          "context": "Region Hovedstaden 242 63.5 139 36.5 381"
-        },
-        {
-          "page": 74,
-          "context": "Region Hovedstaden 14 6.6 77 36.3 71 33.5 37 17.5 13 6.1 0 0 212"
-        },
-        {
-          "page": 75,
-          "context": "Hovedstaden 48 / 5.905 0 (0) 0,8 (0,6-1,1)"
-        }
-      ]
-    },
-    {
-      "name": "Sjælland",
-      "type": "location",
-      "slug": "sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Sjælland er en af fem danske regioner med rapporterede data om atrieflimren-patienter og behandlingsresultater.",
-      "mentions": [
-        {
-          "page": 71,
-          "context": "Sjælland 1043 54.7 865 45.3 1908"
-        },
-        {
-          "page": 71,
-          "context": "Sjælland 121 61.4 76 38.6 197"
-        },
-        {
-          "page": 72,
-          "context": "Sjælland 54 / 3.590 0 (0) 1,5 (1,1-2,0)"
-        },
-        {
-          "page": 73,
-          "context": "Sjælland 121 61.4 76 38.6 197"
-        },
-        {
-          "page": 74,
-          "context": "Sjælland 4 3.7 26 24.1 47 43.5 23 21.3 8 7.4 0 0 108"
-        },
-        {
-          "page": 75,
-          "context": "Sjælland 27 / 3.590 0 (0) 0,8 (0,5-1,1)"
-        }
-      ]
-    },
-    {
-      "name": "Syddanmark",
-      "type": "location",
-      "slug": "syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Syddanmark er en af fem danske regioner med rapporterede data om atrieflimren-patienter og behandlingsresultater.",
-      "mentions": [
-        {
-          "page": 71,
-          "context": "Syddanmark 1398 55.4 1127 44.6 2525"
-        },
-        {
-          "page": 71,
-          "context": "Syddanmark 168 74.3 58 25.7 226"
-        },
-        {
-          "page": 72,
-          "context": "Syddanmark 63 / 4.972 0 (0) 1,3 (1,0-1,6)"
-        },
-        {
-          "page": 73,
-          "context": "Syddanmark 168 74.3 58 25.7 226"
-        },
-        {
-          "page": 74,
-          "context": "Syddanmark 6 3.6 55 33.3 59 35.8 33 20.0 10 6.1 # 1.2 165"
-        },
-        {
-          "page": 75,
-          "context": "Syddanmark 48 / 4.972 0 (0) 1,0 (0,7-1,3)"
-        }
-      ]
-    },
-    {
-      "name": "Midtjylland",
-      "type": "location",
-      "slug": "midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Midtjylland er en af fem danske regioner med rapporterede data om atrieflimren-patienter og behandlingsresultater.",
-      "mentions": [
-        {
-          "page": 71,
-          "context": "Midtjylland 1498 56.9 1137 43.1 2635"
-        },
-        {
-          "page": 71,
-          "context": "Midtjylland 120 60.3 79 39.7 199"
-        },
-        {
-          "page": 72,
-          "context": "Midtjylland 46 / 4.918 0 (0) 0,9 (0,7-1,2)"
-        },
-        {
-          "page": 73,
-          "context": "Midtjylland 120 60.3 79 39.7 199"
-        },
-        {
-          "page": 74,
-          "context": "Midtjylland 6 3.6 78 47.0 52 31.3 24 14.5 5 3.0 # 0.6 166"
-        },
-        {
-          "page": 75,
-          "context": "Midtjylland 39 / 4.918 0 (0) 0,8 (0,6-1,1)"
-        }
-      ]
-    },
-    {
-      "name": "Nordjylland",
-      "type": "location",
-      "slug": "nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Nordjylland er en af fem danske regioner med rapporterede data om atrieflimren-patienter og behandlingsresultater.",
-      "mentions": [
-        {
-          "page": 71,
-          "context": "Nordjylland 697 55.2 565 44.8 1262"
-        },
-        {
-          "page": 71,
-          "context": "Nordjylland 88 70.4 37 29.6 125"
-        },
-        {
-          "page": 72,
-          "context": "Nordjylland 28 / 2.419 0 (0) 1,2 (0,8-1,7)"
-        },
-        {
-          "page": 73,
-          "context": "Nordjylland 88 70.4 37 29.6 125"
-        },
-        {
-          "page": 74,
-          "context": "Nordjylland 5 6.1 30 36.6 25 30.5 16 19.5 6 7.3 0 0 82"
-        },
-        {
-          "page": 75,
-          "context": "Nordjylland 11 / 2.419 0 (0) 0,5 (0,2-0,8)"
-        }
-      ]
-    },
-    {
-      "name": "Atrieflimren",
-      "type": "medical-condition",
-      "slug": "atrieflimren",
-      "folder": "topics/medical-conditions",
-      "significance": "Atrieflimren er det centrale fokus for alle analyser i dette dokument, med data om antikoagulationsbehandling, iskæmisk apopleksi og intrakraniel blødning.",
-      "mentions": [
-        {
-          "page": 71,
-          "context": "Atrieflimren i Danmark"
-        },
-        {
-          "page": 71,
-          "context": "Andel af atrieflimren patienter indlagt med iskæmisk apopleksi"
-        },
-        {
-          "page": 72,
-          "context": "Andelen af nydiagnosticerede patienter med atriflimren, som udvikler iskæmisk apopleksi inden for 1 år"
-        },
-        {
-          "page": 73,
-          "context": "Andel af atrieflimren patienter indlagt med iskæmisk apopleksi/apopleksi af ukendt type"
-        },
-        {
-          "page": 73,
-          "context": "Prævalente patienter med atrieflimren, der udvikler iskæmisk apopleksi i opgørelses perioden"
-        },
-        {
-          "page": 74,
-          "context": "CHA2DS2VASc Score blandt prævalente atrieflimren patienter med intrakraniel blødning"
-        },
-        {
-          "page": 74,
-          "context": "Prævalente patienter med atrieflimren, der udvikler intrakraniel blødning i opgørelses perioden"
-        },
-        {
-          "page": 75,
-          "context": "Andelen af nydiagnosticerede patienter med atriflimren, som får intrakraniel blødning inden for 1 år"
-        }
-      ]
-    },
-    {
-      "name": "Antikoagulationsbehandling",
-      "type": "medical-treatment",
-      "slug": "antikoagulationsbehandling",
-      "folder": "topics/medical-treatments",
-      "significance": "Antikoagulationsbehandling er en central behandling for atrieflimren-patienter, og dokumentet analyserer ventetider til start af behandling og behandlingstyper.",
-      "mentions": [
-        {
-          "page": 71,
-          "context": "Supplerende analyser 1: Ventetid til antikoagulations behandling"
-        },
-        {
-          "page": 71,
-          "context": "Start på AK behandling"
-        },
-        {
-          "page": 71,
-          "context": "Indenfor 4 måneder inden diagnose"
-        }
-      ]
-    },
-    {
-      "name": "DOAC",
-      "type": "medication",
-      "slug": "doac",
-      "folder": "topics/medications",
-      "significance": "DOAC (direkte oral antikoagulant) er en behandlingstype for atrieflimren-patienter, sammenlignet med Marevan i analysen.",
-      "mentions": [
-        {
-          "page": 73,
-          "context": "AK-behandling DOAC"
-        },
-        {
-          "page": 74,
-          "context": "AK-behandling DOAC"
-        }
-      ]
-    },
-    {
-      "name": "Marevan",
-      "type": "medication",
-      "slug": "marevan",
-      "folder": "topics/medications",
-      "significance": "Marevan er en antikoagulant-behandling for atrieflimren-patienter, sammenlignet med DOAC i analysen.",
-      "mentions": [
-        {
-          "page": 73,
-          "context": "Marevan"
-        },
-        {
-          "page": 74,
-          "context": "Marevan"
-        }
-      ]
-    },
-    {
-      "name": "Iskæmisk apopleksi",
-      "type": "medical-condition",
-      "slug": "iskaemisk-apopleksi",
-      "folder": "topics/medical-conditions",
-      "significance": "Iskæmisk apopleksi er en vigtig komplikation hos atrieflimren-patienter, og dokumentet analyserer incidensen blandt nydiagnosticerede patienter.",
-      "mentions": [
-        {
-          "page": 71,
-          "context": "Andel af atrieflimren patienter indlagt med iskæmisk apopleksi/apopleksi af ukendt type"
-        },
-        {
-          "page": 72,
-          "context": "Supplerende analyser 5: Incidens Iskæmisk Apopleksi"
-        },
-        {
-          "page": 72,
-          "context": "Andelen af nydiagnosticerede patienter med atriflimren, som udvikler iskæmisk apopleksi inden for 1 år"
-        },
-        {
-          "page": 73,
-          "context": "Prævalente patienter med atrieflimren, der udvikler iskæmisk apopleksi i opgørelses perioden"
-        }
-      ]
-    },
-    {
-      "name": "Intrakraniel blødning",
-      "type": "medical-condition",
-      "slug": "intrakraniel-bloedning",
-      "folder": "topics/medical-conditions",
-      "significance": "Intrakraniel blødning er en alvorlig komplikation hos atrieflimren-patienter under antikoagulationsbehandling, analyseret i dokumentet.",
-      "mentions": [
-        {
-          "page": 74,
-          "context": "Supplerende analyser 6: Intrakraniel blødning"
-        },
-        {
-          "page": 74,
-          "context": "CHA2DS2VASc Score blandt prævalente atrieflimren patienter med intrakraniel blødning"
-        },
-        {
-          "page": 74,
-          "context": "Prævalente patienter med atrieflimren, der udvikler intrakraniel blødning i opgørelses perioden"
-        },
-        {
-          "page": 75,
-          "context": "Andelen af nydiagnosticerede patienter med atriflimren, som får intrakraniel blødning inden for 1 år"
-        }
-      ]
-    },
-    {
-      "name": "CHA2DS2-VASc Score",
-      "type": "clinical-measure",
-      "slug": "cha2ds2-vasc-score",
-      "folder": "topics/clinical-measures",
-      "significance": "CHA2DS2-VASc Score bruges til at stratificere risiko blandt atrieflimren-patienter med intrakraniel blødning.",
-      "mentions": [
-        {
-          "page": 74,
-          "context": "CHA2DS2VASc Score blandt prævalente atrieflimren patienter med intrakraniel blødning"
+          "context": "Atrieflimren i Danmark\nVersion: Offentliggjort version\nRegionernes Kliniske Kvalitetsudviklingsprogram"
         }
       ]
     },
@@ -361,363 +17,898 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er ansvarlig for denne rapport om atrieflimren i Danmark.",
+      "folder": "entities/organizations/health-quality-initiatives",
+      "significance": "Dette er den koordinerende organisation bag rapporten, der udvikler og overvåger kliniske kvalitetsindikatorer for atrieflimren i dansk sundhedsvæsen, og som står bag alle præsenterede analyser og indikatorer på siderne 71–75.",
       "mentions": [
         {
           "page": 71,
           "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Refererer til nationalt niveau i alle tabeller og analyser, hvor data fra hele landet samles og sammenlignes med regionale og klyngebaserede resultater.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Danmark 6356 55.6 5076 44.4 11432"
         },
         {
           "page": 72,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+          "context": "Danmark 276 / 21.804 0 (0) 1,3 (1,1-1,4) 229 / 21.017 1,1 1,3"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "En af de fem regioner i Danmark, som indgår som en central geografisk enhed i alle analyser på siderne 71–75, herunder ventetid til antikoagulationsbehandling, incidens af iskæmisk apopleksi og intrakraniel blødning.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Region Hovedstaden 1720 55.4 1382 44.6 3102"
         },
         {
-          "page": 73,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+          "page": 72,
+          "context": "Hovedstaden 85 / 5.905 0 (0) 1,4 (1,2-1,8) 73 / 5.576 1,3 1,7"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/regions",
+      "significance": "En af de fem regioner i Danmark, som indgår som en central geografisk enhed i alle analyser på siderne 71–75, herunder ventetid til antikoagulationsbehandling, incidens af iskæmisk apopleksi og intrakraniel blødning.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "| Sjælland | 1043 | 54.7 | 865 | 45.3 | 1908 |"
         },
         {
-          "page": 74,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+          "page": 72,
+          "context": "Sjælland 54 / 3.590 0 (0) 1,5 (1,1-2,0) 44 / 3.466 1,3 1,3"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "En af de fem regioner i Danmark, som indgår som en central geografisk enhed i alle analyser på siderne 71–75, herunder ventetid til antikoagulationsbehandling, incidens af iskæmisk apopleksi og intrakraniel blødning.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "| Syddanmark | 1398 | 55.4 | 1127 | 44.6 | 2525 |"
+        },
+        {
+          "page": 72,
+          "context": "Syddanmark 63 / 4.972 0 (0) 1,3 (1,0-1,6) 46 / 5.041 0,9 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/regions",
+      "significance": "En af de fem regioner i Danmark, som indgår som en central geografisk enhed i alle analyser på siderne 71–75, herunder ventetid til antikoagulationsbehandling, incidens af iskæmisk apopleksi og intrakraniel blødning.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "| Midtjylland | 1498 | 56.9 | 1137 | 43.1 | 2635 |"
+        },
+        {
+          "page": 72,
+          "context": "Midtjylland 46 / 4.918 0 (0) 0,9 (0,7-1,2) 35 / 4.731 0,7 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "En af de fem regioner i Danmark, som indgår som en central geografisk enhed i alle analyser på siderne 71–75, herunder ventetid til antikoagulationsbehandling, incidens af iskæmisk apopleksi og intrakraniel blødning.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "| Nordjylland | 697 | 55.2 | 565 | 44.8 | 1262 |"
+        },
+        {
+          "page": 72,
+          "context": "Nordjylland 28 / 2.419 0 (0) 1,2 (0,8-1,7) 31 / 2.203 1,4 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Bornholm",
+      "type": "organization",
+      "slug": "sundhedsklynge-bornholm",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Bornholm 3 / 195 0 (0) 1,5 (0,3-4,4) 2 / 186 1,1 0,6"
         },
         {
           "page": 75,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+          "context": "Sundhedsklynge Bornholm 3 / 195 0 (0) 1,5 (0,3-4,4) 0 / 186 0,0 0,0"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Byen",
+      "type": "organization",
+      "slug": "sundhedsklynge-byen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Byen 16 / 1.625 0 (0) 1,0 (0,6-1,6) 21 / 1.493 1,4 1,4"
+        },
+        {
+          "page": 75,
+          "context": "Sundhedsklynge Byen 16 / 1.625 0 (0) 1,0 (0,6-1,6) 7 / 1.493 0,5 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Midt",
+      "type": "organization",
+      "slug": "sundhedsklynge-midt",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Midt 33 / 1.754 0 (0) 1,9 (1,3-2,6) 24 / 1.636 1,5 2,0"
+        },
+        {
+          "page": 75,
+          "context": "Sundhedsklynge Midt 7 / 1.754 0 (0) 0,4 (0,2-0,8) 14 / 1.636 0,9 1,2"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Nord",
+      "type": "organization",
+      "slug": "sundhedsklynge-nord",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Nord 13 / 1.293 0 (0) 1,0 (0,5-1,7) 13 / 1.270 1,0 1,9"
+        },
+        {
+          "page": 75,
+          "context": "Sundhedsklynge Nord 12 / 1.293 0 (0) 0,9 (0,5-1,6) 9 / 1.270 0,7 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Syd",
+      "type": "organization",
+      "slug": "sundhedsklynge-syd",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Syd 20 / 1.038 0 (0) 1,9 (1,2-3,0) 13 / 991 1,3 1,4"
+        },
+        {
+          "page": 75,
+          "context": "Sundhedsklynge Syd 10 / 1.038 0 (0) 1,0 (0,5-1,8) 6 / 991 0,6 0,5"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Holbæk",
+      "type": "organization",
+      "slug": "sundhedsklyngen-holbaek",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklyngen Holbæk 13 / 751 0 (0) 1,7 (0,9-2,9) 9 / 751 1,2 1,8"
+        },
+        {
+          "page": 75,
+          "context": "Sundhedsklyngen Holbæk 4 / 751 0 (0) 0,5 (0,1-1,4) 4 / 751 0,5 1,3"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Nykøbing F",
+      "type": "organization",
+      "slug": "sundhedsklyngen-nykoebing-f",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklyngen\nNykøbing F\n12 / 751 0 (0) 1,6 (0,8-2,8) 17 / 737 2,3 0,8"
+        },
+        {
+          "page": 75,
+          "context": "Sundhedsklyngen\nNykøbing F\n9 / 751 0 (0) 1,2 (0,5-2,3) 4 / 737 0,5 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen SUH",
+      "type": "organization",
+      "slug": "sundhedsklyngen-suh",
+      "folder": "entities/organizations/hospitals",
+      "significance": "En regional sundhedsklynge knyttet til Sygehus Lillebælt og Sygehus Odense, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklyngen SUH 21 / 1.169 0 (0) 1,8 (1,1-2,7) 8 / 1.111 0,7 1,2"
+        },
+        {
+          "page": 75,
+          "context": "Sundhedsklyngen SUH 7 / 1.169 0 (0) 0,6 (0,2-1,2) 8 / 1.111 0,7 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Slagelse",
+      "type": "organization",
+      "slug": "sundhedsklyngen-slagelse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "En regional sundhedsklynge knyttet til Slagelse Sygehus, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklyngen Slagelse 8 / 919 0 (0) 0,9 (0,4-1,7) 10 / 867 1,2 1,6"
+        },
+        {
+          "page": 75,
+          "context": "Sundhedsklyngen Slagelse 7 / 919 0 (0) 0,8 (0,3-1,6) 8 / 867 0,9 0,4"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Fyn",
+      "type": "organization",
+      "slug": "sundhedsklynge-fyn",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Fyn 26 / 1.935 0 (0) 1,3 (0,9-2,0) 17 / 1.954 0,9 1,5"
+        },
+        {
+          "page": 75,
+          "context": "Sundhedsklynge Fyn 17 / 1.935 0 (0) 0,9 (0,5-1,4) 15 / 1.954 0,8 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Lillebælt",
+      "type": "organization",
+      "slug": "sundhedsklynge-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "En regional sundhedsklynge knyttet til Sygehus Lillebælt, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Lillebælt 12 / 1.086 0 (0) 1,1 (0,6-1,9) 10 / 1.087 0,9 0,9"
+        },
+        {
+          "page": 75,
+          "context": "Sundhedsklynge Lillebælt 10 / 1.086 0 (0) 0,9 (0,4-1,7) 9 / 1.087 0,8 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sydvestjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-sydvestjylland",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge\nSydvestjylland\n15 / 927 0 (0) 1,6 (0,9-2,7) 9 / 953 0,9 0,7"
+        },
+        {
+          "page": 75,
+          "context": "Sundhedsklynge\nSydvestjylland\n11 / 927 0 (0) 1,2 (0,6-2,1) 9 / 953 0,9 0,5"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sønderjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "En regional sundhedsklynge knyttet til Sygehus Sønderjylland, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge\nSønderjylland\n10 / 1.024 0 (0) 1,0 (0,5-1,8) 10 / 1.047 1,0 1,0"
+        },
+        {
+          "page": 75,
+          "context": "Sundhedsklynge\nSønderjylland\n10 / 1.024 0 (0) 1,0 (0,5-1,8) 7 / 1.047 0,7 0,5"
+        }
+      ]
+    },
+    {
+      "name": "Aarhusklyngen",
+      "type": "organization",
+      "slug": "aarhusklyngen",
+      "folder": "entities/organizations/hospitals",
+      "significance": "En regional sundhedsklynge knyttet til Aarhus Universitetshospital, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Aarhusklyngen 16 / 1.079 0 (0) 1,5 (0,8-2,4) 10 / 999 1,0 1,3"
+        },
+        {
+          "page": 75,
+          "context": "Aarhusklyngen 11 / 1.079 0 (0) 1,0 (0,5-1,8) 8 / 999 0,8 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrupklyngen",
+      "type": "organization",
+      "slug": "goedstrupklyngen",
+      "folder": "entities/organizations/hospitals",
+      "significance": "En regional sundhedsklynge knyttet til Regionshospitalet Gødstrup, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Gødstrupklyngen 7 / 1.077 0 (0) 0,6 (0,3-1,3) 9 / 1.135 0,8 1,2"
+        },
+        {
+          "page": 75,
+          "context": "Gødstrupklyngen 6 / 1.077 0 (0) 0,6 (0,2-1,2) 2 / 1.135 0,2 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Horsensklyngen",
+      "type": "organization",
+      "slug": "horsensklyngen",
+      "folder": "entities/organizations/hospitals",
+      "significance": "En regional sundhedsklynge knyttet til Regionshospitalet Horsens, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Horsensklyngen 8 / 877 0 (0) 0,9 (0,4-1,8) 5 / 789 0,6 0,6"
+        },
+        {
+          "page": 75,
+          "context": "Horsensklyngen 6 / 877 0 (0) 0,7 (0,3-1,5) 4 / 789 0,5 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Midtklyngen",
+      "type": "organization",
+      "slug": "midtklyngen",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Midtklyngen 7 / 997 0 (0) 0,7 (0,3-1,4) 3 / 949 0,3 1,5"
+        },
+        {
+          "page": 75,
+          "context": "Midtklyngen 8 / 997 0 (0) 0,8 (0,3-1,6) 6 / 949 0,6 1,2"
+        }
+      ]
+    },
+    {
+      "name": "Randersklyngen",
+      "type": "organization",
+      "slug": "randersklyngen",
+      "folder": "entities/organizations/hospitals",
+      "significance": "En regional sundhedsklynge knyttet til Regionshospitalet Randers, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Randersklyngen 8 / 888 0 (0) 0,9 (0,4-1,8) 8 / 859 0,9 0,9"
+        },
+        {
+          "page": 75,
+          "context": "Randersklyngen 8 / 888 0 (0) 0,9 (0,4-1,8) 6 / 859 0,7 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Klynge MIDT",
+      "type": "organization",
+      "slug": "klynge-midt",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Klynge MIDT 7 / 866 0 (0) 0,8 (0,3-1,7) 15 / 772 1,9 1,1"
+        },
+        {
+          "page": 75,
+          "context": "Klynge MIDT 0 / 866 0 (0) 0,0 (0,0-0,4) 5 / 772 0,6 0,2"
+        }
+      ]
+    },
+    {
+      "name": "Klynge NORD",
+      "type": "organization",
+      "slug": "klynge-nord",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Klynge NORD 11 / 820 0 (0) 1,3 (0,7-2,4) 8 / 754 1,1 1,2"
+        },
+        {
+          "page": 75,
+          "context": "Klynge NORD 5 / 820 0 (0) 0,6 (0,2-1,4) 6 / 754 0,8 0,5"
+        }
+      ]
+    },
+    {
+      "name": "Klynge SYD",
+      "type": "organization",
+      "slug": "klynge-syd",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Klynge SYD 5 / 459 0 (0) 1,1 (0,4-2,5) 4 / 408 1,0 1,0"
+        },
+        {
+          "page": 75,
+          "context": "Klynge SYD 6 / 459 0 (0) 1,3 (0,5-2,8) 1 / 408 0,2 1,5"
+        }
+      ]
+    },
+    {
+      "name": "Klynge VEST",
+      "type": "organization",
+      "slug": "klynge-vest",
+      "folder": "entities/organizations/health-registries",
+      "significance": "En regional sundhedsklynge, der indgår i analyse af incidens af iskæmisk apopleksi og intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter, og som repræsenterer et mindre geografisk område med specifikke data.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Klynge VEST 5 / 274 0 (0) 1,8 (0,6-4,2) 4 / 269 1,5 0,4"
+        }
+      ]
+    },
+    {
+      "name": "Antikoagulationsbehandling",
+      "type": "medical-intervention",
+      "slug": "antikoagulationsbehandling",
+      "folder": "entities/medical-interventions/pharmacotherapy",
+      "significance": "Centralt behandlingskoncept i rapporten, der analyseres i forhold til ventetid, effektivitet (forebyggelse af apopleksi) og sikkerhed (risiko for intrakraniel blødning).",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Supplerende analyser 1: Ventetid til antikoagulations behandling"
+        }
+      ]
+    },
+    {
+      "name": "Iskæmisk apopleksi",
+      "type": "medical-condition",
+      "slug": "iskaemisk-apopleksi",
+      "folder": "topics/medical-conditions/neurological",
+      "significance": "Den primære komplikation af atrieflimren, der måles som incidensrate i Indikator 14 og analyseres i forhold til antikoagulationsbehandling.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Andel af atrieflimren patienter indlagt med iskæmisk apopleksi/apopleksi af ukendt type"
+        },
+        {
+          "page": 72,
+          "context": "Indikator 14: Andelen af nydiagnosticerede patienter med atriflimren, som udvikler iskæmisk apopleksi inden for 1 år"
+        }
+      ]
+    },
+    {
+      "name": "Intrakraniel blødning",
+      "type": "medical-condition",
+      "slug": "intrakraniel-bloedning",
+      "folder": "topics/medical-conditions/neurological",
+      "significance": "Den primære bivirkning af antikoagulationsbehandling, der måles som incidensrate i Indikator 13 og analyseres i forhold til CHA2DS2VASc-score og behandlingsform.",
+      "mentions": [
+        {
+          "page": 74,
+          "context": "Supplerende analyser 6: Intrakraniel blødning"
+        },
+        {
+          "page": 75,
+          "context": "Indikator 13: Andelen af nydiagnosticerede patienter med atriflimren, som får intrakraniel blødning inden for 1 år"
+        }
+      ]
+    },
+    {
+      "name": "CHA2DS2VASc Score",
+      "type": "clinical-tool",
+      "slug": "cha2ds2-vasc",
+      "folder": "topics/clinical-tools/risk-scores",
+      "significance": "Risikoscore brugt til at vurdere risiko for iskæmisk apopleksi hos atrieflimren-patienter, og som anvendes i Supplerende analyser 6 til at analysere fordelingen blandt patienter med intrakraniel blødning.",
+      "mentions": [
+        {
+          "page": 74,
+          "context": "CHA2DS2VASc Score\nblandt prævalente\natrieflimren patienter\nmed intrakraniel\nblødning"
+        }
+      ]
+    },
+    {
+      "name": "DOAC",
+      "type": "drug",
+      "slug": "doac",
+      "folder": "entities/drugs/anticoagulants",
+      "significance": "Gruppen af direkte orale antikoagulantia, der analyseres separat i forhold til risiko for intrakraniel blødning og forebyggelse af iskæmisk apopleksi.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "AK-behandling\n101313 99.12 902 0.88DOAC"
+        },
+        {
+          "page": 74,
+          "context": "AK-behandling\n101674 99.47 541 0.53DOAC"
+        }
+      ]
+    },
+    {
+      "name": "Marevan",
+      "type": "drug",
+      "slug": "marevan",
+      "folder": "entities/drugs/anticoagulants",
+      "significance": "Et specifikt antikoagulant (warfarin), der analyseres separat i forhold til risiko for intrakraniel blødning og forebyggelse af iskæmisk apopleksi.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Marevan 6442 99.49 33 0.51"
+        },
+        {
+          "page": 74,
+          "context": "Marevan 6422 99.18 53 0.82"
+        }
+      ]
+    },
+    {
+      "name": "LPR",
+      "type": "database",
+      "slug": "landspatientregisteret-lpr",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Landspatientregisteret (LPR), der fungerer som datakilde for alle registreringer af indlæggelser med iskæmisk apopleksi (I63+I64) og beregning af prævalens og incidens i rapporten.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Andel af atrieflimren patienter indlagt med iskæmisk apopleksi/apopleksi af ukendt type, som har\nindløst recept på oral AK-behandling indenfor 100 dage før dato for indlæggelse med apopleksi\nAndel af atrieflimren\npatienter indlagt med I63 +\nI64 (LPR baseret)"
+        },
+        {
+          "page": 73,
+          "context": "Prævalente patienter med atrieflimren, der\nudvikler iskæmisk apopleksi i opgørelses perioden\n(LPR-baseret)"
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "atrieflimren",
-      "predicate": "treated-with",
-      "object": "antikoagulationsbehandling",
-      "evidence": "Supplerende analyser 1: Ventetid til antikoagulations behandling",
+      "subject": "atrieflimren-i-danmark",
+      "predicate": "is-produced-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Atrieflimren i Danmark\nVersion: Offentliggjort version\nRegionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 71
     },
     {
-      "subject": "antikoagulationsbehandling",
-      "predicate": "includes",
-      "object": "doac",
-      "evidence": "AK-behandling DOAC",
-      "page": 73
-    },
-    {
-      "subject": "antikoagulationsbehandling",
-      "predicate": "includes",
-      "object": "marevan",
-      "evidence": "Marevan",
-      "page": 73
-    },
-    {
-      "subject": "atrieflimren",
-      "predicate": "can-cause",
-      "object": "iskaemisk-apopleksi",
-      "evidence": "Andelen af nydiagnosticerede patienter med atriflimren, som udvikler iskæmisk apopleksi inden for 1 år",
-      "page": 72
-    },
-    {
-      "subject": "atrieflimren",
-      "predicate": "can-cause",
-      "object": "intrakraniel-bloedning",
-      "evidence": "Andelen af nydiagnosticerede patienter med atriflimren, som får intrakraniel blødning inden for 1 år",
-      "page": 75
-    },
-    {
       "subject": "region-hovedstaden",
-      "predicate": "reports-data-to",
-      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Region Hovedstaden 1720 55.4 1382 44.6 3102",
+      "predicate": "is-subdivision-of",
+      "object": "danmark",
+      "evidence": "Danmark 6356 55.6 5076 44.4 11432\nRegion Hovedstaden 1720 55.4 1382 44.6 3102",
       "page": 71
     },
     {
       "subject": "sjaelland",
-      "predicate": "reports-data-to",
-      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Sjælland 1043 54.7 865 45.3 1908",
+      "predicate": "is-subdivision-of",
+      "object": "danmark",
+      "evidence": "Danmark 6356 55.6 5076 44.4 11432\n| Sjælland | 1043 | 54.7 | 865 | 45.3 | 1908 |",
       "page": 71
     },
     {
-      "subject": "syddanmark",
-      "predicate": "reports-data-to",
-      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Syddanmark 1398 55.4 1127 44.6 2525",
+      "subject": "region-syddanmark",
+      "predicate": "is-subdivision-of",
+      "object": "danmark",
+      "evidence": "Danmark 6356 55.6 5076 44.4 11432\n| Syddanmark | 1398 | 55.4 | 1127 | 44.6 | 2525 |",
       "page": 71
     },
     {
-      "subject": "midtjylland",
-      "predicate": "reports-data-to",
-      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Midtjylland 1498 56.9 1137 43.1 2635",
+      "subject": "region-midtjylland",
+      "predicate": "is-subdivision-of",
+      "object": "danmark",
+      "evidence": "Danmark 6356 55.6 5076 44.4 11432\n| Midtjylland | 1498 | 56.9 | 1137 | 43.1 | 2635 |",
       "page": 71
     },
     {
-      "subject": "nordjylland",
-      "predicate": "reports-data-to",
-      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Nordjylland 697 55.2 565 44.8 1262",
+      "subject": "region-nordjylland",
+      "predicate": "is-subdivision-of",
+      "object": "danmark",
+      "evidence": "Danmark 6356 55.6 5076 44.4 11432\n| Nordjylland | 697 | 55.2 | 565 | 44.8 | 1262 |",
       "page": 71
+    },
+    {
+      "subject": "sundhedsklynge-bornholm",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Syddanmark 63 / 4.972 0 (0) 1,3 (1,0-1,6) 46 / 5.041 0,9 1,1\nSundhedsklynge Bornholm 3 / 195 0 (0) 1,5 (0,3-4,4) 2 / 186 1,1 0,6",
+      "page": 72
+    },
+    {
+      "subject": "sundhedsklynge-byen",
+      "predicate": "is-part-of",
+      "object": "region-hovedstaden",
+      "evidence": "Hovedstaden 85 / 5.905 0 (0) 1,4 (1,2-1,8) 73 / 5.576 1,3 1,7\nSundhedsklynge Byen 16 / 1.625 0 (0) 1,0 (0,6-1,6) 21 / 1.493 1,4 1,4",
+      "page": 72
+    },
+    {
+      "subject": "sundhedsklynge-midt",
+      "predicate": "is-part-of",
+      "object": "region-midtjylland",
+      "evidence": "Midtjylland 46 / 4.918 0 (0) 0,9 (0,7-1,2) 35 / 4.731 0,7 1,1\nSundhedsklynge Midt 33 / 1.754 0 (0) 1,9 (1,3-2,6) 24 / 1.636 1,5 2,0",
+      "page": 72
+    },
+    {
+      "subject": "sundhedsklynge-nord",
+      "predicate": "is-part-of",
+      "object": "region-nordjylland",
+      "evidence": "Nordjylland 28 / 2.419 0 (0) 1,2 (0,8-1,7) 31 / 2.203 1,4 1,1\nSundhedsklynge Nord 13 / 1.293 0 (0) 1,0 (0,5-1,7) 13 / 1.270 1,0 1,9",
+      "page": 72
+    },
+    {
+      "subject": "sundhedsklynge-syd",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Syddanmark 63 / 4.972 0 (0) 1,3 (1,0-1,6) 46 / 5.041 0,9 1,1\nSundhedsklynge Syd 20 / 1.038 0 (0) 1,9 (1,2-3,0) 13 / 991 1,3 1,4",
+      "page": 72
+    },
+    {
+      "subject": "sundhedsklyngen-holbaek",
+      "predicate": "is-part-of",
+      "object": "region-sjaelland",
+      "evidence": "Sjælland 54 / 3.590 0 (0) 1,5 (1,1-2,0) 44 / 3.466 1,3 1,3\nSundhedsklyngen Holbæk 13 / 751 0 (0) 1,7 (0,9-2,9) 9 / 751 1,2 1,8",
+      "page": 72
+    },
+    {
+      "subject": "sundhedsklyngen-nykoebing-f",
+      "predicate": "is-part-of",
+      "object": "region-sjaelland",
+      "evidence": "Sjælland 54 / 3.590 0 (0) 1,5 (1,1-2,0) 44 / 3.466 1,3 1,3\nSundhedsklyngen\nNykøbing F\n12 / 751 0 (0) 1,6 (0,8-2,8) 17 / 737 2,3 0,8",
+      "page": 72
+    },
+    {
+      "subject": "sundhedsklyngen-suh",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Syddanmark 63 / 4.972 0 (0) 1,3 (1,0-1,6) 46 / 5.041 0,9 1,1\nSundhedsklyngen SUH 21 / 1.169 0 (0) 1,8 (1,1-2,7) 8 / 1.111 0,7 1,2",
+      "page": 72
+    },
+    {
+      "subject": "sundhedsklyngen-slagelse",
+      "predicate": "is-part-of",
+      "object": "region-sjaelland",
+      "evidence": "Sjælland 54 / 3.590 0 (0) 1,5 (1,1-2,0) 44 / 3.466 1,3 1,3\nSundhedsklyngen Slagelse 8 / 919 0 (0) 0,9 (0,4-1,7) 10 / 867 1,2 1,6",
+      "page": 72
+    },
+    {
+      "subject": "sundhedsklynge-fyn",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Syddanmark 63 / 4.972 0 (0) 1,3 (1,0-1,6) 46 / 5.041 0,9 1,1\nSundhedsklynge Fyn 26 / 1.935 0 (0) 1,3 (0,9-2,0) 17 / 1.954 0,9 1,5",
+      "page": 72
+    },
+    {
+      "subject": "sundhedsklynge-lillebaelt",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Syddanmark 63 / 4.972 0 (0) 1,3 (1,0-1,6) 46 / 5.041 0,9 1,1\nSundhedsklynge Lillebælt 12 / 1.086 0 (0) 1,1 (0,6-1,9) 10 / 1.087 0,9 0,9",
+      "page": 72
+    },
+    {
+      "subject": "sundhedsklynge-sydvestjylland",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Syddanmark 63 / 4.972 0 (0) 1,3 (1,0-1,6) 46 / 5.041 0,9 1,1\nSundhedsklynge\nSydvestjylland\n15 / 927 0 (0) 1,6 (0,9-2,7) 9 / 953 0,9 0,7",
+      "page": 72
+    },
+    {
+      "subject": "sundhedsklynge-soenderjylland",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Syddanmark 63 / 4.972 0 (0) 1,3 (1,0-1,6) 46 / 5.041 0,9 1,1\nSundhedsklynge\nSønderjylland\n10 / 1.024 0 (0) 1,0 (0,5-1,8) 10 / 1.047 1,0 1,0",
+      "page": 72
+    },
+    {
+      "subject": "aarhusklyngen",
+      "predicate": "is-part-of",
+      "object": "region-midtjylland",
+      "evidence": "Midtjylland 46 / 4.918 0 (0) 0,9 (0,7-1,2) 35 / 4.731 0,7 1,1\nAarhusklyngen 16 / 1.079 0 (0) 1,5 (0,8-2,4) 10 / 999 1,0 1,3",
+      "page": 72
+    },
+    {
+      "subject": "goedstrupklyngen",
+      "predicate": "is-part-of",
+      "object": "region-midtjylland",
+      "evidence": "Midtjylland 46 / 4.918 0 (0) 0,9 (0,7-1,2) 35 / 4.731 0,7 1,1\nGødstrupklyngen 7 / 1.077 0 (0) 0,6 (0,3-1,3) 9 / 1.135 0,8 1,2",
+      "page": 72
+    },
+    {
+      "subject": "horsensklyngen",
+      "predicate": "is-part-of",
+      "object": "region-midtjylland",
+      "evidence": "Midtjylland 46 / 4.918 0 (0) 0,9 (0,7-1,2) 35 / 4.731 0,7 1,1\nHorsensklyngen 8 / 877 0 (0) 0,9 (0,4-1,8) 5 / 789 0,6 0,6",
+      "page": 72
+    },
+    {
+      "subject": "midtklyngen",
+      "predicate": "is-part-of",
+      "object": "region-midtjylland",
+      "evidence": "Midtjylland 46 / 4.918 0 (0) 0,9 (0,7-1,2) 35 / 4.731 0,7 1,1\nMidtklyngen 7 / 997 0 (0) 0,7 (0,3-1,4) 3 / 949 0,3 1,5",
+      "page": 72
+    },
+    {
+      "subject": "randersklyngen",
+      "predicate": "is-part-of",
+      "object": "region-midtjylland",
+      "evidence": "Midtjylland 46 / 4.918 0 (0) 0,9 (0,7-1,2) 35 / 4.731 0,7 1,1\nRandersklyngen 8 / 888 0 (0) 0,9 (0,4-1,8) 8 / 859 0,9 0,9",
+      "page": 72
+    },
+    {
+      "subject": "klynge-midt",
+      "predicate": "is-part-of",
+      "object": "region-midtjylland",
+      "evidence": "Midtjylland 46 / 4.918 0 (0) 0,9 (0,7-1,2) 35 / 4.731 0,7 1,1\nKlynge MIDT 7 / 866 0 (0) 0,8 (0,3-1,7) 15 / 772 1,9 1,1",
+      "page": 72
+    },
+    {
+      "subject": "klynge-nord",
+      "predicate": "is-part-of",
+      "object": "region-nordjylland",
+      "evidence": "Nordjylland 28 / 2.419 0 (0) 1,2 (0,8-1,7) 31 / 2.203 1,4 1,1\nKlynge NORD 11 / 820 0 (0) 1,3 (0,7-2,4) 8 / 754 1,1 1,2",
+      "page": 73
+    },
+    {
+      "subject": "klynge-syd",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Syddanmark 63 / 4.972 0 (0) 1,3 (1,0-1,6) 46 / 5.041 0,9 1,1\nKlynge SYD 5 / 459 0 (0) 1,1 (0,4-2,5) 4 / 408 1,0 1,0",
+      "page": 73
+    },
+    {
+      "subject": "klynge-vest",
+      "predicate": "is-part-of",
+      "object": "region-syddanmark",
+      "evidence": "Syddanmark 63 / 4.972 0 (0) 1,3 (1,0-1,6) 46 / 5.041 0,9 1,1\nKlynge VEST 5 / 274 0 (0) 1,8 (0,6-4,2) 4 / 269 1,5 0,4",
+      "page": 73
+    },
+    {
+      "subject": "antikoagulationsbehandling",
+      "predicate": "is-used-for",
+      "object": "iskaemisk-apopleksi",
+      "evidence": "Indikator 14: Andelen af nydiagnosticerede patienter med atriflimren, som udvikler iskæmisk apopleksi inden for 1 år",
+      "page": 72
+    },
+    {
+      "subject": "antikoagulationsbehandling",
+      "predicate": "is-associated-with-risk-of",
+      "object": "intrakraniel-bloedning",
+      "evidence": "Supplerende analyser 6: Intrakraniel blødning",
+      "page": 74
+    },
+    {
+      "subject": "cha2ds2-vasc",
+      "predicate": "is-used-to-assess-risk-for",
+      "object": "iskaemisk-apopleksi",
+      "evidence": "CHA2DS2VASc Score\nblandt prævalente\natrieflimren patienter\nmed intrakraniel\nblødning",
+      "page": 74
+    },
+    {
+      "subject": "doac",
+      "predicate": "is-type-of",
+      "object": "antikoagulationsbehandling",
+      "evidence": "AK-behandling\n101313 99.12 902 0.88DOAC",
+      "page": 73
+    },
+    {
+      "subject": "marevan",
+      "predicate": "is-type-of",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Marevan 6442 99.49 33 0.51",
+      "page": 73
+    },
+    {
+      "subject": "landspatientregisteret-lpr",
+      "predicate": "is-source-for",
+      "object": "iskaemisk-apopleksi",
+      "evidence": "Andel af atrieflimren patienter indlagt med iskæmisk apopleksi/apopleksi af ukendt type, som har\nindløst recept på oral AK-behandling indenfor 100 dage før dato for indlæggelse med apopleksi\nAndel af atrieflimren\npatienter indlagt med I63 +\nI64 (LPR baseret)",
+      "page": 71
+    },
+    {
+      "subject": "landspatientregisteret-lpr",
+      "predicate": "is-source-for",
+      "object": "intrakraniel-bloedning",
+      "evidence": "Prævalente patienter med atrieflimren, der\nudvikler intrakraniel blødning i opgørelses\nperioden",
+      "page": 74
     }
   ],
   "claims": [
     {
-      "text": "I Danmark var 6356 atrieflimren-patienter (55,6%) startet på antikoagulationsbehandling indenfor 4 måneder inden diagnose, og 5076 patienter (44,4%) indenfor 30 dage efter udskrivelse, i alt 11.432 patienter [^src1]",
-      "type": "clinical-outcome",
+      "text": "Start på antikoagulationsbehandling: 55,6 % af patienterne startede behandlingen inden for 4 måneder før diagnose, mens 44,4 % startede inden for 30 dage efter udskrivelse [^src1]",
+      "type": "clinical-practice",
       "entities": [
-        "danmark",
-        "atrieflimren",
+        "atrieflimren-i-danmark",
         "antikoagulationsbehandling"
       ],
       "page": 71
     },
     {
-      "text": "I Danmark havde 739 atrieflimren-patienter indlagt med iskæmisk apopleksi (65,5%) indløst recept på oral antikoagulationsbehandling indenfor 100 dage før indlæggelse, mens 389 patienter (34,5%) ikke havde [^src1]",
-      "type": "clinical-outcome",
+      "text": "Andelen af atrieflimren-patienter indlagt med iskæmisk apopleksi/apopleksi af ukendt type, som havde indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelsen, var 65,5 % på nationalt plan [^src1]",
+      "type": "pharmacovigilance",
       "entities": [
-        "danmark",
-        "atrieflimren",
+        "atrieflimren-i-danmark",
         "iskaemisk-apopleksi",
         "antikoagulationsbehandling"
       ],
       "page": 71
     },
     {
-      "text": "Blandt nydiagnosticerede atrieflimren-patienter i Danmark udvikler 1,3% iskæmisk apopleksi inden for 1 år (95% CI: 1,1-1,4) i perioden 01.07.2022-30.06.2023 [^src2]",
+      "text": "Indikator 14: Andelen af nydiagnosticerede atrieflimren-patienter, der udvikler iskæmisk apopleksi inden for 1 år, var 1,3 % i Danmark for perioden 01.07.2022–30.06.2023 (95 % CI: 1,1–1,4) [^src1]",
       "type": "clinical-outcome",
       "entities": [
-        "danmark",
-        "atrieflimren",
+        "atrieflimren-i-danmark",
         "iskaemisk-apopleksi"
       ],
       "page": 72
     },
     {
-      "text": "Region Hovedstaden havde 1,4% incidensrate for iskæmisk apopleksi blandt nydiagnosticerede atrieflimren-patienter (95% CI: 1,2-1,8) [^src2]",
-      "type": "clinical-outcome",
+      "text": "Prævalente atrieflimren-patienter, der udvikler iskæmisk apopleksi i opgørelsesperioden: 0,83 % (1132 ud af 135958) [^src1]",
+      "type": "epidemiology",
       "entities": [
-        "region-hovedstaden",
-        "atrieflimren",
-        "iskaemisk-apopleksi"
-      ],
-      "page": 72
-    },
-    {
-      "text": "Sjælland havde 1,5% incidensrate for iskæmisk apopleksi blandt nydiagnosticerede atrieflimren-patienter (95% CI: 1,1-2,0) [^src2]",
-      "type": "clinical-outcome",
-      "entities": [
-        "sjaelland",
-        "atrieflimren",
-        "iskaemisk-apopleksi"
-      ],
-      "page": 72
-    },
-    {
-      "text": "Syddanmark havde 1,3% incidensrate for iskæmisk apopleksi blandt nydiagnosticerede atrieflimren-patienter (95% CI: 1,0-1,6) [^src2]",
-      "type": "clinical-outcome",
-      "entities": [
-        "syddanmark",
-        "atrieflimren",
-        "iskaemisk-apopleksi"
-      ],
-      "page": 72
-    },
-    {
-      "text": "Midtjylland havde 0,9% incidensrate for iskæmisk apopleksi blandt nydiagnosticerede atrieflimren-patienter (95% CI: 0,7-1,2) [^src2]",
-      "type": "clinical-outcome",
-      "entities": [
-        "midtjylland",
-        "atrieflimren",
-        "iskaemisk-apopleksi"
-      ],
-      "page": 72
-    },
-    {
-      "text": "Nordjylland havde 1,2% incidensrate for iskæmisk apopleksi blandt nydiagnosticerede atrieflimren-patienter (95% CI: 0,8-1,7) [^src2]",
-      "type": "clinical-outcome",
-      "entities": [
-        "nordjylland",
-        "atrieflimren",
-        "iskaemisk-apopleksi"
-      ],
-      "page": 72
-    },
-    {
-      "text": "Blandt prævalente atrieflimren-patienter i Danmark udvikler 0,83% iskæmisk apopleksi i opgørelsesperioden [^src3]",
-      "type": "clinical-outcome",
-      "entities": [
-        "danmark",
-        "atrieflimren",
+        "atrieflimren-i-danmark",
         "iskaemisk-apopleksi"
       ],
       "page": 73
     },
     {
-      "text": "Blandt atrieflimren-patienter i Danmark på DOAC-behandling udvikler 0,88% iskæmisk apopleksi [^src3]",
-      "type": "clinical-outcome",
+      "text": "Prævalente atrieflimren-patienter, der udvikler intrakraniel blødning i opgørelsesperioden: 0,53 % (733 ud af 136357) [^src1]",
+      "type": "epidemiology",
       "entities": [
-        "danmark",
-        "atrieflimren",
-        "doac",
-        "iskaemisk-apopleksi"
-      ],
-      "page": 73
-    },
-    {
-      "text": "Blandt atrieflimren-patienter i Danmark på Marevan-behandling udvikler 0,51% iskæmisk apopleksi [^src3]",
-      "type": "clinical-outcome",
-      "entities": [
-        "danmark",
-        "atrieflimren",
-        "marevan",
-        "iskaemisk-apopleksi"
-      ],
-      "page": 73
-    },
-    {
-      "text": "Blandt atrieflimren-patienter i Danmark på både DOAC og Marevan udvikler 3,46% iskæmisk apopleksi [^src3]",
-      "type": "clinical-outcome",
-      "entities": [
-        "danmark",
-        "atrieflimren",
-        "doac",
-        "marevan",
-        "iskaemisk-apopleksi"
-      ],
-      "page": 73
-    },
-    {
-      "text": "Blandt atrieflimren-patienter i Danmark uden antikoagulationsbehandling udvikler 0,59% iskæmisk apopleksi [^src3]",
-      "type": "clinical-outcome",
-      "entities": [
-        "danmark",
-        "atrieflimren",
-        "antikoagulationsbehandling",
-        "iskaemisk-apopleksi"
-      ],
-      "page": 73
-    },
-    {
-      "text": "Blandt prævalente atrieflimren-patienter i Danmark med intrakraniel blødning havde 36,3% en CHA2DS2-VASc Score på 1 [^src4]",
-      "type": "clinical-outcome",
-      "entities": [
-        "danmark",
-        "atrieflimren",
-        "intrakraniel-bloedning",
-        "cha2ds2-vasc-score"
-      ],
-      "page": 74
-    },
-    {
-      "text": "Blandt prævalente atrieflimren-patienter i Danmark udvikler 0,53% intrakraniel blødning i opgørelsesperioden [^src5]",
-      "type": "clinical-outcome",
-      "entities": [
-        "danmark",
-        "atrieflimren",
+        "atrieflimren-i-danmark",
         "intrakraniel-bloedning"
       ],
       "page": 74
     },
     {
-      "text": "Blandt atrieflimren-patienter i Danmark på DOAC-behandling udvikler 0,53% intrakraniel blødning [^src5]",
+      "text": "Indikator 13: Andelen af nydiagnosticerede atrieflimren-patienter, der får intrakraniel blødning inden for 1 år, var 0,8 % i Danmark for perioden 01.07.2022–30.06.2023 (95 % CI: 0,7–0,9) [^src1]",
       "type": "clinical-outcome",
       "entities": [
-        "danmark",
-        "atrieflimren",
-        "doac",
-        "intrakraniel-bloedning"
-      ],
-      "page": 74
-    },
-    {
-      "text": "Blandt atrieflimren-patienter i Danmark på Marevan-behandling udvikler 0,82% intrakraniel blødning [^src5]",
-      "type": "clinical-outcome",
-      "entities": [
-        "danmark",
-        "atrieflimren",
-        "marevan",
-        "intrakraniel-bloedning"
-      ],
-      "page": 74
-    },
-    {
-      "text": "Blandt atrieflimren-patienter i Danmark på både DOAC og Marevan udvikler 1,50% intrakraniel blødning [^src5]",
-      "type": "clinical-outcome",
-      "entities": [
-        "danmark",
-        "atrieflimren",
-        "doac",
-        "marevan",
-        "intrakraniel-bloedning"
-      ],
-      "page": 74
-    },
-    {
-      "text": "Blandt atrieflimren-patienter i Danmark uden antikoagulationsbehandling udvikler 0,45% intrakraniel blødning [^src5]",
-      "type": "clinical-outcome",
-      "entities": [
-        "danmark",
-        "atrieflimren",
-        "antikoagulationsbehandling",
-        "intrakraniel-bloedning"
-      ],
-      "page": 74
-    },
-    {
-      "text": "Blandt nydiagnosticerede atrieflimren-patienter i Danmark får 0,8% intrakraniel blødning inden for 1 år (95% CI: 0,7-0,9) i perioden 01.07.2022-30.06.2023 [^src6]",
-      "type": "clinical-outcome",
-      "entities": [
-        "danmark",
-        "atrieflimren",
-        "intrakraniel-bloedning"
-      ],
-      "page": 75
-    },
-    {
-      "text": "Region Hovedstaden havde 0,8% incidensrate for intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter (95% CI: 0,6-1,1) [^src6]",
-      "type": "clinical-outcome",
-      "entities": [
-        "region-hovedstaden",
-        "atrieflimren",
-        "intrakraniel-bloedning"
-      ],
-      "page": 75
-    },
-    {
-      "text": "Sjælland havde 0,8% incidensrate for intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter (95% CI: 0,5-1,1) [^src6]",
-      "type": "clinical-outcome",
-      "entities": [
-        "sjaelland",
-        "atrieflimren",
-        "intrakraniel-bloedning"
-      ],
-      "page": 75
-    },
-    {
-      "text": "Syddanmark havde 1,0% incidensrate for intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter (95% CI: 0,7-1,3) [^src6]",
-      "type": "clinical-outcome",
-      "entities": [
-        "syddanmark",
-        "atrieflimren",
-        "intrakraniel-bloedning"
-      ],
-      "page": 75
-    },
-    {
-      "text": "Midtjylland havde 0,8% incidensrate for intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter (95% CI: 0,6-1,1) [^src6]",
-      "type": "clinical-outcome",
-      "entities": [
-        "midtjylland",
-        "atrieflimren",
-        "intrakraniel-bloedning"
-      ],
-      "page": 75
-    },
-    {
-      "text": "Nordjylland havde 0,5% incidensrate for intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter (95% CI: 0,2-0,8) [^src6]",
-      "type": "clinical-outcome",
-      "entities": [
-        "nordjylland",
-        "atrieflimren",
+        "atrieflimren-i-danmark",
         "intrakraniel-bloedning"
       ],
       "page": 75
@@ -725,21 +916,173 @@
   ],
   "timeline": [
     {
-      "date": "01.07.2022 - 30.06.2023",
-      "event": "Indikator 14: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler iskæmisk apopleksi inden for 1 år blev målt",
+      "date": "01.07.2022–30.06.2023",
+      "event": "Opgørelsesperiode for Indikator 14 (iskæmisk apopleksi) og Indikator 13 (intrakraniel blødning)",
       "entities": [
-        "atrieflimren",
-        "iskaemisk-apopleksi"
-      ]
-    },
-    {
-      "date": "01.07.2022 - 30.06.2023",
-      "event": "Indikator 13: Andelen af nydiagnosticerede patienter med atrieflimren, som får intrakraniel blødning inden for 1 år blev målt",
-      "entities": [
-        "atrieflimren",
+        "atrieflimren-i-danmark",
+        "iskaemisk-apopleksi",
         "intrakraniel-bloedning"
       ]
     }
   ],
-  "context": "Dette dokument indeholder supplerende analyser fra Regionernes Kliniske Kvalitetsudviklingsprogram om atrieflimren i Danmark for perioden 01.07.2022-30.06.2023. Analyserne fokuserer på ventetider til antikoagulationsbehandling, incidensen af iskæmisk apopleksi blandt nydiagnosticerede patienter, og forekomsten af intrakraniel blødning som en alvorlig bivirkning af antikoagulationsbehandling. Data præsenteres på nationalt niveau og fordelt på de fem danske regioner (Region Hovedstaden, Sjælland, Syddanmark, Midtjylland og Nordjylland), samt på sundhedsklyngeniveau inden for hver region."
+  "tables": [
+    {
+      "subject": "ventetid-til-antikoagulationsbehandling",
+      "title": "Start på AK behandling",
+      "page": 71,
+      "rowDimension": "geografisk-enheder",
+      "colDimension": "procentandel-af-patienter",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Geografisk enhed | Indenfor 4 måneder inden diagnose | Indenfor 30 dage efter udskrivelse | I alt |\n| --- | --- | --- | --- |\n| Danmark | 6356 55.6 | 5076 44.4 | 11432 |\n| Region Hovedstaden | 1720 55.4 | 1382 44.6 | 3102 |\n| Sjælland | 1043 54.7 | 865 45.3 | 1908 |\n| Syddanmark | 1398 55.4 | 1127 44.6 | 2525 |\n| Midtjylland | 1498 56.9 | 1137 43.1 | 2635 |\n| Nordjylland | 697 55.2 | 565 44.8 | 1262 |",
+      "summary": "Tabellen sammenligner andelen af atrieflimren-patienter, der starter antikoagulationsbehandling enten inden for 4 måneder før diagnose eller inden for 30 dage efter udskrivelse, på nationalt og regionalt niveau."
+    },
+    {
+      "subject": "andel-af-atr-patienter-med-apopleksi-og-ak",
+      "title": "Andel af atrieflimren patienter indlagt med iskæmisk apopleksi/apopleksi af ukendt type, som har indløst recept på oral AK-behandling indenfor 100 dage før dato for indlæggelse med apopleksi",
+      "page": 71,
+      "rowDimension": "geografisk-enheder",
+      "colDimension": "antal-og-procentandel",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Geografisk enhed | Ja | Nej | I alt |\n| --- | --- | --- | --- |\n| Danmark | 739 65.5 | 389 34.5 | 1128 |\n| Region Hovedstaden | 242 63.5 | 139 36.5 | 381 |\n| Sjælland | 121 61.4 | 76 38.6 | 197 |\n| Syddanmark | 168 74.3 | 58 25.7 | 226 |\n| Midtjylland | 120 60.3 | 79 39.7 | 199 |\n| Nordjylland | 88 70.4 | 37 29.6 | 125 |",
+      "summary": "Tabellen viser andelen af atrieflimren-patienter, der ved indlæggelse med iskæmisk apopleksi allerede havde indløst recept på oral antikoagulationsbehandling inden for 100 dage, fordelt på nationalt og regionalt niveau."
+    },
+    {
+      "subject": "incidens-iskaemisk-apopleksi",
+      "title": "Indikator 14: Andelen af nydiagnosticerede patienter med atriflimren, som udvikler iskæmisk apopleksi inden for 1 år",
+      "page": 72,
+      "rowDimension": "geografisk-enheder",
+      "colDimension": "antal-og-andel",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen",
+        "sundhedsklynge-midt",
+        "sundhedsklynge-nord",
+        "sundhedsklynge-syd",
+        "sundhedsklyngen-holbaek",
+        "sundhedsklyngen-nykoebing-f",
+        "sundhedsklyngen-suh",
+        "sundhedsklyngen-slagelse",
+        "sundhedsklynge-fyn",
+        "sundhedsklynge-lillebaelt",
+        "sundhedsklynge-sydvestjylland",
+        "sundhedsklynge-soenderjylland",
+        "aarhusklyngen",
+        "goedstrupklyngen",
+        "horsensklyngen",
+        "midtklyngen",
+        "randersklyngen",
+        "klynge-midt",
+        "klynge-nord",
+        "klynge-syd"
+      ],
+      "markdown": "| Geografisk enhed | Tæller/ antal | Standard opfyldt | Aktuelle år Andel 95% CI | Tidligere år Antal | Tidligere år Andel | Tidligere år Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 276 / 21.804 | 0 (0) | 1,3 (1,1-1,4) | 229 / 21.017 | 1,1 | 1,3 |\n| Hovedstaden | 85 / 5.905 | 0 (0) | 1,4 (1,2-1,8) | 73 / 5.576 | 1,3 | 1,7 |\n| Sjælland | 54 / 3.590 | 0 (0) | 1,5 (1,1-2,0) | 44 / 3.466 | 1,3 | 1,3 |\n| Syddanmark | 63 / 4.972 | 0 (0) | 1,3 (1,0-1,6) | 46 / 5.041 | 0,9 | 1,1 |\n| Midtjylland | 46 / 4.918 | 0 (0) | 0,9 (0,7-1,2) | 35 / 4.731 | 0,7 | 1,1 |\n| Nordjylland | 28 / 2.419 | 0 (0) | 1,2 (0,8-1,7) | 31 / 2.203 | 1,4 | 1,1 |\n| Sundhedsklynge Bornholm | 3 / 195 | 0 (0) | 1,5 (0,3-4,4) | 2 / 186 | 1,1 | 0,6 |\n| Sundhedsklynge Byen | 16 / 1.625 | 0 (0) | 1,0 (0,6-1,6) | 21 / 1.493 | 1,4 | 1,4 |\n| Sundhedsklynge Midt | 33 / 1.754 | 0 (0) | 1,9 (1,3-2,6) | 24 / 1.636 | 1,5 | 2,0 |\n| Sundhedsklynge Nord | 13 / 1.293 | 0 (0) | 1,0 (0,5-1,7) | 13 / 1.270 | 1,0 | 1,9 |\n| Sundhedsklynge Syd | 20 / 1.038 | 0 (0) | 1,9 (1,2-3,0) | 13 / 991 | 1,3 | 1,4 |\n| Sundhedsklyngen Holbæk | 13 / 751 | 0 (0) | 1,7 (0,9-2,9) | 9 / 751 | 1,2 | 1,8 |\n| Sundhedsklyngen Nykøbing F | 12 / 751 | 0 (0) | 1,6 (0,8-2,8) | 17 / 737 | 2,3 | 0,8 |\n| Sundhedsklyngen SUH | 21 / 1.169 | 0 (0) | 1,8 (1,1-2,7) | 8 / 1.111 | 0,7 | 1,2 |\n| Sundhedsklyngen Slagelse | 8 / 919 | 0 (0) | 0,9 (0,4-1,7) | 10 / 867 | 1,2 | 1,6 |\n| Sundhedsklynge Fyn | 26 / 1.935 | 0 (0) | 1,3 (0,9-2,0) | 17 / 1.954 | 0,9 | 1,5 |\n| Sundhedsklynge Lillebælt | 12 / 1.086 | 0 (0) | 1,1 (0,6-1,9) | 10 / 1.087 | 0,9 | 0,9 |\n| Sundhedsklynge Sydvestjylland | 15 / 927 | 0 (0) | 1,6 (0,9-2,7) | 9 / 953 | 0,9 | 0,7 |\n| Sundhedsklynge Sønderjylland | 10 / 1.024 | 0 (0) | 1,0 (0,5-1,8) | 10 / 1.047 | 1,0 | 1,0 |\n| Aarhusklyngen | 16 / 1.079 | 0 (0) | 1,5 (0,8-2,4) | 10 / 999 | 1,0 | 1,3 |\n| Gødstrupklyngen | 7 / 1.077 | 0 (0) | 0,6 (0,3-1,3) | 9 / 1.135 | 0,8 | 1,2 |\n| Horsensklyngen | 8 / 877 | 0 (0) | 0,9 (0,4-1,8) | 5 / 789 | 0,6 | 0,6 |\n| Midtklyngen | 7 / 997 | 0 (0) | 0,7 (0,3-1,4) | 3 / 949 | 0,3 | 1,5 |\n| Randersklyngen | 8 / 888 | 0 (0) | 0,9 (0,4-1,8) | 8 / 859 | 0,9 | 0,9 |\n| Klynge MIDT | 7 / 866 | 0 (0) | 0,8 (0,3-1,7) | 15 / 772 | 1,9 | 1,1 |\n| Klynge NORD | 11 / 820 | 0 (0) | 1,3 (0,7-2,4) | 8 / 754 | 1,1 | 1,2 |\n| Klynge SYD | 5 / 459 | 0 (0) | 1,1 (0,4-2,5) | 4 / 408 | 1,0 | 1,0 |\n| Klynge VEST | 5 / 274 | 0 (0) | 1,8 (0,6-4,2) | 4 / 269 | 1,5 | 0,4 |",
+      "summary": "Tabellen viser incidensen af iskæmisk apopleksi blandt nydiagnosticerede atrieflimren-patienter inden for 1 år, fordelt på nationale, regionale og klyngebaserede enheder, samt konfidensintervaller og tidligere års data."
+    },
+    {
+      "subject": "cha2ds2vasc-score-intrakraniel-bloedning",
+      "title": "CHA2DS2VASc Score blandt prævalente atrieflimren patienter med intrakraniel blødning",
+      "page": 74,
+      "rowDimension": "cha2ds2vasc-score",
+      "colDimension": "antal-og-procentandel",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| CHA2DS2VASc Score | 0 | 1 | 2 | 3 | 4 | 5 | I alt |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 35 4.8 | 266 36.3 | 254 34.7 | 133 18.1 | 42 5.7 | 3 0.4 | 733 |\n| Region Hovedstaden | 14 6.6 | 77 36.3 | 71 33.5 | 37 17.5 | 13 6.1 | 0 0 | 212 |\n| Sjælland | 4 3.7 | 26 24.1 | 47 43.5 | 23 21.3 | 8 7.4 | 0 0 | 108 |\n| Syddanmark | 6 3.6 | 55 33.3 | 59 35.8 | 33 20.0 | 10 6.1 | # 1.2 | 165 |\n| Midtjylland | 6 3.6 | 78 47.0 | 52 31.3 | 24 14.5 | 5 3.0 | # 0.6 | 166 |\n| Nordjylland | 5 6.1 | 30 36.6 | 25 30.5 | 16 19.5 | 6 7.3 | 0 0 | 82 |",
+      "summary": "Tabellen viser fordelingen af CHA2DS2VASc-score blandt prævalente atrieflimren-patienter, der har udviklet intrakraniel blødning, på nationalt og regionalt niveau."
+    },
+    {
+      "subject": "praevalens-iskaemisk-apopleksi",
+      "title": "Prævalente patienter med atrieflimren, der udvikler iskæmisk apopleksi i opgørelses perioden (LPR-baseret)",
+      "page": 73,
+      "rowDimension": "behandlingsgruppe",
+      "colDimension": "antal-og-procentandel",
+      "entities": [
+        "atrieflimren-i-danmark",
+        "iskaemisk-apopleksi",
+        "doac",
+        "marevan"
+      ],
+      "markdown": "| Behandlingsgruppe | Iskæmisk apopleksi 0 | Iskæmisk apopleksi 1 |\n| --- | --- | --- |\n| Alle | 135958 99.17 | 1132 0.83 |\n| AK-behandling | 101313 99.12 | 902 0.88 |\n| DOAC | 101313 99.12 | 902 0.88 |\n| Marevan | 6442 99.49 | 33 0.51 |\n| Både DOAC og Marevan | 1032 96.54 | 37 3.46 |\n| Hverken DOAC eller Marevan | 27171 99.41 | 160 0.59 |",
+      "summary": "Tabellen viser antallet og procentdelen af prævalente atrieflimren-patienter, der udvikler iskæmisk apopleksi, fordelt på behandlingsgrupper (ingen behandling, DOAC, Marevan, kombination)."
+    },
+    {
+      "subject": "praevalens-intrakraniel-bloedning",
+      "title": "Prævalente patienter med atrieflimren, der udvikler intrakraniel blødning i opgørelses perioden",
+      "page": 74,
+      "rowDimension": "behandlingsgruppe",
+      "colDimension": "antal-og-procentandel",
+      "entities": [
+        "atrieflimren-i-danmark",
+        "intrakraniel-bloedning",
+        "doac",
+        "marevan"
+      ],
+      "markdown": "| Behandlingsgruppe | Intrakraniel blødning Nej | Intrakraniel blødning Ja |\n| --- | --- | --- |\n| Alle | 136357 99.47 | 733 0.53 |\n| AK-behandling | 101674 99.47 | 541 0.53 |\n| DOAC | 101674 99.47 | 541 0.53 |\n| Marevan | 6422 99.18 | 53 0.82 |\n| Både DOAC og Marevan | 1053 98.50 | 16 1.50 |\n| Hverken DOAC eller Marevan | 27208 99.55 | 123 0.45 |",
+      "summary": "Tabellen viser antallet og procentdelen af prævalente atrieflimren-patienter, der udvikler intrakraniel blødning, fordelt på behandlingsgrupper (ingen behandling, DOAC, Marevan, kombination)."
+    },
+    {
+      "subject": "incidens-intrakraniel-bloedning",
+      "title": "Indikator 13: Andelen af nydiagnosticerede patienter med atriflimren, som får intrakraniel blødning inden for 1 år",
+      "page": 75,
+      "rowDimension": "geografisk-enheder",
+      "colDimension": "antal-og-andel",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen",
+        "sundhedsklynge-midt",
+        "sundhedsklynge-nord",
+        "sundhedsklynge-syd",
+        "sundhedsklyngen-holbaek",
+        "sundhedsklyngen-nykoebing-f",
+        "sundhedsklyngen-suh",
+        "sundhedsklyngen-slagelse",
+        "sundhedsklynge-fyn",
+        "sundhedsklynge-lillebaelt",
+        "sundhedsklynge-sydvestjylland",
+        "sundhedsklynge-soenderjylland",
+        "aarhusklyngen",
+        "goedstrupklyngen",
+        "horsensklyngen",
+        "midtklyngen",
+        "randersklyngen",
+        "klynge-midt",
+        "klynge-nord",
+        "klynge-syd"
+      ],
+      "markdown": "| Geografisk enhed | Tæller/ antal | Standard opfyldt | Aktuelle år Andel 95% CI | Tidligere år Antal | Tidligere år Andel | Tidligere år Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 173 / 21.804 | 0 (0) | 0,8 (0,7-0,9) | 140 / 21.017 | 0,7 | 0,8 |\n| Hovedstaden | 48 / 5.905 | 0 (0) | 0,8 (0,6-1,1) | 36 / 5.576 | 0,6 | 0,8 |\n| Sjælland | 27 / 3.590 | 0 (0) | 0,8 (0,5-1,1) | 24 / 3.466 | 0,7 | 0,8 |\n| Syddanmark | 48 / 4.972 | 0 (0) | 1,0 (0,7-1,3) | 40 / 5.041 | 0,8 | 0,7 |\n| Midtjylland | 39 / 4.918 | 0 (0) | 0,8 (0,6-1,1) | 26 / 4.731 | 0,5 | 0,9 |\n| Nordjylland | 11 / 2.419 | 0 (0) | 0,5 (0,2-0,8) | 14 / 2.203 | 0,6 | 0,7 |\n| Sundhedsklynge Bornholm | 3 / 195 | 0 (0) | 1,5 (0,3-4,4) | 0 / 186 | 0,0 | 0,0 |\n| Sundhedsklynge Byen | 16 / 1.625 | 0 (0) | 1,0 (0,6-1,6) | 7 / 1.493 | 0,5 | 0,7 |\n| Sundhedsklynge Midt | 7 / 1.754 | 0 (0) | 0,4 (0,2-0,8) | 14 / 1.636 | 0,9 | 1,2 |\n| Sundhedsklynge Nord | 12 / 1.293 | 0 (0) | 0,9 (0,5-1,6) | 9 / 1.270 | 0,7 | 0,8 |\n| Sundhedsklynge Syd | 10 / 1.038 | 0 (0) | 1,0 (0,5-1,8) | 6 / 991 | 0,6 | 0,5 |\n| Sjælland | 27 / 3.590 | 0 (0) | 0,8 (0,5-1,1) | 24 / 3.466 | 0,7 | 0,8 |\n| Sundhedsklyngen Holbæk | 4 / 751 | 0 (0) | 0,5 (0,1-1,4) | 4 / 751 | 0,5 | 1,3 |\n| Sundhedsklyngen Nykøbing F | 9 / 751 | 0 (0) | 1,2 (0,5-2,3) | 4 / 737 | 0,5 | 0,7 |\n| Sundhedsklyngen SUH | 7 / 1.169 | 0 (0) | 0,6 (0,2-1,2) | 8 / 1.111 | 0,7 | 0,8 |\n| Sundhedsklyngen Slagelse | 7 / 919 | 0 (0) | 0,8 (0,3-1,6) | 8 / 867 | 0,9 | 0,4 |\n| Syddanmark | 48 / 4.972 | 0 (0) | 1,0 (0,7-1,3) | 40 / 5.041 | 0,8 | 0,7 |\n| Sundhedsklynge Fyn | 17 / 1.935 | 0 (0) | 0,9 (0,5-1,4) | 15 / 1.954 | 0,8 | 0,9 |\n| Sundhedsklynge Lillebælt | 10 / 1.086 | 0 (0) | 0,9 (0,4-1,7) | 9 / 1.087 | 0,8 | 0,9 |\n| Sundhedsklynge Sydvestjylland | 11 / 927 | 0 (0) | 1,2 (0,6-2,1) | 9 / 953 | 0,9 | 0,5 |\n| Sundhedsklynge Sønderjylland | 10 / 1.024 | 0 (0) | 1,0 (0,5-1,8) | 7 / 1.047 | 0,7 | 0,5 |\n| Midtjylland | 39 / 4.918 | 0 (0) | 0,8 (0,6-1,1) | 26 / 4.731 | 0,5 | 0,9 |\n| Aarhusklyngen | 11 / 1.079 | 0 (0) | 1,0 (0,5-1,8) | 8 / 999 | 0,8 | 0,7 |\n| Gødstrupklyngen | 6 / 1.077 | 0 (0) | 0,6 (0,2-1,2) | 2 / 1.135 | 0,2 | 0,7 |\n| Horsensklyngen | 6 / 877 | 0 (0) | 0,7 (0,3-1,5) | 4 / 789 | 0,5 | 1,0 |\n| Midtklyngen | 8 / 997 | 0 (0) | 0,8 (0,3-1,6) | 6 / 949 | 0,6 | 1,2 |\n| Randersklyngen | 8 / 888 | 0 (0) | 0,9 (0,4-1,8) | 6 / 859 | 0,7 | 1,1 |\n| Nordjylland | 11 / 2.419 | 0 (0) | 0,5 (0,2-0,8) | 14 / 2.203 | 0,6 | 0,7 |\n| Klynge MIDT | 0 / 866 | 0 (0) | 0,0 (0,0-0,4) | 5 / 772 | 0,6 | 0,2 |\n| Klynge NORD | 5 / 820 | 0 (0) | 0,6 (0,2-1,4) | 6 / 754 | 0,8 | 0,5 |\n| Klynge SYD | 6 / 459 | 0 (0) | 1,3 (0,5-2,8) | 1 / 408 | 0,2 | 1,5 |",
+      "summary": "Tabellen viser incidensen af intrakraniel blødning blandt nydiagnosticerede atrieflimren-patienter inden for 1 år, fordelt på nationale, regionale og klyngebaserede enheder, samt konfidensintervaller og tidligere års data."
+    }
+  ],
+  "context": "Dette afsnit fra RKKP-rapporten 'Atrieflimren i Danmark' (offentliggjort version) fokuserer på supplerende analyser af kvalitetsindikatorer for atrieflimren-behandling i dansk sundhedsvæsen for perioden 2022–2023. Det omfatter kvantificering af ventetider til start på antikoagulationsbehandling, incidens af iskæmisk apopleksi og intrakraniel blødning blandt både nydiagnosticerede og prævalente patienter, samt analyse af risikofaktorer som CHA2DS2VASc-score og behandlingsform (DOAC vs. Marevan). Analysen bygger på data fra Landspatientregisteret (LPR) og er stratificeret på nationalt, regionalt og klyngebaseret niveau for at identificere variationer i klinisk praksis og outcome. Rapporten tjener som et redskab til kvalitetsudvikling og politisk styring af behandlingsstandarder for atrieflimren i Danmark."
 }

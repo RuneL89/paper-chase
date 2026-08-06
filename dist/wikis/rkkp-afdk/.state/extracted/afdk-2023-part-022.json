@@ -4,8 +4,8 @@
       "name": "Databasen for Atrieflimren i Danmark",
       "type": "organization",
       "slug": "databasen-for-atrieflimren-i-danmark",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Denne database er det centrale register for atriefimren-patienter i Danmark og udgør grundlaget for alle de kliniske kvalitetsindikatorer, der rapporteres i denne årsrapport.",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "Databasen for Atrieflimren i Danmark er den centrale nationale database, der leverer de kliniske kvalitetsindikatorer og mortalitetsdata præsenteret i rapporten, og danner grundlaget for alle beregnede andele og konfidensintervaller på siderne 106–110.",
       "mentions": [
         {
           "page": 106,
@@ -17,8 +17,8 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/health-programs",
-      "significance": "RKKP er det program, der administrerer og offentliggør kvalitetsindikatorer for atrieflimren-behandling på tværs af danske regioner og hospitaler.",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) er den overordnede organisation, der udgiver årsrapporten og står bag indikatorberegningerne, herunder Indikator 10 og Indikator 16, og fungerer som den administrative og vidensbaserede ramme for kvalitetsmåling i det danske sundhedsvæsen.",
       "mentions": [
         {
           "page": 106,
@@ -27,89 +27,54 @@
       ]
     },
     {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det geografiske område, som alle rapporterede data dækker, med nationale aggregerede tal for mortalitet og hjertesvigt blandt atrieflimren-patienter.",
+      "name": "Indikator 10",
+      "type": "topic",
+      "slug": "indikator-10",
+      "folder": "topics/healthcare-indicators",
+      "significance": "Indikator 10 er en national kvalitetsindikator, der måler andelen af prævalente patienter med atrieflimren, som dør i opgørelsesperioden, og er den primære kvantitative metrik præsenteret på side 106–109 med detaljerede regionale og kommunale data.",
       "mentions": [
         {
           "page": 106,
-          "context": "Danmark 10.211 / 134.741 0 (0) 7,6 (7,4-7,7)"
+          "context": "Indikator 10: Andelen af prævalente patienter med diagnosen atrieflimren som dør i opgørelsesperioden"
         }
       ]
     },
     {
-      "name": "Hovedstaden",
-      "type": "location",
-      "slug": "hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Hovedstaden er en af fem danske regioner, der rapporterer data for atrieflimren-mortalitet og hjertesvigt-udvikling blandt deres patienter.",
+      "name": "Indikator 16",
+      "type": "topic",
+      "slug": "indikator-16",
+      "folder": "topics/healthcare-indicators",
+      "significance": "Indikator 16 er en supplerende kvalitetsindikator, der måler andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år, og præsenteres på side 110 med sammenlignelige tidligere årstal og konfidensintervaller.",
       "mentions": [
         {
-          "page": 106,
-          "context": "Hovedstaden 2.782 / 37.128 0 (0) 7,5 (7,2-7,8)"
+          "page": 110,
+          "context": "Supplerende indikator: Hjertesvigt efter atrieflimren\nIndikator 16: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år"
         }
       ]
     },
     {
-      "name": "Sjælland",
-      "type": "location",
-      "slug": "sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Sjælland er en af fem danske regioner med rapporterede kvalitetsindikatorer for atrieflimren-patienter.",
+      "name": "atrieflimren",
+      "type": "medical-condition",
+      "slug": "atrieflimren",
+      "folder": "entities/medical-conditions/cardiovascular",
+      "significance": "Atrieflimren er den medicinske diagnose, som udgør den kliniske population, der undersøges i hele rapporten — både for mortalitet (Indikator 10) og for udvikling af hjertesvigt (Indikator 16) — og er dermed det centrale sygdomsområde, som databasen og RKKP fokuserer på.",
       "mentions": [
         {
           "page": 106,
-          "context": "Sjælland 1.699 / 22.372 0 (0) 7,6 (7,3-7,9)"
-        }
-      ]
-    },
-    {
-      "name": "Syddanmark",
-      "type": "location",
-      "slug": "syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Syddanmark er en af fem danske regioner med rapporterede kvalitetsindikatorer for atrieflimren-patienter.",
-      "mentions": [
+          "context": "Andelen af prævalente patienter med diagnosen atrieflimren som dør i opgørelsesperioden"
+        },
         {
-          "page": 106,
-          "context": "Syddanmark 2.460 / 31.244 0 (0) 7,9 (7,6-8,2)"
-        }
-      ]
-    },
-    {
-      "name": "Midtjylland",
-      "type": "location",
-      "slug": "midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Midtjylland er en af fem danske regioner med rapporterede kvalitetsindikatorer for atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 106,
-          "context": "Midtjylland 2.177 / 29.495 0 (0) 7,4 (7,1-7,7)"
-        }
-      ]
-    },
-    {
-      "name": "Nordjylland",
-      "type": "location",
-      "slug": "nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Nordjylland er en af fem danske regioner med rapporterede kvalitetsindikatorer for atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 106,
-          "context": "Nordjylland 1.093 / 14.502 0 (0) 7,5 (7,1-8,0)"
+          "page": 109,
+          "context": "Mortaliteten opgøres for alle prævalente patienter med en atrieflimren-diagnose"
         }
       ]
     },
     {
       "name": "Landspatientregisteret",
-      "type": "organization",
+      "type": "database",
       "slug": "landspatientregisteret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Landspatientregisteret er det nationale register, hvorfra diagnosedata for atrieflimren-patienter hentes til denne database.",
+      "folder": "entities/databases/healthcare-registers",
+      "significance": "Landspatientregisteret er det officielle danske register, hvor atrieflimren-diagnoser registreres, og som bruges til at identificere den prævalente patientpopulation for Indikator 10, hvilket gør det til et kritisk datagrundlag for rapportens validitet.",
       "mentions": [
         {
           "page": 109,
@@ -119,261 +84,96 @@
     },
     {
       "name": "CPR-registeret",
-      "type": "organization",
+      "type": "database",
       "slug": "cpr-registeret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "CPR-registeret bruges til at indsamle oplysninger om vitalstatus (død/levende) for atrieflimren-patienter i mortalitetsanalysen.",
+      "folder": "entities/databases/healthcare-registers",
+      "significance": "CPR-registeret er det nationale befolkningsregister, der bruges til at verificere vitalstatus (død/levende) for patienterne i analysen, og dermed sikrer korrekt inklusion i tælleren for Indikator 10.",
       "mentions": [
         {
           "page": 109,
-          "context": "Oplysningerne vedrørende vitalstatus (død/levende) er indhentet via kobling med CPR-registeret"
+          "context": "Oplysningerne vedrørende vitalstatus (død/levende) er indhentet via kobling med CPR-registeret."
         }
       ]
     },
     {
-      "name": "Amager og Hvidovre Hospital",
-      "type": "organization",
-      "slug": "amager-og-hvidovre-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Hovedstaden-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er den nationale geografiske enhed, for hvilken den samlede mortalitetsandel for atrieflimren-patienter beregnes til 7,6 %, og som fungerer som referencepunkt for regional og kommunal variation i rapporten.",
       "mentions": [
         {
-          "page": 110,
-          "context": "Amager og Hvidovre Hospital 73 / 932 0 (0) 7,8 (6,2-9,7)"
+          "page": 106,
+          "context": "Danmark 10.211 / 134.741 0 (0) 7,6 (7,4-7,7) 10.696 / 134.210 8,0 7,5"
+        },
+        {
+          "page": 109,
+          "context": "Andelen af prævalente patienter med atrieflimren, som døde i opgørelsesperioden var 7,6% på landsplan."
         }
       ]
     },
     {
-      "name": "Bispebjerg og Frederiksberg Hospitaler",
-      "type": "organization",
-      "slug": "bispebjerg-og-frederiksberg-hospitaler",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Hovedstaden-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Hovedstaden er en af de fem regioner i Danmark, og viser en mortalitetsandel på 7,5 % for atrieflimren-patienter i 2022/23, hvilket ligger under landsmiddelværdien, og er desuden gentaget som eksempel i tabellen på side 106 og 110.",
       "mentions": [
         {
-          "page": 110,
-          "context": "Bispebjerg og Frederiksberg Hospitaler 61 / 923 0 (0) 6,6 (5,1-8,4)"
+          "page": 106,
+          "context": "Hovedstaden 2.782 / 37.128 0 (0) 7,5 (7,2-7,8) 2.958 / 37.252 7,9 7,6"
         }
       ]
     },
     {
-      "name": "Bornholms Hospital",
-      "type": "organization",
-      "slug": "bornholms-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Hovedstaden-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland",
+      "folder": "entities/locations/regions",
+      "significance": "Sjælland er en af de fem regioner i Danmark, og viser en mortalitetsandel på 7,6 % for atrieflimren-patienter i 2022/23, hvilket svarer til landsmiddelværdien, og er inkluderet både i den primære tabel (side 106) og i den supplerende tabel (side 110).",
       "mentions": [
         {
-          "page": 110,
-          "context": "Bornholms Hospital 10 / 177 0 (0) 5,6 (2,7-10,1)"
+          "page": 106,
+          "context": "Sjælland 1.699 / 22.372 0 (0) 7,6 (7,3-7,9) 1.730 / 22.300 7,8 7,7"
         }
       ]
     },
     {
-      "name": "Herlev og Gentofte Hospital",
-      "type": "organization",
-      "slug": "herlev-og-gentofte-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Hovedstaden-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "Syddanmark er en af de fem regioner i Danmark, og viser den højeste regional mortalitetsandel på 7,9 % for atrieflimren-patienter i 2022/23, hvilket placerer den øverst blandt regionerne og fremhæves som eksempel på variationen.",
       "mentions": [
         {
-          "page": 110,
-          "context": "Herlev og Gentofte Hospital 126 / 1.669 0 (0) 7,5 (6,3-8,9)"
+          "page": 106,
+          "context": "Syddanmark 2.460 / 31.244 0 (0) 7,9 (7,6-8,2) 2.565 / 30.732 8,3 7,7"
         }
       ]
     },
     {
-      "name": "Hospitalerne i Nordsjælland",
-      "type": "organization",
-      "slug": "hospitalerne-i-nordsjaelland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Hovedstaden-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Midtjylland er en af de fem regioner i Danmark, og viser den laveste regional mortalitetsandel på 7,4 % for atrieflimren-patienter i 2022/23, hvilket placerer den nederst blandt regionerne og understøtter rapportens konklusion om regional variation.",
       "mentions": [
         {
-          "page": 110,
-          "context": "Hospitalerne i Nordsjælland 87 / 1.194 0 (0) 7,3 (5,9-8,9)"
+          "page": 106,
+          "context": "Midtjylland 2.177 / 29.495 0 (0) 7,4 (7,1-7,7) 2.241 / 29.309 7,6 7,2"
         }
       ]
     },
     {
-      "name": "Rigshospitalet",
-      "type": "organization",
-      "slug": "rigshospitalet",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Hovedstaden-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Nordjylland er en af de fem regioner i Danmark, og viser en mortalitetsandel på 7,5 % for atrieflimren-patienter i 2022/23, hvilket ligger på linje med Hovedstaden og under landsmiddelværdien, og er inkluderet både i den primære tabel (side 106) og i den supplerende tabel (side 110).",
       "mentions": [
         {
-          "page": 110,
-          "context": "Rigshospitalet 42 / 728 0 (0) 5,8 (4,2-7,7)"
-        }
-      ]
-    },
-    {
-      "name": "Steno Diabetes Center",
-      "type": "organization",
-      "slug": "steno-diabetes-center",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette center i Hovedstaden-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter, dog med meget lille patientgruppe.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Steno Diabetes Center # / # 0 (0) 20,0 (0,5-71,6)"
-        }
-      ]
-    },
-    {
-      "name": "Garantiklinikken",
-      "type": "organization",
-      "slug": "garantiklinikken",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Denne klinik i Sjælland-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Garantiklinikken 20 / 248 0 (0) 8,1 (5,0-12,2)"
-        }
-      ]
-    },
-    {
-      "name": "Holbæk Hospital",
-      "type": "organization",
-      "slug": "holbaek-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Sjælland-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Holbæk 52 / 646 0 (0) 8,0 (6,1-10,4)"
-        }
-      ]
-    },
-    {
-      "name": "Nykøbing Falster Hospital",
-      "type": "organization",
-      "slug": "nykoebing-falster-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Sjælland-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Nykøbing Falster 47 / 605 0 (0) 7,8 (5,8-10,2)"
-        }
-      ]
-    },
-    {
-      "name": "Næstved Hospital",
-      "type": "organization",
-      "slug": "naestved-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Sjælland-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Næstved # / # 0 (0) 5,0 (0,1-24,9)"
-        }
-      ]
-    },
-    {
-      "name": "Sjællands Universitetshospital Køge",
-      "type": "organization",
-      "slug": "sjaellands-universitetshospital-koege",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Sjælland-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Sjællands Universitetshospital Køge 27 / 417 0 (0) 6,5 (4,3-9,3)"
-        }
-      ]
-    },
-    {
-      "name": "Sjællands Universitetshospital Roskilde",
-      "type": "organization",
-      "slug": "sjaellands-universitetshospital-roskilde",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Sjælland-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Sjællands Universitetshospital Roskilde 41 / 692 0 (0) 5,9 (4,3-8,0)"
-        }
-      ]
-    },
-    {
-      "name": "Slagelse Hospital",
-      "type": "organization",
-      "slug": "slagelse-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Sjælland-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Slagelse 67 / 817 0 (0) 8,2 (6,4-10,3)"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg Sygehus Grindsted Sygehus",
-      "type": "organization",
-      "slug": "esbjerg-sygehus-grindsted-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Syddanmark-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Esbjerg Sygehus Grindsted Sygehus 51 / 798 0 (0) 6,4 (4,8-8,3)"
-        }
-      ]
-    },
-    {
-      "name": "Kolding Sygehus",
-      "type": "organization",
-      "slug": "kolding-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Syddanmark-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Kolding Sygehus* 12 / 183 0 (0) 6,6 (3,4-11,2)"
-        }
-      ]
-    },
-    {
-      "name": "OUH Odense Universitetshospital",
-      "type": "organization",
-      "slug": "ouh-odense-universitetshospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Syddanmark-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "OUH Odense Universitetshospital 127 / 1.986 0 (0) 6,4 (5,4-7,6)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehus Sønderjylland",
-      "type": "organization",
-      "slug": "sygehus-soenderjylland",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Syddanmark-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Sygehus Sønderjylland 71 / 999 0 (0) 7,1 (5,6-8,9)"
-        }
-      ]
-    },
-    {
-      "name": "Vejle Sygehus",
-      "type": "organization",
-      "slug": "vejle-sygehus",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Dette hospital i Syddanmark-regionen rapporterer data for hjertesvigt-udvikling blandt nydiagnosticerede atrieflimren-patienter.",
-      "mentions": [
-        {
-          "page": 110,
-          "context": "Vejle Sygehus* 40 / 967 0 (0) 4,1 (3,0-5,6)"
+          "page": 106,
+          "context": "Nordjylland 1.093 / 14.502 0 (0) 7,5 (7,1-8,0) 1.202 / 14.617 8,2 7,3"
         }
       ]
     }
@@ -381,73 +181,53 @@
   "relationships": [
     {
       "subject": "databasen-for-atrieflimren-i-danmark",
-      "predicate": "administered-by",
+      "predicate": "is-operated-by",
       "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Databasen for Atrieflimren i Danmark administreres af Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023\nRegionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
       "page": 106
     },
     {
-      "subject": "hovedstaden",
-      "predicate": "reports-to",
-      "object": "databasen-for-atrieflimren-i-danmark",
-      "evidence": "Hovedstaden rapporterer mortalitets- og hjertesvigt-data til databasen",
+      "subject": "indikator-10",
+      "predicate": "measures-mortality-of",
+      "object": "atrieflimren",
+      "evidence": "Indikator 10: Andelen af prævalente patienter med diagnosen atrieflimren som dør i opgørelsesperioden",
       "page": 106
     },
     {
-      "subject": "sjaelland",
-      "predicate": "reports-to",
-      "object": "databasen-for-atrieflimren-i-danmark",
-      "evidence": "Sjælland rapporterer mortalitets- og hjertesvigt-data til databasen",
-      "page": 106
+      "subject": "indikator-16",
+      "predicate": "measures-incidence-of",
+      "object": "hjertesvigt",
+      "evidence": "Supplerende indikator: Hjertesvigt efter atrieflimren\nIndikator 16: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år",
+      "page": 110
     },
     {
-      "subject": "syddanmark",
-      "predicate": "reports-to",
-      "object": "databasen-for-atrieflimren-i-danmark",
-      "evidence": "Syddanmark rapporterer mortalitets- og hjertesvigt-data til databasen",
-      "page": 106
-    },
-    {
-      "subject": "midtjylland",
-      "predicate": "reports-to",
-      "object": "databasen-for-atrieflimren-i-danmark",
-      "evidence": "Midtjylland rapporterer mortalitets- og hjertesvigt-data til databasen",
-      "page": 106
-    },
-    {
-      "subject": "nordjylland",
-      "predicate": "reports-to",
-      "object": "databasen-for-atrieflimren-i-danmark",
-      "evidence": "Nordjylland rapporterer mortalitets- og hjertesvigt-data til databasen",
-      "page": 106
-    },
-    {
-      "subject": "landspatientregisteret",
-      "predicate": "provides-data-to",
-      "object": "databasen-for-atrieflimren-i-danmark",
-      "evidence": "Diagnosedata for atrieflimren-patienter hentes fra Landspatientregisteret",
+      "subject": "indikator-10",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Mortaliteten opgøres for alle prævalente patienter med en atrieflimren-diagnose, dvs. alle personer, som var i live pr. 1. juli 2022, og som har fået diagnosen registeret i Landspatientregisteret mindst én gang inden for de foregående 10 år.",
       "page": 109
     },
     {
-      "subject": "cpr-registeret",
-      "predicate": "provides-data-to",
-      "object": "databasen-for-atrieflimren-i-danmark",
-      "evidence": "Oplysninger vedrørende vitalstatus (død/levende) indhentet via kobling med CPR-registeret",
+      "subject": "indikator-10",
+      "predicate": "uses-vital-status-from",
+      "object": "cpr-registeret",
+      "evidence": "Oplysningerne vedrørende vitalstatus (død/levende) er indhentet via kobling med CPR-registeret.",
       "page": 109
     }
   ],
   "claims": [
     {
       "text": "Andelen af prævalente patienter med atrieflimren, som døde i opgørelsesperioden var 7,6% på landsplan [^src1]",
-      "type": "mortality",
+      "type": "mortality-statistic",
       "entities": [
-        "danmark"
+        "danmark",
+        "atrieflimren"
       ],
       "page": 109
     },
     {
       "text": "Regionalt varierede mortaliteten mellem 7,4 – 7,9% [^src1]",
-      "type": "mortality",
+      "type": "mortality-statistic",
       "entities": [
         "hovedstaden",
         "sjaelland",
@@ -459,73 +239,19 @@
     },
     {
       "text": "Andelen der dør 1 år efter diagnose er 13,1% med en regional variation på 12,6-14,1% [^src1]",
-      "type": "mortality",
+      "type": "mortality-statistic",
       "entities": [
-        "danmark"
+        "atrieflimren"
       ],
       "page": 109
     },
     {
-      "text": "Mortaliteten opgøres for alle prævalente patienter med en atrieflimren-diagnose, dvs. alle personer, som var i live pr. 1. juli 2022, og som har fået diagnosen registeret i Landspatientregisteret mindst én gang inden for de foregående 10 år [^src1]",
-      "type": "methodology",
+      "text": "Indikator 16: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år, var 6,5% (95% CI: 6,1–6,8) for Danmark i perioden 01.07.2021 – 30.06.2022 [^src2]",
+      "type": "incidence-statistic",
       "entities": [
-        "landspatientregisteret"
-      ],
-      "page": 109
-    },
-    {
-      "text": "Opgørelsen omfatter kun patienter med dansk cpr-nr. og dansk bopæl [^src1]",
-      "type": "methodology",
-      "entities": [
-        "danmark"
-      ],
-      "page": 109
-    },
-    {
-      "text": "Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år var 6,5% på landsplan i perioden 01.07.2021 - 30.06.2022 [^src1]",
-      "type": "heart-failure",
-      "entities": [
-        "danmark"
-      ],
-      "page": 110
-    },
-    {
-      "text": "I Hovedstaden-regionen var andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år 7,1% [^src1]",
-      "type": "heart-failure",
-      "entities": [
-        "hovedstaden"
-      ],
-      "page": 110
-    },
-    {
-      "text": "I Sjælland-regionen var andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år 7,4% [^src1]",
-      "type": "heart-failure",
-      "entities": [
-        "sjaelland"
-      ],
-      "page": 110
-    },
-    {
-      "text": "I Syddanmark-regionen var andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år 6,1% [^src1]",
-      "type": "heart-failure",
-      "entities": [
-        "syddanmark"
-      ],
-      "page": 110
-    },
-    {
-      "text": "I Midtjylland-regionen var andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år 5,7% [^src1]",
-      "type": "heart-failure",
-      "entities": [
-        "midtjylland"
-      ],
-      "page": 110
-    },
-    {
-      "text": "I Nordjylland-regionen var andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år 5,8% [^src1]",
-      "type": "heart-failure",
-      "entities": [
-        "nordjylland"
+        "danmark",
+        "atrieflimren",
+        "hjertesvigt"
       ],
       "page": 110
     }
@@ -533,32 +259,68 @@
   "timeline": [
     {
       "date": "2022-07-01",
-      "event": "Begyndelse af opgørelsesperiode for mortalitets-indikator (Indikator 10)",
+      "event": "Start af opgørelsesperioden for Indikator 10",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-10"
       ]
     },
     {
       "date": "2023-06-30",
-      "event": "Afslutning af opgørelsesperiode for mortalitets-indikator (Indikator 10)",
+      "event": "Slut på opgørelsesperioden for Indikator 10",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-10"
       ]
     },
     {
       "date": "2021-07-01",
-      "event": "Begyndelse af opgørelsesperiode for hjertesvigt-indikator (Indikator 16)",
+      "event": "Start af opgørelsesperioden for Indikator 16",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-16"
       ]
     },
     {
       "date": "2022-06-30",
-      "event": "Afslutning af opgørelsesperiode for hjertesvigt-indikator (Indikator 16)",
+      "event": "Slut på opgørelsesperioden for Indikator 16",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-16"
       ]
     }
   ],
-  "context": "Denne dokumentchunk indeholder detaljerede kvalitetsindikatorer for behandling af atrieflimren (atrial fibrillation) i Danmark, rapporteret af Databasen for Atrieflimren i Danmark under Regionernes Kliniske Kvalitetsudviklingsprogram. Rapporten dækker perioden 1. juli 2022 til 30. juni 2023 for mortalitets-indikatoren (Indikator 10) og 1. juli 2021 til 30. juni 2022 for hjertesvigt-indikatoren (Indikator 16). Data er præsenteret på nationalt niveau, regionalt niveau og kommunalt/hospitalsspecifikt niveau, hvilket giver et omfattende billede af atrieflimren-behandlingskvaliteten på tværs af Danmark. Mortalitetsdata viser, at 7,6% af prævalente atrieflimren-patienter døde i opgørelsesperioden på landsplan, med regional variation mellem 7,4-7,9%. Hjertesvigt-indikatoren viser, at 6,5% af nydiagnosticerede atrieflimren-patienter udvikler hjertesvigt inden for 1 år på landsplan."
+  "tables": [
+    {
+      "subject": "indikator-10",
+      "title": "Indikator 10: Andelen af prævalente patienter med diagnosen atrieflimren som dør i opgørelsesperioden",
+      "page": 106,
+      "rowDimension": "geografiske-enheder",
+      "colDimension": "mortalitetsandel-per-år",
+      "entities": [
+        "danmark",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland"
+      ],
+      "markdown": "| Geografisk enhed | Tæller/antal | Standard opfyldt (%) | Andel 95% CI | Antal 2021/22 | Andel 2021/22 | Andel 2020/21 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 10.211 / 134.741 | 0 (0) | 7,6 (7,4-7,7) | 10.696 / 134.210 | 8,0 | 7,5 |\n| Hovedstaden | 2.782 / 37.128 | 0 (0) | 7,5 (7,2-7,8) | 2.958 / 37.252 | 7,9 | 7,6 |\n| Sjælland | 1.699 / 22.372 | 0 (0) | 7,6 (7,3-7,9) | 1.730 / 22.300 | 7,8 | 7,7 |\n| Syddanmark | 2.460 / 31.244 | 0 (0) | 7,9 (7,6-8,2) | 2.565 / 30.732 | 8,3 | 7,7 |\n| Midtjylland | 2.177 / 29.495 | 0 (0) | 7,4 (7,1-7,7) | 2.241 / 29.309 | 7,6 | 7,2 |\n| Nordjylland | 1.093 / 14.502 | 0 (0) | 7,5 (7,1-8,0) | 1.202 / 14.617 | 8,2 | 7,3 |",
+      "summary": "Tabellen sammenligner mortalitetsandelen for prævalente atrieflimren-patienter på nationalt, regionalt og kommunalt niveau for perioden 01.07.2022–30.06.2023, og viser en landsomfattende andel på 7,6 % med regional variation fra 7,4 % (Midtjylland) til 7,9 % (Syddanmark)."
+    },
+    {
+      "subject": "indikator-16",
+      "title": "Indikator 16: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år",
+      "page": 110,
+      "rowDimension": "geografiske-enheder",
+      "colDimension": "hjertesvigt-andel-per-år",
+      "entities": [
+        "danmark",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland"
+      ],
+      "markdown": "| Geografisk enhed | Tæller/antal | Standard opfyldt (%) | Andel 95% CI | Antal 2020/21 | Andel 2020/21 | Andel 2019/20 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 1.360 / 21.045 | 0 (0) | 6,5 (6,1-6,8) | 1.647 / 20.909 | 7,9 | 9,0 |\n| Hovedstaden | 400 / 5.628 | 0 (0) | 7,1 (6,4-7,8) | 436 / 5.400 | 8,1 | 9,1 |\n| Sjælland | 255 / 3.445 | 0 (0) | 7,4 (6,5-8,3) | 314 / 3.661 | 8,6 | 9,6 |\n| Syddanmark | 310 / 5.069 | 0 (0) | 6,1 (5,5-6,8) | 374 / 5.004 | 7,5 | 9,2 |\n| Midtjylland | 269 / 4.717 | 0 (0) | 5,7 (5,1-6,4) | 359 / 4.577 | 7,8 | 8,6 |\n| Nordjylland | 126 / 2.186 | 0 (0) | 5,8 (4,8-6,8) | 164 / 2.267 | 7,2 | 8,0 |",
+      "summary": "Tabellen sammenligner andelen af nydiagnosticerede atrieflimren-patienter, der udvikler hjertesvigt inden for ét år, på nationalt og regionalt niveau for perioden 01.07.2021–30.06.2022, og viser en landsomfattende andel på 6,5 % med regional variation fra 5,7 % (Midtjylland) til 7,4 % (Sjælland)."
+    }
+  ],
+  "context": "Dette dokumentudsnit er en del af årsrapporten fra Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten fokuserer på to centrale kvalitetsindikatorer: Indikator 10, der måler mortalitet blandt eksisterende (prævalente) atrieflimren-patienter, og Indikator 16, der måler incidence af hjertesvigt blandt nydiagnosticerede patienter. Dataene er baseret på registerkoblinger mellem Landspatientregisteret og CPR-registeret, og rapporten præsenterer detaljerede tal på nationalt, regionalt og kommunalt niveau, samt analyser af statistisk præcision og tolkningsbegrænsninger. Den brede geografiske dækning og metodiske gennemsigtighed understøtter RKKPs rolle som nationalt styrende organ for klinisk kvalitetsudvikling i det danske sundhedsvæsen."
 }

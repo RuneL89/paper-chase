@@ -1,62 +1,71 @@
 {
   "entities": [
     {
-      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
-      "type": "organization",
-      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Dette program udgør rammerne for kvalitetsindikatorer inden for atrieflimren behandling i Danmark og er ansvarlig for indikator 8 om patientuddannelse.",
+      "name": "Indikator 8",
+      "type": "topic",
+      "slug": "indikator-8",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 8 er den centrale kvalitetsmåling i dette dokumentchunk, der kvantificerer andelen af nydiagnosticerede atrieflimren-patienter, der modtager struktureret patientuddannelse inden for det første år efter diagnosen, og danner grundlag for alle beregninger, sammenligninger og konklusioner på siderne 61–65.",
       "mentions": [
         {
           "page": 61,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram - Indikator 8: Patientuddannelse/undervisning"
+          "context": "Indikator 8: Patientuddannelse/undervisning"
+        },
+        {
+          "page": 61,
+          "context": "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet."
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-quality-initiatives",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er den udgivende og ansvarlige organisation for rapporten, hvori Indikator 8 defineres, måles og diskuteres — og som driver national kvalitetsudvikling inden for atrieflimren.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Atrieflimren i Danmark",
+      "type": "document",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "entities/documents/reports",
+      "significance": "Atrieflimren i Danmark er den overordnede rapport, hvori denne chunk er en del, og som præsenterer nationale og regionale kvalitetsdata om behandling og opfølgning af patienter med atrieflimren, herunder specifikt Indikator 8.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Atrieflimren i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "BFKB",
+      "type": "code",
+      "slug": "bfkb",
+      "folder": "entities/codes/intervention-codes",
+      "significance": "BFKB er den specifikke SKS-kode, som fra 1. januar 2023 alene kan resultere i målopfyldelse for Indikator 8, og som der henvises til som kritisk for korrekt registrering af patientuddannelse.",
+      "mentions": [
+        {
+          "page": 65,
+          "context": "Fra og med 1.1.2023 er det alene SKS-koden BFKB der kan resultere i målopfyldelse for indikatoren."
         }
       ]
     },
     {
       "name": "Landspatientregisteret",
-      "type": "organization",
+      "type": "database",
       "slug": "landspatientregisteret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Registeret er datakilden for information om patienters deltagelse i struktureret undervisningsprogram for indikator 8.",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Landspatientregisteret er det primære datagrundlag, hvorfra information om patienters deltagelse i struktureret undervisningsprogram indhentes til beregning af Indikator 8.",
       "mentions": [
         {
           "page": 65,
-          "context": "Information omkring patienters deltagelse i et struktureret undervisningsprogram indhentes fra Landspatientregisteret"
-        }
-      ]
-    },
-    {
-      "name": "ESC guidelines",
-      "type": "organization",
-      "slug": "esc-guidelines",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "ESC guidelines giver anbefalinger for patientundervisning ved nydiagnosticeret atrieflimren og danner grundlag for dansk retningslinje udarbejdet i 2023.",
-      "mentions": [
-        {
-          "page": 65,
-          "context": "Patientundervisning får en højere vægtning i de nye ESC guidelines"
-        },
-        {
-          "page": 65,
-          "context": "I 2023 er der udarbejdet retningslinje for indholdet i undervisning med udgangspunkt i ESC guidelines"
-        }
-      ]
-    },
-    {
-      "name": "SIG-atrieflimren",
-      "type": "organization",
-      "slug": "sig-atrieflimren",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "SIG-atrieflimren samarbejder med sundhedsvæsenet om udbredelse og implementering af retningslinjer for patientundervisning og korrekt kodning.",
-      "mentions": [
-        {
-          "page": 65,
-          "context": "I samarbejde med SIG- atrieflimren skal denne retningslinje udbredes og implementeres over hele landet"
-        },
-        {
-          "page": 65,
-          "context": "SIG AF vil det kommende år have et øget fokus på at udbrede såvel undervisningen og dens anbefalede indhold samt den korrekte kodning af undervisning"
+          "context": "Information omkring patienters deltagelse i et struktureret undervisningsprogram indhentes fra Landspatientregisteret."
         }
       ]
     },
@@ -64,85 +73,12 @@
       "name": "Midtklyngen",
       "type": "organization",
       "slug": "midtklyngen",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Midtklyngen i Region Midtjylland er den eneste klynge der opfylder standarden på 50% for struktureret patientundervisning med en andel på 57,5%, og tilbyder holdundervisning.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Midtklyngen er den eneste sundhedsklynge, der opfylder standarden på ≥50% for Indikator 8 (57,5%), og dermed udgør et positivt referenceeksempel i analysen.",
       "mentions": [
         {
           "page": 62,
-          "context": "Midtklyngen Ja 513 / 892 0 (0) 57,5 (54,2-60,8)"
-        },
-        {
-          "page": 65,
-          "context": "Det er indtil videre kun en enkelt klynge i Region Midt, der opfylder standarden. Her tilbydes patienterne holdundervisning."
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "organization",
-      "slug": "midtjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Midtjylland har markant højere målopfyldelse (33,7%) for struktureret patientundervisning sammenlignet med andre regioner og indeholder den eneste klynge der opfylder standarden.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Midtjylland Nej 1.468 / 4.361 0 (0) 33,7 (32,3-35,1)"
-        },
-        {
-          "page": 65,
-          "context": "Region Midtjylland (34%) har en markant højere målopfyldelse end de øvrige regioner (3,6-18,0%)"
-        }
-      ]
-    },
-    {
-      "name": "Region Hovedstaden",
-      "type": "organization",
-      "slug": "region-hovedstaden",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Hovedstaden har en andel på 8,2% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning, hvilket er blandt de laveste blandt regionerne.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Hovedstaden Nej 427 / 5.215 0 (0) 8,2 (7,5-9,0)"
-        }
-      ]
-    },
-    {
-      "name": "Region Sjælland",
-      "type": "organization",
-      "slug": "sjaelland",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Sjælland har den laveste andel blandt regionerne på 3,6% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Sjælland Nej 111 / 3.123 0 (0) 3,6 (2,9-4,3)"
-        }
-      ]
-    },
-    {
-      "name": "Region Syddanmark",
-      "type": "organization",
-      "slug": "syddanmark",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Syddanmark har en andel på 18,0% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning, hvilket er en stigning fra 7,9% året før.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Syddanmark Nej 786 / 4.367 0 (0) 18,0 (16,9-19,2)"
-        }
-      ]
-    },
-    {
-      "name": "Region Nordjylland",
-      "type": "organization",
-      "slug": "nordjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Nordjylland har en andel på 12,3% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Nordjylland Nej 259 / 2.114 0 (0) 12,3 (10,9-13,7)"
+          "context": "Midtklyngen Ja 513 / 892 0 (0) 57,5 (54,2-60,8) 398 / 832 47,8"
         }
       ]
     },
@@ -150,16 +86,12 @@
       "name": "Sundhedsklynge Sønderjylland",
       "type": "organization",
       "slug": "sundhedsklynge-soenderjylland",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsklynge Sønderjylland har en andel på 42,5% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning, hvilket er tæt på opfyldelse af standarden.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Sundhedsklynge Sønderjylland er den klynge med højeste andel af patienter med struktureret undervisning blandt de ikke-opfyldende klynger (42,5%), og nævnes som 'ganske tæt på opfyldelse af standarden'.",
       "mentions": [
         {
           "page": 62,
-          "context": "Sundhedsklynge Sønderjylland Nej 378 / 890 0 (0) 42,5 (39,2-45,8)"
-        },
-        {
-          "page": 65,
-          "context": "klynger som Sundhedsklynge Sønderjylland (42,5%) og Randersklyngen (42%) er ganske tæt på opfyldelse af standarden"
+          "context": "Sundhedsklynge Sønderjylland Nej 378 / 890 0 (0) 42,5 (39,2-45,8) 151 / 926 16,3"
         }
       ]
     },
@@ -167,535 +99,242 @@
       "name": "Randersklyngen",
       "type": "organization",
       "slug": "randersklyngen",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Randersklyngen har en andel på 42,0% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning, hvilket er tæt på opfyldelse af standarden.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Randersklyngen er en af de to klynger (sammen med Sundhedsklynge Sønderjylland), der nævnes som 'ganske tæt på opfyldelse af standarden' med en andel på 42,0% for Indikator 8.",
       "mentions": [
         {
           "page": 62,
-          "context": "Randersklyngen Nej 329 / 783 0 (0) 42,0 (38,5-45,6)"
+          "context": "Randersklyngen Nej 329 / 783 0 (0) 42,0 (38,5-45,6) 87 / 741 11,7"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland har den højeste regionale målopfyldelse for Indikator 8 (33,7%), er den eneste region med markant højere andel end de øvrige (3,6–18,0%), og indeholder både Midtklyngen og Aarhusklyngen — som begge viser relativt høje værdier.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Midtjylland Nej 1.468 / 4.361 0 (0) 33,7 (32,3-35,1) 970 / 4.134 23,5"
+        }
+      ]
+    },
+    {
+      "name": "SIG AF",
+      "type": "organization",
+      "slug": "sig-af",
+      "folder": "entities/organizations/medical-societies",
+      "significance": "SIG AF (Special Interest Group for Atrieflimren) er den faglige gruppe, der samarbejder med Regionernes Kliniske Kvalitetsudviklingsprogram om udarbejdelse, udbredelse og implementering af retningslinjer for patientundervisning samt fokuserer på korrekt kodning med BFKB.",
+      "mentions": [
+        {
+          "page": 65,
+          "context": "I samarbejde med SIG- atrieflimren skal denne retningslinje udbredes og implementeres over hele landet."
         },
         {
           "page": 65,
-          "context": "Randersklyngen (42%) er ganske tæt på opfyldelse af standarden"
+          "context": "SIG AF vil det kommende år have et øget fokus på at udbrede såvel undervisningen og dens anbefalede indhold samt den korrekte kodning af undervisning."
         }
       ]
     },
     {
-      "name": "Aarhusklyngen",
-      "type": "organization",
-      "slug": "aarhusklyngen",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Aarhusklyngen har en andel på 24,1% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
+      "name": "ESC guidelines",
+      "type": "standard",
+      "slug": "esc-guidelines",
+      "folder": "entities/standards/medical-guidelines",
+      "significance": "ESC guidelines (European Society of Cardiology) er den internationale faglige reference, der understøtter behovet for struktureret patientundervisning ved nydiagnostikeret atrieflimren, og som danner grundlag for den danske retningslinje udarbejdet i 2023.",
       "mentions": [
         {
-          "page": 62,
-          "context": "Aarhusklyngen Nej 232 / 964 0 (0) 24,1 (21,4-26,9)"
-        }
-      ]
-    },
-    {
-      "name": "Gødstrupklyngen",
-      "type": "organization",
-      "slug": "goedstrupklyngen",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Gødstrupklyngen har en andel på 23,1% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
+          "page": 65,
+          "context": "Patientundervisning får en højere vægtning i de nye ESC guidelines, så alle patienter med nydiagnosticeret atrieflimren fremadrettet gerne skulle tilbydes undervisning."
+        },
         {
-          "page": 62,
-          "context": "Gødstrupklyngen Nej 222 / 960 0 (0) 23,1 (20,5-25,9)"
-        }
-      ]
-    },
-    {
-      "name": "Horsensklyngen",
-      "type": "organization",
-      "slug": "horsensklyngen",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Horsensklyngen har en andel på 22,6% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Horsensklyngen Nej 172 / 762 0 (0) 22,6 (19,6-25,7)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Fyn",
-      "type": "organization",
-      "slug": "sundhedsklynge-fyn",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsklynge Fyn har en andel på 16,4% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Sundhedsklynge Fyn Nej 275 / 1.678 0 (0) 16,4 (14,6-18,2)"
-        }
-      ]
-    },
-    {
-      "name": "Klynge VEST",
-      "type": "organization",
-      "slug": "klynge-vest",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Klynge VEST har en andel på 25,6% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 63,
-          "context": "Klynge VEST Nej 60 / 234 0 (0) 25,6 (20,2-31,7)"
-        }
-      ]
-    },
-    {
-      "name": "Klynge SYD",
-      "type": "organization",
-      "slug": "klynge-syd",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Klynge SYD har en andel på 17,2% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 63,
-          "context": "Klynge SYD Nej 71 / 412 0 (0) 17,2 (13,7-21,2)"
-        }
-      ]
-    },
-    {
-      "name": "Klynge NORD",
-      "type": "organization",
-      "slug": "klynge-nord",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Klynge NORD har en meget lav andel på 0,4% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Klynge NORD Nej 3 / 713 0 (0) 0,4 (0,1-1,2)"
-        }
-      ]
-    },
-    {
-      "name": "Klynge MIDT",
-      "type": "organization",
-      "slug": "klynge-midt",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Klynge MIDT har en andel på 16,6% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Klynge MIDT Nej 125 / 755 0 (0) 16,6 (14,0-19,4)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklyngen Slagelse",
-      "type": "organization",
-      "slug": "sundhedsklyngen-slagelse",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsklyngen Slagelse har en andel på 7,6% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Sundhedsklyngen Slagelse Nej 60 / 789 0 (0) 7,6 (5,9-9,7)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklyngen SUH",
-      "type": "organization",
-      "slug": "sundhedsklyngen-suh",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsklyngen SUH har en meget lav andel på 0,3% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Sundhedsklyngen SUH Nej 3 / 1.062 0 (0) 0,3 (0,1-0,8)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklyngen Nykøbing F",
-      "type": "organization",
-      "slug": "sundhedsklyngen-nykoebing-f",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsklyngen Nykøbing F har en andel på 0,0% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Sundhedsklyngen Nykøbing F Nej 0 / 626 0 (0) 0,0 (0,0-0,6)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklyngen Holbæk",
-      "type": "organization",
-      "slug": "sundhedsklyngen-holbaek",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsklyngen Holbæk har en andel på 7,4% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Sundhedsklyngen Holbæk Nej 48 / 646 0 (0) 7,4 (5,5-9,7)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Lillebælt",
-      "type": "organization",
-      "slug": "sundhedsklynge-lillebaelt",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsklynge Lillebælt har en andel på 10,7% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Sundhedsklynge Lillebælt Nej 104 / 976 0 (0) 10,7 (8,8-12,8)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Sydvestjylland",
-      "type": "organization",
-      "slug": "sundhedsklynge-sydvestjylland",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsklynge Sydvestjylland har en andel på 3,5% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Sundhedsklynge Sydvestjylland Nej 29 / 823 0 (0) 3,5 (2,4-5,0)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Midt",
-      "type": "organization",
-      "slug": "sundhedsklynge-midt",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsklynge Midt har en andel på 10,0% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Sundhedsklynge Midt Nej 154 / 1.539 0 (0) 10,0 (8,6-11,6)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Nord",
-      "type": "organization",
-      "slug": "sundhedsklynge-nord",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsklynge Nord har en andel på 7,9% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Sundhedsklynge Nord Nej 89 / 1.131 0 (0) 7,9 (6,4-9,6)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Syd",
-      "type": "organization",
-      "slug": "sundhedsklynge-syd",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsklynge Syd har en andel på 11,6% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Sundhedsklynge Syd Nej 106 / 913 0 (0) 11,6 (9,6-13,9)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Byen",
-      "type": "organization",
-      "slug": "sundhedsklynge-byen",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsklynge Byen har en andel på 4,7% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Sundhedsklynge Byen Nej 69 / 1.465 0 (0) 4,7 (3,7-5,9)"
-        }
-      ]
-    },
-    {
-      "name": "Sundhedsklynge Bornholm",
-      "type": "organization",
-      "slug": "sundhedsklynge-bornholm",
-      "folder": "entities/organizations/health-systems",
-      "significance": "Sundhedsklynge Bornholm har en andel på 5,4% af nydiagnosticerede patienter med atrieflimren som får struktureret undervisning.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Sundhedsklynge Bornholm Nej 9 / 167 0 (0) 5,4 (2,5-10,0)"
-        }
-      ]
-    },
-    {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det geografiske område hvor indikatoren for struktureret patientundervisning ved atrieflimren måles på nationalt niveau.",
-      "mentions": [
-        {
-          "page": 62,
-          "context": "Danmark Nej 3.051 / 19.180 0 (0) 15,9 (15,4-16,4)"
+          "page": 65,
+          "context": "I 2023 er der udarbejdet retningslinje for indholdet i undervisning med udgangspunkt i ESC guidelines."
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "predicate": "defines-indicator",
-      "object": "indikator-8-structured-education",
-      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram - Indikator 8: Patientuddannelse/undervisning",
+      "subject": "indikator-8",
+      "predicate": "is-measured-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Indikator 8 er en del af Regionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 61
     },
     {
-      "subject": "landspatientregisteret",
-      "predicate": "provides-data-for",
-      "object": "indikator-8-structured-education",
-      "evidence": "Information omkring patienters deltagelse i et struktureret undervisningsprogram indhentes fra Landspatientregisteret",
+      "subject": "indikator-8",
+      "predicate": "relies-on-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Information omkring patienters deltagelse i et struktureret undervisningsprogram indhentes fra Landspatientregisteret.",
       "page": 65
     },
     {
-      "subject": "sig-atrieflimren",
-      "predicate": "collaborates-on-implementation",
-      "object": "indikator-8-structured-education",
-      "evidence": "I samarbejde med SIG- atrieflimren skal denne retningslinje udbredes og implementeres over hele landet",
+      "subject": "indikator-8",
+      "predicate": "requires-code",
+      "object": "bfkb",
+      "evidence": "Fra og med 1.1.2023 er det alene SKS-koden BFKB der kan resultere i målopfyldelse for indikatoren.",
       "page": 65
     },
     {
       "subject": "midtklyngen",
-      "predicate": "meets-standard",
-      "object": "indikator-8-structured-education",
-      "evidence": "Midtklyngen Ja 513 / 892 0 (0) 57,5 (54,2-60,8) - Det er indtil videre kun en enkelt klynge i Region Midt, der opfylder standarden",
+      "predicate": "achieves-standard-for",
+      "object": "indikator-8",
+      "evidence": "Midtklyngen Ja 513 / 892 0 (0) 57,5 (54,2-60,8) 398 / 832 47,8",
       "page": 62
     },
     {
-      "subject": "midtjylland",
-      "predicate": "has-highest-performance",
-      "object": "indikator-8-structured-education",
-      "evidence": "Region Midtjylland (34%) har en markant højere målopfyldelse end de øvrige regioner (3,6-18,0%)",
+      "subject": "sundhedsklynge-soenderjylland",
+      "predicate": "is-close-to-standard-for",
+      "object": "indikator-8",
+      "evidence": "Generelt ses der dog en positiv udvikling i andelene og klynger som Sundhedsklynge Sønderjylland (42,5%) og Randersklyngen (42%) er ganske tæt på opfyldelse af standarden.",
+      "page": 65
+    },
+    {
+      "subject": "randersklyngen",
+      "predicate": "is-close-to-standard-for",
+      "object": "indikator-8",
+      "evidence": "Generelt ses der dog en positiv udvikling i andelene og klynger som Sundhedsklynge Sønderjylland (42,5%) og Randersklyngen (42%) er ganske tæt på opfyldelse af standarden.",
+      "page": 65
+    },
+    {
+      "subject": "sig-af",
+      "predicate": "collaborates-with",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "I samarbejde med SIG- atrieflimren skal denne retningslinje udbredes og implementeres over hele landet.",
+      "page": 65
+    },
+    {
+      "subject": "esc-guidelines",
+      "predicate": "informs-development-of",
+      "object": "indikator-8",
+      "evidence": "Patientundervisning får en højere vægtning i de nye ESC guidelines, så alle patienter med nydiagnosticeret atrieflimren fremadrettet gerne skulle tilbydes undervisning.",
       "page": 65
     }
   ],
   "claims": [
     {
-      "text": "I alt havde 16% af de nydiagnosticerede patienter med atrieflimren modtaget struktureret patientundervisning inden for det første år efter atrieflimren diagnosen blev stillet [^src1]",
-      "type": "clinical-outcome",
+      "text": "Standarden for Indikator 8 er ≥ 50% [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "atrieflimren",
-        "indikator-8-structured-education"
+        "indikator-8"
       ],
-      "page": 65
+      "page": 62
     },
     {
-      "text": "Standarden på mindst 50% er således ikke opfyldt [^src1]",
-      "type": "quality-indicator",
+      "text": "I alt havde 16% af de nydiagnosticerede patienter med atrieflimren modtaget struktureret patientundervisning inden for det første år efter diagnosen blev stillet [^src1]",
+      "type": "statistical",
       "entities": [
-        "indikator-8-structured-education"
+        "indikator-8"
       ],
       "page": 65
     },
     {
       "text": "Sidste år var andelen 8,2% [^src1]",
-      "type": "clinical-trend",
+      "type": "statistical",
       "entities": [
-        "indikator-8-structured-education"
+        "indikator-8"
       ],
       "page": 65
     },
     {
-      "text": "Regionalt varierede andelen fra 3,6-34% [^src1]",
-      "type": "regional-variation",
+      "text": "Regionalt varierede andelen fra 3,6–34% [^src1]",
+      "type": "statistical",
       "entities": [
-        "indikator-8-structured-education"
+        "indikator-8",
+        "region-midtjylland"
       ],
       "page": 65
     },
     {
-      "text": "Ingen regioner opfylder således standarden men Region Midtjylland (34%) har en markant højere målopfyldelse end de øvrige regioner (3,6-18,0%) [^src1]",
-      "type": "regional-variation",
+      "text": "Alle regioner har øget andelen med målopfyldelse siden sidste år [^src1]",
+      "type": "trend",
       "entities": [
-        "midtjylland",
-        "indikator-8-structured-education"
+        "indikator-8"
       ],
       "page": 65
     },
     {
-      "text": "Alle regioner har dog øget andelen med målopfyldelse siden sidste år [^src1]",
-      "type": "clinical-trend",
+      "text": "På klyngeniveau ses der markant variation (0–58%) [^src1]",
+      "type": "statistical",
       "entities": [
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "På klyngeniveau ses der markant variation (0-58%) [^src1]",
-      "type": "regional-variation",
-      "entities": [
-        "indikator-8-structured-education"
+        "indikator-8"
       ],
       "page": 65
     },
     {
       "text": "Det er kun patienterne med bopæl i Midtklyngen (Region Midtjylland) der med en andel på 58% opfylder standarden [^src1]",
-      "type": "quality-indicator",
+      "type": "statistical",
       "entities": [
         "midtklyngen",
-        "indikator-8-structured-education"
+        "region-midtjylland"
       ],
       "page": 65
     },
     {
-      "text": "Klynger som Sundhedsklynge Sønderjylland (42,5%) og Randersklyngen (42%) er ganske tæt på opfyldelse af standarden [^src1]",
-      "type": "quality-indicator",
+      "text": "Der er udarbejdet en retningslinje for indholdet i undervisning med udgangspunkt i ESC guidelines i 2023 [^src1]",
+      "type": "policy",
       "entities": [
-        "sundhedsklynge-soenderjylland",
-        "randersklyngen",
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "Fra og med 1.1.2023 er det alene SKS-koden BFKB der kan resultere i målopfyldelse for indikatoren [^src1]",
-      "type": "methodology",
-      "entities": [
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "Indikatoren er beregnet for patienter som blev diagnosticeret i forrige opgørelsesperiode, dvs. mellem d. 1. juli 2022 til d. 30. juni 2023, da indikatoren kræver 1 års opfølgningstid [^src1]",
-      "type": "methodology",
-      "entities": [
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "316 patienter blev ekskluderet fordi de ikke har bopæl i DK eller har en erstatnings CPRnr [^src1]",
-      "type": "data-limitation",
-      "entities": [
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "274 patienter blev ekskluderet fordi de ikke er incident (har en anden AF diagnose inden for de sidste 10 år) [^src1]",
-      "type": "data-limitation",
-      "entities": [
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "7 patienter blev ekskluderet fordi deres bopælskommune er ukendt [^src1]",
-      "type": "data-limitation",
-      "entities": [
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "2.862 patienter døde inden for 1 år efter diagnosedato [^src1]",
-      "type": "data-limitation",
-      "entities": [
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "En stor del af årsagen til den lave andel skyldes højest sandsynligt manglende implementering af den specifikke kode for AF undervisning [^src1]",
-      "type": "limitation",
-      "entities": [
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "I de øvrige klynger er der ret stor variation i om patienterne tilbydes holdundervisning, individuel undervisning eller der er ikke noget tilbud [^src1]",
-      "type": "treatment-gap",
-      "entities": [
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "Patientundervisning får en højere vægtning i de nye ESC guidelines [^src1]",
-      "type": "recommendation",
-      "entities": [
-        "esc-guidelines",
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "Alle patienter med nydiagnosticeret atrieflimren fremadrettet gerne skulle tilbydes undervisning. Dette kan være både holdundervisning og individuelt [^src1]",
-      "type": "recommendation",
-      "entities": [
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "I 2023 er der udarbejdet retningslinje for indholdet i undervisning med udgangspunkt i ESC guidelines [^src1]",
-      "type": "organizational-goal",
-      "entities": [
-        "esc-guidelines",
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "Der er fortsat en udfordring med at patienter, der har deltaget i undervisning, også får den korrekte kode BFKB, da der erfaringsmæssigt ikke altid kodes rigtigt i de forskellige klinikker [^src1]",
-      "type": "limitation",
-      "entities": [
-        "indikator-8-structured-education"
-      ],
-      "page": 65
-    },
-    {
-      "text": "SIG AF vil det kommende år have et øget fokus på at udbrede såvel undervisningen og dens anbefalede indhold samt den korrekte kodning af undervisning [^src1]",
-      "type": "organizational-goal",
-      "entities": [
-        "sig-atrieflimren",
-        "indikator-8-structured-education"
+        "esc-guidelines"
       ],
       "page": 65
     }
   ],
   "timeline": [
     {
-      "date": "2021/22",
-      "event": "Andelen af nydiagnosticerede patienter med atrieflimren som fik struktureret undervisning var 8,2% på nationalt niveau",
+      "date": "2023-01-01",
+      "event": "Fra og med 1. januar 2023 er det alene SKS-koden BFKB, der kan resultere i målopfyldelse for Indikator 8.",
       "entities": [
-        "indikator-8-structured-education",
-        "danmark"
+        "bfkb",
+        "indikator-8"
       ]
     },
     {
-      "date": "01.07.2022 - 30.06.2023",
-      "event": "Opgørelsesperiode for indikator 8 hvor andelen steg til 15,9% på nationalt niveau",
+      "date": "2023-07-01",
+      "event": "Opgørelsesperioden for Indikator 8 er 1. juli 2022 til 30. juni 2023.",
       "entities": [
-        "indikator-8-structured-education",
-        "danmark"
-      ]
-    },
-    {
-      "date": "01.01.2023",
-      "event": "Fra denne dato er det alene SKS-koden BFKB der kan resultere i målopfyldelse for indikatoren",
-      "entities": [
-        "indikator-8-structured-education"
+        "indikator-8"
       ]
     },
     {
       "date": "2023",
-      "event": "Retningslinje for indholdet i undervisning udarbejdet med udgangspunkt i ESC guidelines",
+      "event": "Der er udarbejdet en retningslinje for indholdet i patientundervisning med udgangspunkt i ESC guidelines.",
       "entities": [
         "esc-guidelines",
-        "indikator-8-structured-education"
+        "sig-af"
       ]
     }
   ],
-  "context": "Denne dokumentchunk præsenterer resultater for indikator 8 om struktureret patientundervisning ved nydiagnosticeret atrieflimren i Danmark. Indikatoren måler andelen af nydiagnosticerede patienter som får et struktureret undervisningsprogram inden for det første år efter diagnose, med en standard på mindst 50%. Dokumentet viser data fra perioden 1. juli 2022 til 30. juni 2023 på regionalt og klyngeniveau, samt sammenligning med året før. Resultaterne viser betydelig regional variation og at kun én klynge (Midtklyngen i Region Midtjylland) opfylder standarden, mens der samtidig ses en positiv udvikling i alle regioner sammenlignet med året før."
+  "tables": [
+    {
+      "subject": "indikator-8",
+      "title": "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet",
+      "page": 62,
+      "rowDimension": "regioner-og-sundhedsklynger",
+      "colDimension": "målopfyldelse-periode",
+      "entities": [
+        "region-midtjylland",
+        "sundhedsklynge-soenderjylland",
+        "randersklyngen",
+        "midtklyngen"
+      ],
+      "markdown": "| Region/klynge | Uoplyst | Tæller/antal | Andel | 95% CI | Antal (2021/22) | Andel (2021/22) |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 3.051 / 19.180 | 15,9 (15,4-16,4) | 1.503 / 18.313 | 8,2 |\n| Hovedstaden | Nej | 427 / 5.215 | 8,2 (7,5-9,0) | 106 / 4.889 | 2,2 |\n| Sjælland | Nej | 111 / 3.123 | 3,6 (2,9-4,3) | 31 / 2.982 | 1,0 |\n| Syddanmark | Nej | 786 / 4.367 | 18,0 (16,9-19,2) | 348 / 4.415 | 7,9 |\n| Midtjylland | Nej | 1.468 / 4.361 | 33,7 (32,3-35,1) | 970 / 4.134 | 23,5 |\n| Nordjylland | Nej | 259 / 2.114 | 12,3 (10,9-13,7) | 48 / 1.893 | 2,5 |\n| Sundhedsklynge Bornholm | Nej | 9 / 167 | 5,4 (2,5-10,0) | 0 / 168 | 0,0 |\n| Sundhedsklynge Byen | Nej | 69 / 1.465 | 4,7 (3,7-5,9) | 41 / 1.311 | 3,1 |\n| Sundhedsklynge Midt | Nej | 154 / 1.539 | 10,0 (8,6-11,6) | 14 / 1.449 | 1,0 |\n| Sundhedsklynge Nord | Nej | 89 / 1.131 | 7,9 (6,4-9,6) | 8 / 1.116 | 0,7 |\n| Sundhedsklynge Syd | Nej | 106 / 913 | 11,6 (9,6-13,9) | 43 / 845 | 5,1 |\n| Sundhedsklyngen Holbæk | Nej | 48 / 646 | 7,4 (5,5-9,7) | 6 / 645 | 0,9 |\n| Sundhedsklyngen Nykøbing F | Nej | 0 / 626 | 0,0 (0,0-0,6) | 1 / 628 | 0,2 |\n| Sundhedsklyngen SUH | Nej | 3 / 1.062 | 0,3 (0,1-0,8) | 3 / 977 | 0,3 |\n| Sundhedsklyngen Slagelse | Nej | 60 / 789 | 7,6 (5,9-9,7) | 21 / 732 | 2,9 |\n| Sundhedsklynge Fyn | Nej | 275 / 1.678 | 16,4 (14,6-18,2) | 120 / 1.681 | 7,1 |\n| Sundhedsklynge Lillebælt | Nej | 104 / 976 | 10,7 (8,8-12,8) | 47 / 964 | 4,9 |\n| Sundhedsklynge Sydvestjylland | Nej | 29 / 823 | 3,5 (2,4-5,0) | 30 / 844 | 3,6 |\n| Sundhedsklynge Sønderjylland | Nej | 378 / 890 | 42,5 (39,2-45,8) | 151 / 926 | 16,3 |\n| Aarhusklyngen | Nej | 232 / 964 | 24,1 (21,4-26,9) | 246 / 867 | 28,4 |\n| Gødstrupklyngen | Nej | 222 / 960 | 23,1 (20,5-25,9) | 189 / 1.005 | 18,8 |\n| Horsensklyngen | Nej | 172 / 762 | 22,6 (19,6-25,7) | 50 / 689 | 7,3 |\n| Midtklyngen | Ja | 513 / 892 | 57,5 (54,2-60,8) | 398 / 832 | 47,8 |\n| Randersklyngen | Nej | 329 / 783 | 42,0 (38,5-45,6) | 87 / 741 | 11,7 |\n| Klynge MIDT | Nej | 125 / 755 | 16,6 (14,0-19,4) | 16 / 665 | 2,4 |\n| Klynge NORD | Nej | 3 / 713 | 0,4 (0,1-1,2) | 1 / 635 | 0,2 |",
+      "summary": "Tabellen sammenligner målopfyldelsen for Indikator 8 på region- og sundhedsklynge-niveau for perioden 1. juli 2022–30. juni 2023, og viser en markant variation fra 0,0% til 57,5%, hvor kun Midtklyngen opfylder standarden på ≥50%."
+    },
+    {
+      "subject": "indikator-8",
+      "title": "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet (fortsat)",
+      "page": 63,
+      "rowDimension": "klynger",
+      "colDimension": "målopfyldelse-periode",
+      "entities": [
+        "indikator-8"
+      ],
+      "markdown": "| Klynge | Uoplyst | Tæller/antal | Andel | 95% CI | Antal (2021/22) | Andel (2021/22) |\n| --- | --- | --- | --- | --- | --- | --- |\n| Klynge SYD | Nej | 71 / 412 | 17,2 (13,7-21,2) | 7 / 353 | 2,0 |\n| Klynge VEST | Nej | 60 / 234 | 25,6 (20,2-31,7) | 24 / 240 | 10,0 |",
+      "summary": "Tabellen fortsætter målopfyldelsesdata for Indikator 8 for yderligere to klynger (SYD og VEST), og bekræfter den bredde af variation, der karakteriserer klynge-niveauet."
+    }
+  ],
+  "context": "Dette dokumentchunk er en del af den årlige offentliggjorte rapport 'Atrieflimren i Danmark', udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram, og fokuserer specifikt på kvalitetsindikator 8, der måler andelen af nydiagnosticerede atrieflimren-patienter, der modtager struktureret patientuddannelse inden for det første år efter diagnosen. Chunken præsenterer detaljerede statistikker på regions- og sundhedsklynge-niveau, identificerer Midtklyngen som den eneste enhed, der opfylder den nationale standard på ≥50%, og diskuterer systemiske barrierer som manglende implementering af den specifikke kode BFKB samt manglende harmonisering af undervisningstilbud. Den knytter desuden resultatet til faglige retningslinjer (ESC) og fremtidige implementeringsinitiativer i samarbejde med SIG AF."
 }

@@ -1,459 +1,132 @@
 {
   "entities": [
     {
+      "name": "Indikator 1a",
+      "type": "quality-indicator",
+      "slug": "indikator-1a",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 1a er den kvalitetsmålsstillede andel af nydiagnosticerede voksne med IBD, der har fået foretaget koloskopi inden for ±12 måneder fra første hospitalskontakt, og danner grundlag for vurdering af udredningskvalitet på lands- og afdelingsniveau.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "For at sikre et sammenhængende behandlingsforløb starter enkelte unge på 17 år udredning på en voksenafdeling. Disse unge er inkluderet i indikator 1a og følger udredningsvejledningen for voksne."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1b",
+      "type": "quality-indicator",
+      "slug": "indikator-1b",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 1b er den kvalitetsmålsstillede andel af nydiagnosticerede børn og unge (0–17 år) med IBD, der har fået foretaget alle tre anbefalede undersøgelser — gastroskopi, koloskopi og MR-scanning af tyndtarm eller kapselendoskopi — inden for ±12 måneder fra første hospitalskontakt, og er central for evaluering af pædiatrisk udredningsstandard.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Indikator 1b. Udredning, nydiagnosticerede børn og unge"
+        }
+      ]
+    },
+    {
       "name": "DANIBD",
       "type": "organization",
       "slug": "danibd",
-      "folder": "entities/organizations/registries",
-      "significance": "DANIBD er det danske kvalitetsregister for inflammatorisk tarmsygdom, der monitorerer indikatorer for diagnostik og behandling af IBD-patienter på tværs af danske hospitaler og regioner.",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DANIBD er Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme, som er den nationale kvalitetsdatabase, der overvåger og evaluerer behandlingskvaliteten for IBD-patienter i Danmark, herunder beregning og rapportering af indikator 1a og 1b.",
       "mentions": [
         {
           "page": 11,
-          "context": "DANIBD 7 - Sorteret kontroldiagram: Resultat af indikator 1"
-        },
-        {
-          "page": 12,
-          "context": "8 DANIBD - Diskussion og implikationer"
-        },
-        {
-          "page": 13,
-          "context": "DANIBD 9 - Indikator 1b. Udredning, nydiagnosticerede børn og unge"
-        },
-        {
-          "page": 15,
-          "context": "DANIBD 11 - Årsag til ikke opfyldt indikator"
-        }
-      ]
-    },
-    {
-      "name": "Hvidovre",
-      "type": "organization",
-      "slug": "hvidovre",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Hvidovre Hospital er en af fire afdelinger, hvor under 70 % af nydiagnosticerede voksne med IBD blev udredt med koloskopi i overensstemmelse med anbefalingen, og varetager diagnostik af de yngste børn med VEO-IBD.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "Der er dog fire afdelinger; Hvidovre, OUH Svendborg, Aarhus og Gødstrup, hvor under 70 % af de nydiagnosticerede voksne er udredt"
-        },
-        {
-          "page": 13,
-          "context": "Hvidovre Børne- og Ungeafdeling 28 / 42 67 (50-80)"
-        },
-        {
-          "page": 15,
-          "context": "de tre største universitetsafdelinger (Hvidovre, Odense og Aarhus) varetager diagnostik af de yngste børn med VEO-IBD"
-        }
-      ]
-    },
-    {
-      "name": "OUH Svendborg",
-      "type": "organization",
-      "slug": "ouh-svendborg",
-      "folder": "entities/organizations/hospitals",
-      "significance": "OUH Svendborg er en af fire afdelinger, hvor under 70 % af nydiagnosticerede voksne med IBD blev udredt med koloskopi i overensstemmelse med anbefalingen.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "Der er dog fire afdelinger; Hvidovre, OUH Svendborg, Aarhus og Gødstrup, hvor under 70 % af de nydiagnosticerede voksne er udredt"
-        }
-      ]
-    },
-    {
-      "name": "Aarhus",
-      "type": "organization",
-      "slug": "aarhus-university-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aarhus Hospital er en af fire afdelinger, hvor under 70 % af nydiagnosticerede voksne med IBD blev udredt med koloskopi, og varetager diagnostik af de yngste børn med VEO-IBD.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "Der er dog fire afdelinger; Hvidovre, OUH Svendborg, Aarhus og Gødstrup, hvor under 70 % af de nydiagnosticerede voksne er udredt"
-        },
-        {
-          "page": 13,
-          "context": "Aarhus Børn og Unge 21 / 31 68 (49-83)"
-        },
-        {
-          "page": 15,
-          "context": "de tre største universitetsafdelinger (Hvidovre, Odense og Aarhus) varetager diagnostik af de yngste børn med VEO-IBD"
-        }
-      ]
-    },
-    {
-      "name": "Gødstrup",
-      "type": "organization",
-      "slug": "goedstrup-hospital",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Gødstrup Hospital er en af fire afdelinger, hvor under 70 % af nydiagnosticerede voksne med IBD blev udredt med koloskopi i overensstemmelse med anbefalingen.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "Der er dog fire afdelinger; Hvidovre, OUH Svendborg, Aarhus og Gødstrup, hvor under 70 % af de nydiagnosticerede voksne er udredt"
-        },
-        {
-          "page": 13,
-          "context": "Gødstrup Børn og Unge 5 / 6 83 (36-100)"
+          "context": "DANIBD 7\nSorteret kontroldiagram: Resultat af indikator 1 med konfidensinterval på lands- og afdelingsniveau for aktuelle opgørelsesperiode"
         }
       ]
     },
     {
       "name": "Region Sjælland",
-      "type": "location",
+      "type": "regional-health-authority",
       "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland viser regional variation i koloskopi-udredning af voksne IBD-patienter (76-86 %) og har 78 % af børn og unge med komplet udredning, tæt på udviklingsmålet.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Sjælland er en af de fem regioner i Danmark, der viser højeste regional opfyldelse af indikator 1a med 86 % og næstbedste opfyldelse af indikator 1b med 78 %, hvilket gør den central for sammenligning af regional ydeevne i IBD-udredning.",
       "mentions": [
         {
           "page": 11,
-          "context": "regional variation fra 76 % til 86 % i Region Sjælland"
-        },
-        {
-          "page": 13,
-          "context": "Sjælland 25 / 32 78 (60-91)"
+          "context": "regional variation fra 76 % til 86 % i Region Sjælland."
         }
       ]
     },
     {
       "name": "Region Nordjylland",
-      "type": "location",
+      "type": "regional-health-authority",
       "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland ligger langt fra udviklingsmålet med kun 38 % af børn og unge med komplet IBD-udredning til tiden.",
-      "mentions": [
-        {
-          "page": 13,
-          "context": "særligt Region Nordjylland ligger langt fra med kun 38 % med komplet udredning til tiden"
-        },
-        {
-          "page": 13,
-          "context": "Nordjylland 8 / 21 38 (18-62)"
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "location",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Midtjylland har 77 % af børn og unge med komplet IBD-udredning, tæt på udviklingsmålet på 80 %.",
-      "mentions": [
-        {
-          "page": 13,
-          "context": "Midtjylland 37 / 48 77 (63-88)"
-        }
-      ]
-    },
-    {
-      "name": "Rigshospitalet Pædiatrisk Klinik",
-      "type": "organization",
-      "slug": "rigshospitalet-paediatrisk-klinik",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Rigshospitalet Pædiatrisk Klinik opnår 100 % compliance med indikator 1b for komplet IBD-udredning af børn og unge.",
-      "mentions": [
-        {
-          "page": 13,
-          "context": "Rigshospitalet Pædiatrisk Klinik, GGK 3 / 3 100 (29-100)"
-        }
-      ]
-    },
-    {
-      "name": "Herlev Børn og Unge",
-      "type": "organization",
-      "slug": "herlev-boern-og-unge",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Herlev Børn og Unge opnår 100 % compliance med indikator 1b for komplet IBD-udredning af børn og unge.",
-      "mentions": [
-        {
-          "page": 13,
-          "context": "Herlev Børn og Unge # / # 100 (3-100)"
-        }
-      ]
-    },
-    {
-      "name": "Nordsjælland Børne- og Ungeafdeling",
-      "type": "organization",
-      "slug": "nordsjaelland-boerne-og-ungeafdeling",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Nordsjælland Børne- og Ungeafdeling har 56 % compliance med indikator 1b for komplet IBD-udredning af børn og unge.",
-      "mentions": [
-        {
-          "page": 13,
-          "context": "Nordsjælland Børne- og Ungeafdeling 9 / 16 56 (30-80)"
-        }
-      ]
-    },
-    {
-      "name": "Holbæk Pædiatri",
-      "type": "organization",
-      "slug": "holbaek-paediatri",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Holbæk Pædiatri har 60 % compliance med indikator 1b for komplet IBD-udredning af børn og unge.",
-      "mentions": [
-        {
-          "page": 13,
-          "context": "HOL Holbæk Pædiatri 3 / 5 60 (15-95)"
-        }
-      ]
-    },
-    {
-      "name": "Slagelse Pædiatri",
-      "type": "organization",
-      "slug": "slagelse-paediatri",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Slagelse Pædiatri har 33 % compliance med indikator 1b for komplet IBD-udredning af børn og unge.",
-      "mentions": [
-        {
-          "page": 13,
-          "context": "NSR Slagelse Pædiatri # / # 33 (1-91)"
-        }
-      ]
-    },
-    {
-      "name": "Nykøbing F. Pædiatri",
-      "type": "organization",
-      "slug": "nykoebing-f-paediatri",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Nykøbing F. Pædiatri har 67 % compliance med indikator 1b for komplet IBD-udredning af børn og unge.",
-      "mentions": [
-        {
-          "page": 13,
-          "context": "SUH Nykøbing F. Pædiatri # / # 67 (9-99)"
-        }
-      ]
-    },
-    {
-      "name": "Roskilde Pædiatri",
-      "type": "organization",
-      "slug": "roskilde-paediatri",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Roskilde Pædiatri har 90 % compliance med indikator 1b for komplet IBD-udredning af børn og unge, hvilket overstiger udviklingsmålet.",
-      "mentions": [
-        {
-          "page": 13,
-          "context": "SUH Roskilde Pædiatri 19 / 21 90 (70-99)"
-        }
-      ]
-    },
-    {
-      "name": "Odense Børne- og Ungeafdeling",
-      "type": "organization",
-      "slug": "odense-boerne-og-ungeafdeling",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Odense Børne- og Ungeafdeling har 52 % compliance med indikator 1b for komplet IBD-udredning af børn og unge, og varetager diagnostik af de yngste børn med VEO-IBD.",
-      "mentions": [
-        {
-          "page": 13,
-          "context": "OUH Odense Børne- og Ungeafdeling H 11 / 21 52 (30-74)"
-        },
-        {
-          "page": 15,
-          "context": "de tre største universitetsafdelinger (Hvidovre, Odense og Aarhus) varetager diagnostik af de yngste børn med VEO-IBD"
-        }
-      ]
-    },
-    {
-      "name": "Kolding Børne- og Ungeafdeling",
-      "type": "organization",
-      "slug": "kolding-boerne-og-ungeafdeling",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Kolding Børne- og Ungeafdeling har 87 % compliance med indikator 1b for komplet IBD-udredning af børn og unge, hvilket overstiger udviklingsmålet.",
-      "mentions": [
-        {
-          "page": 13,
-          "context": "SLB Kolding Børne- og Ungeafdeling 20 / 23 87 (66-97)"
-        }
-      ]
-    },
-    {
-      "name": "Viborg Børn og Unge",
-      "type": "organization",
-      "slug": "viborg-boern-og-unge",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Viborg Børn og Unge opnår 100 % compliance med indikator 1b for komplet IBD-udredning af børn og unge.",
-      "mentions": [
-        {
-          "page": 13,
-          "context": "HE Midt Viborg Børn og Unge 11 / 11 100 (72-100)"
-        }
-      ]
-    },
-    {
-      "name": "Aalborg Børne- og Ungeafdeling",
-      "type": "organization",
-      "slug": "aauh-aalborg-boerne-og-ungeafdeling",
-      "folder": "entities/organizations/hospitals",
-      "significance": "Aalborg Børne- og Ungeafdeling har 38 % compliance med indikator 1b for komplet IBD-udredning af børn og unge, langt fra udviklingsmålet.",
-      "mentions": [
-        {
-          "page": 13,
-          "context": "AAUH Aalborg Børne- og Ungeafdeling 8 / 21 38 (18-62)"
-        }
-      ]
-    },
-    {
-      "name": "H.C. Andersen Børneafdeling",
-      "type": "organization",
-      "slug": "hc-andersen-boerneafdeling",
-      "folder": "entities/organizations/hospitals",
-      "significance": "H.C. Andersen Børneafdeling på OUH havde forløb, der var fejlkodet som IBD, hvilket påpegede behovet for større opmærksomhed på kodepraksis.",
-      "mentions": [
-        {
-          "page": 15,
-          "context": "Vedrørende komplet mangel på alle 3 procedurer er forløbene gennemgået på H.C. Andersen Børneafdeling, OUH, hvor det viste sig at forløbene var fejlkodet som IBD"
-        }
-      ]
-    },
-    {
-      "name": "Dansk Pædiatrisk Selskab",
-      "type": "organization",
-      "slug": "dansk-paediatrisk-selskab",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "Dansk Pædiatrisk Selskab forventes at udgive nye IBD-guidelines i 2025, som vil være relevant for evaluering af indikator 1b.",
-      "mentions": [
-        {
-          "page": 15,
-          "context": "Der afventes endvidere nye pædiatriske IBD guidelines fra såvel Dansk Pædiatrisk Selskab samt ESPGHAN/European Society for Pediatric Gastroenterology, Hepatology and Nutrition i 2025"
-        }
-      ]
-    },
-    {
-      "name": "ESPGHAN",
-      "type": "organization",
-      "slug": "espghan",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "ESPGHAN (European Society for Pediatric Gastroenterology, Hepatology and Nutrition) forventes at udgive nye IBD-guidelines i 2025, som vil være relevant for evaluering af indikator 1b.",
-      "mentions": [
-        {
-          "page": 15,
-          "context": "Der afventes endvidere nye pædiatriske IBD guidelines fra såvel Dansk Pædiatrisk Selskab samt ESPGHAN/European Society for Pediatric Gastroenterology, Hepatology and Nutrition i 2025"
-        }
-      ]
-    },
-    {
-      "name": "Inflammatory Bowel Disease",
-      "type": "medical-condition",
-      "slug": "inflammatory-bowel-disease",
-      "folder": "topics/diseases/inflammatory-bowel-disease",
-      "significance": "IBD er den centrale sygdom, som DANIBD monitorerer gennem indikatorer for diagnostik og behandling af både voksne og børn/unge patienter.",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Nordjylland er den region med laveste opfyldelse af indikator 1b (38 %) og delvis også af indikator 1a, hvilket markerer en væsentlig kvalitetsmæssig udfordring i pædiatrisk IBD-udredning og udgør et fokusområde for forbedringsindsats.",
       "mentions": [
         {
           "page": 11,
-          "context": "Da patienter kan udredes for IBD på hospital og i speciallægepraksis"
-        },
-        {
-          "page": 11,
-          "context": "patientens første hospitalskontakt med en IBD-diagnose"
-        },
-        {
-          "page": 13,
-          "context": "Indikator 1b. Udredning, nydiagnosticerede børn og unge - Som for voksne giver IBD hos børn og unge også anledning til et bredt spektrum af uspecifikke symptomer"
+          "context": "mens særligt Region Nordjylland ligger langt fra med kun 38 % med komplet udredning til tiden."
         }
       ]
     },
     {
-      "name": "Koloskopi",
-      "type": "medical-procedure",
-      "slug": "koloskopi",
-      "folder": "topics/clinical-measures/procedures",
-      "significance": "Koloskopi er en central diagnostisk procedure for IBD-udredning af både voksne og børn/unge, og indikator 1 monitorerer andelen af nydiagnosticerede, der får foretaget denne undersøgelse.",
+      "name": "Hvidovre",
+      "type": "healthcare-facility",
+      "slug": "hvidovre",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Hvidovre Hospital er én af de fire afdelinger, der ikke opfylder indikator 1a (<70 %), samt en af de største universitetsafdelinger, der varetager diagnostik af VEO-IBD, hvilket påvirker både kodepraksis og anvendelse af MR-scanning hos yngste patienter.",
       "mentions": [
         {
           "page": 11,
-          "context": "Koloskopi omfatter koloskopi med og uden biopsi samt totale koloskopier"
-        },
+          "context": "Der er dog fire afdelinger; Hvidovre, OUH Svendborg, Aarhus og Gødstrup, hvor under 70 % af de nydiagnosticerede voksne er udredt i overensstemmelse med anbefalingen."
+        }
+      ]
+    },
+    {
+      "name": "OUH Svendborg",
+      "type": "healthcare-facility",
+      "slug": "ouh-svendborg",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "OUH Svendborg er én af de fire afdelinger, der ikke opfylder indikator 1a (<70 %), og er dermed identificeret som et område med potentiel udredningsmangel blandt voksne IBD-patienter.",
+      "mentions": [
         {
           "page": 11,
-          "context": "79 % af de i alt 2385 nydiagnosticerede har fået foretaget koloskopi"
-        },
-        {
-          "page": 13,
-          "context": "diagnoserne stilles ved koloskopi suppleret med gastroskopi og MR-scanning af tyndtarm eller kapselendoskopi"
+          "context": "Der er dog fire afdelinger; Hvidovre, OUH Svendborg, Aarhus og Gødstrup, hvor under 70 % af de nydiagnosticerede voksne er udredt i overensstemmelse med anbefalingen."
         }
       ]
     },
     {
-      "name": "Gastroskopi",
-      "type": "medical-procedure",
-      "slug": "gastroskopi",
-      "folder": "topics/clinical-measures/procedures",
-      "significance": "Gastroskopi er en af tre påkrævede undersøgelser for komplet IBD-udredning af børn og unge ifølge indikator 1b.",
+      "name": "Aarhus",
+      "type": "healthcare-facility",
+      "slug": "aarhus",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Aarhus Universitetshospital er én af de fire afdelinger, der ikke opfylder indikator 1a (<70 %), samt en af de tre største universitetsafdelinger, der varetager VEO-IBD-diagnostik, hvilket bidrager til bias i MR-scanning-anvendelsen.",
       "mentions": [
         {
-          "page": 13,
-          "context": "diagnoserne stilles ved koloskopi suppleret med gastroskopi og MR-scanning af tyndtarm eller kapselendoskopi"
-        },
-        {
-          "page": 13,
-          "context": "Udredningen af børn og unge omfatter tre undersøgelser, der alle skal være foretaget til tiden for at indikatoren er opfyldt; gastroskopi med/uden biopsi OG koloskopi OG MR-scanning af tyndtarm/kapselendoskopi"
+          "page": 11,
+          "context": "Der er dog fire afdelinger; Hvidovre, OUH Svendborg, Aarhus og Gødstrup, hvor under 70 % af de nydiagnosticerede voksne er udredt i overensstemmelse med anbefalingen."
         }
       ]
     },
     {
-      "name": "MR-scanning af tyndtarm",
-      "type": "medical-procedure",
-      "slug": "mr-scanning-af-tyndtarm",
-      "folder": "topics/clinical-measures/procedures",
-      "significance": "MR-scanning af tyndtarm er en af tre påkrævede undersøgelser for komplet IBD-udredning af børn og unge, men 60 % af børn/unge, der ikke opfylder indikatoren, mangler denne undersøgelse.",
+      "name": "Gødstrup",
+      "type": "healthcare-facility",
+      "slug": "godstrup",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Gødstrup Hospital er én af de fire afdelinger, der ikke opfylder indikator 1a (<70 %), samt en af de pædiatriske afdelinger med høj opfyldelse af indikator 1b (83 %), hvilket illustrerer spændingsfeltet mellem voksen- og barnepædiatrisk udredningspraksis.",
       "mentions": [
         {
-          "page": 13,
-          "context": "diagnoserne stilles ved koloskopi suppleret med gastroskopi og MR-scanning af tyndtarm eller kapselendoskopi"
-        },
-        {
-          "page": 13,
-          "context": "60 % mangler at få MR-scanning/kapselendoskopi"
-        },
-        {
-          "page": 15,
-          "context": "Der kan være flere forklaringer på, at MR af tyndtarm ikke er gennemført"
+          "page": 11,
+          "context": "Der er dog fire afdelinger; Hvidovre, OUH Svendborg, Aarhus og Gødstrup, hvor under 70 % af de nydiagnosticerede voksne er udredt i overensstemmelse med anbefalingen."
         }
       ]
     },
     {
-      "name": "Kapselendoskopi",
-      "type": "medical-procedure",
-      "slug": "kapselendoskopi",
-      "folder": "topics/clinical-measures/procedures",
-      "significance": "Kapselendoskopi er et alternativ til MR-scanning af tyndtarm for evaluering af tyndtarmen i IBD-udredning af børn og unge.",
+      "name": "Styregruppen for DANIBD",
+      "type": "organization",
+      "slug": "styregruppen-for-danibd",
+      "folder": "entities/organizations/health-committees",
+      "significance": "Styregruppen for DANIBD er den faglige styringsgruppe, der har besluttet at fastholde indikator 1b på nuværende niveau, mens den samtidig planlægger en ny evaluering ved audit primo 2026, hvilket gør den afgørende for fremtidig udvikling af IBD-kvalitetsmål.",
       "mentions": [
         {
-          "page": 13,
-          "context": "diagnoserne stilles ved koloskopi suppleret med gastroskopi og MR-scanning af tyndtarm eller kapselendoskopi"
-        },
-        {
-          "page": 13,
-          "context": "Udredningen af børn og unge omfatter tre undersøgelser, der alle skal være foretaget til tiden for at indikatoren er opfyldt; gastroskopi med/uden biopsi OG koloskopi OG MR-scanning af tyndtarm/kapselendoskopi"
-        }
-      ]
-    },
-    {
-      "name": "Sigmoideoskopi",
-      "type": "medical-procedure",
-      "slug": "sigmoideoskopi",
-      "folder": "topics/clinical-measures/procedures",
-      "significance": "Sigmoideoskopi nævnes som en procedure, som nogle afdelinger muligvis bruger som erstatning for koloskopi i IBD-udredning, eller som bruges i kirurgisk regi for IBD-diagnostik.",
-      "mentions": [
-        {
-          "page": 12,
-          "context": "Man kan spørge, om det handler om manglende kapacitet, eller om nogle afdelinger i praksis erstatter koloskopi med sigmoideoskopi og/eller ultralyd af tarmen"
-        },
-        {
-          "page": 15,
-          "context": "Endvidere ses ved case gennemgang, at flere patienter primært er henvist til og udredt i kirurgisk regi med sigmoideoskopi/koloskopi alene"
-        }
-      ]
-    },
-    {
-      "name": "Ultralyd af tarmen",
-      "type": "medical-procedure",
-      "slug": "ultralyd-af-tarmen",
-      "folder": "topics/clinical-measures/procedures",
-      "significance": "Ultralyd af tarmen nævnes som en procedure, som nogle afdelinger muligvis bruger som erstatning for koloskopi i IBD-udredning.",
-      "mentions": [
-        {
-          "page": 12,
-          "context": "Man kan spørge, om det handler om manglende kapacitet, eller om nogle afdelinger i praksis erstatter koloskopi med sigmoideoskopi og/eller ultralyd af tarmen"
+          "page": 11,
+          "context": "Under styregruppens audit diskuterede man, om indikator 1b på denne baggrund skal ændres."
         }
       ]
     },
@@ -461,375 +134,239 @@
       "name": "VEO-IBD",
       "type": "medical-condition",
       "slug": "veo-ibd",
-      "folder": "topics/diseases/inflammatory-bowel-disease",
-      "significance": "VEO-IBD (very-early onset IBD) er IBD hos meget små børn, som de tre største universitetsafdelinger (Hvidovre, Odense og Aarhus) varetager diagnostik af, og som kan påvirke compliance med indikator 1b.",
+      "folder": "entities/medical-conditions/gastrointestinal",
+      "significance": "VEO-IBD (very-early onset IBD) er en særlig alvorlig form for IBD hos yngste børn, som ofte kræver specialiseret diagnostik og kan forklare fravalg af MR-scanning pga. behov for begrænset anæstesi, hvilket påvirker opfyldelse af indikator 1b.",
       "mentions": [
         {
-          "page": 15,
-          "context": "de tre største universitetsafdelinger (Hvidovre, Odense og Aarhus) varetager diagnostik af de yngste børn med VEO-IBD, very-early onset IBD"
+          "page": 11,
+          "context": "De tre største universitetsafdelinger (Hvidovre, Odense og Aarhus) varetager diagnostik af de yngste børn med VEO-IBD, very-early onset IBD"
         }
       ]
     },
     {
-      "name": "Colitis ulcerosa",
-      "type": "medical-condition",
-      "slug": "ulcerative-colitis",
-      "folder": "topics/diseases/inflammatory-bowel-disease",
-      "significance": "Colitis ulcerosa er en form for IBD, som kan identificeres klart ved endoskopi, og hvor nogle afdelinger kan vælge at spare børn/unge for yderligere invasiv diagnostik.",
+      "name": "Dansk Pædiatrisk Selskab",
+      "type": "organization",
+      "slug": "dansk-paediatrisk-selskab",
+      "folder": "entities/organizations/health-organizations",
+      "significance": "Dansk Pædiatrisk Selskab er en faglig organisation, hvis kommende retningslinjer for IBD i 2025 vil være afgørende for fremtidig justering af indikator 1b og dens kliniske relevans.",
       "mentions": [
         {
-          "page": 15,
-          "context": "\"Vælg klogt\" tilgang i pædiatrien – den kliniske situation og endoskopi viser tydeligt at det er colitis ulcerosa og barnet/den unge \"spares\" for yderigere invasiv diagnostik"
+          "page": 11,
+          "context": "Der afventes endvidere nye pædiatriske IBD guidelines fra såvel Dansk Pædiatrisk Selskab samt ESPGHAN/European Society for Pediatric Gastroenterology, Hepatology and Nutrition i 2025."
+        }
+      ]
+    },
+    {
+      "name": "ESPGHAN",
+      "type": "organization",
+      "slug": "espgghan",
+      "folder": "entities/organizations/health-organizations",
+      "significance": "ESPGHAN (European Society for Pediatric Gastroenterology, Hepatology and Nutrition) er den internationale faglige sammenslutning, hvis kommende retningslinjer for IBD i 2025 vil påvirke den vidensbaserede justering af indikator 1b i dansk praksis.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Der afventes endvidere nye pædiatriske IBD guidelines fra såvel Dansk Pædiatrisk Selskab samt ESPGHAN/European Society for Pediatric Gastroenterology, Hepatology and Nutrition i 2025."
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "danibd",
-      "predicate": "monitors-indicator-for",
-      "object": "inflammatory-bowel-disease",
-      "evidence": "DANIBD monitorerer indikatorer for diagnostik af IBD-patienter",
+      "subject": "indikator-1a",
+      "predicate": "monitors",
+      "object": "koloskopi",
+      "evidence": "Koloskopi omfatter koloskopi med og uden biopsi samt totale koloskopier (SKS-koder: KUJF32/35 og ydelseskode: 2114 for specialet ’kirurgi’). Koloskopien må være foretaget i året op til patientens første hospitalskontakt med en IBD-diagnose eller i året efter denne kontakt (+/- 12 mdr.)",
+      "page": 11
+    },
+    {
+      "subject": "indikator-1b",
+      "predicate": "requires",
+      "object": "gastroskopi",
+      "evidence": "Udredningen af børn og unge omfatter tre undersøgelser, der alle skal være foretaget til tiden for at indikatoren er opfyldt; gastroskopi med/uden biopsi OG koloskopi OG MR-scanning af tyndtarm/kapselendoskopi",
+      "page": 11
+    },
+    {
+      "subject": "indikator-1b",
+      "predicate": "requires",
+      "object": "koloskopi",
+      "evidence": "Udredningen af børn og unge omfatter tre undersøgelser, der alle skal være foretaget til tiden for at indikatoren er opfyldt; gastroskopi med/uden biopsi OG koloskopi OG MR-scanning af tyndtarm/kapselendoskopi",
+      "page": 11
+    },
+    {
+      "subject": "indikator-1b",
+      "predicate": "requires",
+      "object": "mr-scanning-af-tyndtarm",
+      "evidence": "Udredningen af børn og unge omfatter tre undersøgelser, der alle skal være foretaget til tiden for at indikatoren er opfyldt; gastroskopi med/uden biopsi OG koloskopi OG MR-scanning af tyndtarm/kapselendoskopi",
       "page": 11
     },
     {
       "subject": "hvidovre",
-      "predicate": "has-low-compliance-with",
-      "object": "koloskopi",
-      "evidence": "Hvidovre er en af fire afdelinger, hvor under 70 % af de nydiagnosticerede voksne er udredt med koloskopi",
+      "predicate": "varetaget-diagnostik-af",
+      "object": "veo-ibd",
+      "evidence": "De tre største universitetsafdelinger (Hvidovre, Odense og Aarhus) varetager diagnostik af de yngste børn med VEO-IBD, very-early onset IBD",
       "page": 11
     },
     {
       "subject": "ouh-svendborg",
-      "predicate": "has-low-compliance-with",
-      "object": "koloskopi",
-      "evidence": "OUH Svendborg er en af fire afdelinger, hvor under 70 % af de nydiagnosticerede voksne er udredt med koloskopi",
+      "predicate": "fails-indicator",
+      "object": "indikator-1a",
+      "evidence": "Der er dog fire afdelinger; Hvidovre, OUH Svendborg, Aarhus og Gødstrup, hvor under 70 % af de nydiagnosticerede voksne er udredt i overensstemmelse med anbefalingen.",
       "page": 11
     },
     {
-      "subject": "aarhus-university-hospital",
-      "predicate": "has-low-compliance-with",
-      "object": "koloskopi",
-      "evidence": "Aarhus er en af fire afdelinger, hvor under 70 % af de nydiagnosticerede voksne er udredt med koloskopi",
+      "subject": "aarhus",
+      "predicate": "fails-indicator",
+      "object": "indikator-1a",
+      "evidence": "Der er dog fire afdelinger; Hvidovre, OUH Svendborg, Aarhus og Gødstrup, hvor under 70 % af de nydiagnosticerede voksne er udredt i overensstemmelse med anbefalingen.",
       "page": 11
     },
     {
-      "subject": "goedstrup-hospital",
-      "predicate": "has-low-compliance-with",
-      "object": "koloskopi",
-      "evidence": "Gødstrup er en af fire afdelinger, hvor under 70 % af de nydiagnosticerede voksne er udredt med koloskopi",
+      "subject": "godstrup",
+      "predicate": "fails-indicator",
+      "object": "indikator-1a",
+      "evidence": "Der er dog fire afdelinger; Hvidovre, OUH Svendborg, Aarhus og Gødstrup, hvor under 70 % af de nydiagnosticerede voksne er udredt i overensstemmelse med anbefalingen.",
       "page": 11
     },
     {
-      "subject": "region-sjaelland",
-      "predicate": "shows-regional-variation-in",
-      "object": "koloskopi",
-      "evidence": "Region Sjælland viser regional variation fra 76 % til 86 % i koloskopi-udredning",
+      "subject": "styregruppen-for-danibd",
+      "predicate": "decides-on",
+      "object": "indikator-1b",
+      "evidence": "Under styregruppens audit diskuterede man, om indikator 1b på denne baggrund skal ændres. Det kan bestemt ses som et kvalitetsmål i sig selv at spare den pædiatriske patient for invasive undersøgelser, men styregruppen har valgt at fastholde indikatoren på nuværende tidspunkt",
       "page": 11
-    },
-    {
-      "subject": "region-nordjylland",
-      "predicate": "has-low-compliance-with",
-      "object": "gastroskopi",
-      "evidence": "Region Nordjylland ligger langt fra udviklingsmålet med kun 38 % af børn og unge med komplet udredning",
-      "page": 13
-    },
-    {
-      "subject": "rigshospitalet-paediatrisk-klinik",
-      "predicate": "achieves-full-compliance-with",
-      "object": "gastroskopi",
-      "evidence": "Rigshospitalet Pædiatrisk Klinik opnår 100 % compliance med indikator 1b",
-      "page": 13
-    },
-    {
-      "subject": "herlev-boern-og-unge",
-      "predicate": "achieves-full-compliance-with",
-      "object": "gastroskopi",
-      "evidence": "Herlev Børn og Unge opnår 100 % compliance med indikator 1b",
-      "page": 13
-    },
-    {
-      "subject": "viborg-boern-og-unge",
-      "predicate": "achieves-full-compliance-with",
-      "object": "gastroskopi",
-      "evidence": "Viborg Børn og Unge opnår 100 % compliance med indikator 1b",
-      "page": 13
-    },
-    {
-      "subject": "roskilde-paediatri",
-      "predicate": "exceeds-development-goal-for",
-      "object": "gastroskopi",
-      "evidence": "Roskilde Pædiatri har 90 % compliance, hvilket overstiger udviklingsmålet på 80 %",
-      "page": 13
-    },
-    {
-      "subject": "kolding-boerne-og-ungeafdeling",
-      "predicate": "exceeds-development-goal-for",
-      "object": "gastroskopi",
-      "evidence": "Kolding Børne- og Ungeafdeling har 87 % compliance, hvilket overstiger udviklingsmålet på 80 %",
-      "page": 13
-    },
-    {
-      "subject": "hvidovre",
-      "predicate": "treats-very-early-onset-ibd",
-      "object": "veo-ibd",
-      "evidence": "Hvidovre varetager diagnostik af de yngste børn med VEO-IBD",
-      "page": 15
-    },
-    {
-      "subject": "aarhus-university-hospital",
-      "predicate": "treats-very-early-onset-ibd",
-      "object": "veo-ibd",
-      "evidence": "Aarhus varetager diagnostik af de yngste børn med VEO-IBD",
-      "page": 15
-    },
-    {
-      "subject": "odense-boerne-og-ungeafdeling",
-      "predicate": "treats-very-early-onset-ibd",
-      "object": "veo-ibd",
-      "evidence": "Odense varetager diagnostik af de yngste børn med VEO-IBD",
-      "page": 15
-    },
-    {
-      "subject": "dansk-paediatrisk-selskab",
-      "predicate": "will-publish-guidelines-for",
-      "object": "inflammatory-bowel-disease",
-      "evidence": "Dansk Pædiatrisk Selskab forventes at udgive nye pædiatriske IBD guidelines i 2025",
-      "page": 15
-    },
-    {
-      "subject": "espghan",
-      "predicate": "will-publish-guidelines-for",
-      "object": "inflammatory-bowel-disease",
-      "evidence": "ESPGHAN forventes at udgive nye pædiatriske IBD guidelines i 2025",
-      "page": 15
     }
   ],
   "claims": [
     {
-      "text": "79 % af de i alt 2385 nydiagnosticerede voksne har fået foretaget koloskopi [^src1]",
-      "type": "quality-indicator",
+      "text": "Udviklingsmålet for indikator 1a er nået på landsplan, da 79 % af de i alt 2385 nydiagnosticerede har fået foretaget koloskopi [^src1]",
+      "type": "performance",
       "entities": [
-        "danibd",
-        "koloskopi"
+        "indikator-1a",
+        "danibd"
       ],
       "page": 11
     },
     {
-      "text": "Udviklingsmålet for koloskopi-udredning af voksne IBD-patienter er nået på landsplan [^src1]",
-      "type": "quality-indicator",
+      "text": "Regional variation for indikator 1a ligger fra 76 % til 86 % i Region Sjælland [^src1]",
+      "type": "performance",
       "entities": [
-        "danibd",
-        "koloskopi"
+        "indikator-1a",
+        "region-sjaelland"
       ],
       "page": 11
     },
     {
-      "text": "Alle regioner lever op til eller er tæt på at opnå udviklingsmålet for koloskopi, med regional variation fra 76 % til 86 % i Region Sjælland [^src1]",
-      "type": "quality-indicator",
+      "text": "Fire afdelinger — Hvidovre, OUH Svendborg, Aarhus og Gødstrup — har under 70 % opfyldelse af indikator 1a [^src1]",
+      "type": "performance",
       "entities": [
-        "region-sjaelland",
-        "koloskopi"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Fire afdelinger (Hvidovre, OUH Svendborg, Aarhus og Gødstrup) har under 70 % af nydiagnosticerede voksne udredt med koloskopi [^src1]",
-      "type": "quality-indicator",
-      "entities": [
+        "indikator-1a",
         "hvidovre",
         "ouh-svendborg",
-        "aarhus-university-hospital",
-        "goedstrup-hospital",
-        "koloskopi"
+        "aarhus",
+        "godstrup"
       ],
       "page": 11
     },
     {
-      "text": "Udviklingsmålet for indikator 1b er, at mindst 80 % af nydiagnosticerede børn og unge skal have foretaget alle tre undersøgelser (gastroskopi, koloskopi og MR-scanning/kapselendoskopi) i udredningsforløbet [^src2]",
-      "type": "quality-indicator",
+      "text": "I alt 69 % af de nydiagnosticerede børn og unge har fået foretaget en komplet udredning for indikator 1b, hvormed udviklingsmålet på ≥80 % ikke er nået [^src1]",
+      "type": "performance",
       "entities": [
-        "gastroskopi",
-        "koloskopi",
-        "mr-scanning-af-tyndtarm",
-        "kapselendoskopi"
-      ],
-      "page": 13
-    },
-    {
-      "text": "I alt 69 % af de nydiagnosticerede børn og unge har fået foretaget en komplet udredning, hvormed udviklingsmålet ikke er nået [^src2]",
-      "type": "quality-indicator",
-      "entities": [
+        "indikator-1b",
         "danibd"
       ],
-      "page": 13
+      "page": 11
     },
     {
-      "text": "Der ses stor regional variation i komplet IBD-udredning af børn og unge, da Region Sjælland og Midtjylland er tæt på at nå udviklingsmålet (77-78%), mens Region Nordjylland ligger langt fra med kun 38 % [^src2]",
-      "type": "quality-indicator",
+      "text": "Region Nordjylland har kun 38 % opfyldelse af indikator 1b [^src1]",
+      "type": "performance",
       "entities": [
-        "region-sjaelland",
-        "region-midtjylland",
+        "indikator-1b",
         "region-nordjylland"
       ],
-      "page": 13
+      "page": 11
     },
     {
-      "text": "8 ud af 14 afdelinger lever ikke op til udviklingsmålet ved denne første opgørelse af indikator 1b [^src2]",
-      "type": "quality-indicator",
+      "text": "8 ud af 14 afdelinger lever ikke op til udviklingsmålet for indikator 1b [^src1]",
+      "type": "performance",
       "entities": [
+        "indikator-1b",
         "danibd"
       ],
-      "page": 13
+      "page": 11
     },
     {
-      "text": "Der er stor variation på afdelingsniveau fra 38 % til 100 % i compliance med indikator 1b, når der ses bort fra afdelinger med færre end 10 patienter [^src2]",
-      "type": "quality-indicator",
+      "text": "Af de 65 nydiagnosticerede børn og unge, der ikke opfylder målet om komplet udredning til tiden, mangler 60 % MR-scanning/kapselendoskopi [^src1]",
+      "type": "performance",
       "entities": [
-        "danibd"
-      ],
-      "page": 13
-    },
-    {
-      "text": "Blandt de 65 nydiagnosticerede børn og unge, der ikke opfylder målet om komplet udredning til tiden, har 22 % ikke fået foretaget en eneste undersøgelse, mens 60 % mangler MR-scanning/kapselendoskopi [^src2]",
-      "type": "quality-indicator",
-      "entities": [
-        "mr-scanning-af-tyndtarm",
-        "kapselendoskopi"
-      ],
-      "page": 13
-    },
-    {
-      "text": "14 børn/unge mangler alle tre undersøgelser, 6 mangler to undersøgelser, 39 mangler kun MR/kapselendoskopi, og 6 mangler kun gastroskopi [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "gastroskopi",
-        "mr-scanning-af-tyndtarm",
-        "kapselendoskopi"
-      ],
-      "page": 15
-    },
-    {
-      "text": "De mindste børn bedøves ikke to gange til både endoskopi og efterfølgende MR-scanning [^src3]",
-      "type": "clinical-practice",
-      "entities": [
+        "indikator-1b",
         "mr-scanning-af-tyndtarm"
       ],
-      "page": 15
-    },
-    {
-      "text": "Akut sygdomsdebut og behandlingsstart umiddelbart efter endoskopi kan forhindre supplerende MR af tyndtarm [^src3]",
-      "type": "clinical-practice",
-      "entities": [
-        "mr-scanning-af-tyndtarm"
-      ],
-      "page": 15
-    },
-    {
-      "text": "For lang ventetid på MR-scanning af børn kan være en årsag til, at MR af tyndtarm ikke gennemføres [^src3]",
-      "type": "clinical-practice",
-      "entities": [
-        "mr-scanning-af-tyndtarm"
-      ],
-      "page": 15
-    },
-    {
-      "text": "\"Vælg klogt\" tilgang i pædiatrien betyder, at når endoskopi viser tydeligt colitis ulcerosa, spares barnet/den unge for yderligere invasiv diagnostik [^src3]",
-      "type": "clinical-practice",
-      "entities": [
-        "ulcerative-colitis"
-      ],
-      "page": 15
-    },
-    {
-      "text": "Flere patienter er primært henvist til og udredt i kirurgisk regi med sigmoideoskopi/koloskopi alene [^src3]",
-      "type": "clinical-practice",
-      "entities": [
-        "sigmoideoskopi",
-        "koloskopi"
-      ],
-      "page": 15
-    },
-    {
-      "text": "De tre største universitetsafdelinger (Hvidovre, Odense og Aarhus) varetager diagnostik af de yngste børn med VEO-IBD, og der kan derfor være en bias i forhold til fravalgt MR pga. krav om 2 anæstesier med kort mellemrum [^src3]",
-      "type": "clinical-practice",
-      "entities": [
-        "hvidovre",
-        "odense-boerne-og-ungeafdeling",
-        "aarhus-university-hospital",
-        "veo-ibd",
-        "mr-scanning-af-tyndtarm"
-      ],
-      "page": 15
-    },
-    {
-      "text": "Forløb på H.C. Andersen Børneafdeling, OUH, viste sig at være fejlkodet som IBD, hvilket påpeger behovet for større opmærksomhed på kodepraksis [^src3]",
-      "type": "data-quality",
-      "entities": [
-        "hc-andersen-boerneafdeling"
-      ],
-      "page": 15
-    },
-    {
-      "text": "Styregruppen har valgt at fastholde indikator 1b på nuværende tidspunkt, følge udviklingen og evaluere indikator 1b igen ved næste audit primo 2026 [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "danibd"
-      ],
-      "page": 15
-    },
-    {
-      "text": "Der afventes nye pædiatriske IBD guidelines fra Dansk Pædiatrisk Selskab og ESPGHAN i 2025 [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "dansk-paediatrisk-selskab",
-        "espghan"
-      ],
-      "page": 15
-    },
-    {
-      "text": "Inden næste audit udarbejdes en subanalyse af, hvordan de 14 pædiatriske patienter, der ikke opfylder indikatoren, er identificeret med en IBD diagnose uden en eneste relevant procedurekode [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "danibd"
-      ],
-      "page": 15
-    },
-    {
-      "text": "Der skal identificeres en forskel i anvendelsen af MR scanning hos patienter over/under 10 år [^src3]",
-      "type": "quality-indicator",
-      "entities": [
-        "mr-scanning-af-tyndtarm"
-      ],
-      "page": 15
+      "page": 11
     }
   ],
   "timeline": [
     {
-      "date": "01.10.2022 - 30.09.2023",
-      "event": "Opgørelsesperiode for indikator 1a (voksne) og 1b (børn og unge) med resultat på 79 % for voksne og 69 % for børn/unge",
+      "date": "2022-10-01",
+      "event": "Start af opgørelsesperioden for indikator 1b (01.10.2022 - 30.09.2023)",
       "entities": [
-        "danibd",
-        "koloskopi",
-        "gastroskopi"
+        "indikator-1b"
       ]
     },
     {
-      "date": "primo 2026",
-      "event": "Næste audit planlagt, hvor indikator 1b skal evalueres igen",
+      "date": "2023-09-30",
+      "event": "Slut på opgørelsesperioden for indikator 1b (01.10.2022 - 30.09.2023)",
       "entities": [
-        "danibd"
+        "indikator-1b"
       ]
     },
     {
-      "date": "2025",
-      "event": "Nye pædiatriske IBD guidelines forventes fra Dansk Pædiatrisk Selskab og ESPGHAN",
+      "date": "2026-01-01",
+      "event": "Næste audit af indikator 1b planlagt af styregruppen for DANIBD",
+      "entities": [
+        "indikator-1b",
+        "styregruppen-for-danibd"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "event": "Forventet udgivelse af nye pædiatriske IBD-guidelines fra Dansk Pædiatrisk Selskab og ESPGHAN",
       "entities": [
         "dansk-paediatrisk-selskab",
-        "espghan",
-        "inflammatory-bowel-disease"
+        "espgghan"
       ]
     }
   ],
-  "context": "Denne dokumentchunk præsenterer resultater fra DANIBD-registeret for indikatorer 1a og 1b, som monitorerer diagnostisk udredning af nydiagnosticerede IBD-patienter på tværs af danske hospitaler og regioner. Indikator 1a fokuserer på koloskopi-udredning af voksne, hvor udviklingsmålet på 79 % er nået på landsplan, mens indikator 1b fokuserer på komplet udredning (gastroskopi, koloskopi og MR-scanning/kapselendoskopi) af børn og unge, hvor kun 69 % opfylder målet. Dokumentet diskuterer regional og afdelingsniveau variation, årsager til manglende compliance, og planer for evaluering af indikatoren ved næste audit i 2026."
+  "tables": [
+    {
+      "subject": "indikator-1b",
+      "title": "Indikator 1b: Andelen af nydiagnosticerede børn og unge med IBD, der har fået foretaget relevant udredning",
+      "page": 11,
+      "rowDimension": "region or department",
+      "colDimension": "count, percentage and 95% confidence interval",
+      "entities": [
+        "indikator-1b",
+        "danibd",
+        "region-sjaelland",
+        "region-nordjylland",
+        "hvidovre",
+        "ouh-svendborg",
+        "aarhus",
+        "godstrup"
+      ],
+      "markdown": "| Danmark | 142 | / | 207 | 69 | (62-75) |\n| Hovedstaden | 41 | / | 62 | 66 | (53-78) |\n| Sjælland | 25 | / | 32 | 78 | (60-91) |\n| Syddanmark | 31 | / | 44 | 70 | (55-83) |\n| Midtjylland | 37 | / | 48 | 77 | (63-88) |\n| Nordjylland | 8 | / | 21 | 38 | (18-62) |\n| Herlev | Børn | og | Unge | # | / | # | 100 | (3-100) |\n| Hvidovre | Børne- | og | Ungeafdeling | 28 | / | 42 | 67 | (50-80) |\n| Nordsjælland | Børne- | og | Ungeafdeling | 9 | / | 16 | 56 | (30-80) |\n| Rigshospitalet Pædiatrisk Klinik, GGK 3 / 3 100 (29-100) |\n| Sjælland 25 / 32 78 (60-91) |\n| HOL Holbæk Pædiatri 3 / 5 60 (15-95) |\n| NSR Slagelse Pædiatri # / # 33 (1-91) |\n| SUH Nykøbing F. Pædiatri # / # 67 (9-99) |\n| SUH Roskilde Pædiatri 19 / 21 90 (70-99) |\n| Syddanmark 31 / 44 70 (55-83) |\n| OUH Odense Børne- og Ungeafdeling H 11 / 21 52 (30-74) |\n| SLB Kolding Børne- og Ungeafdeling 20 / 23 87 (66-97) |\n| Midtjylland 37 / 48 77 (63-88) |\n| Aarhus Børn og Unge 21 / 31 68 (49-83) |\n| Gødstrup Børn og Unge 5 / 6 83 (36-100) |\n| HE Midt Viborg Børn og Unge 11 / 11 100 (72-100) |\n| Nordjylland 8 / 21 38 (18-62) |\n| AAUH Aalborg Børne- og Ungeafdeling 8 / 21 38 (18-62) |",
+      "summary": "Tabellen viser andelen af nydiagnosticerede børn og unge med IBD, der har fået foretaget alle tre anbefalede undersøgelser (gastroskopi, koloskopi og MR-scanning/kapselendoskopi), med stor variation fra 38 % i Region Nordjylland til 100 % på nogle afdelinger, og en national andel på 69 %."
+    },
+    {
+      "subject": "aarsag-til-ikke-opfyldt-indikator",
+      "title": "Årsag til ikke opfyldt indikator",
+      "page": 11,
+      "rowDimension": "reason for non-compliance",
+      "colDimension": "number and percentage",
+      "entities": [
+        "indikator-1b"
+      ],
+      "markdown": "| Årsag til ikke opfyldt indikator | Antal | Procent |\n| --- | --- | --- |\n| Mangler:\n▪ alle tre undersøgelser | 14 | 22 |\n| ▪ to undersøgelser | 6 | 9 |\n| ▪ én undersøgelse\n- MR / kapselendoskopi | 39 | 60 |\n| - gastroskopi | 6 | 9 |",
+      "summary": "Tabellen identificerer årsagerne til manglende opfyldelse af indikator 1b, hvor 60 % af de 65 patienter mangler MR-scanning/kapselendoskopi, hvilket er den dominerende barrier for komplet udredning."
+    }
+  ],
+  "context": "Dette dokumentudsnit fra siderne 11–15 i DANIBD-rapporten 2024 handler om evalueringen af to centrale kvalitetsindikatorer for udredning af inflammatoriske tarmsygdomme (IBD): Indikator 1a for voksne og Indikator 1b for børn og unge. Den dækker beregningsregler, resultater, regional og afdelingsmæssig variation, samt dybere analyse af årsager til manglende opfyldelse — især manglende MR-scanning af tyndtarm hos børn. Sammenhængen er del af den bredere nationale indsats for at standardisere og forbedre IBD-diagnostik i Danmark gennem DANIBD-databasen og dens styregruppe, og indgår direkte i udviklingen af fremtidige retningslinjer fra både nationale og internationale faglige selskaber."
 }

@@ -4,44 +4,49 @@ type: entity
 aliases:
   - Lars Frost
 wiki: rkkp-afdk
-updated: '2026-08-03T19:14:15.567Z'
+updated: '2026-08-05T19:20:34.885Z'
 sources:
-  - file: AFDK_2023.pdf
+  - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: '1-5, 81-85'
-  - file: AFDK_2024.pdf
+  - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: 66-70
 tags:
   - person
 ---
+Lars Frost is a Danish medical professional who serves as the chairman of the steering committee for the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (AFDK) [^src1]. He holds the title of Chief Physician and Doctor of Medicine (*overlæge, dr.med.*) and is affiliated with Regionshospitalet Silkeborg, which is part of Hospitalsenhed Midt [^src1]. 
 
-# Lars Frost
+As the chair of the [[afdk-styregruppe|Styregruppen for AFDK]], Frost acts as a central clinical leader and professional guarantor for the database's annual reports [^src1]. His role positions him as a crucial decision-maker in the ongoing quality development and standardization of atrial fibrillation treatment across Denmark [^src2]. The AFDK is a national quality database under the Regions' Clinical Quality Development Program (RKKP), and its reports are directed at healthcare professionals and political decision-makers to document and improve treatment quality for patients with atrial fibrillation [^src1]. 
 
-Lars Frost is a senior consultant physician (overlæge) and holds a doctorate in medicine (dr.med.), based at [[regionshospitalet-silkeborg|Regionshospitalet Silkeborg]] within Hospitalsenhed Midt [^src1] [^src2] [^src3]. He serves as chairman of the steering committee for [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (AFDK), Denmark's national clinical quality database for atrial fibrillation care [^src1] [^src2].
-
-Frost's name appears consistently across the AFDK annual reports as the head of the database's governing body. The 2023 annual report — covering the period 1 July 2022 to 30 June 2023 and analysing treatment quality for 19,671 incident and 134,810 prevalent atrial fibrillation patients drawn from public hospitals reporting to the Landspatientregisteret — identifies him explicitly as chairman: "Formandsskabet for Databasen for Atrieflimren i Danmark udgøres af Lars Frost" [^src1]. Later in the same report's chapter on data foundations and steering committee composition, he is again listed under "Formandskab" (chairmanship) [^src2]. The following year's report, covering pages 66-70 and dealing with patient education, patient representative perspectives, and steering committee membership, again names him as "Overlæge, dr. med., Hospitalsenhed Midt" [^src3].
-
-His role situates him at the center of AFDK's institutional structure: as chair of the steering committee, he is tied to the database's work assessing whether Danish atrial fibrillation treatment meets established standards and identifying clinically meaningful variation across Danish regions, municipalities, and hospitals — covering process indicators (anticoagulation therapy, echocardiography, TSH measurement) and outcome indicators (bleeding risk, patient education) that the database is built to track.
+Frost's leadership and membership in the steering committee are documented across multiple reporting periods, including the 2023 annual report (covering July 2022 to June 2023) [^src2] and the subsequent 2024 report [^src3]. His continued involvement underscores the interdisciplinary and cross-sectoral nature of the national quality development program, which aims to ensure uniform, evidence-based, and patient-centered care for a common and potentially serious chronic heart condition [^src3].
 
 ## Mentions
 
-- Page 1: "Lars Frost, overlæge, dr.med., Regionshospitalet Silkeborg, Hospitalsenhed Midt" [^src1]
-- Page 83: "Formandskab Lars Frost, Overlæge, dr. med. Regionshospitalet Silkeborg, Hospitalsenhed Midt" [^src2]
+- Page 1: "Formandsskabet for Databasen for Atrieflimren i Danmark udgøres af Lars Frost, overlæge, dr.med., Regionshospitalet Silkeborg, Hospitalsenhed Midt" [^src1]
+- Page 83: "Formandskab Lars Frost, Overlæge, dr. med.
+Regionshospitalet Silkeborg, Hospitalsenhed Midt" [^src2]
 - Page 70: "Lars Frost, Overlæge, dr. med., Hospitalsenhed Midt" [^src3]
 
 ## Relationships
 
-- Subject: lars-frost — Predicate: is-chair-of — Object: databasen-for-atrieflimren-i-danmark — Evidence: "Formandsskabet for Databasen for Atrieflimren i Danmark udgøres af Lars Frost" [^src1]
-- Subject: lars-frost — Predicate: works-at — Object: regionshospitalet-silkeborg — Evidence: "Lars Frost, overlæge, dr.med., Regionshospitalet Silkeborg, Hospitalsenhed Midt" [^src1]
-- Subject: lars-frost — Predicate: chairs — Object: databasen-for-atrieflimren-i-danmark — Evidence: "Formandskab Lars Frost, Overlæge, dr. med." [^src2]
-- Subject: lars-frost — Predicate: works-at — Object: regionshospitalet-silkeborg — Evidence: "Regionshospitalet Silkeborg, Hospitalsenhed Midt" [^src2]
+- **Subject:** lars-frost | **Predicate:** is-chair-of | **Object:** afdk-styregruppe
+  - **Evidence:** "Formandsskabet for Databasen for Atrieflimren i Danmark udgøres af Lars Frost, overlæge, dr.med., Regionshospitalet Silkeborg, Hospitalsenhed Midt, Albert Marni Joensen, overlæge, ph.d., Regionshospitalet Nordjylland og Ulla Dam-Schmidt, sygeplejerske, MKS, Bispebjerg og Frederiksberg Hospital."
+  - **Page:** 1 [^src1]
+
+- **Subject:** lars-frost | **Predicate:** is-chair-of | **Object:** databasen-for-atrieflimren-i-danmark
+  - **Evidence:** "Formandskab Lars Frost, Overlæge, dr. med."
+  - **Page:** 83 [^src2]
+
+- **Subject:** lars-frost | **Predicate:** is-member-of | **Object:** afdk-styregruppe
+  - **Evidence:** "Lars Frost, Overlæge, dr. med., Hospitalsenhed Midt"
+  - **Page:** 70 [^src3]
 
 ## Claims
 
-(none)
+*(No claims extracted)*
 
 ## Timeline
 
-(none)
+*(No timeline events extracted)*
 
 ## Sources
 

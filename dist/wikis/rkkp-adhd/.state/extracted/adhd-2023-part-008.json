@@ -4,452 +4,277 @@
       "name": "ADHD-DATABASEN",
       "type": "organization",
       "slug": "adhd-databasen",
-      "folder": "entities/organizations/health-registries",
-      "significance": "ADHD-DATABASEN er en dansk sundhedsregister, der dokumenterer behandlingsforløb og resultater for patienter med ADHD, herunder farmakologisk behandling og skolepræstationer.",
+      "folder": "entities/organizations/public-health",
+      "significance": "ADHD-DATABASEN er den centrale danske nationaldatabase, der overvåger kvalitetsindikatorer for ADHD-diagnostik og behandling, og danner grundlag for rapporteringen på side 36–40 om medicinsk behandling og uddannelsesresultater blandt unge med ADHD.",
       "mentions": [
         {
           "page": 36,
           "context": "ADHD-DATABASEN"
-        },
-        {
-          "page": 37,
-          "context": "ADHD-DATABASEN"
         }
       ]
     },
     {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det geografiske område, hvor ADHD-behandlingsdata indsamles og analyseres på landsplan.",
+      "name": "Indikator 6",
+      "type": "topic",
+      "slug": "indikator-6",
+      "folder": "topics/adhd-indicators",
+      "significance": "Indikator 6 måler andelen af ADHD-behandlingsforløb, hvor patienten har indløst mindst to recepter på ADHD-medicin inden for de første 120 dage efter start af pakkeforløbet, og er en central deskriptiv indikator for farmakologisk behandlingspraksis i Danmark.",
       "mentions": [
         {
           "page": 36,
-          "context": "Danmark"
-        },
-        {
-          "page": 37,
-          "context": "Danmark"
+          "context": "Indikator 6: Farmakologisk behandling"
         }
       ]
     },
     {
-      "name": "Hovedstaden",
-      "type": "location",
-      "slug": "hovedstaden",
-      "folder": "entities/locations/regions",
-      "significance": "Hovedstaden er en dansk region, der indgår i ADHD-databasens regionale analyse af behandlingsforløb og skolepræstationer.",
+      "name": "Indikator 7a",
+      "type": "topic",
+      "slug": "indikator-7a",
+      "folder": "topics/adhd-indicators",
+      "significance": "Indikator 7a registrerer andelen af unge i ADHD-udredningspopulationen, der har bestået folkeskolens afgangseksamen inden fylde 17 år, og bruges til at vurdere uddannelsesmæssige resultater i forhold til baggrundspopulationen.",
       "mentions": [
         {
           "page": 36,
-          "context": "Hovedstaden"
-        },
-        {
-          "page": 37,
-          "context": "Hovedstaden"
+          "context": "Resultatindikator 7a og 7b: Bestået folkeskolens afgangseksamen\nIndikator 7a: Andelen af unge i \"ADHD-udredningspopulation\", der har bestået folkeskolens afgangseksamen inden han/hun er fyldt 17 år"
         }
       ]
     },
     {
-      "name": "Sjælland",
-      "type": "location",
-      "slug": "sjaelland",
-      "folder": "entities/locations/regions",
-      "significance": "Sjælland er en dansk region, der indgår i ADHD-databasens regionale analyse af behandlingsforløb og skolepræstationer.",
+      "name": "Indikator 7b",
+      "type": "topic",
+      "slug": "indikator-7b",
+      "folder": "topics/adhd-indicators",
+      "significance": "Indikator 7b måler andelen af unge i ADHD-behandlingspopulationen, der har bestået folkeskolens afgangseksamen inden fylde 17 år, og giver et mere selektivt billede end 7a, da den kun omfatter personer, der har indgået et formelt behandlingsforløb.",
       "mentions": [
         {
           "page": 36,
-          "context": "Sjælland"
-        },
-        {
-          "page": 37,
-          "context": "Sjælland"
+          "context": "Indikator 7b: Andelen af unge i \"ADHD-behandlingspopulation\", der har bestået folkeskolens afgangseksamen inden han/hun er fyldt 17 år"
         }
       ]
     },
     {
-      "name": "Syddanmark",
-      "type": "location",
-      "slug": "syddanmark",
-      "folder": "entities/locations/regions",
-      "significance": "Syddanmark er en dansk region, der indgår i ADHD-databasens regionale analyse af behandlingsforløb og skolepræstationer.",
+      "name": "ADHD-udredningspopulation",
+      "type": "population",
+      "slug": "adhd-udredningspopulation",
+      "folder": "entities/populations/adhd",
+      "significance": "ADHD-udredningspopulationen er den nationale population af personer, der har gennemgået en ADHD-udredning siden 1. januar 2013, og udgør nævneren for Indikator 7a.",
       "mentions": [
         {
           "page": 36,
-          "context": "Syddanmark"
-        },
-        {
-          "page": 37,
-          "context": "Syddanmark"
+          "context": "Indikatorpopulation (nævner): Antal unge i \"ADHD udredningspopulation\"*, der er fyldt 17 år i kalenderåret før opgørelsesperiodens afslutning og i de to foregående kalenderår"
         }
       ]
     },
     {
-      "name": "Midtjylland",
-      "type": "location",
-      "slug": "midtjylland",
-      "folder": "entities/locations/regions",
-      "significance": "Midtjylland er en dansk region, der indgår i ADHD-databasens regionale analyse af behandlingsforløb og skolepræstationer.",
+      "name": "ADHD-behandlingspopulation",
+      "type": "population",
+      "slug": "adhd-behandlingspopulation",
+      "folder": "entities/populations/adhd",
+      "significance": "ADHD-behandlingspopulationen er den nationale population af personer, der har indgået et ADHD-pakkeforløb siden 25. maj 2021, og udgør nævneren for Indikator 7b samt tæller-/nævnerdefinitionen for Indikator 6.",
       "mentions": [
         {
           "page": 36,
-          "context": "Midtjylland"
-        },
-        {
-          "page": 37,
-          "context": "Midtjylland"
+          "context": "Indikatorpopulation (nævner): Antal unge i \"ADHD behandlingspopulation\"*, der er fyldt 17 år i kalenderåret før opgørelsesperiodens afslutning"
         }
       ]
     },
     {
-      "name": "Nordjylland",
-      "type": "location",
-      "slug": "nordjylland",
-      "folder": "entities/locations/regions",
-      "significance": "Nordjylland er en dansk region, der indgår i ADHD-databasens regionale analyse af behandlingsforløb og skolepræstationer.",
+      "name": "Dexamfetamin (N06BA02)",
+      "type": "medication",
+      "slug": "dexamfetamin-n06ba02",
+      "folder": "entities/medications/adhd",
+      "significance": "Dexamfetamin er én af seks ADHD-medicineringer inkluderet i beregningen af Indikator 6, defineret ved ATC-kode N06BA02, og repræsenterer en stimulerende farmakologisk behandlingsmulighed.",
       "mentions": [
         {
           "page": 36,
-          "context": "Nordjylland"
-        },
-        {
-          "page": 37,
-          "context": "Nordjylland"
+          "context": "Dexamfetamin (N06BA02)"
         }
       ]
     },
     {
-      "name": "Bispebjerg",
+      "name": "Methylphenidat (N06BA04)",
+      "type": "medication",
+      "slug": "methylphenidat-n06ba04",
+      "folder": "entities/medications/adhd",
+      "significance": "Methylphenidat er én af seks ADHD-medicineringer inkluderet i beregningen af Indikator 6, defineret ved ATC-kode N06BA04, og er den mest almindelige farmakologiske behandling af ADHD i Danmark.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "methylphenidat (N06BA04)"
+        }
+      ]
+    },
+    {
+      "name": "Modafinil (N06BA07)",
+      "type": "medication",
+      "slug": "modafinil-n06ba07",
+      "folder": "entities/medications/adhd",
+      "significance": "Modafinil er én af seks ADHD-medicineringer inkluderet i beregningen af Indikator 6, defineret ved ATC-kode N06BA07, og anvendes som alternativ behandling ved specifikke kliniske betingelser.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "modafinil (N06BA07)"
+        }
+      ]
+    },
+    {
+      "name": "Atomoxetin (N06BA09)",
+      "type": "medication",
+      "slug": "atomoxetin-n06ba09",
+      "folder": "entities/medications/adhd",
+      "significance": "Atomoxetin er én af seks ADHD-medicineringer inkluderet i beregningen af Indikator 6, defineret ved ATC-kode N06BA09, og er en ikke-stimulerende, noradrenalin-genoptagelseshæmmer.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "atomoxetin (N06BA09)"
+        }
+      ]
+    },
+    {
+      "name": "Lisdexamfetamin (N06BA12)",
+      "type": "medication",
+      "slug": "lisdexamfetamin-n06ba12",
+      "folder": "entities/medications/adhd",
+      "significance": "Lisdexamfetamin er én af seks ADHD-medicineringer inkluderet i beregningen af Indikator 6, defineret ved ATC-kode N06BA12, og er en prodrug af dexamfetamin med forlænget virkningstid.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "lisdexamfetamin (N06BA12)"
+        }
+      ]
+    },
+    {
+      "name": "Guanfacin (C02AC02)",
+      "type": "medication",
+      "slug": "guanfacin-c02ac02",
+      "folder": "entities/medications/adhd",
+      "significance": "Guanfacin er én af seks ADHD-medicineringer inkluderet i beregningen af Indikator 6, defineret ved ATC-kode C02AC02, og anvendes som sekundær behandling ved ADHD med komorbiditet.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "guanfacin (C02AC02)"
+        }
+      ]
+    },
+    {
+      "name": "Baggrundspopulationen 2023",
+      "type": "population",
+      "slug": "baggrundspopulationen-2023",
+      "folder": "entities/populations/general",
+      "significance": "Baggrundspopulationen 2023 er den generelle danske befolkning af unge, der bruges som sammenligningsgrundlag for uddannelsesresultater i Indikator 7a og 7b, og viser en beståelsesrate på 86 % for folkeskolens afgangseksamen.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Baggrundspopulationen 2023*"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen",
       "type": "organization",
-      "slug": "bispebjerg",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "Bispebjerg er en psykiatrisk ambulatorium for børn og unge i Hovedstaden-regionen, der indgår i ADHD-databasens behandlingsdata.",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/public-health",
+      "significance": "Styregruppen er den beslutningskompetente gruppe, der drøfter fremtidig anvendelse af Indikator 6 i ADHD-DATABASEN, herunder muligheden for at flytte den til supplerende materiale i stedet for at bevare den som primær kvalitetsindikator.",
       "mentions": [
         {
           "page": 36,
-          "context": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge"
-        }
-      ]
-    },
-    {
-      "name": "Bornholm",
-      "type": "organization",
-      "slug": "bornholm",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "Bornholm er en psykiatrisk ambulatorium for børn og unge i Hovedstaden-regionen, der indgår i ADHD-databasens behandlingsdata.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Bornholm: Psykiatrisk ambulatorium, børn og unge"
-        }
-      ]
-    },
-    {
-      "name": "Glostrup",
-      "type": "organization",
-      "slug": "glostrup",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "Glostrup er en psykiatrisk ambulatorium for børn og unge i Hovedstaden-regionen, der indgår i ADHD-databasens behandlingsdata.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Glostrup: Psykiatrisk ambulatorium, børn og unge"
-        }
-      ]
-    },
-    {
-      "name": "Hillerød",
-      "type": "organization",
-      "slug": "hilleroed",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "Hillerød er en psykiatrisk ambulatorium for børn og unge i Hovedstaden-regionen, der indgår i ADHD-databasens behandlingsdata.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Hillerød: Psykiatrisk ambulatorium, børn og unge"
-        }
-      ]
-    },
-    {
-      "name": "Aabenraa",
-      "type": "organization",
-      "slug": "aabenraa",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "Aabenraa er en børne- og ungdomspsykiatrisk ambulatorium i Syddanmark-regionen, der indgår i ADHD-databasens behandlingsdata.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg",
-      "type": "organization",
-      "slug": "esbjerg",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "Esbjerg er en børne- og ungdomspsykiatrisk ambulatorium i Syddanmark-regionen, der indgår i ADHD-databasens behandlingsdata.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium"
-        }
-      ]
-    },
-    {
-      "name": "Odense",
-      "type": "organization",
-      "slug": "odense",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "Odense er en børne- og ungdomspsykiatrisk ambulatorium i Syddanmark-regionen, der indgår i ADHD-databasens behandlingsdata.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium"
-        }
-      ]
-    },
-    {
-      "name": "Vejle",
-      "type": "organization",
-      "slug": "vejle",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "Vejle er en børne- og ungdomspsykiatrisk ambulatorium i Syddanmark-regionen, der indgår i ADHD-databasens behandlingsdata.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium"
-        }
-      ]
-    },
-    {
-      "name": "BUA Børne- og ungdomspsykiatri - Sengeafsnit",
-      "type": "organization",
-      "slug": "bua-boerne-ungdomspsykiatri-sengeafsnit",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "BUA Børne- og ungdomspsykiatri - Sengeafsnit er en indlæggelsesenhed i Midtjylland-regionen, der indgår i ADHD-databasens behandlingsdata.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "BUA Børne- og ungdomspsykiatri - Sengeafsnit"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Skolebørn",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-skoleboern",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "BUA Psykiatrisk Klinik for Skolebørn er en klinik i Midtjylland-regionen, der indgår i ADHD-databasens behandlingsdata.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "BUA Psykiatrisk Klinik for Skolebørn"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Småbørn",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-smaaboern",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "BUA Psykiatrisk Klinik for Småbørn er en klinik i Midtjylland-regionen, der indgår i ADHD-databasens behandlingsdata.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "BUA Psykiatrisk Klinik for Småbørn"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Udredning",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-udredning",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "BUA Psykiatrisk Klinik for Udredning er en klinik i Midtjylland-regionen, der indgår i ADHD-databasens behandlingsdata.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "BUA Psykiatrisk Klinik for Udredning"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Unge",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-unge",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "BUA Psykiatrisk Klinik for Unge er en klinik i Midtjylland-regionen, der indgår i ADHD-databasens behandlingsdata.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "BUA Psykiatrisk Klinik for Unge"
-        }
-      ]
-    },
-    {
-      "name": "Børne- og ungdomspsyk. Ambulatorium",
-      "type": "organization",
-      "slug": "boerne-ungdomspsyk-ambulatorium",
-      "folder": "entities/organizations/health-facilities",
-      "significance": "Børne- og ungdomspsyk. Ambulatorium er en ambulatorium i Nordjylland-regionen, der indgår i ADHD-databasens behandlingsdata.",
-      "mentions": [
-        {
-          "page": 36,
-          "context": "Børne- og ungdomspsyk. Ambulatorium"
+          "context": "Hvordan den fremtidigt skal indgå i databasen, diskuteres i styregruppen."
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "adhd-databasen",
-      "predicate": "covers-region",
-      "object": "danmark",
-      "evidence": "ADHD-DATABASEN indeholder data fra Danmark på landsplan",
+      "subject": "indikator-6",
+      "predicate": "measures",
+      "object": "adhd-behandlingspopulation",
+      "evidence": "Indikatorpopulation (nævner): Antal forløb i \"ADHD behandlingspopulation\", hvor dato for start af pakkeforløb er i opgørelsesperioden",
+      "page": 36
+    },
+    {
+      "subject": "indikator-7a",
+      "predicate": "measures",
+      "object": "adhd-udredningspopulation",
+      "evidence": "Indikatorpopulation (nævner): Antal unge i \"ADHD udredningspopulation\"*, der er fyldt 17 år i kalenderåret før opgørelsesperiodens afslutning",
+      "page": 36
+    },
+    {
+      "subject": "indikator-7b",
+      "predicate": "measures",
+      "object": "adhd-behandlingspopulation",
+      "evidence": "Indikatorpopulation (nævner): Antal unge i \"ADHD behandlingspopulation\"*, der er fyldt 17 år i kalenderåret før opgørelsesperiodens afslutning",
       "page": 36
     },
     {
       "subject": "adhd-databasen",
-      "predicate": "covers-region",
-      "object": "hovedstaden",
-      "evidence": "Hovedstaden indgår i ADHD-databasens regionale analyse",
+      "predicate": "hosts",
+      "object": "indikator-6",
+      "evidence": "ADHD-DATABASEN\nIndikator 6: Farmakologisk behandling",
       "page": 36
     },
     {
       "subject": "adhd-databasen",
-      "predicate": "covers-region",
-      "object": "sjaelland",
-      "evidence": "Sjælland indgår i ADHD-databasens regionale analyse",
+      "predicate": "hosts",
+      "object": "indikator-7a",
+      "evidence": "ADHD-DATABASEN\nResultatindikator 7a og 7b: Bestået folkeskolens afgangseksamen",
       "page": 36
     },
     {
       "subject": "adhd-databasen",
-      "predicate": "covers-region",
-      "object": "syddanmark",
-      "evidence": "Syddanmark indgår i ADHD-databasens regionale analyse",
+      "predicate": "hosts",
+      "object": "indikator-7b",
+      "evidence": "ADHD-DATABASEN\nResultatindikator 7a og 7b: Bestået folkeskolens afgangseksamen",
       "page": 36
     },
     {
-      "subject": "adhd-databasen",
-      "predicate": "covers-region",
-      "object": "midtjylland",
-      "evidence": "Midtjylland indgår i ADHD-databasens regionale analyse",
+      "subject": "indikator-6",
+      "predicate": "includes-medications",
+      "object": "dexamfetamin-n06ba02",
+      "evidence": "Dexamfetamin (N06BA02)",
       "page": 36
     },
     {
-      "subject": "adhd-databasen",
-      "predicate": "covers-region",
-      "object": "nordjylland",
-      "evidence": "Nordjylland indgår i ADHD-databasens regionale analyse",
+      "subject": "indikator-6",
+      "predicate": "includes-medications",
+      "object": "methylphenidat-n06ba04",
+      "evidence": "methylphenidat (N06BA04)",
       "page": 36
     },
     {
-      "subject": "bispebjerg",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Bispebjerg er en psykiatrisk ambulatorium i Hovedstaden-regionen",
+      "subject": "indikator-6",
+      "predicate": "includes-medications",
+      "object": "modafinil-n06ba07",
+      "evidence": "modafinil (N06BA07)",
       "page": 36
     },
     {
-      "subject": "bornholm",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Bornholm er en psykiatrisk ambulatorium i Hovedstaden-regionen",
+      "subject": "indikator-6",
+      "predicate": "includes-medications",
+      "object": "atomoxetin-n06ba09",
+      "evidence": "atomoxetin (N06BA09)",
       "page": 36
     },
     {
-      "subject": "glostrup",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Glostrup er en psykiatrisk ambulatorium i Hovedstaden-regionen",
+      "subject": "indikator-6",
+      "predicate": "includes-medications",
+      "object": "lisdexamfetamin-n06ba12",
+      "evidence": "lisdexamfetamin (N06BA12)",
       "page": 36
     },
     {
-      "subject": "hilleroed",
-      "predicate": "located-in",
-      "object": "hovedstaden",
-      "evidence": "Hillerød er en psykiatrisk ambulatorium i Hovedstaden-regionen",
-      "page": 36
-    },
-    {
-      "subject": "aabenraa",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Aabenraa er en børne- og ungdomspsykiatrisk ambulatorium i Syddanmark-regionen",
-      "page": 36
-    },
-    {
-      "subject": "esbjerg",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Esbjerg er en børne- og ungdomspsykiatrisk ambulatorium i Syddanmark-regionen",
-      "page": 36
-    },
-    {
-      "subject": "odense",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Odense er en børne- og ungdomspsykiatrisk ambulatorium i Syddanmark-regionen",
-      "page": 36
-    },
-    {
-      "subject": "vejle",
-      "predicate": "located-in",
-      "object": "syddanmark",
-      "evidence": "Vejle er en børne- og ungdomspsykiatrisk ambulatorium i Syddanmark-regionen",
-      "page": 36
-    },
-    {
-      "subject": "bua-boerne-ungdomspsykiatri-sengeafsnit",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "BUA Børne- og ungdomspsykiatri - Sengeafsnit er en indlæggelsesenhed i Midtjylland-regionen",
-      "page": 36
-    },
-    {
-      "subject": "bua-psykiatrisk-klinik-skoleboern",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "BUA Psykiatrisk Klinik for Skolebørn er en klinik i Midtjylland-regionen",
-      "page": 36
-    },
-    {
-      "subject": "bua-psykiatrisk-klinik-smaaboern",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "BUA Psykiatrisk Klinik for Småbørn er en klinik i Midtjylland-regionen",
-      "page": 36
-    },
-    {
-      "subject": "bua-psykiatrisk-klinik-udredning",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "BUA Psykiatrisk Klinik for Udredning er en klinik i Midtjylland-regionen",
-      "page": 36
-    },
-    {
-      "subject": "bua-psykiatrisk-klinik-unge",
-      "predicate": "located-in",
-      "object": "midtjylland",
-      "evidence": "BUA Psykiatrisk Klinik for Unge er en klinik i Midtjylland-regionen",
-      "page": 36
-    },
-    {
-      "subject": "boerne-ungdomspsyk-ambulatorium",
-      "predicate": "located-in",
-      "object": "nordjylland",
-      "evidence": "Børne- og ungdomspsyk. Ambulatorium er en ambulatorium i Nordjylland-regionen",
+      "subject": "indikator-6",
+      "predicate": "includes-medications",
+      "object": "guanfacin-c02ac02",
+      "evidence": "guanfacin (C02AC02)",
       "page": 36
     }
   ],
   "claims": [
     {
       "text": "Indikator 6 blev sat i drift den 25/5 2021 [^src1]",
-      "type": "operational",
+      "type": "timeline",
       "entities": [
-        "adhd-databasen"
+        "indikator-6"
       ],
       "page": 36
     },
@@ -457,185 +282,119 @@
       "text": "På landsplan var 62 % af ADHD-patienterne i pakkeforløb i medicinsk behandling i 2023/24 [^src1]",
       "type": "statistical",
       "entities": [
-        "danmark"
+        "indikator-6",
+        "adhd-behandlingspopulation"
       ],
       "page": 36
     },
     {
-      "text": "På regionsniveau varierer andelen fra 53 % (Midtjylland) til 87 % (Nordjylland) [^src1]",
+      "text": "Andelen af unge i ADHD-udredningspopulationen, der har bestået folkeskolens afgangseksamen inden fylde 17 år, var 55 % i 2023 [^src1]",
       "type": "statistical",
       "entities": [
-        "midtjylland",
-        "nordjylland"
+        "indikator-7a",
+        "adhd-udredningspopulation"
       ],
       "page": 36
     },
     {
-      "text": "På afdelingsniveau (afdelinger med over 10 forløb) fra 18 % (BUA Psykiatrisk klinik for småbørn, Midtjylland) til 87 % (Børne- og ungdomspsyk. Ambulatorium, Nordjylland) [^src1]",
+      "text": "Andelen af unge i ADHD-behandlingspopulationen, der har bestået folkeskolens afgangseksamen inden fylde 17 år, var 65 % i 2023 [^src1]",
       "type": "statistical",
       "entities": [
-        "bua-psykiatrisk-klinik-smaaboern",
-        "boerne-ungdomspsyk-ambulatorium"
+        "indikator-7b",
+        "adhd-behandlingspopulation"
       ],
       "page": 36
     },
     {
-      "text": "Indikator 7a blev sat i drift fra 1/1 2013 (udredningspopulationens idriftsættelse) [^src1]",
-      "type": "operational",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Indikator 7b blev sat i drift fra 25/5 2021 (behandlingspopulationens idriftsættelse) [^src1]",
-      "type": "operational",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 37
-    },
-    {
-      "text": "For Indikator 7a (ADHD-udredningspopulation) var andelen af unge, der bestod folkeskolens afgangseksamen inden fyldt 17 år, 55 % på landsplan i 2023 [^src1]",
+      "text": "Baggrundspopulationen 2023 havde en beståelsesrate på 86 % for folkeskolens afgangseksamen [^src1]",
       "type": "statistical",
       "entities": [
-        "danmark"
+        "baggrundspopulationen-2023"
       ],
-      "page": 37
-    },
-    {
-      "text": "For Indikator 7b (ADHD-behandlingspopulation) var andelen af unge, der bestod folkeskolens afgangseksamen inden fyldt 17 år, 65 % på landsplan i 2023 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "danmark"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Baggrundspopulationen (alle danske unge) havde 86 % andel af unge, der bestod folkeskolens afgangseksamen inden fyldt 17 år i 2023 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "danmark"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Hovedstaden havde 64 % andel af unge i ADHD-udredningspopulation, der bestod folkeskolens afgangseksamen inden fyldt 17 år i 2023 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "hovedstaden"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Sjælland havde 50 % andel af unge i ADHD-udredningspopulation, der bestod folkeskolens afgangseksamen inden fyldt 17 år i 2023 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "sjaelland"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Syddanmark havde 54 % andel af unge i ADHD-udredningspopulation, der bestod folkeskolens afgangseksamen inden fyldt 17 år i 2023 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "syddanmark"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Midtjylland havde 52 % andel af unge i ADHD-udredningspopulation, der bestod folkeskolens afgangseksamen inden fyldt 17 år i 2023 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "midtjylland"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Nordjylland havde 53 % andel af unge i ADHD-udredningspopulation, der bestod folkeskolens afgangseksamen inden fyldt 17 år i 2023 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "nordjylland"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Hovedstaden havde 73 % andel af unge i ADHD-behandlingspopulation, der bestod folkeskolens afgangseksamen inden fyldt 17 år i 2023 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "hovedstaden"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Sjælland havde 61 % andel af unge i ADHD-behandlingspopulation, der bestod folkeskolens afgangseksamen inden fyldt 17 år i 2023 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "sjaelland"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Syddanmark havde 66 % andel af unge i ADHD-behandlingspopulation, der bestod folkeskolens afgangseksamen inden fyldt 17 år i 2023 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "syddanmark"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Midtjylland havde 62 % andel af unge i ADHD-behandlingspopulation, der bestod folkeskolens afgangseksamen inden fyldt 17 år i 2023 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "midtjylland"
-      ],
-      "page": 37
-    },
-    {
-      "text": "Nordjylland havde 65 % andel af unge i ADHD-behandlingspopulation, der bestod folkeskolens afgangseksamen inden fyldt 17 år i 2023 [^src1]",
-      "type": "statistical",
-      "entities": [
-        "nordjylland"
-      ],
-      "page": 37
+      "page": 36
     }
   ],
   "timeline": [
     {
-      "date": "25/5 2021",
-      "event": "Indikator 6 blev sat i drift i ADHD-DATABASEN",
+      "date": "2021-05-25",
+      "event": "Indikator 6 blev sat i drift",
       "entities": [
-        "adhd-databasen"
+        "indikator-6"
       ]
     },
     {
-      "date": "1/1 2013",
-      "event": "ADHD-udredningspopulationen blev sat i drift",
+      "date": "2023-04-01",
+      "event": "Start af opgørelsesperioden for Indikator 6 og 7a/7b i årsrapport 2023/24",
       "entities": [
-        "adhd-databasen"
+        "indikator-6",
+        "indikator-7a",
+        "indikator-7b"
       ]
     },
     {
-      "date": "25/5 2021",
-      "event": "ADHD-behandlingspopulationen blev sat i drift",
+      "date": "2024-03-31",
+      "event": "Afslutning af opgørelsesperioden for Indikator 6 og 7a/7b i årsrapport 2023/24",
       "entities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "date": "01.04.2023 - 31.03.2024",
-      "event": "Opgørelsesperiode for Indikator 6 (farmakologisk behandling)",
-      "entities": [
-        "adhd-databasen"
-      ]
-    },
-    {
-      "date": "2023",
-      "event": "Opgørelsesår for Indikator 7a og 7b (folkeskolens afgangseksamen)",
-      "entities": [
-        "adhd-databasen"
+        "indikator-6",
+        "indikator-7a",
+        "indikator-7b"
       ]
     }
   ],
-  "context": "Dokumentet præsenterer resultater fra ADHD-DATABASEN, en dansk sundhedsregister, der dokumenterer behandlingsforløb og resultater for patienter med ADHD. Kapitlet fokuserer på Indikator 6 (farmakologisk behandling) og Indikatorerne 7a og 7b (bestået folkeskolens afgangseksamen), med detaljerede regionale og afdelingsniveaudata fra hele Danmark. Dataene viser betydelig variation mellem regioner og afdelinger i både medicinkomplianceog skolepræstationer blandt unge med ADHD."
+  "tables": [
+    {
+      "subject": "indikator-6",
+      "title": "Indikator 6: Andelen af behandlingsforløb, hvor patienten er i behandling med ADHD-medicin",
+      "page": 36,
+      "rowDimension": "regioner",
+      "colDimension": "andele og antal per region",
+      "entities": [
+        "adhd-behandlingspopulation",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland"
+      ],
+      "markdown": "| Region | Tæller/ nævner | Andel | 95% CI | Antal | Andel | Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 2.109 / 3.414 | 62 | (60-63) | 2.158 / 3.433 | 63 | 61 |\n| Hovedstaden | 347 / 647 | 54 | (50-58) | 402 / 765 | 53 | 53 |\n| Sjælland | 212 / 388 | 55 | (50-60) | 146 / 255 | 57 | 41 |\n| Syddanmark | 553 / 841 | 66 | (62-69) | 498 / 768 | 65 | 67 |\n| Midtjylland | 538 / 1.013 | 53 | (50-56) | 763 / 1.242 | 61 | 66 |\n| Nordjylland | 459 / 525 | 87 | (84-90) | 349 / 403 | 87 | 78 |",
+      "summary": "Tabellen sammenligner andelen af ADHD-behandlingsforløb med medicinsk behandling på regionsniveau for 2023/24, tidligere år og viser stor geografisk variation fra 53 % i Midtjylland til 87 % i Nordjylland."
+    },
+    {
+      "subject": "indikator-7a",
+      "title": "Indikator 7a: Andelen af unge i \"ADHD-udredningspopulation\", der har bestået folkeskolens afgangseksamen inden han/hun er fyldt 17 år",
+      "page": 36,
+      "rowDimension": "regioner",
+      "colDimension": "andele og antal per region samt baggrundspopulationen",
+      "entities": [
+        "adhd-udredningspopulation",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
+        "baggrundspopulationen-2023"
+      ],
+      "markdown": "| Region | Tæller/ nævner | Andel | 95% CI | Antal | Andel | Andel | Tæller/ nævner | Andel |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 1.792 / 3.242 | 55 | (54-57) | 1.626 / 2.755 | 59 | 58 | 60.247 / 70.411 | 86 |\n| Hovedstaden | 560 / 877 | 64 | (61-67) | 500 / 731 | 68 | 67 | 18.419 / 21.060 | 87 |\n| Sjælland | 253 / 511 | 50 | (45-54) | 222 / 417 | 53 | 60 | 8.988 / 10.704 | 84 |\n| Syddanmark | 339 / 627 | 54 | (50-58) | 300 / 528 | 57 | 61 | 12.757 / 14.989 | 85 |\n| Midtjylland | 460 / 888 | 52 | (48-55) | 437 / 794 | 55 | 49 | 14.265 / 16.732 | 85 |\n| Nordjylland | 180 / 339 | 53 | (48-59) | 167 / 285 | 59 | 52 | 5.818 / 6.926 | 84 |",
+      "summary": "Tabellen sammenligner beståelsesraten for folkeskolens afgangseksamen blandt unge i ADHD-udredningspopulationen på regionsniveau og viser en konstant lavere rate (50–64 %) end i baggrundspopulationen (84–87 %)."
+    },
+    {
+      "subject": "indikator-7b",
+      "title": "Indikator 7b: Andelen af unge i \"ADHD-behandlingspopulation\", der har bestået folkeskolens afgangseksamen inden han/hun er fyldt 17 år",
+      "page": 36,
+      "rowDimension": "regioner",
+      "colDimension": "andele og antal per region samt baggrundspopulationen",
+      "entities": [
+        "adhd-behandlingspopulation",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
+        "baggrundspopulationen-2023"
+      ],
+      "markdown": "| Region | Tæller/ nævner | Andel | 95% CI | Antal | Andel | Andel | Tæller/ nævner | Andel |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 519 / 799 | 65 | (62-68) | 425 / 601 | 71 | 67 | 60.247 / 70.411 | 86 |\n| Hovedstaden | 97 / 132 | 73 | (65-81) | 89 / 110 | 81 | 73 | 18.419 / 21.060 | 87 |\n| Sjælland | 69 / 113 | 61 | (51-70) | 60 / 81 | 74 | 61 | 8.988 / 10.704 | 84 |\n| Syddanmark | 99 / 150 | 66 | (58-74) | 89 / 125 | 71 | 72 | 12.757 / 14.989 | 85 |\n| Midtjylland | 170 / 275 | 62 | (56-68) | 129 / 189 | 68 | 65 | 14.265 / 16.732 | 85 |\n| Nordjylland | 84 / 129 | 65 | (56-73) | 58 / 96 | 60 | 62 | 5.818 / 6.926 | 84 |",
+      "summary": "Tabellen sammenligner beståelsesraten for folkeskolens afgangseksamen blandt unge i ADHD-behandlingspopulationen på regionsniveau og viser en højere, men stadig lavere rate (61–73 %) end i baggrundspopulationen (84–87 %)."
+    }
+  ],
+  "context": "Dette afsnit fra ADHD-DATABASEN-rapporten (side 36–40) præsenterer to centrale kvalitetsindikatorer: Indikator 6, der måler farmakologisk behandlingsdækning blandt ADHD-patienter i pakkeforløb, samt Indikator 7a og 7b, der sammenligner beståelsesrater for folkeskolens afgangseksamen blandt unge med ADHD i henholdsvis udrednings- og behandlingspopulationen med den generelle baggrundspopulation. Rapporten dokumenterer betydelig regional variation i både medicinsk behandlingspraksis og uddannelsesresultater, hvilket udløser en diskussion om case-mix, ressourcepressur og registreringspraksis. Denne analyse danner del af den nationale kvalitetsmonitorering af ADHD-tjenester i Danmark og er knyttet til en styregruppe, der vurderer indikatorernes fremtidige rolle i databasen."
 }

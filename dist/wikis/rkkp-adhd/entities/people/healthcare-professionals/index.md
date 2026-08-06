@@ -1,72 +1,37 @@
 ---
 title: Healthcare Professionals
-type: entity
+type: index
 aliases:
   - Healthcare Professionals
 wiki: rkkp-adhd
-updated: '2026-08-03T19:14:17.362Z'
+updated: '2026-08-05T19:11:25.574Z'
 children:
-  - allan-hvolby.md
-  - anne-mette-lange.md
-  - bolette-sondergaard.md
-  - ditte-hammerum.md
-  - ib-rasmussen.md
-  - index.md
-  - jan-kristensen.md
-  - jan-vestergaard.md
-  - jeanette-wacher.md
-  - jens-tofte.md
-  - lasse-pirk.md
-  - linda-bramsen.md
-  - lotte-maxild-mortensen.md
-  - malene-tousgaard-foget-ostergaard.md
-  - mathilde-ulvsgard-hansted.md
+  - malene-tousgaard-foget-oestergaard.md
   - mette-hedelund.md
-  - niels-bilenberg.md
   - shelagh-powell.md
   - simon-hjerrild.md
-  - tea-naamansen-nikolov.md
-  - tine-houmann.md
-  - vibe-bolvig-hyldgard.md
-tags:
-  - person
-sparse: true
-sources: []
+  - speciallaeger.md
+  - specialpsykolog.md
 ---
 # Healthcare Professionals
 
-This folder contains pages and sub-folders related to healthcare professionals.
+This folder catalogs individual healthcare professionals and professional roles central to the governance, clinical practice, and quality assurance of ADHD treatment in Denmark. It includes key leadership figures such as the chairpersons of the national ADHD database steering committee and the official administrative contacts for the database, alongside broader professional categories like specialist doctors and specialist psychologists whose diagnostic authority and interdisciplinary competencies are actively shaping national quality indicators. Every page details the individual's or role's specific affiliations, responsibilities, and impact on the Danish psychiatric healthcare system, backed by exact citations from the national quality reports.
 
 ## Pages
 
-- [[allan-hvolby|Allan Hvolby]]
-- [[anne-mette-lange|Anne-Mette Lange]]
-- [[bolette-sondergaard]]
-- [[ditte-hammerum]]
-- [[ib-rasmussen]]
-- [[jan-kristensen|Jan Kristensen]]
-- [[jan-vestergaard|Jan Vestergaard]]
-- [[jeanette-wacher]]
-- [[jens-tofte]]
-- [[lasse-pirk]]
-- [[linda-bramsen]]
-- [[lotte-maxild-mortensen]]
-- [[malene-tousgaard-foget-ostergaard|Malene Tousgaard Foget Østergaard]]
-- [[mathilde-ulvsgard-hansted|Mathilde Ulvsgärd-Hansted]]
-- [[mette-hedelund|Mette Hedelund]]
-- [[niels-bilenberg]]
-- [[shelagh-powell|Shelagh Powell]]
-- [[simon-hjerrild|Simon Hjerrild]]
-- [[tea-naamansen-nikolov|Tea Naamansen Nikolov]]
-- [[tine-houmann|Tine Houmann]]
-- [[vibe-bolvig-hyldgard|Vibe Bolvig Hyldgård]]
+- [[malene-tousgaard-foget-oestergaard|Malene Tousgaard Foget Østergaard]] — Quality consultant at RKKP and the official operational contact person for the national ADHD database.
+- [[mette-hedelund|Mette Hedelund]] — Quality consultant at the Danish Healthcare Quality Institute serving as the primary administrative contact for the ADHD database.
+- [[shelagh-powell|Shelagh Powell]] — Chief physician at BUA and chairperson of the steering group for the national ADHD database.
+- [[simon-hjerrild|Simon Hjerrild]] — Chief physician, clinical lecturer, and chair of the steering committee for the national ADHD database.
+- [[speciallaeger|speciallæger]] — Specialist doctors whose participation in diagnostic conferences is a critical standard for clinical quality and a focus of national indicators.
+- [[specialpsykolog|specialpsykolog]] — Specialist psychologists whose expanding legal authority to make psychiatric diagnoses is reshaping interdisciplinary assessment pathways.
 
 ## Navigation
 
-- Parent: [[index|Rkkp Adhd]]
+- Parent: [[entities/people/index|People]]
 
 ## Statistics
 
-- Pages: 21
+- Pages: 6
 - Sub-folders: 0
 - Sources: 0

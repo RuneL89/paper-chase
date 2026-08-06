@@ -3,5 +3,6 @@
   "relationships": [],
   "claims": [],
   "timeline": [],
-  "context": "Denne chunk dækker side 51 af dokumentet ADHD_2023.pdf. Siden indeholder ingen ekstraheret tekst, hvilket indikerer, at siden enten er blank, består af boilerplate-materiale uden substantielt indhold, eller at tekstekstraktionen ikke har identificeret nogen navngivne enheder, relationer, påstande eller daterede begivenheder."
+  "tables": [],
+  "context": "Dette er en tom side i PDF-dokumentet 'ADHD_2023.pdf', som dækker kun side 51. Der er ingen tekst, tabeller, billeder eller andre indholdselementer at ekstrahere fra denne side. Den tilhører sandsynligvis en dokumentstruktur med blankteknik (f.eks. en adskillelsesside mellem kapitler eller en udfyldt side uden indhold), og bidrager ikke med nogen faktuelle oplysninger til wikiens videnbase."
 }

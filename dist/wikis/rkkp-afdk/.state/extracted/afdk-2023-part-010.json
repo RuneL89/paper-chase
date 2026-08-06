@@ -4,11 +4,27 @@
       "name": "Databasen for Atrieflimren i Danmark",
       "type": "organization",
       "slug": "databasen-for-atrieflimren-i-danmark",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Denne database er det centrale register for atriefimren-patienter i Danmark og udgør grundlaget for alle kvalitetsindikatorer og resultater rapporteret i denne årsrapport.",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "Databasen for Atrieflimren i Danmark er en national klinisk kvalitetsdatabase, der overvåger behandlingskvaliteten for patienter med atrieflimren i Danmark, og danner grundlag for indikator 4a og 4b i Regionernes Kliniske Kvalitetsudviklingsprogram.",
       "mentions": [
         {
           "page": 46,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 47,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 48,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 49,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 50,
           "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
         }
       ]
@@ -17,12 +33,71 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/health-programs",
-      "significance": "RKKP er det program under hvilket Databasen for Atrieflimren i Danmark opereres og kvalitetsindikatorer udvikles og monitoreres.",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) er det nationale program, der udvikler, måler og publicerer kliniske kvalitetsindikatorer for sygehusbehandling i Danmark, herunder de to indikatorer (4a og 4b) om antikoagulationsbehandling af patienter med atrieflimren.",
       "mentions": [
         {
           "page": 46,
           "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 47,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 48,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 49,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 50,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4a",
+      "type": "topic",
+      "slug": "indikator-4a",
+      "folder": "topics/healthcare-quality-indicators",
+      "significance": "Indikator 4a måler andelen af patienter med atrieflimren, der modtager antikoagulationsbehandling 1, 2 og 5 år efter diagnosen — kun blandt dem med CHA₂DS₂-VASc-score ≥2 — og er en central kvalitetsmåling i RKKP’s årsrapport.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Indikator 4a: Andel af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population, hvor det er indiceret). 5 år efter diagnosen atrieflimren."
+        },
+        {
+          "page": 47,
+          "context": "I Indikator 4a opgøres andelen af patienter med atrieflimren, der henholdsvis 1, 2 og 5 år efter diagnosen blev stillet i hospitalsregi, er i antikoagulationsbehandling ud af den population, hvor antikoagulationsbehandlingen er indiceret."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4b",
+      "type": "topic",
+      "slug": "indikator-4b",
+      "folder": "topics/healthcare-quality-indicators",
+      "significance": "Indikator 4b måler andelen af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC), der har fået mindst én årlig P-creatinin-måling, og anvender en national standard på ≥95 % for at sikre sikker dosering.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt."
+        }
+      ]
+    },
+    {
+      "name": "CHA₂DS₂-VASc score",
+      "type": "medical-concept",
+      "slug": "cha2ds2-vasc-score",
+      "folder": "topics/clinical-assessment-tools",
+      "significance": "CHA₂DS₂-VASc score er den kliniske risikoscore, der anvendes til at fastslå indikation for antikoagulationsbehandling hos patienter med atrieflimren, og definerer i denne rapport indikationsgrænsen som ≥2 uden point for kvindekøn.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Indikation for antikoagulationsbehandling er CHA2DS2-VASc score ≥2. Der er ved beregningen af scoren ikke givet point for kvindekøn, og grænsen for scoren på ≥2 er derfor indikation for antikoagulationsbehandling hos begge køn."
         }
       ]
     },
@@ -30,8 +105,8 @@
       "name": "Landspatientregisteret",
       "type": "organization",
       "slug": "landspatientregisteret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Landspatientregisteret er en af de to primære datakilder for beregning af Indikator 4a, hvorfra patientdiagnoser og behandlingsdata hentes.",
+      "folder": "entities/organizations/health-data-infrastructure",
+      "significance": "Landspatientregisteret er et centralt dansk sundhedsdataregister, der leverer data til beregning af Indikator 4a, herunder information om diagnose og hospitalsoverblik for patienter med atrieflimren.",
       "mentions": [
         {
           "page": 47,
@@ -43,8 +118,8 @@
       "name": "Lægemiddelstatistikregisteret",
       "type": "organization",
       "slug": "laegemiddelstatistikregisteret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Lægemiddelstatistikregisteret er den anden primære datakilde for Indikator 4a, hvorfra data om indløste recepter på antikoagulationsbehandling hentes.",
+      "folder": "entities/organizations/health-data-infrastructure",
+      "significance": "Lægemiddelstatistikregisteret er et centralt dansk register over lægemiddeludskrivninger, der bruges til at identificere antikoagulationsbehandling i Indikator 4a via receptindløsning inden for 90 dage før og efter tidsmærkerne.",
       "mentions": [
         {
           "page": 47,
@@ -53,67 +128,317 @@
       ]
     },
     {
-      "name": "Region Hovedstaden",
-      "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Hovedstaden er en af fem danske regioner, hvis resultater for Indikator 4b rapporteres med detaljerede data på både regionalt og kommunalt niveau.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Hovedstaden Nej 24.504 / 26.601 0 (0) 92,1 (91,8-92,4)"
-        }
-      ]
-    },
-    {
-      "name": "Region Sjælland",
-      "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Sjælland er en af fem danske regioner, hvis resultater for Indikator 4b rapporteres med detaljerede data på både regionalt og kommunalt niveau.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Sjælland Nej 14.909 / 16.112 0 (0) 92,5 (92,1-92,9)"
-        }
-      ]
-    },
-    {
-      "name": "Region Syddanmark",
-      "type": "location",
-      "slug": "region-syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Syddanmark er en af fem danske regioner, hvis resultater for Indikator 4b rapporteres med detaljerede data på både regionalt og kommunalt niveau.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Syddanmark Nej 21.605 / 22.920 0 (0) 94,3 (94,0-94,6)"
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "location",
-      "slug": "region-midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Midtjylland er en af fem danske regioner, hvis resultater for Indikator 4b rapporteres med detaljerede data på både regionalt og kommunalt niveau.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Midtjylland Nej 20.480 / 21.694 0 (0) 94,4 (94,1-94,7)"
-        }
-      ]
-    },
-    {
       "name": "Region Nordjylland",
-      "type": "location",
+      "type": "organization",
       "slug": "region-nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "Region Nordjylland er den eneste region, der opfylder standarden for Indikator 4a efter 5 år, og er også den eneste region, der opfylder standarden for Indikator 4b.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Nordjylland er den eneste region, der opfylder standarden for Indikator 4a efter 5 år (88 %), samt for Indikator 4b (95,4 %), og fremhæves derfor som den eneste region med fuld standardopfyldelse på begge indikatorer i rapportperioden.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Tre regioner opfylder standarden efter 1 år og 2 regioner efter 2 år (Midtjylland har dog 89,9%) imens kun Region Nordjylland opfylder standarden efter 5 år."
+        },
+        {
+          "page": 48,
+          "context": "Nordjylland Ja 10.446 / 10.945 0 (0) 95,4 (95,0-95,8) 10.082 / 10.642 94,7 94,9"
+        },
+        {
+          "page": 50,
+          "context": "Nordjylland Ja 10.446 / 10.945 0 (0) 95,4 (95,0-95,8) 10.082 / 10.642 94,7 94,9"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "organization",
+      "slug": "midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Midtjylland er nævnt som en region, der næsten opfylder standarden for Indikator 4a efter 2 år (89,9 %), hvilket placerer den lige under den officielle standard, og viser en marginal manglende opfyldelse i sammenligning med andre regioner.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Tre regioner opfylder standarden efter 1 år og 2 regioner efter 2 år (Midtjylland har dog 89,9%)"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "organization",
+      "slug": "syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "Syddanmark er en af de seks danske regioner, der indgår i beregningen af både Indikator 4a og 4b, og opnår 94,3 % opfyldelse af Indikator 4b i 2022–2023, hvilket er tæt på den nationale standard på ≥95 %.",
       "mentions": [
         {
           "page": 48,
-          "context": "Nordjylland Ja 10.446 / 10.945 0 (0) 95,4 (95,0-95,8)"
+          "context": "Syddanmark Nej 21.605 / 22.920 0 (0) 94,3 (94,0-94,6) 20.056 / 21.433 93,6 93,3"
+        },
+        {
+          "page": 49,
+          "context": "Syddanmark Nej 21.605 / 22.920 0 (0) 94,3 (94,0-94,6) 20.056 / 21.433 93,6 93,3"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "organization",
+      "slug": "hovedstaden",
+      "folder": "entities/organizations/regions",
+      "significance": "Hovedstaden er en af de seks danske regioner, der indgår i Indikator 4b-beregningen, og opnår 92,1 % opfyldelse i 2022–2023 — den laveste regionale andel blandt de seks regioner — og markeres som 'Nej' for standardopfyldelse.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "Hovedstaden Nej 24.504 / 26.601 0 (0) 92,1 (91,8-92,4) 23.468 / 25.709 91,3 91,1"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "organization",
+      "slug": "sjaelland",
+      "folder": "entities/organizations/regions",
+      "significance": "Sjælland er en af de seks danske regioner, der indgår i Indikator 4b-beregningen, og opnår 92,5 % opfyldelse i 2022–2023, hvilket ligger under den nationale standard på ≥95 %, men er stabil sammenlignet med tidligere år.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "Sjælland Nej 14.909 / 16.112 0 (0) 92,5 (92,1-92,9) 13.976 / 15.181 92,1 91,7"
+        },
+        {
+          "page": 49,
+          "context": "Sjælland Nej 14.909 / 16.112 0 (0) 92,5 (92,1-92,9) 13.976 / 15.181 92,1 91,7"
+        }
+      ]
+    },
+    {
+      "name": "Fanø",
+      "type": "organization",
+      "slug": "fanoe",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Fanø er en dansk kommune, der opfylder standarden for Indikator 4b med 99,1 % (109/110), hvilket er den højeste registrerede andel blandt alle kommuner i rapporten og markeres som 'Ja'.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "Fanø Ja 109 / 110 0 (0) 99,1 (95,0-100,0) 91 / 104 87,5 93,6"
+        }
+      ]
+    },
+    {
+      "name": "Fredericia",
+      "type": "organization",
+      "slug": "fredericia",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Fredericia er en dansk kommune, der opfylder standarden for Indikator 4b med 95,4 % (958/1004), og er en af de kommuner, der ligger over den nationale standard på ≥95 %.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "Fredericia Ja 958 / 1.004 0 (0) 95,4 (93,9-96,6) 858 / 909 94,4 94,6"
+        }
+      ]
+    },
+    {
+      "name": "Haderslev",
+      "type": "organization",
+      "slug": "haderslev",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Haderslev er en dansk kommune, der opfylder standarden for Indikator 4b med 95,9 % (1069/1115), hvilket er blandt de højeste værdier i rapporten og markeres som 'Ja'.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "Haderslev Ja 1.069 / 1.115 0 (0) 95,9 (94,5-97,0) 1.002 / 1.071 93,6 93,4"
+        }
+      ]
+    },
+    {
+      "name": "Kolding",
+      "type": "organization",
+      "slug": "kolding",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Kolding er en dansk kommune, der opfylder standarden for Indikator 4b med 95,8 % (1482/1547), hvilket er en af de højeste andele blandt kommunerne og markeres som 'Ja'.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "Kolding Ja 1.482 / 1.547 0 (0) 95,8 (94,7-96,7) 1.356 / 1.442 94,0 93,7"
+        }
+      ]
+    },
+    {
+      "name": "Langeland",
+      "type": "organization",
+      "slug": "langeland",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Langeland er en dansk kommune, der opfylder standarden for Indikator 4b med 95,4 % (333/349), og er en af de mindre kommuner med fuld standardopfyldelse.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "Langeland Ja 333 / 349 0 (0) 95,4 (92,7-97,4) 288 / 307 93,8 93,5"
+        }
+      ]
+    },
+    {
+      "name": "Odense",
+      "type": "organization",
+      "slug": "odense",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Odense er en dansk kommune, der opfylder standarden for Indikator 4b med 96,3 % (2636/2737), hvilket er den højeste andel blandt alle større kommuner i rapporten og markeres som 'Ja'.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "Odense Ja 2.636 / 2.737 0 (0) 96,3 (95,5-97,0) 2.423 / 2.552 94,9 94,4"
+        }
+      ]
+    },
+    {
+      "name": "Sønderborg",
+      "type": "organization",
+      "slug": "sonderborg",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Sønderborg er en dansk kommune, der opfylder standarden for Indikator 4b med 95,5 % (1514/1586), og er en af de kommuner, der ligger over den nationale standard på ≥95 %.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "Sønderborg Ja 1.514 / 1.586 0 (0) 95,5 (94,3-96,4) 1.458 / 1.506 96,8 94,8"
+        }
+      ]
+    },
+    {
+      "name": "Holstebro",
+      "type": "organization",
+      "slug": "holstebro",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Holstebro er en dansk kommune, der opfylder standarden for Indikator 4b med 95,0 % (902/949), hvilket netop når den nationale standard på ≥95 % og markeres som 'Ja'.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Holstebro Ja 902 / 949 0 (0) 95,0 (93,5-96,3) 834 / 907 92,0 92,3"
+        }
+      ]
+    },
+    {
+      "name": "Ikast-Brande",
+      "type": "organization",
+      "slug": "ikast-brande",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Ikast-Brande er en dansk kommune, der opfylder standarden for Indikator 4b med 95,4 % (701/735), og er en af de kommuner, der ligger over den nationale standard på ≥95 %.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Ikast-Brande Ja 701 / 735 0 (0) 95,4 (93,6-96,8) 635 / 676 93,9 94,8"
+        }
+      ]
+    },
+    {
+      "name": "Ringkøbing-Skjern",
+      "type": "organization",
+      "slug": "ringkobing-skjern",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Ringkøbing-Skjern er en dansk kommune, der opfylder standarden for Indikator 4b med 95,1 % (1059/1113), og er en af de kommuner, der ligger over den nationale standard på ≥95 %.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Ringkøbing-Skjern Ja 1.059 / 1.113 0 (0) 95,1 (93,7-96,3) 958 / 1.021 93,8 94,5"
+        }
+      ]
+    },
+    {
+      "name": "Silkeborg",
+      "type": "organization",
+      "slug": "silkeborg",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Silkeborg er en dansk kommune, der opfylder standarden for Indikator 4b med 96,3 % (1549/1608), hvilket er blandt de højeste værdier i rapporten og markeres som 'Ja'.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Silkeborg Ja 1.549 / 1.608 0 (0) 96,3 (95,3-97,2) 1.454 / 1.522 95,5 95,1"
+        }
+      ]
+    },
+    {
+      "name": "Skanderborg",
+      "type": "organization",
+      "slug": "skanderborg",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Skanderborg er en dansk kommune, der opfylder standarden for Indikator 4b med 96,0 % (924/962), hvilket er blandt de højeste værdier i rapporten og markeres som 'Ja'.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Skanderborg Ja 924 / 962 0 (0) 96,0 (94,6-97,2) 846 / 882 95,9 95,7"
+        }
+      ]
+    },
+    {
+      "name": "Skive",
+      "type": "organization",
+      "slug": "skive",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Skive er en dansk kommune, der opfylder standarden for Indikator 4b med 95,3 % (1010/1060), og er en af de kommuner, der ligger over den nationale standard på ≥95 %.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Skive Ja 1.010 / 1.060 0 (0) 95,3 (93,8-96,5) 965 / 1.024 94,2 95,1"
+        }
+      ]
+    },
+    {
+      "name": "Struer",
+      "type": "organization",
+      "slug": "struer",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Struer er en dansk kommune, der opfylder standarden for Indikator 4b med 95,4 % (434/455), og er en af de kommuner, der ligger over den nationale standard på ≥95 %.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Struer Ja 434 / 455 0 (0) 95,4 (93,0-97,1) 391 / 414 94,4 94,1"
+        }
+      ]
+    },
+    {
+      "name": "Brønderslev-Dronninglund",
+      "type": "organization",
+      "slug": "broenderslev-dronninglund",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Brønderslev-Dronninglund er en dansk kommune, der opfylder standarden for Indikator 4b med 97,7 % (721/738), hvilket er den højeste registrerede andel blandt alle kommuner i rapporten og markeres som 'Ja'.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Brønderslev-Dronninglund Ja 721 / 738 0 (0) 97,7 (96,3-98,7) 722 / 754 95,8 97,0"
+        }
+      ]
+    },
+    {
+      "name": "Frederikshavn",
+      "type": "organization",
+      "slug": "frederikshavn",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Frederikshavn er en dansk kommune, der opfylder standarden for Indikator 4b med 97,7 % (1404/1437), hvilket er blandt de højeste værdier i rapporten og markeres som 'Ja'.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Frederikshavn Ja 1.404 / 1.437 0 (0) 97,7 (96,8-98,4) 1.362 / 1.396 97,6 97,7"
+        }
+      ]
+    },
+    {
+      "name": "Hjørring",
+      "type": "organization",
+      "slug": "hjoerring",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Hjørring er en dansk kommune, der opfylder standarden for Indikator 4b med 96,1 % (1347/1402), og er en af de kommuner, der ligger over den nationale standard på ≥95 %.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Hjørring Ja 1.347 / 1.402 0 (0) 96,1 (94,9-97,0) 1.278 / 1.345 95,0 95,1"
+        }
+      ]
+    },
+    {
+      "name": "Thisted",
+      "type": "organization",
+      "slug": "thisted",
+      "folder": "entities/organizations/municipalities",
+      "significance": "Thisted er en dansk kommune, der opfylder standarden for Indikator 4b med 95,0 % (862/907), hvilket netop når den nationale standard på ≥95 % og markeres som 'Ja'.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Thisted Ja 862 / 907 0 (0) 95,0 (93,4-96,4) 832 / 891 93,4 94,0"
         }
       ]
     }
@@ -121,187 +446,147 @@
   "relationships": [
     {
       "subject": "databasen-for-atrieflimren-i-danmark",
-      "predicate": "operated-by",
+      "predicate": "is-managed-by",
       "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Databasen for Atrieflimren i Danmark er en del af Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "evidence": "Databasen for Atrieflimren i Danmark er en del af Regionernes Kliniske Kvalitetsudviklingsprogram, som fremgår af fælles header på alle sider.",
       "page": 46
     },
     {
-      "subject": "databasen-for-atrieflimren-i-danmark",
-      "predicate": "uses-data-from",
-      "object": "landspatientregisteret",
-      "evidence": "Data til beregning af indikatoren er indhentet fra Landspatientregisteret",
+      "subject": "indikator-4a",
+      "predicate": "measures",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Indikator 4a er en kvalitetsindikator baseret på data fra Databasen for Atrieflimren i Danmark.",
+      "page": 46
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "measures",
+      "object": "databasen-for-atrieflimren-i-danmark",
+      "evidence": "Indikator 4b er en kvalitetsindikator baseret på data fra Databasen for Atrieflimren i Danmark.",
+      "page": 48
+    },
+    {
+      "subject": "cha2ds2-vasc-score",
+      "predicate": "defines-indication-for",
+      "object": "indikator-4a",
+      "evidence": "Indikation for antikoagulationsbehandling er CHA2DS2-VASc score ≥2.",
       "page": 47
     },
     {
-      "subject": "databasen-for-atrieflimren-i-danmark",
-      "predicate": "uses-data-from",
-      "object": "laegemiddelstatistikregisteret",
-      "evidence": "Data til beregning af indikatoren er indhentet fra Lægemiddelstatistikregisteret",
+      "subject": "landspatientregisteret",
+      "predicate": "provides-data-to",
+      "object": "indikator-4a",
+      "evidence": "Data til beregning af indikatoren er indhentet fra Landspatientregisteret og Lægemiddelstatistikregisteret.",
       "page": 47
+    },
+    {
+      "subject": "laegemiddelstatistikregisteret",
+      "predicate": "provides-data-to",
+      "object": "indikator-4a",
+      "evidence": "Data til beregning af indikatoren er indhentet fra Landspatientregisteret og Lægemiddelstatistikregisteret.",
+      "page": 47
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "achieves-standard-for",
+      "object": "indikator-4a",
+      "evidence": "kun Region Nordjylland opfylder standarden efter 5 år.",
+      "page": 47
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "achieves-standard-for",
+      "object": "indikator-4b",
+      "evidence": "Nordjylland Ja 10.446 / 10.945",
+      "page": 48
     }
   ],
   "claims": [
     {
-      "text": "På landsplan var 90% af patienterne med atrieflimren i antikoagulationsbehandling 1 år efter diagnosen blev stillet [^src1]",
-      "type": "clinical-outcome",
+      "text": "På landsplan var 90% af patienterne med atrieflimren i antikoagulationsbehandling 1 år efter diagnosen blev stillet, 90% efter 2 år og 88% efter 5 år [^src1]",
+      "type": "healthcare-performance",
       "entities": [
         "databasen-for-atrieflimren-i-danmark"
       ],
       "page": 47
     },
     {
-      "text": "90% af patienterne med atrieflimren var i antikoagulationsbehandling efter 2 år [^src1]",
-      "type": "clinical-outcome",
+      "text": "Standarden for Indikator 4b er ≥95 % [^src2]",
+      "type": "policy-standard",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-4b"
       ],
-      "page": 47
+      "page": 48
     },
     {
-      "text": "88% af patienterne med atrieflimren var i antikoagulationsbehandling efter 5 år [^src1]",
-      "type": "clinical-outcome",
+      "text": "Andelen med målopfyldelse efter 1, 2 og 5 år stiger kontinuerligt og er på det højeste niveau hidtil set [^src1]",
+      "type": "trend-observation",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 47
-    },
-    {
-      "text": "Tre regioner opfylder standarden efter 1 år for Indikator 4a [^src1]",
-      "type": "regional-performance",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 47
-    },
-    {
-      "text": "To regioner opfylder standarden efter 2 år for Indikator 4a (Midtjylland har dog 89,9%) [^src1]",
-      "type": "regional-performance",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 47
-    },
-    {
-      "text": "Kun Region Nordjylland opfylder standarden efter 5 år for Indikator 4a [^src1]",
-      "type": "regional-performance",
-      "entities": [
-        "region-nordjylland"
+        "indikator-4a"
       ],
       "page": 47
     },
     {
       "text": "Der er observeret stigende persistens til antikoagulationsbehandling i perioden siden 2016 [^src1]",
-      "type": "clinical-trend",
+      "type": "trend-observation",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 47
-    },
-    {
-      "text": "Indikation for antikoagulationsbehandling er CHA2DS2-VASc score ≥2 [^src1]",
-      "type": "clinical-criteria",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 47
-    },
-    {
-      "text": "Danmark opnåede 93,6% for Indikator 4b i perioden 01.07.2022 - 30.06.2023 [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-4a"
       ],
       "page": 48
-    },
-    {
-      "text": "Region Hovedstaden opnåede 92,1% for Indikator 4b i perioden 01.07.2022 - 30.06.2023 [^src1]",
-      "type": "regional-performance",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Region Sjælland opnåede 92,5% for Indikator 4b i perioden 01.07.2022 - 30.06.2023 [^src1]",
-      "type": "regional-performance",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Region Syddanmark opnåede 94,3% for Indikator 4b i perioden 01.07.2022 - 30.06.2023 [^src1]",
-      "type": "regional-performance",
-      "entities": [
-        "region-syddanmark"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Region Midtjylland opnåede 94,4% for Indikator 4b i perioden 01.07.2022 - 30.06.2023 [^src1]",
-      "type": "regional-performance",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Region Nordjylland opnåede 95,4% for Indikator 4b i perioden 01.07.2022 - 30.06.2023 og opfylder dermed standarden [^src1]",
-      "type": "regional-performance",
-      "entities": [
-        "region-nordjylland"
-      ],
-      "page": 48
-    },
-    {
-      "text": "152 patienter blev ekskluderet fra Indikator 4a efter 1 år fordi de ikke havde bopæl i DK eller havde en erstatnings CPRnr [^src1]",
-      "type": "data-exclusion",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 47
-    },
-    {
-      "text": "6.828 patienter blev ekskluderet fra Indikator 4a efter 1 år fordi de ikke havde indikation for AK behandling (CHA2DS2-VASc < 2) [^src1]",
-      "type": "data-exclusion",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 47
-    },
-    {
-      "text": "1.484 patienter blev ekskluderet fra Indikator 4a efter 1 år fordi de døde inden for 1 år efter diagnosedato [^src1]",
-      "type": "data-exclusion",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 47
-    },
-    {
-      "text": "4.283 patienter blev ekskluderet fra Indikator 4a efter 5 år fordi de døde inden for 5 år efter diagnosedato [^src1]",
-      "type": "data-exclusion",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 47
     }
   ],
   "timeline": [
     {
-      "date": "1. juli 2022 – 30. juni 2023",
-      "event": "Årsrapportperiode for Databasen for Atrieflimren i Danmark med resultater for Indikator 4a og 4b",
+      "date": "2016",
+      "event": "Start på observation af stigende persistens til antikoagulationsbehandling",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-4a"
       ]
     },
     {
-      "date": "2016",
-      "event": "Startpunkt for observation af stigende persistens til antikoagulationsbehandling",
+      "date": "1. juli 2022 – 30. juni 2023",
+      "event": "Rapporteret periode for årsrapporten fra Databasen for Atrieflimren i Danmark",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "databasen-for-atrieflimren-i-danmark",
+        "regionernes-kliniske-kvalitetsudviklingsprogram"
       ]
     }
   ],
-  "context": "Denne dokumentchunk udgør en detaljeret årsrapport fra Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023. Rapporten præsenterer resultater for to vigtige kvalitetsindikatorer (Indikator 4a og 4b) relateret til antikoagulationsbehandling af patienter med atrieflimren. Indikator 4a måler andelen af patienter med indikation for antikoagulationsbehandling, der faktisk modtager behandling 1, 2 og 5 år efter diagnosen, mens Indikator 4b måler andelen af patienter i behandling med direkte orale antikoagulantia (DOAC), der får mindst én årlig måling af P-creatinin. Rapporten indeholder omfattende data på både nationalt og regionalt niveau, samt detaljerede eksklusionskriterier og beregningsregler for indikatorerne."
+  "tables": [
+    {
+      "subject": "indikator-4b",
+      "title": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt",
+      "page": 48,
+      "rowDimension": "regioner-og-kommuner",
+      "colDimension": "andel-opfyldelse-per-år",
+      "entities": [
+        "region-nordjylland",
+        "midtjylland",
+        "syddanmark",
+        "hovedstaden",
+        "sjaelland",
+        "fanoe",
+        "fredericia",
+        "haderslev",
+        "kolding",
+        "langeland",
+        "odense",
+        "sonderborg",
+        "holstebro",
+        "ikast-brande",
+        "ringkobing-skjern",
+        "silkeborg",
+        "skanderborg",
+        "skive",
+        "struer",
+        "broenderslev-dronninglund",
+        "frederikshavn",
+        "hjoerring",
+        "thisted"
+      ],
+      "markdown": "| Region/kommune | Standard opfyldt? | Tæller / nævner (2022–2023) | Andel (2022–2023) | Andel (2021/22) | Andel (2020/21) |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 91.944 / 98.272 | 93,6 (93,4-93,7) | 92,9 | 92,7 |\n| Hovedstaden | Nej | 24.504 / 26.601 | 92,1 (91,8-92,4) | 91,3 | 91,1 |\n| Sjælland | Nej | 14.909 / 16.112 | 92,5 (92,1-92,9) | 92,1 | 91,7 |\n| Syddanmark | Nej | 21.605 / 22.920 | 94,3 (94,0-94,6) | 93,6 | 93,3 |\n| Midtjylland | Nej | 20.480 / 21.694 | 94,4 (94,1-94,7) | 93,7 | 93,6 |\n| Nordjylland | Ja | 10.446 / 10.945 | 95,4 (95,0-95,8) | 94,7 | 94,9 |\n| Fanø | Ja | 109 / 110 | 99,1 (95,0-100,0) | 87,5 | 93,6 |\n| Fredericia | Ja | 958 / 1.004 | 95,4 (93,9-96,6) | 94,4 | 94,6 |\n| Haderslev | Ja | 1.069 / 1.115 | 95,9 (94,5-97,0) | 93,6 | 93,4 |\n| Kolding | Ja | 1.482 / 1.547 | 95,8 (94,7-96,7) | 94,0 | 93,7 |\n| Langeland | Ja | 333 / 349 | 95,4 (92,7-97,4) | 93,8 | 93,5 |\n| Odense | Ja | 2.636 / 2.737 | 96,3 (95,5-97,0) | 94,9 | 94,4 |\n| Sønderborg | Ja | 1.514 / 1.586 | 95,5 (94,3-96,4) | 96,8 | 94,8 |\n| Holstebro | Ja | 902 / 949 | 95,0 (93,5-96,3) | 92,0 | 92,3 |\n| Ikast-Brande | Ja | 701 / 735 | 95,4 (93,6-96,8) | 93,9 | 94,8 |\n| Ringkøbing-Skjern | Ja | 1.059 / 1.113 | 95,1 (93,7-96,3) | 93,8 | 94,5 |\n| Silkeborg | Ja | 1.549 / 1.608 | 96,3 (95,3-97,2) | 95,5 | 95,1 |\n| Skanderborg | Ja | 924 / 962 | 96,0 (94,6-97,2) | 95,9 | 95,7 |\n| Skive | Ja | 1.010 / 1.060 | 95,3 (93,8-96,5) | 94,2 | 95,1 |\n| Struer | Ja | 434 / 455 | 95,4 (93,0-97,1) | 94,4 | 94,1 |\n| Brønderslev-Dronninglund | Ja | 721 / 738 | 97,7 (96,3-98,7) | 95,8 | 97,0 |\n| Frederikshavn | Ja | 1.404 / 1.437 | 97,7 (96,8-98,4) | 97,6 | 97,7 |\n| Hjørring | Ja | 1.347 / 1.402 | 96,1 (94,9-97,0) | 95,0 | 95,1 |\n| Thisted | Ja | 862 / 907 | 95,0 (93,4-96,4) | 93,4 | 94,0 |",
+      "summary": "Tabellen sammenligner opfyldelsen af Indikator 4b på tværs af regioner og kommuner i Danmark for 2022–2023 samt tidligere år, og viser at 15 kommuner og Region Nordjylland opfylder den nationale standard på ≥95 %, mens alle regioner undtagen Nordjylland ligger under standarden."
+    }
+  ],
+  "context": "Dette dokumentudsnit er en del af Årsrapporten fra Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten præsenterer to centrale kvalitetsindikatorer (4a og 4b) til vurdering af behandlingskvaliteten for patienter med atrieflimren, især med fokus på antikoagulationsbehandling og dens sikkerhedsmæssige overvågning. Indikator 4a fokuserer på behandlingsdækning over tid (1, 2 og 5 år efter diagnose), mens Indikator 4b måler overholdelse af sikkerhedspraksis ved brug af DOAC-medikamenter. Rapporten indeholder detaljerede beregningsregler, eksklusionskriterier, landsoversigter og nedbrydning på regional og kommunal niveau, hvilket understreger det decentraliserede ansvarsområde for kvalitetsudvikling i det danske sundhedsvæsen."
 }

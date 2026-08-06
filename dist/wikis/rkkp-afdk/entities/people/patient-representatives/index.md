@@ -1,31 +1,29 @@
 ---
 title: Patient Representatives
-type: entity
+type: index
 aliases:
   - Patient Representatives
 wiki: rkkp-afdk
-updated: '2026-08-03T19:14:15.619Z'
+updated: '2026-08-05T23:10:20.150Z'
 children:
-  - index.md
-  - inge-moelgaard.md
+  - inge-molgaard.md
   - robert-bedsted.md
-tags:
-  - person
-sparse: true
-sources: []
 ---
 # Patient Representatives
 
-This folder contains pages and sub-folders related to patient representatives.
+This folder catalogs individuals who act as patient representatives within the national clinical quality development efforts for cardiovascular health in Denmark. Both representatives documented here serve on the steering committee for the Danish Atrial Fibrillation Database, bringing the patient perspective to high-level clinical and political decision-making. Their inclusion underscores the cross-sectoral, interdisciplinary governance model used to ensure that atrial fibrillation treatment remains uniform, evidence-based, and patient-centered across the country.
 
 ## Pages
 
-- [[inge-moelgaard|Inge Mølgaard]]
-- [[robert-bedsted|Robert Bedsted]]
+- [[inge-molgaard|Inge Mølgaard]] — Serves on the AFDK steering committee, contributing to the governance and structured patient education frameworks for atrial fibrillation.
+- [[robert-bedsted|Robert Bedsted]] — Serves on the AFDK steering committee, representing patient interests in the national quality development of atrial fibrillation care.
 
 ## Navigation
 
-- Parent: [[index|Rkkp Afdk]]
+- Parent: [[entities/people/index|People]]
+- Sibling: [[entities/people/health-professionals/index|Health Professionals]]
+- Sibling: [[entities/people/health-researchers/index|Health Researchers]]
+- Sibling: [[entities/people/healthcare-professionals/index|Healthcare Professionals]]
 
 ## Statistics
 

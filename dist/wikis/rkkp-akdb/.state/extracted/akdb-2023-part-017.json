@@ -2,115 +2,14 @@
   "entities": [
     {
       "name": "Akut Kirurgi Databasen",
-      "type": "organization",
+      "type": "database",
       "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/databases",
-      "significance": "AKDB er en national kvalitetsdatabase, der monitorerer og forbedrer kvaliteten af pleje, diagnostik og behandling af højrisiko akutte abdominalkirurgiske patienter på danske sygehuse.",
+      "folder": "entities/databases/healthcare",
+      "significance": "Akut Kirurgi Databasen (AKDB) er den centrale kvalitetsdatabas, der overvåger og forbedrer behandlingskvaliteten for højrisiko akutte abdominalkirurgiske patienter i Danmark, og dens konstruktion, inklusionskriterier og datagrundlag udgør kerneindholdet af denne dokumentchunk.",
       "mentions": [
         {
           "page": 81,
-          "context": "Formålet med databasen er at monitorere og forbedre kvaliteten af pleje, diagnostik og behandling af højrisiko akutte abdominalkirurgiske patienter."
-        },
-        {
-          "page": 81,
-          "context": "Registrering af data til databasen foregår som indberetning til LPR."
-        },
-        {
-          "page": 81,
-          "context": "Indikatorresultater, hvor der kun optræder n = 1 eller n = 2 i enten tæller eller nævner, vil af diskretionshensyn blive fjernet"
-        },
-        {
-          "page": 82,
-          "context": "Populationen omfatter alle patienter der behandles med akut højrisiko abdominalkirurgi på danske sygehuse."
-        },
-        {
-          "page": 84,
-          "context": "Denne rapport inkluderer 3.697 patienter, som blev opererede og 6.316 patienter med en relevant diagnose, men som ikke blev opererede i perioden 1. september 2022 til 31. august 2023."
-        },
-        {
-          "page": 85,
-          "context": "Data på population og indikatorer har været tilgængelige i de regionale ledelsesinformationssystemer (LIS) siden september 2020."
-        }
-      ]
-    },
-    {
-      "name": "Landspatientregisteret",
-      "type": "organization",
-      "slug": "landspatientregisteret",
-      "folder": "entities/organizations/registries",
-      "significance": "LPR er en primær datakilde for AKDB, hvorfra data til konstruktion af populationen og indikatorerne indhentes, og hvor registrering af data til databasen foregår som indberetning.",
-      "mentions": [
-        {
-          "page": 81,
-          "context": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)."
-        },
-        {
-          "page": 81,
-          "context": "Registrering af data til databasen foregår som indberetning til LPR."
-        },
-        {
-          "page": 82,
-          "context": "Kontakterne identificeres i LPR."
-        },
-        {
-          "page": 84,
-          "context": "Data til Akut Kirurgi Databasen dannes som beskrevet på baggrund af LPR."
-        }
-      ]
-    },
-    {
-      "name": "Den Nationale Labdatabank",
-      "type": "organization",
-      "slug": "den-nationale-labdatabank",
-      "folder": "entities/organizations/registries",
-      "significance": "DNL er en datakilde for AKDB, selvom den aktuelt ikke har data til rådighed i de nationale kvalitetsdatabaser, men vil indgå i indikatorberegningen når data bliver tilgængelige.",
-      "mentions": [
-        {
-          "page": 81,
-          "context": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)."
-        },
-        {
-          "page": 81,
-          "context": "DNL har aktuelt ikke data til rådighed i de nationale kvalitetsdatabaser, men når data bliver tilgængelige, vil de indgå i indikatorberegningen i AKDB."
-        }
-      ]
-    },
-    {
-      "name": "Dansk Anæstesi Database",
-      "type": "organization",
-      "slug": "dansk-anaestesi-database",
-      "folder": "entities/organizations/registries",
-      "significance": "DAD er en af de øvrige datakilder, som AKDB benytter data fra til en række indikatorer.",
-      "mentions": [
-        {
-          "page": 81,
-          "context": "De øvrige datakilder er - Den Nationale Labdatabank (DNL) - Dansk Anæstesi Database (DAD) - Sygehusmedicinregisteret (SMR)"
-        }
-      ]
-    },
-    {
-      "name": "Sygehusmedicinregisteret",
-      "type": "organization",
-      "slug": "sygehusmedicinregisteret",
-      "folder": "entities/organizations/registries",
-      "significance": "SMR er en af de øvrige datakilder, som AKDB benytter data fra til en række indikatorer.",
-      "mentions": [
-        {
-          "page": 81,
-          "context": "De øvrige datakilder er - Den Nationale Labdatabank (DNL) - Dansk Anæstesi Database (DAD) - Sygehusmedicinregisteret (SMR)"
-        }
-      ]
-    },
-    {
-      "name": "CPR-registeret",
-      "type": "organization",
-      "slug": "cpr-registeret",
-      "folder": "entities/organizations/registries",
-      "significance": "CPR-registeret er en datakilde for konstruktion af populationen og indikatorerne i AKDB.",
-      "mentions": [
-        {
-          "page": 81,
-          "context": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)."
+          "context": "Akut Kirurgi Databasen"
         }
       ]
     },
@@ -118,8 +17,8 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/programs",
-      "significance": "RKKP er det program under hvilket AKDB opererer som en del af den danske kvalitetsudviklingsinfrastruktur.",
+      "folder": "entities/organizations/healthcare-administration",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er det administrative program, der står bag udviklingen, vedligeholdelsen og offentliggørelsen af Akut Kirurgi Databasen, og det fungerer som den overordnede ramme for kvalitetsmåling i den danske regionale sundhedssektor.",
       "mentions": [
         {
           "page": 81,
@@ -128,67 +27,67 @@
       ]
     },
     {
-      "name": "Sundhedsvæsenets Organisationsregister",
-      "type": "organization",
-      "slug": "sundhedsvaesenets-organisationsregister",
-      "folder": "entities/organizations/registries",
-      "significance": "SOR er et register over alle aktører i det danske sundhedsvæsen, som AKDB benytter til klassificering af afdelinger ved eksklusionskriterier.",
+      "name": "Landspatientregisteret (LPR)",
+      "type": "database",
+      "slug": "landspatientregisteret-lpr",
+      "folder": "entities/databases/healthcare",
+      "significance": "Landspatientregisteret (LPR) er den primære datakilde for Akut Kirurgi Databasen, da registreringen til AKDB foregår som indberetning til LPR, og hele populationens dannelse og indikatorberegninger bygger på LPR-data.",
       "mentions": [
         {
-          "page": 82,
-          "context": "Kontakter registreret på afdelinger med følgende specialer, jf. SOR: - Gynækologi og obstetrik - Urologi *SOR står for Sundhedsvæsenets Organisationsregister og er et register over alle aktører i det danske sundhedsvæsen."
+          "page": 81,
+          "context": "registrering til LPR"
         }
       ]
     },
     {
-      "name": "Region Nordjylland",
-      "type": "organization",
-      "slug": "region-nordjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Nordjylland er en af de danske regioner, der har deltaget i validering af AKDB-populationen ved at få tilsendt lister med CPR-numre og procedurer.",
+      "name": "CPR-registeret",
+      "type": "database",
+      "slug": "cpr-registeret",
+      "folder": "entities/databases/government",
+      "significance": "CPR-registeret er en af de tre centrale datakilder, der anvendes til konstruktion af populationen og indikatorerne i Akut Kirurgi Databasen, og det sikrer entydig identifikation af patienter.",
       "mentions": [
         {
-          "page": 85,
-          "context": "Således har specifikke lister været sendt til Region Nordjylland, Region Midtjylland, Region Syddanmark og Region Hovedstaden, hvor der er sammenlignet med registreringer i de lokale journalsystemer."
+          "page": 81,
+          "context": "CPR-registeret"
         }
       ]
     },
     {
-      "name": "Region Midtjylland",
-      "type": "organization",
-      "slug": "region-midtjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Midtjylland er en af de danske regioner, der har deltaget i validering af AKDB-populationen ved at få tilsendt lister med CPR-numre og procedurer.",
+      "name": "Den Nationale Labdatabank (DNL)",
+      "type": "database",
+      "slug": "den-nationale-labdatabank-dnl",
+      "folder": "entities/databases/healthcare",
+      "significance": "Den Nationale Labdatabank (DNL) er en supplerende datakilde til Akut Kirurgi Databasen, selvom det fremgår, at DNL aktuelt ikke har data til rådighed i de nationale kvalitetsdatabaser — men at data vil indgå i beregningen, når de bliver tilgængelige.",
       "mentions": [
         {
-          "page": 85,
-          "context": "Således har specifikke lister været sendt til Region Nordjylland, Region Midtjylland, Region Syddanmark og Region Hovedstaden, hvor der er sammenlignet med registreringer i de lokale journalsystemer."
+          "page": 81,
+          "context": "Den Nationale Labdatabank (DNL)"
         }
       ]
     },
     {
-      "name": "Region Syddanmark",
-      "type": "organization",
-      "slug": "region-syddanmark",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Syddanmark er en af de danske regioner, der har deltaget i validering af AKDB-populationen ved at få tilsendt lister med CPR-numre og procedurer.",
+      "name": "Dansk Anæstesi Database (DAD)",
+      "type": "database",
+      "slug": "dansk-anaestesi-database-dad",
+      "folder": "entities/databases/healthcare",
+      "significance": "Dansk Anæstesi Database (DAD) er en af de eksterne databaser, hvis data benyttes til en række indikatorer i Akut Kirurgi Databasen, hvilket understreger den tværgående karakter af kvalitetsmålingen.",
       "mentions": [
         {
-          "page": 85,
-          "context": "Således har specifikke lister været sendt til Region Nordjylland, Region Midtjylland, Region Syddanmark og Region Hovedstaden, hvor der er sammenlignet med registreringer i de lokale journalsystemer."
+          "page": 81,
+          "context": "Dansk Anæstesi Database (DAD)"
         }
       ]
     },
     {
-      "name": "Region Hovedstaden",
-      "type": "organization",
-      "slug": "region-hovedstaden",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Hovedstaden er en af de danske regioner, der har deltaget i validering af AKDB-populationen ved at få tilsendt lister med CPR-numre og procedurer.",
+      "name": "Sygehusmedicinregisteret (SMR)",
+      "type": "database",
+      "slug": "sygehusmedicinregisteret-smr",
+      "folder": "entities/databases/healthcare",
+      "significance": "Sygehusmedicinregisteret (SMR) er en af de eksterne databaser, hvis data benyttes til indikatorberegninger i Akut Kirurgi Databasen, hvilket viser, at AKDB integrerer data fra flere specialiserede sundhedsvæsenregistre.",
       "mentions": [
         {
-          "page": 85,
-          "context": "Således har specifikke lister været sendt til Region Nordjylland, Region Midtjylland, Region Syddanmark og Region Hovedstaden, hvor der er sammenlignet med registreringer i de lokale journalsystemer."
+          "page": 81,
+          "context": "Sygehusmedicinregisteret (SMR)"
         }
       ]
     },
@@ -196,25 +95,25 @@
       "name": "Sundhedsdatastyrelsens teknikergruppe",
       "type": "organization",
       "slug": "sundhedsdatastyrelsens-teknikergruppe",
-      "folder": "entities/organizations/advisory-groups",
-      "significance": "Teknikergruppen har udgivet anbefalinger for forløbsdannelse, som AKDB følger i sin analytiske definition af patientforløb.",
+      "folder": "entities/organizations/healthcare-administration",
+      "significance": "Sundhedsdatastyrelsens teknikergruppe har udarbejdet anbefalinger, som AKDB’s analytiske definition af patientforløb følger, hvilket giver faglig og teknisk legitimitet til forløbsdannelsen i databasen.",
       "mentions": [
         {
-          "page": 83,
-          "context": "Denne analytiske definition af forløb svarer til anbefalingerne fra Sundhedsdatastyrelsens teknikergruppe [1]."
+          "page": 81,
+          "context": "Sundhedsdatastyrelsens teknikergruppe [1]"
         }
       ]
     },
     {
-      "name": "STPS",
-      "type": "organization",
-      "slug": "stps",
-      "folder": "entities/organizations/oversight",
-      "significance": "STPS benytter AKDB til at understøtte risikobaserede tilsyn af danske sygehuse.",
+      "name": "Sundhedsvæsenets Organisationsregister (SOR)",
+      "type": "database",
+      "slug": "sundhedsvaesenets-organisationsregister-sor",
+      "folder": "entities/databases/government",
+      "significance": "Sundhedsvæsenets Organisationsregister (SOR) bruges til at identificere afdelinger med bestemte specialer (f.eks. gynækologi og obstetrik), som ekskluderes fra AKDB-populationen, og dets rolle er derfor central for præcisionen i inklusionskriterierne.",
       "mentions": [
         {
-          "page": 85,
-          "context": "Databasen understøtter STPS risikobaserede tilsyn og Danske regioners arbejde med lærings og kvalitets teams."
+          "page": 81,
+          "context": "SOR*:\n- Gynækologi og obstetrik\n- Urologi\n*SOR står for Sundhedsvæsenets Organisationsregister og er et register over alle aktører i det danske sundhedsvæsen."
         }
       ]
     }
@@ -222,57 +121,64 @@
   "relationships": [
     {
       "subject": "akut-kirurgi-databasen",
-      "predicate": "uses-data-from",
-      "object": "landspatientregisteret",
-      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL).",
+      "predicate": "is-developed-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Akut Kirurgi Databasen er udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram",
       "page": 81
     },
     {
       "subject": "akut-kirurgi-databasen",
       "predicate": "uses-data-from",
-      "object": "den-nationale-labdatabank",
-      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL).",
+      "object": "landspatientregisteret-lpr",
+      "evidence": "Registrering af data til databasen foregår som indberetning til LPR",
       "page": 81
     },
     {
       "subject": "akut-kirurgi-databasen",
       "predicate": "uses-data-from",
       "object": "cpr-registeret",
-      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL).",
+      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)",
       "page": 81
     },
     {
       "subject": "akut-kirurgi-databasen",
       "predicate": "uses-data-from",
-      "object": "dansk-anaestesi-database",
-      "evidence": "De øvrige datakilder er - Den Nationale Labdatabank (DNL) - Dansk Anæstesi Database (DAD) - Sygehusmedicinregisteret (SMR)",
+      "object": "den-nationale-labdatabank-dnl",
+      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)",
       "page": 81
     },
     {
       "subject": "akut-kirurgi-databasen",
       "predicate": "uses-data-from",
-      "object": "sygehusmedicinregisteret",
-      "evidence": "De øvrige datakilder er - Den Nationale Labdatabank (DNL) - Dansk Anæstesi Database (DAD) - Sygehusmedicinregisteret (SMR)",
+      "object": "dansk-anaestesi-database-dad",
+      "evidence": "De øvrige datakilder er\n- Den Nationale Labdatabank (DNL)\n- Dansk Anæstesi Database (DAD)\n- Sygehusmedicinregisteret (SMR)",
       "page": 81
     },
     {
       "subject": "akut-kirurgi-databasen",
-      "predicate": "part-of",
-      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "predicate": "uses-data-from",
+      "object": "sygehusmedicinregisteret-smr",
+      "evidence": "De øvrige datakilder er\n- Den Nationale Labdatabank (DNL)\n- Dansk Anæstesi Database (DAD)\n- Sygehusmedicinregisteret (SMR)",
       "page": 81
     },
     {
       "subject": "akut-kirurgi-databasen",
-      "predicate": "supports",
-      "object": "stps",
-      "evidence": "Databasen understøtter STPS risikobaserede tilsyn og Danske regioners arbejde med lærings og kvalitets teams.",
-      "page": 85
+      "predicate": "follows-guidance-from",
+      "object": "sundhedsdatastyrelsens-teknikergruppe",
+      "evidence": "Denne analytiske definition af forløb svarer til anbefalingerne fra Sundhedsdatastyrelsens teknikergruppe [1]",
+      "page": 81
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "excludes-departments-from",
+      "object": "sundhedsvaesenets-organisationsregister-sor",
+      "evidence": "Kontakter registreret på afdelinger med følgende specialer, jf. SOR*:\n- Gynækologi og obstetrik\n- Urologi",
+      "page": 81
     }
   ],
   "claims": [
     {
-      "text": "Formålet med databasen er at monitorere og forbedre kvaliteten af pleje, diagnostik og behandling af højrisiko akutte abdominalkirurgiske patienter [^src1]",
+      "text": "Akut Kirurgi Databasen har formålet at monitorere og forbedre kvaliteten af pleje, diagnostik og behandling af højrisiko akutte abdominalkirurgiske patienter [^src1]",
       "type": "purpose",
       "entities": [
         "akut-kirurgi-databasen"
@@ -280,34 +186,35 @@
       "page": 81
     },
     {
-      "text": "Indikatorsættet er udvalgt med udgangspunkt i en dokumentalistrapport [^src1]",
-      "type": "methodology",
+      "text": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL) [^src1]",
+      "type": "data-source",
       "entities": [
-        "akut-kirurgi-databasen"
+        "cpr-registeret",
+        "landspatientregisteret-lpr",
+        "den-nationale-labdatabank-dnl"
       ],
       "page": 81
     },
     {
       "text": "Registrering af data til databasen foregår som indberetning til LPR [^src1]",
-      "type": "process",
+      "type": "data-collection-method",
       "entities": [
         "akut-kirurgi-databasen",
-        "landspatientregisteret"
-      ],
-      "page": 81
-    },
-    {
-      "text": "DNL har aktuelt ikke data til rådighed i de nationale kvalitetsdatabaser, men når data bliver tilgængelige, vil de indgå i indikatorberegningen i AKDB [^src1]",
-      "type": "status",
-      "entities": [
-        "den-nationale-labdatabank",
-        "akut-kirurgi-databasen"
+        "landspatientregisteret-lpr"
       ],
       "page": 81
     },
     {
       "text": "Indikatorresultater, hvor der kun optræder n = 1 eller n = 2 i enten tæller eller nævner, vil af diskretionshensyn blive fjernet og erstattet med # samt en forklaringsnote i den offentliggjorte årsrapport på www.sundhed.dk [^src1]",
-      "type": "policy",
+      "type": "data-privacy-policy",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 81
+    },
+    {
+      "text": "I kolonnen ”Standard opfyldt” angides alene om punktestimatet ligger over eller under den vedtagne standard: Ja = estimatet ligger på den rigtige side af standard; Nej = estimatet ligger på den forkerte side af standard [^src1]",
+      "type": "indicator-interpretation",
       "entities": [
         "akut-kirurgi-databasen"
       ],
@@ -315,183 +222,65 @@
     },
     {
       "text": "Der beregnes 95 % konfidensinterval for indikatorresultatet i aktuelle opgørelsesperiode [^src1]",
-      "type": "methodology",
+      "type": "statistical-method",
       "entities": [
         "akut-kirurgi-databasen"
       ],
       "page": 81
     },
     {
-      "text": "Populationen omfatter alle patienter der behandles med akut højrisiko abdominalkirurgi på danske sygehuse [^src1]",
-      "type": "definition",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 82
-    },
-    {
-      "text": "Kontakterne identificeres i LPR. Følgende inklusionskriterier er gældende: kontakt med fysisk fremmøde [ALCA00] og prioritet: 'akut' [ATA1*] i LPR [^src1]",
-      "type": "inclusion-criteria",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "landspatientregisteret"
-      ],
-      "page": 82
-    },
-    {
-      "text": "Kontakter registreret på afdelinger med følgende specialer, jf. SOR, er ekskluderet: Gynækologi og obstetrik og Urologi [^src1]",
-      "type": "exclusion-criteria",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 82
-    },
-    {
-      "text": "Patientforløb i AKDB dannes ved at samle alle LPR kontakter som på hinanden følgende er ≤ 4 timer mellem hinanden [^src1]",
-      "type": "methodology",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "landspatientregisteret"
-      ],
-      "page": 83
-    },
-    {
-      "text": "Enheden for analyser i indikatorerne altid er forløb. Dvs, hvis den samme patient har fået flere operationer, vil kun den første operation være gældende i indikatorberegningen [^src1]",
-      "type": "methodology",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 83
-    },
-    {
       "text": "Denne rapport inkluderer 3.697 patienter, som blev opererede og 6.316 patienter med en relevant diagnose, men som ikke blev opererede i perioden 1. september 2022 til 31. august 2023 [^src1]",
-      "type": "population-statistics",
+      "type": "population-statistic",
       "entities": [
         "akut-kirurgi-databasen"
       ],
-      "page": 84
+      "page": 81
     },
     {
       "text": "Udtrækket til analyserne er foretaget d. 30/11-2023 [^src1]",
-      "type": "data-extraction",
+      "type": "data-extraction-date",
       "entities": [
         "akut-kirurgi-databasen"
       ],
-      "page": 84
-    },
-    {
-      "text": "I perioden 2022-2023 var der 10.013 patienter i alt, 3.697 opererede, 6.316 ikke-opererede, svarende til 37% opererede [^src1]",
-      "type": "population-statistics",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 84
-    },
-    {
-      "text": "I perioden 2021-2022 var der 8.718 patienter i alt, 3.134 opererede, 5.584 ikke-opererede, svarende til 36% opererede [^src1]",
-      "type": "population-statistics",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 84
-    },
-    {
-      "text": "I perioden 2020-2021 var der 12.389 patienter i alt, 2.600 opererede, 9.789 ikke-opererede, svarende til 21% opererede [^src1]",
-      "type": "population-statistics",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 84
-    },
-    {
-      "text": "I perioden 2019-2020 var der 11.780 patienter i alt, 6.932 opererede, 4.848 ikke-opererede, svarende til 59% opererede [^src1]",
-      "type": "population-statistics",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 84
-    },
-    {
-      "text": "Årsrapporten fra 2022-2023 opgøres i forløb i stedet for operationer [^src1]",
-      "type": "methodology-change",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 84
-    },
-    {
-      "text": "Data på population og indikatorer har været tilgængelige i de regionale ledelsesinformationssystemer (LIS) siden september 2020 [^src1]",
-      "type": "availability",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 85
-    },
-    {
-      "text": "Populationen er valideret ved at afdelinger har fået tilsendt lister med CPR-numre og de procedurer, der er registreret i databasen til Region Nordjylland, Region Midtjylland, Region Syddanmark og Region Hovedstaden [^src1]",
-      "type": "validation",
-      "entities": [
-        "akut-kirurgi-databasen",
-        "region-nordjylland",
-        "region-midtjylland",
-        "region-syddanmark",
-        "region-hovedstaden"
-      ],
-      "page": 85
-    },
-    {
-      "text": "Vurderingerne blev foretaget både på CPR-niveau – altså om patienten var relevant, samt på diagnoser og procedurer, altså på om diagnoserne var ens og om de procedurer, der indgår i AKDB kunne genfindes i journalsystemerne [^src1]",
-      "type": "validation-process",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 85
-    },
-    {
-      "text": "Der blev ikke foretaget systematisk dataindsamling, som kan afrapporteres [^src1]",
-      "type": "limitation",
-      "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 85
+      "page": 81
     }
   ],
   "timeline": [
     {
-      "date": "1. september 2022 til 31. august 2023",
-      "event": "Rapportperiode for AKDB-data, som inkluderer 3.697 opererede patienter og 6.316 ikke-opererede patienter med relevant diagnose",
+      "date": "2022-09-01",
+      "event": "Start af opgørelsesperioden for rapporten",
       "entities": [
         "akut-kirurgi-databasen"
       ]
     },
     {
-      "date": "30. november 2023",
-      "event": "Udtrækket til analyserne for årsrapporten blev foretaget",
+      "date": "2023-08-31",
+      "event": "Slut på opgørelsesperioden for rapporten",
       "entities": [
         "akut-kirurgi-databasen"
       ]
     },
     {
-      "date": "September 2020",
-      "event": "Data på population og indikatorer blev gjort tilgængelige i de regionale ledelsesinformationssystemer (LIS)",
+      "date": "2023-11-30",
+      "event": "Udtræk af data til analyserne foretaget",
       "entities": [
         "akut-kirurgi-databasen"
       ]
     }
   ],
-  "context": "Dette dokument er en teknisk vejledning til Akut Kirurgi Databasen (AKDB), som er en del af Regionernes Kliniske Kvalitetsudviklingsprogram. AKDB monitorerer og forbedrer kvaliteten af pleje, diagnostik og behandling af højrisiko akutte abdominalkirurgiske patienter på danske sygehuse ved at indsamle data fra nationale registre som Landspatientregisteret, CPR-registeret og Den Nationale Labdatabank. Dokumentet beskriver populationsdefinition, inklusionskriterier, eksklusionskriterier, forløbsdannelse, datakilder, og validering af populationen blandt de danske regioner. I rapportperioden 2022-2023 omfattede databasen 10.013 patienter, hvoraf 3.697 blev opererede og 6.316 havde en relevant diagnose uden operation.",
   "tables": [
     {
       "subject": "akut-kirurgi-databasen",
-      "title": "Antal patienter i databasen siden overgangen til LPR",
-      "page": 84,
-      "rowDimension": "årgange",
-      "colDimension": "patientantal og andel opererede",
+      "title": "Antal patienter i databasen, antal opererede, antal ikke-opererede og andelen af opererede patienter i perioden siden overgangen til LPR",
+      "page": 81,
+      "rowDimension": "år",
+      "colDimension": "antal og procent",
       "entities": [
         "akut-kirurgi-databasen"
       ],
-      "markdown": "| År | Total | Opererede | Ikke-opererede | Andel opererede |\n| --- | --- | --- | --- | --- |\n| 2022-2023* | 10.013 | 3.697 | 6.316 | 37 % |\n| 2021-2022 | 8.718 | 3.134 | 5.584 | 36 % |\n| 2020-2021 | 12.389 | 2.600 | 9.789 | 21 % |\n| 2019-2020 | 11.780 | 6.932 | 4.848 | 59 % |",
-      "summary": "Tabellen sammenligner antallet af patienter i databasen, opererede, ikke-opererede og andelen af opererede pr. årgang fra 2019-2020 til 2022-2023; andelen opererede faldt fra 59 % i 2019-2020 til 21 % i 2020-2021 og er siden steget til 37 % i 2022-2023."
+      "markdown": "| År | Total | Opererede | Ikke-opererede | Andel | opererede |\n| --- | --- | --- | --- | --- | --- |\n| 2022-2023* | 10.013 | 3.697 | 6.316 | 37 | % |\n| 2021-2022 | 8.718 | 3.134 | 5.584 | 36 | % |\n| 2020-2021 | 12.389 | 2.600 | 9.789 | 21 | % |\n| 2019-2020 | 11.780 | 6.932 | 4.848 | 59 | % |",
+      "summary": "Tabellen sammenligner antallet af patienter i Akut Kirurgi Databasen over fire år, og viser en stigning i andelen af opererede patienter fra 21 % i 2020-2021 til 37 % i 2022-2023, samtidig med at totalpopulationen falder fra 12.389 til 10.013."
     }
-  ]
+  ],
+  "context": "Dette dokumentchunk er en del af den endelige version af Akut Kirurgi Databasen (AKDB) til offentliggørelse fra 2024, og det beskriver tekniske og metodiske detaljer vedrørende konstruktionen af databasens population, dens datakilder, inklusions- og eksklusionskriterier samt valideringsprocedurer. Chunken er en teknisk vejledning rettet mod sygehuse og regionale ledelsesenheder, og den indgår i det bredere nationale kvalitetsudviklingsprogram for akut kirurgi i Danmark, der har til formål at sikre standardiseret, pålidelig og etisk ansvarlig kvalitetsmåling baseret på real-world sundhedsdata. Den fokuserer især på hvordan LPR nu fungerer som den primære registreringsplatform, og hvordan supplerende datakilder og lokale valideringsprocesser sikrer datakvalitet og klinisk relevans."
 }

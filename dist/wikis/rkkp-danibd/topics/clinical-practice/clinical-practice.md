@@ -4,32 +4,41 @@ type: topic
 aliases:
   - Clinical Practice
 wiki: rkkp-danibd
-updated: '2026-08-03T19:14:18.797Z'
+updated: '2026-08-05T06:59:48.596Z'
 sources:
-  - file: DANIBD_2023.pdf
-    pages: 26-29
-  - file: DANIBD_2024.pdf
-    pages: '11-15, 21-25, 6-10'
+  - file: wikis/rkkp-danibd/raw/DANIBD_2023.pdf
+    pages: '1-5, 26-29'
+  - file: wikis/rkkp-danibd/raw/DANIBD_2024.pdf
+    pages: 31-35
 tags:
   - clinical-practice
 ---
 
+# Clinical Practice
+
+Clinical practice within the context of the Danish Inflammatory Bowel Disease registry involves standardized monitoring, follow-up routines, and guideline adherence for patients with [[ibd|IBD]] and related conditions. The [[styregruppen-for-danibd|Styregruppen for DANIBD]] oversees and tracks these practices to ensure high-quality care and adherence to both national and international standards.
+
+A central component of clinical practice for IBD patients is the use of biomarkers to monitor disease activity. Specifically, [[calprotectin|calprotectin]] testing is widely utilized. According to registry data, 78% of patients receiving biological or targeted synthetic medications are monitored with an annual measurement of fecal calprotectin [^src1]. At the institutional level, specific clinical guidelines shape these routines. For example, at [[nordsjaellands-hospital|Nordsjællands Hospital]], the clinical target for "quiescent" IBD patients is set at one annual calprotectin measurement, whereas the measurement frequency for patients undergoing biological treatment is individualized based on their specific needs [^src3].
+
+Clinical practice also extends to patients with overlapping or related hepatobiliary conditions, such as [[psc|Primær skleroserende kolangitis (PSC)]]. For PSC patients, there is strong evidence and broad international consensus supporting the clinical practice of offering annual systematic follow-ups to all individuals diagnosed with the condition [^src2]. These structured follow-ups are critical for managing the long-term risks associated with PSC in the IBD population.
+
 ## Claims
 
-- På Nordsjællands Hospital monitoreres ca. 85-90 % af IBD-patienterne via appen Constant Care [^src1] ([[nordsjaelland|Nordsjælland]], [[ibd|IBD]], [[constant-care|Constant Care]])
-- I udredningen er der stærk anbefaling for, og deraf bred international enighed om, at diagnoserne stilles ved koloskopi [^src2] ([[koloskopi]])
-- De mindste børn bedøves ikke to gange til både endoskopi og efterfølgende MR-scanning [^src3] ([[mr-scanning-af-tyndtarm|MR-scanning af tyndtarm]])
-- Akut sygdomsdebut og behandlingsstart umiddelbart efter endoskopi kan forhindre supplerende MR af tyndtarm [^src3] ([[mr-scanning-af-tyndtarm|MR-scanning af tyndtarm]])
-- For lang ventetid på MR-scanning af børn kan være en årsag til, at MR af tyndtarm ikke gennemføres [^src3] ([[mr-scanning-af-tyndtarm|MR-scanning af tyndtarm]])
-- "Vælg klogt" tilgang i pædiatrien betyder, at når endoskopi viser tydeligt colitis ulcerosa, spares barnet/den unge for yderligere invasiv diagnostik [^src3] ([[ulcerative-colitis|Ulcerative Colitis]])
-- Flere patienter er primært henvist til og udredt i kirurgisk regi med sigmoideoskopi/koloskopi alene [^src3] ([[sigmoideoskopi|Sigmoideoskopi]], [[koloskopi]])
-- De tre største universitetsafdelinger (Hvidovre, Odense og Aarhus) varetager diagnostik af de yngste børn med VEO-IBD, og der kan derfor være en bias i forhold til fravalgt MR pga. krav om 2 anæstesier med kort mellemrum [^src3] ([[hvidovre|Hvidovre]], [[odense-boerne-og-ungeafdeling|Odense Børne- og Ungeafdeling]], [[aarhus-university-hospital|Aarhus University Hospital]], [[veo-ibd|VEO-IBD]], [[mr-scanning-af-tyndtarm|MR-scanning af tyndtarm]])
-- Postoperativ opfølgning af patienter med Crohns sygdom, som har haft behov for operation, er vigtigt. Recidiv af sygdommen optræder hyppigt – og ofte relativt tidligt. [^src4] ([[crohns-disease]])
-- Biologiske og målrettede syntetiske lægemidler (BMSL) anvendes i behandlingen af patienter med moderat til svær sygdomsaktivitet. [^src4] ([[bmsl|BMSL]], [[inflammatory-bowel-disease|Inflammatory Bowel Disease]])
+- 78% af patienterne bliver fulgt med årlig måling af fæces calprotectin når de behandles med biologiske eller målrettede syntetiske lægemidler [^src1] (styregruppen-for-danibd)
+  Type: clinical-practice
+  Page: 4
+  Source: wikis/rkkp-danibd/raw/DANIBD_2023.pdf, pages 1-5
+- Der er stærk evidens for og bred international enighed om, at tilbyde alle patienter med PSC årlige systematiske opfølgninger [^src1] (psc)
+  Type: clinical-practice
+  Page: 32
+  Source: wikis/rkkp-danibd/raw/DANIBD_2024.pdf, pages 31-35
+- Målet for 'hvilende' IBD-patienter på NOH er én årlig calprotectin-måling, mens målingsrater for patienter i biologisk behandling er individualiserede [^src1] (nordsjaellands-hospital, calprotectin, ibd)
+  Type: clinical-guideline
+  Page: 28
+  Source: wikis/rkkp-danibd/raw/DANIBD_2023.pdf, pages 26-29
 
 ## Sources
 
-[^src1]: DANIBD_2023.pdf, pages 26-29
-[^src2]: DANIBD_2024.pdf, pages 6-10
-[^src3]: DANIBD_2024.pdf, pages 11-15
-[^src4]: DANIBD_2024.pdf, pages 21-25
+[^src1]: DANIBD_2023.pdf, pages 1-5
+[^src2]: DANIBD_2024.pdf, pages 31-35
+[^src3]: DANIBD_2023.pdf, pages 26-29

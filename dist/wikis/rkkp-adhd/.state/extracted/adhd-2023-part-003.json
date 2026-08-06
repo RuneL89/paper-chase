@@ -1,153 +1,158 @@
 {
   "entities": [
     {
-      "name": "Danmark",
-      "type": "location",
-      "slug": "danmark",
-      "folder": "entities/locations",
-      "significance": "National level aggregation for ADHD assessment indicators across all Danish regions.",
+      "name": "ADHD-DATABASEN",
+      "type": "organization",
+      "slug": "adhd-databasen",
+      "folder": "entities/organizations/healthcare-databases",
+      "significance": "ADHD-DATABASEN er den centrale dataindsamlingsplatform, der rapporterer resultaterne for indikatorer relateret til ADHD-udredning i danske regioner og afdelinger, og danner grundlag for evaluering af kvalitetsstandarder og beslutninger fra styregruppen.",
       "mentions": [
         {
           "page": 11,
-          "context": "På landsplan blev 59 % udredt somatisk inden for tidsfristen"
+          "context": "ADHD-DATABASEN"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen",
+      "type": "organization",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Styregruppen er den beslutningsmyndighed, der vurderer relevansen af indikatorer og bibeholder standarden for somatisk udredning, hvilket understreger dens rolle som overordnet kvalitetsstyringsorgan for ADHD-udredning i Danmark.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Styregruppen vurderer, at somatisk undersøgelse er vigtig både ift. mulige somatiske differentialdiagnoser og evt. andre samtidige somatiske tilstande."
         }
       ]
     },
     {
       "name": "Region Midtjylland",
-      "type": "location",
+      "type": "organization",
       "slug": "region-midtjylland",
-      "folder": "entities/locations",
-      "significance": "Danish region showing significant decline in somatic assessment completion rates since 2019/20, with recent changes in registration practices.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland er en af de fem danske regioner, der indberetter data til ADHD-DATABASEN, og fremhæves som eksempel på både fald i udredningsforløb og ændret registreringspraksis, hvilket påvirker fortolkningen af indikatorresultater.",
       "mentions": [
         {
           "page": 11,
-          "context": "Region Midtjylland har haft markant tilbagegang siden 2019/20"
-        },
-        {
-          "page": 11,
-          "context": "Region Midtjylland har i løbet af året ændret registreringspraksis"
-        }
-      ]
-    },
-    {
-      "name": "Region Hovedstaden",
-      "type": "location",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations",
-      "significance": "Danish region showing decline in clinical environmental observation completion rates despite increased number of reported assessments.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "Region Hovedstaden og Sjælland, der har haft tilbagegang til trods for øgning i antal indberettede somatiske udredninger"
-        }
-      ]
-    },
-    {
-      "name": "Region Sjælland",
-      "type": "location",
-      "slug": "region-sjaelland",
-      "folder": "entities/locations",
-      "significance": "Danish region showing decline in clinical environmental observation completion rates despite increased number of reported assessments.",
-      "mentions": [
-        {
-          "page": 11,
-          "context": "Region Hovedstaden og Sjælland, der har haft tilbagegang til trods for øgning i antal indberettede somatiske udredninger"
+          "context": "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning. Forest plot på regionsniveau."
         }
       ]
     },
     {
       "name": "Region Syddanmark",
-      "type": "location",
+      "type": "organization",
       "slug": "region-syddanmark",
-      "folder": "entities/locations",
-      "significance": "Danish region that previously met assessment targets but experienced significant decline, attributed to staffing shortages in specific departments.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Syddanmark er en af de fem danske regioner, der indberetter data til ADHD-DATABASEN, og fremhæves som den eneste region, der opfylder standarden for indikator 2a i 2023/24 med 91 %, samt som eksempel på fald i målopfyldelse pga. færre lægekræfter i Esbjerg og Vejle.",
       "mentions": [
         {
           "page": 11,
-          "context": "Faldet i Region Syddanmark, som tidligere har ligget tæt på målopfyldelse, skyldes et stort fald på afdelinger i Esbjerg og Vejle"
+          "context": "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning. Forest plot på regionsniveau."
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Hovedstaden er en af de fem danske regioner, der indberetter data til ADHD-DATABASEN, og fremhæves som eksempel på tilbagegang i indikator 2a trods øget antal udredningsforløb, hvilket illustrerer effekten af forøget belastning på systemet.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning. Forest plot på regionsniveau."
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Sjælland er en af de fem danske regioner, der indberetter data til ADHD-DATABASEN, og fremhæves som eksempel på tilbagegang i indikator 2a trods øget antal udredningsforløb, ligesom Region Hovedstaden, hvilket understreger systemiske udfordringer i sjællandske psykiatriafdelinger.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning. Forest plot på regionsniveau."
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Nordjylland er en af de fem danske regioner, der indberetter data til ADHD-DATABASEN, og fremhæves som den region med laveste målopfyldelse for indikator 2a i 2023/24 (30 %), hvilket markerer en særlig udfordring i klinisk miljøobservation for børn 0–5 år.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning. Forest plot på regionsniveau."
         }
       ]
     },
     {
       "name": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium",
       "type": "organization",
-      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "Only department meeting the 90% standard for somatic assessment completion within 120 days, with 90% compliance across 286 assessment cases.",
+      "slug": "aabennraa-bup-ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "significance": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium er den eneste afdeling i hele Danmark, der opfylder standarden på ≥ 90 % for både indikator 1 (somatiske udredninger) og indikator 2a (klinisk miljøobservation for 0–5 årige), hvilket gør den til et benchmark for kvalitet i ADHD-udredning.",
       "mentions": [
         {
           "page": 11,
-          "context": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium med indikatoropfyldelse af 90 % af de i alt 286 udredningsforløb"
-        },
-        {
-          "page": 12,
-          "context": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium Ja 15 / 15 0 (0) 100 (78-100)"
+          "context": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium"
         }
       ]
     },
     {
-      "name": "Børne- og ungdomspsykiatrisk ambulatorium i Odense",
+      "name": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium",
       "type": "organization",
-      "slug": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "Department approaching the 90% standard for somatic assessment completion with 89% compliance across 175 assessment cases.",
+      "slug": "odense-bup-ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "significance": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium er en af de få afdelinger, der nærmer sig standarden for indikator 1 (89 % somatisk udredning) og har 100 % opfyldelse for indikator 2a (med usikkerhed på grund af lille stikprøvestørrelse), hvilket markerer en høj klinisk praksis i ADHD-diagnostik.",
       "mentions": [
         {
           "page": 11,
-          "context": "Børne- og ungdomspsykiatrisk ambulatorium i Odense er meget tæt på at nå standarden med somatisk udredning i 89 % af deres 175 udredningsforløb"
+          "context": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium"
         }
       ]
     },
     {
-      "name": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge",
+      "name": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium",
       "type": "organization",
-      "slug": "bispebjerg-psykiatrisk-ambulatorium-boern-unge",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "Department in Region Hovedstaden with 63% compliance rate for clinical environmental observation in 0-5 year olds.",
+      "slug": "esbjerg-bup-ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "significance": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium er en afdeling i Region Syddanmark, der bidrager til det regionale fald i målopfyldelse for indikator 1, formentlig betinget af færre lægekræfter, og som viser 78 % opfyldelse for indikator 2a i 2023/24.",
       "mentions": [
         {
-          "page": 12,
-          "context": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge Nej 34 / 54 0 (0) 63 (49-76)"
+          "page": 11,
+          "context": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium"
         }
       ]
     },
     {
-      "name": "Bornholm: Psykiatrisk ambulatorium, børn og unge",
+      "name": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium",
       "type": "organization",
-      "slug": "bornholm-psykiatrisk-ambulatorium-boern-unge",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "Department in Region Hovedstaden with 0% compliance rate for clinical environmental observation in 0-5 year olds across 7 cases.",
+      "slug": "vejle-bup-ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "significance": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium er en afdeling i Region Syddanmark, der opfylder standarden for indikator 2a med 100 % i både 2023/24 og tidligere år, og som sammen med Esbjerg bidrager til det regionale fald i målopfyldelse for indikator 1.",
       "mentions": [
         {
-          "page": 12,
-          "context": "Bornholm: Psykiatrisk ambulatorium, børn og unge Nej 0 / 7 0 (0) 0 (0-41)"
+          "page": 11,
+          "context": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium"
         }
       ]
     },
     {
-      "name": "Glostrup: Psykiatrisk ambulatorium, børn og unge",
+      "name": "BUA Psykiatrisk Klinik for Småbørn",
       "type": "organization",
-      "slug": "glostrup-psykiatrisk-ambulatorium-boern-unge",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "Department in Region Hovedstaden with 60% compliance rate for clinical environmental observation in 0-5 year olds across 123 cases.",
+      "slug": "bua-smaborn-klinik",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "significance": "BUA Psykiatrisk Klinik for Småbørn er en specialiseret afdeling i Region Midtjylland, der rapporterer identiske tal som hele Region Midtjylland for indikator 2a, hvilket tyder på, at den dominerer regionens data og repræsenterer fokus på småbørnspsykiatri.",
       "mentions": [
         {
-          "page": 12,
-          "context": "Glostrup: Psykiatrisk ambulatorium, børn og unge Nej 74 / 123 0 (0) 60 (51-69)"
-        }
-      ]
-    },
-    {
-      "name": "Hillerød: Psykiatrisk ambulatorium, børn og unge",
-      "type": "organization",
-      "slug": "hillerod-psykiatrisk-ambulatorium-boern-unge",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "Department in Region Hovedstaden with 25% compliance rate for clinical environmental observation in 0-5 year olds across 44 cases.",
-      "mentions": [
-        {
-          "page": 12,
-          "context": "Hillerød: Psykiatrisk ambulatorium, børn og unge Nej 11 / 44 0 (0) 25 (13-40)"
+          "page": 11,
+          "context": "BUA Psykiatrisk Klinik for Småbørn"
         }
       ]
     },
@@ -155,352 +160,326 @@
       "name": "Børne-Unge Psyk. Afd. 40",
       "type": "organization",
       "slug": "boerne-unge-psyk-afd-40",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "Department in Region Sjælland with 23% compliance rate for clinical environmental observation in 0-5 year olds across 40 cases.",
-      "mentions": [
-        {
-          "page": 12,
-          "context": "Børne-Unge Psyk. Afd. 40 Nej 9 / 40 0 (0) 23 (11-38)"
-        }
-      ]
-    },
-    {
-      "name": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium",
-      "type": "organization",
-      "slug": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "Department in Region Syddanmark with 78% compliance rate for clinical environmental observation in 0-5 year olds, contributing to regional decline.",
-      "mentions": [
-        {
-          "page": 12,
-          "context": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium Nej 18 / 23 0 (0) 78 (56-93)"
-        }
-      ]
-    },
-    {
-      "name": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium",
-      "type": "organization",
-      "slug": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "Department in Region Syddanmark with 100% compliance rate for clinical environmental observation in 0-5 year olds across 14 cases.",
-      "mentions": [
-        {
-          "page": 12,
-          "context": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium Ja 14 / 14 0 (0) 100 (77-100)"
-        }
-      ]
-    },
-    {
-      "name": "BUA Psykiatrisk Klinik for Småbørn",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-smaaborin",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "Department in Region Midtjylland with 90% compliance rate for clinical environmental observation in 0-5 year olds across 61 cases.",
-      "mentions": [
-        {
-          "page": 12,
-          "context": "BUA Psykiatrisk Klinik for Småbørn Ja 55 / 61 0 (0) 90 (80-96)"
-        }
-      ]
-    },
-    {
-      "name": "Børne- og ungdomspsyk. Ambulatorium",
-      "type": "organization",
-      "slug": "boerne-ungdomspsyk-ambulatorium-nordjylland",
-      "folder": "entities/organizations/psychiatric-departments",
-      "significance": "Department in Region Nordjylland with 30% compliance rate for clinical environmental observation in 0-5 year olds across 23 cases.",
-      "mentions": [
-        {
-          "page": 12,
-          "context": "Børne- og ungdomspsyk. Ambulatorium Nej 7 / 23 0 (0) 30 (13-53)"
-        }
-      ]
-    },
-    {
-      "name": "ADHD-databasen",
-      "type": "topic",
-      "slug": "adhd-databasen",
-      "folder": "topics/health-monitoring",
-      "significance": "Danish national database tracking ADHD assessment quality indicators across regions and departments.",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "significance": "Børne-Unge Psyk. Afd. 40 er en afdeling i Region Sjælland, der rapporterer identiske tal som hele Region Sjælland for indikator 2a (9/40 = 23 %), hvilket indikerer, at den er en central dataleverandør for regionen inden for denne indikator.",
       "mentions": [
         {
           "page": 11,
-          "context": "ADHD-DATABASEN Resultater"
+          "context": "Børne-Unge Psyk. Afd. 40"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge",
+      "type": "organization",
+      "slug": "bispebjerg-bup-ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "significance": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge er en afdeling i Region Hovedstaden, der rapporterer 63 % opfyldelse for indikator 2a i 2023/24, hvilket ligger over regionens gennemsnit på 52 % og indikerer bedre praksis end mange andre afdelinger i regionen.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge"
+        }
+      ]
+    },
+    {
+      "name": "Bornholm: Psykiatrisk ambulatorium, børn og unge",
+      "type": "organization",
+      "slug": "bornholm-bup-ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "significance": "Bornholm: Psykiatrisk ambulatorium, børn og unge er en afdeling i Region Hovedstaden, der rapporterer 0 % opfyldelse for indikator 2a i 2023/24 (0/7), hvilket markerer en alvorlig manglende implementering af klinisk miljøobservation for børn 0–5 år på Bornholm.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Bornholm: Psykiatrisk ambulatorium, børn og unge"
+        }
+      ]
+    },
+    {
+      "name": "Glostrup: Psykiatrisk ambulatorium, børn og unge",
+      "type": "organization",
+      "slug": "glostrup-bup-ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "significance": "Glostrup: Psykiatrisk ambulatorium, børn og unge er en afdeling i Region Hovedstaden, der rapporterer 60 % opfyldelse for indikator 2a i 2023/24, hvilket ligger over regionens gennemsnit og indikerer en relativt stabil praksis i klinisk miljøobservation.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Glostrup: Psykiatrisk ambulatorium, børn og unge"
+        }
+      ]
+    },
+    {
+      "name": "Hillerød: Psykiatrisk ambulatorium, børn og unge",
+      "type": "organization",
+      "slug": "hillerod-bup-ambulatorium",
+      "folder": "entities/organizations/psychiatry-clinics",
+      "significance": "Hillerød: Psykiatrisk ambulatorium, børn og unge er en afdeling i Region Hovedstaden, der rapporterer kun 25 % opfyldelse for indikator 2a i 2023/24, hvilket er den laveste blandt alle nævnte afdelinger i regionen og indikerer alvorlige barrierer for implementering af klinisk miljøobservation.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Hillerød: Psykiatrisk ambulatorium, børn og unge"
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium listed under Region Syddanmark in indicator table",
-      "page": 12
-    },
-    {
-      "subject": "odense-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium listed under Region Syddanmark in indicator table",
-      "page": 12
-    },
-    {
-      "subject": "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium listed under Region Syddanmark in indicator table",
-      "page": 12
-    },
-    {
-      "subject": "vejle-boerne-ungdomspsykiatrisk-ambulatorium",
-      "predicate": "located-in",
-      "object": "region-syddanmark",
-      "evidence": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium listed under Region Syddanmark in indicator table",
-      "page": 12
-    },
-    {
-      "subject": "bua-psykiatrisk-klinik-smaaborin",
-      "predicate": "located-in",
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
       "object": "region-midtjylland",
-      "evidence": "BUA Psykiatrisk Klinik for Småbørn listed under Region Midtjylland in indicator table",
-      "page": 12
+      "evidence": "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning. Forest plot på regionsniveau.",
+      "page": 11
     },
     {
-      "subject": "bispebjerg-psykiatrisk-ambulatorium-boern-unge",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge listed under Region Hovedstaden in indicator table",
-      "page": 12
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "region-syddanmark",
+      "evidence": "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning. Forest plot på regionsniveau.",
+      "page": 11
     },
     {
-      "subject": "bornholm-psykiatrisk-ambulatorium-boern-unge",
-      "predicate": "located-in",
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
       "object": "region-hovedstaden",
-      "evidence": "Bornholm: Psykiatrisk ambulatorium, børn og unge listed under Region Hovedstaden in indicator table",
-      "page": 12
+      "evidence": "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning. Forest plot på regionsniveau.",
+      "page": 11
     },
     {
-      "subject": "glostrup-psykiatrisk-ambulatorium-boern-unge",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Glostrup: Psykiatrisk ambulatorium, børn og unge listed under Region Hovedstaden in indicator table",
-      "page": 12
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "region-sjaelland",
+      "evidence": "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning. Forest plot på regionsniveau.",
+      "page": 11
     },
     {
-      "subject": "hillerod-psykiatrisk-ambulatorium-boern-unge",
-      "predicate": "located-in",
-      "object": "region-hovedstaden",
-      "evidence": "Hillerød: Psykiatrisk ambulatorium, børn og unge listed under Region Hovedstaden in indicator table",
-      "page": 12
+      "subject": "adhd-databasen",
+      "predicate": "reports-on",
+      "object": "region-nordjylland",
+      "evidence": "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning. Forest plot på regionsniveau.",
+      "page": 11
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "maintains-standard-for",
+      "object": "adhd-databasen",
+      "evidence": "Beslutning: Indikatoren vurderes fortsat relevant og standarden bibeholdes.",
+      "page": 11
+    },
+    {
+      "subject": "aabennraa-bup-ambulatorium",
+      "predicate": "meets-standard-for",
+      "object": "indikator-1",
+      "evidence": "Én afdeling opfylder standarden: Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium med indikatoropfyldelse af 90 % af de i alt 286 udredningsforløb.",
+      "page": 11
+    },
+    {
+      "subject": "aabennraa-bup-ambulatorium",
+      "predicate": "meets-standard-for",
+      "object": "indikator-2a",
+      "evidence": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium [...] Ja 15 / 15 0 (0) 100 (78-100)",
+      "page": 11
+    },
+    {
+      "subject": "odense-bup-ambulatorium",
+      "predicate": "nearly-meets-standard-for",
+      "object": "indikator-1",
+      "evidence": "Børne- og ungdomspsykiatrisk ambulatorium i Odense er meget tæt på at nå standarden med somatisk udredning i 89 % af deres 175 udredningsforløb.",
+      "page": 11
+    },
+    {
+      "subject": "odense-bup-ambulatorium",
+      "predicate": "meets-standard-for",
+      "object": "indikator-2a",
+      "evidence": "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium [...] Ja #/# 0 (0) 100 (3-100)",
+      "page": 11
+    },
+    {
+      "subject": "esbjerg-bup-ambulatorium",
+      "predicate": "does-not-meet-standard-for",
+      "object": "indikator-2a",
+      "evidence": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium [...] Nej 18 / 23 0 (0) 78 (56-93)",
+      "page": 11
+    },
+    {
+      "subject": "vejle-bup-ambulatorium",
+      "predicate": "meets-standard-for",
+      "object": "indikator-2a",
+      "evidence": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium [...] Ja 14 / 14 0 (0) 100 (77-100)",
+      "page": 11
+    },
+    {
+      "subject": "bua-smaborn-klinik",
+      "predicate": "represents-data-for",
+      "object": "region-midtjylland",
+      "evidence": "BUA Psykiatrisk Klinik for Småbørn [...] Ja 55 / 61 0 (0) 90 (80-96) 115 / 133 86 91",
+      "page": 11
     },
     {
       "subject": "boerne-unge-psyk-afd-40",
-      "predicate": "located-in",
+      "predicate": "represents-data-for",
       "object": "region-sjaelland",
-      "evidence": "Børne-Unge Psyk. Afd. 40 listed under Region Sjælland in indicator table",
-      "page": 12
-    },
-    {
-      "subject": "boerne-ungdomspsyk-ambulatorium-nordjylland",
-      "predicate": "located-in",
-      "object": "region-nordjylland",
-      "evidence": "Børne- og ungdomspsyk. Ambulatorium listed under Region Nordjylland in indicator table",
-      "page": 12
+      "evidence": "Børne-Unge Psyk. Afd. 40 [...] Nej 9 / 40 0 (0) 23 (11-38) 9 / 20 45 55",
+      "page": 11
     }
   ],
   "claims": [
     {
-      "text": "På landsplan blev 59 % udredt somatisk inden for tidsfristen, hvilket er under den fastlagte standard på 90 %",
-      "type": "performance-metric",
+      "text": "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning [^src1]",
+      "type": "clinical-practice",
       "entities": [
-        "danmark"
+        "adhd-databasen"
       ],
       "page": 11
     },
     {
-      "text": "Landsresultatet har været faldende i treårsperioden fra 70 % i 2021/22",
-      "type": "trend",
+      "text": "Standarden for indikator 2a er ≥ 90 % [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "danmark"
+        "styregruppen"
       ],
       "page": 11
     },
     {
-      "text": "Region Midtjylland har haft markant tilbagegang siden 2019/20",
-      "type": "trend",
+      "text": "Danmark: 238 / 405 = 59 % opfyldelse af indikator 2a i 2023/24 [^src1]",
+      "type": "statistical",
       "entities": [
-        "region-midtjylland"
+        "adhd-databasen"
       ],
       "page": 11
     },
     {
-      "text": "I 2022/23 blev indberettet 311 somatiske udredninger og i 2023/24 kun 249 i Region Midtjylland",
-      "type": "quantitative",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Antallet af udredningsforløb er gået kraftigt ned fra 1356 i 2022/23 til 701 i 2023/24 i Region Midtjylland",
-      "type": "quantitative",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium opfylder standarden med indikatoropfyldelse af 90 % af de i alt 286 udredningsforløb",
-      "type": "performance-metric",
-      "entities": [
-        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Børne- og ungdomspsykiatrisk ambulatorium i Odense er meget tæt på at nå standarden med somatisk udredning i 89 % af deres 175 udredningsforløb",
-      "type": "performance-metric",
-      "entities": [
-        "odense-boerne-ungdomspsykiatrisk-ambulatorium"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Mangel på lægekræfter og stigende henvisningstal synes at påvirke denne indikator således, at somatisk undersøgelse nedprioriteres i flere afsnit",
-      "type": "causal-analysis",
-      "entities": [
-        "danmark"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Faldet i Region Syddanmark skyldes et stort fald på afdelinger i Esbjerg og Vejle formentlig betinget af færre lægekræfter her",
-      "type": "causal-analysis",
-      "entities": [
-        "region-syddanmark",
-        "esbjerg-boerne-ungdomspsykiatrisk-ambulatorium",
-        "vejle-boerne-ungdomspsykiatrisk-ambulatorium"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Region Midtjylland har i løbet af året ændret registreringspraksis således, at tiden fra opstart af databasen ligger tættere på udredningerne",
-      "type": "procedural-change",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Småbørns- og skolebørns området i Region Midtjylland ligger væsentligt højere end det ungdomspsykiatriske område i Region Midtjylland",
-      "type": "comparative-analysis",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 11
-    },
-    {
-      "text": "I Region Midtjylland er der et arbejde i gang ift., at somatisk undersøgelse skal opprioriteres på tværs af afsnit",
-      "type": "action-plan",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Styregruppen vurderer, at somatisk undersøgelse er vigtig både ift. mulige somatiske differentialdiagnoser og evt. andre samtidige somatiske tilstande",
-      "type": "clinical-assessment",
-      "entities": [
-        "danmark"
-      ],
-      "page": 11
-    },
-    {
-      "text": "Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning på landsplan var 59 % i 2023/24",
-      "type": "performance-metric",
-      "entities": [
-        "danmark"
-      ],
-      "page": 12
-    },
-    {
-      "text": "Region Syddanmark opfylder standarden for klinisk miljøobservation med 91 % compliance",
-      "type": "performance-metric",
+      "text": "Region Syddanmark: 48 / 53 = 91 % opfyldelse af indikator 2a i 2023/24 [^src1]",
+      "type": "statistical",
       "entities": [
         "region-syddanmark"
       ],
-      "page": 12
+      "page": 11
     },
     {
-      "text": "Region Midtjylland opfylder standarden for klinisk miljøobservation med 90 % compliance",
-      "type": "performance-metric",
+      "text": "Region Midtjylland: 55 / 61 = 90 % opfyldelse af indikator 2a i 2023/24 [^src1]",
+      "type": "statistical",
       "entities": [
         "region-midtjylland"
       ],
-      "page": 12
+      "page": 11
     },
     {
-      "text": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium opfylder standarden for klinisk miljøobservation med 100 % compliance blandt 15 forløb",
-      "type": "performance-metric",
+      "text": "Region Hovedstaden: 119 / 228 = 52 % opfyldelse af indikator 2a i 2023/24 [^src1]",
+      "type": "statistical",
       "entities": [
-        "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium"
+        "region-hovedstaden"
       ],
-      "page": 12
+      "page": 11
     },
     {
-      "text": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium opfylder standarden for klinisk miljøobservation med 100 % compliance blandt 14 forløb",
-      "type": "performance-metric",
+      "text": "Region Sjælland: 9 / 40 = 23 % opfyldelse af indikator 2a i 2023/24 [^src1]",
+      "type": "statistical",
       "entities": [
-        "vejle-boerne-ungdomspsykiatrisk-ambulatorium"
+        "region-sjaelland"
       ],
-      "page": 12
+      "page": 11
     },
     {
-      "text": "Bornholm: Psykiatrisk ambulatorium, børn og unge har 0 % compliance for klinisk miljøobservation blandt 7 forløb",
-      "type": "performance-metric",
+      "text": "Region Nordjylland: 7 / 23 = 30 % opfyldelse af indikator 2a i 2023/24 [^src1]",
+      "type": "statistical",
       "entities": [
-        "bornholm-psykiatrisk-ambulatorium-boern-unge"
+        "region-nordjylland"
       ],
-      "page": 12
+      "page": 11
+    },
+    {
+      "text": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium: 15 / 15 = 100 % opfyldelse af indikator 2a i 2023/24 [^src1]",
+      "type": "statistical",
+      "entities": [
+        "aabennraa-bup-ambulatorium"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium: 18 / 23 = 78 % opfyldelse af indikator 2a i 2023/24 [^src1]",
+      "type": "statistical",
+      "entities": [
+        "esbjerg-bup-ambulatorium"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium: 14 / 14 = 100 % opfyldelse af indikator 2a i 2023/24 [^src1]",
+      "type": "statistical",
+      "entities": [
+        "vejle-bup-ambulatorium"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge: 34 / 54 = 63 % opfyldelse af indikator 2a i 2023/24 [^src1]",
+      "type": "statistical",
+      "entities": [
+        "bispebjerg-bup-ambulatorium"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Bornholm: Psykiatrisk ambulatorium, børn og unge: 0 / 7 = 0 % opfyldelse af indikator 2a i 2023/24 [^src1]",
+      "type": "statistical",
+      "entities": [
+        "bornholm-bup-ambulatorium"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Glostrup: Psykiatrisk ambulatorium, børn og unge: 74 / 123 = 60 % opfyldelse af indikator 2a i 2023/24 [^src1]",
+      "type": "statistical",
+      "entities": [
+        "glostrup-bup-ambulatorium"
+      ],
+      "page": 11
+    },
+    {
+      "text": "Hillerød: Psykiatrisk ambulatorium, børn og unge: 11 / 44 = 25 % opfyldelse af indikator 2a i 2023/24 [^src1]",
+      "type": "statistical",
+      "entities": [
+        "hillerod-bup-ambulatorium"
+      ],
+      "page": 11
     }
   ],
   "timeline": [
     {
-      "date": "2019/20",
-      "event": "Region Midtjylland begyndte markant tilbagegang i somatisk udredning inden for tidsfristen",
-      "entities": [
-        "region-midtjylland"
-      ]
-    },
-    {
-      "date": "2021/22",
-      "event": "Landsresultatet for somatisk udredning inden for 120 dage var 70 %",
-      "entities": [
-        "danmark"
-      ]
-    },
-    {
-      "date": "2022/23",
-      "event": "Region Midtjylland indberettede 311 somatiske udredninger og havde 1356 udredningsforløb",
-      "entities": [
-        "region-midtjylland"
-      ]
-    },
-    {
-      "date": "2023/24",
-      "event": "Region Midtjylland indberettede 249 somatiske udredninger og havde 701 udredningsforløb; Region Midtjylland ændrede registreringspraksis",
-      "entities": [
-        "region-midtjylland"
-      ]
-    },
-    {
       "date": "01.04.2023 - 31.03.2024",
-      "event": "Indikator 2a måling periode: 59 % af 0-5 årige blev vurderet ved klinisk miljøobservation senest 120 dage efter ADHD-udredning start på landsplan",
+      "event": "Opgørelsesperioden for indikator 2a i ADHD-DATABASEN",
       "entities": [
-        "danmark"
+        "adhd-databasen"
       ]
     }
   ],
-  "context": "Denne dokumentchunk præsenterer resultater fra ADHD-databasen, en dansk national kvalitetsovervågningsdatabase, der sporer to vigtige indikatorer for ADHD-udredningsprocesser: (1) andelen af patienter, der modtager somatisk undersøgelse inden for 120 dage efter udredningsstart, og (2) andelen af 0-5-årige, der modtager klinisk miljøobservation inden for samme tidsramme. Begge indikatorer har en fastsat standard på 90 % opfyldelse. Chunken dokumenterer betydelig regional variation i performance, med nogle afdelinger, der opfylder eller nærmer sig standarden, mens andre ligger væsentligt under. Mangel på lægekræfter og stigende henvisningstal identificeres som vigtige barrierer for at nå målene, og der rapporteres om ændringer i registreringspraksis og igangværende forbedringsindsatser på tværs af regioner."
+  "tables": [
+    {
+      "subject": "indikator-2a",
+      "title": "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning",
+      "page": 11,
+      "rowDimension": "region eller afdeling",
+      "colDimension": "opfyldelse i procent og antal for 2023/24 samt tidligere år",
+      "entities": [
+        "region-midtjylland",
+        "region-syddanmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-nordjylland",
+        "aabennraa-bup-ambulatorium",
+        "odense-bup-ambulatorium",
+        "esbjerg-bup-ambulatorium",
+        "vejle-bup-ambulatorium",
+        "bua-smaborn-klinik",
+        "boerne-unge-psyk-afd-40",
+        "bispebjerg-bup-ambulatorium",
+        "bornholm-bup-ambulatorium",
+        "glostrup-bup-ambulatorium",
+        "hillerod-bup-ambulatorium"
+      ],
+      "markdown": "| Region | Standard opfyldt? | Tæller/ nævner | Andel (%) | 95% CI | 2022/23 Andel | 2021/22 Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 238 / 405 | 59 | (54-64) | 63 | 61 |\n| Hovedstaden | Nej | 119 / 228 | 52 | (45-59) | 44 | 33 |\n| Sjælland | Nej | 9 / 40 | 23 | (11-38) | 45 | 55 |\n| Syddanmark | Ja | 48 / 53 | 91 | (79-97) | 96 | 90 |\n| Midtjylland | Ja | 55 / 61 | 90 | (80-96) | 86 | 91 |\n| Nordjylland | Nej | 7 / 23 | 30 | (13-53) | 20 | 21 |\n| Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium | Ja | 15 / 15 | 100 | (78-100) | 100 | 83 |\n| Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium | Nej | 18 / 23 | 78 | (56-93) | 92 | 82 |\n| Odense: Børne- og Ungdomspsykiatrisk Ambulatorium | Ja | #/# | 100 | (3-100) | 67 | - |\n| Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium | Ja | 14 / 14 | 100 | (77-100) | 100 | 100 |\n| BUA Psykiatrisk Klinik for Småbørn | Ja | 55 / 61 | 90 | (80-96) | 86 | 91 |\n| Børne-Unge Psyk. Afd. 40 | Nej | 9 / 40 | 23 | (11-38) | 45 | 55 |\n| Bispebjerg: Psykiatrisk ambulatorium, børn og unge | Nej | 34 / 54 | 63 | (49-76) | 74 | 40 |\n| Bornholm: Psykiatrisk ambulatorium, børn og unge | Nej | 0 / 7 | 0 | (0-41) | 0 | 33 |\n| Glostrup: Psykiatrisk ambulatorium, børn og unge | Nej | 74 / 123 | 60 | (51-69) | 42 | 42 |\n| Hillerød: Psykiatrisk ambulatorium, børn og unge | Nej | 11 / 44 | 25 | (13-40) | 26 | 8 |",
+      "summary": "Tabellen sammenligner opfyldelsen af indikator 2a (klinisk miljøobservation for 0–5 årige inden for 120 dage) på regions- og afdelingsniveau for 2023/24 samt tidligere år, og viser stor variation — fra 0 % på Bornholm til 100 % i flere syddanske og midtjyske afdelinger."
+    }
+  ],
+  "context": "Dette afsnit er en del af den danske ADHD-DATABASENs årsrapport for 2023/24 og fokuserer på kvalitetsindikator 2a, der måler andelen af ADHD-udredningsforløb for børn 0–5 år, hvor barnet er vurderet ved klinisk miljøobservation inden for 120 dage efter udredningens start. Det indgår i en bredere evaluering af diagnostisk praksis i børnepsykiatrien, hvor både regionale forskelle og afdelingsmæssige udfordringer dokumenteres systematisk. Rapporten understreger, at selvom standarden er sat til ≥ 90 %, opfylder kun to regioner (Syddanmark og Midtjylland) og få afdelinger denne krav, hvilket rejser spørgsmål om ressourcefordeling, lægekræfters manglende kapacitet og variation i klinisk praksis mellem aldersgrupper og geografiske områder."
 }

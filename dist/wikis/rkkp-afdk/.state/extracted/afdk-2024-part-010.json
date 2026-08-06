@@ -1,323 +1,337 @@
 {
   "entities": [
     {
-      "name": "Landspatientregisteret",
-      "type": "organization",
-      "slug": "landspatientregisteret",
-      "folder": "entities/organizations/health-registries",
-      "significance": "Landspatientregisteret (LPR) er den primære datakilde for opgørelse af indikator 5 om iskæmisk apopleksi blandt patienter med atrieflimren, da det blev valgt frem for DanStroke på grund af indberetningsproblemer i sidstnævnte.",
+      "name": "Atrieflimren i Danmark",
+      "type": "document",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "entities/documents/reports",
+      "significance": "Dette er den offentliggjorte version af rapporten fra Regionernes Kliniske Kvalitetsudviklingsprogram om atrieflimren i Danmark, som danner baggrunden for alle indikatorer, beregningsregler og resultater præsenteret på siderne 46–50.",
       "mentions": [
         {
-          "page": 48,
-          "context": "Indikatoren er opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke"
+          "page": 46,
+          "context": "Atrieflimren i Danmark\nVersion: Offentliggjort version\nRegionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Dette er den koordinerende organisation, der udgiver rapporten og styrer kvalitetsindikatorerne for atrieflimren i Danmark, herunder definition, beregning og vurdering af standarder for apopleksi- og blødningsinkidenser.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "topic",
+      "slug": "indikator-5",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "significance": "Indikator 5 er en central kvalitetsmåling for behandlingskvalitet ved atrieflimren, der kvantificerer incidensen af iskæmisk apopleksi blandt prævalente patienter og anvendes til at vurdere effekten af antikoagulationsbehandling.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Indikator 5: Incidens af apopleksi blandt prævalente patienter med atrieflimren (LPR-baseret)"
         },
         {
           "page": 48,
-          "context": "Fra Landspatientregisteret er der udtrukket patientforløb med apopleksi (DI63 og DI64)"
+          "context": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 6",
+      "type": "topic",
+      "slug": "indikator-6",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "significance": "Indikator 6 er en komplementær kvalitetsmåling, der registrerer incidensen af intrakraniel blødning blandt prævalente patienter med atrieflimren, hvilket er en alvorlig bivirkning af antikoagulationsbehandling.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Indikator 6: Incidens Intrakraniel blødning\nIndikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Landspatientregisteret (LPR) er det primære datagrundlag for Indikator 5, da det bruges til at identificere både prævalente patienter med atrieflimren og tilfælde af akut iskæmisk apopleksi, trods lavere positiv prædiktiv værdi end DanStroke.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "Indikatoren er opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke."
+        },
+        {
+          "page": 48,
+          "context": "Datagrundlag og beregningsregler\nIndikator 5 opgøres for alle prævalente patienter med en atrieflimren-diagnose, dvs. alle personer, som var i live pr.\n1. juli 2023, og som havde fået diagnosen registeret i Landspatientregisteret (LPR) mindst én gang inden for de\nforegående 10 år."
         }
       ]
     },
     {
       "name": "DanStroke",
-      "type": "organization",
+      "type": "database",
       "slug": "danstroke",
-      "folder": "entities/organizations/health-registries",
-      "significance": "DanStroke er en apopleksi-database, der normalt ville være datakilde for indikator 5, men blev ikke brugt denne periode på grund af manglende indberetninger grundet overgangen til ny indberetningsmodel og EPJ-systemskift i en region.",
+      "folder": "entities/databases/health-registries",
+      "significance": "DanStroke er en alternativ database til registrering af apopleksitilfælde, men den er ikke anvendt til Indikator 5 i denne rapport på grund af manglende indberetninger relateret til overgang til ny indberetningsmodel og EPJ-systemer.",
       "mentions": [
         {
           "page": 48,
-          "context": "Indikatoren er opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke. Det skyldes, at DanStroke har været ramt af manglende indberetninger"
+          "context": "Indikatoren er opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke."
         },
         {
           "page": 48,
-          "context": "I Appendiks er medtaget en supplerende tabel, hvor indikator 5 er opgjort på baggrund af data indhentet fra DanStroke"
+          "context": "Det skyldes, at DanStroke har været ramt af manglende indberetninger af apopleksitilfælde grundet overgangen til en ny\nindberetningsmodel i databasen samt enkelt regioners omlægning til nyt EPJ system."
         }
       ]
     },
     {
-      "name": "Region Hovedstaden",
+      "name": "Styregruppen",
       "type": "organization",
-      "slug": "region-hovedstaden",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Hovedstaden er relevant fordi den har flest praktiserende kardiologer, og denne årsrapport undersøgte, hvorvidt inklusionen af praktiserende kardiologer påvirkede stroke-incidensen i regionen.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Det var ellers en hypotese, at inklusionen af patienter fra praktiserende kardiologer ville bidrage til populationens størrelse og karakteristika. Det viser sig imidlertid, at langt de fleste patienter også ses i hospitalsregi ifm. diagnostik og behandlingsopstart, hvorfor det ikke har nogen betydning for populationen i Region Hovedstaden, hvor der er flest praktiserende kardiologer"
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "organization",
-      "slug": "midtjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Midtjylland havde den laveste incidens af iskæmisk apopleksi 1 år efter atrieflimren-diagnose blandt alle regioner (0,9%).",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "På landsplan udviklede 1,3% apopleksi varierende fra 0,9% i Region Midtjylland til 1,5% i Region Sjælland"
-        }
-      ]
-    },
-    {
-      "name": "Region Sjælland",
-      "type": "organization",
-      "slug": "sjaelland",
-      "folder": "entities/organizations/regions",
-      "significance": "Region Sjælland havde den højeste incidens af iskæmisk apopleksi 1 år efter atrieflimren-diagnose blandt alle regioner (1,5%).",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "På landsplan udviklede 1,3% apopleksi varierende fra 0,9% i Region Midtjylland til 1,5% i Region Sjælland"
-        }
-      ]
-    },
-    {
-      "name": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren",
-      "type": "topic",
-      "slug": "indikator-5-iskemisk-apopleksi",
-      "folder": "topics/quality-indicator",
-      "significance": "Indikator 5 måler incidensen af iskæmisk apopleksi blandt patienter med atrieflimren og har en standard på ≤ 0,8% per 100 risiko år, som blev opfyldt i flertallet af regioner i opgørelsesperioden.",
-      "mentions": [
-        {
-          "page": 47,
-          "context": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren"
-        },
-        {
-          "page": 48,
-          "context": "Indikator 5 opgøres for alle prævalente patienter med en atrieflimren-diagnose"
-        }
-      ]
-    },
-    {
-      "name": "Indikator 6: Incidens af intrakraniel blødning",
-      "type": "topic",
-      "slug": "indikator-6-intrakraniel-blodning",
-      "folder": "topics/quality-indicator",
-      "significance": "Indikator 6 måler incidensen af intrakraniel blødning blandt patienter med atrieflimren og præsenteres på både regions- og sundhedsklyngeniveau.",
-      "mentions": [
-        {
-          "page": 50,
-          "context": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren"
-        }
-      ]
-    },
-    {
-      "name": "Antikoagulationsbehandling",
-      "type": "topic",
-      "slug": "antikoagulationsbehandling",
-      "folder": "topics/medical-treatments",
-      "significance": "Antikoagulationsbehandling (AK-behandling) er en vigtig behandling for atrieflimren-patienter, og rapporten viser, at 65,5% af patienter indlagt med iskæmisk apopleksi havde indløst AK-behandling inden for 100 dage før indlæggelse.",
+      "slug": "afdk-styregruppe",
+      "folder": "entities/organizations/health-standards/governance",
+      "significance": "Styregruppen for AFDK er den beslutningskompetente enhed, der har vurderet og fastsat standarden på ≤ 0,8% for Indikator 5 samt bekræftet dens fastholdelse på baggrund af aktuelle data og litteratur.",
       "mentions": [
         {
           "page": 49,
-          "context": "65,5% af atrieflimren patienter der var indlagt med iskæmisk apopleksi havde indløst AK-behandling indenfor 100 dage før indlæggelsesdatoen"
+          "context": "Styregruppen har ud fra de aktuelle data og litteraturen vurderet, at incidensraten for iskæmisk apopleksi blandt\nprævalente patienter med atrieflimren bør være mindre end 1%, og har valgt at sætte en standard på ≤ 0,8 per 100\nrisiko år."
         }
       ]
     },
     {
       "name": "DOAC",
-      "type": "topic",
+      "type": "drug-class",
       "slug": "doac",
-      "folder": "topics/medications",
-      "significance": "DOAC (direkte oral antikoagulant) er en antikoagulationsmedicin, og blandt patienter i DOAC-behandling var incidensen af iskæmisk apopleksi 0,89%.",
+      "folder": "entities/codes/drug-classes",
+      "significance": "DOAC (Direct Oral Anticoagulants) er en gruppe antikoagulerende lægemidler, som sammen med marevan indgår i behandlingen af atrieflimren, og hvis effektivitet vurderes via andelen af patienter, der udvikler iskæmisk apopleksi.",
       "mentions": [
         {
           "page": 49,
-          "context": "Andelen af patienter med iskæmisk apopleksi er 0,89% for DOAC og 0,51% for marevan"
+          "context": "I Appendiks rapporteres andele af patienter i behandling med DOAC og/eller marevan, eller ingen af disse, der har\nhaft en iskæmisk apopleksi i årsrapportsperioden. Andelen af patienter med iskæmisk apopleksi er 0,89% for DOAC\nog 0,51% for marevan."
         }
       ]
     },
     {
       "name": "Marevan",
-      "type": "topic",
+      "type": "pharmaceutical",
       "slug": "marevan",
-      "folder": "topics/medications",
-      "significance": "Marevan er en antikoagulationsmedicin, og blandt patienter i marevan-behandling var incidensen af iskæmisk apopleksi 0,51%, lavere end for DOAC.",
+      "folder": "entities/pharmaceuticals/anticoagulants",
+      "significance": "Marevan er et vitamin-K-antagonist-lægemiddel, der anvendes til antikoagulation ved atrieflimren, og hvis effektivitet sammenlignes med DOAC i forbindelse med Indikator 5.",
       "mentions": [
         {
           "page": 49,
-          "context": "Andelen af patienter med iskæmisk apopleksi er 0,89% for DOAC og 0,51% for marevan"
+          "context": "I Appendiks rapporteres andele af patienter i behandling med DOAC og/eller marevan, eller ingen af disse, der har\nhaft en iskæmisk apopleksi i årsrapportsperioden. Andelen af patienter med iskæmisk apopleksi er 0,89% for DOAC\nog 0,51% for marevan."
+        }
+      ]
+    },
+    {
+      "name": "Intrakraniel blødning",
+      "type": "medical-condition",
+      "slug": "intrakraniel-bloedning",
+      "folder": "topics/medical-conditions/neurological",
+      "significance": "Intrakraniel blødning er en alvorlig komplikation ved antikoagulationsbehandling, som måles separat via Indikator 6 for at sikre balance mellem apopleksiprævention og blødningsrisiko.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Indikator 6: Incidens Intrakraniel blødning\nIndikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "DI63",
+      "type": "code",
+      "slug": "di63",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI63 er en diagnosekode fra den danske diagnoseklassifikation, der anvendes i Landspatientregisteret til registrering af iskæmisk apopleksi og indgår i beregningsreglerne for Indikator 5.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "Fra Landspatientregisteret er der udtrukket patientforløb med apopleksi (DI63 og DI64) som aktionsdiagnose samt\npatientforløb med aktionsdiagnosen \"Kontakt mhp. anden fysioterapi\" (DZ501) i kombination med bi-diagnosen\nDI63 eller DI64."
+        }
+      ]
+    },
+    {
+      "name": "DI64",
+      "type": "code",
+      "slug": "di64",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI64 er en diagnosekode fra den danske diagnoseklassifikation, der anvendes i Landspatientregisteret til registrering af iskæmisk apopleksi og indgår i beregningsreglerne for Indikator 5.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "Fra Landspatientregisteret er der udtrukket patientforløb med apopleksi (DI63 og DI64) som aktionsdiagnose samt\npatientforløb med aktionsdiagnosen \"Kontakt mhp. anden fysioterapi\" (DZ501) i kombination med bi-diagnosen\nDI63 eller DI64."
+        }
+      ]
+    },
+    {
+      "name": "DZ501",
+      "type": "code",
+      "slug": "dz501",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DZ501 er en diagnosekode fra den danske diagnoseklassifikation, der anvendes i Landspatientregisteret til registrering af kontakt mhp. anden fysioterapi, og som i kombination med DI63 eller DI64 bruges til at identificere apopleksitilfælde i Indikator 5.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "Fra Landspatientregisteret er der udtrukket patientforløb med apopleksi (DI63 og DI64) som aktionsdiagnose samt\npatientforløb med aktionsdiagnosen \"Kontakt mhp. anden fysioterapi\" (DZ501) i kombination med bi-diagnosen\nDI63 eller DI64."
         }
       ]
     },
     {
       "name": "Klynge VEST",
-      "type": "organization",
+      "type": "location",
       "slug": "klynge-vest",
-      "folder": "entities/organizations/regions",
-      "significance": "Klynge VEST er en sundhedsklynge, der rapporteres på i denne årsrapport med data om opfyldelse af standarder for atrieflimren-behandling.",
+      "folder": "entities/locations/regions",
+      "significance": "Klynge VEST er en af sundhedsklyngerne i Danmark, som indgår i kvalitetsmålingen for Indikator 5, og hvor resultatet viser, at standarden på ≤ 0,8% ikke er opfyldt (0,0% vs. 1,2% i tidligere år).",
       "mentions": [
         {
           "page": 46,
-          "context": "Klynge VEST Nej 23 / 1.856 0 (0) 1,2 (0,8-1,9)"
+          "context": "Klynge VEST Nej 23 / 1.856 0 (0) 1,2 (0,8-1,9) 14 / 1.857 0,8 0,8"
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "indikator-5-iskemisk-apopleksi",
+      "subject": "indikator-5",
       "predicate": "uses-data-from",
       "object": "landspatientregisteret",
-      "evidence": "Indikatoren er opgjort på baggrund af data om akut apopleksi fra LPR",
+      "evidence": "Indikatoren er opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke.",
       "page": 48
     },
     {
-      "subject": "indikator-5-iskemisk-apopleksi",
-      "predicate": "applies-to",
-      "object": "atrieflimren",
-      "evidence": "Indikator 5 opgøres for alle prævalente patienter med en atrieflimren-diagnose",
+      "subject": "indikator-5",
+      "predicate": "excludes",
+      "object": "danstroke",
+      "evidence": "Indikatoren er opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke.",
       "page": 48
     },
     {
-      "subject": "antikoagulationsbehandling",
-      "predicate": "treats",
-      "object": "atrieflimren",
-      "evidence": "65,5% af atrieflimren patienter der var indlagt med iskæmisk apopleksi havde indløst AK-behandling",
+      "subject": "indikator-5",
+      "predicate": "measures-incidence-of",
+      "object": "iskaemisk-apopleksi",
+      "evidence": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren.",
+      "page": 47
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "measures-incidence-of",
+      "object": "intrakraniel-bloedning",
+      "evidence": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren.",
+      "page": 50
+    },
+    {
+      "subject": "afdk-styregruppe",
+      "predicate": "sets-standard-for",
+      "object": "indikator-5",
+      "evidence": "Styregruppen har ud fra de aktuelle data og litteraturen vurderet, at incidensraten for iskæmisk apopleksi blandt prævalente patienter med atrieflimren bør være mindre end 1%, og har valgt at sætte en standard på ≤ 0,8 per 100 risiko år.",
       "page": 49
     },
     {
       "subject": "doac",
-      "predicate": "is-type-of",
-      "object": "antikoagulationsbehandling",
-      "evidence": "Andelen af patienter med iskæmisk apopleksi er 0,89% for DOAC",
+      "predicate": "associated-with",
+      "object": "indikator-5",
+      "evidence": "Andelen af patienter med iskæmisk apopleksi er 0,89% for DOAC og 0,51% for marevan.",
       "page": 49
     },
     {
       "subject": "marevan",
-      "predicate": "is-type-of",
-      "object": "antikoagulationsbehandling",
-      "evidence": "Andelen af patienter med iskæmisk apopleksi er 0,51% for marevan",
+      "predicate": "associated-with",
+      "object": "indikator-5",
+      "evidence": "Andelen af patienter med iskæmisk apopleksi er 0,89% for DOAC og 0,51% for marevan.",
       "page": 49
     }
   ],
   "claims": [
     {
+      "text": "Standarden for Indikator 5 er ≤ 0,8% [^src1]",
+      "type": "standard",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 46
+    },
+    {
+      "text": "For Indikator 5 er tælleren antal prævalente patienter med iskæmisk apopleksi og nævneren antal prævalente patienter med atrieflimren [^src1]",
+      "type": "definition",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 46
+    },
+    {
+      "text": "Indikator 5 er opgjort for alle prævalente patienter med en atrieflimren-diagnose, dvs. alle personer, som var i live pr. 1. juli 2023, og som havde fået diagnosen registeret i Landspatientregisteret (LPR) mindst én gang inden for de foregående 10 år [^src1]",
+      "type": "definition",
+      "entities": [
+        "indikator-5",
+        "landspatientregisteret"
+      ],
+      "page": 48
+    },
+    {
       "text": "Blandt de prævalente patienter var der i opgørelsesperioden 0,8% der blev registreret med et tilfælde af iskæmisk apopleksi og standarden på max. 0,8% er således opfyldt [^src1]",
-      "type": "clinical-outcome",
+      "type": "result",
       "entities": [
-        "atrieflimren"
+        "indikator-5"
       ],
       "page": 48
-    },
-    {
-      "text": "Regionalt varierer andelen fra 0,7-1,0% [^src1]",
-      "type": "regional-variation",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Der ses tendens til marginalt højere andel i de østdanske regioner (0,9-1,0%) versus de vestdanske (0,7-0,8) [^src1]",
-      "type": "regional-variation",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Variationen på klyngeniveau er i niveauet 0,5-1,1% [^src1]",
-      "type": "regional-variation",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 48
-    },
-    {
-      "text": "På landsplan udviklede 1,3% apopleksi varierende fra 0,9% i Region Midtjylland til 1,5% i Region Sjælland [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "atrieflimren",
-        "midtjylland",
-        "sjaelland"
-      ],
-      "page": 48
-    },
-    {
-      "text": "65,5% af atrieflimren patienter der var indlagt med iskæmisk apopleksi havde indløst AK-behandling indenfor 100 dage før indlæggelsesdatoen [^src1]",
-      "type": "treatment-outcome",
-      "entities": [
-        "atrieflimren",
-        "antikoagulationsbehandling"
-      ],
-      "page": 49
-    },
-    {
-      "text": "Regionalt varierer andelen fra 61,4-74,3% [^src1]",
-      "type": "regional-variation",
-      "entities": [
-        "antikoagulationsbehandling"
-      ],
-      "page": 49
     },
     {
       "text": "Andelen af patienter med iskæmisk apopleksi er 0,89% for DOAC og 0,51% for marevan [^src1]",
-      "type": "treatment-outcome",
+      "type": "comparative-result",
       "entities": [
         "doac",
-        "marevan"
+        "marevan",
+        "indikator-5"
       ],
       "page": 49
     },
     {
-      "text": "Styregruppen har ud fra de aktuelle data og litteraturen vurderet, at incidensraten for iskæmisk apopleksi blandt prævalente patienter med atrieflimren bør være mindre end 1%, og har valgt at sætte en standard på ≤ 0,8 per 100 risiko år [^src1]",
-      "type": "quality-standard",
+      "text": "Styregruppen har valgt at sætte en standard på ≤ 0,8 per 100 risiko år for Indikator 5 [^src1]",
+      "type": "standard",
       "entities": [
-        "indikator-5-iskemisk-apopleksi"
+        "indikator-5",
+        "afdk-styregruppe"
       ],
       "page": 49
     },
     {
-      "text": "Standarden opfyldes i flertallet af regionerne og sundhedsklyngerne [^src1]",
-      "type": "quality-assessment",
+      "text": "Standarden for Indikator 5 opfyldes i flertallet af regionerne og sundhedsklyngerne [^src1]",
+      "type": "result",
       "entities": [
-        "indikator-5-iskemisk-apopleksi"
+        "indikator-5",
+        "afdk-styregruppe"
       ],
       "page": 49
-    },
-    {
-      "text": "Antal Eksklusion: 2.657 Patienten har ikke bopæl i DK eller har en erstatnings CPRnr [^src1]",
-      "type": "data-limitation",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Antal Eksklusion: 78.597 Patienten dør inden starten af sidste opgørelsesperiode [^src1]",
-      "type": "data-limitation",
-      "entities": [
-        "atrieflimren"
-      ],
-      "page": 48
     }
   ],
   "timeline": [
     {
       "date": "01.07.2023 - 30.06.2024",
-      "event": "Opgørelsesperiode for indikator 5 om iskæmisk apopleksi blandt prævalente patienter med atrieflimren",
+      "event": "Opgørelsesperiode for Indikator 5",
       "entities": [
-        "indikator-5-iskemisk-apopleksi",
-        "atrieflimren"
-      ]
-    },
-    {
-      "date": "2022/23",
-      "event": "Tidligere år for sammenligning af andel iskæmisk apopleksi",
-      "entities": [
-        "atrieflimren"
-      ]
-    },
-    {
-      "date": "2021/22",
-      "event": "Tidligere år for sammenligning af andel iskæmisk apopleksi",
-      "entities": [
-        "atrieflimren"
+        "indikator-5"
       ]
     }
   ],
-  "context": "Denne dokumentchunk præsenterer resultater fra Regionernes Kliniske Kvalitetsudviklingsprogram for atrieflimren i Danmark for perioden 01.07.2023-30.06.2024. Fokus ligger på indikator 5 (incidens af iskæmisk apopleksi blandt patienter med atrieflimren) og indikator 6 (incidens af intrakraniel blødning), som er vigtige kvalitetsindikatorer for behandlingen af atrieflimren. Rapporten dokumenterer, at standarden for iskæmisk apopleksi (≤ 0,8%) blev opfyldt på landsplan, selvom der ses regional variation, og den præsenterer også data om antikoagulationsbehandling og sammenligning mellem forskellige mediciner (DOAC og marevan)."
+  "tables": [
+    {
+      "subject": "indikator-5",
+      "title": "Standard Uoplyst Aktuelle år Tidligere år",
+      "page": 46,
+      "rowDimension": "sundhedsklynge",
+      "colDimension": "andele og antal",
+      "entities": [
+        "klynge-vest",
+        "indikator-5"
+      ],
+      "markdown": "| Standard | Uoplyst | Aktuelle år | Tidligere år |\n| --- | --- | --- | --- |\n| ≤ 0,8% | Tæller/ antal | 01.07.2023 - 30.06.2024 | 2022/23 |\n| | opfyldt nævner (%) | Andel 95% CI | Antal |\n| Klynge VEST | Nej | 23 / 1.856 | 0 (0) |\n| | | 1,2 (0,8-1,9) | 14 / 1.857 |\n| | | 0,8 | 0,8 |",
+      "summary": "Tabellen viser opfyldelse af standarden for Indikator 5 på klyngeniveau, hvor Klynge VEST ikke opfylder standarden med 0,0% i 2023/24 mod 1,2% i 2022/23."
+    }
+  ],
+  "context": "Dette afsnit fra rapporten 'Atrieflimren i Danmark' udgør en del af den årlige kvalitetsrapport fra Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP), der overvåger behandlingskvaliteten for patienter med atrieflimren på tværs af danske regioner og sundhedsklynger. Fokus ligger på to centrale sikkerhedsindikatorer: Indikator 5, der måler incidensen af iskæmisk apopleksi som udtryk for utilstrækkelig antikoagulation, og Indikator 6, der måler incidensen af intrakraniel blødning som udtryk for overdreven antikoagulation. Rapporten diskuterer metodologiske valg — især brugen af Landspatientregisteret frem for DanStroke — samt kliniske implikationer af resultaterne, herunder sammenligningen mellem DOAC og marevan. Den indgår i en bredere kvalitetsudviklingsproces, hvor standarder fastsættes og evalueres af Styregruppen for AFDK."
 }

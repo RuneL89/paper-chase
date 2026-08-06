@@ -1,11 +1,37 @@
 {
   "entities": [
     {
+      "name": "Atrieflimren i Danmark",
+      "type": "document",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "entities/documents/reports",
+      "significance": "Dette er titlen på den offentliggjorte version af en kvalitetsrapport fra Regionernes Kliniske Kvalitetsudviklingsprogram, der dokumenterer behandlingsdækning for antikoagulationsbehandling hos patienter med atrieflimren på regions- og sundhedsklyngeniveau.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Atrieflimren i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Dette er den organisation, der udgiver rapporten og står bag indikatorerne 4a1 og 4a2, hvilket gør den til den primære ansvarlige aktør for kvalitetsmåling af antikoagulationsbehandling ved atrieflimren i Danmark.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
       "name": "Indikator 4a1",
-      "type": "quality-indicator",
+      "type": "topic",
       "slug": "indikator-4a1",
-      "folder": "topics/quality-indicator",
-      "significance": "Measures the proportion of atrial fibrillation patients with indication for anticoagulation treatment who receive treatment 1 year after index date, with a standard of ≥90% compliance across Danish regions and health clusters.",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Dette er en specifik kvalitetsindikator, der måler andelen af patienter med atrieflimren og indikation for antikoagulationsbehandling, der faktisk modtager behandling én år efter indeksdato — med en national standard på ≥ 90%.",
       "mentions": [
         {
           "page": 26,
@@ -15,14 +41,31 @@
     },
     {
       "name": "Indikator 4a2",
-      "type": "quality-indicator",
+      "type": "topic",
       "slug": "indikator-4a2",
-      "folder": "topics/quality-indicator",
-      "significance": "Measures the proportion of atrial fibrillation patients with indication for anticoagulation treatment who receive treatment 2 years after index date, with a standard of ≥90% compliance across Danish regions and health clusters.",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Dette er en sekundær kvalitetsindikator, der udvider målingen til to år efter indeksdato og dermed vurderer vedvarende behandlingsdækning over tid.",
       "mentions": [
         {
+          "page": 29,
+          "context": "4a2. Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato."
+        },
+        {
           "page": 30,
-          "context": "Indikator 4a2: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdata"
+          "context": "Indikator 4a2: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato"
+        }
+      ]
+    },
+    {
+      "name": "antikoagulationsbehandling",
+      "type": "medical-intervention",
+      "slug": "antikoagulationsbehandling",
+      "folder": "entities/medical-interventions/pharmacotherapy",
+      "significance": "Dette er den centrale behandlingsform, som indikatorerne 4a1 og 4a2 måler dækningen af, og det er en evidensbaseret standard for forebyggelse af iskæmisk apopleksi hos patienter med atrieflimren.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 1 år efter indeksdato"
         }
       ]
     },
@@ -31,1173 +74,721 @@
       "type": "location",
       "slug": "danmark",
       "folder": "entities/locations/countries",
-      "significance": "National aggregate data for atrial fibrillation anticoagulation treatment indicators, showing 89.1% compliance for 1-year indicator and 88.6% for 2-year indicator.",
+      "significance": "Dette er den nationale niveauenhed, hvis samlede behandlingsdækning for antikoagulationsbehandling ved atrieflimren rapporteres i både indikator 4a1 og 4a2, og som fungerer som reference for regionale sammenligninger.",
       "mentions": [
         {
           "page": 26,
-          "context": "Danmark Nej 9.507 / 10.668 0 (0) 89,1 (88,5-89,7)"
-        },
-        {
-          "page": 30,
-          "context": "Danmark Nej 8.083 / 9.119 0 (0) 88,6 (88,0-89,3)"
+          "context": "Danmark Nej 9.507 / 10.668 0 (0) 89,1 (88,5-89,7) 9.025 / 10.046 89,8 89,4"
         }
       ]
     },
     {
-      "name": "Region Hovedstaden",
-      "type": "region",
-      "slug": "region-hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "One of five Danish regions reporting atrial fibrillation treatment data; shows 88.8% compliance for 1-year indicator and 86.9% for 2-year indicator, both below the 90% standard.",
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Dette er en af de fem regioner i Danmark, hvis resultater for både indikator 4a1 og 4a2 inkluderer både regionalt niveau og gentagne opførelser under forskellige sundhedsklynger, hvilket signalerer dens komplekse organisatoriske struktur.",
       "mentions": [
         {
           "page": 26,
-          "context": "Hovedstaden Nej 2.460 / 2.770 0 (0) 88,8 (87,6-90,0)"
+          "context": "Hovedstaden Nej 2.460 / 2.770 0 (0) 88,8 (87,6-90,0) 2.252 / 2.550 88,3 88,4"
         },
         {
           "page": 30,
-          "context": "Hovedstaden Nej 2.025 / 2.331 0 (0) 86,9 (85,4-88,2)"
+          "context": "Hovedstaden Nej 2.025 / 2.331 0 (0) 86,9 (85,4-88,2) 1.925 / 2.154 89,4 87,3"
         }
       ]
     },
     {
-      "name": "Region Sjælland",
-      "type": "region",
+      "name": "Sjælland",
+      "type": "location",
       "slug": "sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "One of five Danish regions reporting atrial fibrillation treatment data; shows 88.7% compliance for 1-year indicator and 88.0% for 2-year indicator, both below the 90% standard.",
+      "folder": "entities/locations/regions",
+      "significance": "Dette er en af de fem regioner i Danmark, hvis resultater for indikator 4a1 og 4a2 viser en tendens til lavere dækning end national gennemsnitsværdi, især i 4a2, hvor værdien falder til 88,0%.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sjælland Nej 1.636 / 1.845 0 (0) 88,7 (87,1-90,1)"
+          "context": "Sjælland Nej 1.636 / 1.845 0 (0) 88,7 (87,1-90,1) 1.485 / 1.660 89,5 86,4"
         },
         {
           "page": 30,
-          "context": "Sjælland Nej 1.325 / 1.506 0 (0) 88,0 (86,2-89,6)"
+          "context": "Sjælland Nej 1.325 / 1.506 0 (0) 88,0 (86,2-89,6) 1.404 / 1.629 86,2 86,3"
         }
       ]
     },
     {
-      "name": "Region Syddanmark",
-      "type": "region",
+      "name": "Syddanmark",
+      "type": "location",
       "slug": "syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "One of five Danish regions reporting atrial fibrillation treatment data; shows 88.2% compliance for 1-year indicator and 88.3% for 2-year indicator, both below the 90% standard.",
+      "folder": "entities/locations/regions",
+      "significance": "Dette er en af de fem regioner i Danmark, hvis resultater for både indikator 4a1 og 4a2 ligger tæt på eller over national gennemsnitsværdi, men med en synlig nedgang fra 90,6% i 2020/21 til 88,2% i 4a1 og 88,3% i 4a2.",
       "mentions": [
         {
           "page": 26,
-          "context": "Syddanmark Nej 2.177 / 2.467 0 (0) 88,2 (86,9-89,5)"
+          "context": "Syddanmark Nej 2.177 / 2.467 0 (0) 88,2 (86,9-89,5) 2.263 / 2.536 89,2 90,6"
         },
         {
           "page": 30,
-          "context": "Syddanmark Nej 2.013 / 2.281 0 (0) 88,3 (86,9-89,5)"
+          "context": "Syddanmark Nej 2.013 / 2.281 0 (0) 88,3 (86,9-89,5) 1.993 / 2.203 90,5 88,7"
         }
       ]
     },
     {
-      "name": "Region Midtjylland",
-      "type": "region",
+      "name": "Midtjylland",
+      "type": "location",
       "slug": "midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "One of five Danish regions reporting atrial fibrillation treatment data; shows 89.2% compliance for 1-year indicator but meets the 90% standard for 2-year indicator at 90.4%.",
+      "folder": "entities/locations/regions",
+      "significance": "Dette er en af de fem regioner i Danmark, hvis resultater for både indikator 4a1 og 4a2 opfylder den nationale standard på ≥ 90%, hvilket gør den til den eneste region, der konsekvent overholder standarden i begge indikatorer.",
       "mentions": [
         {
           "page": 26,
-          "context": "Midtjylland Nej 2.114 / 2.370 0 (0) 89,2 (87,9-90,4)"
+          "context": "Midtjylland Nej 2.114 / 2.370 0 (0) 89,2 (87,9-90,4) 2.036 / 2.227 91,4 90,5"
         },
         {
           "page": 30,
-          "context": "Midtjylland Ja 1.846 / 2.042 0 (0) 90,4 (89,0-91,6)"
+          "context": "Midtjylland Ja 1.846 / 2.042 0 (0) 90,4 (89,0-91,6) 1.724 / 1.915 90,0 88,9"
         }
       ]
     },
     {
-      "name": "Region Nordjylland",
-      "type": "region",
+      "name": "Nordjylland",
+      "type": "location",
       "slug": "nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "One of five Danish regions reporting atrial fibrillation treatment data; meets the 90% standard for both indicators at 92.1% for 1-year and 91.1% for 2-year.",
+      "folder": "entities/locations/regions",
+      "significance": "Dette er en af de fem regioner i Danmark, hvis resultater for både indikator 4a1 og 4a2 opfylder den nationale standard på ≥ 90%, og som derfor markeres med 'Ja' i kolonnen 'Uoplyst', hvilket adskiller den fra de øvrige regioner.",
       "mentions": [
         {
           "page": 26,
-          "context": "Nordjylland Ja 1.120 / 1.216 0 (0) 92,1 (90,4-93,6)"
+          "context": "Nordjylland Ja 1.120 / 1.216 0 (0) 92,1 (90,4-93,6) 989 / 1.073 92,2 91,7"
         },
         {
           "page": 30,
-          "context": "Nordjylland Ja 874 / 959 0 (0) 91,1 (89,2-92,9)"
+          "context": "Nordjylland Ja 874 / 959 0 (0) 91,1 (89,2-92,9) 933 / 1.003 93,0 92,3"
         }
       ]
     },
     {
       "name": "Sundhedsklynge Bornholm",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "sundhedsklynge-bornholm",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Hovedstaden meeting the 90% standard for both anticoagulation treatment indicators at 91.8% for 1-year and 93.8% for 2-year.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 overholder den nationale standard på ≥ 90%, og som derfor markeres med 'Ja' i kolonnen 'Uoplyst', hvilket understreger dens fremragende behandlingsdækning.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sundhedsklynge Bornholm Ja 89 / 97 0 (0) 91,8 (84,4-96,4)"
+          "context": "Sundhedsklynge Bornholm Ja 89 / 97 0 (0) 91,8 (84,4-96,4) 86 / 92 93,5 90,7"
         },
         {
           "page": 30,
-          "context": "Sundhedsklynge Bornholm Ja 76 / 81 0 (0) 93,8 (86,2-98,0)"
+          "context": "Sundhedsklynge Bornholm Ja 76 / 81 0 (0) 93,8 (86,2-98,0) 63 / 70 90,0 90,5"
         }
       ]
     },
     {
       "name": "Sundhedsklynge Byen",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "sundhedsklynge-byen",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Hovedstaden not meeting the 90% standard for either indicator at 88.0% for 1-year and 86.6% for 2-year.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 ligger under den nationale standard på ≥ 90%, hvilket markeres med 'Nej' i kolonnen 'Uoplyst', og som derfor identificeres som et område med behov for forbedring.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sundhedsklynge Byen Nej 638 / 725 0 (0) 88,0 (85,4-90,3)"
+          "context": "Sundhedsklynge Byen Nej 638 / 725 0 (0) 88,0 (85,4-90,3) 557 / 637 87,4 88,7"
         },
         {
           "page": 30,
-          "context": "Sundhedsklynge Byen Nej 506 / 584 0 (0) 86,6 (83,6-89,3)"
+          "context": "Sundhedsklynge Byen Nej 506 / 584 0 (0) 86,6 (83,6-89,3) 535 / 598 89,5 87,7"
         }
       ]
     },
     {
       "name": "Sundhedsklynge Midt",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "sundhedsklynge-midt",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Hovedstaden not meeting the 90% standard for either indicator at 89.5% for 1-year and 86.9% for 2-year.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for indikator 4a1 opfylder standarden, mens resultatet for 4a2 ligger under den, hvilket indikerer et fald i vedvarende behandlingsdækning over tid.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sundhedsklynge Midt Nej 770 / 860 0 (0) 89,5 (87,3-91,5)"
+          "context": "Sundhedsklynge Midt Nej 770 / 860 0 (0) 89,5 (87,3-91,5) 694 / 777 89,3 88,9"
         },
         {
           "page": 30,
-          "context": "Sundhedsklynge Midt Nej 604 / 695 0 (0) 86,9 (84,2-89,3)"
+          "context": "Sundhedsklynge Midt Nej 604 / 695 0 (0) 86,9 (84,2-89,3) 523 / 586 89,2 87,4"
         }
       ]
     },
     {
       "name": "Sundhedsklynge Nord",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "sundhedsklynge-nord",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Hovedstaden not meeting the 90% standard for either indicator at 88.2% for 1-year and 88.2% for 2-year.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 ligger tæt på eller under den nationale standard, og som derfor markeres med 'Nej', hvilket peger på potentielle udfordringer i behandlingskontinuiteten.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sundhedsklynge Nord Nej 522 / 592 0 (0) 88,2 (85,3-90,7)"
+          "context": "Sundhedsklynge Nord Nej 522 / 592 0 (0) 88,2 (85,3-90,7) 500 / 564 88,7 87,8"
         },
         {
           "page": 30,
-          "context": "Sundhedsklynge Nord Nej 463 / 525 0 (0) 88,2 (85,1-90,8)"
+          "context": "Sundhedsklynge Nord Nej 463 / 525 0 (0) 88,2 (85,1-90,8) 452 / 507 89,2 85,2"
         }
       ]
     },
     {
       "name": "Sundhedsklynge Syd",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "sundhedsklynge-syd",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Hovedstaden not meeting the 90% standard for either indicator at 88.9% for 1-year and 84.3% for 2-year.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 ligger under den nationale standard, især 4a2 med 84,3%, hvilket markerer det laveste registrerede niveau blandt alle klynger og kræver særlig opmærksomhed.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sundhedsklynge Syd Nej 441 / 496 0 (0) 88,9 (85,8-91,5)"
+          "context": "Sundhedsklynge Syd Nej 441 / 496 0 (0) 88,9 (85,8-91,5) 415 / 480 86,5 87,5"
         },
         {
           "page": 30,
-          "context": "Sundhedsklynge Syd Nej 376 / 446 0 (0) 84,3 (80,6-87,6)"
+          "context": "Sundhedsklynge Syd Nej 376 / 446 0 (0) 84,3 (80,6-87,6) 352 / 393 89,6 88,2"
         }
       ]
     },
     {
       "name": "Sundhedsklyngen Holbæk",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "sundhedsklyngen-holbaek",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Sjælland not meeting the 90% standard for either indicator at 89.7% for 1-year and 87.9% for 2-year.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 ligger tæt på standarden, men uden at opfylde den, og som derfor markeres med 'Nej', hvilket tyder på marginal behandlingsdækning.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sundhedsklyngen Holbæk Nej 340 / 379 0 (0) 89,7 (86,2-92,6)"
+          "context": "Sundhedsklyngen Holbæk Nej 340 / 379 0 (0) 89,7 (86,2-92,6) 304 / 350 86,9 87,6"
         },
         {
           "page": 30,
-          "context": "Sundhedsklyngen Holbæk Nej 277 / 315 0 (0) 87,9 (83,8-91,3)"
+          "context": "Sundhedsklyngen Holbæk Nej 277 / 315 0 (0) 87,9 (83,8-91,3) 299 / 345 86,7 90,3"
         }
       ]
     },
     {
       "name": "Sundhedsklyngen Nykøbing F",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "sundhedsklyngen-nykoebing-f",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Sjælland not meeting the 90% standard for either indicator at 85.1% for 1-year and 87.8% for 2-year.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 ligger under den nationale standard, især 4a1 med 85,1%, hvilket er det laveste niveau blandt alle klynger i 4a1-tabellen.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sundhedsklyngen Nykøbing F Nej 336 / 395 0 (0) 85,1 (81,2-88,4)"
+          "context": "Sundhedsklyngen Nykøbing F Nej 336 / 395 0 (0) 85,1 (81,2-88,4) 319 / 350 91,1 84,6"
         },
         {
           "page": 30,
-          "context": "Sundhedsklyngen Nykøbing F Nej 274 / 312 0 (0) 87,8 (83,7-91,2)"
+          "context": "Sundhedsklyngen Nykøbing F Nej 274 / 312 0 (0) 87,8 (83,7-91,2) 320 / 376 85,1 83,3"
         }
       ]
     },
     {
       "name": "Sundhedsklyngen SUH",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "sundhedsklyngen-suh",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Sjælland meeting the 90% standard for 1-year indicator at 90.3% but not for 2-year at 88.3%.",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette er en lokal sundhedsklynge knyttet til Sjællands Universitetshospital, hvis resultater for indikator 4a1 opfylder standarden, mens resultatet for 4a2 ligger under den, hvilket indikerer en svagere langtidseffekt.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sundhedsklyngen SUH Ja 549 / 608 0 (0) 90,3 (87,7-92,5)"
+          "context": "Sundhedsklyngen SUH Ja 549 / 608 0 (0) 90,3 (87,7-92,5) 485 / 533 91,0 85,7"
         },
         {
           "page": 30,
-          "context": "Sundhedsklyngen SUH Nej 438 / 496 0 (0) 88,3 (85,1-91,0)"
+          "context": "Sundhedsklyngen SUH Nej 438 / 496 0 (0) 88,3 (85,1-91,0) 403 / 464 86,9 84,4"
         }
       ]
     },
     {
       "name": "Sundhedsklyngen Slagelse",
-      "type": "health-cluster",
-      "slug": "sundhedsklyngen-slagelse",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Sjælland not meeting the 90% standard for either indicator at 88.8% for 1-year and 87.7% for 2-year.",
+      "type": "organization",
+      "slug": "sundhedsklyngen-slagese",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette er en lokal sundhedsklynge knyttet til Slagelse Sygehus, hvis resultater for både indikator 4a1 og 4a2 ligger tæt på standarden, men uden at opfylde den, og som derfor markeres med 'Nej'.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sundhedsklyngen Slagelse Nej 411 / 463 0 (0) 88,8 (85,5-91,5)"
+          "context": "Sundhedsklyngen Slagelse Nej 411 / 463 0 (0) 88,8 (85,5-91,5) 377 / 427 88,3 87,6"
         },
         {
           "page": 30,
-          "context": "Sundhedsklyngen Slagelse Nej 336 / 383 0 (0) 87,7 (84,0-90,8)"
+          "context": "Sundhedsklyngen Slagelse Nej 336 / 383 0 (0) 87,7 (84,0-90,8) 382 / 444 86,0 88,2"
         }
       ]
     },
     {
       "name": "Sundhedsklynge Fyn",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "sundhedsklynge-fyn",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Syddanmark not meeting the 90% standard for either indicator at 87.4% for 1-year and 88.0% for 2-year.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 ligger under den nationale standard, og som derfor markeres med 'Nej', hvilket peger på systemiske udfordringer i behandlingsdækningen.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sundhedsklynge Fyn Nej 804 / 920 0 (0) 87,4 (85,1-89,5)"
+          "context": "Sundhedsklynge Fyn Nej 804 / 920 0 (0) 87,4 (85,1-89,5) 854 / 952 89,7 90,7"
         },
         {
           "page": 30,
-          "context": "Sundhedsklynge Fyn Nej 750 / 852 0 (0) 88,0 (85,7-90,1)"
+          "context": "Sundhedsklynge Fyn Nej 750 / 852 0 (0) 88,0 (85,7-90,1) 687 / 768 89,5 87,9"
         }
       ]
     },
     {
       "name": "Sundhedsklynge Lillebælt",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "sundhedsklynge-lillebaelt",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Syddanmark meeting the 90% standard for 1-year indicator at 90.4% but not for 2-year at 89.8%.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 opfylder standarden, hvilket markeres med 'Ja', og som derfor udgør en positiv reference for andre klynger.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sundhedsklynge Lillebælt Ja 499 / 552 0 (0) 90,4 (87,6-92,7)"
+          "context": "Sundhedsklynge Lillebælt Ja 499 / 552 0 (0) 90,4 (87,6-92,7) 478 / 534 89,5 89,0"
         },
         {
           "page": 30,
-          "context": "Sundhedsklynge Lillebælt Nej 433 / 482 0 (0) 89,8 (86,8-92,4)"
+          "context": "Sundhedsklynge Lillebælt Nej 433 / 482 0 (0) 89,8 (86,8-92,4) 452 / 502 90,0 89,8"
         }
       ]
     },
     {
       "name": "Sundhedsklynge Sydvestjylland",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "sundhedsklynge-sydvestjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Syddanmark not meeting the 90% standard for either indicator at 88.5% for 1-year and 87.4% for 2-year.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 ligger tæt på standarden, men uden at opfylde den, og som derfor markeres med 'Nej', hvilket indikerer behov for justering.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sundhedsklynge Sydvestjylland Nej 424 / 479 0 (0) 88,5 (85,3-91,2)"
+          "context": "Sundhedsklynge Sydvestjylland Nej 424 / 479 0 (0) 88,5 (85,3-91,2) 431 / 492 87,6 91,8"
         },
         {
           "page": 30,
-          "context": "Sundhedsklynge Sydvestjylland Nej 381 / 436 0 (0) 87,4 (83,9-90,4)"
+          "context": "Sundhedsklynge Sydvestjylland Nej 381 / 436 0 (0) 87,4 (83,9-90,4) 402 / 437 92,0 89,6"
         }
       ]
     },
     {
       "name": "Sundhedsklynge Sønderjylland",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "sundhedsklynge-soenderjylland",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Syddanmark not meeting the 90% standard for either indicator at 87.2% for 1-year and 87.9% for 2-year.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 ligger under den nationale standard, især 4a1 med 87,2%, hvilket peger på behov for forbedring i behandlingsdækningen.",
       "mentions": [
         {
           "page": 26,
-          "context": "Sundhedsklynge Sønderjylland Nej 450 / 516 0 (0) 87,2 (84,0-90,0)"
+          "context": "Sundhedsklynge Sønderjylland Nej 450 / 516 0 (0) 87,2 (84,0-90,0) 500 / 558 89,6 90,8"
         },
         {
           "page": 30,
-          "context": "Sundhedsklynge Sønderjylland Nej 449 / 511 0 (0) 87,9 (84,7-90,6)"
+          "context": "Sundhedsklynge Sønderjylland Nej 449 / 511 0 (0) 87,9 (84,7-90,6) 452 / 496 91,1 88,4"
         }
       ]
     },
     {
       "name": "Aarhusklyngen",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "aarhusklyngen",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Midtjylland not meeting the 90% standard for 1-year indicator at 88.3% but meeting it for 2-year at 91.0%.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 ligger tæt på standarden, men kun opfylder den i 4a2, hvilket markeres med 'Ja' i den senere tabel.",
       "mentions": [
         {
           "page": 26,
-          "context": "Aarhusklyngen Nej 446 / 505 0 (0) 88,3 (85,2-91,0)"
+          "context": "Aarhusklyngen Nej 446 / 505 0 (0) 88,3 (85,2-91,0) 402 / 442 91,0 89,1"
         },
         {
           "page": 30,
-          "context": "Aarhusklyngen Ja 365 / 401 0 (0) 91,0 (87,8-93,6)"
+          "context": "Aarhusklyngen Ja 365 / 401 0 (0) 91,0 (87,8-93,6) 299 / 341 87,7 86,7"
         }
       ]
     },
     {
       "name": "Gødstrupklyngen",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "goedstrupklyngen",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Midtjylland not meeting the 90% standard for either indicator at 87.4% for 1-year and 88.5% for 2-year.",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette er en lokal sundhedsklynge knyttet til Regionshospitalet Gødstrup, hvis resultater for både indikator 4a1 og 4a2 ligger tæt på standarden, men uden at opfylde den, og som derfor markeres med 'Nej'.",
       "mentions": [
         {
           "page": 26,
-          "context": "Gødstrupklyngen Nej 477 / 546 0 (0) 87,4 (84,3-90,0)"
+          "context": "Gødstrupklyngen Nej 477 / 546 0 (0) 87,4 (84,3-90,0) 498 / 559 89,1 90,2"
         },
         {
           "page": 30,
-          "context": "Gødstrupklyngen Nej 461 / 521 0 (0) 88,5 (85,4-91,1)"
+          "context": "Gødstrupklyngen Nej 461 / 521 0 (0) 88,5 (85,4-91,1) 417 / 467 89,3 88,3"
         }
       ]
     },
     {
       "name": "Horsensklyngen",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "horsensklyngen",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Midtjylland meeting the 90% standard for both indicators at 91.3% for 1-year and 90.4% for 2-year.",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette er en lokal sundhedsklynge knyttet til Regionshospitalet Horsens, hvis resultater for både indikator 4a1 og 4a2 opfylder standarden, hvilket markeres med 'Ja', og som derfor udgør en positiv reference.",
       "mentions": [
         {
           "page": 26,
-          "context": "Horsensklyngen Ja 368 / 403 0 (0) 91,3 (88,1-93,9)"
+          "context": "Horsensklyngen Ja 368 / 403 0 (0) 91,3 (88,1-93,9) 347 / 373 93,0 93,1"
         },
         {
           "page": 30,
-          "context": "Horsensklyngen Ja 302 / 334 0 (0) 90,4 (86,7-93,4)"
+          "context": "Horsensklyngen Ja 302 / 334 0 (0) 90,4 (86,7-93,4) 327 / 353 92,6 92,1"
         }
       ]
     },
     {
       "name": "Midtklyngen",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "midtklyngen",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Midtjylland not meeting the 90% standard for 1-year indicator at 88.6% but meeting it for 2-year at 91.1%.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 opfylder standarden, hvilket markeres med 'Ja', og som derfor udgør en positiv reference for behandlingsdækning.",
       "mentions": [
         {
           "page": 26,
-          "context": "Midtklyngen Nej 428 / 483 0 (0) 88,6 (85,4-91,3)"
+          "context": "Midtklyngen Nej 428 / 483 0 (0) 88,6 (85,4-91,3) 401 / 439 91,3 89,6"
         },
         {
           "page": 30,
-          "context": "Midtklyngen Ja 368 / 404 0 (0) 91,1 (87,9-93,7)"
+          "context": "Midtklyngen Ja 368 / 404 0 (0) 91,1 (87,9-93,7) 339 / 376 90,2 87,9"
         }
       ]
     },
     {
       "name": "Randersklyngen",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "randersklyngen",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Midtjylland meeting the 90% standard for both indicators at 91.2% for 1-year and 91.6% for 2-year.",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette er en lokal sundhedsklynge knyttet til Regionshospitalet Randers, hvis resultater for både indikator 4a1 og 4a2 opfylder standarden, hvilket markeres med 'Ja', og som derfor udgør en positiv reference.",
       "mentions": [
         {
           "page": 26,
-          "context": "Randersklyngen Ja 395 / 433 0 (0) 91,2 (88,2-93,7)"
+          "context": "Randersklyngen Ja 395 / 433 0 (0) 91,2 (88,2-93,7) 388 / 414 93,7 90,6"
         },
         {
           "page": 30,
-          "context": "Randersklyngen Ja 350 / 382 0 (0) 91,6 (88,4-94,2)"
+          "context": "Randersklyngen Ja 350 / 382 0 (0) 91,6 (88,4-94,2) 342 / 378 90,5 89,7"
         }
       ]
     },
     {
       "name": "Klynge MIDT",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "klynge-midt",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Nordjylland meeting the 90% standard for both indicators at 92.3% for 1-year and 92.5% for 2-year.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 opfylder standarden, hvilket markeres med 'Ja', og som derfor udgør en positiv reference for behandlingsdækning.",
       "mentions": [
         {
           "page": 26,
-          "context": "Klynge MIDT Ja 385 / 417 0 (0) 92,3 (89,3-94,7)"
+          "context": "Klynge MIDT Ja 385 / 417 0 (0) 92,3 (89,3-94,7) 362 / 385 94,0 91,9"
         },
         {
           "page": 30,
-          "context": "Klynge MIDT Ja 309 / 334 0 (0) 92,5 (89,1-95,1)"
+          "context": "Klynge MIDT Ja 309 / 334 0 (0) 92,5 (89,1-95,1) 321 / 342 93,9 93,2"
         }
       ]
     },
     {
       "name": "Klynge NORD",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "klynge-nord",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Nordjylland meeting the 90% standard for 1-year indicator at 90.8% and for 2-year at 90.6%.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 opfylder standarden, hvilket markeres med 'Ja', og som derfor udgør en positiv reference.",
       "mentions": [
         {
           "page": 26,
-          "context": "Klynge NORD Ja 393 / 433 0 (0) 90,8 (87,6-93,3)"
+          "context": "Klynge NORD Ja 393 / 433 0 (0) 90,8 (87,6-93,3) 326 / 355 91,8 92,7"
         },
         {
           "page": 30,
-          "context": "Klynge NORD Ja 288 / 318 0 (0) 90,6 (86,8-93,5)"
+          "context": "Klynge NORD Ja 288 / 318 0 (0) 90,6 (86,8-93,5) 334 / 358 93,3 94,0"
         }
       ]
     },
     {
       "name": "Klynge SYD",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "klynge-syd",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Nordjylland meeting the 90% standard for both indicators at 92.7% for 1-year and 90.6% for 2-year.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for både indikator 4a1 og 4a2 opfylder standarden, hvilket markeres med 'Ja', og som derfor udgør en positiv reference for behandlingsdækning.",
       "mentions": [
         {
           "page": 26,
-          "context": "Klynge SYD Ja 217 / 234 0 (0) 92,7 (88,6-95,7)"
-        },
-        {
-          "page": 30,
-          "context": "Klynge SYD Ja 288 / 318 0 (0) 90,6 (86,8-93,5)"
+          "context": "Klynge SYD Ja 217 / 234 0 (0) 92,7 (88,6-95,7) 178 / 198 89,9 90,2"
         }
       ]
     },
     {
       "name": "Klynge VEST",
-      "type": "health-cluster",
+      "type": "organization",
       "slug": "klynge-vest",
-      "folder": "entities/organizations/regions",
-      "significance": "Health cluster in Region Nordjylland meeting the 90% standard for 1-year indicator at 94.7%, the highest performance among all clusters.",
+      "folder": "entities/organizations/health-registries",
+      "significance": "Dette er en lokal sundhedsklynge, hvis resultater for indikator 4a1 opfylder standarden, hvilket markeres med 'Ja', og som derfor udgør en positiv reference for behandlingsdækning.",
       "mentions": [
         {
           "page": 27,
-          "context": "Klynge VEST Ja 125 / 132 0 (0) 94,7 (89,4-97,8)"
-        }
-      ]
-    },
-    {
-      "name": "Atrieflimren i Danmark",
-      "type": "program",
-      "slug": "atrieflimren-i-danmark",
-      "folder": "topics/clinical-quality",
-      "significance": "National quality improvement program for atrial fibrillation management in Denmark, tracking anticoagulation treatment compliance across regions and health clusters.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Atrieflimren i Danmark Version: Offentliggjort version"
-        }
-      ]
-    },
-    {
-      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
-      "type": "organization",
-      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/professional-societies",
-      "significance": "The regional clinical quality development program responsible for monitoring and reporting atrial fibrillation treatment indicators across Danish health regions.",
-      "mentions": [
-        {
-          "page": 26,
-          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+          "context": "Klynge VEST Ja 125 / 132 0 (0) 94,7 (89,4-97,8) 123 / 135 91,1 90,6"
         }
       ]
     }
   ],
   "relationships": [
     {
+      "subject": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "predicate": "publishes",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram er angivet som udgiver af rapporten 'Atrieflimren i Danmark'",
+      "page": 26
+    },
+    {
       "subject": "indikator-4a1",
-      "predicate": "measures-compliance-in",
-      "object": "danmark",
-      "evidence": "Indikator 4a1 reports 89,1% compliance for Danmark",
+      "predicate": "measures",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Indikator 4a1 beskriver 'Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 1 år efter indeksdato'",
       "page": 26
     },
     {
       "subject": "indikator-4a2",
-      "predicate": "measures-compliance-in",
-      "object": "danmark",
-      "evidence": "Indikator 4a2 reports 88,6% compliance for Danmark",
-      "page": 30
+      "predicate": "measures",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Indikator 4a2 beskriver 'Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato'",
+      "page": 29
     },
     {
-      "subject": "region-hovedstaden",
+      "subject": "danmark",
       "predicate": "contains",
-      "object": "sundhedsklynge-bornholm",
-      "evidence": "Sundhedsklynge Bornholm is listed under Hovedstaden",
+      "object": "hovedstaden",
+      "evidence": "Hovedstaden er én af de fem regioner i Danmark, som rapporteres separat i tabellerne",
       "page": 26
     },
     {
-      "subject": "region-hovedstaden",
+      "subject": "danmark",
       "predicate": "contains",
-      "object": "sundhedsklynge-byen",
-      "evidence": "Sundhedsklynge Byen is listed under Hovedstaden",
+      "object": "sjaelland",
+      "evidence": "Sjælland er én af de fem regioner i Danmark, som rapporteres separat i tabellerne",
       "page": 26
     },
     {
-      "subject": "region-hovedstaden",
+      "subject": "danmark",
       "predicate": "contains",
-      "object": "sundhedsklynge-midt",
-      "evidence": "Sundhedsklynge Midt is listed under Hovedstaden",
+      "object": "syddanmark",
+      "evidence": "Syddanmark er én af de fem regioner i Danmark, som rapporteres separat i tabellerne",
       "page": 26
     },
     {
-      "subject": "region-hovedstaden",
+      "subject": "danmark",
       "predicate": "contains",
-      "object": "sundhedsklynge-nord",
-      "evidence": "Sundhedsklynge Nord is listed under Hovedstaden",
+      "object": "midtjylland",
+      "evidence": "Midtjylland er én af de fem regioner i Danmark, som rapporteres separat i tabellerne",
       "page": 26
     },
     {
-      "subject": "region-hovedstaden",
+      "subject": "danmark",
       "predicate": "contains",
-      "object": "sundhedsklynge-syd",
-      "evidence": "Sundhedsklynge Syd is listed under Hovedstaden",
+      "object": "nordjylland",
+      "evidence": "Nordjylland er én af de fem regioner i Danmark, som rapporteres separat i tabellerne",
       "page": 26
-    },
-    {
-      "subject": "sjaelland",
-      "predicate": "contains",
-      "object": "sundhedsklyngen-holbaek",
-      "evidence": "Sundhedsklyngen Holbæk is listed under Sjælland",
-      "page": 26
-    },
-    {
-      "subject": "sjaelland",
-      "predicate": "contains",
-      "object": "sundhedsklyngen-nykoebing-f",
-      "evidence": "Sundhedsklyngen Nykøbing F is listed under Sjælland",
-      "page": 26
-    },
-    {
-      "subject": "sjaelland",
-      "predicate": "contains",
-      "object": "sundhedsklyngen-suh",
-      "evidence": "Sundhedsklyngen SUH is listed under Sjælland",
-      "page": 26
-    },
-    {
-      "subject": "sjaelland",
-      "predicate": "contains",
-      "object": "sundhedsklyngen-slagelse",
-      "evidence": "Sundhedsklyngen Slagelse is listed under Sjælland",
-      "page": 26
-    },
-    {
-      "subject": "syddanmark",
-      "predicate": "contains",
-      "object": "sundhedsklynge-fyn",
-      "evidence": "Sundhedsklynge Fyn is listed under Syddanmark",
-      "page": 26
-    },
-    {
-      "subject": "syddanmark",
-      "predicate": "contains",
-      "object": "sundhedsklynge-lillebaelt",
-      "evidence": "Sundhedsklynge Lillebælt is listed under Syddanmark",
-      "page": 26
-    },
-    {
-      "subject": "syddanmark",
-      "predicate": "contains",
-      "object": "sundhedsklynge-sydvestjylland",
-      "evidence": "Sundhedsklynge Sydvestjylland is listed under Syddanmark",
-      "page": 26
-    },
-    {
-      "subject": "syddanmark",
-      "predicate": "contains",
-      "object": "sundhedsklynge-soenderjylland",
-      "evidence": "Sundhedsklynge Sønderjylland is listed under Syddanmark",
-      "page": 26
-    },
-    {
-      "subject": "midtjylland",
-      "predicate": "contains",
-      "object": "aarhusklyngen",
-      "evidence": "Aarhusklyngen is listed under Midtjylland",
-      "page": 26
-    },
-    {
-      "subject": "midtjylland",
-      "predicate": "contains",
-      "object": "goedstrupklyngen",
-      "evidence": "Gødstrupklyngen is listed under Midtjylland",
-      "page": 26
-    },
-    {
-      "subject": "midtjylland",
-      "predicate": "contains",
-      "object": "horsensklyngen",
-      "evidence": "Horsensklyngen is listed under Midtjylland",
-      "page": 26
-    },
-    {
-      "subject": "midtjylland",
-      "predicate": "contains",
-      "object": "midtklyngen",
-      "evidence": "Midtklyngen is listed under Midtjylland",
-      "page": 26
-    },
-    {
-      "subject": "midtjylland",
-      "predicate": "contains",
-      "object": "randersklyngen",
-      "evidence": "Randersklyngen is listed under Midtjylland",
-      "page": 26
-    },
-    {
-      "subject": "nordjylland",
-      "predicate": "contains",
-      "object": "klynge-midt",
-      "evidence": "Klynge MIDT is listed under Nordjylland",
-      "page": 26
-    },
-    {
-      "subject": "nordjylland",
-      "predicate": "contains",
-      "object": "klynge-nord",
-      "evidence": "Klynge NORD is listed under Nordjylland",
-      "page": 26
-    },
-    {
-      "subject": "nordjylland",
-      "predicate": "contains",
-      "object": "klynge-syd",
-      "evidence": "Klynge SYD is listed under Nordjylland",
-      "page": 26
-    },
-    {
-      "subject": "nordjylland",
-      "predicate": "contains",
-      "object": "klynge-vest",
-      "evidence": "Klynge VEST is listed under Nordjylland",
-      "page": 27
     }
   ],
   "claims": [
     {
-      "text": "For Indikator 4a1 (1-year anticoagulation treatment), Danmark achieved 89,1% compliance (95% CI: 88,5-89,7) based on 9.507 / 10.668 patients [^src1]",
-      "type": "clinical-performance",
+      "text": "Standarden for Indikator 4a1 er ≥ 90% [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "indikator-4a1",
-        "danmark"
+        "indikator-4a1"
       ],
       "page": 26
     },
     {
-      "text": "For Indikator 4a1, Region Hovedstaden achieved 88,8% compliance (95% CI: 87,6-90,0) based on 2.460 / 2.770 patients [^src1]",
-      "type": "clinical-performance",
+      "text": "Standarden for Indikator 4a2 er ≥ 90% [^src1]",
+      "type": "quality-standard",
       "entities": [
-        "indikator-4a1",
-        "region-hovedstaden"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Region Sjælland achieved 88,7% compliance (95% CI: 87,1-90,1) based on 1.636 / 1.845 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sjaelland"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Region Syddanmark achieved 88,2% compliance (95% CI: 86,9-89,5) based on 2.177 / 2.467 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "syddanmark"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Region Midtjylland achieved 89,2% compliance (95% CI: 87,9-90,4) based on 2.114 / 2.370 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "midtjylland"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Region Nordjylland achieved 92,1% compliance (95% CI: 90,4-93,6) based on 1.120 / 1.216 patients, meeting the ≥90% standard [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "nordjylland"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Sundhedsklynge Bornholm achieved 91,8% compliance (95% CI: 84,4-96,4) based on 89 / 97 patients, meeting the ≥90% standard [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sundhedsklynge-bornholm"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Sundhedsklynge Byen achieved 88,0% compliance (95% CI: 85,4-90,3) based on 638 / 725 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sundhedsklynge-byen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Sundhedsklynge Midt achieved 89,5% compliance (95% CI: 87,3-91,5) based on 770 / 860 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sundhedsklynge-midt"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Sundhedsklynge Nord achieved 88,2% compliance (95% CI: 85,3-90,7) based on 522 / 592 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sundhedsklynge-nord"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Sundhedsklynge Syd achieved 88,9% compliance (95% CI: 85,8-91,5) based on 441 / 496 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sundhedsklynge-syd"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Sundhedsklyngen Holbæk achieved 89,7% compliance (95% CI: 86,2-92,6) based on 340 / 379 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sundhedsklyngen-holbaek"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Sundhedsklyngen Nykøbing F achieved 85,1% compliance (95% CI: 81,2-88,4) based on 336 / 395 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sundhedsklyngen-nykoebing-f"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Sundhedsklyngen SUH achieved 90,3% compliance (95% CI: 87,7-92,5) based on 549 / 608 patients, meeting the ≥90% standard [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sundhedsklyngen-suh"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Sundhedsklyngen Slagelse achieved 88,8% compliance (95% CI: 85,5-91,5) based on 411 / 463 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sundhedsklyngen-slagelse"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Sundhedsklynge Fyn achieved 87,4% compliance (95% CI: 85,1-89,5) based on 804 / 920 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sundhedsklynge-fyn"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Sundhedsklynge Lillebælt achieved 90,4% compliance (95% CI: 87,6-92,7) based on 499 / 552 patients, meeting the ≥90% standard [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sundhedsklynge-lillebaelt"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Sundhedsklynge Sydvestjylland achieved 88,5% compliance (95% CI: 85,3-91,2) based on 424 / 479 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sundhedsklynge-sydvestjylland"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Sundhedsklynge Sønderjylland achieved 87,2% compliance (95% CI: 84,0-90,0) based on 450 / 516 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "sundhedsklynge-soenderjylland"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Aarhusklyngen achieved 88,3% compliance (95% CI: 85,2-91,0) based on 446 / 505 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "aarhusklyngen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Gødstrupklyngen achieved 87,4% compliance (95% CI: 84,3-90,0) based on 477 / 546 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "goedstrupklyngen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Horsensklyngen achieved 91,3% compliance (95% CI: 88,1-93,9) based on 368 / 403 patients, meeting the ≥90% standard [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "horsensklyngen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Midtklyngen achieved 88,6% compliance (95% CI: 85,4-91,3) based on 428 / 483 patients [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "midtklyngen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Randersklyngen achieved 91,2% compliance (95% CI: 88,2-93,7) based on 395 / 433 patients, meeting the ≥90% standard [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "randersklyngen"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Klynge MIDT achieved 92,3% compliance (95% CI: 89,3-94,7) based on 385 / 417 patients, meeting the ≥90% standard [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "klynge-midt"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Klynge NORD achieved 90,8% compliance (95% CI: 87,6-93,3) based on 393 / 433 patients, meeting the ≥90% standard [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "klynge-nord"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Klynge SYD achieved 92,7% compliance (95% CI: 88,6-95,7) based on 217 / 234 patients, meeting the ≥90% standard [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "klynge-syd"
-      ],
-      "page": 26
-    },
-    {
-      "text": "For Indikator 4a1, Klynge VEST achieved 94,7% compliance (95% CI: 89,4-97,8) based on 125 / 132 patients, meeting the ≥90% standard [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a1",
-        "klynge-vest"
-      ],
-      "page": 27
-    },
-    {
-      "text": "For Indikator 4a2 (2-year anticoagulation treatment), Danmark achieved 88,6% compliance (95% CI: 88,0-89,3) based on 8.083 / 9.119 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "danmark"
+        "indikator-4a2"
       ],
       "page": 30
     },
     {
-      "text": "For Indikator 4a2, Region Hovedstaden achieved 86,9% compliance (95% CI: 85,4-88,2) based on 2.025 / 2.331 patients [^src2]",
-      "type": "clinical-performance",
+      "text": "Danmarks nationale andel for Indikator 4a1 i perioden 01.07.2022–30.06.2023 er 89,1% (95% CI: 88,5–89,7) [^src1]",
+      "type": "performance",
       "entities": [
-        "indikator-4a2",
-        "region-hovedstaden"
+        "danmark",
+        "indikator-4a1"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Danmarks nationale andel for Indikator 4a2 i perioden 01.07.2021–30.06.2022 er 88,6% (95% CI: 88,0–89,3) [^src1]",
+      "type": "performance",
+      "entities": [
+        "danmark",
+        "indikator-4a2"
       ],
       "page": 30
     },
     {
-      "text": "For Indikator 4a2, Region Sjælland achieved 88,0% compliance (95% CI: 86,2-89,6) based on 1.325 / 1.506 patients [^src2]",
-      "type": "clinical-performance",
+      "text": "Nordjylland opfylder standarden for Indikator 4a1 med 92,1% (95% CI: 90,4–93,6) [^src1]",
+      "type": "performance",
       "entities": [
-        "indikator-4a2",
-        "sjaelland"
+        "nordjylland",
+        "indikator-4a1"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Nordjylland opfylder standarden for Indikator 4a2 med 91,1% (95% CI: 89,2–92,9) [^src1]",
+      "type": "performance",
+      "entities": [
+        "nordjylland",
+        "indikator-4a2"
       ],
       "page": 30
     },
     {
-      "text": "For Indikator 4a2, Region Syddanmark achieved 88,3% compliance (95% CI: 86,9-89,5) based on 2.013 / 2.281 patients [^src2]",
-      "type": "clinical-performance",
+      "text": "Midtjylland opfylder standarden for Indikator 4a1 med 89,2% (95% CI: 87,9–90,4) [^src1]",
+      "type": "performance",
       "entities": [
-        "indikator-4a2",
-        "syddanmark"
+        "midtjylland",
+        "indikator-4a1"
+      ],
+      "page": 26
+    },
+    {
+      "text": "Midtjylland opfylder standarden for Indikator 4a2 med 90,4% (95% CI: 89,0–91,6) [^src1]",
+      "type": "performance",
+      "entities": [
+        "midtjylland",
+        "indikator-4a2"
       ],
       "page": 30
     },
     {
-      "text": "For Indikator 4a2, Region Midtjylland achieved 90,4% compliance (95% CI: 89,0-91,6) based on 1.846 / 2.042 patients, meeting the ≥90% standard [^src2]",
-      "type": "clinical-performance",
+      "text": "Sundhedsklynge Syd har den laveste andel for Indikator 4a2 med 84,3% (95% CI: 80,6–87,6) [^src1]",
+      "type": "performance",
       "entities": [
-        "indikator-4a2",
-        "midtjylland"
+        "sundhedsklynge-syd",
+        "indikator-4a2"
       ],
       "page": 30
     },
     {
-      "text": "For Indikator 4a2, Region Nordjylland achieved 91,1% compliance (95% CI: 89,2-92,9) based on 874 / 959 patients, meeting the ≥90% standard [^src2]",
-      "type": "clinical-performance",
+      "text": "Sundhedsklyngen Nykøbing F har den laveste andel for Indikator 4a1 med 85,1% (95% CI: 81,2–88,4) [^src1]",
+      "type": "performance",
       "entities": [
-        "indikator-4a2",
-        "nordjylland"
+        "sundhedsklyngen-nykoebing-f",
+        "indikator-4a1"
       ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Sundhedsklynge Bornholm achieved 93,8% compliance (95% CI: 86,2-98,0) based on 76 / 81 patients, meeting the ≥90% standard [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "sundhedsklynge-bornholm"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Sundhedsklynge Byen achieved 86,6% compliance (95% CI: 83,6-89,3) based on 506 / 584 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "sundhedsklynge-byen"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Sundhedsklynge Midt achieved 86,9% compliance (95% CI: 84,2-89,3) based on 604 / 695 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "sundhedsklynge-midt"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Sundhedsklynge Nord achieved 88,2% compliance (95% CI: 85,1-90,8) based on 463 / 525 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "sundhedsklynge-nord"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Sundhedsklynge Syd achieved 84,3% compliance (95% CI: 80,6-87,6) based on 376 / 446 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "sundhedsklynge-syd"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Sundhedsklyngen Holbæk achieved 87,9% compliance (95% CI: 83,8-91,3) based on 277 / 315 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "sundhedsklyngen-holbaek"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Sundhedsklyngen Nykøbing F achieved 87,8% compliance (95% CI: 83,7-91,2) based on 274 / 312 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "sundhedsklyngen-nykoebing-f"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Sundhedsklyngen SUH achieved 88,3% compliance (95% CI: 85,1-91,0) based on 438 / 496 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "sundhedsklyngen-suh"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Sundhedsklyngen Slagelse achieved 87,7% compliance (95% CI: 84,0-90,8) based on 336 / 383 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "sundhedsklyngen-slagelse"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Sundhedsklynge Fyn achieved 88,0% compliance (95% CI: 85,7-90,1) based on 750 / 852 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "sundhedsklynge-fyn"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Sundhedsklynge Lillebælt achieved 89,8% compliance (95% CI: 86,8-92,4) based on 433 / 482 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "sundhedsklynge-lillebaelt"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Sundhedsklynge Sydvestjylland achieved 87,4% compliance (95% CI: 83,9-90,4) based on 381 / 436 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "sundhedsklynge-sydvestjylland"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Sundhedsklynge Sønderjylland achieved 87,9% compliance (95% CI: 84,7-90,6) based on 449 / 511 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "sundhedsklynge-soenderjylland"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Aarhusklyngen achieved 91,0% compliance (95% CI: 87,8-93,6) based on 365 / 401 patients, meeting the ≥90% standard [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "aarhusklyngen"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Gødstrupklyngen achieved 88,5% compliance (95% CI: 85,4-91,1) based on 461 / 521 patients [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "goedstrupklyngen"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Horsensklyngen achieved 90,4% compliance (95% CI: 86,7-93,4) based on 302 / 334 patients, meeting the ≥90% standard [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "horsensklyngen"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Midtklyngen achieved 91,1% compliance (95% CI: 87,9-93,7) based on 368 / 404 patients, meeting the ≥90% standard [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "midtklyngen"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Randersklyngen achieved 91,6% compliance (95% CI: 88,4-94,2) based on 350 / 382 patients, meeting the ≥90% standard [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "randersklyngen"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Klynge MIDT achieved 92,5% compliance (95% CI: 89,1-95,1) based on 309 / 334 patients, meeting the ≥90% standard [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "klynge-midt"
-      ],
-      "page": 30
-    },
-    {
-      "text": "For Indikator 4a2, Klynge NORD achieved 90,6% compliance (95% CI: 86,8-93,5) based on 288 / 318 patients, meeting the ≥90% standard [^src2]",
-      "type": "clinical-performance",
-      "entities": [
-        "indikator-4a2",
-        "klynge-nord"
-      ],
-      "page": 30
+      "page": 26
     }
   ],
   "timeline": [
     {
-      "date": "01.07.2022 - 30.06.2023",
-      "event": "Measurement period for Indikator 4a1 (1-year anticoagulation treatment compliance)",
+      "date": "2022-07-01",
+      "event": "Start af måleperiode for Indikator 4a1 i 2022/23",
       "entities": [
         "indikator-4a1"
       ]
     },
     {
-      "date": "01.07.2021 - 30.06.2022",
-      "event": "Measurement period for Indikator 4a2 (2-year anticoagulation treatment compliance)",
+      "date": "2023-06-30",
+      "event": "Slut på måleperiode for Indikator 4a1 i 2022/23",
+      "entities": [
+        "indikator-4a1"
+      ]
+    },
+    {
+      "date": "2021-07-01",
+      "event": "Start af måleperiode for Indikator 4a2 i 2021/22",
+      "entities": [
+        "indikator-4a2"
+      ]
+    },
+    {
+      "date": "2022-06-30",
+      "event": "Slut på måleperiode for Indikator 4a2 i 2021/22",
       "entities": [
         "indikator-4a2"
       ]
     }
   ],
-  "context": "Denne dokumentchunk præsenterer detaljerede kvalitetsindikatorer for atrieflimrenbehandling i Danmark, specifikt måling af antikoagulationsbehandling compliance 1 og 2 år efter indeksdato. Dataene er organiseret på nationalt, regionalt og sundhedsklyngeniveau, hvilket giver et omfattende billede af behandlingskvaliteten på tværs af det danske sundhedsvæsen. Indikatorerne viser, at mens Danmark som helhed ligger tæt på 90%-standarden, er der betydelig regional variation, med nogle regioner og klynger, der overstiger standarden, mens andre ligger under."
+  "tables": [
+    {
+      "subject": "indikator-4a1",
+      "title": "Indikator 4a1: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 1 år efter indeksdato",
+      "page": 26,
+      "rowDimension": "regioner-og-sundhedsklynger",
+      "colDimension": "andel-per-år-med-konfidensinterval",
+      "entities": [
+        "danmark",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen",
+        "sundhedsklynge-midt",
+        "sundhedsklynge-nord",
+        "sundhedsklynge-syd",
+        "sundhedsklyngen-holbaek",
+        "sundhedsklyngen-nykoebing-f",
+        "sundhedsklyngen-suh",
+        "sundhedsklyngen-slagese",
+        "sundhedsklynge-fyn",
+        "sundhedsklynge-lillebaelt",
+        "sundhedsklynge-sydvestjylland",
+        "sundhedsklynge-soenderjylland",
+        "aarhusklyngen",
+        "goedstrupklyngen",
+        "horsensklyngen",
+        "midtklyngen",
+        "randersklyngen",
+        "klynge-midt",
+        "klynge-nord",
+        "klynge-syd",
+        "klynge-vest"
+      ],
+      "markdown": "| Region/klynge | Uoplyst | Tæller/ nævner (%) | Andel 95% CI | Antal 2021/22 | Andel 2021/22 | Andel 2020/21 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 9.507 / 10.668 | 89,1 (88,5-89,7) | 9.025 / 10.046 | 89,8 | 89,4 |\n| Hovedstaden | Nej | 2.460 / 2.770 | 88,8 (87,6-90,0) | 2.252 / 2.550 | 88,3 | 88,4 |\n| Sjælland | Nej | 1.636 / 1.845 | 88,7 (87,1-90,1) | 1.485 / 1.660 | 89,5 | 86,4 |\n| Syddanmark | Nej | 2.177 / 2.467 | 88,2 (86,9-89,5) | 2.263 / 2.536 | 89,2 | 90,6 |\n| Midtjylland | Nej | 2.114 / 2.370 | 89,2 (87,9-90,4) | 2.036 / 2.227 | 91,4 | 90,5 |\n| Nordjylland | Ja | 1.120 / 1.216 | 92,1 (90,4-93,6) | 989 / 1.073 | 92,2 | 91,7 |\n| Sundhedsklynge Bornholm | Ja | 89 / 97 | 91,8 (84,4-96,4) | 86 / 92 | 93,5 | 90,7 |\n| Sundhedsklynge Byen | Nej | 638 / 725 | 88,0 (85,4-90,3) | 557 / 637 | 87,4 | 88,7 |\n| Sundhedsklynge Midt | Nej | 770 / 860 | 89,5 (87,3-91,5) | 694 / 777 | 89,3 | 88,9 |\n| Sundhedsklynge Nord | Nej | 522 / 592 | 88,2 (85,3-90,7) | 500 / 564 | 88,7 | 87,8 |\n| Sundhedsklynge Syd | Nej | 441 / 496 | 88,9 (85,8-91,5) | 415 / 480 | 86,5 | 87,5 |\n| Sundhedsklyngen Holbæk | Nej | 340 / 379 | 89,7 (86,2-92,6) | 304 / 350 | 86,9 | 87,6 |\n| Sundhedsklyngen Nykøbing F | Nej | 336 / 395 | 85,1 (81,2-88,4) | 319 / 350 | 91,1 | 84,6 |\n| Sundhedsklyngen SUH | Ja | 549 / 608 | 90,3 (87,7-92,5) | 485 / 533 | 91,0 | 85,7 |\n| Sundhedsklyngen Slagelse | Nej | 411 / 463 | 88,8 (85,5-91,5) | 377 / 427 | 88,3 | 87,6 |\n| Sundhedsklynge Fyn | Nej | 804 / 920 | 87,4 (85,1-89,5) | 854 / 952 | 89,7 | 90,7 |\n| Sundhedsklynge Lillebælt | Ja | 499 / 552 | 90,4 (87,6-92,7) | 478 / 534 | 89,5 | 89,0 |\n| Sundhedsklynge Sydvestjylland | Nej | 424 / 479 | 88,5 (85,3-91,2) | 431 / 492 | 87,6 | 91,8 |\n| Sundhedsklynge Sønderjylland | Nej | 450 / 516 | 87,2 (84,0-90,0) | 500 / 558 | 89,6 | 90,8 |\n| Aarhusklyngen | Nej | 446 / 505 | 88,3 (85,2-91,0) | 402 / 442 | 91,0 | 89,1 |\n| Gødstrupklyngen | Nej | 477 / 546 | 87,4 (84,3-90,0) | 498 / 559 | 89,1 | 90,2 |\n| Horsensklyngen | Ja | 368 / 403 | 91,3 (88,1-93,9) | 347 / 373 | 93,0 | 93,1 |\n| Midtklyngen | Nej | 428 / 483 | 88,6 (85,4-91,3) | 401 / 439 | 91,3 | 89,6 |\n| Randersklyngen | Ja | 395 / 433 | 91,2 (88,2-93,7) | 388 / 414 | 93,7 | 90,6 |\n| Nordjylland | Ja | 1.120 / 1.216 | 92,1 (90,4-93,6) | 989 / 1.073 | 92,2 | 91,7 |\n| Klynge MIDT | Ja | 385 / 417 | 92,3 (89,3-94,7) | 362 / 385 | 94,0 | 91,9 |\n| Klynge NORD | Ja | 393 / 433 | 90,8 (87,6-93,3) | 326 / 355 | 91,8 | 92,7 |\n| Klynge SYD | Ja | 217 / 234 | 92,7 (88,6-95,7) | 178 / 198 | 89,9 | 90,2 |\n| Klynge VEST | Ja | 125 / 132 | 94,7 (89,4-97,8) | 123 / 135 | 91,1 | 90,6 |",
+      "summary": "Tabellen sammenligner andelen af patienter med atrieflimren og indikation for antikoagulationsbehandling, der modtager behandling 1 år efter indeksdato, på regions- og sundhedsklyngeniveau for Danmark i 2022/23 samt tidligere år, og viser, at kun Nordjylland og en række klynger opfylder den nationale standard på ≥ 90%."
+    },
+    {
+      "subject": "indikator-4a2",
+      "title": "Indikator 4a2: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato",
+      "page": 30,
+      "rowDimension": "regioner-og-sundhedsklynger",
+      "colDimension": "andel-per-år-med-konfidensinterval",
+      "entities": [
+        "danmark",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen",
+        "sundhedsklynge-midt",
+        "sundhedsklynge-nord",
+        "sundhedsklynge-syd",
+        "sundhedsklyngen-holbaek",
+        "sundhedsklyngen-nykoebing-f",
+        "sundhedsklyngen-suh",
+        "sundhedsklyngen-slagese",
+        "sundhedsklynge-fyn",
+        "sundhedsklynge-lillebaelt",
+        "sundhedsklynge-sydvestjylland",
+        "sundhedsklynge-soenderjylland",
+        "aarhusklyngen",
+        "goedstrupklyngen",
+        "horsensklyngen",
+        "midtklyngen",
+        "randersklyngen",
+        "klynge-midt",
+        "klynge-nord"
+      ],
+      "markdown": "| Region/klynge | Uoplyst | Tæller/ nævner (%) | Andel 95% CI | Antal 2020/21 | Andel 2020/21 | Andel 2019/20 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 8.083 / 9.119 | 88,6 (88,0-89,3) | 7.979 / 8.904 | 89,6 | 88,4 |\n| Hovedstaden | Nej | 2.025 / 2.331 | 86,9 (85,4-88,2) | 1.925 / 2.154 | 89,4 | 87,3 |\n| Sjælland | Nej | 1.325 / 1.506 | 88,0 (86,2-89,6) | 1.404 / 1.629 | 86,2 | 86,3 |\n| Syddanmark | Nej | 2.013 / 2.281 | 88,3 (86,9-89,5) | 1.993 / 2.203 | 90,5 | 88,7 |\n| Midtjylland | Ja | 1.846 / 2.042 | 90,4 (89,0-91,6) | 1.724 / 1.915 | 90,0 | 88,9 |\n| Nordjylland | Ja | 874 / 959 | 91,1 (89,2-92,9) | 933 / 1.003 | 93,0 | 92,3 |\n| Sundhedsklynge Bornholm | Ja | 76 / 81 | 93,8 (86,2-98,0) | 63 / 70 | 90,0 | 90,5 |\n| Sundhedsklynge Byen | Nej | 506 / 584 | 86,6 (83,6-89,3) | 535 / 598 | 89,5 | 87,7 |\n| Sundhedsklynge Midt | Nej | 604 / 695 | 86,9 (84,2-89,3) | 523 / 586 | 89,2 | 87,4 |\n| Sundhedsklynge Nord | Nej | 463 / 525 | 88,2 (85,1-90,8) | 452 / 507 | 89,2 | 85,2 |\n| Sundhedsklynge Syd | Nej | 376 / 446 | 84,3 (80,6-87,6) | 352 / 393 | 89,6 | 88,2 |\n| Sundhedsklyngen Holbæk | Nej | 277 / 315 | 87,9 (83,8-91,3) | 299 / 345 | 86,7 | 90,3 |\n| Sundhedsklyngen Nykøbing F | Nej | 274 / 312 | 87,8 (83,7-91,2) | 320 / 376 | 85,1 | 83,3 |\n| Sundhedsklyngen SUH | Nej | 438 / 496 | 88,3 (85,1-91,0) | 403 / 464 | 86,9 | 84,4 |\n| Sundhedsklyngen Slagelse | Nej | 336 / 383 | 87,7 (84,0-90,8) | 382 / 444 | 86,0 | 88,2 |\n| Sundhedsklynge Fyn | Nej | 750 / 852 | 88,0 (85,7-90,1) | 687 / 768 | 89,5 | 87,9 |\n| Sundhedsklynge Lillebælt | Nej | 433 / 482 | 89,8 (86,8-92,4) | 452 / 502 | 90,0 | 89,8 |\n| Sundhedsklynge Sydvestjylland | Nej | 381 / 436 | 87,4 (83,9-90,4) | 402 / 437 | 92,0 | 89,6 |\n| Sundhedsklynge Sønderjylland | Nej | 449 / 511 | 87,9 (84,7-90,6) | 452 / 496 | 91,1 | 88,4 |\n| Midtjylland | Ja | 1.846 / 2.042 | 90,4 (89,0-91,6) | 1.724 / 1.915 | 90,0 | 88,9 |\n| Aarhusklyngen | Ja | 365 / 401 | 91,0 (87,8-93,6) | 299 / 341 | 87,7 | 86,7 |\n| Gødstrupklyngen | Nej | 461 / 521 | 88,5 (85,4-91,1) | 417 / 467 | 89,3 | 88,3 |\n| Horsensklyngen | Ja | 302 / 334 | 90,4 (86,7-93,4) | 327 / 353 | 92,6 | 92,1 |\n| Midtklyngen | Ja | 368 / 404 | 91,1 (87,9-93,7) | 339 / 376 | 90,2 | 87,9 |\n| Randersklyngen | Ja | 350 / 382 | 91,6 (88,4-94,2) | 342 / 378 | 90,5 | 89,7 |\n| Nordjylland | Ja | 874 / 959 | 91,1 (89,2-92,9) | 933 / 1.003 | 93,0 | 92,3 |\n| Klynge MIDT | Ja | 309 / 334 | 92,5 (89,1-95,1) | 321 / 342 | 93,9 | 93,2 |\n| Klynge NORD | Ja | 288 / 318 | 90,6 (86,8-93,5) | 334 / 358 | 93,3 | 94,0 |",
+      "summary": "Tabellen sammenligner andelen af patienter med atrieflimren og indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato, på regions- og sundhedsklyngeniveau for Danmark i 2021/22 samt tidligere år, og viser, at flere regioner og klynger opfylder den nationale standard på ≥ 90%, men at Sundhedsklynge Syd har den laveste andel på 84,3%."
+    }
+  ],
+  "context": "Denne PDF-udklip fra 'Atrieflimren i Danmark'-rapporten (AFDK_2024.pdf, sider 26–30) er en del af Regionernes Kliniske Kvalitetsudviklingsprogram's årlige kvalitetsmonitorering af behandlingsdækning for patienter med atrieflimren. Den fokuserer specifikt på to kvalitetsindikatorer — 4a1 (1-års behandlingsdækning) og 4a2 (2-års behandlingsdækning) — som begge måler anvendelsen af antikoagulationsbehandling i overensstemmelse med nationale retningslinjer. Rapporten præsenterer kvantitative resultater på både nationalt, regions- og lokalt sundhedsklynge-niveau, hvilket understøtter en hierarkisk kvalitetsforbedringsstrategi, hvor regioner og klynger kan identificere styrker og svagheder i deres kliniske praksis. Dataene dækker måleperioder fra juli 2021 til juni 2023 og bruges til at evaluere overholdelse af den fastsatte standard på ≥ 90%."
 }

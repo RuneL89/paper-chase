@@ -5,19 +5,25 @@
       "type": "database",
       "slug": "adhd-databasen",
       "folder": "entities/databases",
-      "significance": "En dansk database, der registrerer ADHD-udrednings- og behandlingsforløb for børn og unge under 18 år, med standardiserede indikatorer for kvalitetsmåling på tværs af regioner.",
+      "significance": "ADHD-DATABASEN er en national dansk database, der registrerer og måler kvaliteten af ADHD-udrednings- og behandlingsforløb for børn og unge under 18 år, og den danner grundlaget for alle indikatorer og rapportering i dette dokument.",
       "mentions": [
         {
           "page": 46,
-          "context": "ADHD-DATABASEN Appendix 2: Oversigt over antal afkræftede udredningsforløb"
-        },
+          "context": "ADHD-DATABASEN"
+        }
+      ]
+    },
+    {
+      "name": "RKKP",
+      "type": "organization",
+      "slug": "rkkp",
+      "folder": "entities/organizations/government-agencies",
+      "significance": "RKKP (Regionernes Kliniske Kvalitetsprogram) er den organisation, der står bag udarbejdelsen af årsrapporten og administrationen af ADHD-DATABASEN, og som har udsendt rapporten til høring hos regioner og afdelinger.",
+      "disambiguation": "Dette er Regionernes Kliniske Kvalitetsprogram, ikke at forveksle med andre forkortelser som RKK eller RKSP.",
+      "mentions": [
         {
-          "page": 47,
-          "context": "ADHD databasen er en database, der inkluderer børn og unge under 18 år"
-        },
-        {
-          "page": 48,
-          "context": "Årsrapporten afspejler, at Region Hovedstadens Psykiatri (RHP) ikke opfylder standarderne for indikatorerne i databasen"
+          "page": 46,
+          "context": "Resultater og kommentarer i afsnittet ”Regionale kommentarer” er uden for regi af RKKP."
         }
       ]
     },
@@ -26,15 +32,11 @@
       "type": "organization",
       "slug": "region-hovedstaden",
       "folder": "entities/organizations/regions",
-      "significance": "En dansk region, hvis psykiatriske tjenester (RHP) ikke opfylder standarderne for ADHD-databasens indikatorer, primært på grund af mangelfuld registrering.",
+      "significance": "Region Hovedstaden er en af de fem danske regioner, hvis psykiatri (RHP) ikke opfylder standarderne for indikatorerne i ADHD-DATABASEN, og som har leveret kommentarer til årsrapporten.",
       "mentions": [
         {
           "page": 46,
-          "context": "Hovedstaden 6"
-        },
-        {
-          "page": 48,
-          "context": "Region Hovedstaden: Årsrapporten afspejler, at Region Hovedstadens Psykiatri (RHP) ikke opfylder standarderne for indikatorerne i databasen"
+          "context": "Region Hovedstaden:"
         }
       ]
     },
@@ -43,15 +45,11 @@
       "type": "organization",
       "slug": "region-sjaelland",
       "folder": "entities/organizations/regions",
-      "significance": "En dansk region, der rapporterer fald i flere ADHD-indikatorer og har udfordringer med lægeressourcer og registreringspraksis.",
+      "significance": "Region Sjælland er en af de fem danske regioner, der har leveret detaljerede kommentarer til flere ADHD-indikatorer samt forbedringsinitiativer i forbindelse med årsrapporten.",
       "mentions": [
         {
           "page": 46,
-          "context": "Sjælland 7 3 7"
-        },
-        {
-          "page": 48,
-          "context": "Region Sjælland: Indikator 1: (somatisk undersøgelse) Der ses et generelt fald hos langt de fleste regioner og også i Region Sjælland"
+          "context": "Region Sjælland:"
         }
       ]
     },
@@ -60,15 +58,11 @@
       "type": "organization",
       "slug": "region-syddanmark",
       "folder": "entities/organizations/regions",
-      "significance": "En dansk region med høje tal for afkræftede ADHD-udredningsforløb, der har meldt tilbage uden kommentarer til årsrapporten.",
+      "significance": "Region Syddanmark er en af de fem danske regioner, der har meldt tilbage, at der ingen kommentarer er til årsrapporten, hvilket indgår i rapportens regionale feedback.",
       "mentions": [
         {
-          "page": 46,
-          "context": "Syddanmark 58 82 43"
-        },
-        {
-          "page": 50,
-          "context": "Region Syddanmark: Har meldt tilbage, at der ingen kommentarer er til årsrapporten"
+          "page": 49,
+          "context": "Region Syddanmark:\nHar meldt tilbage, at der ingen kommentarer er til årsrapporten"
         }
       ]
     },
@@ -77,14 +71,10 @@
       "type": "organization",
       "slug": "region-midtjylland",
       "folder": "entities/organizations/regions",
-      "significance": "En dansk region, der ikke har givet kommentarer til årsrapporten for ADHD-databasen.",
+      "significance": "Region Midtjylland er en af de fem danske regioner, der ikke har leveret kommentarer til årsrapporten, som angivet med '---' i dokumentet.",
       "mentions": [
         {
-          "page": 46,
-          "context": "Midtjylland 10 10 20"
-        },
-        {
-          "page": 50,
+          "page": 49,
           "context": "Region Midtjylland: ---"
         }
       ]
@@ -94,364 +84,269 @@
       "type": "organization",
       "slug": "region-nordjylland",
       "folder": "entities/organizations/regions",
-      "significance": "En dansk region, der på grund af kapacitetsproblemer har videresendt cirka 50 børn og unge pr. måned til private aktører for ADHD-udredning, hvilket påvirker databasens data.",
+      "significance": "Region Nordjylland er en af de fem danske regioner, der har leveret kommentarer om kapacitetsproblemer og videresendelse af ADHD-udredningsforløb til private aktører, hvilket påvirker datakvaliteten i ADHD-DATABASEN.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "Region Nordjylland:"
+        }
+      ]
+    },
+    {
+      "name": "RHP",
+      "type": "organization",
+      "slug": "rhp",
+      "folder": "entities/organizations/healthcare-providers",
+      "significance": "RHP (Region Hovedstadens Psykiatri) er den psykiatriske organisation under Region Hovedstaden, der ikke opfylder standarderne for indikatorerne i ADHD-DATABASEN, og som har indsat forbedringsinitiativer.",
+      "disambiguation": "Dette er Region Hovedstadens Psykiatri, ikke at forveksle med andre psykiatriske enheder eller tidligere navne.",
       "mentions": [
         {
           "page": 46,
-          "context": "Nordjylland 3"
-        },
-        {
-          "page": 50,
-          "context": "Region Nordjylland: På grund af kapacitetsproblemer i børne- og ungdomspsykiatrien har Region Nordjylland i perioden for nærværende årsrapport videresendt cirka 50 børn og unge pr. måned til udredning hos private aktører"
+          "context": "Årsrapporten afspejler, at Region Hovedstadens Psykiatri (RHP) ikke opfylder standarderne for indikatorerne i databasen"
         }
       ]
     },
     {
-      "name": "Region Hovedstadens Psykiatri",
-      "type": "organization",
-      "slug": "region-hovedstadens-psykiatri",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Psykiatrisk tjeneste i Region Hovedstaden, der ikke opfylder standarderne for ADHD-databasens indikatorer og arbejder på forbedringer gennem optimering af registrering.",
-      "mentions": [
-        {
-          "page": 48,
-          "context": "Region Hovedstadens Psykiatri (RHP) ikke opfylder standarderne for indikatorerne i databasen"
-        }
-      ]
-    },
-    {
-      "name": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge",
-      "type": "organization",
-      "slug": "bispebjerg-psykiatrisk-ambulatorium",
-      "folder": "entities/organizations/healthcare",
-      "significance": "En børne- og ungepsykiatrisk ambulatorium under Region Hovedstaden, der registrerer afkræftede ADHD-udredningsforløb.",
+      "name": "ADHD-udredningsforløb",
+      "type": "process",
+      "slug": "adhd-udredningsforlob",
+      "folder": "topics/processes",
+      "significance": "ADHD-udredningsforløb er den kliniske proces, hvor der undersøges, om et barn eller ung har ADHD, og som er centrale for både registrering i ADHD-DATABASEN og beregning af indikatorer.",
       "mentions": [
         {
           "page": 46,
-          "context": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge 3 # #"
+          "context": "ADHD-udredningsforløb"
         }
       ]
     },
     {
-      "name": "Børne-Unge Psyk. Afd. 40",
-      "type": "organization",
-      "slug": "boerne-unge-psyk-afd-40",
-      "folder": "entities/organizations/healthcare",
-      "significance": "En børne- og ungepsykiatrisk afdeling under Region Sjælland, der registrerer afkræftede ADHD-udredningsforløb.",
+      "name": "AGX01B",
+      "type": "code",
+      "slug": "agx01b",
+      "folder": "entities/codes",
+      "significance": "AGX01B er den specifikke forløbsmarkør, der bruges til at registrere, at et ADHD-udredningsforløb er afsluttet, fordi mistanken om ADHD er afkræftet, hvilket sikrer, at kun reelle udredninger indgår i databasens population.",
       "mentions": [
         {
           "page": 46,
-          "context": "Børne-Unge Psyk. Afd. 40 7 3 7"
+          "context": "Forløbsmarkøren AGX01B (”ADHD-udredning slut, mistanke afkræftet”) senest 90 dage efter forløbet er startet."
         }
       ]
     },
     {
-      "name": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium",
-      "type": "organization",
-      "slug": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "folder": "entities/organizations/healthcare",
-      "significance": "En børne- og ungdomspsykiatrisk ambulatorium i Aabenraa under Region Syddanmark, der har høje tal for afkræftede ADHD-udredningsforløb.",
+      "name": "Indikator 1",
+      "type": "indicator",
+      "slug": "indikator-1",
+      "folder": "topics/indicators",
+      "significance": "Indikator 1 er den første af ADHD-DATABASEN's kvalitetsindikatorer, der måler gennemførelsen af somatisk undersøgelse i forbindelse med ADHD-udredning, og som Region Sjælland rapporterer fald i.",
       "mentions": [
         {
           "page": 46,
-          "context": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium 57 81 36"
+          "context": "Indikator 1: (somatisk undersøgelse)"
         }
       ]
     },
     {
-      "name": "BUA Psykiatrisk Klinik for Skolebørn",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-skoleboern",
-      "folder": "entities/organizations/healthcare",
-      "significance": "En børnepsykiatrisk klinik under Region Midtjylland, der registrerer afkræftede ADHD-udredningsforløb.",
+      "name": "Indikator 2a",
+      "type": "indicator",
+      "slug": "indikator-2a",
+      "folder": "topics/indicators",
+      "significance": "Indikator 2a er en af ADHD-DATABASEN's kvalitetsindikatorer, der måler gennemførelsen af klinisk miljøobservation i ADHD-udredningen, og som Region Sjælland rapporterer fald i.",
       "mentions": [
         {
           "page": 46,
-          "context": "BUA Psykiatrisk Klinik for Skolebørn 3 # 3"
+          "context": "Indikator 2a: (klinisk miljø observation)"
         }
       ]
     },
     {
-      "name": "BUA Psykiatrisk Klinik for Småbørn",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-smaaboern",
-      "folder": "entities/organizations/healthcare",
-      "significance": "En småbørnepsykiatrisk klinik under Region Midtjylland, der registrerer afkræftede ADHD-udredningsforløb.",
+      "name": "Indikator 2b",
+      "type": "indicator",
+      "slug": "indikator-2b",
+      "folder": "topics/indicators",
+      "significance": "Indikator 2b er en af ADHD-DATABASEN's kvalitetsindikatorer, der måler gennemførelsen af diagnostisk interview eller miljøobservation, og som Region Sjælland rapporterer fald i.",
       "mentions": [
         {
           "page": 46,
-          "context": "BUA Psykiatrisk Klinik for Småbørn # 6 9"
+          "context": "Indikator 2b: (diagnostisk interview eller miljøobservation)"
         }
       ]
     },
     {
-      "name": "BUA Psykiatrisk Klinik for Udredning",
-      "type": "organization",
-      "slug": "bua-psykiatrisk-klinik-udredning",
-      "folder": "entities/organizations/healthcare",
-      "significance": "En psykiatrisk klinik under Region Midtjylland specialiseret i ADHD-udredning, der registrerer afkræftede udredningsforløb.",
+      "name": "Indikator 3",
+      "type": "indicator",
+      "slug": "indikator-3",
+      "folder": "topics/indicators",
+      "significance": "Indikator 3 er en af ADHD-DATABASEN's kvalitetsindikatorer, der måler gennemførelsen af afholdt diagnostisk konference, og som Region Sjælland ikke har kommentarer til.",
       "mentions": [
         {
           "page": 46,
-          "context": "BUA Psykiatrisk Klinik for Udredning 3 3 6"
+          "context": "Indikator 3: (afholdt diagnostisk konference)"
         }
       ]
     },
     {
-      "name": "Børne- og ungdomspsyk. Ambulatorium",
-      "type": "organization",
-      "slug": "boerne-ungdomspsyk-ambulatorium-nordjylland",
-      "folder": "entities/organizations/healthcare",
-      "significance": "En børne- og ungdomspsykiatrisk ambulatorium under Region Nordjylland, der registrerer afkræftede ADHD-udredningsforløb.",
+      "name": "Indikator 4",
+      "type": "indicator",
+      "slug": "indikator-4",
+      "folder": "topics/indicators",
+      "significance": "Indikator 4 er en af ADHD-DATABASEN's kvalitetsindikatorer, der måler gennemførelsen af koordinerende netværksmøde, og som Region Sjælland rapporterer overskridelse af tidsfristen på 120 dage for.",
       "mentions": [
         {
           "page": 46,
-          "context": "Børne- og ungdomspsyk. Ambulatorium 3"
+          "context": "Indikator 4: (koordinerende netværksmøde)"
         }
       ]
     },
     {
-      "name": "RKKP",
-      "type": "organization",
-      "slug": "rkkp",
-      "folder": "entities/organizations/healthcare",
-      "significance": "Dansk organisation, der administrerer ADHD-databasen og er ansvarlig for kvalitetsmåling og rapportering.",
+      "name": "Indikator 5",
+      "type": "indicator",
+      "slug": "indikator-5",
+      "folder": "topics/indicators",
+      "significance": "Indikator 5 er en af ADHD-DATABASEN's kvalitetsindikatorer, der måler gennemførelsen af psykoedukation, og som Region Sjælland arbejder på at forbedre digitalt.",
       "mentions": [
         {
-          "page": 48,
-          "context": "Resultater og kommentarer i afsnittet \"Regionale kommentarer\" er uden for regi af RKKP"
+          "page": 46,
+          "context": "Indikator 5: (psykoedukation)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 6",
+      "type": "indicator",
+      "slug": "indikator-6",
+      "folder": "topics/indicators",
+      "significance": "Indikator 6 er en af ADHD-DATABASEN's kvalitetsindikatorer, der måler gennemførelsen af medicinsk behandling, og som Region Sjælland rapporterer en mindre stigning i.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Indikator 6: (medicinsk behandling)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7a+7b",
+      "type": "indicator",
+      "slug": "indikator-7a-7b",
+      "folder": "topics/indicators",
+      "significance": "Indikator 7a+7b er en af ADHD-DATABASEN's kvalitetsindikatorer, der måler, om patienter har bestået folkeskolens afgangseksamen, og som Region Sjælland er enige i er vigtige, men kræver inddragelse af recovery-processen.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Indikator 7a+7b: (bestået folkeskolens afgangseksamen)"
         }
       ]
     }
   ],
   "relationships": [
     {
-      "subject": "region-hovedstaden",
-      "predicate": "operates",
-      "object": "region-hovedstadens-psykiatri",
-      "evidence": "Region Hovedstadens Psykiatri (RHP) er psykiatrisk tjeneste i Region Hovedstaden",
-      "page": 48
-    },
-    {
-      "subject": "region-hovedstaden",
-      "predicate": "operates",
-      "object": "bispebjerg-psykiatrisk-ambulatorium",
-      "evidence": "Bispebjerg: Psykiatrisk ambulatorium, børn og unge er under Region Hovedstaden",
+      "subject": "adhd-databasen",
+      "predicate": "is-administered-by",
+      "object": "rkkp",
+      "evidence": "Resultater og kommentarer i afsnittet ”Regionale kommentarer” er uden for regi af RKKP.",
       "page": 46
     },
     {
-      "subject": "region-sjaelland",
-      "predicate": "operates",
-      "object": "boerne-unge-psyk-afd-40",
-      "evidence": "Børne-Unge Psyk. Afd. 40 er under Region Sjælland",
+      "subject": "rhp",
+      "predicate": "is-part-of",
+      "object": "region-hovedstaden",
+      "evidence": "Årsrapporten afspejler, at Region Hovedstadens Psykiatri (RHP) ikke opfylder standarderne for indikatorerne i databasen",
       "page": 46
     },
     {
-      "subject": "region-syddanmark",
-      "predicate": "operates",
-      "object": "aabenraa-boerne-ungdomspsykiatrisk-ambulatorium",
-      "evidence": "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium er under Region Syddanmark",
-      "page": 46
-    },
-    {
-      "subject": "region-midtjylland",
-      "predicate": "operates",
-      "object": "bua-psykiatrisk-klinik-skoleboern",
-      "evidence": "BUA Psykiatrisk Klinik for Skolebørn er under Region Midtjylland",
-      "page": 46
-    },
-    {
-      "subject": "region-midtjylland",
-      "predicate": "operates",
-      "object": "bua-psykiatrisk-klinik-smaaboern",
-      "evidence": "BUA Psykiatrisk Klinik for Småbørn er under Region Midtjylland",
-      "page": 46
-    },
-    {
-      "subject": "region-midtjylland",
-      "predicate": "operates",
-      "object": "bua-psykiatrisk-klinik-udredning",
-      "evidence": "BUA Psykiatrisk Klinik for Udredning er under Region Midtjylland",
+      "subject": "adhd-udredningsforlob",
+      "predicate": "is-registered-with-code",
+      "object": "agx01b",
+      "evidence": "Det er muligt inden for 90 dage at stoppe forløbet på en måde, så det ikke kommer med i databasens udredningspopulation. Dette gøres ved at indberette forløbsmarkøren AGX01B (”ADHD-udredning slut, mistanke afkræftet”) senest 90 dage efter forløbet er startet.",
       "page": 46
     },
     {
       "subject": "region-nordjylland",
-      "predicate": "operates",
-      "object": "boerne-ungdomspsyk-ambulatorium-nordjylland",
-      "evidence": "Børne- og ungdomspsyk. Ambulatorium er under Region Nordjylland",
-      "page": 46
-    },
-    {
-      "subject": "rkkp",
-      "predicate": "administers",
+      "predicate": "has-impact-on-data-of",
       "object": "adhd-databasen",
-      "evidence": "RKKP er ansvarlig for ADHD-databasen og dens indikatorer",
-      "page": 48
+      "evidence": "På grund af kapacitetsproblemer i børne- og ungdomspsykiatrien har Region Nordjylland i perioden for nærværende årsrapport videresendt cirka 50 børn og unge pr. måned til udredning hos private aktører. En betydelig del af disse har været ADHD-udredningsforløb. Dette har påvirket data for de tre udredningsindikatorer (indikator 1-3)",
+      "page": 49
     }
   ],
   "claims": [
     {
-      "text": "Når et ADHD-udredningsforløb er påbegyndt i klinikken og forløbsmarkøren for udredningsstart er indberettet, er det muligt inden for 90 dage at stoppe forløbet på en måde, så det ikke kommer med i databasens udredningspopulation [^src1]",
+      "text": "Forløbsmarkøren AGX01B (”ADHD-udredning slut, mistanke afkræftet”) skal indberettes senest 90 dage efter forløbet er startet [^src1]",
       "type": "procedural",
       "entities": [
-        "adhd-databasen"
+        "agx01b",
+        "adhd-udredningsforlob"
       ],
       "page": 46
     },
     {
-      "text": "Der er store regionale forskelle på hvor meget forløbsmarkøren bruges [^src1]",
-      "type": "observation",
+      "text": "Årsrapporten har været i høring ved regioner og afdelinger fra den 4. december til den 17. januar 2025 [^src2]",
+      "type": "procedural",
       "entities": [
-        "adhd-databasen"
+        "rkkp"
       ],
       "page": 46
     },
     {
-      "text": "Danmark havde 84 afkræftede ADHD-udredningsforløb i perioden 01.04.2023-31.03.2024 [^src1]",
+      "text": "Region Nordjylland har videresendt cirka 50 børn og unge pr. måned til udredning hos private aktører i perioden for nærværende årsrapport [^src3]",
       "type": "statistical",
       "entities": [
-        "adhd-databasen"
+        "region-nordjylland"
       ],
-      "page": 46
+      "page": 49
     },
     {
-      "text": "Region Syddanmark havde 58 afkræftede ADHD-udredningsforløb i perioden 01.04.2023-31.03.2024 [^src1]",
-      "type": "statistical",
+      "text": "Der er store regionale forskelle på hvor meget forløbsmarkøren AGX01B bruges [^src4]",
+      "type": "observational",
       "entities": [
-        "region-syddanmark"
-      ],
-      "page": 46
-    },
-    {
-      "text": "ADHD databasen inkluderer børn og unge under 18 år [^src1]",
-      "type": "definitional",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 47
-    },
-    {
-      "text": "Beregningsgrundlaget for indikatorerne er to overordnede forløbsbaserede populationer: ADHD udredningspopulation og ADHD behandlingspopulation [^src1]",
-      "type": "definitional",
-      "entities": [
-        "adhd-databasen"
-      ],
-      "page": 47
-    },
-    {
-      "text": "Årsrapporten afspejler, at Region Hovedstadens Psykiatri (RHP) ikke opfylder standarderne for indikatorerne i databasen [^src1]",
-      "type": "observation",
-      "entities": [
+        "agx01b",
         "region-hovedstaden",
-        "region-hovedstadens-psykiatri",
-        "adhd-databasen"
-      ],
-      "page": 48
-    },
-    {
-      "text": "En væsentlig årsag til resultaterne i rapporten er mangelfuld registrering [^src1]",
-      "type": "observation",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Der ses et generelt fald hos langt de fleste regioner og også i Region Sjælland for indikator 1 (somatisk undersøgelse) [^src1]",
-      "type": "observation",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Der har været mangel på læger i Region Sjælland [^src1]",
-      "type": "observation",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Der ses et fald for indikator 2a (klinisk miljø observation) i Region Sjælland [^src1]",
-      "type": "observation",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 48
-    },
-    {
-      "text": "Der ses et fald for indikator 2b (diagnostisk interview eller miljøobservation) i Region Sjælland, hvilket formentlig kan forklares ved mangel på og udskiftning af en del klinisk personale [^src1]",
-      "type": "observation",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 49
-    },
-    {
-      "text": "På grund af lange patientforløb overskrides tidsfristen på de 120 dage for indikator 4 (koordinerende netværksmøde) i Region Sjælland [^src1]",
-      "type": "observation",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 49
-    },
-    {
-      "text": "Der ses en mindre stigning for indikator 6 (medicinsk behandling) i Region Sjælland [^src1]",
-      "type": "observation",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 49
-    },
-    {
-      "text": "Generelt er B&U udfordret på kapacitet og den tidsfrist, der jf. databasens indikator danner rammerne for en ADHD udredning [^src1]",
-      "type": "observation",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 49
-    },
-    {
-      "text": "Region Nordjylland har i perioden for nærværende årsrapport videresendt cirka 50 børn og unge pr. måned til udredning hos private aktører [^src1]",
-      "type": "observation",
-      "entities": [
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
         "region-nordjylland"
       ],
-      "page": 50
-    },
-    {
-      "text": "En betydelig del af de videresendte børn og unge fra Region Nordjylland har været ADHD-udredningsforløb [^src1]",
-      "type": "observation",
-      "entities": [
-        "region-nordjylland"
-      ],
-      "page": 50
-    },
-    {
-      "text": "Videresendte patientforløb fra Region Nordjylland har påvirket data for de tre udredningsindikatorer (indikator 1-3) [^src1]",
-      "type": "observation",
-      "entities": [
-        "region-nordjylland"
-      ],
-      "page": 50
+      "page": 46
     }
   ],
   "timeline": [
     {
-      "date": "01.04.2023-31.03.2024",
-      "event": "Registreringsperiode for ADHD-databasen med 84 afkræftede udredningsforløb i Danmark",
+      "date": "2023-04-01",
+      "event": "Start af registreringsperioden for antal udredningsforløb afsluttet pga. mistanke afkræftet (01.04.2023–31.03.2024)",
       "entities": [
-        "adhd-databasen"
+        "adhd-udredningsforlob"
       ]
     },
     {
-      "date": "04.12.2024-17.01.2025",
-      "event": "Årsrapporten har været i høring ved regioner og afdelinger",
+      "date": "2024-12-04",
+      "event": "Årsrapporten sendt til høring ved regioner og afdelinger",
       "entities": [
-        "adhd-databasen"
+        "rkkp"
+      ]
+    },
+    {
+      "date": "2025-01-17",
+      "event": "Afslutning af høringen for årsrapporten",
+      "entities": [
+        "rkkp"
       ]
     }
   ],
-  "context": "Denne dokumentchunk udgør appendikser fra en årsrapport for ADHD-DATABASEN, en dansk kvalitetsdatabase for børne- og ungdomspsykiatriske ADHD-udrednings- og behandlingsforløb. Dokumentet indeholder detaljerede statistikker over afkræftede udredningsforløb på tværs af fem danske regioner, beregningsregler for populationsdannelse, og kommentarer fra regionerne om deres resultater og udfordringer. Regionerne rapporterer om kapacitetsproblemer, mangelfuld registrering, mangel på lægeressourcer, og vanskeligheder med at overholde tidsfrister for udredningsforløb, hvilket påvirker deres opfyldelse af databasens standardiserede indikatorer."
+  "tables": [
+    {
+      "subject": "antal-udredningsforloeb-afkraeftet",
+      "title": "Antal udredningsforløb afsluttet indenfor 90 dage pga. mistanke afkræftet",
+      "page": 46,
+      "rowDimension": "region",
+      "colDimension": "antal per år",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Danmark | 84 | 96 | 71 |\n| --- | --- | --- | --- |\n| Hovedstaden | 6 | # | # |\n| Sjælland | 7 | 3 | 7 |\n| Syddanmark | 58 | 82 | 43 |\n| Midtjylland | 10 | 10 | 20 |\n| Nordjylland | 3 | | |",
+      "summary": "Tabellen sammenligner antallet af ADHD-udredningsforløb, der blev afsluttet inden for 90 dage på grund af afkræftet mistanke, på tværs af regioner og tre regnskabsår, og viser store regionale variationer — især at Syddanmark står for majoriteten af tilfældene."
+    }
+  ],
+  "context": "Dette dokumentchunk er en del af årsrapporten for ADHD-DATABASEN for 2023–2024 og indeholder appendiks og regionale kommentarer til kvalitetsindikatorerne. Den beskriver administrative procedurer for registrering af afkræftede ADHD-udredningsforløb via forløbsmarkøren AGX01B, præsenterer empiriske data om regionale forskelle i brugen af denne markør, og gengiver formelle feedbacks fra de fem danske regioner om udfordringer ved implementering af indikatorerne — herunder kapacitetsbegrænsninger, manglende registrering, personalemangel og påvirkning af datakvalitet ved videresendelse til private aktører. Rapporten er udarbejdet af RKKP og har været under høring i perioden december 2024–januar 2025."
 }

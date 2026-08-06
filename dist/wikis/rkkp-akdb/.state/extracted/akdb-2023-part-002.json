@@ -4,12 +4,28 @@
       "name": "Akut Kirurgi Databasen",
       "type": "organization",
       "slug": "akut-kirurgi-databasen",
-      "folder": "entities/organizations/healthcare-databases",
-      "significance": "AKDB er en dansk kvalitetsdatabase for akut kirurgi, der måler og rapporterer på 11 indikatorer for behandling af akutte højrisiko abdominalkirurgiske patienter på danske sygehuse.",
+      "folder": "entities/organizations/healthcare-registry",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske kvalitetsdatabase, der overvåger og rapporterer indikatorresultater for akutte højrisiko abdominalkirurgiske patienter på danske sygehuse, og danner grundlaget for alle indikatorer, resultater og standarder i dette dokument.",
       "mentions": [
         {
           "page": 6,
-          "context": "Akut Kirurgi Databasen - Endelig version til offentliggørelse 2024.26.02"
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 7,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 8,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 9,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 10,
+          "context": "Akut Kirurgi Databasen"
         }
       ]
     },
@@ -17,12 +33,206 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/healthcare-programs",
-      "significance": "Et dansk program for klinisk kvalitetsudvikling i regionerne, som AKDB opererer under.",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er den offentlige organisation, der udgør det overordnede kvalitetsudviklingsrammeverk, hvori Akut Kirurgi Databasen er integreret, og som står bag udarbejdelsen og offentliggørelsen af denne rapport.",
       "mentions": [
         {
           "page": 6,
           "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 7,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 8,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 9,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 10,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1",
+      "type": "indicator",
+      "slug": "indikator-1",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "significance": "Indikator 1 er den første og centralste procesindikator i Akut Kirurgi Databasen, der måler andelen af patienter, der modtager antibiotisk behandling inden for tre timer efter ankomst til sygehus, med en standard på > 90 %, og den er uddybende beskrevet på siderne 8–10 med detaljerede tæller/nævner-definitioner og regionale resultater.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 1: Andelen af patienter, der er sat i antibiotisk behandling indenfor 3 time (180 minutter) efter ankomst til sygehus."
+        },
+        {
+          "page": 7,
+          "context": "Indikator 1: Andelen af patienter, der er sat i antibiotisk behandling indenfor 3 time (180 minutter) efter ankomst til sygehus."
+        },
+        {
+          "page": 8,
+          "context": "Indikator 1: Antibiotikabehandling indenfor 3 timer"
+        },
+        {
+          "page": 10,
+          "context": "Indikator 1: Antibiotikabehandling. Resultater på afdelingsniveau"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 3",
+      "type": "indicator",
+      "slug": "indikator-3",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "significance": "Indikator 3 er en procesindikator, der måler andelen af CT-skannede patienter, der får lavet CT-skanning inden for 120 minutter efter ankomst til sygehus, med en standard på ≥ 90 %, og den er inkluderet i den samlede oversigt over indikatorer og deres opfyldelse på side 7.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 3: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 120 minutter efter ankomst til sygehus"
+        },
+        {
+          "page": 7,
+          "context": "Indikator 3: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 120 minutter efter ankomst til sygehus"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4",
+      "type": "indicator",
+      "slug": "indikator-4",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "significance": "Indikator 4 er en procesindikator, der måler andelen af patienter med præoperativ optimering eller direkte til operation, med en standard på ≥ 90 %, og den er fremhævet i både den generelle indikatoroversigt på side 6 og den samlede resultatoversigt på side 7.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 4: Præoperativ optimering eller direkte til operation"
+        },
+        {
+          "page": 7,
+          "context": "Indikator 4: Præoperativ optimering eller direkte til operation"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "indicator",
+      "slug": "indikator-5",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "significance": "Indikator 5 er en procesindikator, der måler andelen af patienter, der opereres inden for seks timer efter ankomst til sygehus for de patienter, der opereres inden for 24 timer efter ankomst, med en standard på ≥ 80 %, og den er listet i den samlede indikatoroversigt på side 6 samt i resultatoversigten på side 7.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 5: Andelen af patienter, der opereres indenfor seks timer (360 minutter) efter ankomst til sygehus for patienter, der er opereret indenfor 24 timer efter ankomst til sygehus."
+        },
+        {
+          "page": 7,
+          "context": "Indikator 5: Andelen af patienter, der opereres indenfor seks timer (360 minutter) efter ankomst til sygehus for patienter, der er opereret indenfor 24 timer efter ankomst til sygehus."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 6",
+      "type": "indicator",
+      "slug": "indikator-6",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "significance": "Indikator 6 er en procesindikator, der måler andelen af ældre (≥ 75 år) eller svært syge (ASA ≥ 3) patienter, der monitoreres ≥ 24 timer postoperativt på et intermediært afsnit, og den er unik blandt indikatorerne, da den ikke har en angivet standardprocent, men kun en standardformulering 'Andel', hvilket fremgår tydeligt på side 6 og 7.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 6: Andelen af ældre (>= 75 år) eller svært syge (ASA >= 3) patienter, der monitoreres >= 24 timer postoperativt på et intermediært afsnit eller et lignende afsnit."
+        },
+        {
+          "page": 7,
+          "context": "Indikator 6: Andelen af ældre (>= 75 år) eller svært syge (ASA >= 3) patienter, der monitoreres >= 24 timer postoperativt på et intermediært afsnit eller et lignende afsnit."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7",
+      "type": "indicator",
+      "slug": "indikator-7",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "significance": "Indikator 7 er en procesindikator, der måler andelen af patienter, der mobiliseres inden for 24 timer efter operation, med en standard på ≥ 90 %, og den er inkluderet i både den oprindelige indikatorliste på side 6 og den samlede resultatoversigt på side 7.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 7: Andelen af patienter, der mobiliseres indenfor 24 timer efter operation"
+        },
+        {
+          "page": 7,
+          "context": "Indikator 7: Andelen af patienter, der mobiliseres indenfor 24 timer efter operation"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 8",
+      "type": "indicator",
+      "slug": "indikator-8",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "significance": "Indikator 8 er en procesindikator, der måler andelen af patienter, der genoptager ernæring inden for 48 timer efter operation, og den er noteret uden angivet standardprocent på side 6 og 7, hvilket adskiller den fra de fleste andre procesindikatorer.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 8: Andelen af patienter, der genoptager ernæring indenfor 48 timer efter operation"
+        },
+        {
+          "page": 7,
+          "context": "Indikator 8: Andelen af patienter, der genoptager ernæring indenfor 48 timer efter operation"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 9",
+      "type": "indicator",
+      "slug": "indikator-9",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "significance": "Indikator 9 er en procesindikator, der måler andelen af patienter, der har fået anlagt epidural i forbindelse med operationen, med en standard på > 60 %, og den er inkluderet i både den oprindelige indikatorliste på side 6 og den samlede resultatoversigt på side 7.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 9: Andelen af patienter, der har fået anlagt epidural i forbindelse med operationen"
+        },
+        {
+          "page": 7,
+          "context": "Indikator 9: Andelen af patienter, der har fået anlagt epidural i forbindelse med operationen"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 10",
+      "type": "indicator",
+      "slug": "indikator-10",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "significance": "Indikator 10 er en resultatindikator, der måler andelen af patienter, der dør inden for 30 dage fra operationsdato for alle opererede med relevant diagnose- og procedurekode, med en standard på < 15 %, og den er en af de to dødsfaldsrelaterede indikatorer i databasen, fremhævet i den samlede indikatoroversigt på side 6 og resultatoversigten på side 7.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 10: Andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode)"
+        },
+        {
+          "page": 7,
+          "context": "Indikator 10: Andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 11",
+      "type": "indicator",
+      "slug": "indikator-11",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "significance": "Indikator 11 er en resultatindikator, der måler andelen af patienter, der dør inden for 90 dage fra operationsdato for alle opererede med relevant diagnose- og procedurekode, med en standard på < 20 %, og den er den anden dødsfaldsrelaterede indikator i databasen, fremhævet i den samlede indikatoroversigt på side 6 og resultatoversigten på side 7.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 11: Andelen af patienter, der dør indenfor 90 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode)"
+        },
+        {
+          "page": 7,
+          "context": "Indikator 11: Andelen af patienter, der dør indenfor 90 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode)"
         }
       ]
     },
@@ -30,11 +240,11 @@
       "name": "Danmark",
       "type": "location",
       "slug": "danmark",
-      "folder": "entities/locations/countries",
-      "significance": "Danmark er det nationale niveau, hvor AKDB-indikatorer rapporteres og sammenlignes på tværs af alle regioner og hospitaler.",
+      "folder": "entities/locations/national",
+      "significance": "Danmark er det nationale niveau, hvor indikatorresultaterne for Indikator 1 præsenteres som en samlet andel (30,5 %) med 95 % konfidensinterval, og det fungerer som referencepunkt i sammenligningen med regionale og lokale resultater på side 8.",
       "mentions": [
         {
-          "page": 7,
+          "page": 8,
           "context": "Danmark Nej 900 / 2.950 0 (0) 30,5 (28,8-32,2) 26,8 23,0"
         }
       ]
@@ -43,11 +253,11 @@
       "name": "Hovedstaden",
       "type": "location",
       "slug": "hovedstaden",
-      "folder": "entities/locations/danish-regions",
-      "significance": "En dansk region, der rapporterer AKDB-indikatorer med 1.069 patienter i perioden 01.09.2022-31.08.2023.",
+      "folder": "entities/locations/regions",
+      "significance": "Hovedstaden er en af de fem regioner i Danmark, og dens resultater for Indikator 1 vises to gange på side 8 (muligvis som gentagelse eller forskellige enheder), med en andel på 31,8 % for perioden 01.09.2022–31.08.2023, hvilket er højere end det nationale gennemsnit.",
       "mentions": [
         {
-          "page": 7,
+          "page": 8,
           "context": "Hovedstaden Nej 340 / 1.069 0 (0) 31,8 (29,0-34,7) 27,2 27,1"
         }
       ]
@@ -56,11 +266,11 @@
       "name": "Sjælland",
       "type": "location",
       "slug": "sjaelland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "En dansk region, der rapporterer AKDB-indikatorer med 514 patienter i perioden 01.09.2022-31.08.2023.",
+      "folder": "entities/locations/regions",
+      "significance": "Sjælland er en af de fem regioner i Danmark, og dens resultater for Indikator 1 vises to gange på side 8 og 9, med en andel på 32,7 % for perioden 01.09.2022–31.08.2023, hvilket er det højeste regionale resultat blandt de viste data.",
       "mentions": [
         {
-          "page": 7,
+          "page": 8,
           "context": "Sjælland Nej 168 / 514 0 (0) 32,7 (28,6-36,9) 32,9 33,9"
         }
       ]
@@ -69,11 +279,11 @@
       "name": "Syddanmark",
       "type": "location",
       "slug": "syddanmark",
-      "folder": "entities/locations/danish-regions",
-      "significance": "En dansk region, der rapporterer AKDB-indikatorer med 481 patienter i perioden 01.09.2022-31.08.2023.",
+      "folder": "entities/locations/regions",
+      "significance": "Syddanmark er en af de fem regioner i Danmark, og dens resultater for Indikator 1 vises på side 8 og 9, med en andel på 13,5 % for perioden 01.09.2022–31.08.2023, hvilket er det laveste regionale resultat blandt de viste data og langt under standarden på > 90 %.",
       "mentions": [
         {
-          "page": 7,
+          "page": 8,
           "context": "Syddanmark Nej 65 / 481 0 (0) 13,5 (10,6-16,9) 10,3 5,2"
         }
       ]
@@ -82,11 +292,11 @@
       "name": "Midtjylland",
       "type": "location",
       "slug": "midtjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "En dansk region, der rapporterer AKDB-indikatorer med 644 patienter i perioden 01.09.2022-31.08.2023.",
+      "folder": "entities/locations/regions",
+      "significance": "Midtjylland er en af de fem regioner i Danmark, og dens resultater for Indikator 1 vises på side 8 og 9, med en andel på 39,8 % for perioden 01.09.2022–31.08.2023, hvilket er det næsthøjeste regionale resultat blandt de viste data.",
       "mentions": [
         {
-          "page": 7,
+          "page": 8,
           "context": "Midtjylland Nej 256 / 644 0 (0) 39,8 (35,9-43,6) 34,3 21,3"
         }
       ]
@@ -95,11 +305,11 @@
       "name": "Nordjylland",
       "type": "location",
       "slug": "nordjylland",
-      "folder": "entities/locations/danish-regions",
-      "significance": "En dansk region, der rapporterer AKDB-indikatorer med 242 patienter i perioden 01.09.2022-31.08.2023.",
+      "folder": "entities/locations/regions",
+      "significance": "Nordjylland er en af de fem regioner i Danmark, og dens resultater for Indikator 1 vises på side 8 og 9, med en andel på 29,3 % for perioden 01.09.2022–31.08.2023, hvilket ligger tæt på det nationale gennemsnit.",
       "mentions": [
         {
-          "page": 7,
+          "page": 8,
           "context": "Nordjylland Nej 71 / 242 0 (0) 29,3 (23,7-35,5) 25,4 17,9"
         }
       ]
@@ -109,10 +319,10 @@
       "type": "organization",
       "slug": "amager-og-hvidovre-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Hovedstaden-regionen, der rapporterer AKDB-indikatorer med 242 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Amager og Hvidovre Hospital er et specifikt sygehus i Region Hovedstaden, hvis resultater for Indikator 1 præsenteres på side 8 med en andel på 26,9 % for perioden 01.09.2022–31.08.2023, hvilket er en del af den regionale nedbrydning.",
       "mentions": [
         {
-          "page": 7,
+          "page": 8,
           "context": "Amager og Hvidovre Hospital Nej 65 / 242 0 (0) 26,9 (21,4-32,9) 25,2 21,3"
         }
       ]
@@ -122,10 +332,10 @@
       "type": "organization",
       "slug": "bispebjerg-og-frederiksberg-hospitaler",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Hovedstaden-regionen, der rapporterer AKDB-indikatorer med 229 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Bispebjerg og Frederiksberg Hospitaler er to sygehuse i Region Hovedstaden, hvis fælles resultater for Indikator 1 præsenteres på side 8 med en andel på 38,0 % for perioden 01.09.2022–31.08.2023, hvilket er det højeste blandt de enkelte sygehuse i tabellen.",
       "mentions": [
         {
-          "page": 7,
+          "page": 8,
           "context": "Bispebjerg og Frederiksberg Hospitaler Nej 87 / 229 0 (0) 38,0 (31,7-44,6) 33,5 32,7"
         }
       ]
@@ -135,10 +345,10 @@
       "type": "organization",
       "slug": "bornholms-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Hovedstaden-regionen, der rapporterer AKDB-indikatorer med 30 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Bornholms Hospital er et sygehus i Region Sjælland, hvis resultater for Indikator 1 præsenteres på side 8 med en andel på 63,3 % for perioden 01.09.2022–31.08.2023, hvilket er det absolut højeste blandt alle viste sygehuse og langt over det nationale gennemsnit.",
       "mentions": [
         {
-          "page": 7,
+          "page": 8,
           "context": "Bornholms Hospital Nej 19 / 30 0 (0) 63,3 (43,9-80,1) 31,8 41,4"
         }
       ]
@@ -148,10 +358,10 @@
       "type": "organization",
       "slug": "herlev-og-gentofte-hospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Hovedstaden-regionen, der rapporterer AKDB-indikatorer med 301 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Herlev og Gentofte Hospital er et sygehus i Region Hovedstaden, hvis resultater for Indikator 1 præsenteres på side 8 med en andel på 26,9 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
-          "page": 7,
+          "page": 8,
           "context": "Herlev og Gentofte Hospital Nej 81 / 301 0 (0) 26,9 (22,0-32,3) 21,3 37,4"
         }
       ]
@@ -161,10 +371,10 @@
       "type": "organization",
       "slug": "hospitalerne-i-nordsjaelland",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Hovedstaden-regionen, der rapporterer AKDB-indikatorer med 210 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Hospitalerne i Nordsjælland er en sygehusenhed i Region Sjælland, hvis resultater for Indikator 1 præsenteres på side 8 med en andel på 37,1 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
-          "page": 7,
+          "page": 8,
           "context": "Hospitalerne i Nordsjælland Nej 78 / 210 0 (0) 37,1 (30,6-44,1) 29,9 16,2"
         }
       ]
@@ -174,10 +384,10 @@
       "type": "organization",
       "slug": "rigshospitalet",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Hovedstaden-regionen, der rapporterer AKDB-indikatorer med 57 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Rigshospitalet er et sygehus i Region Hovedstaden, hvis resultater for Indikator 1 præsenteres på side 8 med en andel på 17,5 % for perioden 01.09.2022–31.08.2023, hvilket er det laveste blandt de viste sygehuse.",
       "mentions": [
         {
-          "page": 7,
+          "page": 8,
           "context": "Rigshospitalet Nej 10 / 57 0 (0) 17,5 (8,7-29,9) 29,6 17,3"
         }
       ]
@@ -187,10 +397,10 @@
       "type": "organization",
       "slug": "holbaek-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Sjælland-regionen, der rapporterer AKDB-indikatorer med 115 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Holbæk Sygehus er et sygehus i Region Sjælland, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 39,1 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
-          "page": 8,
+          "page": 9,
           "context": "Holbæk Sygehus Nej 45 / 115 0 (0) 39,1 (30,2-48,7) 32,0 38,1"
         }
       ]
@@ -200,10 +410,10 @@
       "type": "organization",
       "slug": "nykoebing-f-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Sjælland-regionen, der rapporterer AKDB-indikatorer i perioden 01.09.2022-31.08.2023.",
+      "significance": "Nykøbing F Sygehus er et sygehus i Region Sjælland, hvis resultater for Indikator 1 præsenteres på side 9 med en usikker andel på 50,0 % (konfidensinterval 1,3–98,7 %) for perioden 01.09.2022–31.08.2023, hvilket indikerer meget lille datamængde.",
       "mentions": [
         {
-          "page": 8,
+          "page": 9,
           "context": "Nykøbing F Sygehus Nej #/# 0 (0) 50,0 (1,3-98,7) 0,0 0,0"
         }
       ]
@@ -211,12 +421,12 @@
     {
       "name": "Næstved, Slagelse og Ringsted sygehuse",
       "type": "organization",
-      "slug": "naestved-slagelse-ringsted-sygehuse",
+      "slug": "naestved-slagese-og-ringsted-sygehuse",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Sjælland-regionen, der rapporterer AKDB-indikatorer med 188 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse er en gruppe af sygehuse i Region Sjælland, hvis fælles resultater for Indikator 1 præsenteres på side 9 med en andel på 27,7 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
-          "page": 8,
+          "page": 9,
           "context": "Næstved, Slagelse og Ringsted sygehuse Nej 52 / 188 0 (0) 27,7 (21,4-34,6) 27,6 31,9"
         }
       ]
@@ -226,23 +436,23 @@
       "type": "organization",
       "slug": "sjaellands-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Sjælland-regionen, der rapporterer AKDB-indikatorer med 209 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Sjællands Universitetshospital er et sygehus i Region Sjælland, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 33,5 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
-          "page": 8,
+          "page": 9,
           "context": "Sjællands Universitetshospital Nej 70 / 209 0 (0) 33,5 (27,1-40,3) 37,8 34,0"
         }
       ]
     },
     {
-      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "name": "Esbjerg Sygehus",
       "type": "organization",
-      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "slug": "esbjerg-sygehus",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Syddanmark-regionen, der rapporterer AKDB-indikatorer med 110 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Esbjerg Sygehus er et sygehus i Region Syddanmark, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 18,2 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
-          "page": 8,
+          "page": 9,
           "context": "Esbjerg Sygehus Grindsted Sygehus Nej 20 / 110 0 (0) 18,2 (11,5-26,7) 13,1 4,3"
         }
       ]
@@ -252,10 +462,10 @@
       "type": "organization",
       "slug": "odense-universitetshospital-svendborg",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Syddanmark-regionen, der rapporterer AKDB-indikatorer med 178 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Odense Universitetshospital - Svendborg er et sygehus i Region Syddanmark, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 7,9 % for perioden 01.09.2022–31.08.2023, hvilket er det laveste blandt alle viste sygehuse i hele dokumentet.",
       "mentions": [
         {
-          "page": 8,
+          "page": 9,
           "context": "Odense Universitetshospital - Svendborg Nej 14 / 178 0 (0) 7,9 (4,4-12,8) 5,6 3,6"
         }
       ]
@@ -265,10 +475,10 @@
       "type": "organization",
       "slug": "sygehus-lillebaelt",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Syddanmark-regionen, der rapporterer AKDB-indikatorer med 86 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Sygehus Lillebælt er et sygehus i Region Syddanmark, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 14,0 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
-          "page": 8,
+          "page": 9,
           "context": "Sygehus Lillebælt Nej 12 / 86 0 (0) 14,0 (7,4-23,1) 10,2 5,6"
         }
       ]
@@ -278,10 +488,10 @@
       "type": "organization",
       "slug": "sygehus-soenderjylland",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Syddanmark-regionen, der rapporterer AKDB-indikatorer med 107 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Sygehus Sønderjylland er et sygehus i Region Syddanmark, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 17,8 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
-          "page": 8,
+          "page": 9,
           "context": "Sygehus Sønderjylland Nej 19 / 107 0 (0) 17,8 (11,0-26,3) 16,3 9,0"
         }
       ]
@@ -291,10 +501,10 @@
       "type": "organization",
       "slug": "aarhus-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Midtjylland-regionen, der rapporterer AKDB-indikatorer med 137 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Aarhus Universitetshospital er et sygehus i Region Midtjylland, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 46,7 % for perioden 01.09.2022–31.08.2023, hvilket er det højeste blandt sygehusene i Region Midtjylland.",
       "mentions": [
         {
-          "page": 8,
+          "page": 9,
           "context": "Aarhus Universitetshospital Nej 64 / 137 0 (0) 46,7 (38,1-55,4) 34,5 27,3"
         }
       ]
@@ -304,10 +514,10 @@
       "type": "organization",
       "slug": "hospitalsenhed-midt",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Midtjylland-regionen, der rapporterer AKDB-indikatorer med 144 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Hospitalsenhed Midt er en sygehusenhed i Region Midtjylland, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 41,7 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
-          "page": 8,
+          "page": 9,
           "context": "Hospitalsenhed Midt Nej 60 / 144 0 (0) 41,7 (33,5-50,2) 32,2 22,1"
         }
       ]
@@ -317,10 +527,10 @@
       "type": "organization",
       "slug": "regionshospitalet-goedstrup",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Midtjylland-regionen, der rapporterer AKDB-indikatorer med 155 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Regionshospitalet Gødstrup er et sygehus i Region Midtjylland, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 38,7 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
-          "page": 8,
+          "page": 9,
           "context": "Regionshospitalet Gødstrup Nej 60 / 155 0 (0) 38,7 (31,0-46,9) 36,3 17,8"
         }
       ]
@@ -330,10 +540,10 @@
       "type": "organization",
       "slug": "regionshospitalet-horsens",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Midtjylland-regionen, der rapporterer AKDB-indikatorer med 93 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Regionshospitalet Horsens er et sygehus i Region Midtjylland, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 32,3 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
-          "page": 8,
+          "page": 9,
           "context": "Regionshospitalet Horsens Nej 30 / 93 0 (0) 32,3 (22,9-42,7) 31,2 21,9"
         }
       ]
@@ -343,10 +553,10 @@
       "type": "organization",
       "slug": "regionshospitalet-randers",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Midtjylland-regionen, der rapporterer AKDB-indikatorer med 115 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Regionshospitalet Randers er et sygehus i Region Midtjylland, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 36,5 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
-          "page": 8,
+          "page": 9,
           "context": "Regionshospitalet Randers Nej 42 / 115 0 (0) 36,5 (27,7-46,0) 36,4 16,7"
         }
       ]
@@ -356,7 +566,7 @@
       "type": "organization",
       "slug": "aalborg-universitetshospital",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Nordjylland-regionen, der rapporterer AKDB-indikatorer med 156 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Aalborg Universitetshospital er et sygehus i Region Nordjylland, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 30,8 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
           "page": 9,
@@ -369,7 +579,7 @@
       "type": "organization",
       "slug": "aalborg-universitetshospital-thisted",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Nordjylland-regionen, der rapporterer AKDB-indikatorer i perioden 01.09.2022-31.08.2023.",
+      "significance": "Aalborg Universitetshospital, Thisted er en afdeling af Aalborg Universitetshospital i Region Nordjylland, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 0,0 % for perioden 01.09.2022–31.08.2023, hvilket indikerer ingen registrerede tilfælde eller manglende data.",
       "mentions": [
         {
           "page": 9,
@@ -382,7 +592,7 @@
       "type": "organization",
       "slug": "regionshospital-nordjylland",
       "folder": "entities/organizations/hospitals",
-      "significance": "Et dansk hospital under Nordjylland-regionen, der rapporterer AKDB-indikatorer med 86 patienter i perioden 01.09.2022-31.08.2023.",
+      "significance": "Regionshospital Nordjylland er et sygehus i Region Nordjylland, hvis resultater for Indikator 1 præsenteres på side 9 med en andel på 26,7 % for perioden 01.09.2022–31.08.2023.",
       "mentions": [
         {
           "page": 9,
@@ -393,538 +603,484 @@
   ],
   "relationships": [
     {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-managed-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Akut Kirurgi Databasen er en del af Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 6
+    },
+    {
+      "subject": "indikator-1",
+      "predicate": "belongs-to-database",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 1: Antibiotikabehandling indenfor 3 timer — Akut Kirurgi Databasen",
+      "page": 8
+    },
+    {
+      "subject": "indikator-3",
+      "predicate": "belongs-to-database",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 3: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 120 minutter efter ankomst til sygehus",
+      "page": 6
+    },
+    {
+      "subject": "indikator-4",
+      "predicate": "belongs-to-database",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 4: Præoperativ optimering eller direkte til operation",
+      "page": 6
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "belongs-to-database",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 5: Andelen af patienter, der opereres indenfor seks timer (360 minutter) efter ankomst til sygehus for patienter, der er opereret indenfor 24 timer efter ankomst til sygehus.",
+      "page": 6
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "belongs-to-database",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 6: Andelen af ældre (>= 75 år) eller svært syge (ASA >= 3) patienter, der monitoreres >= 24 timer postoperativt på et intermediært afsnit eller et lignende afsnit.",
+      "page": 6
+    },
+    {
+      "subject": "indikator-7",
+      "predicate": "belongs-to-database",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 7: Andelen af patienter, der mobiliseres indenfor 24 timer efter operation",
+      "page": 6
+    },
+    {
+      "subject": "indikator-8",
+      "predicate": "belongs-to-database",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 8: Andelen af patienter, der genoptager ernæring indenfor 48 timer efter operation",
+      "page": 6
+    },
+    {
+      "subject": "indikator-9",
+      "predicate": "belongs-to-database",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 9: Andelen af patienter, der har fået anlagt epidural i forbindelse med operationen",
+      "page": 6
+    },
+    {
+      "subject": "indikator-10",
+      "predicate": "belongs-to-database",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 10: Andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode)",
+      "page": 6
+    },
+    {
+      "subject": "indikator-11",
+      "predicate": "belongs-to-database",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 11: Andelen af patienter, der dør indenfor 90 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode)",
+      "page": 6
+    },
+    {
+      "subject": "danmark",
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Danmark Nej 900 / 2.950 0 (0) 30,5 (28,8-32,2) 26,8 23,0",
+      "page": 8
+    },
+    {
+      "subject": "hovedstaden",
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Hovedstaden Nej 340 / 1.069 0 (0) 31,8 (29,0-34,7) 27,2 27,1",
+      "page": 8
+    },
+    {
+      "subject": "sjaelland",
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Sjælland Nej 168 / 514 0 (0) 32,7 (28,6-36,9) 32,9 33,9",
+      "page": 8
+    },
+    {
+      "subject": "syddanmark",
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Syddanmark Nej 65 / 481 0 (0) 13,5 (10,6-16,9) 10,3 5,2",
+      "page": 8
+    },
+    {
+      "subject": "midtjylland",
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Midtjylland Nej 256 / 644 0 (0) 39,8 (35,9-43,6) 34,3 21,3",
+      "page": 8
+    },
+    {
+      "subject": "nordjylland",
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Nordjylland Nej 71 / 242 0 (0) 29,3 (23,7-35,5) 25,4 17,9",
+      "page": 8
+    },
+    {
       "subject": "amager-og-hvidovre-hospital",
-      "predicate": "is-part-of",
-      "object": "hovedstaden",
-      "evidence": "Amager og Hvidovre Hospital er opført under Hovedstaden-regionen i AKDB-rapporteringen",
-      "page": 7
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Amager og Hvidovre Hospital Nej 65 / 242 0 (0) 26,9 (21,4-32,9) 25,2 21,3",
+      "page": 8
     },
     {
       "subject": "bispebjerg-og-frederiksberg-hospitaler",
-      "predicate": "is-part-of",
-      "object": "hovedstaden",
-      "evidence": "Bispebjerg og Frederiksberg Hospitaler er opført under Hovedstaden-regionen i AKDB-rapporteringen",
-      "page": 7
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Bispebjerg og Frederiksberg Hospitaler Nej 87 / 229 0 (0) 38,0 (31,7-44,6) 33,5 32,7",
+      "page": 8
     },
     {
       "subject": "bornholms-hospital",
-      "predicate": "is-part-of",
-      "object": "hovedstaden",
-      "evidence": "Bornholms Hospital er opført under Hovedstaden-regionen i AKDB-rapporteringen",
-      "page": 7
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Bornholms Hospital Nej 19 / 30 0 (0) 63,3 (43,9-80,1) 31,8 41,4",
+      "page": 8
     },
     {
       "subject": "herlev-og-gentofte-hospital",
-      "predicate": "is-part-of",
-      "object": "hovedstaden",
-      "evidence": "Herlev og Gentofte Hospital er opført under Hovedstaden-regionen i AKDB-rapporteringen",
-      "page": 7
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Herlev og Gentofte Hospital Nej 81 / 301 0 (0) 26,9 (22,0-32,3) 21,3 37,4",
+      "page": 8
     },
     {
       "subject": "hospitalerne-i-nordsjaelland",
-      "predicate": "is-part-of",
-      "object": "hovedstaden",
-      "evidence": "Hospitalerne i Nordsjælland er opført under Hovedstaden-regionen i AKDB-rapporteringen",
-      "page": 7
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Hospitalerne i Nordsjælland Nej 78 / 210 0 (0) 37,1 (30,6-44,1) 29,9 16,2",
+      "page": 8
     },
     {
       "subject": "rigshospitalet",
-      "predicate": "is-part-of",
-      "object": "hovedstaden",
-      "evidence": "Rigshospitalet er opført under Hovedstaden-regionen i AKDB-rapporteringen",
-      "page": 7
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Rigshospitalet Nej 10 / 57 0 (0) 17,5 (8,7-29,9) 29,6 17,3",
+      "page": 8
     },
     {
       "subject": "holbaek-sygehus",
-      "predicate": "is-part-of",
-      "object": "sjaelland",
-      "evidence": "Holbæk Sygehus er opført under Sjælland-regionen i AKDB-rapporteringen",
-      "page": 8
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Holbæk Sygehus Nej 45 / 115 0 (0) 39,1 (30,2-48,7) 32,0 38,1",
+      "page": 9
     },
     {
       "subject": "nykoebing-f-sygehus",
-      "predicate": "is-part-of",
-      "object": "sjaelland",
-      "evidence": "Nykøbing F Sygehus er opført under Sjælland-regionen i AKDB-rapporteringen",
-      "page": 8
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Nykøbing F Sygehus Nej #/# 0 (0) 50,0 (1,3-98,7) 0,0 0,0",
+      "page": 9
     },
     {
-      "subject": "naestved-slagelse-ringsted-sygehuse",
-      "predicate": "is-part-of",
-      "object": "sjaelland",
-      "evidence": "Næstved, Slagelse og Ringsted sygehuse er opført under Sjælland-regionen i AKDB-rapporteringen",
-      "page": 8
+      "subject": "naestved-slagese-og-ringsted-sygehuse",
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Næstved, Slagelse og Ringsted sygehuse Nej 52 / 188 0 (0) 27,7 (21,4-34,6) 27,6 31,9",
+      "page": 9
     },
     {
       "subject": "sjaellands-universitetshospital",
-      "predicate": "is-part-of",
-      "object": "sjaelland",
-      "evidence": "Sjællands Universitetshospital er opført under Sjælland-regionen i AKDB-rapporteringen",
-      "page": 8
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Sjællands Universitetshospital Nej 70 / 209 0 (0) 33,5 (27,1-40,3) 37,8 34,0",
+      "page": 9
     },
     {
-      "subject": "esbjerg-sygehus-grindsted-sygehus",
-      "predicate": "is-part-of",
-      "object": "syddanmark",
-      "evidence": "Esbjerg Sygehus Grindsted Sygehus er opført under Syddanmark-regionen i AKDB-rapporteringen",
-      "page": 8
+      "subject": "esbjerg-sygehus",
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Esbjerg Sygehus Grindsted Sygehus Nej 20 / 110 0 (0) 18,2 (11,5-26,7) 13,1 4,3",
+      "page": 9
     },
     {
       "subject": "odense-universitetshospital-svendborg",
-      "predicate": "is-part-of",
-      "object": "syddanmark",
-      "evidence": "Odense Universitetshospital - Svendborg er opført under Syddanmark-regionen i AKDB-rapporteringen",
-      "page": 8
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Odense Universitetshospital - Svendborg Nej 14 / 178 0 (0) 7,9 (4,4-12,8) 5,6 3,6",
+      "page": 9
     },
     {
       "subject": "sygehus-lillebaelt",
-      "predicate": "is-part-of",
-      "object": "syddanmark",
-      "evidence": "Sygehus Lillebælt er opført under Syddanmark-regionen i AKDB-rapporteringen",
-      "page": 8
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Sygehus Lillebælt Nej 12 / 86 0 (0) 14,0 (7,4-23,1) 10,2 5,6",
+      "page": 9
     },
     {
       "subject": "sygehus-soenderjylland",
-      "predicate": "is-part-of",
-      "object": "syddanmark",
-      "evidence": "Sygehus Sønderjylland er opført under Syddanmark-regionen i AKDB-rapporteringen",
-      "page": 8
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Sygehus Sønderjylland Nej 19 / 107 0 (0) 17,8 (11,0-26,3) 16,3 9,0",
+      "page": 9
     },
     {
       "subject": "aarhus-universitetshospital",
-      "predicate": "is-part-of",
-      "object": "midtjylland",
-      "evidence": "Aarhus Universitetshospital er opført under Midtjylland-regionen i AKDB-rapporteringen",
-      "page": 8
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Aarhus Universitetshospital Nej 64 / 137 0 (0) 46,7 (38,1-55,4) 34,5 27,3",
+      "page": 9
     },
     {
       "subject": "hospitalsenhed-midt",
-      "predicate": "is-part-of",
-      "object": "midtjylland",
-      "evidence": "Hospitalsenhed Midt er opført under Midtjylland-regionen i AKDB-rapporteringen",
-      "page": 8
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Hospitalsenhed Midt Nej 60 / 144 0 (0) 41,7 (33,5-50,2) 32,2 22,1",
+      "page": 9
     },
     {
       "subject": "regionshospitalet-goedstrup",
-      "predicate": "is-part-of",
-      "object": "midtjylland",
-      "evidence": "Regionshospitalet Gødstrup er opført under Midtjylland-regionen i AKDB-rapporteringen",
-      "page": 8
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Regionshospitalet Gødstrup Nej 60 / 155 0 (0) 38,7 (31,0-46,9) 36,3 17,8",
+      "page": 9
     },
     {
       "subject": "regionshospitalet-horsens",
-      "predicate": "is-part-of",
-      "object": "midtjylland",
-      "evidence": "Regionshospitalet Horsens er opført under Midtjylland-regionen i AKDB-rapporteringen",
-      "page": 8
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Regionshospitalet Horsens Nej 30 / 93 0 (0) 32,3 (22,9-42,7) 31,2 21,9",
+      "page": 9
     },
     {
       "subject": "regionshospitalet-randers",
-      "predicate": "is-part-of",
-      "object": "midtjylland",
-      "evidence": "Regionshospitalet Randers er opført under Midtjylland-regionen i AKDB-rapporteringen",
-      "page": 8
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Regionshospitalet Randers Nej 42 / 115 0 (0) 36,5 (27,7-46,0) 36,4 16,7",
+      "page": 9
     },
     {
       "subject": "aalborg-universitetshospital",
-      "predicate": "is-part-of",
-      "object": "nordjylland",
-      "evidence": "Aalborg Universitetshospital er opført under Nordjylland-regionen i AKDB-rapporteringen",
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Aalborg Universitetshospital Nej 48 / 156 0 (0) 30,8 (23,6-38,6) 25,2 19,0",
       "page": 9
     },
     {
       "subject": "aalborg-universitetshospital-thisted",
-      "predicate": "is-part-of",
-      "object": "nordjylland",
-      "evidence": "Aalborg Universitetshospital, Thisted er opført under Nordjylland-regionen i AKDB-rapporteringen",
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Aalborg Universitetshospital, Thisted 0,0",
       "page": 9
     },
     {
       "subject": "regionshospital-nordjylland",
-      "predicate": "is-part-of",
-      "object": "nordjylland",
-      "evidence": "Regionshospital Nordjylland er opført under Nordjylland-regionen i AKDB-rapporteringen",
+      "predicate": "has-indicator-result",
+      "object": "indikator-1",
+      "evidence": "Regionshospital Nordjylland Nej 23 / 86 0 (0) 26,7 (17,8-37,4) 26,0 16,2",
       "page": 9
     }
   ],
   "claims": [
     {
-      "text": "Indikator 1 måler andelen af patienter, der er sat i antibiotisk behandling indenfor 3 time (180 minutter) efter ankomst til sygehus med en standard på > 90 % [^src1]",
-      "type": "clinical-indicator",
+      "text": "Indikator 1 har en standard på > 90 % for andelen af patienter, der er sat i antibiotisk behandling indenfor 3 time (180 minutter) efter ankomst til sygehus [^src1]",
+      "type": "standard",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-1"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 3 måler andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 120 minutter efter ankomst til sygehus med en standard på ≥ 90 % [^src1]",
-      "type": "clinical-indicator",
+      "text": "Indikator 3 har en standard på ≥ 90 % for andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 120 minutter efter ankomst til sygehus [^src1]",
+      "type": "standard",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-3"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 4 måler præoperativ optimering eller direkte til operation med en standard på ≥ 90 % [^src1]",
-      "type": "clinical-indicator",
+      "text": "Indikator 4 har en standard på ≥ 90 % for andelen af patienter med præoperativ optimering eller direkte til operation [^src1]",
+      "type": "standard",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-4"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 5 måler andelen af patienter, der opereres indenfor seks timer (360 minutter) efter ankomst til sygehus for patienter, der er opereret indenfor 24 timer efter ankomst til sygehus med en standard på ≥ 80 % [^src1]",
-      "type": "clinical-indicator",
+      "text": "Indikator 5 har en standard på ≥ 80 % for andelen af patienter, der opereres indenfor seks timer (360 minutter) efter ankomst til sygehus for patienter, der er opereret indenfor 24 timer efter ankomst til sygehus [^src1]",
+      "type": "standard",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-5"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 6 måler andelen af ældre (>= 75 år) eller svært syge (ASA >= 3) patienter, der monitoreres >= 24 timer postoperativt på et intermediært afsnit eller et lignende afsnit [^src1]",
-      "type": "clinical-indicator",
+      "text": "Indikator 6 har ingen angivet procentstandard, kun formuleringen 'Andel' for overvågning af ældre eller svært syge patienter postoperativt [^src1]",
+      "type": "standard",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-6"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 7 måler andelen af patienter, der mobiliseres indenfor 24 timer efter operation med en standard på ≥ 90 % [^src1]",
-      "type": "clinical-indicator",
+      "text": "Indikator 7 har en standard på ≥ 90 % for andelen af patienter, der mobiliseres indenfor 24 timer efter operation [^src1]",
+      "type": "standard",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-7"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 8 måler andelen af patienter, der genoptager ernæring indenfor 48 timer efter operation [^src1]",
-      "type": "clinical-indicator",
+      "text": "Indikator 8 har ingen angivet procentstandard, kun formuleringen 'Andel' for genoptagelse af ernæring indenfor 48 timer efter operation [^src1]",
+      "type": "standard",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-8"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 9 måler andelen af patienter, der har fået anlagt epidural i forbindelse med operationen med en standard på > 60 % [^src1]",
-      "type": "clinical-indicator",
+      "text": "Indikator 9 har en standard på > 60 % for andelen af patienter, der har fået anlagt epidural i forbindelse med operationen [^src1]",
+      "type": "standard",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-9"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 10 måler andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode) med en standard på < 15 % [^src1]",
-      "type": "clinical-indicator",
+      "text": "Indikator 10 har en standard på < 15 % for andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede med relevant diagnosekode og procedurekode [^src1]",
+      "type": "standard",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-10"
       ],
       "page": 6
     },
     {
-      "text": "Indikator 11 måler andelen af patienter, der dør indenfor 90 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode) med en standard på < 20 % [^src1]",
-      "type": "clinical-indicator",
+      "text": "Indikator 11 har en standard på < 20 % for andelen af patienter, der dør indenfor 90 dage fra operationsdato for alle opererede med relevant diagnosekode og procedurekode [^src1]",
+      "type": "standard",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-11"
       ],
       "page": 6
     },
     {
-      "text": "For Indikator 1 (Antibiotikabehandling indenfor 3 timer) var resultatet på nationalt niveau 30,5 % (95% CI 28,8-32,2) i perioden 01.09.2022-31.08.2023, hvilket ikke opfylder standarden på > 90 % [^src1]",
-      "type": "clinical-performance",
+      "text": "For Indikator 1 var den nationale andel i perioden 01.09.2022–31.08.2023 30,5 % (95 % CI: 28,8–32,2) [^src1]",
+      "type": "performance",
       "entities": [
+        "indikator-1",
         "danmark"
       ],
       "page": 7
     },
     {
-      "text": "For Indikator 3 (CT-skanning indenfor 120 minutter) var resultatet på nationalt niveau 30,1 % (95% CI 28,5-31,8) i perioden 01.09.2022-31.08.2023, hvilket ikke opfylder standarden på ≥ 90 % [^src1]",
-      "type": "clinical-performance",
+      "text": "For Indikator 1 var andelen i Region Hovedstaden i perioden 01.09.2022–31.08.2023 31,8 % (95 % CI: 29,0–34,7) [^src1]",
+      "type": "performance",
       "entities": [
-        "danmark"
-      ],
-      "page": 6
-    },
-    {
-      "text": "For Indikator 4 (Præoperativ optimering eller direkte til operation) var resultatet på nationalt niveau 6,9 % (95% CI 6,1-7,9) i perioden 01.09.2022-31.08.2023, hvilket ikke opfylder standarden på ≥ 90 % [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "danmark"
-      ],
-      "page": 6
-    },
-    {
-      "text": "For Indikator 5 (Operation indenfor seks timer) var resultatet på nationalt niveau 26,3 % (95% CI 24,4-28,2) i perioden 01.09.2022-31.08.2023, hvilket ikke opfylder standarden på ≥ 80 % [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "danmark"
-      ],
-      "page": 6
-    },
-    {
-      "text": "For Indikator 6 (Monitorering af ældre eller svært syge patienter) var resultatet på nationalt niveau 19,2 % (95% CI 17,4-21,1) i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "danmark"
-      ],
-      "page": 6
-    },
-    {
-      "text": "For Indikator 7 (Mobilisering indenfor 24 timer) var resultatet på nationalt niveau 29,0 % (95% CI 27,5-30,7) i perioden 01.09.2022-31.08.2023, hvilket ikke opfylder standarden på ≥ 90 % [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "danmark"
-      ],
-      "page": 6
-    },
-    {
-      "text": "For Indikator 8 (Genoptagelse af ernæring indenfor 48 timer) var resultatet på nationalt niveau 19,6 % (95% CI 18,2-21,0) i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "danmark"
-      ],
-      "page": 6
-    },
-    {
-      "text": "For Indikator 9 (Epidural anlagt) var resultatet på nationalt niveau 53,0 % (95% CI 51,2-54,7) i perioden 01.09.2022-31.08.2023, hvilket ikke opfylder standarden på > 60 % [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "danmark"
-      ],
-      "page": 6
-    },
-    {
-      "text": "For Indikator 10 (Mortalitet indenfor 30 dage) var resultatet på nationalt niveau 11,3 % (95% CI 10,2-12,5) i perioden 01.09.2022-31.08.2023, hvilket opfylder standarden på < 15 % [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "danmark"
-      ],
-      "page": 6
-    },
-    {
-      "text": "For Indikator 11 (Mortalitet indenfor 90 dage) var resultatet på nationalt niveau 15,1 % (95% CI 13,8-16,4) i perioden 01.09.2022-31.08.2023, hvilket opfylder standarden på < 20 % [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "danmark"
-      ],
-      "page": 6
-    },
-    {
-      "text": "Hovedstaden-regionen havde 1.069 patienter i AKDB-rapporteringen i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "patient-volume",
-      "entities": [
+        "indikator-1",
         "hovedstaden"
       ],
       "page": 7
     },
     {
-      "text": "Sjælland-regionen havde 514 patienter i AKDB-rapporteringen i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "patient-volume",
+      "text": "For Indikator 1 var andelen i Region Sjælland i perioden 01.09.2022–31.08.2023 32,7 % (95 % CI: 28,6–36,9) [^src1]",
+      "type": "performance",
       "entities": [
+        "indikator-1",
         "sjaelland"
       ],
       "page": 7
     },
     {
-      "text": "Syddanmark-regionen havde 481 patienter i AKDB-rapporteringen i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "patient-volume",
+      "text": "For Indikator 1 var andelen i Region Syddanmark i perioden 01.09.2022–31.08.2023 13,5 % (95 % CI: 10,6–16,9) [^src1]",
+      "type": "performance",
       "entities": [
+        "indikator-1",
         "syddanmark"
       ],
       "page": 7
     },
     {
-      "text": "Midtjylland-regionen havde 644 patienter i AKDB-rapporteringen i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "patient-volume",
+      "text": "For Indikator 1 var andelen i Region Midtjylland i perioden 01.09.2022–31.08.2023 39,8 % (95 % CI: 35,9–43,6) [^src1]",
+      "type": "performance",
       "entities": [
+        "indikator-1",
         "midtjylland"
       ],
       "page": 7
     },
     {
-      "text": "Nordjylland-regionen havde 242 patienter i AKDB-rapporteringen i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "patient-volume",
+      "text": "For Indikator 1 var andelen i Region Nordjylland i perioden 01.09.2022–31.08.2023 29,3 % (95 % CI: 23,7–35,5) [^src1]",
+      "type": "performance",
       "entities": [
+        "indikator-1",
         "nordjylland"
       ],
       "page": 7
     },
     {
-      "text": "Danmark havde i alt 2.950 patienter i AKDB-rapporteringen i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "patient-volume",
+      "text": "For Indikator 1 var andelen ved Bornholms Hospital i perioden 01.09.2022–31.08.2023 63,3 % (95 % CI: 43,9–80,1) [^src1]",
+      "type": "performance",
       "entities": [
-        "danmark"
-      ],
-      "page": 7
-    },
-    {
-      "text": "For Indikator 1 (Antibiotikabehandling indenfor 3 timer) var resultatet i Hovedstaden 31,8 % (95% CI 29,0-34,7) i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "hovedstaden"
-      ],
-      "page": 7
-    },
-    {
-      "text": "For Indikator 1 (Antibiotikabehandling indenfor 3 timer) var resultatet i Sjælland 32,7 % (95% CI 28,6-36,9) i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "sjaelland"
-      ],
-      "page": 7
-    },
-    {
-      "text": "For Indikator 1 (Antibiotikabehandling indenfor 3 timer) var resultatet i Syddanmark 13,5 % (95% CI 10,6-16,9) i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "syddanmark"
-      ],
-      "page": 7
-    },
-    {
-      "text": "For Indikator 1 (Antibiotikabehandling indenfor 3 timer) var resultatet i Midtjylland 39,8 % (95% CI 35,9-43,6) i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "midtjylland"
-      ],
-      "page": 7
-    },
-    {
-      "text": "For Indikator 1 (Antibiotikabehandling indenfor 3 timer) var resultatet i Nordjylland 29,3 % (95% CI 23,7-35,5) i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "nordjylland"
-      ],
-      "page": 7
-    },
-    {
-      "text": "Bornholms Hospital havde det højeste resultat for Indikator 1 (Antibiotikabehandling indenfor 3 timer) blandt hospitalerne i Hovedstaden med 63,3 % (95% CI 43,9-80,1) i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "clinical-performance",
-      "entities": [
+        "indikator-1",
         "bornholms-hospital"
       ],
-      "page": 7
-    },
-    {
-      "text": "Rigshospitalet havde det laveste resultat for Indikator 1 (Antibiotikabehandling indenfor 3 timer) blandt hospitalerne i Hovedstaden med 17,5 % (95% CI 8,7-29,9) i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "rigshospitalet"
-      ],
-      "page": 7
-    },
-    {
-      "text": "Nykøbing F Sygehus havde et resultat på 50,0 % (95% CI 1,3-98,7) for Indikator 1 (Antibiotikabehandling indenfor 3 timer) i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "nykoebing-f-sygehus"
-      ],
       "page": 8
     },
     {
-      "text": "Odense Universitetshospital - Svendborg havde det laveste resultat for Indikator 1 (Antibiotikabehandling indenfor 3 timer) blandt hospitalerne i Syddanmark med 7,9 % (95% CI 4,4-12,8) i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "clinical-performance",
+      "text": "For Indikator 1 var andelen ved Odense Universitetshospital - Svendborg i perioden 01.09.2022–31.08.2023 7,9 % (95 % CI: 4,4–12,8) [^src1]",
+      "type": "performance",
       "entities": [
+        "indikator-1",
         "odense-universitetshospital-svendborg"
       ],
-      "page": 8
+      "page": 9
     },
     {
-      "text": "Aarhus Universitetshospital havde det højeste resultat for Indikator 1 (Antibiotikabehandling indenfor 3 timer) blandt hospitalerne i Midtjylland med 46,7 % (95% CI 38,1-55,4) i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "clinical-performance",
+      "text": "Der blev ekskluderet 53 patienter pga. ugyldigt CPR-nummer i forbindelse med beregningen af Indikator 1 [^src1]",
+      "type": "exclusion",
       "entities": [
-        "aarhus-universitetshospital"
-      ],
-      "page": 8
-    },
-    {
-      "text": "Aalborg Universitetshospital havde et resultat på 30,8 % (95% CI 23,6-38,6) for Indikator 1 (Antibiotikabehandling indenfor 3 timer) i perioden 01.09.2022-31.08.2023 [^src1]",
-      "type": "clinical-performance",
-      "entities": [
-        "aalborg-universitetshospital"
+        "indikator-1"
       ],
       "page": 9
     },
     {
-      "text": "I AKDB-rapporteringen blev 53 patienter ekskluderet på grund af ugyldigt CPR-nummer [^src1]",
-      "type": "data-quality",
+      "text": "Der blev ekskluderet 170 patienter fordi de er under 18 år i forbindelse med beregningen af Indikator 1 [^src1]",
+      "type": "exclusion",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-1"
       ],
       "page": 9
     },
     {
-      "text": "I AKDB-rapporteringen blev 170 patienter ekskluderet fordi de var under 18 år [^src1]",
-      "type": "data-quality",
+      "text": "Der blev ekskluderet 6.190 patienter fordi de ikke er opereret i forbindelse med beregningen af Indikator 1 [^src1]",
+      "type": "exclusion",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-1"
       ],
       "page": 9
     },
     {
-      "text": "I AKDB-rapporteringen blev 6.190 patienter ekskluderet fordi de ikke var opereret [^src1]",
-      "type": "data-quality",
+      "text": "Der blev ekskluderet 200 patienter fordi præoperativ antibiotikaprofylakse ikke er givet i forbindelse med beregningen af Indikator 1 [^src1]",
+      "type": "exclusion",
       "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-1"
       ],
       "page": 9
     },
     {
-      "text": "I AKDB-rapporteringen blev 200 patienter ekskluderet fordi præoperativ antibiotikaprofylakse ikke var givet [^src1]",
-      "type": "data-quality",
+      "text": "Der blev ekskluderet 470 patienter fordi operationen ikke er den første i hospitalsopholdet i forbindelse med beregningen af Indikator 1 [^src1]",
+      "type": "exclusion",
       "entities": [
-        "akut-kirurgi-databasen"
-      ],
-      "page": 9
-    },
-    {
-      "text": "I AKDB-rapporteringen blev 470 patienter ekskluderet fordi operationen ikke var den første operation i hospitalsopholdet [^src1]",
-      "type": "data-quality",
-      "entities": [
-        "akut-kirurgi-databasen"
+        "indikator-1"
       ],
       "page": 9
     }
   ],
   "timeline": [
     {
-      "date": "01.09.2022 - 31.08.2023",
-      "event": "AKDB-rapporteringsperiode for alle indikatorer på lands-, regions- og afdelingsniveau",
+      "date": "2024-02-26",
+      "event": "Endelig version af Akut Kirurgi Databasen til offentliggørelse blev udgivet",
       "entities": [
-        "akut-kirurgi-databasen",
-        "danmark"
+        "akut-kirurgi-databasen"
       ]
-    }
-  ],
-  "context": "Akut Kirurgi Databasen (AKDB) er en dansk kvalitetsdatabase, der måler og rapporterer på 11 kliniske indikatorer for behandling af akutte højrisiko abdominalkirurgiske patienter på danske sygehuse. Denne chunk indeholder en komplet oversigt over alle indikatorer, deres standarder, og detaljerede resultater fra rapporteringsperioden 01.09.2022-31.08.2023 på nationalt, regionalt og afdelingsniveau. Resultaterne viser, at de fleste processindikatorer ikke opfylder deres fastsatte standarder, mens mortalitetsindikatorer generelt opfylder målene. Databasen opererer under Regionernes Kliniske Kvalitetsudviklingsprogram og omfatter alle fem danske regioner med deres respektive hospitaler.",
-  "tables": [
-    {
-      "subject": "akut-kirurgi-databasen",
-      "title": "Oversigt over alle indikatorer",
-      "page": 6,
-      "rowDimension": "indikatorer",
-      "colDimension": "type, format, standard og ID",
-      "entities": [
-        "indikator-1",
-        "indikator-3",
-        "indikator-4",
-        "indikator-5",
-        "indikator-6",
-        "indikator-7",
-        "indikator-8",
-        "indikator-9",
-        "indikator-10",
-        "indikator-11",
-        "asa-score"
-      ],
-      "markdown": "| Indikator | Type | Format | Standard | ID |\n| --- | --- | --- | --- | --- |\n| Indikator 1: Andelen af patienter, der er sat i antibiotisk behandling indenfor 3 time (180 minutter) efter ankomst til sygehus. | Proces | Andel | > 90 % | AKDB_23_001 |\n| Indikator 3: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 120 minutter efter ankomst til sygehus | Proces | Andel | ≥ 90 % | AKDB_21_002 |\n| Indikator 4: Præoperativ optimering eller direkte til operation | Proces | Andel | ≥ 90 % | AKDB_04_001 |\n| Indikator 5: Andelen af patienter, der opereres indenfor seks timer (360 minutter) efter ankomst til sygehus for patienter, der er opereret indenfor 24 timer efter ankomst til sygehus. | Proces | Andel | ≥ 80 % | AKDB_05_002 |\n| Indikator 6: Andelen af ældre (>= 75 år) eller svært syge (ASA >= 3) patienter, der monitoreres >= 24 timer postoperativt på et intermediært afsnit eller et lignende afsnit. | Proces | Andel |  | AKDB_24_001 |\n| Indikator 7: Andelen af patienter, der mobiliseres indenfor 24 timer efter operation | Proces | Andel | ≥ 90 % | AKDB_08_001 |\n| Indikator 8: Andelen af patienter, der genoptager ernæring indenfor 48 timer efter operation | Proces | Andel |  | AKDB_09_001 |\n| Indikator 9: Andelen af patienter, der har fået anlagt epidural i forbindelse med operationen | Proces | Andel | > 60 % | AKDB_11_002 |\n| Indikator 10: Andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode) | Resultat | Andel | < 15 % | AKDB_13_001 |\n| Indikator 11: Andelen af patienter, der dør indenfor 90 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode) | Resultat | Andel | < 20 % | AKDB_15_003 |",
-      "summary": "Tabellen sammenligner rapportens ti indikatorer på tværs af type, format, standard og ID og viser, at otte er procesindikatorer og to (Indikator 10 og 11) er resultatindikatorer, samt at Indikator 6 og 8 angives uden standard."
     },
     {
-      "subject": "akut-kirurgi-databasen",
-      "title": "Oversigt over de samlede indikatorresultater",
-      "page": 7,
-      "rowDimension": "indikatorer",
-      "colDimension": "standard, uoplyst samt andel (95 % CI) for 01.09.2022 - 31.08.2023, 2021/22 og 2020/21",
+      "date": "2022-09-01",
+      "event": "Start af måleperioden for indikatorresultaterne (01.09.2022 – 31.08.2023)",
       "entities": [
         "indikator-1",
         "indikator-3",
@@ -936,35 +1092,63 @@
         "indikator-9",
         "indikator-10",
         "indikator-11"
-      ],
-      "markdown": "| Indikator | Standard | Uoplyst | 01.09.2022 - 31.08.2023 Andel (95% CI) | 2021/22 Andel | 2020/21 Andel |\n| --- | --- | --- | --- | --- | --- |\n| Indikator 1: Andelen af patienter, der er sat i antibiotisk behandling indenfor 3 time (180 minutter) efter ankomst til sygehus. | > 90 | 0 | 30,5 (28,8-32,2) | 26,8 | 23,0 |\n| Indikator 3: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 120 minutter efter ankomst til sygehus | ≥ 90 | 0 | 30,1 (28,5-31,8) | 24,8 | 21,1 |\n| Indikator 4: Præoperativ optimering eller direkte til operation | ≥ 90 | 0 | 6,9 (6,1-7,9) | 3,8 | 4,0 |\n| Indikator 5: Andelen af patienter, der opereres indenfor seks timer (360 minutter) efter ankomst til sygehus for patienter, der er opereret indenfor 24 timer efter ankomst til sygehus. | ≥ 80 | 0 | 26,3 (24,4-28,2) | 22,0 | 24,0 |\n| Indikator 6: Andelen af ældre (>= 75 år) eller svært syge (ASA >= 3) patienter, der monitoreres >= 24 timer postoperativt på et intermediært afsnit eller et lignende afsnit. |  | 8 | 19,2 (17,4-21,1) | 16,0 | 17,2 |\n| Indikator 7: Andelen af patienter, der mobiliseres indenfor 24 timer efter operation | ≥ 90 | 0 | 29,0 (27,5-30,7) | 16,3 | 0,7 |\n| Indikator 8: Andelen af patienter, der genoptager ernæring indenfor 48 timer efter operation |  | 0 | 19,6 (18,2-21,0) | 11,6 | 0,1 |\n| Indikator 9: Andelen af patienter, der har fået anlagt epidural i forbindelse med operationen | > 60 | 0 | 53,0 (51,2-54,7) | 49,0 | 44,7 |\n| Indikator 10: Andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode) | < 15 | 0 | 11,3 (10,2-12,5) | 12,6 | 13,4 |\n| Indikator 11: Andelen af patienter, der dør indenfor 90 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode) | < 20 | 0 | 15,1 (13,8-16,4) | 17,5 | 19,0 |",
-      "summary": "Tabellen sammenligner de nationale indikatorresultater for 01.09.2022 - 31.08.2023 med 2021/22 og 2020/21 og viser, at alle procesindikatorer ligger langt under deres standarder, mens mortalitetsindikatorerne (10 og 11) ligger under deres grænseværdier med faldende dødelighed over de tre perioder."
+      ]
     },
+    {
+      "date": "2023-08-31",
+      "event": "Afslutning af måleperioden for indikatorresultaterne (01.09.2022 – 31.08.2023)",
+      "entities": [
+        "indikator-1",
+        "indikator-3",
+        "indikator-4",
+        "indikator-5",
+        "indikator-6",
+        "indikator-7",
+        "indikator-8",
+        "indikator-9",
+        "indikator-10",
+        "indikator-11"
+      ]
+    }
+  ],
+  "tables": [
     {
       "subject": "indikator-1",
       "title": "Indikator 1: Antibiotikabehandling indenfor 3 timer",
       "page": 8,
-      "rowDimension": "land, regioner og sygehusafdelinger",
-      "colDimension": "standardopfyldelse, tæller/nævner, uoplyst antal (%) samt andel 95% CI for 01.09.2022 - 31.08.2023, 2021/22 og 2020/21",
+      "rowDimension": "sygehuse",
+      "colDimension": "resultat per periode",
       "entities": [
         "indikator-1",
         "danmark",
-        "region-hovedstaden",
-        "region-sjaelland",
-        "region-syddanmark",
-        "region-midtjylland",
-        "region-nordjylland",
+        "hovedstaden",
+        "sjaelland",
+        "syddanmark",
+        "midtjylland",
+        "nordjylland",
         "amager-og-hvidovre-hospital",
         "bispebjerg-og-frederiksberg-hospitaler",
         "bornholms-hospital",
         "herlev-og-gentofte-hospital",
         "hospitalerne-i-nordsjaelland",
-        "rigshospitalet",
+        "rigshospitalet"
+      ],
+      "markdown": "| Sygehus | Uoplyst | Aktuelle år Tæller/ antal | Aktuelle år Andel 95% CI | 2021/22 Andel | 2020/21 Andel |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 900 / 2.950 | 30,5 (28,8-32,2) | 26,8 | 23,0 |\n| Hovedstaden | Nej | 340 / 1.069 | 31,8 (29,0-34,7) | 27,2 | 27,1 |\n| Sjælland | Nej | 168 / 514 | 32,7 (28,6-36,9) | 32,9 | 33,9 |\n| Syddanmark | Nej | 65 / 481 | 13,5 (10,6-16,9) | 10,3 | 5,2 |\n| Midtjylland | Nej | 256 / 644 | 39,8 (35,9-43,6) | 34,3 | 21,3 |\n| Nordjylland | Nej | 71 / 242 | 29,3 (23,7-35,5) | 25,4 | 17,9 |\n| Amager og Hvidovre Hospital | Nej | 65 / 242 | 26,9 (21,4-32,9) | 25,2 | 21,3 |\n| Bispebjerg og Frederiksberg Hospitaler | Nej | 87 / 229 | 38,0 (31,7-44,6) | 33,5 | 32,7 |\n| Bornholms Hospital | Nej | 19 / 30 | 63,3 (43,9-80,1) | 31,8 | 41,4 |\n| Herlev og Gentofte Hospital | Nej | 81 / 301 | 26,9 (22,0-32,3) | 21,3 | 37,4 |\n| Hospitalerne i Nordsjælland | Nej | 78 / 210 | 37,1 (30,6-44,1) | 29,9 | 16,2 |\n| Rigshospitalet | Nej | 10 / 57 | 17,5 (8,7-29,9) | 29,6 | 17,3 |",
+      "summary": "Tabellen sammenligner resultaterne for Indikator 1 på nationalt, regionalt og sygehusniveau for perioden 01.09.2022–31.08.2023, og viser en stor spredning fra 63,3 % ved Bornholms Hospital til 17,5 % ved Rigshospitalet, samt at ingen region eller sygehus opfylder standarden på > 90 %."
+    },
+    {
+      "subject": "indikator-1",
+      "title": "Indikator 1: Antibiotikabehandling indenfor 3 timer (fortsat)",
+      "page": 9,
+      "rowDimension": "sygehuse",
+      "colDimension": "resultat per periode",
+      "entities": [
+        "indikator-1",
         "holbaek-sygehus",
         "nykoebing-f-sygehus",
-        "naestved-slagelse-ringsted-sygehuse",
+        "naestved-slagese-og-ringsted-sygehuse",
         "sjaellands-universitetshospital",
-        "esbjerg-sygehus-grindsted-sygehus",
+        "esbjerg-sygehus",
         "odense-universitetshospital-svendborg",
         "sygehus-lillebaelt",
         "sygehus-soenderjylland",
@@ -977,21 +1161,9 @@
         "aalborg-universitetshospital-thisted",
         "regionshospital-nordjylland"
       ],
-      "markdown": "| Enhed | Standard opfyldt > 90% | Tæller/nævner | Uoplyst antal (%) | 01.09.2022 - 31.08.2023 Andel 95% CI | 2021/22 Andel | 2020/21 Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 900 / 2.950 | 0 (0) | 30,5 (28,8-32,2) | 26,8 | 23,0 |\n| Hovedstaden | Nej | 340 / 1.069 | 0 (0) | 31,8 (29,0-34,7) | 27,2 | 27,1 |\n| Sjælland | Nej | 168 / 514 | 0 (0) | 32,7 (28,6-36,9) | 32,9 | 33,9 |\n| Syddanmark | Nej | 65 / 481 | 0 (0) | 13,5 (10,6-16,9) | 10,3 | 5,2 |\n| Midtjylland | Nej | 256 / 644 | 0 (0) | 39,8 (35,9-43,6) | 34,3 | 21,3 |\n| Nordjylland | Nej | 71 / 242 | 0 (0) | 29,3 (23,7-35,5) | 25,4 | 17,9 |\n| Hovedstaden | Nej | 340 / 1.069 | 0 (0) | 31,8 (29,0-34,7) | 27,2 | 27,1 |\n| Amager og Hvidovre Hospital | Nej | 65 / 242 | 0 (0) | 26,9 (21,4-32,9) | 25,2 | 21,3 |\n| Bispebjerg og Frederiksberg Hospitaler | Nej | 87 / 229 | 0 (0) | 38,0 (31,7-44,6) | 33,5 | 32,7 |\n| Bornholms Hospital | Nej | 19 / 30 | 0 (0) | 63,3 (43,9-80,1) | 31,8 | 41,4 |\n| Herlev og Gentofte Hospital | Nej | 81 / 301 | 0 (0) | 26,9 (22,0-32,3) | 21,3 | 37,4 |\n| Hospitalerne i Nordsjælland | Nej | 78 / 210 | 0 (0) | 37,1 (30,6-44,1) | 29,9 | 16,2 |\n| Rigshospitalet | Nej | 10 / 57 | 0 (0) | 17,5 (8,7-29,9) | 29,6 | 17,3 |\n| Sjælland | Nej | 168 / 514 | 0 (0) | 32,7 (28,6-36,9) | 32,9 | 33,9 |\n| Holbæk Sygehus | Nej | 45 / 115 | 0 (0) | 39,1 (30,2-48,7) | 32,0 | 38,1 |\n| Nykøbing F Sygehus | Nej | #/# | 0 (0) | 50,0 (1,3-98,7) | 0,0 | 0,0 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 52 / 188 | 0 (0) | 27,7 (21,4-34,6) | 27,6 | 31,9 |\n| Sjællands Universitetshospital | Nej | 70 / 209 | 0 (0) | 33,5 (27,1-40,3) | 37,8 | 34,0 |\n| Syddanmark | Nej | 65 / 481 | 0 (0) | 13,5 (10,6-16,9) | 10,3 | 5,2 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 20 / 110 | 0 (0) | 18,2 (11,5-26,7) | 13,1 | 4,3 |\n| Odense Universitetshospital - Svendborg | Nej | 14 / 178 | 0 (0) | 7,9 (4,4-12,8) | 5,6 | 3,6 |\n| Sygehus Lillebælt | Nej | 12 / 86 | 0 (0) | 14,0 (7,4-23,1) | 10,2 | 5,6 |\n| Sygehus Sønderjylland | Nej | 19 / 107 | 0 (0) | 17,8 (11,0-26,3) | 16,3 | 9,0 |\n| Midtjylland | Nej | 256 / 644 | 0 (0) | 39,8 (35,9-43,6) | 34,3 | 21,3 |\n| Aarhus Universitetshospital | Nej | 64 / 137 | 0 (0) | 46,7 (38,1-55,4) | 34,5 | 27,3 |\n| Hospitalsenhed Midt | Nej | 60 / 144 | 0 (0) | 41,7 (33,5-50,2) | 32,2 | 22,1 |\n| Regionshospitalet Gødstrup | Nej | 60 / 155 | 0 (0) | 38,7 (31,0-46,9) | 36,3 | 17,8 |\n| Regionshospitalet Horsens | Nej | 30 / 93 | 0 (0) | 32,3 (22,9-42,7) | 31,2 | 21,9 |\n| Regionshospitalet Randers | Nej | 42 / 115 | 0 (0) | 36,5 (27,7-46,0) | 36,4 | 16,7 |\n| Nordjylland | Nej | 71 / 242 | 0 (0) | 29,3 (23,7-35,5) | 25,4 | 17,9 |\n| Aalborg Universitetshospital | Nej | 48 / 156 | 0 (0) | 30,8 (23,6-38,6) | 25,2 | 19,0 |\n| Aalborg Universitetshospital, Thisted |  |  |  | 0,0 |  |  |\n| Regionshospital Nordjylland | Nej | 23 / 86 | 0 (0) | 26,7 (17,8-37,4) | 26,0 | 16,2 |",
-      "summary": "Tabellen sammenligner Indikator 1-resultater på lands-, regions- og afdelingsniveau og viser, at ingen enhed opfylder standarden på > 90 %, at Region Midtjylland ligger højest regionalt (39,8 %), og at Bornholms Hospital ligger højest afdelingsvist (63,3 %)."
-    },
-    {
-      "subject": "indikator-1",
-      "title": "Antal Årsag",
-      "page": 9,
-      "rowDimension": "eksklusionsårsager",
-      "colDimension": "antal",
-      "entities": [
-        "indikator-1",
-        "cpr-nummer"
-      ],
-      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 53 | Ugyldigt CPRnummer. |\n| 170 | Patienten er under 18 år. |\n| 6.190 | Patienten er ikke opereret. |\n| 200 | Præoperativ antibiotikaprofylakse er ikke givet. |\n| 470 | Operationen er ikke den første operation i hospitalsopholdet. |",
-      "summary": "Tabellen viser antallet af ekskluderede patienter fordelt på fem årsager for Indikator 1, hvor 'Patienten er ikke opereret' med 6.190 er den klart hyppigste eksklusionsårsag."
+      "markdown": "| Sygehus | Uoplyst | Aktuelle år Tæller/ antal | Aktuelle år Andel 95% CI | 2021/22 Andel | 2020/21 Andel |\n| --- | --- | --- | --- | --- | --- |\n| Holbæk Sygehus | Nej | 45 / 115 | 39,1 (30,2-48,7) | 32,0 | 38,1 |\n| Nykøbing F Sygehus | Nej | #/# | 50,0 (1,3-98,7) | 0,0 | 0,0 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 52 / 188 | 27,7 (21,4-34,6) | 27,6 | 31,9 |\n| Sjællands Universitetshospital | Nej | 70 / 209 | 33,5 (27,1-40,3) | 37,8 | 34,0 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 20 / 110 | 18,2 (11,5-26,7) | 13,1 | 4,3 |\n| Odense Universitetshospital - Svendborg | Nej | 14 / 178 | 7,9 (4,4-12,8) | 5,6 | 3,6 |\n| Sygehus Lillebælt | Nej | 12 / 86 | 14,0 (7,4-23,1) | 10,2 | 5,6 |\n| Sygehus Sønderjylland | Nej | 19 / 107 | 17,8 (11,0-26,3) | 16,3 | 9,0 |\n| Aarhus Universitetshospital | Nej | 64 / 137 | 46,7 (38,1-55,4) | 34,5 | 27,3 |\n| Hospitalsenhed Midt | Nej | 60 / 144 | 41,7 (33,5-50,2) | 32,2 | 22,1 |\n| Regionshospitalet Gødstrup | Nej | 60 / 155 | 38,7 (31,0-46,9) | 36,3 | 17,8 |\n| Regionshospitalet Horsens | Nej | 30 / 93 | 32,3 (22,9-42,7) | 31,2 | 21,9 |\n| Regionshospitalet Randers | Nej | 42 / 115 | 36,5 (27,7-46,0) | 36,4 | 16,7 |\n| Aalborg Universitetshospital | Nej | 48 / 156 | 30,8 (23,6-38,6) | 25,2 | 19,0 |\n| Aalborg Universitetshospital, Thisted | 0,0 | 0,0 | 0,0 | 0,0 | 0,0 |\n| Regionshospital Nordjylland | Nej | 23 / 86 | 26,7 (17,8-37,4) | 26,0 | 16,2 |",
+      "summary": "Denne fortsatte tabel udvider den regionale og lokale nedbrydning af Indikator 1 med yderligere sygehuse, hvilket bekræfter den store geografiske variation i præstationen og viser, at Odense Universitetshospital - Svendborg har den laveste andel (7,9 %) blandt alle viste sygehuse."
     }
-  ]
+  ],
+  "context": "Dette dokumentchunk udgør siderne 6–10 af rapporten 'AKDB_2023.pdf' og indeholder den endelige offentliggørelsesversion af Akut Kirurgi Databasen (AKDB) fra februar 2024. Den beskriver et nationalt kvalitetsmonitoreringsprogram for akutte højrisiko abdominalkirurgiske patienter, administreret af Regionernes Kliniske Kvalitetsudviklingsprogram. Chunken fokuserer primært på strukturen og resultaterne for 11 kliniske indikatorer — herunder 9 procesindikatorer og 2 resultatindikatorer — med særlig dybdegang i Indikator 1 (antibiotikabehandling inden for 3 timer), som analyseres på nationalt, regionalt og individuelt sygehusniveau. Den omfatter også definitioner af tæller, nævner, eksklusionskriterier og statistiske metoder, hvilket placerer chunken i konteksten af klinisk kvalitetsmåling, sundhedspolitisk styring og transparens i den danske sygehussektor."
 }

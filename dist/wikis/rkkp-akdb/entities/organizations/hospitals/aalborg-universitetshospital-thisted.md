@@ -1,59 +1,45 @@
 ---
-title: 'Aalborg Universitetshospital, Thisted'
+title: '"Aalborg Universitetshospital, Thisted"'
 type: entity
 aliases:
   - 'Aalborg Universitetshospital, Thisted'
 wiki: rkkp-akdb
-updated: '2026-08-03T16:41:47.068Z'
+updated: '2026-08-05T18:55:40.176Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
-    pages: '36-40, 46-50, 6-10'
+    pages: 6-10
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
-    pages: '11-15, 16-20, 41-45, 51-55, 6-10, 61-65, 71-75, 76-80, 81-85'
+    pages: '11-15, 51-55, 6-10, 61-65'
 tags:
   - organization
 ---
+Aalborg Universitetshospital, Thisted is a department of Aalborg University Hospital situated in the North Denmark Region (Region Nordjylland). It is tracked within the national clinical quality monitoring programs for acute surgery, specifically the Acute Surgery Database (AKDB), which evaluates the safety, efficiency, and treatment quality of acute high-risk abdominal surgical patients across Denmark.
 
-# Aalborg Universitetshospital, Thisted
+In the 2023 AKDB annual report, which covers the period from September 1, 2022, to August 31, 2023, the department's results for [[indikator-1|Indikator 1]]—measuring the timely administration of antibiotics within three hours—were reported at 0.0% [^src1]. This figure indicates either an absence of registered cases meeting the specific inclusion criteria or a lack of submitted data for this unit [^src1].
 
-Et dansk hospital under Nordjylland-regionen, der rapporterer AKDB-indikatorer i perioden 01.09.2022-31.08.2023.
+This pattern of 0.0% fulfillment persists across the 2024 AKDB reports, which analyze the period from September 1, 2023, to August 31, 2024. The hospital is listed with a 0.0% rate for a comprehensive range of both process and outcome indicators. These include early antibiotic treatment and early CT scanning [^src2][^src3], as well as 30-day and 90-day post-operative mortality rates [^src4]. Furthermore, supplementary mortality metrics stratified by the Charlson Comorbidity Index (Indicators 9a and 9b) also show a 0.0% rate for the department [^src5]. The uniform zero-percent results across all measured clinical indicators strongly suggest that the Thisted facility did not treat the specific cohort of acute abdominal surgery patients defined by the database's denominator criteria during these reporting years, or that its data was entirely excluded from the national registry.
 
 ## Mentions
-
 - Page 9: "Aalborg Universitetshospital, Thisted 0,0" [^src1]
-- Page 36: "Aalborg Universitetshospital, Thisted" [^src2]
-- Page 49: "Aalborg Universitetshospital, Thisted 0,0" [^src3]
-- Page 10: "Aalborg Universitetshospital, Thisted" [^src4]
-- Page 15: "Aalborg Universitetshospital, Thisted 0,0" [^src5]
-- Page 19: "Aalborg Universitetshospital, Thisted 0,0" [^src6]
-- Page 43: "Aalborg Universitetshospital, Thisted 0,0" [^src7]
-- Page 51: "Aalborg Universitetshospital, Thisted 0,0" [^src8]
-- Page 61: "Aalborg Universitetshospital, Thisted 27 100,00 0 0 27 100,00" [^src9]
-- Page 61: "Aalborg Universitetshospital, Thisted 0,0" [^src9]
-- Page 71: "Aalborg Universitetshospital, Thisted # 0,4 26,00 26,00 26,00 26,00" [^src10]
-- Page 76: "Aalborg Universitetshospital, Thisted 0 1 0 0 0 0" [^src11]
-- Page 84: "Aalborg Universitetshospital, Thisted # # # # # #" [^src12]
+- Page 6: "Aalborg Universitetshospit al, Thisted 0,0" [^src2]
+- Page 11: "Aalborg Universitetshospit al, Thisted
+0,0" [^src3]
+- Page 51: "Aalborg Universitetshospital, Thisted 0,0" [^src4]
+- Page 61: "Aalborg Universitetshospital, Thisted 0,0" [^src5]
 
 ## Relationships
+- **Subject:** aalborg-universitetshospital-thisted | **Predicate:** has-indicator-result | **Object:** indikator-1 | **Evidence:** "Aalborg Universitetshospital, Thisted 0,0" | **Page:** 9 [^src1]
 
-- [[nordjylland|Nordjylland]] — is-part-of [^src1]. Evidence: "Aalborg Universitetshospital, Thisted er opført under Nordjylland-regionen i AKDB-rapporteringen" (Page 9)
-- [[region-nordjylland|Region Nordjylland]] — located-in [^src3]. Evidence: "Aalborg Universitetshospital, Thisted er under Region Nordjylland" (Page 49)
-- [[region-nordjylland|Region Nordjylland]] — is-part-of [^src9]. Evidence: "Aalborg Universitetshospital, Thisted er opført under Nordjylland Region i alt" (Page 61)
-- [[aalborg-universitetshospital|Aalborg Universitetshospital]] — is-part-of [^src11]. Evidence: "Aalborg Universitetshospital, Thisted 0 1 0 0 0 0 under Nordjylland Region i alt" (Page 76)
-- [[region-nordjylland|Region Nordjylland]] — located-in [^src12]. Evidence: "Aalborg Universitetshospital, Thisted # # # # # #" (Page 84)
-- [[region-nordjylland|Region Nordjylland]] — contains (incoming) — "Nordjylland Region i alt includes Aalborg Universitetshospital, Thisted" [^src10] (Page 71)
+## Claims
+(none)
+
+## Timeline
+(none)
 
 ## Sources
 
 [^src1]: AKDB_2023.pdf, pages 6-10
-[^src2]: AKDB_2023.pdf, pages 36-40
-[^src3]: AKDB_2023.pdf, pages 46-50
-[^src4]: AKDB_2024.pdf, pages 6-10
-[^src5]: AKDB_2024.pdf, pages 11-15
-[^src6]: AKDB_2024.pdf, pages 16-20
-[^src7]: AKDB_2024.pdf, pages 41-45
-[^src8]: AKDB_2024.pdf, pages 51-55
-[^src9]: AKDB_2024.pdf, pages 61-65
-[^src10]: AKDB_2024.pdf, pages 71-75
-[^src11]: AKDB_2024.pdf, pages 76-80
-[^src12]: AKDB_2024.pdf, pages 81-85
+[^src2]: AKDB_2024.pdf, pages 6-10
+[^src3]: AKDB_2024.pdf, pages 11-15
+[^src4]: AKDB_2024.pdf, pages 51-55
+[^src5]: AKDB_2024.pdf, pages 61-65

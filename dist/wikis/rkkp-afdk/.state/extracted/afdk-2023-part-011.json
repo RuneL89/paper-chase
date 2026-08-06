@@ -4,11 +4,27 @@
       "name": "Databasen for Atrieflimren i Danmark",
       "type": "organization",
       "slug": "databasen-for-atrieflimren-i-danmark",
-      "folder": "entities/organizations/health-registries",
-      "significance": "This is the Danish atrial fibrillation database that produces the annual report containing quality indicators for atrial fibrillation treatment and monitoring across Danish regions.",
+      "folder": "entities/organizations/health-databases",
+      "significance": "Databasen for Atrieflimren i Danmark er den centrale nationale database, der overvåger kvaliteten af behandlingen af patienter med atrieflimren i Danmark, og danner grundlag for årsrapporten på siderne 51–55.",
       "mentions": [
         {
           "page": 51,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 52,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 53,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 54,
+          "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
+        },
+        {
+          "page": 55,
           "context": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023"
         }
       ]
@@ -17,12 +33,62 @@
       "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
       "type": "organization",
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/health-registries",
-      "significance": "RKKP is the Danish regional clinical quality development program that oversees and publishes quality indicators for atrial fibrillation treatment, including the indicators discussed in this report.",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) er det fælles regionale program, der udarbejder og administrerer kvalitetsindikatorer som Indikator 4b og Indikator 5, og står bag årsrapporten fra Databasen for Atrieflimren i Danmark.",
       "mentions": [
         {
           "page": 51,
           "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 52,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 53,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 54,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        },
+        {
+          "page": 55,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4b",
+      "type": "topic",
+      "slug": "indikator-4b",
+      "folder": "topics/quality-indicators/cardiology",
+      "significance": "Indikator 4b måler andelen af patienter med atrieflimren i DOAC-behandling, der har fået mindst én årlig måling af P-creatinin, hvilket er afgørende for sikker dosering af antikoagulantia og identifikation af nyrefunktionssvigt.",
+      "mentions": [
+        {
+          "page": 51,
+          "context": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt."
+        },
+        {
+          "page": 52,
+          "context": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt."
+        },
+        {
+          "page": 53,
+          "context": "Indikatoren er opgjort på bopælskommune frem for hospitalsniveau, idet atrieflimren-diagnosen for det store flertal af patienterne er stillet for år tilbage, og behandlingen overvejende varetages i almen praksis frem for hospitalsregi."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "topic",
+      "slug": "indikator-5",
+      "folder": "topics/quality-indicators/cardiology",
+      "significance": "Indikator 5 måler incidensen af iskæmisk apopleksi blandt prævalente patienter med atrieflimren, og anvender en national standard på ≤ 0,8 % for at vurdere effektiviteten af forebyggende antikoagulantbehandling.",
+      "mentions": [
+        {
+          "page": 54,
+          "context": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren."
         }
       ]
     },
@@ -31,7 +97,7 @@
       "type": "organization",
       "slug": "landspatientregisteret",
       "folder": "entities/organizations/health-registries",
-      "significance": "The Danish National Patient Registry is a key data source for identifying patients with atrial fibrillation diagnoses and tracking their treatment with direct oral anticoagulants.",
+      "significance": "Landspatientregisteret leverer data om patienter med atrieflimren-diagnose til beregning af Indikator 4b og Indikator 5, herunder registrering af diagnoser inden for de foregående 10 år.",
       "mentions": [
         {
           "page": 53,
@@ -44,7 +110,7 @@
       "type": "organization",
       "slug": "laegemiddelstatistikregisteret",
       "folder": "entities/organizations/health-registries",
-      "significance": "The Danish Medication Statistics Registry provides data on medication use (via ATC codes) for patients in the atrial fibrillation database, used to identify DOAC treatment.",
+      "significance": "Lægemiddelstatistikregisteret leverer data om indløste recepter for DOAC via ATC-koder, hvilket bruges til at definere den prævalente population i Indikator 4b.",
       "mentions": [
         {
           "page": 53,
@@ -57,7 +123,7 @@
       "type": "organization",
       "slug": "laboratorieregistret",
       "folder": "entities/organizations/health-registries",
-      "significance": "The Laboratory Registry provides P-creatinine measurement data used to monitor kidney function in atrial fibrillation patients on DOAC treatment.",
+      "significance": "Laboratorieregistret leverer p-creatinin-målinger via NPU-koder (NPU04998 og NPU18016), hvilket er kritisk for vurdering af nyrefunktion i Indikator 4b.",
       "mentions": [
         {
           "page": 53,
@@ -69,12 +135,16 @@
       "name": "Den Nationale Labdatabank",
       "type": "organization",
       "slug": "den-nationale-labdatabank",
-      "folder": "entities/organizations/health-registries",
-      "significance": "The National Laboratory Data Bank is the central repository for laboratory results from Danish laboratories, from which P-creatinine data is extracted for the atrial fibrillation quality indicators.",
+      "folder": "entities/organizations/health-infrastructure",
+      "significance": "Den Nationale Labdatabank er den centrale infrastruktur, hvorfra laboratoriesvar indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen, og hvor Region Midtjylland første gang systematisk overførte prøvesvar i rapportperioden.",
       "mentions": [
         {
           "page": 53,
           "context": "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen."
+        },
+        {
+          "page": 53,
+          "context": "Nærværende årsrapportsperiode er den første hvor Region Midtjylland systematisk har overført prøvesvar til Den Nationale Labdatabank."
         }
       ]
     },
@@ -82,8 +152,8 @@
       "name": "Sundhedsdatastyrelsen",
       "type": "organization",
       "slug": "sundhedsdatastyrelsen",
-      "folder": "entities/organizations/health-registries",
-      "significance": "The Danish Health Data Authority maintains the Laboratory Database that receives laboratory results from the National Laboratory Data Bank for use in quality indicators.",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "Sundhedsdatastyrelsen administrerer Laboratoriedatabasen, hvori laboratoriesvar fra Den Nationale Labdatabank indlæses til brug i kvalitetsindikatorer som Indikator 4b.",
       "mentions": [
         {
           "page": 53,
@@ -92,70 +162,15 @@
       ]
     },
     {
-      "name": "Region Hovedstaden",
+      "name": "Styregruppen",
       "type": "organization",
-      "slug": "region-hovedstaden",
-      "folder": "entities/organizations/danish-regions",
-      "significance": "Region Hovedstaden (Capital Region) is one of five Danish regions tracked in the atrial fibrillation quality indicators; it did not meet the standard for Indicator 4b (94% vs. ≥95%) and did not meet the standard for Indicator 5.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland"
-        },
-        {
-          "page": 54,
-          "context": "Hovedstaden Nej 343 / 37.128 0 (0) 0,9 (0,8-1,0)"
-        }
-      ]
-    },
-    {
-      "name": "Region Sjælland",
-      "type": "organization",
-      "slug": "region-sjaelland",
-      "folder": "entities/organizations/danish-regions",
-      "significance": "Region Sjælland (Zealand Region) is one of five Danish regions tracked in the atrial fibrillation quality indicators; it did not meet the standard for either Indicator 4b or Indicator 5.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland"
-        },
-        {
-          "page": 54,
-          "context": "Sjælland Nej 222 / 22.375 0 (0) 1,0 (0,9-1,1)"
-        }
-      ]
-    },
-    {
-      "name": "Region Syddanmark",
-      "type": "organization",
-      "slug": "region-syddanmark",
-      "folder": "entities/organizations/danish-regions",
-      "significance": "Region Syddanmark (Southern Denmark Region) is one of five Danish regions tracked in the atrial fibrillation quality indicators; it met the standard for both Indicator 4b and Indicator 5.",
-      "mentions": [
-        {
-          "page": 51,
-          "context": "NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland"
-        },
-        {
-          "page": 54,
-          "context": "Syddanmark Ja 226 / 31.271 0 (0) 0,7 (0,6-0,8)"
-        }
-      ]
-    },
-    {
-      "name": "Region Midtjylland",
-      "type": "organization",
-      "slug": "region-midtjylland",
-      "folder": "entities/organizations/danish-regions",
-      "significance": "Region Midtjylland (Central Jutland Region) is one of five Danish regions tracked in the atrial fibrillation quality indicators; it met the standard for both Indicator 4b and Indicator 5, and systematically transferred laboratory results to the National Laboratory Data Bank for the first time in this reporting period.",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/health-governance",
+      "significance": "Styregruppen er den beslutningskompetente gruppe under Regionernes Kliniske Kvalitetsudviklingsprogram, der anbefaler forbedringsforanstaltninger til styring af Indikator 4b, herunder fokus på kontrol af nyrefunktion og information til patienter.",
       "mentions": [
         {
           "page": 53,
-          "context": "Nærværende årsrapportsperiode er den første hvor Region Midtjylland systematisk har overført prøvesvar til Den Nationale Labdatabank."
-        },
-        {
-          "page": 54,
-          "context": "Midtjylland Ja 210 / 29.513 0 (0) 0,7 (0,6-0,8)"
+          "context": "Styregruppen anbefaler, at der sættes større fokus på denne indikator, og at behovet for kontrol af nyrefunktion nævnes i epikriser fra sygehusene, når patienter udskrives med et DOAC præparat."
         }
       ]
     },
@@ -163,20 +178,84 @@
       "name": "Region Nordjylland",
       "type": "organization",
       "slug": "region-nordjylland",
-      "folder": "entities/organizations/danish-regions",
-      "significance": "Region Nordjylland (Northern Jutland Region) is one of five Danish regions tracked in the atrial fibrillation quality indicators; it is the only region that met the standard for Indicator 4b (95%) and also met the standard for Indicator 5.",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Nordjylland er den eneste region, der opfylder standarden på ≥ 95 % for Indikator 4b, og opfylder også standarden på ≤ 0,8 % for Indikator 5.",
       "mentions": [
         {
-          "page": 51,
-          "context": "NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland"
-        },
-        {
           "page": 53,
-          "context": "Region Nordjylland opfylder som eneste region (95%) standarden"
+          "context": "Region Nordjylland opfylder som eneste region (95%) standarden, men alle øvrige regioner ligger i niveauet 92-94%."
         },
         {
           "page": 54,
-          "context": "Nordjylland Ja 103 / 14.523 0 (0) 0,7 (0,6-0,9)"
+          "context": "Nordjylland Ja 103 / 14.523 0 (0) 0,7 (0,6-0,9) 125 / 14.640 0,9 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Hovedstaden er en af de regioner, der ikke opfylder standarden for Indikator 4b (92–94 %) og Indikator 5 (0,9 % > 0,8 %), og anvender primært NPU04998 til p-creatinin-målinger.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland"
+        },
+        {
+          "page": 54,
+          "context": "Hovedstaden Nej 343 / 37.128 0 (0) 0,9 (0,8-1,0) 387 / 37.251 1,0 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Sjælland er en af de regioner, der ikke opfylder standarden for Indikator 4b (92–94 %) og Indikator 5 (1,0 % > 0,8 %), og anvender primært NPU04998 til p-creatinin-målinger.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland"
+        },
+        {
+          "page": 54,
+          "context": "Sjælland Nej 222 / 22.375 0 (0) 1,0 (0,9-1,1) 197 / 22.309 0,9 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Syddanmark opfylder både standarden for Indikator 4b (95 %) og Indikator 5 (0,7 % ≤ 0,8 %), og anvender primært NPU18016 til p-creatinin-målinger.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland."
+        },
+        {
+          "page": 54,
+          "context": "Syddanmark Ja 226 / 31.271 0 (0) 0,7 (0,6-0,8) 200 / 30.752 0,7 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland opfylder standarden for Indikator 5 (0,7 % ≤ 0,8 %), og er den første region, der systematisk overførte prøvesvar til Den Nationale Labdatabank i rapportperioden.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "Nærværende årsrapportsperiode er den første hvor Region Midtjylland systematisk har overført prøvesvar til Den Nationale Labdatabank."
+        },
+        {
+          "page": 54,
+          "context": "Midtjylland Ja 210 / 29.513 0 (0) 0,7 (0,6-0,8) 229 / 29.344 0,8 0,7"
         }
       ]
     }
@@ -184,234 +263,302 @@
   "relationships": [
     {
       "subject": "databasen-for-atrieflimren-i-danmark",
-      "predicate": "is-operated-by",
+      "predicate": "is-administered-by",
       "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk",
+      "evidence": "Databasen for Atrieflimren i Danmark · Årsrapport 1. juli 2022 – 30. juni 2023 og Regionernes Kliniske Kvalitetsudviklingsprogram · www.rkkp.dk står sammen på alle sider 51–55.",
       "page": 51
     },
     {
-      "subject": "databasen-for-atrieflimren-i-danmark",
-      "predicate": "uses-data-from",
+      "subject": "indikator-4b",
+      "predicate": "is-calculated-using",
       "object": "landspatientregisteret",
-      "evidence": "Data til beregning af indikatoren indhentes fra Landspatientregisteret",
+      "evidence": "Populationen i Indikator 4b udgøres af den prævalente gruppe af patienter med en atrieflimren-diagnose, som er i DOAC-behandling... Den prævalente population defineres som alle personer, som var i live pr. 1. juli 2022, og som havde fået diagnosen registreret i Landspatientregisteret mindst én gang inden for de foregående 10 år.",
       "page": 53
     },
     {
-      "subject": "databasen-for-atrieflimren-i-danmark",
-      "predicate": "uses-data-from",
+      "subject": "indikator-4b",
+      "predicate": "is-calculated-using",
       "object": "laegemiddelstatistikregisteret",
-      "evidence": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret",
+      "evidence": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret.",
       "page": 53
     },
     {
-      "subject": "databasen-for-atrieflimren-i-danmark",
-      "predicate": "uses-data-from",
+      "subject": "indikator-4b",
+      "predicate": "is-calculated-using",
       "object": "laboratorieregistret",
-      "evidence": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret",
+      "evidence": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret.",
       "page": 53
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "is-calculated-using",
+      "object": "landspatientregisteret",
+      "evidence": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren.",
+      "page": 54
     },
     {
       "subject": "laboratorieregistret",
-      "predicate": "receives-data-from",
+      "predicate": "feeds-into",
       "object": "den-nationale-labdatabank",
-      "evidence": "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen",
+      "evidence": "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen.",
+      "page": 53
+    },
+    {
+      "subject": "den-nationale-labdatabank",
+      "predicate": "feeds-into",
+      "object": "sundhedsdatastyrelsen",
+      "evidence": "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen.",
+      "page": 53
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "issues-recommendations-for",
+      "object": "indikator-4b",
+      "evidence": "Styregruppen anbefaler, at der sættes større fokus på denne indikator, og at behovet for kontrol af nyrefunktion nævnes i epikriser fra sygehusene, når patienter udskrives med et DOAC præparat.",
+      "page": 53
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "meets-standard-for",
+      "object": "indikator-4b",
+      "evidence": "Region Nordjylland opfylder som eneste region (95%) standarden, men alle øvrige regioner ligger i niveauet 92-94%.",
+      "page": 53
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "meets-standard-for",
+      "object": "indikator-5",
+      "evidence": "Nordjylland Ja 103 / 14.523 0 (0) 0,7 (0,6-0,9) 125 / 14.640 0,9 1,0",
+      "page": 54
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "does-not-meet-standard-for",
+      "object": "indikator-4b",
+      "evidence": "Region Nordjylland opfylder som eneste region (95%) standarden, men alle øvrige regioner ligger i niveauet 92-94%.",
       "page": 53
     },
     {
       "subject": "region-hovedstaden",
-      "predicate": "uses-npu-code",
-      "object": "npu04998",
-      "evidence": "NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland",
-      "page": 51
+      "predicate": "does-not-meet-standard-for",
+      "object": "indikator-5",
+      "evidence": "Hovedstaden Nej 343 / 37.128 0 (0) 0,9 (0,8-1,0) 387 / 37.251 1,0 1,1",
+      "page": 54
     },
     {
       "subject": "region-sjaelland",
-      "predicate": "uses-npu-code",
-      "object": "npu04998",
-      "evidence": "NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland",
-      "page": 51
+      "predicate": "does-not-meet-standard-for",
+      "object": "indikator-4b",
+      "evidence": "Region Nordjylland opfylder som eneste region (95%) standarden, men alle øvrige regioner ligger i niveauet 92-94%.",
+      "page": 53
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "does-not-meet-standard-for",
+      "object": "indikator-5",
+      "evidence": "Sjælland Nej 222 / 22.375 0 (0) 1,0 (0,9-1,1) 197 / 22.309 0,9 0,9",
+      "page": 54
     },
     {
       "subject": "region-syddanmark",
-      "predicate": "uses-npu-code",
-      "object": "npu18016",
-      "evidence": "NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland",
-      "page": 51
+      "predicate": "meets-standard-for",
+      "object": "indikator-4b",
+      "evidence": "Region Nordjylland opfylder som eneste region (95%) standarden, men alle øvrige regioner ligger i niveauet 92-94%.",
+      "page": 53
     },
     {
-      "subject": "region-nordjylland",
-      "predicate": "uses-npu-code",
-      "object": "npu18016",
-      "evidence": "NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland",
-      "page": 51
+      "subject": "region-syddanmark",
+      "predicate": "meets-standard-for",
+      "object": "indikator-5",
+      "evidence": "Syddanmark Ja 226 / 31.271 0 (0) 0,7 (0,6-0,8) 200 / 30.752 0,7 0,7",
+      "page": 54
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "meets-standard-for",
+      "object": "indikator-5",
+      "evidence": "Midtjylland Ja 210 / 29.513 0 (0) 0,7 (0,6-0,8) 229 / 29.344 0,8 0,7",
+      "page": 54
     }
   ],
   "claims": [
     {
       "text": "På landsplan fik 94% den prævalente population af patienter med atrieflimren, som var i DOAC-behandling, målt p-creatinin mindst én gang årligt [^src1]",
-      "type": "clinical-quality",
+      "type": "quality-performance",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "databasen-for-atrieflimren-i-danmark",
+        "indikator-4b"
       ],
       "page": 53
     },
     {
-      "text": "Standarden på ≥ 95% for Indikator 4b er således ikke opfyldt på landsplan [^src1]",
-      "type": "clinical-quality",
+      "text": "Standarden på ≥ 95% er således ikke opfyldt på landsplan [^src1]",
+      "type": "quality-performance",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-4b"
       ],
       "page": 53
     },
     {
-      "text": "Region Nordjylland opfylder som eneste region (95%) standarden for Indikator 4b, men alle øvrige regioner ligger i niveauet 92-94% [^src1]",
-      "type": "clinical-quality",
+      "text": "Region Nordjylland opfylder som eneste region (95%) standarden [^src1]",
+      "type": "quality-performance",
       "entities": [
         "region-nordjylland",
+        "indikator-4b"
+      ],
+      "page": 53
+    },
+    {
+      "text": "Alle øvrige regioner ligger i niveauet 92-94% [^src1]",
+      "type": "quality-performance",
+      "entities": [
+        "indikator-4b"
+      ],
+      "page": 53
+    },
+    {
+      "text": "Det er kun Region Nord, der opfylder standarden [^src1]",
+      "type": "quality-performance",
+      "entities": [
+        "region-nordjylland",
+        "indikator-4b"
+      ],
+      "page": 53
+    },
+    {
+      "text": "Indikatoren fastholdes [^src1]",
+      "type": "policy-decision",
+      "entities": [
+        "indikator-4b"
+      ],
+      "page": 53
+    },
+    {
+      "text": "Standard for Indikator 5 er ≤ 0,8% [^src2]",
+      "type": "quality-standard",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 54
+    },
+    {
+      "text": "På landsplan er incidensen af iskæmisk apopleksi blandt prævalente patienter med atrieflimren 0,8% (95% CI: 0,8–0,9) i perioden 01.07.2022–30.06.2023 [^src2]",
+      "type": "epidemiological",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 54
+    },
+    {
+      "text": "Danmark opfylder standarden for Indikator 5 [^src2]",
+      "type": "quality-performance",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 54
+    },
+    {
+      "text": "Region Nordjylland har en incidens på 0,7% (95% CI: 0,6–0,9) og opfylder standarden [^src2]",
+      "type": "quality-performance",
+      "entities": [
+        "region-nordjylland",
+        "indikator-5"
+      ],
+      "page": 54
+    },
+    {
+      "text": "Region Hovedstaden har en incidens på 0,9% (95% CI: 0,8–1,0) og opfylder ikke standarden [^src2]",
+      "type": "quality-performance",
+      "entities": [
         "region-hovedstaden",
+        "indikator-5"
+      ],
+      "page": 54
+    },
+    {
+      "text": "Region Sjælland har en incidens på 1,0% (95% CI: 0,9–1,1) og opfylder ikke standarden [^src2]",
+      "type": "quality-performance",
+      "entities": [
         "region-sjaelland",
+        "indikator-5"
+      ],
+      "page": 54
+    },
+    {
+      "text": "Region Syddanmark har en incidens på 0,7% (95% CI: 0,6–0,8) og opfylder standarden [^src2]",
+      "type": "quality-performance",
+      "entities": [
         "region-syddanmark",
-        "region-midtjylland"
+        "indikator-5"
       ],
-      "page": 53
+      "page": 54
     },
     {
-      "text": "Det er kun Region Nord, der opfylder standarden for Indikator 4b [^src1]",
-      "type": "clinical-quality",
-      "entities": [
-        "region-nordjylland"
-      ],
-      "page": 53
-    },
-    {
-      "text": "Antal eksklusion: 2.584 patienter havde ikke bopæl i DK eller havde et erstatnings CPRnr [^src1]",
-      "type": "data-quality",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 53
-    },
-    {
-      "text": "Antal eksklusion: 64 patienters bopælskommune var ukendt [^src1]",
-      "type": "data-quality",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 53
-    },
-    {
-      "text": "Antal eksklusion: 79.554 patienter døde inden starten af sidste opgørelsesperiode [^src1]",
-      "type": "data-quality",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 53
-    },
-    {
-      "text": "Antal eksklusion: 36.538 patienter havde ikke indløst en recept for DOAC i opgørelsesperioden [^src1]",
-      "type": "data-quality",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 53
-    },
-    {
-      "text": "Nærværende årsrapportsperiode er den første hvor Region Midtjylland systematisk har overført prøvesvar til Den Nationale Labdatabank [^src1]",
-      "type": "data-collection",
+      "text": "Region Midtjylland har en incidens på 0,7% (95% CI: 0,6–0,8) og opfylder standarden [^src2]",
+      "type": "quality-performance",
       "entities": [
         "region-midtjylland",
-        "den-nationale-labdatabank"
-      ],
-      "page": 53
-    },
-    {
-      "text": "For Indikator 5 på landsplan: 1.104 / 134.810 patienter (0,8%, 95% CI 0,8-0,9) havde iskæmisk apopleksi [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-5"
       ],
       "page": 54
-    },
-    {
-      "text": "Region Hovedstaden havde 343 / 37.128 patienter (0,9%, 95% CI 0,8-1,0) med iskæmisk apopleksi og opfyldte ikke standarden ≤ 0,8% [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "region-hovedstaden"
-      ],
-      "page": 54
-    },
-    {
-      "text": "Region Sjælland havde 222 / 22.375 patienter (1,0%, 95% CI 0,9-1,1) med iskæmisk apopleksi og opfyldte ikke standarden ≤ 0,8% [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "region-sjaelland"
-      ],
-      "page": 54
-    },
-    {
-      "text": "Region Syddanmark havde 226 / 31.271 patienter (0,7%, 95% CI 0,6-0,8) med iskæmisk apopleksi og opfyldte standarden ≤ 0,8% [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "region-syddanmark"
-      ],
-      "page": 54
-    },
-    {
-      "text": "Region Midtjylland havde 210 / 29.513 patienter (0,7%, 95% CI 0,6-0,8) med iskæmisk apopleksi og opfyldte standarden ≤ 0,8% [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "region-midtjylland"
-      ],
-      "page": 54
-    },
-    {
-      "text": "Region Nordjylland havde 103 / 14.523 patienter (0,7%, 95% CI 0,6-0,9) med iskæmisk apopleksi og opfyldte standarden ≤ 0,8% [^src1]",
-      "type": "clinical-outcome",
-      "entities": [
-        "region-nordjylland"
-      ],
-      "page": 54
-    },
-    {
-      "text": "Styregruppen anbefaler, at der sættes større fokus på Indikator 4b, og at behovet for kontrol af nyrefunktion nævnes i epikriser fra sygehusene, når patienter udskrives med et DOAC præparat [^src1]",
-      "type": "recommendation",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 53
-    },
-    {
-      "text": "Styregruppen anbefaler, at der er fokus på overgangene til primærsektoren især i forhold til information til patienterne om eget ansvar for blodprøve kontrol [^src1]",
-      "type": "recommendation",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 53
-    },
-    {
-      "text": "Indikatoren 4b fastholdes [^src1]",
-      "type": "indicator-status",
-      "entities": [
-        "databasen-for-atrieflimren-i-danmark"
-      ],
-      "page": 53
     }
   ],
   "timeline": [
     {
-      "date": "1. juli 2022 – 30. juni 2023",
-      "event": "Årsrapportperiode for Databasen for Atrieflimren i Danmark",
+      "date": "2022-07-01",
+      "event": "Start af rapportperioden for Indikator 4b og Indikator 5",
       "entities": [
-        "databasen-for-atrieflimren-i-danmark"
+        "indikator-4b",
+        "indikator-5"
       ]
     },
     {
-      "date": "1. juli 2022",
-      "event": "Prævalent population defineres som alle personer, som var i live pr. 1. juli 2022, og som havde fået diagnosen atrieflimren registreret i Landspatientregisteret mindst én gang inden for de foregående 10 år",
+      "date": "2023-06-30",
+      "event": "Afslutning af rapportperioden for Indikator 4b og Indikator 5",
       "entities": [
+        "indikator-4b",
+        "indikator-5"
+      ]
+    },
+    {
+      "date": "2022-07-01",
+      "event": "Definition af den prævalente population for Indikator 4b: Alle personer, som var i live pr. 1. juli 2022, og som havde fået diagnosen registreret i Landspatientregisteret mindst én gang inden for de foregående 10 år",
+      "entities": [
+        "indikator-4b",
         "landspatientregisteret"
       ]
     }
   ],
-  "context": "Denne dokumentchunk er del af årsrapporten for Databasen for Atrieflimren i Danmark for perioden 1. juli 2022 til 30. juni 2023, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten præsenterer kvalitetsindikatorer for behandling af atrieflimren på tværs af fem danske regioner, med fokus på to vigtige indikatorer: Indikator 4b vedrørende årlig måling af nyrefunktion (P-creatinin) hos patienter i behandling med direkte orale antikoagulantia (DOAC), og Indikator 5 vedrørende incidensen af iskæmisk apopleksi blandt patienter med atrieflimren. Chunken indeholder detaljerede data om datagrundlag, beregningsregler, eksklusionskriterier, og regionale resultater, samt anbefalinger fra styregruppen for forbedring af behandlingskvaliteten."
+  "tables": [
+    {
+      "subject": "indikator-4b",
+      "title": "Eksklusioner og uoplyste",
+      "page": 53,
+      "rowDimension": "årsag",
+      "colDimension": "antal",
+      "entities": [
+        "indikator-4b"
+      ],
+      "markdown": "| Antal | Årsag |\n| --- | --- |\n| 2.584 | Patienten har ikke bopæl i DK eller har et erstatnings CPRnr |\n| 64 | Patientens bopælskommune er ukendt |\n| 79.554 | Patienten dør inden starten af sidste opgørelsesperiode |\n| 36.538 | Patienten har ikke indløst en recept for DOAC i opgørelsesperioden |",
+      "summary": "Tabellen viser antallet og årsagen til eksklusioner fra Indikator 4b-beregningen, hvor død inden perioden og manglende DOAC-recept udgør de to største grupper."
+    },
+    {
+      "subject": "indikator-5",
+      "title": "Resultater for Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren",
+      "page": 54,
+      "rowDimension": "region/kommune",
+      "colDimension": "andel i % (95% CI)",
+      "entities": [
+        "indikator-5",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Standard | Uoplyst | Aktuelle år | Tidligere år |\n| --- | --- | --- | --- |\n| ≤ 0,8% | Tæller/ antal | 01.07.2022 - 30.06.2023 | 2021/22 |\n| opfyldt | nævner (%) | Andel | 95% CI |\n| Danmark | Ja | 1.104 / 134.810 | 0 (0) |\n| | | 0,8 (0,8-0,9) | 1.138 / 134.296 |\n| Hovedstaden | Nej | 343 / 37.128 | 0 (0) |\n| | | 0,9 (0,8-1,0) | 387 / 37.251 |\n| Sjælland | Nej | 222 / 22.375 | 0 (0) |\n| | | 1,0 (0,9-1,1) | 197 / 22.309 |\n| Syddanmark | Ja | 226 / 31.271 | 0 (0) |\n| | | 0,7 (0,6-0,8) | 200 / 30.752 |\n| Midtjylland | Ja | 210 / 29.513 | 0 (0) |\n| | | 0,7 (0,6-0,8) | 229 / 29.344 |\n| Nordjylland | Ja | 103 / 14.523 | 0 (0) |\n| | | 0,7 (0,6-0,9) | 125 / 14.640 |",
+      "summary": "Tabellen sammenligner incidensen af iskæmisk apopleksi på tværs af regioner og kommuner, hvor Danmark samlet opfylder standarden (0,8 %), mens Hovedstaden og Sjælland overskrider den (henholdsvis 0,9 % og 1,0 %)."
+    }
+  ],
+  "context": "Dette dokumentudsnit udgør siderne 51–55 af Årsrapporten 2022–2023 fra Databasen for Atrieflimren i Danmark, udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Rapporten dokumenterer klinisk kvalitet i behandlingen af atrieflimren gennem to centrale indikatorer: Indikator 4b, der måler overholdelse af årlig nyrefunktionskontrol (p-creatinin) hos patienter på DOAC-behandling, og Indikator 5, der måler forebyggelsens effekt ved at registrere incidensen af iskæmisk apopleksi. Rapporten præsenterer både nationale resultater og regionale/kommunale detaljer, inklusive eksklusionsgrundlag, beregningsmetodik og anbefalinger fra Styregruppen, og danner dermed en central kilde til evaluering af sundhedsvæsenets kvalitetsstyring inden for kardiovaskulær medicin."
 }
