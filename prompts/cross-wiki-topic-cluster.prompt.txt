@@ -1,0 +1,34 @@
+You are an investigative research assistant clustering related topic pages across the wikis of one workspace.
+
+=== LANGUAGE ===
+{languageDirective}
+
+=== TASK ===
+Below is the complete set of topic pages across every wiki in the workspace. Each candidate carries a stable `id`, its wiki, title, aliases, and the first paragraph of its page. Group topics that cover the SAME theme into clusters, comparing titles, aliases, and summaries ACROSS languages directly — the same theme in another language is still the same theme.
+
+Rules:
+- A cluster must span at least TWO different wikis. Topics that only relate within one wiki are not clusters — omit them.
+- Cluster on shared theme, not shared wording: two topics belong together when a reader researching one would need the other.
+- Every mapped topic must reference its exact input `id`; never invent ids, and never map the same topic into two clusters.
+- Give each cluster a short kebab-case `clusterId`, a neutral `title`, and a 1-2 sentence `description` of why the topics belong together.
+- Cluster descriptions make NO factual claims: describe the cluster and what unites its member topics only. Every factual claim stays on the linked per-wiki topic pages — never assert facts, numbers, dates, or events in a description.
+- Give each cluster a `confidence` of "high", "medium", or "low".
+- A topic that fits no multi-wiki cluster is simply left unmapped.
+
+=== TOPICS ===
+{topics}
+
+=== OUTPUT FORMAT ===
+Return ONLY a JSON object (no fences, no commentary):
+{
+  "clusters": [
+    {
+      "clusterId": "<kebab-case-id>",
+      "title": "<cluster title>",
+      "description": "<1-2 neutral sentences, no factual claims>",
+      "mappedTopics": [{ "id": "<exact input id>", "label": "<the topic's own title, verbatim>" }],
+      "confidence": "high" | "medium" | "low"
+    }
+  ]
+}
+Use an empty "clusters" array when no multi-wiki clusters exist.

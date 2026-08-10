@@ -1221,11 +1221,11 @@ test('gate 14.9: on-disk merged-away/dropped pages are deleted with their empty 
 // ---------------------------------------------------------------------------
 
 test('gate 14.10: resolveModel maps the curation call type through the routing table', () => {
-  setModelRouting({ default: HAIKU, extractor: HAIKU, synthesis: OPUS, dox: null, curation: SONNET });
+  setModelRouting({ default: HAIKU, extractor: HAIKU, synthesis: OPUS, dox: null, crossWiki: null, crossWikiJudgment: null, curation: SONNET });
   try {
     expect(resolveModel('curation')).toBe(SONNET);
     // A null entry means "Same as default".
-    setModelRouting({ default: HAIKU, extractor: null, synthesis: null, dox: null, curation: null });
+    setModelRouting({ default: HAIKU, extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null, curation: null });
     expect(resolveModel('curation')).toBe(HAIKU);
     // An explicit per-call override beats the routing table.
     expect(resolveModel('curation', OPUS)).toBe(OPUS);
@@ -1237,7 +1237,7 @@ test('gate 14.10: resolveModel maps the curation call type through the routing t
 });
 
 test('gate 14.10: a legacy routing table without the field normalizes to null (byte-identical behavior)', () => {
-  setModelRouting({ default: HAIKU, extractor: HAIKU, synthesis: SONNET, dox: null });
+  setModelRouting({ default: HAIKU, extractor: HAIKU, synthesis: SONNET, dox: null, crossWiki: null, crossWikiJudgment: null });
   try {
     expect(resolveModel('curation')).toBe(HAIKU);
     expect(resolveModel('synthesis')).toBe(SONNET);
@@ -1252,7 +1252,7 @@ test('gate 14.10: seedModelsForProvider seeds the mid-tier curation default on a
     default: HAIKU,
     extractor: null,
     synthesis: null,
-    dox: null,
+    dox: null, crossWiki: null, crossWikiJudgment: null,
     curation: SONNET,
   });
   expect(seedModelsForProvider('openai')).toEqual({
@@ -1260,7 +1260,7 @@ test('gate 14.10: seedModelsForProvider seeds the mid-tier curation default on a
     default: GPT_LUNA,
     extractor: null,
     synthesis: null,
-    dox: null,
+    dox: null, crossWiki: null, crossWikiJudgment: null,
     curation: GPT_TERRA,
   });
   expect(seedModelsForProvider('qwen')).toEqual({
@@ -1268,7 +1268,7 @@ test('gate 14.10: seedModelsForProvider seeds the mid-tier curation default on a
     default: 'qwen-plus',
     extractor: null,
     synthesis: null,
-    dox: null,
+    dox: null, crossWiki: null, crossWikiJudgment: null,
     curation: 'qwen3.7-max',
   });
 });
@@ -1285,7 +1285,7 @@ test('gate 14.10: the Settings screen shows the Curation Model row with mid-tier
     JSON.stringify({
       synthesis: true,
       updateAgents: false,
-      models: { provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: null, dox: null },
+      models: { provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null },
       apiKeys: { anthropic: null, openai: null, qwen: null },
     }),
     'utf-8',
@@ -1300,7 +1300,7 @@ test('gate 14.10: the Settings screen shows the Curation Model row with mid-tier
     JSON.stringify({
       synthesis: true,
       updateAgents: false,
-      models: { provider: 'qwen', default: 'qwen-plus', extractor: null, synthesis: null, dox: null },
+      models: { provider: 'qwen', default: 'qwen-plus', extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null },
       apiKeys: { anthropic: null, openai: null, qwen: null },
     }),
     'utf-8',

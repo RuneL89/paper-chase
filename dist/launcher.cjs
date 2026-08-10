@@ -5,7 +5,7 @@ var import_node_fs = require("node:fs");
 var import_node_path = require("node:path");
 var import_node_os = require("node:os");
 var import_node_child_process = require("node:child_process");
-var VERSION = "1.0.10";
+var VERSION = "1.0.12";
 var SNAPSHOT_ROOT = (0, import_node_path.join)(__dirname, "..");
 var FILES = [
   ["dist/chase.mjs", "dist/chase.mjs"],

@@ -104,7 +104,7 @@ export function applyLanguageDirective(prompt: string, directive: string): strin
  * pre-Phase-7 behavior.
  */
 export function buildLanguageDirective(
-  role: 'extractor' | 'synthesis' | 'dox' | 'curation',
+  role: 'extractor' | 'synthesis' | 'dox' | 'curation' | 'cross-wiki',
   input: LanguageCode,
   output: LanguageCode,
 ): string {
@@ -141,6 +141,19 @@ export function buildLanguageDirective(
         `language (${outputName}). The sample claim and mention texts are verbatim source ` +
         `evidence in ${inputName} — judge theme and identity from their meaning; never translate ` +
         `or reword them in your output. A translation of the same name is still the same thing.`
+      );
+    case 'cross-wiki':
+      // Phase 24 (phase doc §2, user decision 2026-08-09 #5): cross-wiki
+      // matching is workspace-wide and cross-language — prose fields
+      // (summaries, cluster titles/descriptions, hypothesis summaries) are
+      // written in the run's OUTPUT language; names and evidence stay
+      // verbatim and are compared across languages directly.
+      return (
+        `Write all prose fields (summaries, cluster titles and descriptions, hypothesis ` +
+        `summaries) in ${outputName}. Entity and topic names, page titles, aliases, and quoted ` +
+        `evidence stay verbatim in their original language — never translate or reword them. ` +
+        `Compare names and summaries across languages directly: a translation of the same name ` +
+        `is still the same thing.`
       );
   }
 }

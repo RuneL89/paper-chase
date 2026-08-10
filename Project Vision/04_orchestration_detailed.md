@@ -6,15 +6,15 @@ This document explains how Paper Chase orchestrates the `ingest` flow. It is wri
 
 ## 1. The Pipeline
 
-The orchestrator is not a distributed system of 7 agents. It is a **five-layer pipeline** with two LLM calls per chunk (Extractor and optional Synthesis Writer), two per-ingest curation calls during materialization (topic curation and entity curation — amended 2026-07-23, user-ratified), and one LLM pass at the end (DOX Writer). The optional Synthesis Writer may rewrite entity, topic, and document pages.
+The orchestrator is not a distributed system of 7 agents. It is a **five-layer pipeline** with two LLM calls per chunk (Extractor and optional Synthesis Writer), two per-ingest curation calls during materialization (topic curation and entity curation — amended 2026-07-23, user-ratified), one LLM pass at the end (DOX Writer), and an optional **Cross-Wiki Discovery** pass (Phase 24) that runs after the workspace DOX pass. The optional Synthesis Writer may rewrite entity, topic, and document pages.
 
 ```
-PDF → Chunker → Layer 1 (Raw Pages) → Layer 2 (Extractor) → Layer 3 (Materializer → Curation) → Layer 4 (Synthesis Writer) → Layer 5 (DOX Writer)
+PDF → Chunker → Layer 1 (Raw Pages) → Layer 2 (Extractor) → Layer 3 (Materializer → Curation) → Layer 4 (Synthesis Writer) → Layer 5 (DOX Writer) → Layer 6 (Cross-Wiki Discovery, Phase 24)
 ```
 
 The local deterministic code handles the boring parts: reading files, extracting text, computing hashes, writing files, validating schemas, and checking links. The LLM handles the thinking parts: extraction, classification, synthesis, curation judgments, and writing navigation contracts.
 
-**Concurrency (amended 2026-07-23, user-ratified):** within Layer 4, the entity-synthesis and topic-synthesis stages may process their pages concurrently through a bounded worker pool with a fixed cap of 4 concurrent calls; pages are independent of one another, and reports and on-disk output are written in deterministic page order regardless of completion order. Everything else is always sequential: extraction (chunks share rolling-memory context), the curation calls, the DOX Writer (bottom-up level dependencies), the workspace pass, and the AGENTS.md Updater. **Transport tuning for the pool (amended 2026-07-25, user-ratified):** concurrent large-output streams put more pressure on the API than sequential calls, so transport settings account for the pool — generous header timeouts for large-output calls, slightly staggered worker dispatch instead of simultaneous starts, and backoff between transport retries.
+**Concurrency (amended 2026-07-23, user-ratified):** within Layer 4, the entity-synthesis and topic-synthesis stages may process their pages concurrently through a bounded worker pool with a fixed cap of 4 concurrent calls; pages are independent of one another, and reports and on-disk output are written in deterministic page order regardless of completion order. Everything else is always sequential: extraction (chunks share rolling-memory context), the curation calls, the DOX Writer (bottom-up level dependencies), the workspace pass, the optional Cross-Wiki Discovery pass (Phase 24), and the AGENTS.md Updater. **Transport tuning for the pool (amended 2026-07-25, user-ratified):** concurrent large-output streams put more pressure on the API than sequential calls, so transport settings account for the pool — generous header timeouts for large-output calls, slightly staggered worker dispatch instead of simultaneous starts, and backoff between transport retries.
 
 ---
 
@@ -185,6 +185,7 @@ After all content pages are finalized, the **DOX Writer** runs:
 5. Write the final `index.md` files.
 6. Run a final validation pass over the entire wiki, including the new DOX pages.
 7. Run the workspace pass — the topmost step of the same bottom-up chain (folder indexes → wiki root index → workspace index). Two parts, two ownership rules (amended 2026-07-21, user-ratified): (a) the coherent workspace prose — an LLM synthesis reading ALL wikis' freshly-written root `index.md` contracts (never their content pages), regenerated ONLY when the set of wikis changes or no prose exists yet, in the regenerating run's output language (§9), otherwise preserved byte-for-byte; (b) the `## Wikis` catalog — one LLM call writes ONLY the triggering wiki's own line in this run's output language, preserving every other wiki's line byte-for-byte. Deterministic code re-imposes the children list, statistics, and stitching over all wikis.
+8. Run the optional **Cross-Wiki Discovery** pass (Phase 24) — only when the workspace contains more than one wiki. It builds a derived `wikis/cross-wiki/` artifact set (entity registry, relationship graph, topic clusters, and their indexes) by reading the per-wiki root DOX contracts, per-wiki entity/relationship artifacts, and the workspace index; it never reads raw content pages. The workspace index gains a `## Cross-Wiki Discovery` section linking to `cross-wiki/index.md` (amended 2026-08-09, user-ratified).
 
 This is an LLM-driven step. It produces the navigation contracts that describe the finalized wiki and the workspace above it.
 
@@ -244,6 +245,7 @@ Validation runs at multiple points in the pipeline:
 3. **Preservation check** — After the Synthesis Writer (if used), does the markdown page contain every mention, relationship, and claim from the structured data for entity and topic pages, and all preserved tables, figures, and extracted sections for document pages?
 4. **Content-page validation** — After materialization (and optional synthesis), do all `[[Page Title]]` links resolve, all `[^srcN]` citations map to sources, and all pages have valid frontmatter?
 5. **DOX-page validation** — After the DOX Writer writes the `index.md` contracts, do the new DOX pages have valid frontmatter, accurate children lists, and no broken links?
+6. **Cross-wiki validation (Phase 24)** — After the Cross-Wiki Discovery pass, are the `wikis/cross-wiki/*.md` files and their `.state/cross-wiki/*.json` mirrors schema-valid, do path-qualified wikilinks resolve, and do they contain no unsourced factual claims?
 
 If any check fails, the error is logged. **Retry policy (amended 2026-07-20; feedback-retry carve-out amended 2026-07-23, user-ratified):** the system distinguishes four failure classes.
 

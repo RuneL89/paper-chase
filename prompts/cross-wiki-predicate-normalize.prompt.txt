@@ -1,0 +1,24 @@
+You are an investigative research assistant canonicalizing relationship predicates across the wikis of one workspace.
+
+=== LANGUAGE ===
+{languageDirective}
+
+=== TASK ===
+Different wikis phrase the same relationship differently (for example "is-ceo-of", "leads", and "is-chief-executive-of" can be one relationship). Below is the complete set of relationship predicate strings used across all wikis. Group SEMANTICALLY IDENTICAL predicates and pick one canonical representative per group.
+
+Rules:
+- The canonical form must be one of the input strings — prefer the clearest, most explicit variant.
+- Direction matters: "a-donated-to-b" and "b-received-donation-from-a" are the same FACT in opposite directions only when the wording says so; when direction is ambiguous, keep the predicates in separate groups.
+- Near-synonyms with different meaning stay separate (a board seat is not executive leadership; ownership is not donation).
+- Every input predicate must appear in EXACTLY ONE group's "variants" list — never omit one, never list one twice.
+- Keep every predicate lowercase kebab-case, exactly as supplied.
+
+=== PREDICATES ===
+{predicates}
+
+=== OUTPUT FORMAT ===
+Return ONLY a JSON object (no fences, no commentary):
+{
+  "groups": [{ "canonical": "<one of the variants>", "variants": ["<predicate>", "<predicate>"] }]
+}
+A predicate with no synonyms forms a single-variant group. Use an empty "groups" array only when the input is empty.

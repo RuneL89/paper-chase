@@ -900,7 +900,7 @@ var require_option = __commonJS({
 var require_suggestSimilar = __commonJS({
   "node_modules/commander/lib/suggestSimilar.js"(exports2) {
     var maxDistance = 3;
-    function editDistance2(a, b) {
+    function editDistance3(a, b) {
       if (Math.abs(a.length - b.length) > maxDistance)
         return Math.max(a.length, b.length);
       const d = [];
@@ -946,7 +946,7 @@ var require_suggestSimilar = __commonJS({
       const minSimilarity = 0.4;
       candidates.forEach((candidate) => {
         if (candidate.length <= 1) return;
-        const distance = editDistance2(word, candidate);
+        const distance = editDistance3(word, candidate);
         const length = Math.max(word.length, candidate.length);
         const similarity = (length - distance) / length;
         if (similarity > minSimilarity) {
@@ -29443,7 +29443,7 @@ var require_websocket = __commonJS({
     var http = __require("http");
     var net = __require("net");
     var tls = __require("tls");
-    var { randomBytes, createHash: createHash5 } = __require("crypto");
+    var { randomBytes, createHash: createHash6 } = __require("crypto");
     var { Duplex, Readable } = __require("stream");
     var { URL: URL2 } = __require("url");
     var PerMessageDeflate2 = require_permessage_deflate();
@@ -30111,7 +30111,7 @@ var require_websocket = __commonJS({
           abortHandshake(websocket, socket, "Invalid Upgrade header");
           return;
         }
-        const digest = createHash5("sha1").update(key + GUID).digest("base64");
+        const digest = createHash6("sha1").update(key + GUID).digest("base64");
         if (res.headers["sec-websocket-accept"] !== digest) {
           abortHandshake(websocket, socket, "Invalid Sec-WebSocket-Accept header");
           return;
@@ -30480,7 +30480,7 @@ var require_websocket_server = __commonJS({
     var EventEmitter3 = __require("events");
     var http = __require("http");
     var { Duplex } = __require("stream");
-    var { createHash: createHash5 } = __require("crypto");
+    var { createHash: createHash6 } = __require("crypto");
     var extension2 = require_extension();
     var PerMessageDeflate2 = require_permessage_deflate();
     var subprotocol2 = require_subprotocol();
@@ -30787,7 +30787,7 @@ var require_websocket_server = __commonJS({
           );
         }
         if (this._state > RUNNING) return abortHandshake(socket, 503);
-        const digest = createHash5("sha1").update(key + GUID).digest("base64");
+        const digest = createHash6("sha1").update(key + GUID).digest("base64");
         const headers = [
           "HTTP/1.1 101 Switching Protocols",
           "Upgrade: websocket",
@@ -36537,10 +36537,10 @@ var require_stringify = __commonJS({
       data = Object.assign({}, file.data, data);
       const open = opts.delimiters[0];
       const close = opts.delimiters[1];
-      const matter15 = engine.stringify(data, options2).trim();
+      const matter22 = engine.stringify(data, options2).trim();
       let buf = "";
-      if (matter15 !== "{}") {
-        buf = newline(open) + newline(matter15) + newline(close);
+      if (matter22 !== "{}") {
+        buf = newline(open) + newline(matter22) + newline(close);
       }
       if (typeof file.excerpt === "string" && file.excerpt !== "") {
         if (str2.indexOf(file.excerpt.trim()) === -1) {
@@ -36646,19 +36646,19 @@ var require_gray_matter = __commonJS({
     var toFile = require_to_file();
     var parse2 = require_parse();
     var utils = require_utils();
-    function matter15(input, options2) {
+    function matter22(input, options2) {
       if (input === "") {
         return { data: {}, content: input, excerpt: "", orig: input };
       }
       let file = toFile(input);
-      const cached = matter15.cache[file.content];
+      const cached = matter22.cache[file.content];
       if (!options2) {
         if (cached) {
           file = Object.assign({}, cached);
           file.orig = cached.orig;
           return file;
         }
-        matter15.cache[file.content] = file;
+        matter22.cache[file.content] = file;
       }
       return parseMatter(file, options2);
     }
@@ -36680,7 +36680,7 @@ var require_gray_matter = __commonJS({
       }
       str2 = str2.slice(openLen);
       const len = str2.length;
-      const language = matter15.language(str2, opts);
+      const language = matter22.language(str2, opts);
       if (language.name) {
         file.language = language.name;
         str2 = str2.slice(language.raw.length);
@@ -36715,24 +36715,24 @@ var require_gray_matter = __commonJS({
       }
       return file;
     }
-    matter15.engines = engines2;
-    matter15.stringify = function(file, data, options2) {
-      if (typeof file === "string") file = matter15(file, options2);
+    matter22.engines = engines2;
+    matter22.stringify = function(file, data, options2) {
+      if (typeof file === "string") file = matter22(file, options2);
       return stringify(file, data, options2);
     };
-    matter15.read = function(filepath, options2) {
+    matter22.read = function(filepath, options2) {
       const str2 = fs3.readFileSync(filepath, "utf8");
-      const file = matter15(str2, options2);
+      const file = matter22(str2, options2);
       file.path = filepath;
       return file;
     };
-    matter15.test = function(str2, options2) {
+    matter22.test = function(str2, options2) {
       return utils.startsWith(str2, defaults(options2).delimiters[0]);
     };
-    matter15.language = function(str2, options2) {
+    matter22.language = function(str2, options2) {
       const opts = defaults(options2);
       const open = opts.delimiters[0];
-      if (matter15.test(str2)) {
+      if (matter22.test(str2)) {
         str2 = str2.slice(open.length);
       }
       const language = str2.slice(0, str2.search(/\r?\n/));
@@ -36741,11 +36741,11 @@ var require_gray_matter = __commonJS({
         name: language ? language.trim() : ""
       };
     };
-    matter15.cache = {};
-    matter15.clearCache = function() {
-      matter15.cache = {};
+    matter22.cache = {};
+    matter22.clearCache = function() {
+      matter22.cache = {};
     };
-    module2.exports = matter15;
+    module2.exports = matter22;
   }
 });
 
@@ -51174,7 +51174,7 @@ var require_snapshot_utils = __commonJS({
 var require_snapshot_recorder = __commonJS({
   "node_modules/undici/lib/mock/snapshot-recorder.js"(exports2, module2) {
     "use strict";
-    var { writeFile: writeFile22, readFile: readFile27, mkdir: mkdir23 } = __require("node:fs/promises");
+    var { writeFile: writeFile27, readFile: readFile33, mkdir: mkdir28 } = __require("node:fs/promises");
     var { dirname: dirname6, resolve: resolve5 } = __require("node:path");
     var { setTimeout: setTimeout2, clearTimeout: clearTimeout2 } = __require("node:timers");
     var { InvalidArgumentError: InvalidArgumentError2, UndiciError } = require_errors();
@@ -51391,7 +51391,7 @@ var require_snapshot_recorder = __commonJS({
           throw new InvalidArgumentError2("Snapshot path is required");
         }
         try {
-          const data = await readFile27(resolve5(path), "utf8");
+          const data = await readFile33(resolve5(path), "utf8");
           const parsed = JSON.parse(data);
           if (Array.isArray(parsed)) {
             this.#snapshots.clear();
@@ -51421,12 +51421,12 @@ var require_snapshot_recorder = __commonJS({
           throw new InvalidArgumentError2("Snapshot path is required");
         }
         const resolvedPath = resolve5(path);
-        await mkdir23(dirname6(resolvedPath), { recursive: true });
+        await mkdir28(dirname6(resolvedPath), { recursive: true });
         const data = Array.from(this.#snapshots.entries()).map(([hash, snapshot]) => ({
           hash,
           snapshot
         }));
-        await writeFile22(resolvedPath, JSON.stringify(data, null, 2), { flush: true });
+        await writeFile27(resolvedPath, JSON.stringify(data, null, 2), { flush: true });
       }
       /**
        * Clears all recorded snapshots
@@ -72453,6 +72453,9 @@ function seedModelsForProvider(provider, customProviders = []) {
     extractor: null,
     synthesis: null,
     dox: null,
+    // Phase 24: explicit Cross-Wiki Discovery slots start as "Same as default".
+    crossWiki: null,
+    crossWikiJudgment: null,
     curation: getCurationModelForProvider(provider, customProviders)
   };
 }
@@ -72478,6 +72481,9 @@ function normalizeModels(parsed, customProviders = []) {
     extractor: concrete(parsed?.extractor),
     synthesis: concrete(parsed?.synthesis),
     dox: concrete(parsed?.dox),
+    // Phase 24: explicit cross-wiki slots; absent in legacy configs → null.
+    crossWiki: concrete(parsed?.crossWiki),
+    crossWikiJudgment: concrete(parsed?.crossWikiJudgment),
     // Phase 14 §2.6: absent in legacy configs → null (falls through to
     // `default` at resolve time — byte-identical legacy behavior).
     curation: concrete(parsed?.curation)
@@ -72822,6 +72828,8 @@ function buildLanguageDirective(role, input, output) {
       return `Write all prose (the description, \`## Pages\` descriptions, \`## Start Here\` reasons) in ${outputName}. Keep page titles and entity names verbatim.`;
     case "curation":
       return `Topic and entity identities (slugs, titles, folder names) follow the wiki's output language (${outputName}). The sample claim and mention texts are verbatim source evidence in ${inputName} \u2014 judge theme and identity from their meaning; never translate or reword them in your output. A translation of the same name is still the same thing.`;
+    case "cross-wiki":
+      return `Write all prose fields (summaries, cluster titles and descriptions, hypothesis summaries) in ${outputName}. Entity and topic names, page titles, aliases, and quoted evidence stay verbatim in their original language \u2014 never translate or reword them. Compare names and summaries across languages directly: a translation of the same name is still the same thing.`;
   }
 }
 
@@ -73120,8 +73128,8 @@ function InitScreen({ onBack, onResult, defaultWorkspace = "./", onCreated }) {
 
 // src/tui/ingest-screen.tsx
 var import_react42 = __toESM(require_react(), 1);
-import { readdir as readdir10 } from "node:fs/promises";
-import { join as join32 } from "node:path";
+import { readdir as readdir14 } from "node:fs/promises";
+import { join as join41 } from "node:path";
 
 // src/tui/hooks/use-wiki-list.ts
 var import_react40 = __toESM(require_react(), 1);
@@ -73135,7 +73143,7 @@ function useWikiList(workspace = ".") {
       try {
         const entries = await readdir(join6(workspace, "wikis"), { withFileTypes: true });
         if (!cancelled) {
-          setWikis(entries.filter((e) => e.isDirectory()).map((e) => e.name));
+          setWikis(entries.filter((e) => e.isDirectory() && e.name !== "cross-wiki").map((e) => e.name));
         }
       } catch {
         if (!cancelled) {
@@ -73191,11 +73199,11 @@ function useWikiDetails(workspace, wiki, refreshKey = 0) {
 }
 
 // src/commands/ingest.ts
-var import_gray_matter14 = __toESM(require_gray_matter(), 1);
-import { existsSync as existsSync9, readFileSync as readFileSync3 } from "node:fs";
-import { mkdir as mkdir21, readFile as readFile25, readdir as readdir9, rm as rm2, writeFile as writeFile21 } from "node:fs/promises";
-import { join as join31 } from "node:path";
-import { createHash as createHash4 } from "node:crypto";
+var import_gray_matter21 = __toESM(require_gray_matter(), 1);
+import { existsSync as existsSync10, readFileSync as readFileSync3 } from "node:fs";
+import { mkdir as mkdir26, readFile as readFile31, readdir as readdir13, rm as rm3, writeFile as writeFile26 } from "node:fs/promises";
+import { join as join40 } from "node:path";
+import { createHash as createHash5 } from "node:crypto";
 
 // src/extraction/pdf.ts
 import { copyFileSync, existsSync as existsSync5, mkdirSync } from "node:fs";
@@ -74968,7 +74976,7 @@ var __webpack_modules__ = {
       var defineProperty = Object.defineProperty;
       var stringSlice = uncurryThis("".slice);
       var replace = uncurryThis("".replace);
-      var join36 = uncurryThis([].join);
+      var join45 = uncurryThis([].join);
       var CONFIGURABLE_LENGTH = DESCRIPTORS && !fails(function() {
         return defineProperty(function() {
         }, "length", { value: 8 }).length !== 8;
@@ -74995,7 +75003,7 @@ var __webpack_modules__ = {
         }
         var state = enforceInternalState(value);
         if (!hasOwn(state, "source")) {
-          state.source = join36(TEMPLATE, typeof name == "string" ? name : "");
+          state.source = join45(TEMPLATE, typeof name == "string" ? name : "");
         }
         return value;
       };
@@ -87572,8 +87580,8 @@ var PDFNodeStreamFsFullReader = class {
     this._readCapability = Promise.withResolvers();
     this._headersCapability = Promise.withResolvers();
     const fs3 = process.getBuiltinModule("fs");
-    fs3.promises.lstat(this._url).then((stat2) => {
-      this._contentLength = stat2.size;
+    fs3.promises.lstat(this._url).then((stat3) => {
+      this._contentLength = stat3.size;
       this._setReadableStream(fs3.createReadStream(this._url));
       this._headersCapability.resolve();
     }, (error) => {
@@ -88117,7 +88125,7 @@ var XfaText = class _XfaText {
       items,
       styles: /* @__PURE__ */ Object.create(null)
     };
-    function walk4(node) {
+    function walk5(node) {
       if (!node) {
         return;
       }
@@ -88141,10 +88149,10 @@ var XfaText = class _XfaText {
         return;
       }
       for (const child of node.children) {
-        walk4(child);
+        walk5(child);
       }
     }
-    walk4(xfa);
+    walk5(xfa);
     return output;
   }
   static shouldBuildText(name) {
@@ -98681,6 +98689,76 @@ async function checkLinks(wikiSlug, workspace = ".") {
     totalPages: pages.length
   };
 }
+async function checkCrossWikiLinks(workspace = ".") {
+  const wikisRoot = join9(workspace, "wikis");
+  let entries;
+  try {
+    entries = await readdir3(wikisRoot, { withFileTypes: true });
+  } catch {
+    return { broken: [], totalLinks: 0, totalPages: 0 };
+  }
+  const pathToPage = /* @__PURE__ */ new Map();
+  const slugToPage = /* @__PURE__ */ new Map();
+  const addPage = (pathKey, display) => {
+    if (!pathToPage.has(pathKey)) {
+      pathToPage.set(pathKey, display);
+    }
+    const basename2 = pathKey.split("/").pop() ?? pathKey;
+    const slug = slugify(basename2);
+    if (!slugToPage.has(slug)) {
+      slugToPage.set(slug, display);
+    }
+  };
+  for (const entry of entries) {
+    if (!entry.isDirectory() || entry.name.startsWith(".")) {
+      continue;
+    }
+    const files = [];
+    await walk(join9(wikisRoot, entry.name), join9(wikisRoot, entry.name), entry.name, files);
+    for (const file of files) {
+      addPage(`${entry.name}/${file.wikiRelative.replace(/\.md$/i, "")}`, file.relative);
+    }
+  }
+  const crossWikiDir = join9(wikisRoot, "cross-wiki");
+  const crossWikiFiles = [];
+  const collect = async (dir) => {
+    let dirEntries;
+    try {
+      dirEntries = await readdir3(dir, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const entry of dirEntries) {
+      const absolute = join9(dir, entry.name);
+      if (entry.isDirectory()) {
+        await collect(absolute);
+      } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
+        crossWikiFiles.push(absolute);
+      }
+    }
+  };
+  await collect(crossWikiDir);
+  const broken = [];
+  let totalLinks = 0;
+  const linkPattern = /\[\[([^\]]+)\]\]/g;
+  for (const absolute of crossWikiFiles.sort((a, b) => a.localeCompare(b))) {
+    const pageRel = `wikis/cross-wiki/${relative(crossWikiDir, absolute).replace(/\\/g, "/")}`;
+    const content = await readFile6(absolute, "utf-8");
+    const body = stripFrontmatter(content);
+    let match;
+    while ((match = linkPattern.exec(body)) !== null) {
+      totalLinks++;
+      const linkText = match[1].trim();
+      const { target } = parseWikilinkTarget(linkText);
+      const pathKey = target.replace(/\.md$/i, "");
+      const resolved = pathToPage.has(pathKey) || pathToPage.has(`cross-wiki/${pathKey}`) || slugToPage.has(slugify(pathKey));
+      if (!resolved) {
+        broken.push({ page: pageRel, link: linkText });
+      }
+    }
+  }
+  return { broken, totalLinks, totalPages: crossWikiFiles.length };
+}
 
 // src/state/ingestion-state.ts
 import { mkdir as mkdir4, readFile as readFile7, writeFile as writeFile4 } from "node:fs/promises";
@@ -99330,7 +99408,11 @@ function setModelRouting(routing) {
       anthropic: normalizeStoredKey(routing.apiKeys?.anthropic),
       openai: normalizeStoredKey(routing.apiKeys?.openai),
       qwen: normalizeStoredKey(routing.apiKeys?.qwen)
-    }
+    },
+    // Phase 24: explicit cross-wiki slots; absent legacy configs → null
+    // (fall back to default / synthesis as before).
+    crossWiki: typeof routing.crossWiki === "string" && routing.crossWiki.length > 0 ? routing.crossWiki : null,
+    crossWikiJudgment: typeof routing.crossWikiJudgment === "string" && routing.crossWikiJudgment.length > 0 ? routing.crossWikiJudgment : null
   };
 }
 function normalizeStoredKey(value) {
@@ -99348,6 +99430,17 @@ function resolveModelFromRouting(routing, callType, override) {
   }
   if (callType !== void 0 && SYNTHESIS_CALL_TYPES.has(callType) && routing.synthesis !== null) {
     return routing.synthesis;
+  }
+  if (callType === "cross-wiki-uncertain-review" || callType === "cross-wiki-hypothesis") {
+    if (routing.crossWikiJudgment !== null) {
+      return routing.crossWikiJudgment;
+    }
+    if (routing.synthesis !== null) {
+      return routing.synthesis;
+    }
+  }
+  if (callType !== void 0 && callType.startsWith("cross-wiki-") && routing.crossWiki !== null) {
+    return routing.crossWiki;
   }
   if (callType === "dox-writer" && routing.dox !== null) {
     return routing.dox;
@@ -105169,8 +105262,8 @@ function buildFolderBody(wikiSlug, folder, parentFolder) {
   }
   lines.push("## Statistics");
   lines.push("");
-  for (const stat2 of buildStatisticsLines(folder)) {
-    lines.push(`- ${stat2}`);
+  for (const stat3 of buildStatisticsLines(folder)) {
+    lines.push(`- ${stat3}`);
   }
   lines.push("");
   return lines.join("\n");
@@ -105245,7 +105338,7 @@ function replaceStatisticsSection(body, statistics) {
       break;
     }
   }
-  const statsBlock = ["", ...statistics.map((stat2) => `- ${stat2}`), ""];
+  const statsBlock = ["", ...statistics.map((stat3) => `- ${stat3}`), ""];
   const next = [...lines.slice(0, headingIndex + 1), ...statsBlock, ...lines.slice(endIndex)];
   return next.join("\n");
 }
@@ -105325,7 +105418,7 @@ function buildWikiLinkIndex(root, wikiSlug) {
       bySlug.set(slug, link2);
     }
   };
-  const walk4 = (folder, isRootFolder) => {
+  const walk5 = (folder, isRootFolder) => {
     const hasContent = folder.files.length > 0 || folder.subFolders.length > 0;
     if (isRootFolder && hasContent) {
       const rootLink = { form: rootIndexLink(wikiSlug), target: "index" };
@@ -105356,10 +105449,10 @@ function buildWikiLinkIndex(root, wikiSlug) {
       }
     }
     for (const subFolder of folder.subFolders) {
-      walk4(subFolder, false);
+      walk5(subFolder, false);
     }
   };
-  walk4(root, true);
+  walk5(root, true);
   return { byPath, bySlug, titleToFiles };
 }
 function resolveCanonicalLink(target, linkIndex) {
@@ -105483,7 +105576,7 @@ ${child.content}`).join("\n\n") : "(none \u2014 this folder has no sub-folders)"
     navigation: context.isRoot ? "This is the wiki root; there is no parent or sibling folder. Do not include a ## Navigation section." : `Parent: ${context.parentTitle}
 Siblings: ${context.siblingTitles.length > 0 ? context.siblingTitles.join(", ") : "(none)"}`,
     linkTargets: linkTargetLines.length > 0 ? linkTargetLines.join("\n") : "(no link targets)",
-    statistics: context.statistics.map((stat2) => `- ${stat2}`).join("\n"),
+    statistics: context.statistics.map((stat3) => `- ${stat3}`).join("\n"),
     pageContents: context.pageContents.length > 0 ? context.pageContents.map((page) => `--- ${page.name} (${page.title || "untitled"}) ---
 ${page.content}`).join("\n\n") : "(no direct page content in this folder \u2014 synthesize from the child folder indexes above)",
     agentsMd: context.agentsMd.trim().length > 0 ? context.agentsMd : "(No AGENTS.md provided.)",
@@ -105654,7 +105747,31 @@ function deterministicWorkspaceProse(wikis) {
   const titles = wikis.map((wiki) => wiki.title).join("; ");
   return `${base}: ${titles}.`;
 }
-function composeWorkspaceBody(wikis, statistics, workspaceProse, entryDescription, triggeringSlug, preserved) {
+var CROSS_WIKI_SECTION_HEADING = "## Cross-Wiki Discovery";
+function crossWikiDiscoverySection() {
+  return [
+    CROSS_WIKI_SECTION_HEADING,
+    "",
+    `- ${formatWikilink("cross-wiki/index", "Cross-Wiki Discovery")} \u2014 derived workspace-level artifacts: the cross-wiki entity registry, relationship graph, and topic clusters.`,
+    ""
+  ].join("\n");
+}
+function parseCrossWikiSection(body) {
+  const lines = body.split("\n");
+  const start = lines.findIndex((line) => line.trim() === CROSS_WIKI_SECTION_HEADING);
+  if (start === -1) {
+    return null;
+  }
+  let end = lines.length;
+  for (let index = start + 1; index < lines.length; index++) {
+    if (/^## /.test(lines[index])) {
+      end = index;
+      break;
+    }
+  }
+  return lines.slice(start, end).join("\n").replace(/\n+$/, "\n");
+}
+function composeWorkspaceBody(wikis, statistics, workspaceProse, entryDescription, triggeringSlug, preserved, crossWikiSection) {
   const lines = [];
   lines.push(`# ${WORKSPACE_INDEX_TITLE}`);
   lines.push("");
@@ -105669,10 +105786,14 @@ function composeWorkspaceBody(wikis, statistics, workspaceProse, entryDescriptio
     lines.push(line);
   }
   lines.push("");
+  if (crossWikiSection) {
+    lines.push(crossWikiSection.replace(/\n+$/, ""));
+    lines.push("");
+  }
   lines.push("## Statistics");
   lines.push("");
-  for (const stat2 of statistics) {
-    lines.push(`- ${stat2}`);
+  for (const stat3 of statistics) {
+    lines.push(`- ${stat3}`);
   }
   lines.push("");
   return lines.join("\n");
@@ -105758,7 +105879,7 @@ async function writeWorkspaceIndex(options2) {
   }
   const wikis = [];
   for (const entry of entries) {
-    if (!entry.isDirectory()) {
+    if (!entry.isDirectory() || entry.name === "cross-wiki") {
       continue;
     }
     const indexPath = join25(wikisRoot, entry.name, "index.md");
@@ -105858,13 +105979,16 @@ async function writeWorkspaceIndex(options2) {
     }
     entryDescription = description ?? deterministicDescription(triggering);
   }
+  const crossWikiArtifacts = (await readTextIfExists(join25(wikisRoot, "cross-wiki", "index.md"))).length > 0;
+  const crossWikiSection = crossWikiArtifacts ? parseCrossWikiSection((0, import_gray_matter10.default)(existing).content ?? "") ?? crossWikiDiscoverySection() : null;
   const body = composeWorkspaceBody(
     wikis,
     statistics,
     workspaceProse,
     entryDescription,
     options2.wikiSlug,
-    preserved
+    preserved,
+    crossWikiSection
   );
   const aliases = aliasesForTitle(WORKSPACE_INDEX_TITLE, WORKSPACE_INDEX_FILE.replace(/\.md$/, ""));
   const frontmatter = {
@@ -105875,6 +105999,53 @@ async function writeWorkspaceIndex(options2) {
     children
   };
   await writeFile17(join25(wikisRoot, WORKSPACE_INDEX_FILE), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
+}
+async function updateWorkspaceCrossWikiSection(workspace = ".") {
+  const wikisRoot = join25(workspace, "wikis");
+  const indexPath = join25(wikisRoot, WORKSPACE_INDEX_FILE);
+  const existing = await readTextIfExists(indexPath);
+  if (existing.length === 0) {
+    return;
+  }
+  let frontmatterBlock = "";
+  let body = existing;
+  const fmMatch = /^---[ \t]*\r?\n[\s\S]*?\r?\n---[ \t]*\r?\n?/.exec(existing);
+  if (fmMatch) {
+    frontmatterBlock = fmMatch[0];
+    body = existing.slice(fmMatch[0].length);
+  }
+  const lines = body.split("\n");
+  const start = lines.findIndex((line) => line.trim() === CROSS_WIKI_SECTION_HEADING);
+  if (start !== -1) {
+    let end = lines.length;
+    for (let index = start + 1; index < lines.length; index++) {
+      if (/^## /.test(lines[index])) {
+        end = index;
+        break;
+      }
+    }
+    lines.splice(start, end - start);
+    for (let index = lines.length - 2; index >= 0; index--) {
+      if (lines[index].trim() === "" && lines[index + 1].trim() === "" && (lines[index + 2] ?? "").trim() === "") {
+        lines.splice(index, 1);
+      }
+    }
+  }
+  const artifactsExist = (await readTextIfExists(join25(wikisRoot, "cross-wiki", "index.md"))).length > 0;
+  if (artifactsExist) {
+    const sectionLines = crossWikiDiscoverySection().replace(/\n+$/, "").split("\n");
+    const statsIndex = lines.findIndex((line) => line.trim() === "## Statistics");
+    if (statsIndex !== -1) {
+      const insertAt = statsIndex > 0 && lines[statsIndex - 1].trim() === "" ? statsIndex - 1 : statsIndex;
+      lines.splice(insertAt, statsIndex - insertAt, ...sectionLines, "");
+    } else {
+      if (lines[lines.length - 1]?.trim() !== "") {
+        lines.push("");
+      }
+      lines.push(...sectionLines, "");
+    }
+  }
+  await writeFile17(indexPath, `${frontmatterBlock}${lines.join("\n")}`, "utf-8");
 }
 
 // src/agents/agents-updater.ts
@@ -105906,7 +106077,7 @@ var AGENTS_UPDATER_MAX_ATTEMPTS = 3;
 async function collectWikiStructure(wikiDirPath) {
   const folders = [];
   const typeCounts = /* @__PURE__ */ new Map();
-  async function walk4(dir) {
+  async function walk5(dir) {
     const entries = await readdir6(dir, { withFileTypes: true });
     for (const entry of entries) {
       if (entry.isDirectory()) {
@@ -105915,7 +106086,7 @@ async function collectWikiStructure(wikiDirPath) {
         }
         const folderPath = relative2(wikiDirPath, join26(dir, entry.name)).split("\\").join("/");
         folders.push(folderPath);
-        await walk4(join26(dir, entry.name));
+        await walk5(join26(dir, entry.name));
       } else if (entry.isFile() && entry.name.endsWith(".md")) {
         try {
           const raw = await readFile21(join26(dir, entry.name), "utf-8");
@@ -105928,7 +106099,7 @@ async function collectWikiStructure(wikiDirPath) {
       }
     }
   }
-  await walk4(wikiDirPath);
+  await walk5(wikiDirPath);
   folders.sort((a, b) => a.localeCompare(b));
   const pageTypes = Array.from(typeCounts.entries()).map(([type, count]) => ({ type, count })).sort((a, b) => a.type.localeCompare(b.type));
   return { folders, pageTypes };
@@ -106080,35 +106251,2054 @@ ${feedback}`;
   return proposal;
 }
 
-// src/validation/index.ts
-import { mkdir as mkdir19, writeFile as writeFile19 } from "node:fs/promises";
-import { join as join29 } from "node:path";
+// src/cross-wiki/index.ts
+import { mkdir as mkdir23, writeFile as writeFile23 } from "node:fs/promises";
+import { join as join35 } from "node:path";
 
-// src/validation/citation-checker.ts
+// src/pages/cross-wiki/cross-wiki-index-page.ts
 var import_gray_matter12 = __toESM(require_gray_matter(), 1);
-import { access, readFile as readFile22, readdir as readdir7 } from "node:fs/promises";
+function writeCrossWikiIndexPage(stats, updated) {
+  const lines = [];
+  lines.push("# Cross-Wiki Discovery", "");
+  lines.push(
+    "This folder holds the workspace-level Cross-Wiki Discovery artifacts: a derived, read-only view across every wiki in the workspace. Nothing here merges or edits the per-wiki pages \u2014 each artifact links back to the per-wiki pages where the cited evidence lives.",
+    ""
+  );
+  lines.push("## Artifacts", "");
+  lines.push(
+    `- ${formatWikilink("cross-wiki/entities", "Cross-Wiki Entity Registry")} \u2014 ${stats.entityCount} ${stats.entityCount === 1 ? "entity" : "entities"} appearing in at least two wikis, with per-member context summaries.`
+  );
+  lines.push(
+    `- ${formatWikilink("cross-wiki/relationships", "Cross-Wiki Relationship Graph")} \u2014 ${stats.edgeCount} ${stats.edgeCount === 1 ? "relationship" : "relationships"} crossing wiki boundaries or touching a cross-wiki entity, with canonical predicates.`
+  );
+  lines.push(
+    `- ${formatWikilink("cross-wiki/topics/index", "Cross-Wiki Topic Clusters")} \u2014 ${stats.clusterCount} ${stats.clusterCount === 1 ? "cluster" : "clusters"} of related topics across wikis.`
+  );
+  lines.push("");
+  lines.push("## How to Use", "");
+  lines.push(
+    "Start at the entity registry to find the same real-world thing in several wikis, follow the relationship graph for connections that cross wiki boundaries, and read the topic clusters for themes the wikis share. Every link is path-qualified (`wiki/folder/page`) so it resolves inside the workspace vault."
+  );
+  lines.push("");
+  lines.push("## Statistics", "");
+  lines.push(`- Cross-wiki entities: ${stats.entityCount}`);
+  lines.push(`- Relationship edges: ${stats.edgeCount}`);
+  lines.push(`- Topic clusters: ${stats.clusterCount}`);
+  lines.push(`- Wikis covered: ${stats.wikiCount}`);
+  lines.push("");
+  const frontmatter = {
+    title: "Cross-Wiki Discovery",
+    type: "cross-wiki-index",
+    updated,
+    children: ["entities.md", "relationships.md", "topics/index.md"],
+    entityCount: stats.entityCount,
+    edgeCount: stats.edgeCount
+  };
+  return import_gray_matter12.default.stringify(`
+${lines.join("\n")}
+`, frontmatter);
+}
+function writeCrossWikiTopicsIndexPage(clusters, updated) {
+  const lines = [];
+  lines.push("# Cross-Wiki Topic Clusters", "");
+  if (clusters.length === 0) {
+    lines.push(
+      "No cross-wiki topic clusters found. Clusters group related topics that appear in at least two wikis; none were found in the current workspace.",
+      ""
+    );
+  } else {
+    lines.push(
+      `${clusters.length} ${clusters.length === 1 ? "cluster groups" : "clusters group"} related topics across wikis. Cluster pages describe the grouping only \u2014 factual claims live on the linked per-wiki topic pages.`,
+      ""
+    );
+    lines.push("## Clusters", "");
+    for (const cluster of clusters) {
+      const wikis = Array.from(new Set(cluster.mappedTopics.map((topic) => topic.wiki))).sort((a, b) => a.localeCompare(b));
+      lines.push(
+        `- ${formatWikilink(`cross-wiki/topics/${cluster.clusterId}`, cluster.title)} \u2014 ${cluster.mappedTopics.length} topics across ${wikis.length} wikis (${wikis.join(", ")}).`
+      );
+    }
+    lines.push("");
+  }
+  lines.push("## Statistics", "");
+  lines.push(`- Clusters: ${clusters.length}`);
+  lines.push("");
+  const frontmatter = {
+    title: "Cross-Wiki Topic Clusters",
+    type: "cross-wiki-index",
+    updated,
+    children: clusters.map((cluster) => `${cluster.clusterId}.md`)
+  };
+  return import_gray_matter12.default.stringify(`
+${lines.join("\n")}
+`, frontmatter);
+}
+
+// src/validation/cross-wiki-schema.ts
+var import_gray_matter13 = __toESM(require_gray_matter(), 1);
+import { readFile as readFile22, readdir as readdir7 } from "node:fs/promises";
 import { join as join27, relative as relative3 } from "node:path";
-async function findContentPages(wikiSlug, workspace) {
-  const dir = join27(workspace, "wikis", wikiSlug);
+var CROSS_WIKI_TYPES = /* @__PURE__ */ new Set(["cross-wiki-index", "cross-wiki-topic"]);
+function isValidIsoTimestamp(value) {
+  if (value instanceof Date) {
+    return !Number.isNaN(value.getTime());
+  }
+  if (typeof value !== "string") {
+    return false;
+  }
+  const parsed = Date.parse(value);
+  if (Number.isNaN(parsed)) {
+    return false;
+  }
+  try {
+    return new Date(parsed).toISOString() === value;
+  } catch {
+    return false;
+  }
+}
+async function walk2(dir, root, out) {
+  let entries;
+  try {
+    entries = await readdir7(dir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    const absolute = join27(dir, entry.name);
+    if (entry.isDirectory()) {
+      await walk2(absolute, root, out);
+    } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
+      out.push(relative3(root, absolute).replace(/\\/g, "/"));
+    }
+  }
+}
+async function validateCrossWikiSchema(workspace = ".") {
+  const root = join27(workspace, "wikis", "cross-wiki");
+  const files = [];
+  await walk2(root, root, files);
+  const invalid = [];
+  for (const rel of files.sort((a, b) => a.localeCompare(b))) {
+    const page = `wikis/cross-wiki/${rel}`;
+    let parsed;
+    try {
+      parsed = (0, import_gray_matter13.default)(await readFile22(join27(root, rel), "utf-8"));
+    } catch (err) {
+      invalid.push({ page, issue: `Invalid YAML frontmatter: ${err.message}` });
+      continue;
+    }
+    const data = parsed.data;
+    if (typeof data.title !== "string" || data.title.trim().length === 0) {
+      invalid.push({ page, issue: "Missing or invalid required field: title" });
+    }
+    if (typeof data.type !== "string" || data.type.length === 0) {
+      invalid.push({ page, issue: "Missing required field: type" });
+    } else if (!CROSS_WIKI_TYPES.has(data.type)) {
+      invalid.push({ page, issue: `Unknown cross-wiki page type: ${data.type}` });
+    } else if (data.type === "cross-wiki-index") {
+      if (!Array.isArray(data.children)) {
+        invalid.push({ page, issue: 'type cross-wiki-index requires a "children" list' });
+      }
+    } else if (data.type === "cross-wiki-topic") {
+      if (typeof data.clusterId !== "string" || data.clusterId.trim().length === 0) {
+        invalid.push({ page, issue: 'type cross-wiki-topic requires a "clusterId" field' });
+      }
+      if (!Array.isArray(data.members) || data.members.length === 0 || !data.members.every(
+        (member) => typeof member === "string" && /^[^/]+\/topics\/.+\.md$/.test(member)
+      )) {
+        invalid.push({
+          page,
+          issue: 'type cross-wiki-topic requires a "members" list of path-qualified topic slugs (<wiki>/topics/<path>.md)'
+        });
+      }
+    }
+    if (data.wiki !== void 0) {
+      invalid.push({ page, issue: 'cross-wiki pages must not carry a "wiki" field (workspace-level artifact)' });
+    }
+    if (!isValidIsoTimestamp(data.updated)) {
+      invalid.push({ page, issue: "Missing or invalid required field: updated (expected ISO 8601 timestamp)" });
+    }
+  }
+  return { invalid, totalPages: files.length };
+}
+
+// src/cross-wiki/llm.ts
+import { readFile as readFile23 } from "node:fs/promises";
+import { join as join28 } from "node:path";
+var CROSS_WIKI_SMALL_MAX_TOKENS = 2048;
+var CROSS_WIKI_MAX_TOKENS = 8192;
+var CROSS_WIKI_MAX_ATTEMPTS = 3;
+var promptCache4 = {};
+async function loadPrompt(fileName) {
+  const cached = promptCache4[fileName];
+  if (cached !== void 0) {
+    return cached;
+  }
+  const template = await readFile23(join28(appRoot(), "prompts", fileName), "utf-8");
+  promptCache4[fileName] = template;
+  return template;
+}
+function fillPromptSlots(template, values) {
+  let result = template;
+  for (const [key, value] of Object.entries(values)) {
+    result = result.split(`{${key}}`).join(value);
+  }
+  return result;
+}
+async function renderCrossWikiPrompt(fileName, slots, language) {
+  const template = await loadPrompt(fileName);
+  const filled = fillPromptSlots(template, slots);
+  const directive = language ? buildLanguageDirective("cross-wiki", language.input, language.output) : "";
+  return applyLanguageDirective(filled, directive);
+}
+function parseJsonResponse(raw) {
+  let text = raw.trim();
+  const fenceMatch = /^```(?:json)?\s*\r?\n([\s\S]*?)\r?\n?```$/.exec(text);
+  if (fenceMatch) {
+    text = fenceMatch[1].trim();
+  }
+  return JSON.parse(text);
+}
+async function runCrossWikiJsonCall(args) {
+  const prompt = args.callLLMFn === void 0 ? await renderCrossWikiPrompt(args.promptFile, args.slots, args.language) : void 0;
+  const runLlm = async (feedback, attempt) => {
+    if (args.callLLMFn !== void 0) {
+      return args.callLLMFn(feedback ?? void 0, attempt);
+    }
+    const base = prompt;
+    return callLLM(feedback === null ? base : `${base}
+
+${feedback}`, void 0, {
+      maxTokens: args.maxTokens,
+      maxRetries: 2,
+      callType: args.callType,
+      context: attempt > 1 ? `${args.context}#attempt${attempt}` : args.context,
+      logPath: args.logPath
+    });
+  };
+  let parsedValue = null;
+  const outcome = await runWithFeedbackRetry(
+    runLlm,
+    (raw) => {
+      let data;
+      try {
+        data = parseJsonResponse(raw);
+      } catch (err) {
+        return { valid: false, errors: [`Invalid JSON: ${err.message}`] };
+      }
+      const validation = args.validate(data);
+      if (validation.valid) {
+        parsedValue = validation.value ?? null;
+        return { valid: true, errors: [] };
+      }
+      return { valid: false, errors: validation.errors };
+    },
+    { maxAttempts: CROSS_WIKI_MAX_ATTEMPTS, label: args.label }
+  );
+  return { output: parsedValue, attempts: outcome.attempts, lastErrors: outcome.lastErrors };
+}
+
+// src/cross-wiki/state.ts
+import { mkdir as mkdir19, readFile as readFile24, writeFile as writeFile19 } from "node:fs/promises";
+import { join as join29 } from "node:path";
+function crossWikiStatePath(workspace, fileName) {
+  return join29(workspace ?? ".", ".state", "cross-wiki", fileName);
+}
+function proposedCrossWikiMatchesPath(workspace) {
+  return join29(workspace ?? ".", ".state", "proposed-cross-wiki-matches.json");
+}
+async function writeCrossWikiState(workspace, fileName, data) {
+  const path = crossWikiStatePath(workspace, fileName);
+  await mkdir19(join29(workspace ?? ".", ".state", "cross-wiki"), { recursive: true });
+  await writeFile19(path, JSON.stringify(data, null, 2) + "\n", "utf-8");
+}
+async function readCrossWikiState(workspace, fileName) {
+  try {
+    return JSON.parse(await readFile24(crossWikiStatePath(workspace, fileName), "utf-8"));
+  } catch {
+    return null;
+  }
+}
+async function writeProposedCrossWikiMatches(workspace, data) {
+  const path = proposedCrossWikiMatchesPath(workspace);
+  await mkdir19(join29(workspace ?? ".", ".state"), { recursive: true });
+  await writeFile19(path, JSON.stringify(data, null, 2) + "\n", "utf-8");
+}
+
+// src/cross-wiki/entity-context-summarizer.ts
+function sourceLabel(file, pages) {
+  return `${file.split("/").pop() ?? file} pages ${pages}`;
+}
+function deterministicSummary(page) {
+  const paragraph = page.firstParagraph.trim();
+  if (paragraph.length === 0) {
+    return page.entityType !== "" ? `${page.title} (${page.entityType}).` : `${page.title}.`;
+  }
+  const sentenceEnd = paragraph.search(/(?<=[.!?])\s/);
+  const first = sentenceEnd === -1 ? paragraph : paragraph.slice(0, sentenceEnd);
+  return first.length > 400 ? `${first.slice(0, 397)}...` : first;
+}
+function relationshipLine(page, rel) {
+  const other = rel.otherTitle ?? rel.otherSlug;
+  return rel.direction === "outgoing" ? `${page.title} \u2014 ${rel.predicate} \u2014 ${other}` : `${other} \u2014 ${rel.predicate} \u2014 ${page.title}`;
+}
+async function summarizeEntityWithLlm(input, language, logPath, feedback, attempt) {
+  const prompt = await renderCrossWikiPrompt(
+    "cross-wiki-entity-context.prompt.txt",
+    {
+      entityWiki: input.wiki,
+      entityTitle: input.title,
+      entityType: input.entityType !== "" ? input.entityType : "(not recorded)",
+      entityAliases: input.aliases.length > 0 ? input.aliases.join("; ") : "(none)",
+      firstParagraph: input.firstParagraph !== "" ? input.firstParagraph : "(no prose on the page)",
+      relationships: input.relationships.length > 0 ? input.relationships.join("\n") : "(none)"
+    },
+    language
+  );
+  return callLLM(feedback === void 0 ? prompt : `${prompt}
+
+${feedback}`, void 0, {
+    maxTokens: CROSS_WIKI_SMALL_MAX_TOKENS,
+    maxRetries: 2,
+    callType: "cross-wiki-entity-context",
+    context: attempt !== void 0 && attempt > 1 ? `cross-wiki entity context ${input.id}#attempt${attempt}` : `cross-wiki entity context ${input.id}`,
+    logPath
+  });
+}
+async function summarizeEntities(pages, options2 = {}) {
+  const summaries = {};
+  for (const page of pages) {
+    const input = {
+      id: page.id,
+      wiki: page.wiki,
+      title: page.title,
+      entityType: page.entityType,
+      aliases: page.aliases,
+      firstParagraph: page.firstParagraph,
+      relationships: page.relationships.slice(0, 5).map((rel) => relationshipLine(page, rel))
+    };
+    const runLlm = options2.summarizeEntityFn ? (feedback, attempt) => options2.summarizeEntityFn(input, feedback ?? void 0, attempt) : (feedback, attempt) => summarizeEntityWithLlm(input, options2.language, options2.logPath, feedback ?? void 0, attempt);
+    let summary = null;
+    try {
+      const outcome = await runWithFeedbackRetry(
+        runLlm,
+        (raw) => {
+          const text = raw.trim();
+          return text.length > 0 ? { valid: true, errors: [] } : { valid: false, errors: ["the summary was empty; return 1-2 sentences of plain text"] };
+        },
+        { maxAttempts: CROSS_WIKI_MAX_ATTEMPTS, label: `cross-wiki entity context ${page.id}` }
+      );
+      summary = outcome.output !== null ? outcome.output.trim() : null;
+    } catch (err) {
+      options2.onProgress?.(
+        `Warning: cross-wiki entity summary failed for ${page.id} (${err.message}); using the deterministic summary.`
+      );
+    }
+    if (summary === null) {
+      summary = deterministicSummary(page);
+    }
+    summaries[page.id] = {
+      title: page.title,
+      summary,
+      type: page.entityType,
+      sources: page.sources.map((source) => sourceLabel(source.file, source.pages))
+    };
+  }
+  const sorted = Object.fromEntries(
+    Object.entries(summaries).sort(([a], [b]) => a.localeCompare(b))
+  );
+  await writeCrossWikiState(options2.workspace, "entity-summaries.json", sorted);
+  return sorted;
+}
+
+// src/cross-wiki/entity-resolver.ts
+import { mkdir as mkdir20, writeFile as writeFile20 } from "node:fs/promises";
+import { join as join30 } from "node:path";
+
+// src/pages/cross-wiki/entity-registry-page.ts
+var import_gray_matter14 = __toESM(require_gray_matter(), 1);
+function tableCell(value) {
+  return value.replace(/\|/g, "\\|").replace(/\r?\n/g, " ");
+}
+function registryChildren(entries) {
+  const children = [];
+  for (const entry of entries) {
+    for (const member of entry.members) {
+      children.push(`${member.path}.md`);
+    }
+  }
+  return children.sort((a, b) => a.localeCompare(b));
+}
+function writeEntityRegistryPage(entries, updated) {
+  const sorted = [...entries].sort((a, b) => a.canonicalTitle.localeCompare(b.canonicalTitle));
+  const entityCount = sorted.length;
+  const lines = [];
+  lines.push("# Cross-Wiki Entity Registry", "");
+  if (entityCount === 0) {
+    lines.push(
+      "No cross-wiki entities found. This registry lists entities that appear in at least two wikis in the workspace; none were found in the current workspace.",
+      ""
+    );
+  } else {
+    lines.push(
+      `${entityCount} ${entityCount === 1 ? "entity appears" : "entities appear"} in at least two wikis in this workspace. This is a derived, read-only index: follow the page links for the cited evidence on each wiki's own page.`,
+      ""
+    );
+    lines.push(
+      "| Entity | Wiki | Page | Type | Aliases | Summary |",
+      "| --- | --- | --- | --- | --- | --- |"
+    );
+    for (const entry of sorted) {
+      for (const member of entry.members) {
+        lines.push(
+          `| ${tableCell(entry.canonicalTitle)} | ${member.wiki} | ${formatWikilink(member.path, member.title)} | ${tableCell(member.type)} | ${tableCell(entry.aliases.join("; "))} | ${tableCell(member.summary)} |`
+        );
+      }
+    }
+    lines.push("");
+  }
+  const frontmatter = {
+    title: "Cross-Wiki Entity Registry",
+    type: "cross-wiki-index",
+    updated,
+    children: registryChildren(sorted),
+    entityCount
+  };
+  return import_gray_matter14.default.stringify(`
+${lines.join("\n")}
+`, frontmatter);
+}
+
+// src/cross-wiki/entity-resolver.ts
+function normalizeName(name) {
+  return name.trim().toLowerCase().replace(/\s+/g, " ");
+}
+var UnionFind2 = class {
+  parent;
+  constructor(size) {
+    this.parent = Array.from({ length: size }, (_, index) => index);
+  }
+  find(x) {
+    let root = x;
+    while (this.parent[root] !== root) {
+      root = this.parent[root];
+    }
+    while (this.parent[x] !== root) {
+      const next = this.parent[x];
+      this.parent[x] = root;
+      x = next;
+    }
+    return root;
+  }
+  union(a, b) {
+    const ra = this.find(a);
+    const rb = this.find(b);
+    if (ra !== rb) {
+      this.parent[rb] = ra;
+    }
+  }
+};
+function distinctWikis(pages) {
+  return Array.from(new Set(pages.map((page) => page.wiki))).sort((a, b) => a.localeCompare(b));
+}
+function pickCanonicalTitle(pages) {
+  const counts = /* @__PURE__ */ new Map();
+  for (const page of pages) {
+    const key = normalizeName(page.title);
+    const entry = counts.get(key) ?? { count: 0, title: page.title };
+    entry.count++;
+    if (page.title.length < entry.title.length) {
+      entry.title = page.title;
+    }
+    counts.set(key, entry);
+  }
+  return Array.from(counts.values()).sort((a, b) => b.count - a.count || a.title.localeCompare(b.title))[0].title;
+}
+function collectAliases(pages, canonicalTitle) {
+  const seen = /* @__PURE__ */ new Set([normalizeName(canonicalTitle)]);
+  const aliases = [];
+  for (const page of pages) {
+    for (const name of [page.title, ...page.aliases]) {
+      const key = normalizeName(name);
+      if (key.length > 0 && !seen.has(key)) {
+        seen.add(key);
+        aliases.push(name);
+      }
+    }
+  }
+  return aliases.sort((a, b) => a.localeCompare(b));
+}
+function toRegistryEntry(pages, summaries, match, canonicalTitleOverride, aliasesOverride) {
+  const sorted = [...pages].sort((a, b) => a.id.localeCompare(b.id));
+  const canonicalTitle = canonicalTitleOverride ?? pickCanonicalTitle(sorted);
+  return {
+    canonicalTitle,
+    aliases: aliasesOverride ?? collectAliases(sorted, canonicalTitle),
+    wikis: distinctWikis(sorted),
+    members: sorted.map((page) => ({
+      wiki: page.wiki,
+      slug: page.slug,
+      path: page.id,
+      title: page.title,
+      type: page.entityType,
+      summary: summaries[page.id]?.summary ?? ""
+    })),
+    match
+  };
+}
+function editDistance2(a, b) {
+  const rows = a.length + 1;
+  const cols = b.length + 1;
+  const dp = Array.from({ length: cols }, (_, j) => j);
+  for (let i = 1; i < rows; i++) {
+    let previous = dp[0];
+    dp[0] = i;
+    for (let j = 1; j < cols; j++) {
+      const temp = dp[j];
+      dp[j] = Math.min(dp[j] + 1, dp[j - 1] + 1, previous + (a[i - 1] === b[j - 1] ? 0 : 1));
+      previous = temp;
+    }
+  }
+  return dp[cols - 1];
+}
+function titleTokens(title) {
+  return new Set(
+    normalizeName(title).split(" ").map((token) => token.replace(/[^a-z0-9æøåäöüß]/g, "")).filter((token) => token.length >= 4)
+  );
+}
+function isFuzzyCandidate(a, b) {
+  if (a.slug === b.slug) {
+    return true;
+  }
+  if (Math.min(a.slug.length, b.slug.length) >= 6 && editDistance2(a.slug, b.slug) <= 2) {
+    return true;
+  }
+  const aTokens = titleTokens(a.title);
+  const bTokens = titleTokens(b.title);
+  if (aTokens.size > 0 && bTokens.size > 0) {
+    const [smaller, larger] = aTokens.size <= bTokens.size ? [aTokens, bTokens] : [bTokens, aTokens];
+    if (Array.from(smaller).every((token) => larger.has(token))) {
+      return true;
+    }
+  }
+  return false;
+}
+function validateFuzzyOutput(data, clusterIds) {
+  const errors = [];
+  if (typeof data !== "object" || data === null) {
+    return { valid: false, errors: ["output is not a JSON object"] };
+  }
+  const record = data;
+  const matches = record.matches;
+  const noMatch = record.noMatch;
+  const uncertain = record.uncertain;
+  if (!Array.isArray(matches) || !Array.isArray(noMatch) || !Array.isArray(uncertain)) {
+    return { valid: false, errors: ['output must carry "matches", "noMatch", and "uncertain" arrays'] };
+  }
+  const seen = /* @__PURE__ */ new Set();
+  const checkId = (id, where) => {
+    if (typeof id !== "string" || !clusterIds.has(id)) {
+      errors.push(`${where}: unknown candidate id "${String(id)}"`);
+      return false;
+    }
+    if (seen.has(id)) {
+      errors.push(`${where}: candidate id "${id}" listed twice`);
+      return false;
+    }
+    seen.add(id);
+    return true;
+  };
+  const cleanMatches = [];
+  for (const [index, group] of matches.entries()) {
+    if (typeof group !== "object" || group === null) {
+      errors.push(`matches[${index}]: not an object`);
+      continue;
+    }
+    const g = group;
+    if (!Array.isArray(g.members) || g.members.length < 2) {
+      errors.push(`matches[${index}]: "members" must list at least two candidate ids`);
+      continue;
+    }
+    if (typeof g.canonicalTitle !== "string" || g.canonicalTitle.trim().length === 0) {
+      errors.push(`matches[${index}]: missing "canonicalTitle"`);
+      continue;
+    }
+    const members = g.members.filter((id) => checkId(id, `matches[${index}]`));
+    const aliases = Array.isArray(g.aliases) ? g.aliases.filter((a) => typeof a === "string") : [];
+    cleanMatches.push({ members, canonicalTitle: g.canonicalTitle.trim(), aliases });
+  }
+  const cleanNoMatch = [];
+  for (const id of noMatch) {
+    if (checkId(id, "noMatch")) {
+      cleanNoMatch.push(id);
+    }
+  }
+  const cleanUncertain = [];
+  for (const [index, group] of uncertain.entries()) {
+    if (typeof group !== "object" || group === null || !Array.isArray(group.members)) {
+      errors.push(`uncertain[${index}]: not an object with a "members" list`);
+      continue;
+    }
+    const g = group;
+    const members = g.members.filter((id) => checkId(id, `uncertain[${index}]`));
+    if (members.length < 2) {
+      errors.push(`uncertain[${index}]: "members" must list at least two candidate ids`);
+      continue;
+    }
+    cleanUncertain.push({ members, reason: typeof g.reason === "string" ? g.reason : "" });
+  }
+  if (errors.length > 0) {
+    return { valid: false, errors };
+  }
+  return { valid: true, errors: [], value: { matches: cleanMatches, noMatch: cleanNoMatch, uncertain: cleanUncertain } };
+}
+function groupKey(members) {
+  return [...members].sort((a, b) => a.localeCompare(b)).join("|");
+}
+function validateReviewOutput(data, groups) {
+  const errors = [];
+  if (typeof data !== "object" || data === null || !Array.isArray(data.reviews)) {
+    return { valid: false, errors: ['output must be an object with a "reviews" array'] };
+  }
+  const expected = new Map(groups.map((group) => [groupKey(group.members.map((member) => member.path)), group]));
+  const seen = /* @__PURE__ */ new Set();
+  const reviews = [];
+  for (const [index, review] of data.reviews.entries()) {
+    if (typeof review !== "object" || review === null) {
+      errors.push(`reviews[${index}]: not an object`);
+      continue;
+    }
+    const r = review;
+    if (!Array.isArray(r.members) || !r.members.every((m) => typeof m === "string")) {
+      errors.push(`reviews[${index}]: "members" must be a list of candidate ids`);
+      continue;
+    }
+    const key = groupKey(r.members);
+    if (!expected.has(key)) {
+      errors.push(`reviews[${index}]: members do not match any uncertain group under review`);
+      continue;
+    }
+    if (seen.has(key)) {
+      errors.push(`reviews[${index}]: the same group is reviewed twice`);
+      continue;
+    }
+    seen.add(key);
+    const verdict = r.verdict;
+    if (verdict !== "match" && verdict !== "no-match" && verdict !== "uncertain") {
+      errors.push(`reviews[${index}]: verdict must be "match", "no-match", or "uncertain"`);
+      continue;
+    }
+    if (verdict === "match" && (typeof r.canonicalTitle !== "string" || r.canonicalTitle.trim().length === 0)) {
+      errors.push(`reviews[${index}]: a "match" verdict requires a non-empty "canonicalTitle"`);
+      continue;
+    }
+    reviews.push({
+      members: r.members,
+      verdict,
+      ...typeof r.canonicalTitle === "string" ? { canonicalTitle: r.canonicalTitle.trim() } : {},
+      ...Array.isArray(r.aliases) ? { aliases: r.aliases.filter((a) => typeof a === "string") } : {},
+      ...typeof r.reason === "string" ? { reason: r.reason } : {}
+    });
+  }
+  for (const key of expected.keys()) {
+    if (!seen.has(key)) {
+      errors.push(`an uncertain group was not reviewed: ${key}`);
+    }
+  }
+  if (errors.length > 0) {
+    return { valid: false, errors };
+  }
+  return { valid: true, errors: [], value: { reviews } };
+}
+function formatCandidateLine(member) {
+  return JSON.stringify({
+    id: member.id,
+    wiki: member.wiki,
+    title: member.title,
+    type: member.type,
+    aliases: member.aliases,
+    summary: member.summary
+  });
+}
+function formatReviewGroup(group, summaries) {
+  const members = group.members.map(
+    (member) => JSON.stringify({
+      id: member.path,
+      wiki: member.wiki,
+      title: member.title,
+      summary: summaries[member.path]?.summary ?? "",
+      sources: summaries[member.path]?.sources ?? []
+    })
+  );
+  return `Group (reason uncertain: ${group.reason || "not recorded"}):
+${members.join("\n")}`;
+}
+async function resolveEntities(pages, summaries, options2 = {}) {
+  const workspace = options2.workspace ?? ".";
+  const progress = options2.onProgress ?? (() => {
+  });
+  const uf = new UnionFind2(pages.length);
+  const byNameKey = /* @__PURE__ */ new Map();
+  pages.forEach((page, index) => {
+    for (const name of [page.title, ...page.aliases]) {
+      const key = normalizeName(name);
+      if (key.length === 0) {
+        continue;
+      }
+      const existing = byNameKey.get(key);
+      if (existing === void 0) {
+        byNameKey.set(key, index);
+      } else {
+        uf.union(existing, index);
+      }
+    }
+  });
+  const exactGroups = /* @__PURE__ */ new Map();
+  pages.forEach((_, index) => {
+    const root = uf.find(index);
+    exactGroups.set(root, [...exactGroups.get(root) ?? [], index]);
+  });
+  const entries = [];
+  const exactMatched = /* @__PURE__ */ new Set();
+  for (const group of exactGroups.values()) {
+    const groupPages = group.map((index) => pages[index]);
+    if (distinctWikis(groupPages).length >= 2) {
+      entries.push(toRegistryEntry(groupPages, summaries, "exact"));
+      for (const index of group) {
+        exactMatched.add(index);
+      }
+    }
+  }
+  const exactClusters = entries.length;
+  const remaining = pages.map((page, index) => ({ page, index })).filter(({ index }) => !exactMatched.has(index));
+  const candidateUf = new UnionFind2(remaining.length);
+  for (let i = 0; i < remaining.length; i++) {
+    for (let j = i + 1; j < remaining.length; j++) {
+      if (remaining[i].page.wiki !== remaining[j].page.wiki && isFuzzyCandidate(remaining[i].page, remaining[j].page)) {
+        candidateUf.union(i, j);
+      }
+    }
+  }
+  const candidateGroups = /* @__PURE__ */ new Map();
+  remaining.forEach((_, index) => {
+    const root = candidateUf.find(index);
+    candidateGroups.set(root, [...candidateGroups.get(root) ?? [], index]);
+  });
+  const clusters = [];
+  for (const group of candidateGroups.values()) {
+    if (group.length < 2) {
+      continue;
+    }
+    const groupPages = group.map((index) => remaining[index].page);
+    if (distinctWikis(groupPages).length < 2) {
+      continue;
+    }
+    clusters.push({
+      members: groupPages.sort((a, b) => a.id.localeCompare(b.id)).map((page) => ({
+        id: page.id,
+        wiki: page.wiki,
+        slug: page.slug,
+        title: page.title,
+        type: page.entityType,
+        aliases: page.aliases,
+        summary: summaries[page.id]?.summary ?? "",
+        sources: summaries[page.id]?.sources ?? []
+      }))
+    });
+  }
+  clusters.sort((a, b) => a.members[0].id.localeCompare(b.members[0].id));
+  const byId = new Map(pages.map((page) => [page.id, page]));
+  const uncertain = [];
+  let fuzzyMatches = 0;
+  for (const cluster of clusters) {
+    const clusterIds = new Set(cluster.members.map((member) => member.id));
+    let outcome;
+    try {
+      outcome = await runCrossWikiJsonCall({
+        promptFile: "cross-wiki-entity-match.prompt.txt",
+        slots: { candidates: cluster.members.map(formatCandidateLine).join("\n") },
+        callType: "cross-wiki-entity-match",
+        context: `cross-wiki entity match (${cluster.members.length} candidates)`,
+        maxTokens: CROSS_WIKI_MAX_TOKENS,
+        language: options2.language,
+        logPath: options2.logPath,
+        label: `cross-wiki entity match (${cluster.members.length} candidates)`,
+        validate: (data) => validateFuzzyOutput(data, clusterIds),
+        callLLMFn: options2.matchEntitiesFn ? (feedback, attempt) => options2.matchEntitiesFn(cluster, feedback, attempt) : void 0
+      });
+    } catch (err) {
+      progress(
+        `Warning: cross-wiki entity match failed for a ${cluster.members.length}-candidate cluster (${err.message}); the cluster is held for human review.`
+      );
+      outcome = null;
+    }
+    if (outcome === null || outcome.output === null) {
+      uncertain.push({
+        members: cluster.members.map((member) => ({ wiki: member.wiki, slug: member.slug, path: member.id, title: member.title })),
+        reason: "automated matching unavailable",
+        source: "fuzzy"
+      });
+      continue;
+    }
+    for (const group of outcome.output.matches) {
+      const groupPages = group.members.map((id) => byId.get(id)).filter((page) => page !== void 0);
+      if (distinctWikis(groupPages).length >= 2) {
+        entries.push(toRegistryEntry(groupPages, summaries, "fuzzy", group.canonicalTitle, group.aliases));
+        fuzzyMatches++;
+      }
+    }
+    for (const group of outcome.output.uncertain) {
+      const groupPages = group.members.map((id) => byId.get(id)).filter((page) => page !== void 0);
+      if (distinctWikis(groupPages).length >= 2) {
+        uncertain.push({
+          members: groupPages.map((page) => ({ wiki: page.wiki, slug: page.slug, path: page.id, title: page.title })),
+          reason: group.reason,
+          source: "fuzzy"
+        });
+      }
+    }
+  }
+  let reviewMatches = 0;
+  let remainingUncertain = uncertain;
+  if (uncertain.length > 0) {
+    let outcome;
+    try {
+      outcome = await runCrossWikiJsonCall({
+        promptFile: "cross-wiki-entity-uncertain-review.prompt.txt",
+        slots: { groups: uncertain.map((group) => formatReviewGroup(group, summaries)).join("\n\n") },
+        callType: "cross-wiki-uncertain-review",
+        context: `cross-wiki uncertain review (${uncertain.length} groups)`,
+        maxTokens: CROSS_WIKI_MAX_TOKENS,
+        language: options2.language,
+        logPath: options2.logPath,
+        label: `cross-wiki uncertain review (${uncertain.length} groups)`,
+        validate: (data) => validateReviewOutput(data, uncertain),
+        callLLMFn: options2.reviewUncertainFn ? (feedback, attempt) => options2.reviewUncertainFn(uncertain, feedback, attempt) : void 0
+      });
+    } catch (err) {
+      progress(
+        `Warning: cross-wiki uncertain review failed (${err.message}); ${uncertain.length} group(s) held for human review.`
+      );
+      outcome = null;
+    }
+    if (outcome !== null && outcome.output !== null) {
+      remainingUncertain = [];
+      for (const review of outcome.output.reviews) {
+        const groupPages = review.members.map((id) => byId.get(id)).filter((page) => page !== void 0);
+        if (review.verdict === "match" && distinctWikis(groupPages).length >= 2) {
+          entries.push(toRegistryEntry(groupPages, summaries, "review", review.canonicalTitle, review.aliases));
+          reviewMatches++;
+        } else if (review.verdict === "uncertain") {
+          const original = uncertain.find((group) => groupKey(group.members.map((m) => m.path)) === groupKey(review.members));
+          remainingUncertain.push({
+            members: groupPages.map((page) => ({ wiki: page.wiki, slug: page.slug, path: page.id, title: page.title })),
+            reason: review.reason ?? original?.reason ?? "",
+            source: "review"
+          });
+        }
+      }
+    }
+  }
+  entries.sort((a, b) => a.canonicalTitle.localeCompare(b.canonicalTitle));
+  remainingUncertain.sort((a, b) => groupKey(a.members.map((m) => m.path)).localeCompare(groupKey(b.members.map((m) => m.path))));
+  const crossWikiDir = join30(workspace, "wikis", "cross-wiki");
+  await mkdir20(crossWikiDir, { recursive: true });
+  const updated = (/* @__PURE__ */ new Date()).toISOString();
+  await writeFile20(join30(crossWikiDir, "entities.md"), writeEntityRegistryPage(entries, updated), "utf-8");
+  await writeCrossWikiState(workspace, "entity-registry.json", { generated: updated, entities: entries });
+  await writeProposedCrossWikiMatches(workspace, {
+    generated: updated,
+    proposals: remainingUncertain.map((group) => ({ ...group, status: "uncertain" }))
+  });
+  await writeCrossWikiState(workspace, "entity-match-candidates.json", {
+    generated: updated,
+    candidates: remainingUncertain.map((group) => ({
+      members: group.members,
+      verdict: "uncertain",
+      approved: false,
+      source: group.source,
+      reason: group.reason
+    }))
+  });
+  return {
+    entries,
+    uncertain: remainingUncertain,
+    stats: { exactClusters, candidateClusters: clusters.length, fuzzyMatches, reviewMatches }
+  };
+}
+
+// src/cross-wiki/hypothesis-generator.ts
+var CONFIDENCES = /* @__PURE__ */ new Set(["high", "medium", "low"]);
+function validateHypothesisOutput(data, batchWikis) {
+  const errors = [];
+  if (typeof data !== "object" || data === null || !Array.isArray(data.hypotheses)) {
+    return { valid: false, errors: ['output must be an object with a "hypotheses" array'] };
+  }
+  const hypotheses = [];
+  for (const [index, hypothesis] of data.hypotheses.entries()) {
+    if (typeof hypothesis !== "object" || hypothesis === null) {
+      errors.push(`hypotheses[${index}]: not an object`);
+      continue;
+    }
+    const h = hypothesis;
+    if (typeof h.summary !== "string" || h.summary.trim().length === 0) {
+      errors.push(`hypotheses[${index}]: missing "summary"`);
+      continue;
+    }
+    if (typeof h.type !== "string" || h.type.trim().length === 0) {
+      errors.push(`hypotheses[${index}]: missing "type"`);
+      continue;
+    }
+    if (typeof h.confidence !== "string" || !CONFIDENCES.has(h.confidence)) {
+      errors.push(`hypotheses[${index}]: confidence must be "high", "medium", or "low"`);
+      continue;
+    }
+    if (!Array.isArray(h.entities) || h.entities.length === 0 || !h.entities.every((e) => typeof e === "string")) {
+      errors.push(`hypotheses[${index}]: "entities" must be a non-empty list of slugs`);
+      continue;
+    }
+    if (!Array.isArray(h.wikis) || h.wikis.length === 0 || !h.wikis.every((w) => typeof w === "string")) {
+      errors.push(`hypotheses[${index}]: "wikis" must be a non-empty list of wiki slugs`);
+      continue;
+    }
+    const badWiki = h.wikis.find((wiki) => !batchWikis.has(wiki));
+    if (badWiki !== void 0) {
+      errors.push(`hypotheses[${index}]: wiki "${badWiki}" is not part of this subgraph`);
+      continue;
+    }
+    const evidence = [];
+    let evidenceOk = true;
+    if (!Array.isArray(h.evidence) || h.evidence.length === 0) {
+      errors.push(`hypotheses[${index}]: "evidence" must be a non-empty list`);
+      continue;
+    }
+    for (const entry of h.evidence) {
+      if (typeof entry !== "object" || entry === null || typeof entry.wiki !== "string") {
+        errors.push(`hypotheses[${index}]: an evidence entry lacks a "wiki"`);
+        evidenceOk = false;
+        continue;
+      }
+      const e = entry;
+      if (!batchWikis.has(e.wiki)) {
+        errors.push(`hypotheses[${index}]: evidence wiki "${e.wiki}" is not part of this subgraph`);
+        evidenceOk = false;
+        continue;
+      }
+      evidence.push({
+        wiki: e.wiki,
+        ...typeof e.relationship === "string" ? { relationship: e.relationship } : {},
+        ...typeof e.topicCluster === "string" ? { topicCluster: e.topicCluster } : {}
+      });
+    }
+    if (!evidenceOk) {
+      continue;
+    }
+    hypotheses.push({
+      summary: h.summary.trim(),
+      type: h.type.trim(),
+      confidence: h.confidence,
+      entities: h.entities.slice(),
+      wikis: h.wikis.slice(),
+      evidence
+    });
+  }
+  if (errors.length > 0) {
+    return { valid: false, errors };
+  }
+  return { valid: true, errors: [], value: { hypotheses } };
+}
+function buildSignalBatches(registry, edges, clusters) {
+  const nodeKey = (wiki, slug) => `${wiki}/${slug}`;
+  const parent = /* @__PURE__ */ new Map();
+  const find = (key) => {
+    let root = key;
+    while (parent.get(root) !== root) {
+      root = parent.get(root);
+    }
+    let current = key;
+    while (parent.get(current) !== root) {
+      const next = parent.get(current);
+      parent.set(current, root);
+      current = next;
+    }
+    return root;
+  };
+  const union = (a, b) => {
+    const ra = find(a);
+    const rb = find(b);
+    if (ra !== rb) {
+      parent.set(rb, ra);
+    }
+  };
+  const nodeWikis = /* @__PURE__ */ new Map();
+  for (const edge of edges) {
+    const subject = nodeKey(edge.subject.wiki, edge.subject.slug);
+    if (!parent.has(subject)) {
+      parent.set(subject, subject);
+      nodeWikis.set(subject, edge.subject.wiki);
+    }
+    if (edge.object.wiki !== "") {
+      const object = nodeKey(edge.object.wiki, edge.object.slug);
+      if (!parent.has(object)) {
+        parent.set(object, object);
+        nodeWikis.set(object, edge.object.wiki);
+      }
+      union(subject, object);
+    }
+  }
+  const componentEdges = /* @__PURE__ */ new Map();
+  const componentNodes = /* @__PURE__ */ new Map();
+  for (const edge of edges) {
+    const root = find(nodeKey(edge.subject.wiki, edge.subject.slug));
+    componentEdges.set(root, [...componentEdges.get(root) ?? [], edge]);
+    const nodes = componentNodes.get(root) ?? /* @__PURE__ */ new Set();
+    nodes.add(nodeKey(edge.subject.wiki, edge.subject.slug));
+    if (edge.object.wiki !== "") {
+      nodes.add(nodeKey(edge.object.wiki, edge.object.slug));
+    }
+    componentNodes.set(root, nodes);
+  }
+  const batches = [];
+  for (const [root, nodes] of componentNodes.entries()) {
+    const entities = registry.filter(
+      (entry) => entry.members.some((member) => nodes.has(nodeKey(member.wiki, member.slug)))
+    );
+    const wikis = /* @__PURE__ */ new Set();
+    for (const node of nodes) {
+      wikis.add(node.split("/")[0]);
+    }
+    if (entities.length === 0 || wikis.size < 2) {
+      continue;
+    }
+    batches.push({
+      entities,
+      relationships: componentEdges.get(root) ?? [],
+      topicClusters: clusters.filter((cluster) => cluster.mappedTopics.some((topic) => wikis.has(topic.wiki)))
+    });
+  }
+  return batches.sort((a, b) => b.relationships.length - a.relationships.length);
+}
+function formatBatch(batch, summaries) {
+  const entities = batch.entities.map(
+    (entry) => JSON.stringify({
+      canonicalTitle: entry.canonicalTitle,
+      aliases: entry.aliases,
+      members: entry.members.map((member) => ({
+        wiki: member.wiki,
+        slug: member.slug,
+        summary: member.summary !== "" ? member.summary : summaries[member.path]?.summary ?? ""
+      }))
+    })
+  ).join("\n");
+  const relationships = batch.relationships.map(
+    (edge) => JSON.stringify({
+      wiki: edge.sourceWiki,
+      relationship: `${edge.subject.slug} \u2192 ${edge.predicate} \u2192 ${edge.object.slug}`,
+      subjectWiki: edge.subject.wiki,
+      objectWiki: edge.object.wiki
+    })
+  ).join("\n");
+  const topicClusters = batch.topicClusters.map(
+    (cluster) => JSON.stringify({
+      clusterId: cluster.clusterId,
+      title: cluster.title,
+      wikis: Array.from(new Set(cluster.mappedTopics.map((topic) => topic.wiki)))
+    })
+  ).join("\n");
+  return {
+    entities: entities || "(none)",
+    relationships: relationships || "(none)",
+    topicClusters: topicClusters || "(none)"
+  };
+}
+async function generateHypothesisSignals(registry, edges, clusters, summaries, options2 = {}) {
+  const workspace = options2.workspace ?? ".";
+  const batches = buildSignalBatches(registry, edges, clusters);
+  const hypotheses = [];
+  for (const [index, batch] of batches.entries()) {
+    const batchWikis = /* @__PURE__ */ new Set();
+    for (const entry of batch.entities) {
+      for (const member of entry.members) {
+        batchWikis.add(member.wiki);
+      }
+    }
+    for (const edge of batch.relationships) {
+      batchWikis.add(edge.subject.wiki);
+      if (edge.object.wiki !== "") {
+        batchWikis.add(edge.object.wiki);
+      }
+    }
+    const slots = formatBatch(batch, summaries);
+    try {
+      const outcome = await runCrossWikiJsonCall({
+        promptFile: "cross-wiki-hypothesis.prompt.txt",
+        slots,
+        callType: "cross-wiki-hypothesis",
+        context: `cross-wiki hypothesis signals (batch ${index + 1}/${batches.length})`,
+        maxTokens: CROSS_WIKI_MAX_TOKENS,
+        language: options2.language,
+        logPath: options2.logPath,
+        label: `cross-wiki hypothesis signals (batch ${index + 1})`,
+        validate: (data) => validateHypothesisOutput(data, batchWikis),
+        callLLMFn: options2.generateSignalsFn ? (feedback, attempt) => options2.generateSignalsFn(batch, feedback, attempt) : void 0
+      });
+      if (outcome.output !== null) {
+        hypotheses.push(...outcome.output.hypotheses);
+      }
+    } catch (err) {
+      options2.onProgress?.(
+        `Warning: cross-wiki hypothesis generation failed for batch ${index + 1} (${err.message}); the batch is skipped.`
+      );
+    }
+  }
+  const rank = { high: 0, medium: 1, low: 2 };
+  hypotheses.sort((a, b) => rank[a.confidence] - rank[b.confidence] || a.summary.localeCompare(b.summary));
+  await writeCrossWikiState(options2.workspace, "proposed-signals.json", {
+    generated: (/* @__PURE__ */ new Date()).toISOString(),
+    hypotheses
+  });
+  return hypotheses;
+}
+
+// src/cross-wiki/predicate-normalizer.ts
+function validatePredicateMap(data, predicates) {
+  const errors = [];
+  if (typeof data !== "object" || data === null || !Array.isArray(data.groups)) {
+    return { valid: false, errors: ['output must be an object with a "groups" array'] };
+  }
+  const input = new Set(predicates);
+  const seen = /* @__PURE__ */ new Set();
+  const groups = [];
+  for (const [index, group] of data.groups.entries()) {
+    if (typeof group !== "object" || group === null) {
+      errors.push(`groups[${index}]: not an object`);
+      continue;
+    }
+    const g = group;
+    if (typeof g.canonical !== "string" || g.canonical.trim().length === 0) {
+      errors.push(`groups[${index}]: missing "canonical"`);
+      continue;
+    }
+    if (!Array.isArray(g.variants) || g.variants.length === 0 || !g.variants.every((v) => typeof v === "string")) {
+      errors.push(`groups[${index}]: "variants" must be a non-empty list of strings`);
+      continue;
+    }
+    const variants = g.variants.map((variant) => variant.trim());
+    for (const variant of variants) {
+      if (!input.has(variant)) {
+        errors.push(`groups[${index}]: unknown predicate "${variant}"`);
+      } else if (seen.has(variant)) {
+        errors.push(`groups[${index}]: predicate "${variant}" listed in two groups`);
+      } else {
+        seen.add(variant);
+      }
+    }
+    if (!variants.includes(g.canonical)) {
+      errors.push(`groups[${index}]: canonical "${g.canonical}" is not one of its variants`);
+    }
+    groups.push({ canonical: g.canonical.trim(), variants });
+  }
+  for (const predicate of predicates) {
+    if (!seen.has(predicate)) {
+      errors.push(`predicate "${predicate}" is missing from every group`);
+    }
+  }
+  if (errors.length > 0) {
+    return { valid: false, errors };
+  }
+  return { valid: true, errors: [], value: groups };
+}
+async function normalizePredicates(predicates, options2 = {}) {
+  const workspace = options2.workspace ?? ".";
+  const unique = Array.from(new Set(predicates)).sort((a, b) => a.localeCompare(b));
+  let groups = null;
+  if (unique.length > 0) {
+    try {
+      const outcome = await runCrossWikiJsonCall({
+        promptFile: "cross-wiki-predicate-normalize.prompt.txt",
+        slots: { predicates: unique.map((predicate) => `- ${predicate}`).join("\n") },
+        callType: "cross-wiki-predicate-normalize",
+        context: `cross-wiki predicate normalize (${unique.length} predicates)`,
+        maxTokens: CROSS_WIKI_MAX_TOKENS,
+        language: options2.language,
+        logPath: options2.logPath,
+        label: `cross-wiki predicate normalize (${unique.length} predicates)`,
+        validate: (data) => validatePredicateMap(data, unique),
+        callLLMFn: options2.normalizePredicatesFn ? (feedback, attempt) => options2.normalizePredicatesFn(unique, feedback, attempt) : void 0
+      });
+      groups = outcome.output;
+    } catch (err) {
+      options2.onProgress?.(
+        `Warning: cross-wiki predicate normalization failed (${err.message}); using the identity predicate map.`
+      );
+      groups = null;
+    }
+    if (groups === null) {
+      options2.onProgress?.("Warning: cross-wiki predicate normalization unavailable; using the identity predicate map.");
+    }
+  }
+  const result = groups ?? unique.map((predicate) => ({ canonical: predicate, variants: [predicate] }));
+  await writeCrossWikiState(workspace, "predicate-map.json", result);
+  return result;
+}
+function predicateLookup(groups) {
+  const lookup = /* @__PURE__ */ new Map();
+  for (const group of groups) {
+    for (const variant of group.variants) {
+      lookup.set(variant, group.canonical);
+    }
+  }
+  return lookup;
+}
+
+// src/cross-wiki/relationship-graph.ts
+import { mkdir as mkdir21, writeFile as writeFile21 } from "node:fs/promises";
+import { join as join31 } from "node:path";
+
+// src/pages/cross-wiki/relationships-page.ts
+var import_gray_matter15 = __toESM(require_gray_matter(), 1);
+function tableCell2(value) {
+  return value.replace(/\|/g, "\\|").replace(/\r?\n/g, " ");
+}
+function refLink(ref) {
+  if (ref.path === "") {
+    return tableCell2(ref.title);
+  }
+  return formatWikilink(ref.path, ref.title);
+}
+function writeRelationshipsPage(edges, updated) {
+  const sorted = [...edges].sort(
+    (a, b) => a.subject.path.localeCompare(b.subject.path) || a.predicate.localeCompare(b.predicate) || a.object.path.localeCompare(b.object.path)
+  );
+  const lines = [];
+  lines.push("# Cross-Wiki Relationship Graph", "");
+  if (sorted.length === 0) {
+    lines.push(
+      "No cross-wiki relationships found. This graph lists relationships whose subject appears in the cross-wiki entity registry or whose subject and object live in different wikis; none were found in the current workspace.",
+      ""
+    );
+  } else {
+    lines.push(
+      `${sorted.length} ${sorted.length === 1 ? "relationship crosses" : "relationships cross"} wiki boundaries or touch a cross-wiki entity. Predicates are canonicalized across wikis. This is a derived, read-only index: follow the page links for the cited evidence on each wiki's own page.`,
+      ""
+    );
+    lines.push("| Subject | Predicate | Object | Evidence |", "| --- | --- | --- | --- |");
+    for (const edge of sorted) {
+      lines.push(
+        `| ${refLink(edge.subject)} | ${tableCell2(edge.predicate)} | ${refLink(edge.object)} | ${tableCell2(edge.evidence)} |`
+      );
+    }
+    lines.push("");
+  }
+  const frontmatter = {
+    title: "Cross-Wiki Relationship Graph",
+    type: "cross-wiki-index",
+    updated,
+    children: [],
+    edgeCount: sorted.length
+  };
+  return import_gray_matter15.default.stringify(`
+${lines.join("\n")}
+`, frontmatter);
+}
+
+// src/cross-wiki/relationship-graph.ts
+function flattenRelationships(pages) {
+  const flat = [];
+  for (const page of pages) {
+    for (const rel of page.relationships) {
+      if (rel.direction === "outgoing") {
+        flat.push({
+          subjectWiki: page.wiki,
+          subjectSlug: page.slug,
+          subjectTitle: page.title,
+          predicate: rel.predicate,
+          objectWiki: "",
+          objectSlug: rel.otherSlug,
+          ...rel.otherTitle !== void 0 ? { objectTitle: rel.otherTitle } : {},
+          evidence: rel.evidence,
+          sourceWiki: page.wiki
+        });
+      } else {
+        flat.push({
+          subjectWiki: "",
+          subjectSlug: rel.otherSlug,
+          ...rel.otherTitle !== void 0 ? { subjectTitle: rel.otherTitle } : {},
+          predicate: rel.predicate,
+          objectWiki: page.wiki,
+          objectSlug: page.slug,
+          objectTitle: page.title,
+          evidence: rel.evidence,
+          sourceWiki: page.wiki
+        });
+      }
+    }
+  }
+  return flat;
+}
+async function buildRelationshipGraph(pages, registry, predicateGroups, options2 = {}) {
+  const workspace = options2.workspace ?? ".";
+  const canonical = predicateLookup(predicateGroups);
+  const slugToWikis = /* @__PURE__ */ new Map();
+  for (const page of pages) {
+    const wikis = slugToWikis.get(page.slug) ?? /* @__PURE__ */ new Map();
+    wikis.set(page.wiki, page);
+    slugToWikis.set(page.slug, wikis);
+  }
+  const registryMembers = /* @__PURE__ */ new Set();
+  for (const entry of registry) {
+    for (const member of entry.members) {
+      registryMembers.add(`${member.wiki}/${member.slug}`);
+    }
+  }
+  const flat = flattenRelationships(pages);
+  const seen = /* @__PURE__ */ new Set();
+  const edges = [];
+  const resolveWiki = (slug, preferred) => {
+    const wikis = slugToWikis.get(slug);
+    if (wikis === void 0) {
+      return null;
+    }
+    if (preferred !== "" && wikis.has(preferred)) {
+      return preferred;
+    }
+    return wikis.size === 1 ? Array.from(wikis.keys())[0] : null;
+  };
+  for (const rel of flat) {
+    const predicate = canonical.get(rel.predicate) ?? rel.predicate;
+    const subjectWiki = resolveWiki(rel.subjectSlug, rel.subjectWiki !== "" ? rel.subjectWiki : rel.sourceWiki);
+    const objectWiki = resolveWiki(rel.objectSlug, rel.objectWiki !== "" ? rel.objectWiki : rel.sourceWiki);
+    if (subjectWiki === null) {
+      continue;
+    }
+    const subjectInRegistry = registryMembers.has(`${subjectWiki}/${rel.subjectSlug}`);
+    if (!subjectInRegistry && (objectWiki === null || objectWiki === subjectWiki)) {
+      continue;
+    }
+    const subjectPage = slugToWikis.get(rel.subjectSlug)?.get(subjectWiki);
+    const objectPage = objectWiki !== null ? slugToWikis.get(rel.objectSlug)?.get(objectWiki) : void 0;
+    const edge = {
+      subject: {
+        wiki: subjectWiki,
+        slug: rel.subjectSlug,
+        path: subjectPage?.id ?? "",
+        title: subjectPage?.title ?? rel.subjectTitle ?? rel.subjectSlug
+      },
+      predicate,
+      object: {
+        wiki: objectWiki ?? "",
+        slug: rel.objectSlug,
+        path: objectPage?.id ?? "",
+        title: objectPage?.title ?? rel.objectTitle ?? rel.objectSlug
+      },
+      evidence: rel.evidence,
+      sourceWiki: rel.sourceWiki
+    };
+    const key = `${edge.subject.wiki}/${edge.subject.slug}|${edge.predicate}|${edge.object.wiki}/${edge.object.slug}`;
+    if (seen.has(key)) {
+      continue;
+    }
+    seen.add(key);
+    edges.push(edge);
+  }
+  edges.sort(
+    (a, b) => `${a.subject.wiki}/${a.subject.slug}`.localeCompare(`${b.subject.wiki}/${b.subject.slug}`) || a.predicate.localeCompare(b.predicate) || `${a.object.wiki}/${a.object.slug}`.localeCompare(`${b.object.wiki}/${b.object.slug}`)
+  );
+  const crossWikiDir = join31(workspace, "wikis", "cross-wiki");
+  await mkdir21(crossWikiDir, { recursive: true });
+  const updated = (/* @__PURE__ */ new Date()).toISOString();
+  await writeFile21(join31(crossWikiDir, "relationships.md"), writeRelationshipsPage(edges, updated), "utf-8");
+  await writeCrossWikiState(workspace, "relationship-graph.json", { generated: updated, edges });
+  return edges;
+}
+
+// src/cross-wiki/run-control.ts
+import { readdir as readdir9, readFile as readFile26, stat } from "node:fs/promises";
+import { join as join33, relative as relative5 } from "node:path";
+import { createHash as createHash4 } from "node:crypto";
+
+// src/cross-wiki/workspace-scan.ts
+var import_gray_matter16 = __toESM(require_gray_matter(), 1);
+import { readdir as readdir8, readFile as readFile25 } from "node:fs/promises";
+import { join as join32, relative as relative4 } from "node:path";
+var CROSS_WIKI_FOLDER = "cross-wiki";
+async function listWorkspaceWikis(workspace = ".") {
+  const wikisRoot = join32(workspace, "wikis");
+  let entries;
+  try {
+    entries = await readdir8(wikisRoot, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+  const wikis = [];
+  for (const entry of entries) {
+    if (!entry.isDirectory() || entry.name.startsWith(".") || entry.name === CROSS_WIKI_FOLDER) {
+      continue;
+    }
+    try {
+      await readFile25(join32(wikisRoot, entry.name, "index.md"), "utf-8");
+      wikis.push(entry.name);
+    } catch {
+    }
+  }
+  return wikis.sort((a, b) => a.localeCompare(b));
+}
+async function walkMarkdown(dir, root, out) {
+  let entries;
+  try {
+    entries = await readdir8(dir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    const absolute = join32(dir, entry.name);
+    if (entry.isDirectory()) {
+      await walkMarkdown(absolute, root, out);
+    } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
+      if (entry.name.toLowerCase() === "index.md") {
+        continue;
+      }
+      out.push(relative4(root, absolute).replace(/\\/g, "/"));
+    }
+  }
+}
+function firstParagraphOf(body) {
+  for (const block of body.split(/\r?\n\r?\n/)) {
+    const trimmed = block.trim();
+    if (trimmed.length === 0) continue;
+    if (trimmed.startsWith("#") || trimmed.startsWith("- ") || trimmed.startsWith("|") || trimmed.startsWith("[^")) {
+      continue;
+    }
+    return trimmed.replace(/\r?\n/g, " ");
+  }
+  return "";
+}
+function kebabPredicate(readable) {
+  return readable.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+var LINK_RE = /\[\[([^\]]+)\]\]/;
+function parseRelationshipLines(body) {
+  const lines = body.split(/\r?\n/);
+  const start = lines.findIndex((line) => /^## Relationships[ \t\r]*$/.test(line));
+  if (start === -1) {
+    return [];
+  }
+  let end = lines.length;
+  for (let index = start + 1; index < lines.length; index++) {
+    if (/^## /.test(lines[index])) {
+      end = index;
+      break;
+    }
+  }
+  const relationships = [];
+  for (let index = start + 1; index < end; index++) {
+    const line = lines[index].trim();
+    if (!line.startsWith("- ")) {
+      continue;
+    }
+    const linkMatch = LINK_RE.exec(line);
+    if (!linkMatch) {
+      continue;
+    }
+    const inner = linkMatch[1];
+    const pipeIndex = inner.indexOf("|");
+    const target = (pipeIndex === -1 ? inner : inner.slice(0, pipeIndex)).trim();
+    const display = pipeIndex === -1 ? void 0 : inner.slice(pipeIndex + 1).trim();
+    const incoming = / \(incoming\)/.test(line);
+    const evidenceMatch = / — "([^"]*)"/.exec(line);
+    const afterLink = line.slice(linkMatch.index + linkMatch[0].length);
+    const predicateMatch = /^ — ([^—[\]]+?)(?: \(incoming\))?(?: — "[^"]*")?(?: \[\^src\d+\])?\s*$/.exec(afterLink);
+    if (!predicateMatch) {
+      continue;
+    }
+    const predicate = kebabPredicate(predicateMatch[1]);
+    if (predicate.length === 0) {
+      continue;
+    }
+    relationships.push({
+      direction: incoming ? "incoming" : "outgoing",
+      otherSlug: target,
+      ...display !== void 0 && display.length > 0 ? { otherTitle: display } : {},
+      predicate,
+      evidence: evidenceMatch ? evidenceMatch[1] : ""
+    });
+  }
+  return relationships;
+}
+function frontmatterAliases2(data) {
+  const aliases = data.aliases;
+  if (typeof aliases === "string") {
+    return [aliases];
+  }
+  if (Array.isArray(aliases)) {
+    return aliases.filter((alias) => typeof alias === "string");
+  }
+  return [];
+}
+function frontmatterSources(data) {
+  const sources = data.sources;
+  if (!Array.isArray(sources)) {
+    return [];
+  }
+  const result = [];
+  for (const entry of sources) {
+    if (typeof entry === "object" && entry !== null) {
+      const record = entry;
+      if (typeof record.file === "string" && typeof record.pages === "string") {
+        result.push({ file: record.file, pages: record.pages });
+      }
+    }
+  }
+  return result;
+}
+async function scanEntityPages(workspace, wiki) {
+  const wikiRoot = join32(workspace, "wikis", wiki);
+  const entitiesRoot = join32(wikiRoot, "entities");
+  const files = [];
+  await walkMarkdown(entitiesRoot, entitiesRoot, files);
   const pages = [];
-  await walk2(dir, dir, workspace, pages);
+  for (const rel of files.sort((a, b) => a.localeCompare(b))) {
+    let parsed;
+    try {
+      parsed = (0, import_gray_matter16.default)(await readFile25(join32(entitiesRoot, rel), "utf-8"));
+    } catch {
+      continue;
+    }
+    const data = parsed.data;
+    if (data.type !== "entity") {
+      continue;
+    }
+    const slug = (rel.split("/").pop() ?? rel).replace(/\.md$/i, "");
+    const tags = Array.isArray(data.tags) ? data.tags.filter((tag) => typeof tag === "string") : [];
+    pages.push({
+      wiki,
+      slug,
+      id: `${wiki}/entities/${rel.replace(/\.md$/i, "")}`,
+      wikiRelative: `entities/${rel}`,
+      title: typeof data.title === "string" ? data.title : slug,
+      entityType: tags[0] ?? "",
+      aliases: frontmatterAliases2(data),
+      sources: frontmatterSources(data),
+      firstParagraph: firstParagraphOf(parsed.content),
+      relationships: parseRelationshipLines(parsed.content)
+    });
+  }
   return pages;
 }
-async function walk2(root, current, workspace, out) {
-  const entries = await readdir7(current, { withFileTypes: true });
+async function scanTopicPages(workspace, wiki) {
+  const wikiRoot = join32(workspace, "wikis", wiki);
+  const topicsRoot = join32(wikiRoot, "topics");
+  const files = [];
+  await walkMarkdown(topicsRoot, topicsRoot, files);
+  const pages = [];
+  for (const rel of files.sort((a, b) => a.localeCompare(b))) {
+    let parsed;
+    try {
+      parsed = (0, import_gray_matter16.default)(await readFile25(join32(topicsRoot, rel), "utf-8"));
+    } catch {
+      continue;
+    }
+    const data = parsed.data;
+    if (data.type !== "topic") {
+      continue;
+    }
+    const slug = (rel.split("/").pop() ?? rel).replace(/\.md$/i, "");
+    pages.push({
+      wiki,
+      slug,
+      id: `${wiki}/topics/${rel.replace(/\.md$/i, "")}`,
+      wikiRelative: `topics/${rel}`,
+      title: typeof data.title === "string" ? data.title : slug,
+      aliases: frontmatterAliases2(data),
+      firstParagraph: firstParagraphOf(parsed.content)
+    });
+  }
+  return pages;
+}
+
+// src/cross-wiki/run-control.ts
+import { existsSync as existsSync9 } from "node:fs";
+async function hashFile(absolute) {
+  return createHash4("sha256").update(await readFile26(absolute)).digest("hex");
+}
+async function collectPages(workspace, wiki, out) {
+  for (const folder of ["entities", "topics"]) {
+    const root = join33(workspace, "wikis", wiki, folder);
+    const walk5 = async (dir) => {
+      let entries;
+      try {
+        entries = await readdir9(dir, { withFileTypes: true });
+      } catch {
+        return;
+      }
+      for (const entry of entries) {
+        const absolute = join33(dir, entry.name);
+        if (entry.isDirectory()) {
+          await walk5(absolute);
+        } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
+          const rel = relative5(join33(workspace, "wikis"), absolute).replace(/\\/g, "/");
+          const stats = await stat(absolute);
+          out[rel] = { sha256: await hashFile(absolute), mtimeMs: stats.mtimeMs, size: stats.size };
+        }
+      }
+    };
+    await walk5(root);
+  }
+}
+async function computeRunFingerprint(workspace = ".") {
+  const wikis = await listWorkspaceWikis(workspace);
+  const pages = {};
+  for (const wiki of wikis) {
+    await collectPages(workspace, wiki, pages);
+  }
+  const sortedPages = Object.fromEntries(Object.entries(pages).sort(([a], [b]) => a.localeCompare(b)));
+  return { version: 1, recordedAt: (/* @__PURE__ */ new Date()).toISOString(), wikis, pages: sortedPages };
+}
+async function writeRunFingerprint(workspace, fingerprint) {
+  await writeCrossWikiState(workspace, "run-fingerprint.json", fingerprint);
+}
+async function readRunFingerprint(workspace) {
+  const data = await readCrossWikiState(workspace, "run-fingerprint.json");
+  if (data === null || typeof data !== "object" || !Array.isArray(data.wikis) || typeof data.pages !== "object" || data.pages === null) {
+    return null;
+  }
+  return data;
+}
+function crossWikiArtifactsExist(workspace) {
+  return existsSync9(join33(workspace, "wikis", "cross-wiki", "index.md"));
+}
+async function preflightDecision(workspace, current) {
+  if (current.wikis.length < 2) {
+    return { action: "skip", reason: "fewer-than-two-wikis" };
+  }
+  const recorded = await readRunFingerprint(workspace);
+  if (recorded === null || !crossWikiArtifactsExist(workspace)) {
+    return { action: "run", reason: "never-built" };
+  }
+  const recordedWikis = [...recorded.wikis].sort((a, b) => a.localeCompare(b));
+  if (recordedWikis.length !== current.wikis.length || recordedWikis.some((wiki, index) => wiki !== current.wikis[index])) {
+    return { action: "run", reason: "membership-changed" };
+  }
+  const changedPages = [];
+  const recordedPages = recorded.pages;
+  const currentPaths = new Set(Object.keys(current.pages));
+  for (const [path, entry] of Object.entries(current.pages)) {
+    const previous = recordedPages[path];
+    if (previous === void 0 || previous.sha256 !== entry.sha256) {
+      changedPages.push(path);
+    }
+  }
+  for (const path of Object.keys(recordedPages)) {
+    if (!currentPaths.has(path)) {
+      changedPages.push(path);
+    }
+  }
+  if (changedPages.length === 0) {
+    return { action: "skip", reason: "unchanged" };
+  }
+  const changedWikis = Array.from(new Set(changedPages.map((path) => path.split("/")[0]))).sort(
+    (a, b) => a.localeCompare(b)
+  );
+  if (changedWikis.length === 1) {
+    return { action: "probe", reason: "local-changes", changedWikis, changedPages: changedPages.sort() };
+  }
+  return { action: "run", reason: "pages-changed" };
+}
+async function relevanceProbe(changes, options2 = {}) {
+  const runLlm = options2.relevanceProbeFn;
+  let raw;
+  if (runLlm !== void 0) {
+    raw = await runLlm(changes, void 0, 1);
+  } else {
+    const prompt = await renderCrossWikiPrompt(
+      "cross-wiki-relevance-probe.prompt.txt",
+      {
+        changes: changes.map((change) => `- ${change.path} \u2014 ${change.title}: ${change.summary}`).join("\n")
+      },
+      options2.language
+    );
+    raw = await callLLM(prompt, void 0, {
+      maxTokens: CROSS_WIKI_SMALL_MAX_TOKENS,
+      maxRetries: 2,
+      callType: "cross-wiki-relevance-probe",
+      context: `cross-wiki relevance probe (${changes.length} changed pages)`,
+      logPath: options2.logPath
+    });
+  }
+  return !/not-relevant/i.test(raw.trim());
+}
+
+// src/cross-wiki/topic-clusterer.ts
+import { mkdir as mkdir22, rm as rm2, writeFile as writeFile22 } from "node:fs/promises";
+import { join as join34 } from "node:path";
+import { readdir as readdir10 } from "node:fs/promises";
+
+// src/pages/cross-wiki/topic-cluster-page.ts
+var import_gray_matter17 = __toESM(require_gray_matter(), 1);
+function escapeYamlString4(value) {
+  if (/[:#{}[\],&*!?|>'"%@`\n\r]/.test(value) || /^\s|\s$/.test(value)) {
+    return JSON.stringify(value);
+  }
+  return value;
+}
+function writeTopicClusterPage(cluster, updated) {
+  const members = [...cluster.mappedTopics].sort((a, b) => a.page.localeCompare(b.page));
+  const lines = [];
+  lines.push(`# ${cluster.title}`, "");
+  lines.push(cluster.description.trim(), "");
+  lines.push("## Member Topics", "");
+  for (const member of members) {
+    lines.push(`- ${formatWikilink(member.page, member.label)} (${member.wiki})`);
+  }
+  lines.push("");
+  lines.push("## Sources", "");
+  lines.push(
+    "This cluster page makes no factual claims. The evidence lives on the member topic pages:"
+  );
+  for (const member of members) {
+    lines.push(`- ${formatWikilink(member.page, member.label)} (${member.wiki})`);
+  }
+  lines.push("");
+  const frontmatter = {
+    title: escapeYamlString4(cluster.title),
+    type: "cross-wiki-topic",
+    clusterId: cluster.clusterId,
+    members: members.map((member) => `${member.page}.md`),
+    updated
+  };
+  return import_gray_matter17.default.stringify(`
+${lines.join("\n")}
+`, frontmatter);
+}
+
+// src/cross-wiki/topic-clusterer.ts
+function validateClusterOutput(data, candidates) {
+  const errors = [];
+  if (typeof data !== "object" || data === null || !Array.isArray(data.clusters)) {
+    return { valid: false, errors: ['output must be an object with a "clusters" array'] };
+  }
+  const assigned = /* @__PURE__ */ new Set();
+  const clusters = [];
+  for (const [index, cluster] of data.clusters.entries()) {
+    if (typeof cluster !== "object" || cluster === null) {
+      errors.push(`clusters[${index}]: not an object`);
+      continue;
+    }
+    const c = cluster;
+    if (typeof c.title !== "string" || c.title.trim().length === 0) {
+      errors.push(`clusters[${index}]: missing "title"`);
+      continue;
+    }
+    if (!Array.isArray(c.mappedTopics) || c.mappedTopics.length < 2) {
+      errors.push(`clusters[${index}]: "mappedTopics" must map at least two topics`);
+      continue;
+    }
+    const mappedTopics = [];
+    let ok = true;
+    for (const mapped of c.mappedTopics) {
+      if (typeof mapped !== "object" || mapped === null) {
+        errors.push(`clusters[${index}]: a mapped topic is not an object`);
+        ok = false;
+        continue;
+      }
+      const m = mapped;
+      if (typeof m.id !== "string" || !candidates.has(m.id)) {
+        errors.push(`clusters[${index}]: unknown topic id "${String(m.id)}"`);
+        ok = false;
+        continue;
+      }
+      if (assigned.has(m.id)) {
+        errors.push(`clusters[${index}]: topic "${m.id}" is mapped into two clusters`);
+        ok = false;
+        continue;
+      }
+      assigned.add(m.id);
+      mappedTopics.push({ id: m.id, label: typeof m.label === "string" && m.label.trim().length > 0 ? m.label : candidates.get(m.id).title });
+    }
+    if (!ok) {
+      continue;
+    }
+    clusters.push({
+      clusterId: typeof c.clusterId === "string" && c.clusterId.trim().length > 0 ? c.clusterId.trim() : c.title.trim(),
+      title: c.title.trim(),
+      description: typeof c.description === "string" ? c.description.trim() : "",
+      mappedTopics,
+      confidence: typeof c.confidence === "string" ? c.confidence : "medium"
+    });
+  }
+  if (errors.length > 0) {
+    return { valid: false, errors };
+  }
+  return { valid: true, errors: [], value: { clusters } };
+}
+function formatTopicCandidate(page) {
+  return JSON.stringify({
+    id: page.id,
+    wiki: page.wiki,
+    title: page.title,
+    aliases: page.aliases,
+    summary: page.firstParagraph
+  });
+}
+async function clusterTopics(pages, options2 = {}) {
+  const workspace = options2.workspace ?? ".";
+  const topicsDir = join34(workspace, "wikis", "cross-wiki", "topics");
+  await mkdir22(topicsDir, { recursive: true });
+  const candidates = new Map(pages.map((page) => [page.id, page]));
+  let kept = [];
+  if (pages.length > 0) {
+    let outcome;
+    try {
+      outcome = await runCrossWikiJsonCall({
+        promptFile: "cross-wiki-topic-cluster.prompt.txt",
+        slots: { topics: pages.map(formatTopicCandidate).join("\n") },
+        callType: "cross-wiki-topic-cluster",
+        context: `cross-wiki topic cluster (${pages.length} topics)`,
+        maxTokens: CROSS_WIKI_MAX_TOKENS,
+        language: options2.language,
+        logPath: options2.logPath,
+        label: `cross-wiki topic cluster (${pages.length} topics)`,
+        validate: (data) => validateClusterOutput(data, candidates),
+        callLLMFn: options2.clusterTopicsFn ? (feedback, attempt) => options2.clusterTopicsFn(pages, feedback, attempt) : void 0
+      });
+    } catch (err) {
+      options2.onProgress?.(
+        `Warning: cross-wiki topic clustering failed (${err.message}); no cluster pages are written this run.`
+      );
+      outcome = null;
+    }
+    if (outcome !== null && outcome.output !== null) {
+      const usedIds = /* @__PURE__ */ new Set();
+      for (const cluster of outcome.output.clusters) {
+        const wikis = Array.from(new Set(cluster.mappedTopics.map((mapped) => candidates.get(mapped.id).wiki)));
+        if (wikis.length < 2) {
+          continue;
+        }
+        const baseId = slugify(cluster.clusterId) || "cluster";
+        let clusterId = baseId;
+        let suffix = 2;
+        while (usedIds.has(clusterId)) {
+          clusterId = `${baseId}-${suffix}`;
+          suffix++;
+        }
+        usedIds.add(clusterId);
+        kept.push({
+          clusterId,
+          title: cluster.title,
+          description: cluster.description,
+          mappedTopics: cluster.mappedTopics.map((mapped) => {
+            const candidate = candidates.get(mapped.id);
+            return { wiki: candidate.wiki, page: candidate.id, label: mapped.label };
+          }).sort((a, b) => a.page.localeCompare(b.page)),
+          confidence: cluster.confidence
+        });
+      }
+    }
+  }
+  kept.sort((a, b) => a.clusterId.localeCompare(b.clusterId));
+  for (const entry of await readdir10(topicsDir, { withFileTypes: true })) {
+    if (entry.isFile() && entry.name.endsWith(".md") && entry.name !== "index.md") {
+      if (!kept.some((cluster) => `${cluster.clusterId}.md` === entry.name)) {
+        await rm2(join34(topicsDir, entry.name));
+      }
+    }
+  }
+  const updated = (/* @__PURE__ */ new Date()).toISOString();
+  for (const cluster of kept) {
+    await writeFile22(join34(topicsDir, `${cluster.clusterId}.md`), writeTopicClusterPage(cluster, updated), "utf-8");
+  }
+  await writeCrossWikiState(workspace, "topic-clusters.json", { generated: updated, clusters: kept });
+  return kept;
+}
+
+// src/cross-wiki/index.ts
+var import_gray_matter18 = __toESM(require_gray_matter(), 1);
+import { readFile as readFile27 } from "node:fs/promises";
+async function changedPageSummary(workspace, path) {
+  try {
+    const parsed = (0, import_gray_matter18.default)(await readFile27(join35(workspace, "wikis", path), "utf-8"));
+    const data = parsed.data;
+    return {
+      path,
+      title: typeof data.title === "string" ? data.title : path,
+      summary: firstParagraphOf(parsed.content)
+    };
+  } catch {
+    return { path, title: path, summary: "" };
+  }
+}
+async function runCrossWikiPass(options2) {
+  const workspace = options2.workspace ?? ".";
+  const progress = options2.onProgress ?? (() => {
+  });
+  const fingerprint = await computeRunFingerprint(workspace);
+  const decision = await preflightDecision(workspace, fingerprint);
+  if (decision.action === "skip") {
+    return { ran: false, reason: decision.reason };
+  }
+  if (decision.action === "probe") {
+    try {
+      const changes = await Promise.all(decision.changedPages.map((path) => changedPageSummary(workspace, path)));
+      const relevant = await relevanceProbe(changes, {
+        language: options2.language,
+        logPath: options2.logPath,
+        relevanceProbeFn: options2.relevanceProbeFn
+      });
+      if (!relevant) {
+        await writeRunFingerprint(workspace, fingerprint);
+        progress("Cross-wiki discovery: changes are local (relevance probe) \u2014 full pass skipped.");
+        return { ran: false, reason: "probe-not-relevant" };
+      }
+    } catch (err) {
+      progress(`Warning: cross-wiki relevance probe failed (${err.message}); running the full pass.`);
+    }
+  }
+  const wikis = await listWorkspaceWikis(workspace);
+  const entityPages = [];
+  const topicPages = [];
+  for (const wiki of wikis) {
+    entityPages.push(...await scanEntityPages(workspace, wiki));
+    topicPages.push(...await scanTopicPages(workspace, wiki));
+  }
+  let summaries = {};
+  try {
+    summaries = await summarizeEntities(entityPages, {
+      workspace,
+      language: options2.language,
+      logPath: options2.logPath,
+      summarizeEntityFn: options2.summarizeEntityFn,
+      onProgress: progress
+    });
+  } catch (err) {
+    progress(`Warning: cross-wiki entity summaries failed (${err.message}); continuing without summaries.`);
+  }
+  let resolution;
+  try {
+    resolution = await resolveEntities(entityPages, summaries, {
+      workspace,
+      language: options2.language,
+      logPath: options2.logPath,
+      matchEntitiesFn: options2.matchEntitiesFn,
+      reviewUncertainFn: options2.reviewUncertainFn,
+      onProgress: progress
+    });
+  } catch (err) {
+    progress(`Warning: cross-wiki entity resolution failed (${err.message}); writing an empty registry.`);
+    resolution = { entries: [], uncertain: [], stats: { exactClusters: 0, candidateClusters: 0, fuzzyMatches: 0, reviewMatches: 0 } };
+  }
+  const predicates = entityPages.flatMap((page) => page.relationships.map((rel) => rel.predicate));
+  const predicateGroups = await normalizePredicates(predicates, {
+    workspace,
+    language: options2.language,
+    logPath: options2.logPath,
+    normalizePredicatesFn: options2.normalizePredicatesFn,
+    onProgress: progress
+  });
+  const edges = await buildRelationshipGraph(entityPages, resolution.entries, predicateGroups, { workspace });
+  const clusters = await clusterTopics(topicPages, {
+    workspace,
+    language: options2.language,
+    logPath: options2.logPath,
+    clusterTopicsFn: options2.clusterTopicsFn,
+    onProgress: progress
+  });
+  const signals = await generateHypothesisSignals(resolution.entries, edges, clusters, summaries, {
+    workspace,
+    language: options2.language,
+    logPath: options2.logPath,
+    generateSignalsFn: options2.generateSignalsFn,
+    onProgress: progress
+  });
+  const crossWikiDir = join35(workspace, "wikis", CROSS_WIKI_FOLDER);
+  await mkdir23(join35(crossWikiDir, "topics"), { recursive: true });
+  const updated = (/* @__PURE__ */ new Date()).toISOString();
+  const artifactWikis = /* @__PURE__ */ new Set();
+  for (const entry of resolution.entries) {
+    for (const member of entry.members) {
+      artifactWikis.add(member.wiki);
+    }
+  }
+  for (const edge of edges) {
+    artifactWikis.add(edge.subject.wiki);
+    if (edge.object.wiki !== "") {
+      artifactWikis.add(edge.object.wiki);
+    }
+  }
+  for (const cluster of clusters) {
+    for (const topic of cluster.mappedTopics) {
+      artifactWikis.add(topic.wiki);
+    }
+  }
+  await writeFile23(
+    join35(crossWikiDir, "index.md"),
+    writeCrossWikiIndexPage(
+      {
+        entityCount: resolution.entries.length,
+        edgeCount: edges.length,
+        clusterCount: clusters.length,
+        wikiCount: artifactWikis.size
+      },
+      updated
+    ),
+    "utf-8"
+  );
+  await writeFile23(
+    join35(crossWikiDir, "topics", "index.md"),
+    writeCrossWikiTopicsIndexPage(clusters, updated),
+    "utf-8"
+  );
+  await updateWorkspaceCrossWikiSection(workspace);
+  await writeRunFingerprint(workspace, fingerprint);
+  try {
+    const schema = await validateCrossWikiSchema(workspace);
+    for (const invalid of schema.invalid) {
+      progress(`Warning: cross-wiki schema violation in ${invalid.page}: ${invalid.issue}`);
+    }
+    const links = await checkCrossWikiLinks(workspace);
+    for (const broken of links.broken) {
+      progress(`Warning: broken cross-wiki link in ${broken.page}: [[${broken.link}]]`);
+    }
+  } catch {
+  }
+  return {
+    ran: true,
+    reason: decision.action === "run" ? decision.reason : "probe-relevant",
+    entities: resolution.entries.length,
+    edges: edges.length,
+    clusters: clusters.length,
+    signals: signals.length,
+    uncertain: resolution.uncertain.length
+  };
+}
+
+// src/validation/index.ts
+import { mkdir as mkdir24, writeFile as writeFile24 } from "node:fs/promises";
+import { join as join38 } from "node:path";
+
+// src/validation/citation-checker.ts
+var import_gray_matter19 = __toESM(require_gray_matter(), 1);
+import { access, readFile as readFile28, readdir as readdir11 } from "node:fs/promises";
+import { join as join36, relative as relative6 } from "node:path";
+async function findContentPages(wikiSlug, workspace) {
+  const dir = join36(workspace, "wikis", wikiSlug);
+  const pages = [];
+  await walk3(dir, dir, workspace, pages);
+  return pages;
+}
+async function walk3(root, current, workspace, out) {
+  const entries = await readdir11(current, { withFileTypes: true });
   for (const entry of entries) {
     if (entry.name === ".state") {
       continue;
     }
-    const absolute = join27(current, entry.name);
+    const absolute = join36(current, entry.name);
     if (entry.isDirectory()) {
-      await walk2(root, absolute, workspace, out);
+      await walk3(root, absolute, workspace, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
-      const wikiRel = relative3(root, absolute).replace(/\\/g, "/");
+      const wikiRel = relative6(root, absolute).replace(/\\/g, "/");
       if (wikiRel === "AGENTS.md") {
         continue;
       }
-      out.push({ absolute, relative: relative3(workspace, absolute).replace(/\\/g, "/"), wikiRelative: wikiRel });
+      out.push({ absolute, relative: relative6(workspace, absolute).replace(/\\/g, "/"), wikiRelative: wikiRel });
     }
   }
 }
@@ -106118,7 +108308,7 @@ function stripFrontmatter2(content) {
 function frontmatterSourceFiles(content) {
   const files = /* @__PURE__ */ new Set();
   try {
-    const parsed = (0, import_gray_matter12.default)(content);
+    const parsed = (0, import_gray_matter19.default)(content);
     const sources = parsed.data.sources;
     if (Array.isArray(sources)) {
       for (const entry of sources) {
@@ -106151,7 +108341,7 @@ async function checkCitations(wikiSlug, workspace = ".") {
     if (page.relative.endsWith("index.md")) {
       continue;
     }
-    const content = await readFile22(page.absolute, "utf-8");
+    const content = await readFile28(page.absolute, "utf-8");
     const body = stripFrontmatter2(content);
     const definitions = /* @__PURE__ */ new Map();
     let defMatch;
@@ -106177,7 +108367,7 @@ async function checkCitations(wikiSlug, workspace = ".") {
         invalid.push({ page: page.relative, citation: `[^${key}]` });
         continue;
       }
-      const sourcePath = join27(workspace, "wikis", wikiSlug, "raw", fileName);
+      const sourcePath = join36(workspace, "wikis", wikiSlug, "raw", fileName);
       try {
         await access(sourcePath);
       } catch {
@@ -106204,35 +108394,50 @@ async function checkCitations(wikiSlug, workspace = ".") {
 }
 
 // src/validation/schema-validator.ts
-var import_gray_matter13 = __toESM(require_gray_matter(), 1);
-import { readFile as readFile23, readdir as readdir8 } from "node:fs/promises";
-import { join as join28, relative as relative4 } from "node:path";
-var KNOWN_TYPES = /* @__PURE__ */ new Set(["entity", "topic", "document", "source", "raw", "index", "composite", "comparison"]);
+var import_gray_matter20 = __toESM(require_gray_matter(), 1);
+import { readFile as readFile29, readdir as readdir12 } from "node:fs/promises";
+import { join as join37, relative as relative7 } from "node:path";
+var KNOWN_TYPES = /* @__PURE__ */ new Set([
+  "entity",
+  "topic",
+  "document",
+  "source",
+  "raw",
+  "index",
+  "composite",
+  "comparison",
+  // Phase 24 (vision `05` §9.1): the workspace-level derived types. They live
+  // under `wikis/cross-wiki/` (validated by `cross-wiki-schema.ts`), but the
+  // taxonomy knows them so a stray copy inside a wiki is checked by the same
+  // field rules instead of passing as an undocumented custom type.
+  "cross-wiki-index",
+  "cross-wiki-topic"
+]);
 async function findPages(wikiSlug, workspace) {
-  const dir = join28(workspace, "wikis", wikiSlug);
+  const dir = join37(workspace, "wikis", wikiSlug);
   const pages = [];
-  await walk3(dir, dir, workspace, pages);
+  await walk4(dir, dir, workspace, pages);
   return pages;
 }
-async function walk3(root, current, workspace, out) {
-  const entries = await readdir8(current, { withFileTypes: true });
+async function walk4(root, current, workspace, out) {
+  const entries = await readdir12(current, { withFileTypes: true });
   for (const entry of entries) {
     if (entry.name === ".state") {
       continue;
     }
-    const absolute = join28(current, entry.name);
+    const absolute = join37(current, entry.name);
     if (entry.isDirectory()) {
-      await walk3(root, absolute, workspace, out);
+      await walk4(root, absolute, workspace, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
-      const wikiRel = relative4(root, absolute).replace(/\\/g, "/");
+      const wikiRel = relative7(root, absolute).replace(/\\/g, "/");
       if (wikiRel === "AGENTS.md") {
         continue;
       }
-      out.push({ absolute, relative: relative4(workspace, absolute).replace(/\\/g, "/") });
+      out.push({ absolute, relative: relative7(workspace, absolute).replace(/\\/g, "/") });
     }
   }
 }
-function isValidIsoTimestamp(value) {
+function isValidIsoTimestamp2(value) {
   if (value instanceof Date) {
     return !Number.isNaN(value.getTime());
   }
@@ -106253,10 +108458,10 @@ async function validateSchema(wikiSlug, workspace = ".") {
   const pages = await findPages(wikiSlug, workspace);
   const invalid = [];
   for (const page of pages) {
-    const content = await readFile23(page.absolute, "utf-8");
+    const content = await readFile29(page.absolute, "utf-8");
     let parsed;
     try {
-      parsed = (0, import_gray_matter13.default)(content);
+      parsed = (0, import_gray_matter20.default)(content);
     } catch (err) {
       invalid.push({ page: page.relative, issue: `Invalid YAML frontmatter: ${err.message}` });
       continue;
@@ -106283,8 +108488,25 @@ async function validateSchema(wikiSlug, workspace = ".") {
       if (typeof rollupClass !== "number" || !Number.isInteger(rollupClass) || rollupClass < 1 || rollupClass > 5) {
         invalid.push({ page: page.relative, issue: 'type composite requires a "class" field (integer 1-5)' });
       }
+    } else if (data.type === "cross-wiki-index") {
+      if (!Array.isArray(data.children)) {
+        invalid.push({ page: page.relative, issue: 'type cross-wiki-index requires a "children" list' });
+      }
+      if (data.wiki !== void 0) {
+        invalid.push({ page: page.relative, issue: 'cross-wiki pages must not carry a "wiki" field' });
+      }
+    } else if (data.type === "cross-wiki-topic") {
+      if (typeof data.clusterId !== "string" || data.clusterId.trim().length === 0) {
+        invalid.push({ page: page.relative, issue: 'type cross-wiki-topic requires a "clusterId" field' });
+      }
+      if (!Array.isArray(data.members) || data.members.length === 0 || !data.members.every((member) => typeof member === "string" && member.length > 0)) {
+        invalid.push({ page: page.relative, issue: 'type cross-wiki-topic requires a "members" list of path-qualified topic slugs' });
+      }
+      if (data.wiki !== void 0) {
+        invalid.push({ page: page.relative, issue: 'cross-wiki pages must not carry a "wiki" field' });
+      }
     }
-    if (!isValidIsoTimestamp(data.updated)) {
+    if (!isValidIsoTimestamp2(data.updated)) {
       invalid.push({ page: page.relative, issue: "Missing or invalid required field: updated (expected ISO 8601 timestamp)" });
     }
   }
@@ -106312,10 +108534,10 @@ function formatSchemaSummary(schema) {
 }
 async function writeValidationReport(wikiDir2, summary) {
   try {
-    const reportDir = join29(wikiDir2, ".state");
-    await mkdir19(reportDir, { recursive: true });
-    await writeFile19(
-      join29(reportDir, "validation-report.json"),
+    const reportDir = join38(wikiDir2, ".state");
+    await mkdir24(reportDir, { recursive: true });
+    await writeFile24(
+      join38(reportDir, "validation-report.json"),
       JSON.stringify(summary, null, 2) + "\n",
       "utf-8"
     );
@@ -106528,14 +108750,14 @@ function checkComparisonPreservation(originalData, writtenPage) {
 }
 
 // src/state/synthesis-report.ts
-import { mkdir as mkdir20, readFile as readFile24, writeFile as writeFile20 } from "node:fs/promises";
-import { join as join30 } from "node:path";
+import { mkdir as mkdir25, readFile as readFile30, writeFile as writeFile25 } from "node:fs/promises";
+import { join as join39 } from "node:path";
 function reportPath(wikiDir2) {
-  return join30(wikiDir2, ".state", "synthesis-report.json");
+  return join39(wikiDir2, ".state", "synthesis-report.json");
 }
 async function readReport(wikiDir2) {
   try {
-    const raw = await readFile24(reportPath(wikiDir2), "utf-8");
+    const raw = await readFile30(reportPath(wikiDir2), "utf-8");
     const parsed = JSON.parse(raw);
     if (Array.isArray(parsed.entries)) {
       return parsed;
@@ -106548,8 +108770,8 @@ async function readReport(wikiDir2) {
   return { entries: [] };
 }
 async function writeReport(wikiDir2, state) {
-  await mkdir20(join30(wikiDir2, ".state"), { recursive: true });
-  await writeFile20(reportPath(wikiDir2), JSON.stringify(state, null, 2) + "\n", "utf-8");
+  await mkdir25(join39(wikiDir2, ".state"), { recursive: true });
+  await writeFile25(reportPath(wikiDir2), JSON.stringify(state, null, 2) + "\n", "utf-8");
 }
 async function appendSynthesisReportEntries(wikiDir2, entries) {
   if (entries.length === 0) {
@@ -106672,7 +108894,7 @@ async function trySynthesisMode(runSynthesis, runCheck, label) {
   return { page: outcome.output, attempts: outcome.attempts, lastCheck };
 }
 function loadAgentsMd(wikiDir2) {
-  const path = join31(wikiDir2, "AGENTS.md");
+  const path = join40(wikiDir2, "AGENTS.md");
   try {
     return readFileSync3(path, "utf-8");
   } catch {
@@ -106712,11 +108934,11 @@ async function ingest(slug, options2 = {}) {
   } catch {
   }
   const dir = wikiDir(options2.workspace, slug);
-  if (!existsSync9(dir)) {
+  if (!existsSync10(dir)) {
     throw new Error(`Wiki '${slug}' not found at ${dir}. Run 'init ${slug}' first.`);
   }
-  const rawDir = join31(dir, "raw");
-  if (!existsSync9(rawDir)) {
+  const rawDir = join40(dir, "raw");
+  if (!existsSync10(rawDir)) {
     throw new Error(`Wiki '${slug}' has no raw/ directory. Run 'init ${slug}' to repair it.`);
   }
   const progress = options2.onProgress ?? (() => {
@@ -106726,15 +108948,15 @@ async function ingest(slug, options2 = {}) {
   const input = getLanguage(options2.inputLanguage ?? languageState.lastInputLanguage).code;
   const language = { input, output };
   if (input !== languageState.lastInputLanguage) {
-    const extractedDir = join31(dir, ".state", "extracted");
-    const hasExtractions = existsSync9(extractedDir) && (await readdir9(extractedDir)).some((file) => file.endsWith(".json"));
+    const extractedDir = join40(dir, ".state", "extracted");
+    const hasExtractions = existsSync10(extractedDir) && (await readdir13(extractedDir)).some((file) => file.endsWith(".json"));
     if (hasExtractions) {
       console.log(
         `Warning: input language '${input}' differs from the last run ('${languageState.lastInputLanguage}'). Re-ingesting the same names under a different language can create duplicate pages (slug forking).`
       );
     }
   }
-  const pdfFiles = (await readdir9(rawDir)).filter((file) => file.toLowerCase().endsWith(".pdf")).sort();
+  const pdfFiles = (await readdir13(rawDir)).filter((file) => file.toLowerCase().endsWith(".pdf")).sort();
   const result = {
     wiki: slug,
     wikiDir: dir,
@@ -106831,7 +109053,7 @@ async function ingest(slug, options2 = {}) {
     progress("Materialized entity, topic, and document pages.");
   };
   for (const fileName of pdfFiles) {
-    const pdfPath = join31(rawDir, fileName);
+    const pdfPath = join40(rawDir, fileName);
     const sourceSlug = sourceSlugForFile(fileName);
     const hash = await sha256(pdfPath);
     const existing = state.sources[sourceSlug];
@@ -106858,10 +109080,10 @@ async function ingest(slug, options2 = {}) {
     }
     const chunkCount = Math.max(1, Math.ceil(pageCount / pagesPerChunk));
     for (const oldPage of existing?.documentPages ?? []) {
-      await rm2(join31(dir, oldPage), { force: true });
+      await rm3(join40(dir, oldPage), { force: true });
       const oldChunkId = oldPage.split("/").pop()?.replace(/\.md$/, "");
       if (oldChunkId) {
-        await rm2(join31(dir, ".state", "extracted", `${oldChunkId}.json`), { force: true });
+        await rm3(join40(dir, ".state", "extracted", `${oldChunkId}.json`), { force: true });
       }
     }
     const documentPages = [];
@@ -106897,8 +109119,8 @@ async function ingest(slug, options2 = {}) {
 
 ${rendered.text}
 `;
-      await mkdir21(join31(dir, "documents"), { recursive: true });
-      await writeFile21(join31(dir, "documents", docFileName), import_gray_matter14.default.stringify(body, frontmatter), "utf-8");
+      await mkdir26(join40(dir, "documents"), { recursive: true });
+      await writeFile26(join40(dir, "documents", docFileName), import_gray_matter21.default.stringify(body, frontmatter), "utf-8");
       documentPages.push(wikiRelativePath("documents", docFileName));
       if (extract) {
         const chunkId = docFileName.replace(/\.md$/, "");
@@ -106949,8 +109171,8 @@ ${rendered.text}
     });
   }
   if (extract && lastMaterializeResult === void 0) {
-    const extractedDir = join31(dir, ".state", "extracted");
-    const hasExtractions = existsSync9(extractedDir) && (await readdir9(extractedDir)).some((file) => file.toLowerCase().endsWith(".json"));
+    const extractedDir = join40(dir, ".state", "extracted");
+    const hasExtractions = existsSync10(extractedDir) && (await readdir13(extractedDir)).some((file) => file.toLowerCase().endsWith(".json"));
     if (hasExtractions) {
       await runMaterialize();
     }
@@ -106961,8 +109183,8 @@ ${rendered.text}
     if (extract && writtenPagePaths.size > 0) {
       for (const relativePath of writtenPagePaths) {
         try {
-          const content = await readFile25(join31(dir, relativePath), "utf-8");
-          workingPageHashes[relativePath] = createHash4("sha256").update(content, "utf-8").digest("hex");
+          const content = await readFile31(join40(dir, relativePath), "utf-8");
+          workingPageHashes[relativePath] = createHash5("sha256").update(content, "utf-8").digest("hex");
         } catch {
         }
       }
@@ -106974,7 +109196,7 @@ ${rendered.text}
     if (extract && synthesis && lastMaterializeResult) {
       result.synthesisRan = true;
       const agentsMd = loadAgentsMd(dir);
-      const llmLogPath = join31(dir, ".state", "llm-calls.json");
+      const llmLogPath = join40(dir, ".state", "llm-calls.json");
       const slugUniverse = await buildSlugUniverse(slug, options2.workspace, { language: input });
       const repairPageLinks = (markdown, pageLabel) => {
         const { markdown: repaired, repairs, unrepairable } = repairWikilinksInMarkdown(markdown, slugUniverse);
@@ -107021,9 +109243,9 @@ ${rendered.text}
             entityPage.slug
           );
           if (strict.page !== null) {
-            const folderPath = join31(dir, entityPage.folder);
-            await writeFile21(
-              join31(folderPath, `${entityPage.slug}.md`),
+            const folderPath = join40(dir, entityPage.folder);
+            await writeFile26(
+              join40(folderPath, `${entityPage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceFrontmatterInMarkdown(
@@ -107061,9 +109283,9 @@ ${rendered.text}
             entityPage.slug
           );
           if (permissive.page !== null) {
-            const folderPath = join31(dir, entityPage.folder);
-            await writeFile21(
-              join31(folderPath, `${entityPage.slug}.md`),
+            const folderPath = join40(dir, entityPage.folder);
+            await writeFile26(
+              join40(folderPath, `${entityPage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceFrontmatterInMarkdown(
@@ -107187,9 +109409,9 @@ ${rendered.text}
             `topic ${topicPage.slug}`
           );
           if (strict.page !== null) {
-            const folderPath = join31(dir, topicPage.folder);
-            await writeFile21(
-              join31(folderPath, `${topicPage.slug}.md`),
+            const folderPath = join40(dir, topicPage.folder);
+            await writeFile26(
+              join40(folderPath, `${topicPage.slug}.md`),
               repairPageLinks(
                 enforceTopicSourcesSectionInMarkdown(
                   enforceTopicFrontmatterInMarkdown(
@@ -107224,9 +109446,9 @@ ${rendered.text}
             `topic ${topicPage.slug}`
           );
           if (permissive.page !== null) {
-            const folderPath = join31(dir, topicPage.folder);
-            await writeFile21(
-              join31(folderPath, `${topicPage.slug}.md`),
+            const folderPath = join40(dir, topicPage.folder);
+            await writeFile26(
+              join40(folderPath, `${topicPage.slug}.md`),
               repairPageLinks(
                 enforceTopicSourcesSectionInMarkdown(
                   enforceTopicFrontmatterInMarkdown(
@@ -107349,9 +109571,9 @@ ${rendered.text}
             `composite ${compositePage.slug}`
           );
           if (strict.page !== null) {
-            const folderPath = join31(dir, compositePage.folder);
-            await writeFile21(
-              join31(folderPath, `${compositePage.slug}.md`),
+            const folderPath = join40(dir, compositePage.folder);
+            await writeFile26(
+              join40(folderPath, `${compositePage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceCompositeFrontmatterInMarkdown(strict.page, compositePage),
@@ -107383,9 +109605,9 @@ ${rendered.text}
             `composite ${compositePage.slug}`
           );
           if (permissive.page !== null) {
-            const folderPath = join31(dir, compositePage.folder);
-            await writeFile21(
-              join31(folderPath, `${compositePage.slug}.md`),
+            const folderPath = join40(dir, compositePage.folder);
+            await writeFile26(
+              join40(folderPath, `${compositePage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceCompositeFrontmatterInMarkdown(permissive.page, compositePage),
@@ -107505,9 +109727,9 @@ ${rendered.text}
             `comparison ${comparisonPage.slug}`
           );
           if (strict.page !== null) {
-            const folderPath = join31(dir, comparisonPage.folder);
-            await writeFile21(
-              join31(folderPath, `${comparisonPage.slug}.md`),
+            const folderPath = join40(dir, comparisonPage.folder);
+            await writeFile26(
+              join40(folderPath, `${comparisonPage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceComparisonBridgeInMarkdown(
@@ -107542,9 +109764,9 @@ ${rendered.text}
             `comparison ${comparisonPage.slug}`
           );
           if (permissive.page !== null) {
-            const folderPath = join31(dir, comparisonPage.folder);
-            await writeFile21(
-              join31(folderPath, `${comparisonPage.slug}.md`),
+            const folderPath = join40(dir, comparisonPage.folder);
+            await writeFile26(
+              join40(folderPath, `${comparisonPage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceComparisonBridgeInMarkdown(
@@ -107780,9 +110002,28 @@ ${rendered.text}
     writeWorkspaceIndexFn: options2.writeWorkspaceIndexFn,
     writeWorkspaceProseFn: options2.writeWorkspaceProseFn,
     outputLanguage: getLanguage(output).name,
-    logPath: join31(dir, ".state", "llm-calls.json")
+    logPath: join40(dir, ".state", "llm-calls.json")
   });
   progress("Workspace index updated.");
+  if (options2.crossWiki === true) {
+    const runPass = options2.runCrossWikiPassFn ?? runCrossWikiPass;
+    try {
+      const crossWiki = await runPass({
+        workspace: options2.workspace,
+        wikiSlug: slug,
+        language,
+        logPath: join40(dir, ".state", "llm-calls.json"),
+        onProgress: progress
+      });
+      result.crossWiki = crossWiki;
+      progress(
+        crossWiki.ran ? `Cross-wiki discovery updated: ${crossWiki.entities ?? 0} entities, ${crossWiki.edges ?? 0} edges, ${crossWiki.clusters ?? 0} clusters.` : `Cross-wiki discovery skipped (${crossWiki.reason}).`
+      );
+    } catch (err) {
+      progress(`Warning: cross-wiki discovery pass failed (${err.message}) \u2014 the ingest is unaffected.`);
+      result.crossWiki = { ran: false, reason: "error", error: err.message };
+    }
+  }
   if (options2.updateAgents) {
     const runPropose = options2.proposeAgentsUpdateFn ?? proposeAgentsUpdate;
     await runPropose(slug, { workspace: options2.workspace });
@@ -107899,7 +110140,7 @@ function IngestScreen({
     readWikiLanguage(dir).then(async (state) => {
       let extracted = false;
       try {
-        extracted = (await readdir10(join32(dir, ".state", "extracted"))).some(
+        extracted = (await readdir14(join41(dir, ".state", "extracted"))).some(
           (file) => file.endsWith(".json")
         );
       } catch {
@@ -107937,6 +110178,10 @@ function IngestScreen({
         // content-based index.md contracts (deterministic enforcement and
         // fallback still guarantee valid contracts without a key).
         doxLlm: true,
+        // Phase 24: the cross-wiki discovery pass auto-runs in production
+        // (it self-skips when the workspace holds fewer than two wikis or
+        // nothing cross-wiki-relevant changed; failures never abort ingest).
+        crossWiki: true,
         onProgress: (line) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES))
       });
       let summary = formatIngestSummary(result);
@@ -108120,8 +110365,8 @@ var import_react44 = __toESM(require_react(), 1);
 
 // src/tui/hooks/use-raw-contents.ts
 var import_react43 = __toESM(require_react(), 1);
-import { readdir as readdir11 } from "node:fs/promises";
-import { join as join33 } from "node:path";
+import { readdir as readdir15 } from "node:fs/promises";
+import { join as join42 } from "node:path";
 function useRawContents(workspace, wiki, refreshKey = 0) {
   const [files, setFiles] = (0, import_react43.useState)(null);
   (0, import_react43.useEffect)(() => {
@@ -108132,7 +110377,7 @@ function useRawContents(workspace, wiki, refreshKey = 0) {
     }
     (async () => {
       try {
-        const entries = await readdir11(join33(workspace, "wikis", wiki, "raw"));
+        const entries = await readdir15(join42(workspace, "wikis", wiki, "raw"));
         if (!cancelled) {
           setFiles(entries.sort());
         }
@@ -108150,8 +110395,8 @@ function useRawContents(workspace, wiki, refreshKey = 0) {
 }
 
 // src/commands/add-pdf.ts
-import { copyFile, mkdir as mkdir22, stat } from "node:fs/promises";
-import { basename, extname, join as join34, resolve as resolve3 } from "node:path";
+import { copyFile, mkdir as mkdir27, stat as stat2 } from "node:fs/promises";
+import { basename, extname, join as join43, resolve as resolve3 } from "node:path";
 var AddPdfError = class extends Error {
   constructor(message) {
     super(message);
@@ -108172,7 +110417,7 @@ async function addPdfToWiki(wikiDir2, sourcePath) {
   }
   let stats;
   try {
-    stats = await stat(cleaned);
+    stats = await stat2(cleaned);
   } catch {
     throw new AddPdfError(`File not found: ${cleaned}`);
   }
@@ -108183,9 +110428,9 @@ async function addPdfToWiki(wikiDir2, sourcePath) {
   if (extname(fileName).toLowerCase() !== ".pdf") {
     throw new AddPdfError(`Not a PDF file: ${fileName}. Only .pdf files can be added to raw/.`);
   }
-  const rawDir = join34(wikiDir2, "raw");
-  await mkdir22(rawDir, { recursive: true });
-  const destPath = join34(rawDir, fileName);
+  const rawDir = join43(wikiDir2, "raw");
+  await mkdir27(rawDir, { recursive: true });
+  const destPath = join43(rawDir, fileName);
   if (resolve3(cleaned) !== resolve3(destPath)) {
     try {
       await copyFile(cleaned, destPath);
@@ -108560,7 +110805,9 @@ function buildRowOrder(settings) {
     "modelExtractor",
     "modelSynthesis",
     "modelDox",
-    "modelCuration"
+    "modelCuration",
+    "modelCrossWiki",
+    "modelCrossWikiJudgment"
   ];
   const provider = settings.models.provider ?? "anthropic";
   if (provider.startsWith("custom:")) {
@@ -108609,19 +110856,25 @@ var RECOMMENDATIONS = {
     modelExtractor: "Haiku \u2014 cheapest, good for structured JSON extraction",
     modelSynthesis: "Sonnet \u2014 better prose, fewer preservation failures",
     modelDox: "Sonnet \u2014 mid-tier; structural navigation, correctness re-imposed deterministically",
-    modelCuration: "Sonnet \u2014 mid-tier judgment for merge/drop decisions"
+    modelCuration: "Sonnet \u2014 mid-tier judgment for merge/drop decisions",
+    modelCrossWiki: "Haiku \u2014 cheapest for bulk cross-wiki tasks (summaries, matching, clustering)",
+    modelCrossWikiJudgment: "Sonnet \u2014 mid-tier review for uncertain cross-wiki matches and hypothesis signals"
   },
   openai: {
     modelExtractor: "GPT-5.6 Luna \u2014 cheapest, good for structured JSON extraction",
     modelSynthesis: "GPT-5.6 Terra \u2014 better prose, fewer preservation failures",
     modelDox: "GPT-5.6 Terra \u2014 mid-tier; structural navigation, correctness re-imposed deterministically",
-    modelCuration: "GPT-5.6 Terra \u2014 mid-tier judgment for merge/drop decisions"
+    modelCuration: "GPT-5.6 Terra \u2014 mid-tier judgment for merge/drop decisions",
+    modelCrossWiki: "GPT-5.6 Luna \u2014 cheapest for bulk cross-wiki tasks (summaries, matching, clustering)",
+    modelCrossWikiJudgment: "GPT-5.6 Terra \u2014 mid-tier review for uncertain cross-wiki matches and hypothesis signals"
   },
   qwen: {
     modelExtractor: "Qwen-Plus \u2014 cheapest, good for structured JSON extraction",
     modelSynthesis: "Qwen 3.7 Max \u2014 better prose, fewer preservation failures",
     modelDox: "Qwen 3.7 Max \u2014 mid-tier; structural navigation, correctness re-imposed deterministically",
-    modelCuration: "Qwen 3.7 Max \u2014 mid-tier judgment for merge/drop decisions"
+    modelCuration: "Qwen 3.7 Max \u2014 mid-tier judgment for merge/drop decisions",
+    modelCrossWiki: "Qwen-Plus \u2014 cheapest for bulk cross-wiki tasks (summaries, matching, clustering)",
+    modelCrossWikiJudgment: "Qwen 3.7 Max \u2014 mid-tier review for uncertain cross-wiki matches and hypothesis signals"
   }
 };
 function displayName(modelId) {
@@ -108722,6 +110975,8 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
         if (row === "modelSynthesis") return prev.models.synthesis;
         if (row === "modelDox") return prev.models.dox;
         if (row === "modelCuration") return prev.models.curation ?? null;
+        if (row === "modelCrossWiki") return prev.models.crossWiki ?? null;
+        if (row === "modelCrossWikiJudgment") return prev.models.crossWikiJudgment ?? null;
         return null;
       };
       const current = getCurrent();
@@ -108744,6 +110999,10 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
         models.dox = next;
       } else if (row === "modelCuration") {
         models.curation = next;
+      } else if (row === "modelCrossWiki") {
+        models.crossWiki = next;
+      } else if (row === "modelCrossWikiJudgment") {
+        models.crossWikiJudgment = next;
       }
       return { ...prev, models };
     });
@@ -108780,6 +111039,10 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
         return "dox-writer";
       case "modelCuration":
         return "curation";
+      case "modelCrossWiki":
+        return "cross-wiki-relevance-probe";
+      case "modelCrossWikiJudgment":
+        return "cross-wiki-hypothesis";
       default:
         return void 0;
     }
@@ -108806,6 +111069,10 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
         models.dox = trimmed;
       } else if (row === "modelCuration") {
         models.curation = trimmed;
+      } else if (row === "modelCrossWiki") {
+        models.crossWiki = trimmed;
+      } else if (row === "modelCrossWikiJudgment") {
+        models.crossWikiJudgment = trimmed;
       }
       return { ...prev, models };
     });
@@ -108884,7 +111151,7 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
           cycleProvider(key.rightArrow ? 1 : -1);
         }
       }
-      if (row === "modelDefault" || row === "modelExtractor" || row === "modelSynthesis" || row === "modelDox" || row === "modelCuration") {
+      if (row === "modelDefault" || row === "modelExtractor" || row === "modelSynthesis" || row === "modelDox" || row === "modelCuration" || row === "modelCrossWiki" || row === "modelCrossWikiJudgment") {
         if (key.leftArrow || key.rightArrow) {
           cycleModel(row, key.rightArrow ? 1 : -1);
         }
@@ -109221,7 +111488,9 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
         renderModelRow("modelExtractor", "Extractor Model", settings.models.extractor),
         renderModelRow("modelSynthesis", "Synthesis Writer Model", settings.models.synthesis),
         renderModelRow("modelDox", "DOX Writer Model", settings.models.dox),
-        renderModelRow("modelCuration", "Curation Model", settings.models.curation ?? null)
+        renderModelRow("modelCuration", "Curation Model", settings.models.curation ?? null),
+        renderModelRow("modelCrossWiki", "Cross-Wiki Bulk Model", settings.models.crossWiki ?? null),
+        renderModelRow("modelCrossWikiJudgment", "Cross-Wiki Judgment Model", settings.models.crossWikiJudgment ?? null)
       ] }),
       renderCustomProviderRows(),
       /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Box_default, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { inverse: focus === "addCustomProvider", color: focus === "addCustomProvider" ? "cyan" : void 0, children: [
@@ -109294,6 +111563,22 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
           "  ",
           RECOMMENDATIONS[provider].modelCuration
         ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
+          "Cross-Wiki Bulk Model: ",
+          optionalLabel(settings.models.crossWiki ?? null)
+        ] }),
+        !provider.startsWith("custom:") && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { dimColor: true, children: [
+          "  ",
+          RECOMMENDATIONS[provider].modelCrossWiki
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
+          "Cross-Wiki Judgment Model: ",
+          optionalLabel(settings.models.crossWikiJudgment ?? null)
+        ] }),
+        !provider.startsWith("custom:") && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { dimColor: true, children: [
+          "  ",
+          RECOMMENDATIONS[provider].modelCrossWikiJudgment
+        ] }),
         currentCustomProvider && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_jsx_runtime10.Fragment, { children: [
           /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
             "Base URL: ",
@@ -109354,8 +111639,8 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
 
 // src/tui/agents-review-screen.tsx
 var import_react46 = __toESM(require_react(), 1);
-import { copyFile as copyFile2, readFile as readFile26 } from "node:fs/promises";
-import { join as join35 } from "node:path";
+import { copyFile as copyFile2, readFile as readFile32 } from "node:fs/promises";
+import { join as join44 } from "node:path";
 
 // src/utils/line-diff.ts
 function diffLines(before, after) {
@@ -109450,10 +111735,10 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
     setScrollOffset(0);
     try {
       const dir = wikiDir(workspace, slug);
-      const currentText = await readFile26(join35(dir, "AGENTS.md"), "utf-8");
+      const currentText = await readFile32(join44(dir, "AGENTS.md"), "utf-8");
       let proposalText;
       try {
-        proposalText = await readFile26(join35(dir, ".state", "proposed-agents.md"), "utf-8");
+        proposalText = await readFile32(join44(dir, ".state", "proposed-agents.md"), "utf-8");
       } catch (err) {
         if (err.code === "ENOENT") {
           proposalText = null;
@@ -109488,7 +111773,7 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
     }
     try {
       const dir = wikiDir(workspace, activeWiki);
-      await copyFile2(join35(dir, ".state", "proposed-agents.md"), join35(dir, "AGENTS.md"));
+      await copyFile2(join44(dir, ".state", "proposed-agents.md"), join44(dir, "AGENTS.md"));
       const resultMessage = `Accepted proposed AGENTS.md updates for ${activeWiki}.`;
       setMessage(resultMessage);
       setStatus("done");
@@ -109790,13 +112075,14 @@ program2.command("init <slug>").description("Create a new wiki").option("--title
     process.exitCode = 1;
   }
 });
-program2.command("ingest <slug>").description("Ingest PDFs into a wiki").option("-w, --workspace <workspace>", "Workspace directory", ".").option("--synthesis", "Enable LLM synthesis for entity, topic, and document pages (Phase 5)").option("--update-agents", "Propose AGENTS.md updates after ingest (Phase 9); saves to .state/proposed-agents.md for review").option("--no-extract", "Skip the Layer 2 Extractor (Layer 1 document pages only)").option("--no-dox-llm", "Skip the LLM DOX Writer (deterministic index.md contracts only)").option("--input-language <code>", "Input language of this run's PDFs (en, da, de, fr, es, no, sv)").option("--output-language <code>", "Override the wiki output language for this run (en, da, de, fr, es, no, sv)").option("--verbose", "Verbose output").action(async (slug, options2) => {
+program2.command("ingest <slug>").description("Ingest PDFs into a wiki").option("-w, --workspace <workspace>", "Workspace directory", ".").option("--synthesis", "Enable LLM synthesis for entity, topic, and document pages (Phase 5)").option("--update-agents", "Propose AGENTS.md updates after ingest (Phase 9); saves to .state/proposed-agents.md for review").option("--no-extract", "Skip the Layer 2 Extractor (Layer 1 document pages only)").option("--no-dox-llm", "Skip the LLM DOX Writer (deterministic index.md contracts only)").option("--no-cross-wiki", "Skip the cross-wiki discovery pass (Phase 24)").option("--input-language <code>", "Input language of this run's PDFs (en, da, de, fr, es, no, sv)").option("--output-language <code>", "Override the wiki output language for this run (en, da, de, fr, es, no, sv)").option("--verbose", "Verbose output").action(async (slug, options2) => {
   try {
     const result = await ingest(slug, {
       workspace: options2.workspace,
       extract: options2.extract,
       synthesis: options2.synthesis,
       doxLlm: options2.doxLlm,
+      crossWiki: options2.crossWiki,
       updateAgents: options2.updateAgents,
       inputLanguage: options2.inputLanguage,
       outputLanguage: options2.outputLanguage,
@@ -109816,6 +112102,11 @@ program2.command("ingest <slug>").description("Ingest PDFs into a wiki").option(
         if (result.synthesizedTopics !== void 0) {
           console.log(`  synthesized ${result.synthesizedTopics} topic page(s)`);
         }
+      }
+      if (result.crossWiki?.ran) {
+        console.log(
+          `  cross-wiki: ${result.crossWiki.entities ?? 0} entities, ${result.crossWiki.edges ?? 0} edges, ${result.crossWiki.clusters ?? 0} clusters, ${result.crossWiki.uncertain ?? 0} uncertain matches held for review`
+        );
       }
       const totalConflicts = (result.synthesisConflicts ?? 0) + (result.topicConflicts ?? 0);
       if (totalConflicts > 0) {

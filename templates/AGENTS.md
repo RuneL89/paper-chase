@@ -66,6 +66,8 @@ A `comparison` page is written for each structured comparison table you extract 
 
 You may introduce new page types when the corpus demands them (e.g., `timeline`, `transaction`, `case`, `claim`). New types must be documented in the folder-level `index.md` and in this `AGENTS.md`.
 
+The workspace level above this wiki may also carry two DERIVED page types under `wikis/cross-wiki/` (Phase 24, vision `05` §9.1): `cross-wiki-index` (navigation contracts for the cross-wiki entity registry, relationship graph, and topic-cluster catalog) and `cross-wiki-topic` (one page per cross-wiki topic cluster, with path-qualified `members`). They are written and owned by the CLI's cross-wiki discovery pass, carry no `wiki` field, and make no factual claims — you never create or edit them.
+
 ## Page Frontmatter
 
 Every content page carries YAML frontmatter. Required fields: `title`, `type`, `updated`, and a `sources` list that maps every citation key to an exact PDF location.

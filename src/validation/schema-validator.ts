@@ -12,7 +12,22 @@ interface Page {
   relative: string;
 }
 
-const KNOWN_TYPES = new Set(['entity', 'topic', 'document', 'source', 'raw', 'index', 'composite', 'comparison']);
+const KNOWN_TYPES = new Set([
+  'entity',
+  'topic',
+  'document',
+  'source',
+  'raw',
+  'index',
+  'composite',
+  'comparison',
+  // Phase 24 (vision `05` §9.1): the workspace-level derived types. They live
+  // under `wikis/cross-wiki/` (validated by `cross-wiki-schema.ts`), but the
+  // taxonomy knows them so a stray copy inside a wiki is checked by the same
+  // field rules instead of passing as an undocumented custom type.
+  'cross-wiki-index',
+  'cross-wiki-topic',
+]);
 
 async function findPages(wikiSlug: string, workspace: string): Promise<Page[]> {
   const dir = join(workspace, 'wikis', wikiSlug);
@@ -118,6 +133,29 @@ export async function validateSchema(wikiSlug: string, workspace: string = '.'):
       const rollupClass = data.class;
       if (typeof rollupClass !== 'number' || !Number.isInteger(rollupClass) || rollupClass < 1 || rollupClass > 5) {
         invalid.push({ page: page.relative, issue: 'type composite requires a "class" field (integer 1-5)' });
+      }
+    } else if (data.type === 'cross-wiki-index') {
+      // Phase 24 (vision `05` §9.1): children list required; entityCount/
+      // edgeCount optional; no `wiki` field (workspace-level artifact).
+      if (!Array.isArray(data.children)) {
+        invalid.push({ page: page.relative, issue: 'type cross-wiki-index requires a "children" list' });
+      }
+      if (data.wiki !== undefined) {
+        invalid.push({ page: page.relative, issue: 'cross-wiki pages must not carry a "wiki" field' });
+      }
+    } else if (data.type === 'cross-wiki-topic') {
+      if (typeof data.clusterId !== 'string' || data.clusterId.trim().length === 0) {
+        invalid.push({ page: page.relative, issue: 'type cross-wiki-topic requires a "clusterId" field' });
+      }
+      if (
+        !Array.isArray(data.members) ||
+        data.members.length === 0 ||
+        !data.members.every((member) => typeof member === 'string' && member.length > 0)
+      ) {
+        invalid.push({ page: page.relative, issue: 'type cross-wiki-topic requires a "members" list of path-qualified topic slugs' });
+      }
+      if (data.wiki !== undefined) {
+        invalid.push({ page: page.relative, issue: 'cross-wiki pages must not carry a "wiki" field' });
       }
     }
 

@@ -43,7 +43,16 @@ import { spawnSync } from 'node:child_process';
 // runtime must re-extract assets on first run.
 // 1.0.10 (2026-08-04): Test-connection probe raised from 1 to 16 tokens
 // (src/llm/client.ts bundle change) so Anthropic Sonnet/Opus return text.
-const VERSION = '1.0.10';
+// 1.0.11 (2026-08-10): Phase 24 — the seven NEW cross-wiki discovery prompts
+// (cross-wiki-entity-context, -entity-match, -entity-uncertain-review,
+// -predicate-normalize, -topic-cluster, -hypothesis, -relevance-probe) plus
+// the client.ts mid-tier call-type mapping (bundle change) — the prompts are
+// extracted assets covered by the "prompts/**/*" glob in both pkg configs.
+// 1.0.12 (2026-08-10): Phase 24 cross-wiki model routing Option B — added
+// Cross-Wiki Bulk / Judgment model rows in Settings (src/tui/settings-screen.tsx
+// + settings.ts bundle change) and the client.ts routing slots. The packaged
+// runtime must re-extract so users see the new Settings rows.
+const VERSION = '1.0.12';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

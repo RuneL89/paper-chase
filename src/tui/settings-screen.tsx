@@ -32,6 +32,8 @@ type StaticSettingRow =
   | 'modelSynthesis'
   | 'modelDox'
   | 'modelCuration'
+  | 'modelCrossWiki'
+  | 'modelCrossWikiJudgment'
   | 'apiKeyAnthropic'
   | 'apiKeyOpenai'
   | 'apiKeyQwen'
@@ -64,6 +66,8 @@ function buildRowOrder(settings: TuiSettings): SettingRow[] {
     'modelSynthesis',
     'modelDox',
     'modelCuration',
+    'modelCrossWiki',
+    'modelCrossWikiJudgment',
   ];
   const provider = settings.models.provider ?? 'anthropic';
   if (provider.startsWith('custom:')) {
@@ -134,18 +138,24 @@ const RECOMMENDATIONS: Record<'anthropic' | 'openai' | 'qwen', Partial<Record<Se
     modelSynthesis: 'Sonnet — better prose, fewer preservation failures',
     modelDox: 'Sonnet — mid-tier; structural navigation, correctness re-imposed deterministically',
     modelCuration: 'Sonnet — mid-tier judgment for merge/drop decisions',
+    modelCrossWiki: 'Haiku — cheapest for bulk cross-wiki tasks (summaries, matching, clustering)',
+    modelCrossWikiJudgment: 'Sonnet — mid-tier review for uncertain cross-wiki matches and hypothesis signals',
   },
   openai: {
     modelExtractor: 'GPT-5.6 Luna — cheapest, good for structured JSON extraction',
     modelSynthesis: 'GPT-5.6 Terra — better prose, fewer preservation failures',
     modelDox: 'GPT-5.6 Terra — mid-tier; structural navigation, correctness re-imposed deterministically',
     modelCuration: 'GPT-5.6 Terra — mid-tier judgment for merge/drop decisions',
+    modelCrossWiki: 'GPT-5.6 Luna — cheapest for bulk cross-wiki tasks (summaries, matching, clustering)',
+    modelCrossWikiJudgment: 'GPT-5.6 Terra — mid-tier review for uncertain cross-wiki matches and hypothesis signals',
   },
   qwen: {
     modelExtractor: 'Qwen-Plus — cheapest, good for structured JSON extraction',
     modelSynthesis: 'Qwen 3.7 Max — better prose, fewer preservation failures',
     modelDox: 'Qwen 3.7 Max — mid-tier; structural navigation, correctness re-imposed deterministically',
     modelCuration: 'Qwen 3.7 Max — mid-tier judgment for merge/drop decisions',
+    modelCrossWiki: 'Qwen-Plus — cheapest for bulk cross-wiki tasks (summaries, matching, clustering)',
+    modelCrossWikiJudgment: 'Qwen 3.7 Max — mid-tier review for uncertain cross-wiki matches and hypothesis signals',
   },
 };
 
@@ -188,10 +198,10 @@ function currentProvider(settings: TuiSettings): Provider {
  * Keys" section (v1.5.0, user directive 2026-07-23). A Provider row
  * (Anthropic / OpenAI / Qwen) sits above the model rows; below it one
  * Left/Right-cycling dropdown per LLM call type (Default, Extractor,
- * Synthesis Writer, DOX Writer, Curation — Phase 14 §2.6) with inline
- * recommendation labels that follow the selected provider. Switching the
- * provider RESETS all five model slots to the new provider's defaults
- * (cheapest tier + mid-tier curation + "Same as default") so stale
+ * Synthesis Writer, DOX Writer, Curation — Phase 14 §2.6, Cross-Wiki Bulk,
+ * Cross-Wiki Judgment — Phase 24) with inline recommendation labels that follow the
+ * selected provider. Switching the provider RESETS all seven model slots to the new
+ * provider's defaults (cheapest tier + mid-tier curation + "Same as default") so stale
  * cross-provider model ids can never persist. The per-call-type dropdowns
  * offer "Same as default" (persisted as null) plus the selected provider's
  * catalog ids.
@@ -306,6 +316,8 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
         if (row === 'modelSynthesis') return prev.models.synthesis;
         if (row === 'modelDox') return prev.models.dox;
         if (row === 'modelCuration') return prev.models.curation ?? null;
+        if (row === 'modelCrossWiki') return prev.models.crossWiki ?? null;
+        if (row === 'modelCrossWikiJudgment') return prev.models.crossWikiJudgment ?? null;
         return null;
       };
 
@@ -341,6 +353,10 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
         models.dox = next;
       } else if (row === 'modelCuration') {
         models.curation = next;
+      } else if (row === 'modelCrossWiki') {
+        models.crossWiki = next;
+      } else if (row === 'modelCrossWikiJudgment') {
+        models.crossWikiJudgment = next;
       }
       return { ...prev, models };
     });
@@ -384,6 +400,10 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
         return 'dox-writer';
       case 'modelCuration':
         return 'curation';
+      case 'modelCrossWiki':
+        return 'cross-wiki-relevance-probe';
+      case 'modelCrossWikiJudgment':
+        return 'cross-wiki-hypothesis';
       default:
         return undefined;
     }
@@ -414,6 +434,10 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
         models.dox = trimmed;
       } else if (row === 'modelCuration') {
         models.curation = trimmed;
+      } else if (row === 'modelCrossWiki') {
+        models.crossWiki = trimmed;
+      } else if (row === 'modelCrossWikiJudgment') {
+        models.crossWikiJudgment = trimmed;
       }
       return { ...prev, models };
     });
@@ -506,7 +530,15 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
           cycleProvider(key.rightArrow ? 1 : -1);
         }
       }
-      if (row === 'modelDefault' || row === 'modelExtractor' || row === 'modelSynthesis' || row === 'modelDox' || row === 'modelCuration') {
+      if (
+        row === 'modelDefault' ||
+        row === 'modelExtractor' ||
+        row === 'modelSynthesis' ||
+        row === 'modelDox' ||
+        row === 'modelCuration' ||
+        row === 'modelCrossWiki' ||
+        row === 'modelCrossWikiJudgment'
+      ) {
         if (key.leftArrow || key.rightArrow) {
           cycleModel(row, key.rightArrow ? 1 : -1);
         }
@@ -894,6 +926,8 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
             {renderModelRow('modelSynthesis', 'Synthesis Writer Model', settings.models.synthesis)}
             {renderModelRow('modelDox', 'DOX Writer Model', settings.models.dox)}
             {renderModelRow('modelCuration', 'Curation Model', settings.models.curation ?? null)}
+            {renderModelRow('modelCrossWiki', 'Cross-Wiki Bulk Model', settings.models.crossWiki ?? null)}
+            {renderModelRow('modelCrossWikiJudgment', 'Cross-Wiki Judgment Model', settings.models.crossWikiJudgment ?? null)}
           </Box>
           {renderCustomProviderRows()}
           <Box>
@@ -954,6 +988,14 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
           <Text>Curation Model: {optionalLabel(settings.models.curation ?? null)}</Text>
           {!provider.startsWith('custom:') && (
             <Text dimColor>  {RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'].modelCuration}</Text>
+          )}
+          <Text>Cross-Wiki Bulk Model: {optionalLabel(settings.models.crossWiki ?? null)}</Text>
+          {!provider.startsWith('custom:') && (
+            <Text dimColor>  {RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'].modelCrossWiki}</Text>
+          )}
+          <Text>Cross-Wiki Judgment Model: {optionalLabel(settings.models.crossWikiJudgment ?? null)}</Text>
+          {!provider.startsWith('custom:') && (
+            <Text dimColor>  {RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'].modelCrossWikiJudgment}</Text>
           )}
           {currentCustomProvider && (
             <>

@@ -1,0 +1,62 @@
+{
+  "phase": 24,
+  "version": "1.2.1",
+  "goal": "Add a workspace-level, post-DOX Cross-Wiki Discovery Layer that produces small, deterministic, agent-optimized artifacts for querying across many wikis, while keeping the same artifacts human-readable in Obsidian (phase doc §1).",
+  "status": "gates-passing",
+  "lastAction": "Phase 24 implemented 2026-08-10 per the phase doc §2 Components A-G + §2.8 pipeline integration: src/cross-wiki/ (workspace-scan, state, llm, entity-context-summarizer, entity-resolver, predicate-normalizer, relationship-graph, topic-clusterer, hypothesis-generator, run-control, index orchestrator), src/pages/cross-wiki/ (entity-registry-page, relationships-page, topic-cluster-page, cross-wiki-index-page), src/validation/cross-wiki-schema.ts, seven new prompts (the six listed in the phase doc plus cross-wiki-relevance-probe.prompt.txt for the §2.8 step-2 probe), the dox-writer workspace-pass cross-wiki exclusion + `## Cross-Wiki Discovery` section preservation/`updateWorkspaceCrossWikiSection`, schema-validator/link-checker extensions (the two new page types; checkCrossWikiLinks path-qualified resolution), the client.ts MID_TIER_CALL_TYPES mapping (cross-wiki-uncertain-review + cross-wiki-hypothesis → synthesis slot), the language.ts cross-wiki role directive, and the ingest wiring (crossWiki option default false, CLI --no-cross-wiki / TUI crossWiki: true, runCrossWikiPassFn test seam, IngestResult.crossWiki). Gates 24.1-24.15 encoded in tests/phase-24.test.ts (17 tests, all LLM-free via injected stubs + one callLLM spy on the real prompt path, $0) and green (17/17). Gate 24.14 full key-less suite run by this Implementer with .env stashed to .env.bak-phase24 and restored byte-identical (171 bytes, mtime 2026-07-20 00:13, no leftover): 493 passed + 14 skipped across 34 files (33 passed, 1 skipped) = the 456+14/29 Phase 23 baseline PLUS the 17 new tests PLUS four pre-existing untracked .state/upgrade/*.test.mts debug scripts vitest discovers in this environment (all green, not gate tests); zero unenumerated regressions; npx tsc --noEmit clean (run twice after ALL edits: one run showed a single transient failure that two subsequent full runs plus a standalone phase-16 re-run proved green — the documented phase-16 timing-flakiness under load, untouched code path). With-key profile unchanged: the 12 live Phase 2 gates fail ENOENT on the unmaterialized committed fixture and phase-11 11.13 times out (documented pre-existing environment condition, verified identical before/after — phase-02+phase-11 re-run key-less: 66 passed + 12 skipped). DESIGN DECISIONS A VERIFIER SHOULD KNOW: (a) Component C page descriptions are produced by the SAME batched cheap clustering call (the prompt returns title + neutral no-factual-claims description + mappedTopics per cluster) instead of one call per cluster — fewer calls, identical artifacts, recorded here per the phase doc §2.3 'Page generation' sentence; the single prompt file cross-wiki-topic-cluster.prompt.txt is the prompt behind cluster pages (gate 24.4 pins it). (b) The relevance probe prompt is a SEVENTH prompt file (cross-wiki-relevance-probe.prompt.txt) — the phase doc's new-prompts list names six and §2.8 step 2 describes the probe; a file (not an inline string) keeps every LLM prompt in prompts/ per the folder contract. (c) The cross-wiki pass is gated on the additive ingest option crossWiki (default false — the LLM-free library default; CLI/TUI pass true), the doxLlm precedent: this keeps every pre-existing key-less test LLM-free while production runs auto-run the pass per user decision #12. (d) Workspace-level cross-wiki state lives at <workspace>/.state/cross-wiki/ + <workspace>/.state/proposed-cross-wiki-matches.json (the phase doc's literal workspace-relative paths); in the default workspace that is the repo-root .state/ — the runtime artifacts are git-ignored (new .gitignore entries) and documented in .state/AGENTS.md so project memory and runtime state never mix in git. (e) Fuzzy candidate generation is deterministic (equal slugs, slug edit-distance ≤ 2 on ≥6-char slugs, or title-token containment across wikis); the LLM only judges identity — never generates candidates. (f) The `## Cross-Wiki Discovery` section is owned by the cross-wiki pass and preserved byte-for-byte by the workspace composer while wikis/cross-wiki/index.md exists (omitted otherwise) — a routine ingest never drops it, a skipped pass never re-adds it. (g) Relationship input parses the rendered `## Relationships` lines (both directions, deterministic template line shapes) and kebab-normalizes the readable predicates; Component F then canonicalizes. (h) cross-wiki state files are written by the components that own them; the orchestrator writes only the DOX contracts + fingerprint. (i) Empty-artifact safety nets: honest empty reports for entities.md/relationships.md/topics-index when nothing cross-wiki exists; the folder is created only by a running pass (≥2 wikis). DEVIATIONS: (a) above is the only phase-doc deviation (batched cluster descriptions). LLM cost $0.00.",
+  "gatesPassed": [
+    "24.1",
+    "24.2",
+    "24.3",
+    "24.4",
+    "24.5",
+    "24.6",
+    "24.7",
+    "24.8",
+    "24.9",
+    "24.10",
+    "24.11",
+    "24.12",
+    "24.13",
+    "24.14",
+    "24.15"
+  ],
+  "gatesFailed": [],
+  "gatesPending": [],
+  "gateTests": {
+    "24.1": "gate 24.1: exact-match resolver clusters multi-wiki entities, excludes single-wiki, JSON mirror matches the table",
+    "24.2": "gate 24.2: graph includes registry-subject and cross-wiki edges, excludes intra-wiki, JSON mirror matches",
+    "24.3": "gate 24.3: topic clusterer keeps multi-wiki clusters (cross-language), excludes single-wiki clusters",
+    "24.4": "gate 24.4: cluster page prompt is slot-additive, generic, carries {languageDirective}, forbids factual claims",
+    "24.5": "gate 24.5: cross-wiki DOX pass writes both indexes and the workspace section with deterministic children/statistics",
+    "24.6": "gate 24.6: schema validators accept the cross-wiki types and reject missing required fields",
+    "24.7": "gate 24.7: link checker resolves path-qualified wikilinks from cross-wiki pages to per-wiki pages",
+    "24.8": "gate 24.8: fingerprint skips an unchanged workspace and re-runs on a new wiki or an updated content page",
+    "24.9": "gate 24.9: uncertain matches go to proposed-cross-wiki-matches.json, never to entities.md",
+    "24.10": "gate 24.10: summaries are stored per entity page and flow into the registry JSON and the review prompt",
+    "24.11": "gate 24.11: predicate normalizer groups variants, writes predicate-map.json, graph uses canonical predicates",
+    "24.12": "gate 24.12: uncertain verdicts escalate to the mid-tier review; match joins the registry, routing is cheap→mid",
+    "24.13": "gate 24.13 + 24.13b: hypothesis signals grounded in source artifacts; single-wiki subgraphs produce no LLM call",
+    "24.14": "aggregate: full key-less suite 493 passed + 14 skipped / 34 files, zero unenumerated regressions; npx tsc --noEmit clean",
+    "24.15": "gate 24.15: preflight skips unchanged, runs on relevant changes, probe skips obviously-local changes"
+  },
+  "uats": {
+    "total": 8,
+    "passed": 0,
+    "pending": 8,
+    "note": "UATs 24.1-24.8 are live-workspace tests ($8-12 budget) — they run after Verifier acceptance per the arc's deferred-UAT pattern."
+  },
+  "deviations": [
+    "Component C page descriptions are produced by the same batched cheap clustering call (the prompt returns title + neutral description + mappedTopics per cluster) instead of one LLM call per cluster (phase doc §2.3 'Page generation' sentence) — fewer calls, identical artifacts; the single prompt file cross-wiki-topic-cluster.prompt.txt is the prompt behind cluster pages and carries {languageDirective} + the no-factual-claims rule (gate 24.4 green)."
+  ],
+  "llmCost": "$0.00",
+  "tokenBudgetRemaining": "$0.00 (no live LLM calls in implementation; the $8-12 live UAT budget is untouched)",
+  "blocker": null,
+  "nextAction": "Verifier: cold-check gates 24.1-24.15 against the phase doc. Scrutinize: (1) design decision (a) — batched cluster descriptions vs the §2.3 per-cluster call sentence (the only phase-doc deviation, recorded); (2) the seventh prompt file (cross-wiki-relevance-probe.prompt.txt); (3) the crossWiki ingest gating (CLI --no-cross-wiki / TUI crossWiki: true production default per user decision #12, library default false per the doxLlm precedent); (4) the workspace-root .state/cross-wiki state location with the new .gitignore entries; (5) the fingerprint page set (content pages only, DOX indexes excluded) and the probe fail-open posture; (6) entities.md/relationships.md JSON-mirror row equality (gates 24.1/24.2); (7) the MID_TIER_CALL_TYPES routing addition (gate 24.12); (8) the full-suite numbers above + tsc; (9) templates/AGENTS.md documents both cross-wiki page types (approval checklist item); (10) launcher VERSION bumped 1.0.10 → 1.0.11 (new prompts are packaged assets, prompts/**/* globs cover them).",
+  "compliance": {
+    "lastCheck": "2026-08-09T15:30:00Z",
+    "result": "compliant",
+    "checkedBy": "main-agent-orchestrator",
+    "note": "Implementer DOX closeout 2026-08-10: root AGENTS.md (Child DOX Index src/prompts/wikis bullets, dist VERSION history, 2026-08-09 user-preference entry), src/AGENTS.md (cross-wiki + pages/cross-wiki ownership, validation bullets, page-types/LLM-calls/wikilink contracts, client/language/dox-writer/ingest clauses), prompts/AGENTS.md (seven new prompt bullets, {languageDirective} contract extension, Verification), tests/AGENTS.md (phase-24 bullet + Verification record), wikis/AGENTS.md (cross-wiki folder + workspace-index section), .state/AGENTS.md (runtime-state exception), templates/AGENTS.md (cross-wiki page types note), .gitignore (runtime state), scripts/launcher-entry.ts (VERSION 1.0.11). Docs intentionally unchanged: Project Vision/* and Implementation Plan/* (the 2026-08-09 amendments were pre-applied and confirmed compliant by the orchestrator — the Implementer does not re-litigate)."
+  }
+}

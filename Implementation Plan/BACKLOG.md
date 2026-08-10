@@ -1,11 +1,13 @@
 # Paper Chase — Backlog
 
 **Document ID:** `LLM-WIKI-CLI-IMPL-BACKLOG`
-**Version:** 1.0.0
+**Version:** 1.0.1
 **Status:** Living
-**Date:** 2026-07-25
+**Date:** 2026-08-06
 
 Open issues, accepted residuals, and future tracks. Entries are **not** scheduled phases: each records the mechanism, the evidence, and the fix direction. When an item is scheduled, it moves into a `PHASE_XX_<slug>.md` doc and is struck through here with the phase reference.
+
+*Last refreshed: 2026-08-09 (B14 scheduled as Phase 24).*
 
 ---
 
@@ -88,6 +90,10 @@ B1–B3 are validation-noise classes found by the 2026-07-25 live test run (run 
 - **Evidence:** 2026-07-28/29 live runs: 12 broken links in afdk, 6 in akdb — all short-form/paraphrased variants of real indicator/topic slugs.
 - **Fix direction:** deterministic repair pass — unique-prefix and alias matching against the wiki's slug set at the synthesis write points; ambiguous targets stay broken and reported. Includes a one-time remediation over the current `dist/wikis` (repairs existing broken links AND re-converges `pageHashes` for every modified page so the fix cannot create B19-class false-flags). User-directed: the existing links must be fixed by the tool, not by hand.
 
+### ~~B14. Cross-wiki identity surface (user-directed, 2026-07-28)~~ — SCHEDULED as [PHASE_24](PHASE_24_cross_wiki_discovery.md)
+
+The cross-wiki discovery layer in Phase 24 subsumes the earlier Option A/B/C identity-surface exploration. It produces workspace-level, agent-first, human-verifiable artifacts — a cross-wiki entity registry, relationship graph, and topic clusters — as derived views over existing per-wiki pages. It does **not** modify per-wiki content or merge entities across wikis. The Phase 24 document records the required vision amendments and open design decisions.
+
 ---
 
 ## Accepted residuals (watch items)
@@ -105,7 +111,12 @@ B1–B3 are validation-noise classes found by the 2026-07-25 live test run (run 
 
 ### B6. Packaged exe staleness
 
-- `dist/paper-chase.exe` embeds the code it was built from (2026-07-23, pre-Phase-13). Rebuild with `npm run package:win` after any pipeline change intended for exe use.
+- The launcher asset version is tracked in `scripts/launcher-entry.ts` and currently stands at **1.0.10** (`scripts/launcher-entry.ts:46`). The Windows executable has been rebuilt several times since the original 2026-07-23 package:
+  - 2026-07-25 — asset version 1.0.2, repackaged with the full Phase 13-16 pipeline (`10d77ba`).
+  - 2026-07-29 — asset versions 1.0.3 through 1.0.8, bumped for the DOX Writer navigation fix, Phase 17 entity-synthesis prompts, Phase 18 citation numbering, Phase 21 curation pair prompts, Phase 22 composite prompts, and Phase 23 comparison prompts + extractor `tables` section (per `dist/` AGENTS.md note and compliance log entries 2026-07-29).
+  - 2026-08-04 — asset version 1.0.9, rebuilt for the `max_tokens` Qwen/OpenAI fix (`3eac2e4`).
+  - 2026-08-05 — asset version **1.0.10**, rebuilt after raising the Anthropic Sonnet/Opus test-connection probe to `maxTokens: 16` (`7a0d5af`).
+- Rebuild with `npm run package:win` after any asset-affecting change (prompts, template, bundle, fonts, workers, or launcher code) and bump `VERSION` in `scripts/launcher-entry.ts` so the marker-guarded extraction refreshes the runtime folder.
 
 ### B7. With-key suite profile before release
 
@@ -145,10 +156,3 @@ The PDFs contain structured comparison tables (e.g. national/region/hospital row
 - **Design (Option C from the 2026-07-29 exploration):** the graph stays entity-granular (relationships, extraction, identity); pages become cluster-granular within five checkable rollup classes — abbreviation/name-variant (already legal), brand↔generic substance, indicator↔measured-concept (1:1), facility↔city when the facility is the city's story, same-name different-type (org↔location). Member cap 2-4; sticky cluster records (Phase 21 machinery) prevent member-page oscillation; manual `splits` escape hatch; out-of-class clusters are validation errors. Member-tagged evidence union on one page (`type: composite`), aliases union so every member name finds the page, one rich Layer-1 article, per-member Layer 2 groups.
 - **Evidence from live runs:** `eliquis→apixaban` brand↔generic merges (afdk), `indikator-N`↔concept merges (akdb), region name-forms ×3 (all wikis), and four hospital→city merges that were canon-violations under strict identity but legitimate rollups under the user's rule.
 - **Honest tensions recorded:** composites push pages toward the 32768 output ceiling (B4 territory — mitigated by the 2-4 cap); over-clustering pressure (answered by class validation); composite-vs-topic boundary (composites cluster named real-world things; topics stay claim-type themes); largest single change since Phase 3.
-
-### B14. Cross-wiki identity surface (user-directed, 2026-07-28)
-
-The user's stated end-use: connect several wikis via `index-of-indexes.md` to find cross-wiki entity connections. The vision defers connection-finding to the journalist or a research agent (`01` §7, non-goal) — but the identity substrate that agent would match on forks per wiki, and nothing ever reconciles it.
-
-- **Observed divergence of the same real-world entity across the four RKKP wikis** (2026-07-28 audit of `dist/wikis`, ~60 shared page basenames; all four wikis en-output/da-input, so this is pure per-wiki LLM variance): slug fork (`lpr` in rkkp-adhd vs `landspatientregisteret` in rkkp-afdk/akdb — the abbreviation won canonical status in one wiki, the full name in another); canonical-name fork ("LPR" vs "Landspatientregisteret"); alias coverage never unioned (akdb has `LPR`, afdk has only the typo variant `Landspatientregistret`); type fork (`region-hovedstaden` is an *organization* in adhd/afdk, a *location* in akdb/danibd); folder fork (regions under `regional-government` / `regions` / `danish-regions` / bare `locations/`; topics under `quality-indicator` vs `quality-indicators`). Entity curation is per-ingest per-wiki (`04` §3.2 Step 6); the workspace index is wiki-granular by design (`03` §6) and its prose regenerates only on wiki-set changes, so entity-level overlap never surfaces at workspace level even when new PDFs create it.
-- **Design notes for when scheduled:** options range from a deterministic cross-wiki slug/alias overlap report written at workspace-pass time (cheap, read-only, no LLM), through a shared identity registry that per-wiki entity curations consult, to a workspace-level curation pass (biggest — a new call type with its own routing and fallback questions). Interacts with B11 (link qualification), B10/B12 (within-wiki graph completeness is a prerequisite), and B13 (alias coverage); language adds another fork axis the day a non-English-output wiki exists (folder names follow output language, `05` §2.1). Start from `03_DOX_concept_detailed.md` §6 and `05_page_types_specification.md` §6 before writing a phase doc — this is a vision amendment, not a bug fix.

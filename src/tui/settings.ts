@@ -272,6 +272,9 @@ export function seedModelsForProvider(
     extractor: null,
     synthesis: null,
     dox: null,
+    // Phase 24: explicit Cross-Wiki Discovery slots start as "Same as default".
+    crossWiki: null,
+    crossWikiJudgment: null,
     curation: getCurationModelForProvider(provider, customProviders),
   };
 }
@@ -326,6 +329,9 @@ function normalizeModels(
     extractor: concrete(parsed?.extractor),
     synthesis: concrete(parsed?.synthesis),
     dox: concrete(parsed?.dox),
+    // Phase 24: explicit cross-wiki slots; absent in legacy configs → null.
+    crossWiki: concrete(parsed?.crossWiki),
+    crossWikiJudgment: concrete(parsed?.crossWikiJudgment),
     // Phase 14 §2.6: absent in legacy configs → null (falls through to
     // `default` at resolve time — byte-identical legacy behavior).
     curation: concrete(parsed?.curation),

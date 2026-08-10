@@ -833,7 +833,7 @@ test('gate 13.6: OpenAI DOX row recommends mid-tier GPT-5.6 Terra (never Sol); o
         default: 'gpt-5.6-luna',
         extractor: null,
         synthesis: null,
-        dox: null,
+        dox: null, crossWiki: null, crossWikiJudgment: null,
       },
       apiKeys: { anthropic: null, openai: null, qwen: null },
     }),

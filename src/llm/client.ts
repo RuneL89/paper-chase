@@ -71,6 +71,10 @@ export interface ModelRouting {
   extractor: string | null;
   synthesis: string | null;
   dox: string | null;
+  /** Phase 24: explicit slot for bulk Cross-Wiki Discovery calls (cheap tier). */
+  crossWiki: string | null;
+  /** Phase 24: explicit slot for Cross-Wiki Discovery judgment calls (mid-tier). */
+  crossWikiJudgment: string | null;
   /** Phase 14: curation call-type slot (null = "use default"). */
   curation?: string | null;
   apiKeys?: {
@@ -91,6 +95,20 @@ const SYNTHESIS_CALL_TYPES = new Set([
   'topic-synthesis',
   'permissive-topic-synthesis',
 ]);
+
+/**
+ * Phase 24 (cross-wiki discovery, phase doc §2): cross-wiki calls get their
+ * own two explicit routing slots. The bulk slot (`crossWiki`) covers the cheap
+ * calls: entity context summaries, fuzzy entity match, predicate normalization,
+ * topic clustering, and the relevance probe. The judgment slot
+ * (`crossWikiJudgment`) covers the mid-tier calls: uncertain entity-match
+ * review and hypothesis signal generation. Both slots fall back gracefully:
+ * judgment falls back to the Synthesis slot when it is null, preserving the
+ * pre-slot behavior of existing configs; all cross-wiki calls fall back to the
+ * Default slot when their dedicated slot is null. No routing-table shape
+ * change for legacy callers: absent slots normalize to null in `setModelRouting`
+ * and `normalizeModels`.
+ */
 
 let modelRouting: ModelRouting | null = null;
 
@@ -117,6 +135,13 @@ export function setModelRouting(routing: ModelRouting | null): void {
             openai: normalizeStoredKey(routing.apiKeys?.openai),
             qwen: normalizeStoredKey(routing.apiKeys?.qwen),
           },
+          // Phase 24: explicit cross-wiki slots; absent legacy configs → null
+          // (fall back to default / synthesis as before).
+          crossWiki: typeof routing.crossWiki === 'string' && routing.crossWiki.length > 0 ? routing.crossWiki : null,
+          crossWikiJudgment:
+            typeof routing.crossWikiJudgment === 'string' && routing.crossWikiJudgment.length > 0
+              ? routing.crossWikiJudgment
+              : null,
         };
 }
 
@@ -139,11 +164,13 @@ export function resolveProvider(): Provider {
 /**
  * Resolve the model for one LLM call. Order: explicit per-call override →
  * routing table by callType ('extractor' → extractor, the four synthesis
- * call types → synthesis, 'dox-writer' → dox, 'curation' → curation,
- * everything else → default; a null routing entry means "use default") →
- * routing default → ANTHROPIC_MODEL env var → DEFAULT_MODEL. With no routing
- * set the behavior is byte-identical to the pre-Phase-11 client: env var,
- * then DEFAULT_MODEL.
+ * call types → synthesis, 'cross-wiki-uncertain-review' / 'cross-wiki-hypothesis'
+ * → crossWikiJudgment with a synthesis fallback for legacy configs, other
+ * 'cross-wiki-*' → crossWiki with a default fallback for legacy configs,
+ * 'dox-writer' → dox, 'curation' → curation, everything else → default;
+ * a null routing entry means "use default") → routing default → ANTHROPIC_MODEL
+ * env var → DEFAULT_MODEL. With no routing set the behavior is byte-identical
+ * to the pre-Phase-11 client: env var, then DEFAULT_MODEL.
  */
 /**
  * Pure model resolution for a given routing table. Used by `resolveModel`
@@ -163,6 +190,21 @@ export function resolveModelFromRouting(
   }
   if (callType !== undefined && SYNTHESIS_CALL_TYPES.has(callType) && routing.synthesis !== null) {
     return routing.synthesis;
+  }
+  // Phase 24: judgment-class cross-wiki calls get their own slot, falling back
+  // to the Synthesis slot (the old mid-tier mapping) for existing configs.
+  if (callType === 'cross-wiki-uncertain-review' || callType === 'cross-wiki-hypothesis') {
+    if (routing.crossWikiJudgment !== null) {
+      return routing.crossWikiJudgment;
+    }
+    if (routing.synthesis !== null) {
+      return routing.synthesis;
+    }
+  }
+  // Phase 24: all other cross-wiki calls get the bulk cross-wiki slot,
+  // falling back to the Default slot for existing configs.
+  if (callType !== undefined && callType.startsWith('cross-wiki-') && routing.crossWiki !== null) {
+    return routing.crossWiki;
   }
   if (callType === 'dox-writer' && routing.dox !== null) {
     return routing.dox;

@@ -221,6 +221,7 @@ Phase documents live in `Implementation Plan/`; vision documents live in `Projec
 | 21 | `PHASE_21_curation_overhaul.md` | `04_orchestration_detailed.md` §3.2 Step 6, `05_page_types_specification.md` §6/§7, `07_validation_and_quality.md` §2.3/§5 | Deterministic pre-merge, confirm-deny pair proposals, sticky curation decisions (B5) |
 | 22 | `PHASE_22_composite_pages.md` | `02_WIKI_concept_detailed.md` §2/§4.5/§4.6 (amended), `05_page_types_specification.md` §6 (amended), `07_validation_and_quality.md` §2.3-§2.6 | Composite pages within five ratified rollup classes (B22, Option C) |
 | 23 | `PHASE_23_comparison_articles.md` | `05_page_types_specification.md` §9, `03_DOX_concept_detailed.md` §3.1 (extended), `02_WIKI_concept_detailed.md` §3, `06_citation_and_provenance.md` §1-§3 | Extractor `tables` output, `comparison` page type, `comparisons/` folder (B21) |
+| 24 | `PHASE_24_cross_wiki_discovery.md` | `01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3/§7, `03_DOX_concept_detailed.md` §4/§6 (amended), `04_orchestration_detailed.md` §1/§3.2 Step 10 (amended), `05_page_types_specification.md` §9, `07_validation_and_quality.md` §2.5/§2.6 | Cross-wiki entity registry, relationship graph, topic clusters, entity summaries, predicate normalization, hypothesis signals, preflight run-control (B14) |
 
 ---
 
@@ -363,6 +364,13 @@ Wiki v5/
 │   ├── PHASE_15_synthesis_concurrency.md               # Phase 15
 │   ├── PHASE_16_run_resilience.md                      # Phase 16
 │   └── PHASE_17_entity_graph_and_citation_integrity.md # Phase 17
+│   ├── PHASE_18_citation_numbering_alignment.md        # Phase 18
+│   ├── PHASE_19_stale_pagehash_convergence.md          # Phase 19
+│   ├── PHASE_20_wikilink_repair.md                     # Phase 20
+│   ├── PHASE_21_curation_overhaul.md                   # Phase 21
+│   ├── PHASE_22_composite_pages.md                     # Phase 22
+│   ├── PHASE_23_comparison_articles.md                 # Phase 23
+│   └── PHASE_24_cross_wiki_discovery.md                # Phase 24
 └── templates/
     └── AGENTS.md                                 # Template for wiki AGENTS.md (created in Phase 0)
 ```

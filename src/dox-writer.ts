@@ -1430,10 +1430,51 @@ function deterministicWorkspaceProse(wikis: DoxWorkspaceWikiInfo[]): string {
 }
 
 /**
- * Compose the workspace index body deterministically: the coherent prose
+ * Phase 24 (vision `03` §4.2 amended 2026-08-09): the workspace index's
+ * `## Cross-Wiki Discovery` section, owned by the cross-wiki discovery pass.
+ * It is preserved byte-for-byte across re-compositions (like the per-wiki
+ * catalog lines) and exists ONLY while `wikis/cross-wiki/index.md` exists —
+ * when no cross-wiki artifacts exist, the section is omitted.
+ */
+const CROSS_WIKI_SECTION_HEADING = '## Cross-Wiki Discovery';
+
+/** The canonical section body (heading + one catalog line + trailing blank line). */
+function crossWikiDiscoverySection(): string {
+  return [
+    CROSS_WIKI_SECTION_HEADING,
+    '',
+    `- ${formatWikilink('cross-wiki/index', 'Cross-Wiki Discovery')} — derived workspace-level artifacts: the cross-wiki entity registry, relationship graph, and topic clusters.`,
+    '',
+  ].join('\n');
+}
+
+/**
+ * Extract an existing `## Cross-Wiki Discovery` section (heading through the
+ * line before the next `## ` heading or EOF) from a workspace index body;
+ * null when absent.
+ */
+export function parseCrossWikiSection(body: string): string | null {
+  const lines = body.split('\n');
+  const start = lines.findIndex((line) => line.trim() === CROSS_WIKI_SECTION_HEADING);
+  if (start === -1) {
+    return null;
+  }
+  let end = lines.length;
+  for (let index = start + 1; index < lines.length; index++) {
+    if (/^## /.test(lines[index])) {
+      end = index;
+      break;
+    }
+  }
+  return lines.slice(start, end).join('\n').replace(/\n+$/, '\n');
+}
+
+/**
+ * Re-compose the workspace index body deterministically: the coherent prose
  * block (fresh on wiki-set changes, preserved otherwise), the per-wiki
  * catalog lines (the triggering wiki's fresh, every other preserved
- * byte-for-byte or placeholder), and the deterministic statistics.
+ * byte-for-byte or placeholder), the Phase 24 cross-wiki section (preserved
+ * iff the artifacts exist), and the deterministic statistics.
  */
 function composeWorkspaceBody(
   wikis: DoxWorkspaceWikiInfo[],
@@ -1442,6 +1483,7 @@ function composeWorkspaceBody(
   entryDescription: string | undefined,
   triggeringSlug: string,
   preserved: WorkspaceSegments,
+  crossWikiSection?: string | null,
 ): string {
   const lines: string[] = [];
   lines.push(`# ${WORKSPACE_INDEX_TITLE}`);
@@ -1460,6 +1502,12 @@ function composeWorkspaceBody(
     lines.push(line);
   }
   lines.push('');
+  // Phase 24: the cross-wiki section sits between the per-wiki catalog and
+  // the statistics; preserved byte-for-byte while the artifacts exist.
+  if (crossWikiSection) {
+    lines.push(crossWikiSection.replace(/\n+$/, ''));
+    lines.push('');
+  }
   lines.push('## Statistics');
   lines.push('');
   for (const stat of statistics) {
@@ -1593,9 +1641,12 @@ export async function writeWorkspaceIndex(options: WriteWorkspaceIndexOptions): 
   // Every wiki with a root index.md is a child of the workspace index. The
   // ingested wiki's contract was written earlier in the same run; other
   // wikis' contracts are current on disk from their own ingests.
+  // Phase 24: the derived `cross-wiki/` folder is NOT a wiki — it is the
+  // cross-wiki discovery artifact set, linked via the `## Cross-Wiki
+  // Discovery` section, never a `## Wikis` catalog line or a children entry.
   const wikis: DoxWorkspaceWikiInfo[] = [];
   for (const entry of entries) {
-    if (!entry.isDirectory()) {
+    if (!entry.isDirectory() || entry.name === 'cross-wiki') {
       continue;
     }
     const indexPath = join(wikisRoot, entry.name, 'index.md');
@@ -1715,6 +1766,13 @@ export async function writeWorkspaceIndex(options: WriteWorkspaceIndexOptions): 
     entryDescription = description ?? deterministicDescription(triggering);
   }
 
+  // Phase 24: preserve the `## Cross-Wiki Discovery` section byte-for-byte
+  // while the cross-wiki artifacts exist; omit it otherwise (vision `03` §4.2).
+  const crossWikiArtifacts = (await readTextIfExists(join(wikisRoot, 'cross-wiki', 'index.md'))).length > 0;
+  const crossWikiSection = crossWikiArtifacts
+    ? parseCrossWikiSection(matter(existing).content ?? '') ?? crossWikiDiscoverySection()
+    : null;
+
   const body = composeWorkspaceBody(
     wikis,
     statistics,
@@ -1722,6 +1780,7 @@ export async function writeWorkspaceIndex(options: WriteWorkspaceIndexOptions): 
     entryDescription,
     options.wikiSlug,
     preserved,
+    crossWikiSection,
   );
 
   // Frontmatter is ALWAYS the deterministically-computed one — same rule as
@@ -1737,4 +1796,70 @@ export async function writeWorkspaceIndex(options: WriteWorkspaceIndexOptions): 
   };
 
   await writeFile(join(wikisRoot, WORKSPACE_INDEX_FILE), matter.stringify(body, frontmatter), 'utf-8');
+}
+
+/**
+ * Phase 24 (vision `03` §4.2 amended 2026-08-09): ensure the workspace
+ * index's `## Cross-Wiki Discovery` section matches the artifact state —
+ * present (canonical form, before `## Statistics`) while
+ * `wikis/cross-wiki/index.md` exists, removed otherwise. Everything else in
+ * the file (prose block, per-wiki catalog lines, statistics) is preserved
+ * byte-for-byte. Called by the cross-wiki discovery pass after it writes its
+ * artifacts; a missing workspace index is a no-op (the workspace pass owns
+ * file creation).
+ */
+export async function updateWorkspaceCrossWikiSection(workspace: string = '.'): Promise<void> {
+  const wikisRoot = join(workspace, 'wikis');
+  const indexPath = join(wikisRoot, WORKSPACE_INDEX_FILE);
+  const existing = await readTextIfExists(indexPath);
+  if (existing.length === 0) {
+    return;
+  }
+  // Split the raw frontmatter block (byte-preserved) from the body.
+  let frontmatterBlock = '';
+  let body = existing;
+  const fmMatch = /^---[ \t]*\r?\n[\s\S]*?\r?\n---[ \t]*\r?\n?/.exec(existing);
+  if (fmMatch) {
+    frontmatterBlock = fmMatch[0];
+    body = existing.slice(fmMatch[0].length);
+  }
+
+  // Strip any existing section (heading through the line before the next
+  // `## ` heading or EOF).
+  const lines = body.split('\n');
+  const start = lines.findIndex((line) => line.trim() === CROSS_WIKI_SECTION_HEADING);
+  if (start !== -1) {
+    let end = lines.length;
+    for (let index = start + 1; index < lines.length; index++) {
+      if (/^## /.test(lines[index])) {
+        end = index;
+        break;
+      }
+    }
+    lines.splice(start, end - start);
+    // Collapse any triple blank line the removal may have left.
+    for (let index = lines.length - 2; index >= 0; index--) {
+      if (lines[index].trim() === '' && lines[index + 1].trim() === '' && (lines[index + 2] ?? '').trim() === '') {
+        lines.splice(index, 1);
+      }
+    }
+  }
+
+  const artifactsExist = (await readTextIfExists(join(wikisRoot, 'cross-wiki', 'index.md'))).length > 0;
+  if (artifactsExist) {
+    const sectionLines = crossWikiDiscoverySection().replace(/\n+$/, '').split('\n');
+    const statsIndex = lines.findIndex((line) => line.trim() === '## Statistics');
+    if (statsIndex !== -1) {
+      // Insert before `## Statistics`, replacing the blank line above it.
+      const insertAt = statsIndex > 0 && lines[statsIndex - 1].trim() === '' ? statsIndex - 1 : statsIndex;
+      lines.splice(insertAt, statsIndex - insertAt, ...sectionLines, '');
+    } else {
+      if (lines[lines.length - 1]?.trim() !== '') {
+        lines.push('');
+      }
+      lines.push(...sectionLines, '');
+    }
+  }
+
+  await writeFile(indexPath, `${frontmatterBlock}${lines.join('\n')}`, 'utf-8');
 }

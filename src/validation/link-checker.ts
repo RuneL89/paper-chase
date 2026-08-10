@@ -318,3 +318,108 @@ export async function checkLinks(wikiSlug: string, workspace: string = '.'): Pro
     totalPages: pages.length,
   };
 }
+
+// ---------------------------------------------------------------------------
+// Phase 24 (phase doc §2.9, vision `05` §9.1 + `07` §2.5): link integrity for
+// the workspace-level `wikis/cross-wiki/` artifacts. Cross-wiki pages link to
+// per-wiki pages with PATH-QUALIFIED wikilinks (`[[wiki-slug/page-name|Title]]`)
+// — resolution needs a workspace-wide path map, which the per-wiki
+// `checkLinks` never builds. Cross-wiki pages are index-like navigation
+// artifacts: they are exempt from the orphan and island rules (gate 24.7).
+// ---------------------------------------------------------------------------
+
+export interface CrossWikiLinkCheckResult {
+  broken: Array<{ page: string; link: string }>;
+  totalLinks: number;
+  totalPages: number;
+}
+
+/**
+ * Check every wikilink in `wikis/cross-wiki/` against a workspace-wide path
+ * map: every markdown page of every wiki is keyed by its wikis/-relative path
+ * without `.md` (`acme/entities/people/john-smith`), and cross-wiki's own
+ * pages by `cross-wiki/<path>`. A link target resolves by exact path match
+ * (a trailing `.md` is tolerated); failing that, a cross-wiki-local path is
+ * tried, then the first wiki page with a matching basename slug (the
+ * checker's first-wins collision rule). An absent `cross-wiki/` folder yields
+ * an empty, valid result.
+ */
+export async function checkCrossWikiLinks(workspace: string = '.'): Promise<CrossWikiLinkCheckResult> {
+  const wikisRoot = join(workspace, 'wikis');
+  let entries;
+  try {
+    entries = await readdir(wikisRoot, { withFileTypes: true });
+  } catch {
+    return { broken: [], totalLinks: 0, totalPages: 0 };
+  }
+
+  // Workspace-wide path map: '<wiki>/<wiki-rel-no-md>' -> true, plus the
+  // basename slug fallback (first-wins, mirroring the per-wiki checker).
+  const pathToPage = new Map<string, string>();
+  const slugToPage = new Map<string, string>();
+  const addPage = (pathKey: string, display: string): void => {
+    if (!pathToPage.has(pathKey)) {
+      pathToPage.set(pathKey, display);
+    }
+    const basename = pathKey.split('/').pop() ?? pathKey;
+    const slug = slugify(basename);
+    if (!slugToPage.has(slug)) {
+      slugToPage.set(slug, display);
+    }
+  };
+  for (const entry of entries) {
+    if (!entry.isDirectory() || entry.name.startsWith('.')) {
+      continue;
+    }
+    const files: Array<Omit<SlugUniversePage, 'aliases'>> = [];
+    await walk(join(wikisRoot, entry.name), join(wikisRoot, entry.name), entry.name, files);
+    for (const file of files) {
+      addPage(`${entry.name}/${file.wikiRelative.replace(/\.md$/i, '')}`, file.relative);
+    }
+  }
+
+  const crossWikiDir = join(wikisRoot, 'cross-wiki');
+  const crossWikiFiles: string[] = [];
+  const collect = async (dir: string): Promise<void> => {
+    let dirEntries;
+    try {
+      dirEntries = await readdir(dir, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const entry of dirEntries) {
+      const absolute = join(dir, entry.name);
+      if (entry.isDirectory()) {
+        await collect(absolute);
+      } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.md')) {
+        crossWikiFiles.push(absolute);
+      }
+    }
+  };
+  await collect(crossWikiDir);
+
+  const broken: Array<{ page: string; link: string }> = [];
+  let totalLinks = 0;
+  const linkPattern = /\[\[([^\]]+)\]\]/g;
+  for (const absolute of crossWikiFiles.sort((a, b) => a.localeCompare(b))) {
+    const pageRel = `wikis/cross-wiki/${relative(crossWikiDir, absolute).replace(/\\/g, '/')}`;
+    const content = await readFile(absolute, 'utf-8');
+    const body = stripFrontmatter(content);
+    let match: RegExpExecArray | null;
+    while ((match = linkPattern.exec(body)) !== null) {
+      totalLinks++;
+      const linkText = match[1].trim();
+      const { target } = parseWikilinkTarget(linkText);
+      const pathKey = target.replace(/\.md$/i, '');
+      const resolved =
+        pathToPage.has(pathKey) ||
+        pathToPage.has(`cross-wiki/${pathKey}`) ||
+        slugToPage.has(slugify(pathKey));
+      if (!resolved) {
+        broken.push({ page: pageRel, link: linkText });
+      }
+    }
+  }
+
+  return { broken, totalLinks, totalPages: crossWikiFiles.length };
+}

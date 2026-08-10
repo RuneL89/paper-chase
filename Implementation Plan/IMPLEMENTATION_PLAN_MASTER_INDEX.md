@@ -48,9 +48,10 @@ This structure prevents the compounding bug problem that destroyed the previous 
 | 21 | [PHASE_21_curation_overhaul.md](PHASE_21_curation_overhaul.md) | Curation overhaul: deterministic pre-merge signals (~70% of merges at $0), confirm-deny pair proposals, sticky decisions with split escape hatch (backlog B5, HIGH PRIORITY) | $0 | 5-8h |
 | 22 | [PHASE_22_composite_pages.md](PHASE_22_composite_pages.md) | Composite pages (Option C): cluster-granular rich articles over the entity-granular graph within five ratified rollup classes; vision `02` §4.6/`05` §6 amendment (backlog B22) | $0 | 8-12h |
 | 23 | [PHASE_23_comparison_articles.md](PHASE_23_comparison_articles.md) | Comparison-table articles: extractor `tables` output, `comparison` page type, `comparisons/` folder, per-subject accumulation across sources (backlog B21) | $0 | 4-6h |
+| 24 | [PHASE_24_cross_wiki_discovery.md](PHASE_24_cross_wiki_discovery.md) | Cross-wiki discovery layer (v1.2.1): agent-first entity registry, relationship graph, topic clusters, entity summaries, predicate normalization, hypothesis signals, and preflight run-control for downstream agents (backlog B14) | $0 | 12-18h |
 
 **Total Estimated LLM Cost (all phases):** Variable; baseline ~$32.00 plus quality-first DOX Writer cost per wiki.
-**Total Estimated Time:** 40-58 hours
+**Total Estimated Time:** 52-76 hours
 
 ---
 
@@ -222,7 +223,8 @@ Wiki v5/                              # project root — all code and tests are 
     ├── PHASE_20_wikilink_repair.md
     ├── PHASE_21_curation_overhaul.md
     ├── PHASE_22_composite_pages.md
-    └── PHASE_23_comparison_articles.md
+    ├── PHASE_23_comparison_articles.md
+    └── PHASE_24_cross_wiki_discovery.md
 ```
 
 ---

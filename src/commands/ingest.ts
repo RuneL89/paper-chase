@@ -50,6 +50,7 @@ import type {
 } from '../agents/curation';
 import { writeDoxContracts, writeWorkspaceIndex, type DoxIndexContext, type DoxWorkspaceEntryContext, type DoxWorkspaceProseContext } from '../dox-writer';
 import { proposeAgentsUpdate, type AgentsUpdaterOptions } from '../agents/agents-updater';
+import { runCrossWikiPass, type CrossWikiPassOptions, type CrossWikiPassResult } from '../cross-wiki/index';
 import { validateWiki, logValidation, type ValidationSummary } from '../validation';
 import {
   writeEntitySynthesis,
@@ -275,6 +276,22 @@ export interface IngestOptions {
    * delay only — it changes no per-page outcome).
    */
   poolStaggerMs?: number;
+  /**
+   * Phase 24 (phase doc §2.8, vision `04` §3.2 Step 10 amended 2026-08-09):
+   * run the Cross-Wiki Discovery pass after the workspace pass and before the
+   * AGENTS.md Updater when the workspace holds ≥2 wikis (deterministic
+   * preflight + optional relevance probe decide whether the full pass runs).
+   * Defaults to false (the library default stays LLM-free; production callers
+   * — CLI and TUI — pass true, the `doxLlm` precedent). Failures are logged
+   * and never abort the ingest.
+   */
+  crossWiki?: boolean;
+  /**
+   * Injectable cross-wiki pass (test-only). Defaults to the real
+   * `runCrossWikiPass`; tests inject a stub (or call the real pass with its
+   * own component seams) to keep every gate LLM-free.
+   */
+  runCrossWikiPassFn?: (options: CrossWikiPassOptions) => Promise<CrossWikiPassResult>;
 }
 
 export interface IngestedSource {
@@ -357,6 +374,12 @@ export interface IngestResult {
   synthesisCompositesSkipped?: number;
   /** Phase 23 (§2.3): comparison pages skipped by the resume rule (same rule). */
   synthesisComparisonsSkipped?: number;
+  /**
+   * Phase 24: the Cross-Wiki Discovery pass outcome — `ran` false with the
+   * skip reason when the preflight skipped it (unchanged fingerprint, probe
+   * not-relevant, or <2 wikis); absent when the pass was not enabled.
+   */
+  crossWiki?: CrossWikiPassResult;
 }
 
 const DEFAULT_PAGES_PER_CHUNK = 5;
@@ -2126,6 +2149,33 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
     logPath: join(dir, '.state', 'llm-calls.json'),
   });
   progress('Workspace index updated.');
+
+  // Phase 24 (phase doc §2.8, vision `04` §3.2 Step 10 amended 2026-08-09):
+  // the Cross-Wiki Discovery pass runs after Layer 5 (per-wiki DOX contracts
+  // + the workspace pass) and before the AGENTS.md Updater, when enabled and
+  // the workspace holds ≥2 wikis. It is additive and read-only over per-wiki
+  // pages; any failure is logged and the ingest continues (phase doc §6).
+  if (options.crossWiki === true) {
+    const runPass = options.runCrossWikiPassFn ?? runCrossWikiPass;
+    try {
+      const crossWiki = await runPass({
+        workspace: options.workspace,
+        wikiSlug: slug,
+        language,
+        logPath: join(dir, '.state', 'llm-calls.json'),
+        onProgress: progress,
+      });
+      result.crossWiki = crossWiki;
+      progress(
+        crossWiki.ran
+          ? `Cross-wiki discovery updated: ${crossWiki.entities ?? 0} entities, ${crossWiki.edges ?? 0} edges, ${crossWiki.clusters ?? 0} clusters.`
+          : `Cross-wiki discovery skipped (${crossWiki.reason}).`,
+      );
+    } catch (err) {
+      progress(`Warning: cross-wiki discovery pass failed (${(err as Error).message}) — the ingest is unaffected.`);
+      result.crossWiki = { ran: false, reason: 'error', error: (err as Error).message };
+    }
+  }
 
   // Phase 9 (phase doc §2.3): the AGENTS.md Updater runs after the DOX
   // contracts (and the workspace pass) when explicitly opted in. It writes a

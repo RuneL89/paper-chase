@@ -2138,3 +2138,263 @@
     enough room for any built-in model to emit visible text. The probe value is now the
     same for built-in and custom providers.
   Checked By: Main agent
+
+[2026-08-09 12:00] Phase 24 Pre-Implementation Compliance Check — Cross-Wiki Discovery Layer
+  Changed: (none yet — pre-implementation check; new phase document drafted)
+  Vision Docs Checked:
+    - `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3 (workspace/wiki/pages architecture), §7 (non-goals: automatic connection finding)
+    - `Project Vision/02_WIKI_concept_detailed.md` §2 (page requirements: cited/linked/preserved), §3.4 (two-layer language rule), §4.6/§4.7/§4.8 (granularity, sparse)
+    - `Project Vision/03_DOX_concept_detailed.md` §3.1 (top-level folders), §4.1/§4.2 (index.md contract hierarchy), §6 (DOX Writer placement and workspace pass)
+    - `Project Vision/04_orchestration_detailed.md` §1 (five-layer pipeline), §3.2 Step 10 (DOX Writer), §6 (validation order), §9 (multilingual input/output)
+    - `Project Vision/05_page_types_specification.md` §2 (frontmatter), §3 (index type), §6/§7 (entity/topic pages), §9 (custom page types)
+    - `Project Vision/06_citation_and_provenance.md` §1-§3 (citation rule and sources schema), §8 (source-language evidence)
+    - `Project Vision/07_validation_and_quality.md` §2.5/§2.6 (schema validation and structural checks)
+    - `Implementation Plan/BACKLOG.md` B14 (cross-wiki identity surface)
+  Comparison:
+    - The phase is additive: it reads existing per-wiki pages and writes workspace-level derived artifacts. It does not modify per-wiki content, does not merge entities across wikis, and does not itself decide which cross-wiki connections are stories. This matches `01` §7 "the journalist or a separate research agent finds the connections" rather than contradicting it. COMPLIANT.
+    - New page types `cross-wiki-index` and `cross-wiki-topic` fit the custom-type extension point in `05` §9. COMPLIANT.
+    - The cross-wiki artifacts use path-qualified wikilinks to per-wiki pages, which mitigates the bare-slug ambiguity noted in BACKLOG B11 and satisfies `02` §2 "Linked" + `03` §6 "every link resolves." COMPLIANT.
+    - The layer inserts a new pipeline stage after the existing Layer 5 DOX Writer and before the AGENTS.md Updater. This is not in the current `04` §1/§3.2 Step 10 pipeline diagram. EXTENSION requiring vision amendment.
+    - The layer adds `wikis/cross-wiki/` as a workspace-level folder and a new `## Cross-Wiki Discovery` section in `wikis/index-of-indexes.md`. This is not in the current `03` §3.1/§4.1/§6 workspace-index contract. EXTENSION requiring vision amendment.
+    - Cross-wiki cluster pages synthesize patterns across topics rather than citing a single PDF directly. The proposal mitigates this by wikilinking every mapped topic page, but the pattern statement itself is a cross-page inference. This interacts with `06` §1/§8 and `02` §6. It can be made compliant by requiring the pattern statement to link to each mapped topic and optionally aggregate `sources`, or by a vision amendment that explicitly allows index/navigation-level synthesis to be verified through linked topic pages. NEEDS USER DECISION.
+    - The topic-clustering component uses a local embedding model; this is a new runtime dependency not contemplated in the vision. The deterministic alternative (keyword/slug overlap) is cheaper but lower quality. NEEDS USER DECISION.
+    - Fuzzy entity matching uses a cheap LLM to decide match/no-match/uncertain. This is a new LLM judgment surface not in the vision. NEEDS USER DECISION on whether uncertain cases require human review.
+    - Mixed output-language workspaces are not addressed by the proposal. NEEDS USER DECISION.
+  Result: COMPLIANT with noted EXTENSIONS and open USER DECISIONS (no hard contradiction, but three vision amendments and three design decisions required before implementation).
+  Checked By: Main agent (phase orchestrator)
+  Open Decisions:
+    1. Accept `wikis/cross-wiki/` + new `## Cross-Wiki Discovery` workspace-index section (vision 03 amendment)?
+    2. Accept pipeline placement after DOX Writer and before AGENTS.md Updater (vision 04 amendment)?
+    3. Automate fuzzy entity matches or require human review for uncertain/proposed matches?
+    4. Use local embedding model or deterministic keyword/slug clustering for topics?
+    5. Group cross-wiki matching by output language or run workspace-wide?
+    6. How should cross-wiki cluster pattern statements satisfy the citation rule?
+
+
+[2026-08-09 13:00] Phase 24 User Decisions + Vision Amendments Ratified
+  Trigger: Resolution of the six open decisions from the [2026-08-09 12:00] pre-implementation compliance check.
+  User Decisions (AskUserQuestion, 2026-08-09):
+    1. Location: `wikis/cross-wiki/` is the workspace-level folder for cross-wiki artifacts; the workspace index (`wikis/index-of-indexes.md`) gains a `## Cross-Wiki Discovery` section linking to `cross-wiki/index.md` when artifacts exist.
+    2. Pipeline placement: the Cross-Wiki Discovery pass runs after the per-wiki DOX Writer / workspace pass and before the optional AGENTS.md Updater.
+    3. Fuzzy entity matching: a cheap LLM decides match / no-match / uncertain; uncertain matches are written to `.state/proposed-cross-wiki-matches.json` for later human review and are NOT applied automatically.
+    4. Topic clustering: an LLM performs batched clustering, including cross-language matching, rather than deterministic keyword/slug overlap.
+    5. Cross-language matching: the pass is workspace-wide; topics/entities may be clustered across wikis that use different output languages.
+    6. Factual claims: cross-wiki cluster pages contain NO factual claims of their own; evidence stays on the per-wiki topic/entity pages. Cluster pages describe and link to existing pages only.
+  Vision Docs Amended:
+    - `Project Vision/03_DOX_concept_detailed.md`: §4.1 Levels of Index table gains a `Workspace (cross-wiki)` row; §4.2 notes the optional `## Cross-Wiki Discovery` section; §6 pipeline placement adds the Cross-Wiki Discovery pass after DOX Writer and describes the cross-wiki contracts as workspace-owned derived artifacts that read only per-wiki DOX contracts and per-wiki entity/relationship artifacts, never content pages.
+    - `Project Vision/04_orchestration_detailed.md`: §1 pipeline description and diagram include the optional Cross-Wiki Discovery layer; the concurrency note places it sequentially after DOX/workspace and before the AGENTS.md Updater; §3.2 Step 10 adds the pass as item 8; §6 validation order adds Cross-wiki validation.
+    - `Project Vision/05_page_types_specification.md`: §9 gains documented `cross-wiki-index` and `cross-wiki-topic` page types with frontmatter, content, and path-qualified wikilink conventions.
+  Implementation Plan Updated:
+    - `Implementation Plan/PHASE_24_cross_wiki_discovery.md` created and ratified (10 gates, 4 UATs, $0 LLM-budget gates, estimated 10-14h).
+    - `Implementation Plan/IMPLEMENTATION_PLAN_MASTER_INDEX.md`: Phase 24 row, directory, budget/time totals updated.
+    - `Implementation Plan/MASTER_IMPLEMENTATION_PROMPT.md`: Phase 24 mapping added to §4.
+    - `Implementation Plan/AGENTS.md`: phase range updated to 0-9, 11-24; ownership list includes `PHASE_24_cross_wiki_discovery.md`.
+    - `Implementation Plan/BACKLOG.md`: B14 struck — implemented by Phase 24.
+  Vision Docs Checked (amendment compliance):
+    - `01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3/§7: cross-wiki layer stays a derived artifact; the tool still does not "automatically find stories."
+    - `02_WIKI_concept_detailed.md` §2/§3.4/§4.6/§4.7/§4.8: cross-wiki pages are linked and preserved; language rules unchanged; granularity/sparse rules unaffected.
+    - `03_DOX_concept_detailed.md` §3.1/§4.1/§4.2/§6 (amended): workspace-level cross-wiki folder and section now explicit; pipeline placement explicit.
+    - `04_orchestration_detailed.md` §1/§3.2 Step 10/§6/§9 (amended): pipeline diagram and step include the pass; multilingual input/output still applies to per-wiki ingestion, not to cross-wiki derived pages.
+    - `05_page_types_specification.md` §2/§3/§6/§7/§9 (amended): `cross-wiki-index`/`cross-wiki-topic` documented as sanctioned custom types; path-qualified wikilinks disambiguate cross-wiki slugs.
+    - `06_citation_and_provenance.md` §1-§3/§8: cross-wiki cluster pages carry no direct factual claims, so the core citation rule is satisfied by pointing to member topic/entity pages; no new provenance schema required.
+    - `07_validation_and_quality.md` §2.5/§2.6: cross-wiki validation added as a structural check in 04 §6.
+  Comparison:
+    - The six user decisions resolve every NEEDS USER DECISION item from the pre-check.
+    - The vision amendments are additive and do not weaken existing per-wiki contracts.
+    - The pipeline placement preserves sequential stages and keeps the AGENTS.md Updater last.
+    - No unresolved contradictions remain.
+  Result: COMPLIANT — Phase 24 is ready for implementation on user command.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-08-09 14:00] Phase 24 v1.1.0 Amendment — Added LLM Enhancements #1–4
+  Trigger: User decision (2026-08-09): "Let's add the 1,2,34" (entity context summaries, predicate normalization, mid-tier uncertain-review, hypothesis signal generator).
+  Changed:
+    - `Implementation Plan/PHASE_24_cross_wiki_discovery.md` (v1.0.0 → v1.1.0): new Components E–G; Component A updated to consume summaries and escalate uncertain matches to mid-tier model; pipeline diagram expanded; gates 24.10–24.14 added; UATs 24.6–24.7 added; approval checklist updated; time estimate 8–12h → 12–18h; UAT budget ~$5 → ~$8–$12.
+    - `Implementation Plan/IMPLEMENTATION_PLAN_MASTER_INDEX.md` (Phase 24 row description/time/total time 48–70h → 52–76h).
+    - `Implementation Plan/MASTER_IMPLEMENTATION_PROMPT.md` (Phase 24 mapping row updated with new components).
+  User decisions recorded:
+    7. Component E: one cheap LLM call per entity page to produce a 1–2 sentence context summary, stored in `.state/cross-wiki/entity-summaries.json` and used by the entity resolver.
+    8. Component F: one batched cheap LLM call to canonicalize semantically identical relationship predicates across wikis, stored in `.state/cross-wiki/predicate-map.json`.
+    9. Component A uncertain-review sub-step: cheap-model `uncertain` verdicts escalated to a batched mid-tier LLM; remaining uncertain matches kept in `.state/proposed-cross-wiki-matches.json` and also exposed to downstream agents via `.state/cross-wiki/entity-match-candidates.json`.
+    10. Component G: one batched mid-tier LLM call per connected cross-wiki subgraph to produce structured hypothesis signals in `.state/cross-wiki/proposed-signals.json`, framed as signals for downstream agent review — not published wiki pages and not automatic stories.
+  Vision Docs Checked:
+    - `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §7: hypothesis signals are still agent-reviewable artifacts, not automatic connection-finding by the tool.
+    - `Project Vision/04_orchestration_detailed.md` §6: the four new LLM call sites inherit the existing bounded-retry/feedback-retry policy; deterministic failures (invalid JSON/schema/4xx) never retried, quality failures retried ≤3 before fallback.
+    - `Project Vision/06_citation_and_provenance.md` §1/§8: hypothesis signals and cluster pages make no new factual claims; evidence stays on per-wiki pages.
+    - `Project Vision/05_page_types_specification.md` §9: no new page types required; hypothesis signals live only in `.state/`.
+  Comparison:
+    - Enhancements #1–4 directly address the 100×-wiki discoverability risks (entity disambiguation context, predicate normalization, uncertain-match review, indirect-path surfacing) without crossing into automatic story-writing.
+    - The additional LLM calls are bounded: per-entity (E), per-predicate-set (F), per-uncertain-batch (A sub-step), and per-signal-batch (G). They remain optional to skip via the run fingerprint when inputs are unchanged.
+  Result: COMPLIANT — Phase 24 v1.1.0 ratified. No unresolved contradictions.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-08-09 15:00] Phase 24 v1.2.0 Amendment — Follow-Up Implementation Decisions
+  Trigger: User question (2026-08-09): "Do you have other questions before we begin implementation?"
+  User decisions recorded (AskUserQuestion, 2026-08-09):
+    11. Hypothesis signals live in `.state/cross-wiki/proposed-signals.json` only — not published as wiki pages.
+    12. The cross-wiki pass auto-runs when ≥2 wikis exist, but only after a deterministic pre-flight check plus an optional cheap-LLM relevance probe. The full pass is skipped when the pre-flight detects no relevant changes.
+    13. Uncertain entity matches are exposed to the downstream agent immediately via `.state/cross-wiki/entity-match-candidates.json`, marked as uncertain/unapproved.
+    14. Entity context summaries are generated for **every** entity page in the workspace, not only cross-wiki candidates.
+  Changed:
+    - `Implementation Plan/PHASE_24_cross_wiki_discovery.md` (v1.1.0 → v1.2.0): added pre-flight run-control to Pipeline Integration; added Gate 24.15 and UAT 24.8; updated user-decisions list (11–14); updated approval checklist; version/status updated.
+    - `Implementation Plan/IMPLEMENTATION_PLAN_MASTER_INDEX.md` (Phase 24 row description/version bump).
+    - `Implementation Plan/MASTER_IMPLEMENTATION_PROMPT.md` (Phase 24 mapping row updated).
+  Design notes:
+    - The deterministic pre-flight uses wiki-membership + entity/topic page mtimes/hashes and a persisted `.state/cross-wiki/run-fingerprint.json`.
+    - The optional cheap-LLM relevance probe reads changed pages' titles/summaries and returns `relevant`/`not-relevant`, avoiding a full cross-wiki pass for obviously local edits.
+    - Because entity summaries are generated for all pages, the pre-flight also considers whether entity-summary inputs changed.
+    - Hypothesis signals remaining `.state`-only keeps Phase 24 a data substrate and avoids the tool publishing automatic "story" pages.
+  Vision Docs Checked:
+    - `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §7: the tool still does not automatically publish connections as wiki content; signals are agent-reviewable JSON.
+    - `Project Vision/04_orchestration_detailed.md` §6: the pre-flight, relevance probe, and all new LLM call sites inherit the existing bounded-retry/feedback-retry policy.
+    - `Project Vision/06_citation_and_provenance.md` §1/§8: `.state` signals and cluster pages make no new factual claims; evidence remains on per-wiki pages.
+  Result: COMPLIANT — Phase 24 v1.2.0 is ready for implementation. No unresolved contradictions.
+  Checked By: Main agent (phase orchestrator)
+
+[2026-08-09 15:30] Phase 24 v1.2.1 Fresh Pre-Implementation Compliance Check
+  Trigger: Canon sequence resumed after analysis-only break; user requested to continue up to implementation without starting it. Phase 24 design changed since the last ratified v1.2.0 check (added pre-flight, entity summaries, predicate normalizer, uncertain-review sub-step, hypothesis signals), requiring a fresh compliance pass before invoking the Implementer.
+  Changed:
+    - `Implementation Plan/PHASE_24_cross_wiki_discovery.md` v1.2.0 → v1.2.1: corrected cross-wiki page-type frontmatter to align with `Project Vision/05_page_types_specification.md` §9.1.
+    - `Implementation Plan/IMPLEMENTATION_PLAN_MASTER_INDEX.md`: Phase 24 row version updated to v1.2.1.
+    - `.state/phase-24-status.json` created with status `compliant-ready`.
+  Vision Docs Checked:
+    - `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3/§7
+    - `Project Vision/03_DOX_concept_detailed.md` §4.1/§4.2/§6
+    - `Project Vision/04_orchestration_detailed.md` §1/§3.2 Step 10/§6
+    - `Project Vision/05_page_types_specification.md` §3.1/§9.1
+    - `Project Vision/06_citation_and_provenance.md` §1/§8
+    - `Project Vision/07_validation_and_quality.md` §2.5/§2.6
+  Sections Checked:
+    - §1 Product Vision: workspace/wiki architecture; non-goal of automatic connection-finding (Phase 24 supplies derived artifacts, not published stories).
+    - §3 DOX concept: workspace-index cross-wiki section, `wikis/cross-wiki/` folder, placement after per-wiki DOX contracts, reading only per-wiki root DOX contracts and entity/relationship artifacts (never raw content pages).
+    - §4 Orchestration: five-layer pipeline + optional Cross-Wiki Discovery layer, concurrency rules, pre-flight/fingerprint fits incremental ingestion philosophy.
+    - §5 Page types: `cross-wiki-index` and `cross-wiki-topic` frontmatter requirements; custom page-type extension point.
+    - §6 Citation: cross-wiki pages make no new factual claims; evidence stays on per-wiki pages.
+    - §7 Validation: schema validation for new page types, link integrity, broken-wikilink checks.
+  Comparison:
+    - Non-goal alignment: hypothesis signals are `.state/cross-wiki/proposed-signals.json` only; cluster pages make no factual claims. COMPLIANT.
+    - Pipeline placement: after Layer 5 DOX Writer and before the AGENTS.md Updater; reads only finalized contracts/artifacts. COMPLIANT.
+    - Agent-first, human-verifiable design: exact + fuzzy + mid-tier uncertain-review entity resolution; `.state/proposed-cross-wiki-matches.json` and `.state/cross-wiki/entity-match-candidates.json` for human/agent review. COMPLIANT.
+    - Preflight run-control: deterministic fingerprint (wiki membership + entity/topic page mtime/hash) + optional cheap-LLM relevance probe; fits incremental ingestion and bounded-retry policy. COMPLIANT.
+    - Cross-wiki DOX Writer: writes `wikis/cross-wiki/index.md`, `wikis/cross-wiki/topics/index.md`, and links from `wikis/index-of-indexes.md`. COMPLIANT.
+  Contradictions found and corrected:
+    1. `05_page_types_specification.md` §9.1 requires `children` in `cross-wiki-index` frontmatter (it is an `index` page type). Phase 24 v1.2.0 listed only `title`, `type`, `updated` plus optional `entityCount`/`edgeCount`. Corrected in Phase 24 doc §2.9: `children` is now required.
+    2. `05_page_types_specification.md` §9.1 requires `members` in `cross-wiki-topic` frontmatter (path-qualified slugs). Phase 24 v1.2.0 listed `mappedTopics` as the required frontmatter. Corrected in Phase 24 doc §2.9: `members` is required; the richer `mappedTopics` array is retained in the `.state/cross-wiki/topic-clusters.json` JSON mirror and used to render the page body.
+  Result: COMPLIANT after correction — Phase 24 v1.2.1 is ready for implementation. No unresolved contradictions remain.
+  Checked By: Main agent (phase orchestrator)
+  Next Step: Await explicit user command "Start Phase 24" before invoking the Implementer sub-agent. Implementation must not begin without that command.
+
+[2026-08-10 12:00] Phase 24 Implementer closeout (Cross-Wiki Discovery Layer, phase doc v1.2.1)
+  Changed: NEW src/cross-wiki/ (workspace-scan, state, llm, entity-context-summarizer,
+    entity-resolver, predicate-normalizer, relationship-graph, topic-clusterer,
+    hypothesis-generator, run-control, index), NEW src/pages/cross-wiki/ (entity-registry-page,
+    relationships-page, topic-cluster-page, cross-wiki-index-page), NEW
+    src/validation/cross-wiki-schema.ts, NEW prompts/cross-wiki-{entity-context,entity-match,
+    entity-uncertain-review,predicate-normalize,topic-cluster,hypothesis,relevance-probe}.prompt.txt,
+    NEW tests/phase-24.test.ts (17 tests, all LLM-free, $0); src/dox-writer.ts (workspace-pass
+    cross-wiki exclusion + ## Cross-Wiki Discovery section preservation +
+    updateWorkspaceCrossWikiSection), src/validation/schema-validator.ts (two new types + rules),
+    src/validation/link-checker.ts (checkCrossWikiLinks), src/llm/client.ts (MID_TIER_CALL_TYPES),
+    src/utils/language.ts (cross-wiki role), src/commands/ingest.ts (crossWiki option +
+    runCrossWikiPassFn + IngestResult.crossWiki + pass wiring after the workspace pass, before the
+    updater), src/cli.ts (--no-cross-wiki), src/tui/ingest-screen.tsx (crossWiki: true),
+    src/tui/hooks/use-wiki-list.ts (cross-wiki excluded), templates/AGENTS.md (cross-wiki page
+    types note), scripts/launcher-entry.ts (VERSION 1.0.10 → 1.0.11), .gitignore (runtime
+    cross-wiki state), AGENTS.md chain (root/src/prompts/tests/wikis/.state),
+    .state/phase-24-status.json
+  Vision Docs Checked: 01 §3/§7, 03 §3.1/§4.1/§4.2/§6, 04 §1/§3.2 Step 10, 05 §9.1, 06 §1,
+    07 §2.5/§2.6 (all as amended 2026-08-09; the amendments were pre-applied and confirmed
+    COMPLIANT by the orchestrator — not re-litigated)
+  Result: COMPLIANT. Gates 24.1-24.15 encoded and green (17/17 in tests/phase-24.test.ts);
+    full key-less suite 493 passed + 14 skipped across 34 files (zero unenumerated regressions);
+    npx tsc --noEmit clean. One recorded deviation: Component C cluster-page descriptions ride
+    the batched clustering call instead of one call per cluster (phase doc §2.3; fewer calls,
+    identical artifacts — see .state/phase-24-status.json design decision (a)). One additive
+    expansion: the §2.8 step-2 relevance probe is a seventh prompt file (keeps every LLM prompt
+    in prompts/ per the folder contract). No unresolved contradictions.
+  Checked By: Implementer sub-agent (Phase 24)
+  Next Step: Verifier cold-check of gates 24.1-24.15; live UATs 24.1-24.8 after acceptance.
+
+[2026-08-10 13:30] Phase 24 Verifier Cold-Check — ACCEPTED
+  Changed: none (Verifier is read-only; no implementation files touched).
+  Vision Docs Checked: 01 §3/§7; 03 §3.1/§4.1/§4.2/§6; 04 §1/§3.2 Step 10; 05 §9.1; 06 §1/§8; 07 §2.5/§2.6.
+  Result: COMPLIANT — all 15 gates PASS with non-vacuous tests (independent full key-less run:
+    493 passed + 14 skipped / 34 files, 0 failed; npx tsc --noEmit clean). The declared deviation
+    (batched cluster-page descriptions, §2.3) judged an acceptable cost-reducing implementation
+    detail — identical artifacts, gate 24.4 pins the prompt contract. No unresolved contradictions.
+  Checked By: Verifier sub-agent (Phase 24)
+  Next Step: live UATs 24.1-24.8 by the user ($8-12 budget); rebuild dist/paper-chase.exe
+    (npm run package:win) before shipping so the packaged runtime picks up Phase 24 (asset
+    VERSION already bumped to 1.0.11).
+
+[2026-08-10 14:00] Phase 24 Cross-Wiki Model Routing Option B (user-directed extension)
+  Changed:
+    - src/llm/client.ts: added `crossWiki` and `crossWikiJudgment` slots to `ModelRouting`,
+      updated `setModelRouting` normalization, and updated `resolveModelFromRouting` so
+      `cross-wiki-uncertain-review` / `cross-wiki-hypothesis` route to `crossWikiJudgment`
+      (falling back to `synthesis` then `default`), while all other `cross-wiki-*` call types
+      route to `crossWiki` (falling back to `default`). Legacy configs without these slots
+      normalize to null and retain the original default/synthesis behavior byte-for-byte.
+    - src/tui/settings.ts: `seedModelsForProvider` and `normalizeModels` seed and tolerate the
+      two new slots; legacy settings files load as null for both slots.
+    - src/tui/settings-screen.tsx: added two explicit Settings rows, "Cross-Wiki Bulk Model"
+      and "Cross-Wiki Judgment Model", with provider-aware recommendation labels (Option B),
+      placed after the Curation row. Test-connection (`T`) resolves the model via the same
+      call-type mapping used in production.
+    - tests/phase-11.test.ts: updated row counts and navigation for the two new rows and the
+      expanded custom-provider section; added null assertions for `crossWiki` and
+      `crossWikiJudgment` in saved-config tests.
+    - tests/phase-12.test.ts, tests/phase-13.test.ts, tests/phase-14.test.ts: updated inline
+      `ModelRouting` literals and type annotations to include the new slots.
+    - AGENTS.md chain: root AGENTS.md user preference (new 2026-08-10 bullet) and src/AGENTS.md
+      ownership/local-contract updates for the two explicit routing slots and TUI rows.
+  Vision Docs Checked: Project Vision/04_orchestration_detailed.md §3.2 (LLM calls are role-based
+    and provider/model agnostic — no model is pinned), Project Vision/07_validation_and_quality.md
+    (metrics unaffected), root AGENTS.md (user preferences for model routing).
+  Comparison:
+    - No vision document specifies a particular model for cross-wiki calls; adding explicit
+      routing slots is an additive extension that does not contradict any vision text.
+    - Option B (two explicit Settings rows) is the user-selected alternative for clearer
+      control over which model handles cross-wiki bulk and judgment calls. The TUI labels and
+      row placement follow the existing Phase 11/14 Settings pattern.
+    - Legacy behavior is preserved: configs without `crossWiki`/`crossWikiJudgment` normalize to
+      null, so the cheap cross-wiki calls fall back to the `default` slot and the mid-tier
+      uncertain-review/hypothesis calls fall back to the `synthesis` slot, exactly as before
+      the explicit slots existed.
+  Result: COMPLIANT — user-directed extension. Full suite: 493 passed + 2 skipped / 34 files
+    (12 failures are unrelated: 11 phase-02 failures due to a missing `golden-master-part-001.md`
+    fixture and 1 `.state/upgrade` debug dummy-synthesis timeout). `npx tsc --noEmit` clean.
+    Targeted phase-11 run: 47 passed. Initial `dist/paper-chase.exe` rebuild 2026-08-10 15:27
+    (asset version 1.0.11). After user report that the new Settings rows did not appear in the
+    packaged exe, the asset version was bumped to 1.0.12 (Settings bundle change) and the exe
+    was rebuilt 2026-08-10 15:37; the running stale process was terminated first so the file
+    could be overwritten. The 1.0.12 marker guard will re-extract the updated bundle on first run.
+  Checked By: Main agent
+
+[2026-08-10 16:00] README Refresh and Repository Hygiene (post-Phase 24 / multi-provider documentation)
+  Changed:
+    - README.md: expanded per-call model routing to cover Anthropic/OpenAI/Qwen/custom providers,
+      the seven routing slots (default, extractor, synthesis, dox, curation, crossWiki,
+      crossWikiJudgment), API-key handling, and the new `--no-cross-wiki` CLI flag; added the
+      Phase 24 Cross-Wiki Discovery layer (Layer 6) to the pipeline diagram and layer list; updated
+      the project-structure block to include `src/cross-wiki/`, `src/pages/cross-wiki/`, Qwen/custom
+      provider support, and cross-wiki prompts; updated the walkthrough to mention cross-wiki
+      artifacts when multiple wikis are present.
+    - Repository hygiene: removed `dist/.paper-chase.json` from the git index (it contains API keys;
+      `.gitignore` already excludes it). The file remains on disk for local use but is no longer
+      tracked.
+  Vision Docs Checked: `Project Vision/01_PRODUCT_VISION_AND_ARCHITECTURE.md` §3 (provider/model
+    agnosticism), `Project Vision/04_orchestration_detailed.md` §3.2 (role-based routing),
+    `Project Vision/05_page_types_specification.md` §9.1 (cross-wiki page types), `Project Vision/
+    07_validation_and_quality.md` (metrics/logging), root `AGENTS.md` user preferences (model
+    routing, API key storage, cross-wiki settings).
+  Comparison:
+    - README text matches the implemented seven-slot model routing and the documented custom-provider
+      API shape. No contradictions.
+    - Cross-wiki discovery description matches Phase 24 artifacts and the additive, read-only,
+      fault-tolerant pass described in the phase plan and implementation code.
+    - Removing the tracked `dist/.paper-chase.json` aligns with the root `.gitignore` rule and the
+      root AGENTS.md API-key security preference; the committed version contained key material, so
+      stopping tracking is a corrective security action.
+  Result: COMPLIANT — documentation-only and hygiene update. No code changes; no API keys committed.
+  Checked By: Main agent

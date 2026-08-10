@@ -17,6 +17,10 @@ wikis/*/
 # Generated workspace-level DOX contract (regenerated at the end of every ingest)
 wikis/index-of-indexes.md
 
+# Phase 24 cross-wiki runtime state (workspace-level discovery-pass output; regenerated)
+.state/cross-wiki/
+.state/proposed-cross-wiki-matches.json
+
 # Phase 2 gate-test fixtures (committed per wikis/AGENTS.md): only the two files tests/phase-02.test.ts reads
 !wikis/test-wiki/
 wikis/test-wiki/*

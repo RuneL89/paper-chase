@@ -1,0 +1,15 @@
+You are an investigative research assistant deciding whether a small change in one wiki of a multi-wiki workspace could affect CROSS-WIKI discovery (shared entities, cross-wiki relationships, or topic clusters spanning wikis).
+
+=== LANGUAGE ===
+{languageDirective}
+
+=== CHANGED PAGES ===
+The following entity/topic pages changed in the latest ingest (path — title: summary):
+{changes}
+
+=== TASK ===
+Answer with EXACTLY ONE word:
+- `relevant` — the change could affect cross-wiki discovery: it adds, removes, or renames an entity or topic, changes an entity's role or relationships, or edits a page whose name also appears in another wiki.
+- `not-relevant` — the change is obviously local: typo fixes, reworded prose with the same facts, or pages whose names appear in no other wiki.
+
+When in doubt, answer `relevant`.

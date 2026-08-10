@@ -186,11 +186,12 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
   await tick(400); // let loadSettings resolve (defaults in an empty workspace)
 
   // Rows: Synthesis, Update Agents, Provider, Default Model, Extractor Model,
-  // Synthesis Writer Model, DOX Writer Model, Curation Model, Anthropic API
+  // Synthesis Writer Model, DOX Writer Model, Curation Model, Cross-Wiki Bulk
+  // Model, Cross-Wiki Judgment Model, [ Add Custom Provider ], Anthropic API
   // Key, OpenAI API Key, Qwen API Key, [ Save ], [ Back ] (the v1.5.0 API-key
   // rows sit AFTER the model rows; Phase 14 added the Curation Model row,
-  // Phase Qwen added the Qwen API Key row, moving [ Save ] from index 10 to
-  // index 11).
+  // Phase 24 added the two Cross-Wiki rows, Phase Qwen added the Qwen API Key
+  // row).
   screen.stdin.write(DOWN);
   await tick(100);
   screen.stdin.write(DOWN);
@@ -210,6 +211,10 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
   screen.stdin.write(DOWN); // -> DOX Writer Model
   await tick(100);
   screen.stdin.write(DOWN); // -> Curation Model (Phase 14)
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Cross-Wiki Bulk Model (Phase 24)
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Cross-Wiki Judgment Model (Phase 24)
   await tick(100);
   screen.stdin.write(DOWN); // -> Add Custom Provider
   await tick(100);
@@ -233,6 +238,8 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
       extractor: string | null;
       synthesis: string | null;
       dox: string | null;
+      crossWiki: string | null;
+      crossWikiJudgment: string | null;
     };
   };
   expect(config.models.provider).toBe('anthropic');
@@ -240,6 +247,8 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
   expect(config.models.synthesis).toBe(SONNET);
   expect(config.models.default).toBe(HAIKU);
   expect(config.models.dox).toBeNull();
+  expect(config.models.crossWiki).toBeNull();
+  expect(config.models.crossWikiJudgment).toBeNull();
 }, 30000);
 
 // ---------------------------------------------------------------------------
@@ -247,7 +256,7 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
 // ---------------------------------------------------------------------------
 
 test('gate 11.2: resolveModel maps call types through the routing table', () => {
-  const routing: ModelRouting = { default: HAIKU, extractor: HAIKU, synthesis: SONNET, dox: null };
+  const routing: ModelRouting = { default: HAIKU, extractor: HAIKU, synthesis: SONNET, dox: null, crossWiki: null, crossWikiJudgment: null };
   setModelRouting(routing);
   try {
     expect(resolveModel('extractor')).toBe(HAIKU);
@@ -289,7 +298,7 @@ test('gate 11.2: with no routing set, resolution is the pre-Phase-11 env-then-de
 });
 
 test('gate 11.2: callLLM sends the routed extractor model in the request body', async () => {
-  setModelRouting({ default: HAIKU, extractor: SONNET, synthesis: null, dox: null });
+  setModelRouting({ default: HAIKU, extractor: SONNET, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null });
   const savedKey = process.env.ANTHROPIC_API_KEY;
   process.env.ANTHROPIC_API_KEY = 'gate-11-2-test-key';
   mockUndiciRequest.mockResolvedValueOnce({
@@ -530,7 +539,7 @@ test('gate 11.9: settings load from legacy .llm-wiki-cli.json and save to .paper
   // Older files carry no models block — the routing defaults are filled in
   // (provider defaults to 'anthropic', Phase 11 v1.4.0). Phase 14: the
   // additive curation slot normalizes to null (legacy byte-identical).
-  expect(loaded.models).toEqual({ provider: 'anthropic', default: HAIKU, extractor: null, synthesis: null, dox: null, curation: null });
+  expect(loaded.models).toEqual({ provider: 'anthropic', default: HAIKU, extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null, curation: null });
 
   await saveSettings(workspace, loaded);
   expect(existsSync(join(workspace, '.paper-chase.json'))).toBe(true);
@@ -561,7 +570,7 @@ test('gate 11.9: the new .paper-chase.json wins when both files exist', async ()
 test('gate 11.10: provider persists through save/load and legacy configs load as anthropic', async () => {
   const workspace = makeTempDir('paper-chase-g11-10a-');
   const settings = await loadSettings(workspace); // defaults in an empty workspace
-  settings.models = { provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: GPT_TERRA, dox: null };
+  settings.models = { provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: GPT_TERRA, dox: null, crossWiki: null, crossWikiJudgment: null };
   await saveSettings(workspace, settings);
 
   const raw = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
@@ -579,7 +588,7 @@ test('gate 11.10: provider persists through save/load and legacy configs load as
   const legacyWorkspace = makeTempDir('paper-chase-g11-10b-');
   writeFileSync(
     join(legacyWorkspace, '.paper-chase.json'),
-    JSON.stringify({ models: { default: HAIKU, extractor: null, synthesis: SONNET, dox: null } }),
+    JSON.stringify({ models: { default: HAIKU, extractor: null, synthesis: SONNET, dox: null, crossWiki: null, crossWikiJudgment: null } }),
   );
   const legacyLoaded = await loadSettings(legacyWorkspace);
   expect(legacyLoaded.models.provider).toBe('anthropic');
@@ -587,7 +596,7 @@ test('gate 11.10: provider persists through save/load and legacy configs load as
 });
 
 test('gate 11.10: provider-aware resolution routes call types through the openai table', () => {
-  setModelRouting({ provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: GPT_TERRA, dox: GPT_SOL });
+  setModelRouting({ provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: GPT_TERRA, dox: GPT_SOL , crossWiki: null, crossWikiJudgment: null});
   try {
     // A null routing entry means "Same as default".
     expect(resolveModel('extractor')).toBe(GPT_LUNA);
@@ -607,7 +616,7 @@ test('gate 11.10: provider-aware resolution routes call types through the openai
 });
 
 test('gate 11.10: legacy routing without a provider field keeps anthropic resolution', () => {
-  setModelRouting({ default: HAIKU, extractor: SONNET, synthesis: null, dox: null });
+  setModelRouting({ default: HAIKU, extractor: SONNET, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null });
   try {
     expect(resolveModel('extractor')).toBe(SONNET);
     expect(resolveModel('dox-writer')).toBe(HAIKU);
@@ -617,7 +626,7 @@ test('gate 11.10: legacy routing without a provider field keeps anthropic resolu
 });
 
 test('gate 11.10: openai provider posts the Chat Completions shape and parses the reply', async () => {
-  setModelRouting({ provider: 'openai', default: GPT_TERRA, extractor: null, synthesis: null, dox: null });
+  setModelRouting({ provider: 'openai', default: GPT_TERRA, extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null });
   const savedKey = process.env.OPENAI_API_KEY;
   process.env.OPENAI_API_KEY = 'gate-11-10-openai-key';
   mockUndiciRequest.mockResolvedValueOnce({
@@ -686,7 +695,7 @@ test('gate 11.10: openai provider posts the Chat Completions shape and parses th
 });
 
 test('gate 11.10: missing OPENAI_API_KEY with provider openai throws the exact error', async () => {
-  setModelRouting({ provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: null, dox: null });
+  setModelRouting({ provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null });
   const savedKey = process.env.OPENAI_API_KEY;
   delete process.env.OPENAI_API_KEY;
   try {
@@ -704,13 +713,13 @@ test('gate 11.10: missing OPENAI_API_KEY with provider openai throws the exact e
   }
 });
 
-test('gate 11.10: seedModelsForProvider re-seeds all providers to cheapest tier plus nulls (Phase 14: mid-tier curation)', () => {
+test('gate 11.10: seedModelsForProvider re-seeds all providers to cheapest tier plus nulls (Phase 14: mid-tier curation; Phase 24: cross-wiki slots)', () => {
   expect(seedModelsForProvider('openai')).toEqual({
     provider: 'openai',
     default: GPT_LUNA,
     extractor: null,
     synthesis: null,
-    dox: null,
+    dox: null, crossWiki: null, crossWikiJudgment: null,
     curation: GPT_TERRA,
   });
   expect(seedModelsForProvider('anthropic')).toEqual({
@@ -718,7 +727,7 @@ test('gate 11.10: seedModelsForProvider re-seeds all providers to cheapest tier 
     default: HAIKU,
     extractor: null,
     synthesis: null,
-    dox: null,
+    dox: null, crossWiki: null, crossWikiJudgment: null,
     curation: SONNET,
   });
   expect(seedModelsForProvider('qwen')).toEqual({
@@ -726,13 +735,13 @@ test('gate 11.10: seedModelsForProvider re-seeds all providers to cheapest tier 
     default: QWEN_PLUS,
     extractor: null,
     synthesis: null,
-    dox: null,
+    dox: null, crossWiki: null, crossWikiJudgment: null,
     curation: QWEN_37_MAX,
   });
 });
 
 test('gate 11.10: qwen provider posts the OpenAI-compatible shape to the DashScope endpoint and parses the reply', async () => {
-  setModelRouting({ provider: 'qwen', default: QWEN_PLUS, extractor: null, synthesis: null, dox: null });
+  setModelRouting({ provider: 'qwen', default: QWEN_PLUS, extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null });
   const savedKey = process.env.DASHSCOPE_API_KEY;
   process.env.DASHSCOPE_API_KEY = 'gate-11-10-qwen-key';
   mockUndiciRequest.mockResolvedValueOnce({
@@ -798,7 +807,7 @@ test('gate 11.10: qwen provider posts the OpenAI-compatible shape to the DashSco
 });
 
 test('gate 11.10: missing DASHSCOPE_API_KEY with provider qwen throws the exact error', async () => {
-  setModelRouting({ provider: 'qwen', default: QWEN_PLUS, extractor: null, synthesis: null, dox: null });
+  setModelRouting({ provider: 'qwen', default: QWEN_PLUS, extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null });
   const savedKey = process.env.DASHSCOPE_API_KEY;
   delete process.env.DASHSCOPE_API_KEY;
   try {
@@ -815,7 +824,7 @@ test('gate 11.10: missing DASHSCOPE_API_KEY with provider qwen throws the exact 
 });
 
 test('gate 11.10: provider-aware resolution routes call types through the qwen table', () => {
-  setModelRouting({ provider: 'qwen', default: QWEN_PLUS, extractor: null, synthesis: QWEN_37_MAX, dox: QWEN_38_MAX });
+  setModelRouting({ provider: 'qwen', default: QWEN_PLUS, extractor: null, synthesis: QWEN_37_MAX, dox: QWEN_38_MAX , crossWiki: null, crossWikiJudgment: null});
   try {
     expect(resolveModel('extractor')).toBe(QWEN_PLUS);
     expect(resolveModel('synthesis')).toBe(QWEN_37_MAX);
@@ -831,7 +840,7 @@ test('gate 11.10: provider-aware resolution routes call types through the qwen t
   }
 });
 
-test('gate 11.10: switching provider in the settings screen re-seeds the five model slots', async () => {
+test('gate 11.10: switching provider in the settings screen re-seeds the seven model slots', async () => {
   const workspace = makeTempDir('paper-chase-g11-10c-');
   let result: string | undefined;
   const screen = renderCaptured(
@@ -844,10 +853,11 @@ test('gate 11.10: switching provider in the settings screen re-seeds the five mo
   await tick(400); // let loadSettings resolve (defaults in an empty workspace)
 
   // Rows: Synthesis, Update Agents, Provider, Default Model, Extractor Model,
-  // Synthesis Writer Model, DOX Writer Model, Curation Model, Add Custom
-  // Provider, Anthropic API Key, OpenAI API Key, Qwen API Key, [ Save ],
-  // [ Back ] — Provider is index 2, [ Save ] is index 12 (10 Downs between
-  // them; Phase 14 added Curation, Phase Qwen added the Qwen key row, Phase
+  // Synthesis Writer Model, DOX Writer Model, Curation Model, Cross-Wiki Bulk
+  // Model, Cross-Wiki Judgment Model, Add Custom Provider, Anthropic API Key,
+  // OpenAI API Key, Qwen API Key, [ Save ], [ Back ] — Provider is index 2,
+  // [ Save ] is index 14 (12 Downs between them; Phase 14 added Curation,
+  // Phase 24 added the two Cross-Wiki rows, Phase Qwen added the Qwen key row,
   // v1.8.0 added the Add Custom Provider row).
   screen.stdin.write(DOWN);
   await tick(100);
@@ -855,7 +865,7 @@ test('gate 11.10: switching provider in the settings screen re-seeds the five mo
   await tick(100);
   screen.stdin.write(RIGHT); // Anthropic -> OpenAI (slots re-seed immediately)
   await tick(100);
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 12; i++) {
     screen.stdin.write(DOWN); // Provider -> ... -> [ Save ]
     await tick(100);
   }
@@ -865,7 +875,7 @@ test('gate 11.10: switching provider in the settings screen re-seeds the five mo
   await tick(50);
 
   const openaiConfig = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
-    models: { provider: string; default: string; extractor: string | null; synthesis: string | null; dox: string | null; curation: string | null };
+    models: { provider: string; default: string; extractor: string | null; synthesis: string | null; dox: string | null; curation: string | null; crossWiki: string | null; crossWikiJudgment: string | null };
   };
   expect(openaiConfig.models.provider).toBe('openai');
   expect(openaiConfig.models.default).toBe(GPT_LUNA);
@@ -873,6 +883,8 @@ test('gate 11.10: switching provider in the settings screen re-seeds the five mo
   expect(openaiConfig.models.synthesis).toBeNull();
   expect(openaiConfig.models.dox).toBeNull();
   expect(openaiConfig.models.curation).toBe(GPT_TERRA);
+  expect(openaiConfig.models.crossWiki).toBeNull();
+  expect(openaiConfig.models.crossWikiJudgment).toBeNull();
 
   // Switch back: a fresh render loads the saved openai settings; LEFT on the
   // Provider row re-seeds to the Anthropic defaults.
@@ -891,7 +903,7 @@ test('gate 11.10: switching provider in the settings screen re-seeds the five mo
   await tick(100);
   screen2.stdin.write(LEFT); // OpenAI -> Anthropic
   await tick(100);
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 12; i++) {
     screen2.stdin.write(DOWN);
     await tick(100);
   }
@@ -901,7 +913,7 @@ test('gate 11.10: switching provider in the settings screen re-seeds the five mo
   await tick(50);
 
   const anthropicConfig = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
-    models: { provider: string; default: string; extractor: string | null; synthesis: string | null; dox: string | null; curation: string | null };
+    models: { provider: string; default: string; extractor: string | null; synthesis: string | null; dox: string | null; curation: string | null; crossWiki: string | null; crossWikiJudgment: string | null };
   };
   expect(anthropicConfig.models.provider).toBe('anthropic');
   expect(anthropicConfig.models.default).toBe(HAIKU);
@@ -909,10 +921,12 @@ test('gate 11.10: switching provider in the settings screen re-seeds the five mo
   expect(anthropicConfig.models.synthesis).toBeNull();
   expect(anthropicConfig.models.dox).toBeNull();
   expect(anthropicConfig.models.curation).toBe(SONNET);
+  expect(anthropicConfig.models.crossWiki).toBeNull();
+  expect(anthropicConfig.models.crossWikiJudgment).toBeNull();
 }, 30000);
 
 test('gate 11.10: anthropic request shape is byte-identical to the pre-extension client', async () => {
-  setModelRouting({ provider: 'anthropic', default: HAIKU, extractor: SONNET, synthesis: null, dox: null });
+  setModelRouting({ provider: 'anthropic', default: HAIKU, extractor: SONNET, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null });
   const savedKey = process.env.ANTHROPIC_API_KEY;
   process.env.ANTHROPIC_API_KEY = 'gate-11-10-anthropic-key';
   const okBody = async () => ({
@@ -1051,7 +1065,7 @@ test('gate 11.11: anthropic key resolution — stored beats env, env without sto
       default: HAIKU,
       extractor: null,
       synthesis: null,
-      dox: null,
+      dox: null, crossWiki: null, crossWikiJudgment: null,
       apiKeys: { anthropic: FAKE_ANT_STORED },
     });
     mockUndiciRequest.mockResolvedValueOnce(okAnthropicResponse());
@@ -1060,7 +1074,7 @@ test('gate 11.11: anthropic key resolution — stored beats env, env without sto
     expect(headers['x-api-key']).toBe(FAKE_ANT_STORED);
 
     // 2. With no stored key the environment is used.
-    setModelRouting({ default: HAIKU, extractor: null, synthesis: null, dox: null });
+    setModelRouting({ default: HAIKU, extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null });
     mockUndiciRequest.mockResolvedValueOnce(okAnthropicResponse());
     await callLLM('hi');
     headers = (mockUndiciRequest.mock.calls[1][1] as { headers: Record<string, string> }).headers;
@@ -1089,7 +1103,7 @@ test('gate 11.11: openai key resolution — stored beats env, env without stored
       default: GPT_LUNA,
       extractor: null,
       synthesis: null,
-      dox: null,
+      dox: null, crossWiki: null, crossWikiJudgment: null,
       apiKeys: { openai: FAKE_OPENAI_STORED },
     });
     mockUndiciRequest.mockResolvedValueOnce(okOpenAIResponse());
@@ -1098,7 +1112,7 @@ test('gate 11.11: openai key resolution — stored beats env, env without stored
     expect(headers.authorization).toBe(`Bearer ${FAKE_OPENAI_STORED}`);
 
     // 2. With no stored key the environment is used.
-    setModelRouting({ provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: null, dox: null });
+    setModelRouting({ provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null });
     mockUndiciRequest.mockResolvedValueOnce(okOpenAIResponse());
     await callLLM('hi');
     headers = (mockUndiciRequest.mock.calls[1][1] as { headers: Record<string, string> }).headers;
@@ -1177,8 +1191,8 @@ test('gate 11.11: the settings screen masks stored keys — last4 shown, the ful
       React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
     );
     await tick(400);
-    for (let i = 0; i < 9; i++) {
-      editScreen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row; v1.8.0: past the Add Custom Provider row)
+    for (let i = 0; i < 11; i++) {
+      editScreen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row; Phase 24: past the two Cross-Wiki rows; v1.8.0: past the Add Custom Provider row)
       await tick(60);
     }
     editScreen.stdin.write('\r'); // open the masked editor
@@ -1214,8 +1228,8 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
       apiKeys: { anthropic: string | null; openai: string | null; qwen: string | null };
     };
   const focusAnthropicKeyRow = async (screen: CapturedRender) => {
-    for (let i = 0; i < 9; i++) {
-      screen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row; v1.8.0: past the Add Custom Provider row)
+    for (let i = 0; i < 11; i++) {
+      screen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row; Phase 24: past the two Cross-Wiki rows; v1.8.0: past the Add Custom Provider row)
       await tick(80);
     }
   };
@@ -1314,7 +1328,7 @@ test('gate 11.11: a call made with a stored key writes no key material to llm-ca
     default: HAIKU,
     extractor: null,
     synthesis: null,
-    dox: null,
+    dox: null, crossWiki: null, crossWikiJudgment: null,
     apiKeys: { anthropic: FAKE_ANT_STORED },
   });
   const logPath = join(makeTempDir('paper-chase-g11-11log-'), 'llm-calls.json');
@@ -1581,7 +1595,7 @@ test('gate 11.13: cycling to Custom model... opens an editor and persists the ra
   await tick(100);
 
   // Navigate to Save and persist.
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 10; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
   }
@@ -1635,7 +1649,7 @@ test('gate 11.13: switching providers resets the custom model to the new provide
   screen.stdin.write(RIGHT); // Anthropic -> OpenAI
   await tick(100);
   // Navigate to Save and persist.
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 12; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
   }
@@ -1715,22 +1729,30 @@ test('gate 11.13: test connection reports an API error message on 401', async ()
 });
 
 test('gate 11.13: test connection reports missing key without calling the API', async () => {
+  const savedEnv = process.env.ANTHROPIC_API_KEY;
+  delete process.env.ANTHROPIC_API_KEY;
   const workspace = makeTempDir('paper-chase-g11-13-test-nokey-');
   const screen = renderCapturedTty(
     React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
   );
-  await tick(400);
-  screen.stdin.write(DOWN);
-  await tick(100);
-  screen.stdin.write(DOWN); // -> Provider
-  await tick(100);
-  screen.stdin.write(DOWN); // -> Default Model
-  await tick(100);
-  screen.stdin.write('t');
-  await waitFor(() => screen.output().includes('No API key set'), 5000);
-  expect(mockUndiciRequest).not.toHaveBeenCalled();
-  screen.unmount();
-  await tick(50);
+  try {
+    await tick(400);
+    screen.stdin.write(DOWN);
+    await tick(100);
+    screen.stdin.write(DOWN); // -> Provider
+    await tick(100);
+    screen.stdin.write(DOWN); // -> Default Model
+    await tick(100);
+    screen.stdin.write('t');
+    await waitFor(() => screen.output().includes('No API key set'), 5000);
+    expect(mockUndiciRequest).not.toHaveBeenCalled();
+  } finally {
+    screen.unmount();
+    await tick(50);
+    if (savedEnv !== undefined) {
+      process.env.ANTHROPIC_API_KEY = savedEnv;
+    }
+  }
 });
 
 // ---------------------------------------------------------------------------
@@ -1748,8 +1770,8 @@ test('gate 11.14: add a custom provider and it persists to .paper-chase.json', a
     }),
   );
   await tick(400);
-  // Navigate to Add Custom Provider (row 8) and press Enter.
-  for (let i = 0; i < 8; i++) {
+  // Navigate to Add Custom Provider (row 10) and press Enter.
+  for (let i = 0; i < 10; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
   }
@@ -1757,7 +1779,7 @@ test('gate 11.14: add a custom provider and it persists to .paper-chase.json', a
   await tick(200);
   // After adding, the provider is the new custom provider and the row order
   // has expanded with config rows. The focus stays on the custom provider's
-  // first config row (index 8); Save is at index 23 — 15 Downs.
+  // first config row (index 10); Save is at index 25 — 15 Downs.
   for (let i = 0; i < 15; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
@@ -1840,7 +1862,7 @@ test('gate 11.14: custom provider request template is filled with model, message
     default: 'openrouter/gpt-4o',
     extractor: null,
     synthesis: null,
-    dox: null,
+    dox: null, crossWiki: null, crossWikiJudgment: null,
     customProviders: [customProvider],
   });
   mockUndiciRequest.mockResolvedValueOnce({
@@ -1897,7 +1919,7 @@ test('gate 11.14: custom provider response extraction uses dot/bracket JSON path
     default: 'llama3-70b-8192',
     extractor: null,
     synthesis: null,
-    dox: null,
+    dox: null, crossWiki: null, crossWikiJudgment: null,
     customProviders: [customProvider],
   });
   mockUndiciRequest.mockResolvedValueOnce({
@@ -2007,9 +2029,9 @@ test('gate 11.14: custom model names within a custom provider are selectable and
   screen.stdin.write(RIGHT); // openrouter/gpt-4o -> openrouter/claude-3.5
   await tick(100);
   // Navigate to Save and persist. With the custom provider selected, the row
-  // order includes the config rows; Save is at index 24 from Default Model
-  // (index 3) — 21 Downs.
-  for (let i = 0; i < 21; i++) {
+  // order includes the config rows (12 rows for 2 models + 1 header); Save is
+  // at index 26 from Default Model (index 3) — 23 Downs.
+  for (let i = 0; i < 23; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
   }

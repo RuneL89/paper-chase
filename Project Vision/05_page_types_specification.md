@@ -359,3 +359,16 @@ When a new type is introduced:
 2. The Materializer creates the page with the new `type`.
 3. The DOX Writer documents it in the folder-level `index.md`.
 4. The system logs the new type in `.state/proposals/page-types.json`.
+
+### 9.1 Cross-Wiki Page Types (Phase 24)
+
+The optional **Cross-Wiki Discovery** pass (Phase 24) introduces two derived page types. They are owned by the workspace, not by any single wiki, and live under `wikis/cross-wiki/`.
+
+| Type | Purpose | Created by | Frontmatter |
+|---|---|---|---|
+| `cross-wiki-index` | Navigation contract for a cross-wiki artifact folder (the registry, relationship graph, or topic cluster list) | Cross-Wiki DOX Writer | `title`, `type: cross-wiki-index`, `wiki` omitted, `updated`, `children` |
+| `cross-wiki-topic` | Derived index of one cross-wiki topic cluster, linking to path-qualified per-wiki topic pages | Cross-Wiki Topic Clusterer | `title`, `type: cross-wiki-topic`, `wiki` omitted, `updated`, `clusterId`, `members` |
+
+**`cross-wiki-index`** pages follow the same contract as `index` pages (`§3`), but they describe cross-wiki artifacts rather than a single wiki's folders. They use `[[wiki-slug/page-name|Page Title]]` path-qualified wikilinks to disambiguate members that share a slug across wikis. Their prose is written in the triggering ingest's output language; they make no factual claims of their own, only describe and link to existing per-wiki pages.
+
+**`cross-wiki-topic`** pages represent a cluster of related topics across multiple wikis, optionally matched across languages. The frontmatter `members` array contains path-qualified slugs (`wiki-slug/topics/cluster-slug.md`). The body contains a short synthesis of why the topics were grouped, a `## Member Topics` section with path-qualified links, and a `## Sources` section that points back to each member topic page (not to raw PDFs). Like all cross-wiki pages, they carry no new factual claims; evidence stays on the per-wiki topic pages.

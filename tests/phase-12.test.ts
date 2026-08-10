@@ -712,7 +712,7 @@ test('gate 12.8: a mocked 404 reaches the extractor exactly once and no correcti
     default: 'claude-haiku-4-5-20251001',
     extractor: null,
     synthesis: null,
-    dox: null,
+    dox: null, crossWiki: null, crossWikiJudgment: null,
   });
   const seenBodies: string[] = [];
   mockUndiciRequest.mockImplementation(async (_url: unknown, options: unknown) => {

@@ -220,6 +220,10 @@ export function IngestScreen({
         // content-based index.md contracts (deterministic enforcement and
         // fallback still guarantee valid contracts without a key).
         doxLlm: true,
+        // Phase 24: the cross-wiki discovery pass auto-runs in production
+        // (it self-skips when the workspace holds fewer than two wikis or
+        // nothing cross-wiki-relevant changed; failures never abort ingest).
+        crossWiki: true,
         onProgress: (line: string) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
       })) as IngestResult & { agentsUpdateProposed?: boolean };
       // Phase 11 (phase doc §2.4): the result banner is the shared

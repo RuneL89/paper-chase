@@ -36,9 +36,115 @@ raw/                    -- Source PDFs (never modify)
 documents/              -- Raw extracted chunks from PDFs
 sources/                -- Provenance records for each PDF
 entities/               -- Named real-world things
-  <sub-folders>/        -- Created dynamically by you during ingestion
+  biomarkers/           -- Endocrine biomarkers and related entities
+  biomarkers/endocrine/ -- Endocrine-specific biomarkers
+  codes/                -- Medical coding systems and code sets
+  codes/diagnosis-codes/ -- Diagnosis codes (e.g., ICD variants)
+  codes/drug-classes/   -- Drug classification codes
+  codes/intervention-codes/ -- Intervention classification codes
+  codes/laboratory-tests/ -- Laboratory test codes
+  codes/procedure-codes/ -- Procedure codes
+  databases/            -- Health-related databases
+  databases/health-registries/ -- Health registries (registry-level)
+  databases/healthcare-registers/ -- Healthcare registers
+  databases/healthcare-registries/ -- Healthcare registries
+  documents/            -- Document entities (e.g., reports, guidelines)
+  documents/reports/    -- Report documents
+  drugs/                -- Pharmacological agents
+  drugs/anticoagulants/ -- Anticoagulant drugs
+  groups/               -- Collective entities (e.g., advocacy groups)
+  groups/patient-advocacy/ -- Patient advocacy groups
+  locations/            -- Geospatial entities
+  locations/cities/     -- Cities
+  locations/countries/  -- Countries
+  locations/municipalities/ -- Municipalities
+  locations/regions/    -- Regions
+  medical-interventions/ -- Clinical and non-clinical interventions
+  medical-interventions/education/ -- Educational interventions
+  medical-interventions/pharmacotherapy/ -- Pharmacotherapy interventions
+  organizations/        -- Institutional entities
+  organizations/clinics/ -- Clinics
+  organizations/health-authorities/ -- Health authorities
+  organizations/health-data-infrastructure/ -- Health data infrastructure organizations
+  organizations/health-databases/ -- Health database organizations
+  organizations/health-infrastructure/ -- Health infrastructure organizations
+  organizations/health-quality-infrastructure/ -- Health quality infrastructure organizations
+  organizations/health-registries/ -- Health registry organizations
+  organizations/health-standards/ -- Health standards organizations
+  organizations/health-standards/governance/ -- Governance-focused health standards bodies
+  organizations/healthcare-registries/ -- Healthcare registry organizations
+  organizations/hospital-units/ -- Hospital units
+  organizations/hospitals/ -- Hospitals
+  organizations/medical-societies/ -- Medical societies
+  organizations/municipalities/ -- Municipal government organizations
+  organizations/regions/ -- Regional government organizations
+  people/               -- Individuals
+  people/health-professionals/ -- Health professionals
+  people/health-researchers/ -- Health researchers
+  people/healthcare-professionals/ -- Healthcare professionals
+  people/patient-representatives/ -- Patient representatives
+  pharmaceuticals/       -- Pharmaceutical products
+  pharmaceuticals/analgesics/ -- Analgesic pharmaceuticals
+  pharmaceuticals/antiplatelets/ -- Antiplatelet pharmaceuticals
+  products/             -- Commercial or technical products
+  products/pharmaceuticals/ -- Pharmaceutical products (product-level)
+  standards/            -- Standards and guidelines
+  standards/medical-coding/ -- Medical coding standards
+  standards/medical-guidelines/ -- Medical guideline standards
+  systems/              -- Technical or organizational systems
+  systems/health-information-systems/ -- Health information systems
+  systems/laboratory-information-systems/ -- Laboratory information systems
+  websites/             -- Web-based resources
+  websites/health-authorities/ -- Websites of health authorities
 topics/                 -- Themes and concepts
-  <sub-folders>/        -- Created dynamically by you during ingestion
+  clinical-guideline/   -- Clinical guideline topics
+  clinical-indicators/  -- Clinical indicator topics
+  clinical-indicators/atrial-fibrillation/ -- Atrial fibrillation indicators
+  clinical-indicators/cardiology/ -- Cardiology indicators
+  clinical-outcome/     -- Clinical outcome topics
+  clinical-practice/    -- Clinical practice topics
+  clinical-practice-decision/ -- Clinical practice decision topics
+  clinical-risk/         -- Clinical risk topics
+  clinical-risk-distribution/ -- Clinical risk distribution topics
+  clinical-tools/        -- Clinical tools topics
+  clinical-tools/risk-scores/ -- Risk score tools
+  comparative-result/   -- Comparative result topics
+  data-infrastructure/  -- Data infrastructure topics
+  definition/           -- Definition topics
+  definitional/         -- Definitional topics
+  epidemiology/         -- Epidemiology topics
+  geographic-distribution/ -- Geographic distribution topics
+  governance/           -- Governance topics
+  health-indicators/    -- Health indicator topics
+  healthcare-indicators/ -- Healthcare indicator topics
+  healthcare-quality-indicators/ -- Healthcare quality indicator topics
+  healthcare-quality-standards/ -- Healthcare quality standards topics
+  icd-codes/            -- ICD code topics
+  incidence-rate/       -- Incidence rate topics
+  limitation/           -- Limitation topics
+  medical-conditions/   -- Medical condition topics
+  medical-conditions/cardiovascular/ -- Cardiovascular conditions
+  medical-conditions/neurological/ -- Neurological conditions
+  methodological-definition/ -- Methodological definition topics
+  mortality-rate/       -- Mortality rate topics
+  organizational/       -- Organizational topics
+  organizational-change/ -- Organizational change topics
+  organizational-practice/ -- Organizational practice topics
+  patient-perspective/  -- Patient perspective topics
+  performance/          -- Performance topics
+  pharmacovigilance/    -- Pharmacovigilance topics
+  policy-change/        -- Policy change topics
+  policy-decision/      -- Policy decision topics
+  pre-hospital-treatment/ -- Pre-hospital treatment topics
+  quality-indicator/    -- Quality indicator topics
+  quality-indicator-definition/ -- Quality indicator definition topics
+  quality-indicators/   -- Quality indicators topics
+  quality-indicators/atrial-fibrillation/ -- Atrial fibrillation quality indicators
+  quality-indicators/cardiology/ -- Cardiology quality indicators
+  quality-indicators/cardiovascular/ -- Cardiovascular quality indicators
+  standard/             -- Standard topics
+  statistical-interpretation/ -- Statistical interpretation topics
+  validation/           -- Validation topics
 comparisons/            -- One article per comparison-table subject, written by the CLI
 ```
 
@@ -61,6 +167,39 @@ The wiki root also contains `AGENTS.md` (this file), `index.md` (navigation cont
 | `entity` | Named person, company, organization, etc. | `entities/<subfolder>/` | Your content, assembled by the Materializer |
 | `comparison` | One article per comparison-table subject | `comparisons/` | Your extracted `tables`, assembled by the Materializer |
 | `raw` | Unparseable or scanned PDF page | Per source | Deterministic extraction |
+| `biomarker` | Biological marker entity (e.g., hormone, enzyme, genetic marker) | `entities/biomarkers/` or subfolders | Your content, assembled by the Materializer |
+| `coding-system` | Formal coding system (e.g., SNOMED CT, LOINC, ICD) | `entities/codes/` or `topics/icd-codes/` | Your content, assembled by the Materializer |
+| `concept` | Abstract idea or construct defined in the corpus | `topics/` or `entities/` (if canonicalized) | Your content, assembled by the Materializer |
+| `database` | Structured collection of health-related data | `entities/databases/` | Your content, assembled by the Materializer |
+| `diagnosis-code` | Specific diagnosis code (e.g., ICD-10-CM E11.9) | `entities/codes/diagnosis-codes/` | Your content, assembled by the Materializer |
+| `document` | Entity representing a formal document (e.g., guideline, report, protocol) | `entities/documents/` | Your content, assembled by the Materializer |
+| `drug-class-code` | Code representing a drug class (e.g., ATC level 2) | `entities/codes/drug-classes/` | Your content, assembled by the Materializer |
+| `drug-code` | Specific drug identifier (e.g., ATC level 5, RxNorm) | `entities/codes/drug-classes/` or `entities/drugs/` | Your content, assembled by the Materializer |
+| `group` | Collective entity (e.g., committee, alliance, coalition) | `entities/groups/` | Your content, assembled by the Materializer |
+| `intervention-code` | Code representing a clinical or public health intervention | `entities/codes/intervention-codes/` | Your content, assembled by the Materializer |
+| `laboratory-test-code` | Code representing a laboratory test (e.g., LOINC) | `entities/codes/laboratory-tests/` | Your content, assembled by the Materializer |
+| `location` | Geospatial entity (e.g., city, country, municipality, region) | `entities/locations/` | Your content, assembled by the Materializer |
+| `medical-condition` | Diagnosed or described medical condition | `topics/medical-conditions/` or `entities/` if canonicalized | Your content, assembled by the Materializer |
+| `medical-intervention` | Clinical action taken to improve health (e.g., surgery, therapy) | `entities/medical-interventions/` | Your content, assembled by the Materializer |
+| `medical-score` | Quantitative clinical assessment tool (e.g., CHA₂DS₂-VASc) | `topics/clinical-tools/risk-scores/` or `entities/` if canonicalized | Your content, assembled by the Materializer |
+| `organization` | Institutional or corporate entity | `entities/organizations/` | Your content, assembled by the Materializer |
+| `person` | Individual human actor | `entities/people/` | Your content, assembled by the Materializer |
+| `pharmaceutical` | Medicinal product (active ingredient + formulation) | `entities/pharmaceuticals/` or `entities/products/pharmaceuticals/` | Your content, assembled by the Materializer |
+| `procedure-code` | Code representing a medical procedure (e.g., CPT, ICD-PCS) | `entities/codes/procedure-codes/` | Your content, assembled by the Materializer |
+| `product` | Commercial or technical artifact (e.g., device, software, drug) | `entities/products/` | Your content, assembled by the Materializer |
+| `quality-indicator` | Metric used to assess healthcare quality | `topics/quality-indicators/` or `entities/` if canonicalized | Your content, assembled by the Materializer |
+| `system` | Integrated technical or organizational system (e.g., HIS, LIS) | `entities/systems/` | Your content, assembled by the Materializer |
+| `website` | Web-based resource (e.g., portal, registry site) | `entities/websites/` | Your content, assembled by the Materializer |
+| `clinical-condition` | Synonym for medical-condition; used when source distinguishes clinical presentation | `topics/medical-conditions/` | Your content, assembled by the Materializer |
+| `clinical-intervention` | Synonym for medical-intervention; used when source emphasizes clinical context | `entities/medical-interventions/` | Your content, assembled by the Materializer |
+| `clinical-tool` | Instrument supporting clinical decision-making (e.g., calculator, checklist) | `topics/clinical-tools/` | Your content, assembled by the Materializer |
+| `code` | Atomic unit of a coding system (e.g., single ICD code, single LOINC code) | `entities/codes/` | Your content, assembled by the Materializer |
+| `laboratory-test` | Specific laboratory assay or measurement | `entities/codes/laboratory-tests/` or `entities/biomarkers/` | Your content, assembled by the Materializer |
+| `organizational-structure` | Formal arrangement of roles, responsibilities, and reporting lines | `topics/organizational/` | Your content, assembled by the Materializer |
+| `patient-population` | Defined cohort of patients (e.g., “patients with AF aged ≥65”) | `topics/clinical-indicators/` or `topics/medical-conditions/` | Your content, assembled by the Materializer |
+| `policy` | Formal statement of intent or rule adopted by authority | `topics/policy-change/`, `topics/policy-decision/`, or `topics/governance/` | Your content, assembled by the Materializer |
+| `publication` | Scholarly or gray literature output (e.g., journal article, white paper) | `entities/documents/` or `topics/` | Your content, assembled by the Materializer |
+| `standard` | Authoritative specification or benchmark (e.g., ISO, HL7, clinical guideline) | `entities/standards/` or `topics/standard/` | Your content, assembled by the Materializer |
 
 A `comparison` page is written for each structured comparison table you extract (the `tables` output): the article's identity is the table's SUBJECT entity (its canonical slug when resolvable, never the drifting caption), each source's table is preserved verbatim in its own dated `## Table: <source>, p. <page>` section — the markdown structure is reconstructed, every row label and value stays the document's own — and a deterministic `## Related comparisons in prose` section links out to the topic/entity pages where free-text comparisons live. Synthesis reads ACROSS the dated sections (leaders, trailers, targets met or missed, trends, outliers).
 

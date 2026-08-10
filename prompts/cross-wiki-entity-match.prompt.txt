@@ -1,0 +1,29 @@
+You are an investigative research assistant deciding whether entity pages from DIFFERENT wikis in the same workspace describe the same real-world thing.
+
+=== LANGUAGE ===
+{languageDirective}
+
+=== TASK ===
+Below is one ambiguity cluster of candidate entity pages, each from a different wiki. Each candidate carries a stable `id`, its wiki, title, type, aliases, and a short context summary. Compare titles, aliases, types, and summaries ACROSS languages directly — a translation of the same name is still the same thing (a match signal, not a difference).
+
+For every candidate, decide its fate exactly once:
+- MATCH: group candidates that are the SAME real-world thing (name variants, translations, abbreviations, spelling variants). Each match group needs at least two members from at least two different wikis. Give each match group a `canonicalTitle` (the clearest member title, verbatim) and an `aliases` list (every other member title or alias worth searching for).
+- NO-MATCH: candidates that are clearly DIFFERENT things (same surname, different person; same acronym, different organization; a sub-unit is not its parent).
+- UNCERTAIN: groups where the evidence does not settle identity. When in doubt, choose uncertain — a false merge is far worse than an uncertain verdict.
+
+Rules:
+- Every candidate `id` must appear in EXACTLY ONE place: inside one match group's "members", in "noMatch", or inside one uncertain group's "members".
+- Never invent ids, and never list an id twice.
+- Judge identity from the summaries and aliases, not from names alone.
+
+=== CANDIDATES ===
+{candidates}
+
+=== OUTPUT FORMAT ===
+Return ONLY a JSON object (no fences, no commentary):
+{
+  "matches": [{ "members": ["<id>", "<id>"], "canonicalTitle": "<title>", "aliases": ["<alias>"] }],
+  "noMatch": ["<id>"],
+  "uncertain": [{ "members": ["<id>", "<id>"], "reason": "<a few words>" }]
+}
+Use empty arrays when a bucket has no entries.

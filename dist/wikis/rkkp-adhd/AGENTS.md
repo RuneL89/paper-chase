@@ -36,9 +36,34 @@ raw/                    -- Source PDFs (never modify)
 documents/              -- Raw extracted chunks from PDFs
 sources/                -- Provenance records for each PDF
 entities/               -- Named real-world things
-  <sub-folders>/        -- Created dynamically by you during ingestion
+  codes/                -- Standardized classification systems (e.g., ICD, SNOMED)
+  departments/          -- Organizational units within larger institutions
+  facilities/           -- Physical sites delivering care or services
+  medications/          -- Pharmaceutical substances
+  organizations/        -- Formal groups, institutions, or governing bodies
+  people/               -- Individuals
+  populations/          -- Defined demographic or clinical groups
+  products/             -- Tools, instruments, or interventions used in practice
+  topics/               -- Themes and concepts (see topics/ folder structure)
 topics/                 -- Themes and concepts
-  <sub-folders>/        -- Created dynamically by you during ingestion
+  data-quality/         -- Issues related to accuracy, completeness, consistency of health data
+  demographic/          -- Characteristics of populations (age, gender, ethnicity, etc.)
+  educational-outcome/  -- Academic achievement and school-related outcomes
+  governance/           -- Oversight, accountability, and decision-making structures
+  indicators/           -- Measurable metrics used to assess performance or quality
+  low-performance/      -- Instances or patterns of substandard delivery or outcomes
+  non-compliance/       -- Failure to meet statutory, regulatory, or policy requirements
+  outlier-performance/  -- Statistically unusual performance relative to peers
+  performance/          -- General measure of service delivery, outcome, or process effectiveness
+  performance-change/   -- Shifts or trends in performance over time
+  policy/               -- Formal statements of intent or principle guiding action
+  policy-change/        -- Modification or revision of existing policy
+  policy-development/   -- Process of creating new policy
+  processes/            -- Standardized sequences of actions or workflows
+  quality-indicator/    -- Metric specifically designed to assess healthcare quality
+  quality-indicators/adhd-care/ -- ADHD-specific quality indicators
+  quality-standard/     -- Benchmarked expectation of acceptable performance or care
+  regional-variation/   -- Differences in outcomes, access, or practice across geographic areas
 comparisons/            -- One article per comparison-table subject, written by the CLI
 ```
 
@@ -61,6 +86,19 @@ The wiki root also contains `AGENTS.md` (this file), `index.md` (navigation cont
 | `entity` | Named person, company, organization, etc. | `entities/<subfolder>/` | Your content, assembled by the Materializer |
 | `comparison` | One article per comparison-table subject | `comparisons/` | Your extracted `tables`, assembled by the Materializer |
 | `raw` | Unparseable or scanned PDF page | Per source | Deterministic extraction |
+| `code` | Standardized classification entry (e.g., ICD-10 code, SNOMED CT concept) | `entities/codes/` | Your content, assembled by the Materializer |
+| `department` | Organizational unit within a larger institution (e.g., psychiatry department) | `entities/departments/` | Your content, assembled by the Materializer |
+| `facility` | Physical location providing healthcare services | `entities/facilities/` | Your content, assembled by the Materializer |
+| `indicator` | Measurable metric used to assess performance or quality | `entities/indicators/` | Your content, assembled by the Materializer |
+| `medication` | Pharmaceutical substance used in treatment | `entities/medications/` | Your content, assembled by the Materializer |
+| `organization` | Formal group, institution, or governing body | `entities/organizations/` | Your content, assembled by the Materializer |
+| `person` | Individual human actor | `entities/people/` | Your content, assembled by the Materializer |
+| `policy` | Formal statement of intent or principle guiding action | `entities/policies/` | Your content, assembled by the Materializer |
+| `population` | Defined demographic or clinical group | `entities/populations/` | Your content, assembled by the Materializer |
+| `process` | Standardized sequence of actions or workflows | `entities/processes/` | Your content, assembled by the Materializer |
+| `product` | Tool, instrument, or intervention used in practice | `entities/products/` | Your content, assembled by the Materializer |
+| `psychiatry-clinic` | Specialized outpatient facility focused on psychiatric care | `entities/organizations/psychiatry-clinics/` or `entities/facilities/psychiatry-clinics/` | Your content, assembled by the Materializer |
+| `region` | Geographically defined administrative or service area | `entities/regions/` | Your content, assembled by the Materializer |
 
 A `comparison` page is written for each structured comparison table you extract (the `tables` output): the article's identity is the table's SUBJECT entity (its canonical slug when resolvable, never the drifting caption), each source's table is preserved verbatim in its own dated `## Table: <source>, p. <page>` section — the markdown structure is reconstructed, every row label and value stays the document's own — and a deterministic `## Related comparisons in prose` section links out to the topic/entity pages where free-text comparisons live. Synthesis reads ACROSS the dated sections (leaders, trailers, targets met or missed, trends, outliers).
 
