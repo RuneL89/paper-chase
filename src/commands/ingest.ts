@@ -287,6 +287,14 @@ export interface IngestOptions {
    */
   crossWiki?: boolean;
   /**
+   * Phase 24 (user-ratified extension 2026-08-14): force the Cross-Wiki
+   * Discovery pass to run even when the deterministic preflight would skip it
+   * (relevance probe / unchanged). Useful when a curator updates wikis one at
+   * a time and wants to refresh the workspace-level artifacts without deleting
+   * `.state/cross-wiki/run-fingerprint.json`. Ignored when `crossWiki` is false.
+   */
+  forceCrossWiki?: boolean;
+  /**
    * Injectable cross-wiki pass (test-only). Defaults to the real
    * `runCrossWikiPass`; tests inject a stub (or call the real pass with its
    * own component seams) to keep every gate LLM-free.
@@ -2162,6 +2170,7 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
         workspace: options.workspace,
         wikiSlug: slug,
         language,
+        forceCrossWiki: options.forceCrossWiki,
         logPath: join(dir, '.state', 'llm-calls.json'),
         onProgress: progress,
       });

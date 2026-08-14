@@ -118,6 +118,9 @@ export function IngestScreen({
   // Phase 9: opt-in AGENTS.md update proposal (phase doc §2.3 CLI flag made
   // TUI-accessible per the 2026-07-17 all-workflows-in-TUI user preference).
   const [updateAgents, setUpdateAgents] = useState(false);
+  // Phase 24 (user-ratified extension 2026-08-14): force the Cross-Wiki Discovery
+  // pass to run even when the deterministic preflight would skip it.
+  const [forceCrossWiki, setForceCrossWiki] = useState(false);
   const [focus, setFocus] = useState<FocusedControl>('wiki');
   const [languageState, setLanguageState] = useState<WikiLanguageState>({
     outputLanguage: 'en',
@@ -224,6 +227,8 @@ export function IngestScreen({
         // (it self-skips when the workspace holds fewer than two wikis or
         // nothing cross-wiki-relevant changed; failures never abort ingest).
         crossWiki: true,
+        // Phase 24 (user-ratified extension 2026-08-14): bypass preflight/probe.
+        forceCrossWiki,
         onProgress: (line: string) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
       })) as IngestResult & { agentsUpdateProposed?: boolean };
       // Phase 11 (phase doc §2.4): the result banner is the shared
@@ -325,6 +330,10 @@ export function IngestScreen({
         setUpdateAgents((prev) => !prev);
         return;
       }
+      if (_input === 'f' || _input === 'F') {
+        setForceCrossWiki((prev) => !prev);
+        return;
+      }
       if (key.return && selectedWiki) {
         startIngest(selectedWiki);
       }
@@ -378,6 +387,7 @@ export function IngestScreen({
           <Box flexDirection="column" marginTop={1}>
             <Text>[{synthesis ? '✓' : ' '}] Enable Synthesis (Space to toggle)</Text>
             <Text>[{updateAgents ? '✓' : ' '}] Propose AGENTS.md Updates (A to toggle)</Text>
+            <Text>[{forceCrossWiki ? '✓' : ' '}] Force Cross-Wiki Discovery (F to toggle)</Text>
           </Box>
           {slugForkingRisk && status !== 'running' ? (
             <Box flexDirection="column" marginTop={1}>
@@ -408,7 +418,7 @@ export function IngestScreen({
         <Text>AGENTS.md update proposed — press [P] to review the diff.</Text>
       ) : null}
       {status === 'error' && <ErrorBox message={message} />}
-      <Footer helpText="Up/Down: select wiki | Tab: language | Space: synthesis | A: AGENTS.md updates | Enter: run ingest | Escape: back" />
+      <Footer helpText="Up/Down: select wiki | Tab: language | Space: synthesis | A: AGENTS.md updates | F: force cross-wiki | Enter: run ingest | Escape: back" />
     </Box>
   );
 }

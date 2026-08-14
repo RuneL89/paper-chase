@@ -42,7 +42,7 @@ export interface RunFingerprint {
 
 export type PreflightDecision =
   | { action: 'skip'; reason: 'fewer-than-two-wikis' | 'unchanged' }
-  | { action: 'run'; reason: 'never-built' | 'membership-changed' | 'pages-changed' }
+  | { action: 'run'; reason: 'never-built' | 'membership-changed' | 'pages-changed' | 'forced' }
   | { action: 'probe'; reason: 'local-changes'; changedWikis: string[]; changedPages: string[] };
 
 async function hashFile(absolute: string): Promise<string> {

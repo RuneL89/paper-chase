@@ -52,7 +52,10 @@ import { spawnSync } from 'node:child_process';
 // Cross-Wiki Bulk / Judgment model rows in Settings (src/tui/settings-screen.tsx
 // + settings.ts bundle change) and the client.ts routing slots. The packaged
 // runtime must re-extract so users see the new Settings rows.
-const VERSION = '1.0.12';
+// 1.0.13 (2026-08-14): Phase 24 `--force-cross-wiki` CLI flag + TUI `F`
+// toggle (src/cli.ts and src/tui/ingest-screen.tsx bundle change). The
+// packaged runtime must re-extract so users see the new flag and toggle.
+const VERSION = '1.0.13';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

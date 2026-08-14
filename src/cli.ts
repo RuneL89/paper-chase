@@ -52,10 +52,11 @@ program
   .option('--no-extract', 'Skip the Layer 2 Extractor (Layer 1 document pages only)')
   .option('--no-dox-llm', 'Skip the LLM DOX Writer (deterministic index.md contracts only)')
   .option('--no-cross-wiki', 'Skip the cross-wiki discovery pass (Phase 24)')
+  .option('--force-cross-wiki', 'Force the cross-wiki discovery pass to run (Phase 24)')
   .option('--input-language <code>', 'Input language of this run\'s PDFs (en, da, de, fr, es, no, sv)')
   .option('--output-language <code>', 'Override the wiki output language for this run (en, da, de, fr, es, no, sv)')
   .option('--verbose', 'Verbose output')
-  .action(async (slug: string, options: { workspace: string; synthesis?: boolean; updateAgents?: boolean; extract?: boolean; doxLlm?: boolean; crossWiki?: boolean; inputLanguage?: string; outputLanguage?: string; verbose?: boolean }) => {
+  .action(async (slug: string, options: { workspace: string; synthesis?: boolean; updateAgents?: boolean; extract?: boolean; doxLlm?: boolean; crossWiki?: boolean; forceCrossWiki?: boolean; inputLanguage?: string; outputLanguage?: string; verbose?: boolean }) => {
     // --synthesis is Phase 5: opt-in LLM synthesis of entity, topic, and document pages after extraction.
     // --update-agents is Phase 9: opt-in AGENTS.md update proposal written to
     // .state/proposed-agents.md after the ingest (never auto-applied).
@@ -73,6 +74,7 @@ program
         synthesis: options.synthesis,
         doxLlm: options.doxLlm,
         crossWiki: options.crossWiki,
+        forceCrossWiki: options.forceCrossWiki,
         updateAgents: options.updateAgents,
         inputLanguage: options.inputLanguage as import('./utils/language').LanguageCode | undefined,
         outputLanguage: options.outputLanguage as import('./utils/language').LanguageCode | undefined,

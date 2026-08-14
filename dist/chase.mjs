@@ -108131,7 +108131,12 @@ async function runCrossWikiPass(options2) {
   const progress = options2.onProgress ?? (() => {
   });
   const fingerprint = await computeRunFingerprint(workspace);
-  const decision = await preflightDecision(workspace, fingerprint);
+  let decision = await preflightDecision(workspace, fingerprint);
+  const workspaceWikis = await listWorkspaceWikis(workspace);
+  if (options2.forceCrossWiki === true && workspaceWikis.length >= 2) {
+    decision = { action: "run", reason: "forced" };
+    progress("Cross-wiki discovery: forced by user \u2014 running full pass.");
+  }
   if (decision.action === "skip") {
     return { ran: false, reason: decision.reason };
   }
@@ -110012,6 +110017,7 @@ ${rendered.text}
         workspace: options2.workspace,
         wikiSlug: slug,
         language,
+        forceCrossWiki: options2.forceCrossWiki,
         logPath: join40(dir, ".state", "llm-calls.json"),
         onProgress: progress
       });
@@ -110098,6 +110104,7 @@ function IngestScreen({
   const [message, setMessage] = (0, import_react42.useState)("");
   const [synthesis, setSynthesis] = (0, import_react42.useState)(false);
   const [updateAgents, setUpdateAgents] = (0, import_react42.useState)(false);
+  const [forceCrossWiki, setForceCrossWiki] = (0, import_react42.useState)(false);
   const [focus, setFocus] = (0, import_react42.useState)("wiki");
   const [languageState, setLanguageState] = (0, import_react42.useState)({
     outputLanguage: "en",
@@ -110182,6 +110189,8 @@ function IngestScreen({
         // (it self-skips when the workspace holds fewer than two wikis or
         // nothing cross-wiki-relevant changed; failures never abort ingest).
         crossWiki: true,
+        // Phase 24 (user-ratified extension 2026-08-14): bypass preflight/probe.
+        forceCrossWiki,
         onProgress: (line) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES))
       });
       let summary = formatIngestSummary(result);
@@ -110270,6 +110279,10 @@ function IngestScreen({
         setUpdateAgents((prev) => !prev);
         return;
       }
+      if (_input === "f" || _input === "F") {
+        setForceCrossWiki((prev) => !prev);
+        return;
+      }
       if (key.return && selectedWiki) {
         startIngest(selectedWiki);
       }
@@ -110336,6 +110349,11 @@ function IngestScreen({
           "[",
           updateAgents ? "\u2713" : " ",
           "] Propose AGENTS.md Updates (A to toggle)"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Text, { children: [
+          "[",
+          forceCrossWiki ? "\u2713" : " ",
+          "] Force Cross-Wiki Discovery (F to toggle)"
         ] })
       ] }),
       slugForkingRisk && status !== "running" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Box_default, { flexDirection: "column", marginTop: 1, children: [
@@ -110356,7 +110374,7 @@ function IngestScreen({
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { children: "AGENTS.md update proposed \u2014 press [P] to review the diff." })
     ) : null,
     status === "error" && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(ErrorBox, { message }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Footer, { helpText: "Up/Down: select wiki | Tab: language | Space: synthesis | A: AGENTS.md updates | Enter: run ingest | Escape: back" })
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Footer, { helpText: "Up/Down: select wiki | Tab: language | Space: synthesis | A: AGENTS.md updates | F: force cross-wiki | Enter: run ingest | Escape: back" })
   ] });
 }
 
@@ -112075,7 +112093,7 @@ program2.command("init <slug>").description("Create a new wiki").option("--title
     process.exitCode = 1;
   }
 });
-program2.command("ingest <slug>").description("Ingest PDFs into a wiki").option("-w, --workspace <workspace>", "Workspace directory", ".").option("--synthesis", "Enable LLM synthesis for entity, topic, and document pages (Phase 5)").option("--update-agents", "Propose AGENTS.md updates after ingest (Phase 9); saves to .state/proposed-agents.md for review").option("--no-extract", "Skip the Layer 2 Extractor (Layer 1 document pages only)").option("--no-dox-llm", "Skip the LLM DOX Writer (deterministic index.md contracts only)").option("--no-cross-wiki", "Skip the cross-wiki discovery pass (Phase 24)").option("--input-language <code>", "Input language of this run's PDFs (en, da, de, fr, es, no, sv)").option("--output-language <code>", "Override the wiki output language for this run (en, da, de, fr, es, no, sv)").option("--verbose", "Verbose output").action(async (slug, options2) => {
+program2.command("ingest <slug>").description("Ingest PDFs into a wiki").option("-w, --workspace <workspace>", "Workspace directory", ".").option("--synthesis", "Enable LLM synthesis for entity, topic, and document pages (Phase 5)").option("--update-agents", "Propose AGENTS.md updates after ingest (Phase 9); saves to .state/proposed-agents.md for review").option("--no-extract", "Skip the Layer 2 Extractor (Layer 1 document pages only)").option("--no-dox-llm", "Skip the LLM DOX Writer (deterministic index.md contracts only)").option("--no-cross-wiki", "Skip the cross-wiki discovery pass (Phase 24)").option("--force-cross-wiki", "Force the cross-wiki discovery pass to run (Phase 24)").option("--input-language <code>", "Input language of this run's PDFs (en, da, de, fr, es, no, sv)").option("--output-language <code>", "Override the wiki output language for this run (en, da, de, fr, es, no, sv)").option("--verbose", "Verbose output").action(async (slug, options2) => {
   try {
     const result = await ingest(slug, {
       workspace: options2.workspace,
@@ -112083,6 +112101,7 @@ program2.command("ingest <slug>").description("Ingest PDFs into a wiki").option(
       synthesis: options2.synthesis,
       doxLlm: options2.doxLlm,
       crossWiki: options2.crossWiki,
+      forceCrossWiki: options2.forceCrossWiki,
       updateAgents: options2.updateAgents,
       inputLanguage: options2.inputLanguage,
       outputLanguage: options2.outputLanguage,

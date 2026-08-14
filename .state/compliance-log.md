@@ -2396,5 +2396,17 @@
     - Removing the tracked `dist/.paper-chase.json` aligns with the root `.gitignore` rule and the
       root AGENTS.md API-key security preference; the committed version contained key material, so
       stopping tracking is a corrective security action.
-  Result: COMPLIANT — documentation-only and hygiene update. No code changes; no API keys committed.
+
+[2026-08-14] User-Directed Extension: `--force-cross-wiki` CLI Flag and TUI Toggle
+  Changed: `src/cross-wiki/index.ts` (`forceCrossWiki` option on `CrossWikiPassOptions`; preflight/probe override when `forceCrossWiki === true` and ≥2 wikis exist; `reason: 'forced'`), `src/commands/ingest.ts` (`forceCrossWiki` on `IngestOptions`; forwarded to `runCrossWikiPass`), `src/cli.ts` (`--force-cross-wiki` flag), `src/tui/ingest-screen.tsx` (`F` toggle + checkbox + footer help), `tests/phase-24.test.ts` (gates 24.15b force-bypass and 24.8c ingest forwarding), `tests/tui/menu.test.tsx` (footer text assertion), `src/AGENTS.md` (cross-wiki and ingest contract notes), `README.md` (`--force-cross-wiki` example + Layer 6 explanation)
+  Vision Docs Checked: Root `AGENTS.md` (Phase 24 user preference, 2026-08-09), `Project Vision/04_orchestration_detailed.md` §3.2 Step 10, `Implementation Plan/PHASE_24_cross_wiki_discovery.md` §2.8
+  User Decision: The user observed that incremental, one-wiki-at-a-time curation often causes the Phase 24 relevance probe to skip the full pass, leaving `wikis/cross-wiki/` artifacts stale. The user directed the addition of an opt-in `--force-cross-wiki` CLI flag and matching TUI `F` toggle that bypasses the deterministic preflight and optional relevance probe and runs the full Components A–G pass whenever ≥2 wikis exist.
+  Comparison:
+    - The new option is additive, default-off, and does not change normal preflight/probe behavior. COMPLIANT.
+    - `--no-cross-wiki` remains the master off switch; passing both `--no-cross-wiki` and `--force-cross-wiki` simply skips the cross-wiki block. COMPLIANT.
+    - The force override still requires ≥2 wikis, preserving the workspace-level pass invariant. COMPLIANT.
+    - The fingerprint is still recorded after a forced run so the next normal run can skip. COMPLIANT.
+    - Tests cover the bypass path, the <2-wiki ignored case, and ingest forwarding. COMPLIANT.
+  Result: COMPLIANT — user-directed extension implemented.
+  Tests: pending (npm test + npx tsc --noEmit to be run before closeout).
   Checked By: Main agent

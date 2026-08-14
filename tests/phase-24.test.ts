@@ -1121,6 +1121,58 @@ test('gate 24.15: preflight skips unchanged, runs on relevant changes, probe ski
 });
 
 // ---------------------------------------------------------------------------
+// Gate 24.15b — force cross-wiki bypass
+// ---------------------------------------------------------------------------
+
+test('gate 24.15b: forceCrossWiki bypasses preflight and relevance probe when ≥2 wikis exist', async () => {
+  const workspace = await buildPassFixture('paper-chase-g24-15b-');
+  const stubs = passStubs();
+
+  // First run builds artifacts + fingerprint.
+  const first = await runCrossWikiPass({ workspace, wikiSlug: 'alpha', ...stubs });
+  expect(first.ran).toBe(true);
+
+  // A single-wiki edit would normally trigger the probe and be skipped as
+  // not-relevant. With forceCrossWiki the probe never runs and the full pass
+  // runs (recorded reason is 'forced').
+  let probeCalls = 0;
+  const probeStubs = {
+    ...stubs,
+    relevanceProbeFn: async () => {
+      probeCalls++;
+      return 'not-relevant';
+    },
+  };
+  await writeEntityPageFixture(workspace, 'alpha', 'people/john-smith', {
+    title: 'John Smith',
+    firstParagraph: 'A local-only tweak.',
+    relationships: [{ target: 'acme-corp', display: 'Acme Corp', predicate: 'is-ceo-of' }],
+  });
+
+  const forced = await runCrossWikiPass({
+    workspace,
+    wikiSlug: 'alpha',
+    forceCrossWiki: true,
+    ...probeStubs,
+  });
+  expect(forced.ran).toBe(true);
+  expect(forced.reason).toBe('forced');
+  expect(probeCalls).toBe(0);
+
+  // forceCrossWiki is ignored when the workspace holds fewer than two wikis.
+  const solo = makeTempDir('paper-chase-g24-15b-solo-');
+  await writeWikiRoot(solo, 'alpha', 'Alpha');
+  const soloForced = await runCrossWikiPass({
+    workspace: solo,
+    wikiSlug: 'alpha',
+    forceCrossWiki: true,
+    ...stubs,
+  });
+  expect(soloForced.ran).toBe(false);
+  expect(soloForced.reason).toBe('fewer-than-two-wikis');
+});
+
+// ---------------------------------------------------------------------------
 // Pipeline integration (phase doc §2.8 + §6; UAT 24.4 analog)
 // ---------------------------------------------------------------------------
 
@@ -1182,6 +1234,22 @@ test('gate 24.8b/integration: ingest wires the pass after the workspace index an
     },
   });
   expect(disabled.crossWiki).toBeUndefined();
+
+  // forceCrossWiki is forwarded through ingest() to runCrossWikiPass().
+  let receivedOptions: import('../src/cross-wiki/index').CrossWikiPassOptions | undefined;
+  await ingest('alpha', {
+    workspace,
+    extractChunkFn,
+    crossWiki: true,
+    forceCrossWiki: true,
+    runCrossWikiPassFn: async (options) => {
+      receivedOptions = options;
+      return { ran: true, reason: 'forced' };
+    },
+    onProgress: () => {},
+  });
+  expect(receivedOptions?.forceCrossWiki).toBe(true);
+  expect(receivedOptions?.wikiSlug).toBe('alpha');
 });
 
 // ---------------------------------------------------------------------------

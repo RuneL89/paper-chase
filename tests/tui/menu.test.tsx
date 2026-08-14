@@ -223,6 +223,7 @@ test('each screen renders its expected content', async () => {
   await tick(50);
   expect(ingest.output()).toContain('Ingest PDFs');
   expect(ingest.output()).toContain('Up/Down: select wiki');
+  expect(ingest.output()).toContain('F: force cross-wiki');
   expect(ingest.output()).toContain('Enter: run ingest');
 
   const settings = renderCaptured(<SettingsScreen onBack={noop} onResult={noop} />);

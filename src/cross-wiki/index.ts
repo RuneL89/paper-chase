@@ -28,6 +28,7 @@ import {
   preflightDecision,
   relevanceProbe,
   writeRunFingerprint,
+  type PreflightDecision,
   type RelevanceProbeFn,
 } from './run-control';
 import { clusterTopics, type ClusterTopicsFn } from './topic-clusterer';
@@ -64,6 +65,15 @@ export interface CrossWikiPassOptions {
   /** JSON-lines LLM call log path (defaults to the triggering wiki's log). */
   logPath?: string;
   onProgress?: (message: string) => void;
+  /**
+   * Phase 24 (user-ratified extension 2026-08-14): bypass the deterministic
+   * preflight and optional relevance probe. When true, Components A–G run as
+   * long as the workspace holds ≥2 wikis. The fingerprint is still recorded at
+   * the end so the next normal run can skip. Useful for curators who update
+   * wikis one at a time and want fresh cross-wiki artifacts without deleting
+   * `.state/cross-wiki/run-fingerprint.json`.
+   */
+  forceCrossWiki?: boolean;
   // Test-only seams (the `writeDoxIndexFn` precedent) — one per LLM component:
   summarizeEntityFn?: SummarizeEntityFn;
   matchEntitiesFn?: ResolveEntitiesOptions['matchEntitiesFn'];
@@ -115,7 +125,15 @@ export async function runCrossWikiPass(options: CrossWikiPassOptions): Promise<C
 
   // --- Deterministic pre-flight (phase doc §2.8 step 1). ---
   const fingerprint = await computeRunFingerprint(workspace);
-  const decision = await preflightDecision(workspace, fingerprint);
+  let decision = await preflightDecision(workspace, fingerprint);
+  const workspaceWikis = await listWorkspaceWikis(workspace);
+  if (options.forceCrossWiki === true && workspaceWikis.length >= 2) {
+    // Phase 24 user-ratified extension (2026-08-14): bypass the deterministic
+    // preflight and the optional relevance probe. The fingerprint is still
+    // recorded at the end so the next normal run can skip.
+    decision = { action: 'run', reason: 'forced' };
+    progress('Cross-wiki discovery: forced by user — running full pass.');
+  }
   if (decision.action === 'skip') {
     return { ran: false, reason: decision.reason };
   }
